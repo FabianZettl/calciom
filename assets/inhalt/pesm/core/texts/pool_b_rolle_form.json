@@ -1,0 +1,74 @@
+{
+ "pool.b.reservist_unzufrieden_klage": [
+  "Ich habe in den letzten {spiele} Spielen kaum auf dem Platz gestanden.",
+  "Seit {spiele} Spielen sehe ich die Partien nur von der Bank."
+ ],
+ "pool.b.reservist_unzufrieden_klage.hitzig": [
+  "{spiele} Spiele ohne eine Minute, und das soll normal sein?",
+  "Ich sitze seit {spiele} Spielen herum wie bestellt und nicht abgeholt."
+ ],
+ "pool.b.reservist_unzufrieden_klage.loyal": [
+  "Ich habe {spiele} Spiele still zugesehen, weil mir dieser Verein wichtig ist.",
+  "Bei den letzten {spiele} Spielen war ich nicht dabei, und ich habe nie ein Wort verloren."
+ ],
+ "pool.b.reservist_unzufrieden_klage.ehrgeizig": [
+  "{spiele} Spiele ohne Einsatz, so komme ich nicht weiter.",
+  "Auf der Bank entwickle ich mich nicht, und das seit {spiele} Spielen."
+ ],
+ "pool.b.reservist_unzufrieden_klage.wechselfreudig": [
+  "Nach {spiele} Spielen ohne Minute schaue ich mich langsam um.",
+  "{spiele} Spiele nur zugesehen, ich frage mich, ob das hier noch mein Platz ist."
+ ],
+ "pool.b.reservist_unzufrieden_klage.sensibel": [
+  "Seit {spiele} Spielen fühle ich mich auf der Bank zunehmend überflüssig.",
+  "Ich habe {spiele} Spiele zugesehen und merke, dass es an mir nagt."
+ ],
+ "pool.b.neuzugang_aussen_vor_lage": [
+  "Der Neue kommt bei uns nicht an, auch nach {spiele} Spielen nicht.",
+  "Mit dem Neuen stimmt etwas nicht, seit {spiele} Spielen hängt er zwischen den Gruppen."
+ ],
+ "pool.b.neuzugang_aussen_vor_lage.hitzig": [
+  "Der Neue steht in der Kabine nur herum, und {spiele} Spiele später ist es immer noch so!",
+  "Ich habe es satt, dem Neuen zuzusehen, wie er seit {spiele} Spielen untergeht."
+ ],
+ "pool.b.neuzugang_aussen_vor_lage.loyal": [
+  "Ich mache mir Sorgen um den Neuen, nach {spiele} Spielen ist er noch kein Teil von uns.",
+  "Ich will niemanden anschwärzen, aber der Neue findet seit {spiele} Spielen keinen Anschluss."
+ ],
+ "pool.b.neuzugang_aussen_vor_lage.ehrgeizig": [
+  "So holen wir aus dem Neuen nichts heraus, seit {spiele} Spielen bleibt er unter seinen Möglichkeiten.",
+  "Der Neue ist zu gut für diese Rolle, aber nach {spiele} Spielen kommt er nicht in Gang."
+ ],
+ "pool.b.neuzugang_aussen_vor_lage.wechselfreudig": [
+  "Der Neue sieht aus, als wäre er mit einem Fuß schon wieder weg, nach {spiele} Spielen.",
+  "Nach {spiele} Spielen wirkt der Neue, als wolle er gar nicht erst bleiben."
+ ],
+ "pool.b.neuzugang_aussen_vor_lage.sensibel": [
+  "Der Neue wirkt nach {spiele} Spielen immer noch verloren, und das geht mir nahe.",
+  "Ich habe das Gefühl, dass der Neue seit {spiele} Spielen unter der Fremdheit leidet."
+ ],
+ "pool.b.formtief_lage": [
+  "Bei mir läuft seit {spiele} Spielen nichts mehr zusammen.",
+  "Seit {spiele} Spielen gelingt mir einfach nichts."
+ ],
+ "pool.b.formtief_lage.hitzig": [
+  "{spiele} Spiele, und mir gelingt kein Pass, das macht mich wahnsinnig!",
+  "Ich ärgere mich schwarz, seit {spiele} Spielen geht alles schief."
+ ],
+ "pool.b.formtief_lage.loyal": [
+  "Ich spüre, dass ich dem Team seit {spiele} Spielen nicht helfe, und das tut mir leid.",
+  "Ich will dich und die Mannschaft nicht hängen lassen, aber seit {spiele} Spielen läuft es nicht."
+ ],
+ "pool.b.formtief_lage.ehrgeizig": [
+  "{spiele} schwache Spiele passen nicht zu meinem Anspruch, ich will da raus.",
+  "Seit {spiele} Spielen bin ich unter meinem Niveau und will wissen, was ich ändern kann."
+ ],
+ "pool.b.formtief_lage.wechselfreudig": [
+  "Nach {spiele} Spielen frage ich mich, ob mir ein anderes Umfeld nicht besser täte.",
+  "{spiele} Spiele ohne Form, vielleicht liegt es auch an der Umgebung hier."
+ ],
+ "pool.b.formtief_lage.sensibel": [
+  "Seit {spiele} Spielen zweifle ich an mir, und ich traue mich kaum noch, den Ball zu fordern.",
+  "Ich habe nach {spiele} Spielen den Kopf voll und merke, wie die Sicherheit schwindet."
+ ]
+}

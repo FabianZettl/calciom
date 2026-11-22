@@ -1,0 +1,86 @@
+{
+  "pool.b.angebot_fuer_spieler_gruss": [
+    "Good day, this is the sporting director of {verein} writing.",
+    "Good day, the sporting director of {verein} is getting in touch with you."
+  ],
+  "pool.b.angebot_fuer_spieler_lage": [
+    "We would like to sign {name} and offer {betrag} for him.",
+    "{verein} is putting an offer for {name} to you: {betrag}."
+  ],
+  "pool.b.angebot_fuer_spieler_lage.hitzig": [
+    "We want {name}, and we want him now: {betrag}, and I will not wait forever!",
+    "My offer for {name} is {betrag}, and you will see no more generosity from us!"
+  ],
+  "pool.b.angebot_fuer_spieler_lage.loyal": [
+    "I value our good relationship, so I come to you openly: {betrag} for {name}.",
+    "I am reluctant to take a player from you, but {name} suits us, and we offer {betrag}."
+  ],
+  "pool.b.angebot_fuer_spieler_lage.ehrgeizig": [
+    "{name} belongs on a bigger stage, and we offer him one, along with {betrag} for your club.",
+    "We are planning big things and need {name}; {betrag} is our word."
+  ],
+  "pool.b.angebot_fuer_spieler_lage.wechselfreudig": [
+    "Word is that {name} is looking for something new. We offer {betrag} and a solution for everyone.",
+    "If {name} wants to leave anyway, then please come to us: {betrag}."
+  ],
+  "pool.b.angebot_fuer_spieler_lage.sensibel": [
+    "I do not want to step on your toes, but we have watched {name} for a long time and would like to offer {betrag}.",
+    "It is not easy for me to ask you, but {betrag} is ready for {name}."
+  ],
+  "pool.b.leihanfrage_gruss": [
+    "Good day, I am the sporting director of {verein} and I am writing about {name}.",
+    "Good day, this is {verein}, it is about the future of {name}."
+  ],
+  "pool.b.leihanfrage_lage": [
+    "{name} plays little at your club. We would like to borrow him, the loan fee is {betrag}.",
+    "We would like to borrow {name} for a year, for a loan fee of {betrag} and with a purchase option."
+  ],
+  "pool.b.leihanfrage_lage.hitzig": [
+    "{name} is rotting on your bench, give him to us, a loan fee of {betrag} is ready!",
+    "A talent like {name} belongs on the pitch, and we pay {betrag} so that he plays!"
+  ],
+  "pool.b.leihanfrage_lage.loyal": [
+    "We know you have invested a lot in {name}, so we only borrow him and pay {betrag}.",
+    "We will look after {name} well and bring him back stronger; the loan fee is {betrag}."
+  ],
+  "pool.b.leihanfrage_lage.ehrgeizig": [
+    "With us {name} gets playing time and a stage. We offer a loan fee of {betrag} and a purchase option.",
+    "We build on young players, and {name} is to be our next one; {betrag} is set aside for the loan."
+  ],
+  "pool.b.leihanfrage_lage.wechselfreudig": [
+    "If {name} is looking for playing time anyway, he can have it with us: a loan fee of {betrag}.",
+    "{name} wants out of the reserves, we offer him the way and you {betrag}."
+  ],
+  "pool.b.leihanfrage_lage.sensibel": [
+    "I know young players are sensitive; with us {name} would get calm, and a loan fee of {betrag} is secured.",
+    "I would not want to put {name} under pressure; we offer a loan, loan fee {betrag}."
+  ],
+  "pool.b.tauschvorschlag_gruss": [
+    "Hello, this is the sporting director of {verein}, do you have a moment?",
+    "Good day, I am calling for {verein}, it is about {name}."
+  ],
+  "pool.b.tauschvorschlag_lage": [
+    "We propose a swap: {name} to us, one of our players to you, and we add {betrag} on top.",
+    "How about a swap? You give us {name}, we give one of our own players and {betrag} on top."
+  ],
+  "pool.b.tauschvorschlag_lage.hitzig": [
+    "We swap, {name} for one of ours, and we put {betrag} on top, there is no more!",
+    "My proposal is a swap with {betrag} on top, and I will not make it a second time!"
+  ],
+  "pool.b.tauschvorschlag_lage.loyal": [
+    "Because we have known each other long, I offer you a fair swap: one of ours for {name}, plus {betrag}.",
+    "I do not want to hurt either of us; hence a swap for {name}, and we add {betrag}."
+  ],
+  "pool.b.tauschvorschlag_lage.ehrgeizig": [
+    "The swap lifts both clubs: {name} to us, one of ours to you, plus {betrag}.",
+    "We want {name} for our project and offer a player and {betrag} on top."
+  ],
+  "pool.b.tauschvorschlag_lage.wechselfreudig": [
+    "Your players like to move anyway; so let us swap, {name} for one of ours, with {betrag} on top.",
+    "A swap makes everyone happy: {name} comes, one goes, and {betrag} goes to you."
+  ],
+  "pool.b.tauschvorschlag_lage.sensibel": [
+    "I hope I am not stepping on your toes: a swap for {name}, plus {betrag}.",
+    "It matters to me that you do not feel ambushed; the proposal is a swap plus {betrag}."
+  ]
+}

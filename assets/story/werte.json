@@ -1,0 +1,42 @@
+{
+  "_hinweis": "Die Werte, auf die Regeln der Story-Schicht zugreifen dürfen. Regeln können keine anderen Werte verwenden; der Code liefert genau diese. bezug = spieler (je Spieler des eigenen Kaders) oder verein (einmal je Takt für den eigenen Verein). Vereinswerte stehen auch in Spielerregeln bereit.",
+  "spieler": {
+    "alter":                    { "quelle": "Spielerwert", "text": "Alter in Jahren" },
+    "gesamtwert":               { "quelle": "Gesamtwert (Näherung)", "text": "Gesamtwert für die Hauptposition" },
+    "gesamtwert_rang_im_kader": { "quelle": "Gesamtwert (Näherung)", "text": "Platz im eigenen Kader nach Gesamtwert, 1 = bester" },
+    "einsaetze":                { "quelle": "Spielerstatistik", "text": "Startelf-Einsätze der Saison für den eigenen Verein, alle Wettbewerbe" },
+    "spielzeit_anteil":         { "quelle": "Spielerstatistik", "text": "Startelf-Einsätze in Prozent der gespielten Spiele des Vereins" },
+    "tore_saison":              { "quelle": "Spielerstatistik", "text": "Tore der Saison für den eigenen Verein" },
+    "tage_bis_vertragsende":    { "quelle": "Spielerwert", "text": "Tage vom Spieldatum bis zum Vertragsende" },
+    "neuzugang":                { "quelle": "Spielerwert", "text": "1, wenn der Vertrag nach dem Karrierestart begann, sonst 0" },
+    "ausfalltage":              { "quelle": "Spielerwert", "text": "Tage Ausfall" },
+    "formpfeil":                { "quelle": "Spielerwert", "text": "Formpfeil 0 bis 4" },
+    "rolle":                    { "quelle": "Hierarchie", "text": "Rolle im Kader (kapitaen, vizekapitaen, fuehrungsspieler, stammspieler, rotationsspieler, perspektivspieler, randfigur)" },
+    "typ":                      { "quelle": "Persönlichkeit", "text": "Haupttyp oder leer" },
+    "typen":                    { "quelle": "Persönlichkeit", "text": "alle erfüllten Typen" },
+    "professionalitaet": { "quelle": "Persönlichkeit" }, "ehrgeiz": { "quelle": "Persönlichkeit" }, "loyalitaet": { "quelle": "Persönlichkeit" },
+    "ego": { "quelle": "Persönlichkeit" }, "teamgeist": { "quelle": "Persönlichkeit" }, "fuehrung": { "quelle": "Persönlichkeit" },
+    "temperament": { "quelle": "Persönlichkeit" }, "nervenstaerke": { "quelle": "Persönlichkeit" }, "vertraeglichkeit": { "quelle": "Persönlichkeit" },
+    "status": { "quelle": "Persönlichkeit", "text": "Perzentil des Gesamtwerts in der Welt" }
+  },
+  "verein": {
+    "vereinsspiele_saison": { "quelle": "Spielplan", "text": "gespielte Pflichtspiele des eigenen Vereins in der Saison" },
+    "siege_in_folge":       { "quelle": "Spielplan", "text": "Siege in Folge bis zum letzten Spiel" },
+    "spiele_ohne_sieg":     { "quelle": "Spielplan", "text": "Spiele ohne Sieg in Folge bis zum letzten Spiel" },
+    "niederlagen_in_folge": { "quelle": "Spielplan", "text": "Niederlagen in Folge bis zum letzten Spiel" },
+    "punkte_letzte_fuenf":  { "quelle": "Spielplan", "text": "Punkte aus den letzten fünf Spielen" },
+    "tabellenplatz":        { "quelle": "Tabelle", "text": "Platz in der eigenen Liga" },
+    "vereine_in_liga":      { "quelle": "Tabelle", "text": "Zahl der Vereine in der eigenen Liga" },
+    "plaetze_bis_tabellenende": { "quelle": "Tabelle", "text": "Plätze zwischen dem eigenen Verein und dem Tabellenende (0 = Letzter)" },
+    "tage_bis_naechstes_spiel": { "quelle": "Spielplan", "text": "Tage bis zum nächsten Spiel" },
+    "spiele_offen":         { "quelle": "Spielplan", "text": "noch nicht gespielte Spiele des eigenen Vereins im Spielplan (0 = Saison zu Ende)" },
+    "zielplatz":            { "quelle": "Saisonziel (PESM)", "text": "Zielplatz des festgelegten Saisonziels; fehlt ohne Ziel" },
+    "saisonziel_fehlt":     { "quelle": "Saisonziel (PESM)", "text": "1, solange kein Saisonziel festgelegt ist, sonst 0" },
+    "ziel_vorschlag":       { "quelle": "Gesamtwert (Näherung), Tabelle", "text": "Zielplatz, den der Vorstand vorschlägt (Kaderstärke und Tabellenlage); fehlt, solange das Verzeichnis der Spieler nicht steht" },
+    "vorstandsvertrauen":   { "quelle": "Zustand (PESM)", "text": "Vertrauen des Vorstands 0 bis 100; ohne Vorgeschichte die neutrale Mitte" },
+    "aufstiegsrang":        { "quelle": "Einstellung (PESM), Tabelle", "text": "1, wenn der Tabellenplatz unter den in PESM eingestellten Aufstiegsplätzen liegt, sonst 0 (Vorgabe 0 Plätze: nie)" },
+    "abstiegsrang":         { "quelle": "Einstellung (PESM), Tabelle", "text": "1, wenn der Tabellenplatz unter den letzten in PESM eingestellten Abstiegsplätzen liegt, sonst 0 (Vorgabe 3 Plätze)" },
+    "ziel_verfehlt":        { "quelle": "Saisonziel (PESM), Tabelle", "text": "1, wenn das Saisonziel verfehlt ist: Saison vorbei oder rechnerisch nicht mehr erreichbar (nie vor den ersten Spielen, config/tabellensperre.toml)" },
+    "abstand_zum_ziel":     { "quelle": "Saisonziel (PESM)", "text": "Tabellenplatz minus Zielplatz des in PESM festgelegten Saisonziels (0 oder kleiner = Ziel erfüllt); fehlt ohne Ziel" }
+  }
+}

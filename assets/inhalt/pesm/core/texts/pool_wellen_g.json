@@ -1,0 +1,610 @@
+{
+ "pool.verhandlung_verlaengerung.e.e1": [
+  "{b.verhandlung_verlaengerung_lage} Seit Wochen reden wir aneinander vorbei, und ich sehe wenig Bewegung. Gibt es überhaupt noch Interesse an einer Verlängerung?",
+  "{b.verhandlung_verlaengerung_lage} Offen gesagt klingt das bisher eher nach Abschied als nach Zukunft. Wollen Sie {name} wirklich halten?"
+ ],
+ "pool.verhandlung_verlaengerung.e.e2": [
+  "{b.verhandlung_verlaengerung_lage} Wir liegen nicht weit auseinander. Lassen Sie uns den Rahmen abstecken, dann bringen wir das schnell zum Abschluss.",
+  "{b.verhandlung_verlaengerung_lage} Ich spüre auf beiden Seiten guten Willen. Es fehlen nur Zeitplan und Details, dann kann unterschrieben werden."
+ ],
+ "pool.verhandlung_verlaengerung.e.e3": [
+  "{b.verhandlung_verlaengerung_lage} Der Ton wird rauer, und das nützt keinem. Können wir neu ansetzen und sachlich über die Verlängerung sprechen?",
+  "{b.verhandlung_verlaengerung_lage} Ich merke, dass die Stimmung angespannt ist. Ich möchte nicht, dass daraus ein Streit um den Vertrag wird."
+ ],
+ "pool.verhandlung_verlaengerung.e.e4": [
+  "{b.verhandlung_verlaengerung_lage} So lasse ich meinen Mandanten nicht behandeln! Entweder Sie legen ein ernsthaftes Angebot vor, oder wir reden mit anderen!",
+  "{b.verhandlung_verlaengerung_lage} Er ist sauer, und ich bremse ihn kaum noch. Wo bleibt ein Angebot, das den Namen verdient?"
+ ],
+ "pool.verhandlung_verlaengerung.e.e5": [
+  "{b.verhandlung_verlaengerung_lage} Mein Mandant möchte bleiben, und das soll ruhig und fair laufen. Ich sehe keinen Grund für Hektik, aber für einen klaren Fahrplan.",
+  "{b.verhandlung_verlaengerung_lage} Er hängt am Verein. Deshalb bitte ich nur um ein ehrliches Angebot, ohne Taktieren."
+ ],
+ "pool.verhandlung_verlaengerung.e.e6": [
+  "{b.verhandlung_verlaengerung_lage} Er unterschreibt nur, wenn der Verein sportlich etwas vorhat. Zeigen Sie mir, welche Rolle er in Ihrem Projekt spielt.",
+  "{b.verhandlung_verlaengerung_lage} Für meinen Mandanten zählt die Perspektive. Welche Ziele hat der Verein, und wo sehen Sie ihn darin?"
+ ],
+ "pool.verhandlung_verlaengerung.e.e7": [
+  "{b.verhandlung_verlaengerung_lage} Der Vertrag läuft aus, und ich möchte bald wissen, woran wir sind. Wie stellen Sie sich die nächsten Wochen vor?",
+  "{b.verhandlung_verlaengerung_lage} Es ist Zeit für ein erstes konkretes Gespräch über die Verlängerung. Was kann ich meinem Mandanten sagen?"
+ ],
+ "pool.verhandlung_verlaengerung.e.e8": [
+  "{b.verhandlung_verlaengerung_lage} Beim letzten Mal wurde uns etwas in Aussicht gestellt, und es ist nichts passiert. Bevor wir weiterreden, brauche ich Verbindlichkeit.",
+  "{b.verhandlung_verlaengerung_lage} Es gab Zusagen, die nicht gehalten wurden. Dafür habe ich meinem Mandanten keine Erklärung mehr."
+ ],
+ "pool.verhandlung_verlaengerung.e.e9": [
+  "{b.verhandlung_verlaengerung_lage} Er zweifelt, ob er hier gewollt ist, und andere Vereine zeigen Interesse. Ein klares Zeichen von Ihnen würde viel bewegen.",
+  "{b.verhandlung_verlaengerung_lage} Im Hintergrund melden sich Interessenten, und mein Mandant braucht das Gefühl, hier gebraucht zu werden. Wie ernst ist es Ihnen?"
+ ],
+ "pool.verhandlung_verlaengerung.a.a1": [
+  "Ich biete eine Verlängerung an, und zwar verbindlich. Binnen {frist} Tagen liegt mein schriftlicher Vorschlag bei Ihnen.",
+  "Wir verlängern, das sage ich Ihnen heute zu. Die Papiere erhalten Sie innerhalb von {frist} Tagen."
+ ],
+ "pool.verhandlung_verlaengerung.a.a2": [
+  "Wir finden einen Mittelweg: etwas längere Laufzeit, dafür maßvoll beim Fixgehalt und mit Prämien für Einsätze und Titel.",
+  "Kommen Sie mir bei der Laufzeit entgegen, komme ich Ihnen bei den Prämien entgegen."
+ ],
+ "pool.verhandlung_verlaengerung.a.a3": [
+  "Ich erkläre Ihnen den Rahmen: Gehaltsgefüge, Planung der nächsten Jahre und welchen Platz er darin hat. Dann sehen Sie, dass es ernst gemeint ist.",
+  "Der Verein plant solide, und {name} gehört in diese Planung. Lassen Sie mich die Eckpunkte erläutern."
+ ],
+ "pool.verhandlung_verlaengerung.a.a4": [
+  "Ich weiß, dass er Wertschätzung braucht, und er hat sie verdient. Sagen Sie ihm, dass er für mich zu den Eckpfeilern gehört.",
+  "Er ist mir als Mensch und als Spieler wichtig. Das soll er von mir hören, bevor Zahlen fallen."
+ ],
+ "pool.verhandlung_verlaengerung.a.a5": [
+  "Was genau braucht er, damit er bleibt: mehr Geld, eine längere Laufzeit oder mehr Sicherheit?",
+  "Bevor ich antworte, sagen Sie mir, woran die Verlängerung für ihn hängt."
+ ],
+ "pool.verhandlung_verlaengerung.a.a6": [
+  "Ich bitte den Sportdirektor, mit Ihnen die Eckdaten durchzugehen. Danach setzen wir uns zu dritt zusammen.",
+  "Die Zahlen klärt der Sportdirektor mit Ihnen. Ich komme dazu, wenn es ans Unterschreiben geht."
+ ],
+ "pool.verhandlung_verlaengerung.a.a7": [
+  "Das kommt schon, haben Sie noch etwas Geduld. Wir haben gerade viel auf dem Tisch.",
+  "Lassen Sie uns das nach der Länderspielpause besprechen, im Moment ist es unpassend."
+ ],
+ "pool.verhandlung_verlaengerung.a.a8": [
+  "Zu diesen Bedingungen gibt es keine Verlängerung. Wenn Ihr Mandant das nicht annimmt, sucht er sich besser etwas anderes.",
+  "Mit dieser Forderung brauchen wir gar nicht erst zu verhandeln. Das Gespräch ist für mich beendet."
+ ],
+ "pool.verhandlung_verlaengerung.a.a9": [
+  "Mein Angebot bleibt, wie es ist. Ich verhandle nicht mit Druck im Rücken, auch nicht mit dem anderer Vereine.",
+  "Daran ändern auch Anfragen von außen nichts. Wer hier bleiben will, nimmt dieses Angebot."
+ ],
+ "pool.verhandlung_verlaengerung.a.a10": [
+  "Der Verein plant über Jahre, nicht über Wochen. Einen Abschluss nach Ihrem Zeitplan kann ich nicht versprechen.",
+  "Ich sage Ihnen offen: Ich entscheide, wenn der Kader es hergibt, und nicht, wenn der Berater drängt."
+ ],
+ "pool.verhandlung_verlaengerung.a.a11": [
+  "Zur Unterschrift gibt es ein Handgeld, eine kleine Anerkennung für gute Nerven. Dafür wird Ihr Telefon nachts ruhiger.",
+  "Wenn er unterschreibt, lege ich eine Treueprämie obendrauf, damit Sie auch etwas zu feiern haben."
+ ],
+ "pool.verhandlung_verlaengerung.a.a12": [
+  "Wir kennen uns, und ich schätze Ihre ehrliche Art. Ich will, dass {name} bleibt, nicht aus Verlegenheit, sondern weil er für diesen Verein steht.",
+  "Sie haben bisher fair verhandelt, deshalb lege ich meine Karten offen auf den Tisch."
+ ],
+ "pool.verhandlung_verlaengerung.r.r1": [
+  "{b.gut} Das ist ein Angebot, das ich weitergeben kann. Ich melde mich bei {name}.",
+  "{b.gut} Damit kann ich arbeiten. Ich spreche noch heute mit ihm."
+ ],
+ "pool.verhandlung_verlaengerung.r.r2": [
+  "{b.gut} Dann sind wir uns im Kern einig, den Rest regeln wir in Ruhe.",
+  "{b.gut} So sollte es laufen. Ich glaube, wir können das sauber abschließen."
+ ],
+ "pool.verhandlung_verlaengerung.r.r3": [
+  "{b.gut} Eine klare Perspektive, das wollte er hören. Er wird motiviert in die nächsten Wochen gehen.",
+  "{b.gut} Das ist ein Zeichen, dass der Verein mit ihm plant. Er wird liefern."
+ ],
+ "pool.verhandlung_verlaengerung.r.r4": [
+  "{b.gut} Dass Sie ihn so sehen, bedeutet ihm viel. Das gebe ich genau so weiter.",
+  "{b.gut} Das hört er gern, und er braucht es gerade."
+ ],
+ "pool.verhandlung_verlaengerung.r.r5": [
+  "{b.neutral} Ich nehme das mit und spreche mit meinem Mandanten. Mehr kann ich heute nicht sagen.",
+  "{b.neutral} Das ist ein Anfang, aber noch kein Abschluss. Ich melde mich."
+ ],
+ "pool.verhandlung_verlaengerung.r.r6": [
+  "{b.neutral} Ich kann nicht sagen, wie er das aufnimmt. Er ist in diesen Tagen schwer zu lesen.",
+  "{b.neutral} Mein Mandant schwankt, und ich weiß nicht, wohin. Schlafen wir eine Nacht darüber."
+ ],
+ "pool.verhandlung_verlaengerung.r.r7": [
+  "{b.neutral} Es ist noch alles offen. Beide Seiten müssen sich bewegen.",
+  "{b.neutral} Wir stehen ungefähr in der Mitte. Der nächste Schritt sollte von Ihnen kommen."
+ ],
+ "pool.verhandlung_verlaengerung.r.r8": [
+  "{b.neutral} Kein Stress, wir haben Zeit. Wir sprechen nächste Woche weiter.",
+  "{b.neutral} Gut, dann lassen wir es setzen und nehmen es später wieder auf."
+ ],
+ "pool.verhandlung_verlaengerung.r.r9": [
+  "{b.schlecht} So kommen wir nicht zusammen, und das muss ich meinem Mandanten leider so sagen.",
+  "{b.schlecht} Das wird ihn enttäuschen, und mich ebenfalls."
+ ],
+ "pool.verhandlung_verlaengerung.r.r10": [
+  "{b.schlecht} Dann ist das Gespräch beendet, und ich nehme die Anfragen anderer Vereine ernster als bisher!",
+  "{b.schlecht} Ich lasse meinen Mandanten nicht abspeisen. Sie hören von mir, aber nicht freundlich!"
+ ],
+ "pool.verhandlung_verlaengerung.r.r11": [
+  "{b.schlecht} Dann bleibt mir nur, mit den anderen Interessenten zu sprechen. Danke für Ihre Offenheit.",
+  "{b.schlecht} Ich habe verstanden und prüfe die Optionen meines Mandanten nun breiter."
+ ],
+ "pool.verhandlung_verlaengerung.r.r12": [
+  "{b.schlecht} Er wollte bleiben, jetzt weiß ich es nicht mehr. Das hat ihn verletzt.",
+  "{b.schlecht} Ich hatte auf mehr Entgegenkommen gehofft, gerade von Ihnen."
+ ],
+ "pool.verhandlung_verlaengerung.x.x1": [
+  "Das Gespräch endet versöhnlich, und der Berater will in Ruhe zurückrufen. {entscheidung}",
+  "Beide Seiten legen auf, ohne dass etwas zerbrochen wäre. {entscheidung}"
+ ],
+ "pool.verhandlung_verlaengerung.x.x2": [
+  "{entscheidung} Ein neuer Termin steht nicht, aber die Tür bleibt offen.",
+  "{entscheidung} Der Berater lässt offen, wann er sich wieder meldet."
+ ],
+ "pool.verhandlung_verlaengerung.x.x3": [
+  "{entscheidung} Der Berater legt hörbar verärgert auf und kündigt an, andere Vereine anzuhören.",
+  "{entscheidung} Kurz darauf steht in der Presse, dass der Vertrag nicht verlängert wird."
+ ],
+ "pool.verhandlung_verlaengerung.x.x4": [
+  "Man einigt sich auf das weitere Vorgehen. {entscheidung} Die Unterlagen sollen bald folgen.",
+  "Der Berater notiert die Zusage mit sichtlicher Zufriedenheit. {entscheidung}"
+ ],
+ "pool.verhandlung_verlaengerung.x.x5": [
+  "Der Berater bricht das Gespräch ab. {entscheidung} Er will sich mit seinem Mandanten beraten.",
+  "Es knackt in der Leitung, dann ist es still. {entscheidung}"
+ ],
+ "pool.verhandlung_gehalt.e.e1": [
+  "{b.verhandlung_gehalt_lage} Sie bieten uns weniger, als im Kader üblich ist. Dafür gibt es keinen sportlichen Grund. Wie begründen Sie das?",
+  "{b.verhandlung_gehalt_lage} Ich habe die Zahlen mit denen vergleichbarer Spieler abgeglichen, und mein Mandant liegt klar darunter."
+ ],
+ "pool.verhandlung_gehalt.e.e2": [
+  "{b.verhandlung_gehalt_lage} Ihr Vorschlag ist ein guter Anfang. Bei der Höhe fehlt nicht mehr viel, dann können wir zum Ende kommen.",
+  "{b.verhandlung_gehalt_lage} Wir sind uns beim Gehalt näher gekommen, als ich erwartet hatte. Ein kleiner Schritt noch."
+ ],
+ "pool.verhandlung_gehalt.e.e3": [
+  "{b.verhandlung_gehalt_lage} Wir kommen mit dem Gehalt nicht voran, und ich habe das Gefühl, der Ton wird schärfer. Wollen wir nicht noch einmal sauber anfangen?",
+  "{b.verhandlung_gehalt_lage} Bevor wir uns über Zahlen streiten, möchte ich die Stimmung beruhigen. So hilft es keinem."
+ ],
+ "pool.verhandlung_gehalt.e.e4": [
+  "{b.verhandlung_gehalt_lage} Das ist eine Beleidigung für meinen Mandanten! Mit dieser Summe brauchen Sie ihm gar nicht zu kommen!",
+  "{b.verhandlung_gehalt_lage} Wer so wenig bietet, will ihn loswerden. Sagen Sie es doch gleich!"
+ ],
+ "pool.verhandlung_gehalt.e.e5": [
+  "{b.verhandlung_gehalt_lage} Ich bitte um ein faires Gehalt, nicht um ein Wunder. Mein Mandant möchte bleiben, aber er muss auch seine Familie im Blick haben.",
+  "{b.verhandlung_gehalt_lage} Lassen Sie uns in Ruhe über eine angemessene Summe sprechen, ohne Spielchen."
+ ],
+ "pool.verhandlung_gehalt.e.e6": [
+  "{b.verhandlung_gehalt_lage} Er hat Leistung gebracht, und das muss sich im Gehalt niederschlagen. Wer vorangeht, wird nicht mit dem Durchschnitt abgespeist.",
+  "{b.verhandlung_gehalt_lage} Mein Mandant will zu den Spitzenverdienern gehören. Sein Beitrag auf dem Platz rechtfertigt das."
+ ],
+ "pool.verhandlung_gehalt.e.e7": [
+  "{b.verhandlung_gehalt_lage} Wir haben noch keine Einigung beim Gehalt. Nennen Sie mir bitte, wo der Verein Spielraum sieht.",
+  "{b.verhandlung_gehalt_lage} Zahlen machen mir keine Angst. Zeigen Sie mir die Grenzen, dann sehen wir weiter."
+ ],
+ "pool.verhandlung_gehalt.e.e8": [
+  "{b.verhandlung_gehalt_lage} Es hieß, beim Gehalt werde nachgebessert, und seither ist nichts passiert. Ich möchte diesmal etwas Schriftliches.",
+  "{b.verhandlung_gehalt_lage} Zusagen zum Gehalt wurden nicht eingehalten. Ich verhandle nicht weiter, bevor das geklärt ist."
+ ],
+ "pool.verhandlung_gehalt.e.e9": [
+  "{b.verhandlung_gehalt_lage} Der Markt zahlt für einen Spieler seines Profils mehr, und das weiß er genau. Er sieht sich hier gern, aber nicht um jeden Preis.",
+  "{b.verhandlung_gehalt_lage} Er fühlt sich unterbezahlt und unsicher. Ein klares Zeichen beim Gehalt würde ihm gut tun, sonst hört er auf andere."
+ ],
+ "pool.verhandlung_gehalt.a.a1": [
+  "Das Gehalt wird angehoben, das sage ich Ihnen zu. Den Vertragsentwurf mit der neuen Summe haben Sie binnen {frist} Tagen.",
+  "Ich verbessere das Gehalt, verbindlich. Binnen {frist} Tagen gibt es die Papiere."
+ ],
+ "pool.verhandlung_gehalt.a.a2": [
+  "Dann trennen wir Fixum und Leistung: ein tragbares Grundgehalt, dazu Prämien, die bei guter Saison kräftig ausfallen.",
+  "Ich komme Ihnen beim variablen Anteil entgegen, wenn Sie beim Fixgehalt Verständnis zeigen."
+ ],
+ "pool.verhandlung_gehalt.a.a3": [
+  "Ich erkläre Ihnen unsere Gehaltsstruktur: Jeder im Kader ist an Einsätze, Alter und Dienstzeit gekoppelt. Dann sehen Sie, wo er steht und warum.",
+  "Das Gehaltsgefüge ist gewachsen, und ein Ausreißer nach oben bringt es ins Wanken. Lassen Sie mich das aufschlüsseln."
+ ],
+ "pool.verhandlung_gehalt.a.a4": [
+  "Ich weiß, dass Geld auch Wertschätzung bedeutet. Ihr Mandant ist mir wichtig, und das möchte ich ihn spüren lassen.",
+  "Ich verstehe, dass er sich nicht gesehen fühlt. Das nehme ich ernst und suche eine Lösung, die ihm gerecht wird."
+ ],
+ "pool.verhandlung_gehalt.a.a5": [
+  "Wie hoch müsste das Gehalt liegen, damit er sich wohlfühlt, und was bekommt der Verein dafür im Gegenzug?",
+  "Mit wem vergleicht er sich eigentlich, mit dem Kader oder mit dem Markt?"
+ ],
+ "pool.verhandlung_gehalt.a.a6": [
+  "Das klärt der Sportdirektor mit Ihnen anhand der Gehaltstabelle. Ich selbst stoße später dazu.",
+  "Zur Höhe schicke ich Ihnen den Geschäftsführer, der kennt die Finanzen besser als ich."
+ ],
+ "pool.verhandlung_gehalt.a.a7": [
+  "Wir sind knapp bei Kasse, aber ich merke mir das und komme darauf zurück. Gedulden Sie sich bitte.",
+  "Im Moment kann ich dazu nichts versprechen, aber das Thema ist nicht vom Tisch."
+ ],
+ "pool.verhandlung_gehalt.a.a8": [
+  "Mehr zahle ich nicht. Wer mehr will, soll sich anderswo anbieten, hier endet es.",
+  "Die Summe ist mein letztes Wort. Wenn das nicht reicht, ist das Gespräch beendet."
+ ],
+ "pool.verhandlung_gehalt.a.a9": [
+  "Der Verein kann und will nicht mehr zahlen als im Angebot. Ich ändere das nicht, nur weil der Druck wächst.",
+  "Beim Gehalt bleibe ich standhaft. Das Gefüge im Kader ist wichtiger als der Einzelwunsch."
+ ],
+ "pool.verhandlung_gehalt.a.a10": [
+  "Seine Leistung schätze ich, aber ich muss das Gehaltsgefüge im Auge behalten. Mehr als in meinem Angebot ist nicht drin.",
+  "Ich gehe nicht über die Grenze, die der Vorstand mir gesetzt hat. Das sollten Sie wissen."
+ ],
+ "pool.verhandlung_gehalt.a.a11": [
+  "Zum Gehalt kommt ein Leistungsbonus für jedes Spiel, das wir gewinnen. So haben wir beide etwas davon, wenn es läuft.",
+  "Wenn er trifft und wir gewinnen, zahle ich gern extra. Das lasse ich mir sogar etwas kosten."
+ ],
+ "pool.verhandlung_gehalt.a.a12": [
+  "Wir sind lange im Gespräch, und ich habe Respekt vor Ihrer Arbeit. Deshalb sage ich offen, was möglich ist, und komme Ihnen noch ein Stück entgegen.",
+  "Sie waren immer fair zu uns, also bin ich es zu Ihnen. Ich bewege mich noch einmal."
+ ],
+ "pool.verhandlung_gehalt.r.r1": [
+  "{b.gut} Damit kann ich vor meinen Mandanten treten. Ich gebe es gleich weiter.",
+  "{b.gut} Das ist ein ordentliches Angebot. Ich leite es noch heute weiter."
+ ],
+ "pool.verhandlung_gehalt.r.r2": [
+  "{b.gut} Das ist die Basis, auf der wir abschließen können. Den Rest klären wir ohne Streit.",
+  "{b.gut} Dann haben wir bei der Summe zueinander gefunden. Danke für die faire Verhandlung."
+ ],
+ "pool.verhandlung_gehalt.r.r3": [
+  "{b.gut} Wenn die Bezahlung stimmt, gibt er auf dem Platz alles. Das wird sich zeigen.",
+  "{b.gut} Das ist ein Gehalt, das seinen Anspruch widerspiegelt. Er wird es zu schätzen wissen."
+ ],
+ "pool.verhandlung_gehalt.r.r4": [
+  "{b.gut} Das trifft ihn genau, er will mehr als nur Geld sehen. Ich danke Ihnen für die Worte.",
+  "{b.gut} Dass Sie seine Kränkung ernst nehmen, wird ihn beruhigen."
+ ],
+ "pool.verhandlung_gehalt.r.r5": [
+  "{b.neutral} Ich muss das mit meinem Mandanten durchrechnen. Heute kann ich nichts zusagen.",
+  "{b.neutral} Das klingt nach einem Anfang, aber nicht nach dem Ende. Ich melde mich."
+ ],
+ "pool.verhandlung_gehalt.r.r6": [
+  "{b.neutral} Wie er auf die Summe reagiert, kann ich nicht vorhersagen. Er schwankt in diesen Wochen.",
+  "{b.neutral} Mein Mandant hat heute eine seiner Phasen. Ich frage morgen noch einmal nach."
+ ],
+ "pool.verhandlung_gehalt.r.r7": [
+  "{b.neutral} Wir sind noch nicht beieinander. Die Differenz bleibt, und beide müssen sich bewegen.",
+  "{b.neutral} Zwischen Ihrer Zahl und seiner liegt noch ein Stück Weg."
+ ],
+ "pool.verhandlung_gehalt.r.r8": [
+  "{b.neutral} Kein Problem, das Gehalt läuft uns nicht weg. Wir telefonieren in den nächsten Tagen.",
+  "{b.neutral} Dann lassen wir die Zahlen kurz ruhen und reden später weiter."
+ ],
+ "pool.verhandlung_gehalt.r.r9": [
+  "{b.schlecht} Mit dieser Summe schicke ich meinen Mandanten nicht aufs Feld. Das muss ich ihm so sagen.",
+  "{b.schlecht} Das ist weniger, als er verdient, und das wird er auch so sehen."
+ ],
+ "pool.verhandlung_gehalt.r.r10": [
+  "{b.schlecht} Dann sehen wir uns beim Verhandlungsende wieder, und zwar mit anderen Vereinen im Rücken!",
+  "{b.schlecht} So reden Sie nicht mit mir und nicht mit ihm. Wir haben genug Angebote!"
+ ],
+ "pool.verhandlung_gehalt.r.r11": [
+  "{b.schlecht} Dann bleibt der Marktwert der Maßstab, und ich lasse ihn prüfen. Danke für Ihre Offenheit.",
+  "{b.schlecht} Wenn hier bei der Bezahlung Schluss ist, höre ich mich anderswo um."
+ ],
+ "pool.verhandlung_gehalt.r.r12": [
+  "{b.schlecht} Er war bereit, hier zu bleiben, aber dieses Gehalt kränkt ihn. Das hätte ich so nicht erwartet.",
+  "{b.schlecht} Ich dachte, wir verstehen uns besser. Er wird das nicht leicht nehmen."
+ ],
+ "pool.verhandlung_gehalt.x.x1": [
+  "Der Berater beendet das Gespräch ruhig und will die Summe in Ruhe durchrechnen. {entscheidung}",
+  "Man legt ohne Streit auf, und die Zahlen bleiben in Reichweite. {entscheidung}"
+ ],
+ "pool.verhandlung_gehalt.x.x2": [
+  "{entscheidung} Bei der Höhe liegt noch eine Lücke, aber beide Seiten wollen weiterreden.",
+  "{entscheidung} Eine Einigung steht aus, die Gespräche gehen nach der nächsten Partie weiter."
+ ],
+ "pool.verhandlung_gehalt.x.x3": [
+  "{entscheidung} Der Berater schimpft, dass der Verein sparen wolle, und in der Presse häufen sich Gerüchte.",
+  "{entscheidung} Er knallt den Hörer auf, und kurz darauf kursieren Zahlen aus dem Gespräch."
+ ],
+ "pool.verhandlung_gehalt.x.x4": [
+  "Der Berater akzeptiert den Weg und notiert die Eckdaten. {entscheidung} Die Papiere folgen.",
+  "Man schlägt gedanklich ein. {entscheidung} Jetzt braucht es nur noch die Unterschrift."
+ ],
+ "pool.verhandlung_gehalt.x.x5": [
+  "Der Berater bricht ab und kündigt an, sich beim Vorstand zu beschweren. {entscheidung}",
+  "Die Leitung wird still, der Berater hat aufgelegt. {entscheidung}"
+ ],
+ "pool.verhandlung_rolle.e.e1": [
+  "{b.verhandlung_rolle_lage} Er spielt zu wenig, um zu bleiben, und zu viel, um zu gehen. Ohne eine feste Rolle im Vertrag unterschreibt er nicht.",
+  "{b.verhandlung_rolle_lage} Seine Einsätze sprechen dagegen, dass Sie fest mit ihm planen. Dann sagen Sie es offen, damit wir wissen, woran wir sind."
+ ],
+ "pool.verhandlung_rolle.e.e2": [
+  "{b.verhandlung_rolle_lage} Nach allem, was er zeigt, ist ein Platz in der Startelf nur folgerichtig. Wir müssen das nur noch festhalten.",
+  "{b.verhandlung_rolle_lage} Die Rolle ist zwischen uns fast geklärt. Es fehlt nur noch die Formulierung im Vertrag."
+ ],
+ "pool.verhandlung_rolle.e.e3": [
+  "{b.verhandlung_rolle_lage} Das Gespräch läuft gerade nicht gut, und ich möchte nicht, dass es an der Rolle scheitert. Können wir sachlich darüber reden, was er im Kader sein soll?",
+  "{b.verhandlung_rolle_lage} Die Stimmung ist kühl, aber das Thema ist zu wichtig. Sprechen wir ruhig über seinen Platz."
+ ],
+ "pool.verhandlung_rolle.e.e4": [
+  "{b.verhandlung_rolle_lage} Ich verlange ein Wort, schwarz auf weiß! Wenn er weiter nur Joker sein soll, ist hier Schluss!",
+  "{b.verhandlung_rolle_lage} Er lässt sich nicht länger auf der Bank verheizen. Entweder fester Platz im Vertrag, oder wir gehen!"
+ ],
+ "pool.verhandlung_rolle.e.e5": [
+  "{b.verhandlung_rolle_lage} Mein Mandant spielt gern für Sie. Er wünscht sich nur, dass der Vertrag abbildet, was auf dem Platz ohnehin gilt.",
+  "{b.verhandlung_rolle_lage} Es geht ihm nicht um Prestige, sondern um Planungssicherheit für die nächsten Jahre."
+ ],
+ "pool.verhandlung_rolle.e.e6": [
+  "{b.verhandlung_rolle_lage} Er will zu den Stammkräften zählen und das festschreiben. Wer ihn nicht fest einplant, verliert ihn an Vereine, die es tun.",
+  "{b.verhandlung_rolle_lage} Ohne eine Zusage, dass er vorn mitspielt, ist die Verlängerung für ihn uninteressant."
+ ],
+ "pool.verhandlung_rolle.e.e7": [
+  "{b.verhandlung_rolle_lage} Die Rolle gehört in die Verhandlung. Wie stellen Sie sich seinen Platz vor, und was ließe sich dazu vertraglich festhalten?",
+  "{b.verhandlung_rolle_lage} Ich habe einen Wunsch zur Spielzeit meines Mandanten. Bitte sagen Sie mir, was grundsätzlich denkbar ist."
+ ],
+ "pool.verhandlung_rolle.e.e8": [
+  "{b.verhandlung_rolle_lage} Sie hatten ihm einen festen Platz zugesagt, und die Aufstellung sah anders aus. Ich verhandle nur noch, wenn die Rolle schriftlich steht.",
+  "{b.verhandlung_rolle_lage} Zugesagte Einsätze blieben aus. Deshalb bestehe ich jetzt auf einer festen Formulierung."
+ ],
+ "pool.verhandlung_rolle.e.e9": [
+  "{b.verhandlung_rolle_lage} Er hört, dass andere Vereine ihm Stammplatz und Einfluss versprechen. Ein Zeichen von Ihnen, dass er hier gebraucht wird, würde ihm sehr helfen.",
+  "{b.verhandlung_rolle_lage} Er zweifelt, ob er für Sie wichtig ist, und Rivalen im Kader verstärken das. Ein klares Wort würde ihn beruhigen."
+ ],
+ "pool.verhandlung_rolle.a.a1": [
+  "Ich sage ihm die Rolle zu: Er gehört zu den Stammkräften. Das schreiben wir in den Vertrag, und binnen {frist} Tagen steht es auf dem Papier.",
+  "Er bekommt seine feste Rolle, das verspreche ich. Die Formulierung liegt in {frist} Tagen vor."
+ ],
+ "pool.verhandlung_rolle.a.a2": [
+  "Dann binden wir die Rolle an die Leistung: Spielt er auf dem erwarteten Niveau, hat er seinen Stammplatz, und das steht im Vertrag.",
+  "Eine Leistungsklausel gibt ihm die Sicherheit und mir die Freiheit. Das sollte für beide tragbar sein."
+ ],
+ "pool.verhandlung_rolle.a.a3": [
+  "Ich kann ihm eine Perspektive zeigen, aber keine Garantie. Er soll wissen, dass ich ihn als wichtigen Teil der Planung sehe.",
+  "Einen festen Platz vergebe ich nicht im Voraus, aber ich beschreibe gern, wie ich mit ihm plane."
+ ],
+ "pool.verhandlung_rolle.a.a4": [
+  "Ich weiß, wie zermürbend die Unsicherheit ist. Ich möchte, dass er sich im Kader sicher fühlt, und sage es ihm selbst.",
+  "Er ist ein wichtiger Teil dieses Teams, und das soll er von mir hören, nicht aus der Zeitung."
+ ],
+ "pool.verhandlung_rolle.a.a5": [
+  "Welche Rolle genau meint Ihr Mandant: Stammplatz, Führungsrolle oder nur Einsatzzeit? Das ist ein Unterschied.",
+  "Wo sieht er sich in der Mannschaft in zwei Jahren, und was dafür fehlt ihm heute?"
+ ],
+ "pool.verhandlung_rolle.a.a6": [
+  "Über die Spielzeit entscheidet der Co-Trainer mit mir nach den Trainingsdaten. Den Vertragswortlaut klärt der Sportdirektor.",
+  "Die Rolle bespreche ich zuerst mit meinem Stab. Danach melde ich mich bei Ihnen."
+ ],
+ "pool.verhandlung_rolle.a.a7": [
+  "Er ist ein Kandidat für die Startelf, aber versprechen kann ich nichts. Die nächsten Wochen werden es zeigen.",
+  "Seien Sie bitte geduldig, ich entscheide nach Form und Trainingseindruck."
+ ],
+ "pool.verhandlung_rolle.a.a8": [
+  "Rollen werden nicht verhandelt, sondern verdient. Mit einer Forderung wie dieser komme ich nicht weiter.",
+  "Eine Stammplatz-Garantie gibt es nicht, auch nicht für Ihren Mandanten. Punkt."
+ ],
+ "pool.verhandlung_rolle.a.a9": [
+  "Ich stelle auf, wer es verdient, und ich schreibe das nicht in ein Papier. Das bleibt meine Entscheidung.",
+  "Die Aufstellung mache ich, nicht der Berater. Daran ändert auch ein Vertragswunsch nichts."
+ ],
+ "pool.verhandlung_rolle.a.a10": [
+  "Ich schreibe ihm keine Rolle ins Papier, aber ich knüpfe sie an klare Kriterien: Training, Form, Einsatz. Das bekommt er schriftlich.",
+  "Wenn er die Kriterien erfüllt, spielt er. Das ist fairer als jede Pauschalzusage."
+ ],
+ "pool.verhandlung_rolle.a.a11": [
+  "Für den Rückhalt gibt es einen Zuschlag: Eine Prämie für jeden Einsatz in der Startelf. Wer spielt, verdient mit, so einfach ist das.",
+  "Ich hänge ihm eine Einsatzprämie an, damit seine Zeit auf dem Platz sich auch lohnt, wenn er nicht überall zuerst genannt wird."
+ ],
+ "pool.verhandlung_rolle.a.a12": [
+  "Wir arbeiten seit Langem zusammen, und Sie wissen, dass ich nichts verspreche, was ich nicht halten kann. Ich komme Ihnen entgegen, soweit es verantwortbar ist.",
+  "Weil ich Ihren Mandanten schätze, mache ich ein Zugeständnis bei den Einsatzkriterien. Mehr geht nicht."
+ ],
+ "pool.verhandlung_rolle.r.r1": [
+  "{b.gut} Eine feste Rolle, das ist es, was er braucht. Ich gebe es sofort weiter.",
+  "{b.gut} Damit hat er Planungssicherheit, und ich kann ihm ruhigen Gewissens zuraten."
+ ],
+ "pool.verhandlung_rolle.r.r2": [
+  "{b.gut} Das ist ein klares Wort, und damit lässt sich der Vertrag sauber abschließen.",
+  "{b.gut} Dann liegt die Rolle klar auf dem Tisch. Den Rest bekommen wir ohne Streit hin."
+ ],
+ "pool.verhandlung_rolle.r.r3": [
+  "{b.gut} Ein Platz, den er sich verdienen darf, ist genau sein Ansporn. Er wird es euch zeigen.",
+  "{b.gut} Dass der Verein ihn vorn sieht, beflügelt ihn. Er liefert."
+ ],
+ "pool.verhandlung_rolle.r.r4": [
+  "{b.gut} Zu hören, dass er wichtig ist, bedeutet ihm viel. Das beruhigt ihn.",
+  "{b.gut} Dass Sie seine Unsicherheit verstehen, ist mehr, als er erhofft hat."
+ ],
+ "pool.verhandlung_rolle.r.r5": [
+  "{b.neutral} Ich bespreche das mit meinem Mandanten, ob ihm das reicht. Heute sage ich nichts zu.",
+  "{b.neutral} Das ist keine Zusage, aber auch keine Absage. Ich höre mich bei ihm um."
+ ],
+ "pool.verhandlung_rolle.r.r6": [
+  "{b.neutral} Wie er das auffasst, weiß ich nicht. Heute himmelhoch, morgen zu Tode betrübt.",
+  "{b.neutral} Ihm fehlt gerade die Gelassenheit. Ich warte, bis sich seine Stimmung dreht."
+ ],
+ "pool.verhandlung_rolle.r.r7": [
+  "{b.neutral} Die Rolle ist noch offen, und beide Seiten haben noch Spielraum.",
+  "{b.neutral} Wir sind uns beim Prinzip nahe, bei der Ausgestaltung nicht. Weiter geht es später."
+ ],
+ "pool.verhandlung_rolle.r.r8": [
+  "{b.neutral} Das ist Ihre Entscheidung, und ich lasse sie so stehen. Wir sprechen noch einmal.",
+  "{b.neutral} In Ordnung, dann bleibt die Frage vorerst im Raum."
+ ],
+ "pool.verhandlung_rolle.r.r9": [
+  "{b.schlecht} Dann bleibt er ein Ersatzmann, und das muss ich ihm leider ausrichten.",
+  "{b.schlecht} Ohne feste Rolle wird er das nicht unterschreiben. So kommen wir nicht weiter."
+ ],
+ "pool.verhandlung_rolle.r.r10": [
+  "{b.schlecht} Dann soll er eben woanders spielen, und Sie werden sich noch wundern!",
+  "{b.schlecht} Wer meinen Mandanten so abspeist, darf sich über die Abwanderung nicht beschweren!"
+ ],
+ "pool.verhandlung_rolle.r.r11": [
+  "{b.schlecht} Dann nehme ich die Zusagen der anderen Vereine ernster. Vielen Dank für die klare Ansage.",
+  "{b.schlecht} Ohne Garantie ist das hier keine Option mehr. Ich spreche mit den Konkurrenten."
+ ],
+ "pool.verhandlung_rolle.r.r12": [
+  "{b.schlecht} Er war bereit, hier Verantwortung zu übernehmen, und jetzt fühlt er sich ausgebremst.",
+  "{b.schlecht} Ich hatte mehr Anerkennung für ihn erwartet. Das trifft ihn hart."
+ ],
+ "pool.verhandlung_rolle.x.x1": [
+  "Der Berater legt ruhig auf und will seinem Mandanten die Linie erklären. {entscheidung}",
+  "Die Rolle bleibt nicht gelöst, aber das Klima ist gut. {entscheidung}"
+ ],
+ "pool.verhandlung_rolle.x.x2": [
+  "{entscheidung} Die Rollenfrage bleibt in der Schwebe, bis die nächsten Spiele mehr Klarheit bringen.",
+  "{entscheidung} Der Berater will abwarten, wie es in den kommenden Wochen auf dem Platz aussieht."
+ ],
+ "pool.verhandlung_rolle.x.x3": [
+  "{entscheidung} Der Berater verlässt die Leitung im Zorn, und in der Stadt wird erzählt, der Trainer verweigere Spielzeit.",
+  "{entscheidung} Wenig später fordert der Mandant öffentlich mehr Einsatzzeit."
+ ],
+ "pool.verhandlung_rolle.x.x4": [
+  "Man einigt sich auf eine Rolle mit klaren Bedingungen. {entscheidung} Der Vertrag wird entsprechend geändert.",
+  "Der Berater nickt hörbar. {entscheidung} Die Rolle wird schriftlich festgehalten."
+ ],
+ "pool.verhandlung_rolle.x.x5": [
+  "Der Berater bricht ab und verweist auf ein Angebot der Konkurrenz. {entscheidung}",
+  "Die Verbindung endet abrupt. {entscheidung} Der Berater meldet sich vorerst nicht mehr."
+ ],
+ "pool.verhandlung_klausel.e.e1": [
+  "{b.verhandlung_klausel_lage} Ohne Ausstiegsklausel gibt es keine Verlängerung, und die Summe ist nicht verhandelbar. Ich frage mich, wie ernst Sie es meinen.",
+  "{b.verhandlung_klausel_lage} Wir fordern eine feste Ablöse im Vertrag. Reden Sie nicht um den Punkt herum, sondern geben Sie eine Antwort."
+ ],
+ "pool.verhandlung_klausel.e.e2": [
+  "{b.verhandlung_klausel_lage} Die Klausel ist fast ein Formalismus, die Höhe ist ja kaum strittig. Lassen Sie uns den Zeitpunkt und das Vorkaufsrecht klären.",
+  "{b.verhandlung_klausel_lage} Wir sind nah beieinander, nur die Ausgestaltung der Klausel fehlt noch. Dann können wir abschließen."
+ ],
+ "pool.verhandlung_klausel.e.e3": [
+  "{b.verhandlung_klausel_lage} Die Stimmung ist kühl, und ich möchte nicht, dass der Vertrag an einer Klausel scheitert. Sprechen wir ruhig darüber, was sie bedeuten würde.",
+  "{b.verhandlung_klausel_lage} Wir reden aneinander vorbei, und das hat mit der Klausel zu tun. Fangen wir ruhig und sachlich neu an."
+ ],
+ "pool.verhandlung_klausel.e.e4": [
+  "{b.verhandlung_klausel_lage} Ich verlange eine Klausel, sonst ist das Gespräch beendet! Ich lasse meinen Mandanten nicht an den Verein ketten!",
+  "{b.verhandlung_klausel_lage} Ihr Hinhalten ist unverschämt. Eine Klausel, und zwar heute, oder wir gehen!"
+ ],
+ "pool.verhandlung_klausel.e.e5": [
+  "{b.verhandlung_klausel_lage} Mein Mandant fühlt sich wohl, und doch ist eine Klausel in der heutigen Zeit üblich. Es geht uns um Vertrauen auf beiden Seiten.",
+  "{b.verhandlung_klausel_lage} Wir wollen die Klausel nicht, um zu gehen, sondern um sicher zu bleiben. Das erkläre ich Ihnen gern."
+ ],
+ "pool.verhandlung_klausel.e.e6": [
+  "{b.verhandlung_klausel_lage} Er will sich die Option auf einen größeren Klub sichern, und das braucht eine feste Summe im Vertrag. Zeigen Sie mir, dass Sie ihm das nicht verbauen.",
+  "{b.verhandlung_klausel_lage} Für seine Karriere ist eine Klausel das Mindeste. Wie weit gehen Sie mit?"
+ ],
+ "pool.verhandlung_klausel.e.e7": [
+  "{b.verhandlung_klausel_lage} Eine Klausel gehört bei einem Spieler seiner Qualität dazu. Ich möchte hören, wie Sie zu Summe und Zeitpunkt stehen.",
+  "{b.verhandlung_klausel_lage} Wir sprechen über eine mögliche Ablösesumme im Vertrag. Welche Vorstellungen hat der Verein?"
+ ],
+ "pool.verhandlung_klausel.e.e8": [
+  "{b.verhandlung_klausel_lage} Sie hatten eine Klausel in Aussicht gestellt, die nie auf dem Papier erschien. Ich akzeptiere keine Versprechen mehr, nur noch Text.",
+  "{b.verhandlung_klausel_lage} Zusagen zur Klausel wurden nicht gehalten. Ich bestehe jetzt auf einem verbindlichen Wortlaut."
+ ],
+ "pool.verhandlung_klausel.e.e9": [
+  "{b.verhandlung_klausel_lage} Mein Mandant hat Interessenten im Rücken, und mit einer Klausel hielte er sich alle Wege offen. Ohne sie sieht er sich in der Falle.",
+  "{b.verhandlung_klausel_lage} Er fühlt sich beengt, wenn er nicht weiß, ob er gehen darf. Eine Klausel würde ihn befreien."
+ ],
+ "pool.verhandlung_klausel.a.a1": [
+  "Ich sage die Klausel zu. Über Ablösesumme und Zeitpunkt entscheiden wir gemeinsam, und binnen {frist} Tagen liegt der Wortlaut vor.",
+  "Ihr Mandant bekommt die Klausel. Die Eckdaten halten wir binnen {frist} Tagen schriftlich fest."
+ ],
+ "pool.verhandlung_klausel.a.a2": [
+  "Dann setze ich sie höher an und verschiebe den Beginn, damit der Verein geschützt bleibt, und Ihr Mandant hat trotzdem seinen Ausweg.",
+  "Die Klausel gilt erst nach der ersten Saison, dafür gebe ich bei der Summe Spielraum."
+ ],
+ "pool.verhandlung_klausel.a.a3": [
+  "Ich erkläre, warum eine niedrige Klausel gefährlich ist: Sie zieht Interessenten an und entwertet den Vertrag für beide Seiten.",
+  "Eine Klausel ist ein Preisschild, und ein zu niedriges lockt Käufer. Lassen Sie mich die Folgen aufzeigen."
+ ],
+ "pool.verhandlung_klausel.a.a4": [
+  "Ich verstehe, dass er sich nicht eingesperrt fühlen will. Das nehme ich ernst, und ich möchte, dass er sich hier frei entscheidet.",
+  "Niemand soll sich gefangen fühlen. Ich suche mit Ihnen einen Weg, der ihm Ruhe gibt."
+ ],
+ "pool.verhandlung_klausel.a.a5": [
+  "In welcher Größenordnung stellen Sie sich die Ablöse vor, und ab wann soll sie gelten?",
+  "Wer soll bei einem Verkauf vorkaufsberechtigt sein, Ihr Mandant oder der Verein?"
+ ],
+ "pool.verhandlung_klausel.a.a6": [
+  "Die Klausel prüft der Geschäftsführer mit der Rechtsabteilung. Mit seinem Ergebnis komme ich auf Sie zu.",
+  "Die Summe berechnet der Vorstand, nicht ich. Ich bitte um etwas Zeit."
+ ],
+ "pool.verhandlung_klausel.a.a7": [
+  "Dazu kann ich heute nichts sagen, aber ich verspreche, es mitzunehmen. Lassen Sie uns zuerst die Saison zu Ende spielen.",
+  "Eine Klausel steht nicht auf meiner Liste, aber ich denke darüber nach. Geben Sie mir Zeit."
+ ],
+ "pool.verhandlung_klausel.a.a8": [
+  "Eine Ausstiegsklausel kommt für mich nicht in Frage. Wer hier unterschreibt, bleibt hier.",
+  "Mit einer Klausel wäre der Vertrag das Papier nicht wert. Das lehne ich ab."
+ ],
+ "pool.verhandlung_klausel.a.a9": [
+  "Ich bleibe bei meinem Nein. Verträge werden eingehalten, und wer eine Hintertür verlangt, plant schon seinen Abschied.",
+  "Daran rüttelt auch Druck nicht. Keine Klausel, so steht es."
+ ],
+ "pool.verhandlung_klausel.a.a10": [
+  "Das Vorkaufsrecht zugunsten des Vereins und eine klare Frist sind für mich Pflicht, sonst gibt es keine Klausel. Das ist mein Rahmen.",
+  "Die Klausel ist nur mit Bedingungen denkbar, die den Verein schützen. Darüber verhandle ich nicht."
+ ],
+ "pool.verhandlung_klausel.a.a11": [
+  "Statt einer Klausel biete ich eine Treueprämie: Wer bleibt, wird belohnt. Das ist für Ihren Mandanten sicherer und für uns solider.",
+  "Eine Prämie für jedes Jahr im Verein statt einer Klausel, das ist mein Angebot, und es hat Gewicht."
+ ],
+ "pool.verhandlung_klausel.a.a12": [
+  "Wir kennen uns lange, und ich bin kein Freund von Hintertüren. Aber ich sehe Ihr Argument und bin bereit, mich zu bewegen, wenn Sie es auch tun.",
+  "Weil Sie stets ehrlich waren, rede ich offen: Die Klausel ist nicht ausgeschlossen, wir müssen nur die Details finden."
+ ],
+ "pool.verhandlung_klausel.r.r1": [
+  "{b.gut} Damit hat mein Mandant seinen Ausweg und den Verein trotzdem hinter sich. Ich bedanke mich.",
+  "{b.gut} Das ist ein faires Entgegenkommen. Ich leite es sofort weiter."
+ ],
+ "pool.verhandlung_klausel.r.r2": [
+  "{b.gut} So lässt sich ein Vertrag schließen, mit dem beide gut leben können.",
+  "{b.gut} Das ist ein vernünftiger Rahmen. Wir bringen es in Ordnung."
+ ],
+ "pool.verhandlung_klausel.r.r3": [
+  "{b.gut} Mit einer festen Klausel kann er sich in Ruhe aufs Spiel konzentrieren, das ist ein Ansporn für ihn.",
+  "{b.gut} Ein klarer Weg nach oben, das war ihm wichtig. Er wird es danken."
+ ],
+ "pool.verhandlung_klausel.r.r4": [
+  "{b.gut} Dass Sie ihm die Angst vor dem Eingesperrtsein nehmen, tut ihm gut. Danke.",
+  "{b.gut} So viel Verständnis hat er nicht erwartet. Das beruhigt ihn."
+ ],
+ "pool.verhandlung_klausel.r.r5": [
+  "{b.neutral} Das muss ich mit meinem Mandanten besprechen, ob ihm das reicht. Heute sage ich nichts zu.",
+  "{b.neutral} Das ist weder Ja noch Nein. Ich melde mich in den nächsten Tagen."
+ ],
+ "pool.verhandlung_klausel.r.r6": [
+  "{b.neutral} Ich weiß nicht, wie er das aufnimmt. Er ist von Tag zu Tag ein anderer.",
+  "{b.neutral} Mein Mandant ist heute schwer zu deuten. Ich frage nach, wenn es sich gelegt hat."
+ ],
+ "pool.verhandlung_klausel.r.r7": [
+  "{b.neutral} Die Klausel bleibt offen, beide Seiten haben noch Spielraum. Wir müssen nur den Zeitpunkt finden.",
+  "{b.neutral} Wir sind uns beim Prinzip nicht einig und doch nicht weit auseinander."
+ ],
+ "pool.verhandlung_klausel.r.r8": [
+  "{b.neutral} Das lasse ich so stehen, dann reden wir später weiter. Eilig ist es nicht.",
+  "{b.neutral} In Ordnung, wir lassen das Thema ruhen und nehmen es wieder auf."
+ ],
+ "pool.verhandlung_klausel.r.r9": [
+  "{b.schlecht} Ohne Klausel unterschreibt er nicht, und das sage ich ihm genau so.",
+  "{b.schlecht} Damit gibt es keine Basis. Das enttäuscht mich sehr."
+ ],
+ "pool.verhandlung_klausel.r.r10": [
+  "{b.schlecht} Dann hören wir uns bei anderen Vereinen um, und Sie werden von uns nichts mehr hören!",
+  "{b.schlecht} Hintertür oder nichts, und Sie haben sich entschieden! Das ist Ihr Verlust!"
+ ],
+ "pool.verhandlung_klausel.r.r11": [
+  "{b.schlecht} Dann prüfe ich die Alternativen. Danke für Ihre Offenheit, sie hilft mir beim Planen.",
+  "{b.schlecht} Wenn hier keine Option bleibt, spreche ich mit den Interessenten."
+ ],
+ "pool.verhandlung_klausel.r.r12": [
+  "{b.schlecht} Er wollte Ihnen vertrauen, aber dieses Nein verletzt ihn. Ich hatte mehr erwartet.",
+  "{b.schlecht} Ich hätte gedacht, dass Sie ihn besser verstehen. Er wird es nicht vergessen."
+ ],
+ "pool.verhandlung_klausel.x.x1": [
+  "Das Gespräch endet sachlich, und der Berater will die Klausel in Ruhe prüfen. {entscheidung}",
+  "Beide Seiten legen ohne Groll auf. {entscheidung}"
+ ],
+ "pool.verhandlung_klausel.x.x2": [
+  "{entscheidung} Die Klausel bleibt ungeklärt, doch beide Seiten wollen weiterreden.",
+  "{entscheidung} Zeitpunkt und Ablöse sind noch offen, die nächste Runde folgt."
+ ],
+ "pool.verhandlung_klausel.x.x3": [
+  "{entscheidung} Der Berater tobt am Hörer, und kurz darauf kursieren Gerüchte über einen Wechsel.",
+  "{entscheidung} Er legt wütend auf und lässt durchblicken, dass sein Mandant gehen will."
+ ],
+ "pool.verhandlung_klausel.x.x4": [
+  "Man einigt sich auf eine Klausel mit klaren Grenzen. {entscheidung} Die Formulierung wird vorbereitet.",
+  "Der Berater stimmt zu und notiert die Eckdaten. {entscheidung} Der Vertrag wird angepasst."
+ ],
+ "pool.verhandlung_klausel.x.x5": [
+  "Der Berater bricht das Gespräch ab und kündigt an, einen anderen Weg zu suchen. {entscheidung}",
+  "Die Leitung wird still, mehr gibt es nicht zu sagen. {entscheidung}"
+ ]
+}

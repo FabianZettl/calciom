@@ -1,0 +1,966 @@
+{
+ "titel_sieg": {
+  "teile": [
+   [
+    "{w} schlägt {l}",
+    "{w} bezwingt {l}",
+    "{w} gewinnt gegen {l}",
+    "{w} setzt sich gegen {l} durch",
+    "Verdient: {w} besiegt {l}",
+    "{w} lässt {l} keine Chance",
+    "Klare Sache: {w} gegen {l}",
+    "{w} nimmt gegen {l} die Punkte mit"
+   ],
+   [
+    "{sc}{wo}",
+    "mit {sc}{wo}",
+    "am Ende {sc}{wo}",
+    "– {sc}{wo}",
+    "nach {sc}{wo}"
+   ],
+   [
+    "",
+    "",
+    "",
+    "und bleibt im Rennen",
+    "und sammelt wichtige Punkte",
+    "und bestätigt die Form",
+    "ohne große Mühe",
+    "nach starker Vorstellung"
+   ]
+  ]
+ },
+ "titel_sieg_knapp": {
+  "teile": [
+   [
+    "Zittersieg: {w} gewinnt gegen {l}",
+    "{w} rettet einen knappen Sieg gegen {l}",
+    "Dreckiger Sieg: {w} schlägt {l}",
+    "{w} müht sich gegen {l} zum Erfolg",
+    "Hauchdünn: {w} setzt sich gegen {l} durch",
+    "Mit Mühe: {w} behält gegen {l} die Oberhand",
+    "Arbeitssieg für {w} gegen {l}",
+    "{w} stolpert nicht und schlägt {l}"
+   ],
+   [
+    "{sc}{wo}",
+    "mit {sc}{wo}",
+    "am Ende {sc}{wo}",
+    "nur {sc}{wo}",
+    "knapp {sc}{wo}"
+   ],
+   [
+    "",
+    "",
+    "",
+    "und zittert sich ins Ziel",
+    "dank einer starken Schlussphase",
+    "nach hartem Kampf",
+    "und darf aufatmen",
+    "mit etwas Glück"
+   ]
+  ]
+ },
+ "titel_ueberraschung": {
+  "teile": [
+   [
+    "Überraschung: Außenseiter {w} schlägt {l}",
+    "Pokalfieber im Liga-Alltag: {w} ärgert Favorit {l}",
+    "Sensation fast: {w} wirft Favorit {l} aus dem Konzept",
+    "{w} stellt die Ordnung auf den Kopf und schlägt {l}",
+    "Underdog {w} sorgt für Aufsehen gegen {l}",
+    "Niemand hatte {w} gegen {l} auf dem Zettel",
+    "Großer Tag für {w}: Sieg gegen {l}",
+    "{w} entzaubert {l}"
+   ],
+   [
+    "{sc}{wo}",
+    "mit {sc}{wo}",
+    "am Ende {sc}{wo}",
+    "nach {sc}{wo}"
+   ],
+   [
+    "",
+    "",
+    "und feiert einen Sieg für die Ewigkeit",
+    "und zerstört alle Vorhersagen",
+    "gegen alle Erwartungen",
+    "und lässt die Tribünen jubeln",
+    "und alle reden darüber",
+    "und die Folgen sind noch nicht absehbar"
+   ]
+  ]
+ },
+ "titel_blamage": {
+  "teile": [
+   [
+    "Blamage für Favorit {l}: {w} gewinnt",
+    "{l} stolpert gegen {w}",
+    "Bitterer Nachmittag für {l}: {w} nimmt die Punkte mit",
+    "{l} patzt gegen {w}",
+    "Schwache Vorstellung von {l} gegen {w}",
+    "Der Favorit {l} geht gegen {w} unter",
+    "{l} verliert gegen den Außenseiter {w}",
+    "Peinlich für {l}: {w} gewinnt"
+   ],
+   [
+    "{sc}{wo}",
+    "mit {sc}{wo}",
+    "am Ende {sc}{wo}",
+    "nach {sc}{wo}"
+   ],
+   [
+    "",
+    "",
+    "und muss sich Fragen gefallen lassen",
+    "und kassiert einen Dämpfer",
+    "und verspielt wichtige Punkte",
+    "und die Kritik wird laut",
+    "und alle reden darüber",
+    "und die Folgen sind noch nicht absehbar"
+   ]
+  ]
+ },
+ "titel_nl": {
+  "teile": [
+   [
+    "{l} verliert gegen {w}",
+    "Pleite für {l}: {w} gewinnt",
+    "{l} muss sich {w} geschlagen geben",
+    "{w} ist für {l} eine Nummer zu groß",
+    "Niederlage für {l} gegen {w}",
+    "{l} geht gegen {w} leer aus",
+    "Nichts zu holen für {l} bei {w}",
+    "{w} entscheidet das Spiel gegen {l} für sich"
+   ],
+   [
+    "{sc}{wo}",
+    "mit {sc}{wo}",
+    "am Ende {sc}{wo}",
+    "nach {sc}{wo}"
+   ],
+   [
+    "",
+    "",
+    "",
+    "und bleibt ohne Punkte",
+    "und kommt nicht in Tritt",
+    "und hadert mit der Chancenverwertung",
+    "und muss das abhaken"
+   ]
+  ]
+ },
+ "titel_nl_knapp": {
+  "teile": [
+   [
+    "Bitter für {l}: {w} gewinnt knapp",
+    "{l} unterliegt {w} denkbar knapp",
+    "Knapp vorbei: {l} verliert gegen {w}",
+    "{l} verpasst gegen {w} den Punkt",
+    "{w} gewinnt das enge Spiel gegen {l}",
+    "Ein Tor entscheidet: {w} schlägt {l}",
+    "{l} hätte gegen {w} mehr verdient gehabt",
+    "Spät und bitter: {l} geht gegen {w} leer aus"
+   ],
+   [
+    "{sc}{wo}",
+    "mit {sc}{wo}",
+    "am Ende {sc}{wo}",
+    "nach {sc}{wo}"
+   ],
+   [
+    "",
+    "",
+    "und hadert mit dem Spielverlauf",
+    "und bleibt ohne Punkt",
+    "und ärgert sich über die vergebenen Chancen",
+    "nach engem Spiel",
+    "und alle reden darüber",
+    "und die Folgen sind noch nicht absehbar"
+   ]
+  ]
+ },
+ "titel_schuetzenfest": {
+  "teile": [
+   [
+    "Schützenfest: {w} schlägt {l}",
+    "{w} überrollt {l}",
+    "{w} schießt {l} ab",
+    "Torreigen: {w} fertigt {l} ab",
+    "Tore, Tore, Tore: {w} deklassiert {l}",
+    "{w} lässt {l} keine Chance",
+    "{w} zerlegt {l}",
+    "Einbahnstraße: {w} gegen {l}"
+   ],
+   [
+    "{sc}{wo}",
+    "mit {sc}{wo}",
+    "am Ende {sc}{wo}",
+    "nach {sc}{wo}"
+   ],
+   [
+    "",
+    "",
+    "und feiert eine Gala",
+    "und lässt die Fans jubeln",
+    "in beeindruckender Manier",
+    "und setzt ein Ausrufezeichen",
+    "und es hätte noch höher ausgehen können",
+    "und die Statistik staunt"
+   ]
+  ]
+ },
+ "titel_debakel": {
+  "teile": [
+   [
+    "Debakel für {l}: {w} gewinnt",
+    "Schwarzer Tag für {l}: {w} siegt",
+    "{l} geht gegen {w} unter",
+    "Lehrstunde für {l}: {w} dominiert",
+    "Nichts geht bei {l}: {w} gewinnt",
+    "Desaster: {l} wird von {w} vorgeführt",
+    "{l} erlebt gegen {w} einen rabenschwarzen Tag",
+    "{w} schickt {l} mit einer Packung nach Hause"
+   ],
+   [
+    "{sc}{wo}",
+    "mit {sc}{wo}",
+    "am Ende {sc}{wo}",
+    "nach {sc}{wo}"
+   ],
+   [
+    "",
+    "",
+    "und die Kritik wird laut",
+    "und der Trainer steht im Fokus",
+    "und alle Fragen bleiben offen",
+    "und das Stadion leert sich früh",
+    "und alle reden darüber",
+    "und die Folgen sind noch nicht absehbar"
+   ]
+  ]
+ },
+ "titel_rekord": {
+  "teile": [
+   [
+    "Torfestival: {w} schlägt {l}",
+    "Fast zweistellig: {w} gewinnt gegen {l}",
+    "Ein Ergebnis für die Geschichtsbücher: {w} gegen {l}",
+    "Wahnsinn: {w} und {l} liefern ein Spektakel",
+    "So etwas sieht man selten: {w} gegen {l}",
+    "Torrekord: {w} fertigt {l} ab",
+    "{w} schreibt Geschichte gegen {l}"
+   ],
+   [
+    "{sc}{wo}",
+    "mit {sc}{wo}",
+    "am Ende {sc}{wo}",
+    "nach {sc}{wo}"
+   ],
+   [
+    "",
+    "",
+    "und das Stadion kann es kaum fassen",
+    "und die Statistiker kommen ins Schwitzen",
+    "ein Abend, den niemand vergisst",
+    "mit {gm} Treffern allein für den Sieger",
+    "und es hätte noch höher ausgehen können",
+    "und die Statistik staunt"
+   ]
+  ]
+ },
+ "titel_remis_tore": {
+  "teile": [
+   [
+    "Spektakel ohne Sieger: {a} und {b} trennen sich",
+    "Torreiches Remis: {a} gegen {b}",
+    "{a} und {b} liefern sich ein offenes Duell",
+    "Achterbahn der Gefühle: {a} gegen {b}",
+    "Hin und her: {a} und {b} teilen die Punkte",
+    "Viele Tore, ein Punkt für jeden: {a} gegen {b}",
+    "Wechselbad: {a} und {b} trennen sich"
+   ],
+   [
+    "{sc}",
+    "mit {sc}",
+    "unentschieden {sc}"
+   ],
+   [
+    "",
+    "",
+    "und sind beide nur halb zufrieden",
+    "nach wilder Partie",
+    "in einem unterhaltsamen Spiel",
+    "und die Zuschauer kommen auf ihre Kosten"
+   ],
+   [
+    "",
+    "",
+    "und keiner kann damit wirklich leben",
+    "nach einem Spiel mit vielen Wendungen",
+    "und beide Fanlager singen weiter",
+    "mit einem späten Ausgleich im Hinterkopf"
+   ]
+  ]
+ },
+ "titel_remis_0": {
+  "teile": [
+   [
+    "Nullnummer: {a} und {b} trennen sich torlos",
+    "Langeweile pur: {a} gegen {b} ohne Tore",
+    "Torlos: {a} und {b} neutralisieren sich",
+    "Kein Treffer, kein Sieger: {a} gegen {b}",
+    "{a} und {b} bleiben ohne Torerfolg",
+    "Abwehrschlacht: {a} gegen {b} endet ohne Tor",
+    "Zu wenig Mut: {a} und {b} teilen die Punkte",
+    "Beide Abwehrreihen halten: {a} und {b} bleiben torlos",
+    "Defensive vor Offensive: {a} gegen {b} endet ohne Treffer"
+   ],
+   [
+    "",
+    "",
+    "nach zäher Partie",
+    "in einem Spiel ohne Höhepunkte",
+    "und die Zuschauer gähnen",
+    "und beide Torhüter bleiben unbezwungen"
+   ],
+   [
+    "",
+    "",
+    "in einem Spiel mit viel Kampf, aber wenig Glanz",
+    "bei dem beide Seiten Respekt voreinander hatten",
+    "und die Torhüter hatten kaum Arbeit",
+    "und niemand wollte ins Risiko gehen"
+   ]
+  ]
+ },
+ "titel_remis_fav": {
+  "teile": [
+   [
+    "Punktverlust für den Favoriten: {a} und {b} trennen sich",
+    "Dämpfer für den Favoriten: {a} gegen {b}",
+    "Mehr war nicht drin: {a} und {b} teilen die Punkte",
+    "{a} und {b} trennen sich, der Favorit hadert",
+    "Favorit zu harmlos: {a} gegen {b}",
+    "Zwei Punkte liegengelassen: {a} gegen {b}"
+   ],
+   [
+    "{sc}",
+    "mit {sc}",
+    "unentschieden {sc}"
+   ],
+   [
+    "",
+    "",
+    "und der Trainer ist nicht zufrieden",
+    "und das Aufbäumen kam zu spät",
+    "und die Fans pfeifen leise"
+   ],
+   [
+    "",
+    "",
+    "und keiner kann damit wirklich leben",
+    "nach einem Spiel mit vielen Wendungen",
+    "und beide Fanlager singen weiter",
+    "mit einem späten Ausgleich im Hinterkopf"
+   ]
+  ]
+ },
+ "titel_remis_aussenseiter": {
+  "teile": [
+   [
+    "Teilerfolg für den Außenseiter: {a} und {b} trennen sich",
+    "Ein Punkt, der gut tut: {a} gegen {b}",
+    "Der Underdog hält mit: {a} und {b} trennen sich",
+    "Respektables Remis für den Außenseiter: {a} gegen {b}",
+    "Kampf wird belohnt: {a} und {b} teilen die Punkte",
+    "Der Außenseiter ärgert den Favoriten: {a} gegen {b}"
+   ],
+   [
+    "{sc}",
+    "mit {sc}",
+    "unentschieden {sc}"
+   ],
+   [
+    "",
+    "",
+    "und feiert den Punkt wie einen Sieg",
+    "und sammelt Selbstvertrauen",
+    "und mehr war nicht zu erwarten"
+   ],
+   [
+    "",
+    "",
+    "und keiner kann damit wirklich leben",
+    "nach einem Spiel mit vielen Wendungen",
+    "und beide Fanlager singen weiter",
+    "mit einem späten Ausgleich im Hinterkopf"
+   ]
+  ]
+ },
+ "titel_elfer_sieg": {
+  "teile": [
+   [
+    "Nervenstark: {w} gewinnt das Elfmeterschießen gegen {l}",
+    "Vom Punkt entschieden: {w} setzt sich gegen {l} durch",
+    "{w} behält im Elfmeterschießen die Nerven gegen {l}",
+    "Krimi vom Punkt: {w} schlägt {l}",
+    "Elfmeterschießen: {w} jubelt, {l} verzweifelt",
+    "{w} kommt gegen {l} im Elfmeterschießen weiter"
+   ],
+   [
+    "",
+    "",
+    "nach {hs}",
+    "nach hartem Kampf",
+    "und feiert das Weiterkommen"
+   ],
+   [
+    "",
+    "",
+    "ein Krimi bis zum letzten Schuss",
+    "nach einem Nervenkrimi",
+    "und der Torhüter wird zum Helden",
+    "in einer Atmosphäre zum Zerreißen"
+   ]
+  ]
+ },
+ "titel_elfer_nl": {
+  "teile": [
+   [
+    "Elfmeter-Drama: {l} scheitert vom Punkt an {w}",
+    "Bitterer Abend: {l} verliert im Elfmeterschießen gegen {w}",
+    "{l} verschießt und {w} jubelt",
+    "Vom Punkt gescheitert: {l} gegen {w}",
+    "Tränen nach dem Elfmeterschießen: {l} scheidet gegen {w} aus",
+    "{l} verliert die Nerven gegen {w}"
+   ],
+   [
+    "",
+    "",
+    "nach {hs}",
+    "nach hartem Kampf",
+    "und scheidet aus"
+   ],
+   [
+    "",
+    "",
+    "ein Krimi bis zum letzten Schuss",
+    "nach einem Nervenkrimi",
+    "und der Torhüter des Gegners wird zum Helden",
+    "in einer Atmosphäre zum Zerreißen"
+   ]
+  ]
+ },
+ "titel_derby_sieg": {
+  "teile": [
+   [
+    "Derbysieg! {w} gewinnt das Stadtduell gegen {l}",
+    "{w} gewinnt das Derby gegen Rivale {l}",
+    "Derby-Held: {w} schlägt {l}",
+    "{w} entscheidet das Derby gegen {l} für sich",
+    "Bragging Rights für {w}: Sieg im Derby gegen {l}",
+    "Mit Leidenschaft zum Derbysieg: {w} gegen {l}",
+    "Jubel in der Kurve: {w} gewinnt das Derby gegen {l}",
+    "{w} behält im Derby die Oberhand gegen {l}"
+   ],
+   [
+    "{sc}{wo}",
+    "mit {sc}{wo}",
+    "am Ende {sc}{wo}",
+    "nach {sc}{wo}"
+   ],
+   [
+    "",
+    "",
+    "und die Kurve tobt",
+    "und der Rivale schweigt",
+    "und die ganze Stadt feiert",
+    "in einem hitzigen Duell",
+    "und alle reden darüber",
+    "und die Folgen sind noch nicht absehbar"
+   ]
+  ]
+ },
+ "titel_derby_remis": {
+  "teile": [
+   [
+    "Derby ohne Sieger: {a} und {b} trennen sich",
+    "Punkteteilung im Derby: {a} gegen {b}",
+    "Heiß, aber ohne Sieger: das Derby {a} gegen {b}",
+    "{a} und {b} liefern sich ein umkämpftes Derby",
+    "Derby bleibt unentschieden: {a} gegen {b}",
+    "Keiner gibt nach: {a} und {b} trennen sich im Derby"
+   ],
+   [
+    "{sc}",
+    "mit {sc}",
+    "unentschieden {sc}"
+   ],
+   [
+    "",
+    "",
+    "und beide Lager streiten über den Sieger",
+    "und der Schiedsrichter hatte viel zu tun",
+    "nach hitzigem Duell"
+   ],
+   [
+    "",
+    "",
+    "und keiner kann damit wirklich leben",
+    "nach einem Spiel mit vielen Wendungen",
+    "und beide Fanlager singen weiter",
+    "mit einem späten Ausgleich im Hinterkopf"
+   ]
+  ]
+ },
+ "klasse_gross": {
+  "teile": [
+   [
+    "eine Klasse besser",
+    "deutlich stärker besetzt",
+    "in fast allen Mannschaftsteilen überlegen",
+    "der klare Favorit",
+    "individuell klar besser",
+    "in der Spitze wie in der Breite überlegen",
+    "dem Gegner qualitativ weit voraus"
+   ]
+  ]
+ },
+ "klasse_mittel": {
+  "teile": [
+   [
+    "spürbar stärker besetzt",
+    "etwas besser besetzt",
+    "der leichte Favorit",
+    "in der Qualität im Vorteil",
+    "insgesamt die bessere Mannschaft",
+    "auf dem Papier vorne",
+    "im Aufgebot ein Stück weiter"
+   ]
+  ]
+ },
+ "klasse_klein": {
+  "teile": [
+   [
+    "ein wenig stärker",
+    "minimal besser besetzt",
+    "knapp im Vorteil",
+    "auf dem Papier leicht vorn",
+    "nur hauchdünn überlegen",
+    "ganz knapp der Favorit"
+   ]
+  ]
+ },
+ "r_sieg_erwartet": {
+  "teile": [
+   [
+    "{w} wird seiner Favoritenrolle gerecht.",
+    "{w} lässt gegen {l} nichts anbrennen.",
+    "Der Sieg von {w} gegen {l} geht in Ordnung.",
+    "{w} setzt sich gegen {l} verdient durch.",
+    "Am Ende steht ein erwarteter Erfolg für {w}.",
+    "{w} macht gegen {l}, was man von einem Favoriten erwartet.",
+    "Kein Ausrutscher: {w} gewinnt gegen {l}.",
+    "{w} hat gegen {l} die besseren Argumente.",
+    "{w} bringt das Spiel gegen {l} routiniert nach Hause."
+   ],
+   [
+    "{w} war {kl}.",
+    "Der Kader gab den Ausschlag, {w} war {kl}.",
+    "Über die Spielzeit gesehen war {w} {kl}.",
+    "Man sah, dass {w} {kl} war.",
+    "{w} war {kl}, und das zeigte sich.",
+    "Auf dem Platz bestätigte sich: {w} war {kl}.",
+    "Vor allem in der Qualität lag {w} vorn, die Mannschaft war {kl}."
+   ],
+   [
+    "",
+    "",
+    "Eine Überraschung blieb aus.",
+    "{l} hielt dagegen, mehr war nicht drin.",
+    "Für {l} war an diesem Tag zu wenig dabei.",
+    "So hatte man es vorher erwartet.",
+    "Spannung kam nur in Phasen auf."
+   ]
+  ]
+ },
+ "r_sieg_ausgeglichen": {
+  "teile": [
+   [
+    "{w} gewinnt ein ausgeglichenes Spiel gegen {l}.",
+    "Zwischen {w} und {l} war vorher alles offen, am Ende hat {w} die Nase vorn.",
+    "{w} entscheidet ein enges Duell mit {l} für sich.",
+    "Kaum ein Unterschied zwischen beiden Mannschaften, doch {w} nimmt die Punkte mit.",
+    "{w} und {l} begegnen sich auf Augenhöhe, den Sieg holt {w}.",
+    "{w} gewinnt gegen {l}, obwohl die Papierform keinen klaren Sieger vorgab."
+   ],
+   [
+    "Am Ende entscheiden Kleinigkeiten.",
+    "Ein Moment der Konzentration gibt den Ausschlag.",
+    "Die Effizienz vor dem Tor war der Unterschied.",
+    "Im entscheidenden Moment war {w} wacher.",
+    "Es war eine Frage der Tagesform.",
+    "Die besseren Nerven hatte {w}."
+   ],
+   [
+    "",
+    "",
+    "{l} kann sich über die Niederlage ärgern.",
+    "Ein Remis wäre nicht ungerecht gewesen.",
+    "Für {l} war mehr drin."
+   ],
+   [
+    "",
+    "",
+    "Das Ergebnis hätte auch anders ausfallen können.",
+    "Das Ergebnis täuscht über ein enges Spiel hinweg.",
+    "Der Unterschied war am Ende minimal."
+   ]
+  ]
+ },
+ "r_ueberraschung": {
+  "teile": [
+   [
+    "Überraschung: {w} schlägt den Favoriten {l}.",
+    "Große Überraschung: {w} nimmt dem Favoriten {l} die Punkte ab.",
+    "{w} sorgt für eine Überraschung und besiegt {l}.",
+    "Niemand hatte {w} gegen {l} vorne gesehen, doch es kommt anders.",
+    "Der Außenseiter {w} entzaubert {l}.",
+    "{w} ärgert den Favoriten {l} und gewinnt."
+   ],
+   [
+    "So etwas passiert im Fußball: Tagesform und ein Quäntchen Glück.",
+    "Solche Spiele gibt es immer wieder, die Papierform ist nicht alles.",
+    "Kampfgeist und ein effektiver Nachmittag machen den Unterschied.",
+    "Mit Leidenschaft und Entschlossenheit nutzt {w} seine Chancen.",
+    "Die bessere Mannschaft gewinnt nicht immer, und heute zeigt sich das."
+   ],
+   [
+    "",
+    "",
+    "{l} fand nie ins Spiel.",
+    "Für {l} ist das ein herber Rückschlag.",
+    "Für {w} ein Erfolg, der lange nachwirken dürfte."
+   ],
+   [
+    "",
+    "",
+    "Der Trainer des Favoriten hat Gesprächsbedarf.",
+    "Der Jubel auf der anderen Seite kannte keine Grenzen.",
+    "Das ist die Geschichte, die der Fußball immer wieder schreibt."
+   ]
+  ]
+ },
+ "r_remis_gleich": {
+  "teile": [
+   [
+    "Remis: {a} und {b} begegnen sich auf Augenhöhe.",
+    "Unentschieden zwischen {a} und {b}, keiner war am Ende der klar Bessere.",
+    "{a} und {b} trennen sich, die Punkteteilung ist leistungsgerecht.",
+    "Keine Mannschaft setzt sich durch: {a} gegen {b} endet unentschieden.",
+    "Ein Punkt für jeden: {a} und {b} neutralisieren sich."
+   ],
+   [
+    "Ein Unentschieden war bei dieser Paarung ein normaler Ausgang.",
+    "Mit dem Ergebnis können beide leben.",
+    "Die Punkteteilung geht in Ordnung.",
+    "Beide Seiten hatten ihre Phasen.",
+    "Mehr war für beide nicht drin."
+   ],
+   [
+    "",
+    "",
+    "Wirklich zufrieden ist keiner.",
+    "Das Spiel hätte auf beide Seiten kippen können."
+   ],
+   [
+    "",
+    "",
+    "Wer den Sieg verdient gehabt hätte, ist schwer zu sagen.",
+    "Das Spiel hätte auf beide Seiten kippen können.",
+    "Mit dem Punkt kann man im Tabellenbild leben."
+   ]
+  ]
+ },
+ "r_remis_fav": {
+  "teile": [
+   [
+    "Remis: {fav} lässt gegen {dog} Punkte liegen.",
+    "{fav} kommt gegen {dog} nicht über ein Unentschieden hinaus.",
+    "Der Favorit {fav} tut sich schwer und trennt sich von {dog} unentschieden.",
+    "Ein Punkt für {dog}: {fav} bleibt unter den Erwartungen."
+   ],
+   [
+    "{fav} war {kl}, doch das reichte nicht.",
+    "Auf dem Papier war {fav} {kl}, auf dem Platz sah man das nur selten.",
+    "Obwohl {fav} {kl} war, fehlte die Durchschlagskraft.",
+    "Trotz der besseren Besetzung kam {fav} nicht vorbei."
+   ],
+   [
+    "",
+    "",
+    "Für {dog} ist es ein Teilerfolg.",
+    "{dog} verteidigt leidenschaftlich.",
+    "Für {fav} ist das zu wenig."
+   ],
+   [
+    "",
+    "",
+    "Der Favorit muss sich fragen lassen, woran es lag.",
+    "Mit etwas mehr Zielstrebigkeit wäre der Sieg drin gewesen.",
+    "Der Außenseiter nimmt den Punkt gern mit."
+   ]
+  ]
+ },
+ "r_remis_torlos": {
+  "teile": [
+   [
+    "Torloses Remis: {a} und {b} neutralisieren sich.",
+    "Keine Tore zwischen {a} und {b}.",
+    "{a} und {b} trennen sich ohne Treffer.",
+    "Nullnummer zwischen {a} und {b}."
+   ],
+   [
+    "Beide Abwehrreihen standen sicher.",
+    "Es fehlten Mut und Genauigkeit im letzten Drittel.",
+    "Die Defensiven waren dominant.",
+    "Hochkarätige Chancen blieben selten.",
+    "Beide Mannschaften hatten mehr Respekt als Ideen."
+   ],
+   [
+    "",
+    "",
+    "Wenig Grund zur Beschwerde.",
+    "Ein Zähler, der keinem richtig hilft."
+   ],
+   [
+    "",
+    "",
+    "Für die Zuschauer war es keine Werbung für den Fußball.",
+    "Die Fans hätten sich mehr Torraumszenen gewünscht.",
+    "Auf beiden Seiten ist der Punkt verkraftbar."
+   ]
+  ]
+ },
+ "r_elfer": {
+  "teile": [
+   [
+    "Nach Verlängerung nicht entschieden: {w} gewinnt das Elfmeterschießen {p1}:{p2}.",
+    "{w} setzt sich nach 120 Minuten im Elfmeterschießen {p1}:{p2} durch.",
+    "Vom Punkt fällt die Entscheidung: {w} gewinnt {p1}:{p2} gegen {l}.",
+    "Elfmeterschießen {p1}:{p2}: {w} behält die Nerven."
+   ],
+   [
+    "Eine Nervensache, bei der die Klasse kaum zählt.",
+    "Im Elfmeterschießen zählt allein, wer die Nerven behält.",
+    "Eine Lotterie, die den Mutigeren belohnt.",
+    "Am Punkt entscheiden Mut und ein Quäntchen Glück."
+   ],
+   [
+    "",
+    "",
+    "{l} bleibt am Ende nur das Hadern.",
+    "Der Jubel kennt keine Grenzen."
+   ],
+   [
+    "",
+    "",
+    "Für die Statistik zählt es als Remis.",
+    "Der Trainer lobte die Moral danach.",
+    "Solche Abende bleiben im Gedächtnis."
+   ]
+  ]
+ },
+ "z_heim": {
+  "teile": [
+   [
+    "Der Heimvorteil und die Kulisse trugen dazu bei.",
+    "Das Publikum trug die Mannschaft.",
+    "Vor eigenen Fans lief es besser als zuletzt.",
+    "Die Kulisse gab Schub.",
+    "Im eigenen Stadion fühlte sich {w} sichtbar wohl."
+   ]
+  ]
+ },
+ "z_auswaerts": {
+  "teile": [
+   [
+    "Die Punkte nimmt {w} auswärts mit.",
+    "Ein wertvoller Auswärtserfolg für {w}.",
+    "{w} lässt sich von der Kulisse nicht beeindrucken.",
+    "Auswärts bleibt {w} cool.",
+    "Der Erfolg in der Fremde tut {w} gut."
+   ]
+  ]
+ },
+ "z_hoch": {
+  "teile": [
+   [
+    "Der Sieg fiel in der Höhe verdient aus.",
+    "Die Tordifferenz spiegelt den Spielverlauf wider.",
+    "Am Ende wurde es deutlich.",
+    "Ab der Pause war es eine einseitige Sache.",
+    "Der Gegner brach nach dem zweiten Gegentor auseinander."
+   ]
+  ]
+ },
+ "z_ausfall_1": {
+  "teile": [
+   [
+    "Bei {t} fehlte {n}.",
+    "{t} musste auf {n} verzichten.",
+    "{t} ohne {n} angetreten.",
+    "Der Ausfall von {n} schmerzte {t}."
+   ]
+  ]
+ },
+ "z_ausfall_n": {
+  "teile": [
+   [
+    "Bei {t} fehlten {n}.",
+    "{t} musste auf {n} verzichten.",
+    "{t} ohne {n} angetreten.",
+    "Die Ausfälle von {n} schmerzten {t}."
+   ]
+  ]
+ },
+ "z_tor_1": {
+  "teile": [
+   [
+    "{n} erzielte das entscheidende Tor in der {m}. Minute.",
+    "Den Unterschied machte {n} mit seinem Treffer in der {m}. Minute.",
+    "In der {m}. Minute traf {n} zum Sieg.",
+    "{n} sorgte in der {m}. Minute für die Entscheidung."
+   ]
+  ]
+ },
+ "z_tor_2": {
+  "teile": [
+   [
+    "{n} traf doppelt.",
+    "Doppelpack durch {n}.",
+    "Zwei Tore von {n} machten den Unterschied.",
+    "{n} war der Mann des Tages mit zwei Treffern."
+   ]
+  ]
+ },
+ "z_tor_3": {
+  "teile": [
+   [
+    "{n} traf dreifach.",
+    "Dreierpack durch {n}.",
+    "Drei Tore von {n}: ein Auftritt mit Ansage.",
+    "Hattrick für {n}."
+   ]
+  ]
+ },
+ "body_intro": {
+  "teile": [
+   [
+    "{h} {sc} {a}.",
+    "Endstand {sc}: {h} gegen {a}.",
+    "{h} gegen {a}, am Ende steht es {sc}.",
+    "Das Spiel {h} gegen {a} endet {sc}.",
+    "Auf der Anzeigetafel steht {sc}: {h} gegen {a}.",
+    "{h} empfängt {a}, Endstand {sc}."
+   ]
+  ]
+ },
+ "body_tore": {
+  "teile": [
+   [
+    "Die Tore: {tore}.",
+    "Getroffen haben: {tore}.",
+    "Torschützen: {tore}.",
+    "Die Treffer erzielten {tore}.",
+    "Zum Spielverlauf: {tore}."
+   ]
+  ]
+ },
+ "body_star": {
+  "teile": [
+   [
+    "Bester Mann war {star} (Note {note}).",
+    "Herausragend: {star} mit der Note {note}.",
+    "Als bester Spieler wurde {star} gewertet ({note}).",
+    "Den besten Eindruck hinterließ {star} (Note {note}).",
+    "Auffälligster Akteur: {star} (Note {note})."
+   ]
+  ]
+ },
+ "body_derby": {
+  "teile": [
+   [
+    "Es war ein Derby, die Emotionen kochten.",
+    "Das Stadtduell lebte von seiner Intensität.",
+    "Der Rivale gegenüber machte das Spiel besonders brisant.",
+    "Derbys haben ihre eigenen Gesetze."
+   ]
+  ]
+ },
+ "body_serie_s": {
+  "teile": [
+   [
+    "Das ist der {n}. Sieg in Folge.",
+    "Die Serie hält: {n} Siege hintereinander.",
+    "Damit sind es {n} Siege in Serie."
+   ]
+  ]
+ },
+ "body_serie_n": {
+  "teile": [
+   [
+    "Die {n}. Niederlage in Folge erhöht den Druck.",
+    "Die Serie reißt nicht ab: {n} Pleiten in Folge.",
+    "Nach {n} Niederlagen am Stück wird es ungemütlich."
+   ]
+  ]
+ },
+ "body_serie_u": {
+  "teile": [
+   [
+    "Damit ist die Mannschaft {n} Spiele ungeschlagen.",
+    "{n} Spiele ohne Niederlage: die Serie hält.",
+    "Seit {n} Partien hat man nicht mehr verloren."
+   ]
+  ]
+ },
+ "body_tabelle": {
+  "teile": [
+   [
+    "In der Tabelle steht {club} jetzt auf Platz {pos}.",
+    "Tabellenplatz {pos} für {club}.",
+    "Das reicht für Rang {pos} in der Tabelle.",
+    "{club} liegt damit auf Platz {pos}."
+   ]
+  ]
+ },
+ "body_intro_remis": {
+  "teile": [
+   [
+    "{h} und {a} trennen sich {sc}.",
+    "Endstand {sc}: {h} gegen {a}.",
+    "Das Spiel {h} gegen {a} endet {sc}.",
+    "Unentschieden {sc} zwischen {h} und {a}.",
+    "Auf der Anzeigetafel steht {sc}: {h} gegen {a}."
+   ]
+  ]
+ },
+ "bericht_grund": {
+  "teile": [
+   [
+    "Grundlage ist der Endstand {sc} (Heimmannschaft zuerst) und der Spielverlauf.",
+    "Der Bericht fußt auf dem Endstand {sc} (Heim zuerst) und dem Verlauf der Partie.",
+    "Eingeordnet nach Endstand {sc} (Heim zuerst) und Spielverlauf.",
+    "Maßgeblich sind der Endstand {sc} (Heimmannschaft zuerst) und das, was auf dem Platz geschah."
+   ],
+   [
+    "Es war ein {art}.",
+    "Die Partie war ein {art}.",
+    "Gewertet wird das {art} nach der Klasse beider Mannschaften.",
+    "Eingeordnet wird es als {art}, gemessen an der Klasse der Gegner."
+   ]
+  ]
+ }
+}

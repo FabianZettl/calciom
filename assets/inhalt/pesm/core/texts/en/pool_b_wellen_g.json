@@ -1,0 +1,98 @@
+{
+ "pool.b.verhandlung_verlaengerung_lage": [
+  "Good day, coach, this is the agency of {name}. It is about the expiring contract.",
+  "Good day, coach, I am calling for {name}. We need to talk about the extension."
+ ],
+ "pool.b.verhandlung_verlaengerung_lage.hitzig": [
+  "My client {name} is tired of being kept waiting, and he rants in my ear every evening.",
+  "Coach, {name} is fuming, and I am supposed to settle the contract at last."
+ ],
+ "pool.b.verhandlung_verlaengerung_lage.loyal": [
+  "{name} feels attached to the club and asked me to settle the extension calmly and fairly.",
+  "Good day, coach. {name} wants to stay and told me not to rush anything."
+ ],
+ "pool.b.verhandlung_verlaengerung_lage.ehrgeizig": [
+  "{name} wants to know where the club is heading sportingly before he signs anything.",
+  "My client {name} thinks in trophies, not in months. That shapes the extension as well."
+ ],
+ "pool.b.verhandlung_verlaengerung_lage.wechselfreudig": [
+  "{name} has enquiries on the table, and I must tell him what is possible here.",
+  "Good day, coach, my client {name} is looking around, that is part of the business."
+ ],
+ "pool.b.verhandlung_verlaengerung_lage.sensibel": [
+  "{name} longs for appreciation, and the contract weighs on him more than he shows.",
+  "Coach, my client {name} takes the extension more personally than one would think."
+ ],
+ "pool.b.verhandlung_gehalt_lage": [
+  "Coach, this is the agency of {name} on the line. We need to talk about money.",
+  "This is {name}'s agent speaking. It is about the level of the salary."
+ ],
+ "pool.b.verhandlung_gehalt_lage.hitzig": [
+  "{name} fumes when he looks at his payslip, and I am supposed to iron it out.",
+  "Coach, my client is up in arms over his pay, and I understand him."
+ ],
+ "pool.b.verhandlung_gehalt_lage.loyal": [
+  "{name} dislikes talking about money, so I do it for him, and politely.",
+  "My client loves this club, and that is exactly why he wishes for fair pay."
+ ],
+ "pool.b.verhandlung_gehalt_lage.ehrgeizig": [
+  "{name} measures himself against the best, also in pay, and that is not vanity but ambition.",
+  "My client sees himself in the front row and wants the payslip to show it."
+ ],
+ "pool.b.verhandlung_gehalt_lage.wechselfreudig": [
+  "{name} knows his market value, and he knows other clubs would pay more.",
+  "My client has seen offers that are clearly higher. That belongs in this conversation."
+ ],
+ "pool.b.verhandlung_gehalt_lage.sensibel": [
+  "{name} feels undervalued in his pay and struggles to say so.",
+  "My client is hurt when he compares his pay with that of colleagues."
+ ],
+ "pool.b.verhandlung_rolle_lage": [
+  "Good day, coach, I am calling about the role of {name} in the squad. It belongs in the contract.",
+  "This is {name}'s agency. It is about his place in the team."
+ ],
+ "pool.b.verhandlung_rolle_lage.hitzig": [
+  "{name} is fed up with stewing on the bench, and I am supposed to get it in writing.",
+  "Coach, my client is raging about his playing time, and I want something in hand."
+ ],
+ "pool.b.verhandlung_rolle_lage.loyal": [
+  "{name} trusts you but asked me to put his place in the contract more clearly.",
+  "My client likes to stay but wants to know where he stands sportingly, and that should be settled calmly."
+ ],
+ "pool.b.verhandlung_rolle_lage.ehrgeizig": [
+  "{name} wants to be a regular, not a reserve, and for that I demand a word from you.",
+  "My client wants to be needed. A role in the background is out of the question for him."
+ ],
+ "pool.b.verhandlung_rolle_lage.wechselfreudig": [
+  "{name} has a first-team guarantee on the table elsewhere. Here I must show something similar.",
+  "My client can choose his role anywhere, and I want to know what you offer him."
+ ],
+ "pool.b.verhandlung_rolle_lage.sensibel": [
+  "{name} suffers from the uncertainty about his place, and it gnaws at his confidence.",
+  "My client needs clarity about where he belongs, otherwise he loses heart."
+ ],
+ "pool.b.verhandlung_klausel_lage": [
+  "Good day, coach, this is the agency of {name}. It is about a release clause in the contract.",
+  "I am calling for {name}. My client wishes for a clause for the worst case."
+ ],
+ "pool.b.verhandlung_klausel_lage.hitzig": [
+  "{name} will not be locked in, and without a clause you will not get him to the desk.",
+  "Coach, my client insists on a way out, and he tolerates no excuses."
+ ],
+ "pool.b.verhandlung_klausel_lage.loyal": [
+  "{name} would never want to leave the club, but out of caution he wants a clause secured.",
+  "My client stays out of conviction. The clause would only be a safety net, nothing more."
+ ],
+ "pool.b.verhandlung_klausel_lage.ehrgeizig": [
+  "{name} wants to keep the door to a top club open. For that he needs a fixed fee in the contract.",
+  "My client thinks of the next step, and the clause is the key to it."
+ ],
+ "pool.b.verhandlung_klausel_lage.wechselfreudig": [
+  "{name} lets nothing be blocked. A clause belongs in every contract he considers.",
+  "My client wants to be able to leave any time when something better comes."
+ ],
+ "pool.b.verhandlung_klausel_lage.sensibel": [
+  "{name} needs the feeling of not being trapped, and a clause would give him peace.",
+  "My client fears being stuck at the club and wants to know there is a way out."
+ ]
+}

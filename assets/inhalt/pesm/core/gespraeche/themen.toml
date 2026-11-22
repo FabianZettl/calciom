@@ -1,0 +1,373 @@
+# Themenmotor: Anlässe, mit denen Spieler und Leute aus dem Verein auf den Trainer zukommen.
+# Je Anlass: bereich (Partner), dialog (Thema des Gesprächsmotors, pakete.toml), quelle (woher die Daten stammen, nur zur Doku),
+# wenn (alle Bedingungen), haeufigkeit (Chance je Woche, fest je Woche/Partner), sperre_tage (Pause nach einem Gespräch zum Thema), dringend 1–3.
+# Bedingungen: moral<45 | form<=-1 | rest<=12 | alter>=30 | einsatz<0.3 | wechsel>=0.6 | sorge:form | rolle:star,fuehrungsspieler | merkmal:hitzkopf,launisch
+#              fuehrung>=0.65 (Charakterwert 0…1) | vorstand<45 | fans<40 | medien<45 | budget<=0 | kader_alt>=0.4 – Zahlen: <, <=, >, >=; ":" = eines aus der Liste.
+
+[[anlass]]
+id = "spielzeit"
+berechtigung = "spielzeit"
+bereich = "spieler"
+dialog = "spielzeit"
+quelle = "Entwicklung: Moraltreiber Spielzeit"
+wenn = ["sorge:spielzeit"]
+haeufigkeit = 0.8
+sperre_tage = 21
+dringend = 1
+[[anlass]]
+id = "rolle"
+berechtigung = "spielzeit"
+bereich = "spieler"
+dialog = "rolle"
+quelle = "Entwicklung: Moraltreiber Rolle"
+wenn = ["sorge:rolle"]
+haeufigkeit = 0.7
+sperre_tage = 28
+dringend = 1
+[[anlass]]
+id = "formtief"
+berechtigung = "form"
+bereich = "spieler"
+dialog = "form"
+quelle = "Entwicklung: Form und Moral"
+wenn = ["form<=-1", "moral<50"]
+haeufigkeit = 0.6
+sperre_tage = 21
+dringend = 1
+[[anlass]]
+id = "verletzungsangst"
+bereich = "spieler"
+dialog = "verletzungsangst"
+quelle = "Entwicklung: Verletzung und Überlastung"
+wenn = ["sorge:verletzt,ueberlastet"]
+haeufigkeit = 0.6
+sperre_tage = 30
+dringend = 1
+[[anlass]]
+id = "kabinenstreit"
+bereich = "spieler"
+dialog = "streit"
+quelle = "Entwicklung: offener Konflikt in der Kabine"
+wenn = ["sorge:streit,feinde"]
+haeufigkeit = 0.9
+sperre_tage = 21
+dringend = 2
+[[anlass]]
+id = "familie"
+bereich = "spieler"
+dialog = "heimweh"
+quelle = "Charakter und Moral: Heimweh junger oder sensibler Spieler"
+wenn = ["alter<=21", "moral<55"]
+haeufigkeit = 0.35
+sperre_tage = 60
+dringend = 1
+[[anlass]]
+id = "familie_sensibel"
+bereich = "spieler"
+dialog = "heimweh"
+quelle = "Merkmale: sensibel, emotional"
+wenn = ["merkmal:sensibel,emotional", "moral<50"]
+haeufigkeit = 0.35
+sperre_tage = 60
+dringend = 1
+[[anlass]]
+id = "perspektive"
+bereich = "spieler"
+dialog = "rolle"
+quelle = "Entwicklung: Jugendspieler mit Potenzial ohne Einsatz"
+wenn = ["alter<=21", "potenzial_luecke>=8", "einsatz<0.15"]
+haeufigkeit = 0.3
+sperre_tage = 60
+dringend = 0
+[[anlass]]
+id = "kapitaensbinde"
+bereich = "spieler"
+dialog = "kapitaen"
+quelle = "Hierarchie und Charakter: Führungsanspruch"
+wenn = ["rolle:fuehrungsspieler,star,kapitaen", "fuehrung>=0.65"]
+haeufigkeit = 0.25
+sperre_tage = 90
+dringend = 1
+[[anlass]]
+id = "wechselgedanken"
+berechtigung = "wechsel"
+bereich = "spieler"
+dialog = "wechselwunsch"
+quelle = "Entwicklung: Wechselbereitschaft"
+wenn = ["wechsel>=@wechsel.wunsch_ab"]     # Wechselbereitschaft 0–100; Schwelle wie beim Wechselwunsch der Entwicklung (entwicklung.toml [wechsel] wunsch_ab)
+haeufigkeit = 0.7
+sperre_tage = 30
+dringend = 2
+[[anlass]]
+id = "lob"
+bereich = "spieler"
+dialog = "lob"
+quelle = "Entwicklung: gute Form und Moral"
+wenn = ["moral>=65", "form>=1"]
+haeufigkeit = 0.3
+sperre_tage = 30
+dringend = 0
+[[anlass]]
+id = "kritik_nach_ausrutscher"
+bereich = "spieler"
+dialog = "kritik"
+quelle = "Merkmale: Provokateur, Lautsprecher, Exzentriker"
+wenn = ["merkmal:provokateur,lautsprecher,exzentrisch"]
+haeufigkeit = 0.2
+sperre_tage = 45
+dringend = 1
+[[anlass]]
+id = "training"
+bereich = "trainer"
+dialog = "training"
+quelle = "Entwicklung: überlastete Spieler im Kader"
+wenn = ["belastet>=2"]
+haeufigkeit = 0.5
+sperre_tage = 21
+dringend = 1
+[[anlass]]
+id = "budget"
+bereich = "vorstand"
+dialog = "vorstand_budget"
+quelle = "Vereinswelt: Transferbudget"
+wenn = ["budget<=0"]
+haeufigkeit = 0.6
+sperre_tage = 30
+dringend = 2
+[[anlass]]
+id = "ziele"
+bereich = "vorstand"
+dialog = "vorstand_ziele"
+quelle = "Story: Vertrauen des Präsidiums"
+wenn = ["vorstand<50"]
+haeufigkeit = 0.5
+sperre_tage = 45
+dringend = 1
+[[anlass]]
+id = "vertrauen_praesidium"
+bereich = "vorstand"
+dialog = "vorstand_vertrauen"
+quelle = "Story: Vertrauen des Präsidiums sehr niedrig"
+wenn = ["vorstand<35"]
+haeufigkeit = 0.8
+sperre_tage = 30
+dringend = 3
+[[anlass]]
+id = "kurve"
+bereich = "fans"
+dialog = "fans_stimmung"
+quelle = "Story: Fanstimmung"
+wenn = ["fans<40"]
+haeufigkeit = 0.6
+sperre_tage = 30
+dringend = 2
+[[anlass]]
+id = "presse_aussage"
+bereich = "presse"
+dialog = "interview"
+quelle = "Story und Medien: Bild des Vereins in der Presse"
+wenn = ["medien<45"]
+haeufigkeit = 0.5
+sperre_tage = 21
+dringend = 1
+
+[[anlass]]
+id = "gehalt"
+berechtigung = "gehalt"
+bereich = "spieler"
+modus = "vertrag"
+dialog = "zukunft"
+quelle = "Spielstand: Gehalt unter dem Schnitt seiner Rolle (Leistungsträger)"
+wenn = []
+haeufigkeit = 0.4
+sperre_tage = 0
+dringend = 1
+[[anlass]]
+id = "belastung"
+berechtigung = "belastung"
+bereich = "spieler"
+dialog = "belastung"
+quelle = "Entwicklung: Müdigkeit bei einem Spieler mit vielen Einsätzen"
+wenn = ["sorge:ueberlastet"]
+haeufigkeit = 0.5
+sperre_tage = 21
+dringend = 1
+[[anlass]]
+id = "ehrgeiz"
+berechtigung = "form"
+bereich = "spieler"
+dialog = "zukunft"
+quelle = "Story: der Verein verfehlt das Saisonziel; Spieler mit hohem Ehrgeiz"
+wenn = ["abstand_ziel>=1", "ehrgeiz>=0.7"]
+haeufigkeit = 0.3
+sperre_tage = 60
+dringend = 0
+
+# Nur auf Nachricht: kommen nie von selbst als Anfrage, sondern über „Gespräch führen“ an einer Nachricht (nur_nachricht).
+[[anlass]]
+id = "leistung"
+bereich = "spieler"
+dialog = "form"
+quelle = "Hinweis des Co-Trainers: Spieler läuft schlecht"
+wenn = []
+nur_nachricht = true
+haeufigkeit = 1.0
+sperre_tage = 0
+dringend = 1
+[[anlass]]
+id = "beschwerde"
+bereich = "spieler"
+dialog = "spielzeit"
+quelle = "Beschwerde eines Spielers in der Nachricht"
+wenn = []
+nur_nachricht = true
+haeufigkeit = 1.0
+sperre_tage = 0
+dringend = 1
+
+# Kennung einer Nachricht (Anlass, Kategorie, Regel) → Anlass des Katalogs; „vertrag“ öffnet das Vertragsgespräch.
+[alias]
+form = "formtief"
+leistung = "leistung"
+laeuft_schlecht = "leistung"
+beschwerde = "beschwerde"
+gehalt = "vertrag"
+vertrag = "vertrag"
+wechsel = "wechselgedanken"
+wechselwunsch = "wechselgedanken"
+verletzung = "verletzungsangst"
+verletzt = "verletzungsangst"
+streit = "kabinenstreit"
+kapitaen = "kapitaensbinde"
+spielzeit = "spielzeit"
+rolle = "rolle"
+
+# Wie Merkmale die Reaktion verändern (nur die, die den Umgang spürbar schwerer oder leichter machen).
+# neg / pos = Faktor auf negative / positive Stimmungswirkung, laune = Schwankung je Tag (± Punkte), geduld = Zuschlag auf die Geduld,
+# nachtragend = Beziehungsverlust bei schlechtem Ausgang (Faktor), zeile = Chance auf eine Charakterzeile in der Antwort.
+[reaktion.hitzkopf]
+neg = 1.5
+pos = 0.9
+laune = 4
+geduld = -1
+nachtragend = 1.2
+zeile = 0.5
+[reaktion.launisch]
+neg = 1.2
+pos = 1.0
+laune = 9
+geduld = 0
+nachtragend = 1.0
+zeile = 0.5
+[reaktion.sensibel]
+neg = 1.4
+pos = 1.2
+laune = 3
+geduld = -1
+nachtragend = 1.3
+zeile = 0.4
+[reaktion.lautsprecher]
+neg = 1.2
+pos = 0.9
+laune = 3
+geduld = 0
+nachtragend = 1.0
+zeile = 0.4
+[reaktion.wechselfreudig]
+neg = 1.1
+pos = 0.8
+laune = 2
+geduld = -1
+nachtragend = 0.8
+zeile = 0.5
+[reaktion.loyal]
+neg = 0.7
+pos = 1.2
+laune = 1
+geduld = 1
+nachtragend = 0.6
+zeile = 0.4
+[reaktion.teamplayer]
+neg = 0.8
+pos = 1.1
+laune = 1
+geduld = 1
+nachtragend = 0.7
+zeile = 0.3
+[reaktion.vorbild_profi]
+neg = 0.7
+pos = 1.1
+laune = 0
+geduld = 1
+nachtragend = 0.6
+zeile = 0.3
+[reaktion.gelassen]
+neg = 0.8
+pos = 1.0
+laune = 1
+geduld = 1
+nachtragend = 0.7
+zeile = 0.2
+[reaktion.provokateur]
+neg = 1.2
+pos = 0.9
+laune = 3
+geduld = 0
+nachtragend = 1.0
+zeile = 0.3
+
+[[anlass]]
+id = "akademie_befoerderung"
+bereich = "jugend"
+dialog = "akademie"
+quelle = "Akademie: Beförderungsvorschläge des Jugendtrainers"
+wenn = ["vorschlaege>=1"]
+haeufigkeit = 0.8
+sperre_tage = 21
+dringend = 2
+[[anlass]]
+id = "eltern_ohne_spielzeit"
+bereich = "jugend"
+dialog = "eltern"
+quelle = "Akademie: U23-Spieler ohne Einsätze"
+wenn = ["ohne_spiele>=1"]
+haeufigkeit = 0.7
+sperre_tage = 28
+dringend = 1
+
+[[anlass]]
+id = "eltern_vertrag"
+bereich = "jugend"
+dialog = "eltern"
+quelle = "Akademie: Verträge laufen innerhalb eines Jahres aus"
+wenn = ["vertraege>=1"]
+haeufigkeit = 0.6
+sperre_tage = 30
+dringend = 1
+[[anlass]]
+id = "presse_abwerbung"
+bereich = "presse"
+dialog = "hintergrund"
+quelle = "Akademie: ein fremder Verein verliert einen Jugendspieler an die Akademie"
+wenn = ["abwerbung>=1"]
+haeufigkeit = 0.9
+sperre_tage = 14
+dringend = 2
+
+# Wirkung einer Antwortabsicht nach Persönlichkeit (Punkte auf die Stimmung; Startwert, nicht kalibriert). wenn: Charakterwert (0…1) oder merkmal:<id>
+[[absicht_bonus]]
+wenn = "ehrgeiz>=0.7"
+absichten = ["ausblick", "versprechen"]
+wert = 3                      # Ehrgeizige wollen Perspektive
+[[absicht_bonus]]
+wenn = "loyalitaet>=0.7"
+absichten = ["loben", "danken", "gefuehl"]
+wert = 3                      # Loyale wollen Wertschätzung
+[[absicht_bonus]]
+wenn = "merkmal:launisch"
+absichten = ["zeit"]
+wert = -4                     # Launische nehmen Vertrösten schlecht auf
+[[absicht_bonus]]
+wenn = "ego>=0.7"
+absichten = ["zeit", "ablehnen"]
+wert = -2

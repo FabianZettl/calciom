@@ -1,0 +1,20 @@
+{
+  "med.akt.behutsam": "Ease %1 back in",
+  "med.akt.einzel_aus": "End individual training for %1",
+  "med.akt.team_schonen": "Ease team training",
+  "med.akt.ruhetag": "Take a rest day tomorrow",
+  "med.akt.weiter": "Carry on as before",
+  "med.stufe.niedrig": "low",
+  "med.stufe.mittel": "medium",
+  "med.stufe.hoch": "high",
+  "med.hinweis.dauer_spiel": "The length of the absence (%1 days) is decided by the game; PESM cannot shorten it.",
+  "med.hinweis.risiko": "Injury risk in %4 days: %1 instead of %2 (%3%)",
+  "med.hinweis.risiko_gleich": "Injury risk stays %1",
+  "med.hinweis.entwicklung": "Development %1% in training",
+  "med.hinweis.rueckkehr": "%1 more days of return phase with risk ×%2",
+  "med.hinweis.team_risiko": "Injury risk of the %2 tired players in %3 days %1%",
+  "med.hinweis.team_gleich": "Injury risk of the %1 tired players stays as it is",
+ "med.hinweis.ersatz": "%1 is the best stand-in (rating %2).",
+ "med.hinweis.naechstes_fehlt": "He will not be back for the next match (in %1 days). Plan your line-up without him.",
+ "med.hinweis.naechstes_da": "He will be fit again by the next match (in %1 days)."
+}

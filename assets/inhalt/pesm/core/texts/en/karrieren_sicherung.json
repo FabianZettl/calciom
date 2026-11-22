@@ -1,0 +1,7 @@
+{
+ "karrieren.sicherung.gesperrt": "This career is a backup and is never played directly. Use “Continue as a new career (copy)” to create a copy and play on there.",
+ "karrieren.sicherung.titel": "FL-World · Backup (read-only)",
+ "karrieren.test.titel": "FL-World · Test",
+ "karrieren.kopie.titel": "FL-World · Copy",
+ "karrieren.kopie.name": "%1 – copy"
+}

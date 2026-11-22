@@ -1,0 +1,642 @@
+{
+ "pool.staff_cotrainer_aufstellung.e.e1": [
+  "{b.staff_cotrainer_aufstellung_gruss} {b.staff_cotrainer_aufstellung_lage} Ich möchte, dass wir das vor dem nächsten Spiel durchgehen.",
+  "{b.staff_cotrainer_aufstellung_gruss} {b.staff_cotrainer_aufstellung_lage} Lass uns darüber reden, bevor die Elf für die nächste Partie feststeht."
+ ],
+ "pool.staff_cotrainer_aufstellung.e.e2": [
+  "{b.staff_cotrainer_aufstellung_gruss} {b.staff_cotrainer_aufstellung_lage} Gib mir ein paar Minuten, ich habe Argumente und keine Launen.",
+  "{b.staff_cotrainer_aufstellung_gruss} {b.staff_cotrainer_aufstellung_lage} Hör dir bitte erst an, was ich sehe, und entscheide danach."
+ ],
+ "pool.staff_cotrainer_aufstellung.e.e3": [
+  "{b.staff_cotrainer_aufstellung_gruss} {b.staff_cotrainer_aufstellung_lage} Die Stimmung zwischen uns ist gerade angespannt, das weiß ich, aber gerade deshalb muss es raus.",
+  "{b.staff_cotrainer_aufstellung_gruss} {b.staff_cotrainer_aufstellung_lage} Ich weiß, dass du heute nicht gut auf mich zu sprechen bist, trotzdem lass mich bitte ausreden."
+ ],
+ "pool.staff_cotrainer_aufstellung.e.e4": [
+  "{b.staff_cotrainer_aufstellung_gruss} {b.staff_cotrainer_aufstellung_lage} Ändere das, sonst haben wir am Wochenende wieder die gleiche Bescherung!",
+  "{b.staff_cotrainer_aufstellung_gruss} {b.staff_cotrainer_aufstellung_lage} Wenn du so weitermachst, verlieren wir die nächsten Punkte schon auf dem Aufstellungsbogen!"
+ ],
+ "pool.staff_cotrainer_aufstellung.e.e5": [
+  "{b.staff_cotrainer_aufstellung_gruss} {b.staff_cotrainer_aufstellung_lage} Ich sage es dir in Ruhe, und am Ende entscheidest du, wie immer.",
+  "{b.staff_cotrainer_aufstellung_gruss} {b.staff_cotrainer_aufstellung_lage} Denk einfach darüber nach, mehr will ich gar nicht, die Entscheidung bleibt bei dir."
+ ],
+ "pool.staff_cotrainer_aufstellung.e.e6": [
+  "{b.staff_cotrainer_aufstellung_gruss} {b.staff_cotrainer_aufstellung_lage} Gib mir die Gelegenheit, dir zu zeigen, wo wir mehr herausholen können.",
+  "{b.staff_cotrainer_aufstellung_gruss} {b.staff_cotrainer_aufstellung_lage} Wenn wir etwas erreichen wollen, müssen wir bereit sein, die Elf zu ändern."
+ ],
+ "pool.staff_cotrainer_aufstellung.e.e7": [
+  "{b.staff_cotrainer_aufstellung_gruss} {b.staff_cotrainer_aufstellung_lage} Ich möchte nicht, dass du das als Angriff verstehst, mir liegt nur etwas an der Mannschaft.",
+  "{b.staff_cotrainer_aufstellung_gruss} {b.staff_cotrainer_aufstellung_lage} Bitte nimm es nicht persönlich, ich sorge mich nur um das Team."
+ ],
+ "pool.staff_cotrainer_aufstellung.e.e8": [
+  "Chef, nach den letzten Niederlagen muss ich es ansprechen: Die Elf funktioniert nicht, und ich sage das nicht zum Spaß.",
+  "Wir verlieren nun schon mehrfach hintereinander, und ich glaube, die Aufstellung ist ein Grund dafür. Lass uns ehrlich darüber reden."
+ ],
+ "pool.staff_cotrainer_aufstellung.e.e9": [
+  "Wir hängen hinter unserem Ziel zurück, und ich glaube, dass uns die Aufstellung Punkte kostet.",
+  "Gemessen an unserem Ziel ist die Elf zu zögerlich, und ich möchte, dass du dir meine Alternative ansiehst."
+ ],
+ "pool.staff_cotrainer_aufstellung.a.a1": [
+  "Gut, dann setzen wir uns heute zusammen, und ich baue die Elf für das nächste Spiel mit deinen Argumenten noch einmal neu.",
+  "Du bekommst deine Chance: Wir stellen die Mannschaft gemeinsam auf, und dann entscheide ich endgültig."
+ ],
+ "pool.staff_cotrainer_aufstellung.a.a2": [
+  "Zeig mir im Training, was du meinst. Zwei, drei Änderungen probieren wir aus, der Rest bleibt, wie ich entschieden habe.",
+  "Ein Kompromiss: Du darfst für einen Platz in der Startelf einen Namen vorschlagen, danach entscheide ich."
+ ],
+ "pool.staff_cotrainer_aufstellung.a.a3": [
+  "Bring das bitte in die Analyse am Dienstag ein, dort gehen wir die Aufstellung mit dem ganzen Stab durch.",
+  "Schreib deine Elf einmal auf und leg sie dem Analyseteam vor, danach reden wir weiter."
+ ],
+ "pool.staff_cotrainer_aufstellung.a.a4": [
+  "Danke, dass du es mir ins Gesicht sagst. Ich weiß, wie viele Gedanken du dir machst, und das ist mir wichtig.",
+  "Ich höre, dass dir das auf der Seele liegt. Lass uns in Ruhe sprechen, ich will deine Sicht wirklich verstehen."
+ ],
+ "pool.staff_cotrainer_aufstellung.a.a5": [
+  "Ich habe die Elf nach den Trainingsdaten und der Gegneranalyse gewählt, und die Tabelle gibt uns bisher recht.",
+  "Die Aufstellung folgt einem Plan: Wir spielen gegen den Gegner so, wie wir es in der Woche trainiert haben."
+ ],
+ "pool.staff_cotrainer_aufstellung.a.a6": [
+  "Die Aufstellung mache ich, nicht du. Wenn dir das nicht passt, behalte es für dich.",
+  "Ich habe entschieden, und darüber wird nicht verhandelt. Kümmere dich um dein Training."
+ ],
+ "pool.staff_cotrainer_aufstellung.a.a7": [
+  "Wen würdest du konkret austauschen, und warum? Gib mir Argumente, nicht nur ein Bauchgefühl.",
+  "Was siehst du im Mittelfeld, was ich nicht sehe? Erklär es mir an einer Szene."
+ ],
+ "pool.staff_cotrainer_aufstellung.a.a8": [
+  "Ich nehme deinen Einwand mit und überlege es mir. Mehr kann ich dir heute nicht sagen.",
+  "Lass mich eine Nacht darüber schlafen, ich komme auf dich zu."
+ ],
+ "pool.staff_cotrainer_aufstellung.a.a9": [
+  "Ich ändere nichts, und je öfter du das ansprichst, desto weniger ändere ich.",
+  "Die Elf steht, und ich diskutiere sie nicht noch einmal."
+ ],
+ "pool.staff_cotrainer_aufstellung.a.a10": [
+  "Wir machen es so: Du übernimmst die Videoanalyse der Gegner und schlägst mir danach Änderungen vor. Überzeugt es mich, ändere ich.",
+  "Du bekommst die Verantwortung für die Standards, und deine Elf-Vorschläge höre ich mir jede Woche an."
+ ],
+ "pool.staff_cotrainer_aufstellung.a.a11": [
+  "Wenn du die Elf aufstellst und ich die Pressekonferenz übernehme, tauschen wir gern einmal, aber nicht heute.",
+  "Zwei Trainer, zwei Elf, das gibt Streit auf dem Platz. Lass uns lieber mit einer arbeiten."
+ ],
+ "pool.staff_cotrainer_aufstellung.a.a12": [
+  "Nach einer Niederlage bohrt jeder an den Entscheidungen, auch ich. Ich verstehe, dass du zweifelst.",
+  "Die Niederlage nagt an uns beiden. Lass uns nicht gegeneinander arbeiten, sondern gemeinsam suchen."
+ ],
+ "pool.staff_cotrainer_aufstellung.a.a13": [
+  "Ich sehe keinen Grund, die Elf zu ändern, und erwarte, dass der Stab nach außen geschlossen auftritt.",
+  "Deine Kritik ist angekommen, aber ich bleibe bei meiner Aufstellung und erwarte, dass du sie mitträgst."
+ ],
+ "pool.staff_cotrainer_aufstellung.r.r1": [
+  "{b.gut} Das reicht mir, dann ziehe ich mit.",
+  "{b.gut} So kann ich arbeiten, danke dir."
+ ],
+ "pool.staff_cotrainer_aufstellung.r.r2": [
+  "{b.gut} Ich habe dir vertraut, und du enttäuschst mich nicht.",
+  "{b.gut} Gut, dann gehen wir das gemeinsam an, wie immer."
+ ],
+ "pool.staff_cotrainer_aufstellung.r.r3": [
+  "{b.gut} Dann liefere ich dir bis zum Spiel einen Vorschlag, auf den du bauen kannst.",
+  "{b.gut} Gib mir die Verantwortung, ich mache etwas daraus."
+ ],
+ "pool.staff_cotrainer_aufstellung.r.r4": [
+  "{b.gut} Das hat mir gutgetan, ich hatte mehr Gegenwind erwartet.",
+  "{b.gut} Danke, dass du mir zuhörst, das bedeutet mir viel."
+ ],
+ "pool.staff_cotrainer_aufstellung.r.r5": [
+  "{b.gut} Na also, geht doch! So reden wir weiter.",
+  "{b.gut} Endlich ein klares Wort, und es kommt sogar in meine Richtung."
+ ],
+ "pool.staff_cotrainer_aufstellung.r.r6": [
+  "{b.neutral} Ich warte ab, was die nächste Woche im Training zeigt.",
+  "{b.neutral} Wir sehen am Spieltag, wer recht hat."
+ ],
+ "pool.staff_cotrainer_aufstellung.r.r7": [
+  "{b.neutral} Ich weiß nicht recht, was ich davon halten soll.",
+  "{b.neutral} Mal sehe ich es so, mal anders, ich lasse es erst einmal sacken."
+ ],
+ "pool.staff_cotrainer_aufstellung.r.r8": [
+  "{b.neutral} Gut, dann warten wir ab, es ist ja nicht mein Kopf, der rollt.",
+  "{b.neutral} Ich sehe es entspannt, das Spiel entscheidet."
+ ],
+ "pool.staff_cotrainer_aufstellung.r.r9": [
+  "{b.neutral} Bleib nicht zu lange dabei, die Zeit bis zum nächsten Spiel ist knapp.",
+  "{b.neutral} Wenn nichts passiert, komme ich nächste Woche wieder."
+ ],
+ "pool.staff_cotrainer_aufstellung.r.r10": [
+  "{b.schlecht} Damit bin ich nicht einverstanden, aber ich sage es nicht zweimal.",
+  "{b.schlecht} Das nehme ich so nicht hin, auch wenn ich es für mich behalte."
+ ],
+ "pool.staff_cotrainer_aufstellung.r.r11": [
+  "{b.schlecht} Dann trag die Verantwortung allein, wenn es wieder schiefgeht!",
+  "{b.schlecht} So redest du mit deinem Co-Trainer? Das merke ich mir!"
+ ],
+ "pool.staff_cotrainer_aufstellung.r.r12": [
+  "{b.schlecht} Dann suche ich mir eben einen Verein, der mir zuhört.",
+  "{b.schlecht} Wenn mein Rat nichts zählt, sollte ich vielleicht woanders arbeiten."
+ ],
+ "pool.staff_cotrainer_aufstellung.r.r13": [
+  "{b.schlecht} Ich habe immer hinter dir gestanden, und jetzt fühlt sich das wie ein Schlag an.",
+  "{b.schlecht} Von dir hätte ich mehr erwartet, das tut weh."
+ ],
+ "pool.staff_cotrainer_aufstellung.x.x1": [
+  "Der Co-Trainer nickt und bleibt noch einen Moment sitzen. {entscheidung} Im Stab ist die Luft wieder klar, und in der nächsten Besprechung wird offen diskutiert.",
+  "{entscheidung} Der Co-Trainer geht ruhiger aus dem Büro, als er hereingekommen ist, und die Elf wird gemeinsam gebaut."
+ ],
+ "pool.staff_cotrainer_aufstellung.x.x2": [
+  "Das Gespräch endet ohne Ergebnis. {entscheidung} Der Co-Trainer will die Woche abwarten und beobachtet die Elf im Training genau.",
+  "{entscheidung} Beide wissen, dass die Frage noch nicht vom Tisch ist, und sie liegt in der Luft."
+ ],
+ "pool.staff_cotrainer_aufstellung.x.x3": [
+  "Die Stimmung kippt. {entscheidung} Im Trainingszentrum wird getuschelt, und die Spieler merken, dass Trainer und Co-Trainer nicht mehr an einem Strang ziehen.",
+  "{entscheidung} Der Streit dringt bis in die Kabine, und beim nächsten Spiel sitzen die beiden auf der Bank mit versteinerten Gesichtern."
+ ],
+ "pool.staff_cotrainer_aufstellung.x.x4": [
+  "Der Co-Trainer steht auf und geht. {entscheidung} Die Zusammenarbeit im Alltag ist von nun an auf das Nötigste beschränkt.",
+  "{entscheidung} Der Co-Trainer schweigt ab jetzt in den Besprechungen, und Ideen aus seiner Ecke kommen nicht mehr."
+ ],
+ "pool.staff_cotrainer_aufstellung.x.x5": [
+  "Der Co-Trainer macht sich eine Notiz. {entscheidung} Er wird dich an dein Wort erinnern, sachlich und freundlich.",
+  "{entscheidung} Der Co-Trainer hält fest, was ihr besprochen habt, und bereitet die nächste Elf entsprechend vor."
+ ],
+ "pool.staff_fitness_belastung.e.e1": [
+  "{b.staff_fitness_belastung_gruss} {b.staff_fitness_belastung_lage} Ich möchte, dass wir den Plan der nächsten Wochen gemeinsam ändern.",
+  "{b.staff_fitness_belastung_gruss} {b.staff_fitness_belastung_lage} Lass uns die Einheiten und die Einsätze noch einmal gemeinsam ansehen."
+ ],
+ "pool.staff_fitness_belastung.e.e2": [
+  "{b.staff_fitness_belastung_gruss} {b.staff_fitness_belastung_lage} Ich lege dir die Zahlen vor, dann kannst du selbst beurteilen.",
+  "{b.staff_fitness_belastung_gruss} {b.staff_fitness_belastung_lage} Wenn du mir fünf Minuten gibst, zeige ich dir die Kurven, und du wirst es sehen."
+ ],
+ "pool.staff_fitness_belastung.e.e3": [
+  "{b.staff_fitness_belastung_gruss} {b.staff_fitness_belastung_lage} Ich weiß, dass die Laune im Moment schlecht ist, aber das ist kein Grund, die Gesundheit der Spieler zu riskieren.",
+  "{b.staff_fitness_belastung_gruss} {b.staff_fitness_belastung_lage} Gerade jetzt, wo es angespannt ist, dürfen wir die Belastung nicht aus den Augen verlieren."
+ ],
+ "pool.staff_fitness_belastung.e.e4": [
+  "{b.staff_fitness_belastung_gruss} {b.staff_fitness_belastung_lage} Streich die zweite Einheit, sonst übernehme ich keine Verantwortung mehr für die Verletzten!",
+  "{b.staff_fitness_belastung_gruss} {b.staff_fitness_belastung_lage} Entweder wir ändern das jetzt, oder ich schreibe es offiziell in meinen Bericht!"
+ ],
+ "pool.staff_fitness_belastung.e.e5": [
+  "{b.staff_fitness_belastung_gruss} {b.staff_fitness_belastung_lage} Ich will nichts erzwingen, aber ich bitte dich, noch einmal in Ruhe darüber nachzudenken.",
+  "{b.staff_fitness_belastung_gruss} {b.staff_fitness_belastung_lage} Ich überlasse dir die Entscheidung, nur möchte ich, dass du vorher meine Sicht kennst."
+ ],
+ "pool.staff_fitness_belastung.e.e6": [
+  "{b.staff_fitness_belastung_gruss} {b.staff_fitness_belastung_lage} Mit einem klugen Plan holen wir mehr aus der Mannschaft heraus, und dafür brauche ich deine Zustimmung.",
+  "{b.staff_fitness_belastung_gruss} {b.staff_fitness_belastung_lage} Wenn du mir jetzt mehr Erholung erlaubst, haben wir im Saisonendspurt die frischeren Beine."
+ ],
+ "pool.staff_fitness_belastung.e.e7": [
+  "{b.staff_fitness_belastung_gruss} {b.staff_fitness_belastung_lage} Ich möchte nicht, dass du denkst, ich will dir etwas wegnehmen, es geht nur um die Jungs.",
+  "{b.staff_fitness_belastung_gruss} {b.staff_fitness_belastung_lage} Bitte versteh das nicht als Kritik an dir, mir liegt nur das Wohl der Spieler am Herzen."
+ ],
+ "pool.staff_fitness_belastung.e.e8": [
+  "Die Niederlagen kommen auffällig spät im Spiel, und genau dann lässt die Kraft nach. Das ist kein Zufall, das ist Belastung.",
+  "Seit den letzten Niederlagen sehe ich in der Schlussphase nur noch schwere Beine, und das sagen mir auch die Daten."
+ ],
+ "pool.staff_fitness_belastung.e.e9": [
+  "Der Erfolg verführt, aber die Serie läuft auf Kosten der Körper, und die Rechnung kommt bestimmt.",
+  "Es läuft gerade zu gut, um an Pausen zu denken, und genau davor möchte ich dich warnen."
+ ],
+ "pool.staff_fitness_belastung.a.a1": [
+  "Du bekommst deine Ruhetage: Nach den Spielen streiche ich die zweite Einheit, und wir planen die Belastung ab jetzt gemeinsam.",
+  "Ich folge deiner Warnung und lasse die Mannschaft in den englischen Wochen schonender trainieren."
+ ],
+ "pool.staff_fitness_belastung.a.a2": [
+  "Ich genehmige dir zusätzliche Regeneration, Physio und Eisbäder, und dafür sparen wir bei der Intensität unter der Woche.",
+  "Du bekommst Geld für Erholungsmaßnahmen, dafür trainieren wir an den Tagen vor dem Spiel locker."
+ ],
+ "pool.staff_fitness_belastung.a.a3": [
+  "Stimm das bitte mit dem Arzt und dem Co-Trainer ab und leg mir einen gemeinsamen Plan vor.",
+  "Setz dich mit der medizinischen Abteilung zusammen, und ich entscheide auf Basis eures Vorschlags."
+ ],
+ "pool.staff_fitness_belastung.a.a4": [
+  "Danke, dass du dich so für die Spieler einsetzt. Das ist genau die Haltung, die ich im Stab brauche.",
+  "Ich weiß, wie sehr du an den Jungs hängst. Ich nehme deine Sorge ernst und höre dir zu."
+ ],
+ "pool.staff_fitness_belastung.a.a5": [
+  "Gerade jetzt zählt jeder Punkt, und die Mannschaft ist fit genug. Ich muss die Serie am Laufen halten.",
+  "Der Spielplan ist, wie er ist. Wir müssen mit der Belastung leben und sie so gut wie möglich verteilen."
+ ],
+ "pool.staff_fitness_belastung.a.a6": [
+  "Die Belastung bleibt, wie sie ist. Dafür werden Profis bezahlt, und ich will nichts mehr davon hören.",
+  "Ich habe keine Zeit für Schonprogramme. Wer müde ist, muss sich eben zusammenreißen."
+ ],
+ "pool.staff_fitness_belastung.a.a7": [
+  "Welche Spieler genau sind am stärksten betroffen, und welche Werte stehen im roten Bereich? Dann kann ich gezielt handeln.",
+  "Wie viel Erholung brauchst du konkret zwischen den Spielen, damit du dein Risiko für vertretbar hältst?"
+ ],
+ "pool.staff_fitness_belastung.a.a8": [
+  "Ich behalte die Belastung im Blick und komme auf dich zu, wenn die Lage sich zuspitzt.",
+  "Danke für die Warnung. Ich merke sie mir und beobachte es in den nächsten Tagen."
+ ],
+ "pool.staff_fitness_belastung.a.a9": [
+  "Es bleibt beim Plan. Verletzungen gehören zum Geschäft, und ich ändere deshalb nichts.",
+  "Ich weiche keinen Schritt ab, und wenn jemand ausfällt, springt eben der Nächste ein."
+ ],
+ "pool.staff_fitness_belastung.a.a10": [
+  "Wir teilen die Last: Wer viel gespielt hat, trainiert leichter, und die Ersatzleute bekommen mehr Einsätze.",
+  "Wir rotieren nach deinen Werten. Du nennst mir, wer pausiert, und ich plane die Elf danach."
+ ],
+ "pool.staff_fitness_belastung.a.a11": [
+  "Müde Beine kann man nicht verbieten, aber wir stellen ab sofort Kaffee für alle auf. Ich schaue mir den Rest an.",
+  "Wenn die Jungs schlafen könnten wie ich nach einer Niederlage, hättest du keine Sorgen. Ich denke darüber nach."
+ ],
+ "pool.staff_fitness_belastung.a.a12": [
+  "Nach den Niederlagen will man noch mehr trainieren, das ist menschlich, aber du hast recht, es macht es nicht besser.",
+  "Ich merke selbst, dass ich nach der Niederlage zu viel von allen verlange. Danke, dass du mich bremst."
+ ],
+ "pool.staff_fitness_belastung.a.a13": [
+  "Ich halte die Belastung für vertretbar und sehe keinen Grund, den Plan anzupassen.",
+  "Deine Werte ändern nichts an meiner Planung, und ich erwarte, dass wir nach Plan arbeiten."
+ ],
+ "pool.staff_fitness_belastung.r.r1": [
+  "{b.gut} Das ist die richtige Entscheidung, die Spieler werden es dir danken.",
+  "{b.gut} Danke, damit kann ich arbeiten."
+ ],
+ "pool.staff_fitness_belastung.r.r2": [
+  "{b.gut} Ich wusste, dass du ein offenes Ohr für uns hast.",
+  "{b.gut} Gut, dann gehen wir das so an, ganz ruhig und gemeinsam."
+ ],
+ "pool.staff_fitness_belastung.r.r3": [
+  "{b.gut} Dann baue ich dir einen Plan, mit dem wir im Endspurt die Frischesten sind.",
+  "{b.gut} Du wirst sehen, mit richtiger Erholung holen wir mehr heraus."
+ ],
+ "pool.staff_fitness_belastung.r.r4": [
+  "{b.gut} Danke, dass du die Jungs ernst nimmst, das nimmt mir eine Last.",
+  "{b.gut} Das tut gut zu hören, ich habe mir wirklich Sorgen gemacht."
+ ],
+ "pool.staff_fitness_belastung.r.r5": [
+  "{b.gut} Na endlich, jemand, der mich ernst nimmt!",
+  "{b.gut} Gut so, dann gebe ich auch wieder alles."
+ ],
+ "pool.staff_fitness_belastung.r.r6": [
+  "{b.neutral} Ich beobachte die Werte weiter und melde mich, wenn sich etwas ändert.",
+  "{b.neutral} Wir sehen in einer Woche, ob es reicht."
+ ],
+ "pool.staff_fitness_belastung.r.r7": [
+  "{b.neutral} Ich bin unsicher, ob das reicht, aber ich vertraue dir erst einmal.",
+  "{b.neutral} Ich habe ein mulmiges Gefühl dabei, aber gut."
+ ],
+ "pool.staff_fitness_belastung.r.r8": [
+  "{b.neutral} Gut, dann laufen wir eben weiter, und die Daten zeigen, wer recht hat.",
+  "{b.neutral} Ich sehe es entspannt, die Zahlen lügen nicht."
+ ],
+ "pool.staff_fitness_belastung.r.r9": [
+  "{b.neutral} Wenn die Werte weiter fallen, komme ich damit noch einmal zu dir.",
+  "{b.neutral} Ich gebe dir eine Woche, dann sprechen wir erneut."
+ ],
+ "pool.staff_fitness_belastung.r.r10": [
+  "{b.schlecht} Das ist riskant, und ich halte das für falsch.",
+  "{b.schlecht} Dann lege ich meine Warnung eben zu den Akten."
+ ],
+ "pool.staff_fitness_belastung.r.r11": [
+  "{b.schlecht} Wenn der Erste ausfällt, sagst du bitte nicht, ich hätte es dir nicht gesagt!",
+  "{b.schlecht} Das ist grob fahrlässig, und ich werde es nicht vergessen!"
+ ],
+ "pool.staff_fitness_belastung.r.r12": [
+  "{b.schlecht} Bei einem anderen Verein würde man auf mich hören.",
+  "{b.schlecht} Vielleicht ist es Zeit, dass ich mich nach etwas Neuem umsehe."
+ ],
+ "pool.staff_fitness_belastung.r.r13": [
+  "{b.schlecht} Ich habe immer alles für dich gegeben, und nun werde ich nicht gehört.",
+  "{b.schlecht} Das hätte ich von dir nicht erwartet, ehrlich nicht."
+ ],
+ "pool.staff_fitness_belastung.x.x1": [
+  "Der Fitnesstrainer schickt dir den neuen Plan noch am Abend. {entscheidung} Die Mannschaft trainiert spürbar frischer, und die Werte erholen sich Woche um Woche.",
+  "{entscheidung} Der Fitnesstrainer atmet auf, und im Training lacht man wieder mehr."
+ ],
+ "pool.staff_fitness_belastung.x.x2": [
+  "Der Fitnesstrainer schreibt zurück, dass er es im Auge behält. {entscheidung} Wie ernst die Lage ist, wird erst die nächste Woche zeigen.",
+  "{entscheidung} Die Warnung steht im Raum, und alle im Stab wissen es, auch wenn niemand weiter darüber spricht."
+ ],
+ "pool.staff_fitness_belastung.x.x3": [
+  "Wenige Tage später fällt der erste Spieler mit einer Zerrung aus. {entscheidung} Der Fitnesstrainer sagt kein Wort, aber sein Blick spricht Bände.",
+  "{entscheidung} In der Kabine wird über die Belastung gemurrt, und die Zeitung greift das Thema auf."
+ ],
+ "pool.staff_fitness_belastung.x.x4": [
+  "Der Fitnesstrainer beendet das Gespräch. {entscheidung} Er macht fortan Dienst nach Vorschrift und gibt keine Empfehlungen mehr ab.",
+  "{entscheidung} Der Fitnesstrainer hakt das Thema ab, und die Zusammenarbeit wird deutlich kühler."
+ ],
+ "pool.staff_fitness_belastung.x.x5": [
+  "Der Fitnesstrainer hält die Zusage in seinem Plan fest. {entscheidung} Er wird in den nächsten Wochen prüfen, ob sie eingehalten wird.",
+  "{entscheidung} Der Fitnesstrainer trägt es in den Wochenplan ein und erinnert dich bei Bedarf daran."
+ ],
+ "pool.staff_torwart_rotation.e.e1": [
+  "{b.staff_torwart_rotation_gruss} {b.staff_torwart_rotation_lage} Bitte lege dich fest, damit ich die Arbeit mit ihnen darauf ausrichten kann.",
+  "{b.staff_torwart_rotation_gruss} {b.staff_torwart_rotation_lage} Ich brauche von dir eine klare Linie, wer die Nummer eins ist oder wie wir rotieren."
+ ],
+ "pool.staff_torwart_rotation.e.e2": [
+  "{b.staff_torwart_rotation_gruss} {b.staff_torwart_rotation_lage} Gib mir bitte ein paar Minuten, damit ich dir die Trainingswerte der beiden erklären kann.",
+  "{b.staff_torwart_rotation_gruss} {b.staff_torwart_rotation_lage} Lass mich dir kurz zeigen, wie nah beide beieinander liegen, dann verstehst du das Problem."
+ ],
+ "pool.staff_torwart_rotation.e.e3": [
+  "{b.staff_torwart_rotation_gruss} {b.staff_torwart_rotation_lage} Ich weiß, dass die Stimmung angespannt ist, aber im Tor kann ich nicht weiter im Ungewissen arbeiten lassen.",
+  "{b.staff_torwart_rotation_gruss} {b.staff_torwart_rotation_lage} Gerade weil es gerade nicht rund läuft, brauchen die Torhüter Klarheit und keine Gerüchte."
+ ],
+ "pool.staff_torwart_rotation.e.e4": [
+  "{b.staff_torwart_rotation_gruss} {b.staff_torwart_rotation_lage} Entscheide dich jetzt, sonst geht das schief, und die Gegentore gehen nicht auf meine Rechnung!",
+  "{b.staff_torwart_rotation_gruss} {b.staff_torwart_rotation_lage} Wenn es so bleibt, laufe ich im Training gegen eine Wand, und das sage ich dir deutlich!"
+ ],
+ "pool.staff_torwart_rotation.e.e5": [
+  "{b.staff_torwart_rotation_gruss} {b.staff_torwart_rotation_lage} Ich akzeptiere jede Entscheidung, aber lass uns die Torhüter nicht länger im Ungewissen lassen.",
+  "{b.staff_torwart_rotation_gruss} {b.staff_torwart_rotation_lage} Mir ist egal, wen du wählst, nur muss ich wissen, woran ich bin."
+ ],
+ "pool.staff_torwart_rotation.e.e6": [
+  "{b.staff_torwart_rotation_gruss} {b.staff_torwart_rotation_lage} Mit klaren Rollen werden beide besser, und das hilft am Ende der ganzen Mannschaft.",
+  "{b.staff_torwart_rotation_gruss} {b.staff_torwart_rotation_lage} Entscheide klug, dann machen wir aus den Torhütern einen echten Vorteil."
+ ],
+ "pool.staff_torwart_rotation.e.e7": [
+  "{b.staff_torwart_rotation_gruss} {b.staff_torwart_rotation_lage} Es wäre mir eine große Hilfe, wenn du den beiden persönlich sagst, was du vorhast.",
+  "{b.staff_torwart_rotation_gruss} {b.staff_torwart_rotation_lage} Sprich bitte mit ihnen, die Ungewissheit macht beide mürbe."
+ ],
+ "pool.staff_torwart_rotation.e.e8": [
+  "Die Gegentore der letzten Wochen haben auch mit der Unruhe im Tor zu tun. Wer weiß, dass er morgen nicht mehr spielt, geht kein Risiko.",
+  "Seit den letzten Niederlagen zweifeln beide Torhüter, und ich sehe es im Training in jeder Bewegung."
+ ],
+ "pool.staff_torwart_rotation.e.e9": [
+  "Es läuft, aber ich merke, dass einer meiner Torhüter immer mehr hinterherhängt. Wenn wir nichts regeln, verlieren wir ihn.",
+  "Gerade weil wir gewinnen, ist es Zeit, die Rollen im Tor zu klären, solange keiner Panik hat."
+ ],
+ "pool.staff_torwart_rotation.a.a1": [
+  "Ich lege die Rollen im Tor diese Woche fest und sage es beiden Torhütern selbst, dann habt ihr eure Klarheit.",
+  "Du bekommst deine Antwort, und zwar bald: Ich entscheide mich und teile es den beiden persönlich mit."
+ ],
+ "pool.staff_torwart_rotation.a.a2": [
+  "Wir machen einen Rhythmus: Der eine hält die Liga, der andere den Pokal, und beide wissen es früh genug.",
+  "Ich gebe dem zweiten Torhüter feste Einsätze in bestimmten Spielen, dann hat jeder eine Aufgabe."
+ ],
+ "pool.staff_torwart_rotation.a.a3": [
+  "Besprich das bitte zuerst mit dem Co-Trainer, ihr beide macht mir einen gemeinsamen Vorschlag zu den Rollen im Tor.",
+  "Stimm dich mit dem Stab ab, und danach entscheide ich auf Grundlage eurer Einschätzung."
+ ],
+ "pool.staff_torwart_rotation.a.a4": [
+  "Ich weiß, wie schwer es für einen Torwart ist, wenn die Rolle in der Schwebe bleibt. Danke, dass du dich vor sie stellst.",
+  "Du kümmerst dich um beide, auch wenn es dich Nerven kostet. Das weiß ich zu schätzen, und ich spreche mit ihnen."
+ ],
+ "pool.staff_torwart_rotation.a.a5": [
+  "Die Mannschaft liegt im Soll, und im Tor ist die Lage nicht dramatisch. Ich sehe keine Notwendigkeit, etwas zu ändern.",
+  "Der Wettbewerb im Tor hält beide wach, und deshalb lasse ich es vorerst offen."
+ ],
+ "pool.staff_torwart_rotation.a.a6": [
+  "Wer im Tor steht, entscheide ich, und zwar kurzfristig. Deine Aufgabe ist das Training.",
+  "Ich lege mich nicht fest, und ich lasse mir nicht vorschreiben, wann ich was sage."
+ ],
+ "pool.staff_torwart_rotation.a.a7": [
+  "Wer von beiden ist nach deinen Werten aktuell der bessere, und wie groß ist der Abstand?",
+  "Was würde sich im Training ändern, wenn ich mich festlege? Erkläre es mir konkret."
+ ],
+ "pool.staff_torwart_rotation.a.a8": [
+  "Ich weiß, dass das Thema drängt. Gib mir noch etwas Zeit, ich melde mich bei dir.",
+  "Ich nehme es mit, und sobald ich Klarheit habe, bist du der Erste, der es erfährt."
+ ],
+ "pool.staff_torwart_rotation.a.a9": [
+  "Es bleibt, wie es ist. Torhüter müssen mit Druck leben, das gehört zum Beruf.",
+  "Ich werde die Rollen nicht klären, und das ist mein letztes Wort dazu."
+ ],
+ "pool.staff_torwart_rotation.a.a10": [
+  "Ich gebe dir bis zum nächsten Heimspiel meine Aufstellung im Tor. Dafür erwarte ich, dass beide danach ohne Gejammer arbeiten.",
+  "Wir legen die Rollen für den Rest der Hinrunde fest, und danach prüfen wir sie gemeinsam neu."
+ ],
+ "pool.staff_torwart_rotation.a.a11": [
+  "Ein guter Torwart hält auch Ungewissheit, sagt man. Ich werfe aber trotzdem noch eine Münze, bis ich weiß, wer es wird.",
+  "Wenn ich beide aufstelle, hast du nur einen Ball im Tor, dann ist die Rollenfrage geklärt. Ich überlege es mir ernsthaft."
+ ],
+ "pool.staff_torwart_rotation.a.a12": [
+  "Nach Gegentoren sucht man Schuldige, und im Tor trifft es immer zuerst die Torhüter. Das verstehe ich gut.",
+  "Die Niederlagen nagen an beiden Torhütern, und ich weiß, dass du sie auffangen musst. Danke dafür."
+ ],
+ "pool.staff_torwart_rotation.a.a13": [
+  "Ich sehe keinen Anlass, die Rollen jetzt zu klären, und die Torhüter müssen damit leben.",
+  "Die Entscheidung über das Tor treffe ich allein, und zwar dann, wenn es mir passt."
+ ],
+ "pool.staff_torwart_rotation.r.r1": [
+  "{b.gut} Das ist genau das, was die beiden brauchen, danke.",
+  "{b.gut} Damit kann ich arbeiten, und die Torhüter auch."
+ ],
+ "pool.staff_torwart_rotation.r.r2": [
+  "{b.gut} Das hätte ich von dir erwartet, du lässt uns nicht hängen.",
+  "{b.gut} Gut, dann ist das erledigt und ich kann beruhigt weiterarbeiten."
+ ],
+ "pool.staff_torwart_rotation.r.r3": [
+  "{b.gut} Mit klaren Rollen wird das Tor zu unserer Stärke, das verspreche ich dir.",
+  "{b.gut} Dann gebe ich beiden eine Aufgabe, und wir holen alles heraus."
+ ],
+ "pool.staff_torwart_rotation.r.r4": [
+  "{b.gut} Das beruhigt mich sehr, die beiden werden aufatmen.",
+  "{b.gut} Danke, dass du dir Gedanken um sie machst, das merken sie."
+ ],
+ "pool.staff_torwart_rotation.r.r5": [
+  "{b.gut} Na also, so geht das, wenn man mal klar redet!",
+  "{b.gut} Gut, dann will ich die beiden morgen im Training hellwach sehen!"
+ ],
+ "pool.staff_torwart_rotation.r.r6": [
+  "{b.neutral} Ich sage den beiden, dass wir uns bald festlegen, ohne mehr zu versprechen.",
+  "{b.neutral} Dann warten wir ab, was die nächsten Spiele bringen."
+ ],
+ "pool.staff_torwart_rotation.r.r7": [
+  "{b.neutral} Ich hoffe, dass die beiden das mitmachen, ich bin da nicht sicher.",
+  "{b.neutral} Ob das reicht, weiß ich nicht, ich sehe es von Tag zu Tag."
+ ],
+ "pool.staff_torwart_rotation.r.r8": [
+  "{b.neutral} Gut, dann arbeite ich weiter, bis eine Entscheidung fällt.",
+  "{b.neutral} Ich nehme es, wie es kommt, die beiden werden schon klarkommen."
+ ],
+ "pool.staff_torwart_rotation.r.r9": [
+  "{b.neutral} Lass dir nicht zu lange Zeit, Wettbewerb ist gut, aber nicht ewig.",
+  "{b.neutral} Ich gebe dir noch ein paar Spiele, dann frage ich wieder nach."
+ ],
+ "pool.staff_torwart_rotation.r.r10": [
+  "{b.schlecht} Das hilft den Torhütern nicht, und es hilft der Mannschaft nicht.",
+  "{b.schlecht} Dann bleibt die Unsicherheit, und ich muss damit umgehen."
+ ],
+ "pool.staff_torwart_rotation.r.r11": [
+  "{b.schlecht} Wenn das wieder schiefgeht, ist es deine Entscheidung gewesen, nicht meine!",
+  "{b.schlecht} So geht man nicht mit Torhütern um, und das weißt du auch!"
+ ],
+ "pool.staff_torwart_rotation.r.r12": [
+  "{b.schlecht} Dann sehe ich mich nach einem Klub um, bei dem ein Torwarttrainer ernst genommen wird.",
+  "{b.schlecht} Wenn meine Torhüter keine Perspektive haben, habe ich auch keine."
+ ],
+ "pool.staff_torwart_rotation.r.r13": [
+  "{b.schlecht} Ich habe dich immer unterstützt, und nun lässt du uns im Regen stehen.",
+  "{b.schlecht} Das enttäuscht mich, gerade von dir."
+ ],
+ "pool.staff_torwart_rotation.x.x1": [
+  "Der Torwarttrainer geht erleichtert zurück zum Platz. {entscheidung} Beide Torhüter wissen nun, woran sie sind, und im Training steigt die Konzentration.",
+  "{entscheidung} Im Tor kehrt Ruhe ein, und der Torwarttrainer arbeitet wieder gezielt mit beiden."
+ ],
+ "pool.staff_torwart_rotation.x.x2": [
+  "Das Gespräch bleibt ohne klares Ergebnis. {entscheidung} Der Torwarttrainer hält die beiden bei Laune, so gut er kann.",
+  "{entscheidung} Im Tor bleibt alles beim Alten, und beide Torhüter beobachten einander im Training noch genauer."
+ ],
+ "pool.staff_torwart_rotation.x.x3": [
+  "Die Unruhe im Tor wird zum Thema im Team. {entscheidung} Einer der Torhüter beschwert sich bei Mitspielern, und die Stimmung leidet.",
+  "{entscheidung} Ein Torwart spricht in der Mixed Zone offen über seine unklare Rolle, und die Zeitung hat ihr Thema."
+ ],
+ "pool.staff_torwart_rotation.x.x4": [
+  "Der Torwarttrainer nickt knapp und verlässt den Raum. {entscheidung} Von ihm kommen vorerst keine Vorschläge mehr.",
+  "{entscheidung} Der Torwarttrainer zieht sich zurück und macht nur noch das Nötigste mit seinen Leuten."
+ ],
+ "pool.staff_torwart_rotation.x.x5": [
+  "Der Torwarttrainer informiert die beiden Torhüter noch am selben Tag. {entscheidung} Nun wartet er darauf, dass du dein Wort hältst.",
+  "{entscheidung} Der Torwarttrainer schreibt sich die Frist auf und fragt rechtzeitig nach."
+ ],
+ "pool.staff_mittel_verstaerkung.e.e1": [
+  "{b.staff_mittel_verstaerkung_gruss} {b.staff_mittel_verstaerkung_lage} Wir bitten dich, im Präsidium zusätzliche Mittel für den Stab durchzusetzen.",
+  "{b.staff_mittel_verstaerkung_gruss} {b.staff_mittel_verstaerkung_lage} Hilf uns bitte, dass wir mehr Personal und bessere Geräte bekommen."
+ ],
+ "pool.staff_mittel_verstaerkung.e.e2": [
+  "{b.staff_mittel_verstaerkung_gruss} {b.staff_mittel_verstaerkung_lage} Wir haben eine Liste gemacht, was wirklich fehlt, und würden sie dir gern zeigen.",
+  "{b.staff_mittel_verstaerkung_gruss} {b.staff_mittel_verstaerkung_lage} Lass uns dir erklären, wo es klemmt, du wirst es nachvollziehen können."
+ ],
+ "pool.staff_mittel_verstaerkung.e.e3": [
+  "{b.staff_mittel_verstaerkung_gruss} {b.staff_mittel_verstaerkung_lage} Wir wissen, dass die Stimmung im Moment gereizt ist, aber gerade deshalb müssen wir besser arbeiten können.",
+  "{b.staff_mittel_verstaerkung_gruss} {b.staff_mittel_verstaerkung_lage} Es ist vielleicht nicht der beste Zeitpunkt, aber später wird es nicht leichter."
+ ],
+ "pool.staff_mittel_verstaerkung.e.e4": [
+  "{b.staff_mittel_verstaerkung_gruss} {b.staff_mittel_verstaerkung_lage} Entweder wir bekommen jetzt Unterstützung, oder ich sage offen, woran es liegt, wenn es nicht läuft!",
+  "{b.staff_mittel_verstaerkung_gruss} {b.staff_mittel_verstaerkung_lage} Wenn nichts passiert, lege ich es dem Präsidium selbst vor, und dann wird es unangenehm!"
+ ],
+ "pool.staff_mittel_verstaerkung.e.e5": [
+  "{b.staff_mittel_verstaerkung_gruss} {b.staff_mittel_verstaerkung_lage} Wir bitten dich ruhig und sachlich, unser Anliegen mitzunehmen, mehr erwarten wir gar nicht.",
+  "{b.staff_mittel_verstaerkung_gruss} {b.staff_mittel_verstaerkung_lage} Wir wollen keinen Streit, nur dass jemand zuhört und es im Verein anspricht."
+ ],
+ "pool.staff_mittel_verstaerkung.e.e6": [
+  "{b.staff_mittel_verstaerkung_gruss} {b.staff_mittel_verstaerkung_lage} Investitionen in den Stab zahlen sich in Punkten aus, und wir können dir genau sagen, wo.",
+  "{b.staff_mittel_verstaerkung_gruss} {b.staff_mittel_verstaerkung_lage} Mit der richtigen Verstärkung holen wir den Rückstand auf, und dafür brauchst du deine Stimme im Präsidium."
+ ],
+ "pool.staff_mittel_verstaerkung.e.e7": [
+  "{b.staff_mittel_verstaerkung_gruss} {b.staff_mittel_verstaerkung_lage} Ein Wort der Anerkennung von dir und etwas Unterstützung würden uns viel bedeuten.",
+  "{b.staff_mittel_verstaerkung_gruss} {b.staff_mittel_verstaerkung_lage} Wir wünschen uns einfach, dass unsere Arbeit gesehen wird, und dass sich jemand für uns starkmacht."
+ ],
+ "pool.staff_mittel_verstaerkung.e.e8": [
+  "Der Verein hat Geld für Transfers, aber beim Stab kommt nichts an. Das ist kaum zu erklären, und wir würden das gern ändern.",
+  "Wenn für die Mannschaft Mittel da sind, sollten auch ein, zwei Stellen im Stab drin sein."
+ ],
+ "pool.staff_mittel_verstaerkung.e.e9": [
+  "In der Presse wird über Rückstand und Taktik geredet, aber nicht darüber, mit wie wenig wir arbeiten. Das möchten wir ansprechen.",
+  "Man sieht nur das Ergebnis, nie die Bedingungen. Bitte hilf uns, dass sich die ändern."
+ ],
+ "pool.staff_mittel_verstaerkung.a.a1": [
+  "Ich gehe damit ins Präsidium und fordere die Stellen und Geräte, die ihr braucht, notfalls auch mit Nachdruck.",
+  "Ihr bekommt meine Unterstützung: Ich lege den Bedarf auf den Tisch und kämpfe dafür, dass er bewilligt wird."
+ ],
+ "pool.staff_mittel_verstaerkung.a.a2": [
+  "Bis das Präsidium entschieden hat, finanziere ich aus dem Mannschaftsfonds eine Aushilfe für die Analyse, danach sehen wir weiter.",
+  "Ein Teil lässt sich aus dem laufenden Etat zahlen, den Rest bringe ich ins Präsidium ein."
+ ],
+ "pool.staff_mittel_verstaerkung.a.a3": [
+  "Schickt mir eure Bedarfsliste, und ich leite sie mit meiner Einschätzung an den Sportdirektor weiter.",
+  "Das ist ein Fall für den Sportdirektor. Schreibt zusammen auf, was fehlt, und ich lege es ihm vor."
+ ],
+ "pool.staff_mittel_verstaerkung.a.a4": [
+  "Ich sehe, wie viel ihr leistet, und ich weiß, dass das nicht selbstverständlich ist. Danke für euren Einsatz.",
+  "Ihr tragt viel mehr, als man von außen sieht. Ich nehme eure Sorge ernst und setze mich für euch ein."
+ ],
+ "pool.staff_mittel_verstaerkung.a.a5": [
+  "Das Budget ist knapp, und im Moment sind Transfers wichtiger als neue Stellen. Ich muss das Geld dort einsetzen, wo es Punkte bringt.",
+  "Der Verein hat die Mittel für den Stab bewusst klein gehalten, und daran lässt sich kurzfristig nichts ändern."
+ ],
+ "pool.staff_mittel_verstaerkung.a.a6": [
+  "Es gibt kein zusätzliches Geld, und ich will diese Forderung nicht noch einmal hören. Arbeitet mit dem, was da ist.",
+  "Ich werde mich im Verein nicht für mehr Stellen starkmachen. Jammern hilft niemandem."
+ ],
+ "pool.staff_mittel_verstaerkung.a.a7": [
+  "Was genau würde ein zusätzlicher Analyst bringen, in Punkten gedacht? Rechnet es mir vor.",
+  "Welche Stelle ist am dringendsten, und was würde ohne sie schlimmstenfalls passieren?"
+ ],
+ "pool.staff_mittel_verstaerkung.a.a8": [
+  "Ich nehme eure Bitte mit und spreche bei Gelegenheit mit dem Verein. Versprechen kann ich nichts.",
+  "Gebt mir etwas Zeit, ich fühle im Präsidium vor, wie die Stimmung ist."
+ ],
+ "pool.staff_mittel_verstaerkung.a.a9": [
+  "Es bleibt beim jetzigen Stab, und wer damit nicht arbeiten kann, muss sich überlegen, ob er hier richtig ist.",
+  "Ich diskutiere nicht über Mittel, solange ich sehe, was ihr mit dem Vorhandenen noch nicht ausschöpft."
+ ],
+ "pool.staff_mittel_verstaerkung.a.a10": [
+  "Ich genehmige die wichtigste Anschaffung sofort aus meinem Bereich. Für den Rest brauchen wir eine saubere Begründung fürs Präsidium.",
+  "Wir setzen Prioritäten: Eines bekommt ihr jetzt, die anderen Punkte nehmen wir ins nächste Budget."
+ ],
+ "pool.staff_mittel_verstaerkung.a.a11": [
+  "Wenn ich wüsste, wo man Geld für den Stab drucken kann, wäre ich im Verein längst Präsident. Ich versuche es auf dem normalen Weg.",
+  "Mit dem Kaffeeautomaten fange ich schon einmal an, der Rest braucht Zeit."
+ ],
+ "pool.staff_mittel_verstaerkung.a.a12": [
+  "Nach den Niederlagen fehlt allen die Geduld, auch mir. Euer Wunsch ist verständlich, und ich nehme ihn mit.",
+  "Wenn es nicht läuft, fragt jeder nach den Bedingungen. Ich verstehe, dass ihr jetzt Unterstützung braucht."
+ ],
+ "pool.staff_mittel_verstaerkung.a.a13": [
+  "Mehr Personal ist derzeit nicht vorgesehen, und ich halte eure Ausstattung für ausreichend.",
+  "Ich sehe keinen Bedarf für neue Mittel, und bitte tragt das Thema nicht in die Öffentlichkeit."
+ ],
+ "pool.staff_mittel_verstaerkung.r.r1": [
+  "{b.gut} Das ist ein starkes Signal, danke dir.",
+  "{b.gut} Damit haben wir endlich Rückenwind."
+ ],
+ "pool.staff_mittel_verstaerkung.r.r2": [
+  "{b.gut} Wir wussten, dass du hinter uns stehst, und jetzt zeigst du es.",
+  "{b.gut} Gut, dann arbeiten wir mit Zuversicht weiter."
+ ],
+ "pool.staff_mittel_verstaerkung.r.r3": [
+  "{b.gut} Gib uns die Mittel, und du siehst es in der Tabelle.",
+  "{b.gut} Dann holen wir das Maximum heraus, versprochen."
+ ],
+ "pool.staff_mittel_verstaerkung.r.r4": [
+  "{b.gut} Das war lange fällig, und es tut gut, gesehen zu werden.",
+  "{b.gut} Danke, das gibt uns neue Kraft."
+ ],
+ "pool.staff_mittel_verstaerkung.r.r5": [
+  "{b.gut} Na also, geht doch! Hätte man früher machen können!",
+  "{b.gut} So machen wir Nägel mit Köpfen, danke!"
+ ],
+ "pool.staff_mittel_verstaerkung.r.r6": [
+  "{b.neutral} Wir warten ab, was aus dem Präsidium kommt.",
+  "{b.neutral} Wir arbeiten erst einmal weiter und schauen, was passiert."
+ ],
+ "pool.staff_mittel_verstaerkung.r.r7": [
+  "{b.neutral} Wir wissen nicht, ob wir uns freuen oder sorgen sollen.",
+  "{b.neutral} Das klingt halbherzig, aber wir hoffen auf mehr."
+ ],
+ "pool.staff_mittel_verstaerkung.r.r8": [
+  "{b.neutral} Gut, dann machen wir eben weiter, so wie bisher auch.",
+  "{b.neutral} Wir sind gelassen, am Ende zählt das Ergebnis."
+ ],
+ "pool.staff_mittel_verstaerkung.r.r9": [
+  "{b.neutral} Wir erwarten bald konkrete Zahlen, sonst fragen wir erneut nach.",
+  "{b.neutral} Lass nicht zu viel Zeit verstreichen, Konkurrenten schlafen nicht."
+ ],
+ "pool.staff_mittel_verstaerkung.r.r10": [
+  "{b.schlecht} Das ist enttäuschend, und wir geben es so an den Stab weiter.",
+  "{b.schlecht} Dann bleibt alles, wie es ist, und das merkt man irgendwann auf dem Platz."
+ ],
+ "pool.staff_mittel_verstaerkung.r.r11": [
+  "{b.schlecht} Dann geh ich selbst zum Präsidium, mal sehen, ob die zuhören!",
+  "{b.schlecht} Das ist ein Schlag ins Gesicht für uns alle!"
+ ],
+ "pool.staff_mittel_verstaerkung.r.r12": [
+  "{b.schlecht} Gute Leute gehen dorthin, wo sie gebraucht werden, das sage ich nur.",
+  "{b.schlecht} Ich höre mich anderswo um, ich sage das ganz offen."
+ ],
+ "pool.staff_mittel_verstaerkung.r.r13": [
+  "{b.schlecht} Wir haben für dich gearbeitet, und nun fühlt es sich nach Undank an.",
+  "{b.schlecht} Das trifft uns, besonders weil wir uns immer auf dich verlassen haben."
+ ],
+ "pool.staff_mittel_verstaerkung.x.x1": [
+  "Der Stab bedankt sich geschlossen. {entscheidung} Man spürt, dass der Rückhalt wieder da ist, und die Arbeit wird konzentrierter.",
+  "{entscheidung} Im Trainingszentrum ist die Stimmung merklich besser, und die Leute arbeiten mit neuem Elan."
+ ],
+ "pool.staff_mittel_verstaerkung.x.x2": [
+  "Der Stab nimmt es zur Kenntnis und wartet ab. {entscheidung} Wie es weitergeht, hängt jetzt vom Präsidium ab.",
+  "{entscheidung} Das Thema ist nicht erledigt, es liegt weiter auf dem Tisch, und der Stab bleibt wachsam."
+ ],
+ "pool.staff_mittel_verstaerkung.x.x3": [
+  "Das Thema gelangt nach außen. {entscheidung} In der Presse ist plötzlich von einem unzufriedenen Stab die Rede, und das Präsidium wird unruhig.",
+  "{entscheidung} Jemand aus dem Stab erzählt es weiter, und binnen eines Tages weiß es der ganze Verein."
+ ],
+ "pool.staff_mittel_verstaerkung.x.x4": [
+  "Der Stab verlässt das Büro still. {entscheidung} Fortan wird nur noch das Nötigste gemacht, und Ideen von dort kommen nicht mehr.",
+  "{entscheidung} Die Gespräche mit dem Stab werden seltener und kühler, und man geht sich aus dem Weg."
+ ],
+ "pool.staff_mittel_verstaerkung.x.x5": [
+  "Der Stab hält fest, was du versprochen hast. {entscheidung} In den nächsten Wochen wird man nachfragen, was daraus geworden ist.",
+  "{entscheidung} Der Stab schreibt es in sein Protokoll und erinnert dich freundlich daran, wenn die Frist näher rückt."
+ ]
+}

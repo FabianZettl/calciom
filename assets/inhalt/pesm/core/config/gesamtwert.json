@@ -1,0 +1,19 @@
+{
+  "modellversion": 1,
+  "_hinweis": "Gesamtwert (SGB) von PESM – eine NÄHERUNG, nicht der Wert des Spiels. Je Positionsgruppe: SGB = a × Eingang + b, kaufmännisch gerundet und auf bereich begrenzt (die Gerade läuft bei den allerbesten Spielern über 99 hinaus). Eingang bei Feldspielern: Mittel der feld_hoechste höchsten Feldwerte (alle Fähigkeiten außer den Torwartwerten); beim Torwart: Mittel der Torwartwerte. fehler = mittlerer Fehler der Kreuzvalidierung in Punkten. Gilt nur für die Hauptposition. Alles austauschbar.",
+  "art": "naeherung",
+  "torwartwerte": ["torwartgefuehl", "fangen", "klaeren", "reflexe", "reichweite"],
+  "feld_hoechste": 8,
+  "feldwerte_mindestens": 20,
+  "bereich": [0, 99],
+  "gruppen": {
+    "TW":    { "positionen": ["TW"], "eingang": "torwart", "a": 1.067, "b": -12.94, "fehler": 0.78 },
+    "VS":    { "positionen": ["IV"], "a": 1.439, "b": -37.42, "fehler": 1.43 },
+    "RV/LV": { "positionen": ["RV", "LV"], "a": 1.073, "b": -6.44, "fehler": 1.83 },
+    "DMF":   { "positionen": ["DM"], "a": 1.583, "b": -46.69, "fehler": 1.15 },
+    "ZMF":   { "positionen": ["ZM"], "a": 1.409, "b": -33.11, "fehler": 0.77 },
+    "OMF":   { "positionen": ["OM"], "a": 1.474, "b": -39.09, "fehler": 1.61 },
+    "RA/LA": { "positionen": ["RA", "LA", "RM", "LM"], "a": 1.492, "b": -40.77, "fehler": 1.42, "wie": { "RM": "RMF wie RA/LA", "LM": "LMF wie RA/LA" } },
+    "MS":    { "positionen": ["ST", "HS"], "a": 1.558, "b": -46.83, "fehler": 1.83, "wie": { "HS": "SS wie MS, vermutet" } }
+  }
+}

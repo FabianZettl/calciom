@@ -1,0 +1,86 @@
+{
+ "pool.b.langzeitverletzt_anliegen_gruss": [
+  "Trainer, hast du kurz Zeit für mich?",
+  "Trainer, darf ich dich um ein Gespräch bitten?"
+ ],
+ "pool.b.langzeitverletzt_anliegen_lage": [
+  "Ich falle schon so lange aus, und ich sehe, wie die Mannschaft ohne mich weiterzieht.",
+  "Die Reha zieht sich, und mit jeder Woche wächst meine Sorge, was aus mir hier wird."
+ ],
+ "pool.b.langzeitverletzt_anliegen_lage.hitzig": [
+  "Ich sitze seit Wochen in der Reha, und keiner sagt mir, wie es danach für mich weitergeht!",
+  "Monatelang humple ich hier herum, und niemand erklärt mir, was mich erwartet!"
+ ],
+ "pool.b.langzeitverletzt_anliegen_lage.loyal": [
+  "Ich würde alles für diesen Verein tun, aber so lange verletzt zu sein, nagt an mir.",
+  "Ich bin gern hier und möchte es bleiben, doch der lange Ausfall macht mir Sorgen um meine Zukunft."
+ ],
+ "pool.b.langzeitverletzt_anliegen_lage.ehrgeizig": [
+  "Jeder Tag auf der Behandlungsliege ist ein Tag, an dem mir ein anderer den Platz wegnimmt.",
+  "Ich schufte in der Reha wie nie, aber ich fürchte, dass die Konkurrenz meinen Platz inzwischen besetzt hat."
+ ],
+ "pool.b.langzeitverletzt_anliegen_lage.wechselfreudig": [
+  "Ein halbes Jahr ohne Spiel ist verlorene Zeit, und ich frage mich, wie lange ich noch warten soll.",
+  "Der lange Ausfall zählt in meiner Karriere doppelt, und ich überlege, was das für meine Zukunft bedeutet."
+ ],
+ "pool.b.langzeitverletzt_anliegen_lage.sensibel": [
+  "Ich habe es lange runtergeschluckt, aber der lange Ausfall setzt mir mehr zu, als ich zeige.",
+  "Je länger ich fehle, desto leiser wird es um mich, und das tut weh."
+ ],
+ "pool.b.mentor_gibt_faehigkeit_gruss": [
+  "Hast du kurz Zeit? Es gibt Neuigkeiten aus dem Training.",
+  "Chef, hast du einen Moment? Ich habe etwas Erfreuliches zu berichten."
+ ],
+ "pool.b.mentor_gibt_faehigkeit_lage": [
+  "{name} hat sich von seinem Mentor eine Spezialfähigkeit abgeschaut, im Training sieht man es schon, oder er ist zumindest ganz nah dran.",
+  "Die Arbeit mit dem Mentor zahlt sich aus: {name} beherrscht eine Spezialfähigkeit, die er von ihm übernommen hat, fast schon sicher."
+ ],
+ "pool.b.mentor_gibt_faehigkeit_lage.hitzig": [
+  "{name} läuft herum, als hätte er seinen Mentor längst überholt, seit er dessen Spezialfähigkeit drauf hat!",
+  "Seit {name} die Fähigkeit seines Mentors beherrscht, führt er sich in der Kabine auf, als gehöre ihm der Laden!"
+ ],
+ "pool.b.mentor_gibt_faehigkeit_lage.loyal": [
+  "{name} schwärmt von seinem Mentor und sagt, ohne ihn hätte er die neue Spezialfähigkeit nie gelernt.",
+  "{name} hat die Spezialfähigkeit seines Mentors übernommen und redet voller Dankbarkeit über ihn."
+ ],
+ "pool.b.mentor_gibt_faehigkeit_lage.ehrgeizig": [
+  "{name} will die Spezialfähigkeit seines Mentors vollständig beherrschen und fragt schon nach der nächsten.",
+  "Die neue Spezialfähigkeit hat bei {name} den Hunger geweckt, er will alles von seinem Mentor lernen."
+ ],
+ "pool.b.mentor_gibt_faehigkeit_lage.wechselfreudig": [
+  "{name} weiß genau, dass ihn so eine Spezialfähigkeit für andere Vereine interessanter macht.",
+  "Mit der Fähigkeit seines Mentors im Gepäck sieht {name} seinen Marktwert steigen und merkt es auch."
+ ],
+ "pool.b.mentor_gibt_faehigkeit_lage.sensibel": [
+  "{name} traut seinem eigenen Fortschritt noch nicht und fragt mich ständig, ob er die Spezialfähigkeit wirklich beherrscht.",
+  "{name} hat von seinem Mentor eine Spezialfähigkeit übernommen, wirkt aber eher verunsichert als stolz."
+ ],
+ "pool.b.faehigkeit_verloren_position_gruss": [
+  "Hast du kurz Zeit? Es geht um einen Spieler.",
+  "Chef, ich muss dich kurz wegen eines Spielers sprechen."
+ ],
+ "pool.b.faehigkeit_verloren_position_lage": [
+  "{name} hat durch seine neue Position eine Spezialfähigkeit verloren, die er dort nicht mehr braucht, und er hängt daran.",
+  "Seit {name} lange auf der neuen Position spielt, ist seine alte Spezialfähigkeit verblasst, und er trauert ihr nach."
+ ],
+ "pool.b.faehigkeit_verloren_position_lage.hitzig": [
+  "{name} tobt, weil ihm die neue Position seine Spezialfähigkeit weggenommen hat!",
+  "Dass {name} durch die Positionsänderung eine Spezialfähigkeit eingebüßt hat, lässt er nicht auf sich sitzen!"
+ ],
+ "pool.b.faehigkeit_verloren_position_lage.loyal": [
+  "{name} hat die neue Position ohne Murren übernommen, aber der Verlust einer Spezialfähigkeit geht ihm nahe.",
+  "Für den Verein hat {name} die Position gewechselt, und dabei hat er eine Spezialfähigkeit verloren, die ihm viel bedeutete."
+ ],
+ "pool.b.faehigkeit_verloren_position_lage.ehrgeizig": [
+  "{name} will überall der Beste sein und ärgert sich, dass er auf der neuen Position eine Spezialfähigkeit eingebüßt hat.",
+  "Eine Spezialfähigkeit weniger heißt für {name} einen Vorteil weniger, und damit will er sich nicht abfinden."
+ ],
+ "pool.b.faehigkeit_verloren_position_lage.wechselfreudig": [
+  "{name} hat durch die neue Position eine Spezialfähigkeit verloren und hält das für einen Grund, über seine Zukunft nachzudenken.",
+  "Der Verlust einer Spezialfähigkeit auf der neuen Position gibt {name} Anlass, an seinem Platz hier zu zweifeln."
+ ],
+ "pool.b.faehigkeit_verloren_position_lage.sensibel": [
+  "{name} fühlt sich durch den Verlust einer Spezialfähigkeit auf der neuen Position wie ein Stück weit entwertet.",
+  "Dass seine Spezialfähigkeit auf der neuen Position verschwunden ist, nagt an {name} mehr, als er zeigt."
+ ]
+}

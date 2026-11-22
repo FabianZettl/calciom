@@ -1,0 +1,11 @@
+{
+  "_hinweis": "Typwechsel (Modell 3): Der Co-Trainer meldet, dass sich ein Spieler verändert hat. Der Text nennt weder Richtung noch Zeitraum der Veränderung. Keine Typnamen im Text; die Oberfläche zeigt vorher und nachher im Profil.",
+  "typwechsel.betreff": { "standard": ["{spieler_kurz} hat sich verändert"] },
+  "typwechsel.text": {
+    "standard": [
+      "Mir fällt auf, dass {spieler} anders auftritt als früher. Ich glaube, das hat damit zu tun, wie du zuletzt mit ihm umgegangen bist. Behalte ihn im Blick.",
+      "Noch etwas zu {spieler_kurz}: Er ist nicht mehr derselbe. Schau dir sein Profil an, bevor du das nächste Mal mit ihm sprichst."
+    ]
+  },
+  "typwechsel.antwort.kenntnis": { "standard": ["Danke, ich schaue es mir an."] }
+}

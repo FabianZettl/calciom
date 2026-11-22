@@ -1,0 +1,473 @@
+{
+ "spielzeit_stamm": {
+  "teile": [
+   [
+    "erwartet einen Stammplatz,",
+    "sieht sich als Stammspieler,",
+    "fühlt sich für die erste Elf bestimmt,"
+   ],
+   [
+    "saß zuletzt {wort} auf der Bank.",
+    "musste zuletzt {wort} zuschauen.",
+    "stand zuletzt {wort} nicht in der Startelf."
+   ]
+  ]
+ },
+ "spielzeit_rot": {
+  "teile": [
+   [
+    "will mehr Einsatzzeit",
+    "drängt auf mehr Spielminuten",
+    "will endlich öfter ran"
+   ],
+   [
+    "und kam zuletzt nur {wort} zum Zug.",
+    "und durfte zuletzt nur {wort} spielen.",
+    "doch bekam zuletzt nur {wort} eine Chance."
+   ]
+  ]
+ },
+ "spielzeit_plus": {
+  "teile": [
+   [
+    "bekommt mehr Einsatzzeit, als er erwartet hatte",
+    "freut sich über die vielen Einsätze",
+    "blüht auf, weil der Trainer ihm Spielzeit gibt"
+   ]
+  ]
+ },
+ "spielzeit_ok": {
+  "teile": [
+   [
+    "spielt, wie er es als Stammspieler erwartet",
+    "ist als Stammkraft gesetzt und zufrieden",
+    "fühlt sich als feste Größe in der Elf wohl"
+   ]
+  ]
+ },
+ "gehalt_neid": {
+  "teile": [
+   [
+    "verdient deutlich weniger",
+    "bekommt spürbar weniger Geld",
+    "liegt beim Gehalt klar zurück"
+   ],
+   [
+    "als gleich gute Mitspieler,",
+    "als die Kollegen auf seinem Niveau,"
+   ],
+   [
+    "und das nagt an ihm.",
+    "und das vergisst er nicht.",
+    "und das merkt man ihm an."
+   ]
+  ]
+ },
+ "gehalt_ok": {
+  "teile": [
+   [
+    "fühlt sich gut bezahlt",
+    "ist mit seinem Gehalt zufrieden",
+    "hat beim Geld keinen Grund zur Klage"
+   ]
+  ]
+ },
+ "tabelle_plus": {
+  "teile": [
+   [
+    "ist stolz auf die Saison: die Mannschaft steht besser als erwartet",
+    "genießt die Tabellenlage, mehr hatte vorher keiner erwartet",
+    "freut sich über den starken Lauf der Mannschaft"
+   ]
+  ]
+ },
+ "tabelle_minus": {
+  "teile": [
+   [
+    "ist unzufrieden, denn die Mannschaft steht schlechter als erwartet",
+    "ärgert sich über die Tabellenlage, mehr wäre drin gewesen",
+    "hadert mit der enttäuschenden Platzierung"
+   ]
+  ]
+ },
+ "vertrauen_plus": {
+  "teile": [
+   [
+    "hat Vertrauen in dich, weil du Wort hältst",
+    "weiß, dass er sich auf dich verlassen kann",
+    "schätzt, dass du Zusagen einhältst"
+   ]
+  ]
+ },
+ "vertrauen_minus": {
+  "teile": [
+   [
+    "traut dir nach gebrochenen Zusagen nicht mehr",
+    "glaubt dir nichts mehr, seit du dein Wort nicht gehalten hast",
+    "ist misstrauisch, weil Versprechen unerfüllt blieben"
+   ]
+  ]
+ },
+ "zusage_offen": {
+  "teile": [
+   [
+    "wartet gespannt auf die Zusage, die du ihm gemacht hast",
+    "hat sich deine Zusage gemerkt und beobachtet genau, was passiert",
+    "vertraut vorerst auf dein Versprechen"
+   ]
+  ]
+ },
+ "gespraech": {
+  "teile": [
+   [
+    "hat sich nach dem Gespräch mit dir ernst genommen gefühlt",
+    "fand das offene Wort mit dir gut",
+    "schätzt, dass du dir Zeit für ihn genommen hast"
+   ]
+  ]
+ },
+ "kabine_freunde": {
+  "teile": [
+   [
+    "hat Freunde in der Mannschaft",
+    "fühlt sich in der Kabine zu Hause",
+    "versteht sich mit den Mitspielern bestens"
+   ]
+  ]
+ },
+ "mentor": {
+  "teile": [
+   [
+    "wird von einem erfahrenen Mitspieler unter die Fittiche genommen",
+    "profitiert von einem Routinier, der ihm hilft",
+    "hat in der Kabine einen väterlichen Förderer"
+   ]
+  ]
+ },
+ "heimweh": {
+  "teile": [
+   [
+    "vermisst noch sein altes Umfeld und braucht Zeit, anzukommen",
+    "kämpft noch mit dem Heimweh",
+    "hat sich noch nicht richtig eingelebt"
+   ]
+  ]
+ },
+ "verlust": {
+  "teile": [
+   [
+    "vermisst seinen Freund {freund}, der den Verein verlassen hat",
+    "trauert dem Abgang von {freund} nach",
+    "fühlt sich ohne {freund} in der Kabine allein"
+   ]
+  ]
+ },
+ "form_tore": {
+  "teile": [
+   [
+    "Form gestiegen: {tore} gegen {gegner}.",
+    "Form gestiegen: {tore} im Spiel gegen {gegner}.",
+    "Aufwind nach {tore} gegen {gegner}."
+   ]
+  ]
+ },
+ "form_stark": {
+  "teile": [
+   [
+    "Form gestiegen: starke Partie gegen {gegner}.",
+    "Aufwind nach einem starken Auftritt gegen {gegner}."
+   ]
+  ]
+ },
+ "form_schwach": {
+  "teile": [
+   [
+    "Form gesunken: schwache Partie gegen {gegner}.",
+    "Dämpfer nach einem schwachen Spiel gegen {gegner}."
+   ]
+  ]
+ },
+ "frische_dicht": {
+  "teile": [
+   [
+    "Frische sinkt: {nth} Partie in acht Tagen.",
+    "Die Beine werden schwer: {nth} Partie in acht Tagen."
+   ]
+  ]
+ },
+ "frische_schwach": {
+  "teile": [
+   [
+    "Frische schwach: er ist müde und braucht eine Pause.",
+    "Er wirkt ausgelaugt und braucht Erholung."
+   ]
+  ]
+ },
+ "rost": {
+  "teile": [
+   [
+    "Spielpraxis fehlt: nach der Pause kommt er erst langsam wieder in den Rhythmus.",
+    "Nach der Pause fehlt ihm noch der Rhythmus."
+   ]
+  ]
+ },
+ "laune_schlecht": {
+  "teile": [
+   [
+    "Die schlechte Stimmung drückt auf seine Leistung.",
+    "Der Kopf ist nicht frei, das sieht man auf dem Platz."
+   ]
+  ]
+ },
+ "laune_gut": {
+  "teile": [
+   [
+    "Die gute Stimmung beflügelt ihn.",
+    "Er spielt befreit auf, die Laune stimmt."
+   ]
+  ]
+ },
+ "berater_jaeger": {
+  "teile": [
+   [
+    "Sein Berater lebt von der Provision und drängt auf einen Wechsel.",
+    "Sein Berater ist ein Provisionsjäger und sucht ständig den nächsten Abschluss."
+   ],
+   [
+    "Rechne mit hohen Forderungen und Druck kurz vor Fristende.",
+    "Vor dem Fensterschluss wird er die Daumenschrauben anziehen."
+   ]
+  ]
+ },
+ "berater_hardliner": {
+  "teile": [
+   [
+    "Sein Berater pokert hoch und gibt selten nach.",
+    "Sein Berater ist ein Hardliner, der nichts verschenkt."
+   ],
+   [
+    "Gegenangebote kommen zäh, ein Abbruch wird gern als Drohung benutzt.",
+    "Er droht gern mit Abbruch, um den Preis zu treiben."
+   ]
+  ]
+ },
+ "berater_freund": {
+  "teile": [
+   [
+    "Sein Berater ist ein enger Vertrauter, dem die Menschen wichtiger sind als der Abschluss.",
+    "Sein Berater ist eher Freund als Geschäftsmann."
+   ],
+   [
+    "Mit Ehrlichkeit kommst du weit.",
+    "Wer offen mit ihm redet, wird belohnt."
+   ]
+  ]
+ },
+ "berater_partner": {
+  "teile": [
+   [
+    "Sein Berater plant die Karriere langfristig und argumentiert sachlich.",
+    "Sein Berater denkt in Karrieren, nicht in Provisionen."
+   ],
+   [
+    "Wer gute Perspektiven bietet, kommt schnell zusammen.",
+    "Mit einem guten Konzept ist er schnell zu überzeugen."
+   ]
+  ]
+ },
+ "berater_gut": {
+  "teile": [
+   [
+    "Nach eurer fairen Zusammenarbeit zeigt er sich entgegenkommend.",
+    "Weil du bisher fair warst, hört er dir wohlwollend zu."
+   ]
+  ]
+ },
+ "berater_schlecht": {
+  "teile": [
+   [
+    "Gebrochene Zusagen aus der Vergangenheit haben bei ihm Spuren hinterlassen, er misstraut dir.",
+    "Er hat nicht vergessen, dass du dein Wort schon einmal nicht gehalten hast."
+   ]
+  ]
+ },
+ "zusage_neu": {
+  "teile": [
+   [
+    "{text}",
+    "{text}"
+   ],
+   [
+    "Hältst du es, wächst sein Vertrauen. Brichst du es, ist es schnell verspielt.",
+    "Er wird genau hinschauen, ob du Wort hältst."
+   ]
+  ]
+ },
+ "zusage_gehalten": {
+  "teile": [
+   [
+    "Du hast dein Versprechen gegenüber {name} gehalten.",
+    "Zusage an {name} eingelöst."
+   ],
+   [
+    "Das stärkt das Vertrauen und er geht mit gutem Gefühl in die nächsten Spiele.",
+    "Er weiß jetzt, dass auf dein Wort Verlass ist."
+   ]
+  ]
+ },
+ "zusage_gebrochen_titel": {
+  "teile": [
+   [
+    "{name} fühlt sich hintergangen",
+    "{name} ist enttäuscht von dir",
+    "{name} wirft dir gebrochene Versprechen vor"
+   ]
+  ]
+ },
+ "zusage_gebrochen": {
+  "teile": [
+   [
+    "{text}"
+   ],
+   [
+    "Das Versprechen wurde nicht eingehalten.",
+    "Eingelöst wurde das nicht."
+   ],
+   [
+    "Er hat das Vertrauen in dich verloren, weitere Zusagen sind für ihn weniger wert.",
+    "Sein Vertrauen ist erschüttert, und er wird künftig skeptisch bleiben."
+   ]
+  ]
+ },
+ "mail_spielzeit_betreff": {
+  "teile": [
+   [
+    "{name} will reden: zu wenig Einsatzzeit",
+    "{name} sucht das Gespräch wegen der Spielzeit",
+    "{name} fühlt sich übergangen"
+   ]
+  ]
+ },
+ "mail_spielzeit": {
+  "teile": [
+   [
+    "{name} sucht das Gespräch.",
+    "{name} klopft an deine Tür."
+   ],
+   [
+    "Er hatte sich mehr erhofft und {grund}.",
+    "Er ist unzufrieden, denn er {grund}."
+   ]
+  ],
+  "ton": {
+   "Heißsporn": [
+    [
+     "{name} platzt der Kragen."
+    ],
+    [
+     "Er stellt dich zur Rede, denn er {grund}."
+    ]
+   ],
+   "Sensibel": [
+    [
+     "{name} wirkt bedrückt und bittet um ein Gespräch."
+    ],
+    [
+     "Er fühlt sich zurückgesetzt, denn er {grund}."
+    ]
+   ],
+   "Profi": [
+    [
+     "{name} bittet sachlich um ein Gespräch."
+    ],
+    [
+     "Er sagt es sachlich: er {grund}."
+    ]
+   ]
+  }
+ },
+ "mail_gehalt_betreff": {
+  "teile": [
+   [
+    "{name} fordert mehr Geld",
+    "{name} will über sein Gehalt reden",
+    "{name} pocht auf eine Gehaltserhöhung"
+   ]
+  ]
+ },
+ "mail_gehalt": {
+  "teile": [
+   [
+    "{name} ist unzufrieden:",
+    "{name} hat die Gehaltsliste studiert:"
+   ],
+   [
+    "er {grund}.",
+    "er {grund}, und sein Berater hat sich schon gemeldet."
+   ]
+  ],
+  "ton": {
+   "Heißsporn": [
+    [
+     "{name} schimpft in der Kabine:"
+    ],
+    [
+     "er {grund}!"
+    ]
+   ]
+  }
+ },
+ "mail_verlust_betreff": {
+  "teile": [
+   [
+    "{name} wirkt in der Kabine niedergeschlagen",
+    "Sorgen um {name}",
+    "{name} hängt durch"
+   ]
+  ]
+ },
+ "mail_verlust": {
+  "teile": [
+   [
+    "Das Betreuerteam macht sich Sorgen:",
+    "Den Betreuern fällt auf:"
+   ],
+   [
+    "{name} {grund}.",
+    "{name} {grund}, und das spürt man im Training."
+   ]
+  ]
+ },
+ "mail_trainer_betreff": {
+  "teile": [
+   [
+    "{name} hadert mit dem Trainer",
+    "{name} tut sich unter dem Trainer schwer"
+   ]
+  ]
+ },
+ "mail_trainer": {
+  "teile": [
+   [
+    "Im Training fällt auf:",
+    "Der Co-Trainer berichtet:"
+   ],
+   [
+    "{name} {grund}.",
+    "{name} {grund}, und das färbt auf die Stimmung ab."
+   ]
+  ]
+ },
+ "mail_grund": {
+  "teile": [
+   [
+    "Seit Tagen ist die Stimmung bei {name} im Keller, jetzt hat sich der Unmut angestaut.",
+    "Bei {name} hat sich der Unmut über Wochen aufgebaut."
+   ],
+   [
+    "Der Auslöser: er {grund}.",
+    "Der Grund liegt auf der Hand: er {grund}."
+   ]
+  ]
+ }
+}

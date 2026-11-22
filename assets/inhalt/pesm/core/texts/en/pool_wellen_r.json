@@ -1,0 +1,330 @@
+{
+  "pool.fans_ticketpreise.e.e1": [
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} We ask you to speak up for us with the board.",
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} Could you raise the matter with the board?"
+  ],
+  "pool.fans_ticketpreise.e.e2": [
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} A word from you with the board would mean a lot to us.",
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} The board is more likely to listen to you than to us."
+  ],
+  "pool.fans_ticketpreise.e.e3": [
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} We are annoyed, we admit it, but we want to talk to you in a friendly way. Would you speak to the board?",
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} The mood is not the best right now, yet we hope for your understanding and a word with the board."
+  ],
+  "pool.fans_ticketpreise.e.e4": [
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} Tell those upstairs that the terrace stays empty if nothing changes!",
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} If you do nothing there will soon be banners against the prices, before every home game!"
+  ],
+  "pool.fans_ticketpreise.e.e5": [
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} We stand behind the team and therefore calmly ask you to take the matter up with the board.",
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} We want no quarrel, just an open ear on the board, and we would like your help with that."
+  ],
+  "pool.fans_ticketpreise.e.e6": [
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} Whoever wants success needs atmosphere in the stadium, so please push for fairer prices.",
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} Show us that you can move things away from the pitch too, and stand up for us with the board."
+  ],
+  "pool.fans_ticketpreise.e.e7": [
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} We feel overlooked and would be grateful if you could get us a hearing at the board.",
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} This club means a lot to us, and it would mean much if you presented our concern."
+  ],
+  "pool.fans_ticketpreise.e.e8": [
+    "Coach, after the latest defeats nobody in the terraces understands why we should also dig deep into our pockets. Please talk to the board about prices.",
+    "First we lose games, then we are supposed to pay more for tickets and trips? Please push for a change."
+  ],
+  "pool.fans_ticketpreise.e.e9": [
+    "Ticket prices are now a topic in the papers and fan forums. Before it gets louder we ask you for a word with the board.",
+    "The media already talk about empty seats. Help to prevent a quarrel with the club."
+  ],
+  "pool.fans_ticketpreise.e.e10": [
+    "Coach, you carry weight on the board, we know that. That is why we come to you: season ticket and away trip prices belong on the table.",
+    "The board values you, and that is exactly why we want you to present our worries about entry prices there."
+  ],
+  "pool.fans_ticketpreise.a.a1": [
+    "I will stand up for you with the board and demand cheaper season tickets and relief for away trips.",
+    "I will go to the board and present your demand, against resistance if necessary."
+  ],
+  "pool.fans_ticketpreise.a.a2": [
+    "Until the board has decided, a grant from our team fund for the away buses will help.",
+    "I will add something from the team fund for the trips so that the next journey stays doable for many."
+  ],
+  "pool.fans_ticketpreise.a.a3": [
+    "Prices are decided by the management, not by me. I will hand your letter in there and ask for a reply to you.",
+    "This belongs on the board's table, and I will make sure your mail arrives there."
+  ],
+  "pool.fans_ticketpreise.a.a4": [
+    "I understand that well. Anyone who comes with the family feels every price rise in the wallet, and I take that seriously.",
+    "You are right, the stadium must not become a luxury. I know what the games mean to you."
+  ],
+  "pool.fans_ticketpreise.a.a5": [
+    "Look at the table: the team delivers, and full stands follow success. In the end that will justify the prices.",
+    "We are doing well in sporting terms, and a club that plays at the top cannot be cheap."
+  ],
+  "pool.fans_ticketpreise.a.a6": [
+    "I reject the criticism of the prices. You have to decide for yourselves what the club is worth to you.",
+    "This is not my topic, and pressure from the terraces changes nothing. I will not be roped in for it."
+  ],
+  "pool.fans_ticketpreise.a.a7": [
+    "How many season tickets have actually been handed back, and which trips are most expensive? I can do more with figures at the board.",
+    "What exactly does an away trip cost you, and where does the shoe pinch most?"
+  ],
+  "pool.fans_ticketpreise.a.a8": [
+    "I will take your concern with me. I cannot promise you more than that today.",
+    "I see what moves you and will keep it in mind when I talk to people at the club."
+  ],
+  "pool.fans_ticketpreise.a.a9": [
+    "I do not interfere with pricing policy, and that is that. My job is the team.",
+    "I have nothing to say about prices and will not say anything about them."
+  ],
+  "pool.fans_ticketpreise.a.a10": [
+    "I invite you to a meeting with the board and will sit in, so you can present your figures yourselves.",
+    "Let us arrange a date together with the board. Then those responsible hear it from you, and I will support you."
+  ],
+  "pool.fans_ticketpreise.a.a11": [
+    "If I were allowed to give away tickets the terrace would be full by now. But I am only the coach and no treasurer, so keep that between us.",
+    "If entry prices depended on tactics we would have cut them long ago. I will remember your concern."
+  ],
+  "pool.fans_ticketpreise.a.a12": [
+    "Having to dig deep into your pockets after a defeat is doubly bitter. I understand that.",
+    "Especially when things go badly on the pitch, every extra euro hurts. Your anger is understandable."
+  ],
+  "pool.fans_ticketpreise.a.a13": [
+    "Frankly, I consider the prices normal for the business. I see no reason to stir up trouble on the board over it.",
+    "To me this is an ordinary price level, so I will not start a campaign."
+  ],
+  "pool.fans_ticketpreise.r.r1": [
+    "{b.gut} That is more than we expected, we will pass it on in the terraces.",
+    "{b.gut} We can work with that, many thanks for your word."
+  ],
+  "pool.fans_ticketpreise.r.r2": [
+    "{b.gut} It is good that you take time for us, we appreciate that.",
+    "{b.gut} That is the coach we know, thank you for the open ear."
+  ],
+  "pool.fans_ticketpreise.r.r3": [
+    "{b.gut} Then we expect a result, but the start is made.",
+    "{b.gut} If action follows, the terraces will be behind the club again."
+  ],
+  "pool.fans_ticketpreise.r.r4": [
+    "{b.gut} That you listen means a great deal to many of us.",
+    "{b.gut} We had not dared to hope that you would see it this way."
+  ],
+  "pool.fans_ticketpreise.r.r5": [
+    "{b.gut} There you go, it works! We will tell the terraces right away.",
+    "{b.gut} At last someone who dares, and in front of the board at that."
+  ],
+  "pool.fans_ticketpreise.r.r6": [
+    "{b.neutral} We will discuss this at the fan meeting and get back to you.",
+    "{b.neutral} Whether that is enough will show in the next price lists."
+  ],
+  "pool.fans_ticketpreise.r.r7": [
+    "{b.neutral} Whether that is the right answer, we do not know yet.",
+    "{b.neutral} Opinions differ among us, we will see."
+  ],
+  "pool.fans_ticketpreise.r.r8": [
+    "{b.neutral} Fine, then we wait and see what the board says.",
+    "{b.neutral} We have time, but the season tickets for the new season will soon be due."
+  ],
+  "pool.fans_ticketpreise.r.r9": [
+    "{b.neutral} We will look at the prices once something is on the table.",
+    "{b.neutral} Talk helps, but figures help more, and we want to see them soon."
+  ],
+  "pool.fans_ticketpreise.r.r10": [
+    "{b.schlecht} We are not satisfied with that, and we will carry it to the terraces as it is.",
+    "{b.schlecht} That helps nobody, least of all the families who cannot afford the tickets."
+  ],
+  "pool.fans_ticketpreise.r.r11": [
+    "{b.schlecht} Then we will say it loudly, in the stadium, in front of all the cameras!",
+    "{b.schlecht} You leave us standing in the rain, we will not forget that!"
+  ],
+  "pool.fans_ticketpreise.r.r12": [
+    "{b.schlecht} Then even more seats will soon stay empty, that is up to each one.",
+    "{b.schlecht} Those who are not heard will simply save themselves the trip to the stadium."
+  ],
+  "pool.fans_ticketpreise.r.r13": [
+    "{b.schlecht} We expected more from you, that really disappoints us.",
+    "{b.schlecht} We have always stood by you, and now this feels like a brush-off."
+  ],
+  "pool.fans_ticketpreise.x.x1": [
+    "The fan spokesman says thank you. {entscheidung} The anger about prices dies down in the terraces, and calm returns for the next weeks.",
+    "{entscheidung} The fans take it kindly, and the first season tickets are collected again."
+  ],
+  "pool.fans_ticketpreise.x.x2": [
+    "The terraces stay split. {entscheidung} Whether prices drop is finally for the board to decide.",
+    "{entscheidung} The fan spokesman wants to await the meeting before saying more."
+  ],
+  "pool.fans_ticketpreise.x.x3": [
+    "The answer spreads fast. {entscheidung} At the next home game a banner against the prices hangs in the block, and the cameras zoom in.",
+    "{entscheidung} The fan forums argue fiercely the same evening, and the paper picks it up."
+  ],
+  "pool.fans_ticketpreise.x.x4": [
+    "The fan spokesman does not write back. {entscheidung} The line to the terraces is cut for now.",
+    "{entscheidung} From now on the terraces stay silent on prices and keep their distance."
+  ],
+  "pool.fans_ticketpreise.x.x5": [
+    "The fan spokesman reads out your promise in the terraces. {entscheidung} Now everyone watches closely what comes of it at the board.",
+    "{entscheidung} The fan council puts on record what you promised and will remind you at some point."
+  ],
+  "pool.fans_lob_choreo.e.e1": [
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} We are planning a choreography for the next home game and wish that the team comes to the terraces after the final whistle.",
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} May we hope for a joint salute from team and terraces after the game?"
+  ],
+  "pool.fans_lob_choreo.e.e2": [
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} Tell us whether the players have a moment for the terraces after the final whistle, that would be the highlight for us.",
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} We need your assurance that the team will answer our choreography with a salute."
+  ],
+  "pool.fans_lob_choreo.e.e3": [
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} You seem tense and we do not want to disturb you. But a choreography and a salute from the team would do everybody good.",
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} Perhaps this is not the best moment, yet we would be very glad about a sign from the team to the terraces."
+  ],
+  "pool.fans_lob_choreo.e.e4": [
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} This will be the biggest show this stadium has ever seen, and the players simply must come to us afterwards!",
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} After a game like that the terraces want to see their heroes, so please send them over to us!"
+  ],
+  "pool.fans_lob_choreo.e.e5": [
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} It need not be elaborate, just a shared moment between team and terraces, if it suits you.",
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} If it can be arranged the lads come over to us briefly, completely relaxed and without a big programme."
+  ],
+  "pool.fans_lob_choreo.e.e6": [
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} Together with the terraces this team is hard to beat, and the opponent should see and hear that in the stadium.",
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} A salute from the team after the game would make the terraces even louder, and you benefit most from that."
+  ],
+  "pool.fans_lob_choreo.e.e7": [
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} For many of us it is something very special to thank the players in person, please give us that moment.",
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} We have been working on the choreography for weeks and would be very glad about a salute from the team."
+  ],
+  "pool.fans_lob_choreo.e.e8": [
+    "Coach, one rarely experiences a run like this, and we want to honour it with a choreography. Will the team come to us after the game?",
+    "The terraces have not cheered in a row for such a long time. We thank you with a choreography and hope for the players' salute."
+  ],
+  "pool.fans_lob_choreo.e.e9": [
+    "Coach, we have long wished to see the club at the top of the table. We are planning a choreography and wish for the team with us afterwards.",
+    "We want to show with a big picture in the block that the club plays at the top. Will the players come to us afterwards?"
+  ],
+  "pool.fans_lob_choreo.e.e10": [
+    "Coach, the press is writing about us and we would like a picture for the cameras, team and terraces together after the game.",
+    "Everyone is talking about this run, and we want it to be seen in the terraces too. What do you think of a salute after the final whistle?"
+  ],
+  "pool.fans_lob_choreo.a.a1": [
+    "We will come to the terraces together after the game, I promise you. You have earned it.",
+    "The team will step in front of your block after the final whistle, I will see to that."
+  ],
+  "pool.fans_lob_choreo.a.a2": [
+    "I will discuss it with the captain and the squad council, the salute should come from the players themselves.",
+    "How the team thanks you is for the players to decide. I will pass your request on to the captain."
+  ],
+  "pool.fans_lob_choreo.a.a3": [
+    "The thanks are yours. We have not won anything yet, but without you this run would not have been possible.",
+    "We stay humble, because the season is long. But what your terraces do really helps us on the pitch."
+  ],
+  "pool.fans_lob_choreo.a.a4": [
+    "Let us plan it for the home game after next, then I will have the team better in view.",
+    "I would like to do it, but not right now. Ask again after the next home game."
+  ],
+  "pool.fans_lob_choreo.a.a5": [
+    "The schedule is too tight, I will not let the lads lose time and strength after the game too. The answer is no.",
+    "Because of the schedule I have to decline, the players need recovery after the final whistle, not a ceremony."
+  ],
+  "pool.fans_lob_choreo.a.a6": [
+    "The team donates a bonus to the terraces. With it you can pay for material for the choreography and flags.",
+    "Part of our win bonus goes to your block as thanks for the atmosphere."
+  ],
+  "pool.fans_lob_choreo.a.a7": [
+    "What exactly do you have in mind, how long will it take, and where should the players stand? Then I can plan it.",
+    "How do you imagine the procedure, and who from the terraces is my contact person?"
+  ],
+  "pool.fans_lob_choreo.a.a8": [
+    "We celebrate after the season, before that there are no gestures and no appearances. I stick to that.",
+    "As long as we have won nothing, this team does not show itself in front of the terraces. That is my line."
+  ],
+  "pool.fans_lob_choreo.a.a9": [
+    "I will explain the procedure: after the final whistle comes the review, afterwards the players come to you briefly, as far as the schedule allows.",
+    "After the game there is recovery and interviews, but a short salute towards the terraces is possible."
+  ],
+  "pool.fans_lob_choreo.a.a10": [
+    "If the lads keep winning they will soon run over to you by themselves, and I will only be in the way.",
+    "If I do not send the players over they will come anyway, I know their pride. I will let you know."
+  ],
+  "pool.fans_lob_choreo.a.a11": [
+    "Thank you for all you do for us. I know how much work and heart goes into every choreography.",
+    "That really touches me. You make this stadium a special place, and the players feel it too."
+  ],
+  "pool.fans_lob_choreo.a.a12": [
+    "Instead of after the game I suggest a meeting during the week, the captain, a few players and I will come to you.",
+    "We would rather meet at the training ground, the team has more peace there, and I will bring the players along."
+  ],
+  "pool.fans_lob_choreo.a.a13": [
+    "Should I risk a win because of a choreography? The lads should concentrate on the next game, not on your show.",
+    "Do you want the team to lose focus just because the terraces want to paint a picture?"
+  ],
+  "pool.fans_lob_choreo.r.r1": [
+    "{b.gut} That makes us truly happy, the whole terrace will hear about it.",
+    "{b.gut} We had hoped for such an answer and are still hugely delighted."
+  ],
+  "pool.fans_lob_choreo.r.r2": [
+    "{b.gut} That is exactly how we know you, and exactly why we stand behind you.",
+    "{b.gut} That is a nice thing, thank you for your word and for the calm."
+  ],
+  "pool.fans_lob_choreo.r.r3": [
+    "{b.gut} Then we will make it something the whole league talks about.",
+    "{b.gut} Great, and we will keep pushing the team forward, promised."
+  ],
+  "pool.fans_lob_choreo.r.r4": [
+    "{b.gut} That touched us deeply, many heartfelt thanks.",
+    "{b.gut} We had not expected so much warmth, we will not forget it."
+  ],
+  "pool.fans_lob_choreo.r.r5": [
+    "{b.gut} Yes, then we give everything in the stadium and make it really big!",
+    "{b.gut} That will be a party, we are starting with preparations right away!"
+  ],
+  "pool.fans_lob_choreo.r.r6": [
+    "{b.neutral} We will discuss it in the terraces and get back to you.",
+    "{b.neutral} Then we wait and see how it develops, there is still some time until the next home game."
+  ],
+  "pool.fans_lob_choreo.r.r7": [
+    "{b.neutral} We are not sure how to take it, we will see.",
+    "{b.neutral} Mixed feelings on our side, but we will stay on it."
+  ],
+  "pool.fans_lob_choreo.r.r8": [
+    "{b.neutral} No problem, then we simply do the choreography without much ado.",
+    "{b.neutral} We stay relaxed, the run goes on after all, hopefully."
+  ],
+  "pool.fans_lob_choreo.r.r9": [
+    "{b.neutral} As long as the team keeps delivering, we will take care of the rest.",
+    "{b.neutral} Fine, then the next results count, and we will make the atmosphere."
+  ],
+  "pool.fans_lob_choreo.r.r10": [
+    "{b.schlecht} A pity, we pictured it differently, and so did many in the terraces.",
+    "{b.schlecht} We are not happy with that, and we will pass that on."
+  ],
+  "pool.fans_lob_choreo.r.r11": [
+    "{b.schlecht} We have carried this team for weeks, and this is the thanks? We will not forget it!",
+    "{b.schlecht} Then we will sing without you, but do not forget who roared you to victory!"
+  ],
+  "pool.fans_lob_choreo.r.r12": [
+    "{b.schlecht} If the team has nothing for us we will spare ourselves the trouble in future.",
+    "{b.schlecht} Then the mood will sink once the run ends."
+  ],
+  "pool.fans_lob_choreo.r.r13": [
+    "{b.schlecht} That hurts, we had hoped that we mean more to you.",
+    "{b.schlecht} After everything we have done for you we had expected more understanding."
+  ],
+  "pool.fans_lob_choreo.x.x1": [
+    "The fan spokesman thanks you warmly. {entscheidung} The terraces prepare the choreography with twice the enthusiasm.",
+    "{entscheidung} In the block there is painting and sewing, and the mood around the club has rarely been so good."
+  ],
+  "pool.fans_lob_choreo.x.x2": [
+    "The terraces take it calmly. {entscheidung} Whether and when the choreography happens stays open.",
+    "{entscheidung} The fan council keeps planning but wants to announce nothing before the next games."
+  ],
+  "pool.fans_lob_choreo.x.x3": [
+    "The refusal spreads fast. {entscheidung} The mood in the block has turned, and people mock the coach online.",
+    "{entscheidung} The paper writes of a rift between terraces and coach, in the middle of the run."
+  ],
+  "pool.fans_lob_choreo.x.x4": [
+    "The fan spokesman does not get in touch again. {entscheidung} The choreography is planned without your involvement, if at all.",
+    "{entscheidung} The terraces keep their annoyance to themselves and withdraw."
+  ],
+  "pool.fans_lob_choreo.x.x5": [
+    "The fan council notes your promise. {entscheidung} The terraces will hold the team to its word after the game.",
+    "{entscheidung} In the block they already talk about what the players' salute will look like."
+  ]
+}

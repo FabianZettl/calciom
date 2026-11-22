@@ -1,0 +1,99 @@
+# Berater und versteckte Prioritäten (Konzept Transfers 2.2, 2.5, 2.7). Startwerte von PES M („geschätzt“).
+
+# Anteil der Berater-Typen nach Gesamtwert des Spielers: ab „oben“ eher Großagentur, unter „unten“ oft keiner
+[typ]
+oben = 80.0
+unten = 62.0
+# Reihenfolge: keiner, grossagentur, schlitzohr, familie, serioes
+anteil_oben = [0.02, 0.55, 0.15, 0.08, 0.20]
+anteil_mitte = [0.10, 0.25, 0.25, 0.15, 0.25]
+anteil_unten = [0.35, 0.05, 0.25, 0.20, 0.15]
+
+# Wirkung je Typ im Spielergespräch: Bonus auf die Annahmechance, Faktor auf die Forderung, Honorar in % der Ablöse
+[wirkung.keiner]
+bonus = 0.05
+forderung = 0.95
+honorar = 0.0
+[wirkung.grossagentur]
+bonus = -0.04
+forderung = 1.10
+honorar = 0.08
+[wirkung.schlitzohr]
+bonus = -0.02
+forderung = 1.05
+honorar = 0.10
+[wirkung.familie]
+bonus = 0.0
+forderung = 0.95
+honorar = 0.03
+[wirkung.serioes]
+bonus = 0.02
+forderung = 1.0
+honorar = 0.05
+
+[prioritaet]
+# Wie stark eine erfüllte (oder verfehlte) Priorität die Annahmechance bewegt: Gewicht / 100 × so viel
+wirkung = 0.25
+# Beziehung zum Berater: je Punkt so viel Bonus, Grenzen ±3, nach Einigung +1, nach Abbruch −1
+beziehung_je_punkt = 0.02
+
+# Argumente des Trainers (Konzept 2.6): passt das Gewicht der Priorität ab „passt_ab“, zählt es wie „Gefühl“ (+5 %),
+# ab „sehr_ab“ +8 %; unglaubwürdig −5 % und Geduld −8; trifft es nichts, was ihm wichtig ist, Geduld −4
+[argument]
+passt_ab = 15.0
+sehr_ab = 22.0
+passt = 0.05
+sehr = 0.08
+unpassend = 0.05
+unpassend_geduld = 8.0
+egal_geduld = 4.0
+
+# Die Berater der Welt (erfunden). Jeder betreut viele Spieler; das Gedächtnis hängt am Namen.
+[[berater]]
+name = "Marco Venturi"
+agentur = "Venturi Sports"
+[[berater]]
+name = "Jonas Albrecht"
+agentur = "Albrecht & Partner"
+[[berater]]
+name = "Rui Fonseca"
+agentur = "Fonseca Global"
+[[berater]]
+name = "Daniel Okafor"
+agentur = "Prime Football Group"
+[[berater]]
+name = "Lena Hartwig"
+agentur = "Hartwig Management"
+[[berater]]
+name = "Sergio Aranda"
+agentur = "Aranda Representaciones"
+[[berater]]
+name = "Pierre Lavallée"
+agentur = "Lavallée Conseil"
+[[berater]]
+name = "Tom Whitfield"
+agentur = "Whitfield Sports Management"
+[[berater]]
+name = "Kemal Aydın"
+agentur = "Aydın Sport"
+[[berater]]
+name = "Niels Vermeer"
+agentur = "Vermeer Players"
+[[berater]]
+name = "Giorgio Bellandi"
+agentur = "Bellandi Agency"
+[[berater]]
+name = "Anja Kowalski"
+agentur = "Kowalski Sportmanagement"
+[[berater]]
+name = "Lucas Moreau"
+agentur = "LM Talents"
+[[berater]]
+name = "Hugo Esteves"
+agentur = "Esteves & Filhos"
+[[berater]]
+name = "Bastian Roth"
+agentur = "Roth Sportconsulting"
+[[berater]]
+name = "Owen Gallagher"
+agentur = "Gallagher Football"

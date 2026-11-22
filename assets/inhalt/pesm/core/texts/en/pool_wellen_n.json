@@ -1,0 +1,442 @@
+{
+ "pool.ich_will_spielen.e.e1": [
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} I am playing at the weekend, no matter what the doc says.",
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Please put me in the squad, I will sort out the rest myself."
+ ],
+ "pool.ich_will_spielen.e.e2": [
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} A bit of pain comes with the job, I can take it.",
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} I do not understand the caution, it only twinges a little."
+ ],
+ "pool.ich_will_spielen.e.e3": [
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} I am in no mood for talking today, I just want to be allowed to play.",
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} I am annoyed enough already, so please no lectures about caution."
+ ],
+ "pool.ich_will_spielen.e.e4": [
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Either I am on the pitch, or I show the doctor what I think of his advice!",
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} If I have to, I will run through the pain, I do not care!"
+ ],
+ "pool.ich_will_spielen.e.e5": [
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} I trust you as a coach, so I ask calmly: please let me play.",
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} You decide, but I ask you to hear my side."
+ ],
+ "pool.ich_will_spielen.e.e6": [
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} One game missed and I have to fight my way back, I cannot afford that.",
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} In this game I want to show you can rely on me, even when knocked about."
+ ],
+ "pool.ich_will_spielen.e.e7": [
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Whoever plays gets noticed, and I want to be noticed.",
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} A break now hurts my market value more than a knock."
+ ],
+ "pool.ich_will_spielen.e.e8": [
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Please believe I can do it, and do not tell me I am fragile.",
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} If you do not pick me, I will think you no longer trust me."
+ ],
+ "pool.ich_will_spielen.e.e9": [
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} The light is showing a warning, but traffic lights are for drivers, not for me.",
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} The doctor has set it to caution, and I ask you to look past that."
+ ],
+ "pool.ich_will_spielen.e.e10": [
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} I played with a jab once before, that will work again.",
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Just have the doctor give me a jab, and I will be on the pitch."
+ ],
+ "pool.ich_will_spielen.a.a1": [
+  "I understand you, but you are resting. Playing hurt helps neither you nor the team.",
+  "The doctor has seen the injury and I have not, and I will not overrule him. You sit out this week."
+ ],
+ "pool.ich_will_spielen.a.a2": [
+  "We find a middle way: a short run at the end if the game allows, and you come off at the first warning.",
+  "I give you a few minutes, no more. If you feel anything, you raise your hand and I take you off."
+ ],
+ "pool.ich_will_spielen.a.a3": [
+  "Sit down with the doctor and let him show you his reasons. Then we talk again.",
+  "I will bring the doctor in, and you hear him out before you decide whether you are right."
+ ],
+ "pool.ich_will_spielen.a.a4": [
+  "Not this week, but you have my word: once the doctor gives the green light, you play within {frist} days.",
+  "You come back next week if you pass the tests. That holds for the next {frist} days."
+ ],
+ "pool.ich_will_spielen.a.a5": [
+  "I know how much you burn to play. That is exactly why I want you fully healthy and not half broken on the pitch.",
+  "You want to help, and that does you credit. But you help the team most by coming back and staying."
+ ],
+ "pool.ich_will_spielen.a.a6": [
+  "You are not playing, and that was my last word. One more debate about it and you train alone.",
+  "I do not argue with players about their injuries. You stay out."
+ ],
+ "pool.ich_will_spielen.a.a7": [
+  "What you feel does not interest me, the doctor decides. You have no demands to make here.",
+  "I have heard your demand and it is rejected. Go and get treated."
+ ],
+ "pool.ich_will_spielen.a.a8": [
+  "You can be hero of the day from the bench too, it is softer sitting there than in a hospital ward.",
+  "Leave the heroics for now. The stand has its perks too, the coffee is hot."
+ ],
+ "pool.ich_will_spielen.a.a9": [
+  "All right, you play. But I will take you off as soon as I notice you are favouring it.",
+  "I let myself be talked round: you are in the squad. I carry the responsibility, and the trouble with the doctor as well."
+ ],
+ "pool.ich_will_spielen.a.a10": [
+  "I will have the doctor explain what a jab would mean. Then I decide whether the risk is bearable.",
+  "A jab is not a matter of course. I will consider it, but only if the doctor can justify it at all."
+ ],
+ "pool.ich_will_spielen.a.a11": [
+  "Say your teammate came into the game knocked about: would you rely on him holding up?",
+  "What good is it to the team if you limp after twenty minutes and we burn a substitution?"
+ ],
+ "pool.ich_will_spielen.a.a12": [
+  "Things are good between us, so I will say it openly: a player who cannot run freely is no use to the team.",
+  "You matter to me and I want to be honest: with this injury you put us both at risk."
+ ],
+ "pool.ich_will_spielen.r.r1": [
+  "{b.gut} Thanks for hearing me out. I will go along with it.",
+  "{b.gut} I can live with that, you take me seriously."
+ ],
+ "pool.ich_will_spielen.r.r2": [
+  "{b.gut} If you think it is for the best, I will follow you.",
+  "{b.gut} I trust you, and the doctor will know what he is saying."
+ ],
+ "pool.ich_will_spielen.r.r3": [
+  "{b.gut} Then I will work twice as hard in the meantime to make sure the date holds.",
+  "{b.gut} A clear plan beats an argument for me, thanks."
+ ],
+ "pool.ich_will_spielen.r.r4": [
+  "{b.neutral} I have to think about whether I like that.",
+  "{b.neutral} It does not quite suit me, but I am not going to argue."
+ ],
+ "pool.ich_will_spielen.r.r5": [
+  "{b.neutral} I will take it today, but do not ask me tomorrow how I feel about it.",
+  "{b.neutral} I do not know whether to believe you, and I do not know whether to be angry."
+ ],
+ "pool.ich_will_spielen.r.r6": [
+  "{b.neutral} Fine, then I sit for another week, the world will not end over it.",
+  "{b.neutral} I will let it go and wait to see what the doctor says."
+ ],
+ "pool.ich_will_spielen.r.r7": [
+  "{b.schlecht} I feel my own body, and you act as if I knew nothing.",
+  "{b.schlecht} That is not how you get me to keep quiet."
+ ],
+ "pool.ich_will_spielen.r.r8": [
+  "{b.schlecht} Then I will take the field on my own responsibility, you cannot tie me down!",
+  "{b.schlecht} Keep your doctor and your bench, I am going to train!"
+ ],
+ "pool.ich_will_spielen.r.r9": [
+  "{b.schlecht} If I am not allowed to play, I will find a club that lets me.",
+  "{b.schlecht} I will remember your distrust, it will play a part in my future."
+ ],
+ "pool.ich_will_spielen.r.r10": [
+  "{b.schlecht} I put in every shift for this club and get distrust in return.",
+  "{b.schlecht} That you say this to me after everything hits me hard."
+ ],
+ "pool.ich_will_spielen.x.x1": [
+  "He sees that the break is not distrust. {entscheidung} The doctor reports decent cooperation.",
+  "{entscheidung} The player swallows his anger and goes to treatment."
+ ],
+ "pool.ich_will_spielen.x.x2": [
+  "He nods but stays restless. {entscheidung} Whether he sticks to it shows in the next training session.",
+  "{entscheidung} In his head he is already playing at the weekend, and the doctor stays alert."
+ ],
+ "pool.ich_will_spielen.x.x3": [
+  "{entscheidung} He leaves the room without a word, and the doctor reports that he is secretly training extra.",
+  "The row gets loud and the dressing room listens in. {entscheidung} The doctor demands a three-way talk."
+ ],
+ "pool.ich_will_spielen.x.x4": [
+  "You shake on a clear return date. {entscheidung} The doctor backs the plan.",
+  "{entscheidung} The player has a goal in sight and takes the treatment seriously."
+ ],
+ "pool.ich_will_spielen.x.x5": [
+  "He ends the conversation mid-sentence. {entscheidung} The doctor is informed.",
+  "{entscheidung} The player stays silent, and the subject hangs unspoken in the room."
+ ],
+ "pool.fitspritze_warnung.e.e1": [
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} If they pile up, the danger grows that something lasts.",
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} I ask you not to make it a habit."
+ ],
+ "pool.fitspritze_warnung.e.e2": [
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Pain-free does not mean healthy, and that has to be clear to both of us.",
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} I administered it, but I do not want it to become the rule."
+ ],
+ "pool.fitspritze_warnung.e.e3": [
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} I am not in the best of moods, because I feel my warnings go unheard.",
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} I have had enough of being asked only when things are on fire."
+ ],
+ "pool.fitspritze_warnung.e.e4": [
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} He demands the jab loudly, and I will not be shouted at.",
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} He swings between gratitude and threats, which makes clean treatment impossible."
+ ],
+ "pool.fitspritze_warnung.e.e5": [
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} He voiced no complaint, and that is precisely what bothers me.",
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} He takes everything without complaint, so one of us has to look out for him."
+ ],
+ "pool.fitspritze_warnung.e.e6": [
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} He will keep asking for this tool unless you block the way.",
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Ambition is fine, but with him it drowns out every signal from the body."
+ ],
+ "pool.fitspritze_warnung.e.e7": [
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} He has long been planning ahead and is carrying the risk at our club's expense.",
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} If he leaves, we are left with his problems, and I would like to avoid that."
+ ],
+ "pool.fitspritze_warnung.e.e8": [
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} He needs an open talk from you, not a pat on the back.",
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} He does not dare say no, and that has to do with his fear."
+ ],
+ "pool.fitspritze_warnung.e.e9": [
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} There have already been several this season, and with that many lasting damage is a threat.",
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} We have reached the point where every further jab costs more than it brings."
+ ],
+ "pool.fitspritze_warnung.e.e10": [
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} The examination shows the spot stays irritated, a relapse is close.",
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} The spot is not yet stable, and a new load can tear it open again."
+ ],
+ "pool.fitspritze_warnung.a.a1": [
+  "I take your warning seriously. Tell me exactly what to watch for with him over the next few days.",
+  "Thank you for saying it. I will plan the next appearances with your assessment in mind."
+ ],
+ "pool.fitspritze_warnung.a.a2": [
+  "We set a limit: further jabs only with your explicit approval, and I will stick to it.",
+  "Let us set a ceiling together for this season. Once it is reached, that is it, however important the match."
+ ],
+ "pool.fitspritze_warnung.a.a3": [
+  "A jab only comes into question in an emergency from now on, I promise you. That applies for the whole season.",
+  "Only in the extreme case and only with your blessing, that is my line from today."
+ ],
+ "pool.fitspritze_warnung.a.a4": [
+  "I made the decision, not you, and I take responsibility for it. I am still listening to you.",
+  "You asked me beforehand, and I still chose the risk. I will not leave that on your shoulders."
+ ],
+ "pool.fitspritze_warnung.a.a5": [
+  "You gave the jab yourself. If it is so dangerous, why did you not refuse?",
+  "That occurs to you now? Then you should have said no beforehand."
+ ],
+ "pool.fitspritze_warnung.a.a6": [
+  "Talk to the player himself and explain the risks. He should know what he is getting into.",
+  "I want him to help decide next time. Discuss it with him, and then the three of us talk."
+ ],
+ "pool.fitspritze_warnung.a.a7": [
+  "I decide who plays, and you treat. If I need another jab, he gets it.",
+  "This is my team and my responsibility. Your warning is noted, it changes nothing about my line."
+ ],
+ "pool.fitspritze_warnung.a.a8": [
+  "I do not want to hear it. When the title chance is at stake, we play, one way or another.",
+  "Your concerns are respected, but I will not be told how to use my players."
+ ],
+ "pool.fitspritze_warnung.a.a9": [
+  "Come on, a little jab never hurt a footballer. Do not be more cautious than the player himself.",
+  "The lad is made of iron, he can take it. You are too pessimistic, Doctor."
+ ],
+ "pool.fitspritze_warnung.a.a10": [
+  "What would the alternative have been, and what would it have looked like? I need the whole trade-off.",
+  "Which signs tell me it is turning? I want to know that before I decide anything."
+ ],
+ "pool.fitspritze_warnung.a.a11": [
+  "I will pay for extra treatment so his body can recover. Tell me what is needed.",
+  "The club covers the cost of longer aftercare. That is the least we owe him."
+ ],
+ "pool.fitspritze_warnung.a.a12": [
+  "We work well together, so I tell you that at the moment I saw no other solution. That should not become the rule.",
+  "I accepted the jab because the match demanded it. Next time I will be more careful."
+ ],
+ "pool.fitspritze_warnung.r.r1": [
+  "{b.gut} That reassures me, we can work well like this.",
+  "{b.gut} With this line I can bear the responsibility."
+ ],
+ "pool.fitspritze_warnung.r.r2": [
+  "{b.gut} I am glad we agree here, after all it concerns the person.",
+  "{b.gut} Then I can go on treating him with a clear conscience."
+ ],
+ "pool.fitspritze_warnung.r.r3": [
+  "{b.gut} A clear rule helps me when he pushes again, thanks.",
+  "{b.gut} With a limit I have something to point to when he demands."
+ ],
+ "pool.fitspritze_warnung.r.r4": [
+  "{b.neutral} I will note that and watch the next matches.",
+  "{b.neutral} That does not answer everything, but we will keep talking."
+ ],
+ "pool.fitspritze_warnung.r.r5": [
+  "{b.neutral} I hope the player hears of this in a calm tone.",
+  "{b.neutral} I will let it stand, but I view it with mixed feelings."
+ ],
+ "pool.fitspritze_warnung.r.r6": [
+  "{b.neutral} It is your team, I give my opinion and carry on working.",
+  "{b.neutral} Fine, then we file it away and look ahead."
+ ],
+ "pool.fitspritze_warnung.r.r7": [
+  "{b.schlecht} Then I will no longer go along with it without it being put in writing.",
+  "{b.schlecht} I cannot answer for my work like this."
+ ],
+ "pool.fitspritze_warnung.r.r8": [
+  "{b.schlecht} If you talk like that, he can collect it from you directly, the jab, I mean!",
+  "{b.schlecht} Then do it yourself, I will not be shouted at!"
+ ],
+ "pool.fitspritze_warnung.r.r9": [
+  "{b.schlecht} Then he will find another doctor who helps him without asking questions.",
+  "{b.schlecht} If you carry on like this, you lose his trust and mine."
+ ],
+ "pool.fitspritze_warnung.r.r10": [
+  "{b.schlecht} I would have expected more care for the player from you.",
+  "{b.schlecht} That disappoints me, I have always stood behind your decisions."
+ ],
+ "pool.fitspritze_warnung.x.x1": [
+  "The doctor nods, satisfied. {entscheidung} He will monitor the player's workload more closely from now on.",
+  "{entscheidung} The tension between coach and doctor eases noticeably."
+ ],
+ "pool.fitspritze_warnung.x.x2": [
+  "{entscheidung} The doctor remains sceptical and announces he will record every further case in writing.",
+  "He is silent for a moment. {entscheidung} Whether the line holds will show on the next match day."
+ ],
+ "pool.fitspritze_warnung.x.x3": [
+  "{entscheidung} The doctor turns to the club board because he sees his warning ignored.",
+  "The tone in the treatment room turns icy. {entscheidung} The players notice the quarrel."
+ ],
+ "pool.fitspritze_warnung.x.x4": [
+  "You record the rule together. {entscheidung} The doctor notes it in the medical file.",
+  "{entscheidung} With a firm agreement the doctor leaves the talk relieved."
+ ],
+ "pool.fitspritze_warnung.x.x5": [
+  "The doctor picks up his papers and leaves. {entscheidung} The matter is far from settled.",
+  "{entscheidung} He says nothing more and turns away."
+ ],
+ "pool.arzt_vertrauen_sinkt.e.e1": [
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} I would like to know how much my assessment still counts.",
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} If I am only decorative now, we should talk about it."
+ ],
+ "pool.arzt_vertrauen_sinkt.e.e2": [
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} I carry the medical responsibility without anyone following me.",
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} I can only advise, others decide, but then please with all cards on the table."
+ ],
+ "pool.arzt_vertrauen_sinkt.e.e3": [
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} I am annoyed, so I would rather write briefly and clearly.",
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} Today I have no patience for pleasantries."
+ ],
+ "pool.arzt_vertrauen_sinkt.e.e4": [
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} The player makes noise about me in the dressing room, and you look on!",
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} He questions my diagnosis whenever it suits him, and you take his side."
+ ],
+ "pool.arzt_vertrauen_sinkt.e.e5": [
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} The player himself means no harm, it is the procedure that bothers me.",
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} He only wanted to help, but the route there bypassed me."
+ ],
+ "pool.arzt_vertrauen_sinkt.e.e6": [
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} The player now knows that pressure works, and he will use it again.",
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} He will approach you from now on instead of me, which undermines my role."
+ ],
+ "pool.arzt_vertrauen_sinkt.e.e7": [
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} I have offers where medical decisions are respected.",
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} I do not depend on this post, I only say so to be clear."
+ ],
+ "pool.arzt_vertrauen_sinkt.e.e8": [
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} I would have liked you to talk to me first before something like this is decided.",
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} It is the feeling of not being heard that weighs on me so."
+ ],
+ "pool.arzt_vertrauen_sinkt.e.e9": [
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} The appearance put more strain on the spot, and the risk of a relapse has grown.",
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} My fear has unfortunately been confirmed, the spot is causing trouble again."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a1": [
+  "You are right, I should have handled that differently. I am sorry, and I will ask you beforehand in future.",
+  "I apologise to you. Your advice deserved more weight than I gave it."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a2": [
+  "I stand by my decision, but I am glad to explain why it could not be otherwise that day.",
+  "The appearance was my decision, and I defend it publicly. Your concerns remain on record."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a3": [
+  "You get a firm say before every line-up, I promise you.",
+  "From now on you have your say before match day, and I plan nothing against your explicit no."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a4": [
+  "Your professional competence is not in question, and I will say so in front of the whole staff. I need your assessment.",
+  "Nobody here knows our players' bodies as well as you do. I expressly acknowledge that."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a5": [
+  "I will strengthen your department with extra equipment and staff. Tell me what you need.",
+  "Your area gets more resources so you can do your work more independently."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a6": [
+  "Then we settle it in front of the board. I will not be told by you whom I pick.",
+  "If you want a fight, you will get one. The line-up is my business, not yours."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a7": [
+  "It will pass, in a few weeks nobody will talk about it anymore.",
+  "Let us wait for the next matches first, then the world will look different."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a8": [
+  "I do not have to justify myself to you. Do your job and I will do mine.",
+  "There is no say in the line-up, and that stays that way."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a9": [
+  "What bothered you most, the decision itself or the way it came about?",
+  "Which step in the process would you like changed so that this does not happen again?"
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a10": [
+  "Please take it up with the sporting director so that we set a clear procedure for medical objections.",
+  "I ask you to agree a fixed consultation before match day with the assistant coach."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a11": [
+  "Look at it this way: after every defeat you are the first to have known beforehand, and that has its charm.",
+  "Doctor, if I always listened to you, nobody would ever play, and then I would be out of work."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a12": [
+  "The coach decides, the doctor advises, that is the division of labour. I will not change it, but I do listen to you.",
+  "The last word has to be mine, otherwise no team can be led. Your advice counts all the same."
+ ],
+ "pool.arzt_vertrauen_sinkt.r.r1": [
+  "{b.gut} I appreciate that, it clears up a lot for me.",
+  "{b.gut} This is how we should deal with each other again."
+ ],
+ "pool.arzt_vertrauen_sinkt.r.r2": [
+  "{b.gut} I enjoy working with you, and now I remember why.",
+  "{b.gut} With that the annoyance is forgotten, I will carry on as before."
+ ],
+ "pool.arzt_vertrauen_sinkt.r.r3": [
+  "{b.gut} With this commitment I can build up the department, and I take that seriously.",
+  "{b.gut} Then I finally have the weight my work needs."
+ ],
+ "pool.arzt_vertrauen_sinkt.r.r4": [
+  "{b.neutral} I note it and will watch what follows.",
+  "{b.neutral} It is a start, but not yet the solution."
+ ],
+ "pool.arzt_vertrauen_sinkt.r.r5": [
+  "{b.neutral} I am still unsure whether to believe it, but I will stay in the conversation.",
+  "{b.neutral} I need some time before I can say anything about it."
+ ],
+ "pool.arzt_vertrauen_sinkt.r.r6": [
+  "{b.neutral} It is what it is, I will keep doing my job.",
+  "{b.neutral} A quarrel gets us nowhere, so I will let it rest."
+ ],
+ "pool.arzt_vertrauen_sinkt.r.r7": [
+  "{b.schlecht} Then I know where I stand and will act accordingly.",
+  "{b.schlecht} That turns my work into mere cover for others."
+ ],
+ "pool.arzt_vertrauen_sinkt.r.r8": [
+  "{b.schlecht} I will not stand for that, and the club's management will hear about it!",
+  "{b.schlecht} Then decide alone, but never ask me for help again!"
+ ],
+ "pool.arzt_vertrauen_sinkt.r.r9": [
+  "{b.schlecht} Good to know, then I will look elsewhere.",
+  "{b.schlecht} My decision to leave this post soon is growing right now."
+ ],
+ "pool.arzt_vertrauen_sinkt.r.r10": [
+  "{b.schlecht} After my years of service here I find this treatment inappropriate.",
+  "{b.schlecht} That you talk to me like this has hurt me, even if I do not show it."
+ ],
+ "pool.arzt_vertrauen_sinkt.x.x1": [
+  "The doctor visibly relaxes. {entscheidung} Within the medical staff you notice the air is clearer again.",
+  "{entscheidung} He works with his old zeal again, and the cooperation runs smoothly."
+ ],
+ "pool.arzt_vertrauen_sinkt.x.x2": [
+  "{entscheidung} The doctor is not entirely satisfied but stays in post and in the conversation.",
+  "He answers curtly. {entscheidung} How resilient the relationship is will show in the next conflict."
+ ],
+ "pool.arzt_vertrauen_sinkt.x.x3": [
+  "{entscheidung} The doctor reports the matter to the club management, and the press hears of it.",
+  "The quarrel spills out of the treatment room. {entscheidung} Camps form within the staff."
+ ],
+ "pool.arzt_vertrauen_sinkt.x.x4": [
+  "You agree on a fixed consultation before every match day. {entscheidung} The doctor puts the arrangement in writing.",
+  "{entscheidung} With a firm say he feels taken seriously again."
+ ],
+ "pool.arzt_vertrauen_sinkt.x.x5": [
+  "The doctor ends the chat without a greeting. {entscheidung} The incident stays unresolved.",
+  "{entscheidung} He no longer answers, and the staff whisper about it."
+ ]
+}

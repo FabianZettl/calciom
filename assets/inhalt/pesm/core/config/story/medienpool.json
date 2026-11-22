@@ -1,0 +1,2633 @@
+{
+ "_hinweis": "Medienpool der Pressetribüne (Stand Mitte 2026; Zugehörigkeiten von Reportern können sich ändern). Herkunft „pool“: aus dem Pool übernommen; „erfunden“: ergänzt, wo der Pool Lücken hat.",
+ "toene": [
+  "boulevard",
+  "serioes",
+  "insider",
+  "taktik",
+  "fankultur",
+  "geruechte",
+  "investigativ"
+ ],
+ "medien": [
+  {
+   "id": "p001",
+   "name": "kicker",
+   "typ": "magazin",
+   "land": "DE",
+   "groesse": 5,
+   "reichweite": "Print + Portal, Millionen Nutzer/Monat",
+   "stil": "Das Fachblatt seit 1920. Sachlich, faktenlastig, eigene Noten (1–6) und Elf des Tages. Sonderhefte zum Saisonstart sind Kult.",
+   "tags": [
+    "seriös",
+    "Noten",
+    "Statistik"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p002",
+   "name": "BILD / SPORT BILD",
+   "typ": "zeitung",
+   "land": "DE",
+   "groesse": 5,
+   "reichweite": "Größte Boulevardmarke Deutschlands",
+   "stil": "Laute Schlagzeilen, Exklusiv-Gerüchte, Kabinen-Interna, harte Noten. Personalisiert und zuspitzend, oft erste Quelle bei Trainer- und Transfergeschichten.",
+   "tags": [
+    "Boulevard",
+    "Gerüchte",
+    "Insider"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p003",
+   "name": "Süddeutsche Zeitung – Sport",
+   "typ": "zeitung",
+   "land": "DE",
+   "groesse": 4,
+   "reichweite": "Überregionale Qualitätszeitung",
+   "stil": "Feuilletonistisch, elegante Sprache, lange Analysen und Porträts. Kritisch gegenüber FIFA, DFB und Kommerz.",
+   "tags": [
+    "seriös",
+    "Essay",
+    "kritisch"
+   ],
+   "ton": "investigativ",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p004",
+   "name": "FAZ – Sport",
+   "typ": "zeitung",
+   "land": "DE",
+   "groesse": 4,
+   "reichweite": "Überregionale Qualitätszeitung",
+   "stil": "Nüchtern und gründlich, viel Sportpolitik und Hintergrund. Eher bürgerlich-konservativer Ton.",
+   "tags": [
+    "seriös",
+    "Sportpolitik"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p005",
+   "name": "DER SPIEGEL – Sport",
+   "typ": "magazin",
+   "land": "DE",
+   "groesse": 4,
+   "reichweite": "Nachrichtenmagazin, große Online-Reichweite",
+   "stil": "Investigativ (Football Leaks), Geld, Macht und Gesellschaft. Weniger Spielbericht, mehr Enthüllung.",
+   "tags": [
+    "investigativ",
+    "Geld"
+   ],
+   "ton": "investigativ",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p006",
+   "name": "11FREUNDE",
+   "typ": "magazin",
+   "land": "DE",
+   "groesse": 3,
+   "reichweite": "Monatsmagazin mit treuer Leserschaft",
+   "stil": "Fußballkultur statt Tabelle: Fankurven, Nostalgie, Anekdoten, Ironie. Klar gegen Ausverkauf und Event-Fußball.",
+   "tags": [
+    "Fankultur",
+    "Nostalgie",
+    "Humor"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p007",
+   "name": "ZEIT ONLINE – Sport",
+   "typ": "portal",
+   "land": "DE",
+   "groesse": 3,
+   "reichweite": "Qualitätsportal",
+   "stil": "Essayistisch und gesellschaftlich: Fußball als Spiegel von Politik und Kultur.",
+   "tags": [
+    "Essay",
+    "Gesellschaft"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p008",
+   "name": "Sport1",
+   "typ": "tv_radio",
+   "land": "DE",
+   "groesse": 4,
+   "reichweite": "Free-TV + Portal",
+   "stil": "Schnelle News, Clickbait-nahe Überschriften, Talkrunde ‚Doppelpass' mit Stammtischcharakter am Sonntag.",
+   "tags": [
+    "Talk",
+    "Stammtisch",
+    "News"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p009",
+   "name": "Sky Sport Deutschland",
+   "typ": "tv_radio",
+   "land": "DE",
+   "groesse": 4,
+   "reichweite": "Pay-TV, große Social-Reichweite",
+   "stil": "Glänzende Live-Produktion, Experten-Analyse, dazu ein Transfer-Ressort mit Eilmeldungen im Minutentakt.",
+   "tags": [
+    "Live",
+    "Transfers",
+    "Analyse"
+   ],
+   "ton": "taktik",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p010",
+   "name": "ARD Sportschau",
+   "typ": "tv_radio",
+   "land": "DE",
+   "groesse": 5,
+   "reichweite": "Öffentlich-rechtlich, Samstagsinstitution",
+   "stil": "Traditionell und sachlich. Zusammenfassungen, Reportagen und solide Recherche, z. B. zu Doping oder Katar.",
+   "tags": [
+    "Tradition",
+    "seriös"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p011",
+   "name": "ZDF – das aktuelle sportstudio",
+   "typ": "tv_radio",
+   "land": "DE",
+   "groesse": 4,
+   "reichweite": "Öffentlich-rechtlich",
+   "stil": "Studio-Gespräch mit Gast, Torwandschießen, gediegen-unterhaltsam.",
+   "tags": [
+    "Tradition",
+    "Talk"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p012",
+   "name": "DAZN Deutschland",
+   "typ": "tv_radio",
+   "land": "DE",
+   "groesse": 4,
+   "reichweite": "Streaming",
+   "stil": "Jünger und lockerer im Ton, viel Social-Content, Kommentatoren mit mehr Freiheit.",
+   "tags": [
+    "Streaming",
+    "jung"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p013",
+   "name": "Transfermarkt",
+   "typ": "daten_app",
+   "land": "DE",
+   "groesse": 5,
+   "reichweite": "Weltweit eine der meistbesuchten Fußballseiten",
+   "stil": "Datenbank mit Marktwerten, Kadern, Verträgen. Dazu ein riesiges Gerüchte-Forum. Marktwerte werden selbst zur Nachricht.",
+   "tags": [
+    "Daten",
+    "Marktwerte",
+    "Gerüchte"
+   ],
+   "ton": "geruechte",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p014",
+   "name": "OneFootball",
+   "typ": "daten_app",
+   "land": "DE",
+   "groesse": 5,
+   "reichweite": "Globale App aus Berlin",
+   "stil": "News-Aggregator, Liveticker und Clips. Neutral, schnell, wenig Meinung.",
+   "tags": [
+    "App",
+    "News"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p015",
+   "name": "WAZ / Reviersport",
+   "typ": "zeitung",
+   "land": "DE",
+   "groesse": 3,
+   "reichweite": "Regional, Ruhrgebiet",
+   "stil": "Nah an Schalke, BVB, Bochum. Kumpelhaft, sehr gut vernetzt in die Vereine.",
+   "tags": [
+    "regional",
+    "Revier"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p016",
+   "name": "tz / Münchner Merkur",
+   "typ": "zeitung",
+   "land": "DE",
+   "groesse": 3,
+   "reichweite": "Regional, München",
+   "stil": "Bayern- und 1860-Berichterstattung mit Boulevard-Einschlag, viele Säbener-Straße-Interna.",
+   "tags": [
+    "regional",
+    "Bayern"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p017",
+   "name": "Abendzeitung München",
+   "typ": "zeitung",
+   "land": "DE",
+   "groesse": 2,
+   "reichweite": "Regional",
+   "stil": "Münchner Boulevard, Meinungskommentare zu Bayern und Löwen.",
+   "tags": [
+    "regional",
+    "Boulevard"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p018",
+   "name": "Stuttgarter Zeitung / Stuttgarter Nachrichten",
+   "typ": "zeitung",
+   "land": "DE",
+   "groesse": 3,
+   "reichweite": "Regional, Baden-Württemberg",
+   "stil": "Ruhig und informiert rund um den VfB und die Kickers. Lange Hintergrundstücke zu Vereinspolitik und Stadion.",
+   "tags": [
+    "regional",
+    "VfB"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p019",
+   "name": "Express (Köln)",
+   "typ": "zeitung",
+   "land": "DE",
+   "groesse": 3,
+   "reichweite": "Regional, Rheinland",
+   "stil": "Kölscher Boulevard mit Herz für den FC. Emotional, schnell beleidigt, schnell begeistert.",
+   "tags": [
+    "regional",
+    "Boulevard"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p020",
+   "name": "Hamburger Abendblatt / MOPO",
+   "typ": "zeitung",
+   "land": "DE",
+   "groesse": 3,
+   "reichweite": "Regional, Hamburg",
+   "stil": "HSV-Drama und St.-Pauli-Kiezgefühl. MOPO deutlich boulevardiger als das Abendblatt.",
+   "tags": [
+    "regional"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p021",
+   "name": "Spielverlagerung.de",
+   "typ": "portal",
+   "land": "DE",
+   "groesse": 2,
+   "reichweite": "Nische, sehr einflussreich",
+   "stil": "Taktikanalysen mit Grafiken und Fachbegriffen. Nerdig, tief, ohne Gerüchte.",
+   "tags": [
+    "Taktik",
+    "Analyse"
+   ],
+   "ton": "taktik",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p022",
+   "name": "Miasanrot",
+   "typ": "portal",
+   "land": "DE",
+   "groesse": 2,
+   "reichweite": "Fanblog FC Bayern",
+   "stil": "Analytischer Fanblog: Taktik, Kaderplanung, Daten. Klar parteiisch, aber reflektiert.",
+   "tags": [
+    "Fanblog",
+    "Taktik"
+   ],
+   "ton": "taktik",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p023",
+   "name": "Rasenfunk",
+   "typ": "podcast",
+   "land": "DE",
+   "groesse": 3,
+   "reichweite": "Hörerfinanziert, treue Community",
+   "stil": "Ausführliche Spieltagsanalyse mit Gästen aus Fanszenen und Journalismus. Ruhig, gründlich, unabhängig.",
+   "tags": [
+    "Analyse",
+    "unabhängig"
+   ],
+   "ton": "taktik",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p024",
+   "name": "Collinas Erben",
+   "typ": "podcast",
+   "land": "DE",
+   "groesse": 2,
+   "reichweite": "Spezialpodcast",
+   "stil": "Schiedsrichter- und Regelkunde. Strittige Szenen und VAR werden sachlich zerlegt.",
+   "tags": [
+    "Schiedsrichter",
+    "Regeln"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p025",
+   "name": "Copa TS",
+   "typ": "podcast",
+   "land": "DE",
+   "groesse": 4,
+   "reichweite": "Großer Comedy-Talk",
+   "stil": "Lockerer Talk mit Profis und Promis, viel Humor, wenig Taktik.",
+   "tags": [
+    "Comedy",
+    "Talk"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p026",
+   "name": "Einfach mal Luppen",
+   "typ": "podcast",
+   "land": "DE",
+   "groesse": 4,
+   "reichweite": "Sehr große Hörerschaft",
+   "stil": "Toni und Felix Kroos plaudern aus der Spielerperspektive: Kabine, Training, Profialltag.",
+   "tags": [
+    "Spielersicht",
+    "locker"
+   ],
+   "ton": "taktik",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p027",
+   "name": "Phrasenmäher",
+   "typ": "podcast",
+   "land": "DE",
+   "groesse": 3,
+   "reichweite": "BILD-Podcast",
+   "stil": "Laute Meinungen, Insiderwissen der BILD-Reporter, Gäste aus der Bundesliga.",
+   "tags": [
+    "Boulevard",
+    "Talk"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p028",
+   "name": "Bohndesliga",
+   "typ": "youtube",
+   "land": "DE",
+   "groesse": 3,
+   "reichweite": "Twitch/YouTube-Show",
+   "stil": "Fan-Show mit Witz und Chat-Beteiligung. Spaß am Spieltag statt seriöser Analyse.",
+   "tags": [
+    "Fans",
+    "Stream",
+    "Humor"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p029",
+   "name": "Florian Plettenberg",
+   "typ": "reporter",
+   "land": "DE",
+   "groesse": 4,
+   "reichweite": "Sky Sport, große Social-Reichweite",
+   "stil": "Transfer-Insider mit Eilmeldungen und Vertragsdetails. Stark in Bundesliga, besonders Bayern.",
+   "tags": [
+    "Transfers",
+    "Breaking"
+   ],
+   "ton": "geruechte",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p030",
+   "name": "Christian Falk",
+   "typ": "reporter",
+   "land": "DE",
+   "groesse": 4,
+   "reichweite": "BILD",
+   "stil": "Bayern-Insider mit eigenem Podcast. Interna aus Vorstand und Kabine, gern zugespitzt.",
+   "tags": [
+    "Bayern",
+    "Insider"
+   ],
+   "ton": "insider",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p031",
+   "name": "Raphael Honigstein",
+   "typ": "reporter",
+   "land": "DE",
+   "groesse": 3,
+   "reichweite": "Deutsch-englische Brücke",
+   "stil": "Erklärt deutschen Fußball für die englische Welt und umgekehrt. Analytisch, gut vernetzt, Buchautor.",
+   "tags": [
+    "Analyse",
+    "international"
+   ],
+   "ton": "taktik",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p032",
+   "name": "Tobias Escher",
+   "typ": "reporter",
+   "land": "DE",
+   "groesse": 2,
+   "reichweite": "Autor, Taktikexperte",
+   "stil": "Taktik verständlich erklärt, Buchautor zur Taktikgeschichte. Sachlich und didaktisch.",
+   "tags": [
+    "Taktik",
+    "Bücher"
+   ],
+   "ton": "taktik",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p033",
+   "name": "Philipp Köster",
+   "typ": "reporter",
+   "land": "DE",
+   "groesse": 2,
+   "reichweite": "11FREUNDE",
+   "stil": "Kolumnist mit Fanperspektive, spitz gegen Funktionäre und Kommerz.",
+   "tags": [
+    "Kolumne",
+    "Fankultur"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p034",
+   "name": "Marcel Reif",
+   "typ": "reporter",
+   "land": "DE",
+   "groesse": 3,
+   "reichweite": "Kommentator und Experte",
+   "stil": "Pointiert, meinungsstark, gern provokant. Klassische TV-Stimme.",
+   "tags": [
+    "Meinung",
+    "TV"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p035",
+   "name": "Wolff-Christoph Fuss",
+   "typ": "reporter",
+   "land": "DE",
+   "groesse": 3,
+   "reichweite": "TV-Kommentator",
+   "stil": "Euphorisch, Wortspiele, große Bilder. Kommentar als Show.",
+   "tags": [
+    "Kommentar",
+    "Wortspiel"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p036",
+   "name": "Kronen Zeitung – Sport",
+   "typ": "zeitung",
+   "land": "AT",
+   "groesse": 4,
+   "reichweite": "Größte Zeitung Österreichs",
+   "stil": "Boulevard, Rapid-gegen-Austria-Emotionen, viel Nationalteam.",
+   "tags": [
+    "Boulevard"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p037",
+   "name": "ballesterer",
+   "typ": "magazin",
+   "land": "AT",
+   "groesse": 2,
+   "reichweite": "Wiener Fußballmagazin",
+   "stil": "Fankultur, Politik, Geschichte. Kritisch und links, mit Hang zur Langreportage.",
+   "tags": [
+    "Fankultur",
+    "Politik"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p038",
+   "name": "LAOLA1",
+   "typ": "portal",
+   "land": "AT",
+   "groesse": 3,
+   "reichweite": "Österreichs Sportportal",
+   "stil": "Schnelle News und Liveticker zur Bundesliga und zu Legionären.",
+   "tags": [
+    "News"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p039",
+   "name": "Blick – Sport",
+   "typ": "zeitung",
+   "land": "CH",
+   "groesse": 4,
+   "reichweite": "Größte Boulevardmarke der Schweiz",
+   "stil": "Zugespitzt, Super League und Nati, Gerüchte aus dem Transfermarkt.",
+   "tags": [
+    "Boulevard"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p040",
+   "name": "NZZ – Sport",
+   "typ": "zeitung",
+   "land": "CH",
+   "groesse": 3,
+   "reichweite": "Qualitätszeitung",
+   "stil": "Distanziert-elegant, viel Hintergrund zu Verbänden und Geld.",
+   "tags": [
+    "seriös",
+    "Sportpolitik"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p041",
+   "name": "BBC Sport",
+   "typ": "tv_radio",
+   "land": "GB",
+   "groesse": 5,
+   "reichweite": "Weltweit eine der größten Sportseiten",
+   "stil": "Neutral, verlässlich, Match of the Day als nationale Institution. Live-Texte mit Leserkommentaren.",
+   "tags": [
+    "seriös",
+    "Tradition"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p042",
+   "name": "Sky Sports",
+   "typ": "tv_radio",
+   "land": "GB",
+   "groesse": 5,
+   "reichweite": "Pay-TV, Premier-League-Rechte",
+   "stil": "Hochglanz, Super Sunday, Deadline Day mit gelbem Laufband. Experten am Touchscreen.",
+   "tags": [
+    "Live",
+    "Show",
+    "Transfers"
+   ],
+   "ton": "insider",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p043",
+   "name": "The Athletic",
+   "typ": "portal",
+   "land": "GB",
+   "groesse": 5,
+   "reichweite": "Abo-Plattform der NYT, global",
+   "stil": "Langform, Insider-Reports, Datengrafiken. Pro Verein ein eigener Reporter. Ruhiger Ton, hohe Verlässlichkeit.",
+   "tags": [
+    "Abo",
+    "Insider",
+    "Langform"
+   ],
+   "ton": "insider",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p044",
+   "name": "The Guardian – Football",
+   "typ": "zeitung",
+   "land": "GB",
+   "groesse": 5,
+   "reichweite": "Globale Online-Reichweite",
+   "stil": "Liberal, klug, gern selbstironisch. Live-Blogs mit Witz, Newsletter ‚The Fiver' mit schwarzem Humor.",
+   "tags": [
+    "seriös",
+    "Humor"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p045",
+   "name": "The Times / Sunday Times",
+   "typ": "zeitung",
+   "land": "GB",
+   "groesse": 4,
+   "reichweite": "Qualitätszeitung",
+   "stil": "Gediegene Kolumnen, starke Chefreporter, Fokus auf Premier League und Nationalteam.",
+   "tags": [
+    "seriös",
+    "Kolumne"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p046",
+   "name": "The Telegraph – Football",
+   "typ": "zeitung",
+   "land": "GB",
+   "groesse": 4,
+   "reichweite": "Qualitätszeitung",
+   "stil": "Konservativ, gut vernetzt, viele Exklusivgeschichten zu Trainerwechseln.",
+   "tags": [
+    "seriös",
+    "Insider"
+   ],
+   "ton": "insider",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p047",
+   "name": "Daily Mail / MailOnline",
+   "typ": "zeitung",
+   "land": "GB",
+   "groesse": 5,
+   "reichweite": "Eine der meistgelesenen Seiten weltweit",
+   "stil": "Boulevard mit Bildergalerien, Spielerfrauen, Gerüchte, viele Exklusivmeldungen. Klickgetrieben.",
+   "tags": [
+    "Boulevard",
+    "Gerüchte"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p048",
+   "name": "The Sun – Sport",
+   "typ": "zeitung",
+   "land": "GB",
+   "groesse": 5,
+   "reichweite": "Größtes Boulevardblatt UK",
+   "stil": "Wortspiele in Schlagzeilen, England-Fieber, Skandale.",
+   "tags": [
+    "Boulevard",
+    "Wortspiel"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p049",
+   "name": "Daily Mirror – Sport",
+   "typ": "zeitung",
+   "land": "GB",
+   "groesse": 4,
+   "reichweite": "Boulevard",
+   "stil": "Boulevard mit Arbeiterklassen-Ton, viel Man United und Liverpool.",
+   "tags": [
+    "Boulevard"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p050",
+   "name": "talkSPORT",
+   "typ": "tv_radio",
+   "land": "GB",
+   "groesse": 4,
+   "reichweite": "Sportradio",
+   "stil": "Phone-ins, Hot Takes, Streit als Format. Laut und meinungsfreudig.",
+   "tags": [
+    "Radio",
+    "Hot Takes"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p051",
+   "name": "Football365",
+   "typ": "portal",
+   "land": "GB",
+   "groesse": 3,
+   "reichweite": "Online-Portal",
+   "stil": "Ironisch und frech. Rubrik ‚Mediawatch' nimmt andere Medien auseinander.",
+   "tags": [
+    "Satire",
+    "Medienkritik"
+   ],
+   "ton": "investigativ",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p052",
+   "name": "FourFourTwo",
+   "typ": "magazin",
+   "land": "GB",
+   "groesse": 3,
+   "reichweite": "Monatsmagazin",
+   "stil": "Interviews, Ranglisten, Retro-Stücke. Unterhaltsam, nicht tagesaktuell.",
+   "tags": [
+    "Magazin",
+    "Retro"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p053",
+   "name": "When Saturday Comes",
+   "typ": "magazin",
+   "land": "GB",
+   "groesse": 2,
+   "reichweite": "Unabhängiges Fanzine",
+   "stil": "Fanperspektive aus allen Ligen, auch tief unten. Trocken-britisch, kritisch gegenüber Kommerz.",
+   "tags": [
+    "Fankultur",
+    "unabhängig"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p054",
+   "name": "WhoScored",
+   "typ": "daten_app",
+   "land": "GB",
+   "groesse": 4,
+   "reichweite": "Datenportal",
+   "stil": "Spielerbewertungen nach Zahlen, Heatmaps, Statistiken. Liefert Diskussionsstoff in Foren.",
+   "tags": [
+    "Daten",
+    "Ratings"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p055",
+   "name": "The Rest Is Football",
+   "typ": "podcast",
+   "land": "GB",
+   "groesse": 5,
+   "reichweite": "Einer der größten Fußballpodcasts",
+   "stil": "Gary Lineker mit Ex-Profis. Freundliches Gespräch, Anekdoten, leichte Analyse.",
+   "tags": [
+    "Ex-Profis",
+    "Talk"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p056",
+   "name": "Football Weekly",
+   "typ": "podcast",
+   "land": "GB",
+   "groesse": 4,
+   "reichweite": "Guardian-Podcast",
+   "stil": "Journalistenrunde mit viel Witz und Insiderwissen aus ganz Europa.",
+   "tags": [
+    "Humor",
+    "Europa"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p057",
+   "name": "The Totally Football Show",
+   "typ": "podcast",
+   "land": "GB",
+   "groesse": 3,
+   "reichweite": "Etablierter Podcast",
+   "stil": "James Richardson mit Experten zu allen großen Ligen. Wortgewandt, verspielt.",
+   "tags": [
+    "Europa",
+    "Humor"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p058",
+   "name": "The Overlap / Stick to Football",
+   "typ": "youtube",
+   "land": "GB",
+   "groesse": 5,
+   "reichweite": "Millionen Abonnenten",
+   "stil": "Gary Neville, Jamie Carragher und Co. diskutieren wie unter Kumpels. Direkt, persönlich, viel Kabine.",
+   "tags": [
+    "Ex-Profis",
+    "Debatte"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p059",
+   "name": "AFTV",
+   "typ": "youtube",
+   "land": "GB",
+   "groesse": 4,
+   "reichweite": "Großer Fan-Kanal",
+   "stil": "Arsenal-Fans vor dem Stadion, emotional, Wutreden, oft viral.",
+   "tags": [
+    "Fans",
+    "Emotion"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p060",
+   "name": "The United Stand",
+   "typ": "youtube",
+   "land": "GB",
+   "groesse": 3,
+   "reichweite": "Fan-Kanal Man United",
+   "stil": "Lange Livestreams, Frust und Hoffnung, Fan-Debatten.",
+   "tags": [
+    "Fans",
+    "Stream"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p061",
+   "name": "Tifo Football",
+   "typ": "youtube",
+   "land": "GB",
+   "groesse": 3,
+   "reichweite": "Teil von The Athletic",
+   "stil": "Animierte Erklärvideos zu Taktik, Geld und Geschichte. Klar, grafisch, didaktisch.",
+   "tags": [
+    "Taktik",
+    "Erklärvideo"
+   ],
+   "ton": "taktik",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p062",
+   "name": "COPA90",
+   "typ": "youtube",
+   "land": "GB",
+   "groesse": 3,
+   "reichweite": "Jugendlicher Kultkanal",
+   "stil": "Fankultur weltweit, Dokus, Derbys, Stil und Lifestyle.",
+   "tags": [
+    "Fankultur",
+    "Doku"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p063",
+   "name": "David Ornstein",
+   "typ": "reporter",
+   "land": "GB",
+   "groesse": 5,
+   "reichweite": "The Athletic",
+   "stil": "Leise, präzise, extrem verlässlich. Meldet erst, wenn es sicher ist. Gilt als Goldstandard bei Premier-League-Transfers.",
+   "tags": [
+    "Transfers",
+    "verlässlich"
+   ],
+   "ton": "insider",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p064",
+   "name": "Matt Law",
+   "typ": "reporter",
+   "land": "GB",
+   "groesse": 3,
+   "reichweite": "The Telegraph",
+   "stil": "Chelsea- und England-Insider, klassischer Zeitungsreporter.",
+   "tags": [
+    "Insider",
+    "Chelsea"
+   ],
+   "ton": "insider",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p065",
+   "name": "Simon Stone",
+   "typ": "reporter",
+   "land": "GB",
+   "groesse": 3,
+   "reichweite": "BBC Sport",
+   "stil": "Manchester-United-Korrespondent, nüchtern und faktenorientiert.",
+   "tags": [
+    "Man Utd",
+    "seriös"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p066",
+   "name": "Jonathan Wilson",
+   "typ": "reporter",
+   "land": "GB",
+   "groesse": 3,
+   "reichweite": "Autor, Kolumnist",
+   "stil": "Taktikhistoriker (‚Inverting the Pyramid'). Intellektuell, historisch eingeordnet.",
+   "tags": [
+    "Taktik",
+    "Geschichte"
+   ],
+   "ton": "taktik",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p067",
+   "name": "Michael Cox",
+   "typ": "reporter",
+   "land": "GB",
+   "groesse": 3,
+   "reichweite": "The Athletic, Zonal Marking",
+   "stil": "Taktikanalyse in klarer Sprache, Buchautor.",
+   "tags": [
+    "Taktik"
+   ],
+   "ton": "taktik",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p068",
+   "name": "Rory Smith",
+   "typ": "reporter",
+   "land": "GB",
+   "groesse": 3,
+   "reichweite": "Autor und Kolumnist",
+   "stil": "Essayistisch und warm geschrieben, oft über Fußball als Industrie und Kultur.",
+   "tags": [
+    "Essay"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p069",
+   "name": "Henry Winter",
+   "typ": "reporter",
+   "land": "GB",
+   "groesse": 3,
+   "reichweite": "Kolumnist",
+   "stil": "Pathos, England-Liebe, Respekt vor Tradition. Emotionale Matchreports.",
+   "tags": [
+    "Kolumne",
+    "Emotion"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p070",
+   "name": "Jamie Carragher",
+   "typ": "reporter",
+   "land": "GB",
+   "groesse": 4,
+   "reichweite": "TV-Experte",
+   "stil": "Leidenschaftlich, laut, scharfe Kritik an Spielern, Duelle mit Gary Neville.",
+   "tags": [
+    "Experte",
+    "Meinung"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p071",
+   "name": "Ben Jacobs",
+   "typ": "reporter",
+   "land": "GB",
+   "groesse": 3,
+   "reichweite": "Transfer-Reporter",
+   "stil": "Viel Social Media, Fokus auf Klub-Eigentümer, Saudi-Investitionen und Transfers.",
+   "tags": [
+    "Transfers",
+    "Geld"
+   ],
+   "ton": "insider",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p072",
+   "name": "Daily Record",
+   "typ": "zeitung",
+   "land": "SC",
+   "groesse": 4,
+   "reichweite": "Größtes Boulevard Schottlands",
+   "stil": "Old-Firm-Fieber, Celtic gegen Rangers jeden Tag. Laut und parteiisch empfunden, je nach Lager.",
+   "tags": [
+    "Boulevard",
+    "Derby"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p073",
+   "name": "MARCA",
+   "typ": "zeitung",
+   "land": "ES",
+   "groesse": 5,
+   "reichweite": "Meistgelesene Zeitung Spaniens",
+   "stil": "Madrid-nah, emotionale Titelseiten, Real-Madrid-Hymnen und Gerüchte.",
+   "tags": [
+    "Boulevard",
+    "Real Madrid"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p074",
+   "name": "AS",
+   "typ": "zeitung",
+   "land": "ES",
+   "groesse": 5,
+   "reichweite": "Sporttageszeitung",
+   "stil": "Ebenfalls Madrid-nah, plakativ, viele Exklusivgeschichten zu Transfers.",
+   "tags": [
+    "Boulevard",
+    "Real Madrid"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p075",
+   "name": "Mundo Deportivo",
+   "typ": "zeitung",
+   "land": "ES",
+   "groesse": 4,
+   "reichweite": "Sporttageszeitung Barcelona",
+   "stil": "Barça-nah, ausführliche Kaderthemen, Katalonien-Perspektive.",
+   "tags": [
+    "Barça",
+    "regional"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p076",
+   "name": "SPORT (Diario Sport)",
+   "typ": "zeitung",
+   "land": "ES",
+   "groesse": 4,
+   "reichweite": "Sporttageszeitung Barcelona",
+   "stil": "Noch boulevardiger als Mundo Deportivo, Barça-Leidenschaft auf jeder Seite.",
+   "tags": [
+    "Barça",
+    "Boulevard"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p077",
+   "name": "El País – Deportes",
+   "typ": "zeitung",
+   "land": "ES",
+   "groesse": 4,
+   "reichweite": "Qualitätszeitung",
+   "stil": "Literarisch und analytisch, Fußball als Kultur und Politik.",
+   "tags": [
+    "seriös",
+    "Essay"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p078",
+   "name": "El Chiringuito de Jugones",
+   "typ": "tv_radio",
+   "land": "ES",
+   "groesse": 5,
+   "reichweite": "Kult-Talkshow, riesige Social-Reichweite",
+   "stil": "Nachtshow mit Geschrei, Lagerkämpfen Madrid gegen Barça, Exklusiv-Fanfare. Fußball als Seifenoper.",
+   "tags": [
+    "Talk",
+    "Drama",
+    "Gerüchte"
+   ],
+   "ton": "geruechte",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p079",
+   "name": "Cadena SER – El Larguero",
+   "typ": "tv_radio",
+   "land": "ES",
+   "groesse": 4,
+   "reichweite": "Nationales Radio",
+   "stil": "Nächtliche Radiosendung mit Interviews und Debatten, gut vernetzt.",
+   "tags": [
+    "Radio",
+    "Talk"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p080",
+   "name": "COPE – Tiempo de Juego",
+   "typ": "tv_radio",
+   "land": "ES",
+   "groesse": 4,
+   "reichweite": "Nationales Radio",
+   "stil": "Live-Radiokommentar mit großer Emotion, Tor-Schreie inklusive.",
+   "tags": [
+    "Radio",
+    "Live"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p081",
+   "name": "Panenka",
+   "typ": "magazin",
+   "land": "ES",
+   "groesse": 2,
+   "reichweite": "Kulturmagazin",
+   "stil": "Spaniens Gegenstück zu 11FREUNDE: Erzählungen, Nostalgie, schöne Gestaltung.",
+   "tags": [
+    "Fankultur",
+    "Langform"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p082",
+   "name": "Sid Lowe",
+   "typ": "reporter",
+   "land": "ES",
+   "groesse": 3,
+   "reichweite": "Brite in Madrid",
+   "stil": "Erklärt La Liga für die englischsprachige Welt. Humorvoll, historisch fundiert.",
+   "tags": [
+    "international",
+    "Essay"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p083",
+   "name": "Guillem Balagué",
+   "typ": "reporter",
+   "land": "ES",
+   "groesse": 3,
+   "reichweite": "Spanien-Experte im britischen TV",
+   "stil": "Biograf großer Spieler und Trainer, ruhig-erklärend.",
+   "tags": [
+    "Experte",
+    "Bücher"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p084",
+   "name": "Dilara Imhof",
+   "typ": "reporter",
+   "land": "ES",
+   "groesse": 3,
+   "reichweite": "MARCA",
+   "stil": "Real-Madrid-Insider, nah an der Vereinsführung.",
+   "tags": [
+    "Real Madrid",
+    "Insider"
+   ],
+   "ton": "insider",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "p085",
+   "name": "Gerard Romero",
+   "typ": "reporter",
+   "land": "ES",
+   "groesse": 3,
+   "reichweite": "Streamer, Twitch",
+   "stil": "Barça-Insider im Livestream. Sehr nah an Fans, Trefferquote schwankt.",
+   "tags": [
+    "Barça",
+    "Stream"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p086",
+   "name": "Mario Cortegana",
+   "typ": "reporter",
+   "land": "ES",
+   "groesse": 3,
+   "reichweite": "The Athletic",
+   "stil": "Real-Madrid-Korrespondent, sachlich und gut informiert.",
+   "tags": [
+    "Real Madrid",
+    "seriös"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p087",
+   "name": "Edu Aguirre",
+   "typ": "reporter",
+   "land": "ES",
+   "groesse": 2,
+   "reichweite": "TV-Talkshows",
+   "stil": "Madridista im Studio, enge Kontakte zu Spielern. Klar parteiisch.",
+   "tags": [
+    "Real Madrid",
+    "Talk"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p088",
+   "name": "La Gazzetta dello Sport",
+   "typ": "zeitung",
+   "land": "IT",
+   "groesse": 5,
+   "reichweite": "Größte Sportzeitung Italiens",
+   "stil": "Das rosa Blatt aus Mailand. Pagelle (Noten), Taktik-Grafiken, große Titelseiten zu Milan und Inter.",
+   "tags": [
+    "Noten",
+    "Tradition"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p089",
+   "name": "Corriere dello Sport",
+   "typ": "zeitung",
+   "land": "IT",
+   "groesse": 4,
+   "reichweite": "Sporttageszeitung Rom",
+   "stil": "Römisch geprägt, Roma und Lazio im Fokus, hitzige Kommentare.",
+   "tags": [
+    "regional",
+    "Boulevard"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p090",
+   "name": "Tuttosport",
+   "typ": "zeitung",
+   "land": "IT",
+   "groesse": 4,
+   "reichweite": "Sporttageszeitung Turin",
+   "stil": "Juve-nah, vergibt den Golden Boy Award. Gern Gerüchte.",
+   "tags": [
+    "Juventus",
+    "Gerüchte"
+   ],
+   "ton": "geruechte",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p091",
+   "name": "Sky Sport Italia",
+   "typ": "tv_radio",
+   "land": "IT",
+   "groesse": 4,
+   "reichweite": "Pay-TV",
+   "stil": "Lange Studioanalysen, Mercato-Sendungen am Deadline Day.",
+   "tags": [
+    "Live",
+    "Transfers"
+   ],
+   "ton": "insider",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p092",
+   "name": "Calciomercato.com",
+   "typ": "portal",
+   "land": "IT",
+   "groesse": 4,
+   "reichweite": "Großes Transferportal",
+   "stil": "Mercato rund um die Uhr, viele Spekulationen, jedes Gerücht wird zur Nachricht.",
+   "tags": [
+    "Gerüchte",
+    "Transfers"
+   ],
+   "ton": "geruechte",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p093",
+   "name": "TuttoMercatoWeb",
+   "typ": "portal",
+   "land": "IT",
+   "groesse": 3,
+   "reichweite": "Transferportal",
+   "stil": "Schnelle Kurznachrichten zu allen Serie-A-Klubs, inklusive niederer Ligen.",
+   "tags": [
+    "Transfers",
+    "News"
+   ],
+   "ton": "insider",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p094",
+   "name": "Rivista Undici",
+   "typ": "magazin",
+   "land": "IT",
+   "groesse": 2,
+   "reichweite": "Kulturmagazin",
+   "stil": "Stilvoll, intellektuell, Fußball als Popkultur.",
+   "tags": [
+    "Fankultur",
+    "Essay"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p095",
+   "name": "Fabrizio Romano",
+   "typ": "reporter",
+   "land": "IT",
+   "groesse": 5,
+   "reichweite": "Globaler Social-Media-Star",
+   "stil": "‚Here we go!' als Markenzeichen. Meldet Transfers weltweit Schritt für Schritt, schnell und meist verlässlich.",
+   "tags": [
+    "Transfers",
+    "Breaking",
+    "global"
+   ],
+   "ton": "geruechte",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p096",
+   "name": "Gianluca Di Marzio",
+   "typ": "reporter",
+   "land": "IT",
+   "groesse": 4,
+   "reichweite": "Sky Sport Italia",
+   "stil": "Altmeister des Mercato in Italien, eigene Website, seriöser als viele Kollegen.",
+   "tags": [
+    "Transfers",
+    "verlässlich"
+   ],
+   "ton": "insider",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p097",
+   "name": "Nicolò Schira",
+   "typ": "reporter",
+   "land": "IT",
+   "groesse": 3,
+   "reichweite": "Social Media",
+   "stil": "Viele Transfermeldungen in hoher Taktung, gemischte Trefferquote.",
+   "tags": [
+    "Transfers",
+    "Gerüchte"
+   ],
+   "ton": "geruechte",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p098",
+   "name": "Alfredo Pedullà",
+   "typ": "reporter",
+   "land": "IT",
+   "groesse": 3,
+   "reichweite": "Transferreporter",
+   "stil": "Erfahrener Mercato-Journalist, besonders bei Serie-A-Kaderdetails.",
+   "tags": [
+    "Transfers"
+   ],
+   "ton": "insider",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p099",
+   "name": "L'Équipe",
+   "typ": "zeitung",
+   "land": "FR",
+   "groesse": 5,
+   "reichweite": "Größte Sportzeitung Frankreichs",
+   "stil": "Noten von 1 bis 10, kritisch mit PSG und Équipe de France. Seriös, aber mit Biss.",
+   "tags": [
+    "Noten",
+    "seriös"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p100",
+   "name": "France Football",
+   "typ": "magazin",
+   "land": "FR",
+   "groesse": 3,
+   "reichweite": "Traditionsmagazin",
+   "stil": "Organisator des Ballon d'Or, Interviews und Ranglisten.",
+   "tags": [
+    "Tradition",
+    "Awards"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p101",
+   "name": "RMC Sport – After Foot",
+   "typ": "tv_radio",
+   "land": "FR",
+   "groesse": 4,
+   "reichweite": "Talkradio",
+   "stil": "Abendliche Streitrunde, provokant und polemisch.",
+   "tags": [
+    "Radio",
+    "Hot Takes"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p102",
+   "name": "Canal+ – Canal Football Club",
+   "typ": "tv_radio",
+   "land": "FR",
+   "groesse": 4,
+   "reichweite": "Pay-TV",
+   "stil": "Sonntagsmagazin mit Analyse und Expertenrunde, gehobener Ton.",
+   "tags": [
+    "Analyse",
+    "TV"
+   ],
+   "ton": "taktik",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p103",
+   "name": "Le Parisien – Sport",
+   "typ": "zeitung",
+   "land": "FR",
+   "groesse": 4,
+   "reichweite": "Regionale Großzeitung",
+   "stil": "Engster Draht zu PSG, Kabinengeschichten aus Paris.",
+   "tags": [
+    "PSG",
+    "Insider"
+   ],
+   "ton": "insider",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p104",
+   "name": "So Foot",
+   "typ": "magazin",
+   "land": "FR",
+   "groesse": 3,
+   "reichweite": "Magazin + Portal",
+   "stil": "Ironisch, frech, kultig. Wortspiele, Fanblick, Absurditäten des Fußballs.",
+   "tags": [
+    "Humor",
+    "Fankultur"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p105",
+   "name": "Foot Mercato",
+   "typ": "portal",
+   "land": "FR",
+   "groesse": 3,
+   "reichweite": "Transferportal",
+   "stil": "Exklusivmeldungen zum Markt, besonders zu Frankreich und Afrika.",
+   "tags": [
+    "Transfers"
+   ],
+   "ton": "insider",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p106",
+   "name": "Julien Laurens",
+   "typ": "reporter",
+   "land": "FR",
+   "groesse": 3,
+   "reichweite": "Franzose in britischen Medien",
+   "stil": "Lebhaft, gut gelaunt, erklärt Ligue 1 und PSG für England.",
+   "tags": [
+    "international",
+    "Experte"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p107",
+   "name": "Fabrice Hawkins",
+   "typ": "reporter",
+   "land": "FR",
+   "groesse": 3,
+   "reichweite": "RMC",
+   "stil": "Transfer-Reporter mit Fokus Frankreich und PSG.",
+   "tags": [
+    "Transfers"
+   ],
+   "ton": "insider",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p108",
+   "name": "Santi Aouna",
+   "typ": "reporter",
+   "land": "FR",
+   "groesse": 3,
+   "reichweite": "Foot Mercato",
+   "stil": "Transferinsider mit Draht zu Beratern, besonders bei französischen Spielern.",
+   "tags": [
+    "Transfers"
+   ],
+   "ton": "insider",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p109",
+   "name": "Daniel Riolo",
+   "typ": "reporter",
+   "land": "FR",
+   "groesse": 3,
+   "reichweite": "RMC",
+   "stil": "Polemiker vom Dienst, spitze Kritik an Trainern und Verband.",
+   "tags": [
+    "Meinung",
+    "Hot Takes"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p110",
+   "name": "Voetbal International",
+   "typ": "magazin",
+   "land": "NL",
+   "groesse": 4,
+   "reichweite": "Fachmagazin + Portal",
+   "stil": "Das kicker der Niederlande. Sachlich, Noten, Hintergründe zur Eredivisie.",
+   "tags": [
+    "seriös",
+    "Noten"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p111",
+   "name": "De Telegraaf – Sport",
+   "typ": "zeitung",
+   "land": "NL",
+   "groesse": 4,
+   "reichweite": "Größte Zeitung der Niederlande",
+   "stil": "Boulevard mit Insider-Geschichten, viel Ajax und Oranje.",
+   "tags": [
+    "Boulevard",
+    "Insider"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p112",
+   "name": "NOS Studio Sport",
+   "typ": "tv_radio",
+   "land": "NL",
+   "groesse": 4,
+   "reichweite": "Öffentlich-rechtlich",
+   "stil": "Nüchterne Zusammenfassungen und Reportagen.",
+   "tags": [
+    "seriös",
+    "Tradition"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p113",
+   "name": "Mike Verweij",
+   "typ": "reporter",
+   "land": "NL",
+   "groesse": 3,
+   "reichweite": "De Telegraaf",
+   "stil": "Ajax-Insider mit Interna aus der Vereinsführung.",
+   "tags": [
+    "Ajax",
+    "Insider"
+   ],
+   "ton": "insider",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p114",
+   "name": "Sporza",
+   "typ": "tv_radio",
+   "land": "BE",
+   "groesse": 4,
+   "reichweite": "Öffentlich-rechtlich (Flandern)",
+   "stil": "Ruhige Analyse, viel Fokus auf die belgische Nationalmannschaft.",
+   "tags": [
+    "seriös"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p115",
+   "name": "Het Nieuwsblad",
+   "typ": "zeitung",
+   "land": "BE",
+   "groesse": 3,
+   "reichweite": "Flämische Tageszeitung",
+   "stil": "Volksnah, Jupiler Pro League und Rote Teufel.",
+   "tags": [
+    "regional"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p116",
+   "name": "A Bola",
+   "typ": "zeitung",
+   "land": "PT",
+   "groesse": 4,
+   "reichweite": "Traditionsreichste Sportzeitung Portugals",
+   "stil": "Lissabon-geprägt, große Rivalitäten Benfica, Sporting, Porto.",
+   "tags": [
+    "Tradition"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p117",
+   "name": "Record",
+   "typ": "zeitung",
+   "land": "PT",
+   "groesse": 4,
+   "reichweite": "Sporttageszeitung",
+   "stil": "Transfers, Ronaldo und Nationalteam, viele Exklusivmeldungen.",
+   "tags": [
+    "Transfers",
+    "Boulevard"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p118",
+   "name": "O Jogo",
+   "typ": "zeitung",
+   "land": "PT",
+   "groesse": 3,
+   "reichweite": "Sporttageszeitung Porto",
+   "stil": "Porto-nah, Gegenpol zur Lissabonner Presse.",
+   "tags": [
+    "regional",
+    "Porto"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p119",
+   "name": "Fanatik",
+   "typ": "zeitung",
+   "land": "TR",
+   "groesse": 4,
+   "reichweite": "Große Sportzeitung",
+   "stil": "Laut, farbig, Galatasaray–Fenerbahçe–Beşiktaş-Rivalität als Dauerthema.",
+   "tags": [
+    "Boulevard",
+    "Derby"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p120",
+   "name": "Fotomaç",
+   "typ": "zeitung",
+   "land": "TR",
+   "groesse": 4,
+   "reichweite": "Sportboulevard",
+   "stil": "Schrille Titelseiten, Gerüchte, Lagerdenken.",
+   "tags": [
+    "Boulevard",
+    "Gerüchte"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p121",
+   "name": "beIN Sports Türkiye",
+   "typ": "tv_radio",
+   "land": "TR",
+   "groesse": 4,
+   "reichweite": "Pay-TV",
+   "stil": "Süper-Lig-Rechte, lange Studiodebatten mit Ex-Profis und Schiedsrichter-Analysen.",
+   "tags": [
+    "Live",
+    "Talk"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p122",
+   "name": "ge (Globo Esporte)",
+   "typ": "portal",
+   "land": "BR",
+   "groesse": 5,
+   "reichweite": "Größtes Sportportal Brasiliens",
+   "stil": "Volle Abdeckung aller Staatsligen, TV-Verknüpfung mit Globo. Volksnah und emotional.",
+   "tags": [
+    "News",
+    "Live"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p123",
+   "name": "Lance!",
+   "typ": "portal",
+   "land": "BR",
+   "groesse": 4,
+   "reichweite": "Sportmarke",
+   "stil": "Schnell, jung, viel Social Media, Fokus auf die großen Rio- und São-Paulo-Klubs.",
+   "tags": [
+    "News",
+    "Social"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p124",
+   "name": "ESPN Brasil",
+   "typ": "tv_radio",
+   "land": "BR",
+   "groesse": 4,
+   "reichweite": "Pay-TV",
+   "stil": "Lange Debattenshows, europäischer Fußball mit brasilianischem Blick.",
+   "tags": [
+    "Talk",
+    "Europa"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p125",
+   "name": "Olé",
+   "typ": "zeitung",
+   "land": "AR",
+   "groesse": 5,
+   "reichweite": "Größte Sportzeitung Argentiniens",
+   "stil": "Ikonische Wortspiel-Titelseiten, Boca gegen River, pure Leidenschaft.",
+   "tags": [
+    "Boulevard",
+    "Wortspiel"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p126",
+   "name": "TyC Sports",
+   "typ": "tv_radio",
+   "land": "AR",
+   "groesse": 4,
+   "reichweite": "Sportsender",
+   "stil": "Nah an der Selección, emotionaler Kommentar, Talkrunden.",
+   "tags": [
+    "Live",
+    "Selección"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p127",
+   "name": "Gastón Edul",
+   "typ": "reporter",
+   "land": "AR",
+   "groesse": 3,
+   "reichweite": "TyC Sports",
+   "stil": "Reporter nah an Messi und der Nationalmannschaft, Interviews direkt nach dem Spiel.",
+   "tags": [
+    "Selección",
+    "Interviews"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p128",
+   "name": "César Luis Merlo",
+   "typ": "reporter",
+   "land": "AR",
+   "groesse": 3,
+   "reichweite": "Transferreporter",
+   "stil": "Südamerikas Transferstimme, Wechsel nach Europa und innerhalb Südamerikas.",
+   "tags": [
+    "Transfers"
+   ],
+   "ton": "insider",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p129",
+   "name": "ESPN FC",
+   "typ": "tv_radio",
+   "land": "US",
+   "groesse": 5,
+   "reichweite": "Globale Show + Portal",
+   "stil": "Debattenshow mit internationalen Ex-Profis, Ranglisten, Meinungen.",
+   "tags": [
+    "Talk",
+    "global"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p130",
+   "name": "CBS Sports Golazo",
+   "typ": "youtube",
+   "land": "US",
+   "groesse": 4,
+   "reichweite": "Champions-League-Rechte USA",
+   "stil": "Lockeres Studio mit Kate Abdo, Thierry Henry, Jamie Carragher und Micah Richards. Viral, viel Gelächter.",
+   "tags": [
+    "Show",
+    "Humor"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p131",
+   "name": "Men in Blazers",
+   "typ": "podcast",
+   "land": "US",
+   "groesse": 3,
+   "reichweite": "Podcast und Medienmarke",
+   "stil": "Premier League für Amerikaner, voller britischer Selbstironie und Popkultur.",
+   "tags": [
+    "Humor",
+    "Popkultur"
+   ],
+   "ton": "fankultur",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p132",
+   "name": "Tom Bogert",
+   "typ": "reporter",
+   "land": "US",
+   "groesse": 2,
+   "reichweite": "MLS-Reporter",
+   "stil": "MLS-Transfers und Ligainterna, sachlich.",
+   "tags": [
+    "MLS",
+    "Transfers"
+   ],
+   "ton": "insider",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p133",
+   "name": "TUDN",
+   "typ": "tv_radio",
+   "land": "MX",
+   "groesse": 4,
+   "reichweite": "Spanischsprachiger Sportsender",
+   "stil": "Liga MX und El Tri, spanischsprachiger Markt in den USA, emotionaler Kommentar.",
+   "tags": [
+    "Live"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p134",
+   "name": "Récord",
+   "typ": "zeitung",
+   "land": "MX",
+   "groesse": 4,
+   "reichweite": "Sporttageszeitung",
+   "stil": "Boulevardesk, América gegen Chivas, starke Bildsprache.",
+   "tags": [
+    "Boulevard"
+   ],
+   "ton": "boulevard",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p135",
+   "name": "beIN SPORTS (MENA)",
+   "typ": "tv_radio",
+   "land": "ME",
+   "groesse": 5,
+   "reichweite": "Pay-TV mit riesigem Rechtepaket",
+   "stil": "Arabischer Kommentar mit legendären Torschreien, Studios mit internationalen Experten.",
+   "tags": [
+    "Live",
+    "Kommentar"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p136",
+   "name": "Nikkan Sports",
+   "typ": "zeitung",
+   "land": "JP",
+   "groesse": 4,
+   "reichweite": "Sporttageszeitung",
+   "stil": "J-League und Japaner in Europa, detailverliebt, sehr respektvoller Ton.",
+   "tags": [
+    "Legionäre",
+    "seriös"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p137",
+   "name": "GOAL",
+   "typ": "portal",
+   "land": "INT",
+   "groesse": 5,
+   "reichweite": "Globales Portal in vielen Sprachen",
+   "stil": "Listicles, Rankings, schnelle Gerüchte, Social-optimiert.",
+   "tags": [
+    "Clicks",
+    "Rankings"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p138",
+   "name": "FBref",
+   "typ": "daten_app",
+   "land": "INT",
+   "groesse": 4,
+   "reichweite": "Statistikdatenbank",
+   "stil": "Erweiterte Statistiken für Analysten und Nerds. Keine Meinung, nur Zahlen.",
+   "tags": [
+    "Daten"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p139",
+   "name": "FotMob",
+   "typ": "daten_app",
+   "land": "INT",
+   "groesse": 5,
+   "reichweite": "Globale Liveticker-App",
+   "stil": "Spielerratings, xG, Liveticker. Ratings werden selbst zum Gesprächsthema.",
+   "tags": [
+    "App",
+    "Ratings"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "p140",
+   "name": "Sofascore",
+   "typ": "daten_app",
+   "land": "INT",
+   "groesse": 5,
+   "reichweite": "Globale Liveticker-App",
+   "stil": "Heatmaps und Noten pro Spiel, beliebt bei Fans für Argumente.",
+   "tags": [
+    "App",
+    "Ratings"
+   ],
+   "ton": "serioes",
+   "herkunft": "pool"
+  },
+  {
+   "id": "e001",
+   "name": "Donau Sportblatt TV",
+   "typ": "tv_radio",
+   "land": "AT",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Sachlich und verlässlich, kurze Berichte und Einordnung.",
+   "tags": [
+    "Live",
+    "Kommentar"
+   ],
+   "ton": "serioes",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e002",
+   "name": "Lorenz Hammerschlag",
+   "typ": "reporter",
+   "land": "AT",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Gut vernetzt, mit Transfergerüchten aus erster Hand.",
+   "tags": [
+    "Insider",
+    "Transfers"
+   ],
+   "ton": "insider",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e003",
+   "name": "Limmat Sportpost Online",
+   "typ": "portal",
+   "land": "CH",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Sachlich und verlässlich, kurze Berichte und Einordnung.",
+   "tags": [
+    "News",
+    "Live"
+   ],
+   "ton": "serioes",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e004",
+   "name": "Alpen Rundschau TV",
+   "typ": "tv_radio",
+   "land": "CH",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Sachlich und verlässlich, kurze Berichte und Einordnung.",
+   "tags": [
+    "Live",
+    "Kommentar"
+   ],
+   "ton": "serioes",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e005",
+   "name": "Reto Zimmerlin",
+   "typ": "reporter",
+   "land": "CH",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Gut vernetzt, mit Transfergerüchten aus erster Hand.",
+   "tags": [
+    "Insider",
+    "Transfers"
+   ],
+   "ton": "insider",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e006",
+   "name": "Highland Terrace Post Online",
+   "typ": "portal",
+   "land": "SC",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Sachlich und verlässlich, kurze Berichte und Einordnung.",
+   "tags": [
+    "News",
+    "Live"
+   ],
+   "ton": "serioes",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e007",
+   "name": "Clyde Courier TV",
+   "typ": "tv_radio",
+   "land": "SC",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Sachlich und verlässlich, kurze Berichte und Einordnung.",
+   "tags": [
+    "Live",
+    "Kommentar"
+   ],
+   "ton": "serioes",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e008",
+   "name": "Callum Ardrossan",
+   "typ": "reporter",
+   "land": "SC",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Gut vernetzt, mit Transfergerüchten aus erster Hand.",
+   "tags": [
+    "Insider",
+    "Transfers"
+   ],
+   "ton": "insider",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e009",
+   "name": "El Banquillo Diario Online",
+   "typ": "portal",
+   "land": "ES",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Sachlich und verlässlich, kurze Berichte und Einordnung.",
+   "tags": [
+    "News",
+    "Live"
+   ],
+   "ton": "serioes",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e010",
+   "name": "De Zijlijn Courant Online",
+   "typ": "portal",
+   "land": "NL",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Sachlich und verlässlich, kurze Berichte und Einordnung.",
+   "tags": [
+    "News",
+    "Live"
+   ],
+   "ton": "serioes",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e011",
+   "name": "De Kantine Gazet Online",
+   "typ": "portal",
+   "land": "BE",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Sachlich und verlässlich, kurze Berichte und Einordnung.",
+   "tags": [
+    "News",
+    "Live"
+   ],
+   "ton": "serioes",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e012",
+   "name": "Wout Vermeirsch",
+   "typ": "reporter",
+   "land": "BE",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Gut vernetzt, mit Transfergerüchten aus erster Hand.",
+   "tags": [
+    "Insider",
+    "Transfers"
+   ],
+   "ton": "insider",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e013",
+   "name": "A Bancada Jornal Online",
+   "typ": "portal",
+   "land": "PT",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Sachlich und verlässlich, kurze Berichte und Einordnung.",
+   "tags": [
+    "News",
+    "Live"
+   ],
+   "ton": "serioes",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e014",
+   "name": "O Relvado Diário TV",
+   "typ": "tv_radio",
+   "land": "PT",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Sachlich und verlässlich, kurze Berichte und Einordnung.",
+   "tags": [
+    "Live",
+    "Kommentar"
+   ],
+   "ton": "serioes",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e015",
+   "name": "Tiago Brandalheira",
+   "typ": "reporter",
+   "land": "PT",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Gut vernetzt, mit Transfergerüchten aus erster Hand.",
+   "tags": [
+    "Insider",
+    "Transfers"
+   ],
+   "ton": "insider",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e016",
+   "name": "Tribün Postası Online",
+   "typ": "portal",
+   "land": "TR",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Sachlich und verlässlich, kurze Berichte und Einordnung.",
+   "tags": [
+    "News",
+    "Live"
+   ],
+   "ton": "serioes",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e017",
+   "name": "Emre Kavaklıdere",
+   "typ": "reporter",
+   "land": "TR",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Gut vernetzt, mit Transfergerüchten aus erster Hand.",
+   "tags": [
+    "Insider",
+    "Transfers"
+   ],
+   "ton": "insider",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e018",
+   "name": "Gazeta da Várzea Jornal",
+   "typ": "zeitung",
+   "land": "BR",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Nah an der Kurve: Stimmung, Derbys, Geschichten aus dem Block.",
+   "tags": [
+    "regional",
+    "News"
+   ],
+   "ton": "fankultur",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e019",
+   "name": "Thiago Albuquerrão",
+   "typ": "reporter",
+   "land": "BR",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Gut vernetzt, mit Transfergerüchten aus erster Hand.",
+   "tags": [
+    "Insider",
+    "Transfers"
+   ],
+   "ton": "insider",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e020",
+   "name": "El Potrero Diario Online",
+   "typ": "portal",
+   "land": "AR",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Sachlich und verlässlich, kurze Berichte und Einordnung.",
+   "tags": [
+    "News",
+    "Live"
+   ],
+   "ton": "serioes",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e021",
+   "name": "Pitch Report",
+   "typ": "zeitung",
+   "land": "US",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Nah an der Kurve: Stimmung, Derbys, Geschichten aus dem Block.",
+   "tags": [
+    "regional",
+    "News"
+   ],
+   "ton": "fankultur",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e022",
+   "name": "Kickoff Daily Online",
+   "typ": "portal",
+   "land": "US",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Sachlich und verlässlich, kurze Berichte und Einordnung.",
+   "tags": [
+    "News",
+    "Live"
+   ],
+   "ton": "serioes",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e023",
+   "name": "La Cantera Diario Online",
+   "typ": "portal",
+   "land": "MX",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Sachlich und verlässlich, kurze Berichte und Einordnung.",
+   "tags": [
+    "News",
+    "Live"
+   ],
+   "ton": "serioes",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e024",
+   "name": "Santiago Ibarrolle",
+   "typ": "reporter",
+   "land": "MX",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Gut vernetzt, mit Transfergerüchten aus erster Hand.",
+   "tags": [
+    "Insider",
+    "Transfers"
+   ],
+   "ton": "insider",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e025",
+   "name": "Sahat Sport",
+   "typ": "zeitung",
+   "land": "ME",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Nah an der Kurve: Stimmung, Derbys, Geschichten aus dem Block.",
+   "tags": [
+    "regional",
+    "News"
+   ],
+   "ton": "fankultur",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e026",
+   "name": "Mal'ab Post Online",
+   "typ": "portal",
+   "land": "ME",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Sachlich und verlässlich, kurze Berichte und Einordnung.",
+   "tags": [
+    "News",
+    "Live"
+   ],
+   "ton": "serioes",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e027",
+   "name": "Karim Al-Rashwan",
+   "typ": "reporter",
+   "land": "ME",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Gut vernetzt, mit Transfergerüchten aus erster Hand.",
+   "tags": [
+    "Insider",
+    "Transfers"
+   ],
+   "ton": "insider",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e028",
+   "name": "Ao-Pitch Shimbun Online",
+   "typ": "portal",
+   "land": "JP",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Sachlich und verlässlich, kurze Berichte und Einordnung.",
+   "tags": [
+    "News",
+    "Live"
+   ],
+   "ton": "serioes",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e029",
+   "name": "Kōen Net TV",
+   "typ": "tv_radio",
+   "land": "JP",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Sachlich und verlässlich, kurze Berichte und Einordnung.",
+   "tags": [
+    "Live",
+    "Kommentar"
+   ],
+   "ton": "serioes",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e030",
+   "name": "Haruto Mizunoue",
+   "typ": "reporter",
+   "land": "JP",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Gut vernetzt, mit Transfergerüchten aus erster Hand.",
+   "tags": [
+    "Insider",
+    "Transfers"
+   ],
+   "ton": "insider",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e031",
+   "name": "Globe Football Weekly",
+   "typ": "zeitung",
+   "land": "INT",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Nah an der Kurve: Stimmung, Derbys, Geschichten aus dem Block.",
+   "tags": [
+    "regional",
+    "News"
+   ],
+   "ton": "fankultur",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e032",
+   "name": "Worldwide Wire TV",
+   "typ": "tv_radio",
+   "land": "INT",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Sachlich und verlässlich, kurze Berichte und Einordnung.",
+   "tags": [
+    "Live",
+    "Kommentar"
+   ],
+   "ton": "serioes",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e033",
+   "name": "Marco Lindenqvist",
+   "typ": "reporter",
+   "land": "INT",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Gut vernetzt, mit Transfergerüchten aus erster Hand.",
+   "tags": [
+    "Insider",
+    "Transfers"
+   ],
+   "ton": "insider",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e034",
+   "name": "Vereinszeitung",
+   "typ": "vereinsmedium",
+   "land": "",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Das Heft des Vereins: Spielberichte, Porträts und Neuigkeiten aus dem Verein.",
+   "tags": [
+    "Fans",
+    "regional"
+   ],
+   "ton": "fankultur",
+   "herkunft": "erfunden"
+  },
+  {
+   "id": "e035",
+   "name": "Vereins-TV",
+   "typ": "vereinsmedium",
+   "land": "",
+   "groesse": 2,
+   "reichweite": "Spezial",
+   "stil": "Der Kanal des Vereins: Pressekonferenzen, Trainingsbilder und Interviews.",
+   "tags": [
+    "Live",
+    "News"
+   ],
+   "ton": "serioes",
+   "herkunft": "erfunden"
+  }
+ ]
+}

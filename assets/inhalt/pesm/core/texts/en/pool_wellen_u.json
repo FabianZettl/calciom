@@ -1,0 +1,446 @@
+{
+ "pool.presse_provokation_serie.e.e1": [
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Why is it not working, and when does that turn?",
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} What do you tell the fans who are disappointed after this streak?"
+ ],
+ "pool.presse_provokation_serie.e.e2": [
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Do you still have control over the team at all?",
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Do you yourself still believe the turnaround is coming?"
+ ],
+ "pool.presse_provokation_serie.e.e3": [
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} I can tell tempers are short, but you still owe the readers an answer.",
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} You look tense, but I cannot avoid the question: what is going wrong?"
+ ],
+ "pool.presse_provokation_serie.e.e4": [
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Answer, or should I write that you have none?",
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Say something concrete now, dodging does not count!"
+ ],
+ "pool.presse_provokation_serie.e.e5": [
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Give me something I can write in your favour.",
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} How do you see the situation, calmly?"
+ ],
+ "pool.presse_provokation_serie.e.e6": [
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Will you resign if nothing changes?",
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Is there a point at which you would offer your seat?"
+ ],
+ "pool.presse_provokation_serie.e.e7": [
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} I want to report fairly, so help me.",
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} What do you need from those around you right now?"
+ ],
+ "pool.presse_provokation_serie.e.e8": [
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} {verein} has not lost for this long in ages, surely that is an alarm signal.",
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} A slide this long is an alarm signal, or do you see it differently?"
+ ],
+ "pool.presse_provokation_serie.e.e9": [
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} The season target is in danger, and the fans want results, not explanations.",
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} You are behind target and still losing, how do you plan to turn that around?"
+ ],
+ "pool.presse_provokation_serie.a.a1": [
+  "We have analysed the games: small details are missing, not attitude. We work on that every day.",
+  "The results are bad, I do not deny that. The causes lie in a few details, and we are tackling them."
+ ],
+ "pool.presse_provokation_serie.a.a2": [
+  "Your question is fair, people suffer with the team, and so do I. We owe them an answer on the pitch.",
+  "I understand the supporters' disappointment, I feel the same. That is why I am not looking away."
+ ],
+ "pool.presse_provokation_serie.a.a3": [
+  "Come to training and see for yourself how we work. You will judge more fairly afterwards.",
+  "I offer you a talk without a microphone so you can place the situation better."
+ ],
+ "pool.presse_provokation_serie.a.a4": [
+  "You have my word: we will pull the team out of this, and you may measure me by it.",
+  "I promise you we will end this streak, with work and not with words."
+ ],
+ "pool.presse_provokation_serie.a.a5": [
+  "I will not comment on that insinuation, and on your questions in future neither.",
+  "I do not answer provocations. Ask a proper question or we are done."
+ ],
+ "pool.presse_provokation_serie.a.a6": [
+  "I stick to my work, and your headline changes nothing about it.",
+  "It stays as it is: I decide what is right for the team, not the newspaper."
+ ],
+ "pool.presse_provokation_serie.a.a7": [
+  "No worries, at some point we win again, and then you write the opposite, as always.",
+  "After so many defeats it can only get better, surely?"
+ ],
+ "pool.presse_provokation_serie.a.a8": [
+  "What do you want to hear from me, that I give up? You are writing that anyway.",
+  "And what would you do in my place, apart from asking questions?"
+ ],
+ "pool.presse_provokation_serie.a.a9": [
+  "On the background at the club, the sporting director speaks, I speak for the team.",
+  "The club's leadership will comment on that, I am concentrating on the next match."
+ ],
+ "pool.presse_provokation_serie.a.a10": [
+  "We lose games, but we do not play bad football, and that is a difference.",
+  "The results are not right, but the performance is better than the table looks."
+ ],
+ "pool.presse_provokation_serie.a.a11": [
+  "Patience, it will come right. I cannot say more at the moment.",
+  "We simply need a little more time, then it comes by itself."
+ ],
+ "pool.presse_provokation_serie.r.r1": [
+  "{b.gut} That is honest, I can work with it and will write it that way.",
+  "{b.gut} That is more than I expected, I will report it fairly."
+ ],
+ "pool.presse_provokation_serie.r.r2": [
+  "{b.gut} Thank you, exactly what I wanted to hear, and it is my line too.",
+  "{b.gut} You stay true to yourself, and so I will report on you."
+ ],
+ "pool.presse_provokation_serie.r.r3": [
+  "{b.gut} That is a plan I can sell to my editors.",
+  "{b.gut} With statements like that you win the headline back."
+ ],
+ "pool.presse_provokation_serie.r.r4": [
+  "{b.gut} Thank you for your openness, it makes the story more human.",
+  "{b.gut} That was not easy to say, I appreciate it."
+ ],
+ "pool.presse_provokation_serie.r.r5": [
+  "{b.neutral} I note it, and we will see at the weekend whether it holds.",
+  "{b.neutral} That is not a headline, but not a scandal either."
+ ],
+ "pool.presse_provokation_serie.r.r6": [
+  "{b.neutral} I do not yet know how to write that, I need to sleep on it.",
+  "{b.neutral} That leaves me puzzled, let us see what comes of it."
+ ],
+ "pool.presse_provokation_serie.r.r7": [
+  "{b.neutral} Fine, I will wait to see what Sunday brings.",
+  "{b.neutral} I have time, the streak writes its own story."
+ ],
+ "pool.presse_provokation_serie.r.r8": [
+  "{b.neutral} That is neither fish nor fowl, I will keep looking around.",
+  "{b.neutral} We will see whether you still say that in a fortnight."
+ ],
+ "pool.presse_provokation_serie.r.r9": [
+  "{b.schlecht} That fills no column, it is evasion.",
+  "{b.schlecht} That will read badly, and you know it."
+ ],
+ "pool.presse_provokation_serie.r.r10": [
+  "{b.schlecht} Then I will write how you treat the press!",
+  "{b.schlecht} You do not speak to me like that, it will be in the paper tomorrow!"
+ ],
+ "pool.presse_provokation_serie.r.r11": [
+  "{b.schlecht} Then I will find other sources who talk more openly.",
+  "{b.schlecht} If you say nothing, someone else at the club will."
+ ],
+ "pool.presse_provokation_serie.r.r12": [
+  "{b.schlecht} I expected more of you, it disappoints me.",
+  "{b.schlecht} After all those years of fair reporting, that is a weak performance."
+ ],
+ "pool.presse_provokation_serie.r.r13": [
+  "{b.schlecht} My editors will write that up as surrender, I am sorry.",
+  "{b.schlecht} With that performance you will not win back a single reader."
+ ],
+ "pool.presse_provokation_serie.x.x1": [
+  "The journalist closes his notebook. {entscheidung} The next morning the report turns out surprisingly fair.",
+  "{entscheidung} The paper writes of a coach who looks the streak in the eye."
+ ],
+ "pool.presse_provokation_serie.x.x2": [
+  "The press conference ends without result. {entscheidung} Nobody knows how the report will turn out.",
+  "{entscheidung} The journalist leaves open how sharp his piece will be in the end."
+ ],
+ "pool.presse_provokation_serie.x.x3": [
+  "The mood in the room turns. {entscheidung} The next day the quarrel is on the front page.",
+  "{entscheidung} The paper turns the exchange into the headline of the day."
+ ],
+ "pool.presse_provokation_serie.x.x4": [
+  "The journalist gets up and leaves. {entscheidung} The question hangs unanswered in the room.",
+  "{entscheidung} He packs his things, and the other reporters fall awkwardly silent."
+ ],
+ "pool.presse_geruechte_unruhe.e.e1": [
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} What is there to these rumours?",
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Can you confirm or deny that there is unrest?"
+ ],
+ "pool.presse_geruechte_unruhe.e.e2": [
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} I ask for a short statement by this evening.",
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} How do you deal with such reports as a coach?"
+ ],
+ "pool.presse_geruechte_unruhe.e.e3": [
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} I know the enquiry comes at a bad moment, but it cannot wait.",
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} The situation is tense, which is exactly why I need your assessment."
+ ],
+ "pool.presse_geruechte_unruhe.e.e4": [
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} If you stay silent I will write it the way my sources say it!",
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Talk to me now, or read it in the paper tomorrow!"
+ ],
+ "pool.presse_geruechte_unruhe.e.e5": [
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} I would appreciate it if you could clear this up calmly.",
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Just send me your view and I will pass it on unchanged."
+ ],
+ "pool.presse_geruechte_unruhe.e.e6": [
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Who in the squad is the troublemaker, and how long will you watch?",
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Does the coach still have the dressing room in hand, or is it slipping away?"
+ ],
+ "pool.presse_geruechte_unruhe.e.e7": [
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} I only want to understand what is going on in the squad, not to expose anyone.",
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} May I ask how you experience the mood in the team yourself?"
+ ],
+ "pool.presse_geruechte_unruhe.e.e8": [
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} After the recent defeats the unrest fits the picture, or am I mistaken?",
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Since the setbacks people say the squad is divided."
+ ],
+ "pool.presse_geruechte_unruhe.e.e9": [
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} So far behind the target, one wonders whether the squad still pulls together.",
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} With the gap to the target the pressure grows, and reportedly the quarrelling too."
+ ],
+ "pool.presse_geruechte_unruhe.a.a1": [
+  "Every squad argues, that is part of the business. There is no rift, and I can say that clearly.",
+  "There were talks of the kind every dressing room has. Everyone pulls the same rope, even if they do not always agree."
+ ],
+ "pool.presse_geruechte_unruhe.a.a2": [
+  "I understand that you have to ask. The players are under pressure, and I protect them, but I hide nothing important.",
+  "Thank you for asking instead of simply printing. The squad has worries like anyone, and we talk about them openly."
+ ],
+ "pool.presse_geruechte_unruhe.a.a3": [
+  "I invite you to follow a training day, then you see the mood with your own eyes.",
+  "Talk to me in private, no notes, and I will lay out everything I know."
+ ],
+ "pool.presse_geruechte_unruhe.a.a4": [
+  "If anything in this squad comes to a head, you will hear it from me and not from your sources.",
+  "I assure you that I will name problems in the dressing room as soon as there are any."
+ ],
+ "pool.presse_geruechte_unruhe.a.a5": [
+  "I say nothing about dressing-room rumours. I give no information to anyone who researches like that.",
+  "That is made up, and I do not comment on inventions. That is all."
+ ],
+ "pool.presse_geruechte_unruhe.a.a6": [
+  "My squad is my business. I will not confirm what someone slipped you behind my back.",
+  "I do not discuss the dressing room through the paper, not even if you keep digging."
+ ],
+ "pool.presse_geruechte_unruhe.a.a7": [
+  "Unrest? With us it is as quiet as a library, only with fewer books.",
+  "If I believed every rumour, I would have swapped the whole squad three times by now."
+ ],
+ "pool.presse_geruechte_unruhe.a.a8": [
+  "Who are your sources, and why do they talk to you instead of me?",
+  "Do you want to tell a story or find one? There is a difference."
+ ],
+ "pool.presse_geruechte_unruhe.a.a9": [
+  "On dressing-room matters the club speaks officially, please contact the press office.",
+  "Please send the enquiry through the press office, it coordinates all answers."
+ ],
+ "pool.presse_geruechte_unruhe.a.a10": [
+  "There is competition in the squad, and it is intended. From outside it may look like unrest, but it is performance pressure.",
+  "Those who do not play are not happy, that is normal. It is not yet a crisis."
+ ],
+ "pool.presse_geruechte_unruhe.a.a11": [
+  "Do not worry, it will settle by itself.",
+  "It is nothing special, it will pass, as always."
+ ],
+ "pool.presse_geruechte_unruhe.r.r1": [
+  "{b.gut} That sounds credible, I will run it that way, without speculation.",
+  "{b.gut} With that I can place the rumour and I will drop it."
+ ],
+ "pool.presse_geruechte_unruhe.r.r2": [
+  "{b.gut} Thank you for the trust, I will be fair to the club.",
+  "{b.gut} That is what I hoped for, a calm, clear word."
+ ],
+ "pool.presse_geruechte_unruhe.r.r3": [
+  "{b.gut} With this access I have a better story than with rumours.",
+  "{b.gut} That is exclusive insight, and I gladly take it."
+ ],
+ "pool.presse_geruechte_unruhe.r.r4": [
+  "{b.gut} Your openness does me good, I will handle it with care.",
+  "{b.gut} That reassures me, I did not want to expose anyone."
+ ],
+ "pool.presse_geruechte_unruhe.r.r5": [
+  "{b.neutral} I will check that again with other sources.",
+  "{b.neutral} That is enough for today, but I will keep asking."
+ ],
+ "pool.presse_geruechte_unruhe.r.r6": [
+  "{b.neutral} I am unsure whether to believe that as it stands.",
+  "{b.neutral} That reassures me only half, we will speak again later."
+ ],
+ "pool.presse_geruechte_unruhe.r.r7": [
+  "{b.neutral} Fair enough, in a few days things will be clearer.",
+  "{b.neutral} I will let it lie and see whether anything moves."
+ ],
+ "pool.presse_geruechte_unruhe.r.r8": [
+  "{b.neutral} That does not change what was passed to me, I keep looking.",
+  "{b.neutral} Let us see whether your version holds, I am staying on it."
+ ],
+ "pool.presse_geruechte_unruhe.r.r9": [
+  "{b.schlecht} Then I stay with what my sources say.",
+  "{b.schlecht} That sounds like a cover-up, and that is how it will be read."
+ ],
+ "pool.presse_geruechte_unruhe.r.r10": [
+  "{b.schlecht} Then I print it as I have it, and you carry the responsibility!",
+  "{b.schlecht} You want it rough? Tomorrow it is on page one!"
+ ],
+ "pool.presse_geruechte_unruhe.r.r11": [
+  "{b.schlecht} Then I will speak to the players directly, they are more talkative.",
+  "{b.schlecht} There is always someone in the squad who opens his mouth."
+ ],
+ "pool.presse_geruechte_unruhe.r.r12": [
+  "{b.schlecht} That disappoints me, I had hoped for more trust.",
+  "{b.schlecht} I wanted to help you, and you close the door."
+ ],
+ "pool.presse_geruechte_unruhe.r.r13": [
+  "{b.schlecht} Without a statement the story runs as it stands, and it will be sharp.",
+  "{b.schlecht} My editors take that as silence, and that makes headlines."
+ ],
+ "pool.presse_geruechte_unruhe.x.x1": [
+  "The journalist sets the research aside. {entscheidung} The story does not appear, at least not in this form.",
+  "{entscheidung} He writes only a short item that speaks of unity."
+ ],
+ "pool.presse_geruechte_unruhe.x.x2": [
+  "The enquiry hangs in the air. {entscheidung} The journalist keeps all options open.",
+  "{entscheidung} Whether and when the article appears is unclear."
+ ],
+ "pool.presse_geruechte_unruhe.x.x3": [
+  "By evening the piece is online. {entscheidung} At the club nothing else is talked about.",
+  "{entscheidung} The rumours are there in black and white, and other media follow."
+ ],
+ "pool.presse_geruechte_unruhe.x.x4": [
+  "The journalist stops replying. {entscheidung} The exchange ends abruptly.",
+  "{entscheidung} The newsroom does not get back, and the mail stays unanswered."
+ ],
+ "pool.presse_taktikkritik_sieg.e.e1": [
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Why do you rely on this cautious style?",
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} What do you say to the fans who want to see more attack?"
+ ],
+ "pool.presse_taktikkritik_sieg.e.e2": [
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Would you adjust the tactics for the next game?",
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Is that your idea of football, or was today just a stopgap?"
+ ],
+ "pool.presse_taktikkritik_sieg.e.e3": [
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} I can tell you are irritated after the match, but I have to ask.",
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} You seem annoyed, but the criticism of the tactics will not go away."
+ ],
+ "pool.presse_taktikkritik_sieg.e.e4": [
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Answer that properly instead of hiding behind the result!",
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Winning alone is not enough, explain this football to me!"
+ ],
+ "pool.presse_taktikkritik_sieg.e.e5": [
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Perhaps you can explain your thinking behind it, then it is better understood.",
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} I ask without ulterior motive: what was the plan?"
+ ],
+ "pool.presse_taktikkritik_sieg.e.e6": [
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Do you believe this style will take the club forward?",
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Would you not have to change radically to reach the targets?"
+ ],
+ "pool.presse_taktikkritik_sieg.e.e7": [
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Does it hurt you when your idea of the game is pulled apart like that?",
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} How do you cope with being criticised despite winning?"
+ ],
+ "pool.presse_taktikkritik_sieg.e.e8": [
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Even after a winning run there is criticism of the style, is that unfair to you?",
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Several wins in a row, and yet everyone grumbles about the way of playing, how do you explain that?"
+ ],
+ "pool.presse_taktikkritik_sieg.e.e9": [
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} The supporters whistled despite the win, that should give you pause.",
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} The mood in the terraces has turned, even though the points are right."
+ ],
+ "pool.presse_taktikkritik_sieg.a.a1": [
+  "We play this way because it suits the team, and the numbers back us. We want to become braver, but step by step.",
+  "The plan was to stay compact and use space. It worked, and I stand by it."
+ ],
+ "pool.presse_taktikkritik_sieg.a.a2": [
+  "I understand that the spectators want to see more, and I want to thrill them too. We are working on it.",
+  "I take the criticism seriously, because the fans pay for entertainment. That standard is mine as well."
+ ],
+ "pool.presse_taktikkritik_sieg.a.a3": [
+  "Come to the match analysis, I will show you what we intended and where we can improve.",
+  "Let us talk through the tactics calmly, I gladly take on your objections."
+ ],
+ "pool.presse_taktikkritik_sieg.a.a4": [
+  "In the next game you will see more courage going forward, I promise you that.",
+  "You may expect us to visibly improve our attacking play in the coming weeks."
+ ],
+ "pool.presse_taktikkritik_sieg.a.a5": [
+  "I do not discuss my tactics with people who have never run a match.",
+  "I will not let my win be talked down, and my line-up is not up for debate."
+ ],
+ "pool.presse_taktikkritik_sieg.a.a6": [
+  "I change nothing as long as we win, and you are welcome to dislike it.",
+  "Results prove me right, and I stay with that no matter how it looks."
+ ],
+ "pool.presse_taktikkritik_sieg.a.a7": [
+  "Beauty fades, league positions stay, my grandmother already knew that.",
+  "Next time I will conjure something, promised, even if I need a hat for it."
+ ],
+ "pool.presse_taktikkritik_sieg.a.a8": [
+  "Would you rather we had lost beautifully? Tell me what your readers really want.",
+  "And if we play like this and win, what exactly bothers you?"
+ ],
+ "pool.presse_taktikkritik_sieg.a.a9": [
+  "The match analysis is done by my coaching team, they will gladly brief you on the details.",
+  "For details, please turn to the assistant coach, who has the data."
+ ],
+ "pool.presse_taktikkritik_sieg.a.a10": [
+  "We studied the opponents and stopped their strengths. It does not always look glamorous, but it is work.",
+  "Today called for result football, and we delivered it, no more and no less."
+ ],
+ "pool.presse_taktikkritik_sieg.a.a11": [
+  "It will come, we are still looking for our style.",
+  "Just give us a little time, the eye will be satisfied too."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r1": [
+  "{b.gut} That makes sense to me, your line can be followed that way.",
+  "{b.gut} I now see the plan behind the game, thanks."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r2": [
+  "{b.gut} Thanks, with that I can explain the background to readers.",
+  "{b.gut} That is a sober view, and I like it."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r3": [
+  "{b.gut} That sounds like ambition, which is just what my report lacked.",
+  "{b.gut} Then I look forward to the development, that makes a good story."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r4": [
+  "{b.gut} I am glad you take the criticism that way, it mattered to me.",
+  "{b.gut} Thank you for not being angry, it makes things easier."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r5": [
+  "{b.neutral} I take note, at the weekend we will see more.",
+  "{b.neutral} That is an answer, but not yet an answer to the core question."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r6": [
+  "{b.neutral} I am torn, both arguments have something to them.",
+  "{b.neutral} Sometimes it sounds convincing, sometimes less, I will let it sink in."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r7": [
+  "{b.neutral} Fine, time will tell who is right.",
+  "{b.neutral} I am in no hurry, in the end the table counts."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r8": [
+  "{b.neutral} I will compare it with other opinions and judge later.",
+  "{b.neutral} That is one view, but not the only one, I will keep listening."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r9": [
+  "{b.schlecht} That does not convince me, the criticism stands.",
+  "{b.schlecht} In the paper that will sound like an excuse."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r10": [
+  "{b.schlecht} Then I will say it plainly: with that attitude you do not do the fans justice!",
+  "{b.schlecht} That is arrogance, and that is exactly how I will write it!"
+ ],
+ "pool.presse_taktikkritik_sieg.r.r11": [
+  "{b.schlecht} Then I will ask your players what they think of the tactics.",
+  "{b.schlecht} I will get other voices who are more open than you."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r12": [
+  "{b.schlecht} I did not expect that from you, it disappoints me.",
+  "{b.schlecht} I always defended you, and now you shut me out."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r13": [
+  "{b.schlecht} That wins games but not hearts, and I will write that too.",
+  "{b.schlecht} My editors would have expected more courage, this will be a commentary."
+ ],
+ "pool.presse_taktikkritik_sieg.x.x1": [
+  "The journalist nods slowly. {entscheidung} In the end the commentary shows understanding for the team's path.",
+  "{entscheidung} The report honours the win and puts the tactics in a wider context."
+ ],
+ "pool.presse_taktikkritik_sieg.x.x2": [
+  "The question remains in the room. {entscheidung} The debate about the style goes on.",
+  "{entscheidung} Journalist and coach leave it at an undecided exchange."
+ ],
+ "pool.presse_taktikkritik_sieg.x.x3": [
+  "The exchange grows sharper. {entscheidung} In the press it becomes a dispute about the coach.",
+  "{entscheidung} The next day the headline is not victory but coach row."
+ ],
+ "pool.presse_taktikkritik_sieg.x.x4": [
+  "The journalist shakes his head and leaves. {entscheidung} The press conference ends early.",
+  "{entscheidung} He leaves the room, and the question remains unanswered."
+ ]
+}

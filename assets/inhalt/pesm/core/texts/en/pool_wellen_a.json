@@ -1,0 +1,598 @@
+{
+ "pool.belastung_muede.e.e1": [
+  "{b.gruss} {b.belastung_muede_lage} I just wanted to say that it cannot go on like this forever.",
+  "{b.gruss} {b.belastung_muede_lage} Maybe I am too gloomy, but I feel every session twice over."
+ ],
+ "pool.belastung_muede.e.e2": [
+  "{b.gruss} {b.belastung_muede_lage} In training I hardly get going any more.",
+  "{b.gruss} {b.belastung_muede_lage} After the final whistle it now takes me days to feel fresh again."
+ ],
+ "pool.belastung_muede.e.e3": [
+  "{b.gruss} {b.belastung_muede_lage} Honestly, I am at my limit and do not know where to find the strength.",
+  "{b.gruss} {b.belastung_muede_lage} I feel like I am only functioning now."
+ ],
+ "pool.belastung_muede.e.e4": [
+  "{b.gruss} {b.belastung_muede_lage} Give me a break at last, or I will take one myself!",
+  "{b.gruss} {b.belastung_muede_lage} One more game without any energy, and I will not thank you for it!"
+ ],
+ "pool.belastung_muede.e.e5": [
+  "{b.gruss} {b.belastung_muede_lage} I do not want to let anyone down, so I am telling you in good time.",
+  "{b.gruss} {b.belastung_muede_lage} If you need me, I will play, but you should know how I am doing."
+ ],
+ "pool.belastung_muede.e.e6": [
+  "{b.gruss} {b.belastung_muede_lage} I want to be at top level in the decisive phase, not running on reserve.",
+  "{b.gruss} {b.belastung_muede_lage} Whoever wants to stay on top must also recover, and I lack the time for that."
+ ],
+ "pool.belastung_muede.e.e7": [
+  "{b.gruss} {b.belastung_muede_lage} I wonder whether anyone here even notices how the players are doing.",
+  "{b.gruss} {b.belastung_muede_lage} I lack room to breathe, and this will not be the last time I say it."
+ ],
+ "pool.belastung_muede.e.e8": [
+  "{b.gruss} {b.belastung_muede_lage} You promised me a break, and I am still out on the pitch.",
+  "{b.gruss} {b.belastung_muede_lage} The relief was promised, but I have noticed nothing of it."
+ ],
+ "pool.belastung_muede.e.e9": [
+  "{b.gruss} {b.belastung_muede_lage} No drama, but my strength is fading, I am sure you can see it yourself.",
+  "{b.gruss} {b.belastung_muede_lage} I take it in good sport, but my muscles see it differently."
+ ],
+ "pool.belastung_muede.a.a1": [
+  "I take it seriously that you are so exhausted. Together we will find out what you are missing.",
+  "That sounds like more than tired legs. Tell me what the last weeks were like for you."
+ ],
+ "pool.belastung_muede.a.a2": [
+  "Within {frist} days you get a game off, I promise you that.",
+  "In {frist} days you will sit on the bench and rest, you have my word."
+ ],
+ "pool.belastung_muede.a.a3": [
+  "I am introducing rotation: you play against the strong sides and rest when we can afford it.",
+  "I am redistributing the minutes so that you can catch your breath in between."
+ ],
+ "pool.belastung_muede.a.a4": [
+  "You get a day at the spa at the club's expense. Take a teammate along, but not a word about football.",
+  "Wellness is on me. You lie in the water, and I keep the phone away."
+ ],
+ "pool.belastung_muede.a.a5": [
+  "The team doctor and the fitness coach will look at your figures. Then we decide together.",
+  "I will have the staff analyse your workload and then talk to you again."
+ ],
+ "pool.belastung_muede.a.a6": [
+  "Where do you feel it most: in your legs, in your head or in both? And since when?",
+  "How are you sleeping, and what does your body say after a game?"
+ ],
+ "pool.belastung_muede.a.a7": [
+  "That will pass. A few more weeks, then it gets quieter.",
+  "Soon the fixture list is lighter, until then we bite through."
+ ],
+ "pool.belastung_muede.a.a8": [
+  "Everyone here is tired. You play because I need you, full stop.",
+  "Exhausted or not, the team cannot do without you."
+ ],
+ "pool.belastung_muede.a.a9": [
+  "Now it is a matter of holding on. As long as it is tight, I cannot do without you.",
+  "Grit your teeth, every appearance counts down the stretch."
+ ],
+ "pool.belastung_muede.a.a10": [
+  "I am cutting your training load. Fewer sprints, more recovery, but you still count on matchday.",
+  "I will go easy on you in training so that you are fresh on matchdays."
+ ],
+ "pool.belastung_muede.a.a11": [
+  "Between us: how much rest do you really need? Be honest, I trust you.",
+  "You know your body best. Tell me when you need a break and I will plan for it."
+ ],
+ "pool.belastung_muede.r.r1": [
+  "{b.gut} Now I have something to work towards again.",
+  "{b.gut} That takes the pressure off my shoulders."
+ ],
+ "pool.belastung_muede.r.r2": [
+  "{b.gut} That you see me helps more than any massage.",
+  "{b.gut} Then I will gladly hold on until then."
+ ],
+ "pool.belastung_muede.r.r3": [
+  "{b.gut} With fresh legs I am twice as strong in the important games.",
+  "{b.gut} I will come back rested and deliver."
+ ],
+ "pool.belastung_muede.r.r4": [
+  "{b.gut} It feels good not to look like a whiner.",
+  "{b.gut} I was nervous about raising it, but you really listen."
+ ],
+ "pool.belastung_muede.r.r5": [
+  "{b.neutral} Let us see whether my body goes along with it.",
+  "{b.neutral} I will try, but I do not expect miracles."
+ ],
+ "pool.belastung_muede.r.r6": [
+  "{b.neutral} Today I feel better, tomorrow maybe not again.",
+  "{b.neutral} I do not know whether I am relieved or just tired."
+ ],
+ "pool.belastung_muede.r.r7": [
+  "{b.neutral} You listened to this, at least.",
+  "{b.neutral} I will give the plan a few weeks."
+ ],
+ "pool.belastung_muede.r.r8": [
+  "{b.neutral} My body will speak up if it does not fit.",
+  "{b.neutral} I will run for as long as my legs carry me."
+ ],
+ "pool.belastung_muede.r.r9": [
+  "{b.schlecht} Then I will just keep running on reserve.",
+  "{b.schlecht} Tired players do not win games, you know that."
+ ],
+ "pool.belastung_muede.r.r10": [
+  "{b.schlecht} If I get injured, it is your fault!",
+  "{b.schlecht} Then I will ease off, whether you like it or not!"
+ ],
+ "pool.belastung_muede.r.r11": [
+  "{b.schlecht} There are clubs that look after their players better.",
+  "{b.schlecht} If nobody here thinks of my health, I will do it somewhere else."
+ ],
+ "pool.belastung_muede.r.r12": [
+  "{b.schlecht} I always gave everything, and now it is taken for granted.",
+  "{b.schlecht} I had hoped you see not only the line-up but also the person."
+ ],
+ "pool.belastung_muede.x.x1": [
+  "He leaves the conversation relieved. {entscheidung} The next sessions are noticeably looser.",
+  "{entscheidung} In training he already looks fresher the next day."
+ ],
+ "pool.belastung_muede.x.x2": [
+  "Whether the exhaustion eases will only show with the fixture list. {entscheidung} He stays cautious.",
+  "{entscheidung} His legs will give the answer."
+ ],
+ "pool.belastung_muede.x.x3": [
+  "He leaves the room with heavy steps. {entscheidung} In training he visibly holds back from now on.",
+  "{entscheidung} He hints he will report sick at the next twinge."
+ ],
+ "pool.belastung_muede.x.x4": [
+  "You promised him relief. {entscheidung} He will check whether it comes.",
+  "{entscheidung} He passes it on to the staff, and the deadline is running."
+ ],
+ "pool.belastung_muede.x.x5": [
+  "He takes his bag and leaves without waiting for the answer. {entscheidung} He takes the exhaustion with him.",
+  "{entscheidung} He gets up in the middle of a sentence."
+ ],
+ "pool.verletzungsangst_rueckkehr.e.e1": [
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} I wanted to tell you before it shows on the pitch.",
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} In training I avoid every hard contact, surely that is already noticeable."
+ ],
+ "pool.verletzungsangst_rueckkehr.e.e2": [
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} In the last tackle I pulled my foot back without meaning to.",
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} The doctors say everything is fine. My feeling says otherwise."
+ ],
+ "pool.verletzungsangst_rueckkehr.e.e3": [
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} Honestly, I am afraid of the next appearance and hardly sleep.",
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} I feel like a fraud when I play and hold back inside."
+ ],
+ "pool.verletzungsangst_rueckkehr.e.e4": [
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} If one more person asks when I will be my old self, I will blow my top!",
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} I will not be pushed into a game before I am ready!"
+ ],
+ "pool.verletzungsangst_rueckkehr.e.e5": [
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} I do not want any drama, I just want you to know.",
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} I am giving myself time, but you should know where I stand."
+ ],
+ "pool.verletzungsangst_rueckkehr.e.e6": [
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} I want to be the best again, and for that I have to get rid of the fear.",
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} With half strength in tackles I will never get back to the top."
+ ],
+ "pool.verletzungsangst_rueckkehr.e.e7": [
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} I wonder whether I can ever play carefree again.",
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} Sometimes I think I should take some distance, from the pitch and maybe from here too."
+ ],
+ "pool.verletzungsangst_rueckkehr.e.e8": [
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} You promised me time for my comeback, and now I am in the squad again anyway.",
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} They said I would get time to ease back. I feel none of it."
+ ],
+ "pool.verletzungsangst_rueckkehr.e.e9": [
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} On paper I am healthy, in tackles I am not.",
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} When an opponent comes at me, I go cold for a moment, and then the ball is gone."
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a1": [
+  "This fear is normal after an injury, you do not have to be ashamed. We will take it step by step.",
+  "Thank you for being so open. You are not alone with this."
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a2": [
+  "I give you {frist} days without pressure, you step in when you feel ready.",
+  "For the next {frist} days you have a say in how much you play, promised."
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a3": [
+  "I am asking the team doctor and the sports psychologist to work with you. It is part of coming back.",
+  "The staff will look after you, doctor and psychologist together. Do not be ashamed of it."
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a4": [
+  "I will ration your appearances. Short stints first, then longer ones, and tackles at first only where you feel safe.",
+  "We build up slowly: a few minutes first, then more, and never against your will."
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a5": [
+  "When do you feel it most: in training, in the match or even before?",
+  "Is there a moment when the fear disappears?"
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a6": [
+  "You get an extra session with a comeback specialist, paid by the club. And I promise there is no tackling drill with me.",
+  "A specialist will work on your return with you, the club pays. We will spare you me as a sparring partner."
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a7": [
+  "You know me, I do not push anybody. Just tell me when it feels right.",
+  "I trust your feeling. Let me know when you are ready."
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a8": [
+  "That goes away as soon as you have played a few games. You will see.",
+  "It is purely a matter of getting used to it, after the first tackle it is over."
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a9": [
+  "You are cleared, so you play. In a match there is no time to hesitate.",
+  "The doctor has given the green light, so as far as I am concerned the matter is closed."
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a10": [
+  "Fear is no excuse. Either you go into the tackles or somebody else plays.",
+  "Whoever does not go in with full force has no business on the pitch."
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a11": [
+  "The figures are good, the body holds. Your head only needs a few successes, and we will arrange them for you.",
+  "Your body is ready. Now we build you small wins until the trust is back."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r1": [
+  "{b.gut} That takes a weight off my heart.",
+  "{b.gut} This way I can tackle it without hiding."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r2": [
+  "{b.gut} I know you mean well with me.",
+  "{b.gut} With some patience the rest will come by itself."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r3": [
+  "{b.gut} Then I will rebuild my old strength step by step.",
+  "{b.gut} With this plan I get back to where I belong."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r4": [
+  "{b.gut} Hearing that this is normal helps me more than any advice.",
+  "{b.gut} That you do not roll your eyes means a lot to me."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r5": [
+  "{b.neutral} Whether it helps, I will notice in the first hard tackle.",
+  "{b.neutral} I will try it and see how my head feels."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r6": [
+  "{b.neutral} Some days I dare, other days I do not.",
+  "{b.neutral} I am relieved and still restless, it does not add up."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r7": [
+  "{b.neutral} It is worth a try.",
+  "{b.neutral} I will let it come to me."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r8": [
+  "{b.neutral} What will be will be, I stay calm.",
+  "{b.neutral} My body has been smarter than me before, it will be again."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r9": [
+  "{b.schlecht} I do not feel taken seriously with that.",
+  "{b.schlecht} That does not help me one bit in a tackle."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r10": [
+  "{b.schlecht} If I am out again because of your pressure, you carry the responsibility!",
+  "{b.schlecht} I will not be driven into a risk!"
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r11": [
+  "{b.schlecht} Then I will look for a club that shows consideration.",
+  "{b.schlecht} With so little understanding I am out of place here."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r12": [
+  "{b.schlecht} I confided in you, and you brush it aside.",
+  "{b.schlecht} That you of all people react like this hits me."
+ ],
+ "pool.verletzungsangst_rueckkehr.x.x1": [
+  "He exhales audibly. {entscheidung} In the next training he goes into the first tackle boldly again.",
+  "{entscheidung} A few days later you see him playing with bite again."
+ ],
+ "pool.verletzungsangst_rueckkehr.x.x2": [
+  "Whether his head catches up remains to be seen. {entscheidung} He stays cautious.",
+  "{entscheidung} The fear is not gone, only postponed."
+ ],
+ "pool.verletzungsangst_rueckkehr.x.x3": [
+  "He shakes his head and leaves in silence. {entscheidung} He seems to withdraw inwardly.",
+  "{entscheidung} In training he now openly slows down."
+ ],
+ "pool.verletzungsangst_rueckkehr.x.x4": [
+  "You promised him time. {entscheidung} He expects you to keep your word.",
+  "{entscheidung} The grace period is running, and he watches it closely."
+ ],
+ "pool.verletzungsangst_rueckkehr.x.x5": [
+  "He gets up before you are finished. {entscheidung} He takes the topic home with him.",
+  "{entscheidung} He breaks off and leaves you behind."
+ ],
+ "pool.ehrgeiz_saisonziel.e.e1": [
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} I wanted to talk to you about the table before the train has left.",
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} I looked at the points and think we need to talk."
+ ],
+ "pool.ehrgeiz_saisonziel.e.e2": [
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} I train hard and want it to pay off.",
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Our performance on the pitch does not match what was promised at the club."
+ ],
+ "pool.ehrgeiz_saisonziel.e.e3": [
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Honestly, I am losing my enthusiasm if we keep trailing.",
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} I already come to training in a bad mood because I do not believe in the goal."
+ ],
+ "pool.ehrgeiz_saisonziel.e.e4": [
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Either we step it up now, or I will make my displeasure public!",
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} I have no desire to hear excuses again!"
+ ],
+ "pool.ehrgeiz_saisonziel.e.e5": [
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} I am staying on board, but I want to know how you see the situation.",
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} I am not panicking, but I would like you to tell me your plan."
+ ],
+ "pool.ehrgeiz_saisonziel.e.e6": [
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} I need teammates and a squad with which the goal is reachable.",
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} If the club wants to compete at the top, it has to act now."
+ ],
+ "pool.ehrgeiz_saisonziel.e.e7": [
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} I wonder whether I am at the right club.",
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Sometimes I read about offers from other clubs and wonder whether I would be better off there."
+ ],
+ "pool.ehrgeiz_saisonziel.e.e8": [
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} You promised me reinforcements for the season goal, nothing has come.",
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Last time we spoke it was said the club would invest. I have not seen it."
+ ],
+ "pool.ehrgeiz_saisonziel.e.e9": [
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} The gap to the target is growing, and I do not want to watch idly.",
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} We have to be honest: this way we will not reach the season goal."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a1": [
+  "Then we set a new interim target that fits this squad, and I will get the board on the same line.",
+  "We will readjust the goal so that it challenges us and is still reachable."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a2": [
+  "In {frist} days we will talk about reinforcements, and we will discuss your contract at the same time.",
+  "I will push for new signings and negotiate a new term with you in {frist} days."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a3": [
+  "If we are not on course in {frist} days, we will talk openly about your future here.",
+  "I give you my word: if we are still behind after {frist} days, we talk about a departure."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a4": [
+  "Your frustration shows how much this club means to you. I appreciate that a lot.",
+  "That you suffer along like this speaks for you. Let us tackle the worries together."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a5": [
+  "What would have to happen in the coming weeks for you to believe again?",
+  "What makes you say the goal is lost?"
+ ],
+ "pool.ehrgeiz_saisonziel.a.a6": [
+  "I will go to the board and ask for money for the squad. You help me find the right ones, and I promise they cannot cook worse than you.",
+  "There is money for reinforcements, and you get a say in who comes."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a7": [
+  "The season is long, the table turns faster than you think.",
+  "It will work out, we still have enough games."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a8": [
+  "The season goal is my concern, not yours. You take care of your own performance.",
+  "Spare me the table analysis and concentrate on training."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a9": [
+  "I am not changing my goals. Whoever thinks they are too high should show me he can do more.",
+  "The goal stays. I expect you to lead rather than doubt."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a10": [
+  "Talk to the sporting director, he knows the squad plans better than I do.",
+  "That belongs in the meeting with the club leadership, I will raise it there."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a11": [
+  "You are one of the few who lead the way. Tell me openly what you need, and I will tell you just as openly what is possible.",
+  "I need your ambition. Let us talk honestly about what we can do."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a12": [
+  "To be honest, the goal is ambitious and with this squad only reachable with some luck. But we fight for every place.",
+  "I will not sugarcoat it. It will be hard, but I am not giving up on the goal."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r1": [
+  "{b.gut} That gives me hope that we can still pull something off.",
+  "{b.gut} Now I have a goal in sight again."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r2": [
+  "{b.gut} I am glad you take me seriously, and I am staying on board.",
+  "{b.gut} You can talk to you about anything, thanks."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r3": [
+  "{b.gut} If the club delivers, I will pull fully along.",
+  "{b.gut} That is a plan I can stand behind."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r4": [
+  "{b.gut} It feels good to hear that my frustration is understood.",
+  "{b.gut} Thanks for not labelling me a grumbler."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r5": [
+  "{b.neutral} I will wait and see what comes of the words.",
+  "{b.neutral} That sounds reasonable, only deeds count."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r6": [
+  "{b.neutral} I do not know whether to believe you, but I want to.",
+  "{b.neutral} Today I am calm, tomorrow I may see it differently."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r7": [
+  "{b.neutral} The league table will show who is right.",
+  "{b.neutral} I will mull that over."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r8": [
+  "{b.neutral} The year is still long, we have time.",
+  "{b.neutral} I stay relaxed as long as things move forward."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r9": [
+  "{b.schlecht} That does not bring us a single step closer to the goal.",
+  "{b.schlecht} I have heard answers like that often."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r10": [
+  "{b.schlecht} Then I will tell the press if you do not want to hear it!",
+  "{b.schlecht} If the club does nothing, I will do it myself!"
+ ],
+ "pool.ehrgeiz_saisonziel.r.r11": [
+  "{b.schlecht} Then it is time for me to look at alternatives.",
+  "{b.schlecht} A club without a plan is not for me."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r12": [
+  "{b.schlecht} I have done so much for the club, and that is the answer?",
+  "{b.schlecht} That disappoints me, precisely because I believed in you for so long."
+ ],
+ "pool.ehrgeiz_saisonziel.x.x1": [
+  "His brow smooths. {entscheidung} In the dressing room he pulls the others along again.",
+  "{entscheidung} He goes back to the session with new courage."
+ ],
+ "pool.ehrgeiz_saisonziel.x.x2": [
+  "Whether the words are enough will show in the table. {entscheidung} He stays sceptical.",
+  "{entscheidung} The doubt remains until the results are right."
+ ],
+ "pool.ehrgeiz_saisonziel.x.x3": [
+  "He leaves the conversation annoyed. {entscheidung} Soon you can hear his displeasure in the dressing room.",
+  "{entscheidung} He hints that he is looking around for a more ambitious club."
+ ],
+ "pool.ehrgeiz_saisonziel.x.x4": [
+  "You have committed yourself. {entscheidung} He will watch whether the club delivers.",
+  "{entscheidung} The deadline is running, and he expects deeds."
+ ],
+ "pool.ehrgeiz_saisonziel.x.x5": [
+  "He waves it off and leaves. {entscheidung} For him the matter is not settled.",
+  "{entscheidung} He turns around in the middle of a sentence."
+ ],
+ "pool.positionswunsch.e.e1": [
+  "{b.gruss} {b.positionswunsch_lage} I have been thinking about my role. In midfield I would have more grip on the game.",
+  "{b.gruss} {b.positionswunsch_lage} I see myself better off in midfield than in defence."
+ ],
+ "pool.positionswunsch.e.e2": [
+  "{b.gruss} {b.positionswunsch_lage} On the wing I run myself into the ground. Behind the striker I would have more space.",
+  "{b.gruss} {b.positionswunsch_lage} If I am not glued to the touchline all the time, I can create more goals, preferably behind the striker."
+ ],
+ "pool.positionswunsch.e.e3": [
+  "{b.gruss} {b.positionswunsch_lage} Honestly, I no longer enjoy playing in my position.",
+  "{b.gruss} {b.positionswunsch_lage} Every game there feels like a chore."
+ ],
+ "pool.positionswunsch.e.e4": [
+  "{b.gruss} {b.positionswunsch_lage} Put me where I belong, or I will play the way I please!",
+  "{b.gruss} {b.positionswunsch_lage} I am not a stopgap, and I will not put up with it any longer!"
+ ],
+ "pool.positionswunsch.e.e5": [
+  "{b.gruss} {b.positionswunsch_lage} I do what you say, but a try in a different position would be nice.",
+  "{b.gruss} {b.positionswunsch_lage} Just a thought: maybe I fit better elsewhere, you decide."
+ ],
+ "pool.positionswunsch.e.e6": [
+  "{b.gruss} {b.positionswunsch_lage} In a different position I can give the team more, I am convinced of it.",
+  "{b.gruss} {b.positionswunsch_lage} I want responsibility in the centre, not only on the side."
+ ],
+ "pool.positionswunsch.e.e7": [
+  "{b.gruss} {b.positionswunsch_lage} I hardly dare to ask, but I would like to try something new.",
+  "{b.gruss} {b.positionswunsch_lage} If I do not even get the chance to try, I will think about my future."
+ ],
+ "pool.positionswunsch.e.e8": [
+  "{b.gruss} {b.positionswunsch_lage} You promised to try me in my preferred position, so far it has stayed a promise.",
+  "{b.gruss} {b.positionswunsch_lage} They said I would get my chance in the other position. I have not seen it yet."
+ ],
+ "pool.positionswunsch.e.e9": [
+  "{b.gruss} {b.positionswunsch_lage} In the last practice matches I played differently, and it went superbly.",
+  "{b.gruss} {b.positionswunsch_lage} The lads themselves say I would have more impact in a different position."
+ ],
+ "pool.positionswunsch.a.a1": [
+  "Within {frist} days you get at least one game in your preferred position.",
+  "You may try it: in the next {frist} days I will play you there once."
+ ],
+ "pool.positionswunsch.a.a2": [
+  "We test it in training first. If you show it works there, we talk about match appearances.",
+  "Try it in the practice matches. If you convince me there, it gets serious."
+ ],
+ "pool.positionswunsch.a.a3": [
+  "I need you exactly where you are because nobody else does this job the way you do. That is no criticism but a compliment.",
+  "For this season you stay where you are. The reason: I have no replacement for your current job."
+ ],
+ "pool.positionswunsch.a.a4": [
+  "Here is how we do it: against weaker sides you try the new position, in the important games you stay where you are.",
+  "A compromise: you get appearances in your preferred position when the situation allows, otherwise nothing changes."
+ ],
+ "pool.positionswunsch.a.a5": [
+  "I understand you feel more comfortable elsewhere. Tell me what suits you there.",
+  "Thank you for bringing it up. A player who feels comfortable plays better, so let us talk about it."
+ ],
+ "pool.positionswunsch.a.a6": [
+  "What can you do there that you cannot show now?",
+  "Where exactly do you see yourself: more as a distributor or a creator?"
+ ],
+ "pool.positionswunsch.a.a7": [
+  "The opportunity will come at some point, just keep at it.",
+  "It will surely come, be patient."
+ ],
+ "pool.positionswunsch.a.a8": [
+  "You play where I put you. The line-up is not up for negotiation.",
+  "I hand out the positions, not the players."
+ ],
+ "pool.positionswunsch.a.a9": [
+  "Talk to the assistant coach, he knows your movement and will tell you whether it fits.",
+  "The assistant should give you a plan for the trial sessions, then we will see."
+ ],
+ "pool.positionswunsch.a.a10": [
+  "I have a plan for this season, and it has you where you are. I am not changing that.",
+  "My line-up is settled, and you are an important part of it, in your position."
+ ],
+ "pool.positionswunsch.a.a11": [
+  "A trial game in midfield is on if you convince in training. And if you get lost, you buy a round.",
+  "If you show in training that you can do it, we will try it. If not, you pay for the coffee."
+ ],
+ "pool.positionswunsch.r.r1": [
+  "{b.gut} Then I will show you that the idea works.",
+  "{b.gut} At last I am being heard, that motivates me."
+ ],
+ "pool.positionswunsch.r.r2": [
+  "{b.gut} I am grateful for the chance, even if it comes to nothing.",
+  "{b.gut} The main thing is that we talk about it, we will see about the rest."
+ ],
+ "pool.positionswunsch.r.r3": [
+  "{b.gut} With this chance I will make the difference, you will see.",
+  "{b.gut} Now I only have to deliver, and I will."
+ ],
+ "pool.positionswunsch.r.r4": [
+  "{b.gut} That you take it seriously means a lot to me.",
+  "{b.gut} I was nervous, but you did not laugh at me."
+ ],
+ "pool.positionswunsch.r.r5": [
+  "{b.neutral} Let us see whether it works in training.",
+  "{b.neutral} That is not a yes, but not a no either."
+ ],
+ "pool.positionswunsch.r.r6": [
+  "{b.neutral} I hope I do not disappoint you when the time comes.",
+  "{b.neutral} I am pleased and annoyed at once, hard to explain."
+ ],
+ "pool.positionswunsch.r.r7": [
+  "{b.neutral} Then I will wait for my opportunity.",
+  "{b.neutral} I understand your view, but I do not entirely share it."
+ ],
+ "pool.positionswunsch.r.r8": [
+  "{b.neutral} I play where I stand and see what comes.",
+  "{b.neutral} If it does not work out, the world has not ended either."
+ ],
+ "pool.positionswunsch.r.r9": [
+  "{b.schlecht} Then I will just stay below my potential.",
+  "{b.schlecht} I cannot do anything with that answer."
+ ],
+ "pool.positionswunsch.r.r10": [
+  "{b.schlecht} Then I will play by my own head if you do not listen!",
+  "{b.schlecht} How I play I will then decide myself!"
+ ],
+ "pool.positionswunsch.r.r11": [
+  "{b.schlecht} Under another coach I would get the chance you deny me.",
+  "{b.schlecht} Then I will look for a team that gives me room."
+ ],
+ "pool.positionswunsch.r.r12": [
+  "{b.schlecht} I had hoped you would at least give me a chance.",
+  "{b.schlecht} I will play where you want, but I no longer enjoy it."
+ ],
+ "pool.positionswunsch.x.x1": [
+  "He leaves with a smile. {entscheidung} In training he immediately tries the new role with visible enthusiasm.",
+  "{entscheidung} For him the matter is settled for now."
+ ],
+ "pool.positionswunsch.x.x2": [
+  "Whether the idea holds is yet to be seen. {entscheidung} He stays in his current position.",
+  "{entscheidung} He accepts it without giving up the wish."
+ ],
+ "pool.positionswunsch.x.x3": [
+  "He leaves frustrated and slams the door. {entscheidung} Rumour has it he will now run as he pleases.",
+  "{entscheidung} The wish becomes dressing-room gossip."
+ ],
+ "pool.positionswunsch.x.x4": [
+  "You have committed yourself. {entscheidung} He will claim the chance precisely.",
+  "{entscheidung} The deadline is running, and he is already training in the new role."
+ ],
+ "pool.positionswunsch.x.x5": [
+  "He waves it off and leaves the room. {entscheidung} The conversation stays unfinished.",
+  "{entscheidung} He switches off and leaves."
+ ]
+}

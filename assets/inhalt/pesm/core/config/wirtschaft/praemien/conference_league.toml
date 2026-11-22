@@ -1,0 +1,27 @@
+# Prämien Conference League (Nutzerrecherche 27.10., Schätzung 2026/27); Erläuterung der Felder und des Bezugs: champions_league.toml.
+# Den Wettbewerb gibt es im Spielstand nicht (wettbewerbe.toml: ecl = 0); die Datei gilt, sobald er auftaucht.
+wettbewerb = "ecl"
+bezug_mio = 284.6
+startgeld = 3.17
+vorauszahlung = 0.0
+sieg = 0.4
+remis = 0.133
+platz = [1.0, 0.028]
+ligaphase_plaetze = 36
+bonus_1_8 = 0.4
+zusatz_9_16 = 0.2
+playoff = 0.2
+titel = 3.0
+ko_vorrunden = 1
+markt_anteil = 0.0
+[runden]
+achtelfinale = 0.8
+viertelfinale = 1.3
+halbfinale = 2.5
+finale = 4.0
+[gruppenphase]
+abbilden = true
+[szenario]                         # Annahmen für die Spanne der erwarteten Erlöse (praemien.spanne); 8 Ligaphasen-Spiele
+aus_in_ligaphase = { siege = 1, remis = 2, platz = 30 }
+weiter = { siege = 3, remis = 1, platz = 14 }
+sieger = { siege = 8, remis = 0, platz = 1 }

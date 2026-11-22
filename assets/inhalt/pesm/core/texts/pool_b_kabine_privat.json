@@ -1,0 +1,74 @@
+{
+ "pool.b.kabinenstreit_lage": [
+  "In der Kabine knirscht es mit {gegner}.",
+  "Zwischen {gegner} und mir stimmt es seit Tagen nicht."
+ ],
+ "pool.b.kabinenstreit_lage.hitzig": [
+  "{gegner} legt es darauf an, und ich lasse mir das nicht gefallen.",
+  "Mit {gegner} knallt es gleich, wenn keiner dazwischengeht."
+ ],
+ "pool.b.kabinenstreit_lage.loyal": [
+  "Ich will die Kabine nicht spalten, aber mit {gegner} geht es nicht mehr.",
+  "Dem Verein zuliebe habe ich lange geschwiegen, doch mit {gegner} wird es unerträglich."
+ ],
+ "pool.b.kabinenstreit_lage.ehrgeizig": [
+  "{gegner} bremst uns mit seiner Art, und das kostet Leistung.",
+  "Der Zoff mit {gegner} lenkt von dem ab, worum es gehen sollte."
+ ],
+ "pool.b.kabinenstreit_lage.wechselfreudig": [
+  "Mit {gegner} in dieser Kabine will ich nicht lange bleiben.",
+  "Wenn das mit {gegner} so weitergeht, überlege ich mir, wo ich besser aufgehoben bin."
+ ],
+ "pool.b.kabinenstreit_lage.sensibel": [
+  "Mit {gegner} fühle ich mich in der Kabine nicht mehr wohl.",
+  "Die Stimmung zwischen {gegner} und mir macht mir zu schaffen."
+ ],
+ "pool.b.kapitaensbinde_lage": [
+  "Es geht um die Kapitänsbinde.",
+  "Ich muss mit dir über die Binde am Arm sprechen."
+ ],
+ "pool.b.kapitaensbinde_lage.hitzig": [
+  "Die Binde gehört einem, der vorangeht, und das bin ich, nicht ein anderer!",
+  "Dass ich die Binde nicht trage, ist ein Schlag ins Gesicht."
+ ],
+ "pool.b.kapitaensbinde_lage.loyal": [
+  "Ich diene diesem Verein seit Langem und hätte gern die Binde getragen.",
+  "Ich bin immer für den Verein eingestanden, deshalb trifft mich das mit der Binde."
+ ],
+ "pool.b.kapitaensbinde_lage.ehrgeizig": [
+  "Ich will Verantwortung übernehmen, und die Binde gehört dazu.",
+  "Wer ganz oben mitspielen will, muss führen, und ich will führen."
+ ],
+ "pool.b.kapitaensbinde_lage.wechselfreudig": [
+  "Ohne die Binde sehe ich meine Rolle hier nicht langfristig.",
+  "Wenn ich hier nicht führen darf, führe ich eben anderswo."
+ ],
+ "pool.b.kapitaensbinde_lage.sensibel": [
+  "Dass ich die Binde nicht habe, geht mir mehr nach, als ich zugeben wollte.",
+  "Ich habe lange gezögert, wegen der Binde zu kommen."
+ ],
+ "pool.b.heimweh_lage": [
+  "Ich vermisse zu Hause ziemlich.",
+  "Ich bekomme das Heimweh nicht aus dem Kopf."
+ ],
+ "pool.b.heimweh_lage.hitzig": [
+  "Ich sitze hier allein in einer fremden Stadt, und das macht mich wütend.",
+  "Es fühlt sich an, als hätte mich alle Welt vergessen, und das ärgert mich."
+ ],
+ "pool.b.heimweh_lage.loyal": [
+  "Ich will dem Verein nicht zur Last fallen, aber zu Hause fehlt mir die Familie.",
+  "Ich gebe hier alles, nur meine Familie fehlt mir sehr."
+ ],
+ "pool.b.heimweh_lage.ehrgeizig": [
+  "Ich will hier etwas erreichen, aber die Sehnsucht nach zu Hause hält mich zurück.",
+  "Mein Kopf ist bei meiner Familie, und das bremst mich im Training."
+ ],
+ "pool.b.heimweh_lage.wechselfreudig": [
+  "Ich überlege, ob ich nicht besser wieder näher an zu Hause spielen sollte.",
+  "Vielleicht war der Schritt hierher zu früh, ich vermisse mein Zuhause."
+ ],
+ "pool.b.heimweh_lage.sensibel": [
+  "Abends werde ich traurig, wenn ich an meine Familie denke.",
+  "Ich fühle mich hier oft sehr allein und vermisse meine Leute."
+ ]
+}

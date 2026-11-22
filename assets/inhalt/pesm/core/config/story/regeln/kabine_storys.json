@@ -1,0 +1,2359 @@
+{
+ "_hinweis": "Zwölf mehrstufige Spielerstorys der Kabine: Anlass, Gespräch (Rückmeldung), Folge nach Frist (gut oder schlecht), Szene. Eigene Regeln; das Feld aktiv schaltet sie im Motor ein.",
+ "regeln": [
+  {
+   "id": "kb_playlist",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gelb",
+   "sperrfrist_tage": 45,
+   "aktiv": true,
+   "bedingungen": [
+    {
+     "wert": "typen",
+     "enthaelt": "kumpel"
+    },
+    {
+     "wert": "teamgeist",
+     "min": 55
+    },
+    {
+     "wert": "vereinsspiele_saison",
+     "min": 4
+    }
+   ],
+   "wahrscheinlichkeit": {
+    "grund": 0.14,
+    "typ": {},
+    "wert": {
+     "teamgeist": 0.003
+    }
+   },
+   "antworten": [
+    {
+     "id": "dj",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 4
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 3
+      }
+     ],
+     "folge": {
+      "regel": "kb_playlist_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "reihum",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_playlist_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.6
+     }
+    },
+    {
+     "id": "stille",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -5
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": -4
+      }
+     ],
+     "folge": {
+      "regel": "kb_playlist_schlecht",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_playlist_gut",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "mitsingen",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_playlist_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "ernst",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_playlist_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_playlist_schlecht",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "lockern",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_playlist_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "bleiben",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -3
+      }
+     ],
+     "folge": {
+      "regel": "kb_playlist_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_playlist_szene",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "kenntnis",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kb_socken",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "sperrfrist_tage": 60,
+   "aktiv": true,
+   "bedingungen": [
+    {
+     "wert": "alter",
+     "min": 30
+    },
+    {
+     "wert": "einsaetze",
+     "min": 6
+    },
+    {
+     "wert": "ausfalltage",
+     "max": 0
+    }
+   ],
+   "wahrscheinlichkeit": {
+    "grund": 0.12,
+    "typ": {},
+    "wert": {}
+   },
+   "antworten": [
+    {
+     "id": "erlaubt",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 4
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 3
+      }
+     ],
+     "folge": {
+      "regel": "kb_socken_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "abergl",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_socken_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.6
+     }
+    },
+    {
+     "id": "verbot",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -5
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": -4
+      }
+     ],
+     "folge": {
+      "regel": "kb_socken_schlecht",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_socken_gut",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "grinsen",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_socken_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "pragma",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_socken_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_socken_schlecht",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "nachgeben",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_socken_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "hartbleiben",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -3
+      }
+     ],
+     "folge": {
+      "regel": "kb_socken_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_socken_szene",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "kenntnis",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kb_vize",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gelb",
+   "sperrfrist_tage": 60,
+   "aktiv": true,
+   "bedingungen": [
+    {
+     "wert": "rolle",
+     "gleich": "vizekapitaen"
+    },
+    {
+     "wert": "fuehrung",
+     "min": 55
+    },
+    {
+     "wert": "vereinsspiele_saison",
+     "min": 5
+    }
+   ],
+   "wahrscheinlichkeit": {
+    "grund": 0.12,
+    "typ": {},
+    "wert": {
+     "ehrgeiz": 0.003
+    }
+   },
+   "antworten": [
+    {
+     "id": "klaeren",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 4
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 3
+      }
+     ],
+     "folge": {
+      "regel": "kb_vize_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "regeln",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_vize_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.6
+     }
+    },
+    {
+     "id": "abtun",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -5
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": -4
+      }
+     ],
+     "folge": {
+      "regel": "kb_vize_schlecht",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_vize_gut",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "loben",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_vize_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "kurz",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_vize_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_vize_schlecht",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "vermitteln",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_vize_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "ignorieren",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -3
+      }
+     ],
+     "folge": {
+      "regel": "kb_vize_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_vize_szene",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "kenntnis",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kb_neuling",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "kapitaen",
+   "prioritaet": "gruen",
+   "sperrfrist_tage": 60,
+   "aktiv": true,
+   "bedingungen": [
+    {
+     "wert": "neuzugang",
+     "gleich": 1
+    },
+    {
+     "wert": "alter",
+     "max": 24
+    },
+    {
+     "wert": "vereinsspiele_saison",
+     "min": 3
+    }
+   ],
+   "wahrscheinlichkeit": {
+    "grund": 0.16,
+    "typ": {},
+    "wert": {}
+   },
+   "antworten": [
+    {
+     "id": "taufe",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 4
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 3
+      }
+     ],
+     "folge": {
+      "regel": "kb_neuling_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "kurz",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_neuling_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.6
+     }
+    },
+    {
+     "id": "nein",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -5
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": -4
+      }
+     ],
+     "folge": {
+      "regel": "kb_neuling_schlecht",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_neuling_gut",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "kapitaen",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "applaus",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_neuling_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "ruhig",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_neuling_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_neuling_schlecht",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "kapitaen",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "nachholen",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_neuling_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "bleibt",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -3
+      }
+     ],
+     "folge": {
+      "regel": "kb_neuling_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_neuling_szene",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "kapitaen",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "kenntnis",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kb_heimweh",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gelb",
+   "sperrfrist_tage": 60,
+   "aktiv": true,
+   "bedingungen": [
+    {
+     "wert": "neuzugang",
+     "gleich": 1
+    },
+    {
+     "wert": "loyalitaet",
+     "min": 55
+    },
+    {
+     "wert": "vereinsspiele_saison",
+     "min": 3
+    }
+   ],
+   "wahrscheinlichkeit": {
+    "grund": 0.16,
+    "typ": {},
+    "wert": {
+     "loyalitaet": 0.003
+    }
+   },
+   "antworten": [
+    {
+     "id": "freitag",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 4
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 3
+      }
+     ],
+     "folge": {
+      "regel": "kb_heimweh_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "kumpel",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_heimweh_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.6
+     }
+    },
+    {
+     "id": "durch",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -5
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": -4
+      }
+     ],
+     "folge": {
+      "regel": "kb_heimweh_schlecht",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_heimweh_gut",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "probieren",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_heimweh_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "sachlich",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_heimweh_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_heimweh_schlecht",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "freistellen",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_heimweh_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "klartext",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -3
+      }
+     ],
+     "folge": {
+      "regel": "kb_heimweh_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_heimweh_szene",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "kenntnis",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kb_diva",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gelb",
+   "sperrfrist_tage": 50,
+   "aktiv": true,
+   "bedingungen": [
+    {
+     "wert": "typen",
+     "enthaelt": "diva"
+    },
+    {
+     "wert": "spielzeit_anteil",
+     "max": 70
+    },
+    {
+     "wert": "vereinsspiele_saison",
+     "min": 5
+    }
+   ],
+   "wahrscheinlichkeit": {
+    "grund": 0.14,
+    "typ": {},
+    "wert": {
+     "ego": 0.004
+    }
+   },
+   "antworten": [
+    {
+     "id": "spiegel",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 4
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 3
+      }
+     ],
+     "folge": {
+      "regel": "kb_diva_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "leistung",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_diva_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.6
+     }
+    },
+    {
+     "id": "neinsage",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -5
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": -4
+      }
+     ],
+     "folge": {
+      "regel": "kb_diva_schlecht",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_diva_gut",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "schmunzeln",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_diva_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "pragma",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_diva_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_diva_schlecht",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "bruecke",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_diva_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "fest",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -3
+      }
+     ],
+     "folge": {
+      "regel": "kb_diva_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_diva_szene",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "kenntnis",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kb_elfmeter",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "kapitaen",
+   "prioritaet": "gelb",
+   "sperrfrist_tage": 45,
+   "aktiv": true,
+   "bedingungen": [
+    {
+     "wert": "typen",
+     "enthaelt": "egoist"
+    },
+    {
+     "wert": "tore_saison",
+     "min": 4
+    },
+    {
+     "wert": "vereinsspiele_saison",
+     "min": 6
+    }
+   ],
+   "wahrscheinlichkeit": {
+    "grund": 0.14,
+    "typ": {},
+    "wert": {
+     "ego": 0.004
+    }
+   },
+   "antworten": [
+    {
+     "id": "liste",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 4
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 3
+      }
+     ],
+     "folge": {
+      "regel": "kb_elfmeter_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.6
+     }
+    },
+    {
+     "id": "hand",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_elfmeter_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "kapitaen",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -5
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": -4
+      }
+     ],
+     "folge": {
+      "regel": "kb_elfmeter_schlecht",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_elfmeter_gut",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "kapitaen",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "zufrieden",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_elfmeter_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "pragma",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_elfmeter_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_elfmeter_schlecht",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "kapitaen",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "lachen",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_elfmeter_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "strafe",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -3
+      }
+     ],
+     "folge": {
+      "regel": "kb_elfmeter_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_elfmeter_szene",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "kapitaen",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "kenntnis",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kb_mentor",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "co_trainer",
+   "prioritaet": "gruen",
+   "sperrfrist_tage": 60,
+   "aktiv": true,
+   "bedingungen": [
+    {
+     "wert": "alter",
+     "max": 21
+    },
+    {
+     "wert": "spielzeit_anteil",
+     "max": 35
+    },
+    {
+     "wert": "vereinsspiele_saison",
+     "min": 5
+    }
+   ],
+   "wahrscheinlichkeit": {
+    "grund": 0.14,
+    "typ": {},
+    "wert": {}
+   },
+   "antworten": [
+    {
+     "id": "paten",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 4
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 3
+      }
+     ],
+     "folge": {
+      "regel": "kb_mentor_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "beobachten",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_mentor_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.6
+     }
+    },
+    {
+     "id": "alleine",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -5
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": -4
+      }
+     ],
+     "folge": {
+      "regel": "kb_mentor_schlecht",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_mentor_gut",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "co_trainer",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "loben",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_mentor_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "weiter",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_mentor_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_mentor_schlecht",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "co_trainer",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "doch",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_mentor_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "selbst",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -3
+      }
+     ],
+     "folge": {
+      "regel": "kb_mentor_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_mentor_szene",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "co_trainer",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "kenntnis",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kb_muede",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gelb",
+   "sperrfrist_tage": 40,
+   "aktiv": true,
+   "bedingungen": [
+    {
+     "wert": "formpfeil",
+     "max": 1
+    },
+    {
+     "wert": "ausfalltage",
+     "max": 0
+    },
+    {
+     "wert": "professionalitaet",
+     "max": 60
+    },
+    {
+     "wert": "vereinsspiele_saison",
+     "min": 5
+    }
+   ],
+   "wahrscheinlichkeit": {
+    "grund": 0.14,
+    "typ": {},
+    "wert": {}
+   },
+   "antworten": [
+    {
+     "id": "pause",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 4
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 3
+      }
+     ],
+     "folge": {
+      "regel": "kb_muede_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "plan",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_muede_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.6
+     }
+    },
+    {
+     "id": "weiter",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -5
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": -4
+      }
+     ],
+     "folge": {
+      "regel": "kb_muede_schlecht",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_muede_gut",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "freuen",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_muede_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "kurz",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_muede_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_muede_schlecht",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "kehrtwende",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_muede_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "wecker",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -3
+      }
+     ],
+     "folge": {
+      "regel": "kb_muede_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_muede_szene",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "kenntnis",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kb_reha",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "sperrfrist_tage": 50,
+   "aktiv": true,
+   "bedingungen": [
+    {
+     "wert": "ausfalltage",
+     "min": 14
+    },
+    {
+     "wert": "vereinsspiele_saison",
+     "min": 5
+    }
+   ],
+   "wahrscheinlichkeit": {
+    "grund": 0.16,
+    "typ": {},
+    "wert": {}
+   },
+   "antworten": [
+    {
+     "id": "dabei",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 4
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 3
+      }
+     ],
+     "folge": {
+      "regel": "kb_reha_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "erst_heilen",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_reha_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.6
+     }
+    },
+    {
+     "id": "ruhe",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -5
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": -4
+      }
+     ],
+     "folge": {
+      "regel": "kb_reha_schlecht",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_reha_gut",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "loben",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_reha_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "sachlich",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_reha_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_reha_schlecht",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "einlenken",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_reha_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "hart",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -3
+      }
+     ],
+     "folge": {
+      "regel": "kb_reha_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_reha_szene",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "spieler",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "kenntnis",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kb_berater",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "berater",
+   "prioritaet": "gelb",
+   "sperrfrist_tage": 60,
+   "aktiv": true,
+   "bedingungen": [
+    {
+     "wert": "tage_bis_vertragsende",
+     "max": 300
+    },
+    {
+     "wert": "ego",
+     "min": 50
+    },
+    {
+     "wert": "vereinsspiele_saison",
+     "min": 5
+    }
+   ],
+   "wahrscheinlichkeit": {
+    "grund": 0.12,
+    "typ": {},
+    "wert": {
+     "ego": 0.003
+    }
+   },
+   "antworten": [
+    {
+     "id": "termin",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 4
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 3
+      }
+     ],
+     "folge": {
+      "regel": "kb_berater_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "abwarten",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_berater_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.6
+     }
+    },
+    {
+     "id": "abblitzen",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -5
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": -4
+      }
+     ],
+     "folge": {
+      "regel": "kb_berater_schlecht",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_berater_gut",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "berater",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "lachen",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_berater_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "kuehl",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_berater_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_berater_schlecht",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "berater",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "klaeren",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_berater_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "klarstellen",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -3
+      }
+     ],
+     "folge": {
+      "regel": "kb_berater_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_berater_szene",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "berater",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "kenntnis",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kb_streich",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "kapitaen",
+   "prioritaet": "gruen",
+   "sperrfrist_tage": 60,
+   "aktiv": true,
+   "bedingungen": [
+    {
+     "wert": "typen",
+     "enthaelt": "stimmungsmacher"
+    },
+    {
+     "wert": "teamgeist",
+     "min": 50
+    },
+    {
+     "wert": "vereinsspiele_saison",
+     "min": 4
+    }
+   ],
+   "wahrscheinlichkeit": {
+    "grund": 0.14,
+    "typ": {},
+    "wert": {
+     "teamgeist": 0.003
+    }
+   },
+   "antworten": [
+    {
+     "id": "ja",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 4
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 3
+      }
+     ],
+     "folge": {
+      "regel": "kb_streich_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "klein",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_streich_gut",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.6
+     }
+    },
+    {
+     "id": "nein",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -5
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": -4
+      }
+     ],
+     "folge": {
+      "regel": "kb_streich_schlecht",
+      "nach_tagen": 8,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_streich_gut",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "kapitaen",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "lachen",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_streich_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "ernst",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ],
+     "folge": {
+      "regel": "kb_streich_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_streich_schlecht",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "kapitaen",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "freigeben",
+     "ton": "foerdernd",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 3
+      },
+      {
+       "ziel": "beziehung_trainer",
+       "delta": 2
+      }
+     ],
+     "folge": {
+      "regel": "kb_streich_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    },
+    {
+     "id": "streng",
+     "ton": "hart",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": -3
+      }
+     ],
+     "folge": {
+      "regel": "kb_streich_szene",
+      "nach_tagen": 6,
+      "wahrscheinlichkeit": 0.9
+     }
+    }
+   ]
+  },
+  {
+   "id": "kb_streich_szene",
+   "thema": "kabine",
+   "bezug": "spieler",
+   "ansicht": "posteingang",
+   "absender": "kapitaen",
+   "prioritaet": "gruen",
+   "ausloeser": "folge",
+   "antworten": [
+    {
+     "id": "kenntnis",
+     "ton": "sachlich",
+     "wirkungen": [
+      {
+       "ziel": "stimmung",
+       "delta": 1
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

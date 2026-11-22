@@ -1,0 +1,14 @@
+{
+ "pl.verletzung.betreff": "%1 is injured",
+ "pl.verletzung.text": "%1 is expected to be out for %2 days. The line-up should be adjusted.",
+ "pl.genesung.betreff": "%1 is fit again",
+ "pl.genesung.text": "%1 is available again.",
+ "pl.reha.betreff": "%1: return in sight",
+ "pl.reha.text": "%1 will be back in about %2 days. Rehab is on schedule.",
+ "pl.belastung.betreff": "Squad workload: %1 players tired",
+ "pl.belastung.text": "%1 players are below %2 percent fitness (%3 …). Rotation or lighter training would help.",
+ "pl.finanzen.betreff": "Finance report %1",
+ "pl.finanzen.text": "Transfer budget: %1. Wage budget: %2.",
+ "pl.ueberzogen.betreff": "The budget is overdrawn",
+ "pl.ueberzogen.text": "Transfer budget: %1, wage budget: %2. The board expects the deficit to be made up."
+}

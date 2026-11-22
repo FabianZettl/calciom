@@ -1,0 +1,114 @@
+{
+ "pool.b.rivalen_gleiche_position_gruss": [
+  "Trainer, ich komme direkt zu dir, es geht um meine Position.",
+  "Trainer, hast du einen Augenblick für ein ernstes Wort über meine Position?"
+ ],
+ "pool.b.rivalen_gleiche_position_lage": [
+  "Auf meiner Position kämpfen wir seit Wochen zu zweit um einen Platz, und ich habe das Gefühl, dass die Waage nicht gerecht hängt.",
+  "Wir sind zwei, die auf derselben Position spielen wollen, und ich sehe nicht, nach welchen Maßstäben du zwischen uns entscheidest."
+ ],
+ "pool.b.rivalen_gleiche_position_lage.hitzig": [
+  "Seit Wochen sitze ich draußen, während der andere auf meiner Position spielt, und das lasse ich mir nicht länger bieten!",
+  "Der andere auf meiner Position wird bevorzugt, das sieht doch jeder, und ich habe es satt, den Zweiten zu geben!"
+ ],
+ "pool.b.rivalen_gleiche_position_lage.loyal": [
+  "Ich habe nie gemeckert und mich immer in den Dienst der Mannschaft gestellt, aber auf meiner Position fühle ich mich übergangen.",
+  "Ich gönne dem anderen auf meiner Position seine Spiele, doch mich zu behandeln, als wäre ich nur die Reserve, schmerzt."
+ ],
+ "pool.b.rivalen_gleiche_position_lage.ehrgeizig": [
+  "Ich will auf meiner Position spielen und bin überzeugt, dass ich besser bin als der andere, nur bekomme ich keine echte Chance, es zu beweisen.",
+  "Jedes Training gebe ich Vollgas, um den anderen auf meiner Position zu verdrängen, und ich frage mich, ob das jemand zur Kenntnis nimmt."
+ ],
+ "pool.b.rivalen_gleiche_position_lage.wechselfreudig": [
+  "Wenn ich auf meiner Position dauerhaft hinter dem anderen stehe, muss ich mir überlegen, ob ich woanders nicht mehr gebraucht werde.",
+  "Auf meiner Position stehe ich ewig im Schatten des anderen, und ich bin nicht sicher, ob ich dafür hier bleiben will."
+ ],
+ "pool.b.rivalen_gleiche_position_lage.sensibel": [
+  "Es nagt an mir, dass der andere auf meiner Position spielt und ich nicht weiß, was ich falsch mache.",
+  "Ich sehe den anderen auf meiner Position jede Woche auflaufen und frage mich, ob du mir überhaupt noch etwas zutraust."
+ ],
+ "pool.b.elfmeter_streit_gruss": [
+  "Chef, kurze Frage zwischen Training und Dusche: Es geht um die Elfmeter.",
+  "Trainer, ich muss etwas ansprechen, das schon zu lange liegt, und zwar den Strafstoß."
+ ],
+ "pool.b.elfmeter_streit_lage": [
+  "Bei den letzten Strafstößen haben sich zwei Mitspieler fast um den Ball gestritten, und vor dem Schiedsrichter sah das nicht gut aus.",
+  "Wir haben keine feste Reihenfolge bei den Elfmetern, und jedes Mal diskutieren zwei Jungs auf dem Platz, wer schießt."
+ ],
+ "pool.b.elfmeter_streit_lage.hitzig": [
+  "Zwei meiner Leute haben sich beim Elfmeter fast geprügelt, und ich habe die Nase voll, dass das keiner regelt!",
+  "Auf dem Platz brüllen sich zwei an, wer schießt, und ich stehe als Kapitän dazwischen und weiß nicht weiter!"
+ ],
+ "pool.b.elfmeter_streit_lage.loyal": [
+  "Ich möchte keinen bloßstellen, aber beim Elfmeter streiten sich zwei, und das schadet uns allen.",
+  "Es ist mir unangenehm, damit zu dir zu kommen, doch bei den Strafstößen herrscht Unruhe, die wir uns nicht leisten können."
+ ],
+ "pool.b.elfmeter_streit_lage.ehrgeizig": [
+  "Ein Elfmeter kann ein Spiel entscheiden, und ich will, dass der Beste schießt und nicht der Lauteste.",
+  "Wenn wir um Punkte spielen, darf es bei Elfmetern keinen Streit geben, sondern nur den sichersten Schützen."
+ ],
+ "pool.b.elfmeter_streit_lage.wechselfreudig": [
+  "Ich habe selbst schon überlegt, ob ich noch Schütze sein will, wenn der Streit darum nicht aufhört.",
+  "Der Streit um die Elfmeter nervt mich so, dass ich mir kaum vorstellen kann, noch lange so weiterzumachen."
+ ],
+ "pool.b.elfmeter_streit_lage.sensibel": [
+  "Es belastet mich, wie die beiden beim Elfmeter aufeinander losgehen, ich traue mich kaum noch dazwischen.",
+  "Ich sehe, dass der Schütze unter dem Druck leidet, und es tut mir weh, wie der Streit ihn beschäftigt."
+ ],
+ "pool.b.kabine_clique_gruss": [
+  "Trainer, kann ich dich unter vier Augen sprechen? Es geht um die Stimmung in der Kabine.",
+  "Trainer, ich muss dir etwas berichten, das ich so nicht länger mit ansehen will."
+ ],
+ "pool.b.kabine_clique_lage": [
+  "In der Kabine haben sich Lager gebildet, die Alten sitzen zusammen, die Jungen auch, und kaum einer redet noch über die Gruppen hinweg.",
+  "Es gibt inzwischen feste Grüppchen in der Mannschaft: Landsleute halten zusammen, und die anderen bleiben außen vor."
+ ],
+ "pool.b.kabine_clique_lage.hitzig": [
+  "Die Kabine ist in Lager zerfallen, und es fliegen Sticheleien hin und her, dass es mir reicht!",
+  "Die Alten gegen die Jungen, und beide Seiten giften sich an, ich halte das kaum noch aus!"
+ ],
+ "pool.b.kabine_clique_lage.loyal": [
+  "Ich liebe diese Mannschaft, und es schmerzt mich zu sehen, wie sie sich in Lager aufspaltet.",
+  "Dem Verein zuliebe sage ich es offen: In der Kabine bilden sich Gruppen, die einander kaum noch ansehen."
+ ],
+ "pool.b.kabine_clique_lage.ehrgeizig": [
+  "Eine Mannschaft, die in Lager zerfällt, gewinnt nichts, und ich will, dass wir wieder an einem Strang ziehen.",
+  "Wenn wir oben mitspielen wollen, brauchen wir eine Kabine ohne Fronten, und davon sind wir weit entfernt."
+ ],
+ "pool.b.kabine_clique_lage.wechselfreudig": [
+  "Wenn die Kabine so gespalten bleibt, werden einige darüber nachdenken, ob sie hier noch richtig sind.",
+  "Die Lager machen es manchem schwer, und ich merke, dass einzelne schon über einen Wechsel reden."
+ ],
+ "pool.b.kabine_clique_lage.sensibel": [
+  "Mir geht es nahe, wie kalt es zwischen den Gruppen geworden ist, und ich merke, dass einzelne darunter leiden.",
+  "Ich sehe, wie sich manche in der Kabine ausgeschlossen fühlen, weil sie in keinem der Lager einen Platz haben."
+ ],
+ "pool.b.kabine_streich_gruss": [
+  "Trainer, Mannschaftsfrage: Wir hätten da eine Idee für den Kabinenalltag.",
+  "Hey Trainer, wir haben uns was überlegt und wollten dich vorher fragen."
+ ],
+ "pool.b.kabine_streich_lage": [
+  "Wir wollen unseren Neuen mit dem üblichen Ritual in der Mannschaft begrüßen, ein bisschen Spaß muss sein.",
+  "Einer feiert Geburtstag, und die Jungs würden ihm gern einen kleinen Streich spielen, natürlich nichts Schlimmes."
+ ],
+ "pool.b.kabine_streich_lage.hitzig": [
+  "Wir haben gewonnen und wollen feiern, und diesmal erwischt es den Neuen, ob er will oder nicht!",
+  "Ein Ritual gehört dazu, und wenn das keiner mitmacht, mache ich es eben allein!"
+ ],
+ "pool.b.kabine_streich_lage.loyal": [
+  "Die Mannschaft hält zusammen, und so ein Brauch stärkt das, wenn man es richtig macht.",
+  "Alle in der Kabine mögen den Neuen, und gerade deshalb wollen wir ihm einen Streich spielen, den er gern in Erinnerung behält."
+ ],
+ "pool.b.kabine_streich_lage.ehrgeizig": [
+  "Seit den Siegen läuft es richtig gut, und ein Ritual würde den Zusammenhalt für die nächsten Spiele festigen.",
+  "So ein Streich schweißt zusammen, und wir können den Schwung aus den guten Ergebnissen mitnehmen."
+ ],
+ "pool.b.kabine_streich_lage.wechselfreudig": [
+  "Der Neue ist schnell wieder weg, wenn er sich nicht aufgenommen fühlt, deshalb brauchen wir einen Einstand.",
+  "Manche kommen und gehen so schnell, dass ein Ritual die beste Chance ist, ihn zu binden."
+ ],
+ "pool.b.kabine_streich_lage.sensibel": [
+  "Ich möchte, dass der Neue sich willkommen fühlt, aber ich bin unsicher, ob ihm ein Streich nicht zu viel wäre.",
+  "Wir meinen es nur gut mit dem Neuen, aber ich habe die Sorge, dass es ihm peinlich werden könnte."
+ ]
+}

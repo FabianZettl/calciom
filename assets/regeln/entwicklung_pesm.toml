@@ -1,0 +1,67 @@
+# Eigene Festlegungen der Rust-Fassung zur Entwicklung je Fähigkeit (Mechanik-Übergabe §18). Die Zahlen des Modells stehen
+# unverändert in entwicklung2.toml, entwicklung3.toml, kalibrierung.json und merkmale.json (Kopien der Python-Fassung).
+# Alles hier ist geschätzt und darf geändert werden.
+
+[anlass]
+# Gewicht eines Anlasses für die Phasen (phasen.py NEGATIV / POSITIV): belastend zieht in Formtief oder Krise, gut in den Aufschwung
+negativ = { vertrag_verwehrt = 1.0, bedingung_verfehlt = 0.8, zusage_gebrochen = 0.7, kritik = 0.4, strafe = 0.4 }
+positiv = { lob = 0.5, zusage_gehalten = 0.4 }
+behalten_tage = 40                # so lange bleibt ein Anlass gespeichert (auslösen kann er nur in den ersten 21 Tagen)
+
+[plan]
+# Die sechs Einheiten dieser Fassung (frei, Regeneration, leicht, normal, Taktik, intensiv) als Intensität des Modells:
+# 0 = schonend, 1 = normal, 2 = hart, -1 = kein Training. Der Wochenplan ergibt die Intensität als gerundetes Mittel.
+einheit_intensitaet = [-1, -1, 0, 1, 1, 2]
+# Wiederholung (einheiten.toml wiederholung = 0,85): jede weitere gleiche Einheit bringt so viel weniger. Weil diese Fassung
+# nur vier Trainingsarten hat, zählt die Wiederholung erst ab der dritten gleichen Einheit der Woche.
+wiederholung_ab = 3
+
+[mentor]
+beziehung_neutral = 50            # ohne Beziehungswert (−100…100 wird auf 0…100 gebracht)
+
+[anzeige]
+# Erwartete Entwicklung als Pfeil (Gesamtwert je Saison): ab +2 steil hoch, ab +0,5 hoch, über −0,5 gleich, über −2 runter, sonst steil runter
+pfeil = [-2.0, -0.5, 0.5, 2.0]
+verlauf_wochen = 52               # so viele Wochen stehen im Verlauf je Spieler
+gruende_wochen = 8                # so viele Wochen stehen mit Gründen im Profil
+spielzeit_viel = 1.2              # Einsatzfaktor, ab dem „viel Spielzeit“ als Grund steht
+spielzeit_wenig = 0.8
+
+[wege_pes]
+# Fortschrittswege der Python-Fassung als Bits in Player.bin: Spielstil (Name aus pesdb::STYLES) oder Spezialfähigkeit
+# (Name aus pesdb::SKILLS). Leer = im Spiel gibt es keine passende Fähigkeit, der Weg wird nur in PES M geführt.
+vollstrecker = "Goal Poacher"
+zielspieler = "Target Man"
+fluegelflitzer = "Prolific Winger"
+spielgestalter = "Creative Playmaker"
+balleroberer = "Anchor Man"
+mittelfeldmotor = "Box-to-Box"
+abwehrchef = "The Destroyer"
+vorpreschender_verteidiger = "Offensive Full-back"
+mitspielender_torwart = "Offensive Goalkeeper"
+freistossschuetze = "Dipping Shot"
+fernschuetze = "Long Range Drive"
+kopfballungeheuer = "Heading"
+ausdauerlaeufer = "Track Back"
+zweikampfstark = "Man Marking"
+sprinter = "Speeding Bullet"
+ballsicher = "Step On Ball Control"
+elfmeterkiller = ""
+skills_hoechstens = 10            # Spezialfähigkeiten im Spiel insgesamt höchstens (die Python-Fassung prüft dieselbe Grenze)
+
+[zuschlag]
+# Form-Zuschlag auf die Stärke aus dem Formpfeil (Stufe 0 = steil runter … 4 = steil hoch), geschätzt. Wirkt im Spiel und beim
+# Live-Schreiben für beide Mannschaften, nie auf die echte Stärke; bei jeder Änderung des Pfeils neu gesetzt, nie aufaddiert.
+pfeil = [-3.0, -1.0, 0.0, 1.0, 3.0]
+selbstvertrauen = 1.5             # Stärke bei Selbstvertrauen 100 (bzw. minus bei 0), linear um den Mittelwert
+teamgeist = 1.5                   # Stärke bei Teamgeist 100 (bzw. minus bei 0), nur der eigene Verein
+seele_hoechstens = 3.0            # Selbstvertrauen und Teamgeist zusammen höchstens ± so viel
+
+[wellen]
+# Ein Gespräch wirkt auch auf andere (geschätzt)
+freund_anteil = 0.3               # Freunde übernehmen so viel der Stimmungsänderung, mal Beziehung / 100
+fuehrung_teamgeist = 0.15         # Gespräch mit Kapitän, Vize oder Führungsspieler: Teamgeist je Stimmungspunkt
+gleich_abzug = 1.5                # Moral weniger für Mitspieler gleicher Rolle im selben Mannschaftsteil, wenn einer eine Zusage bekommt
+gleich_arten = ["spielzeit", "gehalt", "rolle"]
+hoechstens = 6                    # betroffene Mitspieler je Gespräch
+anzeige_sekunden = 10             # so lange steht die Karte „So hat es gewirkt“

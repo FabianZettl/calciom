@@ -1,0 +1,150 @@
+# Wochenlauf der Spielerentwicklung (Sitzung E3). Eigene Festlegung von PESM, Zahlen austauschbar; Grundlage der Raten ist
+# `kalibrierung.json` (Querschnitt der Datenbank, siehe tools/entwicklung_kalibrieren.py). Punkte = Fähigkeitspunkte (Skala 40 bis 99).
+
+[woche]
+grundrate_anteil = 0.9          # Anteil der Jahresänderung der Bevölkerung, den PESM rechnet; den Rest überlässt PESM dem Spiel (Saisonende)
+fremd_anrechnen = 0.5           # Änderung durch das Spiel zählt zu diesem Anteil als schon erbrachte Entwicklung (gegen doppeltes Rechnen)
+spiele_fenster = 6              # letzte Mannschaftsspiele für Einsatzquote, Noten, Serien
+noten_fenster = 4               # letzte Einsätze mit Note
+note_neutral = 6.0
+anlass_halbwertszeit_wochen = 4
+anlass_fenster_tage = 21        # nur so junge Anlässe können eine Phase auslösen
+sperre_wochen = 8               # nach einem Formtief, einer Krise oder einem Aufschwung löst dieselbe Leistungsserie 4 Wochen lang kein neues aus
+schwelle_negativ = 0.6          # Summe der negativen Anlässe für ein Formtief
+schwelle_krise = 1.6            # … für eine Krise
+noten_schlecht = 5.5
+noten_gut = 7.2
+serie_niederlagen = 4
+serie_siege = 5
+stimmung_tief = 35
+stimmung_krise = 22
+krise_nach_wochen = 6           # Formtief mit tiefer Stimmung geht nach so vielen Wochen in die Krise über
+alterung_ab = { tor = 34, abwehr = 31, mitte = 31, angriff = 30 }
+reifung_bis = 26
+reifung_quote = 0.4             # Einsatzquote, ab der ein junger Spieler „reift“ (bis 20 Jahre schon ab 0,2)
+
+[alterung]
+# Zusätzlicher Rückgang je Jahr (Punkte je Fähigkeit, linear zwischen den Altern): der Querschnitt der Datenbank unterschätzt den Abbau, weil nur die übrig bleiben, die
+# sich gehalten haben. Gewicht je Gruppe; für Torhüter gilt das Alter minus `torwart_versatz`.
+kurve = [[29, 0.0], [31, 1.4], [33, 2.5], [36, 3.6], [40, 4.5]]
+gewicht = { tempo = 1.0, kraft = 0.8, technik = 0.55, kopf = 0.45, torwart = 0.7 }
+torwart_versatz = 4
+
+[phase]
+# Dauer in Wochen (kleinster, größter Wert) und gesamter Verlust bzw. Gewinn je Fähigkeit in Punkten (kleinster, größter Wert)
+formtief  = { dauer = [3, 8],  punkte = [2.8, 4.8] }
+krise     = { dauer = [6, 12], punkte = [3.5, 6.0] }
+aufschwung = { dauer = [4, 8], punkte = [0.1, 0.3] }
+abzug_hoechstens = { formtief = 4.0, krise = 5.5 }   # Sockel: Verlust je Fähigkeit durch Phasen insgesamt (≈ −4,5 bzw. −7 Gesamtwert)
+erholung_je_woche = 0.3        # Anteil des Verlusts, der pro Woche zurückkommt, sobald die Phase vorbei ist
+# Wachstumsfaktor je Phase (nur auf positive Raten)
+wachstum = { reifung = 1.8, stagnation = 0.9, aufschwung = 1.3, formtief = 0.4, krise = 0.2, alterung = 1.0 }
+altern = { alterung = 1.5, formtief = 1.1, krise = 1.4, stagnation = 1.0, reifung = 0.8, aufschwung = 0.7 }
+# Wie stark eine negative Phase welche Gruppe trifft
+verlust_gruppe = { kopf = 1.0, technik = 1.0, tor = 1.0, torwart = 1.0, tempo = 0.8, kraft = 0.8 }
+gewinn_gruppe = { kopf = 0.8, technik = 1.0, torwart = 1.0, tempo = 0.7, kraft = 0.7 }
+# Form (Overlay −6 … +6): Zuschlag auf die Zielform, damit der Formpfeil die Phase zeigt
+form = { formtief = -2.5, krise = -4.0, aufschwung = 2.0, reifung = 0.5, stagnation = 0.0, alterung = 0.0 }
+
+[persistenz]
+# Wie viel eines Gewinns oder Verlusts bleibt? Der Rest ist flüchtig: Ein Peak (Aufschwung, etwa 2 Monate) fällt nach der Phase mit dieser Halbwertszeit zurück (Rückfall),
+# ein Formtief-Verlust kommt zum flüchtigen Teil zurück. Startwerte, nicht kalibriert.
+peak_halbwertszeit_wochen = 4
+gewinn = { tempo = 0.5, kraft = 0.6, technik = 0.8, kopf = 0.8, torwart = 0.7 }       # Anteil, der dauerhaft bleibt
+verlust = { tempo = 0.1, kraft = 0.1, technik = 0.2, kopf = 0.2, torwart = 0.15 }     # Anteil des Verlusts, der dauerhaft bleibt
+
+[talent]
+steigung = 0.3                  # Faktor = 1 + steigung * (Abstand zum Potenzial − erwarteter Abstand für das Alter)
+untergrenze = 0.3
+obergrenze = 2.5
+erwartet_je_jahr = 1.7          # erwarteter Zuwachs des Gesamtwerts je Jahr bis `reif_alter` (wie regeln.potenzial)
+reif_alter = 26
+cap_alter = 27                  # Deckel je Fähigkeit: 98-%-Wert der Gruppe in diesem Alter plus `cap_zuschlag`
+cap_zuschlag = 2
+cap_abstand = 5                 # in den letzten Punkten vor dem Deckel flacht das Wachstum ab
+
+[einsatz]
+faktor_unten = 0.55             # Wachstumsfaktor bei Einsatzquote 0
+faktor_oben = 1.45              # … bei Quote 1
+faktor_hoechstens = 2.1         # Obergrenze für alle günstigen Umstände zusammen
+note_gut_plus = 1.1
+note_schlecht_minus = 0.9
+training_intensitaet = { schonend = 0.8, normal = 1.0, hart = 1.2 }
+einzeltraining = 1.2
+fokus_plus = 1.7
+fokus_andere = 0.95
+mentor = 0.25
+moral_niedrig = 35
+moral_hoch = 65
+moral_faktor_niedrig = 0.8
+moral_faktor_hoch = 1.1
+trainer_hebel = 0.12
+belastung_ab = 70
+belastung_altern = 1.3
+
+[sprung]
+alter_bis = 21
+quote_ab = 0.75                 # mindestens so viele der letzten Spiele von Anfang an
+note_ab = 6.8
+moral_ab = 50
+potenzial_abstand = 4
+chance = 0.30
+sperre_wochen = 26
+punkte = [3, 5]                 # gebündelt auf die wichtigsten Fähigkeiten der Position
+
+[bedeutung]
+# Wie schwer ein Vertragsthema den Spieler trifft: je wichtiger die Rolle im Kader, desto mehr (Faktor auf die Tiefe von Formtief und Krise nach Vertrag verwehrt
+# und verfehlter Bedingung). Einsatzzeit allein senkt die Wirkung nicht: wer spielt, hat mehr zu verlieren.
+rolle = { kapitaen = 1.25, vizekapitaen = 1.2, fuehrungsspieler = 1.15, stammspieler = 1.1, rotationsspieler = 0.95, perspektivspieler = 0.9, randfigur = 0.85 }
+anlaesse = ["vertrag_verwehrt", "bedingung_verfehlt"]
+
+[merkmal]
+# Wirkung der Persönlichkeitsmerkmale (nur die, die die Entwicklung berühren). wachstum: Faktor auf positive Raten; altern: Faktor auf negative;
+# dauer / tiefe: Faktor auf Dauer und Tiefe von Formtief und Krise; erholung: Faktor auf die Erholung; sprung: Faktor auf die Sprungchance;
+# jung: Faktor auf das Wachstum bis 20 Jahre; reif: Faktor ab 24 Jahren; bank: Formtief-Neigung bei kaum Einsätzen
+arbeitstier = { wachstum = 1.15, dauer = 0.85, erholung = 1.2, sprung = 1.2 }
+fruehreif = { jung = 1.3, reif = 0.8, sprung = 1.5 }
+ehrgeizig = { wachstum = 1.1, bank = 1.0, sprung = 1.1 }
+perfektionist = { wachstum = 1.05, tiefe = 1.1 }
+diszipliniert = { dauer = 0.85, tiefe = 0.85, altern = 0.9 }
+vorbild_profi = { wachstum = 1.05, dauer = 0.85, tiefe = 0.85, altern = 0.9 }
+kaempfer = { dauer = 0.9, erholung = 1.1 }
+siegermentalitaet = { erholung = 1.15, sprung = 1.1 }
+grosse_spiele = { sprung = 1.1 }
+nervenstark = { tiefe = 0.8, dauer = 0.9 }
+geduldig = { dauer = 0.9 }
+gelassen = { dauer = 0.8, tiefe = 0.8 }
+ruhig = { dauer = 0.85, tiefe = 0.85 }
+launisch = { dauer = 1.3, tiefe = 1.2, erholung = 0.9 }
+sensibel = { dauer = 1.2, tiefe = 1.2, erholung = 0.9 }
+emotional = { dauer = 1.1, tiefe = 1.15 }
+hitzkopf = { dauer = 1.1, tiefe = 1.15 }
+selbstbewusst = { tiefe = 0.9 }
+risikofreudig = { sprung = 1.1 }
+anpassungsfaehig = { wachstum = 1.03 }
+wechselfreudig = { dauer = 1.05 }
+bescheiden = { wachstum = 1.02 }
+erfahrener_mentor = { altern = 0.95 }
+analytisch = { wachstum = 1.03 }
+
+[mentor]
+# Angleichen der Schüler an den Mentor (Wochenlauf) und Übernahme einer Spezialfähigkeit (monatlich)
+abstand = 8                     # der Mentor hat die Fähigkeit mindestens so viele Punkte höher
+je_woche = 0.07                 # Punkte je Woche und Fähigkeit bei voller Passung und Beziehung (etwa 0,3 im Monat)
+hoechstens = 4                  # so viele Fähigkeiten je Woche (größter Abstand zuerst)
+position_ab = 0.8               # die Fähigkeit muss zur Position des Schülers passen (positionsfaktor)
+alter_voll = 21                 # bis zu diesem Alter volle Wirkung, danach je Jahr weniger
+alter_je_jahr = 0.25
+potenzial_voll = 8              # Potenzial minus Gesamtwert, ab dem der Schüler voll lernt; darunter weniger, bei 0 gar nicht
+skill_chance = 0.12             # Chance je Monat (mal Passung), eine Spezialfähigkeit des Mentors zu übernehmen
+skill_passung_ab = 0.5
+skill_beziehung_ab = 60
+meldung_je_tag = 3              # Wochenmeldungen je Tag höchstens (der Rest folgt am nächsten Tag; die Posteingangsgrenze bleibt davor)
+zeilen_hoechstens = 5           # Fähigkeiten, die in einer Nachricht einzeln stehen (größte Änderung zuerst), der Rest als „und n weitere“
+deutlich_punkte = 2             # Änderungen ohne Mentor (Training, Alter, Form, Verletzung, Spielzeit) stehen erst ab so vielen Punkten in der Wochennachricht, sonst im Monatsbericht
+meldung_ab_punkte = 2           # Änderungen je Spieler und Woche, ab denen es eine Meldung gibt
+
+[auswahl]
+# Was je Woche in die Übersicht (Änderungsliste) kommt: nach Betrag der Änderung
+eintraege_je_tag = 100          # neue Einträge je Tag höchstens (größte Abweichung vom Sollwert zuerst); der Rest folgt am nächsten Tag
+offen_hoechstens = 120          # Einträge der Entwicklung in der Liste insgesamt

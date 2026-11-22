@@ -1,0 +1,13 @@
+{
+ "sg.pruefung.lebt": "The game is running",
+ "sg.pruefung.version": "The game add-on is up to date",
+ "sg.pruefung.platz": "Your career is loaded in the game",
+ "sg.pruefung.briefkasten": "The link to the game is working",
+ "sg.pruefung.auftrag": "Nothing old is left waiting for the game",
+ "sg.pruefung.zustand": "The game is ready",
+ "sg.handlung.version": "The game is still running an older add-on. Close the game and start it again, then carry on. Until then everything stays pending.",
+ "sg.handlung.platz": "Your career is not the one loaded in the game. Load your career in the game, then carry on. Until then everything stays pending.",
+ "sg.handlung.briefkasten": "The link to the game is not working right now. Start the game and load your career, then carry on. Until then everything stays pending.",
+ "sg.handlung.auftrag": "The game still holds an old entry. Restart the game, then carry on. Until then everything stays pending.",
+ "sg.handlung.zustand": "The game is busy right now, for example loading. Wait a moment, then carry on. Until then everything stays pending."
+}

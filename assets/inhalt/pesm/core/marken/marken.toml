@@ -1,0 +1,396 @@
+# Markenwelt: echte Medien-, Portal-, Sender- und Sponsorennamen als Inhalte der Spielwelt (privates Einzelspieler-Spiel, nichts verlässt die App).
+# Neue Marke oder Änderung = nur diese Datei. Pflichtfelder: name, kurz, typ, farben (grund, text, akzent), schrift, logo, ton, rubriken, vorlage, gewicht, haltung, ressorts.
+# typ: portal | zeitung | magazin | tv | streaming | statistik | sponsor | ausruester | partner
+# schrift (lizenzfrei, aus assets/fonts oder System): kondensiert (Barlow Semi Condensed) | grotesk (Inter) | serife (System-Serife)
+# logo: Dateiname im Ordner assets/marken/<id>/ (logo.svg oder logo.png), vom Anwender gefüllt; ohne Datei steht die Wortmarke (Text in Markenfarbe und -schrift)
+# gewicht: Reichweite 1..100 (wirkt auf Berichte, Rechte, Sponsoren). haltung: Thema -> -2..2 (kritisch .. wohlwollend); haltung_grund: Thema -> Begründung in Fußballsprache.
+# textsatz: Satzfamilie der Texte (core/texts/zeitung_artikel.json); blatt: Platz in zeitung.toml. autoren: erfunden (nie echte Personen) oder "Redaktion".
+# absender: Anzeigename im Posteingang/Eilmeldung (Feld `absender` der Schnittstelle, siehe docs/intern/MARKEN.md).
+
+[the-athletic]
+name = "The Athletic"
+kurz = "Athletic"
+typ = "zeitung"
+farben = { grund = "#121212", text = "#F5F2EA", akzent = "#E8B923" }
+schrift = "serife"
+logo = "logo.svg"
+ton = "analytisch, ausführlich, ruhig; Hintergrund und Taktik vor Aufregung"
+rubriken = ["Analyse", "Taktik", "Hintergrund", "Transfers", "Zahlen"]
+vorlage = "lang"
+gewicht = 80
+haltung = { erfolg = 1, krise = 0, geld = 0, jugend = 2, taktik = 2, trainer = 1 }
+haltung_grund = { jugend = "Das Blatt sucht in Nachwuchsleistungen die langfristige Linie.", taktik = "Das Blatt erklärt Ergebnisse über Spielanlage und Muster.", erfolg = "Das Blatt würdigt Erfolge, ordnet sie aber taktisch ein." }
+ressorts = ["Taktik", "Transfers", "Premier League", "Bundesliga", "Europa"]
+autoren = ["Redaktion Taktik", "Jonas Berkenfeld", "Mira Tolstad"]
+textsatz = "qualitaet"
+blatt = "qualitaet"
+laenge = "lang"
+absender = "The Athletic"
+
+[kicker]
+name = "kicker"
+kurz = "kicker"
+typ = "magazin"
+farben = { grund = "#B6141B", text = "#FFFFFF", akzent = "#FFD400" }
+schrift = "kondensiert"
+logo = "logo.svg"
+ton = "sachlich, fachlich, Noten und Aufstellungen; nüchtern"
+rubriken = ["Spielbericht", "Note", "Aufstellung", "Fachtext"]
+vorlage = "fach"
+gewicht = 85
+haltung = { erfolg = 1, krise = -1, geld = 0, jugend = 1, taktik = 0, trainer = 0 }
+haltung_grund = { krise = "Das Fachblatt benennt Schwächen der Elf nüchtern und mit Namen." }
+ressorts = ["Bundesliga", "2. Liga", "International", "Nationalteam"]
+autoren = ["Redaktion", "Hanno Lauterbach", "Sven Ostermeyr"]
+textsatz = "fach"
+blatt = "fach"
+laenge = "mittel"
+absender = "kicker"
+
+[bild]
+name = "Bild"
+kurz = "Bild"
+typ = "zeitung"
+farben = { grund = "#DD0000", text = "#FFFFFF", akzent = "#111111" }
+schrift = "kondensiert"
+logo = "logo.svg"
+ton = "laut, zugespitzt, Versalien, Namen und Gefühle"
+rubriken = ["Sport", "Transfer-Hammer", "Skandal", "Stars"]
+vorlage = "boulevard"
+gewicht = 90
+haltung = { erfolg = 1, krise = -2, geld = -1, jugend = 0, taktik = -1, trainer = -1 }
+haltung_grund = { krise = "Das Blatt schreibt Misserfolg gern zur Krise hoch.", geld = "Das Blatt stößt sich an hohen Summen und fragt nach dem Gegenwert." }
+ressorts = ["Fußball", "Transfermarkt", "Stars"]
+autoren = ["Redaktion Sport", "Lars Dunkelmann"]
+textsatz = "boulevard"
+blatt = "boulevard"
+laenge = "kurz"
+absender = "Bild"
+
+[lokalbote]
+name = "Lokalbote"
+kurz = "Lokalbote"
+typ = "zeitung"
+farben = { grund = "#1F3A5F", text = "#F4F1E8", akzent = "#C9A227" }
+schrift = "serife"
+logo = "logo.svg"
+ton = "nah am Verein, freundlich, Heimspiele und Gesichter aus der Stadt"
+rubriken = ["Heimspiel", "Verein", "Region"]
+vorlage = "regional"
+gewicht = 35
+haltung = { erfolg = 2, krise = 0, geld = 0, jugend = 2, taktik = 0, trainer = 1 }
+haltung_grund = { erfolg = "Die Heimatzeitung feiert den eigenen Verein.", jugend = "Die Heimatzeitung hebt Jungen aus der Region hervor." }
+ressorts = ["Verein", "Region", "Jugend"]
+autoren = ["Redaktion Lokales", "Hedda Rautenberg"]
+textsatz = "regional"
+blatt = "regional"
+laenge = "kurz"
+absender = "Lokalbote"
+
+[kurvenfunk]
+name = "Kurvenfunk"
+kurz = "Kurvenfunk"
+typ = "magazin"
+farben = { grund = "#1B1B1B", text = "#EDEDED", akzent = "#41D17A" }
+schrift = "grotesk"
+logo = "logo.svg"
+ton = "Fan-Blog und Podcast: persönlich, emotional, Stimmen aus der Kurve"
+rubriken = ["Kurve", "Podcast", "Stimmen"]
+vorlage = "fan"
+gewicht = 25
+haltung = { erfolg = 2, krise = -1, geld = -1, jugend = 1, taktik = 0, trainer = -1 }
+haltung_grund = { erfolg = "Die Kurve feiert Siege lautstark.", krise = "Die Kurve nimmt Rückschläge persönlich.", geld = "Die Fans misstrauen dem großen Geld." }
+ressorts = ["Kurve", "Podcast"]
+autoren = ["Kurvenfunk-Team", "Tonne aus Block 12"]
+textsatz = "fan"
+blatt = "fan"
+laenge = "mittel"
+absender = "Kurvenfunk"
+
+[onefootball]
+name = "OneFootball"
+kurz = "OneFootball"
+typ = "streaming"
+farben = { grund = "#0B0B0B", text = "#FFFFFF", akzent = "#FF3B30" }
+schrift = "grotesk"
+logo = "logo.svg"
+ton = "knappe Eilmeldungen und Ticker"
+rubriken = ["Ticker", "Eilmeldung"]
+vorlage = "ticker"
+gewicht = 60
+haltung = { erfolg = 0, krise = 0, geld = 0, jugend = 0, taktik = 0, trainer = 0 }
+haltung_grund = {}
+ressorts = ["Ticker"]
+autoren = ["Redaktion"]
+textsatz = "ticker"
+blatt = "ticker"
+laenge = "kurz"
+absender = "OneFootball"
+
+[transfermarkt]
+name = "Transfermarkt"
+kurz = "TM"
+typ = "portal"
+farben = { grund = "#1A3151", text = "#FFFFFF", akzent = "#7DBE31" }
+schrift = "grotesk"
+logo = "logo.svg"
+ton = "Zahlen vor Worten: Marktwerte, Kurven, Historie, Gerüchte mit Wahrscheinlichkeit"
+rubriken = ["Marktwerte", "Transfers", "Gerüchte", "Ranglisten"]
+vorlage = "portal"
+gewicht = 95
+haltung = { erfolg = 0, krise = 0, geld = 0, jugend = 1, taktik = 0, trainer = 0 }
+haltung_grund = {}
+ressorts = ["Marktwerte", "Wechsel", "Gerüchte"]
+autoren = ["Redaktion"]
+textsatz = "ticker"
+absender = "Transfermarkt"
+
+[sofascore]
+name = "SofaScore"
+kurz = "SofaScore"
+typ = "statistik"
+farben = { grund = "#374DF5", text = "#FFFFFF", akzent = "#00D084" }
+schrift = "grotesk"
+logo = "logo.svg"
+ton = "Live-Stand, Noten, Aufstellungsfeld, Heatmap"
+rubriken = ["Live", "Noten", "Statistik"]
+vorlage = "statistik"
+gewicht = 88
+haltung = { erfolg = 0, krise = 0, geld = 0, jugend = 0, taktik = 0, trainer = 0 }
+haltung_grund = {}
+ressorts = ["Live", "Spieler", "Teams"]
+autoren = ["Redaktion"]
+textsatz = "ticker"
+absender = "SofaScore"
+
+[sky-sport]
+name = "Sky Sport"
+kurz = "Sky"
+typ = "tv"
+farben = { grund = "#0B1F4B", text = "#FFFFFF", akzent = "#E4002B" }
+schrift = "kondensiert"
+logo = "logo.svg"
+ton = "Studio, Experten, Zusammenfassung mit Einblendungen"
+rubriken = ["Spieltag", "Konferenz", "Studio"]
+vorlage = "tv"
+gewicht = 90
+haltung = { erfolg = 1, krise = 0, geld = 0, jugend = 0, taktik = 1, trainer = 0 }
+haltung_grund = { taktik = "Die Studiorunde zerlegt Spielzüge am Taktikboard." }
+ressorts = ["Spieltag", "Studio"]
+autoren = ["Redaktion"]
+experten = ["Ingo Marwede", "Carla Weidner"]
+textsatz = "tv"
+blatt = "tv"
+laenge = "kurz"
+absender = "Sky Sport"
+
+[dazn]
+name = "DAZN"
+kurz = "DAZN"
+typ = "streaming"
+farben = { grund = "#F8F8F5", text = "#0A0A0A", akzent = "#E6FF00" }
+schrift = "grotesk"
+logo = "logo.svg"
+ton = "Streaming, Highlights, Konferenz"
+rubriken = ["Highlights", "Konferenz"]
+vorlage = "tv"
+gewicht = 70
+haltung = { erfolg = 0, krise = 0, geld = 0, jugend = 0, taktik = 0, trainer = 0 }
+haltung_grund = {}
+ressorts = ["Highlights"]
+autoren = ["Redaktion"]
+experten = ["Tobias Wellmer"]
+textsatz = "tv"
+absender = "DAZN"
+
+[sportschau]
+name = "Sportschau"
+kurz = "Sportschau"
+typ = "tv"
+farben = { grund = "#002D5A", text = "#FFFFFF", akzent = "#F5A100" }
+schrift = "grotesk"
+logo = "logo.svg"
+ton = "Zusammenfassung am Abend, öffentlich-rechtlich, sachlich"
+rubriken = ["Zusammenfassung", "Studio"]
+vorlage = "tv"
+gewicht = 75
+haltung = { erfolg = 0, krise = 0, geld = -1, jugend = 1, taktik = 0, trainer = 0 }
+haltung_grund = { geld = "Der Sender fragt bei großen Summen nach der Verhältnismäßigkeit." }
+ressorts = ["Zusammenfassung"]
+autoren = ["Redaktion"]
+experten = ["Rolf Sandmeier"]
+textsatz = "tv"
+absender = "Sportschau"
+
+# Sponsoren und Ausrüster: rolle = trikot | banden | stadion | ausruester | partner; anteil = Anteil an den Vereins-Handelseinnahmen je Jahr bei Reichweite 50 (siehe sim/sponsoren.py); branche/laender nur für die Auswahl
+[emirates]
+name = "Emirates"
+kurz = "Emirates"
+typ = "sponsor"
+farben = { grund = "#D71920", text = "#FFFFFF", akzent = "#FFFFFF" }
+schrift = "grotesk"
+logo = "logo.svg"
+ton = "Premium, international"
+rubriken = ["Trikot"]
+vorlage = "sponsor"
+gewicht = 90
+haltung = { erfolg = 0, krise = 0, geld = 0, jugend = 0, taktik = 0, trainer = 0 }
+haltung_grund = {}
+ressorts = ["Luftfahrt"]
+autoren = ["Redaktion"]
+rolle = "trikot"
+branche = "Luftfahrt"
+laender = ["*"]
+anteil = 0.30
+
+[allianz]
+name = "Allianz"
+kurz = "Allianz"
+typ = "sponsor"
+farben = { grund = "#003781", text = "#FFFFFF", akzent = "#00A3E0" }
+schrift = "grotesk"
+logo = "logo.svg"
+ton = "solide, sicher"
+rubriken = ["Trikot", "Stadion"]
+vorlage = "sponsor"
+gewicht = 85
+haltung = { erfolg = 0, krise = 0, geld = 0, jugend = 0, taktik = 0, trainer = 0 }
+haltung_grund = {}
+ressorts = ["Versicherung"]
+autoren = ["Redaktion"]
+rolle = "stadion"
+branche = "Versicherung"
+laender = ["*"]
+anteil = 0.18
+
+[telekom]
+name = "Telekom"
+kurz = "Telekom"
+typ = "sponsor"
+farben = { grund = "#E20074", text = "#FFFFFF", akzent = "#FFFFFF" }
+schrift = "grotesk"
+logo = "logo.svg"
+ton = "technisch, modern"
+rubriken = ["Trikot"]
+vorlage = "sponsor"
+gewicht = 80
+haltung = { erfolg = 0, krise = 0, geld = 0, jugend = 0, taktik = 0, trainer = 0 }
+haltung_grund = {}
+ressorts = ["Telekommunikation"]
+autoren = ["Redaktion"]
+rolle = "trikot"
+branche = "Telekommunikation"
+laender = ["Deutschland", "*"]
+anteil = 0.26
+
+[rewe]
+name = "REWE"
+kurz = "REWE"
+typ = "sponsor"
+farben = { grund = "#CC071E", text = "#FFFFFF", akzent = "#FFFFFF" }
+schrift = "grotesk"
+logo = "logo.svg"
+ton = "bodenständig"
+rubriken = ["Banden"]
+vorlage = "sponsor"
+gewicht = 60
+haltung = { erfolg = 0, krise = 0, geld = 0, jugend = 0, taktik = 0, trainer = 0 }
+haltung_grund = {}
+ressorts = ["Handel"]
+autoren = ["Redaktion"]
+rolle = "banden"
+branche = "Handel"
+laender = ["*"]
+anteil = 0.08
+
+[nike]
+name = "Nike"
+kurz = "Nike"
+typ = "ausruester"
+farben = { grund = "#111111", text = "#FFFFFF", akzent = "#FA5400" }
+schrift = "kondensiert"
+logo = "logo.svg"
+ton = "sportlich"
+rubriken = ["Ausrüster"]
+vorlage = "sponsor"
+gewicht = 95
+haltung = { erfolg = 0, krise = 0, geld = 0, jugend = 0, taktik = 0, trainer = 0 }
+haltung_grund = {}
+ressorts = ["Ausrüstung"]
+autoren = ["Redaktion"]
+rolle = "ausruester"
+branche = "Ausrüstung"
+laender = ["*"]
+anteil = 0.22
+
+[adidas]
+name = "adidas"
+kurz = "adidas"
+typ = "ausruester"
+farben = { grund = "#000000", text = "#FFFFFF", akzent = "#FFFFFF" }
+schrift = "grotesk"
+logo = "logo.svg"
+ton = "sportlich, traditionsbewusst"
+rubriken = ["Ausrüster"]
+vorlage = "sponsor"
+gewicht = 93
+haltung = { erfolg = 0, krise = 0, geld = 0, jugend = 0, taktik = 0, trainer = 0 }
+haltung_grund = {}
+ressorts = ["Ausrüstung"]
+autoren = ["Redaktion"]
+rolle = "ausruester"
+branche = "Ausrüstung"
+laender = ["*"]
+anteil = 0.22
+
+[puma]
+name = "PUMA"
+kurz = "PUMA"
+typ = "ausruester"
+farben = { grund = "#101010", text = "#FFFFFF", akzent = "#E5002B" }
+schrift = "kondensiert"
+logo = "logo.svg"
+ton = "schnell"
+rubriken = ["Ausrüster"]
+vorlage = "sponsor"
+gewicht = 80
+haltung = { erfolg = 0, krise = 0, geld = 0, jugend = 0, taktik = 0, trainer = 0 }
+haltung_grund = {}
+ressorts = ["Ausrüstung"]
+autoren = ["Redaktion"]
+rolle = "ausruester"
+branche = "Ausrüstung"
+laender = ["*"]
+anteil = 0.18
+
+[heineken]
+name = "Heineken"
+kurz = "Heineken"
+typ = "partner"
+farben = { grund = "#00A651", text = "#FFFFFF", akzent = "#E2231A" }
+schrift = "grotesk"
+logo = "logo.svg"
+ton = "Wettbewerbspartner"
+rubriken = ["Partner"]
+vorlage = "sponsor"
+gewicht = 75
+haltung = { erfolg = 0, krise = 0, geld = 0, jugend = 0, taktik = 0, trainer = 0 }
+haltung_grund = {}
+ressorts = ["Wettbewerb"]
+autoren = ["Redaktion"]
+rolle = "partner"
+branche = "Getränke"
+laender = ["*"]
+anteil = 0.05
+wettbewerbe = ["Champions League", "Europa League"]
+
+# TV-Rechte: je Wettbewerbsfamilie die bieterfähigen Sender (Reihenfolge ohne Bedeutung); sim/sponsoren.py vergibt sie je Saison nach Reichweite und Los
+[rechte.liga]
+sender = ["sky-sport", "dazn", "sportschau"]
+pakete = 3
+[rechte.europa]
+sender = ["dazn", "sky-sport"]
+pakete = 2
+[rechte.pokal]
+sender = ["sportschau", "sky-sport"]
+pakete = 2

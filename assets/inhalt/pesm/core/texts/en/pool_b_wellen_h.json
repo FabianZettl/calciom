@@ -1,0 +1,86 @@
+{
+ "pool.b.verhandlung_praemien_gruss": [
+  "Good day, this is the agent for {name}, thank you for your time.",
+  "Good day, I am calling on behalf of my client {name} to raise the subject of bonuses."
+ ],
+ "pool.b.verhandlung_praemien_lage": [
+  "{name} wants a bigger share of his pay tied to performance, and I have concrete ideas for it.",
+  "For {name} we need a bonus model that makes his performance count."
+ ],
+ "pool.b.verhandlung_praemien_lage.hitzig": [
+  "{name} is fuming because his goals and appearances have never been worth a cent in his contract!",
+  "My client is furious that he sees nothing extra for goals and games!"
+ ],
+ "pool.b.verhandlung_praemien_lage.loyal": [
+  "{name} wants to meet the club halfway and will gladly carry more risk as long as it is shared fairly.",
+  "He would give up part of his fixed pay for the club if the bonuses are right."
+ ],
+ "pool.b.verhandlung_praemien_lage.ehrgeizig": [
+  "{name} wants to be judged on goals and trophies and demands a proper share for them.",
+  "My client believes in his numbers and wants to earn from them."
+ ],
+ "pool.b.verhandlung_praemien_lage.wechselfreudig": [
+  "{name} is comparing bonuses elsewhere and counting every cent.",
+  "My client has offers with hefty success bonuses on the table."
+ ],
+ "pool.b.verhandlung_praemien_lage.sensibel": [
+  "{name} worries about a sudden money drop during a bad patch and wants a cushion.",
+  "He is afraid of being punished for one weak month and wants a safe framework."
+ ],
+ "pool.b.verhandlung_handgeld_gruss": [
+  "Good day, I am writing to you on behalf of {name}.",
+  "Good day, enclosed is the position of my client {name} on the signing."
+ ],
+ "pool.b.verhandlung_handgeld_lage": [
+  "{name} expects a signing bonus for his signature, as is usual for contract extensions.",
+  "For {name}'s signature a loyalty bonus should be paid, that is market standard."
+ ],
+ "pool.b.verhandlung_handgeld_lage.hitzig": [
+  "{name} gets short-tempered if he is not rewarded for signing!",
+  "My client sees no reason to sign without a bonus, and I say that unfiltered!"
+ ],
+ "pool.b.verhandlung_handgeld_lage.loyal": [
+  "{name} would stay even without extras, but a sign of appreciation would be fitting.",
+  "He is attached to the club, and a loyalty bonus would show that it is noticed."
+ ],
+ "pool.b.verhandlung_handgeld_lage.ehrgeizig": [
+  "{name} sees a signing bonus as recognition of his market value.",
+  "My client regards himself as a key performer, and the signing bonus should reflect that."
+ ],
+ "pool.b.verhandlung_handgeld_lage.wechselfreudig": [
+  "{name} knows other clubs offer high signing bonuses and weighs that against you.",
+  "Elsewhere a decent sum awaits him for signing, I need not hide that from you."
+ ],
+ "pool.b.verhandlung_handgeld_lage.sensibel": [
+  "{name} feels somewhat devalued if there is no gesture for his signature.",
+  "For him it is less about the sum than about the signal that comes with it."
+ ],
+ "pool.b.verhandlung_laufzeit_gruss": [
+  "Good day, this is the agent for {name}, and it is about the contract length.",
+  "Good day, I am calling about the length of the deal for {name}."
+ ],
+ "pool.b.verhandlung_laufzeit_lage": [
+  "Between us stands the question whether {name} signs short or long.",
+  "With {name} everything revolves around the contract length, and the ideas are worlds apart."
+ ],
+ "pool.b.verhandlung_laufzeit_lage.hitzig": [
+  "{name} will not be forced into a long contract and gets loud when anyone tries!",
+  "My client will not be shackled, least of all for years!"
+ ],
+ "pool.b.verhandlung_laufzeit_lage.loyal": [
+  "{name} would gladly commit to the club for the long term if the terms are right.",
+  "He sees his future here, and the length should show that."
+ ],
+ "pool.b.verhandlung_laufzeit_lage.ehrgeizig": [
+  "{name} wants to stay flexible so he is not blocked at the next step of his career.",
+  "My client fully expects to get bigger tasks soon and needs room for that."
+ ],
+ "pool.b.verhandlung_laufzeit_lage.wechselfreudig": [
+  "{name} likes short contracts because they keep every door open for him each year.",
+  "He does not want to commit, a year here, then we will see."
+ ],
+ "pool.b.verhandlung_laufzeit_lage.sensibel": [
+  "{name} is looking for stability and worries about facing an uncertain future again after a year.",
+  "He needs security for planning and dreads any uncertainty at the end of a short contract."
+ ]
+}

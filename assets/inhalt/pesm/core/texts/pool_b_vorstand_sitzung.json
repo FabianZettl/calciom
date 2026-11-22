@@ -1,0 +1,114 @@
+{
+ "pool.b.vorstand_stadionausbau_gruss": [
+  "Guten Tag, ich komme heute mit einem Vorhaben zu Ihnen, das den Verein prägen wird.",
+  "Guten Tag, hier der Präsident, und es geht um die Zukunft unseres Stadions."
+ ],
+ "pool.b.vorstand_stadionausbau_lage": [
+  "Der Vorstand will das Stadion ausbauen, und die Pläne liegen bereits auf dem Tisch.",
+  "Ein größeres Stadion ist im Vorstand beschlossene Sache, offen ist nur noch, wie wir es bezahlen."
+ ],
+ "pool.b.vorstand_stadionausbau_lage.hitzig": [
+  "Wir bauen aus, und zwar bald! Jetzt will ich wissen, ob Sie dahinterstehen oder im Weg!",
+  "Ich dulde keine Verzögerung beim Ausbau, also sagen Sie mir klar, was Sie davon halten!"
+ ],
+ "pool.b.vorstand_stadionausbau_lage.loyal": [
+  "Sie kennen den Verein und seine Tribünen wie kaum ein anderer, deshalb möchte ich Ihren Rat beim Ausbau.",
+  "Wir haben vieles gemeinsam geschafft, und diesen Schritt möchte ich nicht ohne Sie gehen."
+ ],
+ "pool.b.vorstand_stadionausbau_lage.ehrgeizig": [
+  "Ein größeres Stadion bedeutet größere Ziele, und ich will sehen, ob die Mannschaft das trägt.",
+  "Mit mehr Plätzen steigen die Ansprüche. Das ist die Chance, den Verein eine Stufe höher zu heben."
+ ],
+ "pool.b.vorstand_stadionausbau_lage.wechselfreudig": [
+  "Bauten halten Jahrzehnte, Trainer oft nur Jahre, deshalb frage ich offen, ob Sie langfristig denken.",
+  "Ein Ausbau bindet den Verein auf lange Sicht, und ich möchte wissen, ob Sie diesen Weg mitgehen."
+ ],
+ "pool.b.vorstand_stadionausbau_lage.sensibel": [
+  "Ich weiß, dass Baukosten schwer auf der Mannschaft lasten können, deshalb spreche ich es früh und offen an.",
+  "Mir liegt daran, dass Sie sich bei diesem Vorhaben nicht übergangen fühlen."
+ ],
+ "pool.b.vorstand_sparrunde_gruss": [
+  "Guten Tag, ich muss Sie heute mit einem unerfreulichen Thema aufsuchen.",
+  "Guten Tag, hier der Präsident, und es geht ums Geld, leider nicht um das gute."
+ ],
+ "pool.b.vorstand_sparrunde_lage": [
+  "Die Finanzen des Vereins sind angespannt, und der Vorstand sieht keinen Weg an Einsparungen vorbei.",
+  "Der Verein gibt mehr aus, als er einnimmt, und der Vorstand verlangt, dass sich das ändert."
+ ],
+ "pool.b.vorstand_sparrunde_lage.hitzig": [
+  "Es wird gespart, und zwar sofort! Wer das für übertrieben hält, hat die Zahlen nicht gesehen!",
+  "Ich will keine Ausreden hören, sondern Einsparungen, und zwar noch in dieser Runde!"
+ ],
+ "pool.b.vorstand_sparrunde_lage.loyal": [
+  "Ich bitte Sie als jemanden, der den Verein liebt, uns durch diese schwere Zeit zu begleiten.",
+  "Sie haben dem Verein immer beigestanden, und ich hoffe, Sie tun es auch jetzt."
+ ],
+ "pool.b.vorstand_sparrunde_lage.ehrgeizig": [
+  "Ich weiß, dass Sie hoch hinauswollen, aber ohne gesunde Finanzen bleibt jeder Plan Papier.",
+  "Sparen ist kein Verzicht auf Ehrgeiz, sondern seine Voraussetzung, und das müssen Sie mittragen."
+ ],
+ "pool.b.vorstand_sparrunde_lage.wechselfreudig": [
+  "Ich möchte offen wissen, ob Sie auch bei knappen Mitteln bleiben, denn andere Vereine locken mit mehr Geld.",
+  "Wer gehen will, wenn es eng wird, soll es jetzt sagen, damit wir planen können."
+ ],
+ "pool.b.vorstand_sparrunde_lage.sensibel": [
+  "Mir ist bewusst, dass Sparen im Kader Menschen trifft, und deshalb spreche ich es behutsam an.",
+  "Ich will, dass Sie die Entscheidung nicht als Misstrauen verstehen, sondern als Notwendigkeit."
+ ],
+ "pool.b.vorstand_sponsor_druck_gruss": [
+  "Guten Tag, ich komme gerade aus einem Gespräch, das mir nicht ganz gefallen hat.",
+  "Guten Tag, hier der Präsident, und ich habe Post von unserem wichtigsten Geldgeber im Gepäck."
+ ],
+ "pool.b.vorstand_sponsor_druck_lage": [
+  "Ein Sponsor drängt auf mehr Präsenz und bessere Ergebnisse, und der Vorstand gibt diesen Druck an Sie weiter.",
+  "Unser Geldgeber ist unzufrieden mit dem Auftritt der Mannschaft und macht den Vorstand dafür verantwortlich."
+ ],
+ "pool.b.vorstand_sponsor_druck_lage.hitzig": [
+  "Der Sponsor droht mit Konsequenzen, und ich will nicht, dass wir deswegen blamiert dastehen!",
+  "Ich lasse mir von keinem Geldgeber die Bühne nehmen, also liefern Sie gefälligst Ergebnisse!"
+ ],
+ "pool.b.vorstand_sponsor_druck_lage.loyal": [
+  "Ich stelle mich vor Sie, aber ich brauche etwas, das ich dem Geldgeber vorzeigen kann.",
+  "Sie haben dem Verein immer gedient, und ich möchte Sie gegen diesen Druck schützen, soweit ich kann."
+ ],
+ "pool.b.vorstand_sponsor_druck_lage.ehrgeizig": [
+  "Ein zufriedener Sponsor ist die Eintrittskarte in höhere Sphären, und diese Chance sollten wir nicht verspielen.",
+  "Wenn wir den Geldgeber überzeugen, öffnen sich Türen, die lange verschlossen waren."
+ ],
+ "pool.b.vorstand_sponsor_druck_lage.wechselfreudig": [
+  "Geldgeber kommen und gehen, und ich frage mich, ob Sie sich auf diesen Wettlauf überhaupt einlassen wollen.",
+  "Ich möchte offen wissen, ob Sie die Anforderungen eines Sponsors langfristig mittragen."
+ ],
+ "pool.b.vorstand_sponsor_druck_lage.sensibel": [
+  "Ich weiß, dass Druck von außen unangenehm ist, und ich möchte ihn nicht ungefiltert an Sie weitergeben.",
+  "Es liegt mir fern, Sie zu belasten, aber der Geldgeber wartet auf eine Antwort."
+ ],
+ "pool.b.vorstand_fanproteste_gruss": [
+  "Guten Tag, ich komme direkt von den Rängen, und die Stimmung dort ist alles andere als gut.",
+  "Guten Tag, hier der Präsident, und ich habe eine Sitzung einberufen, die wir beide nicht wollten."
+ ],
+ "pool.b.vorstand_fanproteste_lage": [
+  "Die Fans protestieren offen gegen die Lage im Verein, und der Vorstand verlangt von Ihnen eine Antwort.",
+  "Auf den Rängen wird gepfiffen, und Spruchbänder sind aufgetaucht. Der Vorstand erwartet, dass Sie Stellung nehmen."
+ ],
+ "pool.b.vorstand_fanproteste_lage.hitzig": [
+  "Diese Pfiffe sind eine Schande, und ich will wissen, was Sie dagegen tun, und zwar auf der Stelle!",
+  "Ich lasse mir den Verein nicht von der Kurve vorführen, also sagen Sie mir, wie Sie das beenden!"
+ ],
+ "pool.b.vorstand_fanproteste_lage.loyal": [
+  "Ich weiß, dass Ihnen der Verein am Herzen liegt, und gerade deshalb brauche ich Ihre Antwort an die Fans.",
+  "Die Anhänger sind enttäuscht, aber ich glaube, dass Sie mit ihnen reden können, wenn jemand es kann."
+ ],
+ "pool.b.vorstand_fanproteste_lage.ehrgeizig": [
+  "Wenn wir die Fans zurückgewinnen, tragen sie uns wieder nach oben, und dafür müssen wir jetzt handeln.",
+  "Der Protest ist auch eine Chance zu zeigen, dass wir mehr wollen als das, was gerade zu sehen ist."
+ ],
+ "pool.b.vorstand_fanproteste_lage.wechselfreudig": [
+  "Ich frage mich, ob Sie sich diesem Gegenwind stellen oder lieber das Weite suchen würden.",
+  "Fanproteste sind kein angenehmer Ort, und ich will wissen, ob Sie bleiben und die Lage klären."
+ ],
+ "pool.b.vorstand_fanproteste_lage.sensibel": [
+  "Ich weiß, dass solche Pfiffe an einem nagen, und ich möchte Sie nicht überfahren, sondern anhören.",
+  "Mir ist wichtig, dass Sie sich in dieser Lage nicht allein fühlen, auch wenn der Vorstand eine Antwort braucht."
+ ]
+}

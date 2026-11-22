@@ -1,0 +1,15 @@
+{
+  "note.komma": ".",
+  "note.quelle.geschaetzt": "estimated",
+  "note.quelle.keine": "no rating",
+  "note.quelle.spiel": "Rated by the game",
+  "note.satz": "%1: %2",
+  "note.satz_ohne": "No appearances yet, so no rating.",
+  "note.treiber.ausgeglichen": "balanced",
+  "note.treiber.spiel.minus": "weak matches",
+  "note.treiber.spiel.plus": "strong matches",
+  "note.treiber.training.minus": "weak in training (approximation)",
+  "note.treiber.training.plus": "strong in training (approximation)",
+  "note.treiber.verhalten.minus": "conduct is a concern",
+  "note.treiber.verhalten.plus": "exemplary conduct"
+}

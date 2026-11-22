@@ -1,0 +1,163 @@
+# Einstufung des Posteingangs (docs/intern/POSTEINGANG.md). Startwerte, gemessen mit tools/posteingang_messen.py, nicht im echten Spiel geprüft.
+# Stufen: eil (Eilmeldung: Popup, unterbricht) · dringend (oben, rotes Abzeichen, kein Popup) · normal (wichtig zu wissen) · hintergrund (nur Archiv/Welt, nie Abzeichen).
+# Die Grundstufe kommt aus der ersten passenden Regel; danach heben oder senken Bezug, Frist, Betrag und Beziehung (Abschnitt [hebung]).
+# Felder einer Regel: quelle, anlass, thema, kategorie, kanal (Listen; anlass/thema als Anfang des Worts), ergebnis (kontext.drama.ergebnis); grund = Textschlüssel es.grund.<grund>.
+
+[grenzen]
+eil_je_tag = 3              # höchstens so viele Eilmeldungen je Spieltag (kritische Systemmeldungen zählen nicht mit)
+eil_je_thema_tag = 1        # höchstens eine Eilmeldung je Thema (Faden) und Tag
+eil_alter_tage = 1          # nur, was heute oder gestern kam, darf noch unterbrechen (Nachgeholtes nie)
+normal_ungelesen_max = 24   # mehr ungelesene Normalmeldungen ohne Entscheidung: die ältesten werden Hintergrund (Wochenübersicht statt Stapel)
+hintergrund_archiv_tage = 3 # Hintergrund wandert nach so vielen Tagen still ins Archiv (umkehrbar)
+woche_zeilen = 12           # so viele Zeilen trägt die Wochenübersicht einzeln, der Rest steht als „und N weitere“
+popup_abstand_s = 6         # Oberfläche: Mindestabstand zwischen zwei Eilmeldungen
+frist_tage = 1              # Frist heute oder morgen: mindestens dringend
+
+[hebung]
+stamm_einsatz = 0.55        # Einsatzanteil, ab dem ein Spieler als Stammkraft zählt (sonst die stärksten elf des Kaders)
+stamm_n = 11
+ausfall_eil_tage = 14       # Stammkraft fällt so lange aus: Eilmeldung
+betrag_eil = 30000000       # Angebot/Ablöse ab diesem Betrag (Euro): eine Stufe höher
+stimmung_gereizt = 30       # Gesprächspartner mit so schlechter Stimmung (0..100): eine Stufe höher
+# Kategorien, in denen der Bezug zum eigenen Kader eine Stufe hebt (Stammkraft) bzw. Ferne senkt (fremder Spieler ohne Shortlist)
+stamm_kategorien = ["transfer", "geruecht", "vertrag", "medizin", "angebot"]
+fern_kategorien = ["transfer", "geruecht"]
+
+[faden]                     # Gruppe eines Fadens mit Spielerbezug (sonst: gleiche Art ohne Entscheidung = ein Faden)
+markt = ["transfer", "geruecht", "angebot", "drama_hijack", "drama_nachforderung", "drama_medizin", "drama_verhandlung", "verkauf", "kauf"]
+vertrag = ["vertrag", "verhandlung_", "berater_", "auslaufend", "gehalt", "drama_vertrag", "vertrags_poker"]
+medizin = ["medizin", "verletzung", "genesen", "ausfall", "rueckkehr", "belastung"]
+
+[welt]                      # Meldungen der Weltsimulation (fl_meldung): Art -> Stufe für den eigenen Verein; fremde Vereine sind Hintergrund (nur diese Arten kommen überhaupt)
+eigen = { title = "eil", sack = "eil", contract = "normal", transfer = "normal", event = "normal", press = "normal", uefa = "normal", retire = "normal", finance = "normal" }
+nie_eigen = ["match", "injury"]          # stehen schon als Spielbericht bzw. Medizin-Vorgang da (keine Doppel)
+sichtbar_fremd = ["title", "transfer", "sack", "retire"]
+
+[[regel]]
+quelle = ["system"]
+anlass = ["kritisch"]
+stufe = "eil"
+grund = "system_kritisch"
+kritisch = true
+
+[[regel]]
+quelle = ["system"]
+anlass = ["fehler"]
+stufe = "normal"
+grund = "system_fehler"
+
+[[regel]]
+quelle = ["system"]
+stufe = "hintergrund"
+grund = "system_info"
+
+[[regel]]
+quelle = ["drama"]
+anlass = ["drama_medizin"]
+ergebnis = ["durchgefallen"]
+stufe = "eil"
+grund = "medizin_durchgefallen"
+
+[[regel]]
+quelle = ["drama"]
+anlass = ["drama_hijack", "drama_streik", "drama_deadline"]
+stufe = "eil"
+grund = "drama"
+
+[[regel]]
+quelle = ["drama"]
+anlass = ["drama_verhandlung"]
+ergebnis = ["platzt", "abbruch", "abgebrochen", "geplatzt"]
+stufe = "eil"
+grund = "deal_geplatzt"
+
+[[regel]]
+quelle = ["drama"]
+stufe = "dringend"
+grund = "drama_frist"
+
+[[regel]]
+anlass = ["transfer_abgeschlossen", "verkauf_vollzogen", "transfer_geplatzt_spaet", "transfer_hijack"]
+stufe = "eil"
+grund = "transfer_eigen"
+
+[[regel]]
+anlass = ["praesidium_ultimatum", "praesidium_entlassung", "vorstand_ultimatum", "trainer_ultimatum"]
+stufe = "eil"
+grund = "vorstand_ultimatum"
+
+[[regel]]
+anlass = ["wechselwunsch", "spieler_streik"]
+stufe = "eil"
+grund = "wechselwunsch"
+
+[[regel]]
+quelle = ["saisonabschluss"]
+stufe = "eil"
+grund = "saison_entschieden"
+
+[[regel]]
+anlass = ["saisonziel_erreicht", "saisonziel_verfehlt"]
+stufe = "eil"
+grund = "saison_entschieden"
+
+[[regel]]
+anlass = ["angebot_eingegangen", "vertrags_poker", "vertrag_laeuft_aus", "spieler_unzufrieden", "vertrauen_sinkt", "vorstand_nach_niederlagen"]
+stufe = "dringend"
+grund = "antwort_noetig"
+
+[[regel]]
+kanal = ["verhandlungstisch"]
+stufe = "dringend"
+grund = "verhandlung"
+
+[[regel]]
+kanal = ["pressekonferenz"]
+stufe = "dringend"
+grund = "pressetermin"
+
+[[regel]]
+kanal = ["sitzung"]
+stufe = "dringend"
+grund = "sitzung"
+
+[[regel]]
+anlass = ["verletzung", "ausfall"]
+stufe = "normal"
+grund = "verletzung"
+
+[[regel]]
+quelle = ["medizin", "medizin_rotation"]
+stufe = "normal"
+grund = "medizin"
+
+[[regel]]
+quelle = ["bericht"]
+anlass = ["geruecht"]
+stufe = "normal"
+grund = "geruecht"
+
+[[regel]]
+quelle = ["bericht"]
+anlass = ["woche", "sammel"]
+stufe = "normal"
+grund = "sammel"
+
+[[regel]]
+quelle = ["bericht"]
+stufe = "normal"
+grund = "bericht"
+
+[[regel]]
+quelle = ["gespraech", "anliegen", "pool"]
+stufe = "normal"
+grund = "gespraech"
+
+[[regel]]
+quelle = ["scouting", "entwicklung", "trainingsplan", "trainingswahl", "wirtschaft", "kaderlage", "jugend_befoerderung", "jugend_leihe", "jugend_vertrag", "jugend_mentor", "akademie_bericht"]
+stufe = "normal"
+grund = "bericht"
+
+[[regel]]
+stufe = "normal"
+grund = "standard"

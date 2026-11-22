@@ -1,0 +1,462 @@
+{
+ "pool.reservist_unzufrieden.e.e1": [
+  "{b.gruss} {b.reservist_unzufrieden_klage} Ich erwarte keine Wunder, aber ich würde gern wissen, woran ich bin.",
+  "{b.gruss} {b.reservist_unzufrieden_klage} Mir ist klar, dass andere vor mir stehen. Nur sagt mir das niemand ins Gesicht."
+ ],
+ "pool.reservist_unzufrieden.e.e2": [
+  "{b.gruss} {b.reservist_unzufrieden_klage} Ist da noch eine Rolle für mich vorgesehen, oder bin ich nur Kaderfüller?",
+  "{b.gruss} {b.reservist_unzufrieden_klage} Sag mir ehrlich, ob ich noch eine Chance habe."
+ ],
+ "pool.reservist_unzufrieden.e.e3": [
+  "{b.gruss} {b.reservist_unzufrieden_klage} Ich bin ehrlich gesagt ziemlich unten, das beschäftigt mich auch zu Hause.",
+  "{b.gruss} {b.reservist_unzufrieden_klage} Es zieht mich runter, und ich will nicht, dass es mich im Training bremst."
+ ],
+ "pool.reservist_unzufrieden.e.e4": [
+  "{b.gruss} {b.reservist_unzufrieden_klage} Wenn ich nicht gebraucht werde, sag es mir, statt mich im Unklaren zu lassen!",
+  "{b.gruss} {b.reservist_unzufrieden_klage} Ich lasse mich nicht länger als Lückenbüßer behandeln."
+ ],
+ "pool.reservist_unzufrieden.e.e5": [
+  "{b.gruss} {b.reservist_unzufrieden_klage} Ich beschwere mich nicht gern, du hast sicher deine Gründe.",
+  "{b.gruss} {b.reservist_unzufrieden_klage} Ich stehe hinter dem Team, aber ein klares Wort würde mir helfen."
+ ],
+ "pool.reservist_unzufrieden.e.e6": [
+  "{b.gruss} {b.reservist_unzufrieden_klage} In meinem Alter will ich noch etwas erreichen und nicht nur zusehen.",
+  "{b.gruss} {b.reservist_unzufrieden_klage} Ich brauche Spiele, sonst verpasse ich die besten Jahre."
+ ],
+ "pool.reservist_unzufrieden.e.e7": [
+  "{b.gruss} {b.reservist_unzufrieden_klage} Es gibt Vereine, bei denen ich spielen würde, das sollst du wissen.",
+  "{b.gruss} {b.reservist_unzufrieden_klage} Ich überlege, ob eine Leihe nicht besser für mich wäre."
+ ],
+ "pool.reservist_unzufrieden.e.e8": [
+  "{b.gruss} {b.reservist_unzufrieden_klage} Ich habe Angst, dass ich hier vergessen werde.",
+  "{b.gruss} {b.reservist_unzufrieden_klage} Manchmal glaube ich, dass es keiner merkt, ob ich da bin oder nicht."
+ ],
+ "pool.reservist_unzufrieden.e.e9": [
+  "{b.gruss} {b.reservist_unzufrieden_klage} Du hattest mir Einsätze in Aussicht gestellt, passiert ist wenig.",
+  "{b.gruss} {b.reservist_unzufrieden_klage} Auf dein Wort von damals warte ich noch, eine Antwort wäre fair."
+ ],
+ "pool.neuzugang_aussen_vor.e.e1": [
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} Er isst allein, trainiert allein und geht allein heim.",
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} Ich wollte es dir sagen, bevor es sich festsetzt."
+ ],
+ "pool.neuzugang_aussen_vor.e.e2": [
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} Auf dem Platz spielt ihn kaum einer an, und in der Kabine bleibt er still.",
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} Die Mannschaft wirkt höflich, aber nicht offen zu ihm."
+ ],
+ "pool.neuzugang_aussen_vor.e.e3": [
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} Die Stimmung bei ihm ist schlecht, und das färbt auf die Gruppe ab.",
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} Wenn wir nicht bald etwas tun, kippt es."
+ ],
+ "pool.neuzugang_aussen_vor.e.e4": [
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} Das muss jetzt aufhören, wir verbrennen gutes Geld und gute Zeit!",
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} Entweder wir greifen ein, oder ich tue es auf meine Art."
+ ],
+ "pool.neuzugang_aussen_vor.e.e5": [
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} Ich fühle mich ein bisschen mitverantwortlich, und die Jungs sind eigentlich in Ordnung.",
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} Ich habe ihm Hilfe angeboten, aber er braucht mehr als mich."
+ ],
+ "pool.neuzugang_aussen_vor.e.e6": [
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} Er hat das Zeug, wir verschenken sein Potenzial, wenn wir nichts tun.",
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} Für das, was er gekostet hat, muss er schneller ankommen."
+ ],
+ "pool.neuzugang_aussen_vor.e.e7": [
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} Er hat mir schon angedeutet, dass er sich an alten Kontakten orientiert.",
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} Ich habe Sorge, dass er den Wechsel schon bereut."
+ ],
+ "pool.neuzugang_aussen_vor.e.e8": [
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} Es bricht mir fast das Herz, wie er jeden Tag allein dasteht.",
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} Er sagt nichts, aber man sieht, wie schwer es ihm fällt."
+ ],
+ "pool.neuzugang_aussen_vor.e.e9": [
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} Ich hatte dich schon einmal darauf angesprochen, und seither ist nichts geschehen.",
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} Du wolltest dich um die Sache kümmern, nur ist noch nichts passiert."
+ ],
+ "pool.formtief.e.e1": [
+  "{b.gruss} {b.formtief_lage} Ich weiß nicht mehr, was ich anders machen soll.",
+  "{b.gruss} {b.formtief_lage} Ich wollte mit dir reden, bevor es noch schlimmer wird."
+ ],
+ "pool.formtief.e.e2": [
+  "{b.gruss} {b.formtief_lage} Jeder Ball fühlt sich schwer an, und ich überlege zu viel.",
+  "{b.gruss} {b.formtief_lage} Ich weiß, dass es an mir liegt, nur nicht, wo ich ansetzen soll."
+ ],
+ "pool.formtief.e.e3": [
+  "{b.gruss} {b.formtief_lage} Ich bin mit den Nerven ziemlich am Ende, ehrlich gesagt.",
+  "{b.gruss} {b.formtief_lage} Ich schlafe schlecht und gehe mit schlechtem Gefühl zum Training."
+ ],
+ "pool.formtief.e.e4": [
+  "{b.gruss} {b.formtief_lage} Und dann lese ich auch noch, wie ich in der Zeitung zerrissen werde!",
+  "{b.gruss} {b.formtief_lage} Die Pfiffe der Fans machen es keinen Deut besser!"
+ ],
+ "pool.formtief.e.e5": [
+  "{b.gruss} {b.formtief_lage} Du hast immer an mich geglaubt, und ich will dich nicht enttäuschen.",
+  "{b.gruss} {b.formtief_lage} Ich weiß, was ich dir schulde, und will es wieder zeigen."
+ ],
+ "pool.formtief.e.e6": [
+  "{b.gruss} {b.formtief_lage} Ich will zurück in meine Form, und zwar schnell. Was brauche ich dafür?",
+  "{b.gruss} {b.formtief_lage} Gib mir einen Plan, ich arbeite jeden Tag extra."
+ ],
+ "pool.formtief.e.e7": [
+  "{b.gruss} {b.formtief_lage} Vielleicht wäre ein Neuanfang woanders das Beste.",
+  "{b.gruss} {b.formtief_lage} Ich weiß nicht, ob ich hier noch zu mir finde."
+ ],
+ "pool.formtief.e.e8": [
+  "{b.gruss} {b.formtief_lage} Ich komme mir vor, als hätte ich verlernt, Fußball zu spielen.",
+  "{b.gruss} {b.formtief_lage} Manchmal denke ich, ich bin gar nicht gut genug."
+ ],
+ "pool.formtief.e.e9": [
+  "{b.gruss} {b.formtief_lage} Du wolltest mir helfen, und bis jetzt habe ich davon nichts gemerkt.",
+  "{b.gruss} {b.formtief_lage} Deine Zusage von neulich hängt noch in der Luft."
+ ],
+ "pool.reservist_unzufrieden.a.a1": [
+  "Ich plane dich für die nächsten Spiele ein, vor allem in der Liga. In {frist} Tagen sprechen wir wieder.",
+  "Du bekommst Einsätze, das sage ich dir zu. Nach {frist} Tagen prüfen wir gemeinsam, wie es lief."
+ ],
+ "pool.reservist_unzufrieden.a.a2": [
+  "Ehrlich gesagt: Auf deiner Position stehen zwei vor dir. Das ist keine Kritik an dir, aber ich will dir nichts vormachen.",
+  "Du bist wichtig für die Breite des Kaders, und trotzdem spielst du nur, wenn jemand ausfällt. Das musst du wissen."
+ ],
+ "pool.reservist_unzufrieden.a.a3": [
+  "Es bleibt noch eine Weile so, aber halte durch, deine Zeit kommt noch.",
+  "Ich verstehe dich. Gib mir etwas Zeit, es ergibt sich in der Saison immer noch etwas."
+ ],
+ "pool.reservist_unzufrieden.a.a4": [
+  "Ich stelle den auf, der in dieser Woche am besten trainiert. Das warst du nicht.",
+  "Nein. Du hast keinen Anspruch auf Einsätze, und ich verspreche dir auch keine."
+ ],
+ "pool.reservist_unzufrieden.a.a5": [
+  "Ich sehe, dass es dich belastet. Du bekommst eine Prämie für deine Arbeit im Training, und ich plane dich fest in der Rotation ein.",
+  "Für deine Einstellung zahle ich dir etwas obendrauf. Das gilt unabhängig von den Spielen."
+ ],
+ "pool.reservist_unzufrieden.a.a6": [
+  "Was würdest du an meiner Stelle tun?",
+  "Sag mir, was du dir konkret vorstellst, dann sehen wir, was möglich ist."
+ ],
+ "pool.reservist_unzufrieden.a.a7": [
+  "Du bleibst, was du bist: die Alternative. Wer Einsatz will, soll Leistung bringen, Schluss.",
+  "Ich ändere meinen Plan nicht, weil du unzufrieden bist. Damit musst du leben."
+ ],
+ "pool.reservist_unzufrieden.a.a8": [
+  "Das kann ich nachvollziehen. Dass du trotzdem jeden Tag arbeitest, sehe ich und schätze ich.",
+  "Bei dir zählt für mich mehr als die Minuten auf dem Platz. Ich merke, wie viel du für die Gruppe tust."
+ ],
+ "pool.reservist_unzufrieden.a.a9": [
+  "Sprich bitte mit dem Co-Trainer, er hat einen guten Überblick über die Einsatzplanung.",
+  "Das klärst du erst mit dem Stab. Danach komme ich gern darauf zurück."
+ ],
+ "pool.reservist_unzufrieden.a.a10": [
+  "Na, einen Platz im Bus hast du ja sicher. Ich gebe dir im Pokal und bei Rotation Einsätze, und die halte ich ein.",
+  "Ich nehme dich als festen Teil der Rotation, mit Handschlag. Wir sehen in {frist} Tagen, wie es läuft."
+ ],
+ "pool.reservist_unzufrieden.a.a11": [
+  "Wenn du mehr spielen willst, prüfe ich eine Leihe. Ich gebe dich frei, wenn sich ein passender Verein findet.",
+  "Ich gebe dir die Möglichkeit, dich auszuleihen. Innerhalb von {frist} Tagen schauen wir, was es gibt."
+ ],
+ "pool.reservist_unzufrieden.a.a12": [
+  "Wenn dir die Bank nicht passt, such dir was. Mir ist Disziplin wichtiger als dein Befinden.",
+  "Beschwer dich nicht, sondern drängle dich mit Leistung auf. Etwas anderes interessiert mich nicht."
+ ],
+ "pool.neuzugang_aussen_vor.a.a1": [
+  "Er spielt in den nächsten Partien von Beginn an, dann spürt er, dass wir ihn wollen. In {frist} Tagen sehen wir weiter.",
+  "Gib ihm Einsatzzeit, ich plane ihn fest ein. Wir ziehen nach {frist} Tagen Bilanz."
+ ],
+ "pool.neuzugang_aussen_vor.a.a2": [
+  "Schalte den Stab ein: Mentalcoach, Physio und Betreuer sollen sich um ihn kümmern und mir berichten.",
+  "Bitte den Staff um einen Plan für seine Eingewöhnung. Ich will, dass ihn jeder Tag jemand abholt."
+ ],
+ "pool.neuzugang_aussen_vor.a.a3": [
+  "Wir setzen einen Mentor an seine Seite, am besten einen Ruhigen aus der Führungsgruppe. Frag, wer das übernehmen mag.",
+  "Gib ihm einen Paten im Team, der ihm Verein, Stadt und Abläufe zeigt."
+ ],
+ "pool.neuzugang_aussen_vor.a.a4": [
+  "Ich rede selbst mit ihm, unter vier Augen. Ich möchte hören, wie er sich fühlt.",
+  "Lass mich ein Gespräch mit ihm führen, ohne Druck. Er soll merken, dass wir hinter ihm stehen."
+ ],
+ "pool.neuzugang_aussen_vor.a.a5": [
+  "Geben wir ihm noch etwas Zeit, jeder braucht seine Wochen, bis er ankommt.",
+  "Ich weiß, dass es dich drängt. Warten wir noch ein paar Spiele ab, dann entscheide ich."
+ ],
+ "pool.neuzugang_aussen_vor.a.a6": [
+  "Er ist Profi und kein Kind. Er muss sich selbst durchbeißen.",
+  "Wer neu kommt, muss sich beweisen. Hilfe gibt es nicht, nur Spiele."
+ ],
+ "pool.neuzugang_aussen_vor.a.a7": [
+  "Woran machst du es fest, und was beobachtest du im Training genau?",
+  "Erzähl mir, wie es dir im Alltag auffällt. Dann überlege ich, was zu tun ist."
+ ],
+ "pool.neuzugang_aussen_vor.a.a8": [
+  "Ich habe ihn bewusst noch nicht gebracht, neue Abläufe brauchen Zeit. Das hat mit ihm nichts zu tun.",
+  "Wir haben seine Rolle noch nicht festgelegt, und das ist mein Fehler. Ich kläre das in Ruhe."
+ ],
+ "pool.neuzugang_aussen_vor.a.a9": [
+  "Es gibt keinen Sonderweg. Wer hier spielen will, passt sich an.",
+  "Ich ändere nichts wegen eines Einzelnen. Die Gruppe geht vor."
+ ],
+ "pool.neuzugang_aussen_vor.a.a10": [
+  "Dann schick ihn halt zu einem Kaffee mit dem Kapitän, das hat bei dir selbst geholfen. Erzähl mir danach, was passiert ist.",
+  "Vielleicht fehlt ihm nur ein Anlass zum Lachen. Das Training können wir lockerer machen."
+ ],
+ "pool.neuzugang_aussen_vor.a.a11": [
+  "Das ist nicht meine Aufgabe, sondern deine. Erledige es und lass mich damit in Ruhe.",
+  "Ich bin Trainer, kein Kindermädchen. Lös es selbst."
+ ],
+ "pool.neuzugang_aussen_vor.a.a12": [
+  "Wir machen einen Mannschaftsabend auf Vereinskosten. Das lockert und bringt den Neuen mit den Jungs zusammen.",
+  "Ich zahle einen gemeinsamen Abend für die ganze Truppe, Tisch und Essen inklusive. Er soll mittendrin sein."
+ ],
+ "pool.neuzugang_aussen_vor.a.a13": [
+  "Ich gebe ihm eine klare Aufgabe im Spiel und im Team, damit er weiß, wofür er da ist. Bis dahin mache ich dir eine feste Zusage.",
+  "Er bekommt eine feste Rolle mit Verantwortung. In {frist} Tagen schaue ich, ob sie ihm passt."
+ ],
+ "pool.formtief.a.a1": [
+  "Ich vertraue dir, du spielst weiter. Wir machen das gemeinsam, und in {frist} Tagen reden wir wieder.",
+  "Du bleibst in der Elf, das ist beschlossen. Keine Sorge, es kommt zurück."
+ ],
+ "pool.formtief.a.a2": [
+  "Ich sehe, wie sehr dich das beschäftigt, und das ist in Ordnung. Du bist mehr als die letzten Spiele, und ich stehe hinter dir.",
+  "Du darfst auch mal schlecht spielen. Wichtig ist, dass du weißt: Ich glaube an dich."
+ ],
+ "pool.formtief.a.a3": [
+  "Eine Formdelle ist normal. Deine Laufwerte und Chancen stimmen, nur das Glück fehlt gerade.",
+  "Schauen wir nüchtern hin: Die Zahlen sind besser, als es sich anfühlt. Das dreht sich."
+ ],
+ "pool.formtief.a.a4": [
+  "Das geht vorbei, das ist jedem schon passiert. Mach dich nicht verrückt.",
+  "Gib dem Ganzen ein paar Wochen, bis dahin brauchst du nicht zu grübeln."
+ ],
+ "pool.formtief.a.a5": [
+  "Dann spiel eben besser. Mit Jammern ändern wir nichts.",
+  "Die Formkurve ist deine Sache. Ich stelle den auf, der es bringt."
+ ],
+ "pool.formtief.a.a6": [
+  "Was geht dir im Spiel durch den Kopf, wenn dir der Ball zugespielt wird?",
+  "Wann hat es angefangen? Erzähl mir, was sich bei dir seitdem verändert hat."
+ ],
+ "pool.formtief.a.a7": [
+  "Wer nicht liefert, sitzt auf der Bank. So einfach ist das.",
+  "Ich nehme keine Rücksicht auf Gefühle, solange die Leistung fehlt."
+ ],
+ "pool.formtief.a.a8": [
+  "Sprich mit dem Mentalcoach und dem Athletiktrainer, die schauen sich deine Belastung an.",
+  "Ich bitte den Stab, sich um dich zu kümmern. Danach reden wir, was sie festgestellt haben."
+ ],
+ "pool.formtief.a.a9": [
+  "Du bekommst einen freien Tag, und wir buchen dir einen Spezialisten für ein paar Einheiten. Ein Lachen im Training schadet auch nicht.",
+  "Ich spendiere dir Einzelstunden mit einem Fachmann. Das ist eine Investition in dich."
+ ],
+ "pool.formtief.a.a10": [
+  "Na, so schlimm ist es nicht. Du spielst die nächsten Spiele durch, das ist mein Wort, und im Training darfst du gern mal wieder treffen.",
+  "Mit Handschlag: Du stehst in den nächsten Wochen in der Startelf, ganz gleich, wie es läuft. Frist: {frist} Tage."
+ ],
+ "pool.formtief.a.a11": [
+  "Reiß dich zusammen. Formtief ist keine Entschuldigung.",
+  "Ich will kein Selbstmitleid sehen, sondern Einsatz. Mehr gibt es dazu nicht."
+ ],
+ "pool.formtief.a.a12": [
+  "Ich nehme dich ein oder zwei Spiele raus, damit du den Kopf frei bekommst. Es ist keine Strafe.",
+  "Ein kurzer Abstand tut manchmal gut. Du schaust von außen zu und kommst gestärkt zurück."
+ ],
+ "pool.reservist_unzufrieden.r.r1": [
+  "{b.gut} Das ist mehr, als ich erwartet habe.",
+  "{b.gut} Danke, dass du so offen mit mir bist."
+ ],
+ "pool.reservist_unzufrieden.r.r2": [
+  "{b.gut} Ich arbeite weiter für die Mannschaft, wie bisher.",
+  "{b.gut} Das ist fair, damit kann ich leben."
+ ],
+ "pool.reservist_unzufrieden.r.r3": [
+  "{b.gut} Dann halte ich mich bereit, wenn du mich brauchst.",
+  "{b.gut} Das ist die Chance, die ich brauche."
+ ],
+ "pool.reservist_unzufrieden.r.r4": [
+  "{b.gut} Das gibt mir das Gefühl, dass ich zähle.",
+  "{b.gut} Das hilft mir mehr, als du denkst."
+ ],
+ "pool.reservist_unzufrieden.r.r5": [
+  "{b.neutral} Mal sehen, wie viel davon wirklich eintritt.",
+  "{b.neutral} Ich nehme es mit und denke darüber nach."
+ ],
+ "pool.reservist_unzufrieden.r.r6": [
+  "{b.neutral} Ich weiß nicht, ob ich damit zufrieden sein soll.",
+  "{b.neutral} Ich bin nicht sicher, was ich davon halten soll."
+ ],
+ "pool.reservist_unzufrieden.r.r7": [
+  "{b.neutral} Ich muss schauen, wie sich das im Training anfühlt.",
+  "{b.neutral} Gut, dann warte ich ab."
+ ],
+ "pool.reservist_unzufrieden.r.r8": [
+  "{b.neutral} Ich bleibe locker und schaue, was kommt.",
+  "{b.neutral} Kein Problem, ich mache einfach weiter."
+ ],
+ "pool.reservist_unzufrieden.r.r9": [
+  "{b.schlecht} Das ändert für mich nichts.",
+  "{b.schlecht} So geht man nicht mit einem Spieler um."
+ ],
+ "pool.reservist_unzufrieden.r.r10": [
+  "{b.schlecht} Das lasse ich mir nicht bieten, ich habe es satt!",
+  "{b.schlecht} Dann bleibe ich eben der Zuschauer, danke für nichts!"
+ ],
+ "pool.reservist_unzufrieden.r.r11": [
+  "{b.schlecht} Dann lasse ich mir von meinem Berater Angebote zeigen.",
+  "{b.schlecht} Ich weiß, wo ich spielen kann, und es ist nicht hier."
+ ],
+ "pool.reservist_unzufrieden.r.r12": [
+  "{b.schlecht} Nach all den Jahren hätte ich mehr Respekt erwartet.",
+  "{b.schlecht} Ich habe immer still gehalten, und das ist der Dank."
+ ],
+ "pool.neuzugang_aussen_vor.r.r1": [
+  "{b.gut} Gut, das trägt, ich kümmere mich gleich darum.",
+  "{b.gut} Danke, so kann ich arbeiten."
+ ],
+ "pool.neuzugang_aussen_vor.r.r2": [
+  "{b.gut} Ich bleibe an ihm dran, und die Jungs ziehen bestimmt mit.",
+  "{b.gut} Wir kriegen das gemeinsam hin, da bin ich sicher."
+ ],
+ "pool.neuzugang_aussen_vor.r.r3": [
+  "{b.gut} Dann hole ich das Beste aus ihm heraus, versprochen.",
+  "{b.gut} Das ist genau der Hebel, den ich gebraucht habe."
+ ],
+ "pool.neuzugang_aussen_vor.r.r4": [
+  "{b.gut} Das beruhigt mich sehr, ich war mir nicht sicher, ob du es ernst nimmst.",
+  "{b.gut} Danke, dass du dir Zeit dafür nimmst."
+ ],
+ "pool.neuzugang_aussen_vor.r.r5": [
+  "{b.neutral} Wir probieren es und sehen, was die nächsten Wochen bringen.",
+  "{b.neutral} Okay, ich setze es so um und gebe dir Rückmeldung."
+ ],
+ "pool.neuzugang_aussen_vor.r.r6": [
+  "{b.neutral} Mir fehlt noch das Gefühl, dass es reicht, aber ich versuche es.",
+  "{b.neutral} Ich bin nicht überzeugt, aber ich folge dir."
+ ],
+ "pool.neuzugang_aussen_vor.r.r7": [
+  "{b.neutral} Wir sehen es in der Kabine, wenn es wirkt.",
+  "{b.neutral} Ich beobachte weiter und melde mich wieder."
+ ],
+ "pool.neuzugang_aussen_vor.r.r8": [
+  "{b.neutral} Ich mache es ohne große Worte so, wie du sagst.",
+  "{b.neutral} Gut, dann machen wir es so und schauen zu."
+ ],
+ "pool.neuzugang_aussen_vor.r.r9": [
+  "{b.schlecht} Das hilft uns nicht, und der Junge geht daran kaputt.",
+  "{b.schlecht} So kommen wir nicht weiter, und das weißt du."
+ ],
+ "pool.neuzugang_aussen_vor.r.r10": [
+  "{b.schlecht} Dann mache ich es eben allein, aber du trägst die Folgen!",
+  "{b.schlecht} Ich fasse es nicht, dass du das so abtust!"
+ ],
+ "pool.neuzugang_aussen_vor.r.r11": [
+  "{b.schlecht} Ich sehe schon, dass das Thema bei dir nicht zählt, dann suche ich mir andere Wege.",
+  "{b.schlecht} Wenn das so ist, muss ich mir überlegen, wo ich hier hingehöre."
+ ],
+ "pool.neuzugang_aussen_vor.r.r12": [
+  "{b.schlecht} Das enttäuscht mich, ich hatte mehr Rückhalt von dir erwartet.",
+  "{b.schlecht} Dass du dich so verhältst, trifft mich, nach allem, was wir geleistet haben."
+ ],
+ "pool.formtief.r.r1": [
+  "{b.gut} Das hilft mir, ich fühle mich gleich leichter.",
+  "{b.gut} Danke, dass du mich nicht fallen lässt."
+ ],
+ "pool.formtief.r.r2": [
+  "{b.gut} Ich weiß, dass ich mich auf dich verlassen kann, und das reicht mir.",
+  "{b.gut} Danke, so werde ich es schaffen."
+ ],
+ "pool.formtief.r.r3": [
+  "{b.gut} Dann liefere ich im Training und im nächsten Spiel.",
+  "{b.gut} Das ist der Anschub, den ich brauchte."
+ ],
+ "pool.formtief.r.r4": [
+  "{b.gut} Gut zu wissen, dass jemand an mich glaubt, das tut mir wohl.",
+  "{b.gut} Da fällt mir ein Stein vom Herzen."
+ ],
+ "pool.formtief.r.r5": [
+  "{b.neutral} Ich versuche es und sehe, ob es hilft.",
+  "{b.neutral} Mal sehen, ob es im Kopf ankommt."
+ ],
+ "pool.formtief.r.r6": [
+  "{b.neutral} Ich bin noch nicht sicher, ob ich es kann, aber ich höre zu.",
+  "{b.neutral} Das beruhigt mich nur ein bisschen, ich weiß nicht, was ich fühle."
+ ],
+ "pool.formtief.r.r7": [
+  "{b.neutral} Wir werden sehen, was das nächste Spiel bringt.",
+  "{b.neutral} Gut, dann schaue ich, wie es läuft."
+ ],
+ "pool.formtief.r.r8": [
+  "{b.neutral} Ich bleibe gelassen und warte ab, es hilft ohnehin nicht, zu hetzen.",
+  "{b.neutral} Kann man so machen, ich setze es um."
+ ],
+ "pool.formtief.r.r9": [
+  "{b.schlecht} Das macht es nicht besser, im Gegenteil.",
+  "{b.schlecht} Ich habe mehr Rückhalt erhofft."
+ ],
+ "pool.formtief.r.r10": [
+  "{b.schlecht} Du hast keine Ahnung, wie es mir geht, und tust so, als sei es nichts!",
+  "{b.schlecht} Dann zerreiß mich doch auch noch, wie die anderen!"
+ ],
+ "pool.formtief.r.r11": [
+  "{b.schlecht} Dann bin ich hier wohl nicht mehr gewollt, und das merke ich mir.",
+  "{b.schlecht} Es gibt Orte, an denen man mich besser versteht."
+ ],
+ "pool.formtief.r.r12": [
+  "{b.schlecht} Das war ein Schlag, ich hatte auf ein offenes Ohr gehofft.",
+  "{b.schlecht} Danach fühle ich mich noch kleiner, als ich schon war."
+ ],
+ "pool.reservist_unzufrieden.x.x1": [
+  "Das Gespräch endet ruhig und ehrlich. {entscheidung} Er geht mit klarem Kopf zurück ins Training.",
+  "{entscheidung} Er nickt, ihm ist die Erleichterung anzusehen."
+ ],
+ "pool.reservist_unzufrieden.x.x2": [
+  "Die Sache bleibt in der Schwebe. {entscheidung} Er wird sich melden, wenn sich nichts bewegt.",
+  "{entscheidung} Wirklich geklärt ist damit noch nichts."
+ ],
+ "pool.reservist_unzufrieden.x.x3": [
+  "Er geht verbittert und knallt die Tür. {entscheidung} In der Kabine wird davon bald die Rede sein.",
+  "{entscheidung} Die Lage spitzt sich zu, und er wird nicht still bleiben."
+ ],
+ "pool.reservist_unzufrieden.x.x4": [
+  "Er bricht das Gespräch ab und geht. {entscheidung} Sein Berater ruft vermutlich noch heute an.",
+  "{entscheidung} Er will darüber nicht mehr reden, jedenfalls nicht mit dir."
+ ],
+ "pool.reservist_unzufrieden.x.x5": [
+  "Ihr gebt euch die Hand darauf. {entscheidung} Er weiß, woran er ist, und du auch.",
+  "{entscheidung} Er wird dich beim Wort nehmen."
+ ],
+ "pool.neuzugang_aussen_vor.x.x1": [
+  "Dein Co-Trainer geht erleichtert aus dem Büro. {entscheidung} Die Stimmung im Stab ist besser.",
+  "{entscheidung} Er macht sich sofort an die Arbeit."
+ ],
+ "pool.neuzugang_aussen_vor.x.x2": [
+  "Dein Co-Trainer nickt, aber überzeugt ist er nicht. {entscheidung} Die Sache bleibt offen.",
+  "{entscheidung} Er wird in ein paar Tagen wiederkommen, wenn sich nichts ändert."
+ ],
+ "pool.neuzugang_aussen_vor.x.x3": [
+  "Dein Co-Trainer verlässt das Büro merklich verstimmt. {entscheidung} Der Neue bleibt, wo er ist, und das spürt jeder.",
+  "{entscheidung} Im Stab wird anschließend kaum noch gesprochen."
+ ],
+ "pool.neuzugang_aussen_vor.x.x4": [
+  "Dein Co-Trainer hat genug und beendet das Gespräch. {entscheidung} Mit einem Bericht für den Vorstand ist zu rechnen.",
+  "{entscheidung} Er geht, ohne sich umzudrehen."
+ ],
+ "pool.neuzugang_aussen_vor.x.x5": [
+  "Ihr einigt euch auf einen Weg. {entscheidung} Beide wissen, was als Nächstes zu tun ist.",
+  "{entscheidung} Dein Co-Trainer hält dich über jeden Schritt auf dem Laufenden."
+ ],
+ "pool.formtief.x.x1": [
+  "Er atmet hörbar durch. {entscheidung} Man sieht, wie ein Teil der Last abfällt.",
+  "{entscheidung} Er geht aufrechter aus dem Raum, als er hereingekommen ist."
+ ],
+ "pool.formtief.x.x2": [
+  "Er bleibt nachdenklich zurück. {entscheidung} Ob es hilft, zeigen erst die nächsten Spiele.",
+  "{entscheidung} Fertig ist das Thema damit nicht."
+ ],
+ "pool.formtief.x.x3": [
+  "Er geht gekränkt und mit hängenden Schultern. {entscheidung} Es wird nicht leichter, ihn wieder aufzubauen.",
+  "{entscheidung} Er zieht sich spürbar zurück, auch in der Kabine."
+ ],
+ "pool.formtief.x.x4": [
+  "Er bricht das Gespräch ab und verlässt den Raum. {entscheidung} Der Kontakt ist erst einmal abgebrochen.",
+  "{entscheidung} Er sagt nichts mehr und geht."
+ ],
+ "pool.formtief.x.x5": [
+  "Die Zusage steht. {entscheidung} Er weiß, dass du ihn durch das Tief führst.",
+  "{entscheidung} Er nimmt dich beim Wort, und er wird es zurückzahlen wollen."
+ ]
+}

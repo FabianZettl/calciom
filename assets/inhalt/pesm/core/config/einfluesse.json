@@ -1,0 +1,38 @@
+{
+  "_hinweis": "Einflüsse der PESM-internen Attribute (DOMAIN-PRUEFUNG §8a). Kleine Zuschläge im Form-Overlay, gedeckelt wie alle anderen (±3 je Attribut, ±6 gesamt), nie auf den Basiswert. 'pes': Gewicht je PES-Zielattribut nach Positionsgruppe. 'intern': Wirkung nur auf PESM-Größen (Chemie, Moral), nie ins Spiel.",
+  "positionsgruppen": {
+    "Torwart": ["TW"],
+    "Abwehr": ["IV", "LV", "RV"],
+    "Mittelfeld": ["DM", "ZM", "OM"],
+    "Angriff": ["LA", "RA", "ST"]
+  },
+  "zuschlag_je_punkt": 0.05,
+  "attribute": {
+    "Konzentration": {
+      "pes": {
+        "Torwart": {"TorwartPositionsspiel": 0.6, "TorwartReflexe": 0.4},
+        "Abwehr": {"Defensivverhalten": 0.7, "Ballgewinn": 0.3},
+        "Mittelfeld": {"Defensivverhalten": 0.4, "Kurzpass": 0.3, "Ballsicherung": 0.3},
+        "Angriff": {"Torschuss": 0.5, "Offensivverhalten": 0.5}
+      },
+      "intern": {}
+    },
+    "Entscheidungsfindung": {
+      "pes": {
+        "Torwart": {"TorwartPositionsspiel": 0.5, "TorwartAbschlagen": 0.5},
+        "Abwehr": {"Defensivverhalten": 0.5, "Langpass": 0.5},
+        "Mittelfeld": {"Offensivverhalten": 0.4, "Kurzpass": 0.4, "Langpass": 0.2},
+        "Angriff": {"Offensivverhalten": 0.7, "Kurzpass": 0.3}
+      },
+      "intern": {}
+    },
+    "Teamwork": {
+      "pes": {},
+      "intern": {"chemie": 1.0}
+    },
+    "Fuehrungsqualitaet": {
+      "pes": {},
+      "intern": {"moral_mitspieler": 0.6, "chemie": 0.4}
+    }
+  }
+}

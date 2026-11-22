@@ -1,0 +1,31 @@
+{
+  "hinweis": "Schwellen der Taktik-Engine; Perzentile aus 596 Vereinen (tools/taktik_kalibrieren.py), siehe docs/intern/TAKTIK-KALIBRIERUNG.md. Nicht kalibrierbar (keine Daten im Save): kondition_*, form_top, gegner_*, attribut_schwach.",
+  "schwellen": {
+    "passung_schwach": 55,
+    "kondition_schwach": 60,
+    "kondition_hinweis": 70,
+    "form_top": 2,
+    "attribut_schwach": 60,
+    "tiefe_gestreckt": 0.75,
+    "tiefe_kompakt": 0.7,
+    "abstand_luecke": 0.38,
+    "breite_schmal": 0.77,
+    "breite_weit": 0.89,
+    "verdeckt_viel": 3,
+    "verdeckt_wenig": 0,
+    "pressing_hoch": 0.7,
+    "pressing_tief": 0.3,
+    "lauf_schwach": 74,
+    "lauf_stark": 77,
+    "tempo_abw_langsam": 74,
+    "umschalten_stark": 77,
+    "umschalten_schwach": 73,
+    "seite_diff": 3.8,
+    "ball_stark": 76,
+    "konter_ok": 77,
+    "gegner_delta": 3,
+    "gegner_physis": 5,
+    "achsen_offensiv": 1.7,
+    "achsen_defensiv": 3.4
+  }
+}

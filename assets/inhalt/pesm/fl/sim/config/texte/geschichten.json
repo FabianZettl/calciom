@@ -1,0 +1,1536 @@
+{
+"maerchen_start": {
+"teile": [
+[
+"Der Aufsteiger {club} hält in der {liga} mit den Etablierten mit: {platz} nach {spiele} Spielen.",
+"Niemand hatte {club} nach dem Aufstieg so weit oben erwartet, jetzt steht der Neuling auf {platz}.",
+"Aufsteiger {club} sorgt in der {liga} für die Überraschung der Saison: {platz}.",
+"Was als Abenteuer begann, wird langsam zur Geschichte: {club} liegt auf {platz}."
+],
+[
+"Mit Mut, einer geschlossenen Mannschaft und viel Rückenwind von den Rängen hat sich der Neuling Respekt erarbeitet.",
+"Die Gegner haben aufgehört, den Aufsteiger zu belächeln.",
+"Wo andere nach dem Aufstieg zittern, spielt diese Mannschaft frei auf.",
+"Die Mischung aus Frechheit und Disziplin passt bisher erstaunlich gut zur Liga.",
+"Vor allem die Heimspiele haben den Unterschied gemacht, das Stadion trägt die Mannschaft."
+],
+[
+"Ob das bis zum Saisonende trägt, zeigen die kommenden Wochen.",
+"Noch warnen die Erfahrenen vor zu viel Euphorie.",
+"Der Rest der Saison zeigt, ob das Märchen ein gutes Ende findet.",
+"Wann den Neuling die Kräfte verlassen, falls überhaupt, weiß niemand."
+]
+],
+"ton": {
+"presse": [
+[
+"Der Aufsteiger {club} hält in der {liga} mit den Etablierten mit: {platz} nach {spiele} Spielen.",
+"Niemand hatte {club} nach dem Aufstieg so weit oben erwartet, jetzt steht der Neuling auf {platz}.",
+"Aufsteiger {club} sorgt in der {liga} für die Überraschung der Saison: {platz}.",
+"Was als Abenteuer begann, wird langsam zur Geschichte: {club} liegt auf {platz}."
+],
+[
+"Mit Mut, einer geschlossenen Mannschaft und viel Rückenwind von den Rängen hat sich der Neuling Respekt erarbeitet.",
+"Die Gegner haben aufgehört, den Aufsteiger zu belächeln.",
+"Wo andere nach dem Aufstieg zittern, spielt diese Mannschaft frei auf.",
+"Die Mischung aus Frechheit und Disziplin passt bisher erstaunlich gut zur Liga.",
+"Vor allem die Heimspiele haben den Unterschied gemacht, das Stadion trägt die Mannschaft."
+],
+[
+"Ob das bis zum Saisonende trägt, zeigen die kommenden Wochen.",
+"Noch warnen die Erfahrenen vor zu viel Euphorie.",
+"Der Rest der Saison zeigt, ob das Märchen ein gutes Ende findet.",
+"Wann den Neuling die Kräfte verlassen, falls überhaupt, weiß niemand."
+]
+],
+"vorstand": [
+[
+"Der Vorstand ist hochzufrieden: {platz} nach {spiele} Spielen hatte vor der Saison niemand eingeplant.",
+"Im Präsidium spricht man schon leise von mehr als dem Klassenerhalt, {club} steht auf {platz}.",
+"Die Verantwortlichen sehen den Aufstieg bestätigt: Mit {platz} spielt die Mannschaft weit über den Erwartungen.",
+"Das Präsidium bedankt sich für einen Start, der alle Vorgaben übertrifft: {platz}."
+],
+[
+"Mit Mut, einer geschlossenen Mannschaft und viel Rückenwind von den Rängen hat sich der Neuling Respekt erarbeitet.",
+"Die Gegner haben aufgehört, den Aufsteiger zu belächeln.",
+"Wo andere nach dem Aufstieg zittern, spielt diese Mannschaft frei auf.",
+"Die Mischung aus Frechheit und Disziplin passt bisher erstaunlich gut zur Liga.",
+"Vor allem die Heimspiele haben den Unterschied gemacht, das Stadion trägt die Mannschaft."
+],
+[
+"Ob das bis zum Saisonende trägt, zeigen die kommenden Wochen.",
+"Noch warnen die Erfahrenen vor zu viel Euphorie.",
+"Der Rest der Saison zeigt, ob das Märchen ein gutes Ende findet.",
+"Wann den Neuling die Kräfte verlassen, falls überhaupt, weiß niemand."
+]
+],
+"fans": [
+[
+"In der Kurve herrscht Ausnahmezustand: {club} auf {platz}, so weit oben war der Verein seit Jahren nicht.",
+"Die Fans träumen schon: {platz} nach {spiele} Spielen, und das als Neuling.",
+"Die Stimmung im Stadion ist ansteckend, {club} steht auf {platz} und keiner will aufwachen.",
+"Auf den Rängen wird gefeiert, als wäre schon etwas gewonnen: {platz}."
+],
+[
+"Mit Mut, einer geschlossenen Mannschaft und viel Rückenwind von den Rängen hat sich der Neuling Respekt erarbeitet.",
+"Die Gegner haben aufgehört, den Aufsteiger zu belächeln.",
+"Wo andere nach dem Aufstieg zittern, spielt diese Mannschaft frei auf.",
+"Die Mischung aus Frechheit und Disziplin passt bisher erstaunlich gut zur Liga.",
+"Vor allem die Heimspiele haben den Unterschied gemacht, das Stadion trägt die Mannschaft."
+],
+[
+"Ob das bis zum Saisonende trägt, zeigen die kommenden Wochen.",
+"Noch warnen die Erfahrenen vor zu viel Euphorie.",
+"Der Rest der Saison zeigt, ob das Märchen ein gutes Ende findet.",
+"Wann den Neuling die Kräfte verlassen, falls überhaupt, weiß niemand."
+]
+]
+}
+},
+"maerchen_start_betreff": {
+"teile": [
+[
+"Das Märchen vom Aufsteiger",
+"Ein Neuling mischt die Liga auf",
+"Zu schön, um wahr zu sein?",
+"Der Aufsteiger, der keiner sein will",
+"Mehr als nur Klassenerhalt"
+]
+]
+},
+"maerchen_verlauf": {
+"teile": [
+[
+"Das Märchen geht weiter: {club} hält sich auf {platz} und wird zum Dauerthema der {liga}.",
+"Wochenlang oben dabei, jetzt nimmt auch die Konkurrenz den Aufsteiger ernst: {platz}.",
+"{club} bleibt Tabellennachbar der Großen, aktuell {platz}.",
+"Der Aufsteiger lässt sich nicht abschütteln und hält {platz}."
+],
+[
+"Die Mannschaft hat sich über Wochen eine Stabilität erarbeitet, die man dem Neuling nicht zugetraut hätte.",
+"Auffällig ist, wie wenig sich die Spieler von der Aufmerksamkeit aus der Ruhe bringen lassen.",
+"Die Defensive steht, vorne reichen oft schon wenige Chancen.",
+"Jede Woche gibt es neue Gründe, warum es eigentlich nicht klappen dürfte, und jede Woche klappt es doch.",
+"Selbst Rückschläge wurden bisher schnell abgehakt."
+],
+[
+"Jetzt kommt es auf die Nerven an.",
+"Die Saison hat noch Platz für Wendungen in beide Richtungen.",
+"Der Klassenerhalt wäre schon ein Erfolg, alles darüber ein Geschenk.",
+"Das Märchen hat noch ein paar Kapitel."
+]
+],
+"ton": {
+"presse": [
+[
+"Das Märchen geht weiter: {club} hält sich auf {platz} und wird zum Dauerthema der {liga}.",
+"Wochenlang oben dabei, jetzt nimmt auch die Konkurrenz den Aufsteiger ernst: {platz}.",
+"{club} bleibt Tabellennachbar der Großen, aktuell {platz}.",
+"Der Aufsteiger lässt sich nicht abschütteln und hält {platz}."
+],
+[
+"Die Mannschaft hat sich über Wochen eine Stabilität erarbeitet, die man dem Neuling nicht zugetraut hätte.",
+"Auffällig ist, wie wenig sich die Spieler von der Aufmerksamkeit aus der Ruhe bringen lassen.",
+"Die Defensive steht, vorne reichen oft schon wenige Chancen.",
+"Jede Woche gibt es neue Gründe, warum es eigentlich nicht klappen dürfte, und jede Woche klappt es doch.",
+"Selbst Rückschläge wurden bisher schnell abgehakt."
+],
+[
+"Jetzt kommt es auf die Nerven an.",
+"Die Saison hat noch Platz für Wendungen in beide Richtungen.",
+"Der Klassenerhalt wäre schon ein Erfolg, alles darüber ein Geschenk.",
+"Das Märchen hat noch ein paar Kapitel."
+]
+],
+"vorstand": [
+[
+"Der Vorstand beobachtet die Serie mit Stolz: {platz} und noch immer kein Einbruch.",
+"Im Präsidium wird bereits über Pläne für die nächste Saison gesprochen, {club} hält {platz}.",
+"Die Verantwortlichen loben die Ruhe im Umfeld, obwohl die Mannschaft auf {platz} steht.",
+"Man ist im Verein zufrieden, aber bemüht, die Füße still zu halten: {platz}."
+],
+[
+"Die Mannschaft hat sich über Wochen eine Stabilität erarbeitet, die man dem Neuling nicht zugetraut hätte.",
+"Auffällig ist, wie wenig sich die Spieler von der Aufmerksamkeit aus der Ruhe bringen lassen.",
+"Die Defensive steht, vorne reichen oft schon wenige Chancen.",
+"Jede Woche gibt es neue Gründe, warum es eigentlich nicht klappen dürfte, und jede Woche klappt es doch.",
+"Selbst Rückschläge wurden bisher schnell abgehakt."
+],
+[
+"Jetzt kommt es auf die Nerven an.",
+"Die Saison hat noch Platz für Wendungen in beide Richtungen.",
+"Der Klassenerhalt wäre schon ein Erfolg, alles darüber ein Geschenk.",
+"Das Märchen hat noch ein paar Kapitel."
+]
+],
+"fans": [
+[
+"Die Kurve singt weiter: {platz} und kein Ende in Sicht.",
+"Die Fans rechnen schon aus, was mit {platz} noch möglich ist.",
+"Auf dem Vorplatz gibt es nur noch ein Thema: wie weit das Märchen trägt, aktuell {platz}.",
+"Die Dauerkarten für die nächste Saison gehen weg wie nie, {club} steht auf {platz}."
+],
+[
+"Die Mannschaft hat sich über Wochen eine Stabilität erarbeitet, die man dem Neuling nicht zugetraut hätte.",
+"Auffällig ist, wie wenig sich die Spieler von der Aufmerksamkeit aus der Ruhe bringen lassen.",
+"Die Defensive steht, vorne reichen oft schon wenige Chancen.",
+"Jede Woche gibt es neue Gründe, warum es eigentlich nicht klappen dürfte, und jede Woche klappt es doch.",
+"Selbst Rückschläge wurden bisher schnell abgehakt."
+],
+[
+"Jetzt kommt es auf die Nerven an.",
+"Die Saison hat noch Platz für Wendungen in beide Richtungen.",
+"Der Klassenerhalt wäre schon ein Erfolg, alles darüber ein Geschenk.",
+"Das Märchen hat noch ein paar Kapitel."
+]
+]
+}
+},
+"maerchen_verlauf_betreff": {
+"teile": [
+[
+"Das Märchen geht weiter",
+"Immer noch oben",
+"Der Neuling hält durch",
+"Keine Spur von Ermüdung"
+]
+]
+},
+"maerchen_gut": {
+"teile": [
+[
+"Das Märchen hat sein Happy End: {club} beendet die Saison auf {platz} und wird als Aufsteiger gefeiert.",
+"{platz} zum Saisonende: Der Aufsteiger {club} hat die Liga überrascht und alle Erwartungen übertroffen.",
+"Als Aufsteiger auf {platz}: Diese Saison wird in {club} noch lange erzählt werden."
+],
+[
+"Die Mannschaft ist über sich hinausgewachsen.",
+"Aus dem Außenseiter ist ein Anwärter geworden.",
+"Das Selbstvertrauen im Verein ist größer als je zuvor."
+],
+[
+"Jetzt gilt es, den Schwung mitzunehmen.",
+"Das Stadion wird im Sommer noch Gänsehaut-Geschichten erzählen.",
+"Die Erwartungen für die nächste Saison sind damit allerdings gewachsen."
+]
+]
+},
+"maerchen_schlecht": {
+"teile": [
+[
+"Die Saison endet für den Aufsteiger {club} auf {platz}: Der große Traum hat sich nicht erfüllt.",
+"{club} fällt zum Saisonende auf {platz} zurück, das Märchen ist vorbei.",
+"Am Ende reicht es für {club} nur zu {platz}, das Spitzenfeld war nicht zu halten."
+],
+[
+"Vom Höhenflug im Herbst ist wenig geblieben.",
+"Die Kräfte reichten nicht über die ganze Saison.",
+"Die Konkurrenz hat nachgelassen, weniger die Mannschaft, aber sie hatte auch weniger zuzusetzen."
+],
+[
+"Trotzdem bleibt ein guter Eindruck für einen Neuling.",
+"Aus der Saison lässt sich viel mitnehmen.",
+"Im Sommer werden die Ziele neu gesetzt."
+]
+]
+},
+"titel_start": {
+"teile": [
+[
+"{club} mischt im Titelrennen der {liga} mit: {platz}, {luecke}.",
+"Die Meisterschaft in der {liga} wird zum Zweikampf, {club} steht auf {platz} und liegt {luecke}.",
+"Der Titelkampf in der {liga} nimmt Fahrt auf: {club} auf {platz}, {luecke}.",
+"Wer holt die Schale? {club} ist als {platz} mittendrin, {luecke}."
+],
+[
+"Es ist ein Rennen, in dem jeder Punkt zählt.",
+"Die direkten Duelle werden die Entscheidung bringen.",
+"Beide Seiten leisten sich kaum noch Ausrutscher.",
+"Die Spannung in der Liga ist so hoch wie lange nicht."
+],
+[
+"Wer jetzt die Nerven behält, wird Meister.",
+"Die nächsten Wochen entscheiden über den Titel.",
+"Der Druck wächst mit jedem Spieltag.",
+"Ein Patzer kann alles kosten."
+]
+],
+"ton": {
+"presse": [
+[
+"{club} mischt im Titelrennen der {liga} mit: {platz}, {luecke}.",
+"Die Meisterschaft in der {liga} wird zum Zweikampf, {club} steht auf {platz} und liegt {luecke}.",
+"Der Titelkampf in der {liga} nimmt Fahrt auf: {club} auf {platz}, {luecke}.",
+"Wer holt die Schale? {club} ist als {platz} mittendrin, {luecke}."
+],
+[
+"Es ist ein Rennen, in dem jeder Punkt zählt.",
+"Die direkten Duelle werden die Entscheidung bringen.",
+"Beide Seiten leisten sich kaum noch Ausrutscher.",
+"Die Spannung in der Liga ist so hoch wie lange nicht."
+],
+[
+"Wer jetzt die Nerven behält, wird Meister.",
+"Die nächsten Wochen entscheiden über den Titel.",
+"Der Druck wächst mit jedem Spieltag.",
+"Ein Patzer kann alles kosten."
+]
+],
+"vorstand": [
+[
+"Der Vorstand rechnet längst mit der Meisterschaft: {platz}, {luecke}.",
+"Im Präsidium sind die Erwartungen gestiegen, {club} steht auf {platz} und der Titel ist greifbar.",
+"Die Chefetage mahnt zur Konzentration: {platz}, {luecke}, jetzt darf nichts anbrennen.",
+"Der Präsident lässt ausrichten, dass der Titel Pflicht wird, wenn es bei {platz} bleibt."
+],
+[
+"Es ist ein Rennen, in dem jeder Punkt zählt.",
+"Die direkten Duelle werden die Entscheidung bringen.",
+"Beide Seiten leisten sich kaum noch Ausrutscher.",
+"Die Spannung in der Liga ist so hoch wie lange nicht."
+],
+[
+"Wer jetzt die Nerven behält, wird Meister.",
+"Die nächsten Wochen entscheiden über den Titel.",
+"Der Druck wächst mit jedem Spieltag.",
+"Ein Patzer kann alles kosten."
+]
+],
+"fans": [
+[
+"Die Fans wittern die Schale: {platz}, {luecke}.",
+"In der Stadt redet man nur noch über den Titel, {club} steht auf {platz}.",
+"Auf den Rängen werden schon Meisterschals bestellt: {platz}.",
+"Die Kurve hat die Meisterschaft im Blick und fordert Siege, {platz} und {luecke}."
+],
+[
+"Es ist ein Rennen, in dem jeder Punkt zählt.",
+"Die direkten Duelle werden die Entscheidung bringen.",
+"Beide Seiten leisten sich kaum noch Ausrutscher.",
+"Die Spannung in der Liga ist so hoch wie lange nicht."
+],
+[
+"Wer jetzt die Nerven behält, wird Meister.",
+"Die nächsten Wochen entscheiden über den Titel.",
+"Der Druck wächst mit jedem Spieltag.",
+"Ein Patzer kann alles kosten."
+]
+]
+}
+},
+"titel_start_betreff": {
+"teile": [
+[
+"Der Titelkampf beginnt",
+"Die Schale in Sichtweite",
+"Ein Rennen um die Meisterschaft",
+"Jetzt wird es ernst"
+]
+]
+},
+"titel_verlauf": {
+"teile": [
+[
+"Der Titelkampf bleibt eng: {club} auf {platz}, {luecke}.",
+"Das Rennen um die Meisterschaft geht in die nächste Runde, {club} hält {platz}.",
+"{club} bleibt dran: {platz} und {luecke}.",
+"Keine Entscheidung im Titelrennen, {club} steht auf {platz}."
+],
+[
+"Jedes Wochenende bringt neue Wendungen.",
+"Die Mannschaft wirkt eingespielt und gefestigt.",
+"Die Verfolger bleiben hartnäckig.",
+"Die Konkurrenz lässt nicht locker.",
+"Die Kabine gibt sich nach außen gelassen."
+],
+[
+"Noch ist nichts entschieden.",
+"Der Schlussspurt wird es zeigen.",
+"Alles ist möglich.",
+"Die letzten Spieltage könnten dramatisch werden."
+]
+],
+"ton": {
+"presse": [
+[
+"Der Titelkampf bleibt eng: {club} auf {platz}, {luecke}.",
+"Das Rennen um die Meisterschaft geht in die nächste Runde, {club} hält {platz}.",
+"{club} bleibt dran: {platz} und {luecke}.",
+"Keine Entscheidung im Titelrennen, {club} steht auf {platz}."
+],
+[
+"Jedes Wochenende bringt neue Wendungen.",
+"Die Mannschaft wirkt eingespielt und gefestigt.",
+"Die Verfolger bleiben hartnäckig.",
+"Die Konkurrenz lässt nicht locker.",
+"Die Kabine gibt sich nach außen gelassen."
+],
+[
+"Noch ist nichts entschieden.",
+"Der Schlussspurt wird es zeigen.",
+"Alles ist möglich.",
+"Die letzten Spieltage könnten dramatisch werden."
+]
+],
+"vorstand": [
+[
+"Der Vorstand verfolgt das Titelrennen angespannt: {platz}, {luecke}.",
+"Im Präsidium zählt man jeden Punkt mit, {club} liegt auf {platz}.",
+"Man erwartet im Verein jetzt Nervenstärke: {platz}.",
+"Das Präsidium setzt weiter auf Ruhe, {club} hält {platz}."
+],
+[
+"Jedes Wochenende bringt neue Wendungen.",
+"Die Mannschaft wirkt eingespielt und gefestigt.",
+"Die Verfolger bleiben hartnäckig.",
+"Die Konkurrenz lässt nicht locker.",
+"Die Kabine gibt sich nach außen gelassen."
+],
+[
+"Noch ist nichts entschieden.",
+"Der Schlussspurt wird es zeigen.",
+"Alles ist möglich.",
+"Die letzten Spieltage könnten dramatisch werden."
+]
+],
+"fans": [
+[
+"Die Fans zittern mit: {platz} und {luecke}.",
+"Die Kurve peitscht die Mannschaft nach vorn, {platz}.",
+"In der Stadt ist Meisterschaftsfieber, {club} auf {platz}.",
+"Die Stimmung kocht, {platz} ist drin und mehr soll her."
+],
+[
+"Jedes Wochenende bringt neue Wendungen.",
+"Die Mannschaft wirkt eingespielt und gefestigt.",
+"Die Verfolger bleiben hartnäckig.",
+"Die Konkurrenz lässt nicht locker.",
+"Die Kabine gibt sich nach außen gelassen."
+],
+[
+"Noch ist nichts entschieden.",
+"Der Schlussspurt wird es zeigen.",
+"Alles ist möglich.",
+"Die letzten Spieltage könnten dramatisch werden."
+]
+]
+}
+},
+"titel_verlauf_betreff": {
+"teile": [
+[
+"Der Titelkampf bleibt offen",
+"Spannung bis zum Schluss",
+"Weiter im Rennen",
+"Das Duell um die Schale"
+]
+]
+},
+"titel_gewonnen": {
+"teile": [
+[
+"{club} ist Meister der {liga}: Der Titelkampf ist mit {platz} und der Schale als Lohn entschieden.",
+"Meisterschaft für {club}! Nach einem langen Rennen steht der Titel in der {liga} fest.",
+"Der Titel gehört {club}: Nach Wochen voller Spannung ist die Meisterschaft in der {liga} perfekt."
+],
+[
+"Der Jubel kennt keine Grenzen.",
+"Die Mannschaft hat die Nerven behalten, als es darauf ankam.",
+"Die Stadt feiert die Helden dieser Saison."
+],
+[
+"Dieser Titel bleibt in Erinnerung.",
+"Die Feier wird bis in den Morgen dauern.",
+"Im Verein kann man sich jetzt auf eine große Titelparade freuen."
+]
+]
+},
+"titel_verpasst": {
+"teile": [
+[
+"Der Titel ist verpasst: {club} beendet die Saison der {liga} auf {platz}.",
+"{club} geht im Titelrennen die Luft aus, am Ende steht {platz}.",
+"Es hat nicht gereicht: {club} schließt als {platz} ab, die Schale geht anderswo hin."
+],
+[
+"Die Enttäuschung ist riesig, die Mannschaft hat lange mitgehalten.",
+"Am Ende waren die Konkurrenten einen Tick besser.",
+"Der Schlussspurt fehlte."
+],
+[
+"Aus der Niederlage muss jetzt Kraft für die nächste Saison werden.",
+"Der Verein will im nächsten Jahr noch einmal angreifen.",
+"Der Stolz auf das Erreichte bleibt trotzdem."
+]
+]
+},
+"abstieg_start": {
+"teile": [
+[
+"{club} steckt im Abstiegskampf der {liga}: {platz}, {luecke}.",
+"Für {club} wird es eng: {platz} und {luecke}.",
+"Der Abstiegskampf hat {club} erwischt, die Mannschaft steht auf {platz}.",
+"In der {liga} sieht es für {club} düster aus: {platz} nach {spiele} Spielen."
+],
+[
+"Jetzt zählt nur noch das Ergebnis, nicht der Stil.",
+"Die Mannschaft muss den Kampf annehmen.",
+"Die Heimspiele werden entscheiden, wer in der Liga bleibt.",
+"Nach Wochen mit zu wenig Ertrag ist der Druck gewachsen."
+],
+[
+"Jetzt muss der Dreier her.",
+"Die nächsten Wochen entscheiden über die Zukunft des Vereins.",
+"Noch ist alles zu schaffen.",
+"Wer jetzt zusammenhält, bleibt oben."
+]
+],
+"ton": {
+"presse": [
+[
+"{club} steckt im Abstiegskampf der {liga}: {platz}, {luecke}.",
+"Für {club} wird es eng: {platz} und {luecke}.",
+"Der Abstiegskampf hat {club} erwischt, die Mannschaft steht auf {platz}.",
+"In der {liga} sieht es für {club} düster aus: {platz} nach {spiele} Spielen."
+],
+[
+"Jetzt zählt nur noch das Ergebnis, nicht der Stil.",
+"Die Mannschaft muss den Kampf annehmen.",
+"Die Heimspiele werden entscheiden, wer in der Liga bleibt.",
+"Nach Wochen mit zu wenig Ertrag ist der Druck gewachsen."
+],
+[
+"Jetzt muss der Dreier her.",
+"Die nächsten Wochen entscheiden über die Zukunft des Vereins.",
+"Noch ist alles zu schaffen.",
+"Wer jetzt zusammenhält, bleibt oben."
+]
+],
+"vorstand": [
+[
+"Der Vorstand ist alarmiert: {platz} und {luecke}.",
+"Im Präsidium wächst die Sorge, {club} steht auf {platz}.",
+"Die Verantwortlichen erwarten jetzt Reaktion, der Abstieg droht bei {platz}.",
+"Das Präsidium spricht von einer ernsten Lage: {platz}, {luecke}."
+],
+[
+"Jetzt zählt nur noch das Ergebnis, nicht der Stil.",
+"Die Mannschaft muss den Kampf annehmen.",
+"Die Heimspiele werden entscheiden, wer in der Liga bleibt.",
+"Nach Wochen mit zu wenig Ertrag ist der Druck gewachsen."
+],
+[
+"Jetzt muss der Dreier her.",
+"Die nächsten Wochen entscheiden über die Zukunft des Vereins.",
+"Noch ist alles zu schaffen.",
+"Wer jetzt zusammenhält, bleibt oben."
+]
+],
+"fans": [
+[
+"Die Fans haben Angst: {platz}, {luecke}.",
+"Auf den Rängen wird es unruhig, {club} auf {platz}.",
+"In der Kurve herrscht Galgenhumor, {platz} ist keine Position für diesen Verein.",
+"Die Fans fordern Kampf: Mit {platz} ist der Abstieg zu nah."
+],
+[
+"Jetzt zählt nur noch das Ergebnis, nicht der Stil.",
+"Die Mannschaft muss den Kampf annehmen.",
+"Die Heimspiele werden entscheiden, wer in der Liga bleibt.",
+"Nach Wochen mit zu wenig Ertrag ist der Druck gewachsen."
+],
+[
+"Jetzt muss der Dreier her.",
+"Die nächsten Wochen entscheiden über die Zukunft des Vereins.",
+"Noch ist alles zu schaffen.",
+"Wer jetzt zusammenhält, bleibt oben."
+]
+]
+}
+},
+"abstieg_start_betreff": {
+"teile": [
+[
+"Abstiegskampf",
+"Es wird eng",
+"Das rettende Ufer in der Ferne",
+"Zittern um den Klassenerhalt"
+]
+]
+},
+"abstieg_verlauf": {
+"teile": [
+[
+"Die Lage bleibt angespannt: {club} auf {platz}, {luecke}.",
+"{club} kämpft weiter um den Klassenerhalt, aktuell {platz}.",
+"Im Tabellenkeller der {liga} gibt es keine Entwarnung für {club}: {platz}.",
+"{club} hält die Hoffnung am Leben, {platz} und {luecke}."
+],
+[
+"Jedes Spiel fühlt sich wie ein Endspiel an.",
+"Die Mannschaft wirkt verunsichert, kämpft aber.",
+"Es sind kleine Dinge, die gerade den Unterschied machen.",
+"Die Konkurrenz im Keller punktet ebenfalls.",
+"Die Nerven liegen blank."
+],
+[
+"Der Klassenerhalt bleibt in Reichweite.",
+"Es bleibt Zeit, aber nicht mehr viel.",
+"Wer jetzt patzt, steigt ab.",
+"Die entscheidenden Wochen stehen bevor."
+]
+],
+"ton": {
+"presse": [
+[
+"Die Lage bleibt angespannt: {club} auf {platz}, {luecke}.",
+"{club} kämpft weiter um den Klassenerhalt, aktuell {platz}.",
+"Im Tabellenkeller der {liga} gibt es keine Entwarnung für {club}: {platz}.",
+"{club} hält die Hoffnung am Leben, {platz} und {luecke}."
+],
+[
+"Jedes Spiel fühlt sich wie ein Endspiel an.",
+"Die Mannschaft wirkt verunsichert, kämpft aber.",
+"Es sind kleine Dinge, die gerade den Unterschied machen.",
+"Die Konkurrenz im Keller punktet ebenfalls.",
+"Die Nerven liegen blank."
+],
+[
+"Der Klassenerhalt bleibt in Reichweite.",
+"Es bleibt Zeit, aber nicht mehr viel.",
+"Wer jetzt patzt, steigt ab.",
+"Die entscheidenden Wochen stehen bevor."
+]
+],
+"vorstand": [
+[
+"Der Vorstand blickt jede Woche besorgt auf die Tabelle: {platz}, {luecke}.",
+"Im Präsidium laufen Krisengespräche, {club} steht weiter auf {platz}.",
+"Die Verantwortlichen halten an der Mannschaft fest, aber die Geduld ist begrenzt: {platz}.",
+"Man bittet im Verein um Ruhe, {platz} ist keine Dauerlösung."
+],
+[
+"Jedes Spiel fühlt sich wie ein Endspiel an.",
+"Die Mannschaft wirkt verunsichert, kämpft aber.",
+"Es sind kleine Dinge, die gerade den Unterschied machen.",
+"Die Konkurrenz im Keller punktet ebenfalls.",
+"Die Nerven liegen blank."
+],
+[
+"Der Klassenerhalt bleibt in Reichweite.",
+"Es bleibt Zeit, aber nicht mehr viel.",
+"Wer jetzt patzt, steigt ab.",
+"Die entscheidenden Wochen stehen bevor."
+]
+],
+"fans": [
+[
+"Die Fans schwanken zwischen Wut und Hoffnung: {platz}, {luecke}.",
+"Im Stadion mischen sich Pfiffe und Anfeuerung, {club} auf {platz}.",
+"Die Kurve hält zusammen, obwohl {platz} wehtut.",
+"Die Anhänger geben nicht auf, {platz} und {luecke}."
+],
+[
+"Jedes Spiel fühlt sich wie ein Endspiel an.",
+"Die Mannschaft wirkt verunsichert, kämpft aber.",
+"Es sind kleine Dinge, die gerade den Unterschied machen.",
+"Die Konkurrenz im Keller punktet ebenfalls.",
+"Die Nerven liegen blank."
+],
+[
+"Der Klassenerhalt bleibt in Reichweite.",
+"Es bleibt Zeit, aber nicht mehr viel.",
+"Wer jetzt patzt, steigt ab.",
+"Die entscheidenden Wochen stehen bevor."
+]
+]
+}
+},
+"abstieg_verlauf_betreff": {
+"teile": [
+[
+"Weiter im Keller",
+"Die Hoffnung bleibt",
+"Kampf bis zum Schluss",
+"Der Druck bleibt hoch"
+]
+]
+},
+"abstieg_gerettet": {
+"teile": [
+[
+"{club} hat den Klassenerhalt geschafft: {platz} am Ende einer nervenaufreibenden Saison.",
+"Gerettet! {club} bleibt mit {platz} in der {liga}.",
+"Der Klassenerhalt ist perfekt: Als {platz} hat {club} das Ufer erreicht."
+],
+[
+"Die Erleichterung ist riesig.",
+"Aus der Angst ist Jubel geworden.",
+"Die Mannschaft hat in den entscheidenden Wochen Charakter gezeigt."
+],
+[
+"Im Sommer wird neu aufgebaut.",
+"Jetzt darf der Verein wieder durchatmen.",
+"Die Lehre aus dieser Saison ist, früher zu punkten."
+]
+]
+},
+"abstieg_abgestiegen": {
+"teile": [
+[
+"{club} steigt ab: {platz} am Ende einer Saison, in der es nie richtig lief.",
+"Der Abstieg ist besiegelt, {club} beendet die Saison auf {platz}.",
+"Bitterer Abschied aus der {liga}: {club} schließt als {platz} ab."
+],
+[
+"Die Enttäuschung im Verein ist riesig.",
+"Die Verletzungen und Rückschläge haben zu viel gekostet.",
+"Es fehlten am Ende wenige Punkte."
+],
+[
+"Jetzt beginnt der Neuaufbau.",
+"Der Verein will so schnell wie möglich zurück.",
+"Im Sommer stehen schwere Entscheidungen an."
+]
+]
+},
+"druck_start": {
+"teile": [
+[
+"Der Trainerstuhl bei {club} wackelt: {platz} und eine Mannschaft, die nicht überzeugt.",
+"Bei {club} wird die Luft dünner für den Trainer, {platz} reicht niemandem.",
+"Wie lange noch? Beim Verein {club} mehren sich die kritischen Stimmen, {platz} ist zu wenig.",
+"Die Krise bei {club} hat einen Namen: den des Trainers, {platz} ist nicht genug."
+],
+[
+"Das Vertrauen in den Trainer schwindet.",
+"Die Kritik an Aufstellung und Taktik wird lauter.",
+"Ergebnisse und Auftritte passen nicht zu den Zielen.",
+"Hinter den Kulissen wird über die Lage gesprochen."
+],
+[
+"Eine Wende muss her, und zwar bald.",
+"Jetzt zählen nur Siege.",
+"Die nächsten Spiele werden entscheidend.",
+"Sonst wird es ungemütlich."
+]
+],
+"ton": {
+"presse": [
+[
+"Der Trainerstuhl bei {club} wackelt: {platz} und eine Mannschaft, die nicht überzeugt.",
+"Bei {club} wird die Luft dünner für den Trainer, {platz} reicht niemandem.",
+"Wie lange noch? Beim Verein {club} mehren sich die kritischen Stimmen, {platz} ist zu wenig.",
+"Die Krise bei {club} hat einen Namen: den des Trainers, {platz} ist nicht genug."
+],
+[
+"Das Vertrauen in den Trainer schwindet.",
+"Die Kritik an Aufstellung und Taktik wird lauter.",
+"Ergebnisse und Auftritte passen nicht zu den Zielen.",
+"Hinter den Kulissen wird über die Lage gesprochen."
+],
+[
+"Eine Wende muss her, und zwar bald.",
+"Jetzt zählen nur Siege.",
+"Die nächsten Spiele werden entscheidend.",
+"Sonst wird es ungemütlich."
+]
+],
+"vorstand": [
+[
+"Der Vorstand zeigt sich unzufrieden: {platz} entspricht nicht den Zielen.",
+"Im Präsidium wird offen über die Lage gesprochen, {platz} ist zu wenig.",
+"Die Verantwortlichen erwarten eine Wende, {platz} können sie nicht akzeptieren.",
+"Der Präsident hat um ein Gespräch gebeten, die Position {platz} gefällt ihm nicht."
+],
+[
+"Das Vertrauen in den Trainer schwindet.",
+"Die Kritik an Aufstellung und Taktik wird lauter.",
+"Ergebnisse und Auftritte passen nicht zu den Zielen.",
+"Hinter den Kulissen wird über die Lage gesprochen."
+],
+[
+"Eine Wende muss her, und zwar bald.",
+"Jetzt zählen nur Siege.",
+"Die nächsten Spiele werden entscheidend.",
+"Sonst wird es ungemütlich."
+]
+],
+"fans": [
+[
+"Die Fans werden ungeduldig: {platz} ist nicht, was sie sehen wollen.",
+"Auf den Rängen hört man erste Rufe nach Veränderung, {platz} reicht nicht.",
+"In der Kurve schwindet das Vertrauen, {club} steht auf {platz}.",
+"Die Anhänger sind enttäuscht von {platz} und fordern Antworten."
+],
+[
+"Das Vertrauen in den Trainer schwindet.",
+"Die Kritik an Aufstellung und Taktik wird lauter.",
+"Ergebnisse und Auftritte passen nicht zu den Zielen.",
+"Hinter den Kulissen wird über die Lage gesprochen."
+],
+[
+"Eine Wende muss her, und zwar bald.",
+"Jetzt zählen nur Siege.",
+"Die nächsten Spiele werden entscheidend.",
+"Sonst wird es ungemütlich."
+]
+]
+}
+},
+"druck_start_betreff": {
+"teile": [
+[
+"Der Trainerstuhl wackelt",
+"Druck auf dem Trainer",
+"Die Geduld wird knapp",
+"Krisenstimmung"
+]
+]
+},
+"druck_verlauf": {
+"teile": [
+[
+"Der Druck auf den Trainer von {club} hält an, {platz}.",
+"Bei {club} bleibt die Lage angespannt, {platz} ändert nichts am Gerede.",
+"Die Debatte um den Trainer geht weiter, {club} steht auf {platz}.",
+"Noch immer kein Befreiungsschlag bei {club}, {platz}."
+],
+[
+"Die Gespräche im Umfeld drehen sich nur noch um die Zukunft des Trainers.",
+"Auch die Mannschaft spürt die Unruhe.",
+"Jeder Fehler wird jetzt vergrößert.",
+"Der Rückhalt muss neu erarbeitet werden."
+],
+[
+"Ein Sieg könnte vieles ändern.",
+"Zeit bleibt keine mehr.",
+"Jetzt muss der Trainer liefern.",
+"Nur Ergebnisse beruhigen die Lage."
+]
+],
+"ton": {
+"presse": [
+[
+"Der Druck auf den Trainer von {club} hält an, {platz}.",
+"Bei {club} bleibt die Lage angespannt, {platz} ändert nichts am Gerede.",
+"Die Debatte um den Trainer geht weiter, {club} steht auf {platz}.",
+"Noch immer kein Befreiungsschlag bei {club}, {platz}."
+],
+[
+"Die Gespräche im Umfeld drehen sich nur noch um die Zukunft des Trainers.",
+"Auch die Mannschaft spürt die Unruhe.",
+"Jeder Fehler wird jetzt vergrößert.",
+"Der Rückhalt muss neu erarbeitet werden."
+],
+[
+"Ein Sieg könnte vieles ändern.",
+"Zeit bleibt keine mehr.",
+"Jetzt muss der Trainer liefern.",
+"Nur Ergebnisse beruhigen die Lage."
+]
+],
+"vorstand": [
+[
+"Der Vorstand wartet auf eine Wende: {platz}.",
+"Im Präsidium bleibt man unzufrieden, {platz} ist nicht genug.",
+"Die Chefetage hält vorerst still, aber die Geduld ist begrenzt: {platz}.",
+"Die Verantwortlichen beobachten die Lage genau, {platz}."
+],
+[
+"Die Gespräche im Umfeld drehen sich nur noch um die Zukunft des Trainers.",
+"Auch die Mannschaft spürt die Unruhe.",
+"Jeder Fehler wird jetzt vergrößert.",
+"Der Rückhalt muss neu erarbeitet werden."
+],
+[
+"Ein Sieg könnte vieles ändern.",
+"Zeit bleibt keine mehr.",
+"Jetzt muss der Trainer liefern.",
+"Nur Ergebnisse beruhigen die Lage."
+]
+],
+"fans": [
+[
+"Die Fans bleiben unruhig, {platz} hilft keinem.",
+"Die Kurve hält dem Trainer nicht mehr den Rücken frei, {platz}.",
+"Auf den Rängen wird gemurrt, {club} auf {platz}.",
+"Die Stimmung im Stadion bleibt gedrückt, {platz}."
+],
+[
+"Die Gespräche im Umfeld drehen sich nur noch um die Zukunft des Trainers.",
+"Auch die Mannschaft spürt die Unruhe.",
+"Jeder Fehler wird jetzt vergrößert.",
+"Der Rückhalt muss neu erarbeitet werden."
+],
+[
+"Ein Sieg könnte vieles ändern.",
+"Zeit bleibt keine mehr.",
+"Jetzt muss der Trainer liefern.",
+"Nur Ergebnisse beruhigen die Lage."
+]
+]
+}
+},
+"druck_verlauf_betreff": {
+"teile": [
+[
+"Der Druck bleibt",
+"Keine Ruhe bei {club}",
+"Weiter unter Beobachtung",
+"Zeit läuft ab"
+]
+]
+},
+"druck_befreit": {
+"teile": [
+[
+"Der Trainer von {club} hat die Wende geschafft: {platz} und wieder Ruhe im Umfeld.",
+"Aufatmen bei {club}: Mit {platz} ist die Krise vorerst vorbei.",
+"Die Wende ist da, {club} hat sich mit {platz} Luft verschafft."
+],
+[
+"Der Vorstand hat den Rückhalt erneuert.",
+"Die Mannschaft spielt wieder mit Zuversicht.",
+"Die kritischen Stimmen sind leiser geworden."
+],
+[
+"Ob die Ruhe hält, hängt von den nächsten Ergebnissen ab.",
+"Das Vertrauen ist zurück, aber es ist zerbrechlich.",
+"Jetzt gilt es, nachzulegen."
+]
+]
+},
+"druck_bleibt": {
+"teile": [
+[
+"Der Druck auf den Trainer von {club} begleitet die Saison bis zum Schluss, am Ende steht {platz}.",
+"Die Saison endet bei {club} auf {platz}, der Druck auf den Trainer ist geblieben.",
+"{club} beendet die Saison auf {platz}, die Kritik am Trainer hat nie ganz aufgehört."
+],
+[
+"Wirklich überzeugt hat die Saison nur wenige.",
+"Der Vorstand wird im Sommer Bilanz ziehen.",
+"Aus der Unruhe sind Spuren geblieben."
+],
+[
+"Der Sommer wird zeigen, wie es weitergeht.",
+"Ein Neuanfang ist nur mit Rückhalt möglich.",
+"Die Lehren müssen jetzt gezogen werden."
+]
+]
+},
+"talent_start": {
+"teile": [
+[
+"{spieler} ({alter}) spielt sich bei {club} in den Vordergrund: überzeugende Auftritte und starke Noten.",
+"Bei {club} drängt sich ein junger Spieler auf: {spieler}, gerade {alter}, ist in Form.",
+"Der Name {spieler} ({alter}) taucht in jedem Spielbericht von {club} auf, und zwar im Positiven.",
+"{club} hat ein Talent entdeckt: {spieler} ({alter}) überzeugt Woche für Woche."
+],
+[
+"Mit Mut, Technik und Selbstvertrauen spielt der junge Mann, als hätte er nie etwas anderes getan.",
+"Trainerstab und Mitspieler loben seine Reife.",
+"Seine Entwicklung in den letzten Wochen ist bemerkenswert.",
+"Er nutzt jede Minute, die er bekommt."
+],
+[
+"Andere Vereine werden aufmerksam werden.",
+"Jetzt kommt es auf den richtigen Umgang an.",
+"Der Rest der Saison zeigt, ob er den Druck verträgt.",
+"Seine Zukunft könnte weit über diese Mannschaft hinausgehen."
+]
+],
+"ton": {
+"presse": [
+[
+"{spieler} ({alter}) spielt sich bei {club} in den Vordergrund: überzeugende Auftritte und starke Noten.",
+"Bei {club} drängt sich ein junger Spieler auf: {spieler}, gerade {alter}, ist in Form.",
+"Der Name {spieler} ({alter}) taucht in jedem Spielbericht von {club} auf, und zwar im Positiven.",
+"{club} hat ein Talent entdeckt: {spieler} ({alter}) überzeugt Woche für Woche."
+],
+[
+"Mit Mut, Technik und Selbstvertrauen spielt der junge Mann, als hätte er nie etwas anderes getan.",
+"Trainerstab und Mitspieler loben seine Reife.",
+"Seine Entwicklung in den letzten Wochen ist bemerkenswert.",
+"Er nutzt jede Minute, die er bekommt."
+],
+[
+"Andere Vereine werden aufmerksam werden.",
+"Jetzt kommt es auf den richtigen Umgang an.",
+"Der Rest der Saison zeigt, ob er den Druck verträgt.",
+"Seine Zukunft könnte weit über diese Mannschaft hinausgehen."
+]
+],
+"vorstand": [
+[
+"Der Vorstand schaut mit Interesse auf {spieler} ({alter}): ein Eigengewächs, das sich durchsetzt.",
+"Im Präsidium ist man stolz auf {spieler} ({alter}), dessen Entwicklung beispielhaft ist.",
+"Die Verantwortlichen sehen in {spieler} ({alter}) eine Zukunftsfigur für {club}.",
+"Man ist im Verein froh, dass {spieler} ({alter}) den Sprung geschafft hat."
+],
+[
+"Mit Mut, Technik und Selbstvertrauen spielt der junge Mann, als hätte er nie etwas anderes getan.",
+"Trainerstab und Mitspieler loben seine Reife.",
+"Seine Entwicklung in den letzten Wochen ist bemerkenswert.",
+"Er nutzt jede Minute, die er bekommt."
+],
+[
+"Andere Vereine werden aufmerksam werden.",
+"Jetzt kommt es auf den richtigen Umgang an.",
+"Der Rest der Saison zeigt, ob er den Druck verträgt.",
+"Seine Zukunft könnte weit über diese Mannschaft hinausgehen."
+]
+],
+"fans": [
+[
+"Die Fans haben einen neuen Liebling: {spieler} ({alter}) begeistert im {club}-Trikot.",
+"Auf den Rängen wird {spieler} ({alter}) gefeiert wie ein Star.",
+"Die Kurve hat {spieler} ({alter}) ins Herz geschlossen.",
+"Der Name {spieler} ({alter}) ist in der Stadt in aller Munde."
+],
+[
+"Mit Mut, Technik und Selbstvertrauen spielt der junge Mann, als hätte er nie etwas anderes getan.",
+"Trainerstab und Mitspieler loben seine Reife.",
+"Seine Entwicklung in den letzten Wochen ist bemerkenswert.",
+"Er nutzt jede Minute, die er bekommt."
+],
+[
+"Andere Vereine werden aufmerksam werden.",
+"Jetzt kommt es auf den richtigen Umgang an.",
+"Der Rest der Saison zeigt, ob er den Druck verträgt.",
+"Seine Zukunft könnte weit über diese Mannschaft hinausgehen."
+]
+]
+}
+},
+"talent_start_betreff": {
+"teile": [
+[
+"Ein Talent bricht durch",
+"Ein Eigengewächs setzt sich durch",
+"Ein neuer Name in der Startelf",
+"Die Entdeckung der Saison"
+]
+]
+},
+"talent_verlauf": {
+"teile": [
+[
+"{spieler} ({alter}) bleibt bei {club} der Aufsteiger der Saison und trifft weiter ins Schwarze.",
+"Der Höhenflug von {spieler} ({alter}) bei {club} hält an.",
+"{spieler} ({alter}) bestätigt Woche für Woche, dass der Durchbruch kein Zufall war.",
+"Immer wieder {spieler} ({alter}): bei {club} ist er nicht mehr wegzudenken."
+],
+[
+"Seine Konstanz ist das Beeindruckendste.",
+"Auch in schwierigen Spielen bleibt er ruhig.",
+"Der Trainerstab hat ihn gezielt aufgebaut.",
+"Er spielt, als hätte er schon viele Jahre Profifußball hinter sich."
+],
+[
+"Die Frage ist, wie lange er noch bezahlbar bleibt.",
+"Der Marktwert klettert.",
+"Es wird schwer, ihn zu halten.",
+"Mit Blick auf seinen Vertrag lohnt sich bald ein Gespräch."
+]
+],
+"ton": {
+"presse": [
+[
+"{spieler} ({alter}) bleibt bei {club} der Aufsteiger der Saison und trifft weiter ins Schwarze.",
+"Der Höhenflug von {spieler} ({alter}) bei {club} hält an.",
+"{spieler} ({alter}) bestätigt Woche für Woche, dass der Durchbruch kein Zufall war.",
+"Immer wieder {spieler} ({alter}): bei {club} ist er nicht mehr wegzudenken."
+],
+[
+"Seine Konstanz ist das Beeindruckendste.",
+"Auch in schwierigen Spielen bleibt er ruhig.",
+"Der Trainerstab hat ihn gezielt aufgebaut.",
+"Er spielt, als hätte er schon viele Jahre Profifußball hinter sich."
+],
+[
+"Die Frage ist, wie lange er noch bezahlbar bleibt.",
+"Der Marktwert klettert.",
+"Es wird schwer, ihn zu halten.",
+"Mit Blick auf seinen Vertrag lohnt sich bald ein Gespräch."
+]
+],
+"vorstand": [
+[
+"Der Vorstand will {spieler} ({alter}) langfristig binden.",
+"Im Präsidium hofft man, dass {spieler} ({alter}) dem Verein erhalten bleibt.",
+"Die Verantwortlichen beobachten die Entwicklung von {spieler} ({alter}) mit Freude.",
+"Für die Zukunft von {club} ist {spieler} ({alter}) ein Baustein."
+],
+[
+"Seine Konstanz ist das Beeindruckendste.",
+"Auch in schwierigen Spielen bleibt er ruhig.",
+"Der Trainerstab hat ihn gezielt aufgebaut.",
+"Er spielt, als hätte er schon viele Jahre Profifußball hinter sich."
+],
+[
+"Die Frage ist, wie lange er noch bezahlbar bleibt.",
+"Der Marktwert klettert.",
+"Es wird schwer, ihn zu halten.",
+"Mit Blick auf seinen Vertrag lohnt sich bald ein Gespräch."
+]
+],
+"fans": [
+[
+"Die Fans feiern {spieler} ({alter}) bei jedem Heimspiel.",
+"In der Kurve gibt es schon Sprechchöre für {spieler} ({alter}).",
+"Die Anhänger hoffen, dass {spieler} ({alter}) bleibt.",
+"Der Liebling der Kurve heißt {spieler} ({alter})."
+],
+[
+"Seine Konstanz ist das Beeindruckendste.",
+"Auch in schwierigen Spielen bleibt er ruhig.",
+"Der Trainerstab hat ihn gezielt aufgebaut.",
+"Er spielt, als hätte er schon viele Jahre Profifußball hinter sich."
+],
+[
+"Die Frage ist, wie lange er noch bezahlbar bleibt.",
+"Der Marktwert klettert.",
+"Es wird schwer, ihn zu halten.",
+"Mit Blick auf seinen Vertrag lohnt sich bald ein Gespräch."
+]
+]
+}
+},
+"talent_verlauf_betreff": {
+"teile": [
+[
+"Der Höhenflug geht weiter",
+"Das Talent bestätigt sich",
+"Weiter ganz oben",
+"Kein Zufall mehr"
+]
+]
+},
+"talent_ende": {
+"teile": [
+[
+"{spieler} ({alter}) beendet seine Saison bei {club} mit starken Zahlen: der Durchbruch ist gelungen.",
+"Das Fazit der Saison für {spieler} ({alter}): Vom Talent zum Leistungsträger bei {club}.",
+"{spieler} ({alter}) hat sich bei {club} etabliert und geht mit Rückenwind in den Sommer."
+],
+[
+"Er hat sich einen festen Platz erspielt.",
+"Die Entwicklung hat selbst die Optimisten überrascht.",
+"Alle im Verein sind begeistert."
+],
+[
+"Jetzt kommt es auf die nächsten Schritte an.",
+"Es wird schwer, den Marktwert zu halten.",
+"Mit seinem Vertrag sollte man sich bald beschäftigen."
+]
+]
+},
+"rivale_start": {
+"teile": [
+[
+"Das Duell {club} gegen {gegner} wird zur Rechnung: {bilanz}.",
+"Die Rivalität zwischen {club} und {gegner} geht in die nächste Runde, {bilanz}.",
+"Alle reden vom Duell mit {gegner}: {bilanz}, und niemand hat vergessen.",
+"Gegen {gegner} geht es für {club} um mehr als Punkte, {bilanz}."
+],
+[
+"Die Spannung steigt von Tag zu Tag.",
+"Man spürt die Brisanz in der ganzen Stadt.",
+"Vor dem Anpfiff liegt Knistern in der Luft.",
+"Jeder Spieler weiß, was auf dem Spiel steht."
+],
+[
+"Am Ende zählt nur das Ergebnis.",
+"Ein Sieg wäre mehr als drei Punkte.",
+"Wer gewinnt, hat für lange Zeit das Sagen.",
+"Das Spiel wird in der Stadt noch lange Thema sein."
+]
+],
+"ton": {
+"presse": [
+[
+"Das Duell {club} gegen {gegner} wird zur Rechnung: {bilanz}.",
+"Die Rivalität zwischen {club} und {gegner} geht in die nächste Runde, {bilanz}.",
+"Alle reden vom Duell mit {gegner}: {bilanz}, und niemand hat vergessen.",
+"Gegen {gegner} geht es für {club} um mehr als Punkte, {bilanz}."
+],
+[
+"Die Spannung steigt von Tag zu Tag.",
+"Man spürt die Brisanz in der ganzen Stadt.",
+"Vor dem Anpfiff liegt Knistern in der Luft.",
+"Jeder Spieler weiß, was auf dem Spiel steht."
+],
+[
+"Am Ende zählt nur das Ergebnis.",
+"Ein Sieg wäre mehr als drei Punkte.",
+"Wer gewinnt, hat für lange Zeit das Sagen.",
+"Das Spiel wird in der Stadt noch lange Thema sein."
+]
+],
+"vorstand": [
+[
+"Der Vorstand erwartet im Duell mit {gegner} eine Reaktion, {bilanz}.",
+"Im Präsidium weiß man, was das Spiel gegen {gegner} bedeutet: {bilanz}.",
+"Die Verantwortlichen fordern im Spiel gegen {gegner} Haltung, {bilanz}.",
+"Man will gegen {gegner} ein Zeichen setzen, {bilanz}."
+],
+[
+"Die Spannung steigt von Tag zu Tag.",
+"Man spürt die Brisanz in der ganzen Stadt.",
+"Vor dem Anpfiff liegt Knistern in der Luft.",
+"Jeder Spieler weiß, was auf dem Spiel steht."
+],
+[
+"Am Ende zählt nur das Ergebnis.",
+"Ein Sieg wäre mehr als drei Punkte.",
+"Wer gewinnt, hat für lange Zeit das Sagen.",
+"Das Spiel wird in der Stadt noch lange Thema sein."
+]
+],
+"fans": [
+[
+"Die Fans fiebern dem Duell mit {gegner} entgegen: {bilanz}.",
+"Die Kurve will gegen {gegner} Genugtuung, {bilanz}.",
+"Auf den Rängen wird {gegner} schon Wochen vorher thematisiert, {bilanz}.",
+"Für die Anhänger ist das Spiel gegen {gegner} das wichtigste der Saison, {bilanz}."
+],
+[
+"Die Spannung steigt von Tag zu Tag.",
+"Man spürt die Brisanz in der ganzen Stadt.",
+"Vor dem Anpfiff liegt Knistern in der Luft.",
+"Jeder Spieler weiß, was auf dem Spiel steht."
+],
+[
+"Am Ende zählt nur das Ergebnis.",
+"Ein Sieg wäre mehr als drei Punkte.",
+"Wer gewinnt, hat für lange Zeit das Sagen.",
+"Das Spiel wird in der Stadt noch lange Thema sein."
+]
+]
+}
+},
+"rivale_start_betreff": {
+"teile": [
+[
+"Das Duell steht an",
+"Die Rechnung ist offen",
+"Rivalität pur",
+"Spiel der Spiele"
+]
+]
+},
+"rivale_sieg": {
+"teile": [
+[
+"{club} gewinnt das Duell mit {gegner} {ergebnis}: Die Rechnung ist beglichen.",
+"Der Sieg gegen {gegner} ({ergebnis}) war mehr als drei Punkte für {club}.",
+"{club} schlägt {gegner} {ergebnis} und dreht das Duell."
+],
+[
+"Die Stadt feiert.",
+"Die Kurve ist außer sich.",
+"Die Spieler wurden von den Fans auf Händen getragen."
+],
+[
+"Die Rivalität lebt weiter.",
+"Der Stolz ist zurück.",
+"Das Rückspiel wird die nächste Geschichte schreiben."
+]
+]
+},
+"rivale_niederlage": {
+"teile": [
+[
+"{club} verliert das Duell mit {gegner} {ergebnis}: ein bitterer Nachmittag.",
+"Die Niederlage gegen {gegner} ({ergebnis}) schmerzt {club} besonders.",
+"{gegner} setzt sich im Duell mit {club} {ergebnis} durch."
+],
+[
+"Die Enttäuschung in der Stadt ist groß.",
+"Die Kurve ist stumm.",
+"Die Spieler wissen, was sie schuldig geblieben sind."
+],
+[
+"Aufgearbeitet wird in den nächsten Tagen.",
+"Das Rückspiel wird zur Chance, das Bild zurechtzurücken.",
+"Die Rechnung bleibt offen."
+]
+]
+},
+"rivale_remis": {
+"teile": [
+[
+"{club} und {gegner} trennen sich {ergebnis}: Das große Duell bleibt unentschieden.",
+"Keiner kann das Duell gewinnen: {club} gegen {gegner} endet {ergebnis}.",
+"Im Duell zwischen {club} und {gegner} fällt keine Entscheidung ({ergebnis})."
+],
+[
+"Beide Seiten sind nur halb zufrieden.",
+"Die Kurven hätten sich mehr gewünscht.",
+"Die Rivalität bleibt, wie sie war."
+],
+[
+"Das Rückspiel muss die Antwort bringen.",
+"Die Rechnung bleibt offen.",
+"Es war ein Spiel, das in Erinnerung bleibt."
+]
+]
+},
+"ruf_ausbildung": {
+"teile": [
+[
+"{club} gilt zunehmend als Ausbildungsverein: Immer wieder setzen sich junge Spieler durch.",
+"Bei {club} bekommen Talente ihre Chance, das spricht sich herum.",
+"Der Ruf als Talentschmiede wächst: {club} bildet aus und vertraut der Jugend."
+],
+[
+"Eltern und Berater schicken ihre Jungen gern dorthin.",
+"Fans und Sponsoren schätzen diese Linie.",
+"Das macht den Verein attraktiv für Talente."
+]
+]
+},
+"ruf_spektakel": {
+"teile": [
+[
+"{club} ist bekannt für Spektakel: Spiele mit vielen Toren sind die Regel.",
+"Wer zu {club} geht, bekommt Offensivfußball geboten, mit vielen Toren auf beiden Seiten.",
+"Der Ruf des Spektakels eilt {club} voraus."
+],
+[
+"Die Zuschauer lieben es.",
+"Neutrale schalten gern ein.",
+"Offensivspieler fühlen sich hier wohl."
+]
+]
+},
+"ruf_bollwerk": {
+"teile": [
+[
+"{club} hat sich den Ruf eines Bollwerks erarbeitet: Hinten steht die Mannschaft stabil.",
+"Gegen {club} ist selten etwas zu holen, die Defensive gilt als eine der besten.",
+"Mit einer sicheren Abwehr hat sich {club} Respekt verdient."
+],
+[
+"Gegner stellen sich auf harte Spiele ein.",
+"Verteidiger und Torhüter schätzen die Arbeit hier.",
+"Die Fans lieben diese Zähigkeit."
+]
+]
+},
+"ruf_stehaufmaennchen": {
+"teile": [
+[
+"{club} wird als Stehaufmännchen gefeiert: Rückschläge werfen den Verein nicht um.",
+"Immer wieder hochgekämpft: {club} gilt als Verein mit unbändigem Willen.",
+"Der Ruf des Stehaufmännchens haftet an {club}."
+],
+[
+"Die Fans sind stolz auf diesen Charakter.",
+"Spieler spüren, dass sie hier gebraucht werden.",
+"Der Zusammenhalt im Verein gilt als vorbildlich."
+]
+]
+},
+"ruf_titelsammler": {
+"teile": [
+[
+"{club} hat sich einen Namen als Titelsammler gemacht: Pokale gehören hier zum Alltag.",
+"Der Ruf als Siegermannschaft eilt {club} voraus.",
+"Wo {club} spielt, geht es um Titel."
+],
+[
+"Sponsoren und Spieler wollen dabei sein.",
+"Der Anspruch im Verein ist entsprechend hoch.",
+"Das zieht Stars an."
+]
+]
+},
+"ruf_fahrstuhl": {
+"teile": [
+[
+"{club} gilt inzwischen als Fahrstuhlmannschaft: auf und ab, ein ständiger Wechsel der Ligen.",
+"Der Ruf des Fahrstuhlvereins haftet an {club}.",
+"Zwischen den Ligen pendelnd, hat {club} sich ein zweifelhaftes Image erarbeitet."
+],
+[
+"Die Fans haben sich daran gewöhnt, aber nicht gern.",
+"Spieler sehen die Unsicherheit.",
+"Ruhe kehrt erst mit Stabilität ein."
+]
+]
+},
+"ruf_grund": {
+"teile": [
+[
+"Der Ruf ist über mehrere Saisons gewachsen, nicht über Nacht.",
+"Aus mehreren Spielzeiten hat sich dieses Bild des Vereins verfestigt.",
+"Dieses Image hat sich der Verein über die letzten Jahre erarbeitet."
+]
+]
+},
+"gedaechtnis_titel": {
+"teile": [
+[
+"Vor {jahre} wurde {club} Meister, ein Saisonbeginn, an den man sich gern erinnert.",
+"{jahre_c} ist es her, dass {club} die Meisterschaft feierte.",
+"Erinnerst du dich? Vor {jahre} jubelte {club} über den Titel."
+],
+[
+"Viele Fans denken noch heute daran zurück.",
+"Auf der Tribüne sitzen manche, die damals dabei waren.",
+"Der Verein hat Geschichte geschrieben."
+],
+[
+"Die Erinnerung macht Lust auf mehr.",
+"Es darf gern wieder passieren.",
+"Die Messlatte liegt hoch."
+]
+]
+},
+"gedaechtnis_aufstieg": {
+"teile": [
+[
+"Vor {jahre} schaffte {club} den Aufstieg und feierte eine rauschende Nacht.",
+"{jahre_c} ist der Aufstieg von {club} her, eine schöne Erinnerung.",
+"Vor {jahre} stand {club} nach dem Aufstieg Kopf."
+],
+[
+"Die Stadt hat diesen Moment nicht vergessen.",
+"Wer dabei war, erzählt noch heute davon.",
+"Der Verein war damals ein anderer."
+],
+[
+"Seitdem ist viel passiert.",
+"Der Weg hat sich gelohnt.",
+"Die Erinnerung gibt Kraft."
+]
+]
+},
+"gedaechtnis_abstieg": {
+"teile": [
+[
+"Vor {jahre} musste {club} den bitteren Gang in die Zweitklassigkeit antreten.",
+"{jahre_c} ist der Abstieg von {club} her, eine Wunde, die lange gebrannt hat.",
+"Vor {jahre} stieg {club} ab, ein Tag, den niemand vergessen hat."
+],
+[
+"Der Verein hat daraus gelernt.",
+"Viele Fans erinnern sich ungern.",
+"Die Mannschaft von damals ist längst auseinandergegangen."
+],
+[
+"Heute blickt man mit anderen Augen darauf.",
+"Das soll nicht noch einmal passieren.",
+"Die Lehren wirken nach."
+]
+]
+},
+"gedaechtnis_pokal": {
+"teile": [
+[
+"Vor {jahre} holte {club} den Pokal, ein Tag voller Freude.",
+"{jahre_c} ist der Pokalsieg von {club} her, ein Moment für die Ewigkeit.",
+"Vor {jahre} hob {club} den Pokal in den Himmel."
+],
+[
+"In der Stadt wurde tagelang gefeiert.",
+"Die Bilder von damals hängen noch im Vereinsheim.",
+"Viele Spieler von damals sind heute Legenden."
+],
+[
+"Es wäre Zeit für ein Wiedersehen mit dem Pokal.",
+"Das macht Mut für die aktuelle Saison.",
+"Die Erinnerung lebt."
+]
+]
+},
+"gedaechtnis_wiedersehen": {
+"teile": [
+[
+"Wiedersehen mit {spieler}: Der frühere {club}-Spieler kommt mit {gegner} zurück ins Stadion.",
+"{spieler} kehrt mit {gegner} an alte Wirkungsstätte zurück, einst trug er das Trikot von {club}.",
+"Alte Bekannte: {spieler} spielt jetzt für {gegner} und trifft auf seinen Ex-Verein {club}."
+],
+[
+"Die Fans sind gespannt, wie er empfangen wird.",
+"Die Erinnerungen an seine Zeit sind lebendig.",
+"Im Umfeld wird er mit gemischten Gefühlen erwartet."
+],
+[
+"Ein Spiel mit besonderer Note.",
+"Ob Applaus oder Pfiffe, entscheidet sich am Spieltag.",
+"Die Sympathien dürften geteilt sein."
+]
+]
+},
+"grund_start": {
+"teile": [
+[
+"Anlass dieser Meldung: {club} steht nach {spiele} Spielen auf {platz}.",
+"Warum jetzt? Nach {spiele} Spielen steht {club} auf {platz}, das ist eine Geschichte wert.",
+"Hintergrund: {platz} nach {spiele} Spielen, so hat sich die Lage entwickelt."
+]
+]
+},
+"grund_verlauf": {
+"teile": [
+[
+"Hintergrund: Seit der letzten Meldung hat sich die Lage kaum verändert, {club} steht auf {platz}.",
+"Warum jetzt? Nach {spiele} Spielen ist {platz} ein Zwischenstand, der die Geschichte weiterträgt.",
+"Anlass: Die Entwicklung setzt sich fort, {club} auf {platz}."
+]
+]
+},
+"grund_ende": {
+"teile": [
+[
+"Hintergrund: Die Saison ist beendet, {club} schließt auf {platz} ab.",
+"Anlass: Mit dem letzten Spieltag steht fest, wie diese Geschichte ausgeht, nämlich {platz}.",
+"Warum jetzt? Die Saison ist vorbei, am Ende steht {platz}."
+]
+]
+},
+"grund_gedaechtnis": {
+"teile": [
+[
+"Anlass: Eine Erinnerung, die zur aktuellen Lage passt.",
+"Hintergrund: Der Verein vergisst nicht, und wir erinnern uns mit.",
+"Warum jetzt? Ein Anlass, zurückzublicken."
+]
+]
+},
+"mission_teaser": {
+"teile": [
+[
+"Der Vorstand hat für diese Saison ein klares Ziel ausgegeben: {ziel}.",
+"Die Erwartung der Verantwortlichen an dich in dieser Saison: {ziel}.",
+"Daran wird die Saison gemessen: {ziel}."
+],
+[
+"Die Vorgabe ist mit dem Budget und dem Kader abgestimmt.",
+"Das Präsidium hat sich an der Stärke der Mannschaft orientiert.",
+"Maßstab war die Einschätzung der Fachleute im Verein."
+],
+[
+"Daran wirst du am Saisonende gemessen.",
+"Erfüllst du die Vorgabe, wächst das Vertrauen.",
+"Verfehlst du das Ziel, wird es ungemütlich."
+]
+]
+},
+"mission_stand": {
+"teile": [
+[
+"Aktuell steht {club} auf {platz}, Ziel ist {ziel}.",
+"Zwischenstand: {platz}, gefordert ist {ziel}.",
+"Im Moment {platz}, die Vorgabe lautet {ziel}."
+],
+[
+"{luecke}"
+]
+]
+}
+}

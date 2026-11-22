@@ -1,0 +1,30 @@
+# Muss / Soll / Info der Inbox (Startwerte, nicht kalibriert). Eine zentrale Regel, die Liste, Zentrale-Kachel und Reiter-Zähler gemeinsam lesen.
+# MUSS  = braucht deine Entscheidung (Folgen groß oder nicht delegierbar); wird NIE vom Co-Trainer übernommen.
+# SOLL  = kann der Co-Trainer übernehmen, wenn die Frist abläuft; du darfst selbst.
+# INFO  = nur lesen (Berichte, Meldungen, Wartendes, Erledigtes).
+[muss]
+kanaele = ["verhandlungstisch", "sitzung", "pressekonferenz"]   # Verhandlung/Vertrag/Transfer, Vorstand, Pressekonferenz
+quellen = ["drama"]                                              # Medizincheck, Hijack, Streik, Vertragspoker
+status = ["eskaliert"]                                           # Konflikt, der eskaliert ist
+themen = ["streik", "vorstand", "konflikt", "kabinenstreit", "vertrag_verweigert", "verletzung"]   # Anfang des Themas
+wahl_kategorien = ["medizin"]                                    # echte Wahl (Spritze/Reha) ab Dringlichkeit 2
+wahl_dringlichkeit = 2
+aufgaben = ["t:spieltag"]                                        # Aufstellungsproblem am Spieltag (Anfang der Aufgabe)
+tage = 3                                                         # Frist, wenn die Quelle keine nennt (ab Eingang)
+
+[soll]
+quellen = ["gespraech", "anliegen", "pool", "aufgabe", "scouting", "entwicklung", "trainingsplan", "trainingswahl", "wirtschaft", "medizin_rotation", "bericht", "kaderlage"]
+delegierbar = ["gespraech", "anliegen", "pool", "scouting", "entwicklung", "trainingsplan", "trainingswahl", "wirtschaft", "medizin_rotation", "bericht", "kaderlage"]
+mit_spieler = ["gespraech", "anliegen", "pool"]                  # nur hier kostet es Vertrauen
+tage = 5                                                         # Frist, wenn die Quelle keine nennt (ab Eingang)
+
+[grenzen]
+muss_max = 7                                                     # höchstens so viele MUSS gleichzeitig sichtbar; weitere warten (nach Frist und Dringlichkeit)
+# Fristen hervorgehoben: höchstens `deckel` in dringend.toml (derselbe Deckel, MUSS nur)
+
+[vertrauen]
+verlust = 1.0                                                    # Beziehungspunkte je übernommenem Spielergespräch
+deckel = 3.0                                                     # höchstens so viel Verlust je Spieler im Fenster
+fenster_tage = 30
+staerke_spanne = 0.3                                             # guter Co-Trainer mildert den Verlust bis -30 %, schwacher verschärft bis +30 %
+standard_staerke = 50

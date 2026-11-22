@@ -1,0 +1,418 @@
+{
+ "pool.vorstand_vertrauenskrise.e.e1": [
+  "{b.vorstand_vertrauenskrise_gruss} {b.vorstand_vertrauenskrise_lage} Was haben Sie dem Präsidium dazu zu sagen?",
+  "{b.vorstand_vertrauenskrise_gruss} {b.vorstand_vertrauenskrise_lage} Wie wollen Sie die Wende schaffen?"
+ ],
+ "pool.vorstand_vertrauenskrise.e.e2": [
+  "{b.vorstand_vertrauenskrise_gruss} {b.vorstand_vertrauenskrise_lage} Ich will hören, woran es liegt und was Sie ändern.",
+  "{b.vorstand_vertrauenskrise_gruss} {b.vorstand_vertrauenskrise_lage} Erklären Sie uns, wohin der Weg führen soll."
+ ],
+ "pool.vorstand_vertrauenskrise.e.e3": [
+  "{b.vorstand_vertrauenskrise_gruss} {b.vorstand_vertrauenskrise_lage} Ich weiß, dass die Stimmung ohnehin schlecht ist, aber um dieses Gespräch kommen wir nicht herum.",
+  "{b.vorstand_vertrauenskrise_gruss} {b.vorstand_vertrauenskrise_lage} Die Lage ist angespannt, trotzdem muss es heute ausgesprochen werden."
+ ],
+ "pool.vorstand_vertrauenskrise.e.e4": [
+  "{b.vorstand_vertrauenskrise_gruss} {b.vorstand_vertrauenskrise_lage} Ich erwarte eine Antwort, und zwar eine, die mich überzeugt!",
+  "{b.vorstand_vertrauenskrise_gruss} {b.vorstand_vertrauenskrise_lage} Heute wird nicht um den heißen Brei geredet!"
+ ],
+ "pool.vorstand_vertrauenskrise.e.e5": [
+  "{b.vorstand_vertrauenskrise_gruss} {b.vorstand_vertrauenskrise_lage} Wir haben Zeit für ein ruhiges Gespräch, schildern Sie mir, wie Sie die Lage sehen.",
+  "{b.vorstand_vertrauenskrise_gruss} {b.vorstand_vertrauenskrise_lage} Ich möchte zuerst Ihre Sicht hören, bevor das Präsidium etwas beschließt."
+ ],
+ "pool.vorstand_vertrauenskrise.e.e6": [
+  "{b.vorstand_vertrauenskrise_gruss} {b.vorstand_vertrauenskrise_lage} Zeigen Sie uns, dass Sie den Verein wieder nach oben führen können.",
+  "{b.vorstand_vertrauenskrise_gruss} {b.vorstand_vertrauenskrise_lage} Überzeugen Sie uns, dass Sie der Mann für den Neuanfang sind."
+ ],
+ "pool.vorstand_vertrauenskrise.e.e7": [
+  "{b.vorstand_vertrauenskrise_gruss} {b.vorstand_vertrauenskrise_lage} Bitte sagen Sie mir ehrlich, wie es Ihnen und der Mannschaft geht.",
+  "{b.vorstand_vertrauenskrise_gruss} {b.vorstand_vertrauenskrise_lage} Ich möchte wissen, was in der Kabine los ist und ob Sie noch hinter Ihrem Weg stehen."
+ ],
+ "pool.vorstand_vertrauenskrise.e.e8": [
+  "{b.vorstand_vertrauenskrise_gruss} {b.vorstand_vertrauenskrise_lage} Dazu kommt, dass wir inzwischen deutlich hinter dem Ziel liegen, und das ist der Kern unserer Sorge.",
+  "{b.vorstand_vertrauenskrise_gruss} {b.vorstand_vertrauenskrise_lage} Der Abstand zu unserem Saisonziel wächst, und darüber müssen wir reden."
+ ],
+ "pool.vorstand_vertrauenskrise.e.e9": [
+  "{b.vorstand_vertrauenskrise_gruss} {b.vorstand_vertrauenskrise_lage} Außerdem murren die Zuschauer, und auch das beschäftigt das Präsidium.",
+  "{b.vorstand_vertrauenskrise_gruss} {b.vorstand_vertrauenskrise_lage} Die Stimmung auf den Rängen kippt, das bleibt dem Präsidium nicht verborgen."
+ ],
+ "pool.vorstand_vertrauenskrise.a.a1": [
+  "Die Verantwortung liegt bei mir, nicht bei der Mannschaft. Ich habe die Serie mit zu verantworten und ziehe die Konsequenzen daraus.",
+  "Ich stelle mich hin: Die Niederlagen gehen auf mein Konto, und ich werde es ändern."
+ ],
+ "pool.vorstand_vertrauenskrise.a.a2": [
+  "Ich lege Ihnen bis zum nächsten Spiel einen Plan vor: was nicht funktioniert hat, was wir ändern und woran Sie die Besserung erkennen.",
+  "Ich habe die Spiele ausgewertet und bringe Ihnen konkrete Schritte mit, mit einem klaren Maßstab dafür."
+ ],
+ "pool.vorstand_vertrauenskrise.a.a3": [
+  "Ich kann nur aufstellen, wer fit ist. Wenn einzelne Spieler nicht liefern, liegt es nicht an meinem Konzept.",
+  "Ein Teil der Mannschaft ist seiner Aufgabe nicht gewachsen, das muss man auch sagen dürfen."
+ ],
+ "pool.vorstand_vertrauenskrise.a.a4": [
+  "Ich erwarte Ihre volle Rückendeckung. Ohne sie kann ich in der Kabine nichts bewirken.",
+  "Ich brauche das Vertrauen des Präsidiums, auch öffentlich. Sonst wird die Lage nur schlimmer."
+ ],
+ "pool.vorstand_vertrauenskrise.a.a5": [
+  "Geben Sie mir noch ein paar Spiele. Die Arbeit greift langsam, aber sie greift.",
+  "Ich bitte um etwas Zeit. Einen Umbruch bekommt man nicht über Nacht hin."
+ ],
+ "pool.vorstand_vertrauenskrise.a.a6": [
+  "Und was haben Sie in der Kaderplanung getan, damit ich bessere Möglichkeiten habe?",
+  "Fragen Sie sich lieber, ob das Präsidium selbst alles für den Erfolg getan hat."
+ ],
+ "pool.vorstand_vertrauenskrise.a.a7": [
+  "Die Analyse mache ich nicht allein: Sportdirektor und Stab prüfen die Serie, und Sie bekommen den gemeinsamen Bericht.",
+  "Ich bitte den Sportdirektor, mit mir einen Bericht zu erstellen, den wir Ihnen gemeinsam vorlegen."
+ ],
+ "pool.vorstand_vertrauenskrise.a.a8": [
+  "Ich verzichte vorerst auf Experimente und setze auf die Elf, die zuletzt Sicherheit gegeben hat. Dafür bitte ich um Ihre Geduld.",
+  "Ich komme Ihnen entgegen: weniger Rotation, mehr Stabilität, und wir sprechen nach jedem Spiel miteinander."
+ ],
+ "pool.vorstand_vertrauenskrise.a.a9": [
+  "Ich verstehe Ihre Unruhe, an Ihrer Stelle würde ich genauso fragen. Mir geht diese Serie selbst sehr nahe.",
+  "Ich nehme Ihre Sorge ernst. Die Niederlagen quälen mich mindestens so sehr wie Sie."
+ ],
+ "pool.vorstand_vertrauenskrise.a.a10": [
+  "Wenn man Pech in Punkte umrechnen könnte, wären wir Tabellenführer. Leider zählt nur das Ergebnis, und daran arbeite ich.",
+  "Ich habe noch nie so viel Pech gesehen, aber Pech ist keine Ausrede, und ich lasse es auch nicht als solche gelten."
+ ],
+ "pool.vorstand_vertrauenskrise.a.a11": [
+  "Ich ändere nichts an meinem Weg. Wer ihn nicht mittragen will, soll das offen sagen.",
+  "Aufstellung und Taktik sind meine Sache. Wenn das dem Präsidium nicht reicht, muss es entscheiden."
+ ],
+ "pool.vorstand_vertrauenskrise.a.a12": [
+  "Was genau erwartet das Präsidium von mir, und woran messen Sie den Erfolg in den nächsten Wochen?",
+  "Sagen Sie mir bitte, welches Ergebnis Sie sehen wollen, dann richte ich die Arbeit danach aus."
+ ],
+ "pool.vorstand_vertrauenskrise.r.r1": [
+  "{b.gut} Das nehme ich mit ins Präsidium, es klingt nach einem Weg.",
+  "{b.gut} So kann ich Ihnen im Gremium den Rücken stärken."
+ ],
+ "pool.vorstand_vertrauenskrise.r.r2": [
+  "{b.gut} Danke für Ihre Offenheit, ich vertraue Ihnen weiter.",
+  "{b.gut} Genau diese Ruhe habe ich gebraucht, wir bleiben im Gespräch."
+ ],
+ "pool.vorstand_vertrauenskrise.r.r3": [
+  "{b.gut} Das ist ein Plan mit Anspruch, daran lasse ich Sie messen.",
+  "{b.gut} Dann erwarte ich bald Ergebnisse, die zu so einem Plan passen."
+ ],
+ "pool.vorstand_vertrauenskrise.r.r4": [
+  "{b.neutral} Ich trage es ins Präsidium, entschieden ist damit noch nichts.",
+  "{b.neutral} Wir beobachten die nächsten Spiele und sehen danach weiter."
+ ],
+ "pool.vorstand_vertrauenskrise.r.r5": [
+  "{b.neutral} Ich bin hin- und hergerissen, ehrlich gesagt.",
+  "{b.neutral} Mir fehlt noch das Gefühl, dass es wirklich besser wird."
+ ],
+ "pool.vorstand_vertrauenskrise.r.r6": [
+  "{b.neutral} Gut, wir warten ab, Hektik hilft niemandem.",
+  "{b.neutral} Dann sehen wir in Ruhe, was die nächste Zeit bringt."
+ ],
+ "pool.vorstand_vertrauenskrise.r.r7": [
+  "{b.schlecht} Das überzeugt das Präsidium nicht, ich muss es so weitergeben.",
+  "{b.schlecht} Damit gehe ich nicht ins Gremium zurück, es wird Konsequenzen geben."
+ ],
+ "pool.vorstand_vertrauenskrise.r.r8": [
+  "{b.schlecht} Wollen Sie mich zum Narren halten? Das Präsidium wird davon hören!",
+  "{b.schlecht} So reden Sie nicht mit mir, nicht in dieser Lage!"
+ ],
+ "pool.vorstand_vertrauenskrise.r.r9": [
+  "{b.schlecht} Dann bleibt mir nur, mich nach Alternativen umzusehen.",
+  "{b.schlecht} Wer so antwortet, macht uns einen Wechsel leicht."
+ ],
+ "pool.vorstand_vertrauenskrise.r.r10": [
+  "{b.schlecht} Ich hatte mehr von Ihnen erwartet, gerade von Ihnen.",
+  "{b.schlecht} Das enttäuscht mich, ich habe mich für Sie starkgemacht."
+ ],
+ "pool.vorstand_vertrauenskrise.x.x1": [
+  "Das Präsidium lässt die Sorge für den Moment ruhen. {entscheidung} Der Rückhalt gilt, solange die Ergebnisse nicht weiter abstürzen.",
+  "{entscheidung} Der Präsident verabschiedet sich mit einem Handschlag, die Krise ist vorerst entschärft."
+ ],
+ "pool.vorstand_vertrauenskrise.x.x2": [
+  "Das Gespräch endet ohne Beschluss. {entscheidung} Im Präsidium beobachtet man die nächsten Spiele genau.",
+  "{entscheidung} Der Präsident lässt offen, wie lange er noch zuwartet."
+ ],
+ "pool.vorstand_vertrauenskrise.x.x3": [
+  "Der Präsident verlässt den Raum merklich verärgert. {entscheidung} Schon am nächsten Tag wird im Verein über Ihre Zukunft gesprochen.",
+  "{entscheidung} In der Stadt heißt es bald, Ihr Stuhl wackle."
+ ],
+ "pool.vorstand_vertrauenskrise.x.x4": [
+  "Der Präsident bricht die Sitzung ab. {entscheidung} Einen weiteren Termin nennt er nicht.",
+  "{entscheidung} Er klappt die Mappe zu und geht, ohne ein weiteres Wort."
+ ],
+ "pool.vorstand_ultimatum.e.e1": [
+  "{b.vorstand_ultimatum_gruss} {b.vorstand_ultimatum_lage} Das ist keine Verhandlung, sondern eine Mitteilung.",
+  "{b.vorstand_ultimatum_gruss} {b.vorstand_ultimatum_lage} Ihre Antwort bitte jetzt."
+ ],
+ "pool.vorstand_ultimatum.e.e2": [
+  "{b.vorstand_ultimatum_gruss} {b.vorstand_ultimatum_lage} Ich erwarte eine klare Antwort, ohne Umwege.",
+  "{b.vorstand_ultimatum_gruss} {b.vorstand_ultimatum_lage} Sagen Sie mir kurz, ob Sie das annehmen."
+ ],
+ "pool.vorstand_ultimatum.e.e3": [
+  "{b.vorstand_ultimatum_gruss} {b.vorstand_ultimatum_lage} Ich weiß, dass die Stimmung ohnehin schlecht ist, doch daran ändert sich nichts.",
+  "{b.vorstand_ultimatum_gruss} {b.vorstand_ultimatum_lage} Ihre Lage ist ohnehin angespannt, deshalb halte ich es kurz."
+ ],
+ "pool.vorstand_ultimatum.e.e4": [
+  "{b.vorstand_ultimatum_gruss} {b.vorstand_ultimatum_lage} Und wehe, es kommt jetzt eine Ausrede!",
+  "{b.vorstand_ultimatum_gruss} {b.vorstand_ultimatum_lage} Ich will kein Wort über Pech hören, sondern eine Zusage!"
+ ],
+ "pool.vorstand_ultimatum.e.e5": [
+  "{b.vorstand_ultimatum_gruss} {b.vorstand_ultimatum_lage} Nehmen Sie sich einen Moment, aber nicht zu lange.",
+  "{b.vorstand_ultimatum_gruss} {b.vorstand_ultimatum_lage} Überlegen Sie in Ruhe, wie Sie damit umgehen wollen."
+ ],
+ "pool.vorstand_ultimatum.e.e6": [
+  "{b.vorstand_ultimatum_gruss} {b.vorstand_ultimatum_lage} Wer den Verein führen will, muss auch unter Druck liefern.",
+  "{b.vorstand_ultimatum_gruss} {b.vorstand_ultimatum_lage} Zeigen Sie jetzt, ob Sie dem gewachsen sind."
+ ],
+ "pool.vorstand_ultimatum.e.e7": [
+  "{b.vorstand_ultimatum_gruss} {b.vorstand_ultimatum_lage} Bitte verstehen Sie, dass das Präsidium keinen anderen Weg mehr sieht.",
+  "{b.vorstand_ultimatum_gruss} {b.vorstand_ultimatum_lage} Ich hoffe, Sie nehmen es nicht persönlich."
+ ],
+ "pool.vorstand_ultimatum.e.e8": [
+  "{b.vorstand_ultimatum_gruss} {b.vorstand_ultimatum_lage} Der Rückstand auf das Ziel ist zu groß geworden, das lässt uns keine Wahl.",
+  "{b.vorstand_ultimatum_gruss} {b.vorstand_ultimatum_lage} Wir liegen weit hinter dem Ziel, deshalb ist dieser Schritt unausweichlich."
+ ],
+ "pool.vorstand_ultimatum.a.a1": [
+  "Ich nehme das Ultimatum an. Sie bekommen von mir Einsatz, Klarheit und Ergebnisse.",
+  "Einverstanden. Ich weiß, was auf dem Spiel steht, und ich werde liefern."
+ ],
+ "pool.vorstand_ultimatum.a.a2": [
+  "Wie genau messen Sie den Anschluss ans Ziel, und gilt die Frist auch, wenn mir Spieler verletzt ausfallen?",
+  "Ich möchte die Bedingungen kennen: Was zählt als Erfolg, und was passiert bei einem Unentschieden?"
+ ],
+ "pool.vorstand_ultimatum.a.a3": [
+  "Ich akzeptiere nur, wenn Sie das Team nach außen unterstützen und keine Gerüchte über meinen Nachfolger zulassen.",
+  "Ich brauche im Gegenzug eine Zusage des Präsidiums: öffentlicher Rückhalt und Ruhe im Umfeld, solange die Frist läuft."
+ ],
+ "pool.vorstand_ultimatum.a.a4": [
+  "Dieses Ultimatum lehne ich ab. Mit einer Pistole am Kopf arbeite ich nicht.",
+  "Nein. Unter solchen Bedingungen führe ich die Mannschaft nicht."
+ ],
+ "pool.vorstand_ultimatum.a.a5": [
+  "Wenn das Präsidium mir nicht mehr vertraut, sagen Sie es offen. Dann nehme ich meinen Hut.",
+  "Ihr Vertrauen scheint aufgebraucht. Dann bleibt mir wohl nur der Rücktritt."
+ ],
+ "pool.vorstand_ultimatum.a.a6": [
+  "Lassen Sie uns nach dem nächsten Spiel in Ruhe darüber sprechen. Heute ist nicht der Tag dafür.",
+  "Ich muss zuerst die Spielvorbereitung abschließen, die Frist besprechen wir danach."
+ ],
+ "pool.vorstand_ultimatum.a.a7": [
+  "Über das Ziel und die Frist sollte der Sportdirektor mitreden. Bitte holen Sie ihn dazu, bevor wir etwas festlegen.",
+  "Das gehört auch in die Verantwortung der Sportlichen Leitung. Ich schlage ein Gespräch mit dem Sportdirektor vor."
+ ],
+ "pool.vorstand_ultimatum.a.a8": [
+  "Ich verstehe, dass Sie unter Druck stehen und entscheiden müssen. Ich nehme es an und danke für die Offenheit.",
+  "Ich weiß, dass Ihnen das nicht leicht fällt. Ich nehme die Frist an, und ich gebe alles."
+ ],
+ "pool.vorstand_ultimatum.a.a9": [
+  "Ich nehme die Frist an, bitte aber um eine schriftliche Fassung des Ziels, damit es keinen Streit über Auslegungen gibt.",
+  "Das Ergebnisziel ist klar, die Frist auch. Ich nehme beides an und erwarte, daran fair gemessen zu werden."
+ ],
+ "pool.vorstand_ultimatum.a.a10": [
+  "Ich nehme an, wenn Sie mir bei Verletzten oder Sperren mehr Spielraum bei der Frist geben.",
+  "Ich bin dabei, bitte aber um Nachsicht, falls uns Ausfälle treffen. Das gehört zur Fairness."
+ ],
+ "pool.vorstand_ultimatum.a.a11": [
+  "Ich lege Ihnen vor dem nächsten Spiel meinen Maßnahmenplan vor, damit Sie sehen, wie ich die Frist nutzen will.",
+  "Ich zeige Ihnen, wie ich in der Frist vorgehe, und Sie können gern jederzeit nachfragen."
+ ],
+ "pool.vorstand_ultimatum.r.r1": [
+  "{b.gut} Dann haben wir eine Abmachung, und ich halte mich daran.",
+  "{b.gut} Das habe ich hören wollen, wir sehen uns nach den Spielen."
+ ],
+ "pool.vorstand_ultimatum.r.r2": [
+  "{b.gut} Danke, dass Sie das so aufnehmen, ich weiß es zu schätzen.",
+  "{b.gut} Ruhe und Haltung, das hilft uns beiden jetzt."
+ ],
+ "pool.vorstand_ultimatum.r.r3": [
+  "{b.gut} Gut, ein klarer Auftrag, und Sie scheinen ihn anzunehmen.",
+  "{b.gut} Dann liefern Sie, und das Präsidium wird es honorieren."
+ ],
+ "pool.vorstand_ultimatum.r.r4": [
+  "{b.neutral} Ich nehme Ihre Antwort zur Kenntnis, die Frist bleibt bestehen.",
+  "{b.neutral} Das Präsidium wird entscheiden, ob es das genügt."
+ ],
+ "pool.vorstand_ultimatum.r.r5": [
+  "{b.neutral} Ich bin unsicher, ob das reicht, wir werden sehen.",
+  "{b.neutral} Ich kann nicht sagen, wie das Präsidium es aufnimmt."
+ ],
+ "pool.vorstand_ultimatum.r.r6": [
+  "{b.neutral} Gut, dann sehen wir, was die Spiele bringen.",
+  "{b.neutral} Das Ergebnis entscheidet, und mehr gibt es dazu nicht zu sagen."
+ ],
+ "pool.vorstand_ultimatum.r.r7": [
+  "{b.schlecht} So kommen wir nicht zusammen, und das Präsidium wird das merken.",
+  "{b.schlecht} Diese Antwort macht Ihre Lage nicht besser."
+ ],
+ "pool.vorstand_ultimatum.r.r8": [
+  "{b.schlecht} Sie wagen es, so mit mir zu reden? Das hat Folgen!",
+  "{b.schlecht} Genug! Verlassen Sie diesen Raum, bevor ich mich vergesse!"
+ ],
+ "pool.vorstand_ultimatum.r.r9": [
+  "{b.schlecht} Dann sind wir uns einig, dass es nicht passt. Ich rufe die Nachfolge an.",
+  "{b.schlecht} Wenn Sie so antworten, ist der Wechsel nur noch eine Formsache."
+ ],
+ "pool.vorstand_ultimatum.r.r10": [
+  "{b.schlecht} Das hätte ich nicht von Ihnen erwartet, nach allem, was wir hinter uns haben.",
+  "{b.schlecht} Ich habe Ihnen vertraut, und so danken Sie es mir."
+ ],
+ "pool.vorstand_ultimatum.x.x1": [
+  "Der Präsident nickt knapp. {entscheidung} Die Fronten sind geklärt, und das Gespräch endet ohne Schärfe.",
+  "{entscheidung} Das Präsidium zieht das Ultimatum zwar nicht zurück, doch der Ton ist wieder sachlich."
+ ],
+ "pool.vorstand_ultimatum.x.x2": [
+  "Nichts ist entschieden. {entscheidung} Die Frist läuft, und im Präsidium beobachtet man jedes Spiel.",
+  "{entscheidung} Der Präsident lässt offen, was er nach Ablauf tun wird."
+ ],
+ "pool.vorstand_ultimatum.x.x3": [
+  "Das Gespräch endet im Streit. {entscheidung} Bald wird im Umfeld offen über einen Nachfolger gesprochen.",
+  "{entscheidung} Der Präsident verlässt den Raum, und am Abend ist die Lage im ganzen Verein bekannt."
+ ],
+ "pool.vorstand_ultimatum.x.x4": [
+  "Der Präsident beendet die Sitzung abrupt. {entscheidung} Man hört vorerst nichts mehr aus dem Präsidium.",
+  "{entscheidung} Er geht, und eine Antwort bleibt aus."
+ ],
+ "pool.vorstand_ultimatum.x.x5": [
+  "Sie haben sich festgelegt, und das Präsidium notiert es. {entscheidung} Von nun an zählt jedes Ergebnis.",
+  "{entscheidung} Der Präsident hält die Frist schriftlich fest, die Uhr läuft."
+ ],
+ "pool.fans_protest_kurve.e.e1": [
+  "{b.fans_protest_kurve_gruss} {b.fans_protest_kurve_lage} Wir bitten um ein Gespräch mit Ihnen.",
+  "{b.fans_protest_kurve_gruss} {b.fans_protest_kurve_lage} Wären Sie zu einem Treffen mit uns bereit?"
+ ],
+ "pool.fans_protest_kurve.e.e2": [
+  "{b.fans_protest_kurve_gruss} {b.fans_protest_kurve_lage} Wir wünschen uns ein Zeichen von Ihnen.",
+  "{b.fans_protest_kurve_gruss} {b.fans_protest_kurve_lage} Sagen Sie uns bitte, wie Sie das sehen."
+ ],
+ "pool.fans_protest_kurve.e.e3": [
+  "{b.fans_protest_kurve_gruss} {b.fans_protest_kurve_lage} Wir wissen, dass die Stimmung ohnehin schlecht ist, aber gerade jetzt brauchen wir ein offenes Wort.",
+  "{b.fans_protest_kurve_gruss} {b.fans_protest_kurve_lage} Die Lage ist angespannt, trotzdem hoffen wir auf ein Gespräch."
+ ],
+ "pool.fans_protest_kurve.e.e4": [
+  "{b.fans_protest_kurve_gruss} {b.fans_protest_kurve_lage} Wenn Sie sich nicht melden, tragen wir es auf die Ränge!",
+  "{b.fans_protest_kurve_gruss} {b.fans_protest_kurve_lage} Wir erwarten eine Antwort, und zwar bald!"
+ ],
+ "pool.fans_protest_kurve.e.e5": [
+  "{b.fans_protest_kurve_gruss} {b.fans_protest_kurve_lage} Wir sind gesprächsbereit und bitten Sie freundlich, sich Zeit für uns zu nehmen.",
+  "{b.fans_protest_kurve_gruss} {b.fans_protest_kurve_lage} Reden wir in Ruhe miteinander, wir wollen den Verein ja weiterhin unterstützen."
+ ],
+ "pool.fans_protest_kurve.e.e6": [
+  "{b.fans_protest_kurve_gruss} {b.fans_protest_kurve_lage} Zeigen Sie uns, dass hier noch etwas vorangeht, dann sind wir wieder dabei.",
+  "{b.fans_protest_kurve_gruss} {b.fans_protest_kurve_lage} Geben Sie uns einen Grund, wieder an den Erfolg zu glauben."
+ ],
+ "pool.fans_protest_kurve.e.e7": [
+  "{b.fans_protest_kurve_gruss} {b.fans_protest_kurve_lage} Bitte nehmen Sie uns ernst, es geht uns um unseren Verein.",
+  "{b.fans_protest_kurve_gruss} {b.fans_protest_kurve_lage} Wir hoffen, dass Sie uns zuhören, es liegt uns viel daran."
+ ],
+ "pool.fans_protest_kurve.e.e8": [
+  "{b.fans_protest_kurve_gruss} {b.fans_protest_kurve_lage} Nach den jüngsten Niederlagen wollen wir nicht schweigen.",
+  "{b.fans_protest_kurve_gruss} {b.fans_protest_kurve_lage} Die letzten Ergebnisse haben das Fass zum Überlaufen gebracht."
+ ],
+ "pool.fans_protest_kurve.e.e9": [
+  "{b.fans_protest_kurve_gruss} {b.fans_protest_kurve_lage} Der Rückstand aufs Saisonziel macht vielen Sorgen.",
+  "{b.fans_protest_kurve_gruss} {b.fans_protest_kurve_lage} Dass der Verein hinter dem Ziel liegt, bleibt in der Kurve nicht ohne Wirkung."
+ ],
+ "pool.fans_protest_kurve.a.a1": [
+  "Kommen Sie zu mir. Ich treffe mich mit einer Abordnung der Kurve und höre mir an, was Ihnen auf dem Herzen liegt.",
+  "Gern. Setzen wir uns zusammen, Sie sagen mir offen, was nicht stimmt, und ich antworte ehrlich."
+ ],
+ "pool.fans_protest_kurve.a.a2": [
+  "Nach dem nächsten Heimspiel entschuldige ich mich bei Ihnen vor der Kurve. Sie haben mehr verdient als das, was wir zuletzt gezeigt haben.",
+  "Sie haben recht, wir haben Sie enttäuscht. Ich sage Ihnen das nach dem Spiel persönlich, mit der Mannschaft."
+ ],
+ "pool.fans_protest_kurve.a.a3": [
+  "Die Ticketpreise spreche ich im Präsidium an, und ich fordere dort eine Entlastung für die Kurve.",
+  "Zu den Eintrittspreisen sage ich dem Präsidium klar meine Meinung, damit Fans sich den Stadionbesuch leisten können."
+ ],
+ "pool.fans_protest_kurve.a.a4": [
+  "Ich bitte Sie um Geduld. Wir arbeiten hart, und die Besserung braucht etwas Zeit.",
+  "Geben Sie uns noch etwas Zeit. Ich verspreche nichts, was ich nicht halten kann, außer Einsatz."
+ ],
+ "pool.fans_protest_kurve.a.a5": [
+  "Ich finde, die Kritik schießt über das Ziel hinaus. Wer die Mannschaft im Stadion auspfeift, hilft ihr nicht.",
+  "Pfiffe und Spruchbänder bringen keine Punkte. Diese Kritik halte ich in der Form für unfair."
+ ],
+ "pool.fans_protest_kurve.a.a6": [
+  "Über Preise und Transferpolitik entscheidet das Präsidium. Ich leite Ihr Anliegen dorthin weiter und bitte um eine Antwort an Sie.",
+  "Das ist nicht mein Aufgabenbereich, ich gebe Ihre Schreiben an das Präsidium und bitte um Rückmeldung."
+ ],
+ "pool.fans_protest_kurve.a.a7": [
+  "Ich entschuldige mich nicht für Ergebnisse, an denen ich jeden Tag arbeite. Mein Weg bleibt, wie er ist.",
+  "Ich lasse mir von der Kurve keine Aufstellung vorschreiben. Wir machen weiter wie bisher."
+ ],
+ "pool.fans_protest_kurve.a.a8": [
+  "Ich bin Trainer, nicht Kartenverkäufer und nicht Einkäufer. Auf Preise und Verträge habe ich keinen Einfluss, also bin ich dafür der falsche Ansprechpartner.",
+  "Für Preise und Neuzugänge werden Sie von mir keine Zusagen bekommen, damit bin ich überfordert und ich lasse mich nicht zum Sündenbock machen."
+ ],
+ "pool.fans_protest_kurve.a.a9": [
+  "Ich erkläre Ihnen gern, was wir taktisch vorhaben, und warum die Leistungen zuletzt schwankten.",
+  "Lassen Sie mich die Lage einordnen: Wir arbeiten an einem Konzept, und es trägt noch nicht, das gebe ich zu."
+ ],
+ "pool.fans_protest_kurve.a.a10": [
+  "Was genau wünschen Sie sich von uns? Sagen Sie mir die drei wichtigsten Punkte.",
+  "Was würde die Kurve überzeugen, und was ist für Sie der Knackpunkt?"
+ ],
+ "pool.fans_protest_kurve.a.a11": [
+  "Keine Sorge, ich habe auch schon weniger gelächelt als heute. Aber wir arbeiten dran, und Ihre Kritik gehört dazu.",
+  "Wenn Meckern Tore schießen würde, wären wir Meister. Aber im Ernst: Ich habe Ihre Nachricht gelesen und nehme sie an."
+ ],
+ "pool.fans_protest_kurve.a.a12": [
+  "Ich schlage ein offenes Training mit anschließender Fragerunde vor, damit Sie sehen, wie wir arbeiten.",
+  "Wir öffnen eine Einheit für Sie, danach beantworte ich Ihre Fragen, auch die unbequemen."
+ ],
+ "pool.fans_protest_kurve.r.r1": [
+  "{b.gut} Das ist ein Anfang, wir geben es in der Kurve so weiter.",
+  "{b.gut} Damit können wir etwas anfangen, danke für Ihre Antwort."
+ ],
+ "pool.fans_protest_kurve.r.r2": [
+  "{b.gut} Danke, dass Sie uns Gehör schenken, das bedeutet uns viel.",
+  "{b.gut} So gehen wir miteinander um, wir sind ja ein Verein."
+ ],
+ "pool.fans_protest_kurve.r.r3": [
+  "{b.gut} Dann erwarten wir jetzt auch Taten, und wir werden genau hinschauen.",
+  "{b.gut} Gut, aber es muss sich auch auf dem Platz zeigen."
+ ],
+ "pool.fans_protest_kurve.r.r4": [
+  "{b.neutral} Wir besprechen das in der Kurve und melden uns wieder.",
+  "{b.neutral} Ob das reicht, werden die nächsten Spiele zeigen."
+ ],
+ "pool.fans_protest_kurve.r.r5": [
+  "{b.neutral} Wir wissen nicht recht, was wir davon halten sollen.",
+  "{b.neutral} Mal sehen, wie die Kurve darauf reagiert, die Meinungen gehen auseinander."
+ ],
+ "pool.fans_protest_kurve.r.r6": [
+  "{b.neutral} Gut, dann warten wir ab, wir haben ja Zeit bis zum nächsten Spiel.",
+  "{b.neutral} Wir nehmen es zur Kenntnis und sehen, was passiert."
+ ],
+ "pool.fans_protest_kurve.r.r7": [
+  "{b.schlecht} Damit sind wir nicht zufrieden, das müssen wir so in die Kurve tragen.",
+  "{b.schlecht} Das war enttäuschend, mehr haben Sie uns nicht zu sagen?"
+ ],
+ "pool.fans_protest_kurve.r.r8": [
+  "{b.schlecht} Dann sehen wir uns im Stadion, und zwar laut!",
+  "{b.schlecht} So reden Sie nicht mit uns, wir haben das ganze Jahr zu Ihnen gehalten!"
+ ],
+ "pool.fans_protest_kurve.r.r9": [
+  "{b.schlecht} Dann bleiben eben viele weg, das ist ihre Entscheidung.",
+  "{b.schlecht} Wenn hier nichts passiert, suchen sich viele ein anderes Hobby."
+ ],
+ "pool.fans_protest_kurve.r.r10": [
+  "{b.schlecht} Wir haben uns mehr Verständnis erhofft, das tut weh.",
+  "{b.schlecht} Von Ihnen hätten wir das nicht erwartet, das enttäuscht uns."
+ ],
+ "pool.fans_protest_kurve.x.x1": [
+  "Der Fanvertreter bedankt sich. {entscheidung} In der Kurve legt sich der Unmut, zumindest fürs Erste.",
+  "{entscheidung} Die Fans nehmen es wohlwollend auf, und die Stimmung rund um das Stadion entspannt sich."
+ ],
+ "pool.fans_protest_kurve.x.x2": [
+  "Die Kurve bleibt gespalten. {entscheidung} Wie es weitergeht, hängt von den nächsten Spielen ab.",
+  "{entscheidung} Der Fanvertreter will sich erst nach der nächsten Fanversammlung äußern."
+ ],
+ "pool.fans_protest_kurve.x.x3": [
+  "Die Antwort spricht sich schnell herum. {entscheidung} Beim nächsten Heimspiel hängen Spruchbänder gegen Sie im Block.",
+  "{entscheidung} In den Fanforen wird noch am selben Abend heftig über Sie gestritten."
+ ],
+ "pool.fans_protest_kurve.x.x4": [
+  "Der Fanvertreter antwortet nicht mehr. {entscheidung} Der Kontakt zur Kurve ist vorerst abgebrochen.",
+  "{entscheidung} Die Fans wenden sich ab, und es kommt keine weitere Nachricht."
+ ]
+}

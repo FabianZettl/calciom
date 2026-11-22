@@ -1,0 +1,13 @@
+{
+ "sg.pruefung.lebt": "Das Spiel läuft",
+ "sg.pruefung.version": "Die Spiel-Erweiterung ist auf dem neuesten Stand",
+ "sg.pruefung.platz": "Deine Karriere ist im Spiel geladen",
+ "sg.pruefung.briefkasten": "Die Verbindung zum Spiel steht",
+ "sg.pruefung.auftrag": "Es liegt nichts Altes mehr im Postfach",
+ "sg.pruefung.zustand": "Das Spiel ist bereit",
+ "sg.handlung.version": "Das Spiel läuft noch mit einer älteren Erweiterung. Beende das Spiel und starte es neu, dann geht es weiter. Bis dahin bleibt alles vorgemerkt.",
+ "sg.handlung.platz": "Im Spiel ist nicht deine Karriere geladen. Lade deine Karriere im Spiel, dann geht es weiter. Bis dahin bleibt alles vorgemerkt.",
+ "sg.handlung.briefkasten": "Die Verbindung zum Spiel steht gerade nicht. Starte das Spiel und lade deine Karriere, dann geht es weiter. Bis dahin bleibt alles vorgemerkt.",
+ "sg.handlung.auftrag": "Im Postfach zum Spiel liegt noch Altes. Starte das Spiel neu, dann geht es weiter. Bis dahin bleibt alles vorgemerkt.",
+ "sg.handlung.zustand": "Das Spiel ist gerade beschäftigt, etwa beim Laden. Warte einen Moment, dann geht es weiter. Bis dahin bleibt alles vorgemerkt."
+}

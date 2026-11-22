@@ -1,0 +1,31 @@
+{
+ "_hinweis": "Texts for second teams and farm teams, kept separate from the logic. %1, %2 are replaced.",
+ "luecke": {
+  "tor": "We need a young goalkeeper who can play for us.",
+  "abwehr": "We're short of centre-backs, and we have room in the squad.",
+  "aussen": "We need young full-backs and have room in the squad.",
+  "mitte": "We're thin in midfield; young players would play straight away.",
+  "fluegel": "We lack pace on the wings; there's room for your talents.",
+  "sturm": "We're looking for young strikers who want to score goals for us."
+ },
+ "grund": {
+  "klamm": "The money would help us get safely through the season.",
+  "abstand": "With a big partner we get players we could never otherwise afford.",
+  "trainer": "Our manager enjoys working with young players.",
+  "naehe": "Short distances, same language: it just fits."
+ },
+ "leihgrund": {
+  "jung": "Should gain match experience at %1.",
+  "verletzt": "Should get back into rhythm at %1 after his injury.",
+  "bank": "Barely gets a game here and should prove himself at %1.",
+  "sonst": "Should push for bigger things at %1."
+ },
+ "kuendigung": {
+  "zurueck": "%1 ends the partnership: “You promised us the lads would play the season with us, and then you recall them. We can't plan like that.”",
+  "wenig": "%1 ends the partnership: “We were promised %2 loan players and got %3. We don't need a big partner for that.”",
+  "zahlung": "%1 ends the partnership: “The money isn't coming. We have bills to pay too.”",
+  "ablauf": "The partnership with %1 has expired."
+ },
+ "anfrage_titel": "%1 wants to become our farm team",
+ "bewerbung_titel": "Application as partner club: %1"
+}

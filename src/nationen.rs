@@ -1,0 +1,66 @@
+//! Nationality (Player.bin bit 233): names, the country of a league and the squad rules (assets/regeln/kaderregeln.toml).
+use crate::game::*;
+use crate::world::World;
+
+/// Is a nationality European (PES numbering: the European countries lie between 190 and 310)? A simplification of EU rules.
+pub fn europaeisch(n: u16) -> bool { (190..=310).contains(&n) }
+
+/// Name of a nationality: from the real data (304 players, 46 countries) or a league country; "" when unknown.
+pub fn name(w: &World, n: u16) -> String {
+    if n == 0 { return String::new(); }
+    static T: std::sync::OnceLock<std::collections::HashMap<u16, String>> = std::sync::OnceLock::new();
+    let t = T.get_or_init(|| {
+        let v: serde_json::Value = serde_json::from_str(include_str!("../assets/regeln/nationen.json")).expect("nationen.json");
+        v.as_object().map(|m| m.iter().filter_map(|(k, x)| Some((k.parse().ok()?, x.as_str()?.to_string()))).collect()).unwrap_or_default()
+    });
+    if let Some(x) = t.get(&n) { return x.clone(); }
+    (0..w.leagues.len()).find(|&l| w.land_nat(l) == n && !w.leagues[l].land.is_empty()).map(|l| w.leagues[l].land.clone()).unwrap_or_default()
+}
+
+impl World {
+    /// The nationality most players of a league have: the league's country.
+    pub fn land_nat(&self, l: usize) -> u16 {
+        let mut z: std::collections::HashMap<u16, usize> = Default::default();
+        for &c in &self.leagues[l].teams { for &p in &self.clubs[c].squad { let n = self.players[p].nat; if n > 0 { *z.entry(n).or_default() += 1; } } }
+        z.into_iter().max_by_key(|x| x.1).map(|x| x.0).unwrap_or(0)
+    }
+}
+
+impl Career {
+    /// Squad rule check for a signing of `p` by club `c` (kaderregeln.toml): None when it is allowed, else the reason.
+    pub fn kaderregel_verstoss(&self, c: usize, p: usize) -> Option<String> {
+        if !self.kaderregeln { return None; }
+        let l = self.world.clubs[c].league;
+        let land = self.world.leagues[l].land.clone();
+        let regel = |k: &str| crate::regeln::wert_oder("kaderregeln", &format!("land.{land}.{k}")).and_then(|v| v.as_f64()).map(|x| x as usize);
+        let n = self.world.players[p].nat;
+        if n == 0 { return None; }
+        let kader: Vec<u16> = self.world.clubs[c].squad.iter().filter(|&&x| x != p && self.world.players[x].youth == 0).map(|&x| self.world.players[x].nat).collect();
+        if let Some(max) = regel(crate::id("nicht_europaeer_max")) {
+            if !europaeisch(n) && kader.iter().filter(|&&x| x > 0 && !europaeisch(x)).count() >= max { return Some(crate::tf!("ui.kaderregel.nicht_europaeer", max, land)); }
+        }
+        if let Some(max) = regel(crate::id("auslaender_max")) {
+            let heim = self.world.land_nat(l);
+            if n != heim && kader.iter().filter(|&&x| x > 0 && x != heim).count() >= max { return Some(crate::tf!("ui.kaderregel.auslaender", max, land)); }
+        }
+        None
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn nationalitaet_aus_player_bin() {
+        let d = crate::fl27::sider().join("livecpk/_FL26-27-Def/common/etc/pesdb");
+        if !crate::fl27::echte_welt(&d) { return; }
+        let w = World::from_pesdb(&d, 7).unwrap();
+        // every player with real data has the matching nationality number (Messi 144 Argentina)
+        let messi = w.players.iter().find(|p| p.id == 7511).unwrap();
+        assert_eq!((messi.nat, name(&w, messi.nat).as_str()), (144, "Argentinien"));
+        let eng = w.leagues.iter().position(|l| l.key == "ENGLAND_D1_LEAGUE").unwrap();
+        assert_eq!(w.land_nat(eng), 204, "England");
+        assert!(europaeisch(204) && !europaeisch(144));
+    }
+}

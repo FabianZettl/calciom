@@ -1,0 +1,74 @@
+{
+ "pool.b.torjaeger_im_lauf_lage": [
+  "{name} is scoring at will right now.",
+  "Everything {name} touches turns into a goal at the moment."
+ ],
+ "pool.b.torjaeger_im_lauf_lage.hitzig": [
+  "{name} is running opponents ragged, and we have to use that!",
+  "What {name} is showing right now is beyond normal, and it deserves a response!"
+ ],
+ "pool.b.torjaeger_im_lauf_lage.loyal": [
+  "{name} is red hot, and I want us to handle him properly.",
+  "It is a gift for the club how {name} is scoring right now."
+ ],
+ "pool.b.torjaeger_im_lauf_lage.ehrgeizig": [
+  "{name} is in form that lets us talk with the top teams.",
+  "With {name} scoring like this, there is more in it than mid-table."
+ ],
+ "pool.b.torjaeger_im_lauf_lage.wechselfreudig": [
+  "{name} scores constantly, and word gets around, not just here.",
+  "The goals of {name} do not go unnoticed by other clubs."
+ ],
+ "pool.b.torjaeger_im_lauf_lage.sensibel": [
+  "{name} is doing well, and I want it to stay that way.",
+  "I am glad to see {name} blossom, I only wonder how we should handle it."
+ ],
+ "pool.b.disziplin_verspaetung_lage": [
+  "{name} was late for training again.",
+  "{name} is slipping on punctuality, and in training he is only half there."
+ ],
+ "pool.b.disziplin_verspaetung_lage.hitzig": [
+  "{name} turns up late and has a big mouth when anyone mentions it!",
+  "There is daily trouble with {name} over timekeeping, and I am fed up!"
+ ],
+ "pool.b.disziplin_verspaetung_lage.loyal": [
+  "I hate saying it, but {name} is no longer careful about the times.",
+  "It is not easy to say anything against {name}, but his lateness keeps piling up."
+ ],
+ "pool.b.disziplin_verspaetung_lage.ehrgeizig": [
+  "If {name} carries on like this, he drags the whole group down.",
+  "With {name}'s attitude in training we will win nothing."
+ ],
+ "pool.b.disziplin_verspaetung_lage.wechselfreudig": [
+  "{name} seems already gone in his mind, the way he arrives late and trains without spark.",
+  "With {name} I get the feeling he does not care whether he is still here tomorrow."
+ ],
+ "pool.b.disziplin_verspaetung_lage.sensibel": [
+  "I think {name} has something on his mind, since he is late more often and seems absent.",
+  "{name} has been unpunctual and withdrawn lately, and that worries me."
+ ],
+ "pool.b.social_media_aussage_lage": [
+  "{name} posted something on social media that is making waves.",
+  "A post by {name} is doing the rounds online right now."
+ ],
+ "pool.b.social_media_aussage_lage.hitzig": [
+  "{name} lashed out online, and now everything is boiling over!",
+  "{name} really let off steam on social media, and that will have consequences!"
+ ],
+ "pool.b.social_media_aussage_lage.loyal": [
+  "I am disappointed that {name} speaks out publicly like this, especially as it harms the club.",
+  "{name} posted something online that hurts the club, and that hurts me too."
+ ],
+ "pool.b.social_media_aussage_lage.ehrgeizig": [
+  "{name} distracts from the matches with his post, and we cannot afford that.",
+  "Instead of performance, people talk about {name} and his posturing on social media."
+ ],
+ "pool.b.social_media_aussage_lage.wechselfreudig": [
+  "{name} spoke online as if he had already finished with the club.",
+  "The post by {name} reads like a farewell in instalments."
+ ],
+ "pool.b.social_media_aussage_lage.sensibel": [
+  "{name} vented online, and I do not think he meant harm.",
+  "I am worried about {name}, because his post online sounds like frustration."
+ ]
+}

@@ -1,0 +1,9 @@
+{
+ "optionen.groesse.titel": "Interface size",
+ "optionen.groesse.wert": "%1%",
+ "optionen.groesse.hinweis": "Text, spacing and icons across the whole interface. Applies immediately and is remembered. 100% is the standard size for your window.",
+ "optionen.groesse.vorschau": "Preview",
+ "optionen.groesse.vorschau_titel": "Tactics and line-up",
+ "optionen.groesse.vorschau_text": "This is how large text, numbers and buttons appear.",
+ "optionen.groesse.standard": "Back to 100%"
+}

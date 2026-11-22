@@ -1,0 +1,75 @@
+{
+ "gs.druck.knopf": "Press for an answer",
+ "gs.druck.zeile.vertrag": "The player should answer today. It can go well, but it can also cost goodwill.",
+ "gs.druck.zeile.angebot": "The club should answer today. It may also shut itself off.",
+ "gs.druck.gesperrt.benutzt": "You have already pushed this round.",
+ "gs.druck.gesperrt.ruht": "Talks are on hold until %1.",
+ "gs.druck.gesperrt.keine_antwort": "No answer is pending right now that you could push for.",
+ "gs.druck.ruht_bis": "on hold until %1",
+ "gs.druck.einschaetzung.titel": "Their view",
+ "gs.druck.einschaetzung.vertrag.gut": "His agent thinks: He will understand.",
+ "gs.druck.einschaetzung.vertrag.offen": "His agent thinks: Hard to say how he will react.",
+ "gs.druck.einschaetzung.vertrag.heikel": "His agent thinks: This could go wrong.",
+ "gs.druck.einschaetzung.angebot.gut": "The sporting director thinks: The club will understand.",
+ "gs.druck.einschaetzung.angebot.offen": "The sporting director thinks: Hard to say how the club will react.",
+ "gs.druck.einschaetzung.angebot.heikel": "The sporting director thinks: This could go wrong.",
+ "gs.druck.ausgang_kurz.beeindruckt": "That made an impression.",
+ "gs.druck.ausgang_kurz.ohne_folgen": "The answer came quickly, no strings attached.",
+ "gs.druck.ausgang_kurz.stimmung": "The answer came quickly, but the mood suffers.",
+ "gs.druck.ausgang_kurz.blockade": "The other side has closed up.",
+ "gs.druck.ausgang.beeindruckt": [
+  "%1 is impressed by your determination and meets you halfway.",
+  "%1 nods in approval: whoever speaks this clearly gets a clear answer."
+ ],
+ "gs.druck.ausgang.ohne_folgen": [
+  "%1 answers today and does not hold it against you.",
+  "%1 understands the hurry and answers right away."
+ ],
+ "gs.druck.ausgang.stimmung": [
+  "%1 answers today, but the tone is noticeably cooler.",
+  "%1 gives way but resents the pushing."
+ ],
+ "gs.druck.ausgang.blockade": [
+  "%1 will not be rushed. Talks are on hold for a few days.",
+  "%1 closes up: there is nothing to gain here with pressure."
+ ],
+ "gs.klima.titel": "Climate of the talks",
+ "gs.klima.gut": "Good",
+ "gs.klima.ruhig": "Calm",
+ "gs.klima.angespannt": "Tense",
+ "gs.klima.gereizt": "Irritated",
+ "gs.klima.veraergert": "Angry",
+ "gs.vertrag.bedenk.wartet": "Time to think until %1.",
+ "gs.vertrag.bedenk.titel": "What it hinges on",
+ "gs.vertrag.erwartung.unbekannt": "What he expects is not yet clear.",
+ "gs.vertrag.erwartung.deutlich_mehr": "He expects considerably more than now.",
+ "gs.vertrag.erwartung.mehr": "He expects a little more than now.",
+ "gs.vertrag.erwartung.gleich": "He expects roughly what he gets now.",
+ "gs.vertrag.erwartung.weniger": "He would settle for a little less.",
+ "gs.vertrag.grund.spielzeit": "He was promised too little playing time.",
+ "gs.vertrag.sachlich.bedenkzeit": [
+  "%1: \"That is close. We need some time to think.\""
+ ],
+ "gs.vertrag.fordernd.bedenkzeit": [
+  "%1: \"Just short. My player will think it over and we will get back to you.\""
+ ],
+ "gs.vertrag.freundlich.bedenkzeit": [
+  "%1: \"That sounds good. Let us sleep on it.\""
+ ],
+ "gs.spielzeit.talent": "Role as a talent with a development guarantee",
+ "gs.ui.fehler.bedenkzeit": "The player is still thinking, the answer is coming.",
+ "gs.ui.fehler.ruht": "Talks are still on hold.",
+ "gs.ui.fehler.benutzt": "You have already pushed this round.",
+ "gs.ui.fehler.keine_antwort": "No answer is pending right now.",
+ "gs.ui.fehler.kein_druck_moeglich": "There is nothing to push for here.",
+ "gs.vorfall.vertrag_antwort.betreff": "%1 has decided",
+ "gs.vorfall.vertrag_antwort.text": "The time to think for %1 is up. His answer is in the negotiation.",
+ "tv.grund.druck": "The pressure ended the talks.",
+ "gs.druck.zeile.anfrage": "The club should answer the enquiry today. It may also clam up.",
+ "gs.druck.einschaetzung.anfrage.gut": "The sporting director says: the club will understand.",
+ "gs.druck.einschaetzung.anfrage.offen": "The sporting director says: hard to tell how the club will react.",
+ "gs.druck.einschaetzung.anfrage.heikel": "The sporting director says: this could go wrong.",
+ "tv.druck.rueck.anfrage.antwort": "The sporting director pressed the club: its answer is in your inbox.",
+ "tv.druck.rueck.blockade": "The other side has clammed up. No answer before %1.",
+ "tv.druck.rueck.abbruch": "The talks have broken off."
+}

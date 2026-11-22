@@ -1,0 +1,60 @@
+{
+  "_hinweis": "Texts on the topic of integration. The assistant manager writes to the manager (informal). Placeholders: {spieler}, {spieler_kurz}.",
+  "neuzugang_angekommen.betreff": {
+    "standard": [
+      "{spieler_kurz} has settled in"
+    ]
+  },
+  "neuzugang_angekommen.text": {
+    "standard": [
+      "{spieler} has settled in. He knows the routines, talks on the pitch and no longer sits alone at mealtimes. There's nothing more for me to do there.",
+      "Quick update on {spieler_kurz}: the squad has taken to him. He's playing regularly and the understanding with the players around him works. We can tick that transfer off."
+    ]
+  },
+  "neuzugang_angekommen.antwort.kenntnis": {
+    "standard": [
+      "Good to hear."
+    ]
+  },
+  "neuzugang_aussen_vor.betreff": {
+    "standard": [
+      "{spieler_kurz} isn't fitting in"
+    ]
+  },
+  "neuzugang_aussen_vor.text": {
+    "standard": [
+      "{spieler} has barely featured since the move. He trains well but keeps himself to himself. If we do nothing, we'll lose him before he's even properly here.",
+      "We should talk about {spieler_kurz}. He has hardly been on the pitch since he arrived and hasn't found his place in the dressing room yet."
+    ]
+  },
+  "neuzugang_aussen_vor.antwort.einsatz": {
+    "standard": [
+      "He'll get his games over the coming weeks. Prepare him for it."
+    ]
+  },
+  "neuzugang_aussen_vor.antwort.pate": {
+    "standard": [
+      "Pair him with an experienced player. He has to earn the games himself."
+    ]
+  },
+  "neuzugang_aussen_vor.antwort.abwarten": {
+    "standard": [
+      "He has to fight his way through like everyone else. We change nothing."
+    ]
+  },
+  "neuzugang_aussen_vor.rueckmeldung.einsatz": {
+    "standard": [
+      "Will do. I'll tell him his chance is coming. But then it has to actually come."
+    ]
+  },
+  "neuzugang_aussen_vor.rueckmeldung.pate": {
+    "standard": [
+      "Good idea, I'll ask one of the older lads. It'll help him in the dressing room; it doesn't change anything on the bench for now."
+    ]
+  },
+  "neuzugang_aussen_vor.rueckmeldung.abwarten": {
+    "standard": [
+      "Your decision. I'll keep an eye on him and let you know if it tips."
+    ]
+  }
+}

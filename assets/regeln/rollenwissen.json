@@ -1,0 +1,37 @@
+{
+ "hinweis": "Eigene Heuristik (nicht aus dem Spiel): Aufgabe, Ausrichtung, Breite und harte Mindestwerte je Rolle (Skala 40-99), Nachbarschaft der Positionen (Codes 0 TW … 12 ST) für Umschulung und Eignung, Teamstile mit bevorzugten Aufgaben. Die Attributgewichte je Rolle stehen in rollen.json.",
+ "rollen": {
+  "ball_playing_defender": {"aufgabe": "aufbau_hinten", "ausrichtung": "neutral", "breit": false, "mindest": {"flachpass": 62, "defensivgeist": 62}},
+  "stopper": {"aufgabe": "zweikampf_hinten", "ausrichtung": "def", "breit": false, "mindest": {"koerperkontakt": 62, "balleroberung": 62}},
+  "cover_defender": {"aufgabe": "absicherung", "ausrichtung": "def", "breit": false, "mindest": {"schnelligkeit": 62, "defensivgeist": 62}},
+  "defensive_fullback": {"aufgabe": "absicherung_seite", "ausrichtung": "def", "breit": true, "mindest": {"defensivgeist": 60}},
+  "attacking_fullback": {"aufgabe": "breite_vor", "ausrichtung": "off", "breit": true, "mindest": {"ausdauer": 64, "schnelligkeit": 60}},
+  "inverted_fullback": {"aufgabe": "aufbau_innen", "ausrichtung": "neutral", "breit": false, "mindest": {"flachpass": 62}},
+  "holding_midfielder": {"aufgabe": "absicherung_zentral", "ausrichtung": "def", "breit": false, "mindest": {"defensivgeist": 64}},
+  "deep_lying_playmaker": {"aufgabe": "spielmacher", "ausrichtung": "neutral", "breit": false, "mindest": {"flachpass": 66}},
+  "ball_winning_midfielder": {"aufgabe": "balljagd", "ausrichtung": "def", "breit": false, "mindest": {"balleroberung": 64, "ausdauer": 62}},
+  "box_to_box": {"aufgabe": "pendeln", "ausrichtung": "neutral", "breit": false, "mindest": {"ausdauer": 66}},
+  "advanced_playmaker": {"aufgabe": "spielmacher", "ausrichtung": "off", "breit": false, "mindest": {"flachpass": 66, "ballkontrolle": 64}},
+  "shadow_striker": {"aufgabe": "nachruecken", "ausrichtung": "off", "breit": false, "mindest": {"offensivgeist": 64, "abschluss": 62}},
+  "traditional_winger": {"aufgabe": "breite_vor", "ausrichtung": "off", "breit": true, "mindest": {"schnelligkeit": 64, "dribbling": 62}},
+  "inverted_winger": {"aufgabe": "einruecken", "ausrichtung": "off", "breit": false, "mindest": {"dribbling": 64}},
+  "inside_forward": {"aufgabe": "einruecken", "ausrichtung": "off", "breit": false, "mindest": {"abschluss": 64, "dribbling": 62}},
+  "wide_playmaker": {"aufgabe": "spielmacher", "ausrichtung": "off", "breit": true, "mindest": {"flachpass": 64}},
+  "advanced_forward": {"aufgabe": "tiefenlauf", "ausrichtung": "off", "breit": false, "mindest": {"abschluss": 66}},
+  "target_forward": {"aufgabe": "ziel", "ausrichtung": "off", "breit": false, "mindest": {"kopfball": 64, "koerperkontakt": 64}},
+  "deep_lying_forward": {"aufgabe": "anspiel_zurueck", "ausrichtung": "neutral", "breit": false, "mindest": {"ballkontrolle": 64}},
+  "false_nine": {"aufgabe": "anspiel_zurueck", "ausrichtung": "neutral", "breit": false, "mindest": {"flachpass": 64}},
+  "goalkeeper": {"aufgabe": "tor", "ausrichtung": "neutral", "breit": false, "mindest": {"reflexe": 60}}
+ },
+ "einmalig": ["ziel", "nachruecken", "anspiel_zurueck", "spielmacher"],
+ "nachbarn": {"1": [4, 2, 3], "2": [6, 1, 3], "3": [7, 1, 2], "4": [5, 1], "5": [4, 8, 6, 7], "6": [2, 5, 9], "7": [3, 5, 10],
+              "8": [5, 11, 9, 10], "9": [6, 8, 12, 10], "10": [7, 8, 12, 9], "11": [8, 12], "12": [11, 9, 10]},
+ "teamstile": {
+  "ballbesitz": {"bevorzugt": ["spielmacher", "aufbau_hinten", "aufbau_innen", "anspiel_zurueck"]},
+  "gegenpressing": {"bevorzugt": ["balljagd", "pendeln", "tiefenlauf", "zweikampf_hinten"]},
+  "fluegelspiel": {"bevorzugt": ["breite_vor", "ziel", "einruecken"]},
+  "direktspiel": {"bevorzugt": ["ziel", "tiefenlauf", "anspiel_zurueck"]},
+  "konterspiel": {"bevorzugt": ["tiefenlauf", "einruecken", "absicherung_zentral", "pendeln"]},
+  "catenaccio": {"bevorzugt": ["absicherung", "absicherung_zentral", "absicherung_seite", "zweikampf_hinten"]}
+ }
+}

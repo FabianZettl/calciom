@@ -1,0 +1,8 @@
+# Wann ein offener Vorgang "wichtig" ist (Startwerte, nicht kalibriert). Alles andere gilt als normal.
+deckel = 3                    # höchstens so viele gleichzeitig hervorgehoben (die dringendsten)
+frist_tage = 1                # Frist heute oder morgen (oder überfällig)
+mindest_dringlichkeit = 2     # darunter nie wichtig
+kanaele = ["verhandlungstisch", "pressekonferenz"]   # laufende Verhandlung / Pressetermin zählt auch ohne Frist
+# Berichte und Standardnachrichten sind nie wichtig; Anliegen nur, wenn sie eskaliert sind
+nie_quellen = ["bericht", "scouting", "entwicklung", "trainingsplan", "wirtschaft", "medizin_rotation", "aufgabe"]
+nie_kategorien = ["spiel", "liga", "kader", "finanzen", "verein", "entwicklung", "scouting"]

@@ -1,0 +1,458 @@
+{
+ "pool.ungeduld_nach_reha.e.e1": [
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Ich will diese Woche wieder im Kader stehen.",
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Setz mich bitte wieder auf die Liste für das nächste Spiel."
+ ],
+ "pool.ungeduld_nach_reha.e.e2": [
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Die Tests sehen gut aus, nur der Arzt will noch warten. Warum eigentlich?",
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Der Arzt spricht von Rückfallgefahr, aber ich kenne meinen Körper besser."
+ ],
+ "pool.ungeduld_nach_reha.e.e3": [
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Ich bin schlecht drauf, weil ich seit Wochen nur zuschaue, und jetzt reicht es.",
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Mir ist heute nicht nach Geduld, ich will endlich wieder auf den Platz."
+ ],
+ "pool.ungeduld_nach_reha.e.e4": [
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Entweder ich spiele am Wochenende, oder ich verstehe die ganze Reha nicht!",
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Sag dem Arzt, er soll mich nicht länger einsperren!"
+ ],
+ "pool.ungeduld_nach_reha.e.e5": [
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Ich will niemanden hintergehen, aber ich halte das Zuschauen nicht mehr aus.",
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Du kannst dich auf mich verlassen, lass mich nur bitte wieder ran."
+ ],
+ "pool.ungeduld_nach_reha.e.e6": [
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Wenn ich jetzt nicht einsteige, ist der Anschluss weg.",
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Ich habe in der Reha doppelt gearbeitet und will es auf dem Platz zeigen."
+ ],
+ "pool.ungeduld_nach_reha.e.e7": [
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Ich fühle mich außen vor, solange ich nicht mitspielen darf.",
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Beim Zuschauen merke ich, wie die Mannschaft ohne mich zusammenwächst."
+ ],
+ "pool.ungeduld_nach_reha.e.e8": [
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Du hattest mir einen Einsatz nach der Pause versprochen, und jetzt hält man mich hin.",
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Du hast gesagt, nach der Reha bekomme ich meine Minuten. Wo sind sie?"
+ ],
+ "pool.ungeduld_nach_reha.e.e9": [
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Ich bin mental topfit und verstehe die Vorsicht nicht.",
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Im Kopf war ich nie besser, nur der Körper soll angeblich noch Zeit brauchen."
+ ],
+ "pool.ungeduld_nach_reha.a.a1": [
+  "Ich lasse den Arzt entscheiden. Gibt er grünes Licht, bist du dabei.",
+  "Die Freigabe kommt vom Arzt, nicht von mir. Sobald er ja sagt, plane ich mit dir."
+ ],
+ "pool.ungeduld_nach_reha.a.a2": [
+  "Ein Rückfall würde dich länger kosten als ein paar Wochen Geduld jetzt. Ich plane lieber mit dir im Dauereinsatz als mit einer zweiten Pause.",
+  "Der Muskel ist noch nicht belastbar, auch wenn er sich gut anfühlt. Wenn wir jetzt vorsichtig sind, hast du die ganze Saison vor dir."
+ ],
+ "pool.ungeduld_nach_reha.a.a3": [
+  "Wir machen einen Reha-Plan mit festen Stufen: erst Lauftraining, dann Mannschaftstraining, dann Einsatz. Jede Stufe hat ihr Datum.",
+  "Du bekommst einen Plan, den du abhaken kannst. Wenn du jede Stufe schaffst, bist du bald wieder dabei."
+ ],
+ "pool.ungeduld_nach_reha.a.a4": [
+  "Du bekommst einen Kurzeinsatz, sobald der Arzt zustimmt, eine halbe Stunde und nicht mehr. Das gilt in den nächsten {frist} Tagen.",
+  "Wenn der Arzt nichts dagegen hat, wechsle ich dich zum Schluss ein. Innerhalb von {frist} Tagen hast du deine Minuten."
+ ],
+ "pool.ungeduld_nach_reha.a.a5": [
+  "Ich weiß, wie schwer es ist, zuzusehen. Du bist uns wichtig, und gerade deshalb will ich dich nicht verheizen.",
+  "Das Warten zermürbt dich, das sehe ich. Aber ich will dich ganz zurück, nicht halb."
+ ],
+ "pool.ungeduld_nach_reha.a.a6": [
+  "Na gut, du spielst von Beginn an. Ich trage die Entscheidung, aber wehe, es zwickt.",
+  "Dann geh raus und zeig es uns. Wenn der Arzt nachher schimpft, rede ich mit ihm."
+ ],
+ "pool.ungeduld_nach_reha.a.a7": [
+  "Du spielst, wenn der Arzt es sagt, und keinen Tag früher. Damit ist die Diskussion beendet.",
+  "Ich ändere meine Meinung nicht. Der Arzt hat das letzte Wort, und ich auch."
+ ],
+ "pool.ungeduld_nach_reha.a.a8": [
+  "Das kommt nicht in Frage. Du bist nicht bereit, auch wenn du es glaubst.",
+  "Nein, und hör auf zu drängen. Bis du ganz gesund bist, brauche ich dich nicht."
+ ],
+ "pool.ungeduld_nach_reha.a.a9": [
+  "Ruh dich aus, die Spiele laufen dir nicht weg. Genieß den Kaffee auf der Tribüne.",
+  "Andere würden viel für ein paar freie Wochen geben. Nutz sie."
+ ],
+ "pool.ungeduld_nach_reha.a.a10": [
+  "Wie fühlt sich der Oberschenkel im Sprint an, und wie nach dem Training am nächsten Morgen?",
+  "Was genau sagt der Arzt, und was sagst du ihm zurück?"
+ ],
+ "pool.ungeduld_nach_reha.a.a11": [
+  "Ich hole dir einen Spezialtherapeuten, der täglich mit dir arbeitet. Das zahlt der Verein, damit du schneller sicher bist.",
+  "Wir buchen ein zusätzliches Programm bei einem Fachmann. Das kostet etwas, aber du kommst damit gestärkt zurück."
+ ],
+ "pool.ungeduld_nach_reha.a.a12": [
+  "Ich vertraue dir, deshalb sage ich es offen: Ich brauche dich im Frühjahr gesund, nicht jetzt halb fit.",
+  "Zwischen uns stimmt es, also sage ich dir geradeheraus, dass ich kein Risiko eingehe."
+ ],
+ "pool.ungeduld_nach_reha.r.r1": [
+  "{b.gut} Danke, dass du mich ernst nimmst. Damit kann ich leben.",
+  "{b.gut} So fühle ich mich gehört, und ich ziehe den Plan durch."
+ ],
+ "pool.ungeduld_nach_reha.r.r2": [
+  "{b.gut} Du hast recht, ein Rückfall nützt am Ende keinem.",
+  "{b.gut} Ich vertraue dir und dem Arzt, auch wenn es mir schwerfällt."
+ ],
+ "pool.ungeduld_nach_reha.r.r3": [
+  "{b.gut} Solange ich einen festen Termin habe, arbeite ich doppelt dafür.",
+  "{b.gut} Dann gebe ich in der Reha alles, damit das Datum hält."
+ ],
+ "pool.ungeduld_nach_reha.r.r4": [
+  "{b.gut} Dass du meine Angst verstehst, bedeutet mir viel.",
+  "{b.gut} Endlich spricht jemand mit mir und nicht über mich."
+ ],
+ "pool.ungeduld_nach_reha.r.r5": [
+  "{b.neutral} Na gut, dann warte ich eben noch ab.",
+  "{b.neutral} Ich bin nicht begeistert, aber ich höre mir an, was der Arzt sagt."
+ ],
+ "pool.ungeduld_nach_reha.r.r6": [
+  "{b.neutral} Ich weiß nicht, ob ich dir glauben soll, aber heute lasse ich es gut sein.",
+  "{b.neutral} Mal bin ich ruhig, mal nicht, frag mich morgen noch einmal."
+ ],
+ "pool.ungeduld_nach_reha.r.r7": [
+  "{b.neutral} Dann liegt es jetzt an den nächsten Untersuchungen.",
+  "{b.neutral} Ich nehme es zur Kenntnis und mache mit der Reha weiter."
+ ],
+ "pool.ungeduld_nach_reha.r.r8": [
+  "{b.neutral} Ein paar Tage mehr werden mich nicht umbringen.",
+  "{b.neutral} Ich habe schon Schlimmeres ausgesessen."
+ ],
+ "pool.ungeduld_nach_reha.r.r9": [
+  "{b.schlecht} Du behandelst mich wie ein Kind, das nicht weiß, was es spürt.",
+  "{b.schlecht} So bleibe ich nur auf der Tribüne und verliere den Mut."
+ ],
+ "pool.ungeduld_nach_reha.r.r10": [
+  "{b.schlecht} Dann trainiere ich eben auf eigene Faust mit!",
+  "{b.schlecht} Ihr haltet mich alle zurück, das lasse ich nicht länger zu!"
+ ],
+ "pool.ungeduld_nach_reha.r.r11": [
+  "{b.schlecht} Bei einem anderen Verein würde man mich spielen lassen.",
+  "{b.schlecht} Wenn ich hier nur zuschauen darf, höre ich mich um."
+ ],
+ "pool.ungeduld_nach_reha.r.r12": [
+  "{b.schlecht} Ich hätte mehr Rückhalt erwartet von jemandem, für den ich mich zerreiße.",
+  "{b.schlecht} Das tut weh, ich habe nie gejammert, als es mir schlecht ging."
+ ],
+ "pool.ungeduld_nach_reha.x.x1": [
+  "Er macht die Reha mit neuem Eifer weiter, und der Arzt ist zufrieden. {entscheidung}",
+  "Er lässt sich auf die Pause ein. {entscheidung} Die Therapeuten berichten von guter Mitarbeit."
+ ],
+ "pool.ungeduld_nach_reha.x.x2": [
+  "{entscheidung} Ob er durchhält, zeigt sich bei den nächsten Untersuchungen.",
+  "Er nickt, wirkt aber unruhig. {entscheidung} Der Arzt bleibt wachsam."
+ ],
+ "pool.ungeduld_nach_reha.x.x3": [
+  "{entscheidung} Im Training überspielt er die Schmerzgrenze, und der Arzt schlägt Alarm.",
+  "Der Spieler stürmt hinaus. {entscheidung} Der Mannschaftsarzt verlangt eine Aussprache."
+ ],
+ "pool.ungeduld_nach_reha.x.x4": [
+  "Ihr einigt euch auf einen vorsichtigen Wiedereinstieg. {entscheidung} Der Arzt begleitet jeden Schritt.",
+  "{entscheidung} Der Kurzeinsatz steht, und der Spieler hat ein Ziel vor Augen."
+ ],
+ "pool.ungeduld_nach_reha.x.x5": [
+  "Er beendet den Chat ohne ein weiteres Wort. {entscheidung} Der Arzt wird informiert.",
+  "{entscheidung} Der Spieler antwortet nicht mehr, und das Thema bleibt liegen."
+ ],
+ "pool.kritik_oeffentlich.e.e1": [
+  "{b.gruss} {b.kritik_oeffentlich_lage} Ich muss mit dir über die Berichte der letzten Tage reden.",
+  "{b.gruss} {b.kritik_oeffentlich_lage} Hast du die Zeitung gelesen? Ich möchte wissen, wie du darüber denkst."
+ ],
+ "pool.kritik_oeffentlich.e.e2": [
+  "{b.gruss} {b.kritik_oeffentlich_lage} Nach dem Spiel hast du vor den Mikrofonen über meine Leistung gesprochen, und das hat mich getroffen.",
+  "{b.gruss} {b.kritik_oeffentlich_lage} Was du öffentlich über mich gesagt hast, hätte ich lieber unter vier Augen gehört."
+ ],
+ "pool.kritik_oeffentlich.e.e3": [
+  "{b.gruss} {b.kritik_oeffentlich_lage} Mir geht es gerade nicht gut, und die Schlagzeilen machen es schlimmer.",
+  "{b.gruss} {b.kritik_oeffentlich_lage} Ich bin mit den Nerven am Ende, bitte nimm mich nicht auch noch auseinander."
+ ],
+ "pool.kritik_oeffentlich.e.e4": [
+  "{b.gruss} {b.kritik_oeffentlich_lage} Ich lasse mich nicht länger zum Prügelknaben machen, hörst du?",
+  "{b.gruss} {b.kritik_oeffentlich_lage} Sag den Reportern, sie sollen mich in Ruhe lassen, oder ich tue es selbst!"
+ ],
+ "pool.kritik_oeffentlich.e.e5": [
+  "{b.gruss} {b.kritik_oeffentlich_lage} Ich will nicht jammern, aber ein öffentliches Wort von dir würde mir helfen.",
+  "{b.gruss} {b.kritik_oeffentlich_lage} Bei den schlechten Berichten hoffe ich, dass der Verein hinter mir steht."
+ ],
+ "pool.kritik_oeffentlich.e.e6": [
+  "{b.gruss} {b.kritik_oeffentlich_lage} Ich brauche dein Vertrauen, damit ich auf dem Platz zurückschlagen kann.",
+  "{b.gruss} {b.kritik_oeffentlich_lage} Lass mich beweisen, dass die Kritiker falsch liegen."
+ ],
+ "pool.kritik_oeffentlich.e.e7": [
+  "{b.gruss} {b.kritik_oeffentlich_lage} Mich hat das so verletzt, dass ich mich frage, ob ich hier noch am richtigen Ort bin.",
+  "{b.gruss} {b.kritik_oeffentlich_lage} Seit der Kritik fühle ich mich allein gelassen."
+ ],
+ "pool.kritik_oeffentlich.e.e8": [
+  "{b.gruss} {b.kritik_oeffentlich_lage} Du wolltest dich nach dem letzten Verriss öffentlich vor mich stellen, davon habe ich nichts gehört.",
+  "{b.gruss} {b.kritik_oeffentlich_lage} Du hattest zugesagt, mir den Rücken zu stärken. Gesehen habe ich nichts."
+ ],
+ "pool.kritik_oeffentlich.e.e9": [
+  "{b.gruss} {b.kritik_oeffentlich_lage} Die Stimmung gegen mich in den Medien kippt, und ich spüre sie bei jedem Schritt.",
+  "{b.gruss} {b.kritik_oeffentlich_lage} Fast jeder Bericht über mich ist inzwischen böse, das zermürbt mich."
+ ],
+ "pool.kritik_oeffentlich.a.a1": [
+  "Ich stelle mich bei der nächsten Pressekonferenz hinter dich. Das sage ich dir jetzt, damit du es vorher weißt.",
+  "Vor den Kameras bekommst du von mir Rückendeckung, ohne Wenn und Aber."
+ ],
+ "pool.kritik_oeffentlich.a.a2": [
+  "Mein Satz nach dem Spiel war zu scharf, das tut mir leid. Ich hätte ihn dir zuerst sagen sollen.",
+  "Ich habe mich im Ton vergriffen. Dafür entschuldige ich mich, bei dir und vor der Mannschaft."
+ ],
+ "pool.kritik_oeffentlich.a.a3": [
+  "Komm, wir setzen uns zu zweit hin, ohne Handy. Erzähl mir, was dich daran am meisten getroffen hat.",
+  "Lass uns in Ruhe reden, nur du und ich. Ich will wissen, wie es dir damit geht."
+ ],
+ "pool.kritik_oeffentlich.a.a4": [
+  "Die Leistung war schwach, und das habe ich so gesagt. Wer so spielt, wird kritisiert.",
+  "Ich nehme kein Wort zurück. Verbessere dich, dann schreibt die Presse auch anders."
+ ],
+ "pool.kritik_oeffentlich.a.a5": [
+  "Das ist das Geschäft. Wer Profi sein will, muss Zeitungen aushalten.",
+  "Hör auf, dir leidzutun. Hier zählt, was auf dem Rasen passiert, nicht was gedruckt wird."
+ ],
+ "pool.kritik_oeffentlich.a.a6": [
+  "Das Papier von heute ist morgen vergessen. Mach dir keine Gedanken.",
+  "Lass die Leute schreiben, in einer Woche redet keiner mehr davon."
+ ],
+ "pool.kritik_oeffentlich.a.a7": [
+  "Was genau stand in dem Bericht, das nicht stimmt? Und was davon stimmt?",
+  "Welche Zeile hat dich am meisten getroffen, und warum?"
+ ],
+ "pool.kritik_oeffentlich.a.a8": [
+  "Ich bitte den Pressesprecher, die Anfragen für dich zu bündeln. Du konzentrierst dich aufs Training.",
+  "Unser Pressesprecher kümmert sich um die Reporter. Du musst gar nichts sagen."
+ ],
+ "pool.kritik_oeffentlich.a.a9": [
+  "Gib die nächsten Tage keine Interviews, dann kühlt sich die Sache ab. Ich schirme dich ab.",
+  "Bleib den Mikrofonen fern, bis sich die Lage beruhigt. Die Fragen nehme ich auf mich."
+ ],
+ "pool.kritik_oeffentlich.a.a10": [
+  "Ich habe schon Schlimmeres über mich gelesen und lebe noch. Wir stecken das weg.",
+  "Mit der Zeitung von gestern wickelt man morgen den Fisch ein. Daran halten wir uns."
+ ],
+ "pool.kritik_oeffentlich.a.a11": [
+  "Der Verein bezahlt dir ein Medientraining, damit du den nächsten Fragen gewachsen bist.",
+  "Ich buche dir einen Coach für den Umgang mit der Presse, auf Kosten des Vereins."
+ ],
+ "pool.kritik_oeffentlich.a.a12": [
+  "Wir analysieren das Spiel im Videoraum, nicht in der Zeitung. Dort zeige ich dir, was geht und was nicht.",
+  "Gemeinsam gehen wir die Szenen durch. Danach weißt du, was an der Kritik dran ist."
+ ],
+ "pool.kritik_oeffentlich.r.r1": [
+  "{b.gut} Danke, das nimmt mir einen Stein von der Brust.",
+  "{b.gut} Damit kann ich wieder aufrecht gehen, danke dir."
+ ],
+ "pool.kritik_oeffentlich.r.r2": [
+  "{b.gut} Du bist ehrlich zu mir, das schätze ich. Ich halte durch.",
+  "{b.gut} Ich wusste, dass ich mich auf dich verlassen kann."
+ ],
+ "pool.kritik_oeffentlich.r.r3": [
+  "{b.gut} Wenn du hinter mir stehst, zeige ich es allen am Wochenende.",
+  "{b.gut} Dann spiele ich die Kritiker in Grund und Boden."
+ ],
+ "pool.kritik_oeffentlich.r.r4": [
+  "{b.gut} Dass du mir zuhörst, tut mir gut, ich fühle mich nicht mehr allein.",
+  "{b.gut} Es war wichtig, dass ich das einmal aussprechen durfte."
+ ],
+ "pool.kritik_oeffentlich.r.r5": [
+  "{b.neutral} Ich überlege, wie ich damit umgehe. Wir werden sehen.",
+  "{b.neutral} Es ändert nichts an den Artikeln, aber ich höre dich."
+ ],
+ "pool.kritik_oeffentlich.r.r6": [
+  "{b.neutral} Ich bin gerade zu aufgewühlt, um das richtig einzuordnen.",
+  "{b.neutral} Heute geht es, aber ich weiß nicht, wie es morgen aussieht."
+ ],
+ "pool.kritik_oeffentlich.r.r7": [
+  "{b.neutral} Gut, dann machen wir es so und schauen, was die Presse schreibt.",
+  "{b.neutral} Ich warte ab, wie sich das in den nächsten Tagen entwickelt."
+ ],
+ "pool.kritik_oeffentlich.r.r8": [
+  "{b.neutral} Ich bin hart im Nehmen, das geht schon vorbei.",
+  "{b.neutral} Kritik gehört dazu, ich schüttele das ab."
+ ],
+ "pool.kritik_oeffentlich.r.r9": [
+  "{b.schlecht} Du lässt mich damit allein, und die Leute merken das.",
+  "{b.schlecht} Dann bleibe ich der Sündenbock, und niemand tritt dem entgegen."
+ ],
+ "pool.kritik_oeffentlich.r.r10": [
+  "{b.schlecht} Das lasse ich mir von niemandem bieten, auch nicht von dir!",
+  "{b.schlecht} Wenn du so redest, gebe ich der Presse gern selbst ein Wort!"
+ ],
+ "pool.kritik_oeffentlich.r.r11": [
+  "{b.schlecht} Dann suche ich mir einen Verein, der zu seinen Spielern steht.",
+  "{b.schlecht} Das war es für mich, hier fühle ich mich nicht mehr verstanden."
+ ],
+ "pool.kritik_oeffentlich.r.r12": [
+  "{b.schlecht} Ich dachte, bei dir wäre ich sicher, das enttäuscht mich sehr.",
+  "{b.schlecht} Gerade von dir hätte ich mehr Rückhalt erwartet."
+ ],
+ "pool.kritik_oeffentlich.x.x1": [
+  "Er nimmt die Schultern zurück und geht gefasster aus dem Gespräch. {entscheidung} In der Kabine wirkt er wieder freier.",
+  "{entscheidung} Der Spieler atmet auf, und die Stimmung im Team entspannt sich."
+ ],
+ "pool.kritik_oeffentlich.x.x2": [
+  "{entscheidung} Wie die Presse reagiert, bleibt abzuwarten, und er bleibt vorsichtig.",
+  "Er nickt langsam. {entscheidung} Ob es reicht, zeigt das nächste Spiel."
+ ],
+ "pool.kritik_oeffentlich.x.x3": [
+  "{entscheidung} Noch am selben Abend gibt er einem Reporter ein Interview, in dem er kein Blatt vor den Mund nimmt.",
+  "Der Spieler verlässt wütend den Raum. {entscheidung} Die Boulevardpresse wittert Streit."
+ ],
+ "pool.kritik_oeffentlich.x.x4": [
+  "Du legst dich fest, und er hört genau zu. {entscheidung} Er wird dich beim Wort nehmen.",
+  "{entscheidung} Der Pressesprecher hält es fest, und der Spieler wirkt erleichtert."
+ ],
+ "pool.kritik_oeffentlich.x.x5": [
+  "Er steht auf und verlässt das Büro. {entscheidung} Das Gespräch ist vorbei, bevor es richtig begann.",
+  "{entscheidung} Der Spieler schweigt und geht, ohne sich zu verabschieden."
+ ],
+ "pool.berater_druck_wechsel.e.e1": [
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} Ich erwarte noch in dieser Woche ein konkretes Angebot für ihn.",
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} Wir sollten über Gehalt und Laufzeit sprechen, und zwar bald."
+ ],
+ "pool.berater_druck_wechsel.e.e2": [
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} Zwei Vereine haben eine Offerte vorbereitet, die deutlich über dem liegt, was er hier verdient.",
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} Das Angebot eines anderen Vereins liegt vor, und ich bin nicht verpflichtet, es abzulehnen."
+ ],
+ "pool.berater_druck_wechsel.e.e3": [
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} Die Stimmung ist angespannt, und ich will mich im Ton nicht vergreifen. Aber so geht es nicht weiter.",
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} Ich merke, wie dünn der Geduldsfaden bei allen ist, deshalb komme ich gleich zur Sache."
+ ],
+ "pool.berater_druck_wechsel.e.e4": [
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} Entweder Sie bewegen sich jetzt, oder ich sage den anderen Vereinen zu!",
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} Ich setze Ihnen ein Ultimatum: Bis zum Ende der Woche brauche ich Klarheit!"
+ ],
+ "pool.berater_druck_wechsel.e.e5": [
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} Er will bleiben, aber ich kann ihn nicht auf unbestimmte Zeit vertrösten.",
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} Seine Treue ist ein Pfund, nur kann ich davon keine Rechnung begleichen."
+ ],
+ "pool.berater_druck_wechsel.e.e6": [
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} Mein Mandant will Titel gewinnen, und sein Gehalt soll dazu passen.",
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} Er hat sportlich geliefert, jetzt ist der Verein am Zug."
+ ],
+ "pool.berater_druck_wechsel.e.e7": [
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} Er ist bereit zu gehen, wenn Sie nicht rasch ein Signal senden.",
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} Er hat sich innerlich schon verabschiedet, und es liegt an Ihnen, das zu ändern."
+ ],
+ "pool.berater_druck_wechsel.e.e8": [
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} Sie hatten ihm einen Schritt zugesagt, passiert ist nichts. Deshalb bin ich jetzt ungeduldig.",
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} Ihr Versprechen steht noch aus, und daran messe ich jetzt Ihre Glaubwürdigkeit."
+ ],
+ "pool.berater_druck_wechsel.e.e9": [
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} Sein Vertrag endet bald, und dann kann er ablösefrei reden, mit wem er will.",
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} Bald läuft die Laufzeit aus, dann sind meine Möglichkeiten größer als Ihre."
+ ],
+ "pool.berater_druck_wechsel.a.a1": [
+  "Dann verhandeln wir. Nennen Sie mir die Eckdaten, ich prüfe, was der Verein tragen kann.",
+  "Legen Sie mir Ihre Vorstellungen schriftlich vor, wir gehen sie gemeinsam durch."
+ ],
+ "pool.berater_druck_wechsel.a.a2": [
+  "Sie bekommen von mir innerhalb von {frist} Tagen eine verbindliche Antwort. Bis dahin halten Sie die anderen Vereine hin.",
+  "Ich setze mir selbst eine Frist von {frist} Tagen. Danach liegt ein Angebot auf Ihrem Tisch."
+ ],
+ "pool.berater_druck_wechsel.a.a3": [
+  "Unter Druck verhandle ich nicht. Das Angebot bleibt, wie es ist.",
+  "Mit Ultimaten kommen Sie bei mir nicht weit. Mehr gibt es nicht."
+ ],
+ "pool.berater_druck_wechsel.a.a4": [
+  "Wir legen nach, mit mehr Gehalt und im Gegenzug einer längeren Bindung.",
+  "Ich mache ein Gegenangebot: bessere Bezüge, dafür bleibt er länger. Das ist mein Ernst."
+ ],
+ "pool.berater_druck_wechsel.a.a5": [
+  "Ich möchte mit {name} selbst sprechen. Was will er wirklich?",
+  "Lassen Sie mich ihn direkt hören, dann reden wir über Zahlen."
+ ],
+ "pool.berater_druck_wechsel.a.a6": [
+  "Wenn Sie mit der Presse drohen, informiere ich den Vorstand, und dann wird es für Ihren Mandanten ungemütlich.",
+  "Wer mich erpressen will, erlebt mich von der anderen Seite. Ich gehe damit zum Präsidenten."
+ ],
+ "pool.berater_druck_wechsel.a.a7": [
+  "Lassen Sie uns erst die Saison zu Ende spielen, dann finden wir eine Lösung.",
+  "Es hat keine Eile, wir sprechen nach dem Winter in Ruhe darüber."
+ ],
+ "pool.berater_druck_wechsel.a.a8": [
+  "Er ist wichtig für unsere Planung, aber nicht um jeden Preis. Ich erkläre Ihnen den Rahmen.",
+  "Der Verein hat ein Gehaltsgefüge, und das gilt für alle. Hier sind meine Grenzen."
+ ],
+ "pool.berater_druck_wechsel.a.a9": [
+  "Ich verstehe, dass Sie das Beste für ihn wollen. Suchen wir eine Lösung, die beiden gerecht wird.",
+  "Ihre Lage ist nicht leicht, meine auch nicht. Wir finden gemeinsam einen Weg."
+ ],
+ "pool.berater_druck_wechsel.a.a10": [
+  "Sprechen Sie mit unserem Sportdirektor über die Zahlen, ich gebe mein Wort erst danach.",
+  "Die Zahlen klären Sie bitte mit der Geschäftsführung, ich entscheide sportlich."
+ ],
+ "pool.berater_druck_wechsel.a.a11": [
+  "Ich schätze unsere bisherige Zusammenarbeit, deshalb ohne Umschweife: Das Angebot liegt auf dem Tisch, und es ist ehrlich gemeint.",
+  "Wir kennen uns, deshalb sage ich es geradeheraus: Ich will ihn halten, aber nicht um jeden Preis."
+ ],
+ "pool.berater_druck_wechsel.a.a12": [
+  "Das Ultimatum nehme ich zur Kenntnis. Es ändert nichts an meiner Linie.",
+  "Sie können ihm ausrichten, dass die Uhr bei mir nicht schneller tickt."
+ ],
+ "pool.berater_druck_wechsel.r.r1": [
+  "{b.gut} Das ist ein Wort, mit dem ich arbeiten kann. Ich bremse die anderen Vereine.",
+  "{b.gut} Gut, das klingt nach einem Weg, ich gebe es so weiter."
+ ],
+ "pool.berater_druck_wechsel.r.r2": [
+  "{b.gut} Sie sind fair zu uns, das vergessen wir nicht.",
+  "{b.gut} So lässt sich über alles reden, danke für den Ton."
+ ],
+ "pool.berater_druck_wechsel.r.r3": [
+  "{b.gut} Wenn die Zahlen stimmen, hat er wenig Grund zu gehen.",
+  "{b.gut} Das ist ein Angebot, das seinem Anspruch gerecht wird."
+ ],
+ "pool.berater_druck_wechsel.r.r4": [
+  "{b.gut} Dass Sie sich Zeit nehmen, wird er zu schätzen wissen.",
+  "{b.gut} Es hilft ihm schon, dass jemand seine Lage ernst nimmt."
+ ],
+ "pool.berater_druck_wechsel.r.r5": [
+  "{b.neutral} Ich gebe das weiter und melde mich wieder.",
+  "{b.neutral} Ich nehme es zur Kenntnis, mehr kann ich heute nicht sagen."
+ ],
+ "pool.berater_druck_wechsel.r.r6": [
+  "{b.neutral} Wie er das aufnimmt, kann ich nicht vorhersagen.",
+  "{b.neutral} Er ist wechselhaft, ich weiß nicht, ob er es annimmt."
+ ],
+ "pool.berater_druck_wechsel.r.r7": [
+  "{b.neutral} Dann warten wir den nächsten Schritt ab.",
+  "{b.neutral} Ich schreibe mir das auf, die Antwort kommt bald."
+ ],
+ "pool.berater_druck_wechsel.r.r8": [
+  "{b.neutral} Wir haben keine Eile, das lässt sich klären.",
+  "{b.neutral} Ich kann auch warten, wenn es nötig ist."
+ ],
+ "pool.berater_druck_wechsel.r.r9": [
+  "{b.schlecht} Mit dieser Antwort kann ich meinem Mandanten nicht kommen.",
+  "{b.schlecht} Das hilft mir nicht weiter, und ihm auch nicht."
+ ],
+ "pool.berater_druck_wechsel.r.r10": [
+  "{b.schlecht} So reden Sie nicht mit mir, ich rufe die anderen Vereine heute noch an!",
+  "{b.schlecht} Dann kündige ich es in der Presse an, damit alle es erfahren!"
+ ],
+ "pool.berater_druck_wechsel.r.r11": [
+  "{b.schlecht} Dann unterschreibt er eben woanders, Interessenten gibt es genug.",
+  "{b.schlecht} Ich lasse ihn ziehen, wenn er will, und er will."
+ ],
+ "pool.berater_druck_wechsel.r.r12": [
+  "{b.schlecht} Ich hatte mehr Respekt für meinen Mandanten erwartet.",
+  "{b.schlecht} Das enttäuscht mich, ich habe lange gut mit dem Verein zusammengearbeitet."
+ ],
+ "pool.berater_druck_wechsel.x.x1": [
+  "Der Berater legt beruhigt auf. {entscheidung} Die anderen Vereine werden vorerst nicht weiter beachtet.",
+  "{entscheidung} Das Gespräch endet versöhnlich, und der Druck lässt nach."
+ ],
+ "pool.berater_druck_wechsel.x.x2": [
+  "{entscheidung} Der Berater verspricht, sich zu melden, aber das Misstrauen bleibt.",
+  "Das Telefonat endet ohne Ergebnis. {entscheidung} Beide Seiten warten ab."
+ ],
+ "pool.berater_druck_wechsel.x.x3": [
+  "{entscheidung} Wenige Stunden später steht eine Andeutung in der Zeitung, und der Spieler meidet das Training.",
+  "Der Berater legt wütend auf. {entscheidung} Im Verein macht das Wort vom Konflikt die Runde."
+ ],
+ "pool.berater_druck_wechsel.x.x4": [
+  "Sie legen sich fest, und der Berater notiert es. {entscheidung} Er wird Sie daran messen.",
+  "{entscheidung} Der Berater bestätigt den Termin und hält die anderen Vereine hin."
+ ],
+ "pool.berater_druck_wechsel.x.x5": [
+  "Der Berater beendet das Gespräch abrupt. {entscheidung} Am anderen Ende bleibt es still.",
+  "{entscheidung} Er legt auf, ohne sich zu verabschieden."
+ ]
+}

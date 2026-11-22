@@ -1,0 +1,128 @@
+# Laufbahn des Trainers (eigene Festlegungen von PESM, austauschbar). Euro, Prozent als Anteil 0 bis 1, Ruf 0 bis 100.
+
+[ruf]
+basis = 12
+je_punktequote = 28        # Punkte je Spiel / 3
+je_platz = 22              # Tabellenplatz (1 = voll, letzter = 0)
+je_titel = 5               # höchstens 4 Titel
+je_erfahrung_monat = 0.12  # höchstens max_erfahrung
+max_erfahrung = 14
+je_vereinsruf = 14         # Stärke des Vereins, bei dem er arbeitet (0 bis 1)
+min_spiele = 6             # vorher zählen Ergebnisse nur halb
+
+[reputation]               # Ansehen in der Öffentlichkeit = Anteile aus Ruf, Medienbild und Vertrauen des Präsidiums
+ruf = 0.6
+medien = 0.2
+vertrauen = 0.2
+
+[lizenz]
+# Stufe → (Mindestruf, Mindesterfahrung in Monaten, höchster Vereinsruf, für den die Lizenz reicht)
+c = [0, 0, 0.35]
+b = [25, 6, 0.6]
+a = [45, 18, 0.85]
+pro = [65, 36, 1.0]
+[zertifikat]
+# Lizenz-Lehrgang des Managers (manager.zertifikat) hebt die Grenze, bis zu der die Lizenz für Vereine reicht (Anteil des Vereinsrufs, Deckel 1,0)
+b = 0.05
+a = 0.10
+pro = 0.15
+
+[gehalt]
+basis = 250_000
+je_ruf2 = 7_500_000        # Vereinsruf zum Quadrat
+trainer_spanne = [0.7, 1.3]   # Faktor bei Trainerruf 0 und 100
+runden = 10_000
+
+[budget]
+basis = 2_000_000
+je_ruf2 = 120_000_000
+
+[vertrag]
+laufzeit_start_monate = 18  # so lange läuft der Vertrag, wenn die Laufbahn beginnt
+klausel_faktor = 0          # Anteil des Jahresgehalts als Ausstiegsklausel beim Start (0 = keine)
+kuendigungsfrist_tage = 30
+ablose_faktor = 0.5        # Ablöse für den Trainer = Restgehalt bis Vertragsende mal Faktor (ohne Klausel)
+
+[interesse]
+w_ruf = 0.40               # Passt der Ruf des Trainers zur Größe des Vereins?
+w_passung = 0.30
+w_erfolg = 0.20
+w_vakanz = 0.10
+ruf_luft = 0.25            # Vereine bis zu so viel über dem eigenen Niveau (in Ruf 0 bis 1) halten ihn noch für denkbar
+vakanz_bonus = 0.35
+schwelle_gespraech = 0.30  # darunter meldet sich kein Verein
+vertrag_ende_monate = 6    # läuft der Vertrag in so vielen Monaten aus, steigt das Interesse
+vertrag_ende_bonus = 0.10
+klausel_malus = 0.15       # hohe Klausel schreckt ab (bei Klausel ab zwei Jahresgehältern)
+
+[motor]
+intervall_tage = 7
+angebot_wahrscheinlichkeit = 0.35  # je Woche bei Interesse 1,0 (mal Interesse zum Quadrat)
+vakanz_wahrscheinlichkeit = 0.5    # Hinweis auf einen freien Posten, wenn der Verein passt
+unserioes_wahrscheinlichkeit = 0.04
+offene_hoechstens = 3
+vakanzen_hoechstens = 3            # so viele freie Posten stehen gleichzeitig zur Bewerbung
+frist_tage = 14
+hinhalten_tage = 7
+hinhalten_hoechstens = 2
+hinhalten_malus = 0.12     # jede Verzögerung senkt das Interesse
+leck_wahrscheinlichkeit = 0.45     # ein Angebot wird öffentlich (Gerücht)
+leck_je_medienbild = 0.3
+erneut_sperre_tage = 60    # derselbe Verein meldet sich so lange nicht neu
+
+[verhandlung]
+runden_hoechstens = 3
+toleranz_basis = 0.20
+toleranz_je_interesse = 0.45
+gegenvorschlag_bis = 2.0   # bis zum Doppelten der Toleranz macht der Verein einen Gegenvorschlag, darüber bricht er ab
+gewicht = { gehalt = 1.0, laufzeit = 0.5, budget = 0.8, ziel = 0.9, klausel = 1.0, mitsprache = 0.8 }
+schritt_gehalt = 0.10
+schritt_budget = 0.10
+schritt_klausel = 0.5      # Jahresgehälter
+gehalt_max_faktor = [1.15, 0.35]    # Obergrenze = Angebot * (a + b * Interesse)
+budget_max_faktor = [1.10, 0.40]
+klausel_max_jahre = [0.5, 1.5]      # Obergrenze = Gehalt * (a + b * Interesse)
+laufzeit = [1, 4]
+persona_gewicht = { traditionell = { klausel = 1.5, mitsprache = 1.3 }, ehrgeizig = { ziel = 1.6 }, sparsam = { gehalt = 1.5, budget = 1.5 }, geduldig = { laufzeit = 0.5, ziel = 0.6 } }
+mitsprache_max = { traditionell = 1, ehrgeizig = 2, sparsam = 0, geduldig = 2 }
+
+[bewerbung]
+schritte = ["projekt", "spielstil", "rueckfrage", "reaktion"]
+zusage_ab = 0.62
+hinhalten_ab = 0.42
+w_passung = 0.30
+w_argumente = 0.45
+w_ruf = 0.25
+persona = ["traditionell", "ehrgeizig", "sparsam", "geduldig"]
+[bewerbung.wirkung.projekt]     # Wirkung der Antworten auf die Persona: Zahl von −1 bis +1
+entwicklung = { traditionell = 0.5, ehrgeizig = -0.2, sparsam = 0.6, geduldig = 1.0 }
+erfolg = { traditionell = 0.3, ehrgeizig = 1.0, sparsam = -0.3, geduldig = -0.4 }
+stabilitaet = { traditionell = 1.0, ehrgeizig = -0.3, sparsam = 0.5, geduldig = 0.4 }
+jugend = { traditionell = 0.4, ehrgeizig = 0.0, sparsam = 1.0, geduldig = 0.8 }
+neuaufbau = { traditionell = -0.5, ehrgeizig = 0.4, sparsam = -0.5, geduldig = 0.6 }
+
+[bewerbung.wirkung.spielstil]
+eigener = { traditionell = 0.3, ehrgeizig = 0.5, sparsam = 0.2, geduldig = 0.4 }
+anpassen = { traditionell = 0.8, ehrgeizig = 0.0, sparsam = 0.6, geduldig = 0.2 }
+ueberzeugen = { traditionell = -0.4, ehrgeizig = 0.7, sparsam = -0.2, geduldig = 0.5 }
+
+[bewerbung.wirkung.rueckfrage]
+ehrlich = { traditionell = 0.6, ehrgeizig = 0.3, sparsam = 0.7, geduldig = 0.6 }
+ausweichend = { traditionell = -0.3, ehrgeizig = -0.2, sparsam = -0.4, geduldig = -0.2 }
+versprechen = { traditionell = -0.1, ehrgeizig = 0.8, sparsam = -0.6, geduldig = -0.5 }
+
+[bewerbung.wirkung.reaktion]
+loyal = { traditionell = 0.9, ehrgeizig = -0.1, sparsam = 0.4, geduldig = 0.5 }
+offen = { traditionell = -0.2, ehrgeizig = 0.6, sparsam = 0.2, geduldig = 0.3 }
+abwiegeln = { traditionell = 0.1, ehrgeizig = -0.4, sparsam = 0.0, geduldig = 0.0 }
+
+[bewerbung.vorfall]
+arten = ["geldfrage", "vorgaenger", "presse"]     # unvorhergesehene Rückfrage im letzten Schritt (nach Zufall)
+wirkung = 0.25
+
+[wechsel]
+frist_nach_zusage_tage = 14
+
+[erfunden]
+investoren = ["Nordhafen Capital", "Meridian Sports Holding", "Alba Invest", "Kronstadt Partners"]
+vereine = ["Real Costa Verde", "FC Alpenblick", "Atletico Mar Azul", "Sporting Nova Era", "SK Roter Stern Ost"]

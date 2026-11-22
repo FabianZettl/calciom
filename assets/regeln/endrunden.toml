@@ -1,0 +1,15 @@
+# Endrunden der Besten (Liguilla, Apertura/Clausura-Finals): Welche Länder spielen Hin- und Rückspiel?
+# Schlüssel = Ländercode aus daten/ligaregeln.toml (code = …). Ohne Eintrag gilt [standard].
+# Bei Einzelspielen spielt der besser Platzierte zu Hause, das Finale auf neutralem Platz.
+
+[standard]
+hin_rueck = true
+
+[MEX]
+hin_rueck = true   # Liguilla: Viertelfinale, Halbfinale und Finale mit Hin- und Rückspiel
+
+[ARG]
+hin_rueck = false  # Endrunde in K.-o.-Einzelspielen
+
+[COL]
+hin_rueck = true

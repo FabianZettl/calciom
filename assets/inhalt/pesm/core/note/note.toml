@@ -1,0 +1,51 @@
+# Spielernote. Startwerte, nicht kalibriert; nur Mittel und Streuung der Spielnote stammen aus der Messung (Liga im Datenstand: Ø 5,70, σ 0,38,
+# 1 % bis 99 % = 5,0 bis 6,4). Skala wie im Spiel, 1,0 bis 10,0.
+
+[skala]
+mitte = 5.7                     # Ausgangspunkt für Training und Verhalten (= Ø der Spielnote der Liga)
+unten = 1.0
+oben = 10.0
+
+[spiel]
+# Eine Spielnote kommt vom Spiel (nur Startelf). Fehlt sie, schätzt PESM aus Teamergebnis, Toren, Vorlagen und Position (Regression über die Liga).
+gewicht_spiel = 0.85            # Mischwert, wenn beides da ist (Spielnote des Spiels zählt hoch)
+gewicht_schaetzung = 0.15
+basis = 5.65
+sieg = 0.2
+niederlage = -0.2
+tor = 0.19
+vorlage = 0.19
+zu_null = 0.1                   # Torwart und Abwehr bei ohne Gegentor
+gegentore_tor_abwehr = -0.05    # je Gegentor ab dem zweiten (Torwart, Abwehr)
+gelb = -0.15                    # Karten und Einwechslung stehen nicht im Datenstand; die Schlüssel wirken, sobald Daten kommen
+rot = -1.0
+letzte = 5                      # „Note der letzten n Spiele“
+alter_faktor = 0.9              # je älterem Spiel zählt es so viel weniger
+
+[training]
+# ERSATZ (kein Trainingsverlauf vorhanden): Trainingsnote je Woche aus der Entwicklungsphase und den Wochenpunkten des Entwicklungslaufs (E3); Intensität und Einzeltraining kennt PESM nur als aktuellen Stand.
+phase = { aufschwung = 0.4, reifung = 0.2, stagnation = 0.0, alterung = 0.0, formtief = -0.5, krise = -1.0 }
+punkte_je = 8.0                 # Wochenpunkte (Summe über alle Fähigkeiten) pro Stufe
+punkte_stufe = 0.25
+punkte_hoechstens = 2.0
+einzeltraining = 0.1
+wochen = 4                      # Fenster für die Trainingsnote
+
+[verhalten]
+professionalitaet = 0.6         # ± so viel bei 0 bzw. 100 (50 = neutral)
+kritik = -0.15                  # je Anlass im Fenster
+lob = 0.1
+strafe = -0.4
+konflikt = -0.3
+fenster_tage = 56
+hoechstens = 0.8                # Betrag der Abweichung von der Mitte
+
+[gesamt]
+spiel = 0.8                     # Gewichte; fehlt ein Teil, verteilt sich das Gewicht auf die anderen
+training = 0.1                  # Ersatz: PESM kennt keinen Trainingsverlauf, nur Entwicklungsphase und Wochenpunkte; klein halten, bis es Trainingsdaten gibt
+verhalten = 0.1
+spreizung = 2.0                 # Die Spielnoten der Liga liegen eng (σ 0,4): die Anzeigenote verstärkt die Abweichung vom Kadermittel der Spieler mit Einsatz
+schrumpfung = 3.0              # wenige Einsätze sind wenig Beleg: die Abweichung zählt mit n / (n + schrumpfung)
+stamm_ab = 0.6                  # Einsatzquote (Startelf-Einsätze / Teamspiele): Stammspieler …
+rotation_ab = 0.25              # … Rotation, darunter Ersatz; ohne Einsatz keine Note
+treiber_ab = 0.12               # so weit muss ein Teil von der Mitte abweichen, um in der Erklärung zu stehen

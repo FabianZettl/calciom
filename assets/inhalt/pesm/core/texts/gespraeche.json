@@ -1,0 +1,916 @@
+{
+ "gs.thema.spielzeit": "Spielzeit",
+ "gs.thema.rolle": "Rolle im Team",
+ "gs.thema.form": "Form und Selbstvertrauen",
+ "gs.thema.lob": "Anerkennung",
+ "gs.thema.kritik": "Kritik",
+ "gs.thema.zukunft": "Zukunft im Verein",
+ "gs.thema.disziplin": "Disziplin",
+ "gs.thema.transfer": "Transfer",
+ "gs.status.beendet": "Beendet",
+ "gs.thema.marktlage": "Marktlage",
+ "gs.thema.einschaetzung": "Einschätzung der Mannschaft",
+ "gs.thema.training": "Training und Belastung",
+ "gs.thema.austausch": "Austausch unter Vereinen",
+ "gs.thema.hintergrund": "Hintergrundgespräch",
+ "gs.thema.vertrag": "Vertrag",
+ "gs.ton.warm": "Herzlich",
+ "gs.ton.sachlich": "Sachlich",
+ "gs.ton.lob": "Lobend",
+ "gs.ton.bestimmt": "Bestimmt",
+ "gs.ton.hart": "Hart",
+ "gs.ton.ausweichend": "Ausweichend",
+ "gs.partner.spieler": "Spieler",
+ "gs.partner.berater": "Berater",
+ "gs.partner.verein": "Vereine",
+ "gs.partner.trainer": "Trainerstab",
+ "gs.partner.presse": "Presse",
+ "gs.beziehung.freund": "Enges Verhältnis",
+ "gs.beziehung.gut": "Gutes Verhältnis",
+ "gs.beziehung.neutral": "Sachliches Verhältnis",
+ "gs.beziehung.kuehl": "Kühles Verhältnis",
+ "gs.beziehung.feind": "Zerrüttet",
+ "gs.status.offen": "Läuft",
+ "gs.status.gegenangebot": "Gegenangebot",
+ "gs.status.einig": "Einigung",
+ "gs.status.abgeschlossen": "Beendet",
+ "gs.status.abgebrochen": "Abgebrochen",
+ "gs.status.abgelehnt": "Abgelehnt",
+ "gs.status.verfallen": "Verfallen",
+ "gs.tr.rolle.ersatz": "Ersatzspieler",
+ "gs.tr.rolle.perspektive": "Perspektivspieler",
+ "gs.tr.rolle.rotation": "Rotationsspieler",
+ "gs.tr.rolle.stammspieler": "Stammspieler",
+ "gs.tr.rolle.fuehrungsspieler": "Führungsspieler",
+ "gs.tr.rolle.star": "Star",
+ "gs.tr.rolle.kapitaen": "Kapitän",
+ "gs.feld.rolle": "Rolle beim Käufer",
+ "gs.feld.gehalt": "Gehalt",
+ "gs.feld.laufzeit": "Laufzeit",
+ "gs.feld.praemie_tor": "Torprämie",
+ "gs.feld.praemie_einsatz": "Einsatzprämie",
+ "gs.feld.praemie_titel": "Titelprämie",
+ "gs.feld.ausstieg": "Ausstiegsklausel",
+ "gs.feld.mindestabloese": "Mindestablöse",
+ "gs.feld.weiterverkauf": "Weiterverkaufsbeteiligung",
+ "gs.feld.spielzeit": "Spielzeitversprechen",
+ "gs.feld.wechselbonus": "Bonus beim Wechsel",
+ "gs.feld.abloese": "Ablöse",
+ "gs.feld.raten": "Zahlung in Raten",
+ "gs.feld.tausch": "Spielertausch",
+ "gs.feld.rueckkauf": "Rückkaufoption",
+ "gs.feld.leihe": "Leihe",
+ "gs.feld.leihgebuehr": "Leihgebühr",
+ "gs.feld.kauf": "Kaufklausel",
+ "gs.feld.kaufpreis": "Kaufpreis",
+ "gs.spielzeit.rotation": "Einsätze in der Rotation",
+ "gs.spielzeit.stammspieler": "Stammplatz",
+ "gs.kauf.keine": "Keine",
+ "gs.kauf.option": "Kaufoption",
+ "gs.kauf.pflicht": "Kaufpflicht",
+ "gs.richtung.kauf": "Kauf",
+ "gs.richtung.verkauf": "Verkauf",
+ "gs.richtung.vertrag": "Vertrag",
+ "gs.versprechen.spielzeit": "Mehr Einsätze",
+ "gs.versprechen.rolle": "Mehr Verantwortung",
+ "gs.versprechen.vertrag": "Vertragsverlängerung",
+ "gs.versprechen.gehalt": "Gehaltserhöhung",
+ "gs.versprechen.freigabe": "Freigabe für einen Wechsel",
+ "gs.versprechen.status.offen": "Offen",
+ "gs.versprechen.status.gehalten": "Gehalten",
+ "gs.versprechen.status.gebrochen": "Gebrochen",
+ "gs.versprechen.status.verfallen": "Hinfällig",
+ "gs.anlass.auslaufend": "Der Vertrag läuft bald aus.",
+ "gs.anlass.spielzeit": "Er wünscht sich mehr Einsatzzeit.",
+ "gs.anlass.rolle": "Er sucht seine Rolle im Team.",
+ "gs.anlass.form": "Er steckt in einem Formtief.",
+ "gs.anlass.gehalt": "Er hält sein Gehalt für zu niedrig.",
+ "gs.anlass.vertrag": "Seine Vertragslage beschäftigt ihn.",
+ "gs.anlass.zusage_gebrochen": "Eine Zusage an ihn wurde nicht gehalten.",
+ "gs.anlass.isoliert": "Er wirkt in der Kabine auf sich gestellt.",
+ "gs.anlass.feinde": "Er hat Spannungen in der Mannschaft.",
+ "gs.anlass.ueberlastet": "Er wirkt überspielt.",
+ "gs.anlass.verletzt": "Er kämpft mit seiner Verletzung.",
+ "gs.frage.spielzeit.0": [
+  "%1 sagt: „Ich habe das Gefühl, dass ich zu selten spiele. Wie sehen Sie meine Rolle?“",
+  "%1 klopft an: „Trainer, hätten Sie kurz Zeit? Es geht um meine Einsätze.“",
+  "%1 spricht dich nach dem Training an: „Ich will wissen, woran ich bin.“"
+ ],
+ "gs.frage.rolle.0": [
+  "%1 möchte wissen, welche Aufgabe er im Team hat: „Ich will Verantwortung übernehmen, wenn Sie mir die Chance geben.“",
+  "%1 fragt: „Wo sehen Sie mich in dieser Mannschaft?“"
+ ],
+ "gs.frage.form.0": [
+  "%1 wirkt bedrückt: „Es läuft einfach nicht. Ich weiß selbst nicht, woran es liegt.“",
+  "%1 sagt leise: „Ich merke, dass mir das Selbstvertrauen fehlt.“"
+ ],
+ "gs.frage.lob.0": [
+  "%1 kommt gespannt zum Gespräch. Er ahnt nicht, worum es geht.",
+  "%1 setzt sich und wartet ab, was du zu sagen hast."
+ ],
+ "gs.frage.kritik.0": [
+  "%1 sitzt dir gegenüber und ahnt, dass es unangenehm wird.",
+  "%1 verschränkt die Arme: „Sie wollten mich sprechen?“"
+ ],
+ "gs.frage.zukunft.0": [
+  "%1 fragt direkt: „Wie sehen Sie meine Zukunft hier im Verein?“",
+  "%1 sagt: „Ich möchte Klarheit, wohin die Reise für mich geht.“"
+ ],
+ "gs.frage.marktlage.0": [
+  "%1 beugt sich vor: „Es gibt Bewegung auf dem Markt. Wollen Sie hören, was ich weiß?“",
+  "%1 sagt: „Ich höre mich um. Es gibt Interessenten, über die wir reden sollten.“"
+ ],
+ "gs.frage.einschaetzung.0": [
+  "%1 blättert in seinen Notizen: „Ich habe die Mannschaft in dieser Woche genau beobachtet.“",
+  "%1 sagt: „Wenn Sie mögen, gebe ich Ihnen meine ehrliche Einschätzung.“"
+ ],
+ "gs.frage.training.0": [
+  "%1 meint: „Die Belastung in dieser Woche ist hoch. Wie wollen wir weitermachen?“",
+  "%1 will wissen: „Wie hart soll ich die Einheiten in den nächsten Tagen ansetzen?“"
+ ],
+ "gs.frage.austausch.0": [
+  "%1 begrüßt dich am Telefon höflich, aber vorsichtig.",
+  "%1 hat sich Zeit genommen: „Schön, dass Sie sich melden. Worum geht es?“"
+ ],
+ "gs.frage.hintergrund.0": [
+  "%1 sagt: „Das Gespräch bleibt unter uns, aber ich möchte Ihre Sicht verstehen.“",
+  "%1 zückt keinen Block: „Nur zur Einordnung, nichts davon steht morgen in der Zeitung.“"
+ ],
+ "gs.opt.spielzeit.verstaendnis": "Ich verstehe, dass dir das nicht reicht.",
+ "gs.opt.spielzeit.leistung": "Im Training und im Spiel zählt die Leistung, nichts sonst.",
+ "gs.opt.spielzeit.zusage": "Du bekommst deine Einsätze, das sichere ich dir zu.",
+ "gs.opt.spielzeit.kampf": "Dann zeig mir, dass du den Platz verdienst.",
+ "gs.opt.spielzeit.abwimmeln": "Darüber entscheide ich allein, damit musst du leben.",
+ "gs.opt.rolle.wertschaetzung": "Du bist wichtig für uns, das weißt du.",
+ "gs.opt.rolle.verantwortung": "Ich traue dir mehr Verantwortung zu. Übernimm sie.",
+ "gs.opt.rolle.geduld": "Rollen wachsen. Die Zeit kommt.",
+ "gs.opt.rolle.ausweichen": "Wir sehen, wie sich das entwickelt.",
+ "gs.opt.rolle.dichtmachen": "Deine Rolle ist, was ich dir gebe.",
+ "gs.opt.form.aufbauen": "Du bist besser, als du gerade spielst. Wir stehen hinter dir.",
+ "gs.opt.form.analyse": "Lass uns die letzten Spiele ansehen und sachlich bewerten.",
+ "gs.opt.form.anspornen": "Du hast alles, um da herauszukommen. Ich erwarte es.",
+ "gs.opt.form.abkanzeln": "So kann ich dich nicht gebrauchen.",
+ "gs.opt.form.abwarten": "Das gibt sich, warten wir ab.",
+ "gs.opt.lob.ehrlich": "Das war stark. Ich wollte, dass du das von mir hörst.",
+ "gs.opt.lob.herzlich": "Ich bin stolz auf dich und auf das, was du aus dir machst.",
+ "gs.opt.lob.knapp": "Gute Arbeit, weiter so.",
+ "gs.opt.lob.mit_forderung": "Gut, aber ich erwarte noch mehr.",
+ "gs.opt.kritik.sachlich": "Mir fällt auf, dass es zuletzt nicht gestimmt hat. Reden wir darüber.",
+ "gs.opt.kritik.klar": "So geht das nicht weiter. Ich erwarte eine Reaktion.",
+ "gs.opt.kritik.mit_ruecksicht": "Ich sehe, dass du dich bemühst. Ein Punkt muss trotzdem sitzen.",
+ "gs.opt.kritik.laut": "Das war inakzeptabel!",
+ "gs.opt.kritik.drumherum": "Wir müssen mal über ein paar Dinge reden …",
+ "gs.opt.zukunft.bleiben": "Ich plane langfristig mit dir. Das ist ein Versprechen.",
+ "gs.opt.zukunft.gehalt": "Wir müssen über dein Gehalt reden, ich sehe Spielraum.",
+ "gs.opt.zukunft.freigabe": "Wenn ein guter Klub kommt, stelle ich dir nichts in den Weg.",
+ "gs.opt.zukunft.offen": "Ich lege mich da nicht fest.",
+ "gs.opt.zukunft.druck": "Wer hier bleiben will, muss liefern.",
+ "gs.opt.marktlage.offen_reden": "Sagen Sie mir offen, was Sie wissen.",
+ "gs.opt.marktlage.freundlich": "Danke, dass Sie sich die Mühe machen.",
+ "gs.opt.marktlage.druecken": "Ich möchte Namen und Zahlen, keine Andeutungen.",
+ "gs.opt.marktlage.abblocken": "Das interessiert mich im Moment nicht.",
+ "gs.opt.einschaetzung.zuhoeren": "Ich höre Ihnen zu. Was beschäftigt Sie?",
+ "gs.opt.einschaetzung.nachhaken": "Woran machen Sie das fest?",
+ "gs.opt.einschaetzung.vorgabe": "Ich erwarte konkrete Vorschläge von Ihnen.",
+ "gs.opt.einschaetzung.abtun": "Das sehe ich anders.",
+ "gs.opt.training.vertrauen": "Sie kennen die Mannschaft. Entscheiden Sie nach Gefühl.",
+ "gs.opt.training.sachlich": "Zeigen Sie mir die Belastungswerte, dann legen wir es fest.",
+ "gs.opt.training.haerte": "Wir fahren die Intensität hoch, kein Nachlassen.",
+ "gs.opt.training.durchgreifen": "Es wird gemacht, wie ich es angeordnet habe.",
+ "gs.opt.austausch.herzlich": "Uns verbindet eine gute Zusammenarbeit, die möchte ich pflegen.",
+ "gs.opt.austausch.geschaeftlich": "Ich halte Sie über unsere Planung auf dem Laufenden.",
+ "gs.opt.austausch.selbstbewusst": "Wir sind ein Verein mit Ambitionen und das wissen Sie.",
+ "gs.opt.austausch.ueberheblich": "Wir sind Ihnen sportlich weit voraus.",
+ "gs.opt.hintergrund.offen": "Ich erkläre Ihnen gern, was uns gerade beschäftigt.",
+ "gs.opt.hintergrund.freundlich": "Schön, dass wir uns ohne Mikrofon sprechen können.",
+ "gs.opt.hintergrund.angriff": "Ihre letzten Berichte waren nicht fair.",
+ "gs.opt.hintergrund.kein_wort": "Dazu sage ich nichts.",
+ "gs.opt.hintergrund.beleidigt": "Ich lasse mir diesen Ton nicht bieten.",
+ "gs.mimik.spieler.sehr_gut": [
+  "%1 strahlt und nickt entschlossen.",
+  "%1 atmet auf, sein Gesicht hellt sich sichtbar auf."
+ ],
+ "gs.mimik.spieler.gut": [
+  "%1 nickt langsam und entspannt die Schultern.",
+  "%1 lächelt zurückhaltend."
+ ],
+ "gs.mimik.spieler.neutral": [
+  "%1 zuckt kaum merklich mit den Schultern.",
+  "%1 hört zu, ohne eine Regung zu zeigen."
+ ],
+ "gs.mimik.spieler.schlecht": [
+  "%1 presst die Lippen zusammen und schaut zur Seite.",
+  "%1 verschränkt die Arme und schweigt kurz."
+ ],
+ "gs.mimik.spieler.sehr_schlecht": [
+  "%1 starrt Sie an, die Kiefer mahlen. Das hat gesessen.",
+  "%1 schüttelt den Kopf und lehnt sich zurück: „Das war's dann wohl.“"
+ ],
+ "gs.mimik.berater.sehr_gut": [
+  "%1 lehnt sich zufrieden zurück und lächelt.",
+  "%1 notiert etwas und nickt anerkennend."
+ ],
+ "gs.mimik.berater.gut": [
+  "%1 nickt: „Damit kann man arbeiten.“",
+  "%1 wirkt einverstanden."
+ ],
+ "gs.mimik.berater.neutral": [
+  "%1 trommelt mit den Fingern auf den Tisch.",
+  "%1 lässt sich nichts anmerken."
+ ],
+ "gs.mimik.berater.schlecht": [
+  "%1 hebt eine Augenbraue und schaut auf die Uhr.",
+  "%1 seufzt hörbar."
+ ],
+ "gs.mimik.berater.sehr_schlecht": [
+  "%1 klappt die Mappe zu: „So kommen wir nicht weiter.“",
+  "%1 schüttelt den Kopf, die Miene ist eisig."
+ ],
+ "gs.mimik.verein.sehr_gut": [
+  "%1 klingt am Telefon ausgesprochen herzlich.",
+  "%1 lacht kurz: „So macht man Geschäfte.“"
+ ],
+ "gs.mimik.verein.gut": [
+  "%1 zeigt sich aufgeschlossen.",
+  "%1 antwortet freundlich und offen."
+ ],
+ "gs.mimik.verein.neutral": [
+  "%1 bleibt höflich und unverbindlich.",
+  "%1 notiert sich deine Worte, ohne sich festzulegen."
+ ],
+ "gs.mimik.verein.schlecht": [
+  "%1 wird merklich kühler.",
+  "%1 antwortet knapp und förmlich."
+ ],
+ "gs.mimik.verein.sehr_schlecht": [
+  "%1 beendet das Gespräch auffallend schnell.",
+  "%1 lässt Sie spüren, dass Sie sich Kredit verspielt haben."
+ ],
+ "gs.mimik.trainer.sehr_gut": [
+  "%1 grinst und scheint sichtlich motiviert.",
+  "%1 nickt begeistert und macht sich Notizen."
+ ],
+ "gs.mimik.trainer.gut": [
+  "%1 nickt zustimmend.",
+  "%1 wirkt zufrieden mit Ihrer Antwort."
+ ],
+ "gs.mimik.trainer.neutral": [
+  "%1 überlegt kurz und notiert etwas.",
+  "%1 nimmt es zur Kenntnis."
+ ],
+ "gs.mimik.trainer.schlecht": [
+  "%1 runzelt die Stirn.",
+  "%1 antwortet knapper als sonst."
+ ],
+ "gs.mimik.trainer.sehr_schlecht": [
+  "%1 wirkt verletzt und zieht sich zurück.",
+  "%1 schüttelt kaum merklich den Kopf."
+ ],
+ "gs.mimik.presse.sehr_gut": [
+  "%1 lächelt anerkennend: „Das war ehrlich, danke.“",
+  "%1 steckt den Stift weg und nickt freundlich."
+ ],
+ "gs.mimik.presse.gut": [
+  "%1 wirkt zufrieden mit der Antwort.",
+  "%1 notiert sich einen Satz."
+ ],
+ "gs.mimik.presse.neutral": [
+  "%1 schaut Sie abwartend an.",
+  "%1 lässt offen, was er daraus macht."
+ ],
+ "gs.mimik.presse.schlecht": [
+  "%1 zieht die Augenbrauen hoch und schreibt etwas auf.",
+  "%1 wirkt skeptisch."
+ ],
+ "gs.mimik.presse.sehr_schlecht": [
+  "%1 klappt den Block zu: „Das werde ich nicht vergessen.“",
+  "%1 verabschiedet sich auffällig knapp."
+ ],
+ "gs.folge.spieler.sehr_gut": [
+  "Er fragt neugierig: „Und was heißt das konkret für mich?“",
+  "Er sagt: „Dann lassen Sie uns das gemeinsam angehen.“"
+ ],
+ "gs.folge.spieler.gut": [
+  "Er fragt nach: „Kann ich mich darauf verlassen?“",
+  "Er sagt: „Gut, ich höre. Was erwarten Sie von mir?“"
+ ],
+ "gs.folge.spieler.neutral": [
+  "Er fragt: „Und weiter?“",
+  "Er sagt: „Ich bin gespannt, was jetzt kommt.“"
+ ],
+ "gs.folge.spieler.schlecht": [
+  "Er hakt nach: „Das ist mir zu wenig.“",
+  "Er fragt scharf: „Soll das alles gewesen sein?“"
+ ],
+ "gs.folge.spieler.sehr_schlecht": [
+  "Er sagt kalt: „Dann sind wir hier fertig, oder?“",
+  "Er fragt: „Haben Sie überhaupt vor, mir zuzuhören?“"
+ ],
+ "gs.folge.berater.sehr_gut": [
+  "Er fragt: „Wollen wir direkt über Zahlen sprechen?“"
+ ],
+ "gs.folge.berater.gut": [
+  "Er sagt: „Dann lassen Sie uns konkret werden.“"
+ ],
+ "gs.folge.berater.neutral": [
+  "Er fragt: „Was haben Sie sich vorgestellt?“"
+ ],
+ "gs.folge.berater.schlecht": [
+  "Er sagt: „Mit Floskeln komme ich nicht weit.“"
+ ],
+ "gs.folge.berater.sehr_schlecht": [
+  "Er sagt: „Ich überlege, ob sich dieses Gespräch lohnt.“"
+ ],
+ "gs.folge.verein.sehr_gut": [
+  "Er fragt: „Gibt es etwas, bei dem wir Ihnen entgegenkommen können?“"
+ ],
+ "gs.folge.verein.gut": [
+  "Er sagt: „Wir bleiben in Kontakt.“"
+ ],
+ "gs.folge.verein.neutral": [
+  "Er fragt: „Gibt es noch etwas?“"
+ ],
+ "gs.folge.verein.schlecht": [
+  "Er sagt: „Wir haben da unsere eigene Sicht.“"
+ ],
+ "gs.folge.verein.sehr_schlecht": [
+  "Er sagt: „Ich denke, wir sollten das beenden.“"
+ ],
+ "gs.folge.trainer.sehr_gut": [
+  "Er fragt: „Darf ich Ihnen noch etwas vorschlagen?“"
+ ],
+ "gs.folge.trainer.gut": [
+  "Er sagt: „Ich kümmere mich darum.“"
+ ],
+ "gs.folge.trainer.neutral": [
+  "Er fragt: „Wie sollen wir damit umgehen?“"
+ ],
+ "gs.folge.trainer.schlecht": [
+  "Er sagt: „Ich hätte mir da mehr Rückhalt gewünscht.“"
+ ],
+ "gs.folge.trainer.sehr_schlecht": [
+  "Er sagt: „Dann müssen Sie es ohne mich entscheiden.“"
+ ],
+ "gs.folge.presse.sehr_gut": [
+  "Er fragt: „Darf ich Sie dazu später direkt zitieren?“"
+ ],
+ "gs.folge.presse.gut": [
+  "Er sagt: „Das hilft mir bei der Einordnung.“"
+ ],
+ "gs.folge.presse.neutral": [
+  "Er fragt: „Und sonst?“"
+ ],
+ "gs.folge.presse.schlecht": [
+  "Er sagt: „Das klingt für mich nach Ausflüchten.“"
+ ],
+ "gs.folge.presse.sehr_schlecht": [
+  "Er sagt: „Das wird nicht ohne Folgen bleiben.“"
+ ],
+ "gs.abschluss.sehr_gut": [
+  "Das Gespräch endet in bester Stimmung mit %1.",
+  "Besser hätte das Gespräch mit %1 kaum laufen können."
+ ],
+ "gs.abschluss.gut": [
+  "Das Gespräch mit %1 war konstruktiv.",
+  "%1 geht mit einem guten Gefühl aus dem Gespräch."
+ ],
+ "gs.abschluss.neutral": [
+  "Das Gespräch mit %1 bleibt ohne große Wirkung.",
+  "Sachlich beendet: Zwischen dir und %1 ändert sich wenig."
+ ],
+ "gs.abschluss.schlecht": [
+  "%1 geht verstimmt aus dem Gespräch.",
+  "Das Gespräch hat die Beziehung zu %1 belastet."
+ ],
+ "gs.abschluss.sehr_schlecht": [
+  "Das Gespräch mit %1 ist komplett missglückt.",
+  "%1 verlässt den Raum grußlos."
+ ],
+ "gs.vertrag.eroeffnung": [
+  "%1 hat die Unterlagen schon auf dem Tisch: „Dann lassen Sie uns über die Eckdaten sprechen.“",
+  "%1 wartet auf Ihren ersten Vorschlag und lässt sich nichts anmerken."
+ ],
+ "gs.vertrag.reaktion.annahme": "Der Berater nickt: Die Eckdaten stehen.",
+ "gs.vertrag.reaktion.gegen": "Der Berater legt ein Gegenangebot auf den Tisch.",
+ "gs.vertrag.reaktion.ablehnung": "Der Berater lehnt das Angebot in dieser Form ab.",
+ "gs.vertrag.reaktion.beleidigt": "Der Berater empfindet das Angebot als Zumutung.",
+ "gs.vertrag.aenderung.sehr_gut": [
+  "%1 wirkt angetan von der Änderung.",
+  "%1 nickt: „Das geht in die richtige Richtung.“"
+ ],
+ "gs.vertrag.aenderung.gut": [
+  "%1 schreibt sich die Änderung auf und wirkt zufriedener.",
+  "%1 nickt knapp."
+ ],
+ "gs.vertrag.aenderung.neutral": [
+  "%1 lässt sich nichts anmerken.",
+  "%1 zuckt mit den Schultern: „Das ändert nicht viel.“"
+ ],
+ "gs.vertrag.aenderung.schlecht": [
+  "%1 zieht die Stirn kraus.",
+  "%1 sagt trocken: „Das wird schwieriger.“"
+ ],
+ "gs.vertrag.aenderung.sehr_schlecht": [
+  "%1 lehnt sich zurück: „Das war ein Schritt in die falsche Richtung.“",
+  "%1 schüttelt den Kopf."
+ ],
+ "gs.vertrag.sachlich.annahme": [
+  "%1: „Die Bedingungen sind für %2 in Ordnung. Wir haben eine Einigung.“",
+  "%1 reicht Ihnen die Hand: „Dann machen wir das so.“"
+ ],
+ "gs.vertrag.sachlich.gegen": [
+  "%1: „Nicht ganz. Wir können uns aber mit den Änderungen auf dem Papier einigen.“",
+  "%1 schiebt einen Zettel herüber: „Das wäre unser Vorschlag.“"
+ ],
+ "gs.vertrag.sachlich.ablehnung": [
+  "%1: „Für %2 ist das so nicht tragbar.“",
+  "%1: „Da liegen wir noch zu weit auseinander.“"
+ ],
+ "gs.vertrag.sachlich.beleidigt": [
+  "%1: „Ich habe das Gefühl, Sie nehmen %2 nicht ernst.“",
+  "%1 klappt die Mappe zu: „Mit solchen Zahlen brauchen wir nicht weiterzureden.“"
+ ],
+ "gs.vertrag.fordernd.annahme": [
+  "%1: „Na also. Geht doch. Für %2 passt das.“",
+  "%1 grinst: „Da ist ja doch noch Bewegung gekommen. Abgemacht.“"
+ ],
+ "gs.vertrag.fordernd.gegen": [
+  "%1: „Sie sind nah dran, aber das reicht uns noch nicht. Da muss mehr kommen.“",
+  "%1 tippt aufs Papier: „Das ist das Minimum für %2.“"
+ ],
+ "gs.vertrag.fordernd.ablehnung": [
+  "%1: „So nicht. %2 hat Angebote.“",
+  "%1: „Mit diesem Angebot brauchen Sie bei %2 gar nicht erst anzufangen.“"
+ ],
+ "gs.vertrag.fordernd.beleidigt": [
+  "%1 steht auf: „Das ist ein Witz. Melden Sie sich, wenn Sie es ernst meinen.“",
+  "%1: „Dafür nehme ich mir keine Zeit. Das ist respektlos gegenüber %2.“"
+ ],
+ "gs.vertrag.freundlich.annahme": [
+  "%1 strahlt: „Wunderbar, das ist ein schöner Abschluss für %2.“",
+  "%1: „Ich freue mich, dass wir das so hinbekommen haben.“"
+ ],
+ "gs.vertrag.freundlich.gegen": [
+  "%1: „Ich glaube, wir sind nicht weit auseinander. Wie wäre es hiermit?“",
+  "%1 lächelt: „Ein kleines Stück noch, dann sind wir beieinander.“"
+ ],
+ "gs.vertrag.freundlich.ablehnung": [
+  "%1: „Ich hätte mir mehr erhofft, für %2 reicht das nicht.“",
+  "%1 bedauert: „Das müssen wir leider ablehnen.“"
+ ],
+ "gs.vertrag.freundlich.beleidigt": [
+  "%1 wirkt sichtlich enttäuscht: „Das habe ich von Ihnen nicht erwartet.“",
+  "%1: „Schade. Für %2 ist das kein Angebot, das man ernst nehmen kann.“"
+ ],
+ "gs.vertrag.grund.moral": "Die Stimmung des Spielers ist zu schlecht, um einen Abschluss zu erlauben.",
+ "gs.vertrag.grund.misstrauen": "Frühere Zusagen wurden nicht gehalten, das Vertrauen fehlt.",
+ "gs.vertrag.grund.beziehung": "Das Verhältnis zum Spieler ist angespannt.",
+ "gs.vertrag.grund.gehalt": "Das Gehalt liegt deutlich unter der Erwartung.",
+ "gs.vertrag.grund.laufzeit": "Die Laufzeit entspricht nicht seinen Vorstellungen.",
+ "gs.transfer.eroeffnung": [
+  "%1 erwartet Ihren Vorschlag: „Nennen Sie uns die Eckdaten.“",
+  "%1 hört sich Ihren Rahmen an und wartet ab."
+ ],
+ "gs.transfer.reaktion.annahme": "Der Verein ist einverstanden.",
+ "gs.transfer.reaktion.gegen": "Der Verein macht einen Gegenvorschlag.",
+ "gs.transfer.reaktion.ablehnung": "Der Verein lehnt das Angebot ab.",
+ "gs.transfer.reaktion.beleidigt": "Der Verein weist das Angebot scharf zurück.",
+ "gs.transfer.aenderung.sehr_gut": [
+  "%1 zeigt sich von dieser Änderung angetan.",
+  "%1: „Damit kommen Sie uns ein gutes Stück entgegen.“"
+ ],
+ "gs.transfer.aenderung.gut": [
+  "%1 nimmt die Änderung wohlwollend zur Kenntnis.",
+  "%1 nickt."
+ ],
+ "gs.transfer.aenderung.neutral": [
+  "%1 notiert die Änderung ohne Kommentar.",
+  "%1: „Das bewegt uns nicht.“"
+ ],
+ "gs.transfer.aenderung.schlecht": [
+  "%1 verzieht den Mund: „Das schwächt Ihr Angebot.“",
+  "%1 klingt reservierter."
+ ],
+ "gs.transfer.aenderung.sehr_schlecht": [
+  "%1: „Damit entfernen Sie sich deutlich von dem, was wir uns vorstellen.“",
+  "%1 lacht kurz auf."
+ ],
+ "gs.transfer.verein.annahme": [
+  "%1: „Einverstanden, das Geschäft steht. Die Papiere für %2 bereiten wir vor.“",
+  "%1 sagt zu: „Wir sind uns einig.“"
+ ],
+ "gs.transfer.verein.gegen": [
+  "%1: „Wir sind nicht weit auseinander, mit diesen Änderungen können wir leben.“",
+  "%1: „Fast. Hier unser Gegenvorschlag für %2.“"
+ ],
+ "gs.transfer.verein.ablehnung": [
+  "%1: „So nicht. Für %2 erwarten wir mehr.“",
+  "%1: „Das Angebot wird dem Spieler nicht gerecht.“"
+ ],
+ "gs.transfer.verein.beleidigt": [
+  "%1 weist das Angebot zurück: „Ernsthaft?“",
+  "%1: „Wenn das Ihr Ernst ist, beenden wir die Gespräche.“"
+ ],
+ "gs.vorfall.verspaetung.betreff": "%1 kam zu spät",
+ "gs.vorfall.verspaetung.text": [
+  "%1 ist heute nicht pünktlich zum Training erschienen und hat sich nicht abgemeldet.",
+  "Der Betreuerstab meldet: %1 kam spät und ohne Erklärung zur Einheit."
+ ],
+ "gs.vorfall.trainingsfehler.betreff": "%1 ließ nach",
+ "gs.vorfall.trainingsfehler.text": [
+  "%1 hat im Training sichtbar nachgelassen und die Übungen nur halbherzig absolviert.",
+  "Der Trainerstab beanstandet die Einstellung von %1 in der Einheit."
+ ],
+ "gs.vorfall.oeffentliche_kritik.betreff": "%1 äußert sich öffentlich",
+ "gs.vorfall.oeffentliche_kritik.text": [
+  "%1 hat sich gegenüber der Presse kritisch über die Aufstellung geäußert.",
+  "Ein Interview von %1 sorgt für Unruhe im Verein."
+ ],
+ "gs.vorfall.streit.betreff": "%1 gerät aneinander",
+ "gs.vorfall.streit.text": [
+  "%1 ist im Training mit einem Mitspieler in Streit geraten.",
+  "In der Kabine kam es zu einem Wortgefecht, in das %1 verwickelt war."
+ ],
+ "gs.strafe.nachsicht.knopf": "Nachsicht",
+ "gs.strafe.nachsicht.name": "Nachsicht",
+ "gs.strafe.nachsicht.ok": "Sie sehen von einer Strafe ab.",
+ "gs.strafe.ermahnung.knopf": "Ermahnung",
+ "gs.strafe.ermahnung.name": "Ermahnung",
+ "gs.strafe.ermahnung.ok": "Die Ermahnung ist ausgesprochen.",
+ "gs.strafe.geldstrafe.knopf": "Geldstrafe %1",
+ "gs.strafe.geldstrafe.name": "Geldstrafe",
+ "gs.strafe.geldstrafe.ok": "Die Geldstrafe von %1 ist verhängt.",
+ "gs.strafe.bank.knopf": "Auf die Bank",
+ "gs.strafe.bank.name": "Bankstrafe",
+ "gs.strafe.bank.ok": "Der Spieler sitzt im nächsten Spiel zunächst auf der Bank.",
+ "gs.strafe.gleich": "Die Mannschaft empfindet das als gerecht.",
+ "gs.strafe.ungleich": "In der Kabine fällt auf, dass ähnliche Fälle anders behandelt wurden.",
+ "gs.strafe.gleich_pille": "Gleich behandelt",
+ "gs.strafe.ungleich_pille": "Ungleich behandelt",
+ "gs.ui.stimmung": "Stimmung",
+ "gs.ui.moral": "Moral",
+ "gs.ui.vertrauen": "Vertrauen",
+ "gs.ui.beziehung": "Verhältnis",
+ "gs.ui.beenden": "Gespräch beenden",
+ "gs.ui.beginnen": "Gespräch führen",
+ "gs.ui.vertrag_beginnen": "Vertrag verhandeln",
+ "gs.ui.angebot_abgeben": "Angebot abgeben",
+ "gs.ui.gegen_annehmen": "Gegenangebot annehmen",
+ "gs.ui.gegen_ablehnen": "Gegenangebot ablehnen",
+ "gs.ui.kauf_beginnen": "Kauf verhandeln",
+ "gs.ui.verkauf_beginnen": "Verkauf verhandeln",
+ "gs.ui.wechseln": "Umstellen",
+ "gs.ui.tausch_rein": "In den Tausch aufnehmen",
+ "gs.ui.tausch_raus": "Aus dem Tausch nehmen",
+ "gs.ui.einloesen": "Zusage einlösen",
+ "gs.ui.brechen": "Zusage zurücknehmen",
+ "gs.ui.dringend": "Dringend",
+ "gs.ui.anlass": "Gesprächsanlass",
+ "gs.ui.ja": "Ja",
+ "gs.ui.nein": "Nein",
+ "gs.ui.keine": "Keine",
+ "gs.ui.je_jahr": "%1 je Jahr",
+ "gs.ui.frist": "Frist bis %1",
+ "gs.ui.zugesagt_am": "Zugesagt am %1",
+ "gs.ui.summe": "Summe: %1",
+ "gs.ui.marktwert": "Marktwert %1",
+ "gs.ui.restlaufzeit": {
+  "eins": "%1 Monat Restlaufzeit",
+  "viele": "%1 Monate Restlaufzeit"
+ },
+ "gs.ui.jahre": {
+  "eins": "%1 Jahr",
+  "viele": "%1 Jahre"
+ },
+ "gs.ui.raten": {
+  "eins": "Einmalzahlung",
+  "viele": "%1 Raten"
+ },
+ "gs.ui.geduld": {
+  "eins": "Noch eine Antwort",
+  "viele": "Noch %1 Antworten"
+ },
+ "gs.ui.runden": {
+  "eins": "Letzter Versuch",
+  "viele": "Noch %1 Runden"
+ },
+ "gs.ui.berater_fuer": "Berater von %1 · %2",
+ "gs.ui.gegen_zeile": "%1: statt %2 nun %3",
+ "gs.ui.seite_verein": "%1 bewertet das Angebot mit %2, erwartet werden %3.",
+ "gs.ui.seite_uns": "Für uns: Kosten von %1, Marktwert des Spielers %2.",
+ "gs.ui.vertrag_zeile": "%1 je Jahr, %2 Jahre",
+ "gs.ui.transfer_zeile": "%1 in %2 Rate(n)",
+ "gs.ui.zusage_notiert": "Zusage notiert: %1, bis %2.",
+ "gs.ui.partner_bricht_ab": "%1 bricht die Gespräche ab.",
+ "gs.ui.folge_vertrag": "Die Vertragsgespräche mit dem Spieler können beginnen.",
+ "gs.ui.kachel.offen": "Laufende Gespräche",
+ "gs.ui.kachel.offen_unter": "Gespräche und Verhandlungen",
+ "gs.ui.kachel.zusagen": "Offene Zusagen",
+ "gs.ui.kachel.zusagen_unter": "an Spieler und Partner",
+ "gs.ui.kachel.vertraege": "Vereinbarte Verträge",
+ "gs.ui.kachel.vertraege_unter": "mit Klauseln",
+ "gs.ui.kachel.laufend": "Laufende Verhandlungen",
+ "gs.ui.kachel.laufend_unter": "bis zur Frist",
+ "gs.ui.kachel.budget": "Transferbudget",
+ "gs.ui.kachel.budget_unter": "für Ablösen und erste Raten",
+ "gs.ui.kachel.vorfaelle": "Offene Vorfälle",
+ "gs.ui.kachel.vorfaelle_unter": "warten auf deine Entscheidung",
+ "gs.ui.liste.laufend": "Laufende Gespräche",
+ "gs.ui.liste.anlaesse": "Anlässe",
+ "gs.ui.liste.verhandlung": "Verhandlung",
+ "gs.ui.liste.beginnen": "Verhandlung beginnen",
+ "gs.ui.liste.abschluesse": "Vereinbart",
+ "gs.ui.liste.vorfaelle": "Vorfälle",
+ "gs.ui.liste.strafen": "Bisherige Maßnahmen",
+ "gs.ui.liste.zusagen": "Zusagen",
+ "gs.ui.liste.beziehungen": "Verhältnis zu Gesprächspartnern",
+ "gs.ui.ok.beendet": "Das Gespräch ist beendet.",
+ "gs.ui.ok.eingeloest": "Die Zusage gilt als eingelöst.",
+ "gs.ui.ok.gebrochen": "Sie nehmen die Zusage zurück. Das wird nicht vergessen.",
+ "gs.ui.ok.gegen_angenommen": "Das Gegenangebot ist angenommen.",
+ "gs.ui.ok.gegen_abgelehnt": "Sie lehnen das Gegenangebot ab und verhandeln weiter.",
+ "gs.ui.ok.transfer_begonnen": "Die Verhandlung ist eröffnet.",
+ "gs.ui.ok.vertrag_begonnen": "Die Vertragsverhandlung ist eröffnet.",
+ "gs.ui.fehler.eingabe": "Das hat nicht geklappt. Bitte erneut versuchen.",
+ "gs.ui.fehler.verhandlungen_voll": "Du führst schon so viele Verhandlungen, wie die Einstellung erlaubt.",
+ "gs.ui.fehler.zu_frueh": "Über dieses Thema wurde erst vor Kurzem gesprochen.",
+ "gs.ui.fehler.fremder_spieler": "Spieler anderer Vereine sprichst du nicht als ihr Trainer an: Dort geht es nur um ein mögliches Angebot.",
+ "gs.ui.fehler.eigener_spieler": "Mit eigenen Spielern führst du Kadergespräche, die Frage nach einem Wechsel zu uns stellt sich dort nicht.",
+ "gs.ui.fehler.nicht_offen": "Dieses Gespräch läuft nicht mehr.",
+ "gs.ui.fehler.abgeschlossen": "Dieses Gespräch ist abgeschlossen, daran ändert sich nichts mehr.",
+ "gs.ui.fehler.budget": "Dafür reicht das Budget nicht.",
+ "gs.ui.fehler.kein_verein": "Es gibt keinen Verein, der dafür in Frage kommt.",
+ "gs.ui.fehler.kein_gegenangebot": "Es liegt kein Gegenangebot vor.",
+ "gs.ui.fehler.nicht_erfuellt": "Die Zusage ist noch nicht erfüllt.",
+ "gs.ui.fehler.": "Das hat nicht geklappt.",
+ "gs.leer.gespraeche": "Kein Gespräch läuft. Wählen Sie unter „Gesprächspartner“ jemanden aus.",
+ "gs.leer.anlaesse": "Im Moment gibt es keinen besonderen Anlass für ein Gespräch.",
+ "gs.leer.spieler": "Keine Spieler im Kader.",
+ "gs.leer.berater": "Keine Berater bekannt.",
+ "gs.leer.vereine": "Keine Vereine bekannt.",
+ "gs.leer.stab": "Kein Trainerstab hinterlegt.",
+ "gs.leer.presse": "Es sind noch keine Journalisten bekannt.",
+ "gs.leer.vertraege": "Keine Vertragsverhandlung möglich.",
+ "gs.leer.abschluesse": "Noch nichts vereinbart.",
+ "gs.leer.transfers": "Keine Transferverhandlung möglich. Legen Sie Spieler auf die Merkliste.",
+ "gs.leer.vorfaelle": "Keine Vorfälle. Die Mannschaft verhält sich vorbildlich.",
+ "gs.leer.strafen": "Noch keine Maßnahmen.",
+ "gs.leer.zusagen": "Es gibt keine Zusagen.",
+ "gs.leer.beziehungen": "Noch keine Gespräche geführt.",
+ "gs.anlass.formtief": "Er steckt in einem Formtief.",
+ "gs.anlass.verletzungsangst": "Er hat Angst vor der nächsten Verletzung.",
+ "gs.anlass.kabinenstreit": "In der Kabine knirscht es: Er hat Streit.",
+ "gs.anlass.familie": "Er vermisst sein Zuhause.",
+ "gs.anlass.familie_sensibel": "Es geht ihm persönlich nicht gut.",
+ "gs.anlass.kapitaensbinde": "Er möchte die Kapitänsbinde.",
+ "gs.anlass.wechselgedanken": "Er denkt über einen Wechsel nach.",
+ "gs.anlass.kritik_nach_ausrutscher": "Er hat mit einer Aussage für Wirbel gesorgt.",
+ "gs.anlass.training": "Der Trainerstab macht sich Sorgen um die Belastung.",
+ "gs.anlass.budget": "Das Präsidium will über das Geld sprechen.",
+ "gs.anlass.ziele": "Das Präsidium fragt nach den Saisonzielen.",
+ "gs.anlass.vertrauen_praesidium": "Das Präsidium zweifelt an dir.",
+ "gs.anlass.kurve": "Die Kurve ist unzufrieden.",
+ "gs.anlass.presse_aussage": "Die Presse will eine Aussage von dir.",
+ "gs.anlass.lob": "Er spielt stark und wirkt zufrieden.",
+ "gs.thema.verletzungsangst": "Angst vor Verletzung",
+ "gs.thema.kapitaen": "Kapitänsbinde",
+ "gs.charakter.hitzkopf.schlecht": [
+  "„Das lasse ich mir nicht bieten!“, brüllt er.",
+  "Er schlägt mit der Faust gegen den Spind: „So nicht, Trainer!“"
+ ],
+ "gs.charakter.hitzkopf.gut": [
+  "Er atmet tief durch, die Wut ist fürs Erste verraucht.",
+  "Er grinst schief: „Okay, das war gar nicht so schlecht.“"
+ ],
+ "gs.charakter.hitzkopf.neutral": [
+  "Er funkelt dich an, sagt aber nichts mehr."
+ ],
+ "gs.charakter.launisch.schlecht": [
+  "Er winkt ab: „Heute habe ich dafür keinen Nerv.“",
+  "Seine Laune kippt sichtbar, er dreht sich weg."
+ ],
+ "gs.charakter.launisch.gut": [
+  "Plötzlich hellt sich seine Miene auf: „Weißt du was? Du hast recht.“",
+  "Er lacht: „Heute bin ich gut drauf, das nehme ich so an.“"
+ ],
+ "gs.charakter.launisch.neutral": [
+  "Er zuckt mit den Schultern, wie so oft ist nicht zu lesen, was er denkt."
+ ],
+ "gs.charakter.sensibel.schlecht": [
+  "Er schaut zu Boden: „Das trifft mich mehr, als du denkst.“",
+  "Seine Stimme zittert leicht: „Ich habe das anders verstanden.“"
+ ],
+ "gs.charakter.sensibel.gut": [
+  "Er lächelt erleichtert: „Danke, dass du das so sagst.“",
+  "Man sieht, wie ihm ein Stein vom Herzen fällt."
+ ],
+ "gs.charakter.sensibel.neutral": [
+  "Er nickt still und nimmt es mit nach Hause."
+ ],
+ "gs.charakter.lautsprecher.schlecht": [
+  "Er sagt laut genug, dass es der Flur hört: „Das werde ich nicht auf mir sitzen lassen!“",
+  "„Das erzähle ich gleich der ganzen Kabine“, droht er."
+ ],
+ "gs.charakter.lautsprecher.gut": [
+  "„Das sage ich überall weiter, so einen Trainer wünscht man sich!“, ruft er."
+ ],
+ "gs.charakter.lautsprecher.neutral": [
+  "Er redet noch eine Weile, aber niemand hört mehr hin."
+ ],
+ "gs.charakter.wechselfreudig.schlecht": [
+  "Er zuckt mit den Schultern: „Es gibt genug Vereine, die mich wollen.“",
+  "Er murmelt: „Mein Berater hat ohnehin neue Anfragen auf dem Tisch.“"
+ ],
+ "gs.charakter.wechselfreudig.gut": [
+  "Er nickt: „Hier könnte ich mir vorstellen zu bleiben. Vorerst.“"
+ ],
+ "gs.charakter.wechselfreudig.neutral": [
+  "Er lässt offen, was er daraus macht: „Ich halte mir alles offen.“"
+ ],
+ "gs.charakter.loyal.schlecht": [
+  "Er schluckt: „Ich bin dem Verein treu, aber das tut weh.“",
+  "„Ich bleibe, Trainer, auch wenn ich es anders gesehen hätte.“"
+ ],
+ "gs.charakter.loyal.gut": [
+  "„Du kannst auf mich zählen“, sagt er schlicht.",
+  "Er reicht dir die Hand: „Danke für die Ehrlichkeit.“"
+ ],
+ "gs.charakter.loyal.neutral": [
+  "Er nickt: „Wir kriegen das hin.“"
+ ],
+ "gs.charakter.teamplayer.schlecht": [
+  "Er seufzt: „Hauptsache, die Mannschaft leidet nicht darunter.“"
+ ],
+ "gs.charakter.teamplayer.gut": [
+  "„Das hilft uns allen“, sagt er und klopft dir auf die Schulter."
+ ],
+ "gs.charakter.teamplayer.neutral": [
+  "Er denkt laut an die Mannschaft: „Wichtig ist, was dem Team nützt.“"
+ ],
+ "gs.charakter.vorbild_profi.schlecht": [
+  "Er bleibt sachlich: „Ich nehme es an und arbeite weiter.“"
+ ],
+ "gs.charakter.vorbild_profi.gut": [
+  "Er nickt professionell: „Verstanden, ich liefere.“"
+ ],
+ "gs.charakter.vorbild_profi.neutral": [
+  "Er macht sich Notizen und sagt nichts weiter."
+ ],
+ "gs.charakter.gelassen.schlecht": [
+  "Er bleibt ruhig: „Ich seh's anders, aber gut.“"
+ ],
+ "gs.charakter.gelassen.gut": [
+  "Er lächelt entspannt: „Passt.“"
+ ],
+ "gs.charakter.gelassen.neutral": [
+  "Er zuckt unbeeindruckt mit den Schultern."
+ ],
+ "gs.charakter.provokateur.schlecht": [
+  "Er grinst herausfordernd: „Und was, wenn nicht?“",
+  "„Davon lasse ich mich nicht beeindrucken“, stichelt er."
+ ],
+ "gs.charakter.provokateur.gut": [
+  "Er grinst: „Sieh an, du kannst ja auch nett.“"
+ ],
+ "gs.charakter.provokateur.neutral": [
+  "Er lässt eine spitze Bemerkung fallen und geht."
+ ],
+ "gs.folge.label.vollzug": "Vollzug",
+ "gs.folge.vollzug.spaeter": "Mit %1 ist alles vereinbart, vollzogen wird zum Beginn des nächsten Fensters am %2.",
+ "gs.folge.label.hierarchie": "Stellung in der Kabine",
+ "gs.folge.label.kabine": "Kabine",
+ "gs.folge.label.entwicklung": "Entwicklung",
+ "gs.folge.wert.hoch": "wächst",
+ "gs.folge.wert.runter": "leidet",
+ "gs.folge.thema.kapitaen.hoch": "%1 gewinnt an Gewicht in der Mannschaft, die Binde rückt in Reichweite.",
+ "gs.folge.thema.kapitaen.runter": "%1 verliert in den Augen der Kabine an Gewicht.",
+ "gs.folge.thema.streit.hoch": "In der Kabine kehrt Ruhe ein, die Lager rücken zusammen.",
+ "gs.folge.thema.streit.runter": "In der Kabine bleibt es angespannt, die Lager verhärten sich.",
+ "gs.folge.thema.rolle.runter": "%1 fühlt sich übergangen, ein Formtief droht.",
+ "gs.folge.thema.spielzeit.runter": "%1 fühlt sich übergangen, ein Formtief droht.",
+ "gs.folge.thema.form.hoch": "%1 findet langsam zurück in die Spur.",
+ "gs.folge.thema.form.runter": "%1 grübelt weiter, das Formtief hält an.",
+ "gs.folge.thema.heimweh.hoch": "%1 kommt in der Stadt an, das hilft auf dem Platz.",
+ "gs.folge.thema.heimweh.runter": "%1 denkt zu viel an zu Hause, das kostet Leistung.",
+ "gs.folge.thema.verletzungsangst.hoch": "%1 geht freier in die Zweikämpfe.",
+ "gs.folge.thema.verletzungsangst.runter": "%1 geht gehemmt in die Zweikämpfe, das Risiko wächst.",
+ "gs.ui.ok.gestartet": "Das Gespräch läuft.",
+ "gs.anlass.leistung": "Der Co-Trainer meldet: Er läuft schlecht.",
+ "gs.anlass.beschwerde": "Er hat sich beschwert.",
+ "gs.ui.fehler.anlass_unklar": "Zu dieser Nachricht gibt es kein passendes Gesprächsthema.",
+ "gs.ui.fehler.anlass_unbekannt": "Dieses Gesprächsthema gibt es nicht.",
+ "gs.ui.fehler.kein_spieler": "Der Spieler gehört nicht zum Kader.",
+ "gs.ui.fehler.kein_partner": "Für dieses Gespräch fehlt der Gesprächspartner.",
+ "gs.ui.fehler.nachricht_unbekannt": "Diese Nachricht gibt es nicht mehr.",
+ "gs.anlass.akademie_befoerderung": "Der Jugendtrainer möchte über eine Beförderung sprechen.",
+ "gs.anlass.eltern_ohne_spielzeit": "Die Eltern fragen, wann ihr Sohn spielt.",
+ "gs.anlass.eltern_vertrag": "Die Eltern wollen über den auslaufenden Vertrag sprechen.",
+ "gs.anlass.presse_abwerbung": "Die Presse fragt nach der Abwerbung eines Jugendspielers.",
+ "gs.frage.akademie.0": [
+  "%1 sagt: „Der Jugendtrainer hat mich ins Gespräch gebracht. Wie geht es für mich weiter?“",
+  "%1 fragt: „Sehen Sie mich bald bei den Profis?“"
+ ],
+ "gs.frage.eltern.0": [
+  "%1 spricht für die Familie: „Wir machen uns Gedanken um den Weg unseres Sohnes.“",
+  "%1 sagt: „Wir würden gern verstehen, wie es für ihn hier weitergeht.“"
+ ],
+ "gs.frage.fans_stimmung.0": [
+  "%1 vom Fanclub sagt: „Die Stimmung auf den Rängen kippt. Wir wollen mit Ihnen reden.“",
+  "%1 meldet sich: „Die Fans erwarten ein Zeichen von Ihnen.“"
+ ],
+ "gs.frage.heimweh.0": [
+  "%1 wirkt bedrückt: „Ich vermisse zu Hause. Es fällt mir schwer, mich einzuleben.“",
+  "%1 sagt leise: „Kann ich kurz mit Ihnen reden? Mir geht es nicht gut hier.“"
+ ],
+ "gs.frage.interview.0": [
+  "%1 vom Medium bittet um ein Gespräch: „Ein paar Fragen, wenn Sie einen Moment haben.“",
+  "%1 sagt: „Wir würden gern Ihre Sicht auf die letzten Wochen hören.“"
+ ],
+ "gs.frage.kapitaen.0": [
+  "%1 spricht die Binde an: „Wer führt die Mannschaft? Das beschäftigt mich.“",
+  "%1 sagt: „Ich möchte mit Ihnen über die Kapitänsfrage reden.“"
+ ],
+ "gs.frage.streit.0": [
+  "%1 kommt gereizt herein: „Es gibt Ärger in der Kabine, das müssen wir klären.“",
+  "%1 sagt: „So geht das nicht weiter, es kracht zwischen uns.“"
+ ],
+ "gs.frage.verletzungsangst.0": [
+  "%1 zögert: „Ich habe Angst, mich wieder zu verletzen. Das hemmt mich im Zweikampf.“",
+  "%1 sagt: „Mein Körper ist bereit, mein Kopf noch nicht.“"
+ ],
+ "gs.frage.vorstand_budget.0": [
+  "%1 vom Vorstand sagt: „Wir müssen über das Budget sprechen.“",
+  "%1 eröffnet: „Die Zahlen des Vereins geben Anlass zu einem Gespräch.“"
+ ],
+ "gs.frage.vorstand_vertrauen.0": [
+  "%1 vom Vorstand sagt: „Wir wollen über das Vertrauen in Ihre Arbeit sprechen.“",
+  "%1 eröffnet: „Die Ergebnisse haben das Präsidium beschäftigt.“"
+ ],
+ "gs.frage.vorstand_ziele.0": [
+  "%1 vom Vorstand sagt: „Lassen Sie uns über die Saisonziele reden.“",
+  "%1 eröffnet: „Wo stehen wir im Verhältnis zu dem, was wir uns vorgenommen haben?“"
+ ],
+ "gs.frage.wechselwunsch.0": [
+  "%1 sagt: „Ich denke über einen Wechsel nach. Ich wollte es Ihnen selbst sagen.“",
+  "%1 kommt direkt zur Sache: „Ich möchte den Verein verlassen.“"
+ ],
+ "gs.thema.transferinteresse": "Interesse an einem Wechsel",
+ "gs.frage.transferinteresse.0": "Was hältst du von einem Wechsel zu uns?",
+  "gs.ui.einschaetzung.titel": "Einschätzung des Angebots",
+  "gs.ui.einschaetzung.verein": "Verein",
+  "gs.ui.einschaetzung.spieler": "Spieler",
+  "gs.ui.einschaetzung.stufe.chancenlos": "chancenlos",
+  "gs.ui.einschaetzung.stufe.unwahrscheinlich": "unwahrscheinlich",
+  "gs.ui.einschaetzung.stufe.offen": "offen",
+  "gs.ui.einschaetzung.stufe.wahrscheinlich": "wahrscheinlich",
+  "gs.ui.einschaetzung.stufe.sicher": "sicher",
+  "gs.ui.haltung.unbedingt": "will unbedingt",
+  "gs.ui.haltung.chance": "sieht eine große Chance",
+  "gs.ui.haltung.offen": "offen für den Wechsel",
+  "gs.ui.haltung.zoegernd": "zögert",
+  "gs.ui.haltung.bleiben": "will bleiben",
+  "gs.ui.haltung.gegen_willen": "Das gefällt %1 nicht, das Verhältnis leidet.",
+  "gs.ui.nahelegen": "Wechsel nahelegen",
+  "gs.ui.zum_bleiben": "Zum Bleiben bewegen",
+  "gs.ui.ok.haltung_nahegelegt": "Du legst %1 den Wechsel nahe. Seine Haltung ändert sich, die Forderung an den Verein bleibt.",
+  "gs.ui.ok.haltung_bleiben": "Du bittest %1 zu bleiben. Seine Haltung ändert sich, die Forderung an den Verein bleibt.",
+  "gs.ui.fehler.schon_ausgereizt": "Mehr kannst du bei ihm nicht bewirken.",
+  "gs.ui.fehler.kein_verkauf": "Das geht nur bei einem Verkauf.",
+  "gs.feld.frist": "Frist",
+  "gs.feld.handgeld": "Handgeld (Spieler)",
+  "gs.ui.tage": "%1 Tage",
+ "gs.und": "und",
+ "gs.vorfall.gruppe_rotation.betreff": "Unruhe im Kader wegen der Rotation",
+ "gs.vorfall.gruppe_rotation.text": "Mehrere Spieler fühlen sich bei der Aufstellung übergangen: %1. Ein Gespräch mit dem Wichtigsten kann die Stimmung beruhigen.",
+ "gs.anlass.perspektive": "Er fragt nach seiner Perspektive im Verein.",
+ "gs.vorfall.anliegen_stufe1.betreff": "%1 ist sehr unzufrieden",
+ "gs.vorfall.anliegen_stufe1.text": "%1 wartet seit zwei Wochen auf ein Wort von dir. Die Stimmung kippt, die Mitspieler merken es.",
+ "gs.vorfall.anliegen_stufe2.betreff": "%1 will weg",
+ "gs.vorfall.anliegen_stufe2.text": "%1 hat keine Geduld mehr und denkt offen über einen Wechsel nach. Ein Gespräch könnte noch etwas retten.",
+ "gs.vorfall.anliegen_verweigert.betreff": "%1 verweigert die Verlängerung",
+ "gs.vorfall.anliegen_verweigert.text": "%1 hat lange auf eine Antwort zu seinem Vertrag gewartet und will jetzt nicht mehr verlängern. Ein Gespräch ist der einzige Weg zurück.",
+ "gs.vorfall.zusage_gehalten.betreff": "Zusage an %1 gehalten",
+ "gs.vorfall.zusage_gehalten.text": "Du hast dein Wort gehalten: %1 weiß das zu schätzen, sein Vertrauen wächst.",
+ "gs.vorfall.zusage_gebrochen.betreff": "Zusage an %1 gebrochen",
+ "gs.vorfall.zusage_gebrochen.text": "Die Frist ist abgelaufen und die Zusage an %1 ist nicht erfüllt. Das wiegt schwerer als eine Absage: sein Vertrauen und seine Stimmung leiden.",
+ "gs.anlass.belastung": "Er fühlt sich ausgelaugt.",
+ "gs.anlass.ehrgeiz": "Er will mehr erreichen, als der Verein gerade bietet.",
+ "gs.frage.belastung.0": ["%1 sagt: „Ich bin ausgelaugt, Trainer. Ich brauche eine Pause.“", "%1 sagt: „Die vielen Spiele gehen mir in die Knochen.“"],
+ "gs.feld.restsumme": "Rest in bar (zahlt der Käufer)",
+ "gs.feld.restsumme_wir": "Rest in bar (zahlen wir)",
+ "gs.ui.tausch.tausch_verweigert": "%2 gibt %1 nicht her: Er gehört zu den Schlüsselspielern.",
+ "gs.ui.tausch.tausch_voll": "Es sind schon zwei Tauschspieler im Angebot, %1 passt nicht mehr hinein.",
+ "gs.tausch.bedarf.dringend": "Dringend gebraucht",
+ "gs.tausch.bedarf.verstaerkung": "Verstärkung",
+ "gs.tausch.bedarf.breite": "Kaderbreite",
+ "chat.tausch.titel": "Tauschspieler von %1",
+ "chat.tausch.alle": "Alle",
+ "chat.tausch.sort_wert": "Nach Wert",
+ "chat.tausch.sort_ovr": "Nach Stärke",
+ "chat.tausch.rest": "Rest in bar: %1",
+ "chat.tausch.rest_wir": "Wir zahlen drauf: %1",
+ "chat.tausch.waehlen": "Wählen",
+ "chat.tausch.abwaehlen": "Abwählen",
+ "gs.thema.verkauf": "Verkauf",
+ "gs.thema.kauf": "Kauf"
+}

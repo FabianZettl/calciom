@@ -1,0 +1,52 @@
+# Konfiguration des Gegnerberichts (Sitzung S). Eigene Festlegungen von PESM; alles in PESM-Rechnung, nichts wird ins Spiel geschrieben.
+
+[schwelle]
+tempo_hoch = 74            # Mittel (Schnelligkeit, Antritt) der Außen: „schnell“
+tempo_tief = 64
+luft_schwach = 66          # Mittel (Sprungkraft, Kopfball) der Innenverteidiger
+iv_tempo_schwach = 66
+technik_hoch = 74
+abstand = 3.0              # so viel besser oder schlechter als der eigene Kader gilt als Stärke oder Schwäche
+linie_hoch = 7             # Regler Abwehrreihe 1 … 10
+linie_tief = 4
+pressing_hoch = 0.6        # abgeleiteter Pressingwert 0 … 1
+pressing_tief = 0.3
+aussen = ["LV", "RV", "LM", "RM", "LA", "RA"]
+breite_plaetze = [2, 3, 6, 7, 9, 10]    # Positionscodes der Außenpositionen in der Formation
+
+[schluessel]
+anzahl = 3
+torjaeger_ab = 2           # Tore, ab denen ein Spieler als Torjäger gilt
+
+[formation]
+bonus = 3.0                # Gewicht der Passung zum Gegner gegenüber der Passung des Kaders zur Formation
+
+[trainer]
+persoenlichkeiten = ["ruhig", "emotional", "risikofreudig", "vorsichtig", "perfektionist"]
+jugend_bis = 24.0          # Durchschnittsalter der gespeicherten Startelf: „setzt auf Jugend“
+erfahrung_ab = 28.5
+
+# Schalter und Regler der Taktik im Spielstand (docs/intern/ML-TAKTIK-WISSEN.md §6, §7): Nummer in der Datenbank, 0/1 laut Spezifikation 21
+[schalter]
+offensivstil = 1           # 0 Konterangriff, 1 Ballbesitz
+aufbau = 2                 # 0 langer Pass, 1 kurzer Pass
+angriffsbereich = 3        # 0 weit, 1 Mitte
+stellungsspiel = 4         # 0 Formation halten, 1 flexibel
+defensivstil = 5           # 0 frühes Pressing, 1 eng stehen
+kontrollbereich = 6        # 0 Mitte, 1 weit
+pressing = 7               # 0 aggressiv, 1 defensiv
+
+[regler]
+unterstuetzungsbereich = 1
+abwehrreihe = 3
+kompaktheit = 4
+
+# Trainingsthemen und der Trainingsfokus der Entwicklung (E), auf den sie wirken
+[training]
+konter = "tempo"
+fluegel_verteidigen = "defensiv"
+standards_verteidigen = "defensiv"
+spielaufbau_druck = "technik"
+kombinationsspiel = "technik"
+luftduelle = "physis"
+fernschuss = "schuss"

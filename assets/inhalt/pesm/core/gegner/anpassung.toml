@@ -1,0 +1,81 @@
+# Taktikanpassung der Gegner (Sitzung S): Anpassungstyp je Trainer und seine Parameter. Eigene Festlegungen von PESM; die Schlagwörter stehen in config/scouting/trainerbank.json.
+
+[schwelle]
+typ_gesichert = 2.0        # Punktzahl aus Schlagwörtern, ab der der Typ „gesichert“ (geprüfter Bankeintrag) statt „geschätzt“ ist
+typ_abstand = 1.0          # und so weit vor dem zweitbesten Typ
+serie_niederlagen = 3      # Niederlagen in Folge, die einen Trainer reagieren lassen
+serie_siege = 3
+gegner_abstand = 6.0       # Unterschied der Vereinsstärke (Gesamtwert der besten 16), ab dem ein Gegner stark oder schwach gilt
+ausfaelle_ab = 3           # Ausfälle unter den elf besten Spielern
+schritt = 2                # Stufen der Abwehrreihe je Anpassung (Regler 1 … 10)
+
+# Parameter je Typ: wechsel = Wahrscheinlichkeit eines Versuchs ohne Anlass; serie, gegner, heim, ausfaelle = Stärke der Reaktion (0 … 1);
+# kosten = Vertrautheit, die ein Taktikwechsel die Mannschaft kostet (Punkte von 100)
+[typ.starr]
+wechsel = 0.0
+serie = 0.1
+gegner = 0.0
+heim = 0.0
+ausfaelle = 0.2
+kosten = 8.0
+formation_fest = true
+
+[typ.reaktiv]
+wechsel = 0.1
+serie = 0.9
+gegner = 0.8
+heim = 0.3
+ausfaelle = 0.7
+kosten = 4.0
+formation_fest = false
+
+[typ.experimentierfreudig]
+wechsel = 0.45
+serie = 0.6
+gegner = 0.4
+heim = 0.4
+ausfaelle = 0.5
+kosten = 3.0
+formation_fest = false
+
+[typ.dogmatisch]
+wechsel = 0.0
+serie = 0.0
+gegner = 0.0
+heim = 0.0
+ausfaelle = 0.1
+kosten = 12.0
+formation_fest = true
+
+[typ.pragmatisch]
+wechsel = 0.05
+serie = 0.5
+gegner = 0.4
+heim = 1.0
+ausfaelle = 0.6
+kosten = 3.0
+formation_fest = false
+
+# Schlagwort (Schlüssel der Trainerbank) -> Gewicht für den Typ
+[tags]
+starr = { kontinuitat = 1.0, stabilitat = 1.0, routine = 1.0, bodenstandig = 1.0, dienstaltester = 1.0, ruhig = 0.5, vereinsikone = 0.5, loyal = 0.5 }
+reaktiv = { taktiker = 1.0, analytiker = 1.0, analytisch = 1.0, analyse = 1.0, flexibel = 1.0, detailarbeit = 1.0, detailarbeiter = 1.0, reflektiert = 1.0, kommunikativ = 0.3, umschalten = 0.3 }
+experimentierfreudig = { eigenwillig = 1.0, uberladungen = 1.0, polarisierend = 0.7, kontrovers = 0.7, unbequem = 0.7, ambitioniert = 0.5, jung = 0.5, junger_trainer = 0.5, jugendlich = 0.5, debutant = 0.5, neuling = 0.5, neuanfang = 0.5, aktiv = 0.5, energisch = 0.3 }
+dogmatisch = { systemtreu = 1.5, ajax_schule = 1.0, spanische_schule = 1.0, belgische_schule = 1.0, positionsspiel = 1.0, autoritar = 1.0, dominant = 0.7, 4_3_3 = 0.7, hohe_linie = 0.7, dreierkette = 0.7, mannorientiert = 0.7, direktes_spiel = 0.5, ballbesitz = 0.4, gegenpressing = 0.4, struktur = 0.3, disziplin = 0.3 }
+pragmatisch = { pragmatisch = 1.5, feuerwehrmann = 1.0, defensivstabil = 0.7, defensivorientiert = 0.7, erfahren = 0.5, kompakt = 0.5, organisiert = 0.5, konter = 0.5, defensiv = 0.5, interim = 0.5, interimstrainer = 0.5 }
+
+# Wörter in Stil und Auftreten (je Treffer 0,5, geschätzt)
+[woerter]
+starr = ["konstant", "unverändert", "beständig"]
+reaktiv = ["passt an", "anpass", "reagiert", "flexib", "variabel", "gegnerabhängig"]
+experimentierfreudig = ["experiment", "überrasch", "unkonventionell", "wechselt oft"]
+dogmatisch = ["unbeirrt", "prinzip", "kompromisslos", "streng", "stur"]
+pragmatisch = ["pragmat", "ergebnisorientiert", "nüchtern"]
+
+# Ersatz ohne Bankeintrag: Persönlichkeit aus dem Namen (Gegnerbericht) -> Typ
+[persoenlichkeit]
+ruhig = "starr"
+emotional = "reaktiv"
+risikofreudig = "experimentierfreudig"
+vorsichtig = "pragmatisch"
+perfektionist = "dogmatisch"

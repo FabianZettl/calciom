@@ -1,0 +1,208 @@
+{
+ "hinweis": "Mapping Football-Manager-Elemente auf PES; Quelle SPIELERFELDER.md, TESTABLAUF-TAKTIK.md, ML-TAKTIK-WISSEN.md. klasse: schreibbar | nur_anzeige | pes_kennt_es_nicht; stand: bestaetigt | ungetestet",
+ "elemente": [
+  {
+   "id": "formation",
+   "fm": "Formation (Positionen und Lagen)",
+   "klasse": "schreibbar",
+   "stand": "bestaetigt",
+   "hinweis": "Positionscodes und Lagen der 11 Plätze; am Spiel 17./18.10. bestätigt (Innenverteidiger tauschen die Feldposition)"
+  },
+  {
+   "id": "startelf",
+   "fm": "Startelf und Bank",
+   "klasse": "schreibbar",
+   "stand": "bestaetigt",
+   "hinweis": "Kaderplätze 0 bis 22; Torwart/Stürmer tauschen am Spiel bestätigt, Rücknahme bestätigt"
+  },
+  {
+   "id": "kapitaen",
+   "fm": "Kapitän",
+   "klasse": "schreibbar",
+   "stand": "ungetestet",
+   "hinweis": "Zeile +585, Kaderplatz"
+  },
+  {
+   "id": "standards",
+   "fm": "Standardschützen (Freistoß weit/kurz, zweiter Schütze, Ecke links/rechts)",
+   "klasse": "schreibbar",
+   "stand": "ungetestet",
+   "hinweis": "Zeile +576 bis +580; Zuordnung je Byte vermutet"
+  },
+  {
+   "id": "elfmeter",
+   "fm": "Elfmeterschütze",
+   "klasse": "schreibbar",
+   "stand": "ungetestet",
+   "hinweis": "Zeile +581"
+  },
+  {
+   "id": "mitaufruecker",
+   "fm": "Mitaufrücker (Angriffsunterstützung)",
+   "klasse": "schreibbar",
+   "stand": "ungetestet",
+   "hinweis": "Zeile +582 bis +584, 255 = leer"
+  },
+  {
+   "id": "schalter",
+   "fm": "Schalter (Offensivstil, Aufbau, Angriffsbereich, Stellungsspiel, Defensivstil, Kontrollbereich, Pressing)",
+   "klasse": "schreibbar",
+   "stand": "ungetestet",
+   "hinweis": "sieben Schalter 0/1 je Taktikgruppe; Anzeige am 15.10. bestätigt"
+  },
+  {
+   "id": "regler",
+   "fm": "Regler Unterstützungsbereich, Abwehrreihe, Kompaktheit",
+   "klasse": "schreibbar",
+   "stand": "ungetestet",
+   "hinweis": "Regler 1 bis 10; +141/+144 nicht belegt"
+  },
+  {
+   "id": "anweisungen",
+   "fm": "Erweiterte Anweisungen Sturm 1/2, Verteidigung 1/2",
+   "klasse": "schreibbar",
+   "stand": "ungetestet",
+   "hinweis": "Art und Kaderplatz; Reihenfolge und Arten vermutet"
+  },
+  {
+   "id": "spielstil",
+   "fm": "Spielstil des Spielers",
+   "klasse": "schreibbar",
+   "stand": "bestaetigt",
+   "hinweis": "Anzeige am Spiel bestätigt (Spielerfeld, nicht Taktik)"
+  },
+  {
+   "id": "rolle_ballbesitz",
+   "fm": "Spielerrolle (Ballbesitz)",
+   "klasse": "nur_anzeige",
+   "stand": "",
+   "hinweis": "PES hat Spielstile statt Rollen; die Rolle ist eine PESM-Heuristik aus den 25 Fähigkeiten"
+  },
+  {
+   "id": "rolle_ohne_ball",
+   "fm": "Spielerrolle ohne Ball",
+   "klasse": "pes_kennt_es_nicht",
+   "stand": "",
+   "hinweis": "PES kennt keine Rolle ohne Ball; PESM leitet ein Verhalten aus Position und Pressing ab"
+  },
+  {
+   "id": "ansicht_ballbesitz",
+   "fm": "Ansichten Ballbesitz / Ohne Ball / Beide",
+   "klasse": "nur_anzeige",
+   "stand": "",
+   "hinweis": "PES speichert eine Formation (drei Sätze, Bedeutung vermutet); die Ansichten sind abgeleitet"
+  },
+  {
+   "id": "eignung",
+   "fm": "Eignung in Sternen",
+   "klasse": "nur_anzeige",
+   "stand": "",
+   "hinweis": "PESM-Berechnung (Passung zu Position und Rolle), nicht aus dem Spiel"
+  },
+  {
+   "id": "vertrautheit",
+   "fm": "Vertrautheit (Balken)",
+   "klasse": "nur_anzeige",
+   "stand": "",
+   "hinweis": "PESM-Berechnung aus den Positionsstufen A/B/C; das Spiel hat Team Spirit nicht lesbar"
+  },
+  {
+   "id": "intensitaet",
+   "fm": "Intensität (Balken)",
+   "klasse": "nur_anzeige",
+   "stand": "",
+   "hinweis": "PESM-Ableitung aus Pressing und Abwehrreihe"
+  },
+  {
+   "id": "rat",
+   "fm": "Rat (Assistenz)",
+   "klasse": "nur_anzeige",
+   "stand": "",
+   "hinweis": "PESM-Taktikengine, schreibt nichts"
+  },
+  {
+   "id": "gegnerbericht",
+   "fm": "Gegnerbericht",
+   "klasse": "nur_anzeige",
+   "stand": "",
+   "hinweis": "PESM-Auswertung aus Tabelle, Form und Spielstand"
+  },
+  {
+   "id": "datenhub",
+   "fm": "Datenhub",
+   "klasse": "nur_anzeige",
+   "stand": "",
+   "hinweis": "Auswertungen aus Saisonstatistik und Berichten"
+  },
+  {
+   "id": "mentalitaet",
+   "fm": "Mentalität",
+   "klasse": "pes_kennt_es_nicht",
+   "stand": "",
+   "hinweis": "PES hat keine Mentalität; PESM zeigt eine abgeleitete Einordnung"
+  },
+  {
+   "id": "stil",
+   "fm": "Taktischer Stil (Vorlagen des Assistenten)",
+   "klasse": "pes_kennt_es_nicht",
+   "stand": "",
+   "hinweis": "PES hat Schalter, keine Stile; der Assistent setzt nur Schalter im Entwurf"
+  },
+  {
+   "id": "taktik_slot",
+   "fm": "Taktik-Slots mit Varianten",
+   "klasse": "nur_anzeige",
+   "stand": "",
+   "hinweis": "PES: drei Taktikgruppen, aktive Gruppe nicht gemessen; Varianten = Formationssätze"
+  },
+  {
+   "id": "spieler_angriff",
+   "fm": "Regler Spieler im Angriff / in der Abwehr",
+   "klasse": "pes_kennt_es_nicht",
+   "stand": "",
+   "hinweis": "Lagen +141/+144 nicht belegt: nur in PESM"
+  },
+  {
+   "id": "taktikvorgabe",
+   "fm": "Taktikvorgabe",
+   "klasse": "pes_kennt_es_nicht",
+   "stand": "",
+   "hinweis": "nicht belegt: nur in PESM"
+  },
+  {
+   "id": "gegneranweisungen",
+   "fm": "Gegneranweisungen (enge Deckung, härter einsteigen)",
+   "klasse": "pes_kennt_es_nicht",
+   "stand": "",
+   "hinweis": "PES hat keine Anweisungen je Gegenspieler; nur die Verteidigungsanweisungen mit Ziel (Manndeckung) existieren"
+  },
+  {
+   "id": "elfmeter_reihenfolge",
+   "fm": "Elfmeterschießen: Reihenfolge der Schützen",
+   "klasse": "pes_kennt_es_nicht",
+   "stand": "",
+   "hinweis": "PES wählt die Schützen selbst"
+  },
+  {
+   "id": "teamanweisungen_fm",
+   "fm": "Teamanweisungen wie Tempo, Zeitspiel, Passrisiko, Dribbling, Flanken",
+   "klasse": "pes_kennt_es_nicht",
+   "stand": "",
+   "hinweis": "PES hat nur die sieben Schalter und drei Regler"
+  },
+  {
+   "id": "tempo_fm",
+   "fm": "Aufbauspiel (Torwartabstoß, Verteilung)",
+   "klasse": "pes_kennt_es_nicht",
+   "stand": "",
+   "hinweis": "nur der Schalter Aufbau (kurz/lang)"
+  },
+  {
+   "id": "zeitspiel",
+   "fm": "Zeitspiel",
+   "klasse": "pes_kennt_es_nicht",
+   "stand": "",
+   "hinweis": "nicht im Spiel"
+  }
+ ]
+}

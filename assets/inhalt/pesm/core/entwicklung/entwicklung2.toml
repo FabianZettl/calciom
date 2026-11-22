@@ -1,0 +1,229 @@
+# Entwicklung, Teil 2: Wachstumsraten je Fähigkeit, Fortschrittswege (Spielstile, Spezialfähigkeiten), Spielertyp, Berichte.
+# Eigene Festlegung von PESM; Zahlen austauschbar. Namen der Wege sind eigene Bezeichnungen (Texte `en2.weg.*`).
+
+[wachstum]
+# Fähigkeitspunkte je Jahr nach Alter und Gruppe (linear dazwischen); negativ = Rückgang
+kurve.tempo   = [[16, 2.4], [20, 1.4], [24, 0.2], [27, -0.3], [30, -1.0], [34, -1.8]]
+kurve.kraft   = [[16, 2.0], [21, 1.2], [25, 0.3], [29, -0.4], [33, -1.0], [37, -1.6]]
+kurve.technik = [[16, 2.6], [22, 1.4], [27, 0.4], [31, -0.1], [35, -0.7], [38, -1.1]]
+kurve.kopf    = [[16, 2.0], [24, 1.2], [30, 0.3], [34, 0.0], [38, -0.4]]
+kurve.torwart = [[17, 2.0], [24, 1.0], [30, 0.5], [34, -0.4], [38, -1.0]]
+hauptfaehigkeit_faktor = 1.3        # für die Position wichtige Fähigkeit
+nebenfaehigkeit_faktor = 0.55       # für die Position kaum gebrauchte Fähigkeit
+fokus_plus = 1.8                    # Fähigkeit im Trainingsfokus
+fokus_andere = 0.92                 # alle anderen, solange ein Fokus gesetzt ist
+potenzial_puffer = 6
+intensitaet = { schonend = 0.7, normal = 1.0, hart = 1.25 }
+einzeltraining = 1.2
+spielzeit_gut = 1.2
+spielzeit_schlecht = 0.85
+spielzeit_anteil = 0.5
+mentor_staerke = 0.25
+mentor_vorbild = 0.15               # der Mentor hat diese Fähigkeit mindestens `mentor_vorbild_abstand` Punkte höher
+mentor_vorbild_abstand = 8
+moral_niedrig = 35
+moral_hoch = 65
+moral_faktor_niedrig = 0.8
+moral_faktor_hoch = 1.1
+gespraech_je_punkt = 0.01           # Gespräche (E und H), begrenzt auf ±10 Punkte
+gespraech_deckel = 10
+vertrag_abzug_je_punkt = 0.02       # unzufrieden mit Vertrag oder Gehalt, höchstens `vertrag_abzug_deckel`
+vertrag_abzug_deckel = 0.1
+kabine_je_punkt = 0.002             # Teamgeist über oder unter 50
+rueckkehr_tage = 21
+rueckkehr_faktor = 0.5
+verfall_belastung_ab = 70
+verfall_belastung_faktor = 1.3
+verfall_profi_faktor = 0.15         # Profis bauen langsamer ab
+trainer_hebel = 0.12
+
+[verletzung]
+# Folgen langer Verletzungen: einmal beim Genesen, nur körperliche Fähigkeiten
+ab_tage = 28
+chance_je_tag = 0.01                # Chance = tage * chance_je_tag, höchstens `chance_deckel`
+chance_deckel = 0.9
+schwer_ab_tage = 120
+schwer_verlust = 2
+verlust = 1
+alter_zuschlag_ab = 30
+alter_zuschlag_je_jahr = 0.02
+
+[hauptfaehigkeiten]
+tor = ["fangen", "klaeren", "reflexe", "reichweite", "torwartgefuehl"]
+abwehr = ["aggressivitaet", "koerperkontakt", "balleroberung", "defensivgeist", "sprungkraft", "kopfball", "klaeren"]
+mitte = ["flachpass", "steilpass", "ballkontrolle", "ausdauer", "enge_ballfuehrung", "offensivgeist", "balleroberung"]
+angriff = ["schusskraft", "abschluss", "dribbling", "schnelligkeit", "antritt", "offensivgeist", "enge_ballfuehrung", "effet"]
+
+[wege]
+# Wöchentliche Chance, wenn alle Voraussetzungen erfüllt sind: chance * Faktoren; drei Treffer bis zum Erreichen
+treffer_bis = 3
+chance = 0.35
+einsaetze_faktor = 0.5              # Anteil der letzten Spiele, ab dem der Einsatzfaktor voll wirkt
+mentor_zuschlag = 0.15              # Mentor hat den Weg erreicht
+fokus_zuschlag = 0.1                # Trainingsfokus passt zum Weg
+moral_hoch_zuschlag = 0.05
+moral_niedrig_abzug = 0.1
+nahe_ab = 0.9                       # Erfüllungsgrad, ab dem ein Weg als Entwicklungsziel gezeigt wird
+spielstile_hoechstens = 1           # erreichte Spielstile je Spieler
+spezial_hoechstens = 4
+ziel_zuschlag = 0.25                # gezieltes Einzeltraining auf diesen Weg (Spezialfähigkeit): Zuschlag auf die wöchentliche Chance
+ziel_wochen_hoechstens = 26
+position_wochen = 26                # so lange darf ein erreichter Weg ohne Bedarf der Position (Positionen des Weges) bleiben, danach gilt die Chance auf Verlust
+position_verlust_chance_woche = 0.065   # etwa 25 % je Monat
+verlust_alter = 33
+verlust_chance_woche = 0.04
+verlust_toleranz = 6                # Punkte unter der Voraussetzung, ab denen ein Weg verloren geht
+verletzung_tage = 120               # Ausfall mindestens so lang gefährdet einen körperlichen Weg zusätzlich
+typ_hysterese = 0.06                # neuer Typ muss so viel besser passen
+typ_mindestdauer_tage = 28
+
+[bedarf]
+# Welche Positionsgruppen (tor, abwehr, mitte, angriff) eine Spezialfähigkeit brauchen; wechselt der Spieler dauerhaft in eine andere Gruppe, kann sie nach `position_wochen` verloren gehen.
+freistossschuetze = ["mitte", "angriff"]
+fernschuetze = ["mitte", "angriff"]
+kopfballungeheuer = ["abwehr", "angriff"]
+ausdauerlaeufer = ["mitte", "angriff"]
+zweikampfstark = ["abwehr", "mitte"]
+sprinter = ["abwehr", "angriff"]
+ballsicher = ["abwehr", "mitte", "angriff"]
+elfmeterkiller = ["tor"]
+
+[bericht]
+monatlich_ab_aenderung = 2          # Punkte je Spieler und Monat, ab denen er im Monatsbericht steht
+monatlich_hoechstens = 6
+
+[[weg]]
+id = "vollstrecker"
+art = "spielstil"
+positionen = ["ST", "HS", "LA", "RA"]
+voraussetzung = { schusskraft = 74, antritt = 68, schnelligkeit = 66 }
+fokus = "schuss"
+physisch = ["antritt", "schnelligkeit"]
+
+[[weg]]
+id = "zielspieler"
+art = "spielstil"
+positionen = ["ST", "HS"]
+voraussetzung = { koerperkontakt = 74, sprungkraft = 72, balance = 64 }
+fokus = "physis"
+physisch = ["koerperkontakt", "sprungkraft"]
+
+[[weg]]
+id = "fluegelflitzer"
+art = "spielstil"
+positionen = ["LA", "RA", "LM", "RM", "LV", "RV"]
+voraussetzung = { schnelligkeit = 78, antritt = 75, enge_ballfuehrung = 68 }
+fokus = "tempo"
+physisch = ["schnelligkeit", "antritt"]
+
+[[weg]]
+id = "spielgestalter"
+art = "spielstil"
+positionen = ["OM", "ZM", "HS", "LA", "RA"]
+voraussetzung = { enge_ballfuehrung = 74, balance = 68, effet = 62 }
+fokus = "technik"
+physisch = []
+
+[[weg]]
+id = "balleroberer"
+art = "spielstil"
+positionen = ["DM", "ZM", "IV"]
+voraussetzung = { aggressivitaet = 74, koerperkontakt = 70, ausdauer = 72 }
+fokus = "defensiv"
+physisch = ["ausdauer", "koerperkontakt"]
+
+[[weg]]
+id = "mittelfeldmotor"
+art = "spielstil"
+positionen = ["ZM", "DM", "OM", "LM", "RM"]
+voraussetzung = { ausdauer = 80, antritt = 66, aggressivitaet = 62 }
+fokus = "physis"
+physisch = ["ausdauer"]
+
+[[weg]]
+id = "abwehrchef"
+art = "spielstil"
+positionen = ["IV"]
+voraussetzung = { koerperkontakt = 76, sprungkraft = 72, aggressivitaet = 70 }
+fokus = "defensiv"
+physisch = ["koerperkontakt", "sprungkraft"]
+
+[[weg]]
+id = "vorpreschender_verteidiger"
+art = "spielstil"
+positionen = ["LV", "RV"]
+voraussetzung = { schnelligkeit = 74, ausdauer = 76, antritt = 68 }
+fokus = "tempo"
+physisch = ["schnelligkeit", "ausdauer"]
+
+[[weg]]
+id = "mitspielender_torwart"
+art = "spielstil"
+positionen = ["TW"]
+voraussetzung = { reichweite = 72, reflexe = 70, fangen = 70 }
+fokus = "torwart"
+physisch = []
+
+[[weg]]
+id = "freistossschuetze"
+art = "spezial"
+positionen = []
+voraussetzung = { freistoss = 80, effet = 70 }
+fokus = "technik"
+physisch = []
+
+[[weg]]
+id = "fernschuetze"
+art = "spezial"
+positionen = []
+voraussetzung = { schusskraft = 80, effet = 62 }
+fokus = "schuss"
+physisch = []
+
+[[weg]]
+id = "kopfballungeheuer"
+art = "spezial"
+positionen = []
+voraussetzung = { sprungkraft = 80, koerperkontakt = 72 }
+fokus = "physis"
+physisch = ["sprungkraft", "koerperkontakt"]
+
+[[weg]]
+id = "ausdauerlaeufer"
+art = "spezial"
+positionen = []
+voraussetzung = { ausdauer = 85 }
+fokus = "physis"
+physisch = ["ausdauer"]
+
+[[weg]]
+id = "zweikampfstark"
+art = "spezial"
+positionen = []
+voraussetzung = { koerperkontakt = 78, aggressivitaet = 72 }
+fokus = "defensiv"
+physisch = ["koerperkontakt"]
+
+[[weg]]
+id = "sprinter"
+art = "spezial"
+positionen = []
+voraussetzung = { schnelligkeit = 84, antritt = 80 }
+fokus = "tempo"
+physisch = ["schnelligkeit", "antritt"]
+
+[[weg]]
+id = "ballsicher"
+art = "spezial"
+positionen = []
+voraussetzung = { enge_ballfuehrung = 82, balance = 75 }
+fokus = "technik"
+physisch = []
+
+[[weg]]
+id = "elfmeterkiller"
+art = "spezial"
+positionen = ["TW"]
+voraussetzung = { reflexe = 78, reichweite = 72 }
+fokus = "torwart"
+physisch = []

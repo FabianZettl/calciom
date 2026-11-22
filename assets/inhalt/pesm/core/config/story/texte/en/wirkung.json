@@ -1,0 +1,83 @@
+{
+  "_hinweis": "Announcement of the effect before the reply: what the decision might bring about, without numbers. Keys: wirkung.<target>.<direction>; wirkung.nur_in_pesm and wirkung.ins_spiel are the addendum after an effect on a field in the game. No placeholders.",
+  "wirkung.stimmung.plus": {
+    "standard": [
+      "That should lift his morale."
+    ]
+  },
+  "wirkung.stimmung.minus": {
+    "standard": [
+      "That is likely to hurt his morale."
+    ]
+  },
+  "wirkung.beziehung_trainer.plus": {
+    "standard": [
+      "He might trust you more afterwards."
+    ]
+  },
+  "wirkung.beziehung_trainer.minus": {
+    "standard": [
+      "Your relationship could suffer."
+    ]
+  },
+  "wirkung.medienbild.plus": {
+    "standard": [
+      "The press might take that kindly."
+    ]
+  },
+  "wirkung.medienbild.minus": {
+    "standard": [
+      "The press might hold that against you."
+    ]
+  },
+  "wirkung.vorstandsvertrauen.plus": {
+    "standard": [
+      "The board might count that in your favour."
+    ]
+  },
+  "wirkung.vorstandsvertrauen.minus": {
+    "standard": [
+      "That could cost you the board's confidence."
+    ]
+  },
+  "wirkung.fanstimmung.plus": {
+    "standard": [
+      "That could go down well with the fans."
+    ]
+  },
+  "wirkung.fanstimmung.minus": {
+    "standard": [
+      "The fans might resent that."
+    ]
+  },
+  "wirkung.versprechen": {
+    "standard": [
+      "You're making a promise here. He'll hold you to it."
+    ]
+  },
+  "wirkung.folge": {
+    "standard": [
+      "The matter might come up again later."
+    ]
+  },
+  "wirkung.spielfeld.formpfeil": {
+    "standard": [
+      "That could affect his form."
+    ]
+  },
+  "wirkung.spielfeld.kondition": {
+    "standard": [
+      "That could affect his fitness."
+    ]
+  },
+  "wirkung.nur_in_pesm": {
+    "standard": [
+      "only in PESM"
+    ]
+  },
+  "wirkung.ins_spiel": {
+    "standard": [
+      "also applies in the game"
+    ]
+  }
+}

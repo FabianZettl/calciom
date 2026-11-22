@@ -1,0 +1,44 @@
+# Berichte aus den Nebenkanälen (Ticker, Feed, Zeitung, Markt) als ruhige Nachrichten der Inbox (Startwerte, nicht kalibriert).
+# Deckel: so viele Einzelnachrichten je Tag und Kategorie; was darüber liegt, geht in EINE Sammelnachricht dieses Tages (nichts geht verloren).
+[deckel]
+liga = 2
+geruecht = 3
+transfer = 2
+presse = 2
+spiel = 2
+vertrag = 3
+kader = 2
+default = 3
+
+# Reiter der Inbox: Kategorie -> Gruppe (Reiter 6 Spiel und Liga, 7 Kader und Training, 8 Transfers und Gerüchte, 9 Finanzen)
+[gruppen]
+spiel = ["spiel", "liga"]
+kader = ["kader", "medizin", "entwicklung", "jugend", "training", "vertrag"]
+transfer = ["transfer", "geruecht", "scouting"]
+finanzen = ["finanzen", "verein"]
+
+# Spieltag-Neuigkeiten (Kategorie des Spieltags) -> Kategorie der Inbox; fehlt eine: wird nicht gespiegelt (Verletzung, Transfer, Gespräche, Disziplin stehen schon als eigene Vorgänge da)
+[news]
+termin = "spiel"
+vertrag = "vertrag"
+stimmung = "kader"
+form = "kader"
+tabelle = "liga"
+rekord = "liga"
+
+[fremdwechsel]
+zeilen = 8          # so viele Wechsel einer Sammelnachricht stehen einzeln darin, der Rest als „und N weitere“
+
+[alter]
+tage = 14           # ältere Anlässe werden nicht mehr als Nachricht nachgereicht
+
+# Auto-Altern: gelesene Berichte und Meldungen ohne Entscheidung wandern nach so vielen Tagen der Spielwelt ins Archiv; umkehrbar, nie bei offener Entscheidung
+[altern]
+tage = 14
+tage_ungelesen = 30   # ungelesene Infos ohne Entscheidung werden nach so vielen Tagen ebenfalls archiviert
+
+# Stimmungs-Kleinigkeiten der Kabine (Folgen kb_*_gut / kb_*_szene): keine Einzelbriefe, eine Sammelnachricht je Woche mit einer Zeile je Anlass und Spieler
+[kabine_stimmung]
+endungen = ["_gut", "_szene"]
+sperre_tage = 21     # Wiederholsperre je Spieler und Anlass
+deckel_woche = 6     # so viele Zeilen je Woche in der Sammelnachricht

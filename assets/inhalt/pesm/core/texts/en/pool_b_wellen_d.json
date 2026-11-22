@@ -1,0 +1,102 @@
+{
+ "pool.b.talent_wartet_auf_einsatz_lage": [
+  "{name} sits outside week after week, waiting for his minutes.",
+  "In training {name} works himself to the bone, yet he barely features in the squad."
+ ],
+ "pool.b.talent_wartet_auf_einsatz_lage.hitzig": [
+  "{name} is boiling because all he gets to do is watch!",
+  "{name} is about to blow his top after waiting this long!"
+ ],
+ "pool.b.talent_wartet_auf_einsatz_lage.loyal": [
+  "{name} does not complain, but you can see how badly he wants a game.",
+  "{name} would do anything for the club, yet he is never given the chance."
+ ],
+ "pool.b.talent_wartet_auf_einsatz_lage.ehrgeizig": [
+  "{name} wants to prove what he can do and gets no stage for it.",
+  "{name} has the drive for the first eleven, just not the minutes."
+ ],
+ "pool.b.talent_wartet_auf_einsatz_lage.wechselfreudig": [
+  "{name} is already looking around for a place where he would play.",
+  "For {name} match practice is what counts, and if it stays away here he will look elsewhere."
+ ],
+ "pool.b.talent_wartet_auf_einsatz_lage.sensibel": [
+  "{name} grows quieter the longer he is left out.",
+  "You can tell {name} suffers from the waiting, even if he hides it."
+ ],
+ "pool.b.mentor_vorschlag_lage": [
+  "{name} often seems left on his own for his age.",
+  "With {name} I notice that he lacks an experienced contact person in everyday life."
+ ],
+ "pool.b.mentor_vorschlag_lage.hitzig": [
+  "{name} needs someone who slows him down before he works himself up again.",
+  "{name} likes to overshoot, and nobody pulls him back."
+ ],
+ "pool.b.mentor_vorschlag_lage.loyal": [
+  "{name} would give everything for the club, he just does not know whom to turn to.",
+  "{name} wants to fit in and does not dare to approach the older ones."
+ ],
+ "pool.b.mentor_vorschlag_lage.ehrgeizig": [
+  "{name} wants to rise fast but lacks someone to show him the way.",
+  "{name} has talent and ambition, but without guidance he scatters himself."
+ ],
+ "pool.b.mentor_vorschlag_lage.wechselfreudig": [
+  "{name} has not really arrived with us yet, and a contact person could keep him.",
+  "{name} already sees himself elsewhere, and a role model in the squad might tie him down."
+ ],
+ "pool.b.mentor_vorschlag_lage.sensibel": [
+  "{name} takes everything to heart and needs someone to talk to.",
+  "{name} swallows a lot, and a mentor could make talking easier for him."
+ ],
+ "pool.b.verantwortung_gewuenscht_lage": [
+  "Coach, I feel really at home here and I have a request.",
+  "Coach, things are going well for me, and that is exactly why I come to you."
+ ],
+ "pool.b.verantwortung_gewuenscht_lage.hitzig": [
+  "Coach, I lead the way here every week, and others still talk over me!",
+  "Coach, I am ready for more, and I do not want to hesitate any longer!"
+ ],
+ "pool.b.verantwortung_gewuenscht_lage.loyal": [
+  "Coach, I am happy here and want to give the club more in return.",
+  "Coach, this club has given me a lot, and now I want to take something on."
+ ],
+ "pool.b.verantwortung_gewuenscht_lage.ehrgeizig": [
+  "Coach, I have set myself a goal and want to take the next step.",
+  "Coach, a regular place alone is not enough for me, I want to shape this team."
+ ],
+ "pool.b.verantwortung_gewuenscht_lage.wechselfreudig": [
+  "Coach, I am doing fine here, but I want to know what this club holds for me.",
+  "Coach, I feel comfortable, yet I wonder where this is leading."
+ ],
+ "pool.b.verantwortung_gewuenscht_lage.sensibel": [
+  "Coach, I was unsure whether to raise this, but it is close to my heart.",
+  "Coach, it is not easy for me to say something like this, but I have felt it for weeks."
+ ],
+ "pool.b.verlaengern_frueh_gruss": [
+  "Dear coach,",
+  "Good day, coach, I am getting in touch with a request."
+ ],
+ "pool.b.verlaengern_frueh_lage": [
+  "My client {name} is content with you, and his contract still has a while to run.",
+  "{name} feels at home at the club, and I would like to secure that in peace."
+ ],
+ "pool.b.verlaengern_frueh_lage.hitzig": [
+  "{name} is full of drive and wants clear conditions while things are going well.",
+  "{name} phoned me and demands that we get down to business now."
+ ],
+ "pool.b.verlaengern_frueh_lage.loyal": [
+  "{name} is attached to this club and wants to stay for the long term.",
+  "{name} told me he could grow old here."
+ ],
+ "pool.b.verlaengern_frueh_lage.ehrgeizig": [
+  "{name} is in top form and wants it to show in his contract.",
+  "{name} sees himself on the way up and would like that put down in writing."
+ ],
+ "pool.b.verlaengern_frueh_lage.wechselfreudig": [
+  "{name} feels comfortable but also hears what other clubs offer.",
+  "{name} is content, yet enquiries from outside are already coming in."
+ ],
+ "pool.b.verlaengern_frueh_lage.sensibel": [
+  "{name} would like security, because it gives him peace.",
+  "{name} sleeps better when he knows how things continue."
+ ]
+}

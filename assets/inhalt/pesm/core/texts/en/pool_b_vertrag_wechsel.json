@@ -1,0 +1,194 @@
+{
+ "pool.b.vertrag_laeuft_aus_gruss": [
+  "Good day, Gaffer.",
+  "Gaffer, good of you to make time."
+ ],
+ "pool.b.vertrag_laeuft_aus_gruss.hitzig": [
+  "Gaffer, I have to be blunt.",
+  "Gaffer, my patience is wearing thin."
+ ],
+ "pool.b.vertrag_laeuft_aus_gruss.loyal": [
+  "Gaffer, I come to you in good faith.",
+  "Gaffer, my client thinks highly of you, which is why I'm getting in touch."
+ ],
+ "pool.b.vertrag_laeuft_aus_gruss.ehrgeizig": [
+  "Gaffer, I want to settle this quickly.",
+  "Gaffer, we should pick up the pace."
+ ],
+ "pool.b.vertrag_laeuft_aus_gruss.wechselfreudig": [
+  "Gaffer, I'll be upfront with you.",
+  "Gaffer, I'll put my cards on the table."
+ ],
+ "pool.b.vertrag_laeuft_aus_gruss.sensibel": [
+  "Gaffer, I'd like to raise this carefully.",
+  "Gaffer, please don't take it the wrong way."
+ ],
+ "pool.b.vertrag_laeuft_aus_anlass": [
+  "{name}'s contract runs out in {monate} months.",
+  "{name} is only tied to the club for another {monate} months."
+ ],
+ "pool.b.vertrag_laeuft_aus_anlass.hitzig": [
+  "{name}'s contract ends in {monate} months, and nothing is happening on your side!",
+  "Only {monate} months left, then {name} is free, and you stay silent about it!"
+ ],
+ "pool.b.vertrag_laeuft_aus_anlass.loyal": [
+  "{name} would like to stay, but his contract ends in {monate} months.",
+  "This club has become home for {name}, but his contract ends in {monate} months."
+ ],
+ "pool.b.vertrag_laeuft_aus_anlass.ehrgeizig": [
+  "{name}'s contract ends in {monate} months, and he wants to know what role he has afterwards.",
+  "{name} is planning his next few years, and his contract already ends in {monate} months."
+ ],
+ "pool.b.vertrag_laeuft_aus_anlass.wechselfreudig": [
+  "In {monate} months {name} is a free agent, I'm sure you're aware of that.",
+  "{name} can leave for nothing in {monate} months, and others know it too."
+ ],
+ "pool.b.vertrag_laeuft_aus_gut": [
+  "That's a clear word.",
+  "I'm glad to hear that."
+ ],
+ "pool.b.vertrag_laeuft_aus_gut.hitzig": [
+  "Well, that's more like it!",
+  "At last something is moving."
+ ],
+ "pool.b.vertrag_laeuft_aus_gut.loyal": [
+  "My client will appreciate that very much.",
+  "Thank you, that will please him."
+ ],
+ "pool.b.vertrag_laeuft_aus_gut.ehrgeizig": [
+  "We can work with that, and quickly.",
+  "That's an approach that gets us somewhere."
+ ],
+ "pool.b.vertrag_laeuft_aus_gut.wechselfreudig": [
+  "That's something we can talk about, and I'll tell other interested parties so too.",
+  "Good, then the club has a head start now."
+ ],
+ "pool.b.vertrag_laeuft_aus_neutral": [
+  "I'll pass that on as it is.",
+  "I'll make a note of that."
+ ],
+ "pool.b.vertrag_laeuft_aus_neutral.hitzig": [
+  "That's not enough for me, but I'll pass it on.",
+  "That's thin, but I'll relay it anyway."
+ ],
+ "pool.b.vertrag_laeuft_aus_neutral.loyal": [
+  "I'll tell him you're making an effort.",
+  "My client will be patient, at least for now."
+ ],
+ "pool.b.vertrag_laeuft_aus_neutral.ehrgeizig": [
+  "That's not yet what he has in mind.",
+  "He expects more, but it's a start."
+ ],
+ "pool.b.vertrag_laeuft_aus_neutral.wechselfreudig": [
+  "I'll keep all my options open.",
+  "I'll keep talking to everyone involved."
+ ],
+ "pool.b.vertrag_laeuft_aus_schlecht": [
+  "He won't like that.",
+  "I can't be satisfied with that."
+ ],
+ "pool.b.vertrag_laeuft_aus_schlecht.hitzig": [
+  "That's unacceptable!",
+  "With that attitude there's no point in talking any further!"
+ ],
+ "pool.b.vertrag_laeuft_aus_schlecht.loyal": [
+  "That disappoints him, and me too.",
+  "After all these years he imagined it differently."
+ ],
+ "pool.b.vertrag_laeuft_aus_schlecht.ehrgeizig": [
+  "You're squandering your chance with him.",
+  "That won't convince him."
+ ],
+ "pool.b.vertrag_laeuft_aus_schlecht.wechselfreudig": [
+  "Then I'll sound out other clubs.",
+  "Good to know, then I'll talk to the others."
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_wunsch": [
+  "I've thought a lot about whether I'm still in the right place here.",
+  "For weeks now I've been wondering whether my path continues at this club."
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_wunsch.hitzig": [
+  "I'm done here if nothing changes!",
+  "Either something changes, or I'm gone!"
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_wunsch.loyal": [
+  "I don't want to leave, but I don't know whether I can stay.",
+  "The thought of leaving hurts, and yet it keeps coming back more often."
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_wunsch.ehrgeizig": [
+  "I want to play at the highest level and wonder whether that's possible here.",
+  "I want to win trophies, and I doubt that works with this squad."
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_wunsch.wechselfreudig": [
+  "There are offers, and I'm seriously thinking about accepting one.",
+  "A move appeals to me, and I've already talked to others."
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_wunsch.sensibel": [
+  "I can feel that I'm no longer happy here.",
+  "It's hard for me to say this, but I no longer feel at ease."
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_grund": [
+  "I'm lacking a perspective right now.",
+  "I can't see where things are heading for me and the club."
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_grund.hitzig": [
+  "You talk about goals and don't act on them!",
+  "I won't be kept waiting any longer."
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_grund.loyal": [
+  "I was always honest with you, and I want to be now too.",
+  "I've given this club a lot and want to know what I'm left with."
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_grund.ehrgeizig": [
+  "I want to know where the journey leads for me.",
+  "I want to develop further, and for that I need a clear path."
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_grund.wechselfreudig": [
+  "I'm looking around while the options are there.",
+  "Good opportunities don't last forever."
+ ],
+ "pool.b.gehalt_unter_schnitt_klage": [
+  "I've heard that teammates in my position earn more than I do.",
+  "It has come to my ears that I get less than others in my role."
+ ],
+ "pool.b.gehalt_unter_schnitt_klage.hitzig": [
+  "The others pocket more than I do, and I deliver the better performances!",
+  "I earn less than people who are behind me, that's absurd!"
+ ],
+ "pool.b.gehalt_unter_schnitt_klage.loyal": [
+  "I've never talked about money, but I earn less than the others in my position.",
+  "Money was never important to me, but my pay is below that of my teammates."
+ ],
+ "pool.b.gehalt_unter_schnitt_klage.ehrgeizig": [
+  "I deliver the performances, but my pay is below the average for my position.",
+  "I'm among the most important here and earn less than others."
+ ],
+ "pool.b.gehalt_unter_schnitt_klage.wechselfreudig": [
+  "Elsewhere I'd get clearly more than here, I know that.",
+  "With my market value there'd be more elsewhere, and you know it."
+ ],
+ "pool.b.gehalt_unter_schnitt_klage.sensibel": [
+  "I'm not envious, but it hurts that others earn more than I do.",
+  "It hurts me to see that my teammates get more."
+ ],
+ "pool.b.gehalt_unter_schnitt_forderung": [
+  "I'd find it fair if we adjusted that.",
+  "Could we level that out at some point?"
+ ],
+ "pool.b.gehalt_unter_schnitt_forderung.hitzig": [
+  "That has to be adjusted immediately!",
+  "I demand that you change it!"
+ ],
+ "pool.b.gehalt_unter_schnitt_forderung.loyal": [
+  "I only ask you to take a look at it.",
+  "Perhaps there's a way that's fair to both of us."
+ ],
+ "pool.b.gehalt_unter_schnitt_forderung.ehrgeizig": [
+  "I want my pay to match my role.",
+  "Whoever leads the way should be paid accordingly."
+ ],
+ "pool.b.gehalt_unter_schnitt_forderung.wechselfreudig": [
+  "Otherwise I'll have to think about what I do.",
+  "If not here, then somewhere else."
+ ]
+}

@@ -1,0 +1,114 @@
+{
+ "pool.b.staff_cotrainer_aufstellung_gruss": [
+  "Chef, hast du kurz Zeit? Es geht um die Aufstellung.",
+  "Trainer, komm bitte kurz mit ins Büro, ich muss etwas loswerden."
+ ],
+ "pool.b.staff_cotrainer_aufstellung_lage": [
+  "Ich halte die Elf vom letzten Spiel für einen Fehler, im Mittelfeld fehlt uns die Balance.",
+  "Ich sehe die Startelf anders als du, vor allem im Zentrum und in der Abwehrkette."
+ ],
+ "pool.b.staff_cotrainer_aufstellung_lage.hitzig": [
+  "So wie du aufstellst, laufen wir ins offene Messer, und das sage ich dir jetzt klar!",
+  "Ich kann das nicht länger schweigend mittragen, diese Aufstellung ist ein Rezept für die nächste Pleite!"
+ ],
+ "pool.b.staff_cotrainer_aufstellung_lage.loyal": [
+  "Du weißt, dass ich hinter dir stehe, aber bei der Aufstellung bin ich anderer Meinung, und das schulde ich dir offen.",
+  "Ich trage jede Entscheidung mit, nur diese Elf nicht, ohne dir vorher meine Bedenken gesagt zu haben."
+ ],
+ "pool.b.staff_cotrainer_aufstellung_lage.ehrgeizig": [
+  "Wenn wir oben mitspielen wollen, brauchen wir eine andere Elf, und ich habe dazu einen konkreten Plan.",
+  "Mit dieser Aufstellung bleiben wir unter unseren Möglichkeiten, ich würde im Zentrum und auf den Flügeln umbauen."
+ ],
+ "pool.b.staff_cotrainer_aufstellung_lage.wechselfreudig": [
+  "Ich würde viel öfter wechseln und frischer besetzen, diese immer gleiche Elf lähmt uns.",
+  "Wir stellen zu starr auf, mehr Bewegung in der Startelf täte uns gut."
+ ],
+ "pool.b.staff_cotrainer_aufstellung_lage.sensibel": [
+  "Es fällt mir nicht leicht, dir zu widersprechen, aber mit dieser Aufstellung fühle ich mich nicht wohl.",
+  "Ich zögere, das anzusprechen, weil ich dich nicht verletzen will, doch die Elf überzeugt mich nicht."
+ ],
+ "pool.b.staff_fitness_belastung_gruss": [
+  "Chef, hast du einen Moment? Die Belastungswerte machen mir Sorgen.",
+  "Trainer, ich muss dir etwas zu den Daten der Mannschaft schreiben."
+ ],
+ "pool.b.staff_fitness_belastung_lage": [
+  "Bei dieser Dichte der Spiele kommen die Spieler kaum noch zur Erholung, und die Werte im Training fallen seit Wochen.",
+  "Zwischen den Spielen bleibt zu wenig Zeit zur Regeneration, die Muskeln machen dicht, und das zeigen die Messungen."
+ ],
+ "pool.b.staff_fitness_belastung_lage.hitzig": [
+  "Wenn das so weitergeht, brechen uns die Leute reihenweise weg, und dann komm nicht zu mir!",
+  "Das ist Raubbau an den Spielern, und ich lasse mir hinterher nicht die Schuld geben!"
+ ],
+ "pool.b.staff_fitness_belastung_lage.loyal": [
+  "Ich ziehe immer mit, du kennst mich, aber hier muss ich auf die Bremse treten, bevor etwas passiert.",
+  "Ich habe noch nie zugemacht, wenn du mehr verlangt hast, aber jetzt warne ich dich ernsthaft."
+ ],
+ "pool.b.staff_fitness_belastung_lage.ehrgeizig": [
+  "Wer oben mitspielen will, muss auch im letzten Drittel der Saison frisch sein, und dafür brauche ich Ruhetage.",
+  "Mit müden Beinen gewinnt man keinen Titel, also lass uns die Belastung klug steuern."
+ ],
+ "pool.b.staff_fitness_belastung_lage.wechselfreudig": [
+  "Wir fahren seit Wochen im selben Takt, ein bisschen mehr Abwechslung in Training und Einsatz täte allen gut.",
+  "Immer dieselben Gesichter über die volle Länge, das hält kein Körper aus."
+ ],
+ "pool.b.staff_fitness_belastung_lage.sensibel": [
+  "Ich sehe den Jungs an, wie müde sie sind, und das geht mir ehrlich nahe.",
+  "Es macht mich fertig zuzusehen, wie sie sich quälen, ohne dass jemand etwas sagt."
+ ],
+ "pool.b.staff_torwart_rotation_gruss": [
+  "Chef, hast du kurz Zeit? Es geht um meine Torhüter.",
+  "Trainer, ich muss mit dir über die Lage im Tor sprechen."
+ ],
+ "pool.b.staff_torwart_rotation_lage": [
+  "Im Tor weiß keiner, woran er ist, und ohne klare Rollen leidet die Sicherheit im ganzen Team.",
+  "Meine Torhüter trainieren auf hohem Niveau, aber niemand kennt seine Rolle, und das zehrt an ihnen."
+ ],
+ "pool.b.staff_torwart_rotation_lage.hitzig": [
+  "So kann man mit Torhütern nicht umgehen, ich verlange endlich eine klare Ansage!",
+  "Dieses Hin und Her im Tor macht alle verrückt, und ich lasse das nicht länger laufen!"
+ ],
+ "pool.b.staff_torwart_rotation_lage.loyal": [
+  "Ich habe nie in deine Aufstellung hineingeredet, aber jetzt bitte ich dich um ein klares Wort für meine Leute.",
+  "Du weißt, dass ich deine Linie trage, nur im Tor brauchen wir eine Linie, die man erkennen kann."
+ ],
+ "pool.b.staff_torwart_rotation_lage.ehrgeizig": [
+  "Wer oben mitspielen will, braucht einen Torwart, der weiß, dass er spielt, und einen zweiten, der weiß, warum nicht.",
+  "Mit klaren Rollen holen wir aus beiden Torhütern mehr heraus, und dafür möchte ich deine Entscheidung."
+ ],
+ "pool.b.staff_torwart_rotation_lage.wechselfreudig": [
+  "Ich würde die beiden Torhüter regelmäßig abwechseln lassen, das hält beide hungrig.",
+  "Ein fester Wechselrhythmus im Tor würde Druck rausnehmen und beide wach halten."
+ ],
+ "pool.b.staff_torwart_rotation_lage.sensibel": [
+  "Ein Torwart, der nicht weiß, ob er spielt, verliert Vertrauen, und das geht mir sehr nah.",
+  "Ich merke, wie meine Torhüter an sich zweifeln, und ich weiß nicht, wie ich ihnen helfen soll."
+ ],
+ "pool.b.staff_mittel_verstaerkung_gruss": [
+  "Chef, hast du kurz Zeit? Wir im Stab müssen mit dir reden.",
+  "Trainer, ich spreche hier für den ganzen Stab, wir haben ein Anliegen."
+ ],
+ "pool.b.staff_mittel_verstaerkung_lage": [
+  "Wir arbeiten am Limit, und mit dem Personal und der Ausstattung, die wir haben, können wir nicht mehr herausholen.",
+  "Uns fehlen Leute in der Analyse und in der Betreuung, und die Technik ist längst überholt."
+ ],
+ "pool.b.staff_mittel_verstaerkung_lage.hitzig": [
+  "So kann man keine Arbeit leisten, und wir lassen uns nicht länger mit Almosen abspeisen!",
+  "Das ist ein Witz, was wir hier an Mitteln haben, und ich sage das jetzt auch dem Präsidenten!"
+ ],
+ "pool.b.staff_mittel_verstaerkung_lage.loyal": [
+  "Wir haben nie gejammert und immer mit dem gearbeitet, was da war, aber jetzt reicht es einfach nicht mehr.",
+  "Ich stehe zu diesem Verein und zu dir, aber ich muss ehrlich sagen: So kommen wir nicht weiter."
+ ],
+ "pool.b.staff_mittel_verstaerkung_lage.ehrgeizig": [
+  "Wenn wir oben mitspielen wollen, braucht der Stab die Mittel der Konkurrenz, sonst bleiben wir immer einen Schritt dahinter.",
+  "Mit besserer Ausstattung und zwei zusätzlichen Leuten holen wir die Punkte, die uns jetzt fehlen."
+ ],
+ "pool.b.staff_mittel_verstaerkung_lage.wechselfreudig": [
+  "Andere Vereine investieren in ihren Stab, und gute Leute gehen dorthin, wo sie arbeiten können.",
+  "Wenn sich hier nichts bewegt, sind auch wir ersetzbar oder weg, so ehrlich muss man sein."
+ ],
+ "pool.b.staff_mittel_verstaerkung_lage.sensibel": [
+  "Wir fühlen uns nicht gesehen, und es kränkt uns, dass unsere Arbeit so wenig Anerkennung findet.",
+  "Wir geben alles, und es fällt uns schwer zu sehen, dass kaum jemand im Verein merkt, wie viel fehlt."
+ ]
+}

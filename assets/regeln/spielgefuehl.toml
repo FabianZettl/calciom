@@ -1,0 +1,15 @@
+# Spielgefühl, Teil 4 (SPIELGEFUEHL.md): PES Ms eigene Zahlen, nicht aus dem Python-Original.
+
+# „Was jetzt?“: so viele Tage vor dem Ende eines Transferfensters wird es zur wichtigsten Sache (danach ist der Kader fest)
+fenster_warnung_tage = 5
+
+[erste_woche]
+# so lange nach dem Antritt wird die geführte erste Woche gezeigt
+tage = 21
+# Vorstandsvertrauen je geschafftem Schritt (der neue Trainer arbeitet sich ein) und beim letzten Schritt dazu (auch Fans)
+belohnung_schritt = 1
+belohnung_fertig = 2
+
+[karrieren]
+# so viele Sicherungen je Karriere hält das wöchentliche Speichern (die älteste fällt weg)
+sicherungen = 3

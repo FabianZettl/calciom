@@ -1,0 +1,82 @@
+{
+ "pool.b.berater_konkurrenzangebot_gruss": [
+  "Guten Tag, hier spricht der Berater von {name}.",
+  "Guten Tag, ich rufe wegen {name} an."
+ ],
+ "pool.b.berater_konkurrenzangebot_lage": [
+  "Ein anderer Verein hat für {name} ein Angebot vorgelegt: {betrag}.",
+  "Es liegt ein schriftliches Angebot eines anderen Vereins für {name} vor, es lautet auf {betrag}."
+ ],
+ "pool.b.berater_konkurrenzangebot_lage.hitzig": [
+  "{name} will das Angebot eines Konkurrenten annehmen, und zwar sofort: {betrag}!",
+  "Ein Rivale bietet {name} {betrag}, und mein Mandant tobt, weil hier nichts passiert!"
+ ],
+ "pool.b.berater_konkurrenzangebot_lage.loyal": [
+  "{name} wäre gern geblieben, aber ein anderer Verein bietet ihm {betrag}, und das kann ich nicht ignorieren.",
+  "Er hängt an Ihrem Klub, doch ein Konkurrent legt {betrag} auf den Tisch."
+ ],
+ "pool.b.berater_konkurrenzangebot_lage.ehrgeizig": [
+  "Ein ambitionierterer Verein bietet {name} {betrag} und eine größere Bühne.",
+  "Für {name} gibt es einen Schritt nach oben, samt {betrag}."
+ ],
+ "pool.b.berater_konkurrenzangebot_lage.wechselfreudig": [
+  "{name} schaut sich ohnehin um, und jetzt bietet ihm ein Verein {betrag}.",
+  "Ein Konkurrent lockt {name} mit {betrag}, und er hört gern zu."
+ ],
+ "pool.b.berater_konkurrenzangebot_lage.sensibel": [
+  "{name} fühlt sich hier nicht gesehen, und der andere Verein bietet {betrag} und Anerkennung.",
+  "Mein Mandant hat gezögert, es mir zu sagen: Ein Konkurrent bietet {betrag}."
+ ],
+ "pool.b.berater_provision_gruss": [
+  "Guten Tag, ich schreibe Ihnen wegen des Vertrags von {name}.",
+  "Guten Tag, anbei meine Nachricht zu {name}."
+ ],
+ "pool.b.berater_provision_lage": [
+  "Für einen Abschluss mit {name} stelle ich eine Beratungsgebühr von {betrag} in Rechnung.",
+  "Meine Arbeit am Vertrag von {name} war beträchtlich, und dafür fällt eine Provision von {betrag} an."
+ ],
+ "pool.b.berater_provision_lage.hitzig": [
+  "Ich habe Wochen in diesen Vertrag gesteckt, und ohne {betrag} Provision unterschreibt hier nichts!",
+  "Ohne meine Gebühr von {betrag} passiert bei {name} gar nichts, das sage ich ganz offen!"
+ ],
+ "pool.b.berater_provision_lage.loyal": [
+  "Ich arbeite gern mit Ihnen zusammen, doch meine Gebühr von {betrag} muss ich der Ordnung halber nennen.",
+  "Es ist mir unangenehm, aber für den Abschluss bei {name} steht mir eine Provision von {betrag} zu."
+ ],
+ "pool.b.berater_provision_lage.ehrgeizig": [
+  "Ein guter Abschluss für {name} hat seinen Preis, und der liegt bei {betrag} für meine Beratung.",
+  "Mein Honorar beträgt {betrag}, und es ist gut angelegt, wenn {name} den nächsten Schritt macht."
+ ],
+ "pool.b.berater_provision_lage.wechselfreudig": [
+  "Wenn {name} unterschreibt, möchte ich {betrag} sehen, andere Vereine zahlen so etwas ohne Murren.",
+  "Meine Provision beträgt {betrag}, und anderswo wäre sie längst überwiesen."
+ ],
+ "pool.b.berater_provision_lage.sensibel": [
+  "Ich ringe mit mir, es anzusprechen, aber meine Gebühr von {betrag} gehört zum Abschluss mit {name}.",
+  "Bitte verstehen Sie das nicht falsch: Für meine Arbeit am Vertrag von {name} stehen {betrag} im Raum."
+ ],
+ "pool.b.verhandlung_spieler_wunsch_lage": [
+  "Es geht um meinen Vertrag.",
+  "Ich habe mir Gedanken zu meinem neuen Vertrag gemacht."
+ ],
+ "pool.b.verhandlung_spieler_wunsch_lage.hitzig": [
+  "Es geht um meinen Vertrag, und diesmal will ich gehört werden!",
+  "Beim Vertrag lasse ich mich nicht überfahren!"
+ ],
+ "pool.b.verhandlung_spieler_wunsch_lage.loyal": [
+  "Ich bin gern hier, deshalb möchte ich offen über meinen Vertrag sprechen.",
+  "Ich will bleiben, aber ein paar Dinge liegen mir am Herzen."
+ ],
+ "pool.b.verhandlung_spieler_wunsch_lage.ehrgeizig": [
+  "Bei meinem Vertrag geht es für mich um den nächsten Schritt.",
+  "Ich will, dass mein Vertrag zu meinen Zielen passt."
+ ],
+ "pool.b.verhandlung_spieler_wunsch_lage.wechselfreudig": [
+  "Bevor ich unterschreibe, will ich meine Bedingungen nennen.",
+  "Ich habe Optionen, also sage ich dir, was ich brauche."
+ ],
+ "pool.b.verhandlung_spieler_wunsch_lage.sensibel": [
+  "Es fällt mir nicht leicht, über meinen Vertrag zu sprechen, aber es ist wichtig.",
+  "Ich möchte, dass du mich verstehst, bevor wir über den Vertrag reden."
+ ]
+}

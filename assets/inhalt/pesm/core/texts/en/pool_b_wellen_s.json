@@ -1,0 +1,114 @@
+{
+ "pool.b.staff_cotrainer_aufstellung_gruss": [
+  "Boss, got a minute? It's about the line-up.",
+  "Coach, come to the office for a moment, I have to get something off my chest."
+ ],
+ "pool.b.staff_cotrainer_aufstellung_lage": [
+  "I think the eleven from the last game was a mistake, we lack balance in midfield.",
+  "I see the starting eleven differently from you, especially in the centre and the back line."
+ ],
+ "pool.b.staff_cotrainer_aufstellung_lage.hitzig": [
+  "The way you line us up, we walk straight into the knife, and I'm telling you that now!",
+  "I can't keep quiet about this any longer, this line-up is a recipe for the next defeat!"
+ ],
+ "pool.b.staff_cotrainer_aufstellung_lage.loyal": [
+  "You know I stand behind you, but I disagree on the line-up, and I owe it to you to say so openly.",
+  "I back every decision, just not this eleven, not without telling you my doubts first."
+ ],
+ "pool.b.staff_cotrainer_aufstellung_lage.ehrgeizig": [
+  "If we want to compete at the top we need a different eleven, and I have a concrete plan.",
+  "With this line-up we stay below our potential, I would rebuild the centre and the wings."
+ ],
+ "pool.b.staff_cotrainer_aufstellung_lage.wechselfreudig": [
+  "I would rotate far more and pick fresher legs, this unchanging eleven paralyses us.",
+  "We line up too rigidly, more movement in the starting eleven would do us good."
+ ],
+ "pool.b.staff_cotrainer_aufstellung_lage.sensibel": [
+  "It isn't easy for me to contradict you, but I don't feel right about this line-up.",
+  "I hesitate to bring it up because I don't want to hurt you, but the eleven doesn't convince me."
+ ],
+ "pool.b.staff_fitness_belastung_gruss": [
+  "Boss, got a moment? The load figures worry me.",
+  "Coach, I need to write you something about the squad's data."
+ ],
+ "pool.b.staff_fitness_belastung_lage": [
+  "With this density of fixtures the players barely recover, and the training figures have been falling for weeks.",
+  "There's too little time between games to regenerate, the muscles are shutting down, and the measurements show it."
+ ],
+ "pool.b.staff_fitness_belastung_lage.hitzig": [
+  "If this goes on the players will break down one after another, and don't come to me afterwards!",
+  "This is exploitation of the players, and I won't take the blame afterwards!"
+ ],
+ "pool.b.staff_fitness_belastung_lage.loyal": [
+  "I always pull my weight, you know me, but here I have to hit the brakes before something happens.",
+  "I've never dug in when you asked for more, but now I'm warning you seriously."
+ ],
+ "pool.b.staff_fitness_belastung_lage.ehrgeizig": [
+  "Whoever wants to compete at the top must be fresh in the last third of the season too, and for that I need rest days.",
+  "You don't win titles on tired legs, so let's manage the load cleverly."
+ ],
+ "pool.b.staff_fitness_belastung_lage.wechselfreudig": [
+  "We've been in the same rhythm for weeks, a bit more variety in training and playing time would do everyone good.",
+  "The same faces for the full length every time, no body can take that."
+ ],
+ "pool.b.staff_fitness_belastung_lage.sensibel": [
+  "I can see how tired the lads are, and it honestly gets to me.",
+  "It wears me down to watch them struggle without anyone saying a word."
+ ],
+ "pool.b.staff_torwart_rotation_gruss": [
+  "Boss, got a minute? It's about my goalkeepers.",
+  "Coach, I need to talk to you about the situation in goal."
+ ],
+ "pool.b.staff_torwart_rotation_lage": [
+  "In goal nobody knows where he stands, and without clear roles the whole team's security suffers.",
+  "My keepers train at a high level, but nobody knows his role, and it wears them down."
+ ],
+ "pool.b.staff_torwart_rotation_lage.hitzig": [
+  "You can't treat goalkeepers like this, I demand a clear statement at last!",
+  "This back and forth in goal drives everyone mad, and I won't let it go on!"
+ ],
+ "pool.b.staff_torwart_rotation_lage.loyal": [
+  "I've never interfered with your line-up, but now I ask for a clear word for my people.",
+  "You know I back your line, but in goal we need a line one can actually see."
+ ],
+ "pool.b.staff_torwart_rotation_lage.ehrgeizig": [
+  "If you want to compete at the top you need a keeper who knows he plays and a second who knows why not.",
+  "With clear roles we get more out of both keepers, and for that I want your decision."
+ ],
+ "pool.b.staff_torwart_rotation_lage.wechselfreudig": [
+  "I would have the two keepers alternate regularly, that keeps both hungry.",
+  "A fixed rotation in goal would take pressure off and keep both alert."
+ ],
+ "pool.b.staff_torwart_rotation_lage.sensibel": [
+  "A keeper who doesn't know whether he plays loses confidence, and that hits me hard.",
+  "I can see my keepers doubting themselves, and I don't know how to help them."
+ ],
+ "pool.b.staff_mittel_verstaerkung_gruss": [
+  "Boss, got a minute? We in the staff need to talk to you.",
+  "Coach, I'm speaking for the whole staff here, we have a request."
+ ],
+ "pool.b.staff_mittel_verstaerkung_lage": [
+  "We're working at the limit, and with the personnel and equipment we have we can't get any more out of it.",
+  "We lack people in analysis and care, and the technology is long outdated."
+ ],
+ "pool.b.staff_mittel_verstaerkung_lage.hitzig": [
+  "You can't do a proper job like this, and we won't be fobbed off with scraps any longer!",
+  "It's a joke, the resources we have here, and I'll tell the chairman myself!"
+ ],
+ "pool.b.staff_mittel_verstaerkung_lage.loyal": [
+  "We've never complained and always worked with what was there, but now it simply isn't enough.",
+  "I stand by this club and by you, but I have to be honest: this won't take us further."
+ ],
+ "pool.b.staff_mittel_verstaerkung_lage.ehrgeizig": [
+  "If we want to compete at the top the staff needs the resources of the competition, or we'll always be a step behind.",
+  "With better equipment and a couple of additional people we get the points we're missing now."
+ ],
+ "pool.b.staff_mittel_verstaerkung_lage.wechselfreudig": [
+  "Other clubs invest in their staff, and good people go where they can work.",
+  "If nothing moves here, we're replaceable or gone too, one has to be honest."
+ ],
+ "pool.b.staff_mittel_verstaerkung_lage.sensibel": [
+  "We don't feel seen, and it hurts that our work receives so little recognition.",
+  "We give everything, and it's hard to see that hardly anyone at the club notices how much is missing."
+ ]
+}

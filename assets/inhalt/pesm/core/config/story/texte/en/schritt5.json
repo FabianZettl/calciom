@@ -1,0 +1,221 @@
+{
+  "_hinweis": "Draft for step 5 (club sizes, Objectives page). Sits in the subfolder because the loader only accepts keys for existing rules; move it to texte/ together with the rules. The board writes formally, the manager replies formally; ziele.stand.* are lines on the Objectives page (informal). In all objective texts: {zahl} = agreed target position, {platz} = current league position. siegesserie_presse: {zahl} = consecutive wins. niederlagenserie: {zahl} = consecutive defeats. Placeholders: {verein}, {platz}, {zahl}, {reporter}, {medium}, {vorstand}.",
+  "saisonziel_vorschlag.betreff": {
+    "standard": [
+      "Season objective: position {zahl} or better"
+    ]
+  },
+  "saisonziel_vorschlag.text": {
+    "standard": [
+      "The board has deliberated over the season. We consider position {zahl} or better an appropriate objective. Please let me know whether you support it. – {vorstand}",
+      "We need a shared objective for this season. Our proposal: position {zahl} at least. If you rate the squad differently, say so now. – {vorstand}"
+    ]
+  },
+  "saisonziel_vorschlag.antwort.annehmen": {
+    "standard": [
+      "Agreed. Position {zahl} or better is our objective."
+    ]
+  },
+  "saisonziel_vorschlag.antwort.hoeher": {
+    "standard": [
+      "That's too little for me. With this squad I want to finish higher."
+    ]
+  },
+  "saisonziel_vorschlag.antwort.niedriger": {
+    "standard": [
+      "I think that's setting the bar too high. I propose a more cautious objective."
+    ]
+  },
+  "saisonziel_vorschlag.rueckmeldung.annehmen": {
+    "standard": [
+      "Then we'll put that on record. The board will measure the season against this objective."
+    ]
+  },
+  "saisonziel_vorschlag.rueckmeldung.hoeher": {
+    "standard": [
+      "We're glad to hear it. Bear in mind: whoever announces more is also measured against more."
+    ]
+  },
+  "saisonziel_vorschlag.rueckmeldung.niedriger": {
+    "standard": [
+      "The board will go along with that, if reluctantly. We expect you to achieve this objective safely, then."
+    ]
+  },
+  "saisonziel_erreicht.betreff": {
+    "standard": [
+      "Season objective achieved"
+    ]
+  },
+  "saisonziel_erreicht.text": {
+    "standard": [
+      "Position {platz}: the objective for this season is achieved. The board thanks you and the team for your work. – {vorstand}",
+      "We wanted position {zahl} at least; it has turned out to be position {platz}. You have kept to what was agreed. The board is satisfied. – {vorstand}"
+    ]
+  },
+  "saisonziel_erreicht.antwort.kenntnis": {
+    "standard": [
+      "Thank you, I'll pass that on to the squad."
+    ]
+  },
+  "saisonziel_verfehlt.betreff": {
+    "standard": [
+      "Season objective missed"
+    ]
+  },
+  "saisonziel_verfehlt.text": {
+    "standard": [
+      "Position {zahl} or better was agreed; the final position is {platz}. The objective has been missed. The board will review the season with you. – {vorstand}",
+      "Position {platz} does not meet our standards. We had agreed on position {zahl}. That will play a part in the assessment of your work. – {vorstand}"
+    ]
+  },
+  "saisonziel_verfehlt.antwort.kenntnis": {
+    "standard": [
+      "Understood. I'll face that conversation."
+    ]
+  },
+  "ziele.stand.offen": {
+    "standard": [
+      "The board has proposed a season objective. Accept it or change it."
+    ]
+  },
+  "ziele.stand.auf_kurs": {
+    "standard": [
+      "On course: you're in position {platz}. The objective is position {zahl} or better."
+    ]
+  },
+  "ziele.stand.in_gefahr": {
+    "standard": [
+      "Objective in danger: you're in position {platz}. The agreed objective is position {zahl} or better."
+    ]
+  },
+  "siegesserie_presse.schlagzeile": {
+    "standard": [
+      "{zahl} wins in a row for {verein}",
+      "Win number {zahl} in a row for {verein}"
+    ]
+  },
+  "siegesserie_presse.kurztext": {
+    "standard": [
+      "{verein} have won {zahl} games in succession. {reporter} ({medium}): “The team doesn't always play beautifully, but right now they know how to win games.”",
+      "The run goes on: {verein} make it {zahl} wins in a row. {reporter} ({medium}) asks who is supposed to beat this team at the moment."
+    ]
+  },
+  "niederlagenserie.schlagzeile": {
+    "standard": [
+      "Defeat number {zahl} in a row for {verein}",
+      "{verein} slide deeper into crisis"
+    ]
+  },
+  "niederlagenserie.kurztext": {
+    "standard": [
+      "{verein} have now lost {zahl} in a row. {reporter} ({medium}): “The team looks unsettled. They need a morale boost fast.”",
+      "{zahl} defeats in a row, and it's getting restless at {verein}. {reporter} ({medium}) writes that the next games will decide the mood across the whole club."
+    ]
+  },
+  "aufstiegszone.schlagzeile": {
+    "standard": [
+      "{verein} on course for promotion",
+      "Position {platz}: {verein} knocking on the door at the top"
+    ]
+  },
+  "aufstiegszone.kurztext": {
+    "standard": [
+      "{verein} are in position {platz} and so in a promotion spot. {reporter} ({medium}): “Officially nobody there wants to talk about promotion. But the table is already talking.”",
+      "Position {platz} after strong weeks: {verein} can dream of promotion. {reporter} ({medium}) urges calm, as nothing has been decided yet."
+    ]
+  },
+  "abstiegszone_presse.schlagzeile": {
+    "standard": [
+      "{verein} stuck at the bottom of the table",
+      "Position {platz}: it's getting serious for {verein}"
+    ]
+  },
+  "abstiegszone_presse.kurztext": {
+    "standard": [
+      "{verein} are in position {platz} and so in a relegation spot. {reporter} ({medium}): “Anyone still talking about a snapshot is misjudging the situation.”",
+      "Relegation battle: {verein} find themselves in position {platz}. {reporter} ({medium}) sees a team that can do more but shows it too rarely."
+    ]
+  },
+  "vertrauen_sinkt.betreff": {
+    "standard": [
+      "The board is worried"
+    ]
+  },
+  "vertrauen_sinkt.text": {
+    "standard": [
+      "I'll be frank: doubts are growing on the board about the way things are going. We still stand behind you. But we soon need signs that things are looking up. – {vorstand}",
+      "The mood on the board has darkened of late. Individual members are asking questions I can no longer answer easily. How do you intend to counter this? – {vorstand}"
+    ]
+  },
+  "vertrauen_sinkt.antwort.zusage": {
+    "standard": [
+      "I understand the concern. In the next games you'll see a turnaround, and I stand by that."
+    ]
+  },
+  "vertrauen_sinkt.antwort.geduld": {
+    "standard": [
+      "The path is right, it just needs time. I ask the board for patience."
+    ]
+  },
+  "vertrauen_sinkt.antwort.gegenhalten": {
+    "standard": [
+      "I work with what the club puts in front of me. Whoever wants results has to let me work."
+    ]
+  },
+  "vertrauen_sinkt.rueckmeldung.zusage": {
+    "standard": [
+      "We take you at your word. If the turnaround doesn't come, it will be difficult for all of us."
+    ]
+  },
+  "vertrauen_sinkt.rueckmeldung.geduld": {
+    "standard": [
+      "Patience is in short supply on the board. I'll make the case for it, but I can't promise anything."
+    ]
+  },
+  "vertrauen_sinkt.rueckmeldung.gegenhalten": {
+    "standard": [
+      "That tone won't be forgotten on the board. I advise you to deliver results soon."
+    ]
+  },
+  "vertrauen_steigt.betreff": {
+    "standard": [
+      "Tailwind from the board"
+    ]
+  },
+  "vertrauen_steigt.text": {
+    "standard": [
+      "Some welcome news: the board is satisfied with the progress. Your work is being noticed at the club, and you have our full support. – {vorstand}",
+      "At the last meeting your name came up several times, and in a good way. The board believes you and the team are capable of a good deal this season. – {vorstand}"
+    ]
+  },
+  "vertrauen_steigt.antwort.bescheiden": {
+    "standard": [
+      "Thank you. The credit belongs to the team; we'll keep working quietly."
+    ]
+  },
+  "vertrauen_steigt.antwort.fordern": {
+    "standard": [
+      "Glad to hear it. Then we should talk about reinforcements."
+    ]
+  },
+  "vertrauen_steigt.antwort.ziel": {
+    "standard": [
+      "Thanks for the confidence. I think we can set our sights higher than before."
+    ]
+  },
+  "vertrauen_steigt.rueckmeldung.bescheiden": {
+    "standard": [
+      "That's what we expect of you. That attitude goes down well on the board."
+    ]
+  },
+  "vertrauen_steigt.rueckmeldung.fordern": {
+    "standard": [
+      "You're seizing the moment, I understand that. I'll raise it at the next meeting, but don't expect miracles."
+    ]
+  },
+  "vertrauen_steigt.rueckmeldung.ziel": {
+    "standard": [
+      "Bold. The board likes to hear that and will remind you of it."
+    ]
+  }
+}

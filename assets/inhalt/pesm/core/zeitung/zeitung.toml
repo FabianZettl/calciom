@@ -1,0 +1,94 @@
+# Zahlen der Zeitung (eigene Festlegung von PESM, austauschbar). Die Texte stehen in core/texts/zeitung.json.
+
+[takt]
+vorgabe = "taeglich"            # taeglich | woechentlich (je Karriere umstellbar)
+fenster_taeglich = 1            # Tage, die eine tägliche Ausgabe zurückblickt (nie vor die letzte Ausgabe: kein Stoff erscheint zweimal)
+fenster_woechentlich = 7        # Tage, die eine Wochenausgabe zurückblickt; zugleich der Mindestabstand der Ausgaben
+
+[umfang]
+neben = 5                       # Nebenmeldungen auf der Titelseite
+ticker = 8                      # Zeilen im Ticker
+geruechte = 4                   # Gerüchte in der Spalte
+archiv = 60                     # Ausgaben in der Liste „Frühere Ausgaben“
+
+[drama]                         # ab hier greift der Boulevard zu, sonst bleibt der Ton seriös und fachlich
+tordifferenz = 3
+niederlagenserie = 3
+siegesserie = 5
+hattrick_tore = 4
+
+[serie]
+mindest = 3                     # Siege oder Niederlagen in Folge, ab denen es eine Meldung gibt
+ohne_sieg = 5
+
+[leistung]
+hattrick = 3
+note = 8.0                      # Note, ab der eine Leistung herausragend heißt
+
+[prio]                          # Gewicht einer Meldung für die Reihenfolge der Titelseite
+sieg = 60
+remis = 40
+niederlage = 60
+drama = 20
+spiel_neu = 10
+serie_sieg = 70
+serie_niederlage = 85
+serie_ohne_sieg = 60
+hattrick = 95
+stark = 55
+tabelle_spitze = 62
+tabelle_abstieg = 66
+verletzung = 58
+verletzung_star = 80
+wechsel_eigen = 75
+wechsel_fremd = 40
+pk = 68
+saga = 72
+ruhig = 1
+welt = 35                       # Spiel der Welt als Titelgeschichte, wenn beim eigenen Verein wenig los ist
+rekord = 50
+
+[saga]
+ton = ["boulevard", "serioes", "boulevard", "boulevard"]     # Ton je Teil: Gerücht, Interesse, Angebot, Ausgang (Einigung); die Absage ist immer seriös
+
+[artikel.prio]                  # Gewicht der Themen für die Berichte der Blätter (core/zeitung/artikel.py)
+spiel = 80
+welt = 50
+wechsel = 45
+wechsel_eigen = 70
+verletzung = 50
+tabelle = 55
+rekord = 52
+
+[blatt]                         # Blätter mit eigenem Ton; Name und Unterzeile in core/texts/zeitung_artikel.json
+reihenfolge = ["qualitaet", "boulevard", "regional", "fan", "ticker", "fach", "tv"]
+
+[blatt.qualitaet]
+kategorien = ["spiel", "welt", "tabelle", "wechsel", "rekord", "verletzung"]
+artikel = 2
+
+[blatt.fach]
+kategorien = ["spiel", "welt", "tabelle", "verletzung"]
+artikel = 2
+
+[blatt.tv]
+kategorien = ["spiel", "welt"]
+artikel = 2
+
+[blatt.boulevard]
+kategorien = ["spiel", "welt", "wechsel", "verletzung", "rekord", "tabelle"]
+artikel = 2
+
+[blatt.regional]
+kategorien = ["spiel", "tabelle", "verletzung", "wechsel"]
+artikel = 1
+nur_eigen = true                # das Regionalblatt schreibt nur über den eigenen Verein
+
+[blatt.fan]
+kategorien = ["spiel", "tabelle", "wechsel", "verletzung", "rekord"]
+artikel = 1
+nur_eigen = true
+
+[blatt.ticker]
+kategorien = ["welt", "spiel", "wechsel", "verletzung", "tabelle", "rekord"]
+artikel = 3

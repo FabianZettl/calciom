@@ -1,0 +1,8 @@
+# Solidaritätsbeitrag und Ausbildungsentschädigung (Optionen, standardmäßig an). Die Recherche nennt sie nur als Kenntnis (Solidarität bei internationalen Transfers
+# für Ausbildungsvereine im Alter 12-23, Ausbildungsentschädigung beim ersten Profivertrag), ohne Beträge: NICHTS ERFUNDEN.
+# TODO: Das Transfermodell kennt keine Ausbildungsvereine und Altersjahre je Spieler (Stand 27.10.); gebucht wird erst, wenn diese Daten da sind.
+# Bis dahin liest `praemien.ausgleich_aktiv()` nur den Schalter und bucht nichts.
+[solidaritaet]
+aktiv = true
+[ausbildungsentschaedigung]
+aktiv = true

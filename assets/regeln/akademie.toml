@@ -1,0 +1,79 @@
+# Konfiguration der Akademie (U23 und Akademie). Eigene Festlegungen von PESM, austauschbar.
+
+[kader]
+hoechstens = 40                # Akademie und U23 zusammen (eigene Jugendspieler aus dem Spiel und fiktive Fremdspieler)
+akademie_plaetze = 20          # Teilplätze (Stufen): Akademie, U23; je Ausbaustufe der Jugendanlagen + `ausbau_je_stufe`; die Summe bleibt bei `hoechstens`
+u23_plaetze = 22
+ausbau_je_stufe = 2
+u23_mindestens = 7             # darunter spielt die U23 nicht
+aufstellung = 11
+
+[spiel]
+stufe_unter_profi = 1          # Spielstärke der U23 = Profi-Gegner minus Stufen
+stufen_punkte = 6.0            # Spielstärke-Punkte je Stufe
+tore_mittel = 1.3              # erwartete Tore bei gleicher Stärke
+tore_steilheit = 22.0          # Stärkeunterschied, der die erwarteten Tore um den Faktor e ändert
+note_basis = 6.0
+note_streuung = 0.9
+verletzung_je_spiel = 0.03
+verletzung_tage = [7, 14, 28]
+
+[entwicklung]
+u23_basis = 0.9                # Punkte CA je Woche bei 17 Jahren und halbem Abstand zum PA (vor Faktoren)
+akademie_faktor = 0.55         # Akademie ohne Spiele entwickelt langsamer
+einsatz_faktor = 0.5           # + je voller Einsatzquote (Anteil der Spiele)
+note_faktor = 0.12             # + je Notenpunkt über 6,0 (Mittel der letzten Spiele)
+mentor_faktor = 0.25           # + bei Mentor-Wert 1,0
+training_faktor = 0.2          # + bei Trainingswert 1,0
+alter_abfall = 0.12            # je Jahr über 17 weniger
+hoch_faktor = 1.8
+krise_faktor = 0.2
+phase_wechsel = 0.06           # Wahrscheinlichkeit je Woche, dass eine Phase beginnt
+phase_wochen = [3, 6]
+krise_anteil = 0.4             # Anteil der Krisen an den Phasen
+
+[befoerderung]
+abstand_profi = 4              # Vorschlag, wenn CA höchstens so viel unter dem schwächsten Profi-Stammspieler liegt
+mindest_spiele = 4
+mindest_note = 6.3
+kader_hoechstens = 40         # Profikader: bei 40 Spielern holt Weg A niemanden mehr (Beförderung eines Fremdspielers)
+mindestkader = 18             # unter dieser Zahl Profis darf kein Profi in die U23 geführt werden
+
+[aufnahme]
+gehalt = 60_000                # Jahresgehalt eines in PESM verpflichteten Jugendspielers
+jahre = 3                      # Vertragslaufzeit
+abfindung_anteil = 0.5         # Entlassung: so viel der Restgehälter wird abgefunden
+gruppe = "akademie"            # Neue Spieler beginnen in der Akademie
+
+[ohne_perspektive]
+spiele_hoechstens = 0          # U23-Spieler mit so wenigen Einsätzen nach `wochen_mindestens` Wochen gelten als ohne Spielzeit (Eltern fragen nach)
+wochen_mindestens = 4
+
+[vertrag]
+# Forderung der Eltern und Berater eines Jugendspielers: Gehalt wächst mit dem Potenzial (über 60) und fällt mit dem Alter über 18; Laufzeit 1 bis 5 Jahre
+gehalt_basis = 40_000
+gehalt_je_pa = 1_800
+alter_abschlag = 0.05          # je Jahr über 17
+laufzeit_wunsch = 3
+laufzeit_min = 1
+laufzeit_max = 5
+toleranz = 0.1                 # so viel unter der Forderung nimmt die Gegenseite noch an (Beziehung gut: mehr)
+gegenangebot = 0.5             # Gegenvorschlag = Mitte zwischen Angebot und Forderung bei diesem Anteil, sonst Forderung
+profi_faktor = 4.0             # Profivertrag bei der Beförderung = Faktor × Jugendgehalt (Spielstand-Markt hat Vorrang, wenn bekannt)
+
+[entwicklung_plus]
+fokus_faktor = 0.25            # + bei Fokus auf eine Eigenschaftsgruppe (Tempo, Physis, Technik, Schuss, Defensiv, Torwart)
+einrichtung_faktor = 1.0       # Faktor der Jugendanlagen aus der Vereinswelt (1,0 neutral) wirkt auf die Rate
+trainer_faktor = 1.0           # Trainer- und Anlagenfaktor des Trainings (Vereinswelt)
+akademie_faktor = 0.55         # Akademie ohne Spielbetrieb: so viel der Rate von E (U23 mit Einsätzen: 1,0)
+rate_faktor = 1.45             # Ausgleich: E hat zusätzlich Sprünge und Aufschwünge (junger Stammspieler im Mittel +3,8 im Jahr); ohne sie liefert dieselbe Rate etwa +2,3
+akademie_quote = 0.6           # Einsatzquote, die E für die Akademie annimmt (neutral, der Faktor bremst)
+
+[liga]
+teams = 12                     # simulierte U23-Liga: eigene U23 plus fiktive Zweitmannschaften der Gegner
+spiele_je_tag = 1
+
+[leihe]
+# Leihe an einen Verein der Vereinswelt (PESM-seitig): Rückmeldung des Stabs alle paar Wochen, Rückholung erst nach einer Frist
+rueckmeldung_wochen = 4
+rueckhol_nach_wochen = 4

@@ -1,0 +1,56 @@
+# Auszeichnungen aus echten Leistungen. Startwerte, nicht kalibriert. Punktformel je Spieler und Zeitraum:
+#   punkte = tore * tor * tor_faktor[gruppe] + vorlagen * vorlage + einsaetze * einsatz + (note - note_basis) * note * bewertete_einsaetze + (form - 50) / 50 * form
+# Die Form kennt PESM nur im eigenen Kader; bei Fremden entfällt dieser Posten (nichts wird geschätzt).
+
+[gewicht]
+tor = 4.0
+vorlage = 2.5
+einsatz = 0.5
+note = 5.0
+note_basis = 5.7              # Ø der Spielnote der Liga (note.toml)
+form = 3.0
+
+[tor_faktor]                  # Tore der Abwehr zählen mehr als Tore des Sturms
+tw = 8.0
+abwehr = 1.5
+mittelfeld = 1.2
+sturm = 1.0
+
+[mindest]                     # Mindestzahl Einsätze im Zeitraum
+woche = 1
+monat = 2
+saison = 15
+nachwuchs = 8
+
+[nachwuchs]
+alter_max = 21
+
+[elf]                         # Elf der Woche: Aufstellung je Gruppe
+tw = 1
+abwehr = 4
+mittelfeld = 3
+sturm = 3
+
+[ballon]
+plaetze = 6                   # Die ersten sechs der Tabelle bringen einen Bonus ...
+platz_bonus = 4.0             # ... je Platz unter dem Rand (Platz 1 = 6 * 4.0)
+kandidaten = 5                # Kurzliste der Gala: so viele Namen stehen in der Nachricht und ihre eigenen Spieler werden gewürdigt
+nominiert_anteil = 0.25       # eigene Spieler auf Platz 2 bis `kandidaten` bekommen diesen Anteil der Wirkung
+
+[ballon.wirkung]              # Gewinnt oder steht ein eigener Spieler auf der Kurzliste (Platz 1 voll)
+moral = 8.0                   # Punkte Moral (0-100), geschrieben über die Begründung
+marktwert_prozent = 15.0      # Aufschlag auf seinen Marktwert, nur in PESM geführt (az_wirkung), kein Spielfeld
+marktwert_monate = 12         # so lange gilt der Aufschlag
+fans = 5.0                    # Punkte Fanstimmung des eigenen Vereins
+
+[tor_saison]
+min_tore_moment = 2           # ab so vielen Toren in einem Spiel gilt es als Torjäger-Moment
+
+[fenster]                     # Wie weit zurück beim Nachholen gerechnet wird
+wochen = 6
+monate = 3
+
+[ruecktritt]
+alter = 36
+alter_tw = 38
+max = 3

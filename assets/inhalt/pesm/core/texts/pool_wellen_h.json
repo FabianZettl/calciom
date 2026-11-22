@@ -1,0 +1,494 @@
+{
+ "pool.verhandlung_praemien.e.e1": [
+  "Ich schlage eine Torprämie, eine Einsatzprämie und eine Titelprämie vor, und zwar in einer Höhe, die seinen Wert zeigt.",
+  "Wir sollten das Fixum zugunsten von Tor-, Einsatz- und Titelprämien umbauen."
+ ],
+ "pool.verhandlung_praemien.e.e2": [
+  "Mein Mandant verdient am liebsten dort, wo er etwas bewirkt. Dazu brauche ich von Ihnen ein Modell.",
+  "Ich will wissen, wer bei Ihnen die Prämien verteilt und nach welchem Schlüssel."
+ ],
+ "pool.verhandlung_praemien.e.e3": [
+  "Ich merke, dass die Luft dünn ist, aber das Thema Prämien muss trotzdem auf den Tisch.",
+  "Ich weiß, der Moment ist unglücklich, nur wird die Frage mit Schweigen nicht kleiner."
+ ],
+ "pool.verhandlung_praemien.e.e4": [
+  "Beim Fixgehalt sind wir weit auseinander, über variable Teile könnten wir uns vielleicht doch noch treffen.",
+  "Mir ist klar, dass der Verein bislang auf der Bremse steht, deshalb setze ich bei den Prämien einen Punkt, an dem man sich begegnen könnte."
+ ],
+ "pool.verhandlung_praemien.e.e5": [
+  "Wir sind uns im Grundsatz nah, es fehlen nur noch die Prämien, dann ist das Paket rund.",
+  "Fast alles ist geklärt, übrig bleibt der variable Teil, und den möchte ich heute festziehen."
+ ],
+ "pool.verhandlung_praemien.e.e6": [
+  "Das Gesamtpaket ist noch beweglich, und die Prämienstruktur kann es in beide Richtungen kippen.",
+  "Beide Seiten sind noch offen, und ich glaube, die Prämien entscheiden, ob es klappt."
+ ],
+ "pool.verhandlung_praemien.e.e7": [
+  "Entweder die Tore werden bezahlt, oder wir reden über etwas ganz anderes!",
+  "So ein Vertrag ist ein Witz, wenn ein Treffer keinen Cent wert ist!"
+ ],
+ "pool.verhandlung_praemien.e.e8": [
+  "Sie hatten mir früher einen Anreiz zugesagt, der nie im Papier stand, also lasse ich es diesmal schriftlich festhalten.",
+  "Eine mündliche Zusage hatte ich schon, geliefert wurde nichts, deshalb bestehe ich auf einem Prämienmodell mit Unterschrift."
+ ],
+ "pool.verhandlung_praemien.e.e9": [
+  "Er will dem Verein keine Probleme machen und fragt nur, ob variable Teile ihm Sicherheit bieten könnten.",
+  "Er hängt an dem Klub und möchte, dass die Prämien fair auf die ganze Mannschaft verteilt werden."
+ ],
+ "pool.verhandlung_praemien.e.e10": [
+  "Wer Titel gewinnt, soll das am Konto merken, und mein Mandant rechnet fest damit.",
+  "Andernorts zahlt man für Titel und Tore deutlich mehr, das sollte Ihnen zu denken geben."
+ ],
+ "pool.verhandlung_praemien.a.a1": [
+  "Wir koppeln einen Teil an Einsätze und Tore, aber nur, wenn die Mannschaft dabei erfolgreich ist.",
+  "Ein Prämiensystem nach Leistung ist machbar, solange wir den Fixanteil nicht aufblähen."
+ ],
+ "pool.verhandlung_praemien.a.a2": [
+  "Ich lasse eine Prämienstaffel für Tore, Einsätze und Titel entwerfen. Sie bekommen das Papier innerhalb von {frist} Tagen.",
+  "Gut, wir bauen die variablen Anteile ein, und binnen {frist} Tagen liegt Ihnen ein schriftlicher Entwurf vor."
+ ],
+ "pool.verhandlung_praemien.a.a3": [
+  "Ich setze einen Deckel für die Summe aller Prämien. Sonst bringen Tor- und Titelprämien mein Gehaltsgefüge ins Rutschen.",
+  "Der Verein trägt nur ein begrenztes Risiko, deshalb gibt es eine Obergrenze für die Gesamtprämien."
+ ],
+ "pool.verhandlung_praemien.a.a4": [
+  "Ich stocke den Prämientopf auf, damit sich jeder Treffer lohnt, aber bitte nicht gleich beim ersten Elfmeter.",
+  "Dann spendiere ich zusätzliche Prämien für Titel und Tore, nur mit dem Hinweis, dass auch Abwehrspieler Tore schießen dürfen."
+ ],
+ "pool.verhandlung_praemien.a.a5": [
+  "Ich verstehe, dass ihm Sicherheit wichtig ist. Ein Teil bleibt fest, und der variable Teil kommt als Bonus obendrauf.",
+  "Er soll nicht bei jeder Formdelle um sein Einkommen bangen müssen. Deshalb bleibt der Sockel stabil."
+ ],
+ "pool.verhandlung_praemien.a.a6": [
+  "Die Prämienschlüssel entscheidet unser Sportdirektor mit der Geschäftsführung. Ich vermittle den Kontakt gern.",
+  "Wenden Sie sich bitte an die Geschäftsführung, dort liegen die Richtlinien für Erfolgsprämien."
+ ],
+ "pool.verhandlung_praemien.a.a7": [
+  "Welche Anreize wünscht er sich konkret, und worauf wäre er bereit zu verzichten?",
+  "Was ist ihm wichtiger, die Torprämie oder die Titelprämie, und wie viel Fixum würde er dafür opfern?"
+ ],
+ "pool.verhandlung_praemien.a.a8": [
+  "Prämien für einzelne Spieler lehne ich ab. Das zerreißt die Kabine, und ich lasse mich nicht erpressen.",
+  "Dafür gibt es bei mir keinen Spielraum. Wer mehr Geld will, soll es auf dem Platz beweisen, nicht am Telefon."
+ ],
+ "pool.verhandlung_praemien.a.a9": [
+  "Es bleibt bei dem Modell, wie es im Vertrag steht. Ein zweites Mal verhandle ich das nicht.",
+  "Ich bleibe dabei, Sie bekommen keine Extras, so oft Sie auch anrufen."
+ ],
+ "pool.verhandlung_praemien.a.a10": [
+  "Ich schaue mir das in Ruhe an. Irgendwann finden wir bestimmt eine Lösung.",
+  "Lassen Sie uns das nach der Saison besprechen, es eilt doch nicht."
+ ],
+ "pool.verhandlung_praemien.a.a11": [
+  "Unsere Zusammenarbeit war bisher fair, und so soll es bleiben. Ich finde einen Weg, der ihm Anerkennung gibt und mir keine Kabine zerreißt.",
+  "Ihr Mandant verdient Anerkennung für seine Leistung, und ich will, dass er das spürt. Gemeinsam bekommen wir das hin."
+ ],
+ "pool.verhandlung_praemien.a.a12": [
+  "Es gibt nur Teamprämien: Wer gewinnt, gewinnt gemeinsam, einzelne Torprämien streiche ich.",
+  "Prämien zahle ich nur an die ganze Mannschaft, nicht an einzelne Namen."
+ ],
+ "pool.verhandlung_praemien.r.r1": [
+  "{b.gut} Das klingt nach einem Modell, mit dem wir arbeiten können.",
+  "{b.gut} Damit kann ich zu meinem Mandanten gehen."
+ ],
+ "pool.verhandlung_praemien.r.r2": [
+  "{b.gut} Er wird die Fairness schätzen, und ich auch.",
+  "{b.gut} Der Verein zeigt Augenmaß, das notiere ich mir."
+ ],
+ "pool.verhandlung_praemien.r.r3": [
+  "{b.gut} Prämien für Titel, genau das wollte er hören. Das spornt ihn zusätzlich an.",
+  "{b.gut} Wenn der Erfolg auch im Vertrag steht, läuft er noch ein Stück weiter."
+ ],
+ "pool.verhandlung_praemien.r.r4": [
+  "{b.gut} Dass Sie seine Sorge ernst nehmen, wird er zu schätzen wissen.",
+  "{b.gut} Das Polster gibt ihm Ruhe, und ruhige Spieler liefern."
+ ],
+ "pool.verhandlung_praemien.r.r5": [
+  "{b.neutral} Ich nehme das mit, aber ich verspreche nichts.",
+  "{b.neutral} Ich gebe es so weiter und melde mich wieder."
+ ],
+ "pool.verhandlung_praemien.r.r6": [
+  "{b.neutral} Ich erkläre es ihm in Ruhe, wie er es aufnimmt, weiß ich nicht.",
+  "{b.neutral} Seine Laune wechselt täglich, ich spreche ihn morgen an."
+ ],
+ "pool.verhandlung_praemien.r.r7": [
+  "{b.neutral} Dann bleibt der variable Teil das Zünglein an der Waage.",
+  "{b.neutral} Beide Seiten halten sich bedeckt, und die Prämien bleiben der Knackpunkt."
+ ],
+ "pool.verhandlung_praemien.r.r8": [
+  "{b.neutral} Auf ein paar Tage mehr kommt es mir nicht an.",
+  "{b.neutral} Ich bin geduldig, das gehört zu meinem Geschäft."
+ ],
+ "pool.verhandlung_praemien.r.r9": [
+  "{b.schlecht} So werde ich meinem Mandanten kaum etwas anbieten können.",
+  "{b.schlecht} Das lässt mir wenig Spielraum, und er wird es nicht gut aufnehmen."
+ ],
+ "pool.verhandlung_praemien.r.r10": [
+  "{b.schlecht} Dann soll er seine Tore gratis schießen, wenn es nach Ihnen geht!",
+  "{b.schlecht} Sie unterschätzen, wie wütend er werden kann!"
+ ],
+ "pool.verhandlung_praemien.r.r11": [
+  "{b.schlecht} Dann prüfe ich die Offerten mit den besseren Prämien eben genauer.",
+  "{b.schlecht} Es gibt Vereine, die Erfolg großzügiger honorieren."
+ ],
+ "pool.verhandlung_praemien.r.r12": [
+  "{b.schlecht} Er hat sich so viel von diesem Gespräch erhofft und wird sehr enttäuscht sein.",
+  "{b.schlecht} Ich hätte nach all den Jahren mehr Entgegenkommen erwartet."
+ ],
+ "pool.verhandlung_praemien.r.r13": [
+  "{b.gut} Dann schließen wir die Prämien ab und können die Unterschrift vorbereiten.",
+  "{b.gut} Damit ist der letzte offene Punkt vom Tisch, ich bin zuversichtlich."
+ ],
+ "pool.verhandlung_praemien.r.r14": [
+  "{b.schlecht} Dann sind wir noch weiter voneinander entfernt als gedacht.",
+  "{b.schlecht} Mit dieser Haltung kommen wir nicht zusammen, das sage ich offen."
+ ],
+ "pool.verhandlung_praemien.x.x1": [
+  "Der Berater klingt zufrieden, die Prämienfrage ist vom Tisch. {entscheidung} Das Gespräch endet freundlich.",
+  "{entscheidung} Man einigt sich auf ein Modell, das Anreize setzt und Risiken begrenzt."
+ ],
+ "pool.verhandlung_praemien.x.x2": [
+  "{entscheidung} Der Berater will die Staffel mit seinem Mandanten durchrechnen und meldet sich wieder.",
+  "Das Gespräch endet ohne Ergebnis. {entscheidung} Die Prämienfrage bleibt liegen."
+ ],
+ "pool.verhandlung_praemien.x.x3": [
+  "{entscheidung} Der Berater deutet an, die Forderungen öffentlich zu machen, und legt gereizt auf.",
+  "Das Gespräch kippt ins Laute. {entscheidung} Im Umfeld des Spielers wird die Sache bald die Runde machen."
+ ],
+ "pool.verhandlung_praemien.x.x4": [
+  "Sie legen eine Prämienstaffel fest. {entscheidung} Der Berater schreibt den Termin in seinen Kalender.",
+  "{entscheidung} Er bedankt sich knapp und erinnert an das Papier."
+ ],
+ "pool.verhandlung_praemien.x.x5": [
+  "Der Berater beendet das Telefonat mitten im Satz. {entscheidung} Danach ist die Leitung tot.",
+  "{entscheidung} Er legt auf, und das Thema bleibt ungeklärt."
+ ],
+ "pool.verhandlung_handgeld.e.e1": [
+  "Ich beziffere die Treueprämie in einem Anhang und bitte um Rückmeldung zu Höhe und Zahlungstermin.",
+  "Unsere Forderung nach einem Handgeld lege ich Ihnen schriftlich dar, bitte nehmen Sie bis Wochenende Stellung."
+ ],
+ "pool.verhandlung_handgeld.e.e2": [
+  "Ohne eine Einmalzahlung bei Vertragsunterschrift sehe ich keine Einigung, ich bitte um ein faires Angebot.",
+  "Bitte prüfen Sie, ob der Verein ein Handgeld in sinnvoller Höhe tragen kann, es wäre ein starkes Signal."
+ ],
+ "pool.verhandlung_handgeld.e.e3": [
+  "Ich weiß, dass das Verhältnis gerade belastet ist, und doch bleibt das Handgeld ein Thema, das ich nicht übergehen kann.",
+  "Die Stimmung ist schlecht, das sehe ich, trotzdem gehört diese Frage vor die Unterschrift."
+ ],
+ "pool.verhandlung_handgeld.e.e4": [
+  "Ich ahne, dass sich der Verein schwertut, bitte erwägen Sie dennoch eine gestaffelte Zahlung, damit wir nicht scheitern.",
+  "Die Gespräche stocken, ein Handgeld in Raten wäre vielleicht der Ausweg, bevor die Sache kippt."
+ ],
+ "pool.verhandlung_handgeld.e.e5": [
+  "Wir stehen kurz vor der Unterschrift, nur das Handgeld ist noch offen, bitte klären wir es zügig.",
+  "Der Vertrag ist nahezu fertig, es fehlt allein die Einmalzahlung, und dann können wir unterzeichnen."
+ ],
+ "pool.verhandlung_handgeld.e.e6": [
+  "Das Handgeld ist unser Hebel, mit dem sich das Gesamtbild noch in beide Richtungen bewegen lässt.",
+  "Noch ist alles beweglich, und eine Einmalzahlung könnte das Zünglein an der Waage sein."
+ ],
+ "pool.verhandlung_handgeld.e.e7": [
+  "Ohne Handgeld setzt er keinen Strich auf das Papier, und das ist mein letztes Wort!",
+  "Er lässt sich nicht für ein Taschengeld binden, lesen Sie das bitte genau!"
+ ],
+ "pool.verhandlung_handgeld.e.e8": [
+  "Sie sagten mir früher eine Treueprämie zu, die nie kam. Dieses Mal erwarte ich sie vor der Unterschrift.",
+  "Ein gegebenes Wort über eine Einmalzahlung blieb ungehalten, deshalb bestehe ich nun auf Klarheit im Papier."
+ ],
+ "pool.verhandlung_handgeld.e.e9": [
+  "Er würde sich über eine Geste zur Verlängerung freuen, die Höhe stelle ich Ihnen anheim.",
+  "Für ihn zählt die Wertschätzung, eine Treueprämie wäre der sichtbare Beleg."
+ ],
+ "pool.verhandlung_handgeld.e.e10": [
+  "Wer seine Karriere ernst nimmt, lässt sich die Bindung bezahlen, und mein Mandant tut das ebenfalls.",
+  "Handgeld ist keine Gnade, sondern der Preis dafür, dass er andere Angebote ausschlägt."
+ ],
+ "pool.verhandlung_handgeld.a.a1": [
+  "Ich zahle das Handgeld bei Unterschrift. Die Zusage kommt schriftlich, und der Vertrag soll innerhalb von {frist} Tagen stehen.",
+  "Einverstanden, die Einmalzahlung trägt der Verein, dafür unterzeichnet er innerhalb von {frist} Tagen."
+ ],
+ "pool.verhandlung_handgeld.a.a2": [
+  "Ich teile die Summe in Raten, die an Einsätze und den Verbleib im Kader gebunden sind.",
+  "Gestaffelt wäre es machbar, ein Teil bei Unterschrift, der Rest nach der Hinrunde und am Saisonende."
+ ],
+ "pool.verhandlung_handgeld.a.a3": [
+  "Welche Gegenleistung bietet er? Eine Verlängerung ohne Ausstiegsklausel wäre ein Anfang.",
+  "Was bekommt der Verein im Gegenzug, mehr Jahre, einen Verzicht auf die Klausel?"
+ ],
+ "pool.verhandlung_handgeld.a.a4": [
+  "Ein Handgeld gibt es nur gegen eine Gegenleistung, nämlich Laufzeit und Klauselverzicht. Die Rechnung muss für beide aufgehen.",
+  "Wir zahlen für Bindung, nicht für eine Unterschrift allein. Wer lange bleibt, bekommt auch mehr."
+ ],
+ "pool.verhandlung_handgeld.a.a5": [
+  "Wir arbeiten seit langem fair zusammen. Ich suche eine Lösung, die seine Leistung würdigt und den Verein nicht überfordert.",
+  "Ihr Mandant bedeutet uns etwas, und das will ich ihm zeigen, auf einem Weg, der für alle tragbar ist."
+ ],
+ "pool.verhandlung_handgeld.a.a6": [
+  "Handgeld ist bei uns kein Thema. Wer bleiben will, soll es aus Überzeugung tun und nicht gegen Bares.",
+  "Ich zahle nicht für eine Unterschrift. Das sage ich Ihnen so deutlich, wie es geht."
+ ],
+ "pool.verhandlung_handgeld.a.a7": [
+  "Wenden Sie sich bitte an den Verein: Handgelder bewilligt der Vorstand, nicht die sportliche Leitung.",
+  "Die Kasse führt der Verein. Schicken Sie Ihre Forderung an das Präsidium, ich gebe dazu keine Empfehlung ab."
+ ],
+ "pool.verhandlung_handgeld.a.a8": [
+  "Meine Position steht. Sie werden von mir keine Einmalzahlung erhalten, auch nicht beim dritten Anlauf.",
+  "Dabei bleibt es, ich gebe kein Handgeld, und ein weiterer Brief ändert daran nichts."
+ ],
+ "pool.verhandlung_handgeld.a.a9": [
+  "Ich kümmere mich darum, sobald es die Lage zulässt. Das wird sich schon fügen.",
+  "Ein Handgeld lässt sich bestimmt irgendwann machen, im Moment bitte ich noch um Geduld."
+ ],
+ "pool.verhandlung_handgeld.a.a10": [
+  "Treueprämien gibt es hier nicht, das ist Vereinspolitik, die ich nicht umgehe.",
+  "Eine Sonderzahlung für einen Einzelnen wird es nicht geben, das gilt für alle im Kader."
+ ],
+ "pool.verhandlung_handgeld.a.a11": [
+  "Ich verstehe, dass er Wertschätzung sehen will. Ich zeige sie ihm auf anderem Weg, in Gesprächen und in der Aufstellung.",
+  "Es geht ihm um Anerkennung, das habe ich begriffen. Geld ist nur ein Weg von vielen."
+ ],
+ "pool.verhandlung_handgeld.a.a12": [
+  "Eine Treueprämie ist schön, aber ich wüsste gern, ob sie auch rückwirkend für all die Jahre gilt, in denen er bei uns gut verdient hat.",
+  "Handgeld hört sich schön an, nur hat mein Kontoauszug auch einen Anspruch auf ein Wort mitzureden."
+ ],
+ "pool.verhandlung_handgeld.r.r1": [
+  "{b.gut} Das ist ein Angebot, das ich meinem Mandanten ruhigen Gewissens vorlege.",
+  "{b.gut} Mit dieser Antwort lässt sich arbeiten, danke für die klare Linie."
+ ],
+ "pool.verhandlung_handgeld.r.r2": [
+  "{b.gut} Er wird die Geste zu würdigen wissen, und ich ebenfalls.",
+  "{b.gut} Der Ton Ihrer Antwort gefällt mir, so verhandelt man unter Partnern."
+ ],
+ "pool.verhandlung_handgeld.r.r3": [
+  "{b.gut} Eine Zahlung für klare Leistung, das ist ganz in seinem Sinn.",
+  "{b.gut} Er wird jede Rate als Ansporn lesen, die Leistung dazu liefert er."
+ ],
+ "pool.verhandlung_handgeld.r.r4": [
+  "{b.gut} Dass Sie seine Gefühle ernst nehmen, wiegt für ihn mehr als jede Zahl.",
+  "{b.gut} Er hat sich gesehen gefühlt, und das schreibe ich Ihrer Antwort zugute."
+ ],
+ "pool.verhandlung_handgeld.r.r5": [
+  "{b.neutral} Ich leite Ihre Antwort weiter und halte Sie auf dem Laufenden.",
+  "{b.neutral} Danke für Ihre Nachricht, ich berate mich mit meinem Mandanten."
+ ],
+ "pool.verhandlung_handgeld.r.r6": [
+  "{b.neutral} Wie er das aufnimmt, kann ich nicht vorhersagen, er ist heute so und morgen anders.",
+  "{b.neutral} Ich lese ihm Ihre Zeilen in Ruhe vor, ob er zustimmt, bleibt offen."
+ ],
+ "pool.verhandlung_handgeld.r.r7": [
+  "{b.neutral} Damit bleibt es spannend, die Zahlung entscheidet am Ende.",
+  "{b.neutral} Weder Ja noch Nein, das Handgeld bleibt die offene Flanke."
+ ],
+ "pool.verhandlung_handgeld.r.r8": [
+  "{b.neutral} Ich lasse es ruhig angehen, ein paar Tage Bedenkzeit schaden niemandem.",
+  "{b.neutral} Kein Grund zur Eile, wir sprechen nächste Woche weiter."
+ ],
+ "pool.verhandlung_handgeld.r.r9": [
+  "{b.schlecht} Mit einer solchen Antwort kann ich ihm nicht kommen.",
+  "{b.schlecht} Das ist weit unter dem, was ich erwartet habe."
+ ],
+ "pool.verhandlung_handgeld.r.r10": [
+  "{b.schlecht} Er wird toben, wenn er das liest, und ich kann es ihm nicht verdenken!",
+  "{b.schlecht} Das nimmt er persönlich, und ich halte ihn nicht zurück!"
+ ],
+ "pool.verhandlung_handgeld.r.r11": [
+  "{b.schlecht} Dann liegt das Handgeld eben bei einem Konkurrenten bereit.",
+  "{b.schlecht} Es gibt genug Klubs, die für eine Unterschrift zahlen."
+ ],
+ "pool.verhandlung_handgeld.r.r12": [
+  "{b.schlecht} Ich hätte nach so langer Zusammenarbeit eine Spur mehr Gespür erwartet.",
+  "{b.schlecht} Die Antwort trifft ihn tief, und ich sehe, wie schwer er es nehmen wird."
+ ],
+ "pool.verhandlung_handgeld.r.r13": [
+  "{b.gut} Dann steht der Unterschrift praktisch nichts mehr im Weg.",
+  "{b.gut} Ich bereite die Papiere vor, die Einmalzahlung ist geklärt."
+ ],
+ "pool.verhandlung_handgeld.r.r14": [
+  "{b.schlecht} Dann sind wir endgültig nicht auf einer Linie, und das sage ich ohne Groll.",
+  "{b.schlecht} Das war es wohl mit einer Einigung, ich fürchte, wir verlieren beide Zeit."
+ ],
+ "pool.verhandlung_handgeld.x.x1": [
+  "Die Antwort des Beraters kommt rasch und freundlich. {entscheidung} Der Streit ums Handgeld ist beigelegt.",
+  "{entscheidung} Beide Seiten finden zu einem Betrag, mit dem sie leben können."
+ ],
+ "pool.verhandlung_handgeld.x.x2": [
+  "{entscheidung} Der Berater schreibt, er brauche Bedenkzeit, und das Thema bleibt in der Schwebe.",
+  "Die Mail endet ohne Zusage. {entscheidung} Man wartet auf die nächste Runde."
+ ],
+ "pool.verhandlung_handgeld.x.x3": [
+  "{entscheidung} Der Berater antwortet in scharfem Ton und setzt die Geschäftsführung in Kopie.",
+  "Die Antwort fällt giftig aus. {entscheidung} Kurz darauf ist der Ton im Umfeld des Spielers deutlich kühler."
+ ],
+ "pool.verhandlung_handgeld.x.x4": [
+  "Sie halten die Absprache schriftlich fest. {entscheidung} Der Berater bestätigt den Empfang und wartet auf die Unterlagen.",
+  "{entscheidung} Der Berater quittiert die Zusage mit einem kurzen Dank."
+ ],
+ "pool.verhandlung_handgeld.x.x5": [
+  "Der Berater antwortet nicht mehr. {entscheidung} Weitere Mails bleiben ungelesen.",
+  "{entscheidung} Er bricht den Schriftwechsel ab, ohne sich zu verabschieden."
+ ],
+ "pool.verhandlung_laufzeit.e.e1": [
+  "In seinem Alter braucht er Sicherheit, deshalb verlange ich eine lange Laufzeit und weniger Klauseln.",
+  "Er ist nicht mehr der Jüngste und will bis zum Karriereende abgesichert sein, das bedeutet eine lange Laufzeit."
+ ],
+ "pool.verhandlung_laufzeit.e.e2": [
+  "Er ist jung und will keine langen Fesseln, also eine kurze Laufzeit, dafür mehr Gehalt.",
+  "Für sein Alter ist ein langer Vertrag ein Klotz am Bein, ich plädiere für kurze Laufzeit mit besserer Bezahlung."
+ ],
+ "pool.verhandlung_laufzeit.e.e3": [
+  "Die Stimmung ist nicht die beste, trotzdem muss ich über die Laufzeit sprechen, denn die Entscheidung duldet keinen Aufschub.",
+  "Ich spüre die Anspannung, doch bei der Laufzeit liegen wir weit auseinander, und das muss auf den Tisch."
+ ],
+ "pool.verhandlung_laufzeit.e.e4": [
+  "Ich glaube, dass wir hier nicht zusammenkommen, es sei denn, jemand bewegt sich bei der Laufzeit.",
+  "Bei der Dauer stehen wir uns gegenüber wie zwei Mauern, vielleicht lässt sich in der Mitte etwas bauen."
+ ],
+ "pool.verhandlung_laufzeit.e.e5": [
+  "Fast alles ist geregelt, nur über die Laufzeit müssen wir noch einmal sprechen.",
+  "Es fehlt lediglich eine Einigung über die Dauer, dann steht der Vertrag."
+ ],
+ "pool.verhandlung_laufzeit.e.e6": [
+  "Die Laufzeit entscheidet, wohin es kippt, und ich hoffe, wir finden einen Mittelweg.",
+  "Noch ist alles möglich, und die Dauer ist der Hebel, an dem sich das Paket neu ordnen lässt."
+ ],
+ "pool.verhandlung_laufzeit.e.e7": [
+  "Entweder wir einigen uns auf eine vernünftige Laufzeit, oder die Gespräche sind beendet!",
+  "Ich unterschreibe keine Laufzeit, die man mir diktiert, auch dann nicht, wenn es Streit gibt!"
+ ],
+ "pool.verhandlung_laufzeit.e.e8": [
+  "Sie hatten mir eine Verlängerungsoption in Aussicht gestellt, die nie schriftlich wurde, darum bestehe ich nun auf einer klaren Laufzeit.",
+  "Das mündliche Versprechen zur Dauer wurde nicht gehalten, also rede ich diesmal nur noch über Papier."
+ ],
+ "pool.verhandlung_laufzeit.e.e9": [
+  "Er wünscht sich eine Bindung, die Vertrauen zeigt, und sieht die Laufzeit als Zeichen, wie sehr man ihn hier will.",
+  "Die Dauer des Vertrags bedeutet ihm viel, weil sie ihm zeigt, ob er hier eine Zukunft hat."
+ ],
+ "pool.verhandlung_laufzeit.e.e10": [
+  "Mein Mandant will sich nicht binden, bevor er weiß, wohin der Weg des Vereins führt.",
+  "Ich halte kurze Verträge für die klügere Wahl, denn sie erhalten ihm die Freiheit, jederzeit neu mit mir zu planen."
+ ],
+ "pool.verhandlung_laufzeit.a.a1": [
+  "Er bekommt eine lange Laufzeit, dafür mit Entwicklungsstufen im Gehalt. Der Entwurf liegt Ihnen innerhalb von {frist} Tagen vor.",
+  "Ich biete lange Sicherheit mit Leistungsstufen an und lege Ihnen binnen {frist} Tagen den Vertrag vor."
+ ],
+ "pool.verhandlung_laufzeit.a.a2": [
+  "Ich schlage eine kurze Laufzeit vor, mit einer Option auf Verlängerung. Das Papier kommt innerhalb von {frist} Tagen.",
+  "Kurz und flexibel ist möglich, wenn der Verein die Verlängerungsoption erhält. Innerhalb von {frist} Tagen schicke ich die Entwürfe."
+ ],
+ "pool.verhandlung_laufzeit.a.a3": [
+  "Wir treffen uns in der Mitte: eine mittlere Laufzeit, mit einer Überprüfung nach einem Jahr.",
+  "Ein Jahr weniger als der Verein will, ein Jahr mehr als Ihr Mandant will, das ist mein Vorschlag."
+ ],
+ "pool.verhandlung_laufzeit.a.a4": [
+  "Eine lange Laufzeit nützt beiden, er kann planen, und wir können in ihn investieren.",
+  "Ein langer Vertrag schützt ihn vor Formschwankungen, deshalb halte ich ihn für klug."
+ ],
+ "pool.verhandlung_laufzeit.a.a5": [
+  "Ich verstehe seinen Wunsch nach Sicherheit. Er soll wissen, dass er hier eine Zukunft hat.",
+  "Die Unsicherheit eines kurzen Vertrags kann belasten, das nehme ich ernst."
+ ],
+ "pool.verhandlung_laufzeit.a.a6": [
+  "Was ist ihm wichtiger, Sicherheit oder Freiheit, und was wäre er bereit, dafür zu tauschen?",
+  "Wie sieht er sich selbst, eher als Mann für den Moment oder als einer, der bleibt?"
+ ],
+ "pool.verhandlung_laufzeit.a.a7": [
+  "Die Laufzeiten legt der Sportdirektor mit der Geschäftsführung fest, ich stelle Sie gern durch.",
+  "Sprechen Sie bitte direkt mit der Geschäftsführung, dort liegen die Vorgaben."
+ ],
+ "pool.verhandlung_laufzeit.a.a8": [
+  "Die Laufzeit steht, nicht mehr und nicht weniger, und daran ändert auch Ihr Druck nichts.",
+  "Ich verhandle nicht über die Dauer, Punkt."
+ ],
+ "pool.verhandlung_laufzeit.a.a9": [
+  "Eine Ausstiegsklausel nach kurzer Zeit lehne ich ab. Dann kann er jeden Sommer gehen.",
+  "Einen Vertrag mit Hintertür gibt es bei mir nicht."
+ ],
+ "pool.verhandlung_laufzeit.a.a10": [
+  "Das regeln wir noch, die Dauer klärt sich von allein.",
+  "Machen Sie sich keine Sorgen um die Laufzeit, am Ende passt das schon."
+ ],
+ "pool.verhandlung_laufzeit.a.a11": [
+  "Wir kennen uns, und ich möchte ihn behalten. Sagen Sie mir offen, was ihm wichtig ist, dann baue ich es ein.",
+  "Ich schätze Ihren Mandanten und suche eine Dauer, die zu seiner Lebenslage passt."
+ ],
+ "pool.verhandlung_laufzeit.a.a12": [
+  "Ein Vertrag ist keine Ehe, aber ein paar Jahre dürfen es schon sein.",
+  "Kurze Verträge sind wie Kurzurlaube: schön, aber man muss ständig neu packen."
+ ],
+ "pool.verhandlung_laufzeit.r.r1": [
+  "{b.gut} Das ist ein Vorschlag, über den man ernsthaft reden kann.",
+  "{b.gut} Damit kann ich meinen Mandanten überzeugen."
+ ],
+ "pool.verhandlung_laufzeit.r.r2": [
+  "{b.gut} Er wird merken, dass man ihn hier will, und das ist ihm viel wert.",
+  "{b.gut} Sie haben einen Draht zu ihm, das gefällt mir."
+ ],
+ "pool.verhandlung_laufzeit.r.r3": [
+  "{b.gut} Mit einer klaren Perspektive und Leistungsstufen kann er rechnen, das motiviert ihn.",
+  "{b.gut} Wenn die Laufzeit zu seinem Plan passt, gibt er Vollgas."
+ ],
+ "pool.verhandlung_laufzeit.r.r4": [
+  "{b.gut} Sie haben verstanden, wie sehr ihn die Ungewissheit quält.",
+  "{b.gut} Diese Worte beruhigen ihn, ich spüre es schon jetzt."
+ ],
+ "pool.verhandlung_laufzeit.r.r5": [
+  "{b.neutral} Ich trage das zu ihm und melde mich in Kürze.",
+  "{b.neutral} Ich werde darüber nachdenken und es ihm vorlegen."
+ ],
+ "pool.verhandlung_laufzeit.r.r6": [
+  "{b.neutral} Wie er reagiert, kann ich nicht sagen, er schwankt dieser Tage.",
+  "{b.neutral} Ich hoffe, er nimmt es ruhig auf, sicher bin ich nicht."
+ ],
+ "pool.verhandlung_laufzeit.r.r7": [
+  "{b.neutral} Dann hängt am Ende alles an der Dauer, wie schon vorher.",
+  "{b.neutral} Es bleibt bei der Patt-Lage, die Laufzeit entscheidet."
+ ],
+ "pool.verhandlung_laufzeit.r.r8": [
+  "{b.neutral} Keine Eile, über die Dauer reden wir bei Gelegenheit weiter.",
+  "{b.neutral} Das sehe ich gelassen, wir haben noch Zeit."
+ ],
+ "pool.verhandlung_laufzeit.r.r9": [
+  "{b.schlecht} Damit stehen wir wieder am Anfang.",
+  "{b.schlecht} Das hilft mir nicht, ich kann ihm so nichts vorlegen."
+ ],
+ "pool.verhandlung_laufzeit.r.r10": [
+  "{b.schlecht} Er wird sich nicht festnageln lassen, und ich auch nicht!",
+  "{b.schlecht} So redet man nicht mit einem Profi, der seinen Wert kennt!"
+ ],
+ "pool.verhandlung_laufzeit.r.r11": [
+  "{b.schlecht} Dann sehe ich mich eben bei Vereinen um, die kürzere Verträge bieten.",
+  "{b.schlecht} Wenn er hier keine Freiheit bekommt, gibt es andere Orte, die sie ihm lassen."
+ ],
+ "pool.verhandlung_laufzeit.r.r12": [
+  "{b.schlecht} Er hatte gehofft, hier ein Zuhause zu finden, und fühlt sich zurückgewiesen.",
+  "{b.schlecht} Ich hatte mehr Verständnis erwartet, nach allem, was er für diesen Klub tut."
+ ],
+ "pool.verhandlung_laufzeit.r.r13": [
+  "{b.gut} Damit ist der letzte Streitpunkt geräumt, ich rufe ihn gleich an.",
+  "{b.gut} Jetzt passt die Dauer, und wir können das Papier fertig machen."
+ ],
+ "pool.verhandlung_laufzeit.r.r14": [
+  "{b.schlecht} Dann reden wir gar nicht mehr über die Dauer, sondern über sein Ende hier.",
+  "{b.schlecht} So wird es nichts, und ich halte meinen Mandanten nicht länger zurück."
+ ],
+ "pool.verhandlung_laufzeit.x.x1": [
+  "Der Berater atmet hörbar auf. {entscheidung} Die Laufzeit ist kein Streitpunkt mehr.",
+  "{entscheidung} Beide Seiten finden zu einer Dauer, die Sicherheit und Freiheit verbindet."
+ ],
+ "pool.verhandlung_laufzeit.x.x2": [
+  "{entscheidung} Der Berater will mit seinem Mandanten über die Dauer nachdenken, und das Gespräch endet offen.",
+  "Das Telefonat ist zu Ende, aber nichts ist entschieden. {entscheidung} Die Frage bleibt im Raum."
+ ],
+ "pool.verhandlung_laufzeit.x.x3": [
+  "{entscheidung} Der Berater wirft Ihnen vor, ihn hinzuhalten, und die Auseinandersetzung wird laut.",
+  "Das Gespräch endet im Streit. {entscheidung} Der Spieler meidet in den Tagen darauf jedes Gespräch mit Ihnen."
+ ],
+ "pool.verhandlung_laufzeit.x.x4": [
+  "Sie legen eine Laufzeit schriftlich fest. {entscheidung} Der Berater hält die Frist im Auge.",
+  "{entscheidung} Er nimmt den Vorschlag auf und kündigt an, ihn zu prüfen."
+ ],
+ "pool.verhandlung_laufzeit.x.x5": [
+  "Der Berater beendet das Gespräch kommentarlos. {entscheidung} Zurück bleibt das Freizeichen.",
+  "{entscheidung} Er legt auf, ohne die Laufzeit nochmals zu erwähnen."
+ ]
+}

@@ -1,0 +1,7 @@
+# Nationaler Pokal (Nutzerrecherche, DFB-Pokal 2023/24): Basisprämie der ersten Runde 215.600 EUR, danach Verdopplung je Runde
+# (431.200 / 862.400 / 1.724.800 / 3.449.600; Finale in der Recherche nicht genannt, hier weiter verdoppelt). TV-Gelder je Runde und Heimspiel-Eintritt sind nicht beziffert.
+# Bezug wie champions_league.toml: Betrag im Spiel = basis_mio / bezug_mio * Referenzumsatz.
+bezug_mio = 284.6
+basis_mio = 0.2156                 # erste Runde
+faktor_je_runde = 2.0
+runden_max = 6                     # darüber hinaus keine weitere Verdopplung

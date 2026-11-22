@@ -1,0 +1,610 @@
+{
+ "pool.verhandlung_verlaengerung.e.e1": [
+  "{b.verhandlung_verlaengerung_lage} For weeks we have been talking past each other, and I see little movement. Is there still any interest in an extension?",
+  "{b.verhandlung_verlaengerung_lage} Frankly, so far it sounds more like a farewell than a future. Do you really want to keep {name}?"
+ ],
+ "pool.verhandlung_verlaengerung.e.e2": [
+  "{b.verhandlung_verlaengerung_lage} We are not far apart. Let us set the framework and wrap this up quickly.",
+  "{b.verhandlung_verlaengerung_lage} I sense goodwill on both sides. Only the timetable and details are missing, then it can be signed."
+ ],
+ "pool.verhandlung_verlaengerung.e.e3": [
+  "{b.verhandlung_verlaengerung_lage} The tone is getting rougher, and that helps nobody. Can we start over and talk about the extension objectively?",
+  "{b.verhandlung_verlaengerung_lage} I notice the mood is tense. I do not want this to turn into a quarrel over the contract."
+ ],
+ "pool.verhandlung_verlaengerung.e.e4": [
+  "{b.verhandlung_verlaengerung_lage} I will not let my client be treated like this! Either you put a serious offer on the table, or we talk to others!",
+  "{b.verhandlung_verlaengerung_lage} He is furious, and I can hardly hold him back. Where is an offer worthy of the name?"
+ ],
+ "pool.verhandlung_verlaengerung.e.e5": [
+  "{b.verhandlung_verlaengerung_lage} My client wants to stay, and it should go calmly and fairly. I see no reason for haste, but for a clear plan.",
+  "{b.verhandlung_verlaengerung_lage} He is attached to the club. So I only ask for an honest offer, without tactics."
+ ],
+ "pool.verhandlung_verlaengerung.e.e6": [
+  "{b.verhandlung_verlaengerung_lage} He only signs if the club has sporting plans. Show me what role he plays in your project.",
+  "{b.verhandlung_verlaengerung_lage} For my client the outlook counts. What are the club's goals, and where do you see him in them?"
+ ],
+ "pool.verhandlung_verlaengerung.e.e7": [
+  "{b.verhandlung_verlaengerung_lage} The contract is running out, and I would like to know soon where we stand. How do you picture the coming weeks?",
+  "{b.verhandlung_verlaengerung_lage} It is time for a first concrete talk about the extension. What can I tell my client?"
+ ],
+ "pool.verhandlung_verlaengerung.e.e8": [
+  "{b.verhandlung_verlaengerung_lage} Last time something was held out to us, and nothing happened. Before we go on, I need commitment.",
+  "{b.verhandlung_verlaengerung_lage} There were promises that were not kept. I have no explanation left for my client."
+ ],
+ "pool.verhandlung_verlaengerung.e.e9": [
+  "{b.verhandlung_verlaengerung_lage} He doubts whether he is wanted here, and other clubs show interest. A clear sign from you would move a lot.",
+  "{b.verhandlung_verlaengerung_lage} Interested parties are coming forward in the background, and my client needs to feel needed here. How serious are you?"
+ ],
+ "pool.verhandlung_verlaengerung.a.a1": [
+  "I offer an extension, and a binding one. Within {frist} days you will have my written proposal.",
+  "We extend, I promise you that today. You will receive the paperwork within {frist} days."
+ ],
+ "pool.verhandlung_verlaengerung.a.a2": [
+  "We find a middle way: a somewhat longer term, moderate on the fixed salary, with bonuses for appearances and titles.",
+  "Meet me on the term, and I will meet you on the bonuses."
+ ],
+ "pool.verhandlung_verlaengerung.a.a3": [
+  "Let me explain the framework: the salary structure, the planning for the coming years and the place he has in it. Then you will see I mean it.",
+  "The club plans soundly, and {name} belongs in that plan. Let me lay out the key points."
+ ],
+ "pool.verhandlung_verlaengerung.a.a4": [
+  "I know he needs appreciation, and he has earned it. Tell him he is one of my cornerstones.",
+  "He matters to me as a person and as a player. He should hear that from me before any figures are named."
+ ],
+ "pool.verhandlung_verlaengerung.a.a5": [
+  "What exactly does he need to stay: more money, a longer term or more security?",
+  "Before I answer, tell me what the extension depends on for him."
+ ],
+ "pool.verhandlung_verlaengerung.a.a6": [
+  "I will ask the sporting director to go through the key figures with you. Afterwards the three of us sit down together.",
+  "The sporting director will settle the figures with you. I join when it comes to signing."
+ ],
+ "pool.verhandlung_verlaengerung.a.a7": [
+  "It will come, please be a little patient. We have a lot on the table right now.",
+  "Let us discuss it after the international break, right now it is inconvenient."
+ ],
+ "pool.verhandlung_verlaengerung.a.a8": [
+  "There will be no extension on these terms. If your client does not accept that, he had better look elsewhere.",
+  "With this demand there is no point in negotiating. For me this conversation is over."
+ ],
+ "pool.verhandlung_verlaengerung.a.a9": [
+  "My offer stays as it is. I do not negotiate with pressure at my back, not even from other clubs.",
+  "Enquiries from outside change nothing. Whoever wants to stay here takes this offer."
+ ],
+ "pool.verhandlung_verlaengerung.a.a10": [
+  "The club plans over years, not weeks. I cannot promise a deal on your timetable.",
+  "I tell you openly: I decide when the squad allows it, not when the agent pushes."
+ ],
+ "pool.verhandlung_verlaengerung.a.a11": [
+  "On signing there is a handshake bonus, a small reward for steady nerves. In return your phone will be quieter at night.",
+  "If he signs, I add a loyalty bonus, so that you have something to celebrate too."
+ ],
+ "pool.verhandlung_verlaengerung.a.a12": [
+  "We know each other, and I value your honest manner. I want {name} to stay, not out of embarrassment but because he stands for this club.",
+  "You have negotiated fairly so far, so I put my cards openly on the table."
+ ],
+ "pool.verhandlung_verlaengerung.r.r1": [
+  "{b.gut} That is an offer I can pass on. I will contact {name}.",
+  "{b.gut} I can work with that. I will speak to him today."
+ ],
+ "pool.verhandlung_verlaengerung.r.r2": [
+  "{b.gut} Then we agree at the core, and we settle the rest calmly.",
+  "{b.gut} That is how it should go. I think we can close this cleanly."
+ ],
+ "pool.verhandlung_verlaengerung.r.r3": [
+  "{b.gut} A clear outlook, that is what he wanted to hear. He will go into the coming weeks motivated.",
+  "{b.gut} That is a sign the club plans with him. He will deliver."
+ ],
+ "pool.verhandlung_verlaengerung.r.r4": [
+  "{b.gut} That you see him this way means a lot to him. I will pass that on exactly.",
+  "{b.gut} He likes to hear that, and he needs it right now."
+ ],
+ "pool.verhandlung_verlaengerung.r.r5": [
+  "{b.neutral} I will take that along and speak to my client. I cannot say more today.",
+  "{b.neutral} That is a start, but not yet a deal. I will be in touch."
+ ],
+ "pool.verhandlung_verlaengerung.r.r6": [
+  "{b.neutral} I cannot say how he will take that. He is hard to read these days.",
+  "{b.neutral} My client wavers, and I do not know which way. Let us sleep on it."
+ ],
+ "pool.verhandlung_verlaengerung.r.r7": [
+  "{b.neutral} Everything is still open. Both sides have to move.",
+  "{b.neutral} We stand roughly in the middle. The next step should come from you."
+ ],
+ "pool.verhandlung_verlaengerung.r.r8": [
+  "{b.neutral} No stress, we have time. We will talk again next week.",
+  "{b.neutral} Fine, then we let it settle and pick it up later."
+ ],
+ "pool.verhandlung_verlaengerung.r.r9": [
+  "{b.schlecht} We will not come together like this, and I must tell my client exactly that.",
+  "{b.schlecht} That will disappoint him, and me as well."
+ ],
+ "pool.verhandlung_verlaengerung.r.r10": [
+  "{b.schlecht} Then the conversation is over, and I will take other clubs' enquiries more seriously than before!",
+  "{b.schlecht} I will not have my client fobbed off. You will hear from me, but not kindly!"
+ ],
+ "pool.verhandlung_verlaengerung.r.r11": [
+  "{b.schlecht} Then all that is left is to speak to the other interested parties. Thank you for your candour.",
+  "{b.schlecht} I understand and will now examine my client's options more widely."
+ ],
+ "pool.verhandlung_verlaengerung.r.r12": [
+  "{b.schlecht} He wanted to stay, now I no longer know. That hurt him.",
+  "{b.schlecht} I had hoped for more accommodation, especially from you."
+ ],
+ "pool.verhandlung_verlaengerung.x.x1": [
+  "The conversation ends amicably, and the agent wants to call back in peace. {entscheidung}",
+  "Both sides hang up with nothing broken. {entscheidung}"
+ ],
+ "pool.verhandlung_verlaengerung.x.x2": [
+  "{entscheidung} No new date is set, but the door stays open.",
+  "{entscheidung} The agent leaves open when he will be in touch again."
+ ],
+ "pool.verhandlung_verlaengerung.x.x3": [
+  "{entscheidung} The agent hangs up audibly annoyed and announces he will hear other clubs.",
+  "{entscheidung} Soon after, the press reports that the contract will not be extended."
+ ],
+ "pool.verhandlung_verlaengerung.x.x4": [
+  "Both agree on how to proceed. {entscheidung} The documents are to follow soon.",
+  "The agent notes the promise with visible satisfaction. {entscheidung}"
+ ],
+ "pool.verhandlung_verlaengerung.x.x5": [
+  "The agent breaks off the call. {entscheidung} He wants to consult his client.",
+  "The line crackles, then falls silent. {entscheidung}"
+ ],
+ "pool.verhandlung_gehalt.e.e1": [
+  "{b.verhandlung_gehalt_lage} You offer us less than is usual in the squad. There is no sporting reason for that. How do you justify it?",
+  "{b.verhandlung_gehalt_lage} I compared the figures with those of comparable players, and my client is clearly below."
+ ],
+ "pool.verhandlung_gehalt.e.e2": [
+  "{b.verhandlung_gehalt_lage} Your proposal is a good start. Not much is missing on the amount, then we can finish.",
+  "{b.verhandlung_gehalt_lage} We have come closer on salary than I expected. One more small step."
+ ],
+ "pool.verhandlung_gehalt.e.e3": [
+  "{b.verhandlung_gehalt_lage} We are not getting anywhere on salary, and I feel the tone is getting sharper. Shall we not start again cleanly?",
+  "{b.verhandlung_gehalt_lage} Before we argue over figures, I would like to calm the mood. This helps nobody."
+ ],
+ "pool.verhandlung_gehalt.e.e4": [
+  "{b.verhandlung_gehalt_lage} That is an insult to my client! Do not even come to him with this sum!",
+  "{b.verhandlung_gehalt_lage} Whoever offers so little wants to get rid of him. Just say so!"
+ ],
+ "pool.verhandlung_gehalt.e.e5": [
+  "{b.verhandlung_gehalt_lage} I ask for a fair salary, not a miracle. My client wants to stay, but he also has to think of his family.",
+  "{b.verhandlung_gehalt_lage} Let us calmly discuss an appropriate sum, without games."
+ ],
+ "pool.verhandlung_gehalt.e.e6": [
+  "{b.verhandlung_gehalt_lage} He has delivered, and that must show in his pay. Whoever leads is not fobbed off with the average.",
+  "{b.verhandlung_gehalt_lage} My client wants to be among the top earners. His contribution on the pitch justifies it."
+ ],
+ "pool.verhandlung_gehalt.e.e7": [
+  "{b.verhandlung_gehalt_lage} We have no agreement on salary yet. Please tell me where the club sees room.",
+  "{b.verhandlung_gehalt_lage} Figures do not scare me. Show me the limits, then we will see."
+ ],
+ "pool.verhandlung_gehalt.e.e8": [
+  "{b.verhandlung_gehalt_lage} It was said the salary would be improved, and nothing has happened since. This time I want something in writing.",
+  "{b.verhandlung_gehalt_lage} Promises about salary were not kept. I will not negotiate further before that is cleared up."
+ ],
+ "pool.verhandlung_gehalt.e.e9": [
+  "{b.verhandlung_gehalt_lage} The market pays more for a player of his profile, and he knows it. He likes it here, but not at any price.",
+  "{b.verhandlung_gehalt_lage} He feels underpaid and unsure. A clear sign on salary would do him good, otherwise he listens to others."
+ ],
+ "pool.verhandlung_gehalt.a.a1": [
+  "The salary will be raised, I promise you that. You will have the contract draft with the new sum within {frist} days.",
+  "I will improve the salary, binding. The papers follow within {frist} days."
+ ],
+ "pool.verhandlung_gehalt.a.a2": [
+  "Then we split fixed pay and performance: a sustainable base salary plus bonuses that turn out strong in a good season.",
+  "I will meet you on the variable part if you show understanding on the fixed salary."
+ ],
+ "pool.verhandlung_gehalt.a.a3": [
+  "Let me explain our salary structure: everyone in the squad is tied to appearances, age and years of service. Then you will see where he stands and why.",
+  "The pay structure has grown, and an outlier upward would shake it. Let me break it down."
+ ],
+ "pool.verhandlung_gehalt.a.a4": [
+  "I know money also means appreciation. Your client matters to me, and I want him to feel that.",
+  "I understand that he does not feel seen. I take that seriously and look for a solution that does him justice."
+ ],
+ "pool.verhandlung_gehalt.a.a5": [
+  "How high would the salary have to be for him to feel comfortable, and what does the club get in return?",
+  "Who is he actually comparing himself with, the squad or the market?"
+ ],
+ "pool.verhandlung_gehalt.a.a6": [
+  "The sporting director will settle that with you using the salary table. I will join later myself.",
+  "On the amount I will send you the managing director, who knows the finances better than I do."
+ ],
+ "pool.verhandlung_gehalt.a.a7": [
+  "We are short of funds, but I will note that and come back to it. Please be patient.",
+  "Right now I cannot promise anything, but the topic is not off the table."
+ ],
+ "pool.verhandlung_gehalt.a.a8": [
+  "I pay no more. Whoever wants more can offer himself elsewhere, it ends here.",
+  "The sum is my last word. If that is not enough, the conversation is over."
+ ],
+ "pool.verhandlung_gehalt.a.a9": [
+  "The club cannot and will not pay more than in the offer. I will not change that just because pressure grows.",
+  "On salary I stand firm. The structure in the squad matters more than the individual wish."
+ ],
+ "pool.verhandlung_gehalt.a.a10": [
+  "I value his performance, but I must keep the salary structure in view. There is nothing more than in my offer.",
+  "I will not go beyond the limit the board has set me. You should know that."
+ ],
+ "pool.verhandlung_gehalt.a.a11": [
+  "On top of the salary comes a performance bonus for each game we win. That way we both gain when it goes well.",
+  "If he scores and we win, I gladly pay extra. I will even spend something on it."
+ ],
+ "pool.verhandlung_gehalt.a.a12": [
+  "We have talked for a long time, and I respect your work. So I say openly what is possible and come a little further to meet you.",
+  "You have always been fair to us, so I am to you. I will move once more."
+ ],
+ "pool.verhandlung_gehalt.r.r1": [
+  "{b.gut} With that I can face my client. I will pass it on right away.",
+  "{b.gut} That is a decent offer. I will forward it today."
+ ],
+ "pool.verhandlung_gehalt.r.r2": [
+  "{b.gut} That is a basis on which we can close. We settle the rest without a quarrel.",
+  "{b.gut} Then we have found each other on the sum. Thank you for the fair negotiation."
+ ],
+ "pool.verhandlung_gehalt.r.r3": [
+  "{b.gut} If the pay is right, he gives everything on the pitch. That will show.",
+  "{b.gut} That is a salary that reflects his standards. He will appreciate it."
+ ],
+ "pool.verhandlung_gehalt.r.r4": [
+  "{b.gut} That hits him exactly, he wants to see more than just money. Thank you for the words.",
+  "{b.gut} That you take his hurt seriously will calm him."
+ ],
+ "pool.verhandlung_gehalt.r.r5": [
+  "{b.neutral} I have to work this out with my client. Today I cannot commit to anything.",
+  "{b.neutral} That sounds like a beginning, not the end. I will be in touch."
+ ],
+ "pool.verhandlung_gehalt.r.r6": [
+  "{b.neutral} I cannot predict how he will react to the sum. He wavers in these weeks.",
+  "{b.neutral} My client is in one of his phases today. I will ask again tomorrow."
+ ],
+ "pool.verhandlung_gehalt.r.r7": [
+  "{b.neutral} We are not together yet. The gap remains, and both must move.",
+  "{b.neutral} Between your figure and his there is still some road."
+ ],
+ "pool.verhandlung_gehalt.r.r8": [
+  "{b.neutral} No problem, the salary is not going anywhere. We will speak in the next few days.",
+  "{b.neutral} Then we let the figures rest briefly and talk later."
+ ],
+ "pool.verhandlung_gehalt.r.r9": [
+  "{b.schlecht} With this sum I will not send my client onto the pitch. I must tell him so.",
+  "{b.schlecht} That is less than he deserves, and he will see it that way too."
+ ],
+ "pool.verhandlung_gehalt.r.r10": [
+  "{b.schlecht} Then we will meet again at the end of negotiations, with other clubs behind us!",
+  "{b.schlecht} You do not talk to me or to him like that. We have plenty of offers!"
+ ],
+ "pool.verhandlung_gehalt.r.r11": [
+  "{b.schlecht} Then the market value remains the yardstick, and I will have it checked. Thank you for your candour.",
+  "{b.schlecht} If pay ends here, I will ask around elsewhere."
+ ],
+ "pool.verhandlung_gehalt.r.r12": [
+  "{b.schlecht} He was willing to stay here, but this salary hurts him. I had not expected that.",
+  "{b.schlecht} I thought we understood each other better. He will not take that lightly."
+ ],
+ "pool.verhandlung_gehalt.x.x1": [
+  "The agent ends the call calmly and wants to work through the sum. {entscheidung}",
+  "Both hang up without a quarrel, and the figures stay within reach. {entscheidung}"
+ ],
+ "pool.verhandlung_gehalt.x.x2": [
+  "{entscheidung} A gap remains on the amount, but both sides want to keep talking.",
+  "{entscheidung} An agreement is still pending, and talks continue after the next match."
+ ],
+ "pool.verhandlung_gehalt.x.x3": [
+  "{entscheidung} The agent complains that the club wants to save money, and rumours pile up in the press.",
+  "{entscheidung} He slams the receiver down, and soon figures from the call are circulating."
+ ],
+ "pool.verhandlung_gehalt.x.x4": [
+  "The agent accepts the path and notes the key figures. {entscheidung} The papers follow.",
+  "Both shake hands in spirit. {entscheidung} Now only the signature is needed."
+ ],
+ "pool.verhandlung_gehalt.x.x5": [
+  "The agent breaks off and says he will complain to the board. {entscheidung}",
+  "The line goes quiet, the agent has hung up. {entscheidung}"
+ ],
+ "pool.verhandlung_rolle.e.e1": [
+  "{b.verhandlung_rolle_lage} He plays too little to stay and too much to leave. Without a fixed role in the contract he does not sign.",
+  "{b.verhandlung_rolle_lage} His appearances suggest you do not plan firmly with him. Then say it openly, so we know where we stand."
+ ],
+ "pool.verhandlung_rolle.e.e2": [
+  "{b.verhandlung_rolle_lage} After all he shows, a place in the starting eleven is only logical. We merely need to record it.",
+  "{b.verhandlung_rolle_lage} The role is almost settled between us. Only the wording in the contract is missing."
+ ],
+ "pool.verhandlung_rolle.e.e3": [
+  "{b.verhandlung_rolle_lage} The conversation is not going well, and I do not want it to fail over the role. Can we calmly discuss what he is meant to be in the squad?",
+  "{b.verhandlung_rolle_lage} The mood is cool, but the topic is too important. Let us talk calmly about his place."
+ ],
+ "pool.verhandlung_rolle.e.e4": [
+  "{b.verhandlung_rolle_lage} I demand your word, in black and white! If he is to remain a mere substitute, it ends here!",
+  "{b.verhandlung_rolle_lage} He will not be burnt out on the bench any longer. Either a fixed place in the contract, or we leave!"
+ ],
+ "pool.verhandlung_rolle.e.e5": [
+  "{b.verhandlung_rolle_lage} My client likes playing for you. He only wishes that the contract reflects what already holds on the pitch.",
+  "{b.verhandlung_rolle_lage} It is not about prestige for him but about security for the coming years."
+ ],
+ "pool.verhandlung_rolle.e.e6": [
+  "{b.verhandlung_rolle_lage} He wants to count among the regulars and have it written down. Whoever does not plan him firmly loses him to clubs that do.",
+  "{b.verhandlung_rolle_lage} Without a promise that he will play up front, the extension is of no interest to him."
+ ],
+ "pool.verhandlung_rolle.e.e7": [
+  "{b.verhandlung_rolle_lage} The role belongs in the negotiation. How do you picture his place, and what could be recorded in the contract?",
+  "{b.verhandlung_rolle_lage} I have a wish regarding my client's playing time. Please tell me what is conceivable in principle."
+ ],
+ "pool.verhandlung_rolle.e.e8": [
+  "{b.verhandlung_rolle_lage} You had promised him a fixed place, and the line-up looked different. I only negotiate if the role is in writing.",
+  "{b.verhandlung_rolle_lage} Promised appearances did not happen. That is why I now insist on firm wording."
+ ],
+ "pool.verhandlung_rolle.e.e9": [
+  "{b.verhandlung_rolle_lage} He hears other clubs promise him a regular spot and influence. A sign from you that he is needed here would help him greatly.",
+  "{b.verhandlung_rolle_lage} He doubts whether he matters to you, and rivals in the squad reinforce that. A clear word would calm him."
+ ],
+ "pool.verhandlung_rolle.a.a1": [
+  "I promise him the role: he is among the regulars. We write it into the contract, and within {frist} days it is on paper.",
+  "He gets his fixed role, I promise. The wording will be ready in {frist} days."
+ ],
+ "pool.verhandlung_rolle.a.a2": [
+  "Then we tie the role to performance: if he plays at the expected level, he has his regular spot, and the contract says so.",
+  "A performance clause gives him security and me freedom. That should work for both."
+ ],
+ "pool.verhandlung_rolle.a.a3": [
+  "I can show him an outlook, but no guarantee. He should know I see him as an important part of the plan.",
+  "I do not hand out a fixed place in advance, but I gladly describe how I plan with him."
+ ],
+ "pool.verhandlung_rolle.a.a4": [
+  "I know how wearing the uncertainty is. I want him to feel secure in the squad, and I will tell him myself.",
+  "He is an important part of this team, and he should hear that from me, not from the newspaper."
+ ],
+ "pool.verhandlung_rolle.a.a5": [
+  "Which role exactly does your client mean: regular spot, leadership role or just playing time? That is a difference.",
+  "Where does he see himself in the team in two years, and what is he missing today?"
+ ],
+ "pool.verhandlung_rolle.a.a6": [
+  "Playing time is decided by the assistant coach and me from the training data. The sporting director will clear the contract wording.",
+  "I will first discuss the role with my staff. Then I will get back to you."
+ ],
+ "pool.verhandlung_rolle.a.a7": [
+  "He is a candidate for the starting eleven, but I cannot promise anything. The coming weeks will show.",
+  "Please be patient, I decide by form and impression in training."
+ ],
+ "pool.verhandlung_rolle.a.a8": [
+  "Roles are not negotiated but earned. A demand like this gets me nowhere.",
+  "There is no first-team guarantee, not even for your client. Full stop."
+ ],
+ "pool.verhandlung_rolle.a.a9": [
+  "I pick whoever deserves it, and I will not write that into a document. That stays my decision.",
+  "I make the line-up, not the agent. A contract wish does not change that."
+ ],
+ "pool.verhandlung_rolle.a.a10": [
+  "I will not write a role into the paper, but I tie it to clear criteria: training, form, effort. He gets that in writing.",
+  "If he meets the criteria, he plays. That is fairer than any blanket promise."
+ ],
+ "pool.verhandlung_rolle.a.a11": [
+  "For the support there is a supplement: a bonus for every start. Whoever plays also earns, it is that simple.",
+  "I attach an appearance bonus so his time on the pitch pays off even when he is not named first everywhere."
+ ],
+ "pool.verhandlung_rolle.a.a12": [
+  "We have worked together for a long time, and you know I promise nothing I cannot keep. I will meet you as far as is responsible.",
+  "Because I value your client, I make a concession on the appearance criteria. More is not possible."
+ ],
+ "pool.verhandlung_rolle.r.r1": [
+  "{b.gut} A fixed role, that is what he needs. I will pass it on immediately.",
+  "{b.gut} With that he has planning security, and I can advise him in good conscience."
+ ],
+ "pool.verhandlung_rolle.r.r2": [
+  "{b.gut} That is a clear word, and with it the contract can be closed cleanly.",
+  "{b.gut} Then the role lies clearly on the table. We will manage the rest without a quarrel."
+ ],
+ "pool.verhandlung_rolle.r.r3": [
+  "{b.gut} A place he may earn is exactly his incentive. He will show you.",
+  "{b.gut} That the club sees him up front spurs him on. He will deliver."
+ ],
+ "pool.verhandlung_rolle.r.r4": [
+  "{b.gut} Hearing that he matters means a lot to him. It calms him.",
+  "{b.gut} That you understand his uncertainty is more than he had hoped."
+ ],
+ "pool.verhandlung_rolle.r.r5": [
+  "{b.neutral} I will discuss with my client whether that is enough. Today I commit to nothing.",
+  "{b.neutral} That is neither a promise nor a refusal. I will sound him out."
+ ],
+ "pool.verhandlung_rolle.r.r6": [
+  "{b.neutral} I do not know how he takes that. Sky-high today, down in the dumps tomorrow.",
+  "{b.neutral} He lacks composure right now. I will wait until his mood turns."
+ ],
+ "pool.verhandlung_rolle.r.r7": [
+  "{b.neutral} The role is still open, and both sides have some room.",
+  "{b.neutral} We are close on principle, not on the detail. We continue later."
+ ],
+ "pool.verhandlung_rolle.r.r8": [
+  "{b.neutral} That is your decision, and I let it stand. We will talk again.",
+  "{b.neutral} Fine, then the question stays in the air for now."
+ ],
+ "pool.verhandlung_rolle.r.r9": [
+  "{b.schlecht} Then he stays a substitute, and I must unfortunately tell him that.",
+  "{b.schlecht} Without a fixed role he will not sign. We get no further like this."
+ ],
+ "pool.verhandlung_rolle.r.r10": [
+  "{b.schlecht} Then let him play elsewhere, and you will be surprised!",
+  "{b.schlecht} Whoever fobs my client off like this must not complain about his leaving!"
+ ],
+ "pool.verhandlung_rolle.r.r11": [
+  "{b.schlecht} Then I take the other clubs' promises more seriously. Many thanks for the clear message.",
+  "{b.schlecht} Without a guarantee this is no longer an option. I will talk to the competitors."
+ ],
+ "pool.verhandlung_rolle.r.r12": [
+  "{b.schlecht} He was ready to take responsibility here, and now he feels held back.",
+  "{b.schlecht} I had expected more recognition for him. That hits him hard."
+ ],
+ "pool.verhandlung_rolle.x.x1": [
+  "The agent hangs up calmly and wants to explain the line to his client. {entscheidung}",
+  "The role is not settled, but the climate is good. {entscheidung}"
+ ],
+ "pool.verhandlung_rolle.x.x2": [
+  "{entscheidung} The role question hangs in the balance until the next games bring more clarity.",
+  "{entscheidung} The agent wants to see how things look on the pitch in the coming weeks."
+ ],
+ "pool.verhandlung_rolle.x.x3": [
+  "{entscheidung} The agent leaves the line in anger, and the town talks of the coach denying playing time.",
+  "{entscheidung} Soon afterwards the client publicly demands more playing time."
+ ],
+ "pool.verhandlung_rolle.x.x4": [
+  "Both agree on a role with clear conditions. {entscheidung} The contract will be changed accordingly.",
+  "The agent audibly nods. {entscheidung} The role will be recorded in writing."
+ ],
+ "pool.verhandlung_rolle.x.x5": [
+  "The agent breaks off and refers to an offer from the competition. {entscheidung}",
+  "The connection ends abruptly. {entscheidung} The agent does not get in touch for now."
+ ],
+ "pool.verhandlung_klausel.e.e1": [
+  "{b.verhandlung_klausel_lage} Without a release clause there is no extension, and the sum is not negotiable. I wonder how serious you are.",
+  "{b.verhandlung_klausel_lage} We demand a fixed fee in the contract. Do not talk around the point, give an answer."
+ ],
+ "pool.verhandlung_klausel.e.e2": [
+  "{b.verhandlung_klausel_lage} The clause is almost a formality, the amount is hardly disputed. Let us clarify the timing and the right of first refusal.",
+  "{b.verhandlung_klausel_lage} We are close, only the shape of the clause is missing. Then we can close."
+ ],
+ "pool.verhandlung_klausel.e.e3": [
+  "{b.verhandlung_klausel_lage} The mood is cool, and I do not want the contract to fail over a clause. Let us calmly discuss what it would mean.",
+  "{b.verhandlung_klausel_lage} We are talking past each other, and it has to do with the clause. Let us start again, calm and objective."
+ ],
+ "pool.verhandlung_klausel.e.e4": [
+  "{b.verhandlung_klausel_lage} I demand a clause, or the conversation is over! I will not chain my client to the club!",
+  "{b.verhandlung_klausel_lage} Your stalling is outrageous. A clause, and today, or we go!"
+ ],
+ "pool.verhandlung_klausel.e.e5": [
+  "{b.verhandlung_klausel_lage} My client feels at home, and yet a clause is customary these days. It is about trust on both sides.",
+  "{b.verhandlung_klausel_lage} We do not want the clause in order to leave but to stay safely. I am glad to explain."
+ ],
+ "pool.verhandlung_klausel.e.e6": [
+  "{b.verhandlung_klausel_lage} He wants to secure the option of a bigger club, and that needs a fixed sum in the contract. Show me you will not block it for him.",
+  "{b.verhandlung_klausel_lage} For his career a clause is the minimum. How far do you go?"
+ ],
+ "pool.verhandlung_klausel.e.e7": [
+  "{b.verhandlung_klausel_lage} A clause belongs with a player of his quality. I would like to hear where you stand on sum and timing.",
+  "{b.verhandlung_klausel_lage} We are talking about a possible fee in the contract. What ideas does the club have?"
+ ],
+ "pool.verhandlung_klausel.e.e8": [
+  "{b.verhandlung_klausel_lage} You held out a clause that never appeared on paper. I no longer accept promises, only text.",
+  "{b.verhandlung_klausel_lage} Promises about the clause were not kept. I now insist on binding wording."
+ ],
+ "pool.verhandlung_klausel.e.e9": [
+  "{b.verhandlung_klausel_lage} My client has interested parties behind him, and with a clause he would keep all paths open. Without it he feels trapped.",
+  "{b.verhandlung_klausel_lage} He feels cramped if he does not know whether he may leave. A clause would free him."
+ ],
+ "pool.verhandlung_klausel.a.a1": [
+  "I promise the clause. We decide the fee and the timing together, and within {frist} days the wording will be ready.",
+  "Your client gets the clause. We will record the key points in writing within {frist} days."
+ ],
+ "pool.verhandlung_klausel.a.a2": [
+  "Then I set it higher and postpone the start, so the club stays protected, and your client still has his way out.",
+  "The clause applies only after the first season, in return I leave room on the sum."
+ ],
+ "pool.verhandlung_klausel.a.a3": [
+  "Let me explain why a low clause is dangerous: it attracts buyers and devalues the contract for both sides.",
+  "A clause is a price tag, and one set too low lures buyers. Let me show the consequences."
+ ],
+ "pool.verhandlung_klausel.a.a4": [
+  "I understand that he does not want to feel locked in. I take that seriously, and I want him to decide freely here.",
+  "Nobody should feel trapped. I will look with you for a way that gives him peace."
+ ],
+ "pool.verhandlung_klausel.a.a5": [
+  "What order of magnitude do you imagine for the fee, and from when should it apply?",
+  "Who is to hold the right of first refusal in a sale, your client or the club?"
+ ],
+ "pool.verhandlung_klausel.a.a6": [
+  "The managing director will check the clause with the legal department. I will come back to you with the result.",
+  "The board calculates the sum, not me. I ask for a little time."
+ ],
+ "pool.verhandlung_klausel.a.a7": [
+  "I cannot say anything about that today, but I promise to take it along. Let us finish the season first.",
+  "A clause is not on my list, but I will think about it. Give me time."
+ ],
+ "pool.verhandlung_klausel.a.a8": [
+  "A release clause is out of the question for me. Whoever signs here stays here.",
+  "With a clause the contract would not be worth the paper. I refuse."
+ ],
+ "pool.verhandlung_klausel.a.a9": [
+  "I stay with my no. Contracts are honoured, and whoever demands a back door is already planning his farewell.",
+  "Pressure will not shake that. No clause, that is how it stands."
+ ],
+ "pool.verhandlung_klausel.a.a10": [
+  "The right of first refusal in the club's favour and a clear time limit are mandatory for me, otherwise no clause. That is my framework.",
+  "The clause is only conceivable with conditions that protect the club. I do not negotiate that."
+ ],
+ "pool.verhandlung_klausel.a.a11": [
+  "Instead of a clause I offer a loyalty bonus: whoever stays is rewarded. That is safer for your client and sounder for us.",
+  "A bonus for every year at the club instead of a clause, that is my offer, and it has weight."
+ ],
+ "pool.verhandlung_klausel.a.a12": [
+  "We have known each other long, and I am no friend of back doors. But I see your argument and am ready to move if you do too.",
+  "Because you have always been honest, I speak openly: the clause is not ruled out, we only have to find the details."
+ ],
+ "pool.verhandlung_klausel.r.r1": [
+  "{b.gut} With that my client has his way out and still the club behind him. I thank you.",
+  "{b.gut} That is a fair gesture. I will pass it on immediately."
+ ],
+ "pool.verhandlung_klausel.r.r2": [
+  "{b.gut} That is how to close a contract both can live with.",
+  "{b.gut} That is a sensible framework. We will get it in order."
+ ],
+ "pool.verhandlung_klausel.r.r3": [
+  "{b.gut} With a firm clause he can concentrate calmly on the game, that is an incentive for him.",
+  "{b.gut} A clear path upward, that mattered to him. He will be grateful."
+ ],
+ "pool.verhandlung_klausel.r.r4": [
+  "{b.gut} That you take away his fear of being locked in does him good. Thanks.",
+  "{b.gut} He did not expect so much understanding. That calms him."
+ ],
+ "pool.verhandlung_klausel.r.r5": [
+  "{b.neutral} I must discuss with my client whether that is enough. I promise nothing today.",
+  "{b.neutral} That is neither yes nor no. I will be in touch in the next few days."
+ ],
+ "pool.verhandlung_klausel.r.r6": [
+  "{b.neutral} I do not know how he will take it. He is a different man every day.",
+  "{b.neutral} My client is hard to read today. I will ask once things have settled."
+ ],
+ "pool.verhandlung_klausel.r.r7": [
+  "{b.neutral} The clause remains open, both sides still have room. We only have to find the timing.",
+  "{b.neutral} We do not agree on the principle and yet are not far apart."
+ ],
+ "pool.verhandlung_klausel.r.r8": [
+  "{b.neutral} I will let that stand, then we talk later. It is not urgent.",
+  "{b.neutral} Fine, we let the topic rest and take it up again."
+ ],
+ "pool.verhandlung_klausel.r.r9": [
+  "{b.schlecht} Without a clause he does not sign, and I will tell him exactly that.",
+  "{b.schlecht} That leaves no basis. I am very disappointed."
+ ],
+ "pool.verhandlung_klausel.r.r10": [
+  "{b.schlecht} Then we will listen to other clubs, and you will hear nothing more from us!",
+  "{b.schlecht} Back door or nothing, and you have decided! That is your loss!"
+ ],
+ "pool.verhandlung_klausel.r.r11": [
+  "{b.schlecht} Then I will examine the alternatives. Thank you for your candour, it helps me plan.",
+  "{b.schlecht} If no option remains here, I will speak to the interested parties."
+ ],
+ "pool.verhandlung_klausel.r.r12": [
+  "{b.schlecht} He wanted to trust you, but this no hurts him. I had expected more.",
+  "{b.schlecht} I would have thought you would understand him better. He will not forget it."
+ ],
+ "pool.verhandlung_klausel.x.x1": [
+  "The conversation ends objectively, and the agent wants to examine the clause calmly. {entscheidung}",
+  "Both sides hang up without resentment. {entscheidung}"
+ ],
+ "pool.verhandlung_klausel.x.x2": [
+  "{entscheidung} The clause stays unsettled, but both sides want to keep talking.",
+  "{entscheidung} Timing and fee are still open, the next round follows."
+ ],
+ "pool.verhandlung_klausel.x.x3": [
+  "{entscheidung} The agent rages down the line, and soon rumours about a transfer circulate.",
+  "{entscheidung} He hangs up angrily and hints that his client wants to leave."
+ ],
+ "pool.verhandlung_klausel.x.x4": [
+  "Both agree on a clause with clear limits. {entscheidung} The wording will be prepared.",
+  "The agent agrees and notes the key points. {entscheidung} The contract will be adjusted."
+ ],
+ "pool.verhandlung_klausel.x.x5": [
+  "The agent breaks off the talk and says he will look for another way. {entscheidung}",
+  "The line falls silent, there is nothing more to say. {entscheidung}"
+ ]
+}

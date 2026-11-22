@@ -1,0 +1,18 @@
+{
+  "_hinweis": "Texte zum Mitlaufen mit dem Spiel: Hinweis nach dem Laden eines älteren Spielstands.",
+  "aelterer_spielstand.betreff": {
+    "standard": [
+      "Zurück an einem früheren Tag"
+    ]
+  },
+  "aelterer_spielstand.text": {
+    "standard": [
+      "Du hast einen früheren Spielstand geladen. Was an den späteren Tagen schon passiert ist, bleibt bestehen. Spielst du diese Tage noch einmal, kommt nichts davon ein zweites Mal."
+    ]
+  },
+  "aelterer_spielstand.antwort.kenntnis": {
+    "standard": [
+      "Verstanden."
+    ]
+  }
+}

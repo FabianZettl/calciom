@@ -1,0 +1,916 @@
+{
+ "gs.thema.spielzeit": "Game time",
+ "gs.thema.rolle": "Role in the team",
+ "gs.thema.form": "Form and confidence",
+ "gs.thema.lob": "Recognition",
+ "gs.thema.kritik": "Criticism",
+ "gs.thema.zukunft": "Future at the club",
+ "gs.thema.disziplin": "Discipline",
+ "gs.thema.transfer": "Transfer",
+ "gs.status.beendet": "Ended",
+ "gs.thema.marktlage": "Market situation",
+ "gs.thema.einschaetzung": "Assessment of the team",
+ "gs.thema.training": "Training and workload",
+ "gs.thema.austausch": "Contact between clubs",
+ "gs.thema.hintergrund": "Off-the-record chat",
+ "gs.thema.vertrag": "Contract",
+ "gs.ton.warm": "Warm",
+ "gs.ton.sachlich": "Matter-of-fact",
+ "gs.ton.lob": "Praising",
+ "gs.ton.bestimmt": "Firm",
+ "gs.ton.hart": "Harsh",
+ "gs.ton.ausweichend": "Evasive",
+ "gs.partner.spieler": "Players",
+ "gs.partner.berater": "Agents",
+ "gs.partner.verein": "Clubs",
+ "gs.partner.trainer": "Coaching staff",
+ "gs.partner.presse": "Press",
+ "gs.beziehung.freund": "Close relationship",
+ "gs.beziehung.gut": "Good relationship",
+ "gs.beziehung.neutral": "Professional relationship",
+ "gs.beziehung.kuehl": "Cool relationship",
+ "gs.beziehung.feind": "Broken down",
+ "gs.status.offen": "Ongoing",
+ "gs.status.gegenangebot": "Counter-offer",
+ "gs.status.einig": "Agreed",
+ "gs.status.abgeschlossen": "Finished",
+ "gs.status.abgebrochen": "Broken off",
+ "gs.status.abgelehnt": "Rejected",
+ "gs.status.verfallen": "Expired",
+ "gs.tr.rolle.ersatz": "Backup",
+ "gs.tr.rolle.perspektive": "Prospect",
+ "gs.tr.rolle.rotation": "Rotation player",
+ "gs.tr.rolle.stammspieler": "Regular starter",
+ "gs.tr.rolle.fuehrungsspieler": "Leader",
+ "gs.tr.rolle.star": "Star player",
+ "gs.tr.rolle.kapitaen": "Captain",
+ "gs.feld.rolle": "Role at buyer",
+ "gs.feld.gehalt": "Wage",
+ "gs.feld.laufzeit": "Length",
+ "gs.feld.praemie_tor": "Goal bonus",
+ "gs.feld.praemie_einsatz": "Appearance bonus",
+ "gs.feld.praemie_titel": "Title bonus",
+ "gs.feld.ausstieg": "Release clause",
+ "gs.feld.mindestabloese": "Minimum transfer fee",
+ "gs.feld.weiterverkauf": "Sell-on share",
+ "gs.feld.spielzeit": "Playing-time promise",
+ "gs.feld.wechselbonus": "Signing-on bonus",
+ "gs.feld.abloese": "Transfer fee",
+ "gs.feld.raten": "Payment in instalments",
+ "gs.feld.tausch": "Player swap",
+ "gs.feld.rueckkauf": "Buy-back option",
+ "gs.feld.leihe": "Loan",
+ "gs.feld.leihgebuehr": "Loan fee",
+ "gs.feld.kauf": "Purchase clause",
+ "gs.feld.kaufpreis": "Purchase price",
+ "gs.spielzeit.rotation": "Rotation appearances",
+ "gs.spielzeit.stammspieler": "Regular starter",
+ "gs.kauf.keine": "None",
+ "gs.kauf.option": "Option to buy",
+ "gs.kauf.pflicht": "Obligation to buy",
+ "gs.richtung.kauf": "Purchase",
+ "gs.richtung.verkauf": "Sale",
+ "gs.richtung.vertrag": "Contract",
+ "gs.versprechen.spielzeit": "More appearances",
+ "gs.versprechen.rolle": "More responsibility",
+ "gs.versprechen.vertrag": "Contract extension",
+ "gs.versprechen.gehalt": "Pay rise",
+ "gs.versprechen.freigabe": "Permission to leave",
+ "gs.versprechen.status.offen": "Pending",
+ "gs.versprechen.status.gehalten": "Kept",
+ "gs.versprechen.status.gebrochen": "Broken",
+ "gs.versprechen.status.verfallen": "Void",
+ "gs.anlass.auslaufend": "His contract is running out soon.",
+ "gs.anlass.spielzeit": "He wants more game time.",
+ "gs.anlass.rolle": "He is looking for his role in the team.",
+ "gs.anlass.form": "He is going through a poor patch.",
+ "gs.anlass.gehalt": "He thinks his wage is too low.",
+ "gs.anlass.vertrag": "His contract situation is on his mind.",
+ "gs.anlass.zusage_gebrochen": "A promise made to him was not kept.",
+ "gs.anlass.isoliert": "He seems to be on his own in the dressing room.",
+ "gs.anlass.feinde": "He has tensions in the squad.",
+ "gs.anlass.ueberlastet": "He looks overplayed.",
+ "gs.anlass.verletzt": "He is struggling with his injury.",
+ "gs.frage.spielzeit.0": [
+  "%1 says: \"I feel I'm not playing enough. How do you see my role?\"",
+  "%1 knocks on the door: \"Boss, have you got a minute? It's about my game time.\"",
+  "%1 approaches you after training: \"I want to know where I stand.\""
+ ],
+ "gs.frage.rolle.0": [
+  "%1 wants to know what his job is in the team: \"I want to take responsibility if you give me the chance.\"",
+  "%1 asks: \"Where do you see me in this team?\""
+ ],
+ "gs.frage.form.0": [
+  "%1 looks down: \"It's just not going well. I don't know why myself.\"",
+  "%1 says quietly: \"I can feel that my confidence is gone.\""
+ ],
+ "gs.frage.lob.0": [
+  "%1 comes to the talk keen to hear what it's about. He has no idea.",
+  "%1 sits down and waits to hear what you have to say."
+ ],
+ "gs.frage.kritik.0": [
+  "%1 sits across from you, sensing it will be uncomfortable.",
+  "%1 folds his arms: \"You wanted to see me?\""
+ ],
+ "gs.frage.zukunft.0": [
+  "%1 asks straight out: \"How do you see my future here at the club?\"",
+  "%1 says: \"I'd like clarity on where I'm heading.\""
+ ],
+ "gs.frage.marktlage.0": [
+  "%1 leans forward: \"There's movement in the market. Want to hear what I know?\"",
+  "%1 says: \"I've been asking around. There are interested parties we should talk about.\""
+ ],
+ "gs.frage.einschaetzung.0": [
+  "%1 flicks through his notes: \"I've been watching the squad closely this week.\"",
+  "%1 says: \"If you like, I'll give you my honest assessment.\""
+ ],
+ "gs.frage.training.0": [
+  "%1 says: \"The workload this week is high. How do we want to carry on?\"",
+  "%1 asks: \"How hard should I make the sessions over the next few days?\""
+ ],
+ "gs.frage.austausch.0": [
+  "%1 greets you politely but warily on the phone.",
+  "%1 has made time: \"Good of you to get in touch. What's this about?\""
+ ],
+ "gs.frage.hintergrund.0": [
+  "%1 says: \"This stays between us, but I'd like to understand your view.\"",
+  "%1 doesn't reach for a notebook: \"Just for context, none of this will be in tomorrow's paper.\""
+ ],
+ "gs.opt.spielzeit.verstaendnis": "I understand that isn't enough for you.",
+ "gs.opt.spielzeit.leistung": "In training and in matches, performance is all that counts.",
+ "gs.opt.spielzeit.zusage": "You'll get your game time, I promise you that.",
+ "gs.opt.spielzeit.kampf": "Then show me you deserve the place.",
+ "gs.opt.spielzeit.abwimmeln": "That's my decision alone, and you'll have to live with it.",
+ "gs.opt.rolle.wertschaetzung": "You matter to us, you know that.",
+ "gs.opt.rolle.verantwortung": "I think you can handle more responsibility. Take it.",
+ "gs.opt.rolle.geduld": "Roles grow. Your time will come.",
+ "gs.opt.rolle.ausweichen": "We'll see how it develops.",
+ "gs.opt.rolle.dichtmachen": "Your role is what I give you.",
+ "gs.opt.form.aufbauen": "You're better than you're playing right now. We're behind you.",
+ "gs.opt.form.analyse": "Let's look at the last few matches and assess them calmly.",
+ "gs.opt.form.anspornen": "You have everything it takes to get out of this. I expect you to.",
+ "gs.opt.form.abkanzeln": "I can't use you like this.",
+ "gs.opt.form.abwarten": "It will pass. Let's wait and see.",
+ "gs.opt.lob.ehrlich": "That was great. I wanted you to hear it from me.",
+ "gs.opt.lob.herzlich": "I'm proud of you and of what you're making of yourself.",
+ "gs.opt.lob.knapp": "Good work, keep it up.",
+ "gs.opt.lob.mit_forderung": "Good, but I expect even more.",
+ "gs.opt.kritik.sachlich": "I've noticed things haven't been right lately. Let's talk about it.",
+ "gs.opt.kritik.klar": "This can't go on. I expect a reaction.",
+ "gs.opt.kritik.mit_ruecksicht": "I can see you're trying. One point still has to land.",
+ "gs.opt.kritik.laut": "That was unacceptable!",
+ "gs.opt.kritik.drumherum": "We need to have a word about a few things …",
+ "gs.opt.zukunft.bleiben": "I'm planning for the long term with you. That's a promise.",
+ "gs.opt.zukunft.gehalt": "We need to talk about your wage, I see room for movement.",
+ "gs.opt.zukunft.freigabe": "If a good club comes in, I won't stand in your way.",
+ "gs.opt.zukunft.offen": "I'm not going to commit myself on that.",
+ "gs.opt.zukunft.druck": "Anyone who wants to stay here has to deliver.",
+ "gs.opt.marktlage.offen_reden": "Tell me openly what you know.",
+ "gs.opt.marktlage.freundlich": "Thanks for going to the trouble.",
+ "gs.opt.marktlage.druecken": "I want names and numbers, not hints.",
+ "gs.opt.marktlage.abblocken": "That doesn't interest me right now.",
+ "gs.opt.einschaetzung.zuhoeren": "I'm listening. What's on your mind?",
+ "gs.opt.einschaetzung.nachhaken": "What makes you say that?",
+ "gs.opt.einschaetzung.vorgabe": "I expect concrete suggestions from you.",
+ "gs.opt.einschaetzung.abtun": "I see it differently.",
+ "gs.opt.training.vertrauen": "You know the squad. Go with your gut.",
+ "gs.opt.training.sachlich": "Show me the workload figures and we'll decide.",
+ "gs.opt.training.haerte": "We're raising the intensity, no letting up.",
+ "gs.opt.training.durchgreifen": "It will be done the way I ordered it.",
+ "gs.opt.austausch.herzlich": "We have a good working relationship and I'd like to keep it that way.",
+ "gs.opt.austausch.geschaeftlich": "I'll keep you up to date on our plans.",
+ "gs.opt.austausch.selbstbewusst": "We're a club with ambition, and you know it.",
+ "gs.opt.austausch.ueberheblich": "We're well ahead of you on the pitch.",
+ "gs.opt.hintergrund.offen": "I'm happy to explain what's on our minds at the moment.",
+ "gs.opt.hintergrund.freundlich": "Good that we can talk without a microphone.",
+ "gs.opt.hintergrund.angriff": "Your recent reports weren't fair.",
+ "gs.opt.hintergrund.kein_wort": "I've got nothing to say on that.",
+ "gs.opt.hintergrund.beleidigt": "I won't put up with that tone.",
+ "gs.mimik.spieler.sehr_gut": [
+  "%1 beams and nods firmly.",
+  "%1 breathes out, his face visibly brightening."
+ ],
+ "gs.mimik.spieler.gut": [
+  "%1 nods slowly and relaxes his shoulders.",
+  "%1 smiles slightly."
+ ],
+ "gs.mimik.spieler.neutral": [
+  "%1 shrugs almost imperceptibly.",
+  "%1 listens without showing any reaction."
+ ],
+ "gs.mimik.spieler.schlecht": [
+  "%1 presses his lips together and looks away.",
+  "%1 folds his arms and is silent for a moment."
+ ],
+ "gs.mimik.spieler.sehr_schlecht": [
+  "%1 stares at you, his jaw working. That hit home.",
+  "%1 shakes his head and leans back: \"Well, that's that, then.\""
+ ],
+ "gs.mimik.berater.sehr_gut": [
+  "%1 leans back contentedly and smiles.",
+  "%1 jots something down and nods approvingly."
+ ],
+ "gs.mimik.berater.gut": [
+  "%1 nods: \"We can work with that.\"",
+  "%1 seems to agree."
+ ],
+ "gs.mimik.berater.neutral": [
+  "%1 drums his fingers on the table.",
+  "%1 gives nothing away."
+ ],
+ "gs.mimik.berater.schlecht": [
+  "%1 raises an eyebrow and glances at the clock.",
+  "%1 sighs audibly."
+ ],
+ "gs.mimik.berater.sehr_schlecht": [
+  "%1 snaps the folder shut: \"We're not getting anywhere like this.\"",
+  "%1 shakes his head, his expression icy."
+ ],
+ "gs.mimik.verein.sehr_gut": [
+  "%1 sounds really warm on the phone.",
+  "%1 laughs briefly: \"That's how you do business.\""
+ ],
+ "gs.mimik.verein.gut": [
+  "%1 sounds open-minded.",
+  "%1 replies in a friendly and open manner."
+ ],
+ "gs.mimik.verein.neutral": [
+  "%1 stays polite and non-committal.",
+  "%1 notes down your words without committing."
+ ],
+ "gs.mimik.verein.schlecht": [
+  "%1 becomes noticeably cooler.",
+  "%1 replies curtly and formally."
+ ],
+ "gs.mimik.verein.sehr_schlecht": [
+  "%1 ends the call strikingly quickly.",
+  "%1 lets you feel that you have burned your credit."
+ ],
+ "gs.mimik.trainer.sehr_gut": [
+  "%1 grins and looks clearly motivated.",
+  "%1 nods enthusiastically and takes notes."
+ ],
+ "gs.mimik.trainer.gut": [
+  "%1 nods in agreement.",
+  "%1 seems pleased with your answer."
+ ],
+ "gs.mimik.trainer.neutral": [
+  "%1 thinks briefly and notes something down.",
+  "%1 takes note."
+ ],
+ "gs.mimik.trainer.schlecht": [
+  "%1 frowns.",
+  "%1 answers more curtly than usual."
+ ],
+ "gs.mimik.trainer.sehr_schlecht": [
+  "%1 looks hurt and withdraws.",
+  "%1 shakes his head almost imperceptibly."
+ ],
+ "gs.mimik.presse.sehr_gut": [
+  "%1 smiles appreciatively: \"That was honest, thanks.\"",
+  "%1 puts the pen away and nods warmly."
+ ],
+ "gs.mimik.presse.gut": [
+  "%1 seems satisfied with the answer.",
+  "%1 notes down a sentence."
+ ],
+ "gs.mimik.presse.neutral": [
+  "%1 looks at you expectantly.",
+  "%1 leaves it open what he will make of it."
+ ],
+ "gs.mimik.presse.schlecht": [
+  "%1 raises his eyebrows and writes something down.",
+  "%1 seems sceptical."
+ ],
+ "gs.mimik.presse.sehr_schlecht": [
+  "%1 snaps the notebook shut: \"I won't forget that.\"",
+  "%1 says goodbye strikingly briefly."
+ ],
+ "gs.folge.spieler.sehr_gut": [
+  "He asks eagerly: \"And what does that mean for me, specifically?\"",
+  "He says: \"Then let's tackle it together.\""
+ ],
+ "gs.folge.spieler.gut": [
+  "He asks: \"Can I rely on that?\"",
+  "He says: \"All right, I'm listening. What do you expect of me?\""
+ ],
+ "gs.folge.spieler.neutral": [
+  "He asks: \"And then?\"",
+  "He says: \"I'm curious what comes next.\""
+ ],
+ "gs.folge.spieler.schlecht": [
+  "He presses: \"That's not enough for me.\"",
+  "He asks sharply: \"Is that all there is?\""
+ ],
+ "gs.folge.spieler.sehr_schlecht": [
+  "He says coldly: \"Then we're done here, aren't we?\"",
+  "He asks: \"Do you even intend to listen to me?\""
+ ],
+ "gs.folge.berater.sehr_gut": [
+  "He asks: \"Shall we talk numbers straight away?\""
+ ],
+ "gs.folge.berater.gut": [
+  "He says: \"Then let's get specific.\""
+ ],
+ "gs.folge.berater.neutral": [
+  "He asks: \"What did you have in mind?\""
+ ],
+ "gs.folge.berater.schlecht": [
+  "He says: \"Empty phrases won't get me far.\""
+ ],
+ "gs.folge.berater.sehr_schlecht": [
+  "He says: \"I'm wondering whether this conversation is worth it.\""
+ ],
+ "gs.folge.verein.sehr_gut": [
+  "He asks: \"Is there anything we can do to meet you halfway?\""
+ ],
+ "gs.folge.verein.gut": [
+  "He says: \"We'll stay in touch.\""
+ ],
+ "gs.folge.verein.neutral": [
+  "He asks: \"Anything else?\""
+ ],
+ "gs.folge.verein.schlecht": [
+  "He says: \"We have our own view on this.\""
+ ],
+ "gs.folge.verein.sehr_schlecht": [
+  "He says: \"I think we should end this.\""
+ ],
+ "gs.folge.trainer.sehr_gut": [
+  "He asks: \"May I suggest something else?\""
+ ],
+ "gs.folge.trainer.gut": [
+  "He says: \"I'll take care of it.\""
+ ],
+ "gs.folge.trainer.neutral": [
+  "He asks: \"How should we handle this?\""
+ ],
+ "gs.folge.trainer.schlecht": [
+  "He says: \"I would have liked more backing there.\""
+ ],
+ "gs.folge.trainer.sehr_schlecht": [
+  "He says: \"Then you'll have to decide without me.\""
+ ],
+ "gs.folge.presse.sehr_gut": [
+  "He asks: \"May I quote you directly on that later?\""
+ ],
+ "gs.folge.presse.gut": [
+  "He says: \"That helps me put it in context.\""
+ ],
+ "gs.folge.presse.neutral": [
+  "He asks: \"Anything else?\""
+ ],
+ "gs.folge.presse.schlecht": [
+  "He says: \"That sounds like excuses to me.\""
+ ],
+ "gs.folge.presse.sehr_schlecht": [
+  "He says: \"This won't go without consequences.\""
+ ],
+ "gs.abschluss.sehr_gut": [
+  "The talk ends on the best of terms with %1.",
+  "The talk with %1 could hardly have gone better."
+ ],
+ "gs.abschluss.gut": [
+  "The talk with %1 was constructive.",
+  "%1 leaves the talk with a good feeling."
+ ],
+ "gs.abschluss.neutral": [
+  "The talk with %1 has little effect.",
+  "Ended on a matter-of-fact note: little changes between you and %1."
+ ],
+ "gs.abschluss.schlecht": [
+  "%1 leaves the talk in a bad mood.",
+  "The talk has strained the relationship with %1."
+ ],
+ "gs.abschluss.sehr_schlecht": [
+  "The talk with %1 went completely wrong.",
+  "%1 leaves the room without a word."
+ ],
+ "gs.vertrag.eroeffnung": [
+  "%1 already has the papers on the table: \"Then let's talk about the key terms.\"",
+  "%1 waits for your first proposal and gives nothing away."
+ ],
+ "gs.vertrag.reaktion.annahme": "The agent nods: the key terms are settled.",
+ "gs.vertrag.reaktion.gegen": "The agent puts a counter-offer on the table.",
+ "gs.vertrag.reaktion.ablehnung": "The agent rejects the offer in this form.",
+ "gs.vertrag.reaktion.beleidigt": "The agent finds the offer insulting.",
+ "gs.vertrag.aenderung.sehr_gut": [
+  "%1 seems taken with the change.",
+  "%1 nods: \"That's heading in the right direction.\""
+ ],
+ "gs.vertrag.aenderung.gut": [
+  "%1 notes the change down and seems more content.",
+  "%1 gives a brief nod."
+ ],
+ "gs.vertrag.aenderung.neutral": [
+  "%1 gives nothing away.",
+  "%1 shrugs: \"That doesn't change much.\""
+ ],
+ "gs.vertrag.aenderung.schlecht": [
+  "%1 furrows his brow.",
+  "%1 says drily: \"This is going to get harder.\""
+ ],
+ "gs.vertrag.aenderung.sehr_schlecht": [
+  "%1 leans back: \"That was a step in the wrong direction.\"",
+  "%1 shakes his head."
+ ],
+ "gs.vertrag.sachlich.annahme": [
+  "%1: \"The terms are fine for %2. We have an agreement.\"",
+  "%1 offers his hand: \"Then we'll do it that way.\""
+ ],
+ "gs.vertrag.sachlich.gegen": [
+  "%1: \"Not quite. But we can agree on paper with these changes.\"",
+  "%1 slides a note across: \"This would be our proposal.\""
+ ],
+ "gs.vertrag.sachlich.ablehnung": [
+  "%1: \"That's not acceptable for %2 as it stands.\"",
+  "%1: \"We're still too far apart.\""
+ ],
+ "gs.vertrag.sachlich.beleidigt": [
+  "%1: \"I get the feeling you're not taking %2 seriously.\"",
+  "%1 snaps the folder shut: \"There's no point talking further with numbers like that.\""
+ ],
+ "gs.vertrag.fordernd.annahme": [
+  "%1: \"There you go. Not so hard. That works for %2.\"",
+  "%1 grins: \"So there was some movement after all. Deal.\""
+ ],
+ "gs.vertrag.fordernd.gegen": [
+  "%1: \"You're close, but it's still not enough for us. More has to come.\"",
+  "%1 taps the paper: \"That's the minimum for %2.\""
+ ],
+ "gs.vertrag.fordernd.ablehnung": [
+  "%1: \"Not like this. %2 has offers.\"",
+  "%1: \"With this offer, you needn't even start with %2.\""
+ ],
+ "gs.vertrag.fordernd.beleidigt": [
+  "%1 gets up: \"This is a joke. Call me when you're serious.\"",
+  "%1: \"I'm not wasting my time on this. It's disrespectful to %2.\""
+ ],
+ "gs.vertrag.freundlich.annahme": [
+  "%1 beams: \"Wonderful, that's a great deal for %2.\"",
+  "%1: \"I'm delighted we managed to sort it out like this.\""
+ ],
+ "gs.vertrag.freundlich.gegen": [
+  "%1: \"I think we're not far apart. How about this?\"",
+  "%1 smiles: \"Just a little further and we're there.\""
+ ],
+ "gs.vertrag.freundlich.ablehnung": [
+  "%1: \"I'd hoped for more, this isn't enough for %2.\"",
+  "%1 regrets: \"I'm afraid we have to turn that down.\""
+ ],
+ "gs.vertrag.freundlich.beleidigt": [
+  "%1 looks visibly disappointed: \"I didn't expect that from you.\"",
+  "%1: \"A pity. For %2 that isn't an offer that can be taken seriously.\""
+ ],
+ "gs.vertrag.grund.moral": "The player's morale is too low to allow a deal.",
+ "gs.vertrag.grund.misstrauen": "Earlier promises were not kept, so trust is missing.",
+ "gs.vertrag.grund.beziehung": "The relationship with the player is strained.",
+ "gs.vertrag.grund.gehalt": "The wage is well below his expectations.",
+ "gs.vertrag.grund.laufzeit": "The contract length does not match his ideas.",
+ "gs.transfer.eroeffnung": [
+  "%1 awaits your proposal: \"Give us the key terms.\"",
+  "%1 listens to your framework and waits."
+ ],
+ "gs.transfer.reaktion.annahme": "The club agrees.",
+ "gs.transfer.reaktion.gegen": "The club makes a counter-proposal.",
+ "gs.transfer.reaktion.ablehnung": "The club rejects the offer.",
+ "gs.transfer.reaktion.beleidigt": "The club flatly rejects the offer.",
+ "gs.transfer.aenderung.sehr_gut": [
+  "%1 seems pleased with this change.",
+  "%1: \"That goes a good way towards meeting us.\""
+ ],
+ "gs.transfer.aenderung.gut": [
+  "%1 takes note of the change approvingly.",
+  "%1 nods."
+ ],
+ "gs.transfer.aenderung.neutral": [
+  "%1 notes the change without comment.",
+  "%1: \"That doesn't move us.\""
+ ],
+ "gs.transfer.aenderung.schlecht": [
+  "%1 pulls a face: \"That weakens your offer.\"",
+  "%1 sounds more reserved."
+ ],
+ "gs.transfer.aenderung.sehr_schlecht": [
+  "%1: \"That takes you well away from what we have in mind.\"",
+  "%1 gives a short laugh."
+ ],
+ "gs.transfer.verein.annahme": [
+  "%1: \"Agreed, the deal is done. We'll prepare the paperwork for %2.\"",
+  "%1 agrees: \"We have a deal.\""
+ ],
+ "gs.transfer.verein.gegen": [
+  "%1: \"We're not far apart, we can live with these changes.\"",
+  "%1: \"Almost. Here is our counter-proposal for %2.\""
+ ],
+ "gs.transfer.verein.ablehnung": [
+  "%1: \"Not like this. We expect more for %2.\"",
+  "%1: \"The offer doesn't do the player justice.\""
+ ],
+ "gs.transfer.verein.beleidigt": [
+  "%1 rejects the offer: \"Seriously?\"",
+  "%1: \"If you mean that seriously, we're ending the talks.\""
+ ],
+ "gs.vorfall.verspaetung.betreff": "%1 was late",
+ "gs.vorfall.verspaetung.text": [
+  "%1 did not turn up on time for training today and did not call in.",
+  "The support staff report: %1 arrived late and without explanation."
+ ],
+ "gs.vorfall.trainingsfehler.betreff": "%1 slacked off",
+ "gs.vorfall.trainingsfehler.text": [
+  "%1 visibly slacked off in training and went through the drills half-heartedly.",
+  "The coaching staff criticise %1's attitude in the session."
+ ],
+ "gs.vorfall.oeffentliche_kritik.betreff": "%1 speaks out publicly",
+ "gs.vorfall.oeffentliche_kritik.text": [
+  "%1 criticised the line-up in comments to the press.",
+  "An interview by %1 is causing unrest at the club."
+ ],
+ "gs.vorfall.streit.betreff": "%1 clashes with a team-mate",
+ "gs.vorfall.streit.text": [
+  "%1 got into an argument with a team-mate in training.",
+  "There was a heated exchange in the dressing room involving %1."
+ ],
+ "gs.strafe.nachsicht.knopf": "Let it go",
+ "gs.strafe.nachsicht.name": "Leniency",
+ "gs.strafe.nachsicht.ok": "You decide not to punish him.",
+ "gs.strafe.ermahnung.knopf": "Warning",
+ "gs.strafe.ermahnung.name": "Warning",
+ "gs.strafe.ermahnung.ok": "The warning has been issued.",
+ "gs.strafe.geldstrafe.knopf": "Fine %1",
+ "gs.strafe.geldstrafe.name": "Fine",
+ "gs.strafe.geldstrafe.ok": "The fine of %1 has been imposed.",
+ "gs.strafe.bank.knopf": "Drop to the bench",
+ "gs.strafe.bank.name": "Benching",
+ "gs.strafe.bank.ok": "The player starts on the bench in the next match.",
+ "gs.strafe.gleich": "The squad sees this as fair.",
+ "gs.strafe.ungleich": "The dressing room notices that similar cases were handled differently.",
+ "gs.strafe.gleich_pille": "Treated equally",
+ "gs.strafe.ungleich_pille": "Treated unequally",
+ "gs.ui.stimmung": "Mood",
+ "gs.ui.moral": "Morale",
+ "gs.ui.vertrauen": "Trust",
+ "gs.ui.beziehung": "Relationship",
+ "gs.ui.beenden": "End talk",
+ "gs.ui.beginnen": "Hold talk",
+ "gs.ui.vertrag_beginnen": "Negotiate contract",
+ "gs.ui.angebot_abgeben": "Make offer",
+ "gs.ui.gegen_annehmen": "Accept counter-offer",
+ "gs.ui.gegen_ablehnen": "Reject counter-offer",
+ "gs.ui.kauf_beginnen": "Negotiate purchase",
+ "gs.ui.verkauf_beginnen": "Negotiate sale",
+ "gs.ui.wechseln": "Switch",
+ "gs.ui.tausch_rein": "Add to swap",
+ "gs.ui.tausch_raus": "Remove from swap",
+ "gs.ui.einloesen": "Fulfil promise",
+ "gs.ui.brechen": "Withdraw promise",
+ "gs.ui.dringend": "Urgent",
+ "gs.ui.anlass": "Reason for talk",
+ "gs.ui.ja": "Yes",
+ "gs.ui.nein": "No",
+ "gs.ui.keine": "None",
+ "gs.ui.je_jahr": "%1 per year",
+ "gs.ui.frist": "Deadline %1",
+ "gs.ui.zugesagt_am": "Promised on %1",
+ "gs.ui.summe": "Total: %1",
+ "gs.ui.marktwert": "Market value %1",
+ "gs.ui.restlaufzeit": {
+  "eins": "%1 month remaining",
+  "viele": "%1 months remaining"
+ },
+ "gs.ui.jahre": {
+  "eins": "%1 year",
+  "viele": "%1 years"
+ },
+ "gs.ui.raten": {
+  "eins": "One-off payment",
+  "viele": "%1 instalments"
+ },
+ "gs.ui.geduld": {
+  "eins": "One more answer",
+  "viele": "%1 more answers"
+ },
+ "gs.ui.runden": {
+  "eins": "Last attempt",
+  "viele": "%1 rounds left"
+ },
+ "gs.ui.berater_fuer": "Agent of %1 · %2",
+ "gs.ui.gegen_zeile": "%1: now %3 instead of %2",
+ "gs.ui.seite_verein": "%1 values the offer at %2, expecting %3.",
+ "gs.ui.seite_uns": "For us: cost of %1, player market value %2.",
+ "gs.ui.vertrag_zeile": "%1 per year, %2 years",
+ "gs.ui.transfer_zeile": "%1 in %2 instalment(s)",
+ "gs.ui.zusage_notiert": "Promise noted: %1, until %2.",
+ "gs.ui.partner_bricht_ab": "%1 breaks off the talks.",
+ "gs.ui.folge_vertrag": "Contract talks with the player can begin.",
+ "gs.ui.kachel.offen": "Ongoing talks",
+ "gs.ui.kachel.offen_unter": "Talks and negotiations",
+ "gs.ui.kachel.zusagen": "Open promises",
+ "gs.ui.kachel.zusagen_unter": "to players and partners",
+ "gs.ui.kachel.vertraege": "Agreed contracts",
+ "gs.ui.kachel.vertraege_unter": "with clauses",
+ "gs.ui.kachel.laufend": "Ongoing negotiations",
+ "gs.ui.kachel.laufend_unter": "until the deadline",
+ "gs.ui.kachel.budget": "Transfer budget",
+ "gs.ui.kachel.budget_unter": "for fees and first instalments",
+ "gs.ui.kachel.vorfaelle": "Open incidents",
+ "gs.ui.kachel.vorfaelle_unter": "awaiting your decision",
+ "gs.ui.liste.laufend": "Ongoing talks",
+ "gs.ui.liste.anlaesse": "Reasons",
+ "gs.ui.liste.verhandlung": "Negotiation",
+ "gs.ui.liste.beginnen": "Start negotiation",
+ "gs.ui.liste.abschluesse": "Agreed",
+ "gs.ui.liste.vorfaelle": "Incidents",
+ "gs.ui.liste.strafen": "Actions so far",
+ "gs.ui.liste.zusagen": "Promises",
+ "gs.ui.liste.beziehungen": "Relationship with contacts",
+ "gs.ui.ok.beendet": "The talk has ended.",
+ "gs.ui.ok.eingeloest": "The promise counts as fulfilled.",
+ "gs.ui.ok.gebrochen": "You withdraw the promise. That won't be forgotten.",
+ "gs.ui.ok.gegen_angenommen": "The counter-offer has been accepted.",
+ "gs.ui.ok.gegen_abgelehnt": "You reject the counter-offer and keep negotiating.",
+ "gs.ui.ok.transfer_begonnen": "The negotiation is open.",
+ "gs.ui.ok.vertrag_begonnen": "The contract negotiation is open.",
+ "gs.ui.fehler.eingabe": "That didn't work. Please try again.",
+ "gs.ui.fehler.verhandlungen_voll": "You are already running as many negotiations as the setting allows.",
+ "gs.ui.fehler.zu_frueh": "This topic was only discussed recently.",
+ "gs.ui.fehler.fremder_spieler": "You do not talk to players of other clubs as their coach: there it is only about a possible offer.",
+ "gs.ui.fehler.eigener_spieler": "With your own players you hold squad talks, the question of a move to us does not arise there.",
+ "gs.ui.fehler.nicht_offen": "This talk is no longer ongoing.",
+ "gs.ui.fehler.abgeschlossen": "This talk is concluded; nothing can be changed any more.",
+ "gs.ui.fehler.budget": "The budget isn't enough for that.",
+ "gs.ui.fehler.kein_verein": "There is no club that fits.",
+ "gs.ui.fehler.kein_gegenangebot": "There is no counter-offer.",
+ "gs.ui.fehler.nicht_erfuellt": "The promise has not been fulfilled yet.",
+ "gs.ui.fehler.": "That didn't work.",
+ "gs.leer.gespraeche": "No talk is under way. Pick someone under \"Contacts\".",
+ "gs.leer.anlaesse": "There is no particular reason for a talk at the moment.",
+ "gs.leer.spieler": "No players in the squad.",
+ "gs.leer.berater": "No agents known.",
+ "gs.leer.vereine": "No clubs known.",
+ "gs.leer.stab": "No coaching staff on file.",
+ "gs.leer.presse": "No journalists are known yet.",
+ "gs.leer.vertraege": "No contract negotiation possible.",
+ "gs.leer.abschluesse": "Nothing agreed yet.",
+ "gs.leer.transfers": "No transfer negotiation possible. Add players to your shortlist.",
+ "gs.leer.vorfaelle": "No incidents. The squad is behaving impeccably.",
+ "gs.leer.strafen": "No actions yet.",
+ "gs.leer.zusagen": "There are no promises.",
+ "gs.leer.beziehungen": "No talks held yet.",
+ "gs.anlass.formtief": "He is in a slump.",
+ "gs.anlass.verletzungsangst": "He is afraid of the next injury.",
+ "gs.anlass.kabinenstreit": "There is friction in the dressing room: he is in a row.",
+ "gs.anlass.familie": "He misses home.",
+ "gs.anlass.familie_sensibel": "He is not doing well personally.",
+ "gs.anlass.kapitaensbinde": "He wants the captain's armband.",
+ "gs.anlass.wechselgedanken": "He is thinking about a move.",
+ "gs.anlass.kritik_nach_ausrutscher": "A remark of his has caused a stir.",
+ "gs.anlass.training": "The coaching staff is worried about the workload.",
+ "gs.anlass.budget": "The board wants to talk about money.",
+ "gs.anlass.ziele": "The board asks about the season's goals.",
+ "gs.anlass.vertrauen_praesidium": "The board has doubts about you.",
+ "gs.anlass.kurve": "The terraces are unhappy.",
+ "gs.anlass.presse_aussage": "The press wants a statement from you.",
+ "gs.anlass.lob": "He is playing well and looks content.",
+ "gs.thema.verletzungsangst": "Fear of injury",
+ "gs.thema.kapitaen": "Captain's armband",
+ "gs.charakter.hitzkopf.schlecht": [
+  "“I won't put up with this!” he roars.",
+  "He slams his fist into the locker: “Not like this, gaffer!”"
+ ],
+ "gs.charakter.hitzkopf.gut": [
+  "He takes a deep breath, the anger has gone for now.",
+  "He grins crookedly: “Okay, that wasn't so bad.”"
+ ],
+ "gs.charakter.hitzkopf.neutral": [
+  "He glares at you but says nothing more."
+ ],
+ "gs.charakter.launisch.schlecht": [
+  "He waves it off: “I haven't got the nerve for this today.”",
+  "His mood visibly turns, he looks away."
+ ],
+ "gs.charakter.launisch.gut": [
+  "Suddenly his face brightens: “You know what? You're right.”",
+  "He laughs: “I'm in a good mood today, I'll take that.”"
+ ],
+ "gs.charakter.launisch.neutral": [
+  "He shrugs, as so often impossible to tell what he thinks."
+ ],
+ "gs.charakter.sensibel.schlecht": [
+  "He looks at the floor: “That hits me more than you think.”",
+  "His voice trembles slightly: “I understood that differently.”"
+ ],
+ "gs.charakter.sensibel.gut": [
+  "He smiles with relief: “Thanks for putting it that way.”",
+  "You can see a weight fall from his heart."
+ ],
+ "gs.charakter.sensibel.neutral": [
+  "He nods quietly and takes it home with him."
+ ],
+ "gs.charakter.lautsprecher.schlecht": [
+  "He says it loud enough for the corridor: “I won't take that lying down!”",
+  "“I'll tell the whole dressing room”, he threatens."
+ ],
+ "gs.charakter.lautsprecher.gut": [
+  "“I'll tell everyone, that's the kind of manager you want!” he shouts."
+ ],
+ "gs.charakter.lautsprecher.neutral": [
+  "He keeps talking for a while, but nobody listens any more."
+ ],
+ "gs.charakter.wechselfreudig.schlecht": [
+  "He shrugs: “There are plenty of clubs who want me.”",
+  "He mutters: “My agent has new enquiries on the table anyway.”"
+ ],
+ "gs.charakter.wechselfreudig.gut": [
+  "He nods: “I could imagine staying here. For now.”"
+ ],
+ "gs.charakter.wechselfreudig.neutral": [
+  "He leaves it open what he makes of it: “I'm keeping my options open.”"
+ ],
+ "gs.charakter.loyal.schlecht": [
+  "He swallows: “I'm loyal to the club, but that hurts.”",
+  "“I'll stay, gaffer, even if I'd seen it differently.”"
+ ],
+ "gs.charakter.loyal.gut": [
+  "“You can count on me”, he says simply.",
+  "He offers his hand: “Thanks for being honest.”"
+ ],
+ "gs.charakter.loyal.neutral": [
+  "He nods: “We'll sort this out.”"
+ ],
+ "gs.charakter.teamplayer.schlecht": [
+  "He sighs: “As long as the team doesn't suffer for it.”"
+ ],
+ "gs.charakter.teamplayer.gut": [
+  "“That helps us all”, he says and pats your shoulder."
+ ],
+ "gs.charakter.teamplayer.neutral": [
+  "He thinks out loud about the team: “What matters is what helps the side.”"
+ ],
+ "gs.charakter.vorbild_profi.schlecht": [
+  "He stays factual: “I accept it and keep working.”"
+ ],
+ "gs.charakter.vorbild_profi.gut": [
+  "He nods professionally: “Understood, I'll deliver.”"
+ ],
+ "gs.charakter.vorbild_profi.neutral": [
+  "He takes notes and says nothing more."
+ ],
+ "gs.charakter.gelassen.schlecht": [
+  "He stays calm: “I see it differently, but fine.”"
+ ],
+ "gs.charakter.gelassen.gut": [
+  "He smiles, relaxed: “Fine.”"
+ ],
+ "gs.charakter.gelassen.neutral": [
+  "He shrugs, unimpressed."
+ ],
+ "gs.charakter.provokateur.schlecht": [
+  "He grins challengingly: “And if not?”",
+  "“You won't impress me with that”, he taunts."
+ ],
+ "gs.charakter.provokateur.gut": [
+  "He grins: “Look at that, you can be nice too.”"
+ ],
+ "gs.charakter.provokateur.neutral": [
+  "He drops a sharp remark and leaves."
+ ],
+ "gs.folge.label.vollzug": "Completion",
+ "gs.folge.vollzug.spaeter": "Everything is agreed with %1; the deal is completed when the next window opens on %2.",
+ "gs.folge.label.hierarchie": "Standing in the dressing room",
+ "gs.folge.label.kabine": "Dressing room",
+ "gs.folge.label.entwicklung": "Development",
+ "gs.folge.wert.hoch": "grows",
+ "gs.folge.wert.runter": "suffers",
+ "gs.folge.thema.kapitaen.hoch": "%1 gains weight in the squad, the armband comes within reach.",
+ "gs.folge.thema.kapitaen.runter": "%1 loses weight in the eyes of the dressing room.",
+ "gs.folge.thema.streit.hoch": "Calm returns to the dressing room, the camps move closer.",
+ "gs.folge.thema.streit.runter": "The dressing room stays tense, the camps harden.",
+ "gs.folge.thema.rolle.runter": "%1 feels overlooked, a slump looms.",
+ "gs.folge.thema.spielzeit.runter": "%1 feels overlooked, a slump looms.",
+ "gs.folge.thema.form.hoch": "%1 slowly finds his way back.",
+ "gs.folge.thema.form.runter": "%1 keeps brooding, the slump continues.",
+ "gs.folge.thema.heimweh.hoch": "%1 settles in the city, which helps on the pitch.",
+ "gs.folge.thema.heimweh.runter": "%1 thinks too much about home, which costs performance.",
+ "gs.folge.thema.verletzungsangst.hoch": "%1 goes into tackles more freely.",
+ "gs.folge.thema.verletzungsangst.runter": "%1 goes into tackles inhibited, the risk grows.",
+ "gs.ui.ok.gestartet": "The conversation is under way.",
+ "gs.anlass.leistung": "The assistant coach reports: he is struggling.",
+ "gs.anlass.beschwerde": "He has complained.",
+ "gs.ui.fehler.anlass_unklar": "There is no fitting topic for this message.",
+ "gs.ui.fehler.anlass_unbekannt": "This topic does not exist.",
+ "gs.ui.fehler.kein_spieler": "The player is not in the squad.",
+ "gs.ui.fehler.kein_partner": "The person for this conversation is missing.",
+ "gs.ui.fehler.nachricht_unbekannt": "This message no longer exists.",
+ "gs.anlass.akademie_befoerderung": "The youth coach wants to talk about a promotion.",
+ "gs.anlass.eltern_ohne_spielzeit": "The parents ask when their son will play.",
+ "gs.anlass.eltern_vertrag": "The parents want to talk about the expiring contract.",
+ "gs.anlass.presse_abwerbung": "The press asks about the poaching of a youth player.",
+ "gs.frage.akademie.0": [
+  "%1 says: \"The youth coach put me forward. What happens next for me?\"",
+  "%1 asks: \"Will you be using me with the pros soon?\""
+ ],
+ "gs.frage.eltern.0": [
+  "%1 speaks for the family: \"We are worried about our son's path.\"",
+  "%1 says: \"We would like to understand where he goes from here.\""
+ ],
+ "gs.frage.fans_stimmung.0": [
+  "%1 from the fan club says: \"The mood in the stands is turning. We want to talk to you.\"",
+  "%1 gets in touch: \"The fans expect a sign from you.\""
+ ],
+ "gs.frage.heimweh.0": [
+  "%1 looks downcast: \"I miss home. I'm finding it hard to settle in.\"",
+  "%1 says quietly: \"Can I have a word? I'm not doing well here.\""
+ ],
+ "gs.frage.interview.0": [
+  "%1 from the press asks for a moment: \"A few questions, if you have time.\"",
+  "%1 says: \"We'd like to hear your view on the last few weeks.\""
+ ],
+ "gs.frage.kapitaen.0": [
+  "%1 brings up the armband: \"Who leads the team? That's on my mind.\"",
+  "%1 says: \"I'd like to talk to you about the captaincy.\""
+ ],
+ "gs.frage.streit.0": [
+  "%1 comes in annoyed: \"There's trouble in the dressing room, we have to sort it out.\"",
+  "%1 says: \"This can't go on, it's kicking off between us.\""
+ ],
+ "gs.frage.verletzungsangst.0": [
+  "%1 hesitates: \"I'm afraid of getting hurt again. It holds me back in tackles.\"",
+  "%1 says: \"My body is ready, my head isn't yet.\""
+ ],
+ "gs.frage.vorstand_budget.0": [
+  "%1 from the board says: \"We need to talk about the budget.\"",
+  "%1 opens: \"The club's figures call for a conversation.\""
+ ],
+ "gs.frage.vorstand_vertrauen.0": [
+  "%1 from the board says: \"We want to talk about the confidence in your work.\"",
+  "%1 opens: \"The results have occupied the board.\""
+ ],
+ "gs.frage.vorstand_ziele.0": [
+  "%1 from the board says: \"Let's talk about the season objectives.\"",
+  "%1 opens: \"Where do we stand against what we set out to do?\""
+ ],
+ "gs.frage.wechselwunsch.0": [
+  "%1 says: \"I'm thinking about a move. I wanted to tell you myself.\"",
+  "%1 gets straight to the point: \"I want to leave the club.\""
+ ],
+ "gs.thema.transferinteresse": "Interest in a transfer",
+ "gs.frage.transferinteresse.0": "What do you think about a move to us?",
+  "gs.ui.einschaetzung.titel": "Assessment of the offer",
+  "gs.ui.einschaetzung.verein": "Club",
+  "gs.ui.einschaetzung.spieler": "Player",
+  "gs.ui.einschaetzung.stufe.chancenlos": "hopeless",
+  "gs.ui.einschaetzung.stufe.unwahrscheinlich": "unlikely",
+  "gs.ui.einschaetzung.stufe.offen": "open",
+  "gs.ui.einschaetzung.stufe.wahrscheinlich": "likely",
+  "gs.ui.einschaetzung.stufe.sicher": "certain",
+  "gs.ui.haltung.unbedingt": "badly wants to go",
+  "gs.ui.haltung.chance": "sees a great chance",
+  "gs.ui.haltung.offen": "open to the move",
+  "gs.ui.haltung.zoegernd": "hesitates",
+  "gs.ui.haltung.bleiben": "wants to stay",
+  "gs.ui.haltung.gegen_willen": "%1 doesn't like that, the relationship suffers.",
+  "gs.ui.nahelegen": "Suggest the move",
+  "gs.ui.zum_bleiben": "Persuade to stay",
+  "gs.ui.ok.haltung_nahegelegt": "You suggest the move to %1. His attitude changes, the demand to the club stays.",
+  "gs.ui.ok.haltung_bleiben": "You ask %1 to stay. His attitude changes, the demand to the club stays.",
+  "gs.ui.fehler.schon_ausgereizt": "You can't achieve more with him.",
+  "gs.ui.fehler.kein_verkauf": "That only works for a sale.",
+  "gs.feld.frist": "Deadline",
+  "gs.feld.handgeld": "Signing bonus (player)",
+  "gs.ui.tage": "%1 days",
+ "gs.und": "and",
+ "gs.vorfall.gruppe_rotation.betreff": "Unrest in the squad over rotation",
+ "gs.vorfall.gruppe_rotation.text": "Several players feel overlooked in the line-up: %1. A talk with the most important one can calm the mood.",
+ "gs.anlass.perspektive": "He asks about his prospects at the club.",
+ "gs.vorfall.anliegen_stufe1.betreff": "%1 is very unhappy",
+ "gs.vorfall.anliegen_stufe1.text": "%1 has waited two weeks for a word from you. The mood is turning and his team-mates notice.",
+ "gs.vorfall.anliegen_stufe2.betreff": "%1 wants out",
+ "gs.vorfall.anliegen_stufe2.text": "%1 has run out of patience and openly thinks about leaving. A talk could still save something.",
+ "gs.vorfall.anliegen_verweigert.betreff": "%1 refuses to extend",
+ "gs.vorfall.anliegen_verweigert.text": "%1 waited a long time for an answer about his contract and no longer wants to extend. A talk is the only way back.",
+ "gs.vorfall.zusage_gehalten.betreff": "Promise to %1 kept",
+ "gs.vorfall.zusage_gehalten.text": "You kept your word: %1 appreciates it and his trust grows.",
+ "gs.vorfall.zusage_gebrochen.betreff": "Promise to %1 broken",
+ "gs.vorfall.zusage_gebrochen.text": "The deadline has passed and the promise to %1 is not fulfilled. That weighs heavier than a refusal: his trust and mood suffer.",
+ "gs.anlass.belastung": "He feels worn out.",
+ "gs.anlass.ehrgeiz": "He wants to achieve more than the club currently offers.",
+ "gs.frage.belastung.0": ["%1 says: “I'm worn out, gaffer. I need a break.”", "%1 says: “All these games are getting to my bones.”"],
+ "gs.feld.restsumme": "Remainder in cash (buyer pays)",
+ "gs.feld.restsumme_wir": "Remainder in cash (we pay)",
+ "gs.ui.tausch.tausch_verweigert": "%2 will not let %1 go: he is a key player.",
+ "gs.ui.tausch.tausch_voll": "The offer already has two swap players, there is no room for %1.",
+ "gs.tausch.bedarf.dringend": "Urgently needed",
+ "gs.tausch.bedarf.verstaerkung": "Upgrade",
+ "gs.tausch.bedarf.breite": "Squad depth",
+ "chat.tausch.titel": "Swap players from %1",
+ "chat.tausch.alle": "All",
+ "chat.tausch.sort_wert": "By value",
+ "chat.tausch.sort_ovr": "By rating",
+ "chat.tausch.rest": "Remainder in cash: %1",
+ "chat.tausch.rest_wir": "We top up: %1",
+ "chat.tausch.waehlen": "Pick",
+ "chat.tausch.abwaehlen": "Remove",
+ "gs.thema.verkauf": "Sale",
+ "gs.thema.kauf": "Purchase"
+}

@@ -1,0 +1,458 @@
+{
+ "pool.kabinenstreit.e.e1": [
+  "{b.gruss} {b.kabinenstreit_lage} Ich wollte es dir sagen, bevor es sich aufschaukelt.",
+  "{b.gruss} {b.kabinenstreit_lage} Wir reden kaum noch miteinander."
+ ],
+ "pool.kabinenstreit.e.e2": [
+  "{b.gruss} {b.kabinenstreit_lage} Vor dem Training gab es schon wieder einen Spruch.",
+  "{b.gruss} {b.kabinenstreit_lage} Die anderen merken es auch."
+ ],
+ "pool.kabinenstreit.e.e3": [
+  "{b.gruss} {b.kabinenstreit_lage} Ehrlich, ich bin am Ende mit meiner Geduld.",
+  "{b.gruss} {b.kabinenstreit_lage} Ich schlafe schlecht deswegen, und das merkt man auf dem Platz."
+ ],
+ "pool.kabinenstreit.e.e4": [
+  "{b.gruss} {b.kabinenstreit_lage} Entweder du regelst das, oder ich tue es auf meine Art!",
+  "{b.gruss} {b.kabinenstreit_lage} Noch ein Spruch, und es kracht!"
+ ],
+ "pool.kabinenstreit.e.e5": [
+  "{b.gruss} {b.kabinenstreit_lage} Ich wollte nicht petzen, aber so kann es nicht bleiben.",
+  "{b.gruss} {b.kabinenstreit_lage} Ich komme zu dir, weil ich dir vertraue."
+ ],
+ "pool.kabinenstreit.e.e6": [
+  "{b.gruss} {b.kabinenstreit_lage} Wir wollen etwas gewinnen, und dafür muss das aus der Welt.",
+  "{b.gruss} {b.kabinenstreit_lage} So holen wir keinen Titel."
+ ],
+ "pool.kabinenstreit.e.e7": [
+  "{b.gruss} {b.kabinenstreit_lage} Ich will nicht zwischen den Fronten stehen.",
+  "{b.gruss} {b.kabinenstreit_lage} Wenn sich nichts bessert, ziehe ich Konsequenzen."
+ ],
+ "pool.kabinenstreit.e.e8": [
+  "{b.gruss} {b.kabinenstreit_lage} Du hattest versprochen, dich darum zu kümmern, geschehen ist nichts.",
+  "{b.gruss} {b.kabinenstreit_lage} Beim letzten Mal hast du mir deine Hilfe zugesagt, und ich warte noch."
+ ],
+ "pool.kabinenstreit.e.e9": [
+  "{b.gruss} {b.kabinenstreit_lage} Das ist nicht der erste Streit in dieser Kabine, und er wird nicht der letzte sein.",
+  "{b.gruss} {b.kabinenstreit_lage} Ich fürchte, es sind längst Lager entstanden."
+ ],
+ "pool.kabinenstreit.a.a1": [
+  "Ich höre mir erst an, was dich belastet. Wir finden einen Weg, dass ihr wieder miteinander arbeiten könnt.",
+  "Das geht dir nahe, das merke ich. Erzähl mir in Ruhe, was passiert ist."
+ ],
+ "pool.kabinenstreit.a.a2": [
+  "Ich spreche heute vor der Mannschaft eine klare Ansage aus: Streit bleibt draußen, hier zählt das Team.",
+  "Ich erkläre allen, was ich erwarte, ohne Namen zu nennen. Wer sich daran hält, hat Ruhe."
+ ],
+ "pool.kabinenstreit.a.a3": [
+  "Ich schalte den Kapitän ein, er kennt die Kabine und vermittelt unter euch.",
+  "Der Kapitän setzt sich mit euch beiden zusammen. Danach berichtet er mir."
+ ],
+ "pool.kabinenstreit.a.a4": [
+  "Ein gemeinsamer Abend geht auf mich, mit der ganzen Mannschaft und ohne Fußballthemen. Vielleicht taut es dann auf.",
+  "Ich lade das Team zum Essen ein, ihr sitzt an einem Tisch, und wir lachen mal wieder."
+ ],
+ "pool.kabinenstreit.a.a5": [
+  "Ich trenne euch im Training, und falls es sich nicht legt, sorge ich in {frist} Tagen dafür, dass einer von euch den Verein verlassen darf.",
+  "Gib mir {frist} Tage. Wird es dann nicht besser, ist einer von euch frei für einen Wechsel."
+ ],
+ "pool.kabinenstreit.a.a6": [
+  "Das legt sich bestimmt von selbst. Wartet ein paar Wochen ab.",
+  "Solche Dinge gibt es in jeder Kabine, gib dem Ganzen etwas Zeit."
+ ],
+ "pool.kabinenstreit.a.a7": [
+  "Das regelt ihr unter euch, ich bin nicht euer Schlichter.",
+  "Ich habe wichtigere Dinge zu tun, als Kabinenstreit zu schlichten."
+ ],
+ "pool.kabinenstreit.a.a8": [
+  "Ich verlange Ruhe. Wer weiter stichelt, bekommt es mit mir zu tun.",
+  "Ihr benehmt euch wie Profis, oder es gibt Konsequenzen. Das gilt auch für dich."
+ ],
+ "pool.kabinenstreit.a.a9": [
+  "Was genau ist vorgefallen, und wer hat angefangen?",
+  "Sag mir erst, wie es dazu kam. Ich will beide Seiten kennen."
+ ],
+ "pool.kabinenstreit.a.a10": [
+  "Ich setze im Training andere Paare ein, ihr arbeitet vorerst getrennt. Mehr kann ich jetzt nicht tun.",
+  "Ab morgen seid ihr in verschiedenen Gruppen, das schafft Abstand."
+ ],
+ "pool.kabinenstreit.a.a11": [
+  "Wenn das nicht aufhört, sitzt ihr beide auf der Bank, ganz gleich, wer recht hat.",
+  "Ich stelle keinen von euch auf, solange ihr euch streitet."
+ ],
+ "pool.kabinenstreit.a.a12": [
+  "Ich weiß, dass du Streit hasst. Lass uns zu dritt in Ruhe sprechen, ich höre euch beide an.",
+  "Danke, dass du kommst. Ich nehme dich ernst, und wir klären das gemeinsam."
+ ],
+ "pool.kabinenstreit.r.r1": [
+  "{b.gut} Dann kann ich wieder ruhig in die Kabine gehen.",
+  "{b.gut} Das ist ein fairer Weg."
+ ],
+ "pool.kabinenstreit.r.r2": [
+  "{b.gut} Ich bin froh, dass du dich darum kümmerst.",
+  "{b.gut} Für die Mannschaft nehme ich den ersten Schritt gern auf mich."
+ ],
+ "pool.kabinenstreit.r.r3": [
+  "{b.gut} Wenn das hilft, bin ich beim nächsten Spiel wieder voll da.",
+  "{b.gut} Dann sind wir bald wieder auf Titelkurs."
+ ],
+ "pool.kabinenstreit.r.r4": [
+  "{b.gut} Dass du mir zuhörst, macht es schon leichter.",
+  "{b.gut} Ich fühle mich verstanden, danke."
+ ],
+ "pool.kabinenstreit.r.r5": [
+  "{b.neutral} Wir werden sehen, ob die Ansage etwas ändert.",
+  "{b.neutral} Ein Anfang ist es."
+ ],
+ "pool.kabinenstreit.r.r6": [
+  "{b.neutral} Ich weiß nicht, ob es hilft, aber ich gebe dem Ganzen eine Chance.",
+  "{b.neutral} Ich bin noch unsicher, wie ich mich jetzt verhalten soll."
+ ],
+ "pool.kabinenstreit.r.r7": [
+  "{b.neutral} Hoffentlich bleibt es dabei, dass es ruhig bleibt.",
+  "{b.neutral} Ich beobachte, wie sich das entwickelt."
+ ],
+ "pool.kabinenstreit.r.r8": [
+  "{b.neutral} Dann sehe ich es eben ganz sachlich, so schlimm ist es nicht.",
+  "{b.neutral} Meinetwegen, ich komme damit klar."
+ ],
+ "pool.kabinenstreit.r.r9": [
+  "{b.schlecht} Damit ist das Problem nicht gelöst.",
+  "{b.schlecht} Dann bleibt die Kabine eben ein Pulverfass."
+ ],
+ "pool.kabinenstreit.r.r10": [
+  "{b.schlecht} Dann regle ich es eben selbst, und du schaust zu!",
+  "{b.schlecht} Mich kannst du nicht zum Schweigen bringen!"
+ ],
+ "pool.kabinenstreit.r.r11": [
+  "{b.schlecht} Wenn der Verein das nicht in den Griff bekommt, schaue ich mich um.",
+  "{b.schlecht} Offenbar will mich hier keiner schützen."
+ ],
+ "pool.kabinenstreit.r.r12": [
+  "{b.schlecht} Schade, ich dachte, du hörst mir wenigstens zu.",
+  "{b.schlecht} So hatte ich mir den Weg zu dir nicht vorgestellt."
+ ],
+ "pool.kabinenstreit.x.x1": [
+  "Der Streit ist nicht vergessen, aber entschärft. {entscheidung} In der Kabine wird es spürbar ruhiger.",
+  "{entscheidung} Beide gehen getrennt, doch ohne Groll."
+ ],
+ "pool.kabinenstreit.x.x2": [
+  "Ob sich die Fronten lösen, bleibt offen. {entscheidung} Es wird weiter gebrodelt.",
+  "{entscheidung} Bis zum nächsten Zwischenfall herrscht ein unsicherer Frieden."
+ ],
+ "pool.kabinenstreit.x.x3": [
+  "Er geht wütend hinaus, und die Tür fällt hart ins Schloss. {entscheidung} Die Kabine spaltet sich weiter.",
+  "{entscheidung} Der Streit dürfte nun offen ausgetragen werden."
+ ],
+ "pool.kabinenstreit.x.x4": [
+  "Du hast dich festgelegt. {entscheidung} Beide Spieler werden darauf achten, dass du Wort hältst.",
+  "{entscheidung} Die Frist läuft, und die Kabine schaut zu."
+ ],
+ "pool.kabinenstreit.x.x5": [
+  "Er bricht das Gespräch mitten im Satz ab. {entscheidung} Den Streit nimmt er mit in den Alltag.",
+  "{entscheidung} Er steht auf und geht, ohne ein weiteres Wort."
+ ],
+ "pool.kapitaensbinde.e.e1": [
+  "{b.gruss} {b.kapitaensbinde_lage} Ich finde, die Mannschaft sollte sich auf mich verlassen können.",
+  "{b.gruss} {b.kapitaensbinde_lage} Ich wüsste gern, wie du darüber denkst."
+ ],
+ "pool.kapitaensbinde.e.e2": [
+  "{b.gruss} {b.kapitaensbinde_lage} Die Jungs kommen mit ihren Sorgen zu mir, nicht zum Kapitän.",
+  "{b.gruss} {b.kapitaensbinde_lage} In der Kabine bin ich längst der, der das Wort führt."
+ ],
+ "pool.kapitaensbinde.e.e3": [
+  "{b.gruss} {b.kapitaensbinde_lage} Es nagt an mir, und ich kann es schlecht abschütteln.",
+  "{b.gruss} {b.kapitaensbinde_lage} Ich bin gerade nicht gut drauf, und das gehört dazu."
+ ],
+ "pool.kapitaensbinde.e.e4": [
+  "{b.gruss} {b.kapitaensbinde_lage} Entweder ich bekomme sie, oder du erklärst mir vor allen, warum nicht!",
+  "{b.gruss} {b.kapitaensbinde_lage} Ich lasse mich nicht übergehen, hörst du?"
+ ],
+ "pool.kapitaensbinde.e.e5": [
+  "{b.gruss} {b.kapitaensbinde_lage} Ich sage es ohne Groll, es ist mir nur wichtig.",
+  "{b.gruss} {b.kapitaensbinde_lage} Ich akzeptiere deine Entscheidung, möchte sie aber verstehen."
+ ],
+ "pool.kapitaensbinde.e.e6": [
+  "{b.gruss} {b.kapitaensbinde_lage} Mit der Binde würde ich das Team noch weiter nach vorn bringen.",
+  "{b.gruss} {b.kapitaensbinde_lage} Gib mir die Verantwortung, und ich zeige dir, was ich daraus mache."
+ ],
+ "pool.kapitaensbinde.e.e7": [
+  "{b.gruss} {b.kapitaensbinde_lage} Mir geht es nicht um die Binde allein, sondern um Wertschätzung.",
+  "{b.gruss} {b.kapitaensbinde_lage} Ich frage mich, ob man mich hier wirklich sieht."
+ ],
+ "pool.kapitaensbinde.e.e8": [
+  "{b.gruss} {b.kapitaensbinde_lage} Du hast mir die Binde einmal in Aussicht gestellt, passiert ist seitdem nichts.",
+  "{b.gruss} {b.kapitaensbinde_lage} Erinnerst du dich an dein Wort? Ich warte noch."
+ ],
+ "pool.kapitaensbinde.e.e9": [
+  "{b.gruss} {b.kapitaensbinde_lage} Ich spüre, dass die anderen auf mich schauen, und möchte dieser Rolle gerecht werden.",
+  "{b.gruss} {b.kapitaensbinde_lage} Die Mannschaft folgt mir ohnehin, die Binde wäre nur die Bestätigung."
+ ],
+ "pool.kapitaensbinde.a.a1": [
+  "Ich sehe, wie viel dir das bedeutet. Du bist für diese Mannschaft wichtig, auch ohne Binde.",
+  "Dass es dich so beschäftigt, zeigt, wie sehr du dich einbringst. Das schätze ich."
+ ],
+ "pool.kapitaensbinde.a.a2": [
+  "Ich habe den Kapitän nach Erfahrung, Dauer im Verein und Rückhalt gewählt. Dein Einfluss ist trotzdem groß.",
+  "Die Entscheidung fiel nicht gegen dich, sondern nach dem, was ich aktuell für die Mannschaft brauche."
+ ],
+ "pool.kapitaensbinde.a.a3": [
+  "Sprich mit dem Mannschaftsrat, ich will wissen, wen die Spieler wirklich hinter sich sehen.",
+  "Der Vorstand und der Kapitän sollen sich dazu äußern, danach reden wir wieder."
+ ],
+ "pool.kapitaensbinde.a.a4": [
+  "Ich lade dich zum Essen ein, wir besprechen deine Rolle bei einem guten Glas. Die Rechnung übernehme ich.",
+  "Du bekommst einen Abend, an dem wir nur über deine Rolle reden, auf meine Kosten."
+ ],
+ "pool.kapitaensbinde.a.a5": [
+  "Du wirst Kapitän, mit Handschlag. In {frist} Tagen schauen wir, wie du die Rolle füllst.",
+  "Die Binde gehört ab sofort dir. Ich prüfe nach {frist} Tagen, ob es für alle passt."
+ ],
+ "pool.kapitaensbinde.a.a6": [
+  "Gedulde dich, die Saison ist lang, und die Binde wird nicht für immer vergeben.",
+  "Wir schauen später noch einmal, aber nicht jetzt."
+ ],
+ "pool.kapitaensbinde.a.a7": [
+  "Die Binde bleibt, wo sie ist. Darüber diskutiere ich nicht.",
+  "Nein, das kommt nicht in Frage. Die Entscheidung steht."
+ ],
+ "pool.kapitaensbinde.a.a8": [
+  "Führung zeigt man durch Haltung, nicht durch Stoff am Arm. Hör auf zu fordern.",
+  "Ich entscheide, wer die Binde trägt. Wer Druck macht, schadet seiner eigenen Sache."
+ ],
+ "pool.kapitaensbinde.a.a9": [
+  "Was würdest du als Kapitän konkret anders machen?",
+  "Warum gerade jetzt, und was genau hat sich für dich geändert?"
+ ],
+ "pool.kapitaensbinde.a.a10": [
+  "Die Rangfolge ist klar, und dein Platz ist der hinter dem Kapitän. Das ist keine Abwertung.",
+  "Der Kapitän trägt die Verantwortung gegenüber Presse und Vorstand, das passt aktuell besser zu seiner Rolle."
+ ],
+ "pool.kapitaensbinde.a.a11": [
+  "Wer so fordert, zeigt, dass er nicht reif für die Binde ist. Ich bin fertig mit dem Thema.",
+  "Nach diesem Auftritt ist das Thema für lange Zeit erledigt."
+ ],
+ "pool.kapitaensbinde.a.a12": [
+  "Ich weiß, dass dir das keiner leichtmacht. Lass uns offen reden, was ich an dir schätze und wo du noch wachsen kannst.",
+  "Danke für deine Offenheit. Ich nehme dich als Führungsspieler ernst, und wir klären das gemeinsam."
+ ],
+ "pool.kapitaensbinde.r.r1": [
+  "{b.gut} Das ist eine ehrliche Antwort, mit der ich arbeiten kann.",
+  "{b.gut} Damit kann ich leben."
+ ],
+ "pool.kapitaensbinde.r.r2": [
+  "{b.gut} Ich bleibe für die Mannschaft da, mit Binde oder ohne.",
+  "{b.gut} Du kannst weiter auf mich zählen."
+ ],
+ "pool.kapitaensbinde.r.r3": [
+  "{b.gut} Dann gebe ich jeden Tag mehr, damit du es nicht bereust.",
+  "{b.gut} Verantwortung ist genau das, was mich antreibt."
+ ],
+ "pool.kapitaensbinde.r.r4": [
+  "{b.gut} Dass du mir das so sagst, bedeutet mir viel.",
+  "{b.gut} Jetzt fühle ich mich ein Stück wertgeschätzt."
+ ],
+ "pool.kapitaensbinde.r.r5": [
+  "{b.neutral} Ich werde darüber schlafen.",
+  "{b.neutral} Mal schauen, wie sich das entwickelt."
+ ],
+ "pool.kapitaensbinde.r.r6": [
+  "{b.neutral} Ich bin noch hin- und hergerissen, ob ich es so stehen lasse.",
+  "{b.neutral} Es beruhigt mich nur halb, aber ich höre dir zu."
+ ],
+ "pool.kapitaensbinde.r.r7": [
+  "{b.neutral} Dann warte ich ab, was die nächsten Wochen bringen.",
+  "{b.neutral} Die Binde bleibt wohl ein Thema, aber nicht heute."
+ ],
+ "pool.kapitaensbinde.r.r8": [
+  "{b.neutral} Es ist ja nur ein Stück Stoff, ich lebe damit.",
+  "{b.neutral} Soll so sein, ich spiele ohnehin weiter."
+ ],
+ "pool.kapitaensbinde.r.r9": [
+  "{b.schlecht} So geht man nicht mit einem Führungsspieler um.",
+  "{b.schlecht} Damit verspielst du Respekt in der Kabine."
+ ],
+ "pool.kapitaensbinde.r.r10": [
+  "{b.schlecht} Dann sage ich es der Mannschaft eben selbst, und sie wird mir zuhören!",
+  "{b.schlecht} Das vergesse ich dir nicht!"
+ ],
+ "pool.kapitaensbinde.r.r11": [
+  "{b.schlecht} Dann sehe ich mich nach einem Verein um, der mir Verantwortung gibt.",
+  "{b.schlecht} Anderswo weiß man, was man an mir hat."
+ ],
+ "pool.kapitaensbinde.r.r12": [
+  "{b.schlecht} Ich hatte mehr Anerkennung erwartet.",
+  "{b.schlecht} Heute hat mir niemand zugehört."
+ ],
+ "pool.kapitaensbinde.x.x1": [
+  "Der Wunsch nach der Binde verliert an Schärfe. {entscheidung} Der Spieler geht aufrecht aus dem Gespräch.",
+  "{entscheidung} Er nimmt seine Rolle an und will sie mit Leben füllen."
+ ],
+ "pool.kapitaensbinde.x.x2": [
+  "Die Frage der Binde bleibt in der Schwebe. {entscheidung} Er wird sie wieder aufbringen.",
+  "{entscheidung} Entschieden ist noch nichts."
+ ],
+ "pool.kapitaensbinde.x.x3": [
+  "Er fühlt sich übergangen und zieht sich zurück. {entscheidung} Die Mannschaft spürt die Spannung.",
+  "{entscheidung} Er trägt seinen Frust offen in die Kabine."
+ ],
+ "pool.kapitaensbinde.x.x4": [
+  "Die Binde ist vergeben, das spricht sich schnell herum. {entscheidung} Der bisherige Kapitän wird davon hören.",
+  "{entscheidung} Du hast dich festgelegt, und die Kabine wird genau hinschauen."
+ ],
+ "pool.kapitaensbinde.x.x5": [
+  "Er winkt ab und lässt das Gespräch unvollendet. {entscheidung} Die Sache ist nicht ausgeräumt.",
+  "{entscheidung} Mitten im Satz steht er auf und verlässt den Raum."
+ ],
+ "pool.heimweh_familie.e.e1": [
+  "{b.gruss} {b.heimweh_lage} Es fällt mir schwer, mich auf das Training zu konzentrieren.",
+  "{b.gruss} {b.heimweh_lage} Eigentlich wollte ich nichts sagen."
+ ],
+ "pool.heimweh_familie.e.e2": [
+  "{b.gruss} {b.heimweh_lage} Ich telefoniere jeden Abend mit zu Hause und schlafe danach kaum.",
+  "{b.gruss} {b.heimweh_lage} Die Stadt ist mir immer noch fremd."
+ ],
+ "pool.heimweh_familie.e.e3": [
+  "{b.gruss} {b.heimweh_lage} Ich weiß, dass meine Leistung leidet, und das macht es noch schlimmer.",
+  "{b.gruss} {b.heimweh_lage} Es geht mir gerade nicht gut, ehrlich gesagt."
+ ],
+ "pool.heimweh_familie.e.e4": [
+  "{b.gruss} {b.heimweh_lage} Wenn mir keiner hilft, setze ich mich ins nächste Flugzeug!",
+  "{b.gruss} {b.heimweh_lage} Ich halte das nicht mehr lange aus!"
+ ],
+ "pool.heimweh_familie.e.e5": [
+  "{b.gruss} {b.heimweh_lage} Ich habe versucht, es allein zu schaffen, aber es klappt nicht ganz.",
+  "{b.gruss} {b.heimweh_lage} Der Verein bedeutet mir viel, deshalb sage ich es dir."
+ ],
+ "pool.heimweh_familie.e.e6": [
+  "{b.gruss} {b.heimweh_lage} Ich will wieder voll da sein, nur weiß ich nicht, wie.",
+  "{b.gruss} {b.heimweh_lage} Ich will keine Ausrede, sondern eine Lösung."
+ ],
+ "pool.heimweh_familie.e.e7": [
+  "{b.gruss} {b.heimweh_lage} Ich weiß nicht, ob ich hier auf Dauer glücklich werde.",
+  "{b.gruss} {b.heimweh_lage} Manchmal frage ich mich, ob ich hier richtig bin."
+ ],
+ "pool.heimweh_familie.e.e8": [
+  "{b.gruss} {b.heimweh_lage} Du hattest gesagt, es wird mit der Zeit leichter. Es wird nicht leichter.",
+  "{b.gruss} {b.heimweh_lage} Du wolltest mir mit meiner Familie helfen, bisher kam nichts."
+ ],
+ "pool.heimweh_familie.e.e9": [
+  "{b.gruss} {b.heimweh_lage} Ich bin noch jung und war nie so lange weg von meinen Eltern.",
+  "{b.gruss} {b.heimweh_lage} Ich habe zum ersten Mal in meinem Leben keine Familie in der Nähe."
+ ],
+ "pool.heimweh_familie.a.a1": [
+  "Das klingt nach einer schweren Zeit. Du bist nicht allein damit, und wir finden gemeinsam etwas, das dir hilft.",
+  "Ich nehme dich ernst, und du darfst jederzeit zu mir kommen, wenn es dich überrollt."
+ ],
+ "pool.heimweh_familie.a.a2": [
+  "Das ist ein normaler Schritt, wenn man in ein neues Land zieht. Mit Routine und festen Abläufen wird es besser.",
+  "Fast jeder Spieler kennt das in den ersten Monaten. Wir bauen dir einen Alltag, in dem du Halt findest."
+ ],
+ "pool.heimweh_familie.a.a3": [
+  "Ich bitte einen erfahrenen Mitspieler, sich um dich zu kümmern und dir die Stadt zu zeigen.",
+  "Du bekommst einen Mentor aus der Mannschaft, der dich unter seine Fittiche nimmt."
+ ],
+ "pool.heimweh_familie.a.a4": [
+  "Wir laden deine Familie für ein Wochenende zu uns ein, Reise und Hotel zahlt der Verein.",
+  "Deine Eltern können kommen, wir kümmern uns um alles Organisatorische und die Kosten."
+ ],
+ "pool.heimweh_familie.a.a5": [
+  "Du bekommst nach dem nächsten Spiel in {frist} Tagen freie Tage, um nach Hause zu fliegen.",
+  "In {frist} Tagen darfst du zu deiner Familie reisen, das sage ich dir verbindlich zu."
+ ],
+ "pool.heimweh_familie.a.a6": [
+  "Das geht vorbei, glaub mir. Gib dir noch ein paar Wochen.",
+  "Mit der Zeit gewöhnt man sich an alles."
+ ],
+ "pool.heimweh_familie.a.a7": [
+  "Das ist deine private Angelegenheit, mit Fußball hat das nichts zu tun.",
+  "Hier geht es um Leistung. Private Sorgen musst du draußen lassen."
+ ],
+ "pool.heimweh_familie.a.a8": [
+  "Reiß dich zusammen, andere haben dasselbe durchgemacht. Ich erwarte volle Leistung.",
+  "Ich kann keine Rücksicht auf Heimweh nehmen, du bist Profi."
+ ],
+ "pool.heimweh_familie.a.a9": [
+  "Was genau fehlt dir am meisten, und wann ist es am schlimmsten?",
+  "Erzähl mir, wie dein Alltag hier aussieht. Wo hakt es am meisten?"
+ ],
+ "pool.heimweh_familie.a.a10": [
+  "Sprich mit unserem Betreuer, er hat dafür Erfahrung und Zeit. Danach gehen wir gemeinsam die nächsten Schritte durch.",
+  "Der Vereinspsychologe ist für solche Fälle da. Vereinbare einen Termin und berichte mir dann."
+ ],
+ "pool.heimweh_familie.a.a11": [
+  "Wenn du so weitermachst, muss ich dich aus dem Kader nehmen. Das ist keine Drohung, nur Konsequenz.",
+  "Wer sich nicht auf den Fußball konzentrieren kann, hat im Spieltagskader nichts verloren."
+ ],
+ "pool.heimweh_familie.a.a12": [
+  "Ich weiß, wie schwer das ist. Wenn es dir hilft, rufst du mich auch abends an, und wir reden.",
+  "Danke, dass du es mir sagst. Das war mutig, und ich bin froh, dass du mir vertraust."
+ ],
+ "pool.heimweh_familie.r.r1": [
+  "{b.gut} Das tut mir wirklich gut.",
+  "{b.gut} Dann sehe ich wieder einen Lichtblick."
+ ],
+ "pool.heimweh_familie.r.r2": [
+  "{b.gut} Ich werde dich nicht enttäuschen, versprochen.",
+  "{b.gut} Danke, dass du dich so um mich kümmerst."
+ ],
+ "pool.heimweh_familie.r.r3": [
+  "{b.gut} Mit einem klaren Kopf kann ich wieder Vollgas geben.",
+  "{b.gut} Dann liefere ich bald wieder, wie ich es kann."
+ ],
+ "pool.heimweh_familie.r.r4": [
+  "{b.gut} Es ist, als würde mir eine Last abgenommen.",
+  "{b.gut} Zu hören, dass es in Ordnung ist, hilft mir sehr."
+ ],
+ "pool.heimweh_familie.r.r5": [
+  "{b.neutral} Ich versuche es und sehe, ob es trägt.",
+  "{b.neutral} Ich gebe dem eine Woche."
+ ],
+ "pool.heimweh_familie.r.r6": [
+  "{b.neutral} Ich bin müde und kann gerade nicht klar denken.",
+  "{b.neutral} Vielleicht hilft es, vielleicht auch nicht."
+ ],
+ "pool.heimweh_familie.r.r7": [
+  "{b.neutral} Ich muss erst einmal verdauen, was du gesagt hast.",
+  "{b.neutral} Es ist ein Anfang, mehr kann ich nicht sagen."
+ ],
+ "pool.heimweh_familie.r.r8": [
+  "{b.neutral} Es wird schon gehen, ich schlage mich irgendwie durch.",
+  "{b.neutral} Ich nehme es, wie es kommt."
+ ],
+ "pool.heimweh_familie.r.r9": [
+  "{b.schlecht} Damit fühle ich mich noch einsamer.",
+  "{b.schlecht} Das war nicht die Hilfe, die ich brauchte."
+ ],
+ "pool.heimweh_familie.r.r10": [
+  "{b.schlecht} Dann soll mich jemand anderes verstehen, du tust es jedenfalls nicht!",
+  "{b.schlecht} Du hast keine Ahnung, wie es mir geht!"
+ ],
+ "pool.heimweh_familie.r.r11": [
+  "{b.schlecht} Dann gehe ich eben heim, hier hält mich nichts.",
+  "{b.schlecht} Wenn der Verein so wenig Verständnis hat, ist das Ziel klar."
+ ],
+ "pool.heimweh_familie.r.r12": [
+  "{b.schlecht} Ach, lass nur, ich hätte nichts sagen sollen.",
+  "{b.schlecht} Es tut weh, dass es so wenig zählt."
+ ],
+ "pool.heimweh_familie.x.x1": [
+  "Die Last scheint etwas leichter. {entscheidung} Das Lächeln kehrt langsam zurück.",
+  "{entscheidung} Er geht erleichtert und mit neuem Mut ins nächste Training."
+ ],
+ "pool.heimweh_familie.x.x2": [
+  "Ob das Heimweh nachlässt, bleibt offen. {entscheidung} Er muss selbst herausfinden, wie er es trägt.",
+  "{entscheidung} Die Sehnsucht bleibt, und die Leistung wird es zeigen."
+ ],
+ "pool.heimweh_familie.x.x3": [
+  "Er zieht sich ganz zurück und meldet sich kaum noch. {entscheidung} Die Lage verschärft sich.",
+  "{entscheidung} Die Gedanken an einen Abschied werden lauter."
+ ],
+ "pool.heimweh_familie.x.x4": [
+  "Die Zusage gibt ihm Halt. {entscheidung} Er zählt die Tage und erwartet, dass du dein Wort hältst.",
+  "{entscheidung} Er hat jetzt etwas, worauf er sich freuen kann."
+ ],
+ "pool.heimweh_familie.x.x5": [
+  "Mitten im Gespräch bricht ihm die Stimme, und er verlässt den Raum. {entscheidung} Das Thema bleibt ungeklärt.",
+  "{entscheidung} Er legt das Handy beiseite und antwortet nicht mehr."
+ ]
+}

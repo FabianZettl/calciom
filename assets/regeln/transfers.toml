@@ -1,0 +1,158 @@
+# Konfiguration der Transferwelt (Sitzung D). Alles hier ist eine eigene Festlegung von PESM und austauschbar.
+# Beträge in Euro, Alter in Jahren, Laufzeiten in Monaten.
+
+[marktwert]
+basis = 2_000_000          # Wert eines Spielers mit Gesamtwert `anker`
+anker = 70
+steigung = 0.19            # je Punkt Gesamtwert: Faktor exp(steigung * Differenz)
+untergrenze = 25_000
+runden_auf = [[1_000_000, 100_000], [100_000, 10_000], [0, 5_000]]   # ab Betrag, auf Vielfaches
+# Alter -> Faktor, dazwischen linear
+alter = [[16, 1.5], [19, 1.45], [22, 1.25], [25, 1.1], [28, 1.0], [30, 0.75], [32, 0.5], [34, 0.3], [38, 0.1]]
+# Vertragsrest in Monaten -> Faktor (kurzer Rest drückt den Wert)
+restlaufzeit = [[0, 0.05], [6, 0.45], [12, 0.7], [24, 0.92], [36, 1.0], [60, 1.08]]
+form_je_punkt = 0.03       # Form −6 … +6
+ligaruf_spanne = [0.6, 1.5]   # Faktor bei Ligaruf 0 und 1
+potenzial_bis_alter = 25
+potenzial_je_jahr = 1.6    # geschätzter Zuwachs je Jahr bis `potenzial_bis_alter`
+potenzial_gewicht = 0.35   # Anteil des Potenzialaufschlags am Wert
+
+[abloese]
+# Forderung = Marktwert * Faktor; Faktor steigt mit der Rolle im Verein und fällt mit kurzem Restvertrag
+stammspieler = 1.25
+rotation = 1.05
+reserve = 0.85
+vereinslos = 0.0
+mindestanteil = 0.8        # unter diesem Anteil der Forderung lehnt der Verein ohne Gegenangebot ab
+entgegenkommen = 0.5       # Gegenangebot liegt so weit zwischen Angebot und Forderung
+runden_hoechstens = 4
+raten_abzug_je_rate = 0.02 # Zinsabschlag je zusätzlicher Rate
+bonus_gewicht = 0.5        # Boni zählen zur Hälfte
+# Leihe (Leihgebühr plus Klauseln): was der Leihgeber den Klauseln beimisst
+gehaltsanteil_gewicht = 0.5  # Gehaltsanteil über dem Standard (leihe_gehalt_anteil) spart ihm Gehalt: dieser Anteil davon zählt zur Gebühr
+spielzeit_bonus = 0.04       # Spielzeitklausel (100 %) hebt den Wert des Angebots um diesen Anteil; Spieler wollen Einsätze, Leihgeber schätzen das
+kaufoption_gewicht = 0.05    # Kaufoption: Anteil des Optionspreises, der als Wert zählt
+kaufpflicht_gewicht = 0.3    # Kaufpflicht: sicherer Verkauf, zählt deutlich mehr
+
+[gehalt]
+quote = 0.12               # Jahresgehalt als Anteil am Marktwert (vor Alterszuschlag)
+untergrenze = 20_000
+junge_bis = 21
+junge_faktor = 0.7
+ueber_30_faktor = 1.15
+laufzeit_wunsch = [[0, 3], [24, 5], [29, 3], [32, 1]]   # ab Alter -> Jahre
+rolle_faktor = { star = 1.25, stammspieler = 1.0, rotation = 0.85, perspektive = 0.7 }
+praemie_ersatz_anteil = 0.5   # Prämien ersetzen so viel Gehalt (Anteil)
+spielraum = 0.92           # ab diesem Anteil des Wunschgehalts kann der Spieler überzeugt werden
+
+[fenster]
+# Monat, Tag Beginn / Ende (beide einschließlich)
+sommer = [[7, 1], [8, 31]]
+winter = [[1, 1], [1, 31]]
+
+[zeitdruck]
+# Zentrale Antwortzeit-Skalierung (verhandlung.zeitdruck): Restzeit bis zum Fensterende -> Faktor auf die Antwortdauer. Eintrag [bis zu N Tage Rest, Faktor];
+# der erste passende gilt. Ohne offenes Fenster (Vorverhandlung) gilt die volle Dauer. Am letzten Tag (Rest 0) kommt jede Antwort noch heute, nie nach dem Fensterende.
+stufen = [[0, 0.0], [1, 0.15], [3, 0.25], [7, 0.4], [14, 0.7]]
+hinweis_ab = 7                  # ab so vielen Resttagen weist die Anzeige auf den Zeitdruck hin
+
+[budget]
+rahmen_gehalt_anteil = 1.0     # neues Jahresgehalt darf das freie Gehaltsbudget nicht übersteigen
+reserve_anteil = 0.0
+
+[scouting]
+region_wissen = [10, 40, 70]     # Startwissen: fremd, Nachbarregion, Heimatregion des Scouts
+je_tag_beobachtet = 4            # Wissenszuwachs je Tag, mit Scoutstärke gewichtet
+bericht_ab_wissen = 40
+genauigkeit_min = 0.15           # Spanne ± in Gesamtwertpunkten bei Wissen 100 ... 0
+spanne_max = 12
+spanne_min = 1
+scouts_start = 3
+kandidaten_hoechstens = 25
+
+[angebote]
+je_woche_hoechstens = 2
+mindestwert = 55             # Gesamtwert, ab dem KI-Vereine überhaupt bieten
+aufschlag = [0.85, 1.25]     # Angebot als Anteil des Marktwerts (nach Verein gestreut)
+frist_tage = 7
+wechselwunsch_aufschlag = 0.1
+leihe_anteil = 0.15          # Leihgebühr in Anteilen des Marktwerts
+leihe_gehalt_anteil = 0.7
+
+[nachspiel]
+# Moralwirkung nach dem Vollzug eines Zugangs (Punkte Moral, über die Begründung mit Grund); gedeckelt, die Meldung ist eine Sammelnachricht
+neuzugang_gut = 2.0          # der Neue findet schnell Anschluss
+neuzugang_dauert = -1.5      # er braucht Wochen
+konkurrent = -2.0            # ein eigener Spieler auf derselben Position, der jetzt um den Platz kämpfen muss
+hoechstens_betroffen = 2     # so viele Konkurrenten erreicht die Wirkung
+abstand = 8                  # Konkurrent: höchstens so viele Gesamtwertpunkte schwächer als der Neue (stärkere fühlen sich sicher)
+summe_deckel = 5.0           # Summe der Beträge aller Moraländerungen eines Transfers
+
+[verlaengerung]
+beginn_restlaufzeit = 18     # Monate
+
+[verhandlungen]
+max = 10                         # Standard der gleichzeitig offenen Verhandlungen (5, 10 oder 15); die Einstellung in der Karriere (tf_meta) hat Vorrang
+
+[ki_welt]
+# KI-Transferwelt mit Plan und Gedächtnis (Schalter `ki_welt` je Karriere). Ziel = Zugänge je Verein und Fenster (von, bis einschließlich), gestreut nach Vereinsgruppe.
+standard = true                 # Schalter ohne eigene Einstellung der Karriere
+ziel_sommer = { spitze = [1, 2], mitte = [4, 5], unten = [4, 6], krise = [5, 7] }
+ziel_winter = { spitze = [0, 1], mitte = [1, 2], unten = [1, 2], krise = [1, 3] }
+spitze_bis = 0.2                # Rang in der Liga (0 = stärkster, 1 = schwächster): bis hierher „spitze“, ab `unten_ab` „unten“, ab `krise_ab` „krise“
+unten_ab = 0.6
+krise_ab = 0.85
+erfolgsquote = 0.3              # Anteil der Versuche, der zum Wechsel führt (verteilt die Versuche über die Resttage des Fensters)
+frei_anteil = 0.3               # Anteil der Stichprobe, der Spielern mit auslaufendem Vertrag (ablösefrei) gilt
+stichprobe = 150                 # so viele fremde Spieler prüft ein Verein je Versuch
+vorfenster_ausgaben_anteil = 0.5   # gab der Verein im Vorfenster so viel seines Budgets aus: ein Zugang weniger
+nachholen_ab_gescheitert = 2    # so viele gescheiterte Versuche bei verfehltem Ziel: ein Zugang mehr
+uebernahme_je_fenster = 0.01    # Wahrscheinlichkeit je Verein und Fenster
+finanzkrise_je_fenster = 0.02
+finanzkrise_nach_ausgaben = 0.04   # Zuschlag, wenn der Verein im Vorfenster über 80 % seines Budgets ausgab
+uebernahme_ziel = 2             # Zusatz-Zugänge in diesem und dem nächsten Fenster
+finanzkrise_ziel = 2            # Abzug vom Ziel in diesem und dem nächsten Fenster
+uebernahme_budget = 1.5         # Transferbudget steigt um diesen Anteil (mindestens `uebernahme_mindestens`), Gehaltsrahmen um 25 %
+uebernahme_mindestens = 10_000_000
+finanzkrise_budget = 0.4        # Transferbudget sinkt auf diesen Anteil, Gehaltsrahmen auf 85 %
+# Regeln über dem Plan (ki_regeln.py)
+topstar_rang = 5                # die besten N eines Vereins gehen nie an einen schwächeren Verein
+frisch_tage = 150               # frisch verpflichtete Spieler werden so lange nicht weiterverkauft
+rueckkehr_tage = 300            # ein abgegebener Spieler kehrt so lange nicht zum alten Verein zurück
+verletzt_ab = 28                # Spieler mit so vielen Ausfalltagen werden nicht gekauft
+ausfall_ersatz = 60             # Ausfall ab so vielen Tagen erzeugt Ersatzbedarf (Grund `verletzung`)
+ersatz_anteil = 0.6             # Anteil der Suche, der bei Ersatzbedarf Position und Stärke des Fehlenden gilt
+grosse_zuerst_bis = 0.3         # bis zu diesem Anteil des Fensters kaufen nur die großen Vereine
+grosse_anteil = 0.3             # „groß“: obere Stärke-Hälfte dieses Anteils der Liga
+deadline_anteil = 0.09          # Anteil der Wechsel, der am letzten Fenstertag fällt
+deadline_aufpreis = 0.15        # Aufpreis am Deadline Day
+ueberschuss_alter = 29          # Überschuss: Ersatz und Rotation ab diesem Alter gehen als Leihe oder billig weg
+ueberschuss_anteil = 0.15       # Anteil der Stichprobe für Überschussspieler
+ueberschuss_leihe = 0.5         # davon als Leihe (Rest als Kauf zum üblichen Preis)
+wiederkehr_tage = 220           # gescheiterte Ziele kommen innerhalb dieser Tage wieder
+wiederkehr_chance = 0.5         # Chance je Versuch, ein gescheitertes Ziel erneut anzugehen
+wiederkehr_aufschlag = 0.12     # höheres Angebot als beim ersten Mal
+max_je_tag = 12                 # neue Gebote der KI-Welt je Tag (Last)
+deadline_max_je_tag = 27        # am letzten Fenstertag mehr neue Gebote (Deadline-Day-Ballung, Ziel ~9 % der Gebote)
+auftraege_je_speichern = 12     # fremde Wechsel, die ein Speichern höchstens als Aufträge an Weg A bündelt
+geruecht_stufe = 3_000_000      # Gerüchte nur für Spieler ab diesem Marktwert (Medienlast)
+geruechte_je_tag = 2
+geruecht_falsch_je_tag = 0.02   # Chance je Verein und Tag auf ein falsches Gerücht
+besitzer_preis = 0.6            # Besitzergruppen tauschen billig: Preisfaktor unter Schwestervereinen
+besitzer_anteil = 0.1           # Anteil der Stichprobe, der Spielern der Schwestervereine gilt
+[ki_welt.besitzergruppen]       # Gruppe = ["Vereinsname", ...] (Daten, vom Nutzer gepflegt; im Spiel gibt es dafür keine Quelle). Leer = keine Gruppen.
+[ki_welt.relevanz]              # Welche Weltmeldungen in die Inbox dürfen (weltrelevanz.py); alles Übrige bleibt Weltzustand (Transfertabelle, Nachrichtenarchiv, Zeitung)
+je_phase = 1                    # höchstens so viele Weltmeldungen je Tagesphase (Mittag, Abend)
+je_tag = 2                      # und so viele je Tag
+band_top = 3                    # oberes Marktwertband eines Konkurrenten: seine besten N Spieler nach Marktwert ...
+band_ab = 25_000_000            # ... oder jeder Spieler ab diesem Marktwert
+konkurrent_top = 6              # direkte Konkurrenten: gleiche Liga, Tabellenplatz bis hierher ...
+konkurrent_nachbarn = 2         # ... oder höchstens so viele Plätze neben dir (nur wenn die Tabelle nach der Tabellensperre etwas sagt)
+klasse_abstand = 3.0            # sonst: Vereine mit höchstens diesem Stärkeabstand (Mittel der besten 16) in deiner Liga
+weltstar_ab = 60_000_000        # Weltstar: Marktwert ab hier ...
+weltstar_summe_ab = 50_000_000  # ... und Wechselsumme (bei Gerüchten der Marktwert) ab hier
+ticker_top = 3                  # Deadline-Day-Ticker: so viele der größten Summen ohne eigene Ursache
+ticker_zeilen = 5               # Ticker insgesamt höchstens so viele Zeilen
+
+[drama]
+aktiv = true          # Medizincheck, Ereignisse im letzten Moment, Streik, Vertragspoker (core/transfers/drama.py); aus = wie bisher

@@ -1,0 +1,458 @@
+{
+ "pool.torjaeger_im_lauf.e.e1": [
+  "{b.gruss} {b.torjaeger_im_lauf_lage} Ich wollte von dir hören, wie du damit umgehen willst.",
+  "{b.gruss} {b.torjaeger_im_lauf_lage} Die Frage ist nur, was wir daraus machen."
+ ],
+ "pool.torjaeger_im_lauf.e.e2": [
+  "{b.gruss} {b.torjaeger_im_lauf_lage} In der Kabine bleibt das nicht unbemerkt.",
+  "{b.gruss} {b.torjaeger_im_lauf_lage} Die anderen Angreifer schauen schon genauer hin."
+ ],
+ "pool.torjaeger_im_lauf.e.e3": [
+  "{b.gruss} {b.torjaeger_im_lauf_lage} Ich bin selbst gerade angespannt, aber die Sache ist zu wichtig zum Aufschieben.",
+  "{b.gruss} {b.torjaeger_im_lauf_lage} Heute fällt mir das Reden nicht leicht, trotzdem müssen wir uns um ihn kümmern."
+ ],
+ "pool.torjaeger_im_lauf.e.e4": [
+  "{b.gruss} {b.torjaeger_im_lauf_lage} Wenn wir jetzt wieder nichts unternehmen, verschenken wir diese Serie!",
+  "{b.gruss} {b.torjaeger_im_lauf_lage} Lass uns nicht zaudern, diese Welle muss man reiten!"
+ ],
+ "pool.torjaeger_im_lauf.e.e5": [
+  "{b.gruss} {b.torjaeger_im_lauf_lage} Kein Grund zur Hektik, aber ein Plan schadet nicht.",
+  "{b.gruss} {b.torjaeger_im_lauf_lage} Ich erwähne es nur, damit uns später nichts überrascht."
+ ],
+ "pool.torjaeger_im_lauf.e.e6": [
+  "{b.gruss} {b.torjaeger_im_lauf_lage} Führen wir ihn jetzt richtig, trägt er uns durch die nächsten Wochen.",
+  "{b.gruss} {b.torjaeger_im_lauf_lage} So eine Phase hält nicht ewig, also nutzen wir sie."
+ ],
+ "pool.torjaeger_im_lauf.e.e7": [
+  "{b.gruss} {b.torjaeger_im_lauf_lage} Ich fürchte, dass ihm der Rummel schnell zu Kopf steigt.",
+  "{b.gruss} {b.torjaeger_im_lauf_lage} Wir sollten aufpassen, dass bei so viel Aufmerksamkeit sein Kopf nicht anderswo ist."
+ ],
+ "pool.torjaeger_im_lauf.e.e8": [
+  "{b.gruss} {b.torjaeger_im_lauf_lage} Du wolltest dich um seine Zukunft kümmern, und es ist noch nichts passiert.",
+  "{b.gruss} {b.torjaeger_im_lauf_lage} Bei seiner letzten Bitte hast du etwas versprochen, und er wartet immer noch."
+ ],
+ "pool.torjaeger_im_lauf.e.e9": [
+  "{b.gruss} {b.torjaeger_im_lauf_lage} Eine Serie wie diese habe ich bei ihm noch nie gesehen.",
+  "{b.gruss} {b.torjaeger_im_lauf_lage} So gut war er in meiner ganzen Zeit hier nicht."
+ ],
+ "pool.torjaeger_im_lauf.a.a1": [
+  "Ich sage ihm unter vier Augen, wie stolz ich bin. Das Lob soll von mir kommen, nicht aus der Zeitung.",
+  "Ich ziehe ihn nach dem Training zur Seite und danke ihm persönlich. Er soll wissen, dass ich jedes Tor sehe."
+ ],
+ "pool.torjaeger_im_lauf.a.a2": [
+  "Ich lobe ihn, aber ich halte den Ball flach. Eine Serie endet, und Demut hat noch keinem Stürmer geschadet.",
+  "Er arbeitet weiter wie bisher, ohne Sonderrolle. Das sage ich ihm freundlich, aber deutlich."
+ ],
+ "pool.torjaeger_im_lauf.a.a3": [
+  "Er bekommt eine Prämie für die Serie, und die Vorlagengeber gehen nicht leer aus.",
+  "Ich lege eine Torprämie drauf und lade die ganze Offensive zum Essen ein, damit keiner das Gefühl hat, übersehen zu werden."
+ ],
+ "pool.torjaeger_im_lauf.a.a4": [
+  "So gut wie er spielt, hat er einen neuen Vertrag verdient. Gib mir {frist} Tage, dann sitzen wir zusammen.",
+  "Ich setze mich in {frist} Tagen mit ihm an einen besseren Vertrag, das sage ich dir zu."
+ ],
+ "pool.torjaeger_im_lauf.a.a5": [
+  "Auf der Pressekonferenz lobe ich ihn in den höchsten Tönen. Die Zeitungen werden sich freuen.",
+  "Ich stelle ihn vor der Presse als unseren Retter dar, mit allem Drum und Dran."
+ ],
+ "pool.torjaeger_im_lauf.a.a6": [
+  "Tore sind sein Job, dafür wird er bezahlt. Ein Sonderlob gibt es nicht.",
+  "Ich lobe keinen fürs Pflichterfüllen. Er soll nicht auf Streicheleinheiten warten."
+ ],
+ "pool.torjaeger_im_lauf.a.a7": [
+  "Über sein Gehalt rede ich nicht, auch wenn er trifft. Das lasse ich mir von keiner Serie diktieren.",
+  "Mehr Geld kommt nicht infrage. Er soll liefern und keine Forderungen stellen."
+ ],
+ "pool.torjaeger_im_lauf.a.a8": [
+  "Wie reagiert die Kabine auf ihn, und wie sieht er selbst die Serie?",
+  "Steigt ihm der Erfolg zu Kopf, oder bleibt er geerdet?"
+ ],
+ "pool.torjaeger_im_lauf.a.a9": [
+  "Sprich du mit dem Kapitän. Er soll den Jungen im Team halten und die anderen Angreifer mitnehmen.",
+  "Ich bitte den Kapitän, dass die Mannschaft ihn trägt, ohne ihn auf einen Sockel zu stellen."
+ ],
+ "pool.torjaeger_im_lauf.a.a10": [
+  "Nach der Serie reden wir über alles, jetzt wird gespielt.",
+  "Warten wir ab, ob es anhält. Danach entscheiden wir, was wir ihm anbieten."
+ ],
+ "pool.torjaeger_im_lauf.a.a11": [
+  "Frag ihn, ob ihn der Druck belastet. Erfolg macht manchen mehr Angst als Misserfolg.",
+  "Hör ihm zu, wie es ihm wirklich geht. Ein Lauf kann auch einsam machen."
+ ],
+ "pool.torjaeger_im_lauf.a.a12": [
+  "Er soll lernen, dass seine Tore aus den Vorlagen der anderen entstehen. Er bedankt sich bei ihnen, das ist meine Linie.",
+  "Ich verlange, dass er die Mitspieler einbindet und die Vorlagengeber lobt. Wer teilt, trifft noch öfter."
+ ],
+ "pool.torjaeger_im_lauf.r.r1": [
+  "{b.gut} Das wird ihn tragen, und uns alle.",
+  "{b.gut} So setzen wir das Signal, das er braucht."
+ ],
+ "pool.torjaeger_im_lauf.r.r2": [
+  "{b.gut} Ich bleibe dran und halte dich auf dem Laufenden.",
+  "{b.gut} Dann sorge ich dafür, dass es im Alltag ankommt."
+ ],
+ "pool.torjaeger_im_lauf.r.r3": [
+  "{b.gut} Das ist die Antwort eines Spitzenvereins.",
+  "{b.gut} Damit macht er den nächsten Schritt, und wir gleich mit."
+ ],
+ "pool.torjaeger_im_lauf.r.r4": [
+  "{b.gut} Gerade dieses Gespür wird er dir hoch anrechnen.",
+  "{b.gut} Dass du ihn als Menschen siehst, wird ihn bestärken."
+ ],
+ "pool.torjaeger_im_lauf.r.r5": [
+  "{b.neutral} Ob das reicht, zeigt das nächste Wochenende.",
+  "{b.neutral} Ich beobachte, wie er es aufnimmt."
+ ],
+ "pool.torjaeger_im_lauf.r.r6": [
+  "{b.neutral} Ich bin nicht sicher, wie er das auffasst, es kann so oder so kippen.",
+  "{b.neutral} Mal schauen, ob er es als Lob oder als Bremse versteht."
+ ],
+ "pool.torjaeger_im_lauf.r.r7": [
+  "{b.neutral} Ich gebe es so weiter, wie du es gesagt hast.",
+  "{b.neutral} Dann halte ich mich daran und lasse die Dinge laufen."
+ ],
+ "pool.torjaeger_im_lauf.r.r8": [
+  "{b.neutral} Eine Serie kommt und geht, das nehmen wir, wie es kommt.",
+  "{b.neutral} Ich sehe es entspannt, solange er weiter trifft."
+ ],
+ "pool.torjaeger_im_lauf.r.r9": [
+  "{b.schlecht} Damit riskieren wir, dass er abhebt oder abstürzt.",
+  "{b.schlecht} So verspielen wir die beste Phase der Saison."
+ ],
+ "pool.torjaeger_im_lauf.r.r10": [
+  "{b.schlecht} Wer solche Leistungen übergeht, braucht sich nicht zu wundern, wenn die Tore ausbleiben!",
+  "{b.schlecht} Dann wundere dich nicht, wenn er die Lust verliert!"
+ ],
+ "pool.torjaeger_im_lauf.r.r11": [
+  "{b.schlecht} Andere erzählen ihm gern, wie wertvoll er ist, das weißt du.",
+  "{b.schlecht} Andere werden ihm sagen, was du ihm nicht sagst."
+ ],
+ "pool.torjaeger_im_lauf.r.r12": [
+  "{b.schlecht} Ich hatte mir ehrlich mehr Rückhalt für ihn erhofft.",
+  "{b.schlecht} Ich habe ihn bei den anderen verteidigt, und jetzt stehe ich dumm da."
+ ],
+ "pool.torjaeger_im_lauf.x.x1": [
+  "Dein Co-Trainer nickt zufrieden. {entscheidung} Der Lauf ist gut aufgehoben, und die Kabine zieht mit.",
+  "{entscheidung} Der Stürmer trifft weiter, und die Mannschaft gönnt es ihm."
+ ],
+ "pool.torjaeger_im_lauf.x.x2": [
+  "Der Co-Trainer zuckt mit den Schultern. {entscheidung} Es hängt davon ab, wie lange der Stürmer trifft.",
+  "{entscheidung} Wie lange die Serie hält und was sie mit der Kabine macht, ist offen."
+ ],
+ "pool.torjaeger_im_lauf.x.x3": [
+  "Dein Co-Trainer verlässt das Büro mit schwerem Blick. {entscheidung} In der Offensive bilden sich zwei Lager.",
+  "{entscheidung} Im Training ist die Luft dünn, der Neid wächst, und der Stürmer merkt es."
+ ],
+ "pool.torjaeger_im_lauf.x.x4": [
+  "Du hast dich festgelegt. {entscheidung} Der Stürmer wird dich daran erinnern, sobald die Tore ausbleiben.",
+  "{entscheidung} Die Frist läuft, und jeder im Stab weiß davon."
+ ],
+ "pool.torjaeger_im_lauf.x.x5": [
+  "Der Co-Trainer bricht ab, bevor er alles sagen konnte. {entscheidung} Das Thema bleibt liegen.",
+  "{entscheidung} Er steht auf, grüßt knapp und geht zurück aufs Trainingsgelände."
+ ],
+ "pool.disziplin_verspaetung.e.e1": [
+  "{b.gruss} {b.disziplin_verspaetung_lage} Die anderen sehen genau hin, ob etwas passiert.",
+  "{b.gruss} {b.disziplin_verspaetung_lage} Beim Aufwärmen hat er wieder die Hälfte verpasst."
+ ],
+ "pool.disziplin_verspaetung.e.e2": [
+  "{b.gruss} {b.disziplin_verspaetung_lage} Ich habe ihn schon einmal darauf angesprochen, es hat nichts gebracht.",
+  "{b.gruss} {b.disziplin_verspaetung_lage} Der Zeugwart führt Buch, und die Liste wird länger."
+ ],
+ "pool.disziplin_verspaetung.e.e3": [
+  "{b.gruss} {b.disziplin_verspaetung_lage} Ich bin heute selbst geladen, aber das hier kann nicht warten.",
+  "{b.gruss} {b.disziplin_verspaetung_lage} Mir platzt gleich der Kragen, deshalb sage ich es lieber sofort."
+ ],
+ "pool.disziplin_verspaetung.e.e4": [
+  "{b.gruss} {b.disziplin_verspaetung_lage} Entweder du greifst durch, oder ich tue es!",
+  "{b.gruss} {b.disziplin_verspaetung_lage} Noch einmal, und ich schicke ihn vom Platz!"
+ ],
+ "pool.disziplin_verspaetung.e.e5": [
+  "{b.gruss} {b.disziplin_verspaetung_lage} Ich will keinen Aufstand, aber wegschauen geht auch nicht.",
+  "{b.gruss} {b.disziplin_verspaetung_lage} Vielleicht braucht es nur ein klärendes Wort von dir."
+ ],
+ "pool.disziplin_verspaetung.e.e6": [
+  "{b.gruss} {b.disziplin_verspaetung_lage} Solche Nachlässigkeit können wir uns im Titelrennen nicht leisten.",
+  "{b.gruss} {b.disziplin_verspaetung_lage} Wer oben mitspielen will, kommt pünktlich und arbeitet."
+ ],
+ "pool.disziplin_verspaetung.e.e7": [
+  "{b.gruss} {b.disziplin_verspaetung_lage} Ich frage mich, ob ihn etwas anderes beschäftigt.",
+  "{b.gruss} {b.disziplin_verspaetung_lage} Es sieht aus, als sei er mit dem Kopf woanders."
+ ],
+ "pool.disziplin_verspaetung.e.e8": [
+  "{b.gruss} {b.disziplin_verspaetung_lage} Du hattest zugesagt, dass er Konsequenzen spürt, aber geschehen ist nichts.",
+  "{b.gruss} {b.disziplin_verspaetung_lage} Du hast versprochen, das zu regeln, und die Mannschaft wartet noch."
+ ],
+ "pool.disziplin_verspaetung.e.e9": [
+  "{b.gruss} {b.disziplin_verspaetung_lage} Die Laune im Team ist am Boden, da wirkt jede Verspätung wie ein Funke.",
+  "{b.gruss} {b.disziplin_verspaetung_lage} In der Gruppe ist ohnehin schlechte Stimmung, und sein Verhalten befeuert sie."
+ ],
+ "pool.disziplin_verspaetung.a.a1": [
+  "Ich nehme ihn nach dem Training zur Seite und frage, was los ist. Unter vier Augen, ohne Zuschauer.",
+  "Ich rede in Ruhe mit ihm, nur wir zwei. Vielleicht steckt mehr dahinter als Faulheit."
+ ],
+ "pool.disziplin_verspaetung.a.a2": [
+  "Es gibt die Strafe aus der Vereinsordnung, für ihn wie für jeden anderen. Das Geld geht in die Mannschaftskasse.",
+  "Wir ziehen die vereinbarte Geldstrafe ein, nach der Liste und für alle gleich. So weiß jeder, woran er ist."
+ ],
+ "pool.disziplin_verspaetung.a.a3": [
+  "Er holt die verpasste Zeit nach, mit einer Extraeinheit am freien Nachmittag. Danach ist die Sache für mich erledigt.",
+  "Er räumt nach dem Training die Bälle weg und macht eine Sonderschicht. Danach ist Schluss damit."
+ ],
+ "pool.disziplin_verspaetung.a.a4": [
+  "Ich spreche eine Ermahnung aus. Beim nächsten Mal wird es teurer.",
+  "Ich sage ihm klar, dass das nicht noch einmal vorkommt. Eine Warnung, mehr nicht."
+ ],
+ "pool.disziplin_verspaetung.a.a5": [
+  "Der Kapitän redet mit ihm, von Spieler zu Spieler. Ich halte mich zurück, bis ich höre, was dabei herauskam.",
+  "Ich schicke den Kapitän vor, der hat sein Ohr in der Kabine."
+ ],
+ "pool.disziplin_verspaetung.a.a6": [
+  "Wie oft genau, und gilt das nur für ihn? Zeig mir die Zahlen.",
+  "Hat er eine Erklärung genannt, als du ihn gefragt hast?"
+ ],
+ "pool.disziplin_verspaetung.a.a7": [
+  "Wir drücken einmal ein Auge zu. Vielleicht ist nur sein Wecker kaputt.",
+  "Jeder hat mal einen schlechten Morgen. Diesen Hinweis schenke ich ihm ohne Folgen."
+ ],
+ "pool.disziplin_verspaetung.a.a8": [
+  "Ich stelle vor dem Team die Regeln noch einmal klar, ohne einen Namen zu nennen. Wer sich angesprochen fühlt, weiß es.",
+  "Ich lege die Pünktlichkeitsregeln für alle neu fest. Ein Verstoß kostet jeden gleich viel."
+ ],
+ "pool.disziplin_verspaetung.a.a9": [
+  "Ich nehme ihn vor der versammelten Mannschaft ran. Dann sieht jeder, was passiert.",
+  "Er bekommt es vor allen zu hören, laut und deutlich. Anders versteht er es nicht."
+ ],
+ "pool.disziplin_verspaetung.a.a10": [
+  "Ich habe Wichtigeres zu tun, als Erwachsene zur Pünktlichkeit zu erziehen. Kümmere du dich.",
+  "Das ist deine Aufgabe im Stab, nicht meine. Komm erst wieder, wenn es wirklich brennt."
+ ],
+ "pool.disziplin_verspaetung.a.a11": [
+  "Er ist einer unserer Besten, da sehe ich darüber hinweg. Bei anderen wäre ich strenger.",
+  "Wer liefert, darf auch mal später kommen. Lass ihn in Ruhe."
+ ],
+ "pool.disziplin_verspaetung.a.a12": [
+  "Wer zu spät kommt, beginnt auf der Bank. Das gilt für jeden.",
+  "Im nächsten Spiel sitzt er zunächst draußen. Keine Strafe, nur eine Folge."
+ ],
+ "pool.disziplin_verspaetung.r.r1": [
+  "{b.gut} Das ist fair, und jeder in der Mannschaft versteht es.",
+  "{b.gut} So kann er sein Gesicht wahren, und wir bekommen Ruhe."
+ ],
+ "pool.disziplin_verspaetung.r.r2": [
+  "{b.gut} Mit deiner Linie kann ich im Training arbeiten.",
+  "{b.gut} Gut, dann weiß ich, was ich morgen früh sagen darf."
+ ],
+ "pool.disziplin_verspaetung.r.r3": [
+  "{b.gut} Klare Regeln braucht eine Spitzenmannschaft.",
+  "{b.gut} Wenn alle gleich behandelt werden, zieht die Gruppe mit."
+ ],
+ "pool.disziplin_verspaetung.r.r4": [
+  "{b.gut} Dass du erst fragst und dann urteilst, wird er zu schätzen wissen.",
+  "{b.gut} Ich glaube, er braucht genau dieses Gespräch."
+ ],
+ "pool.disziplin_verspaetung.r.r5": [
+  "{b.neutral} Wir sehen morgen, ob es angekommen ist.",
+  "{b.neutral} Mal sehen, wie lange es hält."
+ ],
+ "pool.disziplin_verspaetung.r.r6": [
+  "{b.neutral} Ich traue mich kaum zu sagen, wie er reagieren wird.",
+  "{b.neutral} Er könnte es annehmen oder sich verschließen, ich weiß es nicht."
+ ],
+ "pool.disziplin_verspaetung.r.r7": [
+  "{b.neutral} Dann halten wir es so und führen weiter Buch.",
+  "{b.neutral} Ich gebe es weiter, den Rest sehen wir im Training."
+ ],
+ "pool.disziplin_verspaetung.r.r8": [
+  "{b.neutral} Halb so wild, das lässt sich im Alltag wieder einrenken.",
+  "{b.neutral} Wir haben schon Schlimmeres erlebt."
+ ],
+ "pool.disziplin_verspaetung.r.r9": [
+  "{b.schlecht} Die Kabine merkt, wenn nichts passiert, und macht es nach.",
+  "{b.schlecht} Kommt er damit durch, folgen andere."
+ ],
+ "pool.disziplin_verspaetung.r.r10": [
+  "{b.schlecht} Dann lege ich mich eben selbst mit ihm an, es reicht!",
+  "{b.schlecht} So untergräbst du meine Autorität im Training!"
+ ],
+ "pool.disziplin_verspaetung.r.r11": [
+  "{b.schlecht} Wenn das die Linie ist, überlege ich, ob ich hier richtig bin.",
+  "{b.schlecht} Dann trage ich es nicht mehr mit."
+ ],
+ "pool.disziplin_verspaetung.r.r12": [
+  "{b.schlecht} Ich habe gehofft, dass du hinter dem Stab stehst.",
+  "{b.schlecht} Das fühlt sich an, als hättest du mich im Regen stehen lassen."
+ ],
+ "pool.disziplin_verspaetung.x.x1": [
+  "Er hat verstanden, und beim nächsten Training steht er als Erster auf dem Platz. {entscheidung} Die Kabine nimmt es zur Kenntnis.",
+  "{entscheidung} Die Sache ist abgehakt, die Pünktlichkeit bessert sich."
+ ],
+ "pool.disziplin_verspaetung.x.x2": [
+  "{entscheidung} Ob es bei einer Ausnahme bleibt, zeigt erst die nächste Woche.",
+  "Dein Co-Trainer bleibt skeptisch. {entscheidung} Die Uhr in der Kabine wird genau beobachtet."
+ ],
+ "pool.disziplin_verspaetung.x.x3": [
+  "{entscheidung} In der Kabine wird über Ungleichbehandlung getuschelt, und der Spieler verweigert das Gespräch.",
+  "Die Stimmung kippt. {entscheidung} Im Stab spricht man von Autoritätsverlust."
+ ],
+ "pool.disziplin_verspaetung.x.x4": [
+  "Du hast dich auf eine Linie festgelegt. {entscheidung} Der Stab wird sie durchsetzen.",
+  "{entscheidung} Der Co-Trainer hält das schriftlich fest, und der Spieler weiß, was ihn erwartet."
+ ],
+ "pool.disziplin_verspaetung.x.x5": [
+  "Der Co-Trainer bricht das Gespräch ab. {entscheidung} Das Thema schwelt im Hintergrund weiter.",
+  "{entscheidung} Er geht kopfschüttelnd hinaus, ohne ein weiteres Wort."
+ ],
+ "pool.social_media_aussage.e.e1": [
+  "{b.gruss} {b.social_media_aussage_lage} Die Presse hat es schon aufgegriffen.",
+  "{b.gruss} {b.social_media_aussage_lage} Es steht bereits in den Kommentarspalten."
+ ],
+ "pool.social_media_aussage.e.e2": [
+  "{b.gruss} {b.social_media_aussage_lage} Darin geht es um den Schiedsrichter, und freundlich ist es nicht.",
+  "{b.gruss} {b.social_media_aussage_lage} Er hat einen Seitenhieb auf einen Mitspieler verteilt."
+ ],
+ "pool.social_media_aussage.e.e3": [
+  "{b.gruss} {b.social_media_aussage_lage} Ich habe heute schlecht geschlafen, und das macht es nicht besser.",
+  "{b.gruss} {b.social_media_aussage_lage} Mir ist nicht nach Diplomatie, aber wir müssen reagieren."
+ ],
+ "pool.social_media_aussage.e.e4": [
+  "{b.gruss} {b.social_media_aussage_lage} Das muss sofort weg, sonst eskaliert es!",
+  "{b.gruss} {b.social_media_aussage_lage} Wenn du nichts tust, reden wir morgen über nichts anderes!"
+ ],
+ "pool.social_media_aussage.e.e5": [
+  "{b.gruss} {b.social_media_aussage_lage} Vielleicht ist es nur eine Dummheit, aber sie wird gelesen.",
+  "{b.gruss} {b.social_media_aussage_lage} Ich würde es nicht überbewerten, aber ignorieren sollten wir es nicht."
+ ],
+ "pool.social_media_aussage.e.e6": [
+  "{b.gruss} {b.social_media_aussage_lage} Wir brauchen jetzt Ruhe im Umfeld, keine schlechten Schlagzeilen.",
+  "{b.gruss} {b.social_media_aussage_lage} Ein Verein mit Zielen kann sich keine Nebenschauplätze erlauben."
+ ],
+ "pool.social_media_aussage.e.e7": [
+  "{b.gruss} {b.social_media_aussage_lage} Er wirkt unzufrieden, vielleicht steckt mehr dahinter.",
+  "{b.gruss} {b.social_media_aussage_lage} Ich glaube, er wollte gehört werden, nur nicht auf diese Art."
+ ],
+ "pool.social_media_aussage.e.e8": [
+  "{b.gruss} {b.social_media_aussage_lage} Du hattest ihm Rückendeckung versprochen, und jetzt braucht er sie.",
+  "{b.gruss} {b.social_media_aussage_lage} Du wolltest dich um die Medienarbeit kümmern, und hier ist das Ergebnis."
+ ],
+ "pool.social_media_aussage.e.e9": [
+  "{b.gruss} {b.social_media_aussage_lage} Bei dem Interesse, das wir derzeit haben, verbreitet sich so etwas wie ein Lauffeuer.",
+  "{b.gruss} {b.social_media_aussage_lage} Mit so vielen Augen auf dem Verein bleibt kein Beitrag klein."
+ ],
+ "pool.social_media_aussage.a.a1": [
+  "Der Beitrag wird gelöscht, und wir geben eine kurze, ruhige Stellungnahme heraus. Er geht nicht weiter darauf ein.",
+  "Wir lassen den Post entfernen und stimmen eine knappe Erklärung ab. Danach herrscht Funkstille."
+ ],
+ "pool.social_media_aussage.a.a2": [
+  "Ich hole einen Medienberater, der die Kommunikation für ihn und die Mannschaft aufräumt. Das kostet, ist es aber wert.",
+  "Wir engagieren einen Medienprofi für ein Training mit der ganzen Mannschaft. Wer postet, soll wissen, wie es geht."
+ ],
+ "pool.social_media_aussage.a.a3": [
+  "Er entschuldigt sich öffentlich, mit eigenen Worten und ohne Floskeln. Ich helfe ihm beim Schreiben.",
+  "Eine ehrliche Entschuldigung von ihm, an die Betroffenen und an die Fans. Ich begleite ihn dabei."
+ ],
+ "pool.social_media_aussage.a.a4": [
+  "Er zahlt eine Geldstrafe an die Vereinskasse, und beim nächsten Mal sitzt er auf der Bank.",
+  "Das hat Folgen: eine spürbare Strafe und ein Ende der Alleingänge im Netz."
+ ],
+ "pool.social_media_aussage.a.a5": [
+  "Wir lassen es auf sich beruhen, bis das Interesse nachlässt. Morgen ist ein anderes Thema dran.",
+  "Aussitzen ist hier am klügsten. Wer reagiert, hält die Sache am Leben."
+ ],
+ "pool.social_media_aussage.a.a6": [
+  "Was steht genau drin, und wer hat es schon aufgegriffen?",
+  "Wie viele Leute haben den Beitrag gesehen, und wie ist die Stimmung in den Kommentaren?"
+ ],
+ "pool.social_media_aussage.a.a7": [
+  "Der Pressechef kümmert sich um die Anfragen, und der Kapitän spricht mit ihm. Ich bleibe draußen.",
+  "Ich bitte unseren Pressesprecher, die Lage zu beruhigen. Der Kapitän redet währenddessen mit ihm."
+ ],
+ "pool.social_media_aussage.a.a8": [
+  "Er hat sich das eingebrockt, also soll er es auch ausbaden. Ich helfe ihm da nicht heraus.",
+  "Seine Dummheit, sein Problem. Ich äußere mich nicht dazu."
+ ],
+ "pool.social_media_aussage.a.a9": [
+  "Ich kritisiere ihn öffentlich für diesen Beitrag. Dann weiß jeder, dass ich so etwas nicht dulde.",
+  "Ich bringe es vor der Presse zur Sprache und stelle ihn bloß, damit das ein Ende hat."
+ ],
+ "pool.social_media_aussage.a.a10": [
+  "Ich mache vor der Presse einen Witz daraus und tue so, als sei nichts. Dann verläuft es sich.",
+  "Mit einem Augenzwinkern erkläre ich es zum Missverständnis. Die Presse wird es lieben."
+ ],
+ "pool.social_media_aussage.a.a11": [
+  "Es gibt neue Regeln für die gesamte Mannschaft: nichts über Mitspieler, Schiedsrichter oder Verein im Netz.",
+  "Ich führe klare Leitlinien für soziale Medien ein, die für alle gelten, vom Jüngsten bis zum Kapitän."
+ ],
+ "pool.social_media_aussage.a.a12": [
+  "Ich stelle mich öffentlich vor ihn. Intern reden wir trotzdem Klartext, aber nach außen halten wir zusammen.",
+  "Ich gebe ihm Rückendeckung vor den Medien, hinter verschlossenen Türen hört er sich meine Meinung an."
+ ],
+ "pool.social_media_aussage.r.r1": [
+  "{b.gut} So bekommen wir das Thema vom Tisch.",
+  "{b.gut} Damit wird es in den Medien schnell leiser."
+ ],
+ "pool.social_media_aussage.r.r2": [
+  "{b.gut} Dann sehen die Leute, dass wir zusammenstehen.",
+  "{b.gut} Das bringt Ruhe in den Verein."
+ ],
+ "pool.social_media_aussage.r.r3": [
+  "{b.gut} So schützen wir die Saison vor Nebengeräuschen.",
+  "{b.gut} Professionell gelöst, und wir bleiben bei der Sache."
+ ],
+ "pool.social_media_aussage.r.r4": [
+  "{b.gut} Er wird merken, dass du ihn nicht fallen lässt.",
+  "{b.gut} Das nimmt ihm die Angst vor dem Echo."
+ ],
+ "pool.social_media_aussage.r.r5": [
+  "{b.neutral} Ob die Presse mitspielt, wird man sehen.",
+  "{b.neutral} Das Netz vergisst schnell, hoffentlich auch hier."
+ ],
+ "pool.social_media_aussage.r.r6": [
+  "{b.neutral} Ich weiß nicht, ob er es versteht oder sich missverstanden fühlt.",
+  "{b.neutral} Die Reaktion im Netz kann kippen, so oder so."
+ ],
+ "pool.social_media_aussage.r.r7": [
+  "{b.neutral} Ich beobachte die Kommentare und melde mich, falls es hochkocht.",
+  "{b.neutral} Dann tun wir das und behalten die Lage im Blick."
+ ],
+ "pool.social_media_aussage.r.r8": [
+  "{b.neutral} Es ist nur ein Beitrag, die Welt dreht sich weiter.",
+  "{b.neutral} Wir haben schon größere Wellen überstanden."
+ ],
+ "pool.social_media_aussage.r.r9": [
+  "{b.schlecht} Damit wird es noch größer, und die Fans erwarten eine Antwort.",
+  "{b.schlecht} Die Medien werden dich dafür auseinandernehmen."
+ ],
+ "pool.social_media_aussage.r.r10": [
+  "{b.schlecht} Das ist Wasser auf die Mühlen der Presse, und du weißt es!",
+  "{b.schlecht} So eskaliert es erst richtig!"
+ ],
+ "pool.social_media_aussage.r.r11": [
+  "{b.schlecht} Wenn der Verein so mit seinen Leuten umgeht, schaue ich mir andere an.",
+  "{b.schlecht} Ich habe das Gefühl, hier hilft einem keiner."
+ ],
+ "pool.social_media_aussage.r.r12": [
+  "{b.schlecht} Ich dachte, wir ziehen das gemeinsam durch.",
+  "{b.schlecht} Schade, auf diese Antwort hätte ich verzichten können."
+ ],
+ "pool.social_media_aussage.x.x1": [
+  "Der Beitrag ist verschwunden, und die Fans haben ihn schnell vergessen. {entscheidung} Im Stab atmet man auf.",
+  "{entscheidung} Die Wogen glätten sich, der Spieler hat verstanden."
+ ],
+ "pool.social_media_aussage.x.x2": [
+  "{entscheidung} Ob die Geschichte versandet oder zurückkehrt, bleibt offen.",
+  "Der Co-Trainer wirkt unsicher. {entscheidung} Das Netz entscheidet, wie lange es dauert."
+ ],
+ "pool.social_media_aussage.x.x3": [
+  "{entscheidung} In den Kommentaren wird es hässlich, und auch im Vorstand wird nachgefragt.",
+  "Das Echo wird lauter. {entscheidung} Der Spieler fühlt sich vorgeführt und zieht sich zurück."
+ ],
+ "pool.social_media_aussage.x.x4": [
+  "Du hast dich öffentlich festgelegt. {entscheidung} Der Spieler wird dich beim Wort nehmen.",
+  "{entscheidung} Der Pressechef notiert es, und der Spieler weiß Bescheid."
+ ],
+ "pool.social_media_aussage.x.x5": [
+  "Der Co-Trainer bricht das Gespräch ab. {entscheidung} Der Beitrag bleibt stehen, und niemand fühlt sich zuständig.",
+  "{entscheidung} Er schüttelt den Kopf und geht."
+ ]
+}

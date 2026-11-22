@@ -1,0 +1,74 @@
+{
+ "pool.b.altstar_karriereende_lage": [
+  "Mein Vertrag läuft noch {monate} Monate, und ich frage mich, was danach kommt.",
+  "Es sind noch {monate} Monate Vertrag, und ich möchte wissen, wo ich dann stehe."
+ ],
+ "pool.b.altstar_karriereende_lage.hitzig": [
+  "In {monate} Monaten läuft mein Vertrag aus, und keiner sagt mir, was Sache ist.",
+  "Noch {monate} Monate, und ich will endlich Klarheit statt Andeutungen."
+ ],
+ "pool.b.altstar_karriereende_lage.loyal": [
+  "Ich habe diesem Verein viele Jahre gegeben, und in {monate} Monaten endet mein Vertrag.",
+  "Der Klub ist mein Zuhause, nur läuft mein Vertrag in {monate} Monaten aus."
+ ],
+ "pool.b.altstar_karriereende_lage.ehrgeizig": [
+  "Ich spüre, dass noch etwas geht, und in {monate} Monaten endet mein Vertrag.",
+  "Mein Körper macht mit, aber der Vertrag endet in {monate} Monaten."
+ ],
+ "pool.b.altstar_karriereende_lage.wechselfreudig": [
+  "Mein Vertrag endet in {monate} Monaten, und andere Klubs haben schon gefragt.",
+  "In {monate} Monaten bin ich frei, und ich höre mir an, was es sonst gibt."
+ ],
+ "pool.b.altstar_karriereende_lage.sensibel": [
+  "Ich denke in letzter Zeit viel ans Aufhören, der Vertrag endet ja in {monate} Monaten.",
+  "Mit dem Vertragsende in {monate} Monaten kommt auch die Frage, wie lange ich noch darf."
+ ],
+ "pool.b.egoist_auf_der_bank_lage": [
+  "Es geht um {gegner}, der seit {spiele} Spielen auf der Bank sitzt und das alle spüren lässt.",
+  "{gegner} sitzt seit {spiele} Spielen draußen, und die Laune in der Kabine leidet darunter."
+ ],
+ "pool.b.egoist_auf_der_bank_lage.hitzig": [
+  "{gegner} schimpft seit {spiele} Spielen auf der Bank vor sich hin, und gestern hat er die Tür getreten.",
+  "Seit {spiele} Spielen kocht {gegner} in der Reserve und lässt es an allen aus."
+ ],
+ "pool.b.egoist_auf_der_bank_lage.loyal": [
+  "Ich sage es ungern über einen Mitspieler, aber {gegner} zieht uns seit {spiele} Spielen herunter.",
+  "Ich will keinen anschwärzen, doch {gegner} verdirbt nach {spiele} Spielen auf der Bank die Stimmung."
+ ],
+ "pool.b.egoist_auf_der_bank_lage.ehrgeizig": [
+  "Wir wollen oben mitspielen, aber {gegner} stört mit seinem Schmollen seit {spiele} Spielen den Rhythmus.",
+  "{gegner} denkt nur an sich, seit er {spiele} Spiele zuschaut, und das kostet uns Schärfe."
+ ],
+ "pool.b.egoist_auf_der_bank_lage.wechselfreudig": [
+  "{gegner} redet offen über einen Abschied, seit er {spiele} Spiele nicht gespielt hat.",
+  "Seit {spiele} Spielen macht {gegner} klar, dass er woanders besser aufgehoben wäre, auch vor den anderen."
+ ],
+ "pool.b.egoist_auf_der_bank_lage.sensibel": [
+  "Mir geht es nahe, wie {gegner} seit {spiele} Spielen leidet und alle mit hineinzieht.",
+  "Seit {spiele} Spielen ist {gegner} verbittert, und die Stimmung in der Kabine tut mir weh."
+ ],
+ "pool.b.fuehrungsspieler_ausser_form_lage": [
+  "Ich weiß selbst, dass es bei mir derzeit nicht läuft, und das beschäftigt mich.",
+  "Meine Leistungen sind schwach, und ich spüre, dass die Kabine genau hinschaut."
+ ],
+ "pool.b.fuehrungsspieler_ausser_form_lage.hitzig": [
+  "Ja, ich spiele schlecht, aber ich lasse mir deswegen nicht den Stuhl absägen!",
+  "Es läuft nicht, und alle tun so, als wäre ich schon abgeschrieben."
+ ],
+ "pool.b.fuehrungsspieler_ausser_form_lage.loyal": [
+  "Ich stehe für diesen Verein ein, und umso mehr tut es weh, dass ich gerade nicht liefere.",
+  "Mir ist bewusst, dass ich der Mannschaft derzeit nicht helfe, und das nagt an mir."
+ ],
+ "pool.b.fuehrungsspieler_ausser_form_lage.ehrgeizig": [
+  "So eine Phase passt nicht zu mir, ich will da so schnell wie möglich heraus.",
+  "Ich kenne meine Ansprüche, und gerade erfülle ich sie nicht."
+ ],
+ "pool.b.fuehrungsspieler_ausser_form_lage.wechselfreudig": [
+  "In dieser Form ist mein Marktwert im Keller, und das macht mich nervös.",
+  "Wenn es so weitergeht, überlege ich, ob ein Neuanfang woanders nicht klüger wäre."
+ ],
+ "pool.b.fuehrungsspieler_ausser_form_lage.sensibel": [
+  "Ich habe das Gefühl, dass die anderen mich anders ansehen, seit es nicht mehr läuft.",
+  "Jeder Fehler auf dem Platz bohrt sich bei mir tief ein, und ich schlafe schlecht."
+ ]
+}

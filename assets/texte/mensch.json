@@ -1,0 +1,324 @@
+{
+  "_hinweis": "Texte der Menschen-Seite (Paket 3), getrennt von der Logik. Schlüssel: thema.option.",
+  "werte": [
+    "Professionalität",
+    "Ehrgeiz",
+    "Ego",
+    "Teamgeist",
+    "Führung",
+    "Temperament",
+    "Nervenstärke",
+    "Verträglichkeit",
+    "Loyalität",
+    "Status"
+  ],
+  "typen": {
+    "vorbildprofi": "Vorbildprofi",
+    "anfuehrer": "Anführer",
+    "kumpel": "Kumpel",
+    "stimmungsmacher": "Stimmungsmacher",
+    "mentor": "Mentor",
+    "egoist": "Egoist",
+    "diva": "Diva",
+    "heisssporn": "Heißsporn",
+    "soeldner": "Söldner",
+    "vereinsikone": "Vereinsikone",
+    "einzelgaenger": "Einzelgänger",
+    "talent_mit_allueren": "Talent mit Allüren"
+  },
+  "rollen": [
+    "Kapitän",
+    "Vizekapitän",
+    "Führungsspieler",
+    "Stammspieler",
+    "Rotationsspieler",
+    "Perspektivspieler",
+    "Randfigur"
+  ],
+  "treiber": {
+    "spielzeit": "Spielzeit",
+    "erfolg": "Erfolg der Mannschaft",
+    "gehalt": "Gehalt im Vergleich",
+    "vertrag": "Vertrag läuft aus",
+    "zusagen": "Zusagen des Trainers",
+    "gespraech": "Gespräche",
+    "rolle": "Rolle im Kader",
+    "geruecht": "Angebote anderer Vereine",
+    "freunde": "Freunde im Team",
+    "isoliert": "Ohne Anschluss",
+    "feinde": "Spannungen mit Mitspielern",
+    "mentor": "Mentor",
+    "training": "Training",
+    "gruppe": "Teamgeist",
+    "form": "Form",
+    "verletzt": "Verletzung",
+    "ueberlastet": "Überlastung"
+  },
+  "anlass": {
+    "spielzeit": "Ich spiele zu wenig. Ich will wissen, woran ich bin.",
+    "rolle": "Ich sehe meine Rolle hier anders. Können wir reden?",
+    "form": "Es läuft gerade nicht bei mir. Ich brauche Ihre Meinung.",
+    "lob": "Ein starkes Spiel von ihm. Ein Wort von dir würde ihn freuen.",
+    "kritik": "Sein Auftritt zuletzt war schwach. Sprichst du ihn an?",
+    "zukunft": "Ich mache mir Gedanken über meine Zukunft hier."
+  },
+  "optionen": {
+    "spielzeit": [
+      [
+        "verstaendnis",
+        "Ich verstehe dich. Deine Zeit kommt.",
+        "Ich sehe, dass dich das beschäftigt. Deine Chance kommt.",
+        "Ich verstehe deinen Frust. Bleib dran, du bist nah dran."
+      ],
+      [
+        "leistung",
+        "Zeig es im Training, dann spielst du.",
+        "Überzeug mich in den nächsten Einheiten, dann stehst du drin.",
+        "Die Tür ist offen. Mach im Training den Unterschied."
+      ],
+      [
+        "zusage",
+        "Du bekommst deine Einsätze, versprochen.",
+        "In den nächsten Spielen bekommst du Minuten, darauf kannst du dich verlassen.",
+        "Ich plane dich fest ein, mein Wort drauf."
+      ],
+      [
+        "kampf",
+        "Kämpf dich rein wie alle anderen.",
+        "Hier wird niemandem etwas geschenkt. Hol dir den Platz.",
+        "Konkurrenz belebt das Geschäft. Zeig, dass du besser bist."
+      ],
+      [
+        "abwimmeln",
+        "Das entscheide ich, nicht du.",
+        "Die Aufstellung mache ich. Punkt.",
+        "Darüber diskutiere ich nicht mit dir."
+      ]
+    ],
+    "rolle": [
+      [
+        "wertschaetzung",
+        "Du bist wichtig für uns, das weißt du.",
+        "Du bist ein wichtiger Teil dieser Mannschaft, auch wenn du es gerade anders siehst.",
+        "Ohne Leute wie dich funktioniert diese Gruppe nicht."
+      ],
+      [
+        "verantwortung",
+        "Du bekommst mehr Verantwortung, versprochen.",
+        "Ab sofort übernimmst du mehr, das verspreche ich dir.",
+        "Ich gebe dir eine größere Rolle, du hast sie dir verdient."
+      ],
+      [
+        "geduld",
+        "Hab Geduld, dein Weg ist geplant.",
+        "Wir haben einen Plan mit dir. Gib ihm Zeit.",
+        "Dein Moment kommt, wir bauen dich Schritt für Schritt auf."
+      ],
+      [
+        "ausweichen",
+        "Darüber reden wir ein andermal.",
+        "Lass uns das nach dem nächsten Spiel in Ruhe besprechen.",
+        "Gerade ist nicht der richtige Zeitpunkt dafür."
+      ],
+      [
+        "dichtmachen",
+        "Deine Rolle steht nicht zur Debatte.",
+        "Die Rollen sind verteilt, daran ändert sich nichts.",
+        "Du spielst die Rolle, die ich dir gebe."
+      ]
+    ],
+    "form": [
+      [
+        "aufbauen",
+        "Kopf hoch, ich glaube an dich.",
+        "Jeder hat mal eine schwierige Phase. Ich stehe hinter dir.",
+        "Du kannst das, ich habe es oft genug gesehen."
+      ],
+      [
+        "analyse",
+        "Schauen wir uns deine Spiele zusammen an.",
+        "Setz dich morgen mit dem Analyseteam hin, wir finden das gemeinsam.",
+        "Wir schauen uns die letzten Spiele Szene für Szene an."
+      ],
+      [
+        "anspornen",
+        "Ich erwarte mehr von dir.",
+        "Ich will den Spieler sehen, den ich kenne. Ab dem nächsten Spiel.",
+        "Von dir erwarte ich mehr, und das weißt du."
+      ],
+      [
+        "abkanzeln",
+        "So geht das nicht weiter.",
+        "So kann ich dich nicht mehr aufstellen.",
+        "Das reicht nicht, und zwar seit Wochen."
+      ],
+      [
+        "abwarten",
+        "Das wird schon wieder.",
+        "Mach dir keinen Kopf, das kommt von allein zurück.",
+        "Lass es laufen, die Form kommt wieder."
+      ]
+    ],
+    "lob": [
+      [
+        "ehrlich",
+        "Starke Leistung, ehrlich verdient.",
+        "Das war richtig stark, das hast du dir erarbeitet.",
+        "Verdient, so eine Leistung sieht man nicht jede Woche."
+      ],
+      [
+        "herzlich",
+        "Ich freue mich riesig für dich.",
+        "Ich freue mich ehrlich für dich, Wahnsinn!",
+        "Das war dein Tag. Genieß es!"
+      ],
+      [
+        "knapp",
+        "Gut gemacht.",
+        "Stark.",
+        "Gutes Spiel."
+      ],
+      [
+        "mit_forderung",
+        "Gut. Und jetzt bitte jede Woche so.",
+        "Klasse. Und genau das will ich jetzt jede Woche sehen.",
+        "Sehr gut. Jetzt nicht nachlassen."
+      ]
+    ],
+    "kritik": [
+      [
+        "sachlich",
+        "Hier lief es nicht. So machen wir es besser.",
+        "Das hat nicht funktioniert. Wir arbeiten an den Laufwegen.",
+        "Schauen wir uns an, was schiefging, und machen es besser."
+      ],
+      [
+        "klar",
+        "Das war zu wenig, das weißt du.",
+        "Das war nicht dein Niveau, und das weißt du selbst.",
+        "So eine Leistung reicht bei uns nicht."
+      ],
+      [
+        "mit_ruecksicht",
+        "Ich weiß, es ist nicht leicht. Trotzdem: mehr.",
+        "Ich weiß, du hattest es schwer. Trotzdem brauche ich mehr von dir.",
+        "Nicht leicht gerade, ich weiß. Aber ich zähle auf dich."
+      ],
+      [
+        "laut",
+        "Das war inakzeptabel!",
+        "Das war gar nichts!",
+        "So etwas will ich nie wieder sehen!"
+      ],
+      [
+        "drumherum",
+        "Na ja, nicht dein bester Tag.",
+        "Abhaken, kann passieren.",
+        "Na ja, schwamm drüber."
+      ]
+    ],
+    "zukunft": [
+      [
+        "bleiben",
+        "Wir wollen mit dir verlängern, versprochen.",
+        "Wir planen langfristig mit dir und wollen verlängern.",
+        "Du bist ein Teil unserer Zukunft, wir legen dir ein Angebot vor."
+      ],
+      [
+        "gehalt",
+        "Wir reden über ein besseres Gehalt, versprochen.",
+        "Wir setzen uns zusammen und reden über dein Gehalt.",
+        "Deine Leistung soll sich auch auf dem Konto zeigen, versprochen."
+      ],
+      [
+        "freigabe",
+        "Kommt ein gutes Angebot, lassen wir dich gehen.",
+        "Wenn ein passender Verein kommt, stehen wir dir nicht im Weg.",
+        "Kommt das richtige Angebot, reden wir über einen Wechsel."
+      ],
+      [
+        "offen",
+        "Lass uns abwarten.",
+        "Warten wir die nächsten Wochen ab.",
+        "Noch ist nichts entschieden, lass uns das offen halten."
+      ],
+      [
+        "druck",
+        "Du hast einen Vertrag. Den erfüllst du.",
+        "Du hast unterschrieben. Ich erwarte, dass du das erfüllst.",
+        "Ein Vertrag ist ein Vertrag."
+      ]
+    ],
+    "konflikt": [
+      [
+        "schlichten",
+        "Ich schlichte selbst.",
+        "Ich hole beide zu mir ins Büro.",
+        "Ich kümmere mich persönlich darum."
+      ],
+      [
+        "aussprache",
+        "Die beiden sollen sich aussprechen.",
+        "Die zwei setzen sich zusammen und klären das.",
+        "Sie sollen das unter vier Augen ausräumen."
+      ],
+      [
+        "kapitaen_bitten",
+        "Der Kapitän soll sich kümmern.",
+        "Der Kapitän soll mit beiden reden.",
+        "Das ist eine Sache für den Mannschaftsrat."
+      ],
+      [
+        "strafe",
+        "Beide werden bestraft.",
+        "Beide zahlen in die Mannschaftskasse.",
+        "Es gibt für beide eine Strafe."
+      ],
+      [
+        "laufen_lassen",
+        "Das regeln die unter sich.",
+        "Erwachsene Männer, die klären das selbst.",
+        "Ich mische mich da nicht ein."
+      ]
+    ],
+    "disziplin": [
+      [
+        "nachsicht",
+        "Einmal drücke ich ein Auge zu.",
+        "Diesmal lasse ich es durchgehen.",
+        "Einmal ist keinmal."
+      ],
+      [
+        "ermahnung",
+        "Eine klare Ermahnung.",
+        "Ein deutliches Gespräch, mehr nicht.",
+        "Er bekommt eine klare Ansage."
+      ],
+      [
+        "geldstrafe",
+        "Eine Geldstrafe.",
+        "Das kostet ihn ein Monatsgehalt-Anteil.",
+        "Er zahlt in die Mannschaftskasse."
+      ],
+      [
+        "bank",
+        "Er sitzt beim nächsten Spiel draußen.",
+        "Er setzt im nächsten Spiel aus.",
+        "Beim nächsten Spiel sitzt er draußen."
+      ]
+    ]
+  },
+  "vorfall": {
+    "verspaetung": "kam zu spät zum Training",
+    "trainingsfehler": "hat das Training schleifen lassen",
+    "oeffentliche_kritik": "hat sich öffentlich über den Verein beschwert",
+    "streit": "ist im Training mit einem Mitspieler aneinandergeraten"
+  },
+  "mimik": [
+    "sehr zufrieden",
+    "zufrieden",
+    "ungerührt",
+    "verärgert",
+    "sehr verärgert"
+  ]
+}

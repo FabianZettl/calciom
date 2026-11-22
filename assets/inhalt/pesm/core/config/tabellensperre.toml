@@ -1,0 +1,4 @@
+# Keine Tabellenurteile ohne gespielte Spiele: Platz, Ziel, Serie, Druck und Vertrauen aus der Tabelle gelten erst ab dieser Zahl gespielter Pflichtspiele
+# des eigenen Vereins. Je Quelle einstellbar (Name = Aufrufer); fehlt sie, gilt `liga`.
+[mindestspiele]
+liga = 4            # Standard für alle Ligaurteile (Platz, Abstand zum Ziel, Auf-/Abstiegsrang, Vorstandsgründe, Pressethemen)

@@ -1,0 +1,63 @@
+# KI-Trainer (Entscheidungslogik). Eigene Festlegungen von PESM; alles Entwurf, nichts wird ins Spiel geschrieben (docs/intern/KI-TRAINER.md).
+# Die Trainertypen sind die der Taktikanpassung (core/gegner/anpassung.py): starr, reaktiv, experimentierfreudig, dogmatisch, pragmatisch.
+
+[startelf]
+marge = 5.0                # so viel stärker (Punkte) muss ein Spieler von der Bank sein, damit er einen Stammspieler derselben Position verdrängt
+marge_je_woche = 1.0       # so viel sinkt die Marge je Woche, die er schon besser auf der Bank sitzt: kein deutlich Besserer bleibt dauerhaft draußen
+marge_min = 1.0
+linie_abzug = 6.0          # Spieler einer anderen Position derselben Linie (Abwehr, Mitte, Sturm) rückt nur mit diesem Abzug nach
+form_gewicht = 2.0         # Punkte je Formstufe (-3 … +3)
+kondition_ab = 70          # darunter sinkt der Wert
+kondition_gewicht = 0.3
+eingewoehnung_tage = 28    # Neuzugang: Abzug sinkt linear auf 0
+eingewoehnung_abzug = 6.0
+rotation_kondition = 55    # Stammspieler darunter wird rotiert, wenn der Ersatz nicht viel schwächer ist
+rotation_spielraum = 4.0
+star_marge = 0.0           # teurer Star auf der Bank: schon bei Gleichstand spielt er
+neu_marge = 2.0            # eingelebter Neuzugang: reicht ein kleiner Vorsprung
+max_wechsel = 3            # Änderungen der Startelf je Woche (Ausfälle zählen nicht)
+
+[formation]
+stabil_regler_linie = 2    # Abwehrreihe tiefer um so viele Stufen bei „stabiler“
+stabil_regler_kompakt = 1
+fit_schwelle = 2.5         # so viel besser muss eine Formation zum Kader passen, damit sie ohne Serie gewählt wird
+stabil_bonus = 3.0         # Punkte je Abwehr-/Sechserspieler mehr bei einer Niederlagenserie
+abstieg_platz_vom_ende = 3 # Tabellenplätze vom Ende, ab denen Abstiegsangst die Schwelle der Niederlagen um 1 senkt
+saison_spaet = 0.7         # Anteil der Saison, ab dem Abstiegsangst gilt
+
+# je Typ: serie = Niederlagen in Folge bis zum Wechsel; sperre = Wochen Pause nach einem Wechsel (Trägheit); fest = wechselt die Formation nur in der Not (zu wenig Spieler);
+# marge_faktor = Geduld mit der Bank (hoch = bleibt bei den Stammkräften); rotiert = rotiert müde Spieler
+[typ.starr]
+serie = 6
+sperre = 8
+fest = true
+marge_faktor = 1.6
+rotiert = false
+
+[typ.reaktiv]
+serie = 3
+sperre = 3
+fest = false
+marge_faktor = 0.8
+rotiert = true
+
+[typ.experimentierfreudig]
+serie = 4
+sperre = 2
+fest = false
+marge_faktor = 0.7
+rotiert = true
+
+[typ.dogmatisch]
+serie = 8
+sperre = 10
+fest = true
+marge_faktor = 1.4
+rotiert = false
+
+[typ.pragmatisch]
+serie = 3
+sperre = 4
+fest = false
+marge_faktor = 1.0
+rotiert = true

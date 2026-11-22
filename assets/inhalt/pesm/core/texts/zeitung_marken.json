@@ -1,0 +1,143 @@
+{
+ "zt.art.spiel.fach.titel": [
+  "{heim} – {gast} {ergebnis}",
+  "{sieger} gewinnt: {ergebnis} gegen {verlierer}",
+  "Bilanz des Spiels: {heim} – {gast}"
+ ],
+ "zt.art.spiel.remis.fach.titel": [
+  "{heim} – {gast} {ergebnis}",
+  "Unentschieden: {heim} und {gast} teilen die Punkte"
+ ],
+ "zt.art.spiel.fach.einstieg": [
+  "{wettbewerb}, {stadion}: {heim} – {gast} {ergebnis}. Tore: {schuetzen}.",
+  "{heim} – {gast} {ergebnis}. Die Torschützen: {schuetzen}.",
+  "Endstand {ergebnis} im {wettbewerb}: {sieger} nimmt die Punkte mit."
+ ],
+ "zt.art.welt.fach.titel": [
+  "{heim} – {gast} {ergebnis}",
+  "{sieger} setzt ein Zeichen: {ergebnis}"
+ ],
+ "zt.art.welt.remis.fach.titel": [
+  "{heim} – {gast} {ergebnis}",
+  "Punkteteilung: {heim} und {gast}"
+ ],
+ "zt.art.welt.fach.einstieg": [
+  "{wettbewerb}: {heim} – {gast} {ergebnis}.",
+  "Spielbericht {wettbewerb}: {heim} gegen {gast}, Endstand {ergebnis}."
+ ],
+ "zt.art.tabelle.fach.titel": [
+  "{liga}: {erster} an der Spitze",
+  "Die Tabelle: {erster} vor {spitze_zwei}"
+ ],
+ "zt.art.tabelle.fach.einstieg": [
+  "Tabellenführer in der {liga} ist {erster} mit {punkte_erster} Punkten.",
+  "{erster} führt, {spitze_zwei} folgt."
+ ],
+ "zt.art.verletzung.fach.titel": [
+  "{name}: {dauer} Pause",
+  "Ausfall bei {verein}: {name}"
+ ],
+ "zt.art.verletzung.fach.einstieg": [
+  "{name} ({verein}) fehlt {dauer}.",
+  "Bei {verein} muss {name} {dauer} pausieren."
+ ],
+ "zt.art.ton.fach.schluss": [
+  "Die Aufstellung zum nächsten Spiel steht bei Redaktionsschluss noch nicht fest.",
+  "Die Einzelkritik im Überblick: Wer überzeugte, steht in der Spielbilanz."
+ ],
+ "zt.art.ton.fach.schluss.kritik": [
+  "Die Defensive muss sich steigern, das Fachurteil fällt streng aus.",
+  "Die Fehlerquote war zu hoch, die Noten fallen entsprechend aus."
+ ],
+ "zt.art.ton.fach.schluss.lob": [
+  "Das Fachurteil fällt freundlich aus."
+ ],
+ "zt.art.spiel.tv.titel": [
+  "Die Zusammenfassung: {heim} gegen {gast}",
+  "Highlights: {heim} – {gast} {ergebnis}",
+  "Spieltag live im Studio: {heim} gegen {gast}"
+ ],
+ "zt.art.spiel.remis.tv.titel": [
+  "Die Zusammenfassung: {heim} gegen {gast}",
+  "Highlights: {heim} und {gast} trennen sich {ergebnis}"
+ ],
+ "zt.art.spiel.tv.einstieg": [
+  "Im Studio: {heim} gegen {gast}, am Ende steht es {ergebnis}. Die Experten sehen {sieger} verdient vorn.",
+  "Willkommen zur Zusammenfassung: {wettbewerb}, {stadion}. {ergebnis} zwischen {heim} und {gast}.",
+  "Die Bilder des Spiels: {sieger} jubelt, {verlierer} bleibt ohne Punkte."
+ ],
+ "zt.art.welt.tv.titel": [
+  "Konferenz: {heim} gegen {gast}",
+  "Highlights: {heim} – {gast} {ergebnis}"
+ ],
+ "zt.art.welt.remis.tv.titel": [
+  "Konferenz: {heim} gegen {gast}",
+  "Highlights: {heim} und {gast} {ergebnis}"
+ ],
+ "zt.art.welt.tv.einstieg": [
+  "Aus der Konferenz: {heim} gegen {gast}, {ergebnis}.",
+  "{wettbewerb}: Die Bilder zu {heim} gegen {gast}, Endstand {ergebnis}."
+ ],
+ "zt.art.ton.tv.schluss": [
+  "Weiter geht es im Studio mit der Analyse.",
+  "Mehr dazu in der Expertenrunde."
+ ],
+ "zt.art.zitat.tv": [
+  "Das war über weite Strecken ein Spiel auf Augenhöhe, am Ende entschieden Details.",
+  "Man hat gesehen, wie die Mannschaft die Räume besetzt hat.",
+  "Taktisch war das eine saubere Leistung, vor allem im Zentrum."
+ ],
+ "zt.art.stat.balken": "Ergebnisbalken",
+ "zt.art.stat.banner": "Torbanner",
+ "zt.art.einblendung.tor": "TOR! {name}",
+ "zt.art.spiel.hintergrund": [
+  "Wer das {ergebnis} verstehen will, muss auf die Phasen schauen, in denen {sieger} den Ball früh zurückgewann: Dort wurde das Spiel entschieden, nicht in der Schlussviertelstunde.",
+  "Der Blick auf die Abstände zwischen den Ketten erklärt viel: {sieger} blieb kompakt und ließ {verlierer} das Spiel breit machen, ohne dass daraus Torchancen entstanden."
+ ],
+ "zt.art.spiel.hintergrund_remis": [
+  "Beide Seiten neutralisierten sich im Aufbauspiel: {heim} suchte die Breite, {gast} schloss die Mitte, und am Ende blieb das {ergebnis} die logische Folge."
+ ],
+ "zt.art.welt.hintergrund": [
+  "Das {ergebnis} wirkt auf den ersten Blick zufällig, erzählt aber von einer Mannschaft, die ihre Spielidee in {wettbewerb} Woche für Woche verfeinert.",
+  "Hinter dem Ergebnis steckt ein taktisches Muster: {sieger} gewann die zweiten Bälle und zwang {verlierer} zu langen Zuspielen."
+ ],
+ "zt.art.tabelle.hintergrund": [
+  "Die Tabelle der {liga} zeigt vor allem, wer die ersten Wochen konsequent gespielt hat: {erster} hat die wenigsten Wackler, dahinter ordnet sich das Feld nach Spielweise.",
+  "Wer {erster} verfolgen will, braucht mehr als Einzelkönner: Die Spitze lebt von abgestimmten Abläufen."
+ ],
+ "zt.art.wechsel.hintergrund": [
+  "Der Wechsel von {name} passt in die Spielweise von {nach}: Entscheidend ist, wie der Kader die Lücke systematisch schließt, nicht der einzelne Name.",
+  "Für {von} bedeutet der Abgang einen Umbau im Mittelfeld, für {nach} die Chance, die Abläufe um einen neuen Spieler zu justieren."
+ ],
+ "zt.art.verletzung.hintergrund": [
+  "Der Ausfall von {name} zwingt {verein} zu einer Anpassung der Rollenverteilung; wer {dauer} ersetzen muss, verändert oft die ganze Staffelung."
+ ],
+ "zt.art.rekord.hintergrund": [
+  "Die Torquote von {name} erklärt sich weniger aus Zufall als aus Laufwegen: Er findet die Räume zwischen den Ketten früh und wird in {verein} gezielt gesucht."
+ ],
+ "zt.art.ton.qualitaet.schluss.lob": [
+  "Die Linie stimmt: Entscheidend ist, dass sich das Muster in den kommenden Wochen wiederholt."
+ ],
+ "zt.art.ton.qualitaet.schluss.kritik": [
+  "Die Muster, die zu dieser Lage führten, sind erkennbar, und sie sind lösbar."
+ ],
+ "zt.art.ton.boulevard.schluss.kritik": [
+  "Jetzt ist Alarm im Verein!",
+  "Da muss jemand die Reißleine ziehen!"
+ ],
+ "zt.art.ton.boulevard.schluss.lob": [
+  "Jetzt bloß nicht abheben!"
+ ],
+ "zt.art.ton.regional.schluss.lob": [
+  "Die Stadt feiert die Jungs."
+ ],
+ "zt.art.ton.fan.schluss.kritik": [
+  "So geht das nicht weiter, Leute."
+ ],
+ "zt.art.ton.fan.schluss.lob": [
+  "Genau so wollen wir euch sehen!"
+ ],
+ "zt.art.haltung.lob": "Wohlwollende Linie",
+ "zt.art.haltung.kritik": "Kritische Linie",
+ "zt.art.haltung.neutral": "Sachliche Linie"
+}

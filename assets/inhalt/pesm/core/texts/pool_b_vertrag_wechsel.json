@@ -1,0 +1,194 @@
+{
+ "pool.b.vertrag_laeuft_aus_gruss": [
+  "Guten Tag, Trainer.",
+  "Trainer, schön, dass Sie Zeit haben."
+ ],
+ "pool.b.vertrag_laeuft_aus_gruss.hitzig": [
+  "Trainer, ich muss deutlich werden.",
+  "Trainer, mir reißt langsam der Geduldsfaden."
+ ],
+ "pool.b.vertrag_laeuft_aus_gruss.loyal": [
+  "Trainer, ich komme in guter Absicht zu Ihnen.",
+  "Trainer, mein Mandant schätzt Sie sehr, deshalb melde ich mich."
+ ],
+ "pool.b.vertrag_laeuft_aus_gruss.ehrgeizig": [
+  "Trainer, ich will das zügig klären.",
+  "Trainer, wir sollten Tempo machen."
+ ],
+ "pool.b.vertrag_laeuft_aus_gruss.wechselfreudig": [
+  "Trainer, ich bin offen mit Ihnen.",
+  "Trainer, ich lege die Karten auf den Tisch."
+ ],
+ "pool.b.vertrag_laeuft_aus_gruss.sensibel": [
+  "Trainer, ich möchte das behutsam ansprechen.",
+  "Trainer, bitte nehmen Sie es nicht falsch auf."
+ ],
+ "pool.b.vertrag_laeuft_aus_anlass": [
+  "Der Vertrag von {name} läuft in {monate} Monaten aus.",
+  "{name} ist nur noch {monate} Monate an den Verein gebunden."
+ ],
+ "pool.b.vertrag_laeuft_aus_anlass.hitzig": [
+  "Der Vertrag von {name} endet in {monate} Monaten, und bei Ihnen rührt sich nichts!",
+  "{monate} Monate noch, dann ist {name} frei, und Sie schweigen dazu!"
+ ],
+ "pool.b.vertrag_laeuft_aus_anlass.loyal": [
+  "{name} würde gern bleiben, doch sein Vertrag endet in {monate} Monaten.",
+  "Für {name} ist dieser Verein zur Heimat geworden, aber in {monate} Monaten endet sein Vertrag."
+ ],
+ "pool.b.vertrag_laeuft_aus_anlass.ehrgeizig": [
+  "Der Vertrag von {name} endet in {monate} Monaten, und er will wissen, welche Rolle er danach hat.",
+  "{name} plant seine nächsten Jahre, und sein Vertrag endet schon in {monate} Monaten."
+ ],
+ "pool.b.vertrag_laeuft_aus_anlass.wechselfreudig": [
+  "In {monate} Monaten ist {name} ablösefrei, das ist Ihnen sicher bewusst.",
+  "{name} kann in {monate} Monaten ohne Ablöse gehen, und das wissen auch andere."
+ ],
+ "pool.b.vertrag_laeuft_aus_gut": [
+  "Das ist ein klares Wort.",
+  "Das höre ich gern."
+ ],
+ "pool.b.vertrag_laeuft_aus_gut.hitzig": [
+  "Na, geht doch!",
+  "Endlich bewegt sich etwas."
+ ],
+ "pool.b.vertrag_laeuft_aus_gut.loyal": [
+  "Das weiß mein Mandant sehr zu schätzen.",
+  "Danke, das wird ihn freuen."
+ ],
+ "pool.b.vertrag_laeuft_aus_gut.ehrgeizig": [
+  "Damit lässt sich arbeiten, und zwar zügig.",
+  "Das ist ein Ansatz, der uns weiterbringt."
+ ],
+ "pool.b.vertrag_laeuft_aus_gut.wechselfreudig": [
+  "Damit lässt sich reden, das sage ich auch anderen Interessenten.",
+  "Gut, dann hat der Verein jetzt einen Vorsprung."
+ ],
+ "pool.b.vertrag_laeuft_aus_neutral": [
+  "Ich gebe das so weiter.",
+  "Das notiere ich."
+ ],
+ "pool.b.vertrag_laeuft_aus_neutral.hitzig": [
+  "Das reicht mir nicht, aber ich gebe es weiter.",
+  "Das ist dünn, ich richte es trotzdem aus."
+ ],
+ "pool.b.vertrag_laeuft_aus_neutral.loyal": [
+  "Ich sage ihm, dass Sie sich Mühe geben.",
+  "Mein Mandant wird Geduld haben, wenigstens vorerst."
+ ],
+ "pool.b.vertrag_laeuft_aus_neutral.ehrgeizig": [
+  "Das ist noch nicht, was er sich vorstellt.",
+  "Er erwartet mehr, aber es ist ein Anfang."
+ ],
+ "pool.b.vertrag_laeuft_aus_neutral.wechselfreudig": [
+  "Ich halte mir alle Optionen offen.",
+  "Ich spreche weiter mit allen Beteiligten."
+ ],
+ "pool.b.vertrag_laeuft_aus_schlecht": [
+  "Das wird ihm nicht gefallen.",
+  "Damit kann ich nicht zufrieden sein."
+ ],
+ "pool.b.vertrag_laeuft_aus_schlecht.hitzig": [
+  "Das ist inakzeptabel!",
+  "Mit dieser Haltung brauchen wir nicht weiterzureden!"
+ ],
+ "pool.b.vertrag_laeuft_aus_schlecht.loyal": [
+  "Das enttäuscht ihn, und mich ebenso.",
+  "Das hat er sich nach all den Jahren anders vorgestellt."
+ ],
+ "pool.b.vertrag_laeuft_aus_schlecht.ehrgeizig": [
+  "Damit verspielen Sie die Chance bei ihm.",
+  "So überzeugen Sie ihn nicht."
+ ],
+ "pool.b.vertrag_laeuft_aus_schlecht.wechselfreudig": [
+  "Dann höre ich mich bei anderen Vereinen um.",
+  "Gut zu wissen, dann spreche ich mit den anderen."
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_wunsch": [
+  "Ich habe viel nachgedacht, ob ich hier noch am richtigen Ort bin.",
+  "Ich frage mich seit Wochen, ob mein Weg bei diesem Verein weitergeht."
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_wunsch.hitzig": [
+  "Ich bin hier fertig, wenn sich nichts ändert!",
+  "Entweder es ändert sich etwas, oder ich bin weg!"
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_wunsch.loyal": [
+  "Ich will nicht gehen, aber ich weiß nicht, ob ich bleiben kann.",
+  "Der Gedanke an einen Abschied tut weh, und trotzdem kommt er mir immer öfter."
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_wunsch.ehrgeizig": [
+  "Ich will auf höchstem Niveau spielen und frage mich, ob das hier geht.",
+  "Ich will Titel gewinnen, und ich zweifle, ob das mit diesem Kader gelingt."
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_wunsch.wechselfreudig": [
+  "Es gibt Angebote, und ich überlege ernsthaft, eines anzunehmen.",
+  "Ein Wechsel reizt mich, ich habe schon mit anderen gesprochen."
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_wunsch.sensibel": [
+  "Ich spüre, dass ich hier nicht mehr glücklich bin.",
+  "Es fällt mir schwer, das zu sagen, aber ich fühle mich nicht mehr wohl."
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_grund": [
+  "Mir fehlt gerade die Perspektive.",
+  "Ich sehe nicht, wohin es mit mir und dem Verein geht."
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_grund.hitzig": [
+  "Ihr redet von Zielen und handelt nicht danach!",
+  "Ich lasse mich nicht länger hinhalten."
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_grund.loyal": [
+  "Ich war immer ehrlich zu dir, und ich möchte es jetzt auch sein.",
+  "Ich habe diesem Verein viel gegeben und möchte wissen, was mir bleibt."
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_grund.ehrgeizig": [
+  "Ich möchte wissen, wo die Reise für mich hingeht.",
+  "Ich will mich weiterentwickeln, und dafür brauche ich einen klaren Weg."
+ ],
+ "pool.b.wechselwunsch_leistungstraeger_grund.wechselfreudig": [
+  "Ich schaue mich um, solange die Möglichkeiten da sind.",
+  "Gute Gelegenheiten kommen nicht ewig."
+ ],
+ "pool.b.gehalt_unter_schnitt_klage": [
+  "Ich habe gehört, dass Mitspieler auf meiner Position mehr verdienen als ich.",
+  "Mir ist zu Ohren gekommen, dass ich weniger bekomme als andere in meiner Rolle."
+ ],
+ "pool.b.gehalt_unter_schnitt_klage.hitzig": [
+  "Die anderen kassieren mehr als ich, und ich bringe die bessere Leistung!",
+  "Ich verdiene weniger als Leute, die hinter mir stehen, das ist doch absurd!"
+ ],
+ "pool.b.gehalt_unter_schnitt_klage.loyal": [
+  "Ich habe nie über Geld geredet, aber ich verdiene weniger als die anderen auf meiner Position.",
+  "Geld war mir nie wichtig, doch mein Gehalt liegt unter dem meiner Mitspieler."
+ ],
+ "pool.b.gehalt_unter_schnitt_klage.ehrgeizig": [
+  "Ich bringe die Leistung, aber mein Gehalt liegt unter dem Schnitt meiner Position.",
+  "Ich gehöre zu den Wichtigsten hier und verdiene weniger als andere."
+ ],
+ "pool.b.gehalt_unter_schnitt_klage.wechselfreudig": [
+  "Anderswo bekäme ich deutlich mehr als hier, das weiß ich.",
+  "Bei meinem Marktwert wäre woanders mehr drin, und das weißt du."
+ ],
+ "pool.b.gehalt_unter_schnitt_klage.sensibel": [
+  "Ich bin nicht neidisch, aber es kränkt mich, dass andere mehr verdienen als ich.",
+  "Es tut mir weh zu sehen, dass meine Mitspieler mehr bekommen."
+ ],
+ "pool.b.gehalt_unter_schnitt_forderung": [
+  "Ich fände es fair, wenn wir das anpassen.",
+  "Können wir das irgendwann angleichen?"
+ ],
+ "pool.b.gehalt_unter_schnitt_forderung.hitzig": [
+  "Das muss sofort angepasst werden!",
+  "Ich verlange, dass ihr das ändert!"
+ ],
+ "pool.b.gehalt_unter_schnitt_forderung.loyal": [
+  "Ich bitte dich nur, es dir anzusehen.",
+  "Vielleicht findet sich ein Weg, der beiden gerecht wird."
+ ],
+ "pool.b.gehalt_unter_schnitt_forderung.ehrgeizig": [
+  "Ich will, dass mein Gehalt zu meiner Rolle passt.",
+  "Wer vorangeht, sollte entsprechend bezahlt werden."
+ ],
+ "pool.b.gehalt_unter_schnitt_forderung.wechselfreudig": [
+  "Sonst muss ich mir überlegen, was ich tue.",
+  "Wenn nicht hier, dann eben woanders."
+ ]
+}

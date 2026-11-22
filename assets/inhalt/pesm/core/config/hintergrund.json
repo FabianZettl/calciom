@@ -1,0 +1,14 @@
+{
+  "_hinweis": "Schwere Hintergrundläufe von PESM (Welt-Index, Startwerte ablegen und neu berechnen, Neu-Einlesen, Datenbank-Dienst) sollen das Spiel nicht bremsen. Sie laufen mit niedriger Priorität (nice, ionice idle) und werden nicht gestartet, solange der Spielprozess läuft – dann zurückgestellt und danach nachgeholt. Ausnahme: ein Lauf, den der Anwender ausdrücklich anstößt.",
+  "spielprozess": "FL_2026.exe",
+  "_startprozesse": "Zählen wie das Spiel selbst: Sie laufen schon, während das Spiel startet (Sider erscheint vor dem Spiel, das Startskript davor). Erkennung wie beim Spielprozess.",
+  "startprozesse": ["sider.exe", "FL_2026.bat"],
+  "_erkennung": "Unter Wine heißt der Prozess meist wie die Exe (Kurzname comm, auf 15 Zeichen gekürzt). Manche Wine-Fassungen zeigen stattdessen den Lader (wine-preloader, wine64-preloader, wine, wine64) und nennen die Exe nur in der Kommandozeile – dann zählt die Exe als Pfadende eines Arguments, aber nur bei einem Prozess, dessen Kurzname oder Programm mit einem der wine_lader beginnt. erkennung_merken_sekunden: so lange gilt ein Ergebnis, bevor /proc neu durchsucht wird.",
+  "wine_lader": ["wine", "proton"],
+  "erkennung_merken_sekunden": 5,
+  "nice": 19,
+  "ionice": "idle",
+  "nachsehen_sekunden": 15,
+  "_mitlauf": "Mitlaufen mit dem Spiel (seit 30.10.2026 ohne Beobachtung der Spielstand-Datei): der Takt (takt_sekunden) prüft Quittungen, Baustein-Herzschlag, Namens-Dump und Weltabzug; Datum und Mannschaft kommen aus dem Speicher. waehrend_spiel: auch bei laufendem Spiel arbeiten (false: bis zum Spielende ruhen).",
+  "mitlauf": {"an": true, "takt_sekunden": 1, "waehrend_spiel": true}
+}

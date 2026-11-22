@@ -1,0 +1,146 @@
+{
+ "pool.spielzeit_stammkraft.e.e1": [
+  "{b.gruss} {b.klage} I was a regular for a long time, and now nobody tells me why.",
+  "{b.gruss} {b.klage} It caught me by surprise, I thought I had my place here."
+ ],
+ "pool.spielzeit_stammkraft.e.e2": [
+  "{b.gruss} {b.klage} I'd like to understand what has changed.",
+  "{b.gruss} {b.klage} Can you tell me where I stand?"
+ ],
+ "pool.spielzeit_stammkraft.e.e3": [
+  "{b.gruss} {b.klage} Honestly, I'm pretty wound up about it.",
+  "{b.gruss} {b.klage} It's eating at me, and I don't want it to get worse."
+ ],
+ "pool.spielzeit_stammkraft.e.e4": [
+  "{b.gruss} {b.klage} I won't be left on the bench any longer without anyone saying a word!",
+  "{b.gruss} {b.klage} I want a clear answer now, or I don't know what I'll do."
+ ],
+ "pool.spielzeit_stammkraft.e.e5": [
+  "{b.gruss} {b.klage} I don't want to moan, but I want to help the team and I can't from the bench.",
+  "{b.gruss} {b.klage} I trust you, I just don't understand it right now."
+ ],
+ "pool.spielzeit_stammkraft.e.e6": [
+  "{b.gruss} {b.klage} I have goals, and I won't reach them from the sidelines.",
+  "{b.gruss} {b.klage} If this stays like it is, I'll have to think about my future."
+ ],
+ "pool.spielzeit_stammkraft.e.e7": [
+  "{b.gruss} {b.klage} You promised me something, and so far nothing has happened.",
+  "{b.gruss} {b.klage} Do you remember your promise? I'm still waiting for it."
+ ],
+ "pool.spielzeit_stammkraft.a.a1": [
+  "From next week you're back in the starting eleven, you can count on that. We'll talk again in {frist} days.",
+  "I'm planning you in again and will check it with you after {frist} days."
+ ],
+ "pool.spielzeit_stammkraft.a.a2": [
+  "Let me explain how I pick the team: right now we need other things, and you're not out of the plan.",
+  "It isn't down to your class. The opponent and the fixture list shaped my decision."
+ ],
+ "pool.spielzeit_stammkraft.a.a3": [
+  "Give me a few more games, then we'll see.",
+  "I know it isn't easy. Let's talk calmly after the next match."
+ ],
+ "pool.spielzeit_stammkraft.a.a4": [
+  "I pick the team and that doesn't change. You'll have to live with it.",
+  "No. There's no guarantee of a place, not even for you."
+ ],
+ "pool.spielzeit_stammkraft.a.a5": [
+  "I can see this hurts. I can offer you something to make it worthwhile, and we'll talk about your contract soon.",
+  "I want to meet you halfway: a bonus for the time on the bench, and you stay a firm part of the squad."
+ ],
+ "pool.spielzeit_stammkraft.a.a6": [
+  "What do you think is the reason?",
+  "You tell me: where do you see yourself right now, and what are you missing?"
+ ],
+ "pool.spielzeit_stammkraft.a.a7": [
+  "I decide who plays, and I'm sticking to my line.",
+  "That's my decision. You'll get your chance when I think it's right."
+ ],
+ "pool.spielzeit_stammkraft.a.a8": [
+  "I understand how that feels. You matter to us and I don't want you to feel put aside.",
+  "That must be hard, I was a substitute for a long time myself. You matter to us."
+ ],
+ "pool.spielzeit_stammkraft.a.a9": [
+  "Please talk to the assistant, he has the figures from training. Then come to me.",
+  "The staff have the data from the past weeks. Go through where it's going wrong with him, then get back to me."
+ ],
+ "pool.spielzeit_stammkraft.a.a10": [
+  "You get your role back, with a handshake. And if I forget, remind me in {frist} days.",
+  "Agreed: you're a regular again. Hold me to my word in {frist} days."
+ ],
+ "pool.spielzeit_stammkraft.r.r1": [
+  "{b.gut} Thanks, that's enough for me.",
+  "{b.gut} That sounds like a plan."
+ ],
+ "pool.spielzeit_stammkraft.r.r2": [
+  "{b.gut} I know I can rely on you.",
+  "{b.gut} Thanks for taking the time."
+ ],
+ "pool.spielzeit_stammkraft.r.r3": [
+  "{b.gut} Then I'll give everything in training.",
+  "{b.gut} This is the chance I've been waiting for."
+ ],
+ "pool.spielzeit_stammkraft.r.r4": [
+  "{b.neutral} Let's see what comes of it.",
+  "{b.neutral} I'll take it with me."
+ ],
+ "pool.spielzeit_stammkraft.r.r5": [
+  "{b.neutral} I need to think about it, I don't know how I feel.",
+  "{b.neutral} That doesn't calm me yet, but I'm listening."
+ ],
+ "pool.spielzeit_stammkraft.r.r6": [
+  "{b.schlecht} That doesn't help me.",
+  "{b.schlecht} That's not how I imagined this talk."
+ ],
+ "pool.spielzeit_stammkraft.r.r7": [
+  "{b.schlecht} So you're just telling me what I have to swallow?!",
+  "{b.schlecht} I'm sick of being treated like this!"
+ ],
+ "pool.spielzeit_stammkraft.r.r8": [
+  "{b.schlecht} There are other clubs who want me, and you know it.",
+  "{b.schlecht} Then I'll have to look around for something else."
+ ],
+ "pool.spielzeit_stammkraft.x.x1": [
+  "The talk ends on good terms. {entscheidung}",
+  "{entscheidung} He leaves much more relaxed."
+ ],
+ "pool.spielzeit_stammkraft.x.x2": [
+  "The matter stays open. {entscheidung} He'll be back if nothing changes.",
+  "{entscheidung} Nothing is settled yet."
+ ],
+ "pool.spielzeit_stammkraft.x.x3": [
+  "He leaves the talk annoyed. {entscheidung} That will affect his mood.",
+  "{entscheidung} The situation is coming to a head."
+ ],
+ "pool.spielzeit_stammkraft.x.x4": [
+  "The promise stands. {entscheidung} Both sides know where they are.",
+  "{entscheidung} He'll hold you to it."
+ ],
+ "pool.entscheidung.zusage": [
+  "You made him a promise that will be checked in {frist} days."
+ ],
+ "pool.entscheidung.erklaeren": [
+  "You explained your decision to him."
+ ],
+ "pool.entscheidung.vertroesten": [
+  "You put him off."
+ ],
+ "pool.entscheidung.ablehnen": [
+  "You turned his request down."
+ ],
+ "pool.entscheidung.ausgleich": [
+  "You offered him something in return."
+ ],
+ "pool.entscheidung.gegenfrage": [
+  "You asked him for his own view."
+ ],
+ "pool.entscheidung.hart_bleiben": [
+  "You stuck to your line."
+ ],
+ "pool.entscheidung.einfuehlen": [
+  "You showed understanding for his situation."
+ ],
+ "pool.entscheidung.delegieren": [
+  "You referred him to the staff."
+ ],
+ "pool.spielzeit_stammkraft.r.r9": ["{b.neutral} I'll give it all a little more time.", "{b.neutral} I'll take away what you've said."]
+}

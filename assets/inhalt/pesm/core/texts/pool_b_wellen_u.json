@@ -1,0 +1,86 @@
+{
+ "pool.b.presse_provokation_serie_gruss": [
+  "Guten Abend, Trainer, eine Frage an Sie als Verantwortlichen von {verein}.",
+  "Trainer, kurz vor Redaktionsschluss: Ich brauche eine Antwort von Ihnen."
+ ],
+ "pool.b.presse_provokation_serie_lage": [
+  "Ihre Mannschaft hat eine Niederlage nach der anderen kassiert, und die Leser fragen, ob das noch Zufall ist.",
+  "Eine Serie ohne Sieg, Trainer: Wie lange wollen Sie das noch als Pech verkaufen?"
+ ],
+ "pool.b.presse_provokation_serie_lage.hitzig": [
+  "Diese Serie ist eine Blamage, und Sie stehen daneben, als ginge Sie das nichts an!",
+  "Niederlage um Niederlage, und Sie reden von Geduld? Das nehmen Ihnen die Leute nicht mehr ab!"
+ ],
+ "pool.b.presse_provokation_serie_lage.loyal": [
+  "Ich habe Ihre Arbeit lange verteidigt, aber nach dieser Serie fällt mir das schwer.",
+  "Ich schreibe nicht gern kritisch über {verein}, doch die Niederlagen lassen mir kaum eine Wahl."
+ ],
+ "pool.b.presse_provokation_serie_lage.ehrgeizig": [
+  "Die Serie kostet {verein} die Ziele der Saison, und ich möchte als Erster wissen, was Sie ändern.",
+  "Mit dieser Bilanz verspielen Sie den Anschluss, und meine Redaktion will eine klare Ansage."
+ ],
+ "pool.b.presse_provokation_serie_lage.wechselfreudig": [
+  "In der Branche wird schon darüber gesprochen, wer Ihr Nachfolger werden könnte.",
+  "Andere Trainer hätten nach so vielen Niederlagen längst die Konsequenzen gezogen."
+ ],
+ "pool.b.presse_provokation_serie_lage.sensibel": [
+  "Ich frage ungern, aber es muss sein: Wie geht es Ihnen nach diesen Niederlagen?",
+  "Die Serie muss Sie belasten, und die Leser wollen wissen, wie Sie damit umgehen."
+ ],
+ "pool.b.presse_geruechte_unruhe_gruss": [
+  "Guten Tag, hier schreibt die Sportredaktion mit einer Anfrage zu {verein}.",
+  "Sehr geehrter Herr Trainer, ich melde mich wegen einer Recherche zu Ihrer Mannschaft."
+ ],
+ "pool.b.presse_geruechte_unruhe_lage": [
+  "Mir liegen Hinweise vor, dass es in der Kabine knirscht und einzelne Spieler mit der Lage unzufrieden sind.",
+  "Aus dem Umfeld der Mannschaft höre ich, dass die Stimmung nicht so gut ist, wie es nach außen aussieht."
+ ],
+ "pool.b.presse_geruechte_unruhe_lage.hitzig": [
+  "Es heißt, in der Kabine sei es laut geworden, und zwar richtig, mit Türenknallen und allem!",
+  "Meine Quellen sprechen von einem handfesten Krach im Team, und ich will wissen, was daran stimmt!"
+ ],
+ "pool.b.presse_geruechte_unruhe_lage.loyal": [
+  "Ich möchte Ihnen und der Mannschaft Gelegenheit geben, einem Gerücht entgegenzutreten, bevor es sich festsetzt.",
+  "Ich glaube nicht alles, was ich höre, aber über Unruhe im Team wird bei {verein} gesprochen, und ich frage lieber bei Ihnen nach."
+ ],
+ "pool.b.presse_geruechte_unruhe_lage.ehrgeizig": [
+  "Ich habe eine Geschichte über Spannungen im Team, und sie läuft morgen, wenn ich keine Stellungnahme habe.",
+  "Mit meinem Material über die Stimmung in der Mannschaft kann ich groß rauskommen, aber ich will Ihre Sicht dazu."
+ ],
+ "pool.b.presse_geruechte_unruhe_lage.wechselfreudig": [
+  "Es wird gemunkelt, dass sich einzelne Spieler schon nach anderen Vereinen umsehen, weil es intern nicht rundläuft.",
+  "Man hört, dass manche in der Mannschaft innerlich längst gewechselt sind."
+ ],
+ "pool.b.presse_geruechte_unruhe_lage.sensibel": [
+  "Ich habe von Spielern gehört, dass sie sich unter Druck fühlen, und möchte behutsam nachfragen.",
+  "Mir wurde zugetragen, dass sich in der Mannschaft einige unverstanden fühlen, und ich möchte niemandem Unrecht tun."
+ ],
+ "pool.b.presse_taktikkritik_sieg_gruss": [
+  "Trainer, Glückwunsch zum Ergebnis, aber ich habe noch eine Frage zu {verein}.",
+  "Danke für Ihre Zeit, Trainer, zum Spiel von {verein} habe ich eine Nachfrage."
+ ],
+ "pool.b.presse_taktikkritik_sieg_lage": [
+  "Drei Punkte sind drei Punkte, doch die Spielweise war zäh, und viele Zuschauer sind mit dem Fußball nicht zufrieden.",
+  "Der Sieg war glücklich, und über die Taktik wird im Stadion und in den Foren heftig gestritten."
+ ],
+ "pool.b.presse_taktikkritik_sieg_lage.hitzig": [
+  "Dieser Sieg war Defensivgeschrubbe vom Feinsten, und das nennen Sie Fußball?",
+  "Hinten reingestellt und gehofft, das ist keine Taktik, das ist Angst, und das sieht man!"
+ ],
+ "pool.b.presse_taktikkritik_sieg_lage.loyal": [
+  "Ich freue mich über den Sieg, aber ich muss sagen, dass mir die Spielweise Sorgen macht.",
+  "Sie haben das Spiel gewonnen, und doch fragen sich viele Anhänger, wohin die Reise taktisch geht."
+ ],
+ "pool.b.presse_taktikkritik_sieg_lage.ehrgeizig": [
+  "Mit dieser Spielweise gewinnt man vielleicht ein Spiel, aber keinen Titel, wie sehen Sie das?",
+  "Wer oben mitspielen will, muss mutiger auftreten, und das war heute nicht zu sehen."
+ ],
+ "pool.b.presse_taktikkritik_sieg_lage.wechselfreudig": [
+  "Ihr Vorgänger hätte hier offensiver agiert, und ich frage mich, ob der Stil überhaupt zu {verein} passt.",
+  "Andere Trainer hätten dieselben Spieler anders eingesetzt, finden Sie nicht?"
+ ],
+ "pool.b.presse_taktikkritik_sieg_lage.sensibel": [
+  "Ich möchte Sie nicht kränken, aber die Kritik an der Spielweise wird nach diesem Sieg nicht leiser.",
+  "Mir fällt es schwer, das anzusprechen, denn der Sieg war wichtig, doch der Stil trifft einen Nerv."
+ ]
+}

@@ -1,0 +1,25 @@
+{
+  "_hinweis": "Erfundene Medien und Personen der Story. Welche Namen eine Karriere bekommt, bestimmt der Welt-Seed. Kein Name meint ein echtes Medium oder eine echte Person.",
+  "medien": [
+    "Tribünenpost", "Rasenkurier", "Kurvenblatt", "Der Spieltagsbote",
+    "Pfostenblick", "Radio Mittelkreis", "Eckfahne TV", "Flankenfunk"
+  ],
+  "reporter": [
+    "Henrike Dallmoor", "Tjark Wessenbrink", "Ilka Rohnstedt", "Hauke Zierhoff",
+    "Jorinde Pahlkamp", "Enno Brakelsiek", "Aylin Karatepeli", "Davor Miljenak",
+    "Luca Ferrandini", "Sofia Almendrosa", "Piet van Houtersen", "Mikkel Thorsbjerg"
+  ],
+  "berater": [
+    "Konrad Uhlenkott", "Verena Selbrand", "Rüdiger Oldekopp", "Nadja Fennbach",
+    "Bastian Tönnhaus", "Carla Marquenstein", "Goran Petrovalj", "Yusuf Demirkaya-Holt",
+    "Étienne Vaubernier", "Rafael Montequinto", "Jesper Lindquarn", "Marek Wolczynek"
+  ],
+  "vorstand": [
+    "Dr. Gisela Harkenroth", "Hartmut Quellenberg", "Annegret Sievelding",
+    "Wolfram Estorfer", "Dr. Bernd Ackenhoff", "Margit Loherbrink"
+  ],
+  "fanvertreter": [
+    "Kalle Brömmelkamp", "Steffi Niehausen", "Ole Rackwitzer",
+    "Dennis Hüttenbrock", "Miri Kowalzig", "Timo Flessenkämper"
+  ]
+}

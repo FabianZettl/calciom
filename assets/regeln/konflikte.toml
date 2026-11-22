@@ -1,0 +1,25 @@
+# Kabinenkonflikte und Hierarchie als Vorgänge (Jugendausbau). Eigene Festlegungen von PESM, Startwerte, nicht kalibriert.
+
+[erkennen]
+alt_ab = 30                    # Routiniers
+jung_bis = 21                  # Junge
+gruppe_mindestens = 3          # so viele je Seite, sonst gibt es keine Gruppen
+moral_luecke = 12              # Unterschied der mittleren Moral beider Gruppen, ab dem sich die Kabine spaltet
+autoritaet_abstand = 8         # ein Mitspieler hat so viele Hierarchiepunkte mehr als der Kapitän
+isoliert_moral = 40            # Neuzugang mit höchstens dieser Moral gilt als nicht aufgenommen
+streit_eskaliert_tage = 14     # ein Streit, der so lange offen ist, wird schwerer
+
+[ausgang]
+# Chance, dass die Lage nach der Entscheidung beigelegt ist (vor Abzug der Schwere), nach Option
+schlichten = 0.55
+aussprache = 0.6
+gruppengespraech = 0.5
+strafe = 0.3
+kapitaen_bitten = 0.45
+patenschaft = 0.6
+gespraech = 0.5
+kapitaen_wechseln = 0.65
+kapitaen_bestaetigen = 0.4
+laufen_lassen = 0.1
+schwere_abzug = 0.08           # je Stufe der Schwere (0 bis 3)
+kapitaen_bonus = 0.08          # der Kapitän führt (Führung ab 0,7) und ist nicht beteiligt

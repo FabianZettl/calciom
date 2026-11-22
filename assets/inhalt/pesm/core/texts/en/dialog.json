@@ -1,0 +1,1263 @@
+{
+ "dlg.absicht.zustimmen": "Agree",
+ "dlg.absicht.danken": "Say thanks",
+ "dlg.absicht.loben": "Praise",
+ "dlg.absicht.erklaeren": "Explain",
+ "dlg.absicht.nachfragen": "Ask why",
+ "dlg.absicht.gegenangebot": "Counteroffer",
+ "dlg.absicht.kompromiss": "Offer a compromise",
+ "dlg.absicht.versprechen": "Make a promise",
+ "dlg.absicht.gefuehl": "Appeal to feelings",
+ "dlg.absicht.entschuldigen": "Apologise",
+ "dlg.absicht.beruhigen": "Calm things down",
+ "dlg.absicht.druck": "Apply pressure",
+ "dlg.absicht.zeit": "Buy time",
+ "dlg.absicht.ablehnen": "Decline",
+ "dlg.absicht.kritisieren": "Criticise",
+ "dlg.absicht.ausblick": "Give an outlook",
+ "dlg.absicht.auflockern": "Lighten the mood",
+ "dlg.absicht.ablenken": "Deflect",
+ "dlg.absicht.abschliessen": "Wrap up",
+ "dlg.absicht.abbrechen": "Walk away",
+ "dlg.absicht.nachfragen.2": "Press the point",
+ "dlg.absicht.gegenangebot.2": "Raise the offer",
+ "dlg.absicht.zeit.2": "More time",
+ "dlg.absicht.ablehnen.2": "Decline again",
+ "dlg.absicht.druck.2": "Increase the pressure",
+ "dlg.punkt.spielzeit": "playing time",
+ "dlg.stufe.spielzeit.0": "no commitment",
+ "dlg.stufe.spielzeit.1": "regular starts",
+ "dlg.stufe.spielzeit.2": "a starting place",
+ "dlg.punkt.rolle": "role",
+ "dlg.stufe.rolle.0": "no defined job",
+ "dlg.stufe.rolle.1": "a fixed job",
+ "dlg.stufe.rolle.2": "a leadership role",
+ "dlg.punkt.zukunft": "future at the club",
+ "dlg.stufe.zukunft.0": "open",
+ "dlg.stufe.zukunft.1": "talks about a new contract",
+ "dlg.stufe.zukunft.2": "an extension",
+ "dlg.stufe.zukunft.3": "an extension on better terms",
+ "dlg.punkt.heimweh": "homesickness",
+ "dlg.stufe.heimweh.0": "just understanding",
+ "dlg.stufe.heimweh.1": "a trip home",
+ "dlg.stufe.heimweh.2": "a longer break",
+ "dlg.punkt.streit": "dispute in the dressing room",
+ "dlg.stufe.streit.0": "a talk",
+ "dlg.stufe.streit.1": "mediation",
+ "dlg.stufe.streit.2": "consequences for the other player",
+ "dlg.punkt.wechselwunsch": "wish to leave",
+ "dlg.stufe.wechselwunsch.0": "a request to stay",
+ "dlg.stufe.wechselwunsch.1": "a clear perspective",
+ "dlg.stufe.wechselwunsch.2": "release in the summer",
+ "dlg.stufe.wechselwunsch.3": "release now",
+ "dlg.punkt.provision": "commission",
+ "dlg.stufe.provision.0": "the current commission",
+ "dlg.stufe.provision.1": "a small increase",
+ "dlg.stufe.provision.2": "a clear increase",
+ "dlg.stufe.provision.3": "a bonus on top",
+ "dlg.punkt.angebote": "offers from other clubs",
+ "dlg.stufe.angebote.0": "no passing on",
+ "dlg.stufe.angebote.1": "passing on with a deadline",
+ "dlg.stufe.angebote.2": "full disclosure",
+ "dlg.punkt.leihe": "loan",
+ "dlg.stufe.leihe.0": "a loan without an option",
+ "dlg.stufe.leihe.1": "a loan with an option to buy",
+ "dlg.stufe.leihe.2": "a loan with an obligation to buy",
+ "dlg.punkt.klauseln": "clauses",
+ "dlg.stufe.klauseln.0": "no clauses",
+ "dlg.stufe.klauseln.1": "a sell-on share",
+ "dlg.stufe.klauseln.2": "a sell-on share and a buy-back option",
+ "dlg.punkt.tausch": "swap deal",
+ "dlg.stufe.tausch.0": "no swap",
+ "dlg.stufe.tausch.1": "one player in exchange",
+ "dlg.stufe.tausch.2": "two players in exchange",
+ "dlg.punkt.interview": "interview",
+ "dlg.stufe.interview.0": "no interview",
+ "dlg.stufe.interview.1": "a short statement",
+ "dlg.stufe.interview.2": "an open conversation",
+ "dlg.stufe.interview.3": "an exclusive interview",
+ "dlg.punkt.dementi": "denial",
+ "dlg.stufe.dementi.0": "no comment",
+ "dlg.stufe.dementi.1": "a denial",
+ "dlg.stufe.dementi.2": "a clear statement",
+ "dlg.punkt.kommentar": "comment on the rumour",
+ "dlg.stufe.kommentar.0": "not a word",
+ "dlg.stufe.kommentar.1": "a careful assessment",
+ "dlg.stufe.kommentar.2": "an open assessment",
+ "dlg.punkt.training": "training load",
+ "dlg.stufe.training.0": "unchanged",
+ "dlg.stufe.training.1": "somewhat less",
+ "dlg.stufe.training.2": "much less",
+ "dlg.punkt.perspektive": "prospects",
+ "dlg.stufe.perspektive.0": "no commitment",
+ "dlg.stufe.perspektive.1": "a place in the youth team",
+ "dlg.stufe.perspektive.2": "a path to the first team",
+ "dlg.punkt.akademie": "academy place",
+ "dlg.stufe.akademie.0": "no place",
+ "dlg.stufe.akademie.1": "a trial",
+ "dlg.stufe.akademie.2": "a permanent place",
+ "dlg.punkt.budget": "budget",
+ "dlg.stufe.budget.0": "the current budget",
+ "dlg.stufe.budget.1": "a small top-up",
+ "dlg.stufe.budget.2": "a clear top-up",
+ "dlg.stufe.budget.3": "a large top-up",
+ "dlg.punkt.ziele": "season target",
+ "dlg.stufe.ziele.0": "a cautious target",
+ "dlg.stufe.ziele.1": "an ambitious target",
+ "dlg.stufe.ziele.2": "a very high target",
+ "dlg.punkt.preise": "ticket prices",
+ "dlg.stufe.preise.0": "unchanged prices",
+ "dlg.stufe.preise.1": "a discount for regulars",
+ "dlg.stufe.preise.2": "much cheaper tickets",
+ "dlg.punkt.protest": "protest",
+ "dlg.stufe.protest.0": "no concession",
+ "dlg.stufe.protest.1": "a meeting with the fans",
+ "dlg.stufe.protest.2": "a public commitment",
+ "dlg.anliegen.spielzeit": [
+  "I want %3."
+ ],
+ "dlg.einigung.spielzeit": [
+  "So that settles it: %3."
+ ],
+ "dlg.anliegen.rolle": [
+  "I need %3."
+ ],
+ "dlg.einigung.rolle": [
+  "So that settles it: %3."
+ ],
+ "dlg.anliegen.zukunft": [
+  "I want to know where I stand: %3."
+ ],
+ "dlg.einigung.zukunft": [
+  "So that settles it: %3."
+ ],
+ "dlg.anliegen.heimweh": [
+  "I need %3."
+ ],
+ "dlg.einigung.heimweh": [
+  "So that settles it: %3."
+ ],
+ "dlg.anliegen.streit": [
+  "I expect %3."
+ ],
+ "dlg.einigung.streit": [
+  "So that settles it: %3."
+ ],
+ "dlg.anliegen.wechselwunsch": [
+  "I expect %3."
+ ],
+ "dlg.einigung.wechselwunsch": [
+  "So that settles it: %3."
+ ],
+ "dlg.anliegen.provision": [
+  "We insist on %3."
+ ],
+ "dlg.einigung.provision": [
+  "So that settles it: %3."
+ ],
+ "dlg.anliegen.angebote": [
+  "We expect %3."
+ ],
+ "dlg.einigung.angebote": [
+  "So that settles it: %3."
+ ],
+ "dlg.anliegen.leihe": [
+  "We are thinking of %3."
+ ],
+ "dlg.einigung.leihe": [
+  "So that settles it: %3."
+ ],
+ "dlg.anliegen.klauseln": [
+  "For us, %3 is part of it."
+ ],
+ "dlg.einigung.klauseln": [
+  "So that settles it: %3."
+ ],
+ "dlg.anliegen.tausch": [
+  "We have %3 in mind."
+ ],
+ "dlg.einigung.tausch": [
+  "So that settles it: %3."
+ ],
+ "dlg.anliegen.interview": [
+  "I would like %3."
+ ],
+ "dlg.einigung.interview": [
+  "So that settles it: %3."
+ ],
+ "dlg.anliegen.dementi": [
+  "We need %3."
+ ],
+ "dlg.einigung.dementi": [
+  "So that settles it: %3."
+ ],
+ "dlg.anliegen.kommentar": [
+  "Readers expect %3."
+ ],
+ "dlg.einigung.kommentar": [
+  "So that settles it: %3."
+ ],
+ "dlg.anliegen.training": [
+  "I suggest %3."
+ ],
+ "dlg.einigung.training": [
+  "So that settles it: %3."
+ ],
+ "dlg.anliegen.perspektive": [
+  "We would like %3."
+ ],
+ "dlg.einigung.perspektive": [
+  "So that settles it: %3."
+ ],
+ "dlg.anliegen.akademie": [
+  "What matters to us: %3."
+ ],
+ "dlg.einigung.akademie": [
+  "So that settles it: %3."
+ ],
+ "dlg.anliegen.budget": [
+  "We need to talk about %3."
+ ],
+ "dlg.einigung.budget": [
+  "So that settles it: %3."
+ ],
+ "dlg.anliegen.ziele": [
+  "The board expects %3."
+ ],
+ "dlg.einigung.ziele": [
+  "So that settles it: %3."
+ ],
+ "dlg.anliegen.preise": [
+  "We demand %3."
+ ],
+ "dlg.einigung.preise": [
+  "So that settles it: %3."
+ ],
+ "dlg.anliegen.protest": [
+  "We demand %3."
+ ],
+ "dlg.einigung.protest": [
+  "So that settles it: %3."
+ ],
+ "dlg.eroeffnung.spielzeit": [
+  "%1 plants himself in front of you: \"I'm not playing enough. This can't go on.\"",
+  "%1 gets straight to the point: \"I want to know why I'm on the bench.\""
+ ],
+ "dlg.eroeffnung.rolle": [
+  "%1 asks: \"What is my actual job here?\"",
+  "%1 says: \"I want responsibility. Do you even see me in that role?\""
+ ],
+ "dlg.eroeffnung.form": [
+  "%1 says quietly: \"I can feel that it isn't going well.\"",
+  "%1 looks down: \"My confidence is gone.\""
+ ],
+ "dlg.eroeffnung.lob": [
+  "%1 arrives curious and has no idea what this is about.",
+  "%1 sits down and waits to hear what you have to say."
+ ],
+ "dlg.eroeffnung.kritik": [
+  "%1 folds their arms: \"You wanted to see me?\"",
+  "%1 sits opposite you and senses this will be uncomfortable."
+ ],
+ "dlg.eroeffnung.zukunft": [
+  "%1 asks directly: \"How do you see my future here?\"",
+  "%1 says: \"I want clarity about where this is heading.\""
+ ],
+ "dlg.eroeffnung.heimweh": [
+  "%1 says haltingly: \"I miss so much from home. I can hardly concentrate.\"",
+  "%1 seems distant: \"I miss my family.\""
+ ],
+ "dlg.eroeffnung.streit": [
+  "%1 is agitated: \"I can't get along with him any more. Something has to happen.\"",
+  "%1 says: \"I won't put up with this in the dressing room any longer.\""
+ ],
+ "dlg.eroeffnung.wechselwunsch": [
+  "%1 puts it plainly: \"I want to leave the club.\"",
+  "%1 says seriously: \"I've made up my mind. I want out.\""
+ ],
+ "dlg.eroeffnung.marktlage": [
+  "%1 leans forward: \"There's movement on the market. Do you want to hear what I know?\"",
+  "%1 says: \"I've been asking around. There is interest.\""
+ ],
+ "dlg.eroeffnung.provision": [
+  "%1 comes to the point: \"My commission is up for discussion. It is no longer in line with the market.\"",
+  "%1 says: \"For the work of the last months I expect an adjustment.\""
+ ],
+ "dlg.eroeffnung.angebote": [
+  "%1 hints: \"Other clubs have been asking. I don't have to keep that to myself.\"",
+  "%1 says coolly: \"I have offers on the table. Your answer decides what I do with them.\""
+ ],
+ "dlg.eroeffnung.austausch": [
+  "%1 greets you politely but cautiously.",
+  "%1 has made time: \"Good to hear from you. What is it about?\""
+ ],
+ "dlg.eroeffnung.leihe": [
+  "%1 suggests: \"We can talk about a loan, but on our terms.\"",
+  "%1 says: \"A loan is conceivable. What do you have in mind?\""
+ ],
+ "dlg.eroeffnung.klauseln": [
+  "%1 says: \"Without clauses this will be difficult. We want to be covered.\"",
+  "%1 makes it clear: \"We need to talk about the clauses.\""
+ ],
+ "dlg.eroeffnung.tauschgeschaeft": [
+  "%1 says: \"We are open to a swap if the values are right.\"",
+  "%1 asks: \"Who would you offer us in return?\""
+ ],
+ "dlg.eroeffnung.hintergrund": [
+  "%1 says: \"This stays between us, but I'd like to understand your view.\"",
+  "%1 puts the notebook away: \"Just for background, none of this will be in tomorrow's paper.\""
+ ],
+ "dlg.eroeffnung.interview": [
+  "%1 asks: \"Would you have time for an interview? Readers want to hear from you.\"",
+  "%1 says: \"A few questions about the current situation, if you allow.\""
+ ],
+ "dlg.eroeffnung.dementi": [
+  "%1 says: \"We've heard something. Can you deny it?\"",
+  "%1 wants clarity: \"Is the rumour true or not?\""
+ ],
+ "dlg.eroeffnung.kommentar": [
+  "%1 asks: \"About the rumours of the last days: how do you see it?\"",
+  "%1 says: \"There's a lot of talk. What is there to it?\""
+ ],
+ "dlg.eroeffnung.einschaetzung": [
+  "%1 leafs through the notes: \"I watched the squad closely this week.\"",
+  "%1 says: \"If you like, I'll give you my honest assessment.\""
+ ],
+ "dlg.eroeffnung.training": [
+  "%1 says: \"The load is high. How do we want to continue?\"",
+  "%1 wants to know: \"How hard should I make the sessions?\""
+ ],
+ "dlg.eroeffnung.eltern": [
+  "%1 is sceptical: \"We won't just hand over our child. What are your plans?\"",
+  "%1 says: \"What matters to us is that our child is well.\""
+ ],
+ "dlg.eroeffnung.akademie": [
+  "%1 asks: \"What can your academy offer our son?\"",
+  "%1 says: \"We are comparing several options. Convince us.\""
+ ],
+ "dlg.eroeffnung.vorstand_budget": [
+  "%1 opens: \"We need to talk about the budget. The situation is tight.\"",
+  "%1 says soberly: \"You want more funds? Justify it.\""
+ ],
+ "dlg.eroeffnung.vorstand_ziele": [
+  "%1 says: \"We expect a clear target from you for this season.\"",
+  "%1 asks: \"What do you promise us for the table?\""
+ ],
+ "dlg.eroeffnung.vorstand_vertrauen": [
+  "%1 says coolly: \"Unrest is growing on the board. We need to talk.\"",
+  "%1 invites you in: \"There are questions about your work.\""
+ ],
+ "dlg.eroeffnung.fans_stimmung": [
+  "%1 says: \"The mood on the terraces has turned. We wanted you to know.\"",
+  "%1 approaches you: \"The fans are disappointed.\""
+ ],
+ "dlg.eroeffnung.fans_preise": [
+  "%1 demands: \"The prices are too high. Many can no longer afford the stadium.\"",
+  "%1 says: \"We speak for many fans about prices.\""
+ ],
+ "dlg.eroeffnung.fans_protest": [
+  "%1 warns: \"If nothing changes, we are planning a protest.\"",
+  "%1 says sharply: \"The fans' patience is at an end.\""
+ ],
+ "dlg.eroeffnung.vertrag": [
+  "%1 already has the papers on the table: \"Then let's talk about the key terms.\"",
+  "%1 waits for your first proposal and gives nothing away."
+ ],
+ "dlg.eroeffnung.transfer": [
+  "%1 expects your proposal: \"Give us the key terms.\"",
+  "%1 listens to your framework and waits."
+ ],
+ "dlg.vz.vertrag.einig": "Then the contract is settled.",
+ "dlg.vz.transfer.einig": "Then the deal is done.",
+ "dlg.vz.abgelehnt": "You turn down the counteroffer and take your draft back up.",
+ "dlg.vz.kompromiss.annahme": "That is a compromise it can live with: agreed.",
+ "dlg.vz.kompromiss.gegen": "A little closer but not quite there: there's a new counteroffer.",
+ "dlg.vz.kompromiss.ablehnung": "Even the middle isn't enough yet.",
+ "dlg.vz.kompromiss.beleidigt": "Even as a middle ground that is unacceptable.",
+ "dlg.vz.druck.wirkt": "The other side recalculates and becomes more flexible.",
+ "dlg.vz.druck.verpufft": "The other side isn't impressed and grows cooler.",
+ "dlg.vz.gefuehl.wirkt": "That touches the other side; the hardness eases.",
+ "dlg.vz.gefuehl.kuehl": "The other side stays sober: this is about business.",
+ "dlg.vz.vertrag.versprechen": "The other side likes to hear it: more playing time is now in the draft.",
+ "dlg.vz.transfer.versprechen": "The other side likes to hear it: a sell-on share is now in the draft.",
+ "dlg.vz.zeit": "The other side grants a few more days.",
+ "dlg.vz.abbruch": "The other side nods curtly. The negotiation is over.",
+ "dlg.vz.grund.moral": "To be honest it comes down to the mood: nobody signs in this state.",
+ "dlg.vz.grund.misstrauen": "Earlier promises weren't kept. That is the sticking point.",
+ "dlg.vz.grund.beziehung": "The relationship is strained. That makes it hard.",
+ "dlg.vz.grund.gehalt": "The salary is still short.",
+ "dlg.vz.grund.laufzeit": "The length isn't what we had in mind.",
+ "dlg.vz.grund.preis_weit": "The price is still clearly below what we have in mind.",
+ "dlg.vz.grund.preis_nah": "We are close. Only one step is missing.",
+ "dlg.vz.grund.keiner": "Basically it fits; only the last step is missing.",
+ "dlg.ich.z_warm": [
+  "You're right, %3 – we'll do that.",
+  "Agreed, you get %3. It matters to me that you feel looked after."
+ ],
+ "dlg.ich.z_warm.sie": [
+  "You're right, %3 – we'll do that.",
+  "Agreed, you get %3. It matters to me that you feel looked after."
+ ],
+ "dlg.ich.z_sachlich": [
+  "All right: %3. That's fair, we have a deal.",
+  "Fine, %3. Then we'll put it down that way."
+ ],
+ "dlg.ich.z_sachlich.sie": [
+  "All right: %3. That's fair, we have a deal.",
+  "Fine, %3. Then we'll put it down that way."
+ ],
+ "dlg.ich.z_widerwillig": [
+  "Fine. %3, but then I expect something from you.",
+  "I'll give way: %3. There's no more in it."
+ ],
+ "dlg.ich.z_widerwillig.sie": [
+  "Fine. %3, but then I expect something from you.",
+  "I'll give way: %3. There's no more in it."
+ ],
+ "dlg.ich.d_warm": [
+  "Thank you, that means a lot to me.",
+  "Thank you for being so open with me."
+ ],
+ "dlg.ich.d_warm.sie": [
+  "Thank you, that means a lot to me.",
+  "Thank you for being so open with me."
+ ],
+ "dlg.ich.l_lob": [
+  "I'll say it gladly: you're doing good work here and everyone sees it.",
+  "One more thing: I appreciate how you contribute."
+ ],
+ "dlg.ich.l_lob.sie": [
+  "I'll say it gladly: you're doing good work here and everyone sees it.",
+  "One more thing: I appreciate how you contribute."
+ ],
+ "dlg.ich.e_sachlich": [
+  "Let me briefly explain how I see it: it's about the bigger picture, not just you.",
+  "Here is the situation: I have to keep the whole squad in mind."
+ ],
+ "dlg.ich.e_sachlich.sie": [
+  "Let me briefly explain how I see it: it's about the bigger picture, not just you.",
+  "Here is the situation: I have to keep the whole squad in mind."
+ ],
+ "dlg.ich.e_warm": [
+  "That wasn't meant against you, believe me. I want you to understand.",
+  "Let me explain how I got there."
+ ],
+ "dlg.ich.e_warm.sie": [
+  "That wasn't meant against you, believe me. I want you to understand.",
+  "Let me explain how I got there."
+ ],
+ "dlg.ich.n_sachlich": [
+  "What do you base that on regarding %2? Tell me exactly what is missing.",
+  "What exactly do you need on %2?"
+ ],
+ "dlg.ich.n_sachlich.sie": [
+  "What do you base that on regarding %2? Tell me exactly what is missing.",
+  "What exactly do you need on %2?"
+ ],
+ "dlg.ich.n_warm": [
+  "Tell me what is really on your mind. I'm listening.",
+  "What's behind this? I want to understand."
+ ],
+ "dlg.ich.n_warm.sie": [
+  "Tell me what is really on your mind. I'm listening.",
+  "What's behind this? I want to understand."
+ ],
+ "dlg.ich.n_hakt": [
+  "That doesn't answer my question. What is it really?",
+  "Don't dodge: what is this actually about?"
+ ],
+ "dlg.ich.n_hakt.sie": [
+  "That doesn't answer my question. What is it really?",
+  "Don't dodge: what is this actually about?"
+ ],
+ "dlg.ich.n_allgemein": [
+  "How do you see all this?",
+  "What matters most to you here?"
+ ],
+ "dlg.ich.n_allgemein.sie": [
+  "How do you see all this?",
+  "What matters most to you here?"
+ ],
+ "dlg.ich.g_sachlich": [
+  "You want %3, I offer %4. That is my step towards you.",
+  "I'm meeting you halfway: %4. There's no more without something in return."
+ ],
+ "dlg.ich.g_sachlich.sie": [
+  "You want %3, I offer %4. That is my step towards you.",
+  "I'm meeting you halfway: %4. There's no more without something in return."
+ ],
+ "dlg.ich.g_bestimmt": [
+  "%3 is too much. My offer is %4 and that stands for now.",
+  "I offer %4 – that's the line."
+ ],
+ "dlg.ich.g_bestimmt.sie": [
+  "%3 is too much. My offer is %4 and that stands for now.",
+  "I offer %4 – that's the line."
+ ],
+ "dlg.ich.k_warm": [
+  "Let's find the middle: we meet somewhere between your demand and my offer.",
+  "We both want something, so let's share the road."
+ ],
+ "dlg.ich.k_warm.sie": [
+  "Let's find the middle: we meet somewhere between your demand and my offer.",
+  "We both want something, so let's share the road."
+ ],
+ "dlg.ich.k_sachlich": [
+  "I propose a compromise: half and half.",
+  "You know my proposal; how about the middle?"
+ ],
+ "dlg.ich.k_sachlich.sie": [
+  "I propose a compromise: half and half.",
+  "You know my proposal; how about the middle?"
+ ],
+ "dlg.ich.v_warm": [
+  "I promise you: if you go along with it, you get %4 – and I'll stand by it.",
+  "You have my word: %4, as soon as the situation allows."
+ ],
+ "dlg.ich.v_warm.sie": [
+  "I promise you: if you go along with it, you get %4 – and I'll stand by it.",
+  "You have my word: %4, as soon as the situation allows."
+ ],
+ "dlg.ich.v_bestimmt": [
+  "I give you my word on %4, but I expect something for it.",
+  "%4 – I promise that. You know what I want to see in return."
+ ],
+ "dlg.ich.v_bestimmt.sie": [
+  "I give you my word on %4, but I expect something for it.",
+  "%4 – I promise that. You know what I want to see in return."
+ ],
+ "dlg.ich.f_warm": [
+  "You matter to me as a person, not only as a player. This isn't against you.",
+  "We've been through a lot together. That should count for something."
+ ],
+ "dlg.ich.f_warm.sie": [
+  "You matter to me as a person, not only as a player. This isn't against you.",
+  "We've been through a lot together. That should count for something."
+ ],
+ "dlg.ich.f_lob": [
+  "I have great respect for what you have done for the club.",
+  "You in particular have achieved a lot here. I won't forget it."
+ ],
+ "dlg.ich.f_lob.sie": [
+  "I have great respect for what you have done for the club.",
+  "You in particular have achieved a lot here. I won't forget it."
+ ],
+ "dlg.ich.s_warm": [
+  "I'm sorry. That's not how I meant it.",
+  "My apologies – I handled that badly."
+ ],
+ "dlg.ich.s_warm.sie": [
+  "I'm sorry. That's not how I meant it.",
+  "My apologies – I handled that badly."
+ ],
+ "dlg.ich.b_warm": [
+  "Let's all take a breath. We'll sort this out.",
+  "Easy. We'll find a solution."
+ ],
+ "dlg.ich.b_warm.sie": [
+  "Let's all take a breath. We'll sort this out.",
+  "Easy. We'll find a solution."
+ ],
+ "dlg.ich.b_sachlich": [
+  "Let's go through it calmly, point by point.",
+  "Let's stay objective, then we'll get further."
+ ],
+ "dlg.ich.b_sachlich.sie": [
+  "Let's go through it calmly, point by point.",
+  "Let's stay objective, then we'll get further."
+ ],
+ "dlg.ich.p_bestimmt": [
+  "I have alternatives. If we can't agree, I'll plan without you.",
+  "I don't have to settle this on your terms."
+ ],
+ "dlg.ich.p_bestimmt.sie": [
+  "I have alternatives. If we can't agree, I'll plan without you.",
+  "I don't have to settle this on your terms."
+ ],
+ "dlg.ich.p_hart": [
+  "Either we agree now or it's finished for me.",
+  "You had better decide today: this way or not at all."
+ ],
+ "dlg.ich.p_hart.sie": [
+  "Either we agree now or it's finished for me.",
+  "You had better decide today: this way or not at all."
+ ],
+ "dlg.ich.p_bluff": [
+  "I have other options, believe me. Plenty.",
+  "There are more than enough takers for this solution."
+ ],
+ "dlg.ich.p_bluff.sie": [
+  "I have other options, believe me. Plenty.",
+  "There are more than enough takers for this solution."
+ ],
+ "dlg.ich.t_sachlich": [
+  "Give me a few days to check this properly.",
+  "I need to discuss this with the others first."
+ ],
+ "dlg.ich.t_sachlich.sie": [
+  "Give me a few days to check this properly.",
+  "I need to discuss this with the others first."
+ ],
+ "dlg.ich.t_ausweichend": [
+  "I can't say anything about that today. Let's come back to it later.",
+  "I don't want to commit just yet."
+ ],
+ "dlg.ich.t_ausweichend.sie": [
+  "I can't say anything about that today. Let's come back to it later.",
+  "I don't want to commit just yet."
+ ],
+ "dlg.ich.t_nehmen": [
+  "I need a moment to think about it. Can we continue later?",
+  "Let me sleep on it."
+ ],
+ "dlg.ich.t_nehmen.sie": [
+  "I need a moment to think about it. Can we continue later?",
+  "Let me sleep on it."
+ ],
+ "dlg.ich.a_sachlich": [
+  "I can't give you %3 like that, it doesn't fit the situation.",
+  "I decline: %3 is not possible."
+ ],
+ "dlg.ich.a_sachlich.sie": [
+  "I can't give you %3 like that, it doesn't fit the situation.",
+  "I decline: %3 is not possible."
+ ],
+ "dlg.ich.a_warm": [
+  "I'd like to meet you, but I can't commit to %3.",
+  "I'm sorry, %3 isn't possible – but let's keep talking."
+ ],
+ "dlg.ich.a_warm.sie": [
+  "I'd like to meet you, but I can't commit to %3.",
+  "I'm sorry, %3 isn't possible – but let's keep talking."
+ ],
+ "dlg.ich.a_hart": [
+  "Forget it. %3 is off the table and that's the end of it.",
+  "I won't talk on that basis. %3 is out of the question."
+ ],
+ "dlg.ich.a_hart.sie": [
+  "Forget it. %3 is off the table and that's the end of it.",
+  "I won't talk on that basis. %3 is out of the question."
+ ],
+ "dlg.ich.o_ausweichend": [
+  "Let's talk about something else, this isn't getting us anywhere.",
+  "That later. How do you see the overall picture?"
+ ],
+ "dlg.ich.o_ausweichend.sie": [
+  "Let's talk about something else, this isn't getting us anywhere.",
+  "That later. How do you see the overall picture?"
+ ],
+ "dlg.ich.y_warm": [
+  "I think we've covered everything. Thank you for the open conversation.",
+  "Good that we talked. I'm happy with the outcome."
+ ],
+ "dlg.ich.y_warm.sie": [
+  "I think we've covered everything. Thank you for the open conversation.",
+  "Good that we talked. I'm happy with the outcome."
+ ],
+ "dlg.ich.y_sachlich": [
+  "Then we'll leave it there. We'll come back to it when there's news.",
+  "Everything has been said."
+ ],
+ "dlg.ich.y_sachlich.sie": [
+  "Then we'll leave it there. We'll come back to it when there's news.",
+  "Everything has been said."
+ ],
+ "dlg.ich.x_sachlich": [
+  "I think we're going round in circles. Let's end it here.",
+  "This is leading nowhere. Let's leave it for today."
+ ],
+ "dlg.ich.x_sachlich.sie": [
+  "I think we're going round in circles. Let's end it here.",
+  "This is leading nowhere. Let's leave it for today."
+ ],
+ "dlg.ich.x_hart": [
+  "That's it. I won't talk further with this attitude.",
+  "Then not. This conversation is over."
+ ],
+ "dlg.ich.x_hart.sie": [
+  "That's it. I won't talk further with this attitude.",
+  "Then not. This conversation is over."
+ ],
+ "dlg.ich.m_loben": [
+  "That was really good. I wanted you to know.",
+  "You showed something special there, and it's noticed."
+ ],
+ "dlg.ich.m_loben.sie": [
+  "That was really good. I wanted you to know.",
+  "You showed something special there, and it's noticed."
+ ],
+ "dlg.ich.m_ermutigen": [
+  "Don't let your head drop. You have the quality to get out of this.",
+  "I believe in you, even if it's hard going right now."
+ ],
+ "dlg.ich.m_ermutigen.sie": [
+  "Don't let your head drop. You have the quality to get out of this.",
+  "I believe in you, even if it's hard going right now."
+ ],
+ "dlg.ich.m_kritik": [
+  "I noticed that things haven't been right recently. We have to work on that.",
+  "I see it critically: there was too little in it."
+ ],
+ "dlg.ich.m_kritik.sie": [
+  "I noticed that things haven't been right recently. We have to work on that.",
+  "I see it critically: there was too little in it."
+ ],
+ "dlg.ich.m_kritik_hart": [
+  "This can't go on. I expect you to put a stop to it.",
+  "That wasn't good enough and you know it."
+ ],
+ "dlg.ich.m_kritik_hart.sie": [
+  "This can't go on. I expect you to put a stop to it.",
+  "That wasn't good enough and you know it."
+ ],
+ "dlg.ich.m_zuhoeren": [
+  "Go on, I'm listening.",
+  "What would you wish for?"
+ ],
+ "dlg.ich.m_zuhoeren.sie": [
+  "Go on, I'm listening.",
+  "What would you wish for?"
+ ],
+ "dlg.ich.m_einordnen": [
+  "This is how I see it: it's a process and we're in the middle of it.",
+  "From my point of view this is part of a normal season."
+ ],
+ "dlg.ich.m_einordnen.sie": [
+  "This is how I see it: it's a process and we're in the middle of it.",
+  "From my point of view this is part of a normal season."
+ ],
+ "dlg.ich.m_ausblick": [
+  "Let's look ahead: the coming weeks can be good for us.",
+  "I see a lot there that we can look forward to."
+ ],
+ "dlg.ich.m_ausblick.sie": [
+  "Let's look ahead: the coming weeks can be good for us.",
+  "I see a lot there that we can look forward to."
+ ],
+ "dlg.ich.m_ausblick_sachlich": [
+  "What happens next? I suggest we talk again in two weeks.",
+  "Then we set the way forward and review it after the next match."
+ ],
+ "dlg.ich.m_ausblick_sachlich.sie": [
+  "What happens next? I suggest we talk again in two weeks.",
+  "Then we set the way forward and review it after the next match."
+ ],
+ "dlg.ich.m_auflockern": [
+  "Come on, we're not in a courtroom. We'll manage.",
+  "Let's take a breath: it's not that bad."
+ ],
+ "dlg.ich.m_auflockern.sie": [
+  "Come on, we're not in a courtroom. We'll manage.",
+  "Let's take a breath: it's not that bad."
+ ],
+ "dlg.ich.vz_annehmen": [
+  "Good, I accept your counteroffer. Let's do it that way.",
+  "Agreed. The counteroffer works for me."
+ ],
+ "dlg.ich.vz_annehmen.sie": [
+  "Good, I accept your counteroffer. Let's do it that way.",
+  "Agreed. The counteroffer works for me."
+ ],
+ "dlg.ich.vz_kompromiss": [
+  "Let's take the middle: I meet you halfway, you meet me halfway.",
+  "How about the middle between your counteroffer and my offer?"
+ ],
+ "dlg.ich.vz_kompromiss.sie": [
+  "Let's take the middle: I meet you halfway, you meet me halfway.",
+  "How about the middle between your counteroffer and my offer?"
+ ],
+ "dlg.ich.vz_ablehnen": [
+  "I can't accept the counteroffer like that. We have to start differently.",
+  "No, not in that form. I'm sticking to my offer."
+ ],
+ "dlg.ich.vz_ablehnen.sie": [
+  "I can't accept the counteroffer like that. We have to start differently.",
+  "No, not in that form. I'm sticking to my offer."
+ ],
+ "dlg.ich.vz_nachfragen": [
+  "What is still the problem from your point of view? Tell me what is missing.",
+  "What exactly bothers you about my offer?"
+ ],
+ "dlg.ich.vz_nachfragen.sie": [
+  "What is still the problem from your point of view? Tell me what is missing.",
+  "What exactly bothers you about my offer?"
+ ],
+ "dlg.ich.vz_erklaeren": [
+  "Let me explain why I can't offer that much: we have to keep the whole squad and the budget in view.",
+  "I'm happy to explain how I arrived at these numbers."
+ ],
+ "dlg.ich.vz_erklaeren.sie": [
+  "Let me explain why I can't offer that much: we have to keep the whole squad and the budget in view.",
+  "I'm happy to explain how I arrived at these numbers."
+ ],
+ "dlg.ich.vz_druck": [
+  "I have alternatives. If we can't agree, I'll look elsewhere.",
+  "I don't have to settle this at any price."
+ ],
+ "dlg.ich.vz_druck.sie": [
+  "I have alternatives. If we can't agree, I'll look elsewhere.",
+  "I don't have to settle this at any price."
+ ],
+ "dlg.ich.vz_bluff": [
+  "There are already other candidates asking for much less.",
+  "I've already had concrete talks in parallel."
+ ],
+ "dlg.ich.vz_bluff.sie": [
+  "There are already other candidates asking for much less.",
+  "I've already had concrete talks in parallel."
+ ],
+ "dlg.ich.vz_gefuehl": [
+  "We share a lot. I want this to stay fair for both sides.",
+  "I value the cooperation very much and would like to continue it."
+ ],
+ "dlg.ich.vz_gefuehl.sie": [
+  "We share a lot. I want this to stay fair for both sides.",
+  "I value the cooperation very much and would like to continue it."
+ ],
+ "dlg.ich.vz_versprechen": [
+  "I assure you that the role and the minutes will be taken into account.",
+  "For that I guarantee a firm place in my plans."
+ ],
+ "dlg.ich.vz_versprechen.sie": [
+  "I assure you that the role and the minutes will be taken into account.",
+  "For that I guarantee a firm place in my plans."
+ ],
+ "dlg.ich.vz_zeit": [
+  "Give me until the deadline. I want to check this carefully.",
+  "I need a few days to clear this internally."
+ ],
+ "dlg.ich.vz_zeit.sie": [
+  "Give me until the deadline. I want to check this carefully.",
+  "I need a few days to clear this internally."
+ ],
+ "dlg.ich.vz_beruhigen": [
+  "Let's stay calm. We both want a solution.",
+  "That wasn't meant badly. Let's go through it once more calmly."
+ ],
+ "dlg.ich.vz_beruhigen.sie": [
+  "Let's stay calm. We both want a solution.",
+  "That wasn't meant badly. Let's go through it once more calmly."
+ ],
+ "dlg.ich.vz_entschuldigen": [
+  "That was clumsy of me, please excuse me.",
+  "I take that back. That's not how I wanted to put it."
+ ],
+ "dlg.ich.vz_entschuldigen.sie": [
+  "That was clumsy of me, please excuse me.",
+  "I take that back. That's not how I wanted to put it."
+ ],
+ "dlg.ich.vz_abbrechen": [
+  "I don't see a basis at the moment. We're ending the negotiation.",
+  "We're not coming together like this. I'm breaking it off."
+ ],
+ "dlg.ich.vz_abbrechen.sie": [
+  "I don't see a basis at the moment. We're ending the negotiation.",
+  "We're not coming together like this. I'm breaking it off."
+ ],
+ "dlg.vorsatz.warm": [
+  "Frankly:",
+  "What matters to me:",
+  "Quite openly:"
+ ],
+ "dlg.vorsatz.sachlich": [
+  "To the point:",
+  "Briefly and clearly:",
+  "Looked at soberly:"
+ ],
+ "dlg.vorsatz.lob": [
+  "I have to say this:",
+  "Honestly impressed:",
+  "With all respect:"
+ ],
+ "dlg.vorsatz.bestimmt": [
+  "One thing is clear:",
+  "So we understand each other:",
+  "Listen:"
+ ],
+ "dlg.vorsatz.hart": [
+  "First of all:",
+  "I'll say this only once:",
+  "Let's not kid ourselves:"
+ ],
+ "dlg.vorsatz.ausweichend": [
+  "Well:",
+  "How shall I put it:",
+  "That's a tricky one:"
+ ],
+ "dlg.gegen.zustimmend.spieler": [
+  "That's fine with me.",
+  "Good, I can live with that.",
+  "Agreed, we'll do it that way."
+ ],
+ "dlg.gegen.zustimmend.formell": [
+  "That sounds acceptable.",
+  "I agree to that.",
+  "Good, we can put that on record."
+ ],
+ "dlg.gegen.ablehnend.spieler": [
+  "No, not like that.",
+  "That's not enough for me.",
+  "I can't accept that."
+ ],
+ "dlg.gegen.ablehnend.formell": [
+  "That isn't acceptable in this form.",
+  "That is not enough for us.",
+  "I can't agree to that."
+ ],
+ "dlg.gegen.fordernd.spieler": [
+  "I expect more than that.",
+  "More has to come.",
+  "I want a clear commitment."
+ ],
+ "dlg.gegen.fordernd.formell": [
+  "We expect more than that.",
+  "More has to come.",
+  "We need a clear commitment."
+ ],
+ "dlg.gegen.ausweichend.spieler": [
+  "Hm, I have to think about that.",
+  "We'll see later.",
+  "Hard to say."
+ ],
+ "dlg.gegen.ausweichend.formell": [
+  "I don't want to comment on that right now.",
+  "We'll have to clarify that later.",
+  "That's hard to judge."
+ ],
+ "dlg.gegen.verletzt.spieler": [
+  "That hit me.",
+  "I didn't expect that from you.",
+  "That hurts."
+ ],
+ "dlg.gegen.verletzt.formell": [
+  "I find that disrespectful.",
+  "I didn't expect that.",
+  "That is disappointing."
+ ],
+ "dlg.gegen.begeistert.spieler": [
+  "That's great, thank you!",
+  "Exactly what I'd hoped for!",
+  "That really makes me happy."
+ ],
+ "dlg.gegen.begeistert.formell": [
+  "That is excellent.",
+  "That pleases us very much.",
+  "Exactly what we had in mind."
+ ],
+ "dlg.gegen.misstrauisch.spieler": [
+  "And how do I know that's true?",
+  "I've heard that before.",
+  "I'm sceptical."
+ ],
+ "dlg.gegen.misstrauisch.formell": [
+  "How am I supposed to know?",
+  "I've heard that before.",
+  "We are sceptical."
+ ],
+ "dlg.gegen.gegenangebot.spieler": [
+  "Then let's do it this way, but not less.",
+  "I'll meet you part of the way, then that's it.",
+  "How about this?"
+ ],
+ "dlg.gegen.gegenangebot.formell": [
+  "Here is our counter-proposal.",
+  "We can move a little.",
+  "We could meet you like this."
+ ],
+ "dlg.gegen.frage.spieler": [
+  "And what does that mean for me, concretely?",
+  "What are you offering in return?",
+  "What do you mean?"
+ ],
+ "dlg.gegen.frage.formell": [
+  "What exactly are you proposing?",
+  "What does that mean in concrete terms?",
+  "How should I understand that?"
+ ],
+ "dlg.gegen.drohung.spieler": [
+  "If this doesn't change, I'll draw consequences.",
+  "Then I'll go another way.",
+  "I won't put up with this any longer."
+ ],
+ "dlg.gegen.drohung.formell": [
+  "If this doesn't change, we will draw consequences.",
+  "Then we will go other ways.",
+  "We won't put up with this any longer."
+ ],
+ "dlg.gegen.ultimatum.spieler": [
+  "That's my last word: decide by the deadline.",
+  "Either now or not at all.",
+  "I have no more patience."
+ ],
+ "dlg.gegen.ultimatum.formell": [
+  "That is our last word: decide by the deadline.",
+  "Either now or not at all.",
+  "We have no more patience."
+ ],
+ "dlg.ereignis.berater_ruft": "Interruption: His agent calls and talks at him.",
+ "dlg.ereignis.verein_meldet_sich": "Interruption: Another club has been in touch. That changes things.",
+ "dlg.ereignis.presse_wind": "Interruption: The press has got wind of this.",
+ "dlg.ereignis.kollege_vermittelt": "Interruption: A team-mate has put in a good word.",
+ "dlg.ereignis.angebot_vom_konkurrenten": "Interruption: A rival has put in an offer.",
+ "dlg.ereignis.familie_einmischung": "Interruption: The family gets involved.",
+ "dlg.ereignis.fanmeinung": "Interruption: The fans make themselves heard on social media.",
+ "dlg.ereignis.sponsor_hinweis": "Interruption: A sponsor has commented on the matter.",
+ "dlg.ende.einig": "You have reached an agreement.",
+ "dlg.ende.teilweise": "You agreed on some points and not on others.",
+ "dlg.ende.gut": "The conversation ends on a good note.",
+ "dlg.ende.ergebnislos": "The conversation ends without a result.",
+ "dlg.ende.abgebrochen": "The conversation has broken down.",
+ "dlg.ende.verfallen": "The conversation has lapsed.",
+ "dlg.ui.risiko.0": "Low risk",
+ "dlg.ui.risiko.1": "Low risk",
+ "dlg.ui.risiko.2": "Medium risk",
+ "dlg.ui.risiko.3": "High risk",
+ "dlg.ui.verhaeltnis.besser": "Relationship better",
+ "dlg.ui.verhaeltnis.gleich": "Relationship unchanged",
+ "dlg.ui.verhaeltnis.schlechter": "Relationship worse",
+ "dlg.ui.preis": "Cost: %2",
+ "dlg.ui.zusage": "Commitment: %1",
+ "dlg.ui.nichts": "no concession",
+ "dlg.ui.sperre.stark": "Needs a strong position",
+ "dlg.ui.sperre.verhaeltnis": "Needs a better relationship",
+ "dlg.ui.sperre.stimmung": "Doesn't fit the mood",
+ "dlg.ui.sperre.vertrauen": "Needs more trust",
+ "dlg.ui.sperre.budget": "Not enough budget",
+ "dlg.ui.sperre.runde": "Only later in the conversation",
+ "dlg.ui.vorschau.stimmung.gut": "Mood improves",
+ "dlg.ui.vorschau.stimmung.gleich": "Mood unchanged",
+ "dlg.ui.vorschau.stimmung.schlecht": "Mood drops",
+ "dlg.ui.zusage_gespraech": "Commitment noted: %1, by %2.",
+ "dlg.ui.mitteilung": "Talk it through",
+ "dlg.ui.mitteilung_ende": "Reply sent: %1",
+ "gs.partner.vorstand": "Board",
+ "gs.partner.fans": "Fans",
+ "gs.partner.jugend": "Youth",
+ "gs.thema.heimweh": "Homesickness",
+ "gs.thema.streit": "Dispute in the dressing room",
+ "gs.thema.wechselwunsch": "Wish to leave",
+ "gs.thema.provision": "Commission",
+ "gs.thema.angebote": "Offers from other clubs",
+ "gs.thema.leihe": "Loan",
+ "gs.thema.klauseln": "Clauses",
+ "gs.thema.tauschgeschaeft": "Swap deal",
+ "gs.thema.interview": "Interview",
+ "gs.thema.dementi": "Denial",
+ "gs.thema.kommentar": "Comment on a rumour",
+ "gs.thema.eltern": "Talk with the parents",
+ "gs.thema.akademie": "Academy",
+ "gs.thema.vorstand_budget": "Budget",
+ "gs.thema.vorstand_ziele": "Season target",
+ "gs.thema.vorstand_vertrauen": "Board's confidence",
+ "gs.thema.fans_stimmung": "Mood of the fans",
+ "gs.thema.fans_preise": "Ticket prices",
+ "gs.thema.fans_protest": "Fan protest",
+ "gs.deal.stand.vereinbart": "Agreed",
+ "gs.deal.stand.schreibt": "Being written into the game",
+ "gs.deal.stand.im_spiel": "Confirmed in the game",
+ "gs.deal.stand.fehlgeschlagen": "Writing failed",
+ "gs.deal.hinweis.klauseln": "Salary and length go into the game. Bonuses, clauses and playing time apply in PESM; the game doesn't know them.",
+ "gs.deal.hinweis.pesm": "Applies in PESM and is not written into the game.",
+ "gs.deal.hinweis.fehlgeschlagen": "Writing into the game did not work. The agreement stays valid; you can send it again from the change list.",
+ "gs.deal.titel.vertrag": "Contract",
+ "gs.deal.titel.kauf": "Purchase",
+ "gs.deal.titel.verkauf": "Sale",
+ "gs.deal.rolle": "Role: %1",
+ "gs.deal.rolle.kapitaen": "Captain",
+ "gs.deal.rolle.vizekapitaen": "Vice-captain",
+ "gs.deal.rolle.fuehrungsspieler": "Leader",
+ "gs.deal.rolle.stammspieler": "Regular starter",
+ "gs.deal.rolle.rotation": "Rotation",
+ "gs.ui.fehler.bereits_vereinbart": "There is already an agreement on this. It stays valid.",
+ "dlg.ich.vi_arzt": [
+  "Let the doc check you properly, then we decide together.",
+  "We'll look at it medically before you go back in fully.",
+  "The doctor has the last word, not your gut."
+ ],
+ "dlg.ich.vi_arzt.sie": [
+  "Let the doc check you properly, then we decide together.",
+  "We'll look at it medically before you go back in fully.",
+  "The doctor has the last word, not your gut."
+ ],
+ "dlg.ich.vi_schonen": [
+  "I'll pull you out if you're not at a hundred per cent. Promise.",
+  "Nobody forces you. Tell me when it twinges.",
+  "Your health comes before the next match."
+ ],
+ "dlg.ich.vi_schonen.sie": [
+  "I'll pull you out if you're not at a hundred per cent. Promise.",
+  "Nobody forces you. Tell me when it twinges.",
+  "Your health comes before the next match."
+ ],
+ "dlg.ich.vi_haerte": [
+  "Someone who's afraid doesn't help us on the pitch. Pull yourself together.",
+  "I need players who go into every tackle.",
+  "The injury has healed, now it's about your head."
+ ],
+ "dlg.ich.vi_haerte.sie": [
+  "Someone who's afraid doesn't help us on the pitch. Pull yourself together.",
+  "I need players who go into every tackle.",
+  "The injury has healed, now it's about your head."
+ ],
+ "dlg.ich.ka_zusagen": [
+  "If the armband is your goal, work towards it. I'll answer you at the end of the season.",
+  "You're in the running for the armband. That's all I'll say today.",
+  "Keep showing me the dressing room is behind you, then we'll talk."
+ ],
+ "dlg.ich.ka_zusagen.sie": [
+  "If the armband is your goal, work towards it. I'll answer you at the end of the season.",
+  "You're in the running for the armband. That's all I'll say today.",
+  "Keep showing me the dressing room is behind you, then we'll talk."
+ ],
+ "dlg.ich.ka_begruenden": [
+  "The captain needs the whole dressing room behind him, not just his own corner.",
+  "It's not only about performance, but about who mediates in a row.",
+  "The armband belongs to whoever leads in bad times too."
+ ],
+ "dlg.ich.ka_begruenden.sie": [
+  "The captain needs the whole dressing room behind him, not just his own corner.",
+  "It's not only about performance, but about who mediates in a row.",
+  "The armband belongs to whoever leads in bad times too."
+ ],
+ "dlg.ich.ka_ablehnen": [
+  "The armband stays where it is for now.",
+  "I'm not thinking about it at the moment. Focus on the game.",
+  "No. And I don't want this to become a topic in the dressing room."
+ ],
+ "dlg.ich.ka_ablehnen.sie": [
+  "The armband stays where it is for now.",
+  "I'm not thinking about it at the moment. Focus on the game.",
+  "No. And I don't want this to become a topic in the dressing room."
+ ],
+ "dlg.ich.ka_loben": [
+  "You lead already, armband or not. Everyone sees it.",
+  "Your way of leading from the front is exactly what we need.",
+  "I appreciate how you look after the younger lads."
+ ],
+ "dlg.ich.ka_loben.sie": [
+  "You lead already, armband or not. Everyone sees it.",
+  "Your way of leading from the front is exactly what we need.",
+  "I appreciate how you look after the younger lads."
+ ],
+ "dlg.ich.fo_video": [
+  "We'll go through the scenes together, then you'll see what it is.",
+  "Come to the video analyst later, we'll go through the last games.",
+  "It's the details, not your class. I'll show you."
+ ],
+ "dlg.ich.fo_video.sie": [
+  "We'll go through the scenes together, then you'll see what it is.",
+  "Come to the video analyst later, we'll go through the last games.",
+  "It's the details, not your class. I'll show you."
+ ],
+ "dlg.ich.fo_geduld": [
+  "A dip in form is part of it. You'll come out of it, and I'll help.",
+  "I have the patience you need right now.",
+  "You have more backing than you think."
+ ],
+ "dlg.ich.fo_geduld.sie": [
+  "A dip in form is part of it. You'll come out of it, and I'll help.",
+  "I have the patience you need right now.",
+  "You have more backing than you think."
+ ],
+ "dlg.ich.fo_forderung": [
+  "I need more from you in the next games. That's not a request.",
+  "The team needs you in form. Show it at the weekend.",
+  "What you've shown lately isn't enough, and you know it."
+ ],
+ "dlg.ich.fo_forderung.sie": [
+  "I need more from you in the next games. That's not a request.",
+  "The team needs you in form. Show it at the weekend.",
+  "What you've shown lately isn't enough, and you know it."
+ ],
+ "dlg.ich.he_familie": [
+  "Your family matters. Take the time if you need it.",
+  "I understand you miss them. We'll find a solution.",
+  "If something's up at home, tell me. Football can wait."
+ ],
+ "dlg.ich.he_familie.sie": [
+  "Your family matters. Take the time if you need it.",
+  "I understand you miss them. We'll find a solution.",
+  "If something's up at home, tell me. Football can wait."
+ ],
+ "dlg.ich.st_trennen": [
+  "I'll talk to each of you alone first, then we sit down together.",
+  "I want to hear both sides before I decide.",
+  "We'll settle this in private, not in front of the squad."
+ ],
+ "dlg.ich.st_trennen.sie": [
+  "I'll talk to each of you alone first, then we sit down together.",
+  "I want to hear both sides before I decide.",
+  "We'll settle this in private, not in front of the squad."
+ ],
+ "dlg.ich.st_ansage": [
+  "There's no arguing in my dressing room. This is the last warning.",
+  "Sort it out, or I'll sort it out for you, and you won't like it.",
+  "The club comes before your feelings."
+ ],
+ "dlg.ich.st_ansage.sie": [
+  "There's no arguing in my dressing room. This is the last warning.",
+  "Sort it out, or I'll sort it out for you, and you won't like it.",
+  "The club comes before your feelings."
+ ],
+ "dlg.ich.zk_ehrlich": [
+  "I'll tell you honestly where you stand and what's still missing.",
+  "You're closer than you think. One or two things are missing.",
+  "I want you to know where you stand, even if it's uncomfortable."
+ ],
+ "dlg.ich.zk_ehrlich.sie": [
+  "I'll tell you honestly where you stand and what's still missing.",
+  "You're closer than you think. One or two things are missing.",
+  "I want you to know where you stand, even if it's uncomfortable."
+ ],
+ "dlg.ich.zk_chance": [
+  "In the next cup tie you get your chance from the start.",
+  "I'm pencilling you in next week.",
+  "You'll play soon, and then I want to see what you can do."
+ ],
+ "dlg.ich.zk_chance.sie": [
+  "In the next cup tie you get your chance from the start.",
+  "I'm pencilling you in next week.",
+  "You'll play soon, and then I want to see what you can do."
+ ],
+ "dlg.eroeffnung.verletzungsangst": "%1 hesitates: “Gaffer, I'm afraid it'll catch me again.”",
+ "dlg.eroeffnung.kapitaen": "%1 stands in front of you: “I want to wear the armband. I think I've earned it.”",
+ "dlg.ich.tr_konkurrenz": ["We have other candidates on the list. The offer won't stand forever.", "There are alternatives, and other clubs are asking too. Make up your minds.", "I can plan differently if we don't agree soon."],
+ "dlg.ich.tr_konkurrenz.sie": ["We have other candidates on the list. The offer won't stand forever.", "There are alternatives, and other clubs are asking too. Make up your minds.", "I can plan differently if we don't agree soon."],
+ "dlg.ich.tr_zeitplan": ["We needn't rush. Agree now, and it's completed once the window opens.", "Let's put everything on record and settle it when the window starts.", "Give me a few days, then the schedule is set."],
+ "dlg.ich.tr_zeitplan.sie": ["We needn't rush. Agree now, and it's completed once the window opens.", "Let's put everything on record and settle it when the window starts.", "Give me a few days, then the schedule is set."],
+ "dlg.ich.tr_wunsch": ["What matters to you: the league, the role, the city?", "Tell me what you want from a new club.", "What's important to you when you think about your future?"],
+ "dlg.ich.tr_wunsch.sie": ["What matters to you: the league, the role, the city?", "Tell me what you want from a new club.", "What's important to you when you think about your future?"],
+ "dlg.ich.tr_berater": ["I'll go through the figures with your agent and the role with you.", "I'll phone your agent. Then I'll tell you how it looks.", "Where does your agent stand on the details?"],
+ "dlg.ich.tr_berater.sie": ["I'll go through the figures with your agent and the role with you.", "I'll phone your agent. Then I'll tell you how it looks.", "Where does your agent stand on the details?"],
+ "dlg.ich.tr_verein_hoch": ["Our offer is fair for what the player brings.", "We offer what the market gives, no more.", "Do the sums: it is a decent offer."],
+ "dlg.ich.tr_verein_hoch.sie": ["Our offer is fair for what the player brings.", "We offer what the market gives, no more.", "Do the sums: it is a decent offer."],
+ "dlg.ich.ve_rolle": ["You get a fixed role with me, and we'll write that down honestly.", "I see you as an important part of the next years.", "We plan with you, even if you're out for a while."],
+ "dlg.ich.ve_rolle.sie": ["You get a fixed role with me, and we'll write that down honestly.", "I see you as an important part of the next years.", "We plan with you, even if you're out for a while."],
+ "dlg.ereignis.konkurrenz_bietet": "Another club has come forward and is applying pressure.",
+ "dlg.ereignis.spieler_wunsch": "The player lets it be known that he wants a strong league and a fixed role.",
+ "dlg.eroeffnung.transferinteresse": "%1 listens: “Gaffer, I heard you're interested in me. What would you have in mind for me?”",
+ "dlg.ich.g_abwiegeln": ["Honestly: you're making this bigger than it is.", "That's complaining at a high level."],
+ "dlg.ich.g_abwiegeln.sie": ["Honestly: you're making this bigger than it is.", "That's complaining at a high level."],
+ "dlg.ich.g_abwimmeln": ["I won't discuss this any further.", "As far as I'm concerned the matter is closed."],
+ "dlg.ich.g_abwimmeln.sie": ["I won't discuss this any further.", "As far as I'm concerned the matter is closed."],
+ "dlg.ich.g_vertagen": ["Let's talk about it another time, calmly.", "I need to think about that first."],
+ "dlg.ich.g_vertagen.sie": ["Let's talk about it another time, calmly.", "I need to think about that first."],
+ "dlg.ich.g_geloest": ["Then that's settled. Thank you.", "Good, we can both live with that."],
+ "dlg.ich.g_geloest.sie": ["Then that's settled. Thank you very much.", "Good, we can both live with that."],
+ "dlg.ende.entschieden": "Decided: %1.",
+ "dlg.ende.nichts_entschieden": "Nothing binding was decided.",
+ "dlg.ich.ag_gehalt": ["If you can wait a little, we'll look at your wage in the next contract round.", "There's room on the money side if you show me you want more than a place on the bench.", "I can offer you something financially to make the wait easier."],
+ "dlg.ich.ag_gehalt.sie": ["If you can wait a little, we'll look at your wage in the next contract round.", "There's room on the money side if you show me you want more than a place on the bench.", "I can offer you something financially to make the wait easier."],
+ "dlg.ich.ag_rolle": ["I see you in a bigger role in the second half of the season, but you have to deliver in training.", "You get the super-sub role that decides tight games. It's more than it sounds.", "I'm giving you a fixed job in the cup, there you're my man."],
+ "dlg.ich.ag_rolle.sie": ["I see you in a bigger role in the second half of the season, but you have to deliver in training.", "You get the super-sub role that decides tight games. It's more than it sounds.", "I'm giving you a fixed job in the cup, there you're my man."],
+ "dlg.ich.ag_verleih": ["We could loan you out so you get match practice and bring you back in the summer.", "A loan at a club that needs you gets you further than the bench.", "If you like, I'll find you a loan club where you play every week."],
+ "dlg.ich.ag_verleih.sie": ["We could loan you out so you get match practice and bring you back in the summer.", "A loan at a club that needs you gets you further than the bench.", "If you like, I'll find you a loan club where you play every week."],
+ "dlg.ich.ro_ablehnen": ["There's no bigger role for now. The places are taken.", "No, I won't change that while the others are better.", "I won't promise what I can't keep."],
+ "dlg.ich.ro_ablehnen.sie": ["There's no bigger role for now. The places are taken.", "No, I won't change that while the others are better.", "I won't promise what I can't keep."],
+ "dlg.ich.we_erklaeren": ["I understand you're thinking about a move. Let's find out what really bothers you.", "Before we talk about leaving I'd like to know what's behind it.", "A move doesn't solve every problem. Tell me what you're missing."],
+ "dlg.ich.we_erklaeren.sie": ["I understand you're thinking about a move. Let's find out what really bothers you.", "Before we talk about leaving I'd like to know what's behind it.", "A move doesn't solve every problem. Tell me what you're missing."],
+ "gs.thema.belastung": "Workload",
+ "dlg.eroeffnung.belastung": "%1 rubs his legs: “Gaffer, I can feel I'm no longer fresh. It's been too much lately.”",
+ "dlg.ich.an_vertroesten": ["Give me a few more weeks, then we'll sit down again.", "Let's talk about it calmly after the next game.", "I'll take your concern with me and get back to you, promise."],
+ "dlg.ich.an_vertroesten.sie": ["Give me a few more weeks, then we'll sit down again.", "Let's talk about it calmly after the next game.", "I'll take your concern with me and get back to you, promise."]
+}

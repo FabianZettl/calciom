@@ -1,0 +1,56 @@
+{
+  "_hinweis": "Texts on the topic of the league table. tabellenspitze: press headline. abstiegszone: a board member writes to the manager (formal). Placeholders: {verein}, {platz}, {reporter}, {medium}, {vorstand}.",
+  "tabellenspitze.schlagzeile": {
+    "standard": [
+      "{verein} are right at the top",
+      "Top spot: {verein} set the pace"
+    ]
+  },
+  "tabellenspitze.kurztext": {
+    "standard": [
+      "{verein} lead the table. {reporter} ({medium}): “Anyone who's on top after this many matchdays is there on merit. From now on every opponent will be especially motivated.”",
+      "League leaders: {verein} have established themselves at the top. {reporter} ({medium}) asks how the team copes with everyone else now chasing them."
+    ]
+  },
+  "abstiegszone.betreff": {
+    "standard": [
+      "League position: {platz}"
+    ]
+  },
+  "abstiegszone.text": {
+    "standard": [
+      "Position {platz} isn't what we set out to achieve. The board expects an assessment from you of how we get out of this situation. – {vorstand}",
+      "We're in position {platz}. Worry about staying up is growing at the club. Please let me know how you intend to approach the coming weeks. – {vorstand}"
+    ]
+  },
+  "abstiegszone.antwort.plan": {
+    "standard": [
+      "We're switching to a more defensive set-up and picking up points through stability. Give me four games."
+    ]
+  },
+  "abstiegszone.antwort.verstaerkung": {
+    "standard": [
+      "It'll be tight with this squad. I need reinforcements."
+    ]
+  },
+  "abstiegszone.antwort.ruhe": {
+    "standard": [
+      "The team is better than its league position. I'm changing nothing, we stay calm."
+    ]
+  },
+  "abstiegszone.rueckmeldung.plan": {
+    "standard": [
+      "Good. Four games, then we talk again. The board will measure you against this plan."
+    ]
+  },
+  "abstiegszone.rueckmeldung.verstaerkung": {
+    "standard": [
+      "I'll take that to the meeting. I can't promise anything, and people will ask why the squad is only now not enough."
+    ]
+  },
+  "abstiegszone.rueckmeldung.ruhe": {
+    "standard": [
+      "We note that. It hasn't convinced the board. The results now have to speak for you."
+    ]
+  }
+}

@@ -1,0 +1,361 @@
+{
+ "zt.spiel.sieg.serioes.titel": [
+  "%3 wins against %1 by %2",
+  "Deserved result: %2 against %1",
+  "%3 get the better of %1 (%2)"
+ ],
+ "zt.spiel.sieg.serioes.text": [
+  "The match against %1 finished %2. The team stayed focused in the decisive phases and took its chances. Scorers: %4.",
+  "With %2 against %1, %3 stay on course. The structure was right and the finishing was efficient. Scorers: %4."
+ ],
+ "zt.spiel.sieg.boulevard.titel": [
+  "Joy! %3 blow %1 away by %2",
+  "Dream night: %2 against %1!",
+  "%1 sunk: %3 celebrate a feast (%2)"
+ ],
+ "zt.spiel.sieg.boulevard.text": [
+  "What a night! %3 overrun %1 and the stands celebrate deep into the night. The scorers: %4.",
+  "That was a statement. %2 against %1, the visitors had no answer. On target: %4."
+ ],
+ "zt.spiel.remis.serioes.titel": [
+  "%3 and %1 share the points, %2",
+  "Points shared with %1 (%2)",
+  "%2 against %1: a point for %3"
+ ],
+ "zt.spiel.remis.serioes.text": [
+  "Against %1 it stayed %2. Both sides cancelled each other out for long spells and chances were few. Scorers: %4.",
+  "A draw nobody can be truly happy with: %2 against %1. Goals: %4."
+ ],
+ "zt.spiel.remis.boulevard.titel": [
+  "Pure drama: %2 against %1!",
+  "Trembling to the end: %3 get only a point",
+  "Thrown away? %2 against %1"
+ ],
+ "zt.spiel.remis.boulevard.text": [
+  "It was a game to tear your hair out. %3 and %1 part %2, and both could have won. The goals: %4.",
+  "A thriller without a winner: %2 against %1. The fans do not know whether to laugh or cry. Scorers: %4."
+ ],
+ "zt.spiel.niederlage.serioes.titel": [
+  "%3 lose to %1 by %2",
+  "Defeat against %1 (%2)",
+  "%2: %1 take the points"
+ ],
+ "zt.spiel.niederlage.serioes.text": [
+  "It was not enough against %1: %2. The team found no grip and conceded too easily. Goals for %3: %4.",
+  "A defeat that needs analysing. %1 were more present in the duels. Scorers: %4."
+ ],
+ "zt.spiel.niederlage.boulevard.titel": [
+  "Debacle! %3 sink against %1 (%2)",
+  "Shock in the stadium: %2 against %1",
+  "Embarrassment against %1: fans stunned"
+ ],
+ "zt.spiel.niederlage.boulevard.text": [
+  "A black day. %2 against %1 – nobody pictured the evening like this. The manager is under pressure. Consolation: %4.",
+  "The stands grumble, the players slink off: %3 lose %2 to %1. At least on target: %4."
+ ],
+ "zt.serie.sieg.serioes.titel": [
+  "%1 wins in a row for %2",
+  "%2 have won %1 games running",
+  "Consistency pays off: %1 successes in a row"
+ ],
+ "zt.serie.sieg.serioes.text": [
+  "The run continues: %1 wins in a row. The team works compactly and manages leads with routine.",
+  "For %1 games %2 have won every time. The coordination between the units works."
+ ],
+ "zt.serie.sieg.boulevard.titel": [
+  "%2 in a frenzy: %1 wins in a row!",
+  "Unstoppable! %2 celebrate again – win number %1 in a row",
+  "The run will not end: %1 wins on the trot"
+ ],
+ "zt.serie.sieg.boulevard.text": [
+  "The city dreams: %1 wins in a row and no end in sight. Who is going to stop %2?",
+  "Fans and team are floating on cloud nine. %1 wins on the trot – that has not happened in a long time."
+ ],
+ "zt.serie.niederlage.boulevard.titel": [
+  "Crisis! %2 lose again – %1 defeats in a row",
+  "%1 defeats on the trot: it is burning at %2",
+  "Freefall: %1 losses in a row"
+ ],
+ "zt.serie.niederlage.boulevard.text": [
+  "The situation is serious: %1 defeats in a row. The pressure on the manager grows with every game.",
+  "Alarm at %2. %1 games without a point, the fans' patience has run out."
+ ],
+ "zt.serie.ohne_sieg.serioes.titel": [
+  "%2 have waited %1 games for a win",
+  "Winless: %1 games without success",
+  "The search for a win goes on"
+ ],
+ "zt.serie.ohne_sieg.serioes.text": [
+  "%2 have not won in %1 matches. The root-cause analysis is under way: too little threat, too many errors in build-up.",
+  "%1 games without a win are no disaster but a warning sign. The team needs a boost."
+ ],
+ "zt.hattrick.serioes.titel": [
+  "Hat-trick by %1 against %2",
+  "%1 scores three against %2",
+  "Three goals: %1 decides the game against %2"
+ ],
+ "zt.hattrick.serioes.text": [
+  "%1 scored three against %2 and shaped the game with clever runs and ruthless finishing.",
+  "One player, three goals: %1 was impossible for %2 to handle."
+ ],
+ "zt.hattrick.boulevard.titel": [
+  "%1 shoots down %2 alone: %3 goals!",
+  "Man of the night: %1 with %3 goals",
+  "Madness! %1 scores and scores and scores"
+ ],
+ "zt.hattrick.boulevard.text": [
+  "What a performance! %1 hits the net %3 times against %2 and sends the stands wild.",
+  "He takes the ball home: %1 scored %3 goals against %2."
+ ],
+ "zt.stark.serioes.titel": [
+  "Outstanding: %1 with a rating of %2",
+  "%1 towers above everyone against %3",
+  "Best man on the pitch: %1"
+ ],
+ "zt.stark.serioes.text": [
+  "With a rating of %2, %1 was the most conspicuous player against %3. His duels and passing gave the team stability.",
+  "%1 played at the highest level against %3 (rating %2) and held the structure together."
+ ],
+ "zt.tabelle.spitze.boulevard.titel": [
+  "On top! %2 greet from the top of the table",
+  "Place %1: %2 sit enthroned above the league",
+  "Leaders %2 – the city celebrates"
+ ],
+ "zt.tabelle.spitze.boulevard.text": [
+  "The table shows place %1, and %2 look quite at home there. The competition looks up.",
+  "It is lovely to dream from the very top. %2 are in place %1 and want to stay there."
+ ],
+ "zt.tabelle.abstieg.boulevard.titel": [
+  "Alarm in the basement: %2 in place %1",
+  "Relegation fight! %2 slip to place %1",
+  "Danger zone: place %1 for %2"
+ ],
+ "zt.tabelle.abstieg.boulevard.text": [
+  "Place %1 is not somewhere to settle in. %2 must score points quickly to avoid ending up at the bottom.",
+  "The table does not lie: %2 are in place %1 and need wins, not excuses."
+ ],
+ "zt.verletzung.serioes.titel": [
+  "%1 out injured",
+  "Absence in the squad: %1 injured",
+  "Medical department reports %1 injured"
+ ],
+ "zt.verletzung.serioes.text": [
+  "%1 will be missing from the team for now. The downtime is currently put at about %2 days and recovery is closely monitored.",
+  "An injury forces %1 to rest (about %2 days). The manager has to adjust the rotation."
+ ],
+ "zt.verletzung.boulevard.titel": [
+  "Shock! %1 injured",
+  "Bitter loss: star %1 must rest",
+  "Worrying about %1: how bad is it?"
+ ],
+ "zt.verletzung.boulevard.text": [
+  "The fans are anxious: %1 has been hit. About %2 days out must be expected.",
+  "Of all times! %1 is out for around %2 days, leaving a hole in the team."
+ ],
+ "zt.wechsel.eigen.boulevard.titel": [
+  "It is done: %1 moves to %3",
+  "Transfer bombshell: %1 and %3 agree",
+  "%1 takes a new path: destination %3"
+ ],
+ "zt.wechsel.eigen.boulevard.text": [
+  "%2 and %3 have agreed: %1 is on the move. The fans debate whether the price is right.",
+  "The signature is in. %1 leaves %2 for %3, and the city talks of nothing else."
+ ],
+ "zt.wechsel.fremd.serioes.titel": [
+  "%1 moves from %2 to %3",
+  "League move: %1 now at %3",
+  "%3 sign %1"
+ ],
+ "zt.wechsel.fremd.serioes.text": [
+  "%3 have secured the services of %1, the selling club is %2. The move shifts the balance of power slightly.",
+  "Market watchers regard the move of %1 (%2 to %3) as a sensible reinforcement."
+ ],
+ "zt.geruecht.boulevard.text": [
+  "%1 in the sights: have %2 already asked?",
+  "Rumour mill bubbling: %1 and %2?",
+  "Hot tip: %1 may soon be impossible to hold on to"
+ ],
+ "zt.geruecht.serioes.text": [
+  "According to reports, %2 are looking at %1.",
+  "Unconfirmed so far: interest in %1 from the circle around %2.",
+  "Insiders report talks around %1 and %2."
+ ],
+ "zt.saga.0.boulevard.titel": [
+  "Rumour: is %1 heading for %2?",
+  "%1 and %2 – more than a whisper?",
+  "The trail leads to %2: it is about %1"
+ ],
+ "zt.saga.0.boulevard.text": [
+  "First hints from the circle around the club: %2 are said to be interested in %1. Nothing is confirmed, but the market is moving. To be continued.",
+  "It starts with a murmur: %1 and %2 are mentioned in the same breath. We stay on it."
+ ],
+ "zt.saga.1.serioes.titel": [
+  "Interest in %1 takes shape",
+  "%2 have enquired about %1",
+  "Advisers sound things out: %1 and %2"
+ ],
+ "zt.saga.1.serioes.text": [
+  "According to sources, advisers have held first talks. %2 are said to be pursuing %1 seriously. A decision is still pending.",
+  "The %1 case takes shape: %2 have made contact, the positions are still far apart."
+ ],
+ "zt.saga.2.boulevard.titel": [
+  "Offer on the table: %2 want %1!",
+  "Now it gets serious: bid for %1",
+  "%2 raise the stakes – does %1 get his offer?"
+ ],
+ "zt.saga.2.boulevard.text": [
+  "Negotiations are heating up: %2 have submitted a concrete offer for %1. The decision should come in the next few days.",
+  "It is getting loud behind the scenes. %2 mean business and %1 has to decide."
+ ],
+ "zt.saga.3einigung.boulevard.titel": [
+  "Done! %1 and %2 agree",
+  "The deal is set: %1 moves to %2",
+  "Happy ending? %1 says yes to %2"
+ ],
+ "zt.saga.3einigung.boulevard.text": [
+  "After days of back and forth it is official: %1 and %2 have agreed. The move is a done deal.",
+  "The wait is over. %1 is moving, %2 have reached their goal."
+ ],
+ "zt.saga.3absage.serioes.titel": [
+  "No move: %1 stays for now",
+  "The %1 file is closed",
+  "%2 and %1 do not get together"
+ ],
+ "zt.saga.3absage.serioes.text": [
+  "The talks between %2 and %1 have produced no result. A move is no longer expected for now.",
+  "There will be no transfer: %1 stays, the negotiations with %2 have ended."
+ ],
+ "zt.pk.ehrlich.titel": [
+  "Open words: “%1”",
+  "Open words: “%1”"
+ ],
+ "zt.pk.ehrlich.text": [
+  "At the podium the manager did not mince words. Quote: “%1”. You can accuse him of much, but not of beating about the bush.",
+  "At the podium the manager did not mince words. Quote: “%1”. You can accuse him of much, but not of beating about the bush. A clear signal ahead of the game against %2. (%3)"
+ ],
+ "zt.pk.kaempferisch.titel": [
+  "Declaration of war: “%1”",
+  "Declaration of war: “%1”"
+ ],
+ "zt.pk.kaempferisch.text": [
+  "The message was unmistakable: “%1”. Now the team has to deliver on the pitch.",
+  "The message was unmistakable: “%1”. Now the team has to deliver on the pitch. A clear signal ahead of the game against %2. (%3)"
+ ],
+ "zt.pk.ausweichend.titel": [
+  "Many words, little substance",
+  "Many words, little substance"
+ ],
+ "zt.pk.ausweichend.text": [
+  "Faced with the press, the manager stayed vague. Clearest of all: “%1”. Anyone looking for clarity found none.",
+  "Faced with the press, the manager stayed vague. Clearest of all: “%1”. Anyone looking for clarity found none. A clear signal ahead of the game against %2. (%3)"
+ ],
+ "zt.pk.lob.titel": [
+  "Praise from the manager: “%1”",
+  "Praise from the manager: “%1”"
+ ],
+ "zt.pk.lob.text": [
+  "The manager found words of appreciation for his team: “%1”. The squad will have been glad to hear it.",
+  "The manager found words of appreciation for his team: “%1”. The squad will have been glad to hear it. A clear signal ahead of the game against %2. (%3)"
+ ],
+ "zt.pk.kritik.titel": [
+  "The manager lashes out: “%1”",
+  "The manager lashes out: “%1”"
+ ],
+ "zt.pk.kritik.text": [
+  "It got blunt in the press room. “%1” – a sentence that is likely to be discussed in the dressing room.",
+  "It got blunt in the press room. “%1” – a sentence that is likely to be discussed in the dressing room. A clear signal ahead of the game against %2. (%3)"
+ ],
+ "zt.pk.diplomatisch.titel": [
+  "A measured appearance: “%1”",
+  "A measured appearance: “%1”"
+ ],
+ "zt.pk.diplomatisch.text": [
+  "The manager weighed every word. His key sentence: “%1”. An appearance that offends nobody.",
+  "The manager weighed every word. His key sentence: “%1”. An appearance that offends nobody. A clear signal ahead of the game against %2. (%3)"
+ ],
+ "zt.pk.kontern.titel": [
+  "Striking back: “%1”",
+  "Striking back: “%1”"
+ ],
+ "zt.pk.kontern.text": [
+  "The manager did not let the criticism stand and hit back sharply: “%1”. The echo should not be long in coming.",
+  "The manager did not let the criticism stand and hit back sharply: “%1”. The echo should not be long in coming. A clear signal ahead of the game against %2. (%3)"
+ ],
+ "zt.ruhig.titel": [
+  "A quiet day at %1",
+  "Business as usual",
+  "Calm before the next matchday"
+ ],
+ "zt.ruhig.text": [
+  "There is no big news at %1 today. Training continues and the squad prepares for the tasks ahead.",
+  "No scandal, no bang, no transfers: %1 are working through the everyday. The editors use the lull for a look at the table."
+ ],
+ "zt.eil.entlassung.titel": "Manager sacked at %2",
+ "zt.eil.entlassung.text": "The board of %2 has ended the cooperation. Further information to follow.",
+ "zt.eil.ultimatum.titel": "Ultimatum for the manager",
+ "zt.eil.ultimatum.text": "The board of %2 has set the manager a deadline. Whether it is enough will be decided in the coming games.",
+ "zt.eil.verkauf.titel": "%1 leaves %2",
+ "zt.eil.verkauf.text": "The move of %1 is done. The squad loses a key player.",
+ "zt.eil.star_verletzt.titel": "%1 badly injured",
+ "zt.eil.star_verletzt.text": "A blow for %2: %1 will be out for a long time.",
+ "zt.ticker.spiel": [
+  "%1 – %2: %3",
+  "Final score %3 against %2"
+ ],
+ "zt.ticker.tabelle": [
+  "%2 are in place %1",
+  "Table: place %1 for %2"
+ ],
+ "zt.ticker.geruecht": [
+  "Rumour: %1 and %2",
+  "%2 are watching %1"
+ ],
+ "zt.ticker.wechsel": [
+  "Move: %1 from %2 to %3",
+  "%1 joins %3 (%2)"
+ ],
+ "menu.zeitung.titel": "Newspaper",
+ "menu.zeitung.reiter.0": "Front page",
+ "menu.zeitung.reiter.1": "Archive",
+ "zt.ui.titel": "Newspaper",
+ "zt.ui.name": "The Sports Courier",
+ "zt.ui.ausgabe": "Issue %1 · %2",
+ "zt.ui.eil": "Breaking news",
+ "zt.ui.neben": "More news",
+ "zt.ui.geruechte": "Transfer rumours",
+ "zt.ui.sagas": "The story behind it",
+ "zt.ui.teil": "Part %1",
+ "zt.ui.ticker": "Ticker",
+ "zt.ui.archiv": "Earlier issues",
+ "zt.ui.aktuell": "To the latest issue",
+ "zt.ui.zurueck": "Previous issue",
+ "zt.ui.vor": "Next issue",
+ "zt.ui.takt": "Published",
+ "zt.ui.takt.taeglich": "daily",
+ "zt.ui.takt.woechentlich": "weekly",
+ "zt.ui.leer": "The first issue comes out with the next day. The editors are already collecting material.",
+ "zt.ui.archiv_leer": "No earlier issues yet.",
+ "zt.ui.zitat": "Said at the press conference",
+ "zt.ui.ausgang.einigung": "Agreement",
+ "zt.ui.ausgang.absage": "Called off",
+ "zt.ui.art.welt": "World",
+ "zt.ui.art.rekord": "Record",
+ "zt.ui.art.spiel": "Matchday",
+ "zt.ui.art.serie": "Streak",
+ "zt.ui.art.hattrick": "Hat-trick",
+ "zt.ui.art.stark": "Performance",
+ "zt.ui.art.verletzung": "Injury",
+ "zt.ui.art.wechsel": "Transfer",
+ "zt.ui.art.tabelle": "Table",
+ "zt.ui.art.pk": "Press conference",
+ "zt.ui.art.saga": "Transfer saga",
+ "zt.ui.art.ruhig": "From the club",
+ "zt.ui.ton.serioes": "Factual",
+ "zt.ui.ton.boulevard": "Tabloid",
+ "zt.ui.nummer": "No. %1",
+ "zt.ui.fehler.ausgabe": "This issue is no longer in the archive.",
+ "zt.ui.takt.gesetzt": "The paper is now published %1.",
+ "wartet.zeitung.0": "The printing press is starting up …",
+ "wartet.zeitung.1": "The editor-in-chief settles on the headline …",
+ "wartet.zeitung.2": "The pictures arrive from the photo lab …"
+}

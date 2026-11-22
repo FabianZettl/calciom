@@ -1,0 +1,127 @@
+{
+  "art": "heuristik",
+  "hinweis": "Eigene unkalibrierte Gewichte der Startelf-Empfehlung. Platzwert = Teilwert der besten Rolle x Eignungsfaktor x Formfaktor, plus bleiben für den bisherigen Spieler. Keine PES-Formel. quellen: Fähigkeiten mit Quelle speicher, Spielstil und Positionsvertrautheit zählen auch ohne nachgewiesene Zuordnung der Aufnahme zum Spielstand, solange der jeweilige Schalter an ist. Liest der Spielstand eine Fähigkeit selbst, hier ihre Quelle auf spielstand stellen. Speicherwerte zählen für Fähigkeiten ohne Spielstandwert immer, auch bei anderem Datum; ein Spielstandwert hat Vorrang.",
+  "mindestabdeckung": 0.5,
+  "eignung": {
+    "A": 1.0,
+    "B": 0.93,
+    "C": 0.8,
+    "unbekannt": 0.8
+  },
+  "form": {
+    "0": 0.94,
+    "1": 0.97,
+    "2": 1.0,
+    "3": 1.03,
+    "4": 1.06,
+    "unbekannt": 1.0
+  },
+  "bleiben": 1.0,
+  "quellen": {
+    "faehigkeiten_aus_speicher": true,
+    "spielstil_aus_speicher": true,
+    "vertrautheit_aus_speicher": true,
+    "speicher_aktualitaet": [
+      "aufnahme_nicht_zugeordnet",
+      "veraltet",
+      "anderer_spielstand"
+    ]
+  },
+  "faehigkeit_quelle": {
+    "offensivgeist": "speicher",
+    "defensivgeist": "speicher",
+    "torwartgefuehl": "speicher",
+    "dribbling": "speicher",
+    "ballkontrolle": "speicher",
+    "enge_ballfuehrung": "spielstand",
+    "abschluss": "speicher",
+    "flachpass": "speicher",
+    "steilpass": "speicher",
+    "kopfball": "speicher",
+    "balleroberung": "speicher",
+    "aggressivitaet": "spielstand",
+    "freistoss": "spielstand",
+    "effet": "spielstand",
+    "fangen": "spielstand",
+    "klaeren": "spielstand",
+    "reflexe": "spielstand",
+    "reichweite": "spielstand",
+    "schnelligkeit": "spielstand",
+    "koerperkontakt": "spielstand",
+    "balance": "spielstand",
+    "schusskraft": "spielstand",
+    "antritt": "spielstand",
+    "sprungkraft": "spielstand",
+    "ausdauer": "spielstand"
+  },
+  "rollen_eignung": {
+    "hinweis": "Stufen der Rollen-Eignung. Mit Vergleichsliste: Perzentil des Rollenwerts unter allen Spielern derselben Hauptposition in der Datenbank (perzentil_stufen, ab = Perzentil, 100 = bester). Ohne ausreichende Liste (mindestvergleich): absolute Schwellen aus stufen (Skala 40-99). vorsicht = Abzug in Punkten je fehlendem Gewichtsanteil; mindestabdeckung = darunter keine Aussage; staerke_ab/schwaeche_bis für Stärken und Schwächen.",
+    "stufen": [
+      {
+        "id": "sehr_gut",
+        "ab": 80,
+        "sterne": 5
+      },
+      {
+        "id": "gut",
+        "ab": 74,
+        "sterne": 4
+      },
+      {
+        "id": "geeignet",
+        "ab": 66,
+        "sterne": 3
+      },
+      {
+        "id": "bedingt",
+        "ab": 58,
+        "sterne": 2
+      },
+      {
+        "id": "ungeeignet",
+        "ab": 0,
+        "sterne": 1
+      }
+    ],
+    "vorsicht": 8,
+    "mindestabdeckung": 0.25,
+    "staerke_ab": 80,
+    "schwaeche_bis": 68,
+    "anzahl": 2,
+    "mindestgewicht": 2,
+    "perzentil_stufen": [
+      {
+        "id": "sehr_gut",
+        "ab": 99,
+        "sterne": 5
+      },
+      {
+        "id": "gut",
+        "ab": 95,
+        "sterne": 4
+      },
+      {
+        "id": "geeignet",
+        "ab": 75,
+        "sterne": 3
+      },
+      {
+        "id": "bedingt",
+        "ab": 50,
+        "sterne": 2
+      },
+      {
+        "id": "ungeeignet",
+        "ab": 0,
+        "sterne": 1
+      }
+    ],
+    "mindestvergleich": 50
+  },
+  "besetzung": {
+    "hinweis": "Kaderplanung: Lücke, wenn weniger Spieler als der Bedarf der Position mindestens diese Sterne haben; schwach, wenn der Beste höchstens schwach_bis_sterne hat. Alternativen: so viele je Position anzeigen.",
+    "mindest_sterne": 2,
+    "schwach_bis_sterne": 2,
+    "alternativen": 3
+  }
+}

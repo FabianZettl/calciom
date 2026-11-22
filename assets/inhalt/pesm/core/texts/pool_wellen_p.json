@@ -1,0 +1,626 @@
+{
+ "pool.rivalen_gleiche_position.a.a1": [
+  "Bei mir entscheidet allein der Wettbewerb, und der ist für euch beide offen. Wer im Training und im Spiel mehr bringt, steht auf dem Platz.",
+  "Ihr habt beide dieselbe Chance, und ich will, dass das auch so bleibt. Niemand hat bei mir einen Stammplatz geerbt."
+ ],
+ "pool.rivalen_gleiche_position.a.a2": [
+  "Ich sage dir die Kriterien: Training in der Woche, Form der letzten Spiele und was der Gegner verlangt. Danach entscheide ich, und du darfst mich jederzeit daran messen.",
+  "Drei Dinge zählen: Trainingsleistung, Form und Passung zum Gegner. Wenn du magst, gehen wir die letzten Wochen Punkt für Punkt durch."
+ ],
+ "pool.rivalen_gleiche_position.a.a3": [
+  "Wir drehen die Rotation: Ihr teilt euch die Spiele auf, und niemand bleibt wochenlang draußen. Wer in seinem Einsatz liefert, bekommt den nächsten.",
+  "Ich plane euch beide abwechselnd ein, damit keiner verkümmert. Der Wettbewerb bleibt, nur die Minuten werden fairer verteilt."
+ ],
+ "pool.rivalen_gleiche_position.a.a4": [
+  "Ich verstehe, wie sich das anfühlt. Ich setze euch beide an einen Tisch, damit ihr es offen aussprecht und ich dabei bin, bevor etwas hochkocht.",
+  "Das ist für dich nicht leicht, das sehe ich. Wir reden zu dritt, jeder sagt, was ihn stört, und danach geht es sauberer weiter."
+ ],
+ "pool.rivalen_gleiche_position.a.a5": [
+  "Du bekommst deine Chance, und zwar in {frist} Tagen mit echten Minuten. Was du daraus machst, liegt dann bei dir.",
+  "Ich verspreche dir einen Einsatz auf deiner Position, den du innerhalb von {frist} Tagen bekommst. Nutze ihn."
+ ],
+ "pool.rivalen_gleiche_position.a.a6": [
+  "Der Co-Trainer lässt euch im Training dieselben Übungen laufen und hält die Werte fest. Dann reden wir mit Zahlen statt mit Gefühlen.",
+  "Ich bitte den Co-Trainer, euch beide nüchtern zu bewerten. So entscheide nicht nur ich nach Eindruck."
+ ],
+ "pool.rivalen_gleiche_position.a.a7": [
+  "Meine Aufstellung ist nicht verhandelbar, auch nicht mit dir. Wer sich beschwert, statt zu liefern, hilft sich nicht.",
+  "Darüber diskutiere ich nicht. Ich stelle auf, wen ich für richtig halte, und damit ist das Thema erledigt."
+ ],
+ "pool.rivalen_gleiche_position.a.a8": [
+  "Ich bleibe dabei: Im Moment ist er vorn. Ändern kannst du das nur auf dem Platz, nicht in meinem Büro.",
+  "Meine Entscheidung steht. Wenn du mehr Spiele willst, überzeuge mich im Training und nicht mit Beschwerden."
+ ],
+ "pool.rivalen_gleiche_position.a.a9": [
+  "Was glaubst du selbst, was dir gegenüber ihm fehlt, und was kannst du besser als er?",
+  "Wie siehst du die Lage zwischen euch beiden, ganz nüchtern und ohne Groll?"
+ ],
+ "pool.rivalen_gleiche_position.a.a10": [
+  "Bleib geduldig, deine Zeit kommt noch, das hat sich bei mir fast immer ausgezahlt.",
+  "Lass den Kopf nicht hängen, das ändert sich schneller, als du denkst."
+ ],
+ "pool.rivalen_gleiche_position.a.a11": [
+  "Sei froh, dass ihr zu zweit seid, sonst würdest du dir nur selbst Konkurrenz machen. Und bei Konkurrenz wird man schneller, das sagt dir sogar der Physiotherapeut.",
+  "Zwei auf einer Position ist wie zwei Schuhe für einen Fuß: Einer passt immer besser, und beide gehören in den Schrank. Nimm es mit Humor, wir finden eine Lösung."
+ ],
+ "pool.rivalen_gleiche_position.a.a12": [
+  "Die Position ist besetzt, daran ändere ich nichts. Such dir lieber eine andere Aufgabe in der Mannschaft.",
+  "Auf dieser Position sehe ich dich nicht vorn. Ich rate dir, dich auf die Rolle zu konzentrieren, die du hast."
+ ],
+ "pool.rivalen_gleiche_position.r.r1": [
+  "{b.gut} Das ist fair, damit kann ich leben und arbeiten.",
+  "{b.gut} Danke, dass du mir das so offen sagst."
+ ],
+ "pool.rivalen_gleiche_position.r.r2": [
+  "{b.gut} Auf dich ist Verlass, ich helfe dem anderen sogar, wenn er mich lässt.",
+  "{b.gut} Dann bin ich beruhigt und mache ruhig weiter."
+ ],
+ "pool.rivalen_gleiche_position.r.r3": [
+  "{b.gut} Das ist alles, was ich brauche: eine Chance, und der Rest kommt von mir.",
+  "{b.gut} Dann lege ich los und lasse keinen Zweifel."
+ ],
+ "pool.rivalen_gleiche_position.r.r4": [
+  "{b.gut} Dass du mir so zuhörst, tut mir wirklich gut.",
+  "{b.gut} Ich fühle mich zum ersten Mal seit Wochen gesehen."
+ ],
+ "pool.rivalen_gleiche_position.r.r5": [
+  "{b.neutral} Ich denke darüber nach, und wir sehen, was die nächsten Wochen bringen.",
+  "{b.neutral} Das klingt nachvollziehbar, bewiesen ist damit noch nichts."
+ ],
+ "pool.rivalen_gleiche_position.r.r6": [
+  "{b.neutral} Mal verstehe ich es, mal nicht, vielleicht ist das nur der Tag.",
+  "{b.neutral} Heute nehme ich es so hin, morgen sehe ich es vielleicht anders."
+ ],
+ "pool.rivalen_gleiche_position.r.r7": [
+  "{b.neutral} Dann bleibt mir wohl nur, im Training weiter Gas zu geben.",
+  "{b.neutral} Gut, dann warte ich ab, wie es sich entwickelt."
+ ],
+ "pool.rivalen_gleiche_position.r.r8": [
+  "{b.neutral} Es ist, wie es ist, ich mache einfach meinen Job.",
+  "{b.neutral} Aufregung bringt mich nicht schneller auf den Platz."
+ ],
+ "pool.rivalen_gleiche_position.r.r9": [
+  "{b.schlecht} Damit hast du mir nichts erklärt, und das merke ich mir.",
+  "{b.schlecht} So bleibt alles, wie es ist, und das ist genau mein Problem."
+ ],
+ "pool.rivalen_gleiche_position.r.r10": [
+  "{b.schlecht} Wenn du mich so abfertigst, gehe ich dem anderen demnächst nicht mehr aus dem Weg!",
+  "{b.schlecht} Das lasse ich mir nicht gefallen, ich spreche das vor der Mannschaft an!"
+ ],
+ "pool.rivalen_gleiche_position.r.r11": [
+  "{b.schlecht} Dann weiß ich, wo ich stehe, und mein Berater hört sich eben anderswo um.",
+  "{b.schlecht} Gut zu wissen, dass ich hier nicht gebraucht werde."
+ ],
+ "pool.rivalen_gleiche_position.r.r12": [
+  "{b.schlecht} Ausgerechnet von dir hätte ich mehr erwartet, ich habe es nie anders gehalten.",
+  "{b.schlecht} Das tut weh, und zwar mehr, als ich zeigen will."
+ ],
+ "pool.rivalen_gleiche_position.x.x1": [
+  "Der Spieler wirkt erleichtert. {entscheidung} Im Training suchen die beiden Rivalen wieder Blickkontakt, und die Spannung in der Kabine lässt spürbar nach.",
+  "{entscheidung} In den folgenden Tagen sieht man die beiden gemeinsam Übungen laufen, und niemand spricht mehr von Bevorzugung."
+ ],
+ "pool.rivalen_gleiche_position.x.x2": [
+  "Der Spieler nickt, aber überzeugt wirkt er nicht. {entscheidung} Ob der Wettbewerb fair läuft, entscheidet sich an den nächsten Spieltagen.",
+  "{entscheidung} Der Spieler geht nachdenklich davon, die Frage nach dem Platz bleibt unbeantwortet."
+ ],
+ "pool.rivalen_gleiche_position.x.x3": [
+  "Der Spieler verlässt das Büro grußlos. {entscheidung} Noch am selben Tag reden die ersten Mitspieler über den Streit der beiden Rivalen.",
+  "{entscheidung} In der Kabine bilden sich Grüppchen um die beiden, und die Stimmung kippt."
+ ],
+ "pool.rivalen_gleiche_position.x.x4": [
+  "Das Gespräch bricht ab. {entscheidung} Der Spieler geht zurück ins Training und schweigt.",
+  "{entscheidung} Der Spieler winkt ab und geht, ohne sich noch einmal umzudrehen."
+ ],
+ "pool.rivalen_gleiche_position.x.x5": [
+  "Der Spieler hält kurz inne. {entscheidung} Er geht mit einem klaren Ziel für die nächsten Spiele zurück ins Training.",
+  "{entscheidung} Der Spieler hat etwas Verlässliches in der Hand und tritt am nächsten Tag deutlich fokussierter auf."
+ ],
+ "pool.rivalen_gleiche_position.e.e1": [
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Ich möchte verstehen, warum es gerade er ist, den du aufstellst.",
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Sag mir bitte, was bei uns beiden den Ausschlag gibt."
+ ],
+ "pool.rivalen_gleiche_position.e.e2": [
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Mir ist es wichtig, dass der Wettbewerb ehrlich bleibt, mehr verlange ich nicht.",
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Ich will keine Sonderbehandlung, nur dieselben Chancen wie er."
+ ],
+ "pool.rivalen_gleiche_position.e.e3": [
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Ich weiß, dass es in der Kabine gerade brodelt, aber ich muss das loswerden.",
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Entschuldige den ungünstigen Zeitpunkt, es liegt mir schwer im Magen."
+ ],
+ "pool.rivalen_gleiche_position.e.e4": [
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Wenn das so weitergeht, knallt es zwischen ihm und mir!",
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Ich gehe ihm schon aus dem Weg, damit es nicht eskaliert, aber ewig halte ich das nicht aus!"
+ ],
+ "pool.rivalen_gleiche_position.e.e5": [
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Dem Verein zuliebe halte ich still, aber einmal klar ausgesprochen wäre es besser für uns alle.",
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Mir liegt die Mannschaft am Herzen, deshalb sage ich es lieber dir als den anderen."
+ ],
+ "pool.rivalen_gleiche_position.e.e6": [
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Gib mir eine Woche gleiche Bedingungen, und du wirst sehen, wer von uns beiden hineingehört.",
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Ich will mir den Platz verdienen, also sag mir, was ich dafür liefern muss."
+ ],
+ "pool.rivalen_gleiche_position.e.e7": [
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Andere Klubs würden mich auf dieser Position sofort spielen lassen, das weißt du.",
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Ich will nur wissen, ob ich hier eine Zukunft auf dieser Position habe oder ob ich mir etwas Neues suchen sollte."
+ ],
+ "pool.rivalen_gleiche_position.e.e8": [
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Ich habe das Gefühl, dass der andere dein Liebling ist und ich unsichtbar bin.",
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Ich ziehe mich schon zurück, weil ich keine Lust habe, jedes Mal enttäuscht zu werden."
+ ],
+ "pool.rivalen_gleiche_position.e.e9": [
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Dass wir beide uns inzwischen in der Kabine kaum noch grüßen, macht die Sache nicht leichter.",
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Unser Streit um den Platz ist längst auch ein Streit zwischen uns beiden, und das merkt die ganze Mannschaft."
+ ],
+ "pool.rivalen_gleiche_position.e.e10": [
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Ich habe kaum noch Minuten gesammelt, das kann nicht Sinn der Sache sein.",
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Wenn ich nur noch von der Bank komme, verlerne ich das Spielen."
+ ],
+ "pool.elfmeter_streit.a.a1": [
+  "Wir machen eine feste Reihenfolge: erster, zweiter, dritter Schütze. Du bekommst sie noch heute schriftlich, und wer in der Hierarchie vorn steht, schießt, ohne dass diskutiert wird.",
+  "Ab sofort gilt eine klare Hierarchie bei Elfmetern. Ich schreibe sie auf und hänge sie in die Kabine, dann hat der Streit ein Ende."
+ ],
+ "pool.elfmeter_streit.a.a2": [
+  "Du bist der Kapitän, du entscheidest auf dem Platz, wer schießt. Ich vertraue dir dabei, und die anderen werden es akzeptieren müssen.",
+  "Die Entscheidung liegt bei dir. Du siehst vor Ort, wer sicher wirkt, und ich stelle mich hinter deine Wahl."
+ ],
+ "pool.elfmeter_streit.a.a3": [
+  "Ich möchte keine starre Liste, sondern dass die Tagesform entscheidet. Wer in dieser Woche im Training und im Spiel trifft, tritt an.",
+  "Wer an dem Tag am sichersten ist, schießt. Dafür gebe ich dir im Vorfeld Rückmeldung, wie die Schützen im Training stehen."
+ ],
+ "pool.elfmeter_streit.a.a4": [
+  "Wir klären es im Training: Alle Kandidaten schießen mehrere Serien unter Druck, und die Quote entscheidet. Danach gibt es keine Ausreden mehr.",
+  "Ich lasse einen Elfmeter-Wettbewerb ansetzen, ehrlich und mit Zählung. Das Ergebnis gilt, und wer es nicht akzeptiert, hat ein Problem mit mir."
+ ],
+ "pool.elfmeter_streit.a.a5": [
+  "Ich rede mit beiden Schützen unter vier Augen. Oft geht es gar nicht um den Ball, sondern um Anerkennung, und das kriegen wir hin.",
+  "Ich nehme mir beide vor, einzeln und dann zusammen. Wenn jeder gehört wird, löst sich so ein Streit meistens von selbst."
+ ],
+ "pool.elfmeter_streit.a.a6": [
+  "Lass sie ruhig streiten, wer so um den Ball kämpft, hat zumindest keine Angst vor dem Punkt. Aber ja, wir regeln das, bevor der Schiedsrichter eine Karte zückt.",
+  "Besser, zwei wollen schießen, als keiner traut sich. Wir finden eine Lösung, versprochen."
+ ],
+ "pool.elfmeter_streit.a.a7": [
+  "Damit brauchst du mich nicht zu belästigen. Ein Kapitän kriegt das selbst hin, sonst ist er keiner.",
+  "Das ist kein Thema für mein Büro. Regelt das unter euch, und kommt nicht jedes Mal angelaufen."
+ ],
+ "pool.elfmeter_streit.a.a8": [
+  "Ich bestimme, wer schießt, und zwar von der Seitenlinie. Diskussionen auf dem Platz gibt es nicht mehr, auch nicht mit dir.",
+  "Die Entscheidung treffe ich allein, jeweils vor dem Spiel. Wer sich widersetzt, wird nicht mehr als Schütze genannt."
+ ],
+ "pool.elfmeter_streit.a.a9": [
+  "Wen würdest du in einem knappen Spiel gern an den Punkt gehen sehen, und wen eher nicht?",
+  "Wie sicher sind die beiden Streithähne im Training wirklich, und wer sonst traut sich das zu?"
+ ],
+ "pool.elfmeter_streit.a.a10": [
+  "Ich lege die Reihenfolge innerhalb von {frist} Tagen fest, und du hast dabei das letzte Wort bei der Besetzung des zweiten und dritten Schützen.",
+  "In {frist} Tagen steht die Hierarchie, und ich beziehe dich als Kapitän in die Auswahl ein."
+ ],
+ "pool.elfmeter_streit.a.a11": [
+  "Das erledigt sich von selbst, sobald einer trifft. Ich fasse da nichts an und rate dir, es auch nicht zu tun.",
+  "Ich sehe darin kein Problem, das ich lösen müsste. Lass es laufen, wir haben wichtigere Dinge."
+ ],
+ "pool.elfmeter_streit.a.a12": [
+  "Die Mannschaft soll mitreden: Ihr einigt euch auf drei Namen, und ich bestätige das Ergebnis, wenn es zu vertreten ist.",
+  "Lass die Spieler vorschlagen, wer ihrer Meinung nach sicher ist, und ich entscheide mit einem Blick auf die Zahlen."
+ ],
+ "pool.elfmeter_streit.r.r1": [
+  "{b.gut} Das ist genau die klare Linie, die uns gefehlt hat.",
+  "{b.gut} Damit kann ich in die Kabine gehen und den Streit beenden."
+ ],
+ "pool.elfmeter_streit.r.r2": [
+  "{b.gut} Danke, dass du mir den Rücken stärkst, ich kümmere mich um den Rest.",
+  "{b.gut} Das ist ein gutes Gefühl, ich setze es ruhig und sauber um."
+ ],
+ "pool.elfmeter_streit.r.r3": [
+  "{b.gut} So will ich es, wer trifft, schießt, und alle wissen Bescheid.",
+  "{b.gut} Damit gewinnen wir Punkte, die sonst auf dem Rasen liegen blieben."
+ ],
+ "pool.elfmeter_streit.r.r4": [
+  "{b.gut} Dass du dir die beiden vornimmst, entlastet mich enorm.",
+  "{b.gut} Ich bin froh, dass ich das nicht allein tragen muss."
+ ],
+ "pool.elfmeter_streit.r.r5": [
+  "{b.neutral} Ich schaue, wie die Mannschaft das aufnimmt, und gebe dir Rückmeldung.",
+  "{b.neutral} Mal sehen, ob die beiden damit leben können."
+ ],
+ "pool.elfmeter_streit.r.r6": [
+  "{b.neutral} Heute klingt es gut, bei dem nächsten Strafstoß sehen wir, wie es wirklich ist.",
+  "{b.neutral} Ich hoffe, dass es hilft, sicher bin ich nicht."
+ ],
+ "pool.elfmeter_streit.r.r7": [
+  "{b.neutral} Dann gehe ich damit in die Kabine und warte auf die Reaktion.",
+  "{b.neutral} Gut, ich gebe es weiter und halte dich auf dem Laufenden."
+ ],
+ "pool.elfmeter_streit.r.r8": [
+  "{b.neutral} Es ist nur ein Elfmeter, wir werden es überleben.",
+  "{b.neutral} Ich mache mir keinen Kopf, wir finden schon einen Weg."
+ ],
+ "pool.elfmeter_streit.r.r9": [
+  "{b.schlecht} Damit ist der Streit nicht gelöst, er wird nur verlagert.",
+  "{b.schlecht} Das hilft mir in der Kabine kein Stück weiter."
+ ],
+ "pool.elfmeter_streit.r.r10": [
+  "{b.schlecht} Na toll, dann prügeln sich die beiden eben vor deinen Augen!",
+  "{b.schlecht} So lasse ich mich nicht abspeisen, ich sorge selbst dafür, dass jemand schießt!"
+ ],
+ "pool.elfmeter_streit.r.r11": [
+  "{b.schlecht} Dann lasse ich das Thema ganz und halte mich auch sonst zurück.",
+  "{b.schlecht} Wenn das hier so läuft, überlege ich mir meine Zukunft in der Mannschaft."
+ ],
+ "pool.elfmeter_streit.r.r12": [
+  "{b.schlecht} Ich hätte gedacht, du nimmst mich als Kapitän ernster.",
+  "{b.schlecht} Das enttäuscht mich, ich habe mich hinter dich gestellt."
+ ],
+ "pool.elfmeter_streit.x.x1": [
+  "Der Kapitän atmet hörbar durch. {entscheidung} Beim nächsten Elfmeter im Training steht der Schütze ohne ein Wort fest, und die Mannschaft nimmt es hin.",
+  "{entscheidung} Die Schützenreihenfolge hängt kurz darauf in der Kabine, und der Streit ist vom Tisch."
+ ],
+ "pool.elfmeter_streit.x.x2": [
+  "Der Kapitän nickt zögernd. {entscheidung} Wie lange das hält, zeigt der nächste Strafstoß im Spiel.",
+  "{entscheidung} Der Kapitän geht mit gemischten Gefühlen zurück zur Mannschaft."
+ ],
+ "pool.elfmeter_streit.x.x3": [
+  "Der Kapitän presst die Lippen zusammen. {entscheidung} Noch vor dem nächsten Training wird in der Kabine über den Elfmeterstreit und die Haltung des Trainers geredet.",
+  "{entscheidung} Die beiden Schützen reden nicht mehr miteinander, und der Kapitän stellt sich zwischen die Fronten."
+ ],
+ "pool.elfmeter_streit.x.x4": [
+  "Das Gespräch endet abrupt. {entscheidung} Der Kapitän geht hinaus, und das Thema bleibt unberührt liegen.",
+  "{entscheidung} Der Kapitän zuckt mit den Schultern und lässt den Streit unbearbeitet."
+ ],
+ "pool.elfmeter_streit.x.x5": [
+  "Der Kapitän strafft sich. {entscheidung} Er hat nun einen festen Termin und wird die Schützen entsprechend vorbereiten.",
+  "{entscheidung} Mit einer klaren Zusage in der Tasche geht der Kapitän selbstbewusst zurück zur Mannschaft."
+ ],
+ "pool.elfmeter_streit.e.e1": [
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Ich bitte dich um eine klare Regel, damit wir nicht mehr jedes Mal vor dem Schiedsrichter diskutieren.",
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Eine feste Hierarchie vom ersten bis zum dritten Schützen würde uns viel Ärger ersparen."
+ ],
+ "pool.elfmeter_streit.e.e2": [
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Die Mannschaft schaut auf mich, und ich möchte nicht jedes Mal selbst entscheiden müssen.",
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Ich kann den Streit schlichten, aber nur, wenn ich weiß, was du dir vorstellst."
+ ],
+ "pool.elfmeter_streit.e.e3": [
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Gerade läuft es nicht, und dann kommt auch noch der Streit um den Strafstoß dazu.",
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Entschuldige, dass ich dich mit so etwas nerve, wo es ohnehin schwierig ist."
+ ],
+ "pool.elfmeter_streit.e.e4": [
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Wenn nicht bald jemand entscheidet, schieße ich selbst, und dann gibt es richtigen Ärger!",
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Ich habe beiden gesagt, sie sollen den Mund halten, aber das bringt nichts!"
+ ],
+ "pool.elfmeter_streit.e.e5": [
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Ich hoffe, du siehst es nicht als Einmischung, mir liegt nur das Gleichgewicht in der Mannschaft am Herzen.",
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Dem Zusammenhalt zuliebe möchte ich das lieber mit dir klären als in der Kabine."
+ ],
+ "pool.elfmeter_streit.e.e6": [
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Ich will die Strafstöße gewinnen, nicht verschießen, deshalb gehört das geregelt.",
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Es geht um Tore, und die gewinnen wir nur, wenn der Sicherste antritt."
+ ],
+ "pool.elfmeter_streit.e.e7": [
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Ich weiß nicht, ob ich unter diesen Umständen überhaupt noch mit einem Elfmeter antreten möchte.",
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Mir ist das Ganze zu mühsam, und ich überlege, mich aus dem Thema ganz herauszuhalten."
+ ],
+ "pool.elfmeter_streit.e.e8": [
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Ich habe das Gefühl, dass beide Schützen unter dem Streit leiden und gar nicht mehr frei schießen.",
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Seit dem Zoff vergibt der eine Elfmeter und der andere traut sich kaum noch an den Punkt."
+ ],
+ "pool.elfmeter_streit.e.e9": [
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Der letzte verschossene Strafstoß hängt allen noch nach, und seitdem wird es in der Kabine laut.",
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Nach dem verschossenen Elfmeter vom letzten Mal gibt es in der Mannschaft nur noch Schuldzuweisungen."
+ ],
+ "pool.elfmeter_streit.e.e10": [
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Vor dem nächsten Heimspiel muss das geklärt sein, sonst hängt es über uns wie ein Schatten.",
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Wenn das Thema bis zum nächsten Spiel liegen bleibt, wird es sich nur noch verschlimmern."
+ ],
+ "pool.kabine_clique.a.a1": [
+  "Wir machen einen Mannschaftsabend, nur wir, ohne Presse und ohne Familie. Ich zahle das Essen, und ihr sitzt bewusst gemischt.",
+  "Ich lade die Mannschaft zu einem gemeinsamen Abend ein, auf Kosten des Vereins. Es gibt keine Sitzordnung, und über Fußball wird nicht gesprochen."
+ ],
+ "pool.kabine_clique.a.a2": [
+  "Ich mische die Gruppen: neue Zimmerpartner auf Reisen, gemischte Trainingsteams und feste Plätze im Bus, die ich vorgebe. Das wird kurz wehtun und hilft langfristig.",
+  "Wir setzen auf Durchmischung: im Training, im Bus und beim Essen sind die Plätze ab nächster Woche zugewiesen."
+ ],
+ "pool.kabine_clique.a.a3": [
+  "Ich halte morgen eine Ansage vor der ganzen Mannschaft: Wir sind ein Team, und Lager dulde ich nicht. Wer das nicht mitträgt, hat es mit mir zu tun.",
+  "Ich werde vor allen klarstellen, dass es in dieser Kabine keine Fronten gibt. Das sage ich ohne Namen, aber unmissverständlich."
+ ],
+ "pool.kabine_clique.a.a4": [
+  "Wir holen den Spielerrat dazu. Die Älteren, die Jüngeren und die Neuen sollen gemeinsam Regeln für den Umgang aufstellen, und ich stehe dahinter.",
+  "Ich möchte, dass der Spielerrat das Thema in die Hand nimmt. Wenn die Regeln von euch kommen, werden sie besser eingehalten als meine."
+ ],
+ "pool.kabine_clique.a.a5": [
+  "Du bleibst mein Kapitän, und ich stärke dir den Rücken. In {frist} Tagen überprüfen wir gemeinsam, ob deine Rolle in der Kabine mehr Befugnisse braucht.",
+  "Ich stehe hinter dir als Kapitän. Bis {frist} Tage vergangen sind, legen wir zusammen fest, wo du künftig durchgreifen darfst."
+ ],
+ "pool.kabine_clique.a.a6": [
+  "Ich spreche einzeln mit den Wortführern der Lager, ohne Anklage und ohne Publikum. Ich will hören, was sie antreibt, bevor ich etwas entscheide.",
+  "Ich nehme mir die zwei, drei Leute vor, an denen sich die Gruppen ausrichten. Erst mit ihnen, dann mit der Mannschaft."
+ ],
+ "pool.kabine_clique.a.a7": [
+  "Cliquen gibt es in jeder Kabine, das ist nichts Besonderes. Kümmer dich um deine Aufgabe und lass dich nicht von Kleinkram aufhalten.",
+  "Das ist Kabinengerede, mit dem ich mich nicht beschäftige. Wenn ihr auf dem Platz funktioniert, ist alles gut."
+ ],
+ "pool.kabine_clique.a.a8": [
+  "Wer Lager bildet, sitzt auf der Bank, ganz gleich, wie alt er ist oder wo er herkommt. Das gebe ich so an die Mannschaft weiter.",
+  "Ich dulde keine Gruppen gegeneinander. Wer sie anführt, wird nicht mehr aufgestellt, bis er sich besinnt."
+ ],
+ "pool.kabine_clique.a.a9": [
+  "Wer gehört deiner Beobachtung nach zu welchem Lager, und seit wann ist es so deutlich?",
+  "Woran machst du die Spaltung fest, und gibt es einen Auslöser, den du kennst?"
+ ],
+ "pool.kabine_clique.a.a10": [
+  "Das gibt sich, Mannschaften finden von allein wieder zusammen. Gib der Sache ein paar Wochen.",
+  "Mach dir nicht zu viele Sorgen, das hatten wir schon öfter, und am Ende hat es sich immer gelegt."
+ ],
+ "pool.kabine_clique.a.a11": [
+  "Solange sie sich auf dem Platz die Bälle zuspielen, dürfen sie in der Kabine meinetwegen getrennt sitzen. Aber ich habe schon Ideen, wie wir die Plätze verlosen.",
+  "Wenn sich Lager bilden, hat die Kabine wenigstens Leben. Ich kümmere mich darum, bevor sie Fahnen aufstellen."
+ ],
+ "pool.kabine_clique.a.a12": [
+  "Ich halte dich nicht für schuldig an der Lage, aber den Zusammenhalt müssen wir zu zweit wiederherstellen. Du gibst mir Hinweise, ich greife ein.",
+  "Wir teilen die Aufgabe: Du beobachtest und sagst mir, wo es hakt, und ich setze die Maßnahmen um."
+ ],
+ "pool.kabine_clique.r.r1": [
+  "{b.gut} Das ist genau das, was die Mannschaft jetzt braucht.",
+  "{b.gut} Damit kann ich arbeiten, danke für dein Vertrauen."
+ ],
+ "pool.kabine_clique.r.r2": [
+  "{b.gut} Auf dich kann man sich verlassen, ich gebe mein Bestes, die Kabine zusammenzuhalten.",
+  "{b.gut} So stelle ich mir das vor, ruhig und ohne großes Theater."
+ ],
+ "pool.kabine_clique.r.r3": [
+  "{b.gut} Wenn die Kabine wieder eins ist, packen wir mehr, als alle denken.",
+  "{b.gut} Das ist der erste Schritt zu einer Mannschaft, die oben mitspielt."
+ ],
+ "pool.kabine_clique.r.r4": [
+  "{b.gut} Dass du den Einzelnen zuhörst, wird einigen mehr bedeuten, als du ahnst.",
+  "{b.gut} Das macht mir Hoffnung, dass sich niemand mehr ausgeschlossen fühlt."
+ ],
+ "pool.kabine_clique.r.r5": [
+  "{b.neutral} Ich beobachte, wie die Mannschaft reagiert, und melde mich wieder.",
+  "{b.neutral} Es wird dauern, bis sich etwas ändert, aber ich bin dabei."
+ ],
+ "pool.kabine_clique.r.r6": [
+  "{b.neutral} Ich bin hin- und hergerissen, ob das reicht, aber ich versuche es.",
+  "{b.neutral} Heute habe ich Hoffnung, morgen vielleicht wieder nicht."
+ ],
+ "pool.kabine_clique.r.r7": [
+  "{b.neutral} Dann warten wir ab, wie sich die Gruppen entwickeln.",
+  "{b.neutral} Gut, ich halte die Augen offen und berichte, wenn sich etwas tut."
+ ],
+ "pool.kabine_clique.r.r8": [
+  "{b.neutral} Kabinen sind eben keine Kuschelzonen, wir sehen weiter.",
+  "{b.neutral} Aufregung hilft hier nicht, wir bleiben dran."
+ ],
+ "pool.kabine_clique.r.r9": [
+  "{b.schlecht} Damit ist die Spaltung nicht kleiner geworden, eher größer.",
+  "{b.schlecht} Dann wird es in der Kabine so weitergehen, und ich stehe allein da."
+ ],
+ "pool.kabine_clique.r.r10": [
+  "{b.schlecht} Wenn du das so siehst, fliegen bald die Fetzen, und das ist dann deine Schuld!",
+  "{b.schlecht} Dann regelt es eben die Kabine selbst, auf ihre Art!"
+ ],
+ "pool.kabine_clique.r.r11": [
+  "{b.schlecht} Dann sollen die, die weg wollen, eben gehen, und ich überlege mir auch einiges.",
+  "{b.schlecht} So machen sich die ersten schon bald auf die Suche nach einem neuen Verein."
+ ],
+ "pool.kabine_clique.r.r12": [
+  "{b.schlecht} Ich hatte gehofft, dass du mich als Kapitän ernster nimmst.",
+  "{b.schlecht} Das trifft mich, ich habe mich hinter dich und die Mannschaft gestellt."
+ ],
+ "pool.kabine_clique.x.x1": [
+  "Der Kapitän nickt langsam und wirkt erleichtert. {entscheidung} In den folgenden Wochen sieht man die Gruppen immer öfter gemischt im Bus sitzen, und das Lachen kehrt in die Kabine zurück.",
+  "{entscheidung} Die Lager lösen sich nach und nach auf, und beim nächsten Abend sitzen Alt und Jung am selben Tisch."
+ ],
+ "pool.kabine_clique.x.x2": [
+  "Der Kapitän nimmt es zur Kenntnis. {entscheidung} Ob die Gruppen wieder zusammenfinden, zeigt sich erst in den nächsten Wochen.",
+  "{entscheidung} Der Kapitän geht zurück zu den anderen, die Spaltung bleibt vorerst bestehen."
+ ],
+ "pool.kabine_clique.x.x3": [
+  "Der Kapitän verlässt den Raum mit versteinerter Miene. {entscheidung} In der Kabine werden die Fronten härter, und die ersten gehen sich sichtbar aus dem Weg.",
+  "{entscheidung} Wenig später reden die Lager offen gegeneinander, und im Umfeld sickert etwas durch."
+ ],
+ "pool.kabine_clique.x.x4": [
+  "Das Gespräch wird abgebrochen. {entscheidung} Der Kapitän geht, und die Frage der Lager bleibt unbeantwortet.",
+  "{entscheidung} Der Kapitän schüttelt den Kopf und schweigt in der Kabine weiter."
+ ],
+ "pool.kabine_clique.x.x5": [
+  "Der Kapitän strafft die Schultern. {entscheidung} Mit einer klaren Zusage macht er sich daran, die Gruppen wieder zusammenzuführen.",
+  "{entscheidung} Der Kapitän weiß nun, dass der Trainer hinter ihm steht, und tritt in der Kabine fester auf."
+ ],
+ "pool.kabine_clique.e.e1": [
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Ich habe es lange beobachtet und kann es nicht mehr nur mir selbst überlassen.",
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Als Kapitän halte ich es für meine Pflicht, dir das zu sagen, bevor es größer wird."
+ ],
+ "pool.kabine_clique.e.e2": [
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Beim Essen und im Bus sitzt jeder nur noch bei seiner Gruppe, das war früher anders.",
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Auf den Fahrten zu Auswärtsspielen wechseln kaum noch Leute die Sitzplätze, jeder bleibt bei seinen Leuten."
+ ],
+ "pool.kabine_clique.e.e3": [
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Gerade läuft es sportlich schlecht, und das verstärkt die Spaltung noch.",
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Seit den schlechten Ergebnissen suchen sich alle Schuldige, und die Lager werden fester."
+ ],
+ "pool.kabine_clique.e.e4": [
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Die zwei Wortführer gehen sich aus dem Weg, und die Mitläufer ziehen mit, das wird gefährlich!",
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Wenn nicht bald einer einschreitet, fliegen irgendwann die Fetzen, und ich lasse mich nicht zwischen den Lagern zerreißen!"
+ ],
+ "pool.kabine_clique.e.e5": [
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Ich mag keine Namen nennen, aber ich möchte, dass wir als Mannschaft wieder zusammenfinden.",
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Es ist keine Anklage, nur eine Sorge, die ich mit dem Trainer teilen möchte."
+ ],
+ "pool.kabine_clique.e.e6": [
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Ein Spitzenteam hat keine Lager, und wenn ich den Titel will, muss ich das Thema jetzt ansprechen.",
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Wer vorn mitspielen will, muss die Kabine hinter sich haben, und das fehlt gerade."
+ ],
+ "pool.kabine_clique.e.e7": [
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Zwei, drei Leute reden schon offen davon, dass sie weg wollen, wenn sich das nicht bessert.",
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Ich merke, dass einige innerlich schon gekündigt haben, weil sie in den Lagern keinen Platz finden."
+ ],
+ "pool.kabine_clique.e.e8": [
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Zwei Neue und ein Junger sitzen im Training oft allein, und es kümmert sich niemand um sie.",
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Einige fühlen sich völlig ausgeschlossen, und ich weiß nicht, wie ich sie wieder hereinholen soll."
+ ],
+ "pool.kabine_clique.e.e9": [
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Dass sich die Alten und die Jungen kaum noch grüßen, ist mir erst bei der letzten Besprechung richtig aufgefallen.",
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Bei der letzten Teamsitzung haben sich die Gruppen sichtbar auf getrennte Seiten gesetzt."
+ ],
+ "pool.kabine_clique.e.e10": [
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Die Landsleute sprechen untereinander nur noch ihre Sprache, und der Rest fühlt sich dadurch ausgeschlossen.",
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Wenn die Landsleute in ihrer Sprache reden, kommen sich die anderen verloren vor, und die Kluft wächst."
+ ],
+ "pool.kabine_streich.a.a1": [
+  "Ich mache mit, aber nur, wenn ich selbst auch dran bin. Der Trainer, der im Bademantel auf den Platz geht, ist das beste Zeichen, dass keiner bloßgestellt werden soll.",
+  "Ich bin dabei und stelle den Ball für den Streich. Wenn der Chef mitlacht, traut sich der Neue eher, es auch zu tun."
+ ],
+ "pool.kabine_streich.a.a2": [
+  "Drei Regeln: Keiner wird bloßgestellt, es gibt keine Fotos und keine Videos, und der Neue darf jederzeit sagen, dass es reicht. Wenn ihr euch daran haltet, ist es mein Segen.",
+  "Ihr dürft, wenn es klein bleibt: kein Alkohol, nichts Peinliches und nichts, was der Neue nicht selbst witzig fände. Haltet euch daran, sonst ist Schluss."
+ ],
+ "pool.kabine_streich.a.a3": [
+  "Das kommt nicht infrage. Streiche gehen oft schief, und ich habe keine Lust, später den Ärger zu haben.",
+  "Ich verbiete das. Wir sind hier ein Profiklub und kein Ferienlager."
+ ],
+ "pool.kabine_streich.a.a4": [
+  "Meine Antwort bleibt nein, auch wenn ihr es noch dreimal fragt. Die Kabine ist kein Ort für Mutproben.",
+  "Ihr könnt nachbohren, so oft ihr wollt, aber an meiner Entscheidung ändert das nichts. Es gibt keinen Streich."
+ ],
+ "pool.kabine_streich.a.a5": [
+  "Verlegen wir das auf nach der Saison oder wenigstens auf einen Zeitpunkt nach einem Sieg. Dann steht keiner unter Druck, und ihr habt das Ritual noch.",
+  "Nicht jetzt, wo wir mitten in der heißen Phase stecken. Wir holen den Abend nach, wenn es sportlich ruhiger ist."
+ ],
+ "pool.kabine_streich.a.a6": [
+  "Statt eines Streichs gibt es eine Prämie in die Mannschaftskasse, und davon macht ihr einen gemeinsamen Abend. Den Neuen lade ich persönlich ein.",
+  "Ich lege etwas in die Mannschaftskasse, und ihr entscheidet, ob ihr damit grillt oder bowlt. Das Ritual bleibt klein und freundlich."
+ ],
+ "pool.kabine_streich.a.a7": [
+  "Der Kapitän und der Spielerrat regeln das. Ich vertraue euch, aber die Verantwortung liegt bei euch, falls es aus dem Ruder läuft.",
+  "Sprecht das mit dem Kapitän ab, er kennt die Grenzen. Wenn er zustimmt, ist es für mich in Ordnung."
+ ],
+ "pool.kabine_streich.a.a8": [
+  "Wen trifft es denn genau, und weiß er schon, dass er das Opfer ist? Und noch wichtiger: Wer hat die Kamera?",
+  "Was habt ihr vor, und wie viel davon hält eine Zeitung aus, falls sie es abdruckt?"
+ ],
+ "pool.kabine_streich.a.a9": [
+  "Fragt den Neuen vorher, ob er so etwas mag. Wer sich nicht traut, soll sich nicht bloßgestellt fühlen, dafür sorge ich im Zweifel selbst.",
+  "Wir machen es so, dass er sich nicht schämen muss. Ich spreche kurz mit ihm, bevor ihr loslegt, damit er sich wohlfühlt."
+ ],
+ "pool.kabine_streich.a.a10": [
+  "Für Kinderkram habe ich gerade keine Zeit und keine Nerven. Spart euch das, wir haben Wichtigeres zu tun.",
+  "Das ist mir zu albern, und ich sehe nicht, was es uns bringt. Konzentriert euch aufs Spiel."
+ ],
+ "pool.kabine_streich.a.a11": [
+  "Hauptsache, keiner kommt zu spät zum Training, und der Zeugwart bleibt am Leben. Den Rest macht, wie ihr wollt, solange ich nichts davon in der Zeitung lese.",
+  "Wenn die Schuhe danach noch passen und keiner im Krankenhaus landet, bin ich entspannt. Ich schaue ausdrücklich weg."
+ ],
+ "pool.kabine_streich.a.a12": [
+  "Ich habe nichts gegen ein Ritual, aber denkt an die Wirkung nach außen. Ein Foto im falschen Moment, und es heißt, bei uns wird gemobbt.",
+  "Ein Streich ist in Ordnung, solange er innerhalb der Mannschaft bleibt. Sobald draußen jemand davon erfährt, wird aus Spaß schnell eine Schlagzeile."
+ ],
+ "pool.kabine_streich.r.r1": [
+  "{b.gut} Das ist ein guter Plan, wir machen es genau so.",
+  "{b.gut} So lieben wir dich, Trainer, das wird ein Spaß."
+ ],
+ "pool.kabine_streich.r.r2": [
+  "{b.gut} Da stehst du hinter uns, das merkt man, und genau das stärkt die Mannschaft.",
+  "{b.gut} Das ist eine gelassene Antwort, wir halten uns an die Grenzen."
+ ],
+ "pool.kabine_streich.r.r3": [
+  "{b.gut} Dann geht es mit Schwung ins nächste Spiel, das schweißt uns zusammen.",
+  "{b.gut} Mit dem Abend im Rücken laufen wir am Wochenende noch einen Meter mehr."
+ ],
+ "pool.kabine_streich.r.r4": [
+  "{b.gut} Dass du an den Neuen denkst, ist genau das, was mir Sorge gemacht hat.",
+  "{b.gut} Gut, dass du ihn schützt, das nimmt mir einen Stein vom Herzen."
+ ],
+ "pool.kabine_streich.r.r5": [
+  "{b.neutral} Das hört sich vernünftig an, wir besprechen es in der Kabine.",
+  "{b.neutral} Okay, dann überlegen wir, wie wir es umsetzen."
+ ],
+ "pool.kabine_streich.r.r6": [
+  "{b.neutral} Mal sehen, ob uns danach überhaupt noch der Spaß dran bleibt.",
+  "{b.neutral} Ich bin gespalten, ob das noch dasselbe ist wie ein richtiger Streich."
+ ],
+ "pool.kabine_streich.r.r7": [
+  "{b.neutral} Gut, dann warten wir ab, wann es passt.",
+  "{b.neutral} Wir geben es an die Jungs weiter und sehen, was sie sagen."
+ ],
+ "pool.kabine_streich.r.r8": [
+  "{b.neutral} Wie du willst, so wichtig ist es nicht.",
+  "{b.neutral} Entspannt, das kriegen wir schon hin."
+ ],
+ "pool.kabine_streich.r.r9": [
+  "{b.schlecht} Damit nimmst du uns jeden Spaß, schade.",
+  "{b.schlecht} Das fühlt sich an, als würde man uns den Spaß verbieten."
+ ],
+ "pool.kabine_streich.r.r10": [
+  "{b.schlecht} Dann machen wir es eben ohne dich, das lassen wir uns nicht verbieten!",
+  "{b.schlecht} Mit so einer Antwort heizt du die Stimmung eher an, als sie zu beruhigen!"
+ ],
+ "pool.kabine_streich.r.r11": [
+  "{b.schlecht} Wenn hier nicht einmal ein Streich geht, fühle ich mich fehl am Platz.",
+  "{b.schlecht} In anderen Klubs hätte man uns mehr Luft gelassen, das merke ich mir."
+ ],
+ "pool.kabine_streich.r.r12": [
+  "{b.schlecht} Ich hätte gedacht, du verstehst, was so ein Brauch für uns bedeutet.",
+  "{b.schlecht} Das tut weh, wir wollten dich doch nur mitnehmen."
+ ],
+ "pool.kabine_streich.x.x1": [
+  "Die Jungs jubeln, und der Neue grinst am Ende selbst über beide Ohren. {entscheidung} Wenig später sitzt die halbe Mannschaft im Aufenthaltsraum und erzählt die Geschichte immer wieder neu.",
+  "{entscheidung} Der Streich geht über die Bühne, ohne dass jemand bloßgestellt wird, und die Stimmung in der Kabine ist so gut wie lange nicht."
+ ],
+ "pool.kabine_streich.x.x2": [
+  "Der Spaßvogel zuckt mit den Schultern. {entscheidung} Wie das Ritual ausgeht, sehen alle beim nächsten Training.",
+  "{entscheidung} Man tuschelt noch ein wenig, dann geht jeder wieder zu seinen Übungen."
+ ],
+ "pool.kabine_streich.x.x3": [
+  "Es dauert nicht lange, bis sich in der Mannschaft Unmut breitmacht. {entscheidung} Und am Ende steht ein verärgerter Neuzugang, der sich ausgeschlossen fühlt, und ein Bild, das ein Mitspieler in die falschen Hände gibt.",
+  "{entscheidung} Der Streich läuft aus dem Ruder, jemand fühlt sich gedemütigt, und die Sache findet ihren Weg nach draußen."
+ ],
+ "pool.kabine_streich.x.x4": [
+  "Der Spaßvogel dreht sich um und geht. {entscheidung} Das Thema ist vom Tisch, und der Ton in der Kabine ist spürbar kühler.",
+  "{entscheidung} Die Jungs schauen sich an, sagen nichts mehr und gehen zum Training."
+ ],
+ "pool.kabine_streich.x.x5": [
+  "Der Spaßvogel strahlt. {entscheidung} Die Mannschaft freut sich auf den ausgemachten Termin, und der Neue ahnt noch nichts.",
+  "{entscheidung} Mit dem festen Termin im Kalender geht die Kabine gut gelaunt in die nächsten Tage."
+ ],
+ "pool.kabine_streich.e.e1": [
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Wir würden ihm im Bus die Schuhe mit Schaumstoff füllen und seine Trikotnummer im Kleiderschrank vertauschen, harmlos eben.",
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Der Plan ist einfach: Er bekommt ein Kostüm und muss damit zum Training kommen, am Ende lachen alle."
+ ],
+ "pool.kabine_streich.e.e2": [
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Alle sind einverstanden, und es soll nur ein Spaß unter uns bleiben, ohne dass jemand zu Schaden kommt.",
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Die ganze Mannschaft will mitmachen, und wir halten es im Rahmen, versprochen."
+ ],
+ "pool.kabine_streich.e.e3": [
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Wir haben schlechte Wochen hinter uns, ein bisschen Ablenkung täte allen gut.",
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Gerade jetzt, wo es hakt, könnte so ein Ritual die Stimmung auflockern."
+ ],
+ "pool.kabine_streich.e.e4": [
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Wenn du es verbietest, machen wir es eben heimlich, dann wirst du schon sehen!",
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Ein Streich gehört zum Fußball, und wer das nicht versteht, versteht den Sport nicht!"
+ ],
+ "pool.kabine_streich.e.e5": [
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Es ist ein alter Brauch bei uns, und ich möchte, dass er in Ehren bleibt, auch unter diesem Trainer.",
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Wir machen das jedes Jahr, und es wäre schade, wenn gerade jetzt damit Schluss wäre."
+ ],
+ "pool.kabine_streich.e.e6": [
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Ein gutes Ritual gehört zu einer Siegermannschaft, und genau die wollen wir sein.",
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Mit dem Streich bauen wir Spannung ab, vor dem Wochenende kann das den Ausschlag geben."
+ ],
+ "pool.kabine_streich.e.e7": [
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Der Neue sollte sich als echter Teil der Gruppe fühlen, sonst überlegt er es sich bald anders mit uns.",
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Wir wollen ihn dabeihaben, und der Streich wäre unser Weg, ihn zu zeigen."
+ ],
+ "pool.kabine_streich.e.e8": [
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Er ist ein stiller Typ, und ich weiß nicht, wie er einen Streich aufnehmen würde, aber die anderen drängen.",
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Ich selbst bin mir nicht sicher, ob er das mag, doch alle erwarten, dass wir es tun."
+ ],
+ "pool.kabine_streich.e.e9": [
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Einer hat schon Fotos davon im Kopf, und ich sehe schon die Schlagzeile, wenn die Presse es mitbekommt.",
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Falls etwas davon nach draußen dringt, hängen wir morgen in den Zeitungen, das ist mir bewusst."
+ ],
+ "pool.kabine_streich.e.e10": [
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Wir haben auch an eine Kleinigkeit für die Jugendspieler gedacht, die gerade bei uns trainieren.",
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Es soll nicht nur den Neuen treffen, sondern jeden, der zum ersten Mal in diese Kabine kommt."
+ ]
+}

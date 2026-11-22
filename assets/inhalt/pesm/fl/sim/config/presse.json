@@ -1,0 +1,562 @@
+{
+ "fragen": {
+  "prematch": [
+   {
+    "q": "Wie schätzen Sie {opp} ein?",
+    "opts": [
+     {
+      "t": "Ein unangenehmer Gegner. Wir bereiten uns genau vor.",
+      "tone": "neu",
+      "fx": {
+       "fans": 1
+      }
+     },
+     {
+      "t": "Wir sind in Form und wollen drei Punkte.",
+      "tone": "pos",
+      "fx": {
+       "fans": 2,
+       "board": 1
+      },
+      "need": {
+       "win_streak": 1
+      },
+      "fx_no": {
+       "fans": -2,
+       "board": -1
+      }
+     },
+     {
+      "t": "Der Gegner soll sich um uns Sorgen machen.",
+      "tone": "neg",
+      "fx": {
+       "fans": 1,
+       "board": -1
+      }
+     }
+    ]
+   },
+   {
+    "q": "Wie ist die Stimmung in der Mannschaft?",
+    "opts": [
+     {
+      "t": "Prächtig, alle ziehen an einem Strang.",
+      "tone": "pos",
+      "fx": {
+       "c_morale": 2,
+       "fans": 1
+      },
+      "need": {
+       "unbeaten": 3
+      },
+      "fx_no": {
+       "c_morale": -1
+      }
+     },
+     {
+      "t": "Konzentriert, mehr gibt es dazu nicht zu sagen.",
+      "tone": "neu",
+      "fx": {
+       "board": 1
+      }
+     },
+     {
+      "t": "Es gibt Gesprächsbedarf, den klären wir intern.",
+      "tone": "neg",
+      "fx": {
+       "c_morale": -1
+      }
+     }
+    ]
+   },
+   {
+    "q": "Der Vorstand erwartet Ergebnisse. Spüren Sie den Druck?",
+    "opts": [
+     {
+      "t": "Ich arbeite gern unter Druck.",
+      "tone": "pos",
+      "fx": {
+       "board": 1
+      }
+     },
+     {
+      "t": "Druck gehört in diesem Geschäft dazu.",
+      "tone": "neu",
+      "fx": {
+       "fans": 1
+      }
+     },
+     {
+      "t": "Der Vorstand muss mir Zeit geben.",
+      "tone": "neg",
+      "fx": {
+       "board": -2
+      }
+     }
+    ]
+   },
+   {
+    "q": "Was erwartet uns morgen von Ihrer Mannschaft?",
+    "opts": [
+     {
+      "t": "Mutigen Fußball und Leidenschaft von der ersten Minute.",
+      "tone": "pos",
+      "fx": {
+       "fans": 2
+      },
+      "need": {
+       "unbeaten": 2
+      },
+      "fx_no": {
+       "fans": -1
+      }
+     },
+     {
+      "t": "Das verrate ich nicht, lassen Sie sich überraschen.",
+      "tone": "neu",
+      "fx": {
+       "board": 1
+      }
+     },
+     {
+      "t": "Ein Ergebnis, mit dem wir leben können.",
+      "tone": "neg",
+      "fx": {
+       "fans": -1
+      }
+     }
+    ]
+   },
+   {
+    "q": "Gibt es Neuigkeiten zu Verletzten und Gesperrten?",
+    "opts": [
+     {
+      "t": "Wir haben alles im Griff, die Mannschaft ist bereit.",
+      "tone": "pos",
+      "fx": {
+       "c_morale": 1
+      }
+     },
+     {
+      "t": "Da müssen wir den Mannschaftsarzt fragen.",
+      "tone": "neu",
+      "fx": {}
+     },
+     {
+      "t": "Die Personalsituation ist ein Ärgernis.",
+      "tone": "neg",
+      "fx": {
+       "c_morale": -1,
+       "fans": -1
+      }
+     }
+    ]
+   }
+  ],
+  "post_W": [
+   {
+    "q": "Was war heute der Schlüssel zum Sieg?",
+    "opts": [
+     {
+      "t": "Die Mannschaft hat Charakter gezeigt.",
+      "tone": "pos",
+      "fx": {
+       "c_morale": 2,
+       "fans": 1
+      }
+     },
+     {
+      "t": "Wir haben diszipliniert gespielt und unsere Chancen genutzt.",
+      "tone": "neu",
+      "fx": {
+       "board": 1
+      }
+     },
+     {
+      "t": "Der Sieg war überfällig, endlich hat sich der Aufwand ausgezahlt.",
+      "tone": "neg",
+      "fx": {
+       "board": -1,
+       "fans": 1
+      }
+     }
+    ]
+   },
+   {
+    "q": "Ist das ein Befreiungsschlag?",
+    "opts": [
+     {
+      "t": "Wir müssen auf dem Boden bleiben, das nächste Spiel zählt.",
+      "tone": "neu",
+      "fx": {
+       "board": 1
+      }
+     },
+     {
+      "t": "Ja, das gibt uns Rückenwind für die kommenden Wochen.",
+      "tone": "pos",
+      "fx": {
+       "fans": 2
+      },
+      "need": {
+       "win_streak": 2
+      },
+      "fx_no": {
+       "fans": -1
+      }
+     },
+     {
+      "t": "Ein Sieg ändert nichts an den Fragen, die offen sind.",
+      "tone": "neg",
+      "fx": {
+       "fans": -1
+      }
+     }
+    ]
+   },
+   {
+    "q": "Der Schiedsrichter stand im Mittelpunkt. Wie war Ihr Eindruck?",
+    "opts": [
+     {
+      "t": "Ich habe keine Kritik, er hat ein faires Spiel geleitet.",
+      "tone": "pos",
+      "fx": {
+       "board": 1
+      }
+     },
+     {
+      "t": "Dazu sage ich nichts.",
+      "tone": "neu",
+      "fx": {}
+     },
+     {
+      "t": "Auf unserer Seite hätte es mehr Pfiffe geben müssen.",
+      "tone": "neg",
+      "fx": {
+       "board": -1
+      }
+     }
+    ]
+   },
+   {
+    "q": "Wie geht es jetzt weiter?",
+    "opts": [
+     {
+      "t": "Wir bleiben demütig und arbeiten weiter.",
+      "tone": "neu",
+      "fx": {
+       "board": 1,
+       "fans": 1
+      }
+     },
+     {
+      "t": "Wir wollen oben anklopfen.",
+      "tone": "pos",
+      "fx": {
+       "fans": 2,
+       "board": 1
+      },
+      "need": {
+       "unbeaten": 3
+      },
+      "fx_no": {
+       "fans": -1,
+       "board": -1
+      }
+     },
+     {
+      "t": "Erst mal freue ich mich und genieße den Abend.",
+      "tone": "neu",
+      "fx": {
+       "c_morale": 1
+      }
+     }
+    ]
+   }
+  ],
+  "post_D": [
+   {
+    "q": "Ist das Remis ein gerechtes Ergebnis?",
+    "opts": [
+     {
+      "t": "Ja, beide Mannschaften hatten ihre Phasen.",
+      "tone": "neu",
+      "fx": {
+       "board": 1
+      }
+     },
+     {
+      "t": "Wir hätten mehr verdient gehabt.",
+      "tone": "pos",
+      "fx": {
+       "fans": 1
+      },
+      "need": {
+       "unbeaten": 1
+      },
+      "fx_no": {
+       "fans": -2
+      }
+     },
+     {
+      "t": "Mit dem Punkt kann man nicht zufrieden sein.",
+      "tone": "neg",
+      "fx": {
+       "c_morale": -1,
+       "fans": 1
+      }
+     }
+    ]
+   },
+   {
+    "q": "Was hat heute zum Sieg gefehlt?",
+    "opts": [
+     {
+      "t": "Wir müssen vor dem Tor konsequenter werden.",
+      "tone": "neu",
+      "fx": {
+       "board": 1
+      }
+     },
+     {
+      "t": "Das Glück im letzten Drittel hat gefehlt.",
+      "tone": "neu",
+      "fx": {
+       "c_morale": 1
+      }
+     },
+     {
+      "t": "Die Einstellung war nicht in jeder Phase da.",
+      "tone": "neg",
+      "fx": {
+       "c_morale": -2,
+       "board": 1
+      }
+     }
+    ]
+   },
+   {
+    "q": "Wie geht es jetzt weiter?",
+    "opts": [
+     {
+      "t": "Wir arbeiten ruhig weiter und holen die Punkte zurück.",
+      "tone": "pos",
+      "fx": {
+       "fans": 1,
+       "board": 1
+      }
+     },
+     {
+      "t": "Wir schauen von Spiel zu Spiel.",
+      "tone": "neu",
+      "fx": {}
+     },
+     {
+      "t": "Mir fehlen die Worte.",
+      "tone": "neg",
+      "fx": {
+       "fans": -1
+      }
+     }
+    ]
+   }
+  ],
+  "post_L": [
+   {
+    "q": "Wie erklären Sie die Niederlage?",
+    "opts": [
+     {
+      "t": "Die Verantwortung liegt bei mir, ich stelle mich vor die Mannschaft.",
+      "tone": "pos",
+      "fx": {
+       "c_morale": 2,
+       "board": -1
+      }
+     },
+     {
+      "t": "Wir analysieren das sauber und kommen stärker zurück.",
+      "tone": "neu",
+      "fx": {
+       "board": 1
+      }
+     },
+     {
+      "t": "Der Schiedsrichter hat uns heute geschadet.",
+      "tone": "neg",
+      "fx": {
+       "fans": 2,
+       "board": -1
+      },
+      "need": {
+       "last_margin_max": 0
+      },
+      "fx_no": {
+       "fans": -2,
+       "board": -1
+      }
+     }
+    ]
+   },
+   {
+    "q": "Müssen Sie um Ihre Position fürchten?",
+    "opts": [
+     {
+      "t": "Ich habe das Vertrauen von Vorstand und Mannschaft.",
+      "tone": "pos",
+      "fx": {
+       "board": 1
+      },
+      "need": {
+       "board_min": 45
+      },
+      "fx_no": {
+       "board": -2
+      }
+     },
+     {
+      "t": "Darüber entscheide nicht ich.",
+      "tone": "neu",
+      "fx": {}
+     },
+     {
+      "t": "Dann soll man mich entlassen, wenn es gewollt ist.",
+      "tone": "neg",
+      "fx": {
+       "board": -3,
+       "fans": -1
+      }
+     }
+    ]
+   },
+   {
+    "q": "Wie reagiert die Mannschaft auf die Niederlage?",
+    "opts": [
+     {
+      "t": "Sie hat sich zerrissen, es hat nur nicht gereicht.",
+      "tone": "pos",
+      "fx": {
+       "c_morale": 2
+      }
+     },
+     {
+      "t": "Wir sprechen in Ruhe darüber.",
+      "tone": "neu",
+      "fx": {}
+     },
+     {
+      "t": "Manche haben ihre Leistung nicht gebracht.",
+      "tone": "neg",
+      "fx": {
+       "c_morale": -2,
+       "fans": 1
+      }
+     }
+    ]
+   },
+   {
+    "q": "Die Fans haben Sie ausgepfiffen. Verstehen Sie das?",
+    "opts": [
+     {
+      "t": "Ja, die Anhänger haben ein Recht auf Leistung.",
+      "tone": "pos",
+      "fx": {
+       "fans": 2
+      }
+     },
+     {
+      "t": "Ich schaue nach vorn.",
+      "tone": "neu",
+      "fx": {}
+     },
+     {
+      "t": "Das hilft uns nicht weiter.",
+      "tone": "neg",
+      "fx": {
+       "fans": -2
+      }
+     }
+    ]
+   }
+  ],
+  "signing": [
+   {
+    "q": "Warum haben Sie sich für {name} entschieden?",
+    "opts": [
+     {
+      "t": "Er passt in unsere Spielidee und bringt Qualität.",
+      "tone": "pos",
+      "fx": {
+       "fans": 2,
+       "c_morale": 1
+      }
+     },
+     {
+      "t": "Wir haben lange beobachtet, der Zeitpunkt war richtig.",
+      "tone": "neu",
+      "fx": {
+       "board": 1
+      }
+     },
+     {
+      "t": "Wir brauchten dringend einen Spieler auf dieser Position.",
+      "tone": "neg",
+      "fx": {
+       "fans": -1
+      }
+     }
+    ]
+   },
+   {
+    "q": "Wie sieht seine Rolle in der Mannschaft aus?",
+    "opts": [
+     {
+      "t": "Er kann sich in der Stammelf anbieten.",
+      "tone": "pos",
+      "fx": {
+       "fans": 1,
+       "c_morale": -1
+      }
+     },
+     {
+      "t": "Er muss sich seinen Platz erarbeiten.",
+      "tone": "neu",
+      "fx": {
+       "c_morale": 1
+      }
+     },
+     {
+      "t": "Er ist eine Verstärkung für die Breite im Kader.",
+      "tone": "neu",
+      "fx": {}
+     }
+    ]
+   },
+   {
+    "q": "Was darf man von ihm erwarten?",
+    "opts": [
+     {
+      "t": "Tore und Mentalität.",
+      "tone": "pos",
+      "fx": {
+       "fans": 2
+      }
+     },
+     {
+      "t": "Er soll erst einmal ankommen.",
+      "tone": "neu",
+      "fx": {
+       "board": 1
+      }
+     },
+     {
+      "t": "Ich mache keine Versprechen.",
+      "tone": "neg",
+      "fx": {
+       "fans": -1
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,23 @@
+# Ereignisse der Tagesphasen (Startwerte, nicht kalibriert): Co-Trainer-Aufstellung, Abend-Reaktionen, Mittag-Angebote und Berateranfragen.
+
+[aufstellung]           # Der Co-Trainer stellt am Spieltag mit dem Fristende (Abend) selbst auf, wenn nichts abgegeben ist
+gruppe = 1
+phase = 1
+kondition_min = 35      # Spieler mit Kondition darunter bleiben draußen, solange es auch ohne sie geht
+
+[reaktion]              # Abend: Reaktionen auf die Entscheidungen des Tages
+max = 2                 # höchstens so viele je Abend (die Gesamtgrenze der Phase gilt zusätzlich)
+sperre_tage = 3         # dieselbe Reaktion (Entscheidungsart + Absender) höchstens einmal in so vielen Tagen
+# Entscheidung -> Absender der Reaktionen in Reihenfolge der Wichtigkeit (Texte ta.reaktion.<entscheidung>.<absender>.*)
+antwort = ["spieler", "kabine"]
+training = ["kabine", "presse"]
+aufstellung = ["presse", "fans", "spieler"]
+transfer = ["presse", "vorstand", "fans"]
+vertrag = ["spieler", "vorstand", "kabine"]
+versprechen = ["presse", "fans", "vorstand"]
+
+[angebote]              # Mittag: eingehende Angebote anderer Vereine für eigene Spieler (aus den Verhandlungen der Transferwelt)
+max = 2
+
+[berater]               # Mittag: Berateranfragen (Wechselwunsch, Interesse ohne Angebot) aus den Gerüchten der Transferwelt
+max = 1

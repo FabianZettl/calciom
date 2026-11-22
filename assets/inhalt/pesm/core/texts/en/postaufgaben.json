@@ -1,0 +1,12 @@
+{
+ "pe.aufgabe.vorstand.betreff": "The board expects your season target",
+ "pe.aufgabe.vorstand.text": "The board suggests place %1. Set the season target so it can measure how the season goes.",
+ "pe.aufgabe.vorstand.text_ohne": "The board is waiting for your season target. Set it so it can measure how the season goes.",
+ "pe.knopf.vorstand_ziel": "Set the target",
+ "pe.aufgabe.aufstellung.betreff": "Line-up suggestion from the assistant coach",
+ "pe.aufgabe.aufstellung.text": "The assistant coach would change the starting eleven in %1 places. Have a look before the match starts.",
+ "pe.knopf.aufstellung_vorschlag": "View the suggestion",
+ "pe.aufgabe.ausfall.betreff": "Adjust the line-up",
+ "pe.aufgabe.ausfall.text": "A regular starter is out. The assistant coach has picked a stand-in for the starting eleven. Nothing changes until you agree.",
+ "pe.knopf.ausfall_ersatz": "Suggest a stand-in"
+}

@@ -1,0 +1,15 @@
+# Live-Ansicht eines Spiels in FL27 (Punkt 4): PES M's own numbers, not from the Python original.
+
+# FL27 allows five substitutions; used when the game's own limit is not read
+wechsel_max = 5
+# at most this many sub ideas at once
+ideen_max = 3
+# a booked player is worth taking off from this minute: one more foul and the team plays with ten
+gelb_ab_minute = 55
+# a player below this grade is not in the game; judged only from this minute on
+note_schwach = 6.0
+note_ab_minute = 55
+# a player out of form (arrow 0 or 1) tires earlier: an idea from this minute on
+form_ab_minute = 65
+# how long the card of a new goal, card or missed penalty stays
+einblendung_sekunden = 5

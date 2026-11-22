@@ -1,0 +1,130 @@
+{
+ "tb.monat.stark": [
+  "Ein starker Monat: %1 Siege, %2 Remis, %3 Niederlagen bei %4 Toren. Die Mannschaft stand am Monatsende auf Platz %5.",
+  "Die Bilanz glänzt (%1-%2-%3, Tore %4). Mit Platz %5 im Rücken blickst du zuversichtlich nach vorn.",
+  "Alles lief zusammen: %1 Siege, Torverhältnis %4, Tabellenplatz %5."
+ ],
+ "tb.monat.solide": [
+  "Ein ordentlicher Monat: %1 Siege, %2 Remis, %3 Niederlagen (Tore %4). Tabellenplatz am Ende: %5.",
+  "Weder Rausch noch Krise. Bilanz %1-%2-%3, Tore %4, Platz %5.",
+  "Solide Arbeit im Alltag: %1 Siege und %3 Niederlagen, am Ende Platz %5 (Tore %4)."
+ ],
+ "tb.monat.schwach": [
+  "Ein schwieriger Monat: nur %1 Siege bei %3 Niederlagen (Tore %4). Platz %5 gibt zu denken.",
+  "Es lief nicht. Bilanz %1-%2-%3, Tore %4, Tabellenplatz %5 – hier ist Arbeit nötig.",
+  "Der Monat hat Spuren hinterlassen: %3 Niederlagen, Torverhältnis %4, Platz %5."
+ ],
+ "tb.monat.ohne": [
+  "Ein ruhiger Monat ohne Pflichtspiele. Zeit für Training, Gespräche und Planung.",
+  "Keine Spiele in diesem Monat – die Arbeit fand hinter den Kulissen statt."
+ ],
+ "tb.moment.hattrick": [
+  "%1 erzielt gegen %2 einen Dreierpack (%3 Tore).",
+  "Hattrick: %1 trifft %3 Mal gegen %2."
+ ],
+ "tb.moment.kantersieg": [
+  "Kantersieg gegen %1: %2.",
+  "Ein Schützenfest gegen %1 (%2)."
+ ],
+ "tb.moment.klatsche": [
+  "Heftige Niederlage gegen %1: %2.",
+  "Ein rabenschwarzer Tag gegen %1 (%2)."
+ ],
+ "tb.moment.serie_sieg": [
+  "%1 Siege in Folge – die Mannschaft läuft heiß.",
+  "Die Serie steht: %1 Erfolge am Stück."
+ ],
+ "tb.moment.serie_niederlage": [
+  "%1 Niederlagen in Folge – der Druck wächst.",
+  "Die Serie reißt nicht ab: %1 Pleiten nacheinander."
+ ],
+ "tb.moment.spitze": [
+  "Die Mannschaft erobert die Tabellenspitze.",
+  "Platz eins: ganz oben in der Tabelle."
+ ],
+ "tb.transfer.kauf": [
+  "%1 kommt von %2.",
+  "Verpflichtung: %1 (von %2)."
+ ],
+ "tb.transfer.verkauf": [
+  "%1 wechselt zu %2.",
+  "Abgang: %1 (zu %2)."
+ ],
+ "tb.transfer.leihe_hin": [
+  "%1 kommt auf Leihbasis von %2.",
+  "Leihgabe: %1 (von %2)."
+ ],
+ "tb.transfer.leihe_raus": [
+  "%1 wird an %2 verliehen.",
+  "Verliehen: %1 (an %2)."
+ ],
+ "tb.verletzung": [
+  "%1 verletzt sich und fällt etwa %2 Tage aus.",
+  "Ausfall: %1 (rund %2 Tage)."
+ ],
+ "tb.auszeichnung.spieler_monat": [
+  "%1 ist Spieler des Monats (%2).",
+  "Spieler des Monats %2: %1."
+ ],
+ "tb.auszeichnung.trainer_monat": [
+  "Trainer des Monats (%2): %1.",
+  "%1 wird Trainer des Monats (%2)."
+ ],
+ "tb.auszeichnung.spieler_jahr": [
+  "Spieler der Saison %2: %1.",
+  "%1 wird Spieler der Saison (%2)."
+ ],
+ "tb.auszeichnung.trainer_jahr": [
+  "Trainer der Saison %2: %1.",
+  "%1 wird Trainer der Saison (%2)."
+ ],
+ "tb.titel.meisterschaft": [
+  "Meisterschaft: %1.",
+  "Meister! %1 geht an dich."
+ ],
+ "tb.titel.pokal": [
+  "Pokalsieg: %1.",
+  "Der Pokal gehört dir: %1."
+ ],
+ "tb.titel.sonstiges": [
+  "Titel gewonnen: %1.",
+  "Ein Titel mehr: %1."
+ ],
+ "menu.tagebuch.titel": "Tagebuch",
+ "menu.tagebuch.reiter.0": "Zeitstrahl",
+ "menu.tagebuch.reiter.1": "Saisonhistorie",
+ "tb.ui.titel": "Tagebuch",
+ "tb.ui.saison": "Saison %1",
+ "tb.ui.platz": "Platz %1",
+ "tb.ui.bilanz": "%1 S · %2 U · %3 N",
+ "tb.ui.tore": "Tore %1",
+ "tb.ui.laufend": "läuft",
+ "tb.ui.titel_n": "Titel: %1",
+ "tb.ui.transfers_n": "Transfers: %1",
+ "tb.ui.verletzungen_n": "Verletzungen: %1",
+ "tb.ui.filter": "Zeigen",
+ "tb.ui.filter.alle": "Alles",
+ "tb.ui.art.spiel": "Spiele",
+ "tb.ui.art.moment": "Momente",
+ "tb.ui.art.transfer": "Transfers",
+ "tb.ui.art.verletzung": "Verletzungen",
+ "tb.ui.art.auszeichnung": "Auszeichnungen",
+ "tb.ui.art.titel": "Titel",
+ "tb.ui.aufstellung": "Aufstellung",
+ "tb.ui.statistik": "Statistik",
+ "tb.ui.schuetzen": "Torschützen: %1",
+ "tb.ui.beste": "Beste Leistung: %1 (%2)",
+ "tb.ui.vorlagen": "Vorlagen: %1",
+ "tb.ui.heim": "Heim",
+ "tb.ui.auswaerts": "Auswärts",
+ "tb.ui.gegen": "gegen %1",
+ "tb.ui.leer": "Das Tagebuch füllt sich mit der ersten gespielten Woche.",
+ "tb.ui.monat_leer": "In diesem Monat gibt es für den gewählten Filter keine Einträge.",
+ "tb.ui.laedt_saison": "Die Saison wird aufgeschlagen …",
+ "tb.ui.zeigen": "Aufklappen",
+ "tb.ui.zuklappen": "Zuklappen",
+ "tb.ui.monatsbericht": "Monatsbericht",
+ "wartet.tagebuch.0": "Du schlägst das Tagebuch auf …",
+ "wartet.tagebuch.1": "Alte Seiten rascheln …",
+ "wartet.tagebuch.2": "Die Notizen werden sortiert …"
+}

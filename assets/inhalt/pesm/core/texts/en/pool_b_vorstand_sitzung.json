@@ -1,0 +1,114 @@
+{
+ "pool.b.vorstand_stadionausbau_gruss": [
+  "Good day, I come to you today with a plan that will shape the club.",
+  "Good day, the president here, and it is about the future of our stadium."
+ ],
+ "pool.b.vorstand_stadionausbau_lage": [
+  "The board wants to expand the stadium, and the plans are already on the table.",
+  "A bigger stadium is settled in the board, the only open question is how we pay for it."
+ ],
+ "pool.b.vorstand_stadionausbau_lage.hitzig": [
+  "We are expanding, and soon! Now I want to know whether you stand behind it or in the way!",
+  "I will not tolerate delays on the expansion, so tell me clearly what you think of it!"
+ ],
+ "pool.b.vorstand_stadionausbau_lage.loyal": [
+  "You know the club and its stands like hardly anyone else, so I want your advice on the expansion.",
+  "We have achieved a lot together, and I do not want to take this step without you."
+ ],
+ "pool.b.vorstand_stadionausbau_lage.ehrgeizig": [
+  "A bigger stadium means bigger goals, and I want to see whether the squad can carry that.",
+  "With more seats the demands rise. This is the chance to lift the club a level higher."
+ ],
+ "pool.b.vorstand_stadionausbau_lage.wechselfreudig": [
+  "Buildings last decades, coaches often only years, so I ask openly whether you think long term.",
+  "An expansion ties the club for the long run, and I want to know whether you will walk this path."
+ ],
+ "pool.b.vorstand_stadionausbau_lage.sensibel": [
+  "I know building costs can weigh heavily on the squad, so I raise it early and openly.",
+  "It matters to me that you do not feel bypassed in this project."
+ ],
+ "pool.b.vorstand_sparrunde_gruss": [
+  "Good day, I have to visit you today with an unpleasant topic.",
+  "Good day, the president here, and it is about money, sadly not the good kind."
+ ],
+ "pool.b.vorstand_sparrunde_lage": [
+  "The club's finances are tight, and the board sees no way around savings.",
+  "The club spends more than it earns, and the board demands that this changes."
+ ],
+ "pool.b.vorstand_sparrunde_lage.hitzig": [
+  "Savings will be made, and immediately! Whoever thinks that is exaggerated has not seen the figures!",
+  "I want no excuses but savings, and in this very round!"
+ ],
+ "pool.b.vorstand_sparrunde_lage.loyal": [
+  "I ask you, as someone who loves the club, to accompany us through this hard time.",
+  "You have always stood by the club, and I hope you will do so now."
+ ],
+ "pool.b.vorstand_sparrunde_lage.ehrgeizig": [
+  "I know you aim high, but without healthy finances every plan stays on paper.",
+  "Saving is not a renunciation of ambition but its precondition, and you must support that."
+ ],
+ "pool.b.vorstand_sparrunde_lage.wechselfreudig": [
+  "I want to know openly whether you will stay even with tight means, since other clubs lure with more money.",
+  "Whoever wants to leave when things get tight should say so now so that we can plan."
+ ],
+ "pool.b.vorstand_sparrunde_lage.sensibel": [
+  "I am aware that saving in the squad affects people, and that is why I raise it carefully.",
+  "I want you not to take the decision as distrust but as a necessity."
+ ],
+ "pool.b.vorstand_sponsor_druck_gruss": [
+  "Good day, I have just come from a conversation that I did not quite like.",
+  "Good day, the president here, and I carry a message from our most important backer."
+ ],
+ "pool.b.vorstand_sponsor_druck_lage": [
+  "A sponsor presses for more presence and better results, and the board passes that pressure on to you.",
+  "Our backer is unhappy with the team's showing and holds the board responsible."
+ ],
+ "pool.b.vorstand_sponsor_druck_lage.hitzig": [
+  "The sponsor threatens consequences, and I do not want us to look foolish because of it!",
+  "I will not let any backer take the stage from me, so deliver results, if you please!"
+ ],
+ "pool.b.vorstand_sponsor_druck_lage.loyal": [
+  "I stand in front of you, but I need something to show the backer.",
+  "You have always served the club, and I want to protect you from this pressure as far as I can."
+ ],
+ "pool.b.vorstand_sponsor_druck_lage.ehrgeizig": [
+  "A satisfied sponsor is the ticket to higher spheres, and we should not squander that chance.",
+  "If we convince the backer, doors open that were closed for a long time."
+ ],
+ "pool.b.vorstand_sponsor_druck_lage.wechselfreudig": [
+  "Backers come and go, and I wonder whether you want to join this race at all.",
+  "I want to know openly whether you will support a sponsor's demands in the long term."
+ ],
+ "pool.b.vorstand_sponsor_druck_lage.sensibel": [
+  "I know pressure from outside is unpleasant, and I do not want to pass it on to you unfiltered.",
+  "It is far from me to burden you, but the backer is waiting for an answer."
+ ],
+ "pool.b.vorstand_fanproteste_gruss": [
+  "Good day, I come straight from the stands, and the mood there is anything but good.",
+  "Good day, the president here, and I have called a meeting that neither of us wanted."
+ ],
+ "pool.b.vorstand_fanproteste_lage": [
+  "The fans are protesting openly against the state of the club, and the board demands an answer from you.",
+  "There is whistling in the stands and banners have appeared. The board expects you to take a position."
+ ],
+ "pool.b.vorstand_fanproteste_lage.hitzig": [
+  "Those whistles are a disgrace, and I want to know what you are doing about it, on the spot!",
+  "I will not let the terraces make a fool of the club, so tell me how you will end this!"
+ ],
+ "pool.b.vorstand_fanproteste_lage.loyal": [
+  "I know the club is close to your heart, and that is exactly why I need your answer to the fans.",
+  "The supporters are disappointed, but I believe that if anyone can talk to them, you can."
+ ],
+ "pool.b.vorstand_fanproteste_lage.ehrgeizig": [
+  "If we win the fans back, they will carry us upward again, and for that we must act now.",
+  "The protest is also a chance to show that we want more than what is currently on display."
+ ],
+ "pool.b.vorstand_fanproteste_lage.wechselfreudig": [
+  "I wonder whether you will face this headwind or prefer to head for the exit.",
+  "Fan protests are not a pleasant place, and I want to know whether you will stay and clear things up."
+ ],
+ "pool.b.vorstand_fanproteste_lage.sensibel": [
+  "I know such whistles gnaw at a person, and I do not want to run you over but listen to you.",
+  "It matters to me that you do not feel alone in this situation, even though the board needs an answer."
+ ]
+}

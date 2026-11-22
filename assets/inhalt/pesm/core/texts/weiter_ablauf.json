@@ -1,0 +1,10 @@
+{
+ "wa.titel.schreibt": "Die Änderungen gehen ins Spiel",
+ "wa.titel.ende": "Alles geschrieben",
+ "wa.titel.quittung": "Das Spiel antwortet nicht",
+ "wa.knopf.fertig": "Fertig",
+ "wa.fortschritt": "%1 von %2 Einträgen im Spiel",
+ "wa.ende.titel": "Jetzt kurz im Spiel speichern und weiterspielen.",
+ "wa.ende.alles": "Alles ist geschrieben: Jetzt kurz im Spiel speichern und weiterspielen.",
+ "wa.quittung.text": "Seit über einer Minute fehlt die Bestätigung für %1 Einträge. Schau ins Spiel: Ist es offen und fertig geladen? Dann öffne unten das Spielfenster."
+}

@@ -1,0 +1,86 @@
+{
+ "pool.b.vorstand_vertrauenskrise_gruss": [
+  "Coach, thank you for coming.",
+  "Coach, please sit down, we have something to discuss."
+ ],
+ "pool.b.vorstand_vertrauenskrise_lage": [
+  "The losing run is worrying the board, and people are already asking whether you are still the right man.",
+  "After so many defeats in a row the board doubts that the team is still on the right path."
+ ],
+ "pool.b.vorstand_vertrauenskrise_lage.hitzig": [
+  "This cannot go on: defeat after defeat, and my patience with the board is snapping!",
+  "One defeat after another, and you just watch! The board has run out of patience!"
+ ],
+ "pool.b.vorstand_vertrauenskrise_lage.loyal": [
+  "I stand by you, you know that, but the losing run puts me under pressure to explain myself too.",
+  "I brought you here and think you are the right man, but the string of defeats puts us all under pressure."
+ ],
+ "pool.b.vorstand_vertrauenskrise_lage.ehrgeizig": [
+  "We want more than this: the losing run sets us back behind our goals.",
+  "This club has ambitions, and the losing run does not live up to them."
+ ],
+ "pool.b.vorstand_vertrauenskrise_lage.wechselfreudig": [
+  "I will not watch forever: if the results stay like this, we will look for another coach.",
+  "The board is already weighing alternatives, because defeats must not become a habit."
+ ],
+ "pool.b.vorstand_vertrauenskrise_lage.sensibel": [
+  "This conversation is not easy for me, but the losing run is gnawing at the whole club.",
+  "I say it reluctantly, but the many defeats weigh on the board, and on me personally too."
+ ],
+ "pool.b.vorstand_ultimatum_gruss": [
+  "Coach, I will get straight to the point.",
+  "Coach, the board has decided."
+ ],
+ "pool.b.vorstand_ultimatum_lage": [
+  "We are giving you an ultimatum: you have {frist} games to deliver wins and to catch up with our season target.",
+  "The board gives you {frist} games. We expect wins and points that bring us back to our target."
+ ],
+ "pool.b.vorstand_ultimatum_lage.hitzig": [
+  "No more of this run! You have {frist} games, then we want to see wins, or it is over!",
+  "Enough! You get {frist} more games, and wins have to be among them!"
+ ],
+ "pool.b.vorstand_ultimatum_lage.loyal": [
+  "It pains me, but the board insists: {frist} games in which we must see wins and a return to our target.",
+  "I defended you for a long time, now {frist} games remain to win and reach our target again."
+ ],
+ "pool.b.vorstand_ultimatum_lage.ehrgeizig": [
+  "We are not here to manage mediocrity: {frist} games, wins and a return to the season target.",
+  "The club wants to go up. You have {frist} games to show that you can help with that."
+ ],
+ "pool.b.vorstand_ultimatum_lage.wechselfreudig": [
+  "You have {frist} games. After that I will introduce another coach without hesitation if the wins stay away.",
+  "The board has already discussed a successor: after {frist} games without wins we draw the consequence."
+ ],
+ "pool.b.vorstand_ultimatum_lage.sensibel": [
+  "I do not like saying this: {frist} games, then the wins must be there and the gap to the target smaller.",
+  "This ultimatum is hard for me too, but after {frist} games we need wins and a return to contention."
+ ],
+ "pool.b.fans_protest_kurve_gruss": [
+  "Hello, I am writing to you as the spokesman of the terraces.",
+  "Hello, this is the fans' representative of the terraces."
+ ],
+ "pool.b.fans_protest_kurve_lage": [
+  "Many of us are unhappy: we do not like the performances, the ticket prices or the transfer policy.",
+  "Frustration is growing on the terraces over the performances, the high ticket prices and the transfers."
+ ],
+ "pool.b.fans_protest_kurve_lage.hitzig": [
+  "We have had enough! The games are an insult, the tickets too dear, and who is the club even buying for?",
+  "The terraces are boiling! Weak performances, overpriced tickets, and nobody asks us about transfers!"
+ ],
+ "pool.b.fans_protest_kurve_lage.loyal": [
+  "We have stood behind this club for years, but the performances, ticket prices and transfers hurt.",
+  "We love the club and always turn up, but with the performances, the prices and the transfer policy we feel left alone."
+ ],
+ "pool.b.fans_protest_kurve_lage.ehrgeizig": [
+  "We expect success and courage: the performances fall short, the prices are high and the transfers lack ambition.",
+  "Our standards are higher, but the performances, the ticket prices and the transfer policy do not match them."
+ ],
+ "pool.b.fans_protest_kurve_lage.wechselfreudig": [
+  "Some on the terraces are already wondering whether to come at all: performances, prices and transfers do not convince.",
+  "If it goes on like this, many seats will stay empty, because performances, ticket prices and transfers do not add up."
+ ],
+ "pool.b.fans_protest_kurve_lage.sensibel": [
+  "We do not like writing like this, but what we are experiencing hurts: weak performances, dear tickets and transfers with no feel for us.",
+  "It is hard for me to say, but many feel unseen by the performances, prices and transfers."
+ ]
+}

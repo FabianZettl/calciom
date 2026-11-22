@@ -1,0 +1,470 @@
+{
+  "pool.angebot_fuer_spieler.e.e1": [
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} The offer is valid for {frist} days.",
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} We expect your answer within {frist} days."
+  ],
+  "pool.angebot_fuer_spieler.e.e2": [
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} I wanted to write to you personally before rumours start. The deadline is {frist} days.",
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Please keep this confidential; until the deadline expires in {frist} days it stays between us."
+  ],
+  "pool.angebot_fuer_spieler.e.e3": [
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} I know things are difficult at your end right now, but our deadline runs for only {frist} days.",
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Perhaps the timing is unfortunate, but we cannot wait longer than {frist} days."
+  ],
+  "pool.angebot_fuer_spieler.e.e4": [
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Either you answer within {frist} days, or the offer is off the table!",
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} I will not tolerate stalling: {frist} days, then it is over!"
+  ],
+  "pool.angebot_fuer_spieler.e.e5": [
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Take your time, but please no longer than {frist} days.",
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} We want to stay fair, so the offer stands for {frist} days, so that you can review it in peace."
+  ],
+  "pool.angebot_fuer_spieler.e.e6": [
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} After {frist} days we turn to other players, the chance is now.",
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} He who hesitates loses: the deadline is {frist} days."
+  ],
+  "pool.angebot_fuer_spieler.e.e7": [
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Please do not hold it against us; we hope for your answer in {frist} days.",
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} I do not want to pressure you, but after {frist} days we would have to plan elsewhere."
+  ],
+  "pool.angebot_fuer_spieler.e.e8": [
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} I realise this is not what you wanted, but the deadline is {frist} days.",
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} I am not counting on it, but I wanted to ask anyway; the deadline runs {frist} days."
+  ],
+  "pool.angebot_fuer_spieler.e.e9": [
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} I believe we can come to an agreement. The deadline is {frist} days.",
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Everything is open until the deadline expires in {frist} days."
+  ],
+  "pool.angebot_fuer_spieler.e.e10": [
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} I assume we will agree quickly, the deadline runs {frist} days.",
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} The paperwork is ready, all that is missing is your consent within {frist} days."
+  ],
+  "pool.angebot_fuer_spieler.a.a1": [
+    "Agreed, we accept the offer. Send me the paperwork for {name}.",
+    "We have a deal. I am releasing {name}, and you send the draft contract."
+  ],
+  "pool.angebot_fuer_spieler.a.a2": [
+    "The amount does not reflect what {name} does for us. I am happy to explain where I see more.",
+    "The sum is a start, but below his value. Let us talk about the price."
+  ],
+  "pool.angebot_fuer_spieler.a.a3": [
+    "No, {name} is not for sale, not even at this price.",
+    "I decline. There is no need for you to raise it."
+  ],
+  "pool.angebot_fuer_spieler.a.a4": [
+    "Give me more time. Extend the deadline so that I can clear it internally.",
+    "I cannot decide within the deadline. A few more days, and you will get a clear answer."
+  ],
+  "pool.angebot_fuer_spieler.a.a5": [
+    "I will first ask {name} what he wants and get back to you afterwards.",
+    "The decision also lies with {name}. I will speak to him and let you know."
+  ],
+  "pool.angebot_fuer_spieler.a.a6": [
+    "What do you offer beyond that? I want to see a share in any later resale.",
+    "Without a share in the resale I will not talk. How do you feel about that?"
+  ],
+  "pool.angebot_fuer_spieler.a.a7": [
+    "My position stands: the player stays, and you will have to find someone else.",
+    "You can ask every day, the answer stays the same."
+  ],
+  "pool.angebot_fuer_spieler.a.a8": [
+    "If you meet us a little on the price and give us a share in the resale, we will even have coffee together.",
+    "Let us meet in the middle: a bit more money, a resale share, and I will treat you to dinner."
+  ],
+  "pool.angebot_fuer_spieler.a.a9": [
+    "I understand that you want {name}, he is a good player. Meet us on the price and we will talk seriously.",
+    "Your interest honours us, and I do not want to stand in your way. With a fair sum we will find a way."
+  ],
+  "pool.angebot_fuer_spieler.a.a10": [
+    "In principle yes, if a buy-back clause and payment in a single sum are agreed.",
+    "I agree as soon as the full sum is in our account and {name} consents."
+  ],
+  "pool.angebot_fuer_spieler.a.a11": [
+    "For that amount you will get our kit man at best.",
+    "Kindly meant, but that will not even buy our training balls."
+  ],
+  "pool.angebot_fuer_spieler.r.r1": [
+    "{b.gut} I can take that to my chairman.",
+    "{b.gut} That gets us moving, I will keep {name} in my sights."
+  ],
+  "pool.angebot_fuer_spieler.r.r2": [
+    "{b.gut} I appreciate how openly you talk to us.",
+    "{b.gut} One can negotiate with you, it has always been that way."
+  ],
+  "pool.angebot_fuer_spieler.r.r3": [
+    "{b.gut} That is a step that helps both clubs, I will prepare it.",
+    "{b.gut} Good, then we work on a solution that moves both of us forward."
+  ],
+  "pool.angebot_fuer_spieler.r.r4": [
+    "{b.neutral} I will pass it on to our board and get back to you.",
+    "{b.neutral} Then we wait and see what comes of it."
+  ],
+  "pool.angebot_fuer_spieler.r.r5": [
+    "{b.neutral} I am not sure how to take that.",
+    "{b.neutral} I will have to think about that first."
+  ],
+  "pool.angebot_fuer_spieler.r.r6": [
+    "{b.neutral} No stress, we still have some time.",
+    "{b.neutral} I will sit back and see what you send me."
+  ],
+  "pool.angebot_fuer_spieler.r.r7": [
+    "{b.schlecht} I cannot go to my chairman with that.",
+    "{b.schlecht} Then my effort was in vain."
+  ],
+  "pool.angebot_fuer_spieler.r.r8": [
+    "{b.schlecht} You do not talk to me like that, I am going to the press!",
+    "{b.schlecht} Then {name} can speak for himself, and publicly!"
+  ],
+  "pool.angebot_fuer_spieler.r.r9": [
+    "{b.schlecht} Then we will simply approach {name} directly, he likes to listen.",
+    "{b.schlecht} There are other ways to talk to {name}."
+  ],
+  "pool.angebot_fuer_spieler.r.r10": [
+    "{b.schlecht} I had expected more willingness to talk, that disappoints me.",
+    "{b.schlecht} After so many good years I thought we understood each other better."
+  ],
+  "pool.angebot_fuer_spieler.r.r11": [
+    "{b.gut} Then we agree at the core, I will send the draft today.",
+    "{b.gut} That is enough for me, I will have the papers prepared."
+  ],
+  "pool.angebot_fuer_spieler.r.r12": [
+    "{b.neutral} It stays open, I will keep my offer standing for now.",
+    "{b.neutral} Everything is still possible, I will wait for your next message."
+  ],
+  "pool.angebot_fuer_spieler.r.r13": [
+    "{b.schlecht} Then I withdraw the offer and look elsewhere.",
+    "{b.schlecht} Then this conversation seems settled, I will look around elsewhere."
+  ],
+  "pool.angebot_fuer_spieler.x.x1": [
+    "The sporting director seems satisfied. {entscheidung} Both clubs part on good terms.",
+    "{entscheidung} The exchange ends in a friendly way, and the lines stay open."
+  ],
+  "pool.angebot_fuer_spieler.x.x2": [
+    "The matter hangs in the balance. {entscheidung} {verein} waits.",
+    "{entscheidung} The other club keeps its offer standing for a while."
+  ],
+  "pool.angebot_fuer_spieler.x.x3": [
+    "The sporting director cuts the connection short. {entscheidung} Soon afterwards the offer becomes public.",
+    "{entscheidung} Shortly afterwards the paper reports how {verein} is courting {name}."
+  ],
+  "pool.angebot_fuer_spieler.x.x4": [
+    "The agreement is there. {entscheidung} The papers for {name} are being prepared.",
+    "{entscheidung} The sporting director makes a note and announces the draft contract."
+  ],
+  "pool.angebot_fuer_spieler.x.x5": [
+    "The sporting director breaks off the conversation. {entscheidung} The offer no longer stands.",
+    "{entscheidung} {verein} withdraws and looks for another player."
+  ],
+  "pool.leihanfrage.e.e1": [
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} We would need an answer by the end of {frist} days.",
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} The offer stands for {frist} days."
+  ],
+  "pool.leihanfrage.e.e2": [
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} A purchase option at the end is conceivable, and we can talk about the recall clause. Answer in {frist} days, please.",
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} We are flexible on the purchase option and recall. Let us know within {frist} days."
+  ],
+  "pool.leihanfrage.e.e3": [
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} I notice the mood at your end is tense, but the deadline is only {frist} days.",
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Perhaps it does not suit you right now, but in {frist} days the window closes for us."
+  ],
+  "pool.leihanfrage.e.e4": [
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Do not let him stew any longer, I want an answer within {frist} days!",
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Stop hesitating, the deadline is {frist} days!"
+  ],
+  "pool.leihanfrage.e.e5": [
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Think it over calmly, there is enough time until {frist} days have passed.",
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} No pressure, but an answer in {frist} days would help us."
+  ],
+  "pool.leihanfrage.e.e6": [
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} He can make the leap with us if we act within {frist} days.",
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} The chance is open for {frist} days, after that our squad is complete."
+  ],
+  "pool.leihanfrage.e.e7": [
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Please decide with feeling for the lad, but no later than in {frist} days.",
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} I know it is not easy for you; we would need an answer in {frist} days."
+  ],
+  "pool.leihanfrage.e.e8": [
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} I am not counting on a yes, but I ask for an answer in {frist} days anyway.",
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} You probably will not want to let him go, but I had to ask; deadline {frist} days."
+  ],
+  "pool.leihanfrage.e.e9": [
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} I think we will find a way; the deadline is {frist} days.",
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Everything is negotiable as long as we are in touch within {frist} days."
+  ],
+  "pool.leihanfrage.e.e10": [
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} I believe the loan is in both our interests, please answer in {frist} days.",
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} We actually agree, all that is missing is the signature within {frist} days."
+  ],
+  "pool.leihanfrage.a.a1": [
+    "Agreed, but only with a written playing-time guarantee: {name} plays regularly for you.",
+    "We will loan him out if you guarantee him fixed playing time, in the contract."
+  ],
+  "pool.leihanfrage.a.a2": [
+    "We want a purchase option that becomes an obligation after a fixed number of appearances.",
+    "Nothing happens without a purchase option: if he makes it with you, we want to know the price."
+  ],
+  "pool.leihanfrage.a.a3": [
+    "No, {name} will not be loaned out. He stays, and we develop him ourselves.",
+    "A loan is out of the question. You can tick the topic off."
+  ],
+  "pool.leihanfrage.a.a4": [
+    "Give me time until after the next matchday, then I will have an answer.",
+    "I want to see how {name} develops in training first. I will be in touch."
+  ],
+  "pool.leihanfrage.a.a5": [
+    "{name} has a say in this. I will ask him and his agent what they want.",
+    "I will let {name} choose for himself, he should know where he wants to play."
+  ],
+  "pool.leihanfrage.a.a6": [
+    "A loan only works with a recall clause; I am happy to explain why we need it.",
+    "We need the option of bringing him back in winter. Let us draft the clause together."
+  ],
+  "pool.leihanfrage.a.a7": [
+    "I can see that you want to give him a real chance, and I appreciate that. Let us shape the terms for the lad together.",
+    "It pleases me that you take such trouble over {name}. I want him to play, and we will find a way."
+  ],
+  "pool.leihanfrage.a.a8": [
+    "My terms stand: playing guarantee, purchase option, recall. Take it or leave it.",
+    "I will not change any of that, otherwise this conversation is over."
+  ],
+  "pool.leihanfrage.a.a9": [
+    "How many appearances do you plan for him, and in what role?",
+    "Where is {name} supposed to play for you, and who plays there now?"
+  ],
+  "pool.leihanfrage.a.a10": [
+    "We will meet you on the loan fee if you give way on the recall clause.",
+    "I am flexible on the price if the playing time is right."
+  ],
+  "pool.leihanfrage.a.a11": [
+    "One does not lend out a talent, any more than one lends a recipe. Ask again in a year.",
+    "The lad is not finished yet, and evidently neither is your club."
+  ],
+  "pool.leihanfrage.r.r1": [
+    "{b.gut} We can work with that, I will prepare the paperwork.",
+    "{b.gut} That is a fair framework for {name}, I will propose it to my chairman."
+  ],
+  "pool.leihanfrage.r.r2": [
+    "{b.gut} You treat the lad responsibly, I like that.",
+    "{b.gut} I am happy to borrow from you."
+  ],
+  "pool.leihanfrage.r.r3": [
+    "{b.gut} I will take that, with us {name} will show what he can do.",
+    "{b.gut} Agreed, we will give him the stage he needs."
+  ],
+  "pool.leihanfrage.r.r4": [
+    "{b.neutral} I will take it to our meeting, then you will hear from me.",
+    "{b.neutral} Then nothing is decided yet, but nothing is ruined either."
+  ],
+  "pool.leihanfrage.r.r5": [
+    "{b.neutral} I am unsure whether that suits us.",
+    "{b.neutral} I need to let that sink in first."
+  ],
+  "pool.leihanfrage.r.r6": [
+    "{b.neutral} We have time until the window closes.",
+    "{b.neutral} Take your time, I will keep looking in the meantime."
+  ],
+  "pool.leihanfrage.r.r7": [
+    "{b.schlecht} Under these circumstances we lose interest.",
+    "{b.schlecht} A loan on these terms is not worth it for us."
+  ],
+  "pool.leihanfrage.r.r8": [
+    "{b.schlecht} That is no way to treat a colleague, I will remember it!",
+    "{b.schlecht} Then {name} can just keep rotting on the bench!"
+  ],
+  "pool.leihanfrage.r.r9": [
+    "{b.schlecht} Then we will speak to {name} and his agent ourselves.",
+    "{b.schlecht} He will feel more at home with us, and he will find that out."
+  ],
+  "pool.leihanfrage.r.r10": [
+    "{b.schlecht} I had hoped for more trust, that hurts.",
+    "{b.schlecht} I thought we kept a good relationship."
+  ],
+  "pool.leihanfrage.r.r11": [
+    "{b.gut} Then let us do it, I will have the contract drawn up.",
+    "{b.gut} Wonderful, the loan is as good as decided."
+  ],
+  "pool.leihanfrage.r.r12": [
+    "{b.neutral} We stay in touch, nothing is decided.",
+    "{b.neutral} I will leave the offer standing and wait for you."
+  ],
+  "pool.leihanfrage.r.r13": [
+    "{b.schlecht} Then we will find another lad.",
+    "{b.schlecht} A pity, then I will find someone elsewhere."
+  ],
+  "pool.leihanfrage.x.x1": [
+    "The sporting director is in agreement. {entscheidung} Talks about the details go well.",
+    "{entscheidung} They part with the feeling that both clubs will benefit."
+  ],
+  "pool.leihanfrage.x.x2": [
+    "The topic stays open. {entscheidung} {verein} will ask again later.",
+    "{entscheidung} The other club keeps the door open a crack."
+  ],
+  "pool.leihanfrage.x.x3": [
+    "The sporting director is annoyed. {entscheidung} Soon it is said around the scene that {name} is not treated fairly.",
+    "{entscheidung} Shortly afterwards the press knows that you are holding a talent on the bench."
+  ],
+  "pool.leihanfrage.x.x4": [
+    "The loan is sealed. {entscheidung} {name} will get a new task at {verein}.",
+    "{entscheidung} Both sides note down the key points of the loan."
+  ],
+  "pool.leihanfrage.x.x5": [
+    "The sporting director breaks off the conversation. {entscheidung} {verein} turns to another talent.",
+    "{entscheidung} The enquiry is not pursued any further."
+  ],
+  "pool.tauschvorschlag.e.e1": [
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} By when can you answer me? In {frist} days would suit me.",
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} I would need an answer within {frist} days."
+  ],
+  "pool.tauschvorschlag.e.e2": [
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} I preferred to discuss this by phone, not by mail; say, an answer in {frist} days.",
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Let us speak openly: the proposal stands for {frist} days."
+  ],
+  "pool.tauschvorschlag.e.e3": [
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} I hear the air is thick at your end, but I still need an answer in {frist} days.",
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Perhaps it is inconvenient right now, but I cannot wait longer than {frist} days."
+  ],
+  "pool.tauschvorschlag.e.e4": [
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Say yes or no, and within {frist} days!",
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} I will not be stalled, {frist} days, then the swap is dead!"
+  ],
+  "pool.tauschvorschlag.e.e5": [
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Think it over calmly, we have {frist} days after all.",
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} We can settle this in a relaxed way as long as you get back within {frist} days."
+  ],
+  "pool.tauschvorschlag.e.e6": [
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} This is a chance that will not return, {frist} days, then we are gone.",
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Decide within {frist} days, otherwise we approach other players."
+  ],
+  "pool.tauschvorschlag.e.e7": [
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} I do not want to push; perhaps you can respond in {frist} days.",
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Let me know how you feel, within {frist} days would be nice."
+  ],
+  "pool.tauschvorschlag.e.e8": [
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} I do not expect enthusiasm, but I would be grateful for an answer within {frist} days.",
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} I know you actually want to keep the player, but think it over for {frist} days."
+  ],
+  "pool.tauschvorschlag.e.e9": [
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} I think we are not far apart, in {frist} days we will know more.",
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Everything is open if we speak again within {frist} days."
+  ],
+  "pool.tauschvorschlag.e.e10": [
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} If we both want it, we have the swap wrapped up in {frist} days.",
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} From my side it is almost done, I just need your word in {frist} days."
+  ],
+  "pool.tauschvorschlag.a.a1": [
+    "Agreed, we swap. Send me the paperwork and we will settle the details.",
+    "Yes, that is how we do it. {name} for your man, with the extra payment."
+  ],
+  "pool.tauschvorschlag.a.a2": [
+    "The two players are not of equal value. I demand a higher payment on top.",
+    "The extra payment is too low. Add something more, then we talk."
+  ],
+  "pool.tauschvorschlag.a.a3": [
+    "No, a swap is out of the question.",
+    "I will not swap {name} for a player I do not want at all."
+  ],
+  "pool.tauschvorschlag.a.a4": [
+    "I will not take this one but another from your squad. Name me alternatives.",
+    "If you want to swap, then please with a player who suits us. Who else do you have?"
+  ],
+  "pool.tauschvorschlag.a.a5": [
+    "I need time to think. I will call you in the next few days.",
+    "Let me sleep on it, I will be in touch."
+  ],
+  "pool.tauschvorschlag.a.a6": [
+    "I will speak to {name} first. I decide nothing without him.",
+    "The question goes to {name}: I will discuss the swap with him and call back."
+  ],
+  "pool.tauschvorschlag.a.a7": [
+    "{name} is a fixed building block in our plan, I am happy to explain. If you see that, we can talk about a way.",
+    "Let me explain why I cannot simply swap: he is worth more to us than he costs on paper."
+  ],
+  "pool.tauschvorschlag.a.a8": [
+    "I can tell how important {name} is to your plans, and I do not want to stand in your way. Let us solve this well together.",
+    "Your interest honours us. We will find a solution both clubs can live with."
+  ],
+  "pool.tauschvorschlag.a.a9": [
+    "My no stays a no, no matter how often you call.",
+    "You can double the extra payment, {name} is not going."
+  ],
+  "pool.tauschvorschlag.a.a10": [
+    "A swap? Then I would rather take your club's silverware.",
+    "For this swap I would need a lot of humour, and mine has run out today."
+  ],
+  "pool.tauschvorschlag.a.a11": [
+    "In principle I am in, if the extra payment flows immediately and {name} agrees.",
+    "I agree, provided the player is on board and the extra payment is made before the move."
+  ],
+  "pool.tauschvorschlag.r.r1": [
+    "{b.gut} Good, then we have a basis, I will talk to my coach.",
+    "{b.gut} That is workable, I will stay on it."
+  ],
+  "pool.tauschvorschlag.r.r2": [
+    "{b.gut} It is easy to talk with you, it has always been that way.",
+    "{b.gut} Thank you for the clear answer."
+  ],
+  "pool.tauschvorschlag.r.r3": [
+    "{b.gut} Then we both come out of this swap stronger.",
+    "{b.gut} Agreed, that moves both clubs forward."
+  ],
+  "pool.tauschvorschlag.r.r4": [
+    "{b.neutral} I will take that into our meeting.",
+    "{b.neutral} Then we will see, nothing is decided."
+  ],
+  "pool.tauschvorschlag.r.r5": [
+    "{b.neutral} I do not know whether to be annoyed or pleased.",
+    "{b.neutral} That was not what I expected, but I will think about it."
+  ],
+  "pool.tauschvorschlag.r.r6": [
+    "{b.neutral} No problem, I will call again in a few days.",
+    "{b.neutral} We are in no hurry."
+  ],
+  "pool.tauschvorschlag.r.r7": [
+    "{b.schlecht} Then I have no choice but to plan differently.",
+    "{b.schlecht} So the swap is off the table, it seems."
+  ],
+  "pool.tauschvorschlag.r.r8": [
+    "{b.schlecht} With that tone you can get lost!",
+    "{b.schlecht} Then we will talk to each other through the press!"
+  ],
+  "pool.tauschvorschlag.r.r9": [
+    "{b.schlecht} Then we will sound out {name} directly.",
+    "{b.schlecht} I will simply talk to {name}, perhaps he thinks differently."
+  ],
+  "pool.tauschvorschlag.r.r10": [
+    "{b.schlecht} That surprised me and, frankly, hurt me.",
+    "{b.schlecht} I thought we were partners."
+  ],
+  "pool.tauschvorschlag.r.r11": [
+    "{b.gut} Then we have a swap, I will have the papers prepared.",
+    "{b.gut} Great, I will send you the key points today."
+  ],
+  "pool.tauschvorschlag.r.r12": [
+    "{b.neutral} It stays open, I will be in touch in the next few days.",
+    "{b.neutral} Nothing is lost yet, we will speak again."
+  ],
+  "pool.tauschvorschlag.r.r13": [
+    "{b.schlecht} Then I will drop it and look around for other players.",
+    "{b.schlecht} That settles the matter for me."
+  ],
+  "pool.tauschvorschlag.x.x1": [
+    "The call ends in a friendly way. {entscheidung} Both sides now know where they stand.",
+    "{entscheidung} The sporting director hangs up satisfied."
+  ],
+  "pool.tauschvorschlag.x.x2": [
+    "The call ends without result. {entscheidung} The swap remains a possibility.",
+    "{entscheidung} {verein} will get in touch again in a few days."
+  ],
+  "pool.tauschvorschlag.x.x3": [
+    "The sporting director hangs up in anger. {entscheidung} Shortly afterwards the swap proposal leaks to the press.",
+    "{entscheidung} Soon the fans too know that {name} was under discussion."
+  ],
+  "pool.tauschvorschlag.x.x4": [
+    "The swap is sealed. {entscheidung} The contract departments prepare the paperwork.",
+    "{entscheidung} The sporting director announces a draft contract."
+  ],
+  "pool.tauschvorschlag.x.x5": [
+    "The sporting director ends the call abruptly. {entscheidung} The proposal is dead.",
+    "{entscheidung} {verein} withdraws the swap proposal."
+  ]
+}

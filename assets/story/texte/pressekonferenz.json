@@ -1,0 +1,91 @@
+{
+  "_hinweis": "Pressekonferenz vor dem Spiel. Fünf Themen (gegner, serie, tabellenlage, spieler_im_blick, ausfaelle) mit je zwei Fragen; je Ton (zuversichtlich, sachlich, scharf) zwei Antworten, die zu beiden Fragen des Themas passen. {ergebnis} = letztes Ergebnis, {spieler} = Spieler im Blick. Platzhalter: {gegner}, {ergebnis}, {platz}, {verein}, {spieler}, {spieler_kurz}, {medium}.",
+  "pk.gegner.frage": { "standard": [
+    "Als Nächstes geht es gegen {gegner}. Was erwarten Sie von diesem Gegner?",
+    "{gegner} gilt als unangenehm zu bespielen. Wie wollen Sie das Spiel angehen?"
+  ] },
+  "pk.gegner.antwort.zuversichtlich": { "standard": [
+    "Wir kennen ihre Stärken und haben einen klaren Plan. Wenn wir den umsetzen, gewinnen wir.",
+    "Wir schauen auf uns. Bringen wir unsere Leistung, muss sich {gegner} nach uns richten."
+  ] },
+  "pk.gegner.antwort.sachlich": { "standard": [
+    "{gegner} ist gut organisiert. Wir haben uns vorbereitet, alles Weitere entscheidet sich auf dem Platz.",
+    "Wir müssen die Zweikämpfe annehmen und geduldig bleiben. Dann haben wir unsere Möglichkeiten."
+  ] },
+  "pk.gegner.antwort.scharf": { "standard": [
+    "Ich rede nicht über {gegner}. Die sollen sich Gedanken über uns machen.",
+    "Unangenehm, stark, gefährlich: Das höre ich vor jedem Spiel. Am Ende zählt, wer mehr Tore schießt."
+  ] },
+
+  "pk.serie.frage": { "standard": [
+    "Das letzte Spiel endete {ergebnis}. Was nehmen Sie daraus mit?",
+    "Wie bewerten Sie die Ergebnisse der letzten Wochen?"
+  ] },
+  "pk.serie.antwort.zuversichtlich": { "standard": [
+    "Ich sehe eine Mannschaft, die sich entwickelt. Darauf bauen wir auf.",
+    "Die Richtung stimmt. In den nächsten Spielen legen wir noch zu."
+  ] },
+  "pk.serie.antwort.sachlich": { "standard": [
+    "Es war Gutes dabei und einiges, das wir verbessern müssen. Das haben wir in der Woche aufgearbeitet.",
+    "Ergebnisse sind eine Momentaufnahme. Wir arbeiten an den Details und schauen auf das nächste Spiel."
+  ] },
+  "pk.serie.antwort.scharf": { "standard": [
+    "Mit dem, was ich zuletzt gesehen habe, bin ich nicht zufrieden. Das habe ich der Mannschaft deutlich gesagt.",
+    "Jede Woche dieselbe Frage. Messen Sie uns am Saisonende, nicht nach jedem Spieltag."
+  ] },
+
+  "pk.tabellenlage.frage": { "standard": [
+    "Sie stehen auf Platz {platz}. Ist das der Platz, auf den {verein} gehört?",
+    "Schauen Sie auf die Tabelle oder nur auf das nächste Spiel?"
+  ] },
+  "pk.tabellenlage.antwort.zuversichtlich": { "standard": [
+    "Wir wollen weiter nach oben, und wir haben die Mannschaft dafür.",
+    "Da ist noch mehr drin. Am Ende sieht die Tabelle für uns besser aus als heute."
+  ] },
+  "pk.tabellenlage.antwort.sachlich": { "standard": [
+    "Platz {platz} ist der Stand von heute. Abgerechnet wird am letzten Spieltag.",
+    "Die Tabelle kenne ich, aber sie gewinnt kein Spiel. Wir denken von Woche zu Woche."
+  ] },
+  "pk.tabellenlage.antwort.scharf": { "standard": [
+    "Die Tabelle interessiert mich im Moment nicht. Und die Mannschaft soll sie auch nicht lesen.",
+    "Wer uns nur nach der Tabelle beurteilt, hat unsere Spiele nicht gesehen."
+  ] },
+
+  "pk.spieler_im_blick.frage": { "standard": [
+    "Über {spieler} wird viel gesprochen. Wie sehen Sie seine Rolle im nächsten Spiel?",
+    "Ein Wort zu {spieler_kurz}: Sind Sie mit seinen Leistungen zufrieden?"
+  ] },
+  "pk.spieler_im_blick.antwort.zuversichtlich": { "standard": [
+    "{spieler_kurz} ist wichtig für uns. Ich bin sicher, dass er das im nächsten Spiel zeigt.",
+    "Er arbeitet gut und hat mein volles Vertrauen."
+  ] },
+  "pk.spieler_im_blick.antwort.sachlich": { "standard": [
+    "Er ist einer von vielen im Kader. Wer spielt, entscheide ich nach dem Abschlusstraining.",
+    "Über einzelne Spieler spreche ich zuerst mit ihnen selbst. Er weiß, wo er steht."
+  ] },
+  "pk.spieler_im_blick.antwort.scharf": { "standard": [
+    "Von {spieler_kurz} erwarte ich mehr, und das weiß er.",
+    "Bei uns steht keiner über der Mannschaft. Das gilt auch für ihn."
+  ] },
+
+  "pk.ausfaelle.frage": { "standard": [
+    "Wie sieht es personell aus? Müssen Sie gegen {gegner} auf Spieler verzichten?",
+    "Einige Spieler sind angeschlagen. Wie sehr trifft Sie das vor diesem Spiel?"
+  ] },
+  "pk.ausfaelle.antwort.zuversichtlich": { "standard": [
+    "Wir haben einen breiten Kader. Wer reinkommt, macht seine Sache gut.",
+    "Jeder Ausfall ist die Chance für einen anderen. Ich mache mir keine Sorgen."
+  ] },
+  "pk.ausfaelle.antwort.sachlich": { "standard": [
+    "Bei ein, zwei Spielern entscheiden wir kurzfristig. Mehr sage ich dazu heute nicht.",
+    "Ausfälle gehören zu einer Saison. Wir stellen eine Mannschaft auf, die gewinnen kann."
+  ] },
+  "pk.ausfaelle.antwort.scharf": { "standard": [
+    "Ich jammere nicht über Ausfälle. Wer das Trikot trägt, muss seine Leistung bringen.",
+    "Soll ich dem Gegner gleich die Aufstellung mitgeben? Sie sehen am Spieltag, wer spielt."
+  ] },
+
+  "pk.nachklang.zuversichtlich": { "standard": ["{medium}: Trainer gibt sich siegessicher"] },
+  "pk.nachklang.sachlich":       { "standard": ["{medium}: Nüchterne Töne vor dem Spiel"] },
+  "pk.nachklang.scharf":         { "standard": ["{medium}: Trainer teilt vor dem Spiel aus"] }
+}

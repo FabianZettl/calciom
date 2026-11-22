@@ -1,0 +1,51 @@
+{
+ "_hinweis": "Regionale Staffeln: Name der Staffel (wie in der Welt geschrieben) → Vereine dieser Region (Hauptverein reicht; Vereinskürzel wie FC und Jahreszahlen zählen nicht). Eine absteigende Mannschaft kommt in die Staffel, in der sie zuletzt gespielt hat, sonst in die ihres Hauptvereins, sonst in die Staffel aus dieser Liste. Passt nichts, steht „Staffel geschätzt“ in der Meldung. Länder ohne feste Regionen (Argentinien, Türkei, Indonesien) haben bewusst keine Liste. Eigene Ergänzungen: gleichnamige Datei im Datenordner.",
+ "staffeln": {
+  "Regionalliga Nord": ["Hamburger SV", "FC St. Pauli", "Werder Bremen", "Hannover 96", "VfL Wolfsburg", "Eintracht Braunschweig", "Holstein Kiel", "VfL Osnabrück", "SV Meppen", "VfB Lübeck", "TSV Havelse", "SV Drochtersen/Assel", "Kickers Emden", "SV Todesfelde", "Weiche Flensburg", "Phönix Lübeck", "Bremer SV", "VfB Oldenburg", "Eintracht Norderstedt", "SSV Jeddeloh", "Atlas Delmenhorst", "Hannoverscher SC", "FSV Schöningen", "Eimsbütteler TV"],
+  "Regionalliga Nordost": ["Hertha BSC", "1. FC Union Berlin", "RB Leipzig", "Hansa Rostock", "Energie Cottbus", "Dynamo Dresden", "Erzgebirge Aue", "Hallescher FC", "1. FC Magdeburg", "Carl Zeiss Jena", "Chemnitzer FC", "Rot-Weiß Erfurt", "1. FC Lokomotive Leipzig", "Berliner FC Dynamo", "Viktoria Berlin", "Greifswalder FC", "VSG Altglienicke", "ZFC Meuselwitz", "Babelsberg 03", "FSV Zwickau", "Chemie Leipzig", "Tasmania Berlin", "Berliner FC Preussen", "FSV Luckenwalde", "Eintracht Stahnsdorf"],
+  "Regionalliga West": ["Borussia Dortmund", "Schalke 04", "Bayer 04 Leverkusen", "1. FC Köln", "Borussia Mönchengladbach", "Fortuna Düsseldorf", "VfL Bochum", "MSV Duisburg", "Arminia Bielefeld", "SC Paderborn 07", "Rot-Weiss Essen", "Alemannia Aachen", "Preußen Münster", "SC Verl", "Sportclub Verl", "Rot-Weiß Oberhausen", "Wuppertaler SV", "Sportfreunde Lotte", "Fortuna Köln", "Viktoria Köln", "SV Rödinghausen", "SC Wiedenbrück", "1. FC Bocholt", "KFC Uerdingen", "Sportfreunde Siegen", "FC Gütersloh", "Westfalia Rhynern", "VfB 03 Hilden", "Bonner SC", "SV Bergisch Gladbach 09", "SG Wattenscheid 09"],
+  "Regionalliga Südwest": ["VfB Stuttgart", "SC Freiburg", "TSG Hoffenheim", "TSG 1899 Hoffenheim", "Mainz 05", "Eintracht Frankfurt", "1. FC Kaiserslautern", "SV Darmstadt 98", "Karlsruher SC", "1. FC Heidenheim", "Waldhof Mannheim", "SV Sandhausen", "SV Elversberg", "SV Wehen Wiesbaden", "Sonnenhof Großaspach", "SG Sonnenhof Großaspach", "TSG Hoffenheim II", "Kickers Offenbach", "FC 08 Homburg", "SSV Ulm 1846", "Stuttgarter Kickers", "TSV Steinbach Haiger", "FSV Frankfurt", "1. FC Saarbrücken", "Hessen Kassel", "FC Gießen", "Eintracht Trier", "TuS Koblenz", "SGV Freiberg", "Astoria Walldorf", "VfR Mannheim", "VfR Aalen", "Barockstadt"],
+  "Regionalliga Bayern": ["Bayern München", "1. FC Nürnberg", "FC Augsburg", "SpVgg Greuther Fürth", "TSV 1860 München", "FC Ingolstadt 04", "Würzburger Kickers", "SpVgg Unterhaching", "Jahn Regensburg", "SSV Jahn Regensburg", "SpVgg Bayreuth", "Türkgücü München", "1. FC Schweinfurt 1905", "Wacker Burghausen", "Viktoria Aschaffenburg", "TSV Aubstadt", "DJK Vilzing", "FC Memmingen", "TSV Buchbach", "SpVgg Ansbach", "TSV Schwaben Augsburg", "FV Illertissen", "VfB Eichstätt", "SC Eltersdorf", "TSV Landsberg"],
+
+  "Regionalliga Ost (AUT)": ["Admira/Wacker", "FAC Wien", "First Vienna FC", "SKN St. Pölten", "SKU Amstetten", "Rapid Wien", "SK Rapid Wien", "Austria Wien", "FK Austria Wien", "Young Violets Austria", "Sportklub Rapid II", "SK Rapid"],
+  "Regionalliga Nord (AUT)": ["FC Blau-Weiß Linz", "FC Hertha Wels", "SV Austria Salzburg", "Red Bull Salzburg", "FC Red Bull Salzburg", "FC Liefering", "LASK", "SV Ried"],
+  "Regionalliga West (AUT)": ["FC Wacker Innsbruck", "Schwarz Weiß Bregenz", "WSG Tirol", "SCR Altach", "Austria Lustenau", "FC Dornbirn"],
+  "Regionalliga Süd (AUT)": ["ASK Voitsberg", "SV Kapfenberg", "Sturm Graz", "SK Sturm Graz", "Sportklub Sturm Graz II", "Sportklub Sturm Graz", "Wolfsberger AC", "Austria Klagenfurt", "Grazer AK", "TSV Hartberg", "SV Lafnitz"],
+
+  "Primera Federación Grupo 1": ["Burgos CF", "RC Celta", "Celta de Vigo", "RC Celta Fortuna", "SD Eibar", "Real Oviedo", "Real Sociedad", "Sociedad B", "Sporting Gijón", "Real Valladolid", "Deportivo de La Coruña", "Athletic Club", "Mirandés", "CD Mirandés", "Racing Santander", "SD Huesca"],
+  "Primera Federación Grupo 2": ["Albacete Balompié", "UD Almería", "FC Andorra", "Cádiz CF", "CD Castellón", "AD Ceuta FC", "Córdoba CF", "CD Eldense", "Girona FC", "Granada CF", "RCD Mallorca", "CE Sabadell FC", "CD Leganés", "Real Madrid", "Atlético de Madrid", "Atlético Madrid", "Villarreal CF", "FC Barcelona", "Sevilla FC", "Real Betis", "Getafe CF", "Rayo Vallecano", "Valencia CF", "Levante UD", "RCD Espanyol", "Málaga CF", "Real Zaragoza", "Elche CF", "UD Las Palmas", "CD Tenerife"],
+
+  "Serie C Girone A": ["Mantova 1911", "Calcio Padova", "FC Südtirol", "LR Vicenza", "Hellas Verona", "US Cremonese", "Juventus", "Inter", "AC Milan", "Brescia", "Como 1907", "Venezia FC", "Torino FC", "US Triestina", "Cittadella"],
+  "Serie C Girone B": ["Cesena FC", "Modena FC", "UC Sampdoria", "Virtus Entella", "Carrarese Calcio", "Pisa Sporting Club", "FC Empoli", "SS Arezzo", "Ascoli Calcio", "Atalanta", "Spezia Calcio", "AC Reggiana 1919", "ACF Fiorentina", "AS Roma", "SS Lazio", "Bologna FC 1909", "Parma Calcio 1913", "Genoa CFC", "Perugia", "Delfino Pescara", "Frosinone Calcio"],
+  "Serie C Girone C": ["US Avellino", "Benevento Calcio", "US Catanzaro", "SS Juve Stabia", "Palermo FC", "SSC Napoli", "SSC Bari", "U.S. Salernitana 1919", "US Lecce", "Cosenza", "Crotone", "Catania Football Club", "Calcio Foggia 1920"],
+
+  "National League North": ["AFC Fylde", "Altrincham", "Barrow AFC", "Boston United", "Carlisle United", "FC Halifax Town", "Gateshead", "Harrogate Town", "Hartlepool United", "Kidderminster Harriers", "Scunthorpe United", "Solihull Moors", "Tamworth", "Chester", "Morecambe"],
+  "National League South": ["Aldershot Town", "Boreham Wood", "Eastleigh", "Forest Green Rovers", "Hornchurch", "Southend United", "Sutton United", "Wealdstone", "Woking", "Worthing", "Yeovil Town", "Dagenham & Redbridge", "Maidstone United", "Torquay United"],
+
+  "National 1 Groupe A": ["Amiens SC", "FC Versailles", "Football Club Fleury 91", "Paris 13 Atlético", "US Thionville Lusitanos", "Valenciennes FC", "US Orléans", "SC Bastia", "Red Star FC", "Paris FC", "US Créteil-Lusitanos"],
+  "National 1 Groupe B": ["Football Club Rouen 1899", "Quevilly-Rouen Metropole", "Stade Malherbe Caen", "US Concarneau", "Vendée FC La Roche", "Stade Lavallois", "Le Mans FC", "EA Guingamp", "Stade Brestois 29", "FC Lorient", "Stade Rennais", "Girondins de Bordeaux"],
+  "National 1 Groupe C": ["AS Cannes", "Bourg en Bresse 01", "FC Villefranche", "Le Puy-en-Velay FC", "SC Aubagne Air Bel", "Nîmes Olympique", "FC Sochaux-Montbéliard", "Olympique Lyonnais", "Olympique de Marseille", "OGC Nice", "AC Ajaccio", "Grenoble Foot 38", "Clermont Foot 63", "FC Annecy"],
+
+  "NB III Északkelet": ["Diósgyőr", "Kazincbarcika Sport Club", "Mezőkövesd FC", "Karcagi Sportegyesület", "Debreceni VSC", "Nyíregyháza Spartacus"],
+  "NB III Északnyugat": ["Gyirmót", "Futball Club Ajka", "FC Csákvár", "Videoton FC Fehérvár", "ETO FC Győr", "Puskás Akadémia"],
+  "NB III Délkelet": ["Kecskeméti TE", "Szeged-GA", "Tiszakécskei LC", "Soroksár SC", "BVSC-Zugló", "Újpest FC"],
+  "NB III Délnyugat": ["FC Nagykanizsa", "Kozármisleny FC", "Szentlőrinc SE", "Ferencvárosi TC", "MTK Budapest", "Paksi FC", "Zalaegerszegi TE"],
+
+  "Srpska liga Beograd": ["FK Voždovac Beograd", "FK Teleoptik Zemun", "RFK Grafičar Beograd", "FK Crvena zvezda", "FK Partizan", "FK Čukarički", "FK IMT Novi Beograd"],
+  "Srpska liga Istok": ["FK Bor 1919", "FK Napredak Kruševac", "GFK Dubočica Leskovac", "FK Smederevo 1924", "FK Radnički Niš"],
+  "Srpska liga Vojvodina": ["FK Proleter 023 Zrenjanin", "FK TSC Bačka Topola", "OFK Vršac", "Spartak", "FK Vojvodina", "FK Spartak Subotica"],
+  "Srpska liga Zapad": ["FK Borac 1926 Čačak", "FK Javor Matis Ivanjica", "FK Jedinstvo Ub", "FK Loznica", "Metalac", "FK Radnički 1923 Kragujevac", "FK Mladost Lučani", "FK Novi Pazar"],
+
+  "3. NL Središte": ["NK Hrvatski Dragovoljac", "NK Dugo Selo", "NK Jarun Zagreb", "NK Lučko", "NK Trnje Zagreb", "NK Inker Zaprešić", "GNK Dinamo Zagreb", "NK Lokomotiva Zagreb", "NK Gorica"],
+  "3. NL Sjever": ["NK Bjelovar", "NK Koprivnica", "NK Radnik Križevci", "NK Varteks Varaždin", "NK Varaždin", "NK Slaven Belupo"],
+  "3. NL Istok": ["NK Slavonija Požega", "NK Osijek", "HNK Vukovar 1991"],
+  "3. NL Zapad": ["NK Grobničan Čavle", "NK Uljanik Pula", "HNK Rijeka", "NK Istra 1961"],
+  "3. NL Jug": ["NK Solin", "NK Uskok Klis", "NK Zagora Unešić", "HNK Hajduk Split", "HNK Šibenik"],
+
+  "Cymru North": ["Caernarfon Town", "Colwyn Bay", "Connah's Quay Nomads", "Flint Town United", "Holywell Town", "Llandudno", "The New Saints", "Airbus UK Broughton"],
+  "Cymru South": ["Barry Town United", "Briton Ferry Llansawel", "Cardiff Met University", "Haverfordwest County", "Penybont", "Ammanford", "Cambrian United", "Trefelin Boys and Girls Club"],
+
+  "Prva liga FBiH": ["FK Sarajevo", "FK Velež Mostar", "FK Željezničar Sarajevo", "HŠK Zrinjski Mostar", "NK Čelik Zenica", "NK Široki Brijeg"],
+  "Prva liga RS": ["FK BSK Banja Luka", "FK Borac Banja Luka", "FK Radnik Bijeljina", "FK Sloga Meridian Doboj"]
+ }
+}

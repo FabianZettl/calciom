@@ -1,0 +1,45 @@
+# Entscheidungen zu Jugendspielern und Mentor-Zuordnung (Jugendausbau). Eigene Festlegungen von PESM, Startwerte, nicht kalibriert.
+
+[erwartung]
+# Was Berater und Eltern erwarten: "profi" (reif, Potenzial hoch), "praxis" (zu wenig Einsätze), sonst "perspektive"
+profi_ca = 62
+profi_pa = 75
+wenig_spiele = 3
+jung_bis = 17                  # bis zu diesem Alter sorgen sich die Eltern mehr um Schule und Umzug als der Berater um das Gehalt
+
+# Haltung der Gegenseite (-2 bis +2) nach Erwartung und gewählter Option; Eltern und Berater getrennt
+[haltung.berater]
+profi = { befoerdern = 2, leihen = -1, halten = -2, perspektive = 0, ablehnen = -2 }
+praxis = { befoerdern = -1, leihen = 2, halten = 0, perspektive = 1, ablehnen = -1 }
+perspektive = { befoerdern = 1, leihen = 1, halten = 1, perspektive = 2, ablehnen = -1 }
+[haltung.eltern]
+profi = { befoerdern = 1, leihen = -1, halten = -1, perspektive = 1, ablehnen = -2 }
+praxis = { befoerdern = -2, leihen = 1, halten = 1, perspektive = 2, ablehnen = -1 }
+perspektive = { befoerdern = 0, leihen = 0, halten = 2, perspektive = 2, ablehnen = -1 }
+
+[folge]
+beziehung = 4                  # Beziehung zur Gegenseite je Haltungspunkt
+perspektive_tage = 90          # Frist der Zusage "Perspektive"
+leihe_monate = 6
+vertrag_gegen_anteil = 0.5     # Gegenangebot: so weit zwischen Angebot und Forderung
+
+# Mentor-Zuordnung: ein erfahrener Spieler gibt eine Spezialfähigkeit an einen jungen weiter (PESM-seitig; ins Spiel geschrieben wird nichts hier)
+[mentor]
+alter_abstand = 3              # Mentor mindestens so viele Jahre älter
+beziehung_ab = 60              # wie E (entwicklung3.toml): darunter kein Weitergeben
+chance_monat = 0.12            # wie E: Chance je Monat mal Passung
+chance_deckel = 0.6
+dauer_wochen = 12              # Laufzeit der Zuordnung, danach entscheidet der Wurf
+hoechstens_wege = 3            # so viele Vorschläge zeigt ein Vorgang
+spieler_hoechstens = 10        # Zehn-Limit der Spezialfähigkeiten (Test 2026-10-14); ohne Ersatz kein Weitergeben
+schreibweg = "spezialfaehigkeit_hinzufuegen"      # bestätigter Schreibweg; PESM-seitig nur geplant
+
+# Leihe eines Jugendspielers: Zielvereine aus der Vereinswelt, Einsatzerwartung aus dem Stärkeabstand, Gehaltsanteil des Zielvereins (PESM-Festlegungen, geschätzt)
+[leihe]
+ziele = 3                      # so viele Zielvereine zeigt der Vorgang
+quote_basis = 0.55             # erwartete Einsatzquote bei gleicher Stärke
+quote_skala = 50.0             # Stärkeabstand, der die Quote um 1,0 ändert (Spieler stärker als der Verein: mehr Einsätze)
+quote_min = 0.1
+anteil_basis = 0.3             # Gehaltsanteil des Zielvereins ...
+anteil_je_quote = 0.4          # ... wächst mit der Einsatzerwartung
+abstand_max = 25               # Vereine, die mehr als so viel stärker als der Spieler sind, kommen nicht in Frage (er säße nur auf der Bank)

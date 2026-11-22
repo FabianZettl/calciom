@@ -1,0 +1,3 @@
+{
+ "ablauf.fehler_verarbeiten": "Der Spielstand wurde geladen, aber die Ereignisse sind noch nicht vollständig verarbeitet. Versuche die Verarbeitung erneut; bestätigte Spieländerungen werden nicht erneut gesendet."
+}

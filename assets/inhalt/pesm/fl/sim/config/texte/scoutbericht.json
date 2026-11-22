@@ -1,0 +1,1219 @@
+{
+ "szene_tor_sieg": {
+  "teile": [
+   [
+    "{min}. Minute gegen {gegner}:",
+    "Gegen {gegner} ({ergebnis}), {min}. Minute:",
+    "Beim {ergebnis} gegen {gegner}:"
+   ],
+   [
+    "{kurz} trifft zum {stand}",
+    "{kurz} macht das {stand}",
+    "{kurz} schiebt zum {stand} ein",
+    "{kurz} erzielt das {stand}"
+   ],
+   [
+    "– der Treffer bringt den Sieg auf den Weg.",
+    "– danach kippt das Spiel.",
+    "– ein Tor, das den Unterschied macht.",
+    "."
+   ]
+  ]
+ },
+ "szene_tor": {
+  "teile": [
+   [
+    "{min}. Minute gegen {gegner}:",
+    "Gegen {gegner} ({ergebnis}), {min}. Minute:",
+    "Beim {ergebnis} gegen {gegner}:"
+   ],
+   [
+    "{kurz} trifft zum {stand}",
+    "{kurz} erzielt das {stand}",
+    "{kurz} ist zur Stelle und macht das {stand}"
+   ],
+   [
+    "– auch wenn es am Ende nicht zum Sieg reicht.",
+    "– er bleibt gefährlich, selbst wenn das Team schwächelt.",
+    "."
+   ]
+  ]
+ },
+ "szene_note": {
+  "teile": [
+   [
+    "Beim {ergebnis} gegen {gegner}",
+    "Gegen {gegner} ({ergebnis})",
+    "Im Spiel gegen {gegner}"
+   ],
+   [
+    "holt {kurz} die Note {note}",
+    "ist {kurz} mit der Note {note} einer der Besten",
+    "spielt {kurz} stark auf (Note {note})"
+   ],
+   [
+    ".",
+    "– an ihm läuft viel vorbei.",
+    "– er zieht die Fäden."
+   ]
+  ]
+ },
+ "rat_angriff": {
+  "teile": [
+   [
+    "Nie allein lassen:",
+    "Eng decken:",
+    "Achtung im Strafraum:"
+   ],
+   [
+    "unser Innenverteidiger bleibt an ihm dran,",
+    "Abstand zum Mann kurz halten,",
+    "früh stören, bevor er sich dreht,"
+   ],
+   [
+    "sonst bekommt er die Abschlüsse, die er braucht.",
+    "die Räume hinter der Kette gehören zugestellt.",
+    "jeder freie Ball im Sechzehner ist für ihn eine Chance."
+   ]
+  ]
+ },
+ "rat_angriff_tore": {
+  "teile": [
+   [
+    "Er ist der Torjäger:",
+    "Gefährlichster Mann vorn:",
+    "Seine Tore tragen das Team:"
+   ],
+   [
+    "doppeln, sobald er den Ball bekommt,",
+    "der Sechser lässt sich vor ihn fallen,",
+    "keine Flanke ohne Druck auf den Flankengeber,"
+   ],
+   [
+    "dann ist er abgemeldet.",
+    "ohne Zuspiele ist er harmlos.",
+    "so kommt er nicht zum Abschluss."
+   ]
+  ]
+ },
+ "rat_mittel": {
+  "teile": [
+   [
+    "Passwege zustellen:",
+    "Ins Spiel fallen lassen ist verboten:",
+    "Den Taktgeber stören:"
+   ],
+   [
+    "unser Mittelfeld läuft ihn früh an,",
+    "ein Spieler bleibt immer in seiner Nähe,",
+    "er darf nicht frei aufdrehen,"
+   ],
+   [
+    "dann verliert der Aufbau seinen Rhythmus.",
+    "sonst laufen die Angriffe über ihn.",
+    "über ihn kommen die gefährlichen Bälle."
+   ]
+  ]
+ },
+ "rat_mittel_tore": {
+  "teile": [
+   [
+    "Er kommt aus der Tiefe:",
+    "Sein Nachrücken ist gefährlich:",
+    "Achtung bei seinen Läufen:"
+   ],
+   [
+    "unser Sechser verfolgt ihn in den Strafraum,",
+    "den Rückraum besetzen,",
+    "bei zweiten Bällen schneller sein,"
+   ],
+   [
+    "sonst trifft er aus dem Rückraum.",
+    "seine Tore fallen aus dem Nachsetzen.",
+    "dort hat er schon mehrfach getroffen."
+   ]
+  ]
+ },
+ "rat_abwehr": {
+  "teile": [
+   [
+    "Bei Standards aufpassen:",
+    "Gefahr bei ruhenden Bällen:",
+    "Er ist mehr als ein Verteidiger:"
+   ],
+   [
+    "bei Ecken und Freistößen eng decken,",
+    "unser kopfballstärkster Spieler übernimmt ihn,",
+    "im Strafraum nie aus den Augen lassen,"
+   ],
+   [
+    "sonst köpft er ein.",
+    "er sucht den Weg nach vorn.",
+    "aus dem Spiel heraus ist er kaum zu sehen."
+   ]
+  ]
+ },
+ "rat_abwehr_tore": {
+  "teile": [
+   [
+    "Achtung bei Standards:",
+    "Er trifft auch vorn:",
+    "Gefährlich bei ruhenden Bällen:"
+   ],
+   [
+    "unser Kopfballstärkster nimmt ihn bei jeder Ecke,",
+    "eng decken bei Freistößen,",
+    "keine unnötigen Fouls am Strafraum,"
+   ],
+   [
+    "er hat schon mehrfach getroffen.",
+    "seine Tore fallen nach Standards.",
+    "dort ist er brandgefährlich."
+   ]
+  ]
+ },
+ "taktik_attacking": {
+  "teile": [
+   [
+    "{verein} spielt nach vorn",
+    "{verein} will das Spiel machen",
+    "{verein} sucht den Weg zum Tor"
+   ],
+   [
+    "und stellt sich im {formation} offensiv auf.",
+    "– im {formation} mit vielen Spielern vor dem Ball."
+   ],
+   [
+    "Das öffnet Räume für Konter.",
+    "Hinter der Kette wird es Platz geben.",
+    "Wer den Ball schnell erobert, findet Lücken."
+   ]
+  ]
+ },
+ "taktik_balanced": {
+  "teile": [
+   [
+    "{verein} spielt ausgewogen",
+    "{verein} hält die Balance",
+    "{verein} geht kein großes Risiko"
+   ],
+   [
+    "im {formation},",
+    "aus einem {formation} heraus,"
+   ],
+   [
+    "mit klarer Ordnung in beide Richtungen.",
+    "ohne sich hinten zu entblößen.",
+    "und wartet auf Fehler im Aufbau."
+   ]
+  ]
+ },
+ "taktik_defensive": {
+  "teile": [
+   [
+    "{verein} steht tief",
+    "{verein} lauert",
+    "{verein} verteidigt zuerst"
+   ],
+   [
+    "im {formation}",
+    "aus einem kompakten {formation}"
+   ],
+   [
+    "und setzt auf Konter.",
+    "– wir werden viel Ballbesitz haben und Geduld brauchen.",
+    "und macht die Räume eng."
+   ]
+  ]
+ },
+ "zf_spielweise_attacking": {
+  "teile": [
+   [
+    "{verein} spielt im {formation}",
+    "{verein} läuft im {formation} auf",
+    "Die Grundordnung von {verein}: {formation}"
+   ],
+   [
+    ", geht früh drauf und schiebt viele Spieler nach vorn.",
+    "– mutig, mit Tempo nach vorn.",
+    ", spielt offensiv und verteidigt hoch."
+   ]
+  ]
+ },
+ "zf_spielweise_balanced": {
+  "teile": [
+   [
+    "{verein} spielt im {formation}",
+    "{verein} läuft im {formation} auf",
+    "Die Grundordnung von {verein}: {formation}"
+   ],
+   [
+    ", ausgewogen und gut sortiert.",
+    "– geordnet, ohne großes Risiko.",
+    ", hält Abstände und wartet auf Fehler."
+   ]
+  ]
+ },
+ "zf_spielweise_defensive": {
+  "teile": [
+   [
+    "{verein} spielt im {formation}",
+    "{verein} läuft im {formation} auf",
+    "Die Grundordnung von {verein}: {formation}"
+   ],
+   [
+    ", steht tief und setzt auf Konter.",
+    "– kompakt und abwartend.",
+    ", macht die Räume eng und lauert."
+   ]
+  ]
+ },
+ "zf_vorteil": {
+  "teile": [
+   [
+    "Ihr größter Vorteil liegt {bereich}:",
+    "Überlegen sind sie uns {bereich}:",
+    "{bereich} sind sie besser besetzt:"
+   ],
+   [
+    "dort müssen wir dagegenhalten.",
+    "da sind wir gefordert.",
+    "das ist ihr Trumpf."
+   ]
+  ]
+ },
+ "zf_nachteil": {
+  "teile": [
+   [
+    "Wir sind {bereich} überlegen",
+    "{bereich} haben wir die Nase vorn",
+    "Unser Vorteil liegt {bereich}"
+   ],
+   [
+    "– dort können wir das Spiel entscheiden.",
+    "– das sollten wir ausspielen.",
+    "."
+   ]
+  ]
+ },
+ "zf_schluessel_tore": {
+  "teile": [
+   [
+    "Schlüsselspieler ist {name} ({pos}):",
+    "Um {name} ({pos}) dreht sich alles:",
+    "Der Mann, auf den es ankommt: {name} ({pos}),"
+   ],
+   [
+    "{tore_t} in {spiele_t}.",
+    "{tore_t} aus {spiele_t} in dieser Saison."
+   ]
+  ]
+ },
+ "zf_schluessel": {
+  "teile": [
+   [
+    "Schlüsselspieler ist {name} ({pos})",
+    "Um {name} ({pos}) dreht sich viel",
+    "Der stärkste Mann: {name} ({pos})"
+   ],
+   [
+    "– bisher ohne Tor, aber mit großem Einfluss.",
+    "– er gibt dem Spiel Halt.",
+    "."
+   ]
+  ]
+ },
+ "zf_saison": {
+  "teile": [
+   [
+    "Saison: Platz {platz} in der {liga}",
+    "Tabellenlage: {platz}. Platz",
+    "In der {liga} stehen sie auf Platz {platz}"
+   ],
+   [
+    ", {punkte_t} aus {spiele_t}.",
+    " – {punkte_t} aus {spiele_t}."
+   ]
+  ]
+ },
+ "zf_form_gut": {
+  "teile": [
+   [
+    "Sie kommen mit Rückenwind:",
+    "Die Form stimmt:",
+    "Gut drauf:"
+   ],
+   [
+    "{siege_t} aus den letzten {n} Spielen."
+   ]
+  ]
+ },
+ "zf_form_mittel": {
+  "teile": [
+   [
+    "Die Form schwankt:",
+    "Wechselhaft zuletzt:",
+    "Kein klarer Trend:"
+   ],
+   [
+    "{siege_t} aus den letzten {n} Spielen."
+   ]
+  ]
+ },
+ "zf_form_schlecht": {
+  "teile": [
+   [
+    "Sie stecken in einer Krise:",
+    "Die Form fehlt:",
+    "Wenig Selbstvertrauen:"
+   ],
+   [
+    "{siege_t} aus den letzten {n} Spielen."
+   ]
+  ]
+ },
+ "st_tor_titel": {
+  "teile": [
+   [
+    "Stärker im Tor"
+   ]
+  ]
+ },
+ "st_tor": {
+  "teile": [
+   [
+    "Sie sind uns {bereich} überlegen",
+    "{bereich} haben sie die bessere Besetzung",
+    "{bereich} liegt ihr Vorteil"
+   ],
+   [
+    "– da müssen wir dagegenhalten.",
+    "– darauf müssen wir uns einstellen.",
+    "."
+   ]
+  ]
+ },
+ "st_abwehr_titel": {
+  "teile": [
+   [
+    "Stärker in der Abwehr"
+   ]
+  ]
+ },
+ "st_abwehr": {
+  "teile": [
+   [
+    "Sie sind uns {bereich} überlegen",
+    "{bereich} haben sie die bessere Besetzung",
+    "{bereich} liegt ihr Vorteil"
+   ],
+   [
+    "– da müssen wir dagegenhalten.",
+    "– darauf müssen wir uns einstellen.",
+    "."
+   ]
+  ]
+ },
+ "st_mittel_titel": {
+  "teile": [
+   [
+    "Stärker im Mittelfeld"
+   ]
+  ]
+ },
+ "st_mittel": {
+  "teile": [
+   [
+    "Sie sind uns {bereich} überlegen",
+    "{bereich} haben sie die bessere Besetzung",
+    "{bereich} liegt ihr Vorteil"
+   ],
+   [
+    "– da müssen wir dagegenhalten.",
+    "– darauf müssen wir uns einstellen.",
+    "."
+   ]
+  ]
+ },
+ "st_angriff_titel": {
+  "teile": [
+   [
+    "Stärker im Angriff"
+   ]
+  ]
+ },
+ "st_angriff": {
+  "teile": [
+   [
+    "Sie sind uns {bereich} überlegen",
+    "{bereich} haben sie die bessere Besetzung",
+    "{bereich} liegt ihr Vorteil"
+   ],
+   [
+    "– da müssen wir dagegenhalten.",
+    "– darauf müssen wir uns einstellen.",
+    "."
+   ]
+  ]
+ },
+ "st_tempo_titel": {
+  "teile": [
+   [
+    "Stärker im Tempo"
+   ]
+  ]
+ },
+ "st_tempo": {
+  "teile": [
+   [
+    "Sie sind uns {bereich} überlegen",
+    "{bereich} haben sie die bessere Besetzung",
+    "{bereich} liegt ihr Vorteil"
+   ],
+   [
+    "– da müssen wir dagegenhalten.",
+    "– darauf müssen wir uns einstellen.",
+    "."
+   ]
+  ]
+ },
+ "st_ausdauer_titel": {
+  "teile": [
+   [
+    "Stärker in der Ausdauer"
+   ]
+  ]
+ },
+ "st_ausdauer": {
+  "teile": [
+   [
+    "Sie sind uns {bereich} überlegen",
+    "{bereich} haben sie die bessere Besetzung",
+    "{bereich} liegt ihr Vorteil"
+   ],
+   [
+    "– da müssen wir dagegenhalten.",
+    "– darauf müssen wir uns einstellen.",
+    "."
+   ]
+  ]
+ },
+ "st_kraft_titel": {
+  "teile": [
+   [
+    "Stärker in den Zweikämpfen"
+   ]
+  ]
+ },
+ "st_kraft": {
+  "teile": [
+   [
+    "Sie sind uns {bereich} überlegen",
+    "{bereich} haben sie die bessere Besetzung",
+    "{bereich} liegt ihr Vorteil"
+   ],
+   [
+    "– da müssen wir dagegenhalten.",
+    "– darauf müssen wir uns einstellen.",
+    "."
+   ]
+  ]
+ },
+ "st_kopfball_titel": {
+  "teile": [
+   [
+    "Stärker in der Luft"
+   ]
+  ]
+ },
+ "st_kopfball": {
+  "teile": [
+   [
+    "Sie sind uns {bereich} überlegen",
+    "{bereich} haben sie die bessere Besetzung",
+    "{bereich} liegt ihr Vorteil"
+   ],
+   [
+    "– da müssen wir dagegenhalten.",
+    "– darauf müssen wir uns einstellen.",
+    "."
+   ]
+  ]
+ },
+ "st_passspiel_titel": {
+  "teile": [
+   [
+    "Stärker im Passspiel"
+   ]
+  ]
+ },
+ "st_passspiel": {
+  "teile": [
+   [
+    "Sie sind uns {bereich} überlegen",
+    "{bereich} haben sie die bessere Besetzung",
+    "{bereich} liegt ihr Vorteil"
+   ],
+   [
+    "– da müssen wir dagegenhalten.",
+    "– darauf müssen wir uns einstellen.",
+    "."
+   ]
+  ]
+ },
+ "st_bereich_grund": {
+  "teile": [
+   [
+    "Grund: Ihre vermutliche Startelf ist {bereich} besser besetzt als unsere."
+   ]
+  ]
+ },
+ "sw_tor_titel": {
+  "teile": [
+   [
+    "Schwächer im Tor"
+   ]
+  ]
+ },
+ "sw_tor": {
+  "teile": [
+   [
+    "Wir sind {bereich} überlegen",
+    "{bereich} haben wir die bessere Besetzung",
+    "{bereich} können wir ihnen wehtun"
+   ],
+   [
+    "– das sollten wir ausnutzen.",
+    "– dort setzen wir an.",
+    "."
+   ]
+  ]
+ },
+ "sw_abwehr_titel": {
+  "teile": [
+   [
+    "Schwächer in der Abwehr"
+   ]
+  ]
+ },
+ "sw_abwehr": {
+  "teile": [
+   [
+    "Wir sind {bereich} überlegen",
+    "{bereich} haben wir die bessere Besetzung",
+    "{bereich} können wir ihnen wehtun"
+   ],
+   [
+    "– das sollten wir ausnutzen.",
+    "– dort setzen wir an.",
+    "."
+   ]
+  ]
+ },
+ "sw_mittel_titel": {
+  "teile": [
+   [
+    "Schwächer im Mittelfeld"
+   ]
+  ]
+ },
+ "sw_mittel": {
+  "teile": [
+   [
+    "Wir sind {bereich} überlegen",
+    "{bereich} haben wir die bessere Besetzung",
+    "{bereich} können wir ihnen wehtun"
+   ],
+   [
+    "– das sollten wir ausnutzen.",
+    "– dort setzen wir an.",
+    "."
+   ]
+  ]
+ },
+ "sw_angriff_titel": {
+  "teile": [
+   [
+    "Schwächer im Angriff"
+   ]
+  ]
+ },
+ "sw_angriff": {
+  "teile": [
+   [
+    "Wir sind {bereich} überlegen",
+    "{bereich} haben wir die bessere Besetzung",
+    "{bereich} können wir ihnen wehtun"
+   ],
+   [
+    "– das sollten wir ausnutzen.",
+    "– dort setzen wir an.",
+    "."
+   ]
+  ]
+ },
+ "sw_tempo_titel": {
+  "teile": [
+   [
+    "Schwächer im Tempo"
+   ]
+  ]
+ },
+ "sw_tempo": {
+  "teile": [
+   [
+    "Wir sind {bereich} überlegen",
+    "{bereich} haben wir die bessere Besetzung",
+    "{bereich} können wir ihnen wehtun"
+   ],
+   [
+    "– das sollten wir ausnutzen.",
+    "– dort setzen wir an.",
+    "."
+   ]
+  ]
+ },
+ "sw_ausdauer_titel": {
+  "teile": [
+   [
+    "Schwächer in der Ausdauer"
+   ]
+  ]
+ },
+ "sw_ausdauer": {
+  "teile": [
+   [
+    "Wir sind {bereich} überlegen",
+    "{bereich} haben wir die bessere Besetzung",
+    "{bereich} können wir ihnen wehtun"
+   ],
+   [
+    "– das sollten wir ausnutzen.",
+    "– dort setzen wir an.",
+    "."
+   ]
+  ]
+ },
+ "sw_kraft_titel": {
+  "teile": [
+   [
+    "Schwächer in den Zweikämpfen"
+   ]
+  ]
+ },
+ "sw_kraft": {
+  "teile": [
+   [
+    "Wir sind {bereich} überlegen",
+    "{bereich} haben wir die bessere Besetzung",
+    "{bereich} können wir ihnen wehtun"
+   ],
+   [
+    "– das sollten wir ausnutzen.",
+    "– dort setzen wir an.",
+    "."
+   ]
+  ]
+ },
+ "sw_kopfball_titel": {
+  "teile": [
+   [
+    "Schwächer in der Luft"
+   ]
+  ]
+ },
+ "sw_kopfball": {
+  "teile": [
+   [
+    "Wir sind {bereich} überlegen",
+    "{bereich} haben wir die bessere Besetzung",
+    "{bereich} können wir ihnen wehtun"
+   ],
+   [
+    "– das sollten wir ausnutzen.",
+    "– dort setzen wir an.",
+    "."
+   ]
+  ]
+ },
+ "sw_passspiel_titel": {
+  "teile": [
+   [
+    "Schwächer im Passspiel"
+   ]
+  ]
+ },
+ "sw_passspiel": {
+  "teile": [
+   [
+    "Wir sind {bereich} überlegen",
+    "{bereich} haben wir die bessere Besetzung",
+    "{bereich} können wir ihnen wehtun"
+   ],
+   [
+    "– das sollten wir ausnutzen.",
+    "– dort setzen wir an.",
+    "."
+   ]
+  ]
+ },
+ "sw_bereich_grund": {
+  "teile": [
+   [
+    "Grund: Unsere Startelf ist {bereich} besser besetzt als ihre vermutliche Startelf."
+   ]
+  ]
+ },
+ "st_tore_titel": {
+  "teile": [
+   [
+    "Treffsicher"
+   ]
+  ]
+ },
+ "st_tore": {
+  "teile": [
+   [
+    "{tore_t} in den letzten {n} Spielen",
+    "Vorn treffen sie zuverlässig: {tore_t} in {n} Spielen"
+   ],
+   [
+    "."
+   ]
+  ]
+ },
+ "st_tore_grund": {
+  "teile": [
+   [
+    "Grund: {tore_t} in den letzten {n} Spielen."
+   ]
+  ]
+ },
+ "sw_tore_titel": {
+  "teile": [
+   [
+    "Harmlos vorn"
+   ]
+  ]
+ },
+ "sw_tore": {
+  "teile": [
+   [
+    "{tore_t} in den letzten {n} Spielen",
+    "Vorn fehlt die Durchschlagskraft: {tore_t} in {n} Spielen"
+   ],
+   [
+    "– sitzen wir sicher, bleibt es eng für sie.",
+    "."
+   ]
+  ]
+ },
+ "sw_tore_grund": {
+  "teile": [
+   [
+    "Grund: {tore_t} in den letzten {n} Spielen."
+   ]
+  ]
+ },
+ "st_hinten_titel": {
+  "teile": [
+   [
+    "Dicht hinten"
+   ]
+  ]
+ },
+ "st_hinten": {
+  "teile": [
+   [
+    "Sie lassen kaum etwas zu",
+    "Hinten stehen sie sicher"
+   ],
+   [
+    ": {gegentore_t} in {n} Spielen, {null_t} ohne Gegentor."
+   ]
+  ]
+ },
+ "st_hinten_grund": {
+  "teile": [
+   [
+    "Grund: {gegentore_t} und {null_t} ohne Gegentor in den letzten {n} Spielen."
+   ]
+  ]
+ },
+ "sw_hinten_titel": {
+  "teile": [
+   [
+    "Anfällig hinten"
+   ]
+  ]
+ },
+ "sw_hinten": {
+  "teile": [
+   [
+    "Hinten wackelt es",
+    "Die Abwehr ist zu knacken"
+   ],
+   [
+    ": {gegentore_t} in {n} Spielen."
+   ]
+  ]
+ },
+ "sw_hinten_grund": {
+  "teile": [
+   [
+    "Grund: {gegentore_t} in den letzten {n} Spielen."
+   ]
+  ]
+ },
+ "st_serie_titel": {
+  "teile": [
+   [
+    "Lauf"
+   ]
+  ]
+ },
+ "st_serie": {
+  "teile": [
+   [
+    "Sie sind im Lauf",
+    "Die Mannschaft hat einen Lauf"
+   ],
+   [
+    ": {siege_t} aus den letzten {n} Spielen."
+   ]
+  ]
+ },
+ "st_serie_grund": {
+  "teile": [
+   [
+    "Grund: {siege_t} aus den letzten {n} Spielen."
+   ]
+  ]
+ },
+ "sw_serie_titel": {
+  "teile": [
+   [
+    "Ohne Sieg"
+   ]
+  ]
+ },
+ "sw_serie": {
+  "teile": [
+   [
+    "Seit {n} Spielen ohne Sieg",
+    "Kein Sieg in den letzten {n} Spielen"
+   ],
+   [
+    "– das Selbstvertrauen fehlt.",
+    "."
+   ]
+  ]
+ },
+ "sw_serie_grund": {
+  "teile": [
+   [
+    "Grund: kein Sieg in den letzten {n} Spielen."
+   ]
+  ]
+ },
+ "sw_ausfall_titel": {
+  "teile": [
+   [
+    "Ausfälle"
+   ]
+  ]
+ },
+ "sw_ausfall": {
+  "teile": [
+   [
+    "{namen} fehlt",
+    "Ohne {namen}"
+   ],
+   [
+    "– das schwächt die Startelf.",
+    "– eine Lücke in der Stammelf."
+   ]
+  ]
+ },
+ "sw_ausfall_grund": {
+  "teile": [
+   [
+    "Grund: {name} ist verletzt oder gesperrt."
+   ]
+  ]
+ },
+ "sw_ausfall_n_grund": {
+  "teile": [
+   [
+    "Grund: {namen} sind verletzt oder gesperrt."
+   ]
+  ]
+ },
+ "hw_spieler_titel": {
+  "teile": [
+   [
+    "{name} ausschalten"
+   ]
+  ]
+ },
+ "hw_spieler": {
+  "teile": [
+   [
+    "Er ist ihr Torjäger:",
+    "Gegen ihn braucht es einen Plan:"
+   ],
+   [
+    "eng decken, doppeln, keine Zuspiele in den Lauf.",
+    "immer einen Mann an ihm, im Strafraum zwei."
+   ]
+  ]
+ },
+ "hw_spieler_grund": {
+  "teile": [
+   [
+    "Grund: {tore_t} in seinen letzten {spiele_t}."
+   ]
+  ]
+ },
+ "hw_tempo_titel": {
+  "teile": [
+   [
+    "Tiefe absichern"
+   ]
+  ]
+ },
+ "hw_tempo": {
+  "teile": [
+   [
+    "Ihre Spieler sind schneller als unsere:",
+    "Gegen ihr Tempo hilft nur Ordnung:"
+   ],
+   [
+    "Kette nicht zu hoch stellen, Bälle in den Rücken vermeiden.",
+    "tiefer verteidigen, immer einen absichern lassen."
+   ]
+  ]
+ },
+ "hw_tempo_grund": {
+  "teile": [
+   [
+    "Grund: Ihre vermutliche Startelf ist im Tempo besser besetzt als unsere."
+   ]
+  ]
+ },
+ "hw_tempo_wir_titel": {
+  "teile": [
+   [
+    "Tempo ausspielen"
+   ]
+  ]
+ },
+ "hw_tempo_wir": {
+  "teile": [
+   [
+    "Wir sind schneller:",
+    "Unser Tempo ist die Waffe:"
+   ],
+   [
+    "Bälle hinter die Kette spielen, Konter schnell abschließen.",
+    "in die Tiefe spielen, nicht quer schieben."
+   ]
+  ]
+ },
+ "hw_tempo_wir_grund": {
+  "teile": [
+   [
+    "Grund: Unsere Startelf ist im Tempo besser besetzt als ihre."
+   ]
+  ]
+ },
+ "hw_luft_titel": {
+  "teile": [
+   [
+    "Flanken verhindern"
+   ]
+  ]
+ },
+ "hw_luft": {
+  "teile": [
+   [
+    "In der Luft sind sie stärker:",
+    "Kopfballduelle sind ihr Spiel:"
+   ],
+   [
+    "Flanken früh unterbinden, bei Standards konsequent zuordnen.",
+    "keine leichten Ecken herschenken, Flankengeber stellen."
+   ]
+  ]
+ },
+ "hw_luft_grund": {
+  "teile": [
+   [
+    "Grund: Ihre vermutliche Startelf ist im Kopfball besser besetzt als unsere."
+   ]
+  ]
+ },
+ "hw_ausdauer_titel": {
+  "teile": [
+   [
+    "Hinten raus zulegen"
+   ]
+  ]
+ },
+ "hw_ausdauer": {
+  "teile": [
+   [
+    "Wir haben die längere Luft:",
+    "Die Schlussphase gehört uns:"
+   ],
+   [
+    "hohes Tempo halten, nach einer Stunde frische Kräfte bringen.",
+    "das Spiel lange offen halten und spät nachlegen."
+   ]
+  ]
+ },
+ "hw_ausdauer_grund": {
+  "teile": [
+   [
+    "Grund: Unsere Startelf ist in der Ausdauer besser besetzt als ihre."
+   ]
+  ]
+ },
+ "hw_flanke_titel": {
+  "teile": [
+   [
+    "Über die {seite} Seite"
+   ]
+  ]
+ },
+ "hw_flanke": {
+  "teile": [
+   [
+    "{name} ist ihre schwächste Stelle hinten:",
+    "Ihre {seite} Abwehrseite ist anfällig:"
+   ],
+   [
+    "unsere Angriffe dorthin lenken, Eins-gegen-eins suchen.",
+    "dort überladen und in die Tiefe gehen."
+   ]
+  ]
+ },
+ "hw_flanke_grund": {
+  "teile": [
+   [
+    "Grund: {name} ist schwächer besetzt als ihre Innenverteidigung."
+   ]
+  ]
+ },
+ "hw_druck_titel": {
+  "teile": [
+   [
+    "Früh Druck machen"
+   ]
+  ]
+ },
+ "hw_druck": {
+  "teile": [
+   [
+    "Ihre Abwehr ist zu knacken:",
+    "Hinten wackeln sie:"
+   ],
+   [
+    "von Beginn an hoch anlaufen und Fehler erzwingen.",
+    "aggressiv beginnen, sie kommen mit Druck nicht klar."
+   ]
+  ]
+ },
+ "hw_druck_grund": {
+  "teile": [
+   [
+    "Grund: {gegentore_t} in den letzten {n} Spielen."
+   ]
+  ]
+ },
+ "duell_wir_staerke": {
+  "teile": [
+   [
+    "{wir_kurz} ist {die_kurz} überlegen",
+    "Vorteil für uns: {wir_kurz} ist stärker als {die_kurz}",
+    "Hier haben wir die Oberhand"
+   ],
+   [
+    ".",
+    "– dieses Duell sollten wir gewinnen."
+   ]
+  ]
+ },
+ "duell_wir_tempo_wir": {
+  "teile": [
+   [
+    "Gleich stark, aber {wir_kurz} ist schneller",
+    "{wir_kurz} hat das bessere Tempo"
+   ],
+   [
+    ".",
+    "– das kann den Ausschlag geben."
+   ]
+  ]
+ },
+ "duell_die_staerke": {
+  "teile": [
+   [
+    "{die_kurz} ist {wir_kurz} überlegen",
+    "Vorteil für sie: {die_kurz} ist stärker als {wir_kurz}",
+    "Hier wird es schwer"
+   ],
+   [
+    ".",
+    "– {wir_kurz} braucht Hilfe."
+   ]
+  ]
+ },
+ "duell_die_tempo_die": {
+  "teile": [
+   [
+    "Gleich stark, aber {die_kurz} ist schneller",
+    "{die_kurz} hat das bessere Tempo"
+   ],
+   [
+    ".",
+    "– {wir_kurz} darf ihn nicht laufen lassen."
+   ]
+  ]
+ },
+ "duell_offen_tempo_wir": {
+  "teile": [
+   [
+    "Ausgeglichen, {wir_kurz} ist etwas schneller",
+    "Offenes Duell, kleiner Tempovorteil für {wir_kurz}"
+   ],
+   [
+    "."
+   ]
+  ]
+ },
+ "duell_offen_tempo_die": {
+  "teile": [
+   [
+    "Ausgeglichen, {die_kurz} ist etwas schneller",
+    "Offenes Duell, kleiner Tempovorteil für {die_kurz}"
+   ],
+   [
+    "."
+   ]
+  ]
+ },
+ "duell_offen_gleich": {
+  "teile": [
+   [
+    "Ausgeglichen",
+    "Ein Duell auf Augenhöhe",
+    "Offen"
+   ],
+   [
+    ": hier entscheidet die Tagesform.",
+    "."
+   ]
+  ]
+ }
+}

@@ -1,0 +1,768 @@
+# Pool der Antwortbausteine (Sitzung H3). Ein Baustein = Absicht + Ton + Bedingungen; der ausformulierte Satz entsteht erst beim Senden
+# (Texte `dlg.ich.<id>`). Gruppen für `nach` und `nicht_nach`: POS = zustimmend, begeistert; NEG = ablehnend, verletzt, misstrauisch;
+# DRUCK = drohung, ultimatum; FORD = fordernd, gegenangebot; OFFEN = frage, ausweichend.
+# Felder: id, absicht, ton, nach (leer = nach allem), nicht_nach, bedingungen, punkt ("*" = ein offener Punkt, "" = keiner),
+#         modi (Vorgabe ["dialog"]), s = Faktor auf die Tonwirkung, v = Verhältnis, r = Risiko 0–3, max = Verwendungen je Gespräch (Vorgabe 2).
+# Bedingungen: verhaeltnis>=N, verhaeltnis<N, stimmung>=N, stimmung<N, vertrauen>=N, vertrauen<N, runde>=N, stark, schwach, luecke, offen,
+#              keine_punkte, zusage_moeglich, wiederholt, frist, budget; "!" davor verneint.
+
+[absicht]
+reihenfolge = ["zustimmen", "danken", "loben", "kritisieren", "erklaeren", "ausblick", "nachfragen", "gegenangebot", "kompromiss", "versprechen", "gefuehl", "entschuldigen",
+               "beruhigen", "auflockern", "druck", "zeit", "ablehnen", "ablenken", "abschliessen", "abbrechen"]
+
+[gruppen]
+POS = ["zustimmend", "begeistert"]
+NEG = ["ablehnend", "verletzt", "misstrauisch"]
+DRUCK = ["drohung", "ultimatum"]
+FORD = ["fordernd", "gegenangebot"]
+OFFEN = ["frage", "ausweichend"]
+
+# ---- Zustimmen, Danken, Loben ----
+[[baustein]]
+id = "z_warm"
+absicht = "zustimmen"
+ton = "warm"
+nach = ["FORD", "OFFEN", "POS"]
+nicht_nach = ["DRUCK"]
+punkt = "*"
+bedingungen = ["luecke"]
+s = 1.2
+v = 3
+max = 1
+[[baustein]]
+id = "z_sachlich"
+absicht = "zustimmen"
+ton = "sachlich"
+nach = ["FORD", "OFFEN"]
+nicht_nach = ["DRUCK"]
+punkt = "*"
+bedingungen = ["luecke"]
+v = 1
+max = 1
+[[baustein]]
+id = "z_widerwillig"
+absicht = "zustimmen"
+ton = "bestimmt"
+nach = ["FORD", "DRUCK"]
+punkt = "*"
+bedingungen = ["luecke", "schwach"]
+v = -2
+r = 1
+max = 1
+[[baustein]]
+id = "d_warm"
+absicht = "danken"
+ton = "warm"
+nach = ["POS"]
+nicht_nach = ["DRUCK", "NEG"]
+s = 1.0
+v = 2
+[[baustein]]
+id = "l_lob"
+absicht = "loben"
+ton = "lob"
+nach = ["POS", "OFFEN"]
+nicht_nach = ["DRUCK", "NEG"]
+bedingungen = ["verhaeltnis>=-10"]
+s = 1.0
+v = 2
+# ---- Verstehen ----
+[[baustein]]
+id = "e_sachlich"
+absicht = "erklaeren"
+ton = "sachlich"
+nach = ["frage", "misstrauisch", "ausweichend", "ablehnend"]
+v = 1
+[[baustein]]
+id = "e_warm"
+absicht = "erklaeren"
+ton = "warm"
+nach = ["verletzt", "misstrauisch", "frage"]
+v = 2
+[[baustein]]
+id = "n_sachlich"
+absicht = "nachfragen"
+ton = "sachlich"
+nach = ["NEG", "FORD", "OFFEN"]
+nicht_nach = ["DRUCK"]
+punkt = "*"
+v = 0
+[[baustein]]
+id = "n_warm"
+absicht = "nachfragen"
+ton = "warm"
+nach = ["NEG", "OFFEN", "verletzt"]
+nicht_nach = ["DRUCK"]
+bedingungen = ["verhaeltnis>=-30"]
+v = 1
+[[baustein]]
+id = "n_hakt"
+absicht = "nachfragen"
+ton = "bestimmt"
+nach = ["ausweichend", "ablehnend", "misstrauisch"]
+bedingungen = ["runde>=2"]
+punkt = "*"
+r = 1
+[[baustein]]
+id = "n_allgemein"
+absicht = "nachfragen"
+ton = "sachlich"
+nach = []
+max = 3
+# ---- Verhandeln ----
+[[baustein]]
+id = "g_sachlich"
+absicht = "gegenangebot"
+ton = "sachlich"
+nach = ["FORD", "NEG", "OFFEN"]
+nicht_nach = ["DRUCK"]
+punkt = "*"
+bedingungen = ["luecke"]
+max = 3
+[[baustein]]
+id = "g_bestimmt"
+absicht = "gegenangebot"
+ton = "bestimmt"
+nach = ["FORD", "ablehnend"]
+punkt = "*"
+bedingungen = ["luecke", "stimmung>=25"]
+r = 1
+max = 2
+[[baustein]]
+id = "k_warm"
+absicht = "kompromiss"
+ton = "warm"
+nach = ["FORD", "ablehnend", "OFFEN"]
+nicht_nach = ["DRUCK"]
+punkt = "*"
+bedingungen = ["luecke", "verhaeltnis>=-20", "runde>=1"]
+v = 2
+max = 1
+[[baustein]]
+id = "k_sachlich"
+absicht = "kompromiss"
+ton = "sachlich"
+nach = ["gegenangebot", "fordernd", "ablehnend"]
+punkt = "*"
+bedingungen = ["luecke", "runde>=1"]
+max = 1
+[[baustein]]
+id = "v_warm"
+absicht = "versprechen"
+ton = "warm"
+nach = ["FORD", "NEG", "OFFEN"]
+nicht_nach = ["DRUCK"]
+punkt = "*"
+bedingungen = ["luecke", "zusage_moeglich"]
+v = 2
+r = 1
+max = 1
+[[baustein]]
+id = "v_bestimmt"
+absicht = "versprechen"
+ton = "bestimmt"
+nach = ["FORD", "DRUCK"]
+punkt = "*"
+bedingungen = ["luecke", "zusage_moeglich", "verhaeltnis>=0"]
+r = 1
+max = 1
+# ---- Gefühl und Beruhigung ----
+[[baustein]]
+id = "f_warm"
+absicht = "gefuehl"
+ton = "warm"
+nach = ["NEG", "FORD", "OFFEN"]
+nicht_nach = ["DRUCK"]
+bedingungen = ["verhaeltnis>=-30"]
+v = 2
+r = 1
+max = 1
+[[baustein]]
+id = "f_lob"
+absicht = "gefuehl"
+ton = "lob"
+nach = ["FORD", "OFFEN", "POS"]
+nicht_nach = ["DRUCK"]
+bedingungen = ["verhaeltnis>=10"]
+v = 2
+max = 1
+[[baustein]]
+id = "s_warm"
+absicht = "entschuldigen"
+ton = "warm"
+nach = ["verletzt", "ablehnend", "misstrauisch"]
+bedingungen = ["stimmung<55"]
+s = 1.3
+v = 3
+max = 1
+[[baustein]]
+id = "b_warm"
+absicht = "beruhigen"
+ton = "warm"
+nach = ["DRUCK", "verletzt", "fordernd"]
+bedingungen = ["stimmung<50"]
+s = 1.2
+v = 1
+[[baustein]]
+id = "b_sachlich"
+absicht = "beruhigen"
+ton = "sachlich"
+nach = ["DRUCK", "fordernd"]
+max = 1
+# ---- Druck, Zeit, Ablehnen ----
+[[baustein]]
+id = "p_bestimmt"
+absicht = "druck"
+ton = "bestimmt"
+nach = ["FORD", "NEG", "OFFEN"]
+nicht_nach = ["verletzt", "begeistert"]
+punkt = "*"
+bedingungen = ["luecke", "stark"]
+r = 1
+v = -2
+max = 1
+[[baustein]]
+id = "p_hart"
+absicht = "druck"
+ton = "hart"
+nach = ["FORD", "DRUCK", "ablehnend"]
+punkt = "*"
+bedingungen = ["luecke", "stark"]
+r = 2
+v = -5
+max = 1
+[[baustein]]
+id = "p_bluff"
+absicht = "druck"
+ton = "hart"
+nach = ["FORD", "ablehnend"]
+nicht_nach = ["verletzt", "begeistert", "DRUCK"]
+punkt = "*"
+bedingungen = ["luecke", "schwach", "runde>=1"]
+r = 3
+v = -6
+max = 1
+[[baustein]]
+id = "t_sachlich"
+absicht = "zeit"
+ton = "sachlich"
+nach = ["FORD", "frage", "ultimatum", "ablehnend"]
+bedingungen = ["frist"]
+max = 2
+[[baustein]]
+id = "t_ausweichend"
+absicht = "zeit"
+ton = "ausweichend"
+nach = ["FORD", "OFFEN"]
+nicht_nach = ["DRUCK"]
+r = 1
+max = 1
+[[baustein]]
+id = "t_nehmen"
+absicht = "zeit"
+ton = "warm"
+nach = []
+bedingungen = ["runde>=0"]
+max = 3
+[[baustein]]
+id = "a_sachlich"
+absicht = "ablehnen"
+ton = "sachlich"
+nach = ["FORD", "DRUCK", "ablehnend"]
+punkt = "*"
+bedingungen = ["luecke"]
+r = 1
+v = -2
+max = 2
+[[baustein]]
+id = "a_warm"
+absicht = "ablehnen"
+ton = "warm"
+nach = ["FORD", "ablehnend"]
+punkt = "*"
+bedingungen = ["luecke", "verhaeltnis>=10"]
+v = -1
+max = 2
+[[baustein]]
+id = "a_hart"
+absicht = "ablehnen"
+ton = "hart"
+nach = ["DRUCK", "fordernd"]
+punkt = "*"
+bedingungen = ["luecke", "stark"]
+r = 2
+v = -4
+max = 1
+[[baustein]]
+id = "o_ausweichend"
+absicht = "ablenken"
+ton = "ausweichend"
+nach = ["FORD", "frage", "misstrauisch"]
+nicht_nach = ["DRUCK", "verletzt"]
+bedingungen = ["runde>=1"]
+r = 2
+max = 1
+# ---- Allgemeine Antworten ohne Bezug auf die letzte Absicht des Gegenübers: damit jedes Thema in jeder Runde eine lösende, eine verschlimmernde und eine neutrale Option hat ----
+[[baustein]]
+id = "g_abwiegeln"
+absicht = "kritisieren"
+ton = "bestimmt"
+bedingungen = ["runde>=0"]
+v = -2
+r = 2
+[[baustein]]
+id = "g_abwimmeln"
+absicht = "ablehnen"
+ton = "sachlich"
+bedingungen = ["runde>=0"]
+v = -3
+r = 2
+[[baustein]]
+id = "g_vertagen"
+absicht = "zeit"
+ton = "sachlich"
+bedingungen = ["runde>=0"]
+v = 0
+r = 0
+[[baustein]]
+id = "g_geloest"
+absicht = "abschliessen"
+ton = "warm"
+bedingungen = ["runde>=1", "!luecke", "stimmung>=55"]
+v = 2
+max = 1
+# ---- Schluss ----
+[[baustein]]
+id = "y_warm"
+absicht = "abschliessen"
+ton = "warm"
+nach = ["POS", "OFFEN", "zustimmend"]
+nicht_nach = ["DRUCK"]
+bedingungen = ["runde>=2", "!luecke"]
+v = 2
+max = 1
+[[baustein]]
+id = "y_sachlich"
+absicht = "abschliessen"
+ton = "sachlich"
+nach = []
+nicht_nach = ["DRUCK"]
+bedingungen = ["runde>=3"]
+max = 1
+[[baustein]]
+id = "x_sachlich"
+absicht = "abbrechen"
+ton = "sachlich"
+nach = []
+bedingungen = ["runde>=1"]
+v = -3
+max = 1
+[[baustein]]
+id = "x_hart"
+absicht = "abbrechen"
+ton = "hart"
+nach = ["DRUCK", "NEG"]
+bedingungen = ["runde>=1"]
+v = -6
+r = 2
+max = 1
+
+# ---- Verhandlungen (Vertrag, Transfer): Gesprächszüge um die Klauseln; die Zahlen setzt der Vertragszettel ----
+[[baustein]]
+id = "vz_annehmen"
+absicht = "zustimmen"
+ton = "sachlich"
+modi = ["vertrag", "transfer"]
+nach = ["FORD", "OFFEN", "POS"]
+nicht_nach = ["DRUCK"]
+bedingungen = ["gegenangebot"]
+v = 3
+max = 1
+[[baustein]]
+id = "vz_kompromiss"
+absicht = "kompromiss"
+ton = "warm"
+modi = ["vertrag", "transfer"]
+nach = []
+bedingungen = ["gegenangebot"]
+v = 2
+max = 1
+[[baustein]]
+id = "vz_ablehnen"
+absicht = "ablehnen"
+ton = "sachlich"
+modi = ["vertrag", "transfer"]
+nach = []
+bedingungen = ["gegenangebot"]
+r = 1
+v = -2
+max = 2
+[[baustein]]
+id = "vz_nachfragen"
+absicht = "nachfragen"
+ton = "sachlich"
+modi = ["vertrag", "transfer"]
+nach = []
+max = 3
+[[baustein]]
+id = "vz_erklaeren"
+absicht = "erklaeren"
+ton = "warm"
+modi = ["vertrag", "transfer"]
+nach = ["NEG", "frage", "ausweichend"]
+v = 1
+max = 2
+[[baustein]]
+id = "vz_druck"
+absicht = "druck"
+ton = "bestimmt"
+modi = ["vertrag", "transfer"]
+nach = []
+nicht_nach = ["verletzt", "begeistert"]
+bedingungen = ["stark"]
+r = 1
+v = -2
+max = 1
+[[baustein]]
+id = "vz_bluff"
+absicht = "druck"
+ton = "hart"
+modi = ["vertrag", "transfer"]
+nach = []
+nicht_nach = ["verletzt", "begeistert", "DRUCK"]
+bedingungen = ["schwach", "runde>=1"]
+r = 3
+v = -5
+max = 1
+[[baustein]]
+id = "vz_gefuehl"
+absicht = "gefuehl"
+ton = "warm"
+modi = ["vertrag", "transfer"]
+nach = ["NEG", "FORD", "OFFEN"]
+nicht_nach = ["DRUCK"]
+bedingungen = ["verhaeltnis>=-30"]
+v = 2
+r = 1
+max = 1
+[[baustein]]
+id = "vz_versprechen"
+absicht = "versprechen"
+ton = "warm"
+modi = ["vertrag", "transfer"]
+nach = ["FORD", "NEG", "OFFEN"]
+nicht_nach = ["DRUCK"]
+bedingungen = ["verhaeltnis>=0"]
+v = 2
+r = 1
+max = 1
+[[baustein]]
+id = "vz_zeit"
+absicht = "zeit"
+ton = "sachlich"
+modi = ["vertrag", "transfer"]
+nach = []
+bedingungen = ["frist"]
+max = 2
+[[baustein]]
+id = "vz_beruhigen"
+absicht = "beruhigen"
+ton = "warm"
+modi = ["vertrag", "transfer"]
+nach = ["DRUCK", "verletzt", "fordernd", "ablehnend"]
+bedingungen = ["stimmung<55"]
+s = 1.2
+max = 2
+[[baustein]]
+id = "vz_entschuldigen"
+absicht = "entschuldigen"
+ton = "warm"
+modi = ["vertrag", "transfer"]
+nach = ["verletzt", "ablehnend", "misstrauisch"]
+bedingungen = ["stimmung<55"]
+s = 1.3
+v = 3
+max = 1
+[[baustein]]
+id = "vz_abbrechen"
+absicht = "abbrechen"
+ton = "sachlich"
+modi = ["vertrag", "transfer"]
+nach = []
+bedingungen = ["runde>=1"]
+v = -4
+max = 1
+
+# ---- Gespräche ohne Verhandlungspunkt (Stimmung, Anerkennung, Kritik, Ausblick) ----
+[[baustein]]
+id = "m_loben"
+absicht = "loben"
+ton = "lob"
+nach = ["POS", "OFFEN"]
+nicht_nach = ["NEG", "DRUCK"]
+bedingungen = ["verhaeltnis>=-20"]
+v = 2
+[[baustein]]
+id = "m_ermutigen"
+absicht = "gefuehl"
+ton = "warm"
+nach = ["verletzt", "misstrauisch", "ablehnend", "frage"]
+nicht_nach = ["DRUCK"]
+bedingungen = ["stimmung<75"]
+v = 2
+[[baustein]]
+id = "m_kritik"
+absicht = "kritisieren"
+ton = "sachlich"
+nach = ["OFFEN", "FORD", "misstrauisch"]
+nicht_nach = ["verletzt", "DRUCK"]
+bedingungen = ["runde>=0"]
+v = -1
+r = 1
+[[baustein]]
+id = "m_kritik_hart"
+absicht = "kritisieren"
+ton = "bestimmt"
+nach = ["FORD", "ablehnend", "ausweichend"]
+nicht_nach = ["verletzt", "DRUCK"]
+bedingungen = ["stimmung>=30", "runde>=1"]
+v = -3
+r = 2
+max = 1
+[[baustein]]
+id = "m_zuhoeren"
+absicht = "nachfragen"
+ton = "warm"
+nach = ["NEG", "frage", "OFFEN"]
+v = 1
+[[baustein]]
+id = "m_einordnen"
+absicht = "erklaeren"
+ton = "sachlich"
+nach = []
+nicht_nach = ["DRUCK"]
+v = 1
+[[baustein]]
+id = "m_ausblick"
+absicht = "ausblick"
+ton = "warm"
+nach = ["POS", "OFFEN", "frage"]
+nicht_nach = ["DRUCK"]
+bedingungen = ["runde>=1"]
+v = 1
+[[baustein]]
+id = "m_ausblick_sachlich"
+absicht = "ausblick"
+ton = "sachlich"
+nach = []
+nicht_nach = ["DRUCK"]
+bedingungen = ["runde>=2"]
+max = 1
+[[baustein]]
+id = "m_auflockern"
+absicht = "auflockern"
+ton = "warm"
+nach = ["NEG", "OFFEN", "fordernd"]
+nicht_nach = ["DRUCK"]
+bedingungen = ["stimmung<60", "runde>=1"]
+s = 0.9
+r = 1
+max = 1
+
+# ---- Themenbezogene Antworten (Themenmotor): bekommen in der Auswahl einen Bonus, wenn das Thema passt ----
+[[baustein]]
+id = "vi_arzt"
+absicht = "erklaeren"
+ton = "sachlich"
+themen = ["verletzungsangst"]
+nach = []
+max = 1
+[[baustein]]
+id = "vi_schonen"
+absicht = "beruhigen"
+ton = "warm"
+themen = ["verletzungsangst"]
+nach = []
+max = 1
+[[baustein]]
+id = "vi_haerte"
+absicht = "druck"
+ton = "hart"
+themen = ["verletzungsangst"]
+nach = []
+max = 1
+r = 2
+[[baustein]]
+id = "ka_zusagen"
+absicht = "versprechen"
+ton = "bestimmt"
+themen = ["kapitaen"]
+nach = []
+max = 1
+[[baustein]]
+id = "ka_begruenden"
+absicht = "erklaeren"
+ton = "sachlich"
+themen = ["kapitaen"]
+nach = []
+max = 1
+[[baustein]]
+id = "ka_ablehnen"
+absicht = "ablehnen"
+ton = "hart"
+themen = ["kapitaen"]
+nach = []
+max = 1
+r = 1
+[[baustein]]
+id = "ka_loben"
+absicht = "loben"
+ton = "lob"
+themen = ["kapitaen"]
+nach = ["POS", "OFFEN"]
+nicht_nach = ["DRUCK", "NEG"]
+max = 1
+[[baustein]]
+id = "fo_video"
+absicht = "erklaeren"
+ton = "sachlich"
+themen = ["form"]
+nach = []
+max = 1
+[[baustein]]
+id = "fo_geduld"
+absicht = "beruhigen"
+ton = "warm"
+themen = ["form"]
+nach = []
+max = 1
+[[baustein]]
+id = "fo_forderung"
+absicht = "druck"
+ton = "bestimmt"
+themen = ["form"]
+nach = []
+max = 1
+r = 1
+[[baustein]]
+id = "he_familie"
+absicht = "gefuehl"
+ton = "warm"
+themen = ["heimweh"]
+nach = []
+max = 1
+[[baustein]]
+id = "st_trennen"
+absicht = "erklaeren"
+ton = "sachlich"
+themen = ["streit"]
+nach = []
+max = 1
+[[baustein]]
+id = "st_ansage"
+absicht = "druck"
+ton = "hart"
+themen = ["streit"]
+nach = []
+max = 1
+r = 2
+[[baustein]]
+id = "zk_ehrlich"
+absicht = "erklaeren"
+ton = "warm"
+themen = ["spielzeit", "rolle"]
+nach = []
+max = 1
+[[baustein]]
+id = "zk_chance"
+absicht = "versprechen"
+ton = "warm"
+themen = ["spielzeit"]
+nach = []
+max = 1
+[[baustein]]
+id = "tr_konkurrenz"
+absicht = "druck"
+ton = "bestimmt"
+themen = ["transfer", "vertrag"]
+nach = []
+max = 1
+r = 1
+[[baustein]]
+id = "tr_zeitplan"
+absicht = "zeit"
+ton = "sachlich"
+themen = ["transfer", "vertrag", "angebot"]
+nach = []
+max = 1
+[[baustein]]
+id = "tr_wunsch"
+absicht = "nachfragen"
+ton = "warm"
+themen = ["transfer", "angebot", "vertrag"]
+nach = []
+max = 1
+[[baustein]]
+id = "tr_berater"
+absicht = "nachfragen"
+ton = "sachlich"
+themen = ["transfer", "angebot", "vertrag"]
+nach = []
+max = 1
+[[baustein]]
+id = "tr_verein_hoch"
+absicht = "erklaeren"
+ton = "bestimmt"
+themen = ["transfer", "angebot"]
+nach = []
+max = 1
+[[baustein]]
+id = "ve_rolle"
+absicht = "versprechen"
+ton = "warm"
+themen = ["vertrag"]
+nach = []
+max = 1
+[[baustein]]
+id = "ag_gehalt"
+absicht = "ausblick"
+ton = "sachlich"
+themen = ["spielzeit", "rolle", "wechselwunsch"]
+nach = []
+max = 1
+[[baustein]]
+id = "ag_rolle"
+absicht = "ausblick"
+ton = "warm"
+themen = ["spielzeit", "rolle", "wechselwunsch"]
+nach = []
+max = 1
+[[baustein]]
+id = "ag_verleih"
+absicht = "ausblick"
+ton = "sachlich"
+themen = ["spielzeit", "rolle", "wechselwunsch"]
+nach = []
+max = 1
+[[baustein]]
+id = "ro_ablehnen"
+absicht = "ablehnen"
+ton = "hart"
+themen = ["rolle"]
+nach = []
+max = 1
+r = 1
+[[baustein]]
+id = "we_erklaeren"
+absicht = "erklaeren"
+ton = "sachlich"
+themen = ["wechselwunsch"]
+nach = []
+max = 1
+[[baustein]]
+id = "an_vertroesten"
+absicht = "zeit"
+ton = "ausweichend"
+themen = ["spielzeit", "rolle", "wechselwunsch", "form"]
+nach = []
+max = 1

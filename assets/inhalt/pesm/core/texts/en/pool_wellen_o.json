@@ -1,0 +1,470 @@
+{
+ "pool.langzeitverletzt_anliegen.e.e1": [
+  "{b.langzeitverletzt_anliegen_gruss} {b.langzeitverletzt_anliegen_lage} I keep asking myself where I stand in your plans once I am back.",
+  "{b.langzeitverletzt_anliegen_gruss} {b.langzeitverletzt_anliegen_lage} Please tell me honestly whether there is still a place for me after this injury."
+ ],
+ "pool.langzeitverletzt_anliegen.e.e2": [
+  "{b.langzeitverletzt_anliegen_gruss} {b.langzeitverletzt_anliegen_lage} What weighs on me most is what happens with my contract and my role.",
+  "{b.langzeitverletzt_anliegen_gruss} {b.langzeitverletzt_anliegen_lage} I just want to know where I stand, nothing more."
+ ],
+ "pool.langzeitverletzt_anliegen.e.e3": [
+  "{b.langzeitverletzt_anliegen_gruss} {b.langzeitverletzt_anliegen_lage} I know things are rough all around right now, but I have to get this off my chest.",
+  "{b.langzeitverletzt_anliegen_gruss} {b.langzeitverletzt_anliegen_lage} Sorry for the bad timing, it still sits heavy on me."
+ ],
+ "pool.langzeitverletzt_anliegen.e.e4": [
+  "{b.langzeitverletzt_anliegen_gruss} {b.langzeitverletzt_anliegen_lage} If nobody tells me what is going on, I will lose it!",
+  "{b.langzeitverletzt_anliegen_gruss} {b.langzeitverletzt_anliegen_lage} I will not be written off just because I am injured!"
+ ],
+ "pool.langzeitverletzt_anliegen.e.e5": [
+  "{b.langzeitverletzt_anliegen_gruss} {b.langzeitverletzt_anliegen_lage} I am grateful to the club and do not want to push, but a clear word would mean a lot to me.",
+  "{b.langzeitverletzt_anliegen_gruss} {b.langzeitverletzt_anliegen_lage} I will keep going, no question. A little clarity would just help me."
+ ],
+ "pool.langzeitverletzt_anliegen.e.e6": [
+  "{b.langzeitverletzt_anliegen_gruss} {b.langzeitverletzt_anliegen_lage} I want to get back to the top and need to know whether you will keep the path open for me.",
+  "{b.langzeitverletzt_anliegen_gruss} {b.langzeitverletzt_anliegen_lage} I work on my comeback every day and want to know whether I may fight for my place afterwards."
+ ],
+ "pool.langzeitverletzt_anliegen.e.e7": [
+  "{b.langzeitverletzt_anliegen_gruss} {b.langzeitverletzt_anliegen_lage} Other clubs are already asking about me, and I wonder whether I am still in the right place here.",
+  "{b.langzeitverletzt_anliegen_gruss} {b.langzeitverletzt_anliegen_lage} My agent says I should look for a club that is more patient with me."
+ ],
+ "pool.langzeitverletzt_anliegen.e.e8": [
+  "{b.langzeitverletzt_anliegen_gruss} {b.langzeitverletzt_anliegen_lage} At night I lie awake wondering whether I will ever be the same player again.",
+  "{b.langzeitverletzt_anliegen_gruss} {b.langzeitverletzt_anliegen_lage} I am afraid people will forget me if I am gone this long."
+ ],
+ "pool.langzeitverletzt_anliegen.e.e9": [
+  "{b.langzeitverletzt_anliegen_gruss} {b.langzeitverletzt_anliegen_lage} My contract runs out soon, and I fear nobody will extend it while I am injured.",
+  "{b.langzeitverletzt_anliegen_gruss} {b.langzeitverletzt_anliegen_lage} Being injured with an expiring contract hanging over me is hard to bear."
+ ],
+ "pool.langzeitverletzt_anliegen.e.e10": [
+  "{b.langzeitverletzt_anliegen_gruss} {b.langzeitverletzt_anliegen_lage} The injury will not leave my head, and I want to talk to someone who takes me seriously.",
+  "{b.langzeitverletzt_anliegen_gruss} {b.langzeitverletzt_anliegen_lage} I notice this is weighing on my mind too, and I do not want to deal with that alone."
+ ],
+ "pool.langzeitverletzt_anliegen.a.a1": [
+  "You belong with us, injured or fit. I stand behind you for the whole rehab, and I do not say that lightly.",
+  "Nobody is writing you off here. I have your back for as long as you need, and I will check in on you regularly."
+ ],
+ "pool.langzeitverletzt_anliegen.a.a2": [
+  "Your contract does not depend on the injury. We will sit down in {frist} days and talk about an extension, no matter how far along you are.",
+  "You get a clear sign from me: we talk about your contract in {frist} days, with the aim of keeping you."
+ ],
+ "pool.langzeitverletzt_anliegen.a.a3": [
+  "When you are back, you do not start from zero. You get your role back, and we will settle that in {frist} days.",
+  "After your return you play your way back into your old role, that is my word. Within {frist} days we will put it in writing."
+ ],
+ "pool.langzeitverletzt_anliegen.a.a4": [
+  "Let me be honest: we miss you, but I cannot promise everything will pick up seamlessly after your return. I promise you a fair chance.",
+  "Honestly, the squad has changed. But I know what you can do, and you will get the chance to show it again."
+ ],
+ "pool.langzeitverletzt_anliegen.a.a5": [
+  "The club is planning with you, I know that from my talks with the sporting director. A long injury does not change what we see in you.",
+  "From the club's point of view you are not a case to be closed but a player we have invested in and want to keep investing in."
+ ],
+ "pool.langzeitverletzt_anliegen.a.a6": [
+  "I want your rehab to fail for lack of nothing. You get extra care and the best resources we have, paid by the club.",
+  "We are stepping up your rehab: more treatment, more support, so that you do not feel left alone."
+ ],
+ "pool.langzeitverletzt_anliegen.a.a7": [
+  "I cannot promise you anything while you are not fit. Health first, then we talk about everything else, not before.",
+  "I will not make promises. Someone who is out cannot expect his place to be kept free."
+ ],
+ "pool.langzeitverletzt_anliegen.a.a8": [
+  "I decide on roles by performance, not out of pity. Come back healthy, then we will see where you stand.",
+  "My line stays the same: whoever is best on the pitch plays. A long injury does not change that."
+ ],
+ "pool.langzeitverletzt_anliegen.a.a9": [
+  "Do not worry so much, it will work out. Just concentrate on your rehab.",
+  "We will manage this, you just have to be patient now and look after your body."
+ ],
+ "pool.langzeitverletzt_anliegen.a.a10": [
+  "You are missed so much that the kit man is polishing your boots so they do not rust. Seriously, take your time and get fully well.",
+  "Do not worry, nobody has touched your spot in the dressing room yet. And we will take care of the rest together."
+ ],
+ "pool.langzeitverletzt_anliegen.a.a11": [
+  "What troubles you most: the role, the contract, or the feeling of no longer belonging?",
+  "What exactly are you afraid of when you think about the time after rehab?"
+ ],
+ "pool.langzeitverletzt_anliegen.a.a12": [
+  "I will bring in the sporting director, and together we will settle contract and return. I cannot answer everything alone.",
+  "We will go through this with the sporting director and the doctor, so that you end up with a reliable answer."
+ ],
+ "pool.langzeitverletzt_anliegen.r.r1": [
+  "{b.gut} Thank you, that takes a weight off my heart.",
+  "{b.gut} That helps me more than some of the treatments."
+ ],
+ "pool.langzeitverletzt_anliegen.r.r2": [
+  "{b.gut} I could always count on you, I will come back stronger.",
+  "{b.gut} Then I will carry on calmly, you will hear from me as soon as I am running again."
+ ],
+ "pool.langzeitverletzt_anliegen.r.r3": [
+  "{b.gut} Then I have a goal: I will come back and take my place.",
+  "{b.gut} Now I know what I am pushing through this for."
+ ],
+ "pool.langzeitverletzt_anliegen.r.r4": [
+  "{b.gut} It means a lot to me that you talk to me like this.",
+  "{b.gut} For the first time in weeks I feel part of the squad again."
+ ],
+ "pool.langzeitverletzt_anliegen.r.r5": [
+  "{b.neutral} I need to think about it, but thanks for listening.",
+  "{b.neutral} That sounds reasonable, I will see how the next while feels."
+ ],
+ "pool.langzeitverletzt_anliegen.r.r6": [
+  "{b.neutral} Some days I see it one way, some days another, to be honest.",
+  "{b.neutral} It helps today, tomorrow I may doubt again."
+ ],
+ "pool.langzeitverletzt_anliegen.r.r7": [
+  "{b.neutral} Then I will wait and see what the coming weeks bring.",
+  "{b.neutral} Fine, then all I can do is keep going and see what happens."
+ ],
+ "pool.langzeitverletzt_anliegen.r.r8": [
+  "{b.neutral} It is what it is, I will just carry on with rehab.",
+  "{b.neutral} I take it as it comes, getting worked up will not heal my leg any faster."
+ ],
+ "pool.langzeitverletzt_anliegen.r.r9": [
+  "{b.schlecht} That does not help me, I feel more written off than before.",
+  "{b.schlecht} With words like that I am none the wiser."
+ ],
+ "pool.langzeitverletzt_anliegen.r.r10": [
+  "{b.schlecht} Is that how you talk to someone who wrecked his body for this club?",
+  "{b.schlecht} Is that the thanks for giving everything?"
+ ],
+ "pool.langzeitverletzt_anliegen.r.r11": [
+  "{b.schlecht} Then my agent can find out what other clubs have for an injured player.",
+  "{b.schlecht} Good to know, then I will look around elsewhere."
+ ],
+ "pool.langzeitverletzt_anliegen.r.r12": [
+  "{b.schlecht} Of all people I expected more from you.",
+  "{b.schlecht} I was always there for you, and now I am standing alone."
+ ],
+ "pool.langzeitverletzt_anliegen.x.x1": [
+  "The player breathes out. {entscheidung} Rehab visibly comes easier to him afterwards.",
+  "{entscheidung} You can see how much weight falls from the player, and in the gym he works with new courage again."
+ ],
+ "pool.langzeitverletzt_anliegen.x.x2": [
+  "The player nods slowly. {entscheidung} Whether that eases his worry will only show in the coming weeks.",
+  "{entscheidung} The player goes back to treatment deep in thought, the question of his future hangs in the air."
+ ],
+ "pool.langzeitverletzt_anliegen.x.x3": [
+  "The player leaves the talk without a word. {entscheidung} It quickly gets around the dressing room how the club treats injured players.",
+  "{entscheidung} The same day the player talks to his agent, and whispers start around him."
+ ],
+ "pool.langzeitverletzt_anliegen.x.x4": [
+  "The conversation breaks off. {entscheidung} The player goes back to rehab and falls silent.",
+  "{entscheidung} The player waves it off and disappears into the treatment room without looking back."
+ ],
+ "pool.langzeitverletzt_anliegen.x.x5": [
+  "The player pauses for a moment. {entscheidung} He heads into the next weeks of rehab with a firm goal.",
+  "{entscheidung} The player now has something reliable to hold on to and returns to his exercises composed."
+ ],
+ "pool.mentor_gibt_faehigkeit.e.e1": [
+  "{b.mentor_gibt_faehigkeit_gruss} {b.mentor_gibt_faehigkeit_lage} I think we should not just let this run but handle it deliberately.",
+  "{b.mentor_gibt_faehigkeit_gruss} {b.mentor_gibt_faehigkeit_lage} It is a lovely development, and I wanted you to hear it from me."
+ ],
+ "pool.mentor_gibt_faehigkeit.e.e2": [
+  "{b.mentor_gibt_faehigkeit_gruss} {b.mentor_gibt_faehigkeit_lage} If we handle it right, something big can come of it for both of them.",
+  "{b.mentor_gibt_faehigkeit_gruss} {b.mentor_gibt_faehigkeit_lage} I would like to know how you want to keep guiding the two of them."
+ ],
+ "pool.mentor_gibt_faehigkeit.e.e3": [
+  "{b.mentor_gibt_faehigkeit_gruss} {b.mentor_gibt_faehigkeit_lage} I know the mood is clouded right now, but this is good news, and we do not get much of it.",
+  "{b.mentor_gibt_faehigkeit_gruss} {b.mentor_gibt_faehigkeit_lage} Despite all the tension, this is a ray of light we should not waste."
+ ],
+ "pool.mentor_gibt_faehigkeit.e.e4": [
+  "{b.mentor_gibt_faehigkeit_gruss} {b.mentor_gibt_faehigkeit_lage} We should rein him in before he takes off, as wound up as he is right now!",
+  "{b.mentor_gibt_faehigkeit_gruss} {b.mentor_gibt_faehigkeit_lage} He is showing off, and the older ones in the dressing room are already rolling their eyes!"
+ ],
+ "pool.mentor_gibt_faehigkeit.e.e5": [
+  "{b.mentor_gibt_faehigkeit_gruss} {b.mentor_gibt_faehigkeit_lage} He takes it modestly and says the thanks belong to his mentor and the club.",
+  "{b.mentor_gibt_faehigkeit_gruss} {b.mentor_gibt_faehigkeit_lage} He stays perfectly calm about it, to him it is simply one step of many."
+ ],
+ "pool.mentor_gibt_faehigkeit.e.e6": [
+  "{b.mentor_gibt_faehigkeit_gruss} {b.mentor_gibt_faehigkeit_lage} He wants more right away and asks what he can pick up next.",
+  "{b.mentor_gibt_faehigkeit_gruss} {b.mentor_gibt_faehigkeit_lage} It is not enough for him, he wants his mentor's place and is already asking when."
+ ],
+ "pool.mentor_gibt_faehigkeit.e.e7": [
+  "{b.mentor_gibt_faehigkeit_gruss} {b.mentor_gibt_faehigkeit_lage} His agent has already caught wind of it, and I do not want him to play himself onto the market.",
+  "{b.mentor_gibt_faehigkeit_gruss} {b.mentor_gibt_faehigkeit_lage} He knows what it makes him worth on the market and lets me feel it."
+ ],
+ "pool.mentor_gibt_faehigkeit.e.e8": [
+  "{b.mentor_gibt_faehigkeit_gruss} {b.mentor_gibt_faehigkeit_lage} He does not trust it yet and keeps asking me whether he really has it.",
+  "{b.mentor_gibt_faehigkeit_gruss} {b.mentor_gibt_faehigkeit_lage} He is happy, but I can tell how much pressure he puts on himself with it."
+ ],
+ "pool.mentor_gibt_faehigkeit.e.e9": [
+  "{b.mentor_gibt_faehigkeit_gruss} {b.mentor_gibt_faehigkeit_lage} He is still so young that it could easily go to his head, and we have to guide him well.",
+  "{b.mentor_gibt_faehigkeit_gruss} {b.mentor_gibt_faehigkeit_lage} At that age an experience like this leaves a strong mark, so we should accompany it carefully."
+ ],
+ "pool.mentor_gibt_faehigkeit.e.e10": [
+  "{b.mentor_gibt_faehigkeit_gruss} {b.mentor_gibt_faehigkeit_lage} He is on top form anyway, and the skill gives him another boost.",
+  "{b.mentor_gibt_faehigkeit_gruss} {b.mentor_gibt_faehigkeit_lage} His mood is excellent, it just must not tip over into overconfidence."
+ ],
+ "pool.mentor_gibt_faehigkeit.a.a1": [
+  "Tell him I am proud of him. He has earned this, and I want him to feel it.",
+  "Pass on my praise to him, explicitly. This is exactly how development should look here."
+ ],
+ "pool.mentor_gibt_faehigkeit.a.a2": [
+  "We back the two as a pair: they train together more often, and the mentor gets time to pass on what he knows.",
+  "Schedule the two of them together more often. If this works, it should keep going."
+ ],
+ "pool.mentor_gibt_faehigkeit.a.a3": [
+  "He should keep his feet on the ground. A skill does not make a regular, and I will tell him so.",
+  "I want him to stay humble: he has learned something, but he has not won anything yet."
+ ],
+ "pool.mentor_gibt_faehigkeit.a.a4": [
+  "He gets playing time so that he can cement the skill in matches. I will settle that with you in {frist} days.",
+  "Whoever learns something like this should be allowed to show it. I will plan minutes for him in {frist} days."
+ ],
+ "pool.mentor_gibt_faehigkeit.a.a5": [
+  "The mentor deserves recognition, financially too. Without him this would not exist, and he should feel that.",
+  "Give the mentor a bonus for his work with the youngster. Whoever passes things on should get something out of it."
+ ],
+ "pool.mentor_gibt_faehigkeit.a.a6": [
+  "We leave it as it is. The relationship between the two carries itself, I do not need to meddle.",
+  "I am changing nothing for now. Things like this grow best when left alone."
+ ],
+ "pool.mentor_gibt_faehigkeit.a.a7": [
+  "How solid is the skill already: can he call it up in matches or only in training?",
+  "And what does the mentor himself say, how far along is the youngster in his eyes?"
+ ],
+ "pool.mentor_gibt_faehigkeit.a.a8": [
+  "You talk to the two of them, you know them best. I rely on your judgement.",
+  "You take care of the details with mentor and protégé. If something snags, let me know."
+ ],
+ "pool.mentor_gibt_faehigkeit.a.a9": [
+  "One skill more or less changes nothing at all. He should not get ideas, and I do not want to hear any more about this mentor business.",
+  "Do not make a thing of it. Anyone who thinks he is special after something this small is mistaken."
+ ],
+ "pool.mentor_gibt_faehigkeit.a.a10": [
+  "The mentor programme does not run at the squad's expense. I want no special role for him and none for the mentor.",
+  "No special treatment: both train like everyone else, and performance alone decides who plays."
+ ],
+ "pool.mentor_gibt_faehigkeit.a.a11": [
+  "A skill does not make a footballer. I do not see the point in making a fuss or celebrating anyone for it.",
+  "I see no reason for a fuss. If he can do it, he should show it in a match, I do not want to say more."
+ ],
+ "pool.mentor_gibt_faehigkeit.a.a12": [
+  "Soon he will be tutoring his mentor, who will then have nothing left to do. We keep watching.",
+  "If this goes on, the mentor will soon need a mentor himself. Let us keep an eye on it."
+ ],
+ "pool.mentor_gibt_faehigkeit.r.r1": [
+  "{b.gut} Then the youngster will be happy, and the mentor along with him.",
+  "{b.gut} That will lift both of them, I can see it already."
+ ],
+ "pool.mentor_gibt_faehigkeit.r.r2": [
+  "{b.gut} He will thank you with hard work, that is how he is.",
+  "{b.gut} Good, that way everything stays calm and he can keep learning in peace."
+ ],
+ "pool.mentor_gibt_faehigkeit.r.r3": [
+  "{b.gut} That spurs him on, he will be asking for the next skill right away.",
+  "{b.gut} That gives him reasons to keep pushing."
+ ],
+ "pool.mentor_gibt_faehigkeit.r.r4": [
+  "{b.gut} Your praise in particular gives him the confidence he needs.",
+  "{b.gut} He will breathe out when he hears you stand behind him."
+ ],
+ "pool.mentor_gibt_faehigkeit.r.r5": [
+  "{b.neutral} I will pass it on that way and watch what comes of it.",
+  "{b.neutral} Whether that is enough, we will see in the next sessions."
+ ],
+ "pool.mentor_gibt_faehigkeit.r.r6": [
+  "{b.neutral} With him you never know whether something like this lifts him or unsettles him.",
+  "{b.neutral} Let us see how he takes it, it can tip either way."
+ ],
+ "pool.mentor_gibt_faehigkeit.r.r7": [
+  "{b.neutral} Understood, I will keep you posted.",
+  "{b.neutral} Then we simply carry on as before for now."
+ ],
+ "pool.mentor_gibt_faehigkeit.r.r8": [
+  "{b.neutral} He takes it as it comes, there is no drama with him.",
+  "{b.neutral} Fine, the two of them manage without much fuss anyway."
+ ],
+ "pool.mentor_gibt_faehigkeit.r.r9": [
+  "{b.schlecht} A pity, we are giving away a lot of momentum.",
+  "{b.schlecht} I expected more enthusiasm, to be honest."
+ ],
+ "pool.mentor_gibt_faehigkeit.r.r10": [
+  "{b.schlecht} Then you tell him, I do not want him snapping at me!",
+  "{b.schlecht} He will not take that, and I cannot blame him!"
+ ],
+ "pool.mentor_gibt_faehigkeit.r.r11": [
+  "{b.schlecht} If he is not appreciated here, other clubs will be found that do.",
+  "{b.schlecht} At this rate he will soon wonder whether he is worth more elsewhere."
+ ],
+ "pool.mentor_gibt_faehigkeit.r.r12": [
+  "{b.schlecht} I would have liked a more open word from you for the two of them.",
+  "{b.schlecht} That will hit the two of them, precisely because they have invested so much."
+ ],
+ "pool.mentor_gibt_faehigkeit.x.x1": [
+  "Your assistant coach smiles with satisfaction. {entscheidung} You can see in training how much it helps the two of them.",
+  "{entscheidung} The two leave the session in high spirits, and the spark jumps over to the other youngsters."
+ ],
+ "pool.mentor_gibt_faehigkeit.x.x2": [
+  "The assistant coach tilts his head. {entscheidung} How things go between mentor and protégé remains to be seen.",
+  "{entscheidung} Things are left to run for now to see what the skill does in matches."
+ ],
+ "pool.mentor_gibt_faehigkeit.x.x3": [
+  "Your assistant coach leaves with a tense face. {entscheidung} There is grumbling in the dressing room, and envy of the youngster grows.",
+  "{entscheidung} The older players sense the mood at once, and the relationship between the younger ones and the rest cools."
+ ],
+ "pool.mentor_gibt_faehigkeit.x.x4": [
+  "The assistant coach cuts the conversation short. {entscheidung} The matter is left lying and nobody touches it again.",
+  "{entscheidung} He shrugs and leaves, the good news fizzles out."
+ ],
+ "pool.mentor_gibt_faehigkeit.x.x5": [
+  "Your assistant coach nods. {entscheidung} The youngster now knows where he stands and tries even harder.",
+  "{entscheidung} You have committed yourself, and the assistant coach passes it on to the player that same afternoon."
+ ],
+ "pool.faehigkeit_verloren_position.e.e1": [
+  "{b.faehigkeit_verloren_position_gruss} {b.faehigkeit_verloren_position_lage} He cannot get over it and has asked me whether it has to stay that way.",
+  "{b.faehigkeit_verloren_position_gruss} {b.faehigkeit_verloren_position_lage} I thought you should know that it bothers him more than he admits."
+ ],
+ "pool.faehigkeit_verloren_position.e.e2": [
+  "{b.faehigkeit_verloren_position_gruss} {b.faehigkeit_verloren_position_lage} How do we want to handle it, we cannot simply ignore it.",
+  "{b.faehigkeit_verloren_position_gruss} {b.faehigkeit_verloren_position_lage} I would like to know whether we do something about it or accept it as it is."
+ ],
+ "pool.faehigkeit_verloren_position.e.e3": [
+  "{b.faehigkeit_verloren_position_gruss} {b.faehigkeit_verloren_position_lage} I know a lot is going wrong right now, but I do not want to leave this lying around.",
+  "{b.faehigkeit_verloren_position_gruss} {b.faehigkeit_verloren_position_lage} With the mood already bad, we should not let this slide as well."
+ ],
+ "pool.faehigkeit_verloren_position.e.e4": [
+  "{b.faehigkeit_verloren_position_gruss} {b.faehigkeit_verloren_position_lage} He is furious and says something was taken from him!",
+  "{b.faehigkeit_verloren_position_gruss} {b.faehigkeit_verloren_position_lage} He holds me responsible and wants that changed, right now!"
+ ],
+ "pool.faehigkeit_verloren_position.e.e5": [
+  "{b.faehigkeit_verloren_position_gruss} {b.faehigkeit_verloren_position_lage} He does not complain, but he let the skill go reluctantly.",
+  "{b.faehigkeit_verloren_position_gruss} {b.faehigkeit_verloren_position_lage} He accepts it, but I can tell he misses it."
+ ],
+ "pool.faehigkeit_verloren_position.e.e6": [
+  "{b.faehigkeit_verloren_position_gruss} {b.faehigkeit_verloren_position_lage} He wants to win it back and asks what he has to do for it.",
+  "{b.faehigkeit_verloren_position_gruss} {b.faehigkeit_verloren_position_lage} He sees it as an edge and does not want to get weaker just because he changed position."
+ ],
+ "pool.faehigkeit_verloren_position.e.e7": [
+  "{b.faehigkeit_verloren_position_gruss} {b.faehigkeit_verloren_position_lage} He hints that he could keep his strengths elsewhere, in his old position.",
+  "{b.faehigkeit_verloren_position_gruss} {b.faehigkeit_verloren_position_lage} His agent says something like this is an argument on the market against staying."
+ ],
+ "pool.faehigkeit_verloren_position.e.e8": [
+  "{b.faehigkeit_verloren_position_gruss} {b.faehigkeit_verloren_position_lage} He takes it very much to heart and doubts whether he is good enough in the new position at all.",
+  "{b.faehigkeit_verloren_position_gruss} {b.faehigkeit_verloren_position_lage} He seems hurt, as if a part of his identity had been taken from him."
+ ],
+ "pool.faehigkeit_verloren_position.e.e9": [
+  "{b.faehigkeit_verloren_position_gruss} {b.faehigkeit_verloren_position_lage} On top of that his mood is rock bottom anyway, and that could make everything worse.",
+  "{b.faehigkeit_verloren_position_gruss} {b.faehigkeit_verloren_position_lage} Because things are not going well for him anyway, the loss hits him twice as hard."
+ ],
+ "pool.faehigkeit_verloren_position.e.e10": [
+  "{b.faehigkeit_verloren_position_gruss} {b.faehigkeit_verloren_position_lage} At his age you do not pick things up so easily any more, and that is exactly what scares him.",
+  "{b.faehigkeit_verloren_position_gruss} {b.faehigkeit_verloren_position_lage} As an experienced player he clings to what defined him for years."
+ ],
+ "pool.faehigkeit_verloren_position.a.a1": [
+  "Skills follow the task. Anyone who hardly needs one in his position loses it over time, that is no failure.",
+  "Explain to him that it is not his fault: the new position demands different strengths, and the body adapts to them."
+ ],
+ "pool.faehigkeit_verloren_position.a.a2": [
+  "We offer him individual training so he does not lose the skill entirely and develops well in his new position.",
+  "He gets sessions with a specialist coach at the club's expense, so he can shape what matters to him."
+ ],
+ "pool.faehigkeit_verloren_position.a.a3": [
+  "All right, I will put him back in his old position. In {frist} days we will see whether that was the right way.",
+  "He goes back to his former position, I will tell him myself. In {frist} days we will look at it together."
+ ],
+ "pool.faehigkeit_verloren_position.a.a4": [
+  "I understand that he is attached to it, I would hate to lose it in his place too. Tell him I am listening.",
+  "It is understandable that it hits him. I want to talk with him, not about him."
+ ],
+ "pool.faehigkeit_verloren_position.a.a5": [
+  "He stays where the team needs him. I am happy to explain which new strengths he can build in the position.",
+  "The position stays, it suits him. What matters is that he sees what he gains there, not only what he lost."
+ ],
+ "pool.faehigkeit_verloren_position.a.a6": [
+  "He plays where I put him. A lost skill is no reason for drama.",
+  "I do not line up players by wish. If that bothers him, he should prove himself in the new position."
+ ],
+ "pool.faehigkeit_verloren_position.a.a7": [
+  "Moving him back is out of the question. If he does not develop in the new position, that is partly down to him.",
+  "I will not upset the squad plan just because he is attached to something he no longer needs here."
+ ],
+ "pool.faehigkeit_verloren_position.a.a8": [
+  "He did not maintain the skill, he has to be asked about that too. Training was open to him.",
+  "Whoever wants to keep a strength has to practise it. I do not see that he did."
+ ],
+ "pool.faehigkeit_verloren_position.a.a9": [
+  "Skills come back when the task demands it. Something else awaits him in the new position, perhaps something even better.",
+  "I think he underestimates what is in him. What he lost he can work back up later."
+ ],
+ "pool.faehigkeit_verloren_position.a.a10": [
+  "He should not mourn the skill but keep it as a souvenir of the old days. Seriously, we will find a solution.",
+  "If he misses it, he can just pull it out of his sleeve in training. Tell him we will talk again."
+ ],
+ "pool.faehigkeit_verloren_position.a.a11": [
+  "How did he use it in his old position, and does he miss it in matches or only in his head?",
+  "What exactly is missing from his game since he no longer has the skill?"
+ ],
+ "pool.faehigkeit_verloren_position.a.a12": [
+  "You talk to him and hear what he wants. Then we decide together what is possible.",
+  "Discuss with him how he sees the coming weeks. I rely on your instinct."
+ ],
+ "pool.faehigkeit_verloren_position.r.r1": [
+  "{b.gut} That will lift him, he needed someone who takes it seriously.",
+  "{b.gut} He can work with that, I will pass it on to him right away."
+ ],
+ "pool.faehigkeit_verloren_position.r.r2": [
+  "{b.gut} He will accept it and not complain, that is how he is.",
+  "{b.gut} Good, he can live with that and carry on calmly."
+ ],
+ "pool.faehigkeit_verloren_position.r.r3": [
+  "{b.gut} That is the chance he needs, he will really dig in.",
+  "{b.gut} That gives him a goal again and he will do even more."
+ ],
+ "pool.faehigkeit_verloren_position.r.r4": [
+  "{b.gut} That you take time for him will mean a lot to him.",
+  "{b.gut} He will notice that he is not alone with this, and that will help him."
+ ],
+ "pool.faehigkeit_verloren_position.r.r5": [
+  "{b.neutral} Whether that is enough, we will see from his attitude in training.",
+  "{b.neutral} I will tell him so and see how he reacts."
+ ],
+ "pool.faehigkeit_verloren_position.r.r6": [
+  "{b.neutral} With him it can swing either way, we have to be careful.",
+  "{b.neutral} Let us see whether it calms him or stirs him up even more."
+ ],
+ "pool.faehigkeit_verloren_position.r.r7": [
+  "{b.neutral} All right, then I will keep an eye on him and report back.",
+  "{b.neutral} Good, we will see in the next weeks how this develops."
+ ],
+ "pool.faehigkeit_verloren_position.r.r8": [
+  "{b.neutral} He is not the type for big scenes, he will take it.",
+  "{b.neutral} With him it sorts itself out, I am not worried."
+ ],
+ "pool.faehigkeit_verloren_position.r.r9": [
+  "{b.schlecht} I will hardly convince him with that, this will not be easy.",
+  "{b.schlecht} I am afraid we are gambling away his trust with that."
+ ],
+ "pool.faehigkeit_verloren_position.r.r10": [
+  "{b.schlecht} Then tell him yourself, I will not be shouted at!",
+  "{b.schlecht} He will not swallow that, and I cannot contradict him there!"
+ ],
+ "pool.faehigkeit_verloren_position.r.r11": [
+  "{b.schlecht} Then his agent will look for a club that offers him that.",
+  "{b.schlecht} He will ask himself whether he is still in the right place here."
+ ],
+ "pool.faehigkeit_verloren_position.r.r12": [
+  "{b.schlecht} I would have wished for more feeling for him from you.",
+  "{b.schlecht} That will hurt him, precisely because he always stood by you."
+ ],
+ "pool.faehigkeit_verloren_position.x.x1": [
+  "Your assistant coach looks relieved. {entscheidung} The player feels good about what he is doing again.",
+  "{entscheidung} In training the next day the player seems much more at ease."
+ ],
+ "pool.faehigkeit_verloren_position.x.x2": [
+  "The assistant coach tilts his head. {entscheidung} Whether the player makes peace with it stays open.",
+  "{entscheidung} The question is postponed for now, and the player watches closely what comes of it."
+ ],
+ "pool.faehigkeit_verloren_position.x.x3": [
+  "Your assistant coach leaves shaking his head. {entscheidung} The player withdraws, and unrest spreads in the squad.",
+  "{entscheidung} The same day the player stands out in training for his lack of drive."
+ ],
+ "pool.faehigkeit_verloren_position.x.x4": [
+  "The assistant coach breaks off the conversation. {entscheidung} The player hears only what is strictly necessary.",
+  "{entscheidung} The conversation peters out, and nobody speaks to the player about it again."
+ ],
+ "pool.faehigkeit_verloren_position.x.x5": [
+  "Your assistant coach nods. {entscheidung} The player hears about it the same day and goes into the next session relieved.",
+  "{entscheidung} You have committed yourself, and the player now knows how things go on for him."
+ ]
+}

@@ -1,0 +1,450 @@
+{
+ "pool.praemie_verlangt.e.e1": [
+  "{b.gruss} {b.praemie_verlangt_lage} I think my performances justify a bonus.",
+  "{b.gruss} {b.praemie_verlangt_lage} I would like to talk about a raise."
+ ],
+ "pool.praemie_verlangt.e.e2": [
+  "{b.gruss} {b.praemie_verlangt_lage} I have been in form for weeks, and it would be nice if someone recognised that.",
+  "{b.gruss} {b.praemie_verlangt_lage} I have done my part, now I would like a signal."
+ ],
+ "pool.praemie_verlangt.e.e3": [
+  "{b.gruss} {b.praemie_verlangt_lage} I know the mood is not the best, but my performance was, and that should pay off.",
+  "{b.gruss} {b.praemie_verlangt_lage} Things are not smooth in the dressing room, but on the pitch they are for me, and I see none of it in my wallet."
+ ],
+ "pool.praemie_verlangt.e.e4": [
+  "{b.gruss} {b.praemie_verlangt_lage} People talk about my form, only my contract says nothing about it.",
+  "{b.gruss} {b.praemie_verlangt_lage} My performance is a talking point right now, my salary unfortunately is not."
+ ],
+ "pool.praemie_verlangt.e.e5": [
+  "{b.gruss} {b.praemie_verlangt_lage} A run like mine deserves more than kind words.",
+  "{b.gruss} {b.praemie_verlangt_lage} I will not be fobbed off with praise any longer."
+ ],
+ "pool.praemie_verlangt.e.e6": [
+  "{b.gruss} {b.praemie_verlangt_lage} I do not want to pressure anyone, but a bonus would be a nice gesture.",
+  "{b.gruss} {b.praemie_verlangt_lage} Without you I would not be where I am, and still I have to ask: what about a bonus?"
+ ],
+ "pool.praemie_verlangt.e.e7": [
+  "{b.gruss} {b.praemie_verlangt_lage} I had counted on a raise after you promised me one.",
+  "{b.gruss} {b.praemie_verlangt_lage} The raise you held out to me is still outstanding."
+ ],
+ "pool.praemie_verlangt.e.e8": [
+  "{b.gruss} {b.praemie_verlangt_lage} Frankly: the last games were down to me, now it is the club's turn.",
+  "{b.gruss} {b.praemie_verlangt_lage} Quick question: does good performance also earn good pay?"
+ ],
+ "pool.praemie_verlangt.e.e9": [
+  "{b.gruss} {b.praemie_verlangt_lage} This does not have to turn into a quarrel, I just want us to talk about my pay.",
+  "{b.gruss} {b.praemie_verlangt_lage} If it suits you, I would like to talk through my situation with you, financially."
+ ],
+ "pool.praemie_verlangt.a.a1": [
+  "Fair enough: if you keep up the form, you get a raise within {frist} days.",
+  "You have earned it. In {frist} days we talk new figures, and I will bring an offer."
+ ],
+ "pool.praemie_verlangt.a.a2": [
+  "A one-off bonus is possible. The money comes quickly, but we deal with the contract later.",
+  "There is a bonus for the run, paid out cleanly and without debate."
+ ],
+ "pool.praemie_verlangt.a.a3": [
+  "In the next contract talks this goes right to the top of the list, you will have to be patient until then.",
+  "We will discuss it when your contract comes up anyway."
+ ],
+ "pool.praemie_verlangt.a.a4": [
+  "No. Someone who plays well is just doing the job, there is no extra money for that.",
+  "There is no bonus, and that ends the discussion."
+ ],
+ "pool.praemie_verlangt.a.a5": [
+  "I see your performances, and I will say it openly: you are one of our best right now. I promise no money, but I do promise respect.",
+  "The praise is meant seriously. I cannot promise pay, but the appreciation is genuine."
+ ],
+ "pool.praemie_verlangt.a.a6": [
+  "Salaries are the club's business. I will pass your request on with my recommendation.",
+  "That is beyond my desk. I will talk to the board and tell you what comes of it."
+ ],
+ "pool.praemie_verlangt.a.a7": [
+  "Our pay structure rests on fairness to everyone. If I raised you, I would have ten more requests.",
+  "Everyone in the squad has performances, and the structure stays stable. I am happy to show you where you stand in it."
+ ],
+ "pool.praemie_verlangt.a.a8": [
+  "What do you have in mind, and what do you base it on?",
+  "Give me a figure and a reason, then we will see whether we meet."
+ ],
+ "pool.praemie_verlangt.a.a9": [
+  "A bonus is a bonus if the club wants it. I do not decide pocket money here, and you stick to your contract.",
+  "Your contract stands. That does not change, not even with a winning run."
+ ],
+ "pool.praemie_verlangt.a.a10": [
+  "Bonuses are a team matter, not an individual one. The whole squad decides who gets them, not one good month.",
+  "As long as we have won nothing, an individual bonus is not on the table."
+ ],
+ "pool.praemie_verlangt.a.a11": [
+  "I hear that it matters to you. We will find a way, and until then know that I see what you deliver.",
+  "I understand that recognition also means money. Give me a little time, I take you seriously."
+ ],
+ "pool.praemie_verlangt.r.r1": [
+  "{b.gut} That is more than I expected, thank you.",
+  "{b.gut} I can work with that, and you will see me pay it back."
+ ],
+ "pool.praemie_verlangt.r.r2": [
+  "{b.gut} That you speak so clearly and fairly with me means a lot.",
+  "{b.gut} I trust you, so I am happy to wait."
+ ],
+ "pool.praemie_verlangt.r.r3": [
+  "{b.gut} Good, I will keep delivering and stay on course.",
+  "{b.gut} Then I will show that every euro is well spent."
+ ],
+ "pool.praemie_verlangt.r.r4": [
+  "{b.gut} Hearing that someone sees you feels really good.",
+  "{b.gut} Thank you for not brushing me off."
+ ],
+ "pool.praemie_verlangt.r.r5": [
+  "{b.neutral} I will wait and see what comes of it.",
+  "{b.neutral} Talking is nice, but in the account only figures count."
+ ],
+ "pool.praemie_verlangt.r.r6": [
+  "{b.neutral} I do not know whether to be pleased or annoyed.",
+  "{b.neutral} Let us see whether that was more than a conversation."
+ ],
+ "pool.praemie_verlangt.r.r7": [
+  "{b.neutral} A clear yes or no would have been better, but fine.",
+  "{b.neutral} At least you listened to me."
+ ],
+ "pool.praemie_verlangt.r.r8": [
+  "{b.neutral} I carry on as before, money or no money.",
+  "{b.neutral} My work does not depend on a bonus, but the feeling does."
+ ],
+ "pool.praemie_verlangt.r.r9": [
+  "{b.schlecht} Then I know what my performance is worth here.",
+  "{b.schlecht} I will remember that at the next negotiation."
+ ],
+ "pool.praemie_verlangt.r.r10": [
+  "{b.schlecht} Then you can score the goals yourself from now on!",
+  "{b.schlecht} That is no way to treat people who carry the place!"
+ ],
+ "pool.praemie_verlangt.r.r11": [
+  "{b.schlecht} My agent will want a word about that.",
+  "{b.schlecht} There are clubs that also pay for performance."
+ ],
+ "pool.praemie_verlangt.r.r12": [
+  "{b.schlecht} I had hoped you would do more for me.",
+  "{b.schlecht} That my effort counts for so little hurts more than I say."
+ ],
+ "pool.praemie_verlangt.x.x1": [
+  "He accepts the offer with relief. {entscheidung} In training he shows that he means it.",
+  "{entscheidung} He heads to the session with visibly more spring."
+ ],
+ "pool.praemie_verlangt.x.x2": [
+  "The question hangs in the air. {entscheidung} He says he will wait now.",
+  "{entscheidung} Whether that is enough shows at the next payday."
+ ],
+ "pool.praemie_verlangt.x.x3": [
+  "He withdraws noticeably. {entscheidung} His agent calls the office the same day.",
+  "{entscheidung} What he was told does the rounds in the dressing room."
+ ],
+ "pool.praemie_verlangt.x.x4": [
+  "You have held out money. {entscheidung} He notes down the date.",
+  "{entscheidung} He will ask again when the deadline runs out."
+ ],
+ "pool.praemie_verlangt.x.x5": [
+  "He stands up before you have finished speaking. {entscheidung} He no longer talks about a bonus, but he does talk about a transfer.",
+  "{entscheidung} The door closes audibly behind him."
+ ],
+ "pool.trainingskritik.e.e1": [
+  "{b.gruss} {b.trainingskritik_lage} May I get an honest word about training off my chest?",
+  "{b.gruss} {b.trainingskritik_lage} I have to say something about our sessions, and it is not all praise."
+ ],
+ "pool.trainingskritik.e.e2": [
+  "{b.gruss} {b.trainingskritik_lage} The sessions are too hard for me, I feel it in every muscle.",
+  "{b.gruss} {b.trainingskritik_lage} The workload is so high that after lunch I just want to lie on the sofa."
+ ],
+ "pool.trainingskritik.e.e3": [
+  "{b.gruss} {b.trainingskritik_lage} I do not like coming to training at the moment, and that is new for me.",
+  "{b.gruss} {b.trainingskritik_lage} For weeks I have been dragging myself to the pitch, and the fun is gone."
+ ],
+ "pool.trainingskritik.e.e4": [
+  "{b.gruss} {b.trainingskritik_lage} The drills are so monotonous that I switch off in my head!",
+  "{b.gruss} {b.trainingskritik_lage} I cannot look at another passing triangle, seriously!"
+ ],
+ "pool.trainingskritik.e.e5": [
+  "{b.gruss} {b.trainingskritik_lage} I am telling you because I trust you: training does not fit what I need.",
+  "{b.gruss} {b.trainingskritik_lage} It is nothing personal, but I would like to change something in training."
+ ],
+ "pool.trainingskritik.e.e6": [
+  "{b.gruss} {b.trainingskritik_lage} For what I want to achieve, training is too generic.",
+  "{b.gruss} {b.trainingskritik_lage} I need more work on my weaknesses and less of the standard programme."
+ ],
+ "pool.trainingskritik.e.e7": [
+  "{b.gruss} {b.trainingskritik_lage} I do not want to be ungrateful, but I feel like a number in training.",
+  "{b.gruss} {b.trainingskritik_lage} Sometimes I wonder whether anyone in training sees what really helps me."
+ ],
+ "pool.trainingskritik.e.e8": [
+  "{b.gruss} {b.trainingskritik_lage} I suggested improvements once before, and nothing happened.",
+  "{b.gruss} {b.trainingskritik_lage} The change you promised me, I have not felt in training."
+ ],
+ "pool.trainingskritik.e.e9": [
+  "{b.gruss} {b.trainingskritik_lage} Do not take it as an attack, but I think we could train more cleverly.",
+  "{b.gruss} {b.trainingskritik_lage} I have an idea how the sessions could bring more."
+ ],
+ "pool.trainingskritik.a.a1": [
+  "That matters to me, so tell me exactly what bothers you. I will adjust what can be adjusted.",
+  "I am listening, and if your point is right I will change the sessions."
+ ],
+ "pool.trainingskritik.a.a2": [
+  "Every session has a purpose: stamina for winter, intensity for the closing stages. Let me show you the plan.",
+  "The hardness is not whim. It prepares us for the games where it gets serious."
+ ],
+ "pool.trainingskritik.a.a3": [
+  "I will assign you an individual coach, at the club's expense. Twice a week you work on your weaknesses.",
+  "You get your own programme with supervision. I pay for that, if you put in the effort."
+ ],
+ "pool.trainingskritik.a.a4": [
+  "I run the training, you take part in it. If that does not suit you, the door is wide open.",
+  "Planning the training is my business, and that is how it stays."
+ ],
+ "pool.trainingskritik.a.a5": [
+  "I will involve the staff. The fitness coach and the assistant will look at your sessions.",
+  "We settle this together: you, the athletics coach and I."
+ ],
+ "pool.trainingskritik.a.a6": [
+  "No, training stays as it is. Complaints help nobody here.",
+  "I am not changing that, and that ends the discussion."
+ ],
+ "pool.trainingskritik.a.a7": [
+  "What exactly do you mean: the length, the drills or the tone on the pitch?",
+  "If you could do it better, what would your day on the pitch look like?"
+ ],
+ "pool.trainingskritik.a.a8": [
+  "I know it drags. That passes, and then you are ready when it counts.",
+  "Give the plan a few more weeks, the effect comes with a delay."
+ ],
+ "pool.trainingskritik.a.a9": [
+  "You are welcome to make suggestions, but there is no debate during the session. That goes for everyone.",
+  "Training is not a wish list. Whoever wants a say talks to me afterwards."
+ ],
+ "pool.trainingskritik.a.a10": [
+  "Between us: tell me what you would change. You know your body, and I trust your judgement.",
+  "I always have an open ear, and your ideas are welcome, promise."
+ ],
+ "pool.trainingskritik.a.a11": [
+  "The plan is thought through, and being uncomfortable does not make it bad. I am sticking with it.",
+  "Training is often uncomfortable, but there are reasons you will notice later."
+ ],
+ "pool.trainingskritik.r.r1": [
+  "{b.gut} Thank you for hearing me out, I wanted nothing more.",
+  "{b.gut} With that change I will go to the pitch much more gladly."
+ ],
+ "pool.trainingskritik.r.r2": [
+  "{b.gut} I knew you had an open ear, thank you.",
+  "{b.gut} Then next time I will pull my weight fully again."
+ ],
+ "pool.trainingskritik.r.r3": [
+  "{b.gut} With my own programme I will get more out of every week.",
+  "{b.gut} If I am allowed to work in a targeted way, I will make progress, promise."
+ ],
+ "pool.trainingskritik.r.r4": [
+  "{b.gut} It feels good to be taken seriously.",
+  "{b.gut} I thought you would shut me down at once, but that was really fair."
+ ],
+ "pool.trainingskritik.r.r5": [
+  "{b.neutral} Then we will see how the next weeks go.",
+  "{b.neutral} I hope something really changes."
+ ],
+ "pool.trainingskritik.r.r6": [
+  "{b.neutral} I am not entirely convinced yet.",
+  "{b.neutral} I will let it sink in."
+ ],
+ "pool.trainingskritik.r.r7": [
+  "{b.neutral} I will take part, even if some of it stays foreign to me.",
+  "{b.neutral} You will see me in training, I promise nothing more."
+ ],
+ "pool.trainingskritik.r.r8": [
+  "{b.neutral} That is not yet an answer, but it is a start.",
+  "{b.neutral} Let us see whether it stays that way."
+ ],
+ "pool.trainingskritik.r.r9": [
+  "{b.schlecht} Then I will train by the book, nothing more.",
+  "{b.schlecht} That is no way to learn anything, and you know it."
+ ],
+ "pool.trainingskritik.r.r10": [
+  "{b.schlecht} Do your thing alone then, I am out of the session!",
+  "{b.schlecht} If criticism counts for nothing here, then my running counts for nothing either!"
+ ],
+ "pool.trainingskritik.r.r11": [
+  "{b.schlecht} There are coaches who listen, I have experienced that elsewhere.",
+  "{b.schlecht} My agent knows clubs with a better training culture."
+ ],
+ "pool.trainingskritik.r.r12": [
+  "{b.schlecht} I had hoped you would understand me, but now I feel even smaller.",
+  "{b.schlecht} I forced myself to say this, and that is the answer?"
+ ],
+ "pool.trainingskritik.x.x1": [
+  "He seems relieved. {entscheidung} In the very next session he is audibly in a better mood.",
+  "{entscheidung} He walks to the pitch with a firm step."
+ ],
+ "pool.trainingskritik.x.x2": [
+  "A silence is left behind. {entscheidung} How he takes it will only show in training.",
+  "{entscheidung} He nods, but his face gives little away."
+ ],
+ "pool.trainingskritik.x.x3": [
+  "He leaves without saying goodbye. {entscheidung} From now on he does the drills with sagging shoulders.",
+  "{entscheidung} In the dressing room he talks about the conversation, and not kindly."
+ ],
+ "pool.trainingskritik.x.x4": [
+  "You have promised him a change. {entscheidung} The assistant already knows.",
+  "{entscheidung} In training he will watch closely whether you keep your word."
+ ],
+ "pool.trainingskritik.x.x5": [
+  "He turns away mid-sentence. {entscheidung} The next morning he is missing from the session.",
+  "{entscheidung} The groundsman sees him go home earlier than ever."
+ ],
+ "pool.spielerrat_wunsch.e.e1": [
+  "{b.gruss} {b.spielerrat_wunsch_lage} It is a small thing, but it means a lot to the squad.",
+  "{b.gruss} {b.spielerrat_wunsch_lage} The players' council has met, and we have a shared request."
+ ],
+ "pool.spielerrat_wunsch.e.e2": [
+  "{b.gruss} {b.spielerrat_wunsch_lage} The week was long, and the lads would like a free day to breathe.",
+  "{b.gruss} {b.spielerrat_wunsch_lage} We would like a day off, otherwise tempers will soon snap."
+ ],
+ "pool.spielerrat_wunsch.e.e3": [
+  "{b.gruss} {b.spielerrat_wunsch_lage} The mood has seldom been this bad, and I do not know how long I can hold it.",
+  "{b.gruss} {b.spielerrat_wunsch_lage} The squad is down, and I have run out of things to tell them."
+ ],
+ "pool.spielerrat_wunsch.e.e4": [
+  "{b.gruss} {b.spielerrat_wunsch_lage} We would like a team evening again, no coach, no tactics board!",
+  "{b.gruss} {b.spielerrat_wunsch_lage} The lads finally want to go out for a meal together, and not at their own expense!"
+ ],
+ "pool.spielerrat_wunsch.e.e5": [
+  "{b.gruss} {b.spielerrat_wunsch_lage} The squad has talked about the bonus rule, and we do not like it.",
+  "{b.gruss} {b.spielerrat_wunsch_lage} Some feel unfairly treated over bonuses, that has to be settled."
+ ],
+ "pool.spielerrat_wunsch.e.e6": [
+  "{b.gruss} {b.spielerrat_wunsch_lage} We are professionals, but the training times are a problem for many, and we have to bring it up.",
+  "{b.gruss} {b.spielerrat_wunsch_lage} The early sessions cost the lads energy, a different schedule would help."
+ ],
+ "pool.spielerrat_wunsch.e.e7": [
+  "{b.gruss} {b.spielerrat_wunsch_lage} You had promised the squad something, and now everybody asks me when it is coming.",
+  "{b.gruss} {b.spielerrat_wunsch_lage} Last time's promise is still outstanding, and I am stuck in the middle."
+ ],
+ "pool.spielerrat_wunsch.e.e8": [
+  "{b.gruss} {b.spielerrat_wunsch_lage} No panic, nothing dramatic, but the squad would like a decision from you.",
+  "{b.gruss} {b.spielerrat_wunsch_lage} I am only presenting it as I heard it: the group wants more say."
+ ],
+ "pool.spielerrat_wunsch.e.e9": [
+  "{b.gruss} {b.spielerrat_wunsch_lage} I ask you not to brush the request aside, because it concerns the cohesion of the whole squad.",
+  "{b.gruss} {b.spielerrat_wunsch_lage} If we get this right, the mood is saved, and I say that as captain."
+ ],
+ "pool.spielerrat_wunsch.a.a1": [
+  "You have earned it, I will grant the request. The club bears the cost, and you show it on Saturday.",
+  "That is fine. I will take care of it and expect you to pay me back on the pitch."
+ ],
+ "pool.spielerrat_wunsch.a.a2": [
+  "I will pay for a team evening, a proper meal for everyone. Choose the place yourselves.",
+  "The bill for an evening together is on me. But no alcohol before the game!"
+ ],
+ "pool.spielerrat_wunsch.a.a3": [
+  "I can give half a day, the rest you must earn during the week. That is my proposal.",
+  "We meet in the middle: I loosen the plan, you tighten your attitude in training."
+ ],
+ "pool.spielerrat_wunsch.a.a4": [
+  "I cannot allow that, and I will tell you why: the fixture list does not permit it, and you know that.",
+  "I understand the request, but the calendar does not allow it. Ask me again after the break."
+ ],
+ "pool.spielerrat_wunsch.a.a5": [
+  "No. The squad does not make demands, that is not how it works here.",
+  "I am not negotiating that, and you are welcome to tell the group."
+ ],
+ "pool.spielerrat_wunsch.a.a6": [
+  "Gladly, but not for free: if you deliver at the weekend, you get it. Let us start with the win.",
+  "I will go along with it if you promise me two clean training weeks. Then it is settled."
+ ],
+ "pool.spielerrat_wunsch.a.a7": [
+  "Take it to the players' council, discuss it there, and afterwards I will hear your common line.",
+  "The council should draw up a proposal, and then I will decide together with you."
+ ],
+ "pool.spielerrat_wunsch.a.a8": [
+  "What exactly do you expect, and how important is it to the whole group, not just the loudest?",
+  "Who is behind this, and what would it concretely bring the squad?"
+ ],
+ "pool.spielerrat_wunsch.a.a9": [
+  "I do not have much room, but I want you to feel heard, and I do so hereby.",
+  "The squad has something to say to me, and I take it seriously. I will look for a solution you can live with."
+ ],
+ "pool.spielerrat_wunsch.a.a10": [
+  "I understand you, but the line stays. I decide what the squad gets, and not the mood.",
+  "That is my plan, and it will not be tweaked, not even if the mood sinks."
+ ],
+ "pool.spielerrat_wunsch.a.a11": [
+  "Give me a few days. First I am needed for the games, after that we will look at the request.",
+  "The request stays on my list, but I decide nothing before the next game."
+ ],
+ "pool.spielerrat_wunsch.a.a12": [
+  "Between us, captain: what do you yourself think? You know the group better than anyone.",
+  "Tell me openly what is really behind it, I trust your feel for the squad."
+ ],
+ "pool.spielerrat_wunsch.r.r1": [
+  "{b.gut} The dressing room will be delighted, thank you.",
+  "{b.gut} With that you have the lads on your side."
+ ],
+ "pool.spielerrat_wunsch.r.r2": [
+  "{b.gut} You can be relied upon, I will pass that on to the group.",
+  "{b.gut} We thank you, that was a sign of trust."
+ ],
+ "pool.spielerrat_wunsch.r.r3": [
+  "{b.gut} Then we will give everything at the weekend, promise.",
+  "{b.gut} With this mood we win games, I guarantee it."
+ ],
+ "pool.spielerrat_wunsch.r.r4": [
+  "{b.gut} I would not have expected you to take us so seriously.",
+  "{b.gut} I was nervous about presenting it, but you listened to us."
+ ],
+ "pool.spielerrat_wunsch.r.r5": [
+  "{b.neutral} I will pass that on to the squad as it is.",
+  "{b.neutral} I will see whether the lads can live with that."
+ ],
+ "pool.spielerrat_wunsch.r.r6": [
+  "{b.neutral} That is not what they wanted, but it is a start.",
+  "{b.neutral} I will try to explain it to the group."
+ ],
+ "pool.spielerrat_wunsch.r.r7": [
+  "{b.neutral} Then we wait and see what comes.",
+  "{b.neutral} I am curious how the dressing room takes it."
+ ],
+ "pool.spielerrat_wunsch.r.r8": [
+  "{b.neutral} You have your reasons, and I respect them.",
+  "{b.neutral} I will back the outcome, even if it does not come entirely easily."
+ ],
+ "pool.spielerrat_wunsch.r.r9": [
+  "{b.schlecht} Then I will carry the squad's anger alone.",
+  "{b.schlecht} The lads will not swallow this, and I will not hold them back."
+ ],
+ "pool.spielerrat_wunsch.r.r10": [
+  "{b.schlecht} Then the squad will work to rule, you wanted it that way yourself!",
+  "{b.schlecht} If the group has no say any more, it will say nothing on the pitch either!"
+ ],
+ "pool.spielerrat_wunsch.r.r11": [
+  "{b.schlecht} The first ones are already talking about leaving, I am just telling you.",
+  "{b.schlecht} With that attitude you will lose a few people before the winter."
+ ],
+ "pool.spielerrat_wunsch.r.r12": [
+  "{b.schlecht} I feel as if I had let the group down, and you did not help me there.",
+  "{b.schlecht} I had hoped that understanding would count for more than the rulebook."
+ ],
+ "pool.spielerrat_wunsch.x.x1": [
+  "The captain goes back to the squad with a smile. {entscheidung} In the dressing room the tension eases.",
+  "{entscheidung} At the next day's warm-up there is laughter again."
+ ],
+ "pool.spielerrat_wunsch.x.x2": [
+  "The captain stays thoughtful. {entscheidung} He tells the squad they will have to wait and see.",
+  "{entscheidung} How the group takes it remains open."
+ ],
+ "pool.spielerrat_wunsch.x.x3": [
+  "He walks into the dressing room ahead of the group without a word. {entscheidung} Icy silence reigns there afterwards.",
+  "{entscheidung} A little later several players complain loudly to the physiotherapist."
+ ],
+ "pool.spielerrat_wunsch.x.x4": [
+  "You have promised the squad something. {entscheidung} The captain posts it in the corridor so that nobody forgets it.",
+  "{entscheidung} The players' council keeps a record, and the deadline is running."
+ ],
+ "pool.spielerrat_wunsch.x.x5": [
+  "He puts the armband on the table and leaves. {entscheidung} The squad waits outside for an explanation.",
+  "{entscheidung} He leaves the conversation before you can answer."
+ ]
+}

@@ -1,0 +1,7 @@
+# Wörter in Vereinsnamen, unabhängig von der Sprache (nie übersetzt).
+
+# Beim Kurznamen (drei Buchstaben) übersprungen, z. B. „Real Madrid“ → MAD.
+kurzname_ueberspringen = ["FC", "AFC", "SC", "CF", "AC", "SV", "VfB", "VfL", "TSG", "1.", "CA", "CD", "SL", "SK", "FK", "BK", "IF", "CR", "SE", "RC", "AS", "SS", "US", "RCD", "UD", "SD", "Real", "Club", "Sporting", "F.C.", "de", "of"]
+
+# Beim Vergleich zweier Namen weggelassen (klein geschrieben, ohne Akzente): „FC Bayern München“ = „Bayern München“.
+vereinswoerter = ["fc", "afc", "sc", "sv", "cf", "cd", "ac", "as", "ss", "us", "spvgg", "fk", "sk", "bk", "if", "rc", "ca", "ud", "sd", "rcd", "1.", "f.c.", "club", "tsv", "vfl", "bv"]

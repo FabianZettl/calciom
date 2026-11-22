@@ -1,0 +1,313 @@
+# Konfiguration der Gesprächswelt (Sitzung H). Alles hier ist eine eigene Festlegung von PESM und austauschbar.
+
+[motor]
+stimmung_start = 50
+geduld = 4                       # Antworten, die ein Gespräch übersteht, bevor der Partner abbricht (wird durch schlechte Antworten verkürzt)
+frist_tage = 7                   # offenes Gespräch verfällt danach
+sperre_tage = 6                  # gleiches Thema, gleicher Partner: frühestens dann wieder
+vertrauen_start = 50
+vertrauen_gehalten = 8
+vertrauen_gebrochen = -14
+vertrauen_halbwert_tage = 120    # ältere Einträge zählen halb
+beziehung_zur_mitte = 0.04       # je Tag
+beziehung_je_stimmung = 0.35     # Stimmungsänderung im Gespräch → Beziehung
+beziehung_gehalten = 5
+beziehung_gebrochen = -9
+moral_einfluss = 0.35            # (Moral − 50) → Startstimmung
+beziehung_einfluss = 0.25        # Beziehung → Startstimmung
+anlass_abzug = 10                # Startstimmung, wenn das Thema der Anlass der Unzufriedenheit ist
+vertrauen_daempfung = 0.5         # bei Vertrauen 0 wirken gute Worte nur zu diesem Anteil
+mimik_grenzen = [6, 2, -2, -6]   # ab Änderung: sehr_gut, gut, neutral, schlecht; darunter sehr_schlecht
+folge_tage = 3                   # Nachwirkung der Moral nach dem Gespräch (E bucht selbst)
+
+# Wirkung der Töne auf die Stimmung (Basis; Persönlichkeit und Vertrauen verändern sie)
+[ton]
+warm = 6
+sachlich = 3
+lob = 8
+bestimmt = 1
+hart = -9
+ausweichend = -3
+
+# Themen: partner, beats (Zahl der Fragen), optionen mit Ton, optional versprechen und ein Anliegen (anliegen = Moraltreiber)
+[thema.spielzeit]
+partner = "spieler"
+anliegen = "spielzeit"
+beats = 2
+optionen = [
+  { id = "verstaendnis", ton = "warm" },
+  { id = "leistung", ton = "sachlich" },
+  { id = "zusage", ton = "warm", versprechen = "spielzeit" },
+  { id = "kampf", ton = "bestimmt" },
+  { id = "abwimmeln", ton = "hart" },
+]
+[thema.rolle]
+partner = "spieler"
+anliegen = "rolle"
+beats = 2
+optionen = [
+  { id = "wertschaetzung", ton = "lob" },
+  { id = "verantwortung", ton = "bestimmt", versprechen = "rolle" },
+  { id = "geduld", ton = "sachlich" },
+  { id = "ausweichen", ton = "ausweichend" },
+  { id = "dichtmachen", ton = "hart" },
+]
+[thema.form]
+partner = "spieler"
+anliegen = "form"
+beats = 2
+optionen = [
+  { id = "aufbauen", ton = "warm" },
+  { id = "analyse", ton = "sachlich" },
+  { id = "anspornen", ton = "bestimmt" },
+  { id = "abkanzeln", ton = "hart" },
+  { id = "abwarten", ton = "ausweichend" },
+]
+[thema.lob]
+partner = "spieler"
+beats = 1
+optionen = [
+  { id = "ehrlich", ton = "lob" },
+  { id = "herzlich", ton = "warm" },
+  { id = "knapp", ton = "sachlich" },
+  { id = "mit_forderung", ton = "bestimmt" },
+]
+[thema.kritik]
+partner = "spieler"
+beats = 2
+optionen = [
+  { id = "sachlich", ton = "sachlich" },
+  { id = "klar", ton = "bestimmt" },
+  { id = "mit_ruecksicht", ton = "warm" },
+  { id = "laut", ton = "hart" },
+  { id = "drumherum", ton = "ausweichend" },
+]
+[thema.zukunft]
+partner = "spieler"
+anliegen = "vertrag"
+beats = 2
+optionen = [
+  { id = "bleiben", ton = "warm", versprechen = "vertrag" },
+  { id = "gehalt", ton = "sachlich", versprechen = "gehalt" },
+  { id = "freigabe", ton = "sachlich", versprechen = "freigabe" },
+  { id = "offen", ton = "ausweichend" },
+  { id = "druck", ton = "hart" },
+]
+[thema.marktlage]
+partner = "berater"
+beats = 2
+optionen = [
+  { id = "offen_reden", ton = "sachlich" },
+  { id = "freundlich", ton = "warm" },
+  { id = "druecken", ton = "bestimmt" },
+  { id = "abblocken", ton = "hart" },
+]
+[thema.einschaetzung]
+partner = "trainer"
+beats = 2
+optionen = [
+  { id = "zuhoeren", ton = "warm" },
+  { id = "nachhaken", ton = "sachlich" },
+  { id = "vorgabe", ton = "bestimmt" },
+  { id = "abtun", ton = "hart" },
+]
+[thema.training]
+partner = "trainer"
+beats = 2
+optionen = [
+  { id = "vertrauen", ton = "warm" },
+  { id = "sachlich", ton = "sachlich" },
+  { id = "haerte", ton = "bestimmt" },
+  { id = "durchgreifen", ton = "hart" },
+]
+[thema.austausch]
+partner = "verein"
+beats = 2
+optionen = [
+  { id = "herzlich", ton = "warm" },
+  { id = "geschaeftlich", ton = "sachlich" },
+  { id = "selbstbewusst", ton = "bestimmt" },
+  { id = "ueberheblich", ton = "hart" },
+]
+[thema.hintergrund]
+partner = "presse"
+beats = 2
+optionen = [
+  { id = "offen", ton = "sachlich" },
+  { id = "freundlich", ton = "warm" },
+  { id = "angriff", ton = "bestimmt" },
+  { id = "kein_wort", ton = "ausweichend" },
+  { id = "beleidigt", ton = "hart" },
+]
+
+# Persönlichkeitsprofil → Gewichte der Töne (siehe werte.py); Ergebnis = Basis × Faktor
+[versprechen]
+frist_tage = { spielzeit = 28, rolle = 28, vertrag = 45, gehalt = 45, freigabe = 120 }
+spielzeit_anteil = 0.6           # so viel Einsatzanteil gilt als gehalten
+gehalt_anstieg = 1.05            # Gehalt muss mindestens so viel höher sein
+gewicht = { spielzeit = 1.0, rolle = 1.0, vertrag = 1.2, gehalt = 1.2, freigabe = 1.5 }
+beziehung_verweigert = -6        # abgelehnte Freigabe gegen ein Versprechen
+moral_gehalten = 4               # Startwert, nicht kalibriert: Moral (E) bei gehaltener Zusage
+moral_gebrochen = -10            # Startwert, nicht kalibriert: ein gebrochenes Versprechen wiegt deutlich mehr als eine abgelehnte Bitte (Absage: -6)
+
+# Zusagen des Trainers an die Öffentlichkeit (Pressekonferenz): Wirkung beim Einhalten und beim Bruch (Startwerte, nicht kalibriert). Ziele: Größen des Vereins (0 bis 100) und Moral des Spielers.
+[zusage_verein]
+frist_tage = { nicht_verkaufen = 120, saisonziel = 300 }
+gewicht = { nicht_verkaufen = 1.2, saisonziel = 1.0 }
+gehalten = { nicht_verkaufen = { vorstandsvertrauen = 1, fanstimmung = 2, medienbild = 1, moral = 3 }, saisonziel = { vorstandsvertrauen = 4, fanstimmung = 3, medienbild = 2 } }
+gebrochen = { nicht_verkaufen = { vorstandsvertrauen = -2, fanstimmung = -4, medienbild = -3, moral = -10 }, saisonziel = { vorstandsvertrauen = -4, fanstimmung = -2, medienbild = -3 } }
+
+# ---- Vertragsverhandlung ----
+[vertrag]
+felder = ["gehalt", "laufzeit", "praemie_tor", "praemie_einsatz", "praemie_titel", "ausstieg", "mindestabloese", "weiterverkauf", "spielzeit", "wechselbonus"]
+schritt_gehalt = 0.05            # Anteil des Gehalts je Klick
+schritt_praemie_tor = 0.01       # Anteil des Jahresgehalts je Klick
+schritt_praemie_einsatz = 0.0025
+schritt_praemie_titel = 0.05
+schritt_wechselbonus = 0.1
+schritt_weiterverkauf = 5        # Prozentpunkte
+schritt_ausstieg = 0.25          # Anteil des Marktwerts
+schritt_mindestabloese = 0.25
+laufzeit_min = 1
+laufzeit_max = 5
+weiterverkauf_max = 25
+erwartung_einsaetze = 28
+erwartung_titel = 0.08
+erwartung_tore = { ST = 14, HS = 9, OM = 7, LA = 6, RA = 6, ZM = 4, LM = 4, RM = 4, DM = 2, IV = 2, LV = 1, RV = 1, TW = 0 }
+weiterverkauf_erwartung = 0.4    # Anteil des Marktwerts, der später als Gewinn erwartet wird
+ausstieg_wert = 0.04
+mindestabloese_malus = 0.03
+spielzeit_wert = { talent = 0.03, rotation = 0.02, stammspieler = 0.06 }
+laufzeit_abweichung = 0.02       # je Jahr Abweichung von der Wunschlaufzeit (Anteil Gehalt)
+annahme = 1.0                    # Verhältnis ab dem der Spieler zusagt
+gegenangebot = 0.88              # darunter, aber ab hier: Gegenangebot
+ablehnung = 0.65                 # darunter: beleidigt
+veto_moral = 25                  # darunter blockt der Spieler jede Runde mit Verhältnis unter veto_verhaeltnis
+veto_verhaeltnis = 1.15
+runden = 4
+frist_tage = 7
+beleidigt_stimmung = -15
+beleidigt_beziehung = -4
+ablehnung_stimmung = -6
+gegen_stimmung = -1
+einigung_stimmung = 12
+einigung_beziehung = 6
+# Forderung: Faktoren
+gier_ego = 0.3                   # Ego 0…100 → ±0.15
+moral_gewicht = 0.3
+loyalitaet_gewicht = 0.15
+beziehung_gewicht = 0.1
+misstrauen_gewicht = 0.2
+berater_gier_gewicht = 0.15
+wunsch_aufschlag = 1.10          # ohne Wert von D: aktuelles Gehalt × so viel
+# Berater (D): Gier erhöht die Forderung, Ton bestimmt die Wortwahl
+
+# ---- Transferverhandlung ----
+[transfer]
+raten_max = 4
+ratenabschlag = 0.03             # je zusätzliche Rate, Gegenwartswert für den Verkäufer
+tausch_faktor = 0.9
+tausch_alter_ab = 31
+tausch_alter_faktor = 0.75
+weiterverkauf_max = 30
+weiterverkauf_erwartung = 0.5
+rueckkauf_erwartung = 0.3
+rueckkauf_basis = 1.3            # Marktwert-Vielfaches, ab dem die Option etwas wert ist
+leihe_anteil = 0.1               # Leihgebühr-Referenz in Marktwert
+kaufpflicht_faktor = 0.85
+kaufoption_faktor = 0.25
+annahme = 1.0
+gegenangebot = 0.9
+ablehnung = 0.7
+bereitschaft_ruf = 0.004         # Zahlungsbereitschaft eines Käufers je Rufpunkt über 50
+bereitschaft_basis = 1.0
+runden = 4
+frist_tage = 5
+leihe_laufzeit_monate = 12
+einigung_beziehung = 4
+beleidigt_beziehung = -3
+beleidigt_stimmung = -12
+ablehnung_stimmung = -5
+
+# ---- Disziplin ----
+[disziplin]
+vorfall_je_tag = 0.012           # Fabian 22.11.: zu viele Vorfälle, vorher 0,035; Grundwahrscheinlichkeit je Spieler-Tag bei unterdurchschnittlicher Professionalität (skaliert)
+vorfall_max_je_tag = 1
+vorfall_sperre_tage = 21         # je Spieler
+frist_tage = 6
+arten = ["verspaetung", "trainingsfehler", "oeffentliche_kritik", "streit"]
+strafen = ["nachsicht", "ermahnung", "geldstrafe", "bank"]
+geldstrafe_stufen = [0.05, 0.1, 0.25]    # Anteil Wochengehalt × 4 → Anteil Monatsgehalt
+gleichbehandlung_tage = 60
+gleichbehandlung_abzug = 6       # Kabine: Stammkraft ungestraft, andere bestraft
+# Wirkung auf Stimmung/Beziehung/Moral je Strafe (Basis, Persönlichkeit verändert)
+wirkung = { nachsicht = [3, 1, 0], ermahnung = [-2, -1, 1], geldstrafe = [-5, -3, 3], bank = [-8, -4, 5] }
+# [Stimmung beim Spieler, Beziehung, Teamgeist (Kabine)]
+kabine_ton = { nachsicht = "", ermahnung = "sachlich", geldstrafe = "sachlich", bank = "hart" }
+
+# Eingehende Angebote besprechen (Angebotsgespräch): Haltung des Spielers, Dauer der Antworten
+[angebot]
+max_tage = 10                  # nichts läuft endlos: so lange wartet eine Antwort höchstens
+klarer_preis = 1.15            # Preis ab diesem Vielfachen des Marktwerts gilt als klar (Ersatzspieler: sofort)
+sofort_rollen = ["rotation", "perspektive", "ersatz"]
+bonus_je_stimmung = 0.5        # Haltung je Stimmungspunkt des Gesprächs mit dem Spieler über 50
+bonus_je_stufe = 10            # Haltung je zugestandener Stufe im Gespräch mit dem Spieler
+frist_puffer_tage = 1          # die Antwort kommt spätestens so viele Tage vor Ablauf des Angebots
+
+[haltung]
+ehrgeiz = 0.4                  # (Ehrgeiz − 50) × Faktor
+ruf = 0.5                      # (Ruf des Käufers − Ruf des eigenen Vereins) × Faktor, begrenzt auf ±25
+loyalitaet = 0.5               # −(Loyalität − 50) × Faktor
+wechselbereitschaft = 0.5      # (Wechselbereitschaft − 10) × Faktor
+moral = 0.3                    # (50 − Moral) × Faktor
+spielzeit = 30                 # (0,5 − Einsatzanteil) × Faktor
+gehalt = 30                    # (Gehalt neu / alt − 1) × Faktor, −10 … +20
+rolle_neu = 5                   # je Rang Unterschied zwischen zugesagter Rolle beim Käufer und jetziger Rolle, ±15
+laufzeit = 3                    # (Laufzeit in Jahren − 3) × Faktor, ±8
+rolle = { kapitaen = -18, star = -15, fuehrungsspieler = -12, stammspieler = -10, rotation = 8, perspektive = 0, ersatz = 14 }
+vertrag_kurz = [[6, 15], [12, 10], [24, 3]]      # Restmonate bis … → Aufschlag
+vertrag_lang = 5               # ab 36 Monaten Abschlag
+stufen = [["unbedingt", 55], ["chance", 30], ["offen", 5], ["zoegernd", -20]]     # darunter: bleiben
+zustimmung_ab = -5             # ab diesem Wert stimmt er dem Verkauf zu; darunter nur nach einem Gespräch
+
+# ---- Vertragsanfrage: Wahl mit Folgen (Zweig gespraeche-folgen) ----
+[anfrage]
+spiele = 5                       # Spiele, in denen die Bedingung gilt (Geduldige bekommen mehr, Hitzköpfe weniger)
+frist_tage_je_spiel = 8          # Frist = Spiele × Tage (Spiele sind etwa wöchentlich)
+tore_faktor = 1.5                # Ziel = erwartete Tore × Faktor
+tore_rate = { ST = 0.45, HS = 0.3, OM = 0.25, LA = 0.25, RA = 0.25, LM = 0.2, RM = 0.2, ZM = 0.12, DM = 0.06 }
+note_ziel = 6.5
+note_min_spiele = 3              # Note zählt erst ab so vielen Einsätzen in der Frist
+absage_sperre_tage = 60
+spaeter_beziehung = -1           # „Nicht jetzt“ kostet fast nichts, bei Sensiblen etwas
+absage_moral = -6                # Basis der Stimmungsänderung (E-Ton), danach Merkmale und Charakter
+absage_beziehung = -8
+verfehlt_moral = -4
+verfehlt_beziehung = -5
+akzeptanz_basis = 0.5
+akzeptanz_loyal = 0.25           # Loyalität 0…1 → ± halber Wert
+akzeptanz_ego = -0.3             # Ego über 0,5 senkt
+akzeptanz_schwer = -0.25         # Schwierigkeit der Bedingung (0…1)
+akzeptanz_moral = 0.2            # Moral (−50 … +50 → ±0,1)
+gegen_spanne = 0.3               # so weit über der Zustimmung liegt noch die Gegenforderung, danach Ablehnung
+gehalt_plus = 0.12
+laufzeit_plus = 1
+# Merkmale (feat/merkmale): akzeptanz = Zuschlag auf die Zustimmung, haerte = Faktor auf die Folgen einer Absage, medien = greift die Presse es auf,
+# forderung = was er bei einer Gegenforderung zusätzlich verlangt, spiele = Zuschlag auf die Spielzahl
+[anfrage.merkmal]
+loyal = { akzeptanz = 0.15, haerte = 0.6 }
+geduldig = { akzeptanz = 0.1, haerte = 0.8, spiele = 1 }
+bescheiden = { akzeptanz = 0.1, haerte = 0.8 }
+teamplayer = { akzeptanz = 0.05, haerte = 0.9 }
+diszipliniert = { akzeptanz = 0.05, haerte = 0.9 }
+vorbild_profi = { akzeptanz = 0.1, haerte = 0.8 }
+ehrgeizig = { akzeptanz = -0.05, haerte = 1.1, forderung = "spielzeit" }
+selbstbewusst = { akzeptanz = -0.1, haerte = 1.1, forderung = "ausstieg" }
+hitzkopf = { akzeptanz = -0.2, haerte = 1.4, medien = true, spiele = -1 }
+launisch = { akzeptanz = -0.15, haerte = 1.3 }
+sensibel = { akzeptanz = -0.05, haerte = 1.4 }
+lautsprecher = { akzeptanz = -0.05, haerte = 1.1, medien = true }
+social_media_star = { akzeptanz = -0.05, haerte = 1.1, medien = true }
+provokateur = { akzeptanz = -0.1, haerte = 1.2, medien = true }
+exzentrisch = { akzeptanz = -0.05, haerte = 1.1, medien = true }
+showman = { akzeptanz = -0.05, haerte = 1.1, medien = true }

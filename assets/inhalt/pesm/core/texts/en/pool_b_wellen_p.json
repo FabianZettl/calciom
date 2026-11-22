@@ -1,0 +1,114 @@
+{
+ "pool.b.rivalen_gleiche_position_gruss": [
+  "Coach, I will come straight to you, it is about my position.",
+  "Coach, have you got a moment for a serious word about my position?"
+ ],
+ "pool.b.rivalen_gleiche_position_lage": [
+  "On my position two of us have been fighting for one place for weeks, and I feel the scales are not balanced fairly.",
+  "There are two of us who want the same position, and I cannot see by what standards you choose between us."
+ ],
+ "pool.b.rivalen_gleiche_position_lage.hitzig": [
+  "For weeks I have been sitting out while the other one plays my position, and I will not put up with it any longer!",
+  "The other one on my position is being favoured, anyone can see it, and I am sick of playing second fiddle!"
+ ],
+ "pool.b.rivalen_gleiche_position_lage.loyal": [
+  "I have never complained and always put myself at the service of the team, but I feel passed over on my position.",
+  "I do not begrudge the other one his games on my position, but being treated like a mere reserve hurts."
+ ],
+ "pool.b.rivalen_gleiche_position_lage.ehrgeizig": [
+  "I want to play my position and I am convinced I am better than the other one, but I never get a real chance to prove it.",
+  "In every session I go flat out to push the other one off my position, and I wonder whether anyone notices."
+ ],
+ "pool.b.rivalen_gleiche_position_lage.wechselfreudig": [
+  "If I stay behind the other one on my position for good, I have to ask myself whether I would be needed somewhere else.",
+  "On my position I stand in the other one's shadow for ever, and I am not sure I want to stay here for that."
+ ],
+ "pool.b.rivalen_gleiche_position_lage.sensibel": [
+  "It gnaws at me that the other one plays my position and I do not know what I am doing wrong.",
+  "I watch the other one start on my position every week and wonder whether you still believe in me at all."
+ ],
+ "pool.b.elfmeter_streit_gruss": [
+  "Boss, quick one between training and the shower: it is about penalties.",
+  "Coach, I have to raise something that has lain around too long, namely the spot kick."
+ ],
+ "pool.b.elfmeter_streit_lage": [
+  "On the last penalties two team-mates nearly fought over the ball, and in front of the referee it did not look good.",
+  "We have no fixed order for penalties, and every time two lads argue on the pitch about who takes it."
+ ],
+ "pool.b.elfmeter_streit_lage.hitzig": [
+  "Two of my lads nearly came to blows over a penalty, and I am fed up that nobody sorts it out!",
+  "On the pitch two of them shout at each other over who shoots, and as captain I stand in between and do not know what to do!"
+ ],
+ "pool.b.elfmeter_streit_lage.loyal": [
+  "I do not want to expose anyone, but two of them quarrel over penalties, and that hurts all of us.",
+  "It is awkward to come to you with this, yet there is unrest over spot kicks that we cannot afford."
+ ],
+ "pool.b.elfmeter_streit_lage.ehrgeizig": [
+  "A penalty can decide a game, and I want the best to take it and not the loudest.",
+  "When we play for points there can be no quarrel over penalties, only the most reliable taker."
+ ],
+ "pool.b.elfmeter_streit_lage.wechselfreudig": [
+  "I have even wondered whether I still want to be a taker if the quarrel over it does not stop.",
+  "The row over penalties annoys me so much I can hardly imagine carrying on like this much longer."
+ ],
+ "pool.b.elfmeter_streit_lage.sensibel": [
+  "It weighs on me how the two go at each other over a penalty, I hardly dare step in any more.",
+  "I can see the taker is suffering under the pressure, and it hurts me how the quarrel occupies him."
+ ],
+ "pool.b.kabine_clique_gruss": [
+  "Coach, can I speak to you in private? It is about the mood in the dressing room.",
+  "Coach, I have to report something I no longer want to watch like this."
+ ],
+ "pool.b.kabine_clique_lage": [
+  "Camps have formed in the dressing room, the old hands sit together, so do the young ones, and hardly anyone talks across the groups any more.",
+  "There are fixed little groups in the squad by now: compatriots stick together and the others are left out."
+ ],
+ "pool.b.kabine_clique_lage.hitzig": [
+  "The dressing room has fallen into camps and jibes fly back and forth until I have had enough!",
+  "The old against the young, and both sides snipe at each other, I can hardly stand it any more!"
+ ],
+ "pool.b.kabine_clique_lage.loyal": [
+  "I love this team, and it pains me to see it split into camps.",
+  "For the club's sake I say it openly: groups are forming in the dressing room that hardly look at one another any more."
+ ],
+ "pool.b.kabine_clique_lage.ehrgeizig": [
+  "A team that falls into camps wins nothing, and I want us to pull together again.",
+  "If we want to compete at the top we need a dressing room without fronts, and we are far from that."
+ ],
+ "pool.b.kabine_clique_lage.wechselfreudig": [
+  "If the dressing room stays this divided some will think about whether they still belong here.",
+  "The camps make it hard for some, and I notice individuals are already talking about a move."
+ ],
+ "pool.b.kabine_clique_lage.sensibel": [
+  "It touches me how cold it has become between the groups, and I notice individuals suffering from it.",
+  "I see how some in the dressing room feel excluded because they have no place in either camp."
+ ],
+ "pool.b.kabine_streich_gruss": [
+  "Coach, team question: we have an idea for dressing-room life.",
+  "Hey coach, we have thought of something and wanted to ask you first."
+ ],
+ "pool.b.kabine_streich_lage": [
+  "We want to welcome our new man to the squad with the usual ritual, a bit of fun is a must.",
+  "Someone has a birthday and the lads would like to play a little prank on him, nothing nasty of course."
+ ],
+ "pool.b.kabine_streich_lage.hitzig": [
+  "We won and want to celebrate, and this time it is the new boy's turn whether he likes it or not!",
+  "A ritual is part of it, and if nobody joins in I will do it alone!"
+ ],
+ "pool.b.kabine_streich_lage.loyal": [
+  "The team sticks together and a custom like this strengthens that if it is done right.",
+  "Everyone in the dressing room likes the new man, and that is precisely why we want to play a prank he will remember fondly."
+ ],
+ "pool.b.kabine_streich_lage.ehrgeizig": [
+  "Things have been going really well since the wins, and a ritual would cement team spirit for the next games.",
+  "A prank like this welds us together, and we can carry the momentum from the good results."
+ ],
+ "pool.b.kabine_streich_lage.wechselfreudig": [
+  "The new man will soon be gone if he does not feel accepted, so we need an initiation.",
+  "Some come and go so fast that a ritual is the best chance of tying him in."
+ ],
+ "pool.b.kabine_streich_lage.sensibel": [
+  "I want the new man to feel welcome, but I am unsure whether a prank would be too much for him.",
+  "We mean well with the new man, but I worry it could embarrass him."
+ ]
+}

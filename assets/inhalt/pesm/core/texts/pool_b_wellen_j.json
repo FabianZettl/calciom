@@ -1,0 +1,86 @@
+{
+  "pool.b.angebot_fuer_spieler_gruss": [
+    "Guten Tag, hier schreibt der Sportdirektor von {verein}.",
+    "Guten Tag, der Sportdirektor von {verein} meldet sich bei Ihnen."
+  ],
+  "pool.b.angebot_fuer_spieler_lage": [
+    "Wir möchten {name} verpflichten und bieten dafür {betrag}.",
+    "{verein} legt Ihnen ein Angebot für {name} vor: {betrag}."
+  ],
+  "pool.b.angebot_fuer_spieler_lage.hitzig": [
+    "Wir wollen {name}, und zwar jetzt: {betrag}, und ich warte nicht ewig!",
+    "Mein Angebot für {name} lautet {betrag}, und mehr Entgegenkommen sehen Sie von uns nicht!"
+  ],
+  "pool.b.angebot_fuer_spieler_lage.loyal": [
+    "Ich schätze unser gutes Verhältnis, deshalb komme ich offen auf Sie zu: {betrag} für {name}.",
+    "Ungern nehme ich Ihnen einen Spieler weg, aber {name} passt zu uns, und wir bieten {betrag}."
+  ],
+  "pool.b.angebot_fuer_spieler_lage.ehrgeizig": [
+    "{name} gehört auf eine größere Bühne, und wir bieten ihm diese samt {betrag} für Ihren Klub.",
+    "Wir planen Großes und brauchen {name}; {betrag} sind unser Wort."
+  ],
+  "pool.b.angebot_fuer_spieler_lage.wechselfreudig": [
+    "Man hört, dass {name} sich nach etwas Neuem umsieht. Wir bieten {betrag} und eine Lösung für alle.",
+    "Wenn {name} ohnehin gehen mag, dann bitte zu uns: {betrag}."
+  ],
+  "pool.b.angebot_fuer_spieler_lage.sensibel": [
+    "Ich will Ihnen nicht zu nahe treten, aber wir haben {name} lange beobachtet und möchten {betrag} bieten.",
+    "Es fällt mir nicht leicht, Sie zu fragen, doch für {name} stehen {betrag} bereit."
+  ],
+  "pool.b.leihanfrage_gruss": [
+    "Guten Tag, ich bin der Sportdirektor von {verein} und schreibe wegen {name}.",
+    "Guten Tag, hier ist {verein}, es geht um die Zukunft von {name}."
+  ],
+  "pool.b.leihanfrage_lage": [
+    "{name} spielt bei Ihnen wenig. Wir würden ihn gern ausleihen, die Leihgebühr beträgt {betrag}.",
+    "Wir möchten {name} ein Jahr lang ausleihen, für eine Leihgebühr von {betrag} und mit Kaufoption."
+  ],
+  "pool.b.leihanfrage_lage.hitzig": [
+    "{name} versauert bei Ihnen auf der Bank, geben Sie ihn uns, {betrag} Leihgebühr liegen bereit!",
+    "Ein Talent wie {name} gehört auf den Platz, und wir zahlen {betrag}, damit er spielt!"
+  ],
+  "pool.b.leihanfrage_lage.loyal": [
+    "Wir wissen, dass Sie viel in {name} investiert haben, deshalb leihen wir ihn nur aus und zahlen {betrag}.",
+    "Wir kümmern uns gut um {name} und bringen ihn gestärkt zurück; die Leihgebühr beträgt {betrag}."
+  ],
+  "pool.b.leihanfrage_lage.ehrgeizig": [
+    "Bei uns bekommt {name} Spielzeit und eine Bühne. Wir bieten {betrag} Leihgebühr und eine Kaufoption.",
+    "Wir bauen auf junge Spieler, und {name} soll unser nächster werden; {betrag} sind für die Leihe eingeplant."
+  ],
+  "pool.b.leihanfrage_lage.wechselfreudig": [
+    "Wenn {name} ohnehin nach Spielzeit sucht, kann er sie bei uns haben: {betrag} Leihgebühr.",
+    "{name} will raus aus der Reserve, wir bieten ihm den Weg dorthin und Ihnen {betrag}."
+  ],
+  "pool.b.leihanfrage_lage.sensibel": [
+    "Ich weiß, dass junge Spieler empfindlich sind; bei uns bekäme {name} Ruhe, und {betrag} Leihgebühr sind gesichert.",
+    "Ich möchte {name} keinesfalls unter Druck setzen; wir bieten eine Leihe, Leihgebühr {betrag}."
+  ],
+  "pool.b.tauschvorschlag_gruss": [
+    "Hallo, hier ist der Sportdirektor von {verein}, haben Sie kurz Zeit?",
+    "Guten Tag, ich rufe für {verein} an, es geht um {name}."
+  ],
+  "pool.b.tauschvorschlag_lage": [
+    "Wir schlagen einen Tausch vor: {name} zu uns, einer unserer Spieler zu Ihnen, dazu zahlen wir {betrag} drauf.",
+    "Wie wäre es mit einem Tausch? Sie geben uns {name}, wir geben einen eigenen Spieler und {betrag} Aufzahlung."
+  ],
+  "pool.b.tauschvorschlag_lage.hitzig": [
+    "Wir tauschen, {name} gegen einen von uns, und {betrag} legen wir obendrauf, mehr gibt es nicht!",
+    "Mein Vorschlag ist ein Tausch mit {betrag} Aufzahlung, und ich mache ihn kein zweites Mal!"
+  ],
+  "pool.b.tauschvorschlag_lage.loyal": [
+    "Weil wir uns lange kennen, mache ich Ihnen einen fairen Tausch: einer von uns gegen {name}, dazu {betrag}.",
+    "Ich möchte keinem von uns wehtun; deshalb ein Tausch für {name}, und wir zahlen {betrag} dazu."
+  ],
+  "pool.b.tauschvorschlag_lage.ehrgeizig": [
+    "Der Tausch bringt beide Klubs nach oben: {name} zu uns, einer von uns zu Ihnen, plus {betrag}.",
+    "Wir wollen {name} für unser Projekt und bieten einen Spieler und {betrag} Aufzahlung."
+  ],
+  "pool.b.tauschvorschlag_lage.wechselfreudig": [
+    "Ihre Spieler wechseln ohnehin gern; tauschen wir also, {name} gegen einen der unseren, mit {betrag} obendrauf.",
+    "Ein Tausch macht alle glücklich: {name} kommt, einer geht, und {betrag} gehen an Sie."
+  ],
+  "pool.b.tauschvorschlag_lage.sensibel": [
+    "Ich hoffe, ich trete Ihnen nicht zu nahe: ein Tausch für {name}, dazu {betrag}.",
+    "Es ist mir wichtig, dass Sie sich nicht überrumpelt fühlen; der Vorschlag lautet Tausch plus {betrag}."
+  ]
+}

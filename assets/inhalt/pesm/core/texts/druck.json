@@ -1,0 +1,75 @@
+{
+ "gs.druck.knopf": "Druck machen",
+ "gs.druck.zeile.vertrag": "Der Spieler soll heute antworten. Das kann gut gehen, aber auch Stimmung kosten.",
+ "gs.druck.zeile.angebot": "Der Verein soll noch heute antworten. Er kann sich auch verschließen.",
+ "gs.druck.gesperrt.benutzt": "In dieser Runde hast du schon gedrängt.",
+ "gs.druck.gesperrt.ruht": "Die Gespräche ruhen bis %1.",
+ "gs.druck.gesperrt.keine_antwort": "Im Moment steht keine Antwort aus, auf die du drängen könntest.",
+ "gs.druck.ruht_bis": "ruht bis %1",
+ "gs.druck.einschaetzung.titel": "Ihre Einschätzung",
+ "gs.druck.einschaetzung.vertrag.gut": "Sein Berater meint: Er wird verstehen.",
+ "gs.druck.einschaetzung.vertrag.offen": "Sein Berater meint: Schwer zu sagen, wie er reagiert.",
+ "gs.druck.einschaetzung.vertrag.heikel": "Sein Berater meint: Das könnte schiefgehen.",
+ "gs.druck.einschaetzung.angebot.gut": "Der Sportdirektor meint: Der Verein wird verstehen.",
+ "gs.druck.einschaetzung.angebot.offen": "Der Sportdirektor meint: Schwer zu sagen, wie der Verein reagiert.",
+ "gs.druck.einschaetzung.angebot.heikel": "Der Sportdirektor meint: Das könnte schiefgehen.",
+ "gs.druck.ausgang_kurz.beeindruckt": "Das hat Eindruck gemacht.",
+ "gs.druck.ausgang_kurz.ohne_folgen": "Die Antwort kam schnell, ohne Folgen.",
+ "gs.druck.ausgang_kurz.stimmung": "Die Antwort kam schnell, die Stimmung leidet.",
+ "gs.druck.ausgang_kurz.blockade": "Die Gegenseite hat sich verschlossen.",
+ "gs.druck.ausgang.beeindruckt": [
+  "%1 ist beeindruckt von deiner Entschlossenheit und kommt dir entgegen.",
+  "%1 nickt anerkennend: Wer so klar auftritt, bekommt eine klare Antwort."
+ ],
+ "gs.druck.ausgang.ohne_folgen": [
+  "%1 antwortet noch heute und nimmt es dir nicht übel.",
+  "%1 hat Verständnis für die Eile und antwortet sofort."
+ ],
+ "gs.druck.ausgang.stimmung": [
+  "%1 antwortet noch heute, aber der Ton ist spürbar kühler.",
+  "%1 gibt nach, nimmt dir das Drängen aber übel."
+ ],
+ "gs.druck.ausgang.blockade": [
+  "%1 lässt sich nicht treiben. Die Gespräche ruhen für einige Tage.",
+  "%1 verschließt sich: Mit Druck ist hier nichts zu holen."
+ ],
+ "gs.klima.titel": "Gesprächsklima",
+ "gs.klima.gut": "Gut",
+ "gs.klima.ruhig": "Ruhig",
+ "gs.klima.angespannt": "Angespannt",
+ "gs.klima.gereizt": "Gereizt",
+ "gs.klima.veraergert": "Verärgert",
+ "gs.vertrag.bedenk.wartet": "Bedenkzeit bis %1.",
+ "gs.vertrag.bedenk.titel": "Woran es hängt",
+ "gs.vertrag.erwartung.unbekannt": "Was er erwartet, ist noch nicht zu erkennen.",
+ "gs.vertrag.erwartung.deutlich_mehr": "Er erwartet deutlich mehr als jetzt.",
+ "gs.vertrag.erwartung.mehr": "Er erwartet etwas mehr als jetzt.",
+ "gs.vertrag.erwartung.gleich": "Er erwartet ungefähr das, was er jetzt bekommt.",
+ "gs.vertrag.erwartung.weniger": "Er wäre auch mit etwas weniger zufrieden.",
+ "gs.vertrag.grund.spielzeit": "Ihm wurde zu wenig Spielzeit zugesichert.",
+ "gs.vertrag.sachlich.bedenkzeit": [
+  "%1: „Das ist nah dran. Wir brauchen etwas Bedenkzeit.“"
+ ],
+ "gs.vertrag.fordernd.bedenkzeit": [
+  "%1: „Knapp daneben. Mein Spieler überlegt, und wir melden uns.“"
+ ],
+ "gs.vertrag.freundlich.bedenkzeit": [
+  "%1: „Das klingt gut. Lassen Sie uns kurz darüber schlafen.“"
+ ],
+ "gs.spielzeit.talent": "Rolle als Talent mit Entwicklungsgarantie",
+ "gs.ui.fehler.bedenkzeit": "Der Spieler denkt noch nach, die Antwort kommt.",
+ "gs.ui.fehler.ruht": "Die Gespräche ruhen noch.",
+ "gs.ui.fehler.benutzt": "In dieser Runde hast du schon gedrängt.",
+ "gs.ui.fehler.keine_antwort": "Im Moment steht keine Antwort aus.",
+ "gs.ui.fehler.kein_druck_moeglich": "Hier lässt sich kein Druck machen.",
+ "gs.vorfall.vertrag_antwort.betreff": "%1 hat sich entschieden",
+ "gs.vorfall.vertrag_antwort.text": "Die Bedenkzeit von %1 ist um. Seine Antwort liegt in der Verhandlung.",
+ "tv.grund.druck": "Das Drängen hat die Gespräche beendet.",
+ "gs.druck.zeile.anfrage": "Der Verein soll noch heute auf die Anfrage antworten. Er kann sich auch verschließen.",
+ "gs.druck.einschaetzung.anfrage.gut": "Der Sportdirektor meint: Der Verein wird verstehen.",
+ "gs.druck.einschaetzung.anfrage.offen": "Der Sportdirektor meint: Schwer zu sagen, wie der Verein reagiert.",
+ "gs.druck.einschaetzung.anfrage.heikel": "Der Sportdirektor meint: Das könnte schiefgehen.",
+ "tv.druck.rueck.anfrage.antwort": "Der Sportdirektor hat nachgehakt: Die Antwort des Vereins steht im Posteingang.",
+ "tv.druck.rueck.blockade": "Die Gegenseite hat sich verschlossen. Vor %1 gibt es keine Antwort.",
+ "tv.druck.rueck.abbruch": "Die Gespräche sind abgebrochen."
+}

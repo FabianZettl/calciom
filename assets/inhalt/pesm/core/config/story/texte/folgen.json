@@ -1,0 +1,68 @@
+{
+  "_hinweis": "Folgetexte für Schritt 3: Der Spieler meldet sich nach einer Zusage oder mit einem Wechselwunsch („Trainer“, „Sie“); der Trainer antwortet mit Du. Die Texte nennen die Zusage nicht im Einzelnen und passen damit zu jeder Art von Versprechen. Platzhalter: {spieler_kurz}.",
+  "versprechen_gehalten.betreff": { "standard": ["{spieler_kurz} bedankt sich"] },
+  "versprechen_gehalten.text": {
+    "standard": [
+      "Trainer, Sie haben Wort gehalten. Das vergesse ich nicht. Ich wollte mich dafür bedanken.",
+      "Trainer, kurz von mir: Sie haben getan, was Sie zugesagt hatten. Das ist nicht selbstverständlich. Danke."
+    ],
+    "typ": {
+      "egoist":       ["Trainer, Sie haben geliefert, was abgemacht war. Gut so. Jetzt sehen Sie ja, was Sie an mir haben."],
+      "kumpel":       ["Trainer, Sie haben Ihre Zusage gehalten, das habe ich den Jungs auch erzählt. Auf Sie kann man sich verlassen. Danke dafür."],
+      "heisssporn":   ["Trainer, ich gebe zu, ich habe nicht daran geglaubt. Sie haben mich eines Besseren belehrt. Respekt."],
+      "vorbildprofi": ["Trainer, danke, dass Sie Ihre Zusage eingehalten haben. Ich gebe das mit Leistung zurück."],
+      "diva":         ["Trainer, Sie haben eingehalten, was Sie mir zugesagt hatten. Das erwarte ich auch, aber ich weiß es zu schätzen. So arbeite ich gern mit Ihnen."],
+      "anfuehrer":    ["Trainer, auf Ihr Wort war Verlass. Das spricht sich in der Kabine herum, und es hilft mir, die Mannschaft hinter Ihnen zu halten."]
+    }
+  },
+  "versprechen_gehalten.antwort.anerkennung": { "standard": ["Abgemacht ist abgemacht. Du hast es dir verdient."] },
+  "versprechen_gehalten.antwort.ansporn":     { "standard": ["Das war der Anfang. Jetzt will ich sehen, dass du es bestätigst."] },
+  "versprechen_gehalten.antwort.abwinken":    { "standard": ["Bedank dich nicht. Wer nachlässt, sitzt wieder draußen."] },
+  "versprechen_gehalten.rueckmeldung.anerkennung": { "standard": ["Das freut mich, Trainer. Auf mich können Sie zählen."] },
+  "versprechen_gehalten.rueckmeldung.ansporn":     { "standard": ["Verstanden. Ich bleibe dran."] },
+  "versprechen_gehalten.rueckmeldung.abwinken":    { "standard": ["Schon klar. Ich wollte es nur gesagt haben."] },
+
+  "versprechen_gebrochen.betreff": { "standard": ["{spieler_kurz}: Zusage nicht eingehalten"] },
+  "versprechen_gebrochen.text": {
+    "standard": [
+      "Trainer, Sie hatten mir etwas zugesagt. Passiert ist nichts. Ich möchte wissen, ob Ihr Wort noch gilt.",
+      "Trainer, ich habe gewartet, wie besprochen. Die Zusage ist nicht eingelöst worden. Das enttäuscht mich."
+    ],
+    "typ": {
+      "egoist":       ["Trainer, Sie haben mir etwas versprochen und nicht gehalten. So geht man mit mir nicht um. Ich ziehe daraus meine Schlüsse."],
+      "kumpel":       ["Trainer, ich habe Ihnen geglaubt und Sie vor den anderen verteidigt. Jetzt stehe ich dumm da. Was soll ich davon halten?"],
+      "heisssporn":   ["Trainer, Sie haben mir ins Gesicht etwas zugesagt, und nichts davon ist passiert. Ich lasse mich nicht hinhalten!"],
+      "vorbildprofi": ["Trainer, ich habe meinen Teil erfüllt. Ihre Zusage steht noch aus. Ich bitte Sie um eine ehrliche Erklärung."],
+      "diva":         ["Trainer, ich bin es nicht gewohnt, dass man mir etwas zusagt und es dann vergisst. Bei einem Spieler meines Formats sollte das nicht vorkommen."],
+      "anfuehrer":    ["Trainer, Sie haben Ihr Wort mir gegenüber nicht gehalten. Das ist nicht nur meine Sache: Die Kabine schaut genau hin, wie Sie mit Zusagen umgehen."]
+    }
+  },
+  "versprechen_gebrochen.antwort.einloesen":  { "standard": ["Du hast recht. Ich hole das nach, und zwar sofort."] },
+  "versprechen_gebrochen.antwort.erklaeren":  { "standard": ["Die Lage hat sich geändert. Ich konnte es nicht halten und sage dir offen, warum."] },
+  "versprechen_gebrochen.antwort.abstreiten": { "standard": ["Ich habe dir nichts garantiert. Auf dem Platz steht, wer es verdient."] },
+  "versprechen_gebrochen.rueckmeldung.einloesen":  { "standard": ["Gut. Ein zweites Mal warte ich aber nicht."] },
+  "versprechen_gebrochen.rueckmeldung.erklaeren":  { "standard": ["Zufrieden bin ich nicht. Aber immerhin sagen Sie es mir offen."] },
+  "versprechen_gebrochen.rueckmeldung.abstreiten": { "standard": ["So ist das also. Dann weiß ich, was Ihr Wort wert ist."] },
+
+  "wechselwunsch.betreff": { "standard": ["{spieler_kurz} will den Verein verlassen"] },
+  "wechselwunsch.text": {
+    "standard": [
+      "Trainer, ich habe lange überlegt. Ich sehe für mich hier keine Zukunft mehr und möchte den Verein verlassen.",
+      "Trainer, ich sage es Ihnen direkt: Ich möchte wechseln. Ich bitte Sie, einem Transfer zuzustimmen."
+    ],
+    "typ": {
+      "egoist":       ["Trainer, ich verschwende hier meine Zeit. Ich will weg, und zwar zu einem Verein, der weiß, was er an mir hat."],
+      "kumpel":       ["Trainer, das fällt mir schwer, weil ich die Jungs mag. Aber so geht es für mich nicht weiter. Ich würde gern woanders neu anfangen."],
+      "heisssporn":   ["Trainer, es reicht mir endgültig. Ich will weg. Setzen Sie mich auf die Transferliste."],
+      "vorbildprofi": ["Trainer, ich möchte Sie um die Freigabe für einen Wechsel bitten. Bis dahin erfülle ich meinen Vertrag und trainiere wie immer."],
+      "diva":         ["Trainer, ich habe mir das lange genug angesehen. Ein Spieler wie ich gehört auf eine größere Bühne. Ich möchte gehen."],
+      "anfuehrer":    ["Trainer, ich habe hier immer Verantwortung übernommen. Wenn ich jetzt um einen Wechsel bitte, dann nicht leichtfertig. Lassen Sie uns das sauber regeln."]
+    }
+  },
+  "wechselwunsch.antwort.freigabe":   { "standard": ["Ich halte dich nicht auf. Bei einem passenden Angebot kannst du gehen."] },
+  "wechselwunsch.antwort.umstimmen":  { "standard": ["Ich will dich behalten. Sag mir, was sich ändern muss, damit du bleibst."] },
+  "wechselwunsch.antwort.verweigern": { "standard": ["Du hast einen Vertrag, und den erfüllst du. Ein Wechsel ist kein Thema."] },
+  "wechselwunsch.rueckmeldung.freigabe":   { "standard": ["Danke, Trainer. Bis dahin gebe ich alles für die Mannschaft."] },
+  "wechselwunsch.rueckmeldung.umstimmen":  { "standard": ["Darüber können wir reden. Aber es müssen Taten folgen."] },
+  "wechselwunsch.rueckmeldung.verweigern": { "standard": ["Das nehme ich zur Kenntnis. Glücklich macht es hier keinen."] }
+}

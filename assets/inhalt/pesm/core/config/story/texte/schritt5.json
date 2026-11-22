@@ -1,0 +1,99 @@
+{
+  "_hinweis": "Entwurf für Schritt 5 (Vereinsgrößen, Seite Ziele). Liegt im Unterordner, weil der Lader nur Schlüssel zu vorhandenen Regeln annimmt; mit den Regeln nach texte/ verschieben. Der Vorstand schreibt förmlich („Sie“), der Trainer antwortet mit „Sie“; ziele.stand.* sind Zeilen der Seite Ziele (Du). Bei allen Zieltexten: {zahl} = vereinbarter Zielplatz, {platz} = aktueller Tabellenplatz. siegesserie_presse: {zahl} = Siege in Folge. niederlagenserie: {zahl} = Niederlagen in Folge. Platzhalter: {verein}, {platz}, {zahl}, {reporter}, {medium}, {vorstand}.",
+
+  "saisonziel_vorschlag.betreff": { "standard": ["Saisonziel: Platz {zahl} oder besser"] },
+  "saisonziel_vorschlag.text": {
+    "standard": [
+      "Der Vorstand hat über die Saison beraten. Wir halten Platz {zahl} oder besser für ein angemessenes Ziel. Bitte teilen Sie mir mit, ob Sie das mittragen. – {vorstand}",
+      "Für diese Saison brauchen wir ein gemeinsames Ziel. Unser Vorschlag: mindestens Platz {zahl}. Wenn Sie den Kader anders einschätzen, sagen Sie es jetzt. – {vorstand}"
+    ]
+  },
+  "saisonziel_vorschlag.antwort.annehmen":  { "standard": ["Einverstanden. Platz {zahl} oder besser ist unser Ziel."] },
+  "saisonziel_vorschlag.antwort.hoeher":    { "standard": ["Das ist mir zu wenig. Mit dieser Mannschaft will ich weiter oben landen."] },
+  "saisonziel_vorschlag.antwort.niedriger": { "standard": ["Das halte ich für zu hoch gegriffen. Ich schlage ein vorsichtigeres Ziel vor."] },
+  "saisonziel_vorschlag.rueckmeldung.annehmen":  { "standard": ["Dann halten wir das so fest. Der Vorstand misst die Saison an diesem Ziel."] },
+  "saisonziel_vorschlag.rueckmeldung.hoeher":    { "standard": ["Das hören wir gern. Bedenken Sie: Wer mehr ankündigt, wird auch an mehr gemessen."] },
+  "saisonziel_vorschlag.rueckmeldung.niedriger": { "standard": ["Der Vorstand trägt das mit, wenn auch ungern. Wir erwarten, dass Sie dieses Ziel dann sicher erreichen."] },
+
+  "saisonziel_erreicht.betreff": { "standard": ["Saisonziel erreicht"] },
+  "saisonziel_erreicht.text": {
+    "standard": [
+      "Platz {platz}: Das Ziel für diese Saison ist erreicht. Der Vorstand dankt Ihnen und der Mannschaft für die Arbeit. – {vorstand}",
+      "Wir wollten mindestens Platz {zahl}, geworden ist es Platz {platz}. Damit haben Sie eingehalten, was vereinbart war. Der Vorstand ist zufrieden. – {vorstand}"
+    ]
+  },
+  "saisonziel_erreicht.antwort.kenntnis": { "standard": ["Danke, das gebe ich an die Mannschaft weiter."] },
+
+  "saisonziel_verfehlt.betreff": { "standard": ["Saisonziel verfehlt"] },
+  "saisonziel_verfehlt.text": {
+    "standard": [
+      "Vereinbart war Platz {zahl} oder besser, am Ende steht Platz {platz}. Das Ziel ist verfehlt. Der Vorstand wird die Saison mit Ihnen aufarbeiten. – {vorstand}",
+      "Platz {platz} genügt unseren Ansprüchen nicht. Wir hatten uns auf Platz {zahl} verständigt. Das wird in der Bewertung Ihrer Arbeit eine Rolle spielen. – {vorstand}"
+    ]
+  },
+  "saisonziel_verfehlt.antwort.kenntnis": { "standard": ["Verstanden. Ich stelle mich dem Gespräch."] },
+
+  "ziele.stand.offen":     { "standard": ["Der Vorstand hat ein Saisonziel vorgeschlagen. Nimm es an oder ändere es."] },
+  "ziele.stand.auf_kurs":  { "standard": ["Auf Kurs: Du stehst auf Platz {platz}. Das Ziel ist Platz {zahl} oder besser."] },
+  "ziele.stand.in_gefahr": { "standard": ["Ziel in Gefahr: Du stehst auf Platz {platz}. Vereinbart ist Platz {zahl} oder besser."] },
+
+  "siegesserie_presse.schlagzeile": { "standard": ["{zahl} Siege in Serie für {verein}", "{verein} siegt zum {zahl}. Mal in Folge"] },
+  "siegesserie_presse.kurztext": {
+    "standard": [
+      "{verein} hat {zahl} Spiele nacheinander gewonnen. {reporter} ({medium}): „Die Mannschaft spielt nicht immer schön, aber sie weiß gerade, wie man Spiele für sich entscheidet.“",
+      "Die Serie hält: {verein} gewinnt auch das {zahl}. Spiel nacheinander. {reporter} ({medium}) fragt, wer diese Mannschaft im Moment schlagen soll."
+    ]
+  },
+
+  "niederlagenserie.schlagzeile": { "standard": ["{zahl}. Niederlage in Folge für {verein}", "{verein} rutscht tiefer in die Krise"] },
+  "niederlagenserie.kurztext": {
+    "standard": [
+      "{verein} verliert zum {zahl}. Mal nacheinander. {reporter} ({medium}): „Die Mannschaft wirkt verunsichert. Jetzt muss schnell ein Erfolgserlebnis her.“",
+      "{zahl} Niederlagen in Serie, und bei {verein} wird es unruhig. {reporter} ({medium}) schreibt, dass die nächsten Spiele über die Stimmung im ganzen Verein entscheiden."
+    ]
+  },
+
+  "aufstiegszone.schlagzeile": { "standard": ["{verein} auf Aufstiegskurs", "Platz {platz}: {verein} klopft oben an"] },
+  "aufstiegszone.kurztext": {
+    "standard": [
+      "{verein} steht auf Platz {platz} und damit auf einem Aufstiegsrang. {reporter} ({medium}): „Vom Aufstieg will dort offiziell keiner reden. Die Tabelle redet aber schon.“",
+      "Platz {platz} nach starken Wochen: {verein} darf vom Aufstieg träumen. {reporter} ({medium}) mahnt zur Ruhe, denn entschieden ist noch nichts."
+    ]
+  },
+
+  "abstiegszone_presse.schlagzeile": { "standard": ["{verein} steckt im Tabellenkeller", "Platz {platz}: Für {verein} wird es ernst"] },
+  "abstiegszone_presse.kurztext": {
+    "standard": [
+      "{verein} steht auf Platz {platz} und damit auf einem Abstiegsrang. {reporter} ({medium}): „Wer jetzt noch von einer Momentaufnahme spricht, verkennt die Lage.“",
+      "Abstiegskampf: {verein} findet sich auf Platz {platz} wieder. {reporter} ({medium}) sieht eine Mannschaft, die mehr kann, es aber zu selten zeigt."
+    ]
+  },
+
+  "vertrauen_sinkt.betreff": { "standard": ["Der Vorstand macht sich Sorgen"] },
+  "vertrauen_sinkt.text": {
+    "standard": [
+      "Ich will offen sein: Im Vorstand mehren sich die Zweifel an der Entwicklung. Noch stehen wir hinter Ihnen. Wir brauchen aber bald Anzeichen, dass es aufwärts geht. – {vorstand}",
+      "Die Stimmung im Vorstand hat sich zuletzt eingetrübt. Einzelne Mitglieder stellen Fragen, die ich nicht mehr leicht beantworten kann. Wie wollen Sie gegensteuern? – {vorstand}"
+    ]
+  },
+  "vertrauen_sinkt.antwort.zusage":      { "standard": ["Ich verstehe die Sorge. In den nächsten Spielen sehen Sie eine Wende, dafür stehe ich gerade."] },
+  "vertrauen_sinkt.antwort.geduld":      { "standard": ["Der Weg stimmt, er braucht Zeit. Ich bitte den Vorstand um Geduld."] },
+  "vertrauen_sinkt.antwort.gegenhalten": { "standard": ["Ich arbeite mit dem, was mir der Verein hinstellt. Wer Ergebnisse will, muss mich arbeiten lassen."] },
+  "vertrauen_sinkt.rueckmeldung.zusage":      { "standard": ["Wir nehmen Sie beim Wort. Bleibt die Wende aus, wird es für uns alle schwierig."] },
+  "vertrauen_sinkt.rueckmeldung.geduld":      { "standard": ["Geduld ist im Vorstand ein knappes Gut. Ich werbe dafür, versprechen kann ich nichts."] },
+  "vertrauen_sinkt.rueckmeldung.gegenhalten": { "standard": ["Diesen Ton wird man im Vorstand nicht vergessen. Ich rate Ihnen, bald Ergebnisse zu liefern."] },
+
+  "vertrauen_steigt.betreff": { "standard": ["Rückenwind aus dem Vorstand"] },
+  "vertrauen_steigt.text": {
+    "standard": [
+      "Eine erfreuliche Nachricht: Der Vorstand ist mit der Entwicklung zufrieden. Ihre Arbeit wird im Verein gesehen, und Sie haben unsere volle Unterstützung. – {vorstand}",
+      "In der letzten Sitzung fiel Ihr Name mehrfach, und zwar im Guten. Der Vorstand traut Ihnen und der Mannschaft in dieser Saison einiges zu. – {vorstand}"
+    ]
+  },
+  "vertrauen_steigt.antwort.bescheiden": { "standard": ["Danke. Das Lob gehört der Mannschaft, wir arbeiten ruhig weiter."] },
+  "vertrauen_steigt.antwort.fordern":    { "standard": ["Das freut mich. Dann sollten wir jetzt über Verstärkungen reden."] },
+  "vertrauen_steigt.antwort.ziel":       { "standard": ["Danke für das Vertrauen. Ich denke, wir können uns mehr vornehmen als bisher."] },
+  "vertrauen_steigt.rueckmeldung.bescheiden": { "standard": ["So kennen wir Sie. Diese Haltung kommt im Vorstand gut an."] },
+  "vertrauen_steigt.rueckmeldung.fordern":    { "standard": ["Sie nutzen den Moment, das verstehe ich. Ich bringe es in die nächste Sitzung ein, erwarten Sie aber keine Wunder."] },
+  "vertrauen_steigt.rueckmeldung.ziel":       { "standard": ["Mutig. Der Vorstand hört das gern und wird Sie daran erinnern."] }
+}

@@ -1,0 +1,35 @@
+# Abschnitte des Tages (Nutzervorgabe 30.10.2026): je Abschnitt 3, höchstens 5 neue Ereignisse, passend zur Tageszeit; nichts doppelt an einem Tag.
+# Seit 20.11.2026 (Fabian) ist ein Tag ein Schritt: beim Tagesbeginn laufen Morgen, Mittag und Abend nacheinander, alle Ereignisse stehen auf einmal da.
+# `min`: so viele sollen es sein, wenn Themen fällig sind (ein volles Postfach lässt die Phase nie leer ausgehen); `max`: Obergrenze inklusive der besonderen Ereignisse (`spezial`).
+# `kategorien`: Themenarten der Pool-Themen (Kategorie im Thema), die in dieser Phase entstehen dürfen. `spezial`: aufstellung (Spieltag, MUSS), training (einmal je Spieltag), abschluss (Ergebnisse nachziehen),
+# vertrauen (Stufenwechsel des Vorstands), kader (Kadertiefe des Co-Trainers, höchstens ein Befund je Morgen), deadline (letzte Tage des Transferfensters: Mittag Lage, Abend Ticker), cotrainer_aufstellung (Abend am Spieltag: nichts abgegeben, der Co-Trainer stellt auf),
+# welt (Mittag: Gerüchte, Dementis, Medizin-Absagen anderer Vereine; Abend: größte Wechsel des Tages, außer in den letzten Fenstertagen), reaktion (Abend: Presse/Kabine/Fans/Vorstand/Spieler reagieren auf die Entscheidungen des Tages), angebote und berater (Mittag: Angebote anderer Vereine, Berateranfragen). Zahlen dazu: lagen.toml, ereignisse.toml.
+
+[morgen]                # Training, Presse, Fans, Präsidium, Berater/Stab, Sponsor, Jugend
+min = 3
+max = 5
+kategorien = ["presse", "fans", "vorstand", "staff", "sponsor", "jugend"]
+spezial = ["aufstellung", "training", "vertrauen", "kader"]
+
+[mittag]                # Spieleranfragen und Gespräche, Verträge/Angebote, Medizin und Verletzungslage
+min = 3
+max = 5
+kategorien = ["spieler", "vertrag", "medizin", "drama"]
+spezial = ["deadline", "angebote", "berater", "welt"]
+
+[abend]                 # Ergebnisse und Abschlüsse, Stimmung in der Kabine, Reaktionen der Spieler auf den Tag
+min = 3
+max = 5
+kategorien = ["kabine", "spieler"]
+spezial = ["abschluss", "cotrainer_aufstellung", "deadline", "reaktion", "welt"]
+
+[drosselung]            # Tagesdeckel der Spieler-Anliegen (drosselung.toml) für die Phasen: ersetzt dort den Tagestakt-Wert, wird nicht daraufgesetzt
+tag = 8
+woche = 25
+rauschen_woche = 8
+
+[training]              # „Trainingsplan anpassen“: einmal je Spieltag, ab so vielen Tagen vor dem Spiel (0 = nur am Spieltag selbst)
+ab_tage = 2
+# Auswahl: Intensität (schonend|normal|hart) und Schwerpunkt (Fokusgruppen aus entwicklung.toml; "" = keiner, fehlt = unverändert). Texte tp.training.opt.<id>.
+optionen = [{ id = "schonen", intensitaet = "schonend" }, { id = "normal", intensitaet = "normal", fokus = "" }, { id = "hart", intensitaet = "hart" },
+            { id = "technik", intensitaet = "normal", fokus = "technik" }, { id = "defensiv", intensitaet = "normal", fokus = "defensiv" }, { id = "tempo", intensitaet = "normal", fokus = "tempo" }]

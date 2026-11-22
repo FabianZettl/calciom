@@ -1,0 +1,50 @@
+# Konfiguration des Spieltag-Erlebnisses (Sitzung H2). Alles hier ist eine eigene Festlegung von PESM und austauschbar.
+
+[bericht]
+note_stark = 7.0            # Mannschaftsteil gilt als stark ab diesem Notenmittel
+note_schwach = 5.5
+note_spieler_des_spiels = 7.0
+note_schwach_spieler = 5.0
+note_torwart = 7.2
+diff_debakel = 3
+tore_festival = 5
+heimvorteil = 6              # Rufpunkte
+favorit_diff = 12            # Rufunterschied ab dem jemand als Favorit gilt
+frist_tage = 3               # Nachspiel-Hinweise und Gespräche zum Spiel
+frisch_tage = 10             # beim ersten Lauf nur Spiele dieser Tage melden
+max_je_lauf = 3
+noten_zeilen = 4
+
+[teamgespraech]
+# Ziel: Anspruch an das Spiel; Erwartungen vor dem Spiel
+ziele = ["sieg", "punkt", "einsatz"]
+fokus = ["gegner", "eigen"]
+toene_vor = ["warm", "sachlich", "bestimmt", "hart", "ausweichend"]
+toene_nach = ["lob", "warm", "sachlich", "bestimmt", "hart"]
+fuehrung_ab = 65             # Charakterwert Führung
+unzufrieden_unter = 40       # Moral
+einzel_max = 2
+serie_laenge = 3
+serie_trost = 2              # Zuspruch nach Niederlagenserie wirkt stärker, Druck schwächer
+serie_euphorie = -2          # Druck und Härte nach Siegesserie wirken schlecht
+ziel_unrealistisch = -2      # Sieg verlangt gegen einen klaren Favoriten
+ziel_unterfordert = -1       # nur Punkt verlangt bei klarem Vorteil (Ehrgeizige)
+ziel_realistisch = 1
+fokus_passt = 1              # Gegner im Fokus als Außenseiter, eigene Stärke als Favorit
+note_unfair = -3             # harte Worte an Spieler mit starker Leistung
+note_hohl = -2               # Lob an Spieler mit schwacher Leistung
+note_verdient = 1
+auswertung_erfuellt = 3      # Moral der Mannschaft, wenn das Ziel erreicht wurde
+auswertung_verfehlt = -3
+auswertung_gegner_schwach = 2   # zusätzlich verfehlt, wenn der Gegner klar schwächer war
+sperre_tage = 1
+
+[news]
+max = 14
+ausblenden_tage = 7
+form_ab = 3                  # Formpfeil-Abstand oder Moral
+moral_tief = 35
+moral_hoch = 75
+vertrag_monate = 6
+serie_ab = 3
+tore_ab = 8

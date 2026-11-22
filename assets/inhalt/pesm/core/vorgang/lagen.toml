@@ -1,0 +1,17 @@
+# Lageberichte der Tagesphasen (Startwerte, nicht kalibriert): Stufen des Vorstandsvertrauens, Kadertiefe, Deadline-Day.
+
+[vertrauen]             # Stufen von oben nach unten: erste Schwelle, die das Vertrauen (0 bis 100) erreicht. „letzte_warnung“ gilt auch, solange das Ultimatum des Präsidiums läuft (vereinswelt.toml [praesidium])
+stufen = [[80, "begeistert"], [65, "zufrieden"], [50, "abwartend"], [35, "unruhig"], [25, "kritisch"], [0, "letzte_warnung"]]
+sperre_tage = 7         # ein Stufenwechsel wird höchstens einmal je Woche gemeldet (kein Flackern an der Schwelle)
+serie_ab = 3            # Niederlagen in Folge, ab denen die Serie als Grund genannt wird
+
+[kader]                 # Zählung je Mannschaftsteil (Positionsgruppen wie transfers/eignung.py) und junge Spieler
+soll = { tor = 2, abwehr = 7, mittelfeld = 7, angriff = 4 }
+jung_bis = 21
+jung_min = 3
+budget_knapp = 2_000_000   # Transferbudget darunter: die Empfehlung nennt Leihe und Jugend statt Verpflichtung
+wiederholung_tage = 7      # derselbe Befund höchstens einmal je Woche
+
+[deadline]
+letzte_tage = 3         # so viele Tage vor dem Ende des Fensters (einschließlich des letzten Tages) gibt es den Mittags- und Abendbericht
+zeilen = 5              # so viele laufende Verhandlungen stehen einzeln im Mittagsbericht (der Abendticker folgt `[ki_welt.relevanz]` in transfers.toml)

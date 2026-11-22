@@ -1,0 +1,158 @@
+# Inhaltspool v1, Vertrag und Wechsel (Berater, Wechselwunsch, Gehalt). Texte: pool.<thema>.<e|a|r|x>.<id> in pesm/core/texts/pool_vertrag_wechsel.json (de) und en/.
+
+[thema.vertrag_laeuft_aus]
+kategorie = "vertrag"
+absender = "berater"
+kanal = "mail"
+dringlichkeit = 2
+sperre_tage = 30
+haeufigkeit = 0.5
+berechtigung = "vertrag"
+wenn = ["rolle:stammspieler,star,fuehrungsspieler,kapitaen", "rest<=8"]
+eroeffnung = [
+  { id = "e1" },
+  { id = "e2" },
+  { id = "e3", wenn = ["stimmung<40"] },
+  { id = "e4", typ = ["hitzig", "launisch"] },
+  { id = "e5", typ = ["loyal", "gelassen"] },
+  { id = "e6", typ = ["ehrgeizig", "wechselfreudig"] },
+  { id = "e7", wenn = ["haken:zusage_gebrochen"] },
+  { id = "e8", typ = ["sensibel"] },
+  { id = "e9", wenn = ["wechsel>=70"] },
+]
+antwort = [
+  { id = "a1", strategie = "zusage", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = 3 }, { ziel = "zusage", art = "vertrag", frist = 30 }], ausgang = "zusage" },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [ { ziel = "beziehung", delta = 1 }, { ziel = "moral", delta = 1 }] },
+  { id = "a3", strategie = "vertroesten", ton = "offen", wirkungen = [ { ziel = "wechselwunsch", delta = 6 }] },
+  { id = "a4", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -5 }, { ziel = "wechselwunsch", delta = 5 }] },
+  { id = "a5", strategie = "ausgleich", ton = "einfuehlsam", wenn = ["budget>200000"], wirkungen = [{ ziel = "moral", delta = 6 }, { ziel = "beziehung", delta = 4 }, { ziel = "kosten", betrag = 250000 }] },
+  { id = "a6", strategie = "gegenfrage", ton = "offen", wirkungen = [] },
+  { id = "a7", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = -4 }, { ziel = "wechselwunsch", delta = 3 }] },
+  { id = "a8", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "moral", delta = 5 }, { ziel = "beziehung", delta = 3 }] },
+  { id = "a9", strategie = "delegieren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = -1 }] },
+  { id = "a10", strategie = "zusage", ton = "humorvoll", wenn = ["beziehung>=0"], wirkungen = [{ ziel = "moral", delta = 3 }, { ziel = "beziehung", delta = 2 }, { ziel = "zusage", art = "vertrag", frist = 60 }], ausgang = "zusage" },
+  { id = "a11", strategie = "ablehnen", ton = "sachlich", wirkungen = [{ ziel = "wechselwunsch", delta = 2 }, { ziel = "moral", delta = -2 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut", typ = ["sensibel", "gelassen", "launisch"] },
+  { id = "r3", gruppe = "gut", typ = ["ehrgeizig"], fuer = ["zusage", "ausgleich"] },
+  { id = "r4", gruppe = "gut" },
+  { id = "r5", gruppe = "neutral" },
+  { id = "r6", gruppe = "neutral" },
+  { id = "r7", gruppe = "neutral", typ = ["sensibel", "gelassen", "launisch"] },
+  { id = "r8", gruppe = "schlecht" },
+  { id = "r9", gruppe = "schlecht" },
+  { id = "r10", gruppe = "schlecht", typ = ["sensibel", "gelassen", "launisch"] },
+]
+ausgang = [
+  { id = "x1", art = "geloest" },
+  { id = "x2", art = "offen" },
+  { id = "x3", art = "eskalation" },
+  { id = "x4", art = "zusage" },
+  { id = "x5", art = "abbruch" },
+]
+
+[thema.wechselwunsch_leistungstraeger]
+kategorie = "spieler"
+absender = "spieler"
+kanal = "persoenlich"
+dringlichkeit = 3
+sperre_tage = 30
+haeufigkeit = 0.5
+berechtigung = "wechsel"
+wenn = ["rolle:stammspieler,star,fuehrungsspieler,kapitaen", "wechsel>=60"]
+eroeffnung = [
+  { id = "e1" },
+  { id = "e2" },
+  { id = "e3", wenn = ["stimmung<40"] },
+  { id = "e4", typ = ["hitzig", "launisch"] },
+  { id = "e5", typ = ["loyal", "gelassen"] },
+  { id = "e6", typ = ["ehrgeizig", "wechselfreudig"] },
+  { id = "e7", wenn = ["haken:zusage_gebrochen"] },
+  { id = "e8", wenn = ["abstand_ziel>=3"] },
+  { id = "e9", typ = ["sensibel"] },
+]
+antwort = [
+  { id = "a1", strategie = "zusage", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = 4 }, { ziel = "wechselwunsch", delta = -6 }, { ziel = "zusage", art = "vertrag", frist = 30 }], ausgang = "zusage" },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [ { ziel = "wechselwunsch", delta = -3 }] },
+  { id = "a3", strategie = "vertroesten", ton = "offen", wirkungen = [ { ziel = "wechselwunsch", delta = 6 }] },
+  { id = "a4", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "moral", delta = -6 }, { ziel = "beziehung", delta = -5 }, { ziel = "wechselwunsch", delta = 6 }] },
+  { id = "a5", strategie = "ausgleich", ton = "einfuehlsam", wenn = ["budget>200000"], wirkungen = [{ ziel = "moral", delta = 6 }, { ziel = "beziehung", delta = 3 }, { ziel = "wechselwunsch", delta = -3 }, { ziel = "kosten", betrag = 300000 }] },
+  { id = "a6", strategie = "gegenfrage", ton = "offen", wirkungen = [] },
+  { id = "a7", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "moral", delta = -3 }, { ziel = "beziehung", delta = -3 }, { ziel = "wechselwunsch", delta = 3 }] },
+  { id = "a8", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "moral", delta = 4 }, { ziel = "beziehung", delta = 3 }, { ziel = "wechselwunsch", delta = -2 }] },
+  { id = "a9", strategie = "delegieren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = -2 }, { ziel = "wechselwunsch", delta = 2 }] },
+  { id = "a10", strategie = "zusage", ton = "humorvoll", wenn = ["beziehung>=0"], wirkungen = [{ ziel = "moral", delta = 2 }, { ziel = "wechselwunsch", delta = -2 }, { ziel = "zusage", art = "freigabe", frist = 90 }], ausgang = "zusage" },
+  { id = "a11", strategie = "ablehnen", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = -2 }, { ziel = "wechselwunsch", delta = 2 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen"] },
+  { id = "r3", gruppe = "gut", typ = ["ehrgeizig", "wechselfreudig"], fuer = ["zusage", "ausgleich"] },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral", typ = ["sensibel", "launisch"] },
+  { id = "r6", gruppe = "neutral" },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht", typ = ["hitzig"] },
+  { id = "r9", gruppe = "schlecht", typ = ["wechselfreudig"] },
+]
+ausgang = [
+  { id = "x1", art = "geloest" },
+  { id = "x2", art = "offen" },
+  { id = "x3", art = "eskalation" },
+  { id = "x4", art = "zusage" },
+  { id = "x5", art = "abbruch" },
+]
+
+[thema.gehalt_unter_schnitt]
+kategorie = "spieler"
+absender = "spieler"
+kanal = "chat"
+dringlichkeit = 1
+sperre_tage = 45
+haeufigkeit = 0.4
+berechtigung = "gehalt"
+wenn = ["rolle:stammspieler,star,fuehrungsspieler,kapitaen", "einsatz>=0.6"]
+eroeffnung = [
+  { id = "e1" },
+  { id = "e2" },
+  { id = "e3", wenn = ["stimmung<40"] },
+  { id = "e4", typ = ["hitzig", "launisch"] },
+  { id = "e5", typ = ["loyal", "gelassen"] },
+  { id = "e6", typ = ["ehrgeizig", "wechselfreudig"] },
+  { id = "e7", wenn = ["haken:zusage_gebrochen"] },
+  { id = "e8", wenn = ["moral<45"] },
+  { id = "e9", wenn = ["rest<=12"] },
+]
+antwort = [
+  { id = "a1", strategie = "zusage", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = 4 }, { ziel = "zusage", art = "gehalt", frist = 40 }], ausgang = "zusage" },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = 2 }] },
+  { id = "a3", strategie = "vertroesten", ton = "offen", wirkungen = [{ ziel = "moral", delta = -1 }, { ziel = "wechselwunsch", delta = 6 }] },
+  { id = "a4", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "moral", delta = -5 }, { ziel = "beziehung", delta = -4 }, { ziel = "wechselwunsch", delta = 4 }] },
+  { id = "a5", strategie = "ausgleich", ton = "einfuehlsam", wenn = ["budget>200000"], wirkungen = [{ ziel = "moral", delta = 6 }, { ziel = "beziehung", delta = 3 }, { ziel = "kosten", betrag = 150000 }] },
+  { id = "a6", strategie = "gegenfrage", ton = "offen", wirkungen = [] },
+  { id = "a7", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "moral", delta = -3 }, { ziel = "beziehung", delta = -3 }, { ziel = "wechselwunsch", delta = 2 }] },
+  { id = "a8", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "moral", delta = 5 }, { ziel = "beziehung", delta = 3 }] },
+  { id = "a9", strategie = "delegieren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = -1 }] },
+  { id = "a10", strategie = "zusage", ton = "humorvoll", wenn = ["beziehung>=0"], wirkungen = [{ ziel = "moral", delta = 3 }, { ziel = "beziehung", delta = 2 }, { ziel = "zusage", art = "gehalt", frist = 60 }], ausgang = "zusage" },
+  { id = "a11", strategie = "ablehnen", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = -2 }, { ziel = "wechselwunsch", delta = 2 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen"] },
+  { id = "r3", gruppe = "gut", typ = ["ehrgeizig", "wechselfreudig"], fuer = ["zusage", "ausgleich"] },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral", typ = ["sensibel", "launisch"] },
+  { id = "r6", gruppe = "neutral" },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht", typ = ["hitzig"] },
+  { id = "r9", gruppe = "schlecht", typ = ["wechselfreudig"] },
+]
+ausgang = [
+  { id = "x1", art = "geloest" },
+  { id = "x2", art = "offen" },
+  { id = "x3", art = "eskalation" },
+  { id = "x4", art = "zusage" },
+  { id = "x5", art = "abbruch" },
+]

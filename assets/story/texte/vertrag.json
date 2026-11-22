@@ -1,0 +1,38 @@
+{
+  "_hinweis": "Texte zum Thema Vertrag. vertrag_laeuft_aus: Der Berater schreibt (geschäftig, „Sie“), {tage} = Tage bis zum Vertragsende. altstar_karriereende: Der Spieler spricht im Gespräch („Trainer“, „Sie“); der Trainer antwortet mit Du. Platzhalter: {spieler}, {spieler_kurz}, {tage}, {berater}.",
+  "vertrag_laeuft_aus.betreff": { "standard": ["Vertrag von {spieler_kurz}: noch {tage} Tage"] },
+  "vertrag_laeuft_aus.text": {
+    "standard": [
+      "Guten Tag, {berater} hier. Der Vertrag von {spieler} läuft in {tage} Tagen aus. Mein Mandant möchte wissen, wie der Verein plant. Es gibt Anfragen, noch warten wir auf Sie.",
+      "{berater}, Berater von {spieler}. Noch {tage} Tage Vertrag und bisher kein Gespräch. Wir würden gern verlängern, brauchen aber bald ein Signal von Ihnen."
+    ]
+  },
+  "vertrag_laeuft_aus.antwort.verlaengern": { "standard": ["Wir wollen verlängern. Ich setze mich in den nächsten Tagen mit Ihnen zusammen."] },
+  "vertrag_laeuft_aus.antwort.abwarten":    { "standard": ["Wir entscheiden nach den nächsten Spielen. Bis dahin gibt es kein Angebot."] },
+  "vertrag_laeuft_aus.antwort.absage":      { "standard": ["Wir planen ohne ihn. Der Vertrag läuft aus."] },
+  "vertrag_laeuft_aus.rueckmeldung.verlaengern": { "standard": ["Sehr gut. Ich halte die anderen Anfragen so lange zurück und erwarte Ihren Terminvorschlag."] },
+  "vertrag_laeuft_aus.rueckmeldung.abwarten":    { "standard": ["Das gebe ich so weiter. Sie verstehen, dass wir in der Zwischenzeit auch mit anderen sprechen."] },
+  "vertrag_laeuft_aus.rueckmeldung.absage":      { "standard": ["Schade, aber klar. Mein Mandant erfüllt seinen Vertrag und orientiert sich neu."] },
+
+  "altstar_karriereende.betreff": { "standard": ["{spieler_kurz} fragt, wie es weitergeht"] },
+  "altstar_karriereende.text": {
+    "standard": [
+      "Trainer, mein Vertrag läuft bald aus und ich werde nicht jünger. Ich würde gern wissen, ob Sie noch eine Saison mit mir planen.",
+      "Trainer, ich merke die Jahre, das gebe ich zu. Trotzdem fühle ich mich gut genug für ein weiteres Jahr. Wie sehen Sie das?"
+    ],
+    "typ": {
+      "egoist":       ["Trainer, ich habe in meiner Laufbahn genug gezeigt. Ich erwarte, dass man mir rechtzeitig ein Angebot macht und mich nicht bis zum letzten Tag warten lässt."],
+      "kumpel":       ["Trainer, die Kabine ist mein zweites Zuhause. Ich würde gern noch ein Jahr dranhängen, auch mit weniger Einsätzen. Passt das für Sie?"],
+      "heisssporn":   ["Trainer, alle reden schon von meinem Abschied, nur mit mir redet keiner. Ich bin noch nicht fertig. Sagen Sie mir, ob Sie das auch so sehen."],
+      "vorbildprofi": ["Trainer, ich will dem Verein nicht zur Last fallen. Wenn Sie mich noch brauchen, bleibe ich gern. Wenn nicht, höre ich sauber auf und helfe den Jungen bis zum letzten Tag."],
+      "diva":         ["Trainer, ein Abschied durch die Hintertür kommt für mich nicht infrage. Wenn es weitergeht, dann mit einer Rolle, die zu meinem Namen passt."],
+      "anfuehrer":    ["Trainer, die Jungen hören auf mich, und das möchte ich noch ein Jahr nutzen. Sagen Sie mir offen, ob Sie mich dafür im Kader sehen."]
+    }
+  },
+  "altstar_karriereende.antwort.verlaengern": { "standard": ["Ich will dich noch ein Jahr dabeihaben. Wir reden über einen neuen Vertrag."] },
+  "altstar_karriereende.antwort.rolle":       { "standard": ["Auf dem Platz wird es weniger. Aber in der Kabine brauche ich dich, für die Jungen."] },
+  "altstar_karriereende.antwort.abschied":    { "standard": ["Nach der Saison ist Schluss. Wir verabschieden dich anständig."] },
+  "altstar_karriereende.rueckmeldung.verlaengern": { "standard": ["Das wollte ich hören. Danke, Trainer. Sie werden es nicht bereuen."] },
+  "altstar_karriereende.rueckmeldung.rolle":       { "standard": ["Darüber muss ich nachdenken. Ganz ohne Spiele kann ich es mir noch nicht vorstellen."] },
+  "altstar_karriereende.rueckmeldung.abschied":    { "standard": ["Das sitzt. Aber gut, dann weiß ich es jetzt und kann planen."] }
+}

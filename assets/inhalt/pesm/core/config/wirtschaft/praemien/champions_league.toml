@@ -1,0 +1,30 @@
+# Prämien Champions League (Nutzerrecherche 27.10., Schätzung 2026/27). Beträge in Mio EUR der Recherche; im Spiel zählt nur der ANTEIL am Bezug:
+# Betrag im Spiel = Wert / bezug_mio * Referenzumsatz des Vereins (Durchschnitt der obersten Liga im Maßstab des Vereins, siehe praemien.referenz()).
+# So bleiben die Prämien im Verhältnis zum Budget, egal wie die Spielwelt skaliert ist. Eigene Festlegung von PESM, austauschbar.
+wettbewerb = "cl"                  # Schlüssel in wettbewerbe.toml [europa]
+bezug_mio = 284.6                  # Durchschnitts-Jahreseinnahmen der obersten Liga (DFL 2024/25) = Bezug 1,0
+startgeld = 18.62                  # Ligaphase, bei Teilnahme
+vorauszahlung = 17.87              # Teil des Startgelds, der vorab fließt (Rest mit dem ersten Spiel)
+sieg = 2.1                         # je Sieg in der Ligaphase
+remis = 0.7                        # je Remis in der Ligaphase
+platz = [9.9, 0.275]               # Platzierung Ligaphase: linear von Platz 1 bis Platz `ligaphase_plaetze`
+ligaphase_plaetze = 36
+bonus_1_8 = 2.0                    # zusätzlich für Platz 1-8 (direkt ins Achtelfinale)
+zusatz_9_16 = 1.0                  # zusätzlich für Platz 9-16 (im Play-off gesetzt); Platz 1-8 und 9-16 bekommen je ihren Posten, nicht beide
+playoff = 1.0                      # Teilnahme am Play-off (Platz 9-24)
+titel = 6.5                        # zusätzlich zum Finale für den Sieger
+markt_anteil = 0.35                # Marktpool + Koeffizientenzahlung = 35 % des Gesamttopfs, abhängig von Land und Prestige (praemien.markt_faktor)
+markt_faktor = [0.4, 1.6]          # Faktor auf den Marktanteil bei Prestige 0 und 1 (kleines Land / kleiner Markt bekommt weniger, Mitte = 1,0)
+[runden]                           # Prämie bei Erreichen der Runde (Teilnahme)
+achtelfinale = 11.0
+viertelfinale = 12.5
+halbfinale = 15.0
+finale = 18.5
+[gruppenphase]
+# Der Spielstand kennt Gruppen statt einer Ligaphase mit 36 Plätzen: der Gruppenplatz wird gleichmäßig auf die Plätze 1..36 abgebildet
+# (Gruppensieger = 1, Letzter = 36). Die Zusätze 1-8, 9-16 und Play-off ergeben sich dann aus der abgebildeten Platzziffer.
+abbilden = true
+[szenario]                         # Annahmen für die Spanne der erwarteten Erlöse (praemien.spanne); 8 Ligaphasen-Spiele
+aus_in_ligaphase = { siege = 1, remis = 2, platz = 30 }
+weiter = { siege = 3, remis = 1, platz = 14 }
+sieger = { siege = 8, remis = 0, platz = 1 }

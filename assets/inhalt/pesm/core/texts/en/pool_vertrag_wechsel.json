@@ -1,0 +1,414 @@
+{
+ "pool.vertrag_laeuft_aus.e.e1": [
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} We should talk about the future.",
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} I'd like to clarify early how things go from here."
+ ],
+ "pool.vertrag_laeuft_aus.e.e2": [
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Is the club interested in an extension?",
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} What are the club's plans for him?"
+ ],
+ "pool.vertrag_laeuft_aus.e.e3": [
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} The mood isn't at its best right now, and I don't want this to be left lying.",
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} My client doesn't feel valued, and we should address that."
+ ],
+ "pool.vertrag_laeuft_aus.e.e4": [
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} I won't make him wait forever, an offer has to come now!",
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Either an offer comes now, or I start looking around."
+ ],
+ "pool.vertrag_laeuft_aus.e.e5": [
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} He's comfortable here and happy to stay if the terms are right.",
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} There's no rush, but we should find a date."
+ ],
+ "pool.vertrag_laeuft_aus.e.e6": [
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Other clubs have enquired, and I have to look into that.",
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} He wants to take the next step, in sporting and financial terms. What do you offer?"
+ ],
+ "pool.vertrag_laeuft_aus.e.e7": [
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} You promised him something, and nothing has happened to this day. That weighs on the negotiation.",
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Your word is still outstanding, and I now measure the contract by it too."
+ ],
+ "pool.vertrag_laeuft_aus.e.e8": [
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} He worries about his future but doesn't say so out loud.",
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} He's unsettled because nobody has talked to him about the contract."
+ ],
+ "pool.vertrag_laeuft_aus.e.e9": [
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} His willingness to leave has risen noticeably of late, you should know that.",
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} He is being courted heavily, and it isn't easy for him to say no."
+ ],
+ "pool.vertrag_laeuft_aus.a.a1": [
+  "We want to extend. I'll put an offer to you within {frist} days.",
+  "I want to keep him and will get back to you in {frist} days with a concrete contract offer."
+ ],
+ "pool.vertrag_laeuft_aus.a.a2": [
+  "We're counting on him firmly. First we settle the season's goals, then we discuss the details.",
+  "We know his performances, and the club values him. The timetable depends on the budget."
+ ],
+ "pool.vertrag_laeuft_aus.a.a3": [
+  "Please be patient, something will turn up.",
+  "Let's discuss it after the season, until then everything stays open."
+ ],
+ "pool.vertrag_laeuft_aus.a.a4": [
+  "There will be no offer. If your client leaves, he leaves.",
+  "I don't negotiate under threat. For me this matter is closed."
+ ],
+ "pool.vertrag_laeuft_aus.a.a5": [
+  "I'm offering you a signing bonus so he can see how important he is to us. We'll discuss the salary quickly.",
+  "We'll meet him halfway with a bonus, and he remains a firm part of the squad."
+ ],
+ "pool.vertrag_laeuft_aus.a.a6": [
+  "What exactly does your client have in mind?",
+  "Tell me first what matters to him: salary, length or role?"
+ ],
+ "pool.vertrag_laeuft_aus.a.a7": [
+  "I only negotiate on our terms. Whoever applies pressure gets nothing from me.",
+  "My line is set, and it doesn't change because of interested parties either."
+ ],
+ "pool.vertrag_laeuft_aus.a.a8": [
+  "I know this is a strain on him. He matters to us, and he should feel that.",
+  "Please tell him that I understand his situation and won't leave him hanging."
+ ],
+ "pool.vertrag_laeuft_aus.a.a9": [
+  "The sporting director handles contract matters. Please coordinate with him.",
+  "The club office is responsible for that, and I'll have a contact person named to you."
+ ],
+ "pool.vertrag_laeuft_aus.a.a10": [
+  "We'll manage: we sit down in {frist} days, and I'll bring the coffee.",
+  "A handshake, and in {frist} days we talk numbers, both of us relaxed, I hope."
+ ],
+ "pool.vertrag_laeuft_aus.a.a11": [
+  "An early extension is out of the question for now. We'll talk again in winter.",
+  "At this point I decline, it doesn't fit my plan."
+ ],
+ "pool.vertrag_laeuft_aus.r.r1": [
+  "{b.vertrag_laeuft_aus_gut} I'll get back to you with a proposal.",
+  "{b.vertrag_laeuft_aus_gut} Then let's get it moving."
+ ],
+ "pool.vertrag_laeuft_aus.r.r2": [
+  "That puts me at ease. I'll pass it on exactly like that.",
+  "Good, that's what I wanted to hear."
+ ],
+ "pool.vertrag_laeuft_aus.r.r3": [
+  "Then let's get down to business, and soon.",
+  "I expect the draft quickly, then we'll agree fast."
+ ],
+ "pool.vertrag_laeuft_aus.r.r4": [
+  "{b.vertrag_laeuft_aus_gut} I'll call him right away.",
+  "{b.vertrag_laeuft_aus_gut} He'll be pleased."
+ ],
+ "pool.vertrag_laeuft_aus.r.r5": [
+  "{b.vertrag_laeuft_aus_neutral} I can't say more at the moment.",
+  "{b.vertrag_laeuft_aus_neutral} We'll stay in touch."
+ ],
+ "pool.vertrag_laeuft_aus.r.r6": [
+  "{b.vertrag_laeuft_aus_neutral} I expect a clearer statement soon.",
+  "{b.vertrag_laeuft_aus_neutral} That's neither one thing nor the other."
+ ],
+ "pool.vertrag_laeuft_aus.r.r7": [
+  "I don't know yet what to make of it, I need to sleep on it.",
+  "We'll see, I'll let it sink in first."
+ ],
+ "pool.vertrag_laeuft_aus.r.r8": [
+  "{b.vertrag_laeuft_aus_schlecht} That wasn't what I expected.",
+  "{b.vertrag_laeuft_aus_schlecht} This way we won't come together."
+ ],
+ "pool.vertrag_laeuft_aus.r.r9": [
+  "{b.vertrag_laeuft_aus_schlecht} I'll raise that at the next meeting.",
+  "{b.vertrag_laeuft_aus_schlecht} I'll have to advise my client not to sign."
+ ],
+ "pool.vertrag_laeuft_aus.r.r10": [
+  "That's a pity, I had hoped for more.",
+  "I regret that we part this way."
+ ],
+ "pool.vertrag_laeuft_aus.x.x1": [
+  "The talk ends in agreement. {entscheidung} The agent takes his leave satisfied.",
+  "{entscheidung} They part on good terms, and the agent sounds confident."
+ ],
+ "pool.vertrag_laeuft_aus.x.x2": [
+  "The contract question stays open. {entscheidung} The agent will get in touch again.",
+  "{entscheidung} Nothing is settled, the clock keeps ticking."
+ ],
+ "pool.vertrag_laeuft_aus.x.x3": [
+  "The agent leaves the talk annoyed. {entscheidung} The situation around the contract is coming to a head.",
+  "{entscheidung} He hints that he will sound out other clubs."
+ ],
+ "pool.vertrag_laeuft_aus.x.x4": [
+  "The commitment stands. {entscheidung} The agent holds the club to its word.",
+  "{entscheidung} Both sides now know where they stand."
+ ],
+ "pool.vertrag_laeuft_aus.x.x5": [
+  "The talk is broken off. {entscheidung} The agent gets up and leaves.",
+  "{entscheidung} There's nothing more to say today, and the agent leaves the room."
+ ],
+ "pool.wechselwunsch_leistungstraeger.e.e1": [
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} I wanted to tell you myself.",
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} I want you to hear it from me."
+ ],
+ "pool.wechselwunsch_leistungstraeger.e.e2": [
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} {b.wechselwunsch_leistungstraeger_grund}",
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} {b.wechselwunsch_leistungstraeger_grund} I'd like us to talk about it openly."
+ ],
+ "pool.wechselwunsch_leistungstraeger.e.e3": [
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} The mood between us doesn't make it any easier.",
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} The atmosphere right now doesn't help, quite the opposite."
+ ],
+ "pool.wechselwunsch_leistungstraeger.e.e4": [
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} Give me an answer now, or I'm going to the board!",
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} I want to know today where I stand!"
+ ],
+ "pool.wechselwunsch_leistungstraeger.e.e5": [
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} You should hear it from me and not from the paper.",
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} I wanted to talk openly with you before anything gets out."
+ ],
+ "pool.wechselwunsch_leistungstraeger.e.e6": [
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} Another club has been in touch, and I want to know what you say to that.",
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} There's interest in me, and I want to know whether you'll keep me."
+ ],
+ "pool.wechselwunsch_leistungstraeger.e.e7": [
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} You promised me something, and I'm still waiting for it.",
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} Your word was given, but so far nothing has happened."
+ ],
+ "pool.wechselwunsch_leistungstraeger.e.e8": [
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} We're doing worse than planned, and I doubt we'll reach our goals.",
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} Things aren't going in the table the way we wanted."
+ ],
+ "pool.wechselwunsch_leistungstraeger.e.e9": [
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} It took a lot of effort to say this.",
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} I hope you don't hold it against me."
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a1": [
+  "You're a cornerstone for me, and I want to keep you. In {frist} days we'll put a new contract in front of you.",
+  "I'm planning with you for the long term and will come back with a solution after {frist} days."
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a2": [
+  "I'm happy to explain how I plan the next few years: you're a firm part of it.",
+  "The club is investing in the squad, and you're one of the reasons for it."
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a3": [
+  "Wait until the end of the season, then we'll talk in peace.",
+  "That will pass again, believe me."
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a4": [
+  "You have a contract, and it stands. We're not talking about a move.",
+  "No. I won't release you, and that closes the subject."
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a5": [
+  "We'll improve your contract, with more pay and a loyalty bonus. Show me you want to stay.",
+  "I want to meet you halfway so you stay here, financially too."
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a6": [
+  "What would have to change for you to stay?",
+  "Do you already have concrete offers, or is it only a thought so far?"
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a7": [
+  "I don't let anyone go whom I need. An offer doesn't change that.",
+  "My line is set: you stay, and I expect performances."
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a8": [
+  "I'm listening, and I take this seriously. You're much more than a player to this team.",
+  "I can understand that, I'd feel the same. Let's look for a way together."
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a9": [
+  "Talk to the sporting director, he knows the numbers. Afterwards we'll sit down together.",
+  "Your agent and the management settle the details, then come to me."
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a10": [
+  "Agreed: if a really good offer arrives, we sit down after {frist} days. Until then you give it your all.",
+  "In an emergency I'll let you go, but only after {frist} days, and until then you fight for us."
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a11": [
+  "I understand you, but I can't let you go. The squad needs you.",
+  "I can't afford a departure at the moment, however much I understand you."
+ ],
+ "pool.wechselwunsch_leistungstraeger.r.r1": [
+  "{b.gut} That goes in the right direction.",
+  "{b.gut} I can work with that."
+ ],
+ "pool.wechselwunsch_leistungstraeger.r.r2": [
+  "{b.gut} I'll stay, and I'll give something back.",
+  "{b.gut} Thanks for taking me seriously."
+ ],
+ "pool.wechselwunsch_leistungstraeger.r.r3": [
+  "{b.gut} If you mean it, I'll deliver for it.",
+  "{b.gut} If that holds, we're in business."
+ ],
+ "pool.wechselwunsch_leistungstraeger.r.r4": [
+  "{b.neutral} I want to sleep on it.",
+  "{b.neutral} At least that was honest."
+ ],
+ "pool.wechselwunsch_leistungstraeger.r.r5": [
+  "{b.neutral} I don't know whether that's enough, I need to listen to myself.",
+  "{b.neutral} I can't say anything about it today, I'll be in touch."
+ ],
+ "pool.wechselwunsch_leistungstraeger.r.r6": [
+  "{b.neutral} I'll give you some time, but not forever.",
+  "{b.neutral} I'll stay for now, but the question remains in the room."
+ ],
+ "pool.wechselwunsch_leistungstraeger.r.r7": [
+  "{b.schlecht} That doesn't get us anywhere.",
+  "{b.schlecht} For me nothing is settled by that."
+ ],
+ "pool.wechselwunsch_leistungstraeger.r.r8": [
+  "{b.schlecht} Then I'm gone, and you'll only notice when it's too late!",
+  "{b.schlecht} You'll see what you get out of it!"
+ ],
+ "pool.wechselwunsch_leistungstraeger.r.r9": [
+  "{b.schlecht} Then I'll call the other club.",
+  "{b.schlecht} Then I know where I stand, and I'll act accordingly."
+ ],
+ "pool.wechselwunsch_leistungstraeger.x.x1": [
+  "The talk ends on a conciliatory note, and the thought of leaving fades into the background. {entscheidung}",
+  "{entscheidung} He leaves relieved and convinced that his place is still here."
+ ],
+ "pool.wechselwunsch_leistungstraeger.x.x2": [
+  "The question hangs in the balance. {entscheidung} He will keep watching what happens.",
+  "{entscheidung} A departure is not off the table."
+ ],
+ "pool.wechselwunsch_leistungstraeger.x.x3": [
+  "He leaves the talk with a stony face. {entscheidung} His wish to leave is likely to grow.",
+  "{entscheidung} It will soon make the rounds in the squad."
+ ],
+ "pool.wechselwunsch_leistungstraeger.x.x4": [
+  "The commitment stands. {entscheidung} He will keep an eye on it.",
+  "{entscheidung} He has a plan, and you have a deadline."
+ ],
+ "pool.wechselwunsch_leistungstraeger.x.x5": [
+  "He breaks off the talk and leaves. {entscheidung} There's nothing more to say today.",
+  "{entscheidung} He doesn't slam the door, but he leaves it open."
+ ],
+ "pool.gehalt_unter_schnitt.e.e1": [
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} {b.gehalt_unter_schnitt_forderung}",
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} Is that intended?"
+ ],
+ "pool.gehalt_unter_schnitt.e.e2": [
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} Can you explain how that came about?",
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} By what standard is that actually set?"
+ ],
+ "pool.gehalt_unter_schnitt.e.e3": [
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} Together with everything else, that makes me angry right now.",
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} That comes on top of an already bad mood."
+ ],
+ "pool.gehalt_unter_schnitt.e.e4": [
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} {b.gehalt_unter_schnitt_forderung} I won't wait forever!",
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} Sort it out, or I'll sort it out my way!"
+ ],
+ "pool.gehalt_unter_schnitt.e.e5": [
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} No drama, I just wanted to raise it once.",
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} I don't want a quarrel, just an open word about it."
+ ],
+ "pool.gehalt_unter_schnitt.e.e6": [
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} I expect an offer that matches my value.",
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} {b.gehalt_unter_schnitt_forderung} My agent sees it the same way."
+ ],
+ "pool.gehalt_unter_schnitt.e.e7": [
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} You promised me an adjustment, and I'm waiting for it.",
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} You promised me something on pay, and nothing has happened."
+ ],
+ "pool.gehalt_unter_schnitt.e.e8": [
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} Right now, when things aren't going smoothly for me, it rankles especially.",
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} I'm not doing well anyway, and this tops it off."
+ ],
+ "pool.gehalt_unter_schnitt.e.e9": [
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} And my contract runs out in {monate} months, which is why I'm putting it on the table now.",
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} With only {monate} months left on my contract, now is the moment."
+ ],
+ "pool.gehalt_unter_schnitt.a.a1": [
+  "You're right, we'll level that out. In {frist} days you'll get a new contract to look over.",
+  "I'll make sure your pay is adjusted and will get back to you after {frist} days."
+ ],
+ "pool.gehalt_unter_schnitt.a.a2": [
+  "The structure has grown, and other contracts are older. I'm happy to explain how we see it.",
+  "The club has to keep a pay structure, and that has nothing to do with your performance."
+ ],
+ "pool.gehalt_unter_schnitt.a.a3": [
+  "Look, that will sort itself out eventually, now isn't the time.",
+  "Don't worry, we'll come back to it."
+ ],
+ "pool.gehalt_unter_schnitt.a.a4": [
+  "Your pay is in the contract, and the contract stands. The discussion is over.",
+  "No, your pay isn't being negotiated now, and certainly not under pressure."
+ ],
+ "pool.gehalt_unter_schnitt.a.a5": [
+  "I'll pay you a bonus as compensation until we tackle the contract properly.",
+  "You'll get a special payment so you see that we value you."
+ ],
+ "pool.gehalt_unter_schnitt.a.a6": [
+  "What would be a fair figure for you?",
+  "Where did you get the numbers, and what do you have in mind?"
+ ],
+ "pool.gehalt_unter_schnitt.a.a7": [
+  "I stand by it: a contract is a contract, and performance decides the next one.",
+  "I don't decide by comparisons, but by merit."
+ ],
+ "pool.gehalt_unter_schnitt.a.a8": [
+  "I understand that it annoys you. You do a lot, and you should feel appreciated for it.",
+  "That's a legitimate feeling, and I take it seriously."
+ ],
+ "pool.gehalt_unter_schnitt.a.a9": [
+  "You settle that with the sporting director, he has the pay list. I stand behind you.",
+  "Please send your agent to the club office, the numbers are there."
+ ],
+ "pool.gehalt_unter_schnitt.a.a10": [
+  "Put it in your calendar: in {frist} days there's a pay round, and you're number one.",
+  "Shake on it, in {frist} days we'll talk about more pay, and you keep the extra."
+ ],
+ "pool.gehalt_unter_schnitt.a.a11": [
+  "There's no pay jump now, maybe with the next contract.",
+  "The budget doesn't allow it at the moment, so I have to decline."
+ ],
+ "pool.gehalt_unter_schnitt.r.r1": [
+  "{b.gut} Then I'm reassured.",
+  "{b.gut} That's fair."
+ ],
+ "pool.gehalt_unter_schnitt.r.r2": [
+  "{b.gut} It was never about money alone for me, but about respect.",
+  "{b.gut} Then that's settled for me."
+ ],
+ "pool.gehalt_unter_schnitt.r.r3": [
+  "{b.gut} Then I'll show you it was worth it.",
+  "{b.gut} If it comes to that, we agree."
+ ],
+ "pool.gehalt_unter_schnitt.r.r4": [
+  "{b.neutral} I'll wait and see what comes.",
+  "{b.neutral} I'll come back to it."
+ ],
+ "pool.gehalt_unter_schnitt.r.r5": [
+  "{b.neutral} I don't know yet whether that reassures me.",
+  "{b.neutral} Give me a moment, I'm not sure right now."
+ ],
+ "pool.gehalt_unter_schnitt.r.r6": [
+  "{b.neutral} The subject isn't off the table, but I'll wait.",
+  "{b.neutral} I'll watch how it develops."
+ ],
+ "pool.gehalt_unter_schnitt.r.r7": [
+  "{b.schlecht} I can't do anything with that.",
+  "{b.schlecht} That will occupy me for a long time."
+ ],
+ "pool.gehalt_unter_schnitt.r.r8": [
+  "{b.schlecht} I'm certainly not going along with that if it stays like this!",
+  "{b.schlecht} Then please tell the team that too!"
+ ],
+ "pool.gehalt_unter_schnitt.r.r9": [
+  "{b.schlecht} Then I'll let others show me what I'm worth.",
+  "{b.schlecht} My agent will be glad to hear that."
+ ],
+ "pool.gehalt_unter_schnitt.x.x1": [
+  "The chat ends with a thumbs up. {entscheidung}",
+  "{entscheidung} He adds a quick thank you."
+ ],
+ "pool.gehalt_unter_schnitt.x.x2": [
+  "The pay question is left lying. {entscheidung} He will ask again.",
+  "{entscheidung} There is no result, only a breather."
+ ],
+ "pool.gehalt_unter_schnitt.x.x3": [
+  "He only answers curtly and annoyed now. {entscheidung} The subject won't go away.",
+  "{entscheidung} The chat ends without a greeting."
+ ],
+ "pool.gehalt_unter_schnitt.x.x4": [
+  "The commitment is in writing in the chat. {entscheidung} He will show it when the occasion arises.",
+  "{entscheidung} He has it in black and white."
+ ],
+ "pool.gehalt_unter_schnitt.x.x5": [
+  "He cuts off the chat. {entscheidung} No further messages come.",
+  "{entscheidung} He can't be reached for now."
+ ]
+}

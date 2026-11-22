@@ -1,0 +1,414 @@
+{
+ "pool.vertrag_laeuft_aus.e.e1": [
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Wir sollten über die Zukunft sprechen.",
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Ich möchte rechtzeitig klären, wie es weitergeht."
+ ],
+ "pool.vertrag_laeuft_aus.e.e2": [
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Hat der Verein Interesse an einer Verlängerung?",
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Wie plant der Verein mit ihm?"
+ ],
+ "pool.vertrag_laeuft_aus.e.e3": [
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Die Stimmung ist gerade nicht die beste, und ich will nicht, dass das Thema liegen bleibt.",
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Mein Mandant fühlt sich nicht wertgeschätzt, das sollten wir ansprechen."
+ ],
+ "pool.vertrag_laeuft_aus.e.e4": [
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Ich lasse ihn nicht ewig warten, jetzt muss ein Angebot kommen!",
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Entweder es kommt jetzt ein Angebot, oder ich sehe mich um."
+ ],
+ "pool.vertrag_laeuft_aus.e.e5": [
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Er fühlt sich wohl und bleibt gern, wenn die Bedingungen stimmen.",
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Es eilt nicht, aber wir sollten einen Termin finden."
+ ],
+ "pool.vertrag_laeuft_aus.e.e6": [
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Andere Vereine haben angefragt, und ich muss das prüfen.",
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Er will den nächsten Schritt gehen, sportlich wie finanziell. Was bieten Sie?"
+ ],
+ "pool.vertrag_laeuft_aus.e.e7": [
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Sie haben ihm etwas zugesagt, und bis heute ist nichts geschehen. Das belastet die Verhandlung.",
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Ihr Wort steht noch aus, und daran messe ich jetzt auch den Vertrag."
+ ],
+ "pool.vertrag_laeuft_aus.e.e8": [
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Er macht sich Sorgen um seine Zukunft, sagt es aber nicht laut.",
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Er ist verunsichert, weil niemand mit ihm über den Vertrag gesprochen hat."
+ ],
+ "pool.vertrag_laeuft_aus.e.e9": [
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Seine Bereitschaft zu gehen ist zuletzt deutlich gestiegen, das sollten Sie wissen.",
+  "{b.vertrag_laeuft_aus_gruss} {b.vertrag_laeuft_aus_anlass} Er wird stark umworben, und es fällt ihm nicht leicht, abzusagen."
+ ],
+ "pool.vertrag_laeuft_aus.a.a1": [
+  "Wir wollen verlängern. Innerhalb von {frist} Tagen lege ich Ihnen ein Angebot vor.",
+  "Ich möchte ihn halten und melde mich in {frist} Tagen mit einem konkreten Vertragsangebot."
+ ],
+ "pool.vertrag_laeuft_aus.a.a2": [
+  "Wir planen fest mit ihm. Zuerst klären wir die Saisonziele, danach sprechen wir über die Einzelheiten.",
+  "Seine Leistungen sind uns bekannt, und der Verein schätzt ihn. Der Zeitplan hängt vom Etat ab."
+ ],
+ "pool.vertrag_laeuft_aus.a.a3": [
+  "Bitte haben Sie noch Geduld, es wird sich schon etwas finden.",
+  "Lassen Sie uns das nach der Saison besprechen, bis dahin bleibt alles offen."
+ ],
+ "pool.vertrag_laeuft_aus.a.a4": [
+  "Ein Angebot gibt es nicht. Wenn Ihr Mandant geht, dann geht er.",
+  "Ich verhandle nicht mit Drohungen. Das Thema ist für mich erledigt."
+ ],
+ "pool.vertrag_laeuft_aus.a.a5": [
+  "Ich biete Ihnen eine Unterschriftsprämie, damit er sieht, wie wichtig er uns ist. Über das Gehalt sprechen wir zügig.",
+  "Wir kommen ihm mit einem Handgeld entgegen, und er bleibt fester Teil des Kaders."
+ ],
+ "pool.vertrag_laeuft_aus.a.a6": [
+  "Was stellt sich Ihr Mandant denn konkret vor?",
+  "Sagen Sie mir zuerst, was ihm wichtig ist: Gehalt, Laufzeit oder Rolle?"
+ ],
+ "pool.vertrag_laeuft_aus.a.a7": [
+  "Ich verhandle nur zu unseren Bedingungen. Wer unter Druck setzt, bekommt von mir nichts.",
+  "Meine Linie steht, und sie ändert sich auch durch Interessenten nicht."
+ ],
+ "pool.vertrag_laeuft_aus.a.a8": [
+  "Ich weiß, dass das für ihn eine Belastung ist. Er ist uns wichtig, und das soll er spüren.",
+  "Bitte richten Sie ihm aus, dass ich seine Lage verstehe und ihn nicht hängen lasse."
+ ],
+ "pool.vertrag_laeuft_aus.a.a9": [
+  "Das Vertragliche regelt der Sportdirektor. Bitte stimmen Sie sich mit ihm ab.",
+  "Dafür ist die Geschäftsstelle zuständig, ich lasse Ihnen einen Ansprechpartner nennen."
+ ],
+ "pool.vertrag_laeuft_aus.a.a10": [
+  "Das kriegen wir hin: Wir sitzen in {frist} Tagen zusammen, und den Kaffee bringe ich mit.",
+  "Ein Handschlag, und in {frist} Tagen reden wir über Zahlen, dann hoffentlich beide entspannt."
+ ],
+ "pool.vertrag_laeuft_aus.a.a11": [
+  "Eine vorzeitige Verlängerung kommt jetzt nicht infrage. Wir sprechen im Winter wieder.",
+  "Zum jetzigen Zeitpunkt lehne ich ab, das passt nicht in meinen Plan."
+ ],
+ "pool.vertrag_laeuft_aus.r.r1": [
+  "{b.vertrag_laeuft_aus_gut} Ich melde mich mit einem Vorschlag.",
+  "{b.vertrag_laeuft_aus_gut} Dann bringen wir es auf den Weg."
+ ],
+ "pool.vertrag_laeuft_aus.r.r2": [
+  "Das beruhigt mich. Ich gebe es genau so weiter.",
+  "Gut, das war es, was ich hören wollte."
+ ],
+ "pool.vertrag_laeuft_aus.r.r3": [
+  "Dann machen wir Nägel mit Köpfen, und zwar bald.",
+  "Ich erwarte den Entwurf rasch, dann sind wir schnell einig."
+ ],
+ "pool.vertrag_laeuft_aus.r.r4": [
+  "{b.vertrag_laeuft_aus_gut} Ich rufe ihn gleich an.",
+  "{b.vertrag_laeuft_aus_gut} Er wird zufrieden sein."
+ ],
+ "pool.vertrag_laeuft_aus.r.r5": [
+  "{b.vertrag_laeuft_aus_neutral} Mehr kann ich im Moment nicht sagen.",
+  "{b.vertrag_laeuft_aus_neutral} Wir bleiben im Gespräch."
+ ],
+ "pool.vertrag_laeuft_aus.r.r6": [
+  "{b.vertrag_laeuft_aus_neutral} Ich erwarte bald eine klarere Aussage.",
+  "{b.vertrag_laeuft_aus_neutral} Das ist weder Fisch noch Fleisch."
+ ],
+ "pool.vertrag_laeuft_aus.r.r7": [
+  "Ich weiß noch nicht, was ich davon halten soll, ich muss darüber schlafen.",
+  "Wir werden sehen, ich lasse es erst einmal sacken."
+ ],
+ "pool.vertrag_laeuft_aus.r.r8": [
+  "{b.vertrag_laeuft_aus_schlecht} Das war nicht das, was ich erwartet habe.",
+  "{b.vertrag_laeuft_aus_schlecht} So kommen wir nicht zusammen."
+ ],
+ "pool.vertrag_laeuft_aus.r.r9": [
+  "{b.vertrag_laeuft_aus_schlecht} Das spreche ich beim nächsten Treffen an.",
+  "{b.vertrag_laeuft_aus_schlecht} Ich muss meinem Mandanten raten, nicht zu unterschreiben."
+ ],
+ "pool.vertrag_laeuft_aus.r.r10": [
+  "Das ist schade, ich hatte auf mehr gehofft.",
+  "Ich bedauere, dass wir so auseinandergehen."
+ ],
+ "pool.vertrag_laeuft_aus.x.x1": [
+  "Das Gespräch endet im Einvernehmen. {entscheidung} Der Berater verabschiedet sich zufrieden.",
+  "{entscheidung} Man trennt sich in guter Stimmung, und der Berater gibt sich zuversichtlich."
+ ],
+ "pool.vertrag_laeuft_aus.x.x2": [
+  "Die Vertragsfrage bleibt offen. {entscheidung} Der Berater wird sich wieder melden.",
+  "{entscheidung} Geklärt ist damit nichts, die Uhr tickt weiter."
+ ],
+ "pool.vertrag_laeuft_aus.x.x3": [
+  "Der Berater verlässt das Gespräch verärgert. {entscheidung} Die Lage um den Vertrag spitzt sich zu.",
+  "{entscheidung} Er deutet an, sich bei anderen Vereinen umzuhören."
+ ],
+ "pool.vertrag_laeuft_aus.x.x4": [
+  "Die Zusage steht. {entscheidung} Der Berater hält den Verein beim Wort.",
+  "{entscheidung} Beide Seiten wissen nun, woran sie sind."
+ ],
+ "pool.vertrag_laeuft_aus.x.x5": [
+  "Das Gespräch wird abgebrochen. {entscheidung} Der Berater steht auf und geht.",
+  "{entscheidung} Mehr gibt es heute nicht zu sagen, der Berater verlässt den Raum."
+ ],
+ "pool.wechselwunsch_leistungstraeger.e.e1": [
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} Ich wollte es dir selbst sagen.",
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} Ich möchte, dass du es von mir hörst."
+ ],
+ "pool.wechselwunsch_leistungstraeger.e.e2": [
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} {b.wechselwunsch_leistungstraeger_grund}",
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} {b.wechselwunsch_leistungstraeger_grund} Ich möchte, dass wir offen darüber reden."
+ ],
+ "pool.wechselwunsch_leistungstraeger.e.e3": [
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} Die Stimmung zwischen uns macht es nicht leichter.",
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} Das Klima gerade hilft nicht, im Gegenteil."
+ ],
+ "pool.wechselwunsch_leistungstraeger.e.e4": [
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} Gib mir jetzt eine Antwort, sonst gehe ich zum Vorstand!",
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} Ich will heute noch wissen, woran ich bin!"
+ ],
+ "pool.wechselwunsch_leistungstraeger.e.e5": [
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} Du sollst es von mir hören und nicht aus der Zeitung.",
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} Ich wollte offen mit dir reden, bevor etwas nach außen dringt."
+ ],
+ "pool.wechselwunsch_leistungstraeger.e.e6": [
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} Ein anderer Verein hat sich gemeldet, und ich will wissen, was du dazu sagst.",
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} Es gibt Interesse an mir, und ich will wissen, ob ihr mich haltet."
+ ],
+ "pool.wechselwunsch_leistungstraeger.e.e7": [
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} Du hattest mir etwas zugesagt, und ich warte immer noch darauf.",
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} Dein Wort stand, aber bis jetzt ist nichts passiert."
+ ],
+ "pool.wechselwunsch_leistungstraeger.e.e8": [
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} Wir stehen schlechter da als geplant, und ich zweifle, ob wir die Ziele erreichen.",
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} In der Tabelle läuft es nicht, wie wir es wollten."
+ ],
+ "pool.wechselwunsch_leistungstraeger.e.e9": [
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} Es hat mich viel Überwindung gekostet, das zu sagen.",
+  "{b.gruss} {b.wechselwunsch_leistungstraeger_wunsch} Ich hoffe, du nimmst mir das nicht übel."
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a1": [
+  "Du bist für mich ein Eckpfeiler, ich will dich halten. In {frist} Tagen legen wir dir einen neuen Vertrag vor.",
+  "Ich plane langfristig mit dir und melde mich nach {frist} Tagen mit einer Lösung."
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a2": [
+  "Ich erkläre dir gern, wie ich die nächsten Jahre plane: Du bist ein fester Teil davon.",
+  "Der Verein investiert in den Kader, und du bist einer der Gründe dafür."
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a3": [
+  "Warte bis zum Ende der Saison, dann reden wir in Ruhe.",
+  "Das legt sich wieder, glaub mir."
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a4": [
+  "Du hast einen Vertrag, und der gilt. Über einen Wechsel reden wir nicht.",
+  "Nein. Ich gebe dich nicht frei, und damit ist das Thema vom Tisch."
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a5": [
+  "Wir bessern deinen Vertrag nach, mit mehr Gehalt und einer Treueprämie. Zeig mir, dass du bleiben willst.",
+  "Ich möchte dir entgegenkommen, damit du hier bleibst, auch finanziell."
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a6": [
+  "Was müsste sich ändern, damit du bleibst?",
+  "Hast du schon konkrete Angebote, oder ist es erst ein Gedanke?"
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a7": [
+  "Ich lasse keinen gehen, den ich brauche. Daran ändert auch ein Angebot nichts.",
+  "Meine Linie steht: Du bleibst, und ich erwarte Leistung."
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a8": [
+  "Ich höre dir zu, und ich nehme das ernst. Du bist für diese Mannschaft viel mehr als ein Spieler.",
+  "Das kann ich nachvollziehen, mir ginge es ähnlich. Lass uns gemeinsam einen Weg suchen."
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a9": [
+  "Sprich mit dem Sportdirektor, er kennt die Zahlen. Danach setzen wir uns zusammen.",
+  "Dein Berater und die Geschäftsführung klären die Einzelheiten, dann komm zu mir."
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a10": [
+  "Abgemacht: Kommt ein richtig gutes Angebot, setzen wir uns nach {frist} Tagen zusammen. Bis dahin gibst du Gas.",
+  "Ich lasse dich im Notfall ziehen, aber erst nach {frist} Tagen, und bis dahin kämpfst du für uns."
+ ],
+ "pool.wechselwunsch_leistungstraeger.a.a11": [
+  "Ich verstehe dich, aber ich kann dich nicht ziehen lassen. Der Kader braucht dich.",
+  "Einen Abgang kann ich mir derzeit nicht leisten, so sehr ich dich auch verstehe."
+ ],
+ "pool.wechselwunsch_leistungstraeger.r.r1": [
+  "{b.gut} Das geht in die richtige Richtung.",
+  "{b.gut} Damit kann ich arbeiten."
+ ],
+ "pool.wechselwunsch_leistungstraeger.r.r2": [
+  "{b.gut} Ich bleibe, und ich gebe dir etwas zurück.",
+  "{b.gut} Danke, dass du mich ernst nimmst."
+ ],
+ "pool.wechselwunsch_leistungstraeger.r.r3": [
+  "{b.gut} Wenn ihr es ernst meint, liefere ich dafür.",
+  "{b.gut} Wenn das stimmt, sind wir im Geschäft."
+ ],
+ "pool.wechselwunsch_leistungstraeger.r.r4": [
+  "{b.neutral} Ich will darüber schlafen.",
+  "{b.neutral} Das war zumindest ehrlich."
+ ],
+ "pool.wechselwunsch_leistungstraeger.r.r5": [
+  "{b.neutral} Ich weiß nicht, ob mir das reicht, ich muss in mich hören.",
+  "{b.neutral} Heute kann ich dazu nichts sagen, ich melde mich."
+ ],
+ "pool.wechselwunsch_leistungstraeger.r.r6": [
+  "{b.neutral} Ich gebe dir etwas Zeit, aber nicht ewig.",
+  "{b.neutral} Ich bleibe vorerst, aber die Frage bleibt im Raum."
+ ],
+ "pool.wechselwunsch_leistungstraeger.r.r7": [
+  "{b.schlecht} So bringt uns das nicht weiter.",
+  "{b.schlecht} Damit ist für mich nichts geklärt."
+ ],
+ "pool.wechselwunsch_leistungstraeger.r.r8": [
+  "{b.schlecht} Dann bin ich weg, und ihr merkt es erst, wenn es zu spät ist!",
+  "{b.schlecht} Ihr werdet schon sehen, was ihr davon habt!"
+ ],
+ "pool.wechselwunsch_leistungstraeger.r.r9": [
+  "{b.schlecht} Dann rufe ich den anderen Verein an.",
+  "{b.schlecht} Dann weiß ich ja, woran ich bin, und handle entsprechend."
+ ],
+ "pool.wechselwunsch_leistungstraeger.x.x1": [
+  "Das Gespräch endet versöhnlich, der Gedanke an einen Abschied rückt in den Hintergrund. {entscheidung}",
+  "{entscheidung} Er geht erleichtert und überzeugt, dass sein Platz noch hier ist."
+ ],
+ "pool.wechselwunsch_leistungstraeger.x.x2": [
+  "Die Frage bleibt in der Schwebe. {entscheidung} Er wird weiter beobachten, was passiert.",
+  "{entscheidung} Ein Abschied ist damit nicht vom Tisch."
+ ],
+ "pool.wechselwunsch_leistungstraeger.x.x3": [
+  "Er verlässt das Gespräch mit versteinerter Miene. {entscheidung} Sein Wechselwunsch dürfte weiter wachsen.",
+  "{entscheidung} Im Kader wird es bald die Runde machen."
+ ],
+ "pool.wechselwunsch_leistungstraeger.x.x4": [
+  "Die Zusage steht. {entscheidung} Er wird sie im Auge behalten.",
+  "{entscheidung} Er hat einen Plan, und du hast eine Frist."
+ ],
+ "pool.wechselwunsch_leistungstraeger.x.x5": [
+  "Er bricht das Gespräch ab und geht. {entscheidung} Mehr gibt es heute nicht zu sagen.",
+  "{entscheidung} Er knallt die Tür nicht, aber er lässt sie offen."
+ ],
+ "pool.gehalt_unter_schnitt.e.e1": [
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} {b.gehalt_unter_schnitt_forderung}",
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} Ist das so gewollt?"
+ ],
+ "pool.gehalt_unter_schnitt.e.e2": [
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} Kannst du mir erklären, wie das zustande kommt?",
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} Nach welchem Maßstab wird das eigentlich festgelegt?"
+ ],
+ "pool.gehalt_unter_schnitt.e.e3": [
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} Zusammen mit allem anderen macht mich das gerade wütend.",
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} Das kommt zu einer ohnehin schlechten Stimmung noch dazu."
+ ],
+ "pool.gehalt_unter_schnitt.e.e4": [
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} {b.gehalt_unter_schnitt_forderung} Ich warte nicht ewig!",
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} Klär das, oder ich klär es auf meine Art!"
+ ],
+ "pool.gehalt_unter_schnitt.e.e5": [
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} Kein Drama, ich wollte es nur einmal ansprechen.",
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} Ich will keinen Streit, nur ein offenes Wort darüber."
+ ],
+ "pool.gehalt_unter_schnitt.e.e6": [
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} Ich erwarte ein Angebot, das meinem Wert entspricht.",
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} {b.gehalt_unter_schnitt_forderung} Mein Berater sieht das genauso."
+ ],
+ "pool.gehalt_unter_schnitt.e.e7": [
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} Du hattest mir eine Anpassung zugesagt, und ich warte darauf.",
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} Beim Gehalt hast du mir etwas versprochen, und passiert ist nichts."
+ ],
+ "pool.gehalt_unter_schnitt.e.e8": [
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} Gerade jetzt, wo es bei mir nicht rund läuft, stößt mir das besonders auf.",
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} Mir geht es ohnehin nicht gut, und das setzt noch einen drauf."
+ ],
+ "pool.gehalt_unter_schnitt.e.e9": [
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} Und mein Vertrag läuft in {monate} Monaten aus, deshalb bringe ich es jetzt auf den Tisch.",
+  "{b.gruss} {b.gehalt_unter_schnitt_klage} Mit nur noch {monate} Monaten Vertrag ist jetzt der Moment dafür."
+ ],
+ "pool.gehalt_unter_schnitt.a.a1": [
+  "Du hast recht, das gleichen wir an. In {frist} Tagen bekommst du einen neuen Vertrag zur Prüfung.",
+  "Ich sorge dafür, dass dein Gehalt angepasst wird, und melde mich nach {frist} Tagen."
+ ],
+ "pool.gehalt_unter_schnitt.a.a2": [
+  "Das Gefüge ist gewachsen, andere Verträge sind älter. Ich erkläre dir gern, wie wir es sehen.",
+  "Der Verein muss ein Gehaltsgefüge halten, das hat nichts mit deiner Leistung zu tun."
+ ],
+ "pool.gehalt_unter_schnitt.a.a3": [
+  "Schau, das regelt sich irgendwann, jetzt ist nicht der Zeitpunkt.",
+  "Mach dir keine Gedanken, wir kommen schon noch darauf zurück."
+ ],
+ "pool.gehalt_unter_schnitt.a.a4": [
+  "Das Gehalt steht im Vertrag, und der gilt. Die Diskussion ist beendet.",
+  "Nein, über dein Gehalt wird jetzt nicht verhandelt, und mit Druck schon gar nicht."
+ ],
+ "pool.gehalt_unter_schnitt.a.a5": [
+  "Ich zahle dir eine Prämie als Ausgleich, bis wir den Vertrag richtig angehen.",
+  "Du bekommst eine Sonderzahlung, damit du siehst, dass wir dich schätzen."
+ ],
+ "pool.gehalt_unter_schnitt.a.a6": [
+  "Was wäre für dich ein fairer Wert?",
+  "Woher hast du die Zahlen, und wie sieht deine Vorstellung aus?"
+ ],
+ "pool.gehalt_unter_schnitt.a.a7": [
+  "Ich bleibe dabei: Vertrag ist Vertrag, und Leistung entscheidet über das Nächste.",
+  "Ich entscheide nicht nach Vergleichen, sondern nach Verdienst."
+ ],
+ "pool.gehalt_unter_schnitt.a.a8": [
+  "Ich verstehe, dass dich das ärgert. Du leistest viel, und du sollst dich dafür gewürdigt fühlen.",
+  "Das ist ein berechtigtes Gefühl, und ich nehme es ernst."
+ ],
+ "pool.gehalt_unter_schnitt.a.a9": [
+  "Das klärst du mit dem Sportdirektor, er hat die Gehaltsliste. Ich stehe hinter dir.",
+  "Bitte schick deinen Berater zur Geschäftsstelle, dort liegen die Zahlen."
+ ],
+ "pool.gehalt_unter_schnitt.a.a10": [
+  "Schreib's dir in den Kalender: In {frist} Tagen steht eine Gehaltsrunde an, und du bist die erste Nummer.",
+  "Handschlag drauf, in {frist} Tagen reden wir über mehr Gehalt, und das Mehr behältst du dann auch."
+ ],
+ "pool.gehalt_unter_schnitt.a.a11": [
+  "Einen Gehaltssprung gibt es jetzt nicht, vielleicht beim nächsten Vertrag.",
+  "Das Budget gibt es im Moment nicht her, deshalb muss ich ablehnen."
+ ],
+ "pool.gehalt_unter_schnitt.r.r1": [
+  "{b.gut} Dann bin ich beruhigt.",
+  "{b.gut} Das ist fair."
+ ],
+ "pool.gehalt_unter_schnitt.r.r2": [
+  "{b.gut} Mir ging es nie ums Geld allein, sondern um Respekt.",
+  "{b.gut} Dann ist das für mich erledigt."
+ ],
+ "pool.gehalt_unter_schnitt.r.r3": [
+  "{b.gut} Dann zeige ich dir, dass sich das lohnt.",
+  "{b.gut} Wenn das so kommt, sind wir uns einig."
+ ],
+ "pool.gehalt_unter_schnitt.r.r4": [
+  "{b.neutral} Ich warte ab, was kommt.",
+  "{b.neutral} Ich komme darauf zurück."
+ ],
+ "pool.gehalt_unter_schnitt.r.r5": [
+  "{b.neutral} Ich weiß noch nicht, ob mich das beruhigt.",
+  "{b.neutral} Lass mir einen Moment, ich bin gerade nicht sicher."
+ ],
+ "pool.gehalt_unter_schnitt.r.r6": [
+  "{b.neutral} Das Thema ist nicht vom Tisch, aber ich warte.",
+  "{b.neutral} Ich beobachte, wie es sich entwickelt."
+ ],
+ "pool.gehalt_unter_schnitt.r.r7": [
+  "{b.schlecht} Damit kann ich nichts anfangen.",
+  "{b.schlecht} Das wird mich noch lange beschäftigen."
+ ],
+ "pool.gehalt_unter_schnitt.r.r8": [
+  "{b.schlecht} Da mache ich bestimmt nicht mehr mit, wenn das so bleibt!",
+  "{b.schlecht} Dann sag das bitte auch der Mannschaft!"
+ ],
+ "pool.gehalt_unter_schnitt.r.r9": [
+  "{b.schlecht} Dann lasse ich mir von anderen zeigen, was ich wert bin.",
+  "{b.schlecht} Mein Berater wird sich freuen, das zu hören."
+ ],
+ "pool.gehalt_unter_schnitt.x.x1": [
+  "Der Chat endet mit einem Daumen nach oben. {entscheidung}",
+  "{entscheidung} Er schreibt noch ein kurzes Danke."
+ ],
+ "pool.gehalt_unter_schnitt.x.x2": [
+  "Die Gehaltsfrage bleibt liegen. {entscheidung} Er wird wieder nachfragen.",
+  "{entscheidung} Ein Ergebnis gibt es nicht, nur eine Atempause."
+ ],
+ "pool.gehalt_unter_schnitt.x.x3": [
+  "Er antwortet nur noch knapp und verärgert. {entscheidung} Das Thema wird nicht verschwinden.",
+  "{entscheidung} Der Chat endet ohne Gruß."
+ ],
+ "pool.gehalt_unter_schnitt.x.x4": [
+  "Die Zusage steht schriftlich im Chat. {entscheidung} Er wird sie bei Gelegenheit zeigen.",
+  "{entscheidung} Er hat es schwarz auf weiß."
+ ],
+ "pool.gehalt_unter_schnitt.x.x5": [
+  "Er bricht den Chat ab. {entscheidung} Weitere Nachrichten bleiben aus.",
+  "{entscheidung} Er ist vorerst nicht mehr zu erreichen."
+ ]
+}

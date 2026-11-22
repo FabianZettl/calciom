@@ -1,0 +1,143 @@
+{
+ "zt.art.spiel.fach.titel": [
+  "{heim} – {gast} {ergebnis}",
+  "{sieger} win: {ergebnis} against {verlierer}",
+  "Match report: {heim} – {gast}"
+ ],
+ "zt.art.spiel.remis.fach.titel": [
+  "{heim} – {gast} {ergebnis}",
+  "Draw: {heim} and {gast} share the points"
+ ],
+ "zt.art.spiel.fach.einstieg": [
+  "{wettbewerb}, {stadion}: {heim} – {gast} {ergebnis}. Scorers: {schuetzen}.",
+  "{heim} – {gast} {ergebnis}. Scorers: {schuetzen}.",
+  "Final score {ergebnis} in the {wettbewerb}: {sieger} take the points."
+ ],
+ "zt.art.welt.fach.titel": [
+  "{heim} – {gast} {ergebnis}",
+  "{sieger} make a statement: {ergebnis}"
+ ],
+ "zt.art.welt.remis.fach.titel": [
+  "{heim} – {gast} {ergebnis}",
+  "Points shared: {heim} and {gast}"
+ ],
+ "zt.art.welt.fach.einstieg": [
+  "{wettbewerb}: {heim} – {gast} {ergebnis}.",
+  "Match report, {wettbewerb}: {heim} against {gast}, final score {ergebnis}."
+ ],
+ "zt.art.tabelle.fach.titel": [
+  "{liga}: {erster} on top",
+  "The table: {erster} ahead of {spitze_zwei}"
+ ],
+ "zt.art.tabelle.fach.einstieg": [
+  "{erster} lead the {liga} with {punkte_erster} points.",
+  "{erster} lead, {spitze_zwei} follow."
+ ],
+ "zt.art.verletzung.fach.titel": [
+  "{name}: out for {dauer}",
+  "Absence at {verein}: {name}"
+ ],
+ "zt.art.verletzung.fach.einstieg": [
+  "{name} ({verein}) will be out for {dauer}.",
+  "{verein} must do without {name} for {dauer}."
+ ],
+ "zt.art.ton.fach.schluss": [
+  "The line-up for the next match was not yet fixed at the time of going to press.",
+  "The player ratings sum up who impressed."
+ ],
+ "zt.art.ton.fach.schluss.kritik": [
+  "The defence has to improve; the verdict is strict.",
+  "Too many errors, and the ratings show it."
+ ],
+ "zt.art.ton.fach.schluss.lob": [
+  "The expert verdict is kind."
+ ],
+ "zt.art.spiel.tv.titel": [
+  "The highlights: {heim} against {gast}",
+  "Highlights: {heim} – {gast} {ergebnis}",
+  "Matchday live in the studio: {heim} against {gast}"
+ ],
+ "zt.art.spiel.remis.tv.titel": [
+  "The highlights: {heim} against {gast}",
+  "Highlights: {heim} and {gast} draw {ergebnis}"
+ ],
+ "zt.art.spiel.tv.einstieg": [
+  "In the studio: {heim} against {gast}, final score {ergebnis}. The pundits see {sieger} as deserved winners.",
+  "Welcome to the highlights: {wettbewerb}, {stadion}. {ergebnis} between {heim} and {gast}.",
+  "The pictures of the match: {sieger} celebrate, {verlierer} go home empty-handed."
+ ],
+ "zt.art.welt.tv.titel": [
+  "Round-up: {heim} against {gast}",
+  "Highlights: {heim} – {gast} {ergebnis}"
+ ],
+ "zt.art.welt.remis.tv.titel": [
+  "Round-up: {heim} against {gast}",
+  "Highlights: {heim} and {gast} {ergebnis}"
+ ],
+ "zt.art.welt.tv.einstieg": [
+  "From the round-up: {heim} against {gast}, {ergebnis}.",
+  "{wettbewerb}: the pictures of {heim} against {gast}, final score {ergebnis}."
+ ],
+ "zt.art.ton.tv.schluss": [
+  "The analysis continues in the studio.",
+  "More in the pundits' round."
+ ],
+ "zt.art.zitat.tv": [
+  "For long spells this was an even game, and in the end details decided it.",
+  "You could see how the team occupied the spaces.",
+  "Tactically a clean performance, especially through the middle."
+ ],
+ "zt.art.stat.balken": "Score bar",
+ "zt.art.stat.banner": "Goal banner",
+ "zt.art.einblendung.tor": "GOAL! {name}",
+ "zt.art.spiel.hintergrund": [
+  "To understand the {ergebnis}, look at the phases in which {sieger} won the ball back early: that is where the match was decided, not in the last quarter of an hour.",
+  "The distances between the lines explain a lot: {sieger} stayed compact and let {verlierer} play wide without creating chances."
+ ],
+ "zt.art.spiel.hintergrund_remis": [
+  "Both sides cancelled each other out in build-up: {heim} looked for width, {gast} closed the middle, and the {ergebnis} was the logical result."
+ ],
+ "zt.art.welt.hintergrund": [
+  "The {ergebnis} looks random at first glance, but it tells of a side refining its idea week after week in {wettbewerb}.",
+  "Behind the result is a tactical pattern: {sieger} won the second balls and forced {verlierer} into long passes."
+ ],
+ "zt.art.tabelle.hintergrund": [
+  "The {liga} table mostly shows who played consistently in the early weeks: {erster} have had the fewest wobbles, and the field sorts itself by style behind them.",
+  "Whoever wants to chase {erster} needs more than individuals: the top lives on coordinated routines."
+ ],
+ "zt.art.wechsel.hintergrund": [
+  "The move of {name} fits the way {nach} play: what matters is how the squad closes the gap systematically, not the single name.",
+  "For {von} the departure means a rebuild in midfield; for {nach} a chance to adjust routines around a new player."
+ ],
+ "zt.art.verletzung.hintergrund": [
+  "The absence of {name} forces {verein} to adjust roles; replacing a player for {dauer} often changes the whole structure."
+ ],
+ "zt.art.rekord.hintergrund": [
+  "The scoring rate of {name} owes less to luck than to movement: he finds the spaces between the lines early and {verein} look for him on purpose."
+ ],
+ "zt.art.ton.qualitaet.schluss.lob": [
+  "The direction is right; what matters is whether the pattern repeats in the coming weeks."
+ ],
+ "zt.art.ton.qualitaet.schluss.kritik": [
+  "The patterns behind this situation are visible, and they can be fixed."
+ ],
+ "zt.art.ton.boulevard.schluss.kritik": [
+  "Now the club is on alert!",
+  "Somebody has to pull the emergency brake!"
+ ],
+ "zt.art.ton.boulevard.schluss.lob": [
+  "Let's not get carried away now!"
+ ],
+ "zt.art.ton.regional.schluss.lob": [
+  "The town celebrates the lads."
+ ],
+ "zt.art.ton.fan.schluss.kritik": [
+  "This cannot go on, folks."
+ ],
+ "zt.art.ton.fan.schluss.lob": [
+  "That is exactly how we want to see you!"
+ ],
+ "zt.art.haltung.lob": "Supportive line",
+ "zt.art.haltung.kritik": "Critical line",
+ "zt.art.haltung.neutral": "Neutral line"
+}

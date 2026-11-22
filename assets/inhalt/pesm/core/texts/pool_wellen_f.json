@@ -1,0 +1,450 @@
+{
+ "pool.praemie_verlangt.e.e1": [
+  "{b.gruss} {b.praemie_verlangt_lage} Ich finde, dass meine Leistungen eine Prämie rechtfertigen.",
+  "{b.gruss} {b.praemie_verlangt_lage} Ich hätte gern über eine Aufbesserung gesprochen."
+ ],
+ "pool.praemie_verlangt.e.e2": [
+  "{b.gruss} {b.praemie_verlangt_lage} Seit Wochen bin ich in Form, und es wäre schön, wenn das jemand würdigt.",
+  "{b.gruss} {b.praemie_verlangt_lage} Ich habe meinen Teil geliefert, nun möchte ich ein Signal."
+ ],
+ "pool.praemie_verlangt.e.e3": [
+  "{b.gruss} {b.praemie_verlangt_lage} Ich weiß, dass die Stimmung nicht die beste ist, aber meine Leistung war es, und das sollte sich lohnen.",
+  "{b.gruss} {b.praemie_verlangt_lage} Es läuft in der Kabine nicht rund, nur auf dem Platz bei mir schon, und davon sehe ich nichts im Geldbeutel."
+ ],
+ "pool.praemie_verlangt.e.e4": [
+  "{b.gruss} {b.praemie_verlangt_lage} Die Leute reden über meine Form, nur im Vertrag steht davon nichts.",
+  "{b.gruss} {b.praemie_verlangt_lage} Meine Leistung ist gerade ein Gesprächsthema, mein Gehalt leider nicht."
+ ],
+ "pool.praemie_verlangt.e.e5": [
+  "{b.gruss} {b.praemie_verlangt_lage} So eine Serie wie meine verdient mehr als warme Worte.",
+  "{b.gruss} {b.praemie_verlangt_lage} Ich lasse mich nicht länger mit Lob abspeisen."
+ ],
+ "pool.praemie_verlangt.e.e6": [
+  "{b.gruss} {b.praemie_verlangt_lage} Ich will niemanden unter Druck setzen, aber ein Bonus wäre ein schönes Zeichen.",
+  "{b.gruss} {b.praemie_verlangt_lage} Ohne dich wäre ich nicht so weit, und trotzdem muss ich fragen: Wie sieht es mit einer Prämie aus?"
+ ],
+ "pool.praemie_verlangt.e.e7": [
+  "{b.gruss} {b.praemie_verlangt_lage} Ich hatte mit einer Zulage gerechnet, nachdem du mir das versprochen hast.",
+  "{b.gruss} {b.praemie_verlangt_lage} Die Aufbesserung, die du mir in Aussicht gestellt hast, steht immer noch aus."
+ ],
+ "pool.praemie_verlangt.e.e8": [
+  "{b.gruss} {b.praemie_verlangt_lage} Mal ganz offen: Die letzten Spiele gingen auf mich, jetzt wäre die Gegenseite dran.",
+  "{b.gruss} {b.praemie_verlangt_lage} Kurze Frage: Gibt es für gute Leistungen auch gute Bezahlung?"
+ ],
+ "pool.praemie_verlangt.e.e9": [
+  "{b.gruss} {b.praemie_verlangt_lage} Das muss kein Streit werden, ich möchte nur, dass wir über meine Bezüge reden.",
+  "{b.gruss} {b.praemie_verlangt_lage} Wenn es passt, würde ich meine Lage gern mit dir besprechen, und zwar finanziell."
+ ],
+ "pool.praemie_verlangt.a.a1": [
+  "Gut, einverstanden: Hältst du die Form, bekommst du binnen {frist} Tagen eine Aufbesserung.",
+  "Du hast es verdient. In {frist} Tagen reden wir über neue Zahlen, und ich komme mit einem Angebot."
+ ],
+ "pool.praemie_verlangt.a.a2": [
+  "Eine Einmalprämie ist drin. Das Geld kommt schnell, aber den Vertrag fassen wir später an.",
+  "Für die Serie gibt es einen Bonus, sauber ausgezahlt und ohne Debatte."
+ ],
+ "pool.praemie_verlangt.a.a3": [
+  "Im nächsten Vertragsgespräch gehört das ganz oben auf die Liste, so lange musst du dich gedulden.",
+  "Das besprechen wir, wenn dein Vertrag ohnehin auf den Tisch kommt."
+ ],
+ "pool.praemie_verlangt.a.a4": [
+  "Nein. Wer gut spielt, tut nur seinen Job, dafür gibt es kein Extrageld.",
+  "Eine Prämie gibt es nicht, und die Diskussion ist damit beendet."
+ ],
+ "pool.praemie_verlangt.a.a5": [
+  "Deine Leistung sehe ich, und ich sage es offen: Du bist gerade einer der Besten bei uns. Geld verspreche ich nicht, Respekt schon.",
+  "Das Lob ist ernst gemeint. Gehalt kann ich dir nicht zusagen, aber die Wertschätzung ist echt."
+ ],
+ "pool.praemie_verlangt.a.a6": [
+  "Gehälter regelt der Verein. Ich gebe deinen Wunsch mit meiner Empfehlung weiter.",
+  "Das geht über meinen Tisch hinaus. Ich spreche mit der Führung und sage dir, was daraus wird."
+ ],
+ "pool.praemie_verlangt.a.a7": [
+  "Unser Gehaltsgefüge steht auf Fairness gegenüber allen. Würde ich dich anheben, hätte ich zehn weitere Anfragen.",
+  "Jeder im Kader hat Leistungen, und das Gefüge bleibt stabil. Ich zeige dir gern, wo du darin stehst."
+ ],
+ "pool.praemie_verlangt.a.a8": [
+  "Was stellst du dir vor, und woran machst du es fest?",
+  "Sag mir eine Zahl und einen Grund, dann sehen wir, ob wir uns treffen."
+ ],
+ "pool.praemie_verlangt.a.a9": [
+  "Bonus ist Bonus, wenn es der Verein will. Ich entscheide hier nicht über Taschengeld, und du bleibst bei deinem Vertrag.",
+  "Dein Vertrag steht. Daran ändert sich nichts, auch nicht mit einer Serie."
+ ],
+ "pool.praemie_verlangt.a.a10": [
+  "Prämien sind Teamsache und nicht Einzelsache. Wer sie bekommt, entscheidet die ganze Mannschaft, nicht der Lauf des Monats.",
+  "Solange wir nichts gewonnen haben, ist eine Einzelprämie kein Thema."
+ ],
+ "pool.praemie_verlangt.a.a11": [
+  "Dass es dir wichtig ist, höre ich. Wir finden einen Weg, und bis dahin wisse: Ich sehe, was du leistest.",
+  "Ich verstehe, dass Anerkennung auch Geld bedeutet. Gib mir etwas Zeit, ich nehme dich ernst."
+ ],
+ "pool.praemie_verlangt.r.r1": [
+  "{b.gut} Das ist mehr, als ich erwartet habe, danke.",
+  "{b.gut} Damit kann ich arbeiten, und du siehst, dass ich es zurückzahle."
+ ],
+ "pool.praemie_verlangt.r.r2": [
+  "{b.gut} Dass du so klar und fair mit mir sprichst, bedeutet mir viel.",
+  "{b.gut} Dir vertraue ich, also warte ich gern."
+ ],
+ "pool.praemie_verlangt.r.r3": [
+  "{b.gut} Gut so, ich liefere weiter und bleibe auf Kurs.",
+  "{b.gut} Dann werde ich zeigen, dass jeder Euro gut angelegt ist."
+ ],
+ "pool.praemie_verlangt.r.r4": [
+  "{b.gut} Zu hören, dass man gesehen wird, tut richtig gut.",
+  "{b.gut} Danke, dass du mich nicht abgekanzelt hast."
+ ],
+ "pool.praemie_verlangt.r.r5": [
+  "{b.neutral} Ich warte ab, was daraus wird.",
+  "{b.neutral} Reden ist schön, auf dem Konto zählen aber Zahlen."
+ ],
+ "pool.praemie_verlangt.r.r6": [
+  "{b.neutral} Ich weiß nicht, ob ich mich freuen oder ärgern soll.",
+  "{b.neutral} Mal sehen, ob das mehr war als ein Gespräch."
+ ],
+ "pool.praemie_verlangt.r.r7": [
+  "{b.neutral} Ein klares Ja oder Nein wäre mir lieber gewesen, aber gut.",
+  "{b.neutral} Immerhin hast du mir zugehört."
+ ],
+ "pool.praemie_verlangt.r.r8": [
+  "{b.neutral} Ich mache weiter wie bisher, Geld hin oder her.",
+  "{b.neutral} Meine Arbeit hängt nicht an einer Prämie, aber das Gefühl schon."
+ ],
+ "pool.praemie_verlangt.r.r9": [
+  "{b.schlecht} Dann weiß ich, was meine Leistung hier wert ist.",
+  "{b.schlecht} Das merke ich mir, bei der nächsten Verhandlung."
+ ],
+ "pool.praemie_verlangt.r.r10": [
+  "{b.schlecht} Dann kannst du dir die Tore künftig selbst schießen!",
+  "{b.schlecht} So geht man nicht mit Leuten um, die den Laden tragen!"
+ ],
+ "pool.praemie_verlangt.r.r11": [
+  "{b.schlecht} Mein Berater wird dazu ein paar Takte sagen wollen.",
+  "{b.schlecht} Es gibt Klubs, die Leistung auch bezahlen."
+ ],
+ "pool.praemie_verlangt.r.r12": [
+  "{b.schlecht} Ich hatte gehofft, dass du mehr für mich übrig hast.",
+  "{b.schlecht} Dass meine Mühe so wenig zählt, tut mehr weh, als ich sage."
+ ],
+ "pool.praemie_verlangt.x.x1": [
+  "Er nimmt das Angebot erleichtert an. {entscheidung} Im Training zeigt er, dass er es ernst meint.",
+  "{entscheidung} Er geht mit sichtbar mehr Schwung zur Einheit."
+ ],
+ "pool.praemie_verlangt.x.x2": [
+  "Die Frage bleibt in der Luft hängen. {entscheidung} Er sagt, er warte jetzt ab.",
+  "{entscheidung} Ob das reicht, zeigt der nächste Zahltag."
+ ],
+ "pool.praemie_verlangt.x.x3": [
+  "Er zieht sich spürbar zurück. {entscheidung} Der Berater ruft noch am selben Tag in der Geschäftsstelle an.",
+  "{entscheidung} In der Kabine macht die Runde, was ihm gesagt wurde."
+ ],
+ "pool.praemie_verlangt.x.x4": [
+  "Du hast Geld in Aussicht gestellt. {entscheidung} Er schreibt sich das Datum auf.",
+  "{entscheidung} Er wird nachfragen, wenn die Frist abläuft."
+ ],
+ "pool.praemie_verlangt.x.x5": [
+  "Er steht auf, noch bevor du zu Ende gesprochen hast. {entscheidung} Von Prämie redet er nicht mehr, von Wechsel dafür schon.",
+  "{entscheidung} Die Tür fällt hörbar ins Schloss."
+ ],
+ "pool.trainingskritik.e.e1": [
+  "{b.gruss} {b.trainingskritik_lage} Darf ich ein ehrliches Wort zum Training loswerden?",
+  "{b.gruss} {b.trainingskritik_lage} Ich muss etwas zu unseren Einheiten sagen, und es ist nicht nur Lob."
+ ],
+ "pool.trainingskritik.e.e2": [
+  "{b.gruss} {b.trainingskritik_lage} Die Einheiten sind mir zu hart, ich merke es in jedem Muskel.",
+  "{b.gruss} {b.trainingskritik_lage} Das Pensum ist so hoch, dass ich nach dem Mittag nur noch aufs Sofa will."
+ ],
+ "pool.trainingskritik.e.e3": [
+  "{b.gruss} {b.trainingskritik_lage} Ich komme gerade nicht gern zum Training, und das ist neu für mich.",
+  "{b.gruss} {b.trainingskritik_lage} Seit Wochen schleppe ich mich zum Platz, und der Spaß ist weg."
+ ],
+ "pool.trainingskritik.e.e4": [
+  "{b.gruss} {b.trainingskritik_lage} Die Übungen sind so eintönig, dass ich im Kopf schon abschalte!",
+  "{b.gruss} {b.trainingskritik_lage} Ich kann kein weiteres Passdreieck mehr sehen, ernsthaft!"
+ ],
+ "pool.trainingskritik.e.e5": [
+  "{b.gruss} {b.trainingskritik_lage} Ich sage es dir, weil ich dir vertraue: Das Training passt nicht zu dem, was ich brauche.",
+  "{b.gruss} {b.trainingskritik_lage} Es ist nichts Persönliches, aber im Training würde ich gern etwas ändern."
+ ],
+ "pool.trainingskritik.e.e6": [
+  "{b.gruss} {b.trainingskritik_lage} Für das, was ich erreichen will, ist das Training zu allgemein.",
+  "{b.gruss} {b.trainingskritik_lage} Ich brauche mehr Arbeit an meinen Schwächen und weniger Standardprogramm."
+ ],
+ "pool.trainingskritik.e.e7": [
+  "{b.gruss} {b.trainingskritik_lage} Ich möchte nicht undankbar sein, aber ich fühle mich im Training wie eine Nummer.",
+  "{b.gruss} {b.trainingskritik_lage} Manchmal frage ich mich, ob im Training jemand sieht, was mir wirklich nützt."
+ ],
+ "pool.trainingskritik.e.e8": [
+  "{b.gruss} {b.trainingskritik_lage} Ich habe schon einmal Verbesserungen angeregt, und passiert ist nichts.",
+  "{b.gruss} {b.trainingskritik_lage} Die Änderung, die du mir zugesagt hast, habe ich im Training nicht gespürt."
+ ],
+ "pool.trainingskritik.e.e9": [
+  "{b.gruss} {b.trainingskritik_lage} Nimm es nicht als Angriff, aber ich glaube, wir könnten im Training klüger arbeiten.",
+  "{b.gruss} {b.trainingskritik_lage} Ich habe da eine Idee, wie die Einheiten mehr bringen würden."
+ ],
+ "pool.trainingskritik.a.a1": [
+  "Das ist mir wichtig, also erzähl mir genau, was dich stört. Ich passe an, was sich anpassen lässt.",
+  "Ich höre dir zu, und wenn dein Punkt stimmt, ändere ich die Einheiten."
+ ],
+ "pool.trainingskritik.a.a2": [
+  "Jede Einheit hat einen Zweck: Ausdauer im Winter, Intensität für die Schlussphase. Lass mich dir den Plan zeigen.",
+  "Die Härte kommt nicht aus Laune. Sie bereitet uns auf die Spiele vor, in denen es ernst wird."
+ ],
+ "pool.trainingskritik.a.a3": [
+  "Ich stelle dir einen Einzeltrainer, auf Vereinskosten. Zwei Mal pro Woche gehst du an deine Schwächen.",
+  "Du bekommst ein eigenes Programm mit Betreuung. Das zahle ich, wenn du dafür Gas gibst."
+ ],
+ "pool.trainingskritik.a.a4": [
+  "Das Training mache ich, du machst es mit. Wenn dir das nicht passt, ist die Tür weit offen.",
+  "Die Trainingsplanung ist meine Sache, und dabei bleibt es."
+ ],
+ "pool.trainingskritik.a.a5": [
+  "Ich nehme den Stab dazu. Der Fitnesstrainer und der Co-Trainer schauen sich deine Einheiten an.",
+  "Das klären wir zu dritt: Du, der Athletiktrainer und ich."
+ ],
+ "pool.trainingskritik.a.a6": [
+  "Nein, das Training bleibt, wie es ist. Beschwerden helfen hier niemandem.",
+  "Daran ändere ich nichts, und die Diskussion ist damit beendet."
+ ],
+ "pool.trainingskritik.a.a7": [
+  "Was genau meinst du: die Länge, die Übungen oder den Ton auf dem Platz?",
+  "Wenn du es besser machen könntest, wie sähe dein Tag auf dem Platz aus?"
+ ],
+ "pool.trainingskritik.a.a8": [
+  "Ich weiß, dass es zieht. Das geht vorbei, und dann bist du bereit, wenn es zählt.",
+  "Gib dem Plan noch ein paar Wochen, der Effekt kommt zeitversetzt."
+ ],
+ "pool.trainingskritik.a.a9": [
+  "Du kannst gern Vorschläge machen, aber in der Einheit wird nicht diskutiert. Das gilt für alle.",
+  "Training ist kein Wunschkonzert. Wer mitreden will, redet nach Schluss mit mir."
+ ],
+ "pool.trainingskritik.a.a10": [
+  "Zwischen uns: Sag mir, was du ändern würdest. Du kennst deinen Körper, und ich vertraue deinem Urteil.",
+  "Ich habe immer ein offenes Ohr, und deine Ideen sind willkommen, versprochen."
+ ],
+ "pool.trainingskritik.a.a11": [
+  "Der Plan ist durchdacht, und nur weil es unbequem ist, wird er nicht schlecht. Ich bleibe dabei.",
+  "Unbequem ist Training oft, aber es hat Gründe, die du später merkst."
+ ],
+ "pool.trainingskritik.r.r1": [
+  "{b.gut} Danke, dass du dir das anhörst, mehr wollte ich nicht.",
+  "{b.gut} Mit der Änderung gehe ich viel lieber auf den Platz."
+ ],
+ "pool.trainingskritik.r.r2": [
+  "{b.gut} Dass du ein offenes Ohr hast, wusste ich, danke.",
+  "{b.gut} Dann ziehe ich beim nächsten Mal wieder voll mit."
+ ],
+ "pool.trainingskritik.r.r3": [
+  "{b.gut} Mit dem eigenen Programm hole ich jede Woche mehr raus.",
+  "{b.gut} Wenn ich gezielt arbeiten darf, mache ich Fortschritte, versprochen."
+ ],
+ "pool.trainingskritik.r.r4": [
+  "{b.gut} Es tut gut, ernst genommen zu werden.",
+  "{b.gut} Ich dachte, du blockst gleich ab, aber das war wirklich fair."
+ ],
+ "pool.trainingskritik.r.r5": [
+  "{b.neutral} Dann schauen wir, wie die nächsten Wochen laufen.",
+  "{b.neutral} Ich hoffe, dass sich wirklich etwas ändert."
+ ],
+ "pool.trainingskritik.r.r6": [
+  "{b.neutral} So ganz überzeugt bin ich noch nicht.",
+  "{b.neutral} Ich lasse es auf mich wirken."
+ ],
+ "pool.trainingskritik.r.r7": [
+  "{b.neutral} Ich mache mit, auch wenn mir manches fremd bleibt.",
+  "{b.neutral} Du wirst mich im Training sehen, mehr verspreche ich nicht."
+ ],
+ "pool.trainingskritik.r.r8": [
+  "{b.neutral} Eine Antwort ist das noch nicht, aber ein Anfang.",
+  "{b.neutral} Mal schauen, ob es dabei bleibt."
+ ],
+ "pool.trainingskritik.r.r9": [
+  "{b.schlecht} Dann trainiere ich eben nach Vorschrift, mehr nicht.",
+  "{b.schlecht} So lernt man nichts, und das weißt du."
+ ],
+ "pool.trainingskritik.r.r10": [
+  "{b.schlecht} Mach doch deinen Kram allein, ich bin raus aus der Einheit!",
+  "{b.schlecht} Wenn Kritik hier nichts zählt, dann zählt auch meine Laufarbeit nicht!"
+ ],
+ "pool.trainingskritik.r.r11": [
+  "{b.schlecht} Es gibt Trainer, die zuhören, das habe ich anderswo erlebt.",
+  "{b.schlecht} Mein Berater kennt Klubs mit besserer Trainingskultur."
+ ],
+ "pool.trainingskritik.r.r12": [
+  "{b.schlecht} Ich hatte gehofft, du verstehst mich, aber jetzt fühle ich mich noch kleiner.",
+  "{b.schlecht} Ich habe mich überwunden, das zu sagen, und das ist die Antwort?"
+ ],
+ "pool.trainingskritik.x.x1": [
+  "Er wirkt erleichtert. {entscheidung} Schon in der nächsten Einheit ist er hörbar besser gelaunt.",
+  "{entscheidung} Er geht mit festem Schritt zum Platz."
+ ],
+ "pool.trainingskritik.x.x2": [
+  "Es bleibt eine Stille zurück. {entscheidung} Wie er es aufnimmt, wird sich erst im Training zeigen.",
+  "{entscheidung} Er nickt, aber seine Miene verrät wenig."
+ ],
+ "pool.trainingskritik.x.x3": [
+  "Er geht, ohne sich zu verabschieden. {entscheidung} Die Übungen absolviert er künftig mit hängenden Schultern.",
+  "{entscheidung} In der Kabine erzählt er von dem Gespräch, und nicht freundlich."
+ ],
+ "pool.trainingskritik.x.x4": [
+  "Du hast ihm eine Änderung zugesagt. {entscheidung} Der Co-Trainer weiß schon Bescheid.",
+  "{entscheidung} Er wird im Training genau hinsehen, ob du hältst, was du gesagt hast."
+ ],
+ "pool.trainingskritik.x.x5": [
+  "Mitten im Satz dreht er sich um. {entscheidung} Am nächsten Morgen fehlt er bei der Einheit.",
+  "{entscheidung} Der Platzwart sieht ihn früher nach Hause gehen als je zuvor."
+ ],
+ "pool.spielerrat_wunsch.e.e1": [
+  "{b.gruss} {b.spielerrat_wunsch_lage} Es geht um eine Kleinigkeit, die für die Mannschaft aber viel bedeutet.",
+  "{b.gruss} {b.spielerrat_wunsch_lage} Der Spielerrat hat getagt, und wir haben einen gemeinsamen Wunsch."
+ ],
+ "pool.spielerrat_wunsch.e.e2": [
+  "{b.gruss} {b.spielerrat_wunsch_lage} Die Woche war lang, und die Jungs hätten gern einen freien Tag zum Durchatmen.",
+  "{b.gruss} {b.spielerrat_wunsch_lage} Wir wünschen uns einen freien Tag, sonst platzt demnächst der Kragen."
+ ],
+ "pool.spielerrat_wunsch.e.e3": [
+  "{b.gruss} {b.spielerrat_wunsch_lage} So schlecht war die Stimmung selten, und ich weiß nicht, wie lange ich sie noch halten kann.",
+  "{b.gruss} {b.spielerrat_wunsch_lage} Die Mannschaft ist am Boden, und mir fällt nichts mehr ein, was ich ihr sagen soll."
+ ],
+ "pool.spielerrat_wunsch.e.e4": [
+  "{b.gruss} {b.spielerrat_wunsch_lage} Wir hätten gern wieder einen Teamabend, ohne Trainer, ohne Taktiktafel!",
+  "{b.gruss} {b.spielerrat_wunsch_lage} Die Jungs wollen endlich mal zusammen essen gehen, und zwar nicht auf eigene Kosten!"
+ ],
+ "pool.spielerrat_wunsch.e.e5": [
+  "{b.gruss} {b.spielerrat_wunsch_lage} Die Mannschaft hat über die Prämienregel gesprochen, und uns gefällt sie nicht.",
+  "{b.gruss} {b.spielerrat_wunsch_lage} Bei den Prämien fühlen sich einige ungerecht behandelt, das muss geklärt werden."
+ ],
+ "pool.spielerrat_wunsch.e.e6": [
+  "{b.gruss} {b.spielerrat_wunsch_lage} Wir sind Profis, aber die Trainingszeiten sind für viele ein Problem, das wir ansprechen müssen.",
+  "{b.gruss} {b.spielerrat_wunsch_lage} Die frühen Einheiten kosten die Jungs Kraft, ein anderer Zeitplan würde helfen."
+ ],
+ "pool.spielerrat_wunsch.e.e7": [
+  "{b.gruss} {b.spielerrat_wunsch_lage} Du hattest der Mannschaft etwas zugesagt, und jetzt fragen alle mich, wann es kommt.",
+  "{b.gruss} {b.spielerrat_wunsch_lage} Die Zusage vom letzten Mal ist noch offen, und ich stehe dazwischen."
+ ],
+ "pool.spielerrat_wunsch.e.e8": [
+  "{b.gruss} {b.spielerrat_wunsch_lage} Keine Panik, es ist nichts Dramatisches, aber die Mannschaft wünscht sich eine Entscheidung von dir.",
+  "{b.gruss} {b.spielerrat_wunsch_lage} Ich trage es nur vor, wie ich es gehört habe: Die Gruppe möchte mehr Mitsprache."
+ ],
+ "pool.spielerrat_wunsch.e.e9": [
+  "{b.gruss} {b.spielerrat_wunsch_lage} Ich bitte dich, den Wunsch nicht abzutun, denn es betrifft den Zusammenhalt der ganzen Mannschaft.",
+  "{b.gruss} {b.spielerrat_wunsch_lage} Wenn wir das hinbekommen, ist die Stimmung gerettet, und das sage ich als Kapitän."
+ ],
+ "pool.spielerrat_wunsch.a.a1": [
+  "Ihr habt es euch verdient, ich erfülle den Wunsch. Die Kosten trägt der Verein, und ihr zeigt es am Samstag.",
+  "Das geht klar. Ich kümmere mich darum und rechne damit, dass ihr es mir auf dem Platz zurückgebt."
+ ],
+ "pool.spielerrat_wunsch.a.a2": [
+  "Einen Teamabend zahle ich, ein ordentliches Essen für alle. Wählt das Lokal selbst aus.",
+  "Die Rechnung für einen gemeinsamen Abend geht auf mich. Aber kein Alkohol vor dem Spiel!"
+ ],
+ "pool.spielerrat_wunsch.a.a3": [
+  "Einen halben Tag kann ich geben, den Rest müsst ihr euch in der Woche verdienen. Das ist mein Vorschlag.",
+  "Wir treffen uns in der Mitte: Ich lockere den Plan, ihr dafür die Haltung im Training."
+ ],
+ "pool.spielerrat_wunsch.a.a4": [
+  "Das kann ich nicht erlauben, und ich sage euch auch, warum: Der Spielplan lässt es nicht zu, und das wisst ihr.",
+  "Ich verstehe den Wunsch, aber der Terminkalender gibt es nicht her. Fragt mich nach der Pause noch einmal."
+ ],
+ "pool.spielerrat_wunsch.a.a5": [
+  "Nein. Die Mannschaft stellt keine Forderungen, so läuft es hier nicht.",
+  "Darüber verhandle ich nicht, und du kannst das gern der Gruppe ausrichten."
+ ],
+ "pool.spielerrat_wunsch.a.a6": [
+  "Gern, aber nicht umsonst: Wenn ihr am Wochenende liefert, bekommt ihr es. Fangen wir mit dem Sieg an.",
+  "Ich gehe darauf ein, wenn ihr mir zwei saubere Trainingswochen zusagt. Dann steht es."
+ ],
+ "pool.spielerrat_wunsch.a.a7": [
+  "Bringt es in den Spielerrat, besprecht es dort, und ich höre mir danach eure gemeinsame Linie an.",
+  "Der Spielerrat soll einen Vorschlag ausarbeiten, und ich entscheide dann mit euch gemeinsam."
+ ],
+ "pool.spielerrat_wunsch.a.a8": [
+  "Was genau erwartet ihr, und wie wichtig ist es der ganzen Gruppe, nicht nur den Lautesten?",
+  "Wer steht dahinter, und was würde es der Mannschaft konkret bringen?"
+ ],
+ "pool.spielerrat_wunsch.a.a9": [
+  "Ich habe nicht viel Spielraum, aber ich will, dass ihr euch gehört fühlt, und das tue ich hiermit.",
+  "Die Mannschaft hat mir etwas zu sagen, und das nehme ich ernst. Ich suche eine Lösung, die ihr mittragen könnt."
+ ],
+ "pool.spielerrat_wunsch.a.a10": [
+  "Ich verstehe euch, aber die Linie bleibt. Ich entscheide, was die Mannschaft bekommt, und nicht die Stimmung.",
+  "Das ist mein Plan, und daran wird nicht gedreht, auch nicht, wenn die Laune sinkt."
+ ],
+ "pool.spielerrat_wunsch.a.a11": [
+  "Gebt mir ein paar Tage. Zuerst bin ich bei den Spielen gefordert, danach schauen wir uns den Wunsch an.",
+  "Der Wunsch bleibt auf meinem Zettel, aber vor dem nächsten Spiel entscheide ich nichts."
+ ],
+ "pool.spielerrat_wunsch.a.a12": [
+  "Zwischen uns, Kapitän: Was meinst du selbst? Du kennst die Gruppe besser als jeder andere.",
+  "Sag mir offen, was wirklich dahintersteckt, ich vertraue deinem Gefühl für die Mannschaft."
+ ],
+ "pool.spielerrat_wunsch.r.r1": [
+  "{b.gut} Das wird die Kabine freuen, danke dir.",
+  "{b.gut} Damit hast du die Jungs auf deiner Seite."
+ ],
+ "pool.spielerrat_wunsch.r.r2": [
+  "{b.gut} Auf dich ist Verlass, das richte ich der Gruppe aus.",
+  "{b.gut} Wir danken dir, das war ein Zeichen von Vertrauen."
+ ],
+ "pool.spielerrat_wunsch.r.r3": [
+  "{b.gut} Dann holen wir am Wochenende alles raus, versprochen.",
+  "{b.gut} Mit dieser Stimmung gewinnen wir Spiele, das garantiere ich."
+ ],
+ "pool.spielerrat_wunsch.r.r4": [
+  "{b.gut} Dass du uns so ernst nimmst, hätte ich nicht erwartet.",
+  "{b.gut} Ich war nervös, es vorzutragen, aber du hast uns zugehört."
+ ],
+ "pool.spielerrat_wunsch.r.r5": [
+  "{b.neutral} Ich gebe das so an die Mannschaft weiter.",
+  "{b.neutral} Ob die Jungs damit leben können, werde ich sehen."
+ ],
+ "pool.spielerrat_wunsch.r.r6": [
+  "{b.neutral} Das ist nicht, was sie wollten, aber ein Anfang.",
+  "{b.neutral} Ich versuche, es der Gruppe zu erklären."
+ ],
+ "pool.spielerrat_wunsch.r.r7": [
+  "{b.neutral} Dann warten wir ab, was kommt.",
+  "{b.neutral} Ich bin gespannt, wie die Kabine das aufnimmt."
+ ],
+ "pool.spielerrat_wunsch.r.r8": [
+  "{b.neutral} Du hast deine Gründe, und ich respektiere sie.",
+  "{b.neutral} Das Ergebnis trage ich mit, auch wenn es mir nicht ganz leichtfällt."
+ ],
+ "pool.spielerrat_wunsch.r.r9": [
+  "{b.schlecht} Dann trage ich die Wut der Mannschaft eben allein.",
+  "{b.schlecht} Die Jungs werden das nicht schlucken, und ich werde sie nicht halten."
+ ],
+ "pool.spielerrat_wunsch.r.r10": [
+  "{b.schlecht} Dann macht die Mannschaft eben Dienst nach Vorschrift, das hast du selbst so gewollt!",
+  "{b.schlecht} Wenn die Gruppe nichts mehr zu sagen hat, sagt sie auch auf dem Platz nichts mehr!"
+ ],
+ "pool.spielerrat_wunsch.r.r11": [
+  "{b.schlecht} Die ersten reden schon von Abschied, das sage ich dir nur so.",
+  "{b.schlecht} Mit dieser Haltung verlierst du einige Leute noch vor dem Winter."
+ ],
+ "pool.spielerrat_wunsch.r.r12": [
+  "{b.schlecht} Ich fühle mich, als hätte ich die Gruppe enttäuscht, und du hast mir dabei nicht geholfen.",
+  "{b.schlecht} Ich hatte gehofft, dass das Verständnis mehr zählt als die Vorschrift."
+ ],
+ "pool.spielerrat_wunsch.x.x1": [
+  "Der Kapitän geht mit einem Lächeln zur Mannschaft zurück. {entscheidung} In der Kabine löst sich die Spannung.",
+  "{entscheidung} Beim Aufwärmen am nächsten Tag wird wieder gelacht."
+ ],
+ "pool.spielerrat_wunsch.x.x2": [
+  "Der Kapitän bleibt nachdenklich. {entscheidung} Er sagt der Mannschaft, man müsse abwarten.",
+  "{entscheidung} Wie die Gruppe es aufnimmt, bleibt offen."
+ ],
+ "pool.spielerrat_wunsch.x.x3": [
+  "Er geht ohne ein Wort der Gruppe voran in die Kabine. {entscheidung} Dort herrscht danach eisiges Schweigen.",
+  "{entscheidung} Wenig später beschweren sich mehrere Spieler laut beim Physiotherapeuten."
+ ],
+ "pool.spielerrat_wunsch.x.x4": [
+  "Du hast der Mannschaft etwas versprochen. {entscheidung} Der Kapitän hängt es im Kabinengang aus, damit niemand es vergisst.",
+  "{entscheidung} Der Spielerrat führt Buch darüber, und die Frist läuft."
+ ],
+ "pool.spielerrat_wunsch.x.x5": [
+  "Er legt die Binde auf den Tisch und geht. {entscheidung} Die Mannschaft wartet draußen auf eine Erklärung.",
+  "{entscheidung} Er verlässt das Gespräch, bevor du antworten kannst."
+ ]
+}

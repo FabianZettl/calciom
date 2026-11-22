@@ -1,0 +1,187 @@
+# Konfiguration des Scoutings (Sitzung S). Alles hier ist eine eigene Festlegung von PESM und austauschbar.
+# Beträge in Euro, Alter in Jahren, Zeiten in Tagen und Wochen.
+
+[scout]
+faehigkeiten = ["urteil", "potenzial", "menschenkenntnis", "netzwerk"]
+gehalt_basis = 40_000          # Jahresgehalt bei Durchschnittsfähigkeit 50
+gehalt_je_punkt = 2_500        # je Punkt Durchschnitt über 50 (darunter abwärts)
+vertrag_jahre = 2
+bewerber_je_monat = 5
+spezial_passend = 1.25         # Tempo-Faktor, wenn die Position zur Spezialisierung passt
+spezial_fremd = 0.85
+gruppen = ["tor", "abwehr", "mittelfeld", "angriff", "jugend"]
+
+[reichweite]
+# je Stufe 1 … 5 (aus dem Ruf des Vereins): Scouts, gleichzeitige Aufträge, Regionen außer der Heimat, Genauigkeit im Ausland
+scouts_max = [2, 3, 4, 5, 6]
+auftraege_max = [2, 3, 4, 6, 8]
+regionen_max = [0, 1, 2, 3, 99]
+ausland = [0.45, 0.6, 0.75, 0.9, 1.0]
+weltscout_ab_stufe = 3          # ein Scout ohne feste Region ("überall") arbeitet erst ab dieser Stufe weltweit
+
+[wissen]
+je_tag = 4.0                    # Zuwachs je Tag bei Fähigkeit 100 und passender Region
+heimat_faktor = 0.9
+video_faktor = 0.5
+live_gewinn = 9.0               # einmaliger Zuwachs je gesehenem Spiel (live)
+bericht_ab = 40                 # ab diesem Wissen entsteht ein Bericht
+eindruck_ab = 60                # ab diesem Wissen werden Charakterzüge benannt
+genau_ab = 85
+
+[bericht]
+spanne_max = 12                 # halbe Spanne in Gesamtwertpunkten bei Wissen 0
+spanne_min = 1
+urteil_wirkung = 0.9            # Fähigkeit 100 → Spanne × (1 − 0,9 × 0,5), Fähigkeit 0 → × (1 + 0,9 × 0,5)
+wochen_spieler = 2
+wochen_suche = 3
+treffer_hoechstens = 8
+sterne_schwellen = [-6, -2, 2, 6]    # Abstand zum Kadermedian → 1 … 5 Sterne
+potenzial_schwellen = [60, 68, 75, 82]
+
+[beobachtung]
+termine_voraus = 30
+hinweis_form = 2                # Formänderung (Punkte) ab der gemeldet wird
+hinweis_wert = 0.10             # Marktwertänderung (Anteil)
+meldungen_je_tag = 3
+
+[vorsprung]
+# ab diesem Wissen: Stufe 1 grobe Preisvorstellung, 2 Forderung enger, 3 Forderung und Verhandlungsspielraum bekannt
+stufen = [40, 60, 80]
+spanne = [0.25, 0.12, 0.0]
+grob = 0.35                     # Spanne der Preisvorstellung ohne Bericht (Gespräche zeigen dann nur eine grobe Vorstellung)
+
+[analyse]
+tore_basis = 1.35               # erwartete Tore einer gleich starken Mannschaft
+tore_je_staerkepunkt = 0.045    # Faktor exp(Wert × Stärkeunterschied)
+heimvorteil = 1.12
+form_spiele = 5
+team_spiele = 10
+mindest_einsaetze = 3           # für die Bestenliste der Teamanalyse
+achsen_abstand = 3              # ab diesem Unterschied (Ø der Achse) gilt etwas als Stärke oder Schwäche
+kader_breite = 14               # so viele beste Spieler eines Vereins bilden das Bild der Mannschaft
+
+[start]
+# Wissen über einen Spieler ohne jede Beobachtung: fremde Region, Region eines eigenen Scouts, Heimat des Vereins
+wissen = [10, 25, 40]
+
+[einsatz]
+dauer_tage = [7, 14, 21, 28]
+dauer_standard = 14
+spaetung = 0.8                  # bei Kenntnis 0 dauert ein Einsatz so viel länger (Anteil der Dauer)
+spesen_woche = [1500, 4500]     # je Woche im eigenen Land, im fernen Gebiet (nach Kenntnis)
+kenntnis_hoch = 0.7
+kenntnis_mittel = 0.45
+priorisierung = 3               # Prioritäten 1 (hoch) … 3
+alter_grenzen = [15, 40]
+potenzial_stufen = [0, 65, 70, 75, 80, 85]
+abloese_stufen = [0, 1_000_000, 3_000_000, 5_000_000, 10_000_000, 25_000_000, 50_000_000]
+gehalt_stufen = [0, 100_000, 250_000, 500_000, 1_000_000, 3_000_000]
+vertrag_stufen = [0, 6, 12, 24]
+leihe_rollen = ["perspektive", "reserve", "rotation"]
+abloesefrei_monate = 6
+positionen = ["TW", "IV", "LV", "RV", "DM", "ZM", "LM", "RM", "OM", "LA", "RA", "HS", "ST"]
+
+[sterne]
+# Sterne 0 … 5 in halben Schritten aus Punkten auf der Skala des Gesamtwerts: `von` = 0 Sterne, `bis` = 5 Sterne (Weltklasse)
+von = 55
+bis = 90
+ca_zuschlag = 9.4               # Mittel der Einzelwerte + Zuschlag = Punkte auf der Skala des Gesamtwerts (Querschnitt der Datenbank: Gesamtwert − Mittel ≈ 9,4 ± 2)
+# Wissensstufen eines fremden Spielers: ab diesem Wissen (0 … 100) gilt Stufe 1 … 5
+#   0 unbekannt · 1 Grobbild (Sterne mit Spanne) · 2 einige Einzelwerte · 3 Charakter und Fähigkeiten · 4 Gesamtwert und alle Einzelwerte · 5 vollständig (Merkmale, Verletzungsanfälligkeit)
+stufen = [5, 40, 60, 75, 92]
+einzelwerte_anteil = [0.0, 0.0, 0.3, 0.6, 1.0, 1.0]      # je Stufe 0 … 5: Anteil der Einzelwerte, die sichtbar sind
+einzelwerte_spanne = 0.5        # Spanne eines sichtbaren, noch nicht genauen Einzelwerts im Verhältnis zur halben Gesamtwert-Spanne
+pa_jahre = 14                   # so weit rechnet das Entwicklungsmodell voraus
+pa_unsicher_alter = 21          # bis zu diesem Alter weiß auch der Trainerstab das Potenzial nicht sicher, solange wenige Einsätze vorliegen
+pa_unsicher_einsaetze = 8
+pa_unsicher_punkte = 3          # halbe Spanne des Potenzials in dem Fall (Punkte)
+pa_scout_faktor = 1.4           # fremdes Potenzial ist unschärfer als das Gesamtwert-Bild
+quote = { stamm = 0.85, rotation = 0.45, bank = 0.2 }    # angenommene Einsatzquote nach Rang im Verein (beste elf, nächste fünf, Rest)
+
+# ---- AP7a: Scouts als Personen, Genauigkeit, Umfeld, Passung, Widerspruch ----
+[persoenlichkeit]
+# bias = Verschiebung der Mitte seiner Einschätzung (Punkte, höchstens `bias_anteil` der halben Spanne, die Spanne enthält den wahren Wert weiter);
+# spanne = Faktor auf die ausgewiesene halbe Spanne (euphorisch rechnet sich enger, als er weiß); schwelle = Verschiebung der Sternehürde für „Unbedingt verpflichten“ (+ strenger)
+typen = ["vorsichtig", "euphorisch", "nuechtern", "kritisch"]
+bias_anteil = 0.4
+vorsichtig = { bias = -2.0, spanne = 1.15, schwelle = 1 }
+euphorisch = { bias = 3.0, spanne = 0.9, schwelle = -1 }
+nuechtern = { bias = 0.0, spanne = 1.0, schwelle = 0 }
+kritisch = { bias = -1.5, spanne = 1.0, schwelle = 1 }
+
+[vertrauen]
+# Vertrauen des Trainers in einen Scout (0 … 100): wächst, wenn seine Berichte nach `pruefung_wochen` Wochen stimmten (wahrer Wert in der Spanne), sinkt sonst; Widersprüche entscheidet der Trainer
+start = 50
+treffer = 3.0
+fehler = -4.0
+widerspruch_recht = 4.0
+widerspruch_unrecht = -4.0
+pruefung_wochen = 8
+untergrenze = 5
+obergrenze = 98
+
+[genauigkeit]
+# Berichtsstufen: grob (wenig Wissen), beobachtet (ab `beobachtet_ab` Wissen und mindestens eine Beobachtung), detail (nach einem Spielertreffen oder einer Scoutingreise und ab `detail_ab` Wissen)
+beobachtet_ab = 40
+detail_ab = 60
+reise_wissen = 25
+reise_spesen_faktor = 2.0
+anzahl_aussagen = [1, 2, 4]            # Umfeldaussagen je Stufe
+anzahl_tags = [0, 2, 5]                # Persönlichkeits-Tags je Stufe
+
+[umfeld.quellen]
+# Verlässlichkeit 0 … 1; parteiisch: Richtung, in die die Quelle verzerrt (positiv = redet den Spieler schön)
+trainer = { verlaesslich = 0.8, parteiisch = "" }
+jugendtrainer = { verlaesslich = 0.75, parteiisch = "" }
+mitspieler = { verlaesslich = 0.6, parteiisch = "" }
+ehemalig = { verlaesslich = 0.55, parteiisch = "" }
+journalist = { verlaesslich = 0.45, parteiisch = "negativ" }
+berater = { verlaesslich = 0.4, parteiisch = "positiv" }
+
+[umfeld.themen]
+# Thema -> Quellen, die dazu etwas wissen; Werte kommen nur aus Modellen (Charakter, Gehalt, Vertrag, Ausfall, Form, Gerüchte)
+arbeitseinstellung = ["trainer", "jugendtrainer", "mitspieler", "ehemalig"]
+ehrgeiz = ["trainer", "berater", "mitspieler"]
+fuehrung = ["trainer", "mitspieler"]
+kabine = ["mitspieler", "trainer", "ehemalig"]
+teamgeist = ["mitspieler", "trainer"]
+loyalitaet = ["berater", "ehemalig", "journalist"]
+gehalt = ["berater"]
+vertrag = ["berater", "ehemalig"]
+konkurrenz = ["berater", "journalist"]
+verletzung = ["trainer", "mitspieler"]
+form = ["trainer", "mitspieler"]
+
+[tags]
+hoch = 70
+niedrig = 30
+# Merkmal -> (Tag bei hohem Wert, Tag bei niedrigem Wert)
+professionalitaet = ["professionell", "unprofessionell"]
+ehrgeiz = ["ehrgeizig", "genuegsam"]
+loyalitaet = ["loyal", "wechselwillig"]
+ego = ["egozentrisch", "bescheiden"]
+teamgeist = ["teamplayer", "einzelgaenger"]
+fuehrung = ["fuehrungsspieler", "mitlaeufer"]
+temperament = ["hitzig", "ruhig"]
+nervenstaerke = ["nervenstark", "nervoes"]
+vertraeglichkeit = ["umgaenglich", "schwierig"]
+
+[passung]
+# Ampeln: gruen, gelb, rot. Rang = Platz des Kandidaten unter den eigenen Spielern seiner Positionsgruppe nach Gesamtwert (1 = bester)
+stamm_raenge = { tor = 1, abwehr = 4, mittelfeld = 4, angriff = 3 }
+rotation_zusatz = 2                   # so viele Plätze hinter den Stammplätzen zählen als Rotation
+konkurrent_abstand = 3                # Gesamtwertabstand, ab dem ein eigener Spieler als direkter Konkurrent gilt
+gehalt_neid = 1.15                    # Gehaltsforderung über dem höchsten Gehalt gleich starker Spieler mal dieser Faktor: Neid in der Kabine
+gehalt_spitze = 1.0                   # Forderung über dem Spitzengehalt des Kaders mal dieser Faktor: rot
+taktik_gruen = 70
+taktik_gelb = 55
+alter_risiko = 31
+ausfall_gelb = 14
+ausfall_rot = 60
+vertrag_kurz_monate = 12
+junge_perspektive = 21
+
+[verhandlung]
+# Datenmodell-Haken (noch ohne Verbraucher): ein angestellter Scout, der die Verhandlung führt, hebt die Erfolgschance um bis zu `max_bonus` (Anteil, 0,12 = 12 Prozentpunkte);
+# der Bonus wächst mit Stärke und Vertrauen des Trainers in ihn. Startwert, nicht kalibriert.
+max_bonus = 0.12

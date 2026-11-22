@@ -1,0 +1,412 @@
+# Inhaltspool Welle V, Presse: zehn Pressekonferenz-Themen (Siegesserie, Schuldfrage, Verletzte, Wechselgerücht, Vorstand, Taktik, Spielerstreit, Titelkampf, Schiedsrichter, Fanprotest).
+# Texte: pool_wellen_v.json, pool_b_wellen_v.json, pool_titel_wellen_v.json (de) und en/.
+
+[thema.presse_siegesserie_demut]
+kategorie = "presse"
+absender = "journalist"
+kanal = "pressekonferenz"
+dringlichkeit = 1
+sperre_tage = 25
+haeufigkeit = 0.4
+wenn = ["siege>=3"]
+eroeffnung = [
+  { id = "e1" },
+  { id = "e2" },
+  { id = "e3" },
+  { id = "e4" },
+  { id = "e5", typ = ["hitzig", "launisch"] },
+  { id = "e6", typ = ["loyal", "gelassen"] },
+]
+antwort = [
+  { id = "a1", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 7 }, { ziel = "beziehung", delta = 4 }, { ziel = "fanstimmung", delta = 2 }] },
+  { id = "a2", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "medienbild", delta = 6 }, { ziel = "beziehung", delta = 5 }, { ziel = "fanstimmung", delta = 3 }] },
+  { id = "a3", strategie = "ausgleich", ton = "offen", wirkungen = [{ ziel = "medienbild", delta = 7 }, { ziel = "beziehung", delta = 5 }, { ziel = "vorstandsvertrauen", delta = 2 }] },
+  { id = "a4", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -7 }, { ziel = "beziehung", delta = -4 }, { ziel = "fanstimmung", delta = -2 }] },
+  { id = "a5", strategie = "vertroesten", ton = "humorvoll", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "beziehung", delta = -3 }, { ziel = "fanstimmung", delta = -3 }] },
+  { id = "a6", strategie = "gegenfrage", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "beziehung", delta = -4 }, { ziel = "vorstandsvertrauen", delta = -1 }] },
+  { id = "a7", strategie = "delegieren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 2 }, { ziel = "beziehung", delta = 1 }] },
+  { id = "a8", strategie = "erklaeren", ton = "bestimmt", wirkungen = [{ ziel = "medienbild", delta = 3 }, { ziel = "beziehung", delta = 1 }, { ziel = "fanstimmung", delta = 1 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut" },
+  { id = "r3", gruppe = "gut", typ = ["hitzig", "launisch"] },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral" },
+  { id = "r6", gruppe = "neutral", typ = ["sensibel", "gelassen"] },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht" },
+  { id = "r9", gruppe = "schlecht", typ = ["wechselfreudig", "ehrgeizig", "loyal"] },
+]
+ausgang = [
+  { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" },
+]
+
+[thema.presse_schuldfrage_niederlage]
+kategorie = "presse"
+absender = "journalist"
+kanal = "pressekonferenz"
+dringlichkeit = 1
+sperre_tage = 25
+haeufigkeit = 0.4
+wenn = ["niederlagen>=1"]
+eroeffnung = [
+  { id = "e1" },
+  { id = "e2" },
+  { id = "e3" },
+  { id = "e4" },
+  { id = "e5", typ = ["hitzig", "launisch"] },
+  { id = "e6", typ = ["loyal", "gelassen"] },
+]
+antwort = [
+  { id = "a1", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 7 }, { ziel = "beziehung", delta = 4 }, { ziel = "fanstimmung", delta = 2 }] },
+  { id = "a2", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "medienbild", delta = 6 }, { ziel = "beziehung", delta = 5 }, { ziel = "fanstimmung", delta = 3 }] },
+  { id = "a3", strategie = "ausgleich", ton = "offen", wirkungen = [{ ziel = "medienbild", delta = 7 }, { ziel = "beziehung", delta = 5 }, { ziel = "vorstandsvertrauen", delta = 2 }] },
+  { id = "a4", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -7 }, { ziel = "beziehung", delta = -4 }, { ziel = "fanstimmung", delta = -2 }] },
+  { id = "a5", strategie = "vertroesten", ton = "humorvoll", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "beziehung", delta = -3 }, { ziel = "fanstimmung", delta = -3 }] },
+  { id = "a6", strategie = "gegenfrage", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "beziehung", delta = -4 }, { ziel = "vorstandsvertrauen", delta = -1 }] },
+  { id = "a7", strategie = "delegieren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 2 }, { ziel = "beziehung", delta = 1 }] },
+  { id = "a8", strategie = "erklaeren", ton = "bestimmt", wirkungen = [{ ziel = "medienbild", delta = 3 }, { ziel = "beziehung", delta = 1 }, { ziel = "fanstimmung", delta = 1 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut" },
+  { id = "r3", gruppe = "gut", typ = ["hitzig", "launisch"] },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral" },
+  { id = "r6", gruppe = "neutral", typ = ["sensibel", "gelassen"] },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht" },
+  { id = "r9", gruppe = "schlecht", typ = ["wechselfreudig", "ehrgeizig", "loyal"] },
+]
+ausgang = [
+  { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" },
+]
+
+[thema.presse_verletzungswelle_belastung]
+kategorie = "presse"
+absender = "journalist"
+kanal = "pressekonferenz"
+dringlichkeit = 1
+sperre_tage = 25
+haeufigkeit = 0.4
+wenn = ["medien<75", "niederlagen>=1"]
+eroeffnung = [
+  { id = "e1" },
+  { id = "e2" },
+  { id = "e3" },
+  { id = "e4" },
+  { id = "e5", typ = ["hitzig", "launisch"] },
+  { id = "e6", typ = ["loyal", "gelassen"] },
+]
+antwort = [
+  { id = "a1", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 7 }, { ziel = "beziehung", delta = 4 }, { ziel = "fanstimmung", delta = 2 }] },
+  { id = "a2", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "medienbild", delta = 6 }, { ziel = "beziehung", delta = 5 }, { ziel = "fanstimmung", delta = 3 }] },
+  { id = "a3", strategie = "ausgleich", ton = "offen", wirkungen = [{ ziel = "medienbild", delta = 7 }, { ziel = "beziehung", delta = 5 }, { ziel = "vorstandsvertrauen", delta = 2 }] },
+  { id = "a4", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -7 }, { ziel = "beziehung", delta = -4 }, { ziel = "fanstimmung", delta = -2 }] },
+  { id = "a5", strategie = "vertroesten", ton = "humorvoll", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "beziehung", delta = -3 }, { ziel = "fanstimmung", delta = -3 }] },
+  { id = "a6", strategie = "gegenfrage", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "beziehung", delta = -4 }, { ziel = "vorstandsvertrauen", delta = -1 }] },
+  { id = "a7", strategie = "delegieren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 2 }, { ziel = "beziehung", delta = 1 }] },
+  { id = "a8", strategie = "erklaeren", ton = "bestimmt", wirkungen = [{ ziel = "medienbild", delta = 3 }, { ziel = "beziehung", delta = 1 }, { ziel = "fanstimmung", delta = 1 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut" },
+  { id = "r3", gruppe = "gut", typ = ["hitzig", "launisch"] },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral" },
+  { id = "r6", gruppe = "neutral", typ = ["sensibel", "gelassen"] },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht" },
+  { id = "r9", gruppe = "schlecht", typ = ["wechselfreudig", "ehrgeizig", "loyal"] },
+]
+ausgang = [
+  { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" },
+]
+
+[thema.presse_wechselgeruecht_star]
+kategorie = "presse"
+absender = "journalist"
+kanal = "pressekonferenz"
+dringlichkeit = 1
+sperre_tage = 25
+haeufigkeit = 0.4
+wenn = ["medien<70", "abstand_ziel>=0"]
+eroeffnung = [
+  { id = "e1" },
+  { id = "e2" },
+  { id = "e3" },
+  { id = "e4" },
+  { id = "e5", typ = ["hitzig", "launisch"] },
+  { id = "e6", typ = ["loyal", "gelassen"] },
+]
+antwort = [
+  { id = "a1", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 7 }, { ziel = "beziehung", delta = 4 }, { ziel = "fanstimmung", delta = 2 }] },
+  { id = "a2", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "medienbild", delta = 6 }, { ziel = "beziehung", delta = 5 }, { ziel = "fanstimmung", delta = 3 }] },
+  { id = "a3", strategie = "ausgleich", ton = "offen", wirkungen = [{ ziel = "medienbild", delta = 7 }, { ziel = "beziehung", delta = 5 }, { ziel = "vorstandsvertrauen", delta = 2 }] },
+  { id = "a4", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -7 }, { ziel = "beziehung", delta = -4 }, { ziel = "fanstimmung", delta = -2 }] },
+  { id = "a5", strategie = "vertroesten", ton = "humorvoll", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "beziehung", delta = -3 }, { ziel = "fanstimmung", delta = -3 }] },
+  { id = "a6", strategie = "gegenfrage", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "beziehung", delta = -4 }, { ziel = "vorstandsvertrauen", delta = -1 }] },
+  { id = "a7", strategie = "delegieren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 2 }, { ziel = "beziehung", delta = 1 }] },
+  { id = "a8", strategie = "erklaeren", ton = "bestimmt", wirkungen = [{ ziel = "medienbild", delta = 3 }, { ziel = "beziehung", delta = 1 }, { ziel = "fanstimmung", delta = 1 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut" },
+  { id = "r3", gruppe = "gut", typ = ["hitzig", "launisch"] },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral" },
+  { id = "r6", gruppe = "neutral", typ = ["sensibel", "gelassen"] },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht" },
+  { id = "r9", gruppe = "schlecht", typ = ["wechselfreudig", "ehrgeizig", "loyal"] },
+]
+ausgang = [
+  { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" },
+]
+
+[thema.presse_vorstand_rueckendeckung]
+kategorie = "presse"
+absender = "journalist"
+kanal = "pressekonferenz"
+dringlichkeit = 1
+sperre_tage = 25
+haeufigkeit = 0.4
+wenn = ["vorstand<40"]
+eroeffnung = [
+  { id = "e1" },
+  { id = "e2" },
+  { id = "e3" },
+  { id = "e4" },
+  { id = "e5", typ = ["hitzig", "launisch"] },
+  { id = "e6", typ = ["loyal", "gelassen"] },
+]
+antwort = [
+  { id = "a1", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 7 }, { ziel = "beziehung", delta = 4 }, { ziel = "fanstimmung", delta = 2 }] },
+  { id = "a2", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "medienbild", delta = 6 }, { ziel = "beziehung", delta = 5 }, { ziel = "fanstimmung", delta = 3 }] },
+  { id = "a3", strategie = "ausgleich", ton = "offen", wirkungen = [{ ziel = "medienbild", delta = 7 }, { ziel = "beziehung", delta = 5 }, { ziel = "vorstandsvertrauen", delta = 2 }] },
+  { id = "a4", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -7 }, { ziel = "beziehung", delta = -4 }, { ziel = "fanstimmung", delta = -2 }] },
+  { id = "a5", strategie = "vertroesten", ton = "humorvoll", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "beziehung", delta = -3 }, { ziel = "fanstimmung", delta = -3 }] },
+  { id = "a6", strategie = "gegenfrage", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "beziehung", delta = -4 }, { ziel = "vorstandsvertrauen", delta = -1 }] },
+  { id = "a7", strategie = "delegieren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 2 }, { ziel = "beziehung", delta = 1 }] },
+  { id = "a8", strategie = "erklaeren", ton = "bestimmt", wirkungen = [{ ziel = "medienbild", delta = 3 }, { ziel = "beziehung", delta = 1 }, { ziel = "fanstimmung", delta = 1 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut" },
+  { id = "r3", gruppe = "gut", typ = ["hitzig", "launisch"] },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral" },
+  { id = "r6", gruppe = "neutral", typ = ["sensibel", "gelassen"] },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht" },
+  { id = "r9", gruppe = "schlecht", typ = ["wechselfreudig", "ehrgeizig", "loyal"] },
+]
+ausgang = [
+  { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" },
+]
+
+[thema.presse_taktikwechsel_nachfrage]
+kategorie = "presse"
+absender = "journalist"
+kanal = "pressekonferenz"
+dringlichkeit = 1
+sperre_tage = 25
+haeufigkeit = 0.4
+wenn = ["siege>=1", "abstand_ziel>=1"]
+eroeffnung = [
+  { id = "e1" },
+  { id = "e2" },
+  { id = "e3" },
+  { id = "e4" },
+  { id = "e5", typ = ["hitzig", "launisch"] },
+  { id = "e6", typ = ["loyal", "gelassen"] },
+]
+antwort = [
+  { id = "a1", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 7 }, { ziel = "beziehung", delta = 4 }, { ziel = "fanstimmung", delta = 2 }] },
+  { id = "a2", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "medienbild", delta = 6 }, { ziel = "beziehung", delta = 5 }, { ziel = "fanstimmung", delta = 3 }] },
+  { id = "a3", strategie = "ausgleich", ton = "offen", wirkungen = [{ ziel = "medienbild", delta = 7 }, { ziel = "beziehung", delta = 5 }, { ziel = "vorstandsvertrauen", delta = 2 }] },
+  { id = "a4", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -7 }, { ziel = "beziehung", delta = -4 }, { ziel = "fanstimmung", delta = -2 }] },
+  { id = "a5", strategie = "vertroesten", ton = "humorvoll", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "beziehung", delta = -3 }, { ziel = "fanstimmung", delta = -3 }] },
+  { id = "a6", strategie = "gegenfrage", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "beziehung", delta = -4 }, { ziel = "vorstandsvertrauen", delta = -1 }] },
+  { id = "a7", strategie = "delegieren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 2 }, { ziel = "beziehung", delta = 1 }] },
+  { id = "a8", strategie = "erklaeren", ton = "bestimmt", wirkungen = [{ ziel = "medienbild", delta = 3 }, { ziel = "beziehung", delta = 1 }, { ziel = "fanstimmung", delta = 1 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut" },
+  { id = "r3", gruppe = "gut", typ = ["hitzig", "launisch"] },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral" },
+  { id = "r6", gruppe = "neutral", typ = ["sensibel", "gelassen"] },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht" },
+  { id = "r9", gruppe = "schlecht", typ = ["wechselfreudig", "ehrgeizig", "loyal"] },
+]
+ausgang = [
+  { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" },
+]
+
+[thema.presse_spielerstreit_oeffentlich]
+kategorie = "presse"
+absender = "journalist"
+kanal = "pressekonferenz"
+dringlichkeit = 1
+sperre_tage = 25
+haeufigkeit = 0.4
+wenn = ["medien<60", "fans<60"]
+eroeffnung = [
+  { id = "e1" },
+  { id = "e2" },
+  { id = "e3" },
+  { id = "e4" },
+  { id = "e5", typ = ["hitzig", "launisch"] },
+  { id = "e6", typ = ["loyal", "gelassen"] },
+]
+antwort = [
+  { id = "a1", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 7 }, { ziel = "beziehung", delta = 4 }, { ziel = "fanstimmung", delta = 2 }] },
+  { id = "a2", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "medienbild", delta = 6 }, { ziel = "beziehung", delta = 5 }, { ziel = "fanstimmung", delta = 3 }] },
+  { id = "a3", strategie = "ausgleich", ton = "offen", wirkungen = [{ ziel = "medienbild", delta = 7 }, { ziel = "beziehung", delta = 5 }, { ziel = "vorstandsvertrauen", delta = 2 }] },
+  { id = "a4", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -7 }, { ziel = "beziehung", delta = -4 }, { ziel = "fanstimmung", delta = -2 }] },
+  { id = "a5", strategie = "vertroesten", ton = "humorvoll", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "beziehung", delta = -3 }, { ziel = "fanstimmung", delta = -3 }] },
+  { id = "a6", strategie = "gegenfrage", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "beziehung", delta = -4 }, { ziel = "vorstandsvertrauen", delta = -1 }] },
+  { id = "a7", strategie = "delegieren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 2 }, { ziel = "beziehung", delta = 1 }] },
+  { id = "a8", strategie = "erklaeren", ton = "bestimmt", wirkungen = [{ ziel = "medienbild", delta = 3 }, { ziel = "beziehung", delta = 1 }, { ziel = "fanstimmung", delta = 1 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut" },
+  { id = "r3", gruppe = "gut", typ = ["hitzig", "launisch"] },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral" },
+  { id = "r6", gruppe = "neutral", typ = ["sensibel", "gelassen"] },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht" },
+  { id = "r9", gruppe = "schlecht", typ = ["wechselfreudig", "ehrgeizig", "loyal"] },
+]
+ausgang = [
+  { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" },
+]
+
+[thema.presse_titelkampf_druck]
+kategorie = "presse"
+absender = "journalist"
+kanal = "pressekonferenz"
+dringlichkeit = 1
+sperre_tage = 25
+haeufigkeit = 0.4
+wenn = ["abstand_ziel<=-2", "siege>=1"]
+eroeffnung = [
+  { id = "e1" },
+  { id = "e2" },
+  { id = "e3" },
+  { id = "e4" },
+  { id = "e5", typ = ["hitzig", "launisch"] },
+  { id = "e6", typ = ["loyal", "gelassen"] },
+]
+antwort = [
+  { id = "a1", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 7 }, { ziel = "beziehung", delta = 4 }, { ziel = "fanstimmung", delta = 2 }] },
+  { id = "a2", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "medienbild", delta = 6 }, { ziel = "beziehung", delta = 5 }, { ziel = "fanstimmung", delta = 3 }] },
+  { id = "a3", strategie = "ausgleich", ton = "offen", wirkungen = [{ ziel = "medienbild", delta = 7 }, { ziel = "beziehung", delta = 5 }, { ziel = "vorstandsvertrauen", delta = 2 }] },
+  { id = "a4", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -7 }, { ziel = "beziehung", delta = -4 }, { ziel = "fanstimmung", delta = -2 }] },
+  { id = "a5", strategie = "vertroesten", ton = "humorvoll", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "beziehung", delta = -3 }, { ziel = "fanstimmung", delta = -3 }] },
+  { id = "a6", strategie = "gegenfrage", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "beziehung", delta = -4 }, { ziel = "vorstandsvertrauen", delta = -1 }] },
+  { id = "a7", strategie = "delegieren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 2 }, { ziel = "beziehung", delta = 1 }] },
+  { id = "a8", strategie = "erklaeren", ton = "bestimmt", wirkungen = [{ ziel = "medienbild", delta = 3 }, { ziel = "beziehung", delta = 1 }, { ziel = "fanstimmung", delta = 1 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut" },
+  { id = "r3", gruppe = "gut", typ = ["hitzig", "launisch"] },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral" },
+  { id = "r6", gruppe = "neutral", typ = ["sensibel", "gelassen"] },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht" },
+  { id = "r9", gruppe = "schlecht", typ = ["wechselfreudig", "ehrgeizig", "loyal"] },
+]
+ausgang = [
+  { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" },
+]
+
+[thema.presse_schiedsrichter_zorn]
+kategorie = "presse"
+absender = "journalist"
+kanal = "pressekonferenz"
+dringlichkeit = 1
+sperre_tage = 25
+haeufigkeit = 0.4
+wenn = ["niederlagen>=1", "fans<70"]
+eroeffnung = [
+  { id = "e1" },
+  { id = "e2" },
+  { id = "e3" },
+  { id = "e4" },
+  { id = "e5", typ = ["hitzig", "launisch"] },
+  { id = "e6", typ = ["loyal", "gelassen"] },
+]
+antwort = [
+  { id = "a1", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 7 }, { ziel = "beziehung", delta = 4 }, { ziel = "fanstimmung", delta = 2 }] },
+  { id = "a2", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "medienbild", delta = 6 }, { ziel = "beziehung", delta = 5 }, { ziel = "fanstimmung", delta = 3 }] },
+  { id = "a3", strategie = "ausgleich", ton = "offen", wirkungen = [{ ziel = "medienbild", delta = 7 }, { ziel = "beziehung", delta = 5 }, { ziel = "vorstandsvertrauen", delta = 2 }] },
+  { id = "a4", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -7 }, { ziel = "beziehung", delta = -4 }, { ziel = "fanstimmung", delta = -2 }] },
+  { id = "a5", strategie = "vertroesten", ton = "humorvoll", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "beziehung", delta = -3 }, { ziel = "fanstimmung", delta = -3 }] },
+  { id = "a6", strategie = "gegenfrage", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "beziehung", delta = -4 }, { ziel = "vorstandsvertrauen", delta = -1 }] },
+  { id = "a7", strategie = "delegieren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 2 }, { ziel = "beziehung", delta = 1 }] },
+  { id = "a8", strategie = "erklaeren", ton = "bestimmt", wirkungen = [{ ziel = "medienbild", delta = 3 }, { ziel = "beziehung", delta = 1 }, { ziel = "fanstimmung", delta = 1 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut" },
+  { id = "r3", gruppe = "gut", typ = ["hitzig", "launisch"] },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral" },
+  { id = "r6", gruppe = "neutral", typ = ["sensibel", "gelassen"] },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht" },
+  { id = "r9", gruppe = "schlecht", typ = ["wechselfreudig", "ehrgeizig", "loyal"] },
+]
+ausgang = [
+  { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" },
+]
+
+[thema.presse_fanprotest_stimmung]
+kategorie = "presse"
+absender = "journalist"
+kanal = "pressekonferenz"
+dringlichkeit = 1
+sperre_tage = 25
+haeufigkeit = 0.4
+wenn = ["fans<40"]
+eroeffnung = [
+  { id = "e1" },
+  { id = "e2" },
+  { id = "e3" },
+  { id = "e4" },
+  { id = "e5", typ = ["hitzig", "launisch"] },
+  { id = "e6", typ = ["loyal", "gelassen"] },
+]
+antwort = [
+  { id = "a1", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 7 }, { ziel = "beziehung", delta = 4 }, { ziel = "fanstimmung", delta = 2 }] },
+  { id = "a2", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "medienbild", delta = 6 }, { ziel = "beziehung", delta = 5 }, { ziel = "fanstimmung", delta = 3 }] },
+  { id = "a3", strategie = "ausgleich", ton = "offen", wirkungen = [{ ziel = "medienbild", delta = 7 }, { ziel = "beziehung", delta = 5 }, { ziel = "vorstandsvertrauen", delta = 2 }] },
+  { id = "a4", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -7 }, { ziel = "beziehung", delta = -4 }, { ziel = "fanstimmung", delta = -2 }] },
+  { id = "a5", strategie = "vertroesten", ton = "humorvoll", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "beziehung", delta = -3 }, { ziel = "fanstimmung", delta = -3 }] },
+  { id = "a6", strategie = "gegenfrage", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "beziehung", delta = -4 }, { ziel = "vorstandsvertrauen", delta = -1 }] },
+  { id = "a7", strategie = "delegieren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 2 }, { ziel = "beziehung", delta = 1 }] },
+  { id = "a8", strategie = "erklaeren", ton = "bestimmt", wirkungen = [{ ziel = "medienbild", delta = 3 }, { ziel = "beziehung", delta = 1 }, { ziel = "fanstimmung", delta = 1 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut" },
+  { id = "r3", gruppe = "gut", typ = ["hitzig", "launisch"] },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral" },
+  { id = "r6", gruppe = "neutral", typ = ["sensibel", "gelassen"] },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht" },
+  { id = "r9", gruppe = "schlecht", typ = ["wechselfreudig", "ehrgeizig", "loyal"] },
+]
+ausgang = [
+  { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" },
+]

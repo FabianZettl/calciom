@@ -1,0 +1,78 @@
+{
+ "pool.b.ungeduld_nach_reha_lage": [
+  "Ich spüre nichts mehr, und der Arzt bremst mich trotzdem.",
+  "Die Reha ist fast durch, nur der Arzt hält mich noch zurück."
+ ],
+ "pool.b.ungeduld_nach_reha_lage.hitzig": [
+  "Ich sitze seit Wochen herum, und der Arzt redet mir ständig rein!",
+  "Ich bin gesund, und keiner lässt mich spielen, das macht mich wahnsinnig!"
+ ],
+ "pool.b.ungeduld_nach_reha_lage.loyal": [
+  "Die Mannschaft braucht mich, das spüre ich, auch wenn der Arzt noch warnt.",
+  "Ich möchte dem Team endlich wieder helfen, der Arzt ist da noch vorsichtig."
+ ],
+ "pool.b.ungeduld_nach_reha_lage.ehrgeizig": [
+  "Jede Woche auf der Bank kostet mich meinen Platz, der Arzt hin oder her.",
+  "Ich will zurück in die Startelf, bevor sich mein Konkurrent festsetzt."
+ ],
+ "pool.b.ungeduld_nach_reha_lage.wechselfreudig": [
+  "Ich will spielen, hier oder anderswo, und der Arzt soll mich nicht ausbremsen.",
+  "Wenn ich hier nicht bald auflaufe, schaue ich mich nach einem Verein um, der mich braucht."
+ ],
+ "pool.b.ungeduld_nach_reha_lage.sensibel": [
+  "Ich fühle mich abgeschoben, seit ich verletzt war, und der Arzt macht es nicht besser.",
+  "Ich habe Angst, vergessen zu werden, während man mich weiter schont."
+ ],
+ "pool.b.kritik_oeffentlich_lage": [
+  "Die Zeitung hat mich nach dem letzten Spiel regelrecht auseinandergenommen.",
+  "Seit dem Bericht in der Presse werde ich auf der Straße angestarrt."
+ ],
+ "pool.b.kritik_oeffentlich_lage.hitzig": [
+  "Die haben mich in der Zeitung vorgeführt, und alle schauen zu!",
+  "Was die über mich schreiben, ist eine Frechheit, und keiner stellt es richtig!"
+ ],
+ "pool.b.kritik_oeffentlich_lage.loyal": [
+  "Ich habe nie ein schlechtes Wort über den Verein verloren, und jetzt steht mein Name am Pranger.",
+  "Kritik nehme ich an, aber so öffentlich wollte ich sie nicht lesen."
+ ],
+ "pool.b.kritik_oeffentlich_lage.ehrgeizig": [
+  "Ich weiß, dass ich besser sein muss, doch dieser Verriss war überzogen.",
+  "Ich will mich durch Leistung beweisen, aber die Schlagzeile verfolgt mich bis dahin."
+ ],
+ "pool.b.kritik_oeffentlich_lage.wechselfreudig": [
+  "Anderswo hätte man mich nicht so durch den Dreck gezogen.",
+  "Wenn hier jeder über mich herfallen darf, frage ich mich, ob ich richtig bin."
+ ],
+ "pool.b.kritik_oeffentlich_lage.sensibel": [
+  "Die Artikel haben mich nicht schlafen lassen, jede Zeile geht mir nach.",
+  "Ich traue mich kaum noch in die Stadt, so unangenehm ist mir das alles."
+ ],
+ "pool.b.berater_druck_wechsel_lage": [
+  "Für {name} liegen mehrere Angebote vor, und meine Geduld ist nicht endlos.",
+  "Es gibt konkrete Anfragen für {name}, und ich muss bald antworten."
+ ],
+ "pool.b.berater_druck_wechsel_lage.hitzig": [
+  "{name} ist stocksauer und will, dass endlich etwas passiert, sonst unterschreibt er woanders!",
+  "Mein Mandant platzt gleich, und ich halte ihn nur mit Mühe zurück!"
+ ],
+ "pool.b.berater_druck_wechsel_lage.loyal": [
+  "{name} würde gern bleiben, aber die Lage lässt ihm kaum noch eine Wahl.",
+  "Er hängt an dem Verein, das macht es mir schwer, ihm zu raten, doch die Frist läuft."
+ ],
+ "pool.b.berater_druck_wechsel_lage.ehrgeizig": [
+  "{name} will den nächsten Schritt in der Karriere gehen, und die Angebote bieten ihn.",
+  "Mein Mandant sieht seine Zukunft bei einem Spitzenverein, und die Anfragen kommen."
+ ],
+ "pool.b.berater_druck_wechsel_lage.wechselfreudig": [
+  "{name} ist im Kopf längst bei den anderen Vereinen, die um ihn werben.",
+  "Er schaut sich schon um, und ich habe ihm nicht widersprochen."
+ ],
+ "pool.b.berater_druck_wechsel_lage.sensibel": [
+  "{name} fühlt sich nicht wertgeschätzt und hat mich gebeten, die Sache zu regeln.",
+  "Er traut sich nicht, es selbst zu sagen, deshalb rufe ich an."
+ ],
+ "pool.b.berater_druck_wechsel_gruss": [
+  "Guten Tag, hier ist der Berater von {name}.",
+  "Guten Tag, ich rufe wegen meines Mandanten {name} an."
+ ]
+}

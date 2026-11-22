@@ -1,0 +1,330 @@
+{
+  "pool.fans_ticketpreise.e.e1": [
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} Wir bitten Sie, sich im Präsidium für uns einzusetzen.",
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} Könnten Sie das Thema beim Präsidium ansprechen?"
+  ],
+  "pool.fans_ticketpreise.e.e2": [
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} Ein Wort von Ihnen beim Präsidium würde bei uns viel bewirken.",
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} Auf Sie hört das Präsidium eher als auf uns."
+  ],
+  "pool.fans_ticketpreise.e.e3": [
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} Wir sind verärgert, das gestehen wir ein, aber wir wollen im Guten mit Ihnen reden. Würden Sie beim Präsidium vorsprechen?",
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} Die Stimmung ist gerade nicht die beste, trotzdem hoffen wir auf Ihr Verständnis und ein Wort im Präsidium."
+  ],
+  "pool.fans_ticketpreise.e.e4": [
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} Sagen Sie denen da oben, dass die Kurve leer bleibt, wenn sich nichts ändert!",
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} Wenn Sie nichts unternehmen, gibt es bald Transparente gegen die Preise, und zwar vor jedem Heimspiel!"
+  ],
+  "pool.fans_ticketpreise.e.e5": [
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} Wir stehen hinter der Mannschaft und bitten Sie deshalb in aller Ruhe, das Thema im Präsidium aufzugreifen.",
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} Wir wollen keinen Streit, nur ein offenes Ohr im Präsidium, und dabei sollen Sie uns helfen."
+  ],
+  "pool.fans_ticketpreise.e.e6": [
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} Wer Erfolg will, braucht Stimmung im Stadion, also setzen Sie sich für fairere Preise ein.",
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} Zeigen Sie uns, dass Sie auch abseits des Platzes etwas bewegen können, und machen Sie sich beim Präsidium für uns stark."
+  ],
+  "pool.fans_ticketpreise.e.e7": [
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} Wir fühlen uns übergangen und wären dankbar, wenn Sie uns im Präsidium Gehör verschaffen könnten.",
+    "{b.fans_ticketpreise_gruss} {b.fans_ticketpreise_lage} Uns liegt viel an diesem Verein, und es würde uns viel bedeuten, wenn Sie unser Anliegen vortragen."
+  ],
+  "pool.fans_ticketpreise.e.e8": [
+    "Herr Trainer, nach den jüngsten Niederlagen auch noch tief in die Tasche greifen zu müssen, versteht in der Kurve keiner mehr. Bitte sprechen Sie mit dem Präsidium über die Preise.",
+    "Erst verlieren wir Spiele, dann sollen wir für Karten und Fahrten noch mehr zahlen? Setzen Sie sich bitte dafür ein, dass sich das ändert."
+  ],
+  "pool.fans_ticketpreise.e.e9": [
+    "Die Ticketpreise sind inzwischen Thema in Zeitung und Fanforen. Bevor es lauter wird, bitten wir Sie um ein Wort im Präsidium.",
+    "In den Medien wird schon über leere Plätze gesprochen. Helfen Sie mit, dass es nicht zum Streit mit dem Verein kommt."
+  ],
+  "pool.fans_ticketpreise.e.e10": [
+    "Herr Trainer, Sie haben im Präsidium Gewicht, das wissen wir. Deshalb kommen wir zu Ihnen: Die Preise für Dauerkarten und Auswärtsfahrten gehören auf den Tisch.",
+    "Das Präsidium schätzt Sie, und genau deshalb möchten wir, dass Sie unsere Sorgen um die Eintrittspreise dort vortragen."
+  ],
+  "pool.fans_ticketpreise.a.a1": [
+    "Ich setze mich im Präsidium für Sie ein und fordere günstigere Dauerkarten und eine Entlastung bei den Auswärtsfahrten.",
+    "Ich gehe zum Präsidium und trage Ihre Forderung vor, notfalls auch gegen Widerstand."
+  ],
+  "pool.fans_ticketpreise.a.a2": [
+    "Bis das Präsidium entschieden hat, hilft ein Zuschuss aus unserem Mannschaftsfonds für die Busse zu den Auswärtsspielen.",
+    "Aus dem Mannschaftsfonds lege ich etwas für die Fahrten dazu, damit die nächste Reise für viele machbar bleibt."
+  ],
+  "pool.fans_ticketpreise.a.a3": [
+    "Über Preise entscheidet die Geschäftsführung, nicht ich. Ich gebe Ihr Schreiben dort ab und bitte um eine Antwort an Sie.",
+    "Das gehört auf den Tisch des Präsidiums, und ich sorge dafür, dass Ihre Mail dort ankommt."
+  ],
+  "pool.fans_ticketpreise.a.a4": [
+    "Ich verstehe das gut. Wer mit der Familie ins Stadion geht, spürt jede Preiserhöhung im Geldbeutel, und das nehme ich ernst.",
+    "Sie haben recht, das Stadion darf kein Luxus werden. Ich weiß, was Ihnen die Spiele bedeuten."
+  ],
+  "pool.fans_ticketpreise.a.a5": [
+    "Sehen Sie die Tabelle an: Die Mannschaft liefert, und volle Ränge folgen dem Erfolg. Das werden die Preise am Ende rechtfertigen.",
+    "Wir stehen sportlich gut da, und ein Verein, der vorne mitspielt, kann nicht billig sein."
+  ],
+  "pool.fans_ticketpreise.a.a6": [
+    "Die Kritik an den Preisen weise ich zurück. Sie müssen sich selbst überlegen, was Ihnen der Verein wert ist.",
+    "Das ist nicht mein Thema, und Druck von der Kurve ändert daran nichts. Ich lasse mich dafür nicht einspannen."
+  ],
+  "pool.fans_ticketpreise.a.a7": [
+    "Wie viele Dauerkarten sind tatsächlich zurückgegeben worden, und welche Fahrten sind am teuersten? Mit Zahlen kann ich im Präsidium mehr anfangen.",
+    "Was genau kostet Sie die Auswärtsreise, und wo drückt der Schuh am meisten?"
+  ],
+  "pool.fans_ticketpreise.a.a8": [
+    "Ich nehme Ihre Sorge mit. Mehr als das kann ich Ihnen heute nicht versprechen.",
+    "Ich sehe, was Sie bewegt, und behalte es im Kopf, wenn ich im Verein mit den Leuten spreche."
+  ],
+  "pool.fans_ticketpreise.a.a9": [
+    "In die Preispolitik mische ich mich nicht ein, und dabei bleibt es. Meine Aufgabe ist die Mannschaft.",
+    "Ich habe zu den Preisen nichts zu sagen und werde dazu auch nichts sagen."
+  ],
+  "pool.fans_ticketpreise.a.a10": [
+    "Ich lade Sie zu einem Gespräch ins Präsidium ein und sitze dabei, damit Sie Ihre Zahlen selbst vortragen können.",
+    "Lassen Sie uns gemeinsam mit dem Präsidium einen Termin machen. Dann hören die Verantwortlichen es von Ihnen, und ich unterstütze Sie dabei."
+  ],
+  "pool.fans_ticketpreise.a.a11": [
+    "Dürfte ich Karten verschenken, wäre die Kurve längst voll. Ich bin aber nur der Trainer und kein Kassenwart, das bleibt unter uns.",
+    "Wenn Eintrittspreise von der Taktik abhingen, hätten wir sie schon gesenkt. Ich merke mir Ihr Anliegen."
+  ],
+  "pool.fans_ticketpreise.a.a12": [
+    "Nach einer Niederlage auch noch tief in die Tasche greifen zu müssen, ist doppelt bitter. Das verstehe ich.",
+    "Gerade wenn es sportlich nicht läuft, tut jeder Euro mehr weh. Ihre Wut ist verständlich."
+  ],
+  "pool.fans_ticketpreise.a.a13": [
+    "Ehrlich gesagt halte ich die Preise für branchenüblich. Ich sehe keinen Anlass, dafür im Präsidium Ärger zu machen.",
+    "Für mich ist das eine normale Preisstufe, und ich werde deshalb keine Kampagne anstoßen."
+  ],
+  "pool.fans_ticketpreise.r.r1": [
+    "{b.gut} Das ist mehr, als wir erwartet haben, wir geben es in der Kurve weiter.",
+    "{b.gut} Damit können wir arbeiten, vielen Dank für Ihr Wort."
+  ],
+  "pool.fans_ticketpreise.r.r2": [
+    "{b.gut} Es tut gut, dass Sie sich Zeit für uns nehmen, wir wissen das zu schätzen.",
+    "{b.gut} So kennen wir unseren Trainer, danke für das offene Ohr."
+  ],
+  "pool.fans_ticketpreise.r.r3": [
+    "{b.gut} Dann erwarten wir ein Ergebnis, aber der Anfang ist gemacht.",
+    "{b.gut} Wenn Taten folgen, steht die Kurve wieder hinter dem Verein."
+  ],
+  "pool.fans_ticketpreise.r.r4": [
+    "{b.gut} Dass Sie uns zuhören, bedeutet vielen von uns sehr viel.",
+    "{b.gut} Wir hatten uns nicht getraut zu hoffen, dass Sie das so sehen."
+  ],
+  "pool.fans_ticketpreise.r.r5": [
+    "{b.gut} Na also, geht doch! Das sagen wir in der Kurve sofort weiter.",
+    "{b.gut} Endlich einer, der sich traut, und das vor dem Präsidium."
+  ],
+  "pool.fans_ticketpreise.r.r6": [
+    "{b.neutral} Wir besprechen das in der Fanversammlung und melden uns wieder.",
+    "{b.neutral} Ob das reicht, zeigen die nächsten Preislisten."
+  ],
+  "pool.fans_ticketpreise.r.r7": [
+    "{b.neutral} Ob das die richtige Antwort ist, wissen wir noch nicht.",
+    "{b.neutral} Die Meinungen gehen bei uns auseinander, mal sehen."
+  ],
+  "pool.fans_ticketpreise.r.r8": [
+    "{b.neutral} Gut, dann warten wir ab, was das Präsidium dazu sagt.",
+    "{b.neutral} Wir haben Zeit, aber die Dauerkarten für die neue Saison werden bald fällig."
+  ],
+  "pool.fans_ticketpreise.r.r9": [
+    "{b.neutral} Wir sehen uns die Preise an, sobald etwas auf dem Tisch liegt.",
+    "{b.neutral} Reden hilft, aber Zahlen helfen mehr, die wollen wir bald sehen."
+  ],
+  "pool.fans_ticketpreise.r.r10": [
+    "{b.schlecht} Damit sind wir nicht zufrieden, das tragen wir so in die Kurve.",
+    "{b.schlecht} Das hilft niemandem, schon gar nicht den Familien, die sich die Karten nicht leisten können."
+  ],
+  "pool.fans_ticketpreise.r.r11": [
+    "{b.schlecht} Dann sagen wir es eben laut, und zwar im Stadion, vor allen Kameras!",
+    "{b.schlecht} Sie lassen uns im Regen stehen, das vergessen wir nicht!"
+  ],
+  "pool.fans_ticketpreise.r.r12": [
+    "{b.schlecht} Dann bleiben wohl bald noch mehr Plätze leer, das ist jedem selbst überlassen.",
+    "{b.schlecht} Wer nicht gehört wird, spart sich eben den Weg ins Stadion."
+  ],
+  "pool.fans_ticketpreise.r.r13": [
+    "{b.schlecht} Wir hatten von Ihnen mehr erwartet, das enttäuscht uns wirklich.",
+    "{b.schlecht} Wir haben immer zu Ihnen gehalten, und nun fühlt sich das nach Abfuhr an."
+  ],
+  "pool.fans_ticketpreise.x.x1": [
+    "Der Fanvertreter bedankt sich. {entscheidung} In der Kurve legt sich der Ärger über die Preise, und für die nächsten Wochen kehrt Ruhe ein.",
+    "{entscheidung} Die Fans nehmen es wohlwollend auf, und die ersten Dauerkarten werden wieder abgeholt."
+  ],
+  "pool.fans_ticketpreise.x.x2": [
+    "Die Kurve bleibt gespalten. {entscheidung} Ob die Preise sinken, entscheidet am Ende das Präsidium.",
+    "{entscheidung} Der Fanvertreter will erst die Versammlung abwarten, bevor er sich weiter äußert."
+  ],
+  "pool.fans_ticketpreise.x.x3": [
+    "Die Antwort spricht sich schnell herum. {entscheidung} Beim nächsten Heimspiel hängt ein Transparent gegen die Preise im Block, und die Kameras halten drauf.",
+    "{entscheidung} In den Fanforen wird noch am selben Abend heftig gestritten, und die Zeitung greift es auf."
+  ],
+  "pool.fans_ticketpreise.x.x4": [
+    "Der Fanvertreter schreibt nicht mehr zurück. {entscheidung} Der Draht zur Kurve ist vorerst gekappt.",
+    "{entscheidung} Die Kurve schweigt fortan zu den Preisen und geht auf Abstand."
+  ],
+  "pool.fans_ticketpreise.x.x5": [
+    "Der Fanvertreter liest Ihre Zusage in der Kurve vor. {entscheidung} Nun wird gespannt beobachtet, was im Präsidium daraus wird.",
+    "{entscheidung} Die Fanvertretung hält fest, was Sie versprochen haben, und erinnert Sie bei Gelegenheit daran."
+  ],
+  "pool.fans_lob_choreo.e.e1": [
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} Wir planen für das nächste Heimspiel eine Choreografie und wünschen uns, dass die Mannschaft nach dem Abpfiff zur Kurve kommt.",
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} Dürfen wir auf einen gemeinsamen Gruß von Mannschaft und Kurve nach dem Spiel hoffen?"
+  ],
+  "pool.fans_lob_choreo.e.e2": [
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} Sagen Sie uns, ob die Spieler nach dem Abpfiff einen Moment für die Kurve übrig haben, das wäre für uns der Höhepunkt.",
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} Wir brauchen Ihre Zusage, dass die Mannschaft unsere Choreografie mit einem Gruß beantwortet."
+  ],
+  "pool.fans_lob_choreo.e.e3": [
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} Sie wirken angespannt, und wir wollen nicht stören. Aber eine Choreografie und ein Gruß der Mannschaft würden allen guttun.",
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} Vielleicht ist gerade nicht der beste Moment, doch wir würden uns über ein Zeichen der Mannschaft an die Kurve sehr freuen."
+  ],
+  "pool.fans_lob_choreo.e.e4": [
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} Das wird die größte Show, die dieses Stadion je gesehen hat, und die Spieler müssen danach einfach zu uns kommen!",
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} Nach so einem Spiel will die Kurve ihre Helden sehen, also schicken Sie sie bitte rüber zu uns!"
+  ],
+  "pool.fans_lob_choreo.e.e5": [
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} Es soll nichts Aufwendiges werden, nur ein gemeinsamer Moment von Mannschaft und Kurve, wenn es Ihnen passt.",
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} Wenn es sich einrichten lässt, kommen die Jungs kurz zu uns, ganz entspannt und ohne großes Programm."
+  ],
+  "pool.fans_lob_choreo.e.e6": [
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} Gemeinsam mit der Kurve ist diese Mannschaft kaum zu schlagen, und das soll der Gegner im Stadion sehen und hören.",
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} Ein Gruß der Mannschaft nach dem Spiel würde die Kurve noch lauter machen, und davon profitieren Sie am meisten."
+  ],
+  "pool.fans_lob_choreo.e.e7": [
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} Für viele von uns ist es etwas ganz Besonderes, den Spielern persönlich zu danken, bitte lassen Sie uns den Moment.",
+    "{b.fans_lob_choreo_gruss} {b.fans_lob_choreo_lage} Wir haben wochenlang an der Choreografie gebastelt und würden uns über einen Gruß der Mannschaft sehr freuen."
+  ],
+  "pool.fans_lob_choreo.e.e8": [
+    "Herr Trainer, eine solche Serie erlebt man selten, und wir wollen sie mit einer Choreografie würdigen. Kommt die Mannschaft nach dem Spiel zu uns?",
+    "So lange hat die Kurve schon nicht mehr am Stück gejubelt. Dafür bedanken wir uns mit einer Choreografie und hoffen auf den Gruß der Spieler."
+  ],
+  "pool.fans_lob_choreo.e.e9": [
+    "Herr Trainer, ganz oben in der Tabelle zu stehen, haben wir uns lange gewünscht. Wir planen eine Choreografie und wünschen uns die Mannschaft danach bei uns.",
+    "Dass der Verein da oben mitspielt, wollen wir mit einem großen Bild im Block zeigen. Kommen die Spieler danach zu uns?"
+  ],
+  "pool.fans_lob_choreo.e.e10": [
+    "Herr Trainer, die Presse schreibt über uns, und wir möchten ein Bild für die Kameras, Mannschaft und Kurve gemeinsam nach dem Spiel.",
+    "Alle reden über diese Serie, und wir wollen, dass sie auch in der Kurve zu sehen ist. Was meinen Sie zu einem Gruß nach dem Abpfiff?"
+  ],
+  "pool.fans_lob_choreo.a.a1": [
+    "Wir kommen nach dem Spiel gemeinsam zur Kurve, das verspreche ich Ihnen. Sie haben es sich verdient.",
+    "Die Mannschaft wird nach dem Abpfiff vor Ihren Block treten, dafür sorge ich."
+  ],
+  "pool.fans_lob_choreo.a.a2": [
+    "Ich bespreche das mit dem Kapitän und dem Mannschaftsrat, der Gruß soll von den Spielern selbst kommen.",
+    "Wie die Mannschaft Ihnen dankt, entscheiden die Spieler. Ich gebe Ihre Anfrage an den Kapitän weiter."
+  ],
+  "pool.fans_lob_choreo.a.a3": [
+    "Der Dank gehört Ihnen. Wir haben noch nichts gewonnen, aber ohne Sie wäre diese Serie nicht möglich gewesen.",
+    "Wir bleiben demütig, denn die Saison ist lang. Aber was Ihre Kurve leistet, tut uns auf dem Platz richtig gut."
+  ],
+  "pool.fans_lob_choreo.a.a4": [
+    "Lassen Sie uns das für das übernächste Heimspiel einplanen, dann habe ich die Mannschaft besser im Blick.",
+    "Ich möchte das gern machen, aber noch nicht jetzt. Fragen Sie nach dem nächsten Heimspiel noch einmal."
+  ],
+  "pool.fans_lob_choreo.a.a5": [
+    "Der Spielplan ist zu dicht, ich lasse die Jungs nach dem Spiel nicht auch noch Zeit und Kraft verlieren. Die Antwort ist nein.",
+    "Wegen des Spielplans muss ich ablehnen, die Spieler brauchen nach dem Abpfiff Erholung und keine Zeremonie."
+  ],
+  "pool.fans_lob_choreo.a.a6": [
+    "Die Mannschaft stiftet eine Prämie für die Kurve. Damit könnt ihr Material für die Choreografie und Fahnen bezahlen.",
+    "Ein Teil unserer Siegprämie geht an Ihren Block, als Dank für die Stimmung."
+  ],
+  "pool.fans_lob_choreo.a.a7": [
+    "Was genau haben Sie vor, wie lange dauert es, und wo sollen die Spieler stehen? Dann kann ich es planen.",
+    "Wie stellen Sie sich den Ablauf vor, und wer von der Kurve ist mein Ansprechpartner?"
+  ],
+  "pool.fans_lob_choreo.a.a8": [
+    "Gefeiert wird nach der Saison, vorher gibt es keine Zeichen und keine Auftritte. Dabei bleibe ich.",
+    "Solange wir nichts gewonnen haben, zeigt sich diese Mannschaft nicht vor der Kurve. Das ist meine Linie."
+  ],
+  "pool.fans_lob_choreo.a.a9": [
+    "Ich erkläre Ihnen den Ablauf: Nach dem Abpfiff geht es erst zur Auswertung, danach kommen die Spieler kurz zu Ihnen, soweit der Spielplan es zulässt.",
+    "Nach dem Spiel gibt es Regeneration und Gespräche, aber ein kurzer Gruß in Richtung Kurve ist möglich."
+  ],
+  "pool.fans_lob_choreo.a.a10": [
+    "Wenn die Jungs weiter gewinnen, laufen sie bald von allein zu Ihnen, und ich stehe dann nur noch im Weg.",
+    "Wenn ich die Spieler nicht rüberschicke, kommen sie ohnehin, ich kenne ihren Stolz. Ich sage Bescheid."
+  ],
+  "pool.fans_lob_choreo.a.a11": [
+    "Danke für alles, was Sie für uns tun. Ich weiß, wie viel Arbeit und Herzblut in jeder Choreografie stecken.",
+    "Das berührt mich wirklich. Sie machen dieses Stadion zu einem besonderen Ort, und das spüren auch die Spieler."
+  ],
+  "pool.fans_lob_choreo.a.a12": [
+    "Statt nach dem Spiel schlage ich ein Treffen unter der Woche vor, Kapitän, ein paar Spieler und ich kommen zu Ihnen.",
+    "Wir treffen uns lieber am Trainingsplatz, da hat die Mannschaft mehr Ruhe, und ich bringe die Spieler mit."
+  ],
+  "pool.fans_lob_choreo.a.a13": [
+    "Soll ich wegen einer Choreografie einen Sieg riskieren? Die Jungs sollen sich auf das nächste Spiel konzentrieren, nicht auf Ihre Show.",
+    "Wollen Sie, dass die Mannschaft den Fokus verliert, nur weil die Kurve ein Bild malen will?"
+  ],
+  "pool.fans_lob_choreo.r.r1": [
+    "{b.gut} Das macht uns richtig glücklich, die ganze Kurve wird es erfahren.",
+    "{b.gut} Mit so einer Antwort haben wir gerechnet und freuen uns trotzdem riesig."
+  ],
+  "pool.fans_lob_choreo.r.r2": [
+    "{b.gut} Genau so kennen wir Sie, und genau deshalb stehen wir hinter Ihnen.",
+    "{b.gut} Das ist eine runde Sache, danke für Ihr Wort und für die Ruhe."
+  ],
+  "pool.fans_lob_choreo.r.r3": [
+    "{b.gut} Dann machen wir das zu einer Nummer, über die die ganze Liga spricht.",
+    "{b.gut} Prima, und wir treiben die Mannschaft weiter nach vorn, versprochen."
+  ],
+  "pool.fans_lob_choreo.r.r4": [
+    "{b.gut} Das hat uns sehr berührt, vielen herzlichen Dank dafür.",
+    "{b.gut} Mit so viel Wärme hatten wir nicht gerechnet, das vergessen wir nicht."
+  ],
+  "pool.fans_lob_choreo.r.r5": [
+    "{b.gut} Jawohl, dann geben wir im Stadion alles und machen das Ding richtig groß!",
+    "{b.gut} Das wird ein Fest, wir legen sofort los mit den Vorbereitungen!"
+  ],
+  "pool.fans_lob_choreo.r.r6": [
+    "{b.neutral} Wir besprechen das in der Kurve und melden uns bei Ihnen.",
+    "{b.neutral} Dann warten wir ab, wie es sich entwickelt, bis zum nächsten Heimspiel ist ja noch etwas Zeit."
+  ],
+  "pool.fans_lob_choreo.r.r7": [
+    "{b.neutral} Wir sind uns nicht sicher, wie wir das nehmen sollen, mal sehen.",
+    "{b.neutral} Gemischte Gefühle bei uns, aber wir bleiben dran."
+  ],
+  "pool.fans_lob_choreo.r.r8": [
+    "{b.neutral} Kein Problem, dann machen wir die Choreografie eben ohne großes Drumherum.",
+    "{b.neutral} Wir bleiben gelassen, die Serie geht ja weiter, hoffentlich."
+  ],
+  "pool.fans_lob_choreo.r.r9": [
+    "{b.neutral} Hauptsache, die Mannschaft liefert weiter, den Rest erledigen wir.",
+    "{b.neutral} Gut, dann kommt es auf die nächsten Ergebnisse an, und wir machen Stimmung."
+  ],
+  "pool.fans_lob_choreo.r.r10": [
+    "{b.schlecht} Schade, das haben wir uns anders vorgestellt, und viele in der Kurve auch.",
+    "{b.schlecht} Damit sind wir nicht glücklich, und das sagen wir auch weiter."
+  ],
+  "pool.fans_lob_choreo.r.r11": [
+    "{b.schlecht} Wir tragen diese Mannschaft seit Wochen, und das ist der Dank? Das vergessen wir nicht!",
+    "{b.schlecht} Dann singen wir eben ohne euch, aber vergesst nicht, wer euch zum Sieg gebrüllt hat!"
+  ],
+  "pool.fans_lob_choreo.r.r12": [
+    "{b.schlecht} Wenn die Mannschaft nichts für uns übrig hat, sparen wir uns die Mühe künftig.",
+    "{b.schlecht} Dann bleibt die Stimmung eben im Keller, sobald die Serie endet."
+  ],
+  "pool.fans_lob_choreo.r.r13": [
+    "{b.schlecht} Das tut weh, wir hatten gehofft, dass wir Ihnen mehr bedeuten.",
+    "{b.schlecht} Nach allem, was wir für Sie getan haben, hatten wir mehr Verständnis erwartet."
+  ],
+  "pool.fans_lob_choreo.x.x1": [
+    "Der Fanvertreter bedankt sich herzlich. {entscheidung} Die Kurve bereitet die Choreografie mit doppelter Begeisterung vor.",
+    "{entscheidung} Im Block wird gemalt und genäht, und die Stimmung rund um den Verein war selten so gut."
+  ],
+  "pool.fans_lob_choreo.x.x2": [
+    "Die Kurve nimmt es gelassen. {entscheidung} Ob und wann es zur Choreografie kommt, bleibt offen.",
+    "{entscheidung} Die Fanvertretung plant weiter, will aber erst nach den nächsten Spielen etwas ankündigen."
+  ],
+  "pool.fans_lob_choreo.x.x3": [
+    "Die Absage macht schnell die Runde. {entscheidung} Im Block ist die Stimmung gekippt, und im Netz wird über den Trainer gelästert.",
+    "{entscheidung} Die Zeitung schreibt von einem Bruch zwischen Kurve und Trainer, mitten in der Serie."
+  ],
+  "pool.fans_lob_choreo.x.x4": [
+    "Der Fanvertreter meldet sich nicht mehr. {entscheidung} Die Choreografie wird ohne Ihre Mitwirkung geplant, wenn überhaupt.",
+    "{entscheidung} Die Kurve behält ihren Ärger für sich und zieht sich zurück."
+  ],
+  "pool.fans_lob_choreo.x.x5": [
+    "Die Fanvertretung hält Ihr Versprechen fest. {entscheidung} Die Kurve wird die Mannschaft nach dem Spiel beim Wort nehmen.",
+    "{entscheidung} Im Block spricht man schon darüber, wie der Gruß der Spieler aussehen wird."
+  ]
+}

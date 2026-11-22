@@ -1,0 +1,60 @@
+{
+  "_hinweis": "Texte zum Thema Spielzeit. talent_wartet_auf_einsatz: Der Co-Trainer schreibt (Du). Die anderen beiden: Der Spieler schreibt dem Trainer („Trainer“, „Sie“); der Trainer antwortet mit Du. Platzhalter: {spieler}, {spieler_kurz}.",
+  "talent_wartet_auf_einsatz.betreff": { "standard": ["{spieler_kurz} wartet auf sein erstes Spiel"] },
+  "talent_wartet_auf_einsatz.text": {
+    "standard": [
+      "{spieler} stand in dieser Saison noch kein einziges Mal in der Startelf. Im Training gehört er zu den Auffälligsten. Irgendwann müssen wir sehen, was er im Spiel kann.",
+      "Ich will dir {spieler_kurz} ans Herz legen. Er hat noch kein Spiel von Beginn an gemacht, arbeitet aber jeden Tag sauber. Wenn er zu lange wartet, verliert er den Glauben daran."
+    ]
+  },
+  "talent_wartet_auf_einsatz.antwort.einsatz": { "standard": ["Er bekommt bald seine Chance von Beginn an. Sag ihm das."] },
+  "talent_wartet_auf_einsatz.antwort.geduld":  { "standard": ["Er soll so weitermachen. Wenn er so weit ist, spielt er. Einen Termin nenne ich nicht."] },
+  "talent_wartet_auf_einsatz.antwort.absage":  { "standard": ["Er ist noch nicht so weit. Für die Startelf ist er bis auf Weiteres kein Thema."] },
+  "talent_wartet_auf_einsatz.rueckmeldung.einsatz": { "standard": ["Das wird ihn freuen. Ich bereite ihn vor. Er wird dich an dein Wort erinnern."] },
+  "talent_wartet_auf_einsatz.rueckmeldung.geduld":  { "standard": ["Sage ich ihm so. Damit kann er arbeiten, auch wenn er sich mehr erhofft hat."] },
+  "talent_wartet_auf_einsatz.rueckmeldung.absage":  { "standard": ["Das ist hart für einen Jungen in dem Alter. Ich bringe es ihm bei, aber rechne damit, dass er den Kopf hängen lässt."] },
+
+  "wenig_spielzeit_stammkraft.betreff": { "standard": ["{spieler_kurz} will über seine Rolle sprechen"] },
+  "wenig_spielzeit_stammkraft.text": {
+    "standard": [
+      "Trainer, ich stehe kaum noch in der Startelf. Ich möchte wissen, woran das liegt und was Sie von mir erwarten.",
+      "Trainer, haben Sie kurz Zeit? Ich saß zuletzt fast immer draußen. So habe ich mir die Saison nicht vorgestellt. Ich würde gern hören, wie Sie mit mir planen."
+    ],
+    "typ": {
+      "egoist":       ["Trainer, ich gehöre in die Startelf, das wissen Sie auch. Ich sehe keinen im Kader, der es auf meiner Position besser macht. Wie lange soll das noch so gehen?"],
+      "kumpel":       ["Trainer, ich gönne den Jungs jeden Einsatz, wirklich. Aber langsam mache ich mir Gedanken. Sagen Sie mir einfach ehrlich, wo ich stehe."],
+      "heisssporn":   ["Trainer, mir reicht es. Woche für Woche auf der Bank, und keiner sagt mir, warum. Sagen Sie es mir ins Gesicht."],
+      "vorbildprofi": ["Trainer, ich arbeite weiter wie bisher, daran ändert sich nichts. Trotzdem wüsste ich gern, was mir aus Ihrer Sicht für die Startelf fehlt."],
+      "diva":         ["Trainer, ich sitze auf der Bank, und die Leute fragen sich, warum. Ich mich auch. Ein Spieler mit meinen Fähigkeiten gehört auf den Platz, nicht daneben."],
+      "anfuehrer":    ["Trainer, von der Bank aus kann ich die Mannschaft schlecht führen. Sagen Sie mir, was Sie von mir sehen wollen, dann bekommen Sie das."]
+    }
+  },
+  "wenig_spielzeit_stammkraft.antwort.zusage":   { "standard": ["Du bekommst in den nächsten Wochen deine Einsätze von Beginn an."] },
+  "wenig_spielzeit_stammkraft.antwort.ehrlich":  { "standard": ["Im Moment sind andere vorn. Zeig es mir im Training, dann ändert sich das."] },
+  "wenig_spielzeit_stammkraft.antwort.abweisen": { "standard": ["Die Aufstellung mache ich. Darüber diskutiere ich nicht."] },
+  "wenig_spielzeit_stammkraft.rueckmeldung.zusage":   { "standard": ["Danke, Trainer. Darauf verlasse ich mich."] },
+  "wenig_spielzeit_stammkraft.rueckmeldung.ehrlich":  { "standard": ["Das höre ich nicht gern, aber damit kann ich arbeiten."] },
+  "wenig_spielzeit_stammkraft.rueckmeldung.abweisen": { "standard": ["Verstanden. Dann weiß ich ja, woran ich bin."] },
+
+  "reservist_unzufrieden.betreff": { "standard": ["{spieler_kurz} fragt nach seiner Perspektive"] },
+  "reservist_unzufrieden.text": {
+    "standard": [
+      "Trainer, ich weiß, dass ich nicht erste Wahl bin. Aber so wenig wie in dieser Saison habe ich noch nie gespielt. Gibt es für mich hier noch eine Perspektive?",
+      "Trainer, ich bin in einem Alter, in dem ich spielen muss. Auf der Bank komme ich nicht weiter. Wie sehen Sie meine Rolle für den Rest der Saison?"
+    ],
+    "typ": {
+      "egoist":       ["Trainer, ich bin nicht hergekommen, um zuzuschauen. Wenn ich hier keine Rolle spiele, sagen Sie es. Dann suche ich mir einen Verein, bei dem ich auf dem Platz stehe."],
+      "kumpel":       ["Trainer, ich fühle mich in der Truppe wohl und will eigentlich nicht weg. Aber nur trainieren reicht mir auf Dauer nicht. Sehen Sie eine Chance für mich?"],
+      "heisssporn":   ["Trainer, ich reiße mich im Training jeden Tag zusammen, und am Wochenende sitze ich wieder draußen. Wofür eigentlich? Das will ich jetzt wissen."],
+      "vorbildprofi": ["Trainer, ich nehme meine Rolle an und bin da, wenn Sie mich brauchen. Ich möchte nur wissen, ob ich mit Einsätzen rechnen kann oder mich neu orientieren sollte."],
+      "diva":         ["Trainer, mit Verlaub: Für die Bank bin ich mir zu schade. Entweder ich bekomme hier eine richtige Rolle, oder wir finden eine andere Lösung."],
+      "anfuehrer":    ["Trainer, ich halte die zweite Reihe bei Laune, auch ohne eigene Einsätze. Aber ich will selbst spielen. Wie planen Sie mit mir?"]
+    }
+  },
+  "reservist_unzufrieden.antwort.einsaetze": { "standard": ["Du kommst zu deinen Spielen, im Pokal und wenn wir rotieren. Halte dich bereit."] },
+  "reservist_unzufrieden.antwort.ehrlich":   { "standard": ["Du bist bei mir Ergänzungsspieler. Daran ändert sich in dieser Saison wenig."] },
+  "reservist_unzufrieden.antwort.wechsel":   { "standard": ["Wenn du mehr spielen willst, lege ich dir bei einem Wechsel keine Steine in den Weg."] },
+  "reservist_unzufrieden.rueckmeldung.einsaetze": { "standard": ["Gut, das reicht mir fürs Erste. Ich bin bereit, wenn es so weit ist."] },
+  "reservist_unzufrieden.rueckmeldung.ehrlich":   { "standard": ["Wenigstens ist das eine klare Ansage. Schön ist es nicht."] },
+  "reservist_unzufrieden.rueckmeldung.wechsel":   { "standard": ["Dann höre ich mich um. Danke, dass Sie offen sind."] }
+}

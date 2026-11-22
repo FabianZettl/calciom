@@ -1,0 +1,64 @@
+# Kanalwahl: der Kanal folgt dem Gewicht. Formelles per Mail, Schnelles per Chat, Emotionales persönlich, Öffentliches per Presse.
+# Startwerte, nicht kalibriert.
+kanaele = ["mail", "chat", "persoenlich", "telefon", "pressekonferenz", "sitzung", "verhandlungstisch"]
+
+# Standardkanal je Absender-Rolle; „wichtig“ gilt ab Dringlichkeit `wichtig_ab`
+[rolle.spieler]
+standard = "chat"
+wichtig = "persoenlich"
+[rolle.kapitaen]
+standard = "chat"
+wichtig = "persoenlich"
+[rolle.berater]
+standard = "mail"
+wichtig = "telefon"
+[rolle.co_trainer]
+standard = "chat"
+wichtig = "chat"
+[rolle.arzt]
+standard = "mail"
+wichtig = "persoenlich"
+[rolle.scout]
+standard = "mail"
+wichtig = "mail"
+[rolle.sportdirektor]
+standard = "mail"
+wichtig = "telefon"
+[rolle.verein]
+standard = "mail"
+wichtig = "telefon"
+[rolle.praesident]
+standard = "mail"
+wichtig = "sitzung"
+[rolle.vorstand]
+standard = "mail"
+wichtig = "sitzung"
+[rolle.journalist]
+standard = "mail"
+wichtig = "pressekonferenz"
+[rolle.fans]
+standard = "mail"
+wichtig = "mail"
+[rolle.jugendtrainer]
+standard = "mail"
+wichtig = "persoenlich"
+[rolle.sponsor]
+standard = "mail"
+wichtig = "mail"
+
+# Themen, die immer in einem bestimmten Kanal laufen (vor der Rollenregel)
+[thema]
+vertrag = "verhandlungstisch"
+transfer = "verhandlungstisch"
+angebot = "verhandlungstisch"
+disziplin = "persoenlich"
+wechselwunsch = "persoenlich"
+streit = "persoenlich"
+kapitaen = "persoenlich"
+interview = "pressekonferenz"
+kommentar = "pressekonferenz"
+vorstand_ziele = "sitzung"
+
+[regel]
+wichtig_ab = 2                 # Dringlichkeit, ab der „wichtig“ gilt
+schlechte_beziehung = -30      # darunter wird aus Chat ein persönliches Gespräch (er will es persönlich klären)

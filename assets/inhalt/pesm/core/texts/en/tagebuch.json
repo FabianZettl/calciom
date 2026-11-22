@@ -1,0 +1,130 @@
+{
+ "tb.monat.stark": [
+  "A strong month: %1 wins, %2 draws, %3 defeats with goals %4. The team stood in place %5 at the end of the month.",
+  "The record shines (%1-%2-%3, goals %4). With place %5 behind you, you look ahead with confidence.",
+  "Everything came together: %1 wins, goal ratio %4, table place %5."
+ ],
+ "tb.monat.solide": [
+  "A decent month: %1 wins, %2 draws, %3 defeats (goals %4). Table place at the end: %5.",
+  "Neither frenzy nor crisis. Record %1-%2-%3, goals %4, place %5.",
+  "Solid everyday work: %1 wins and %3 defeats, place %5 at the end (goals %4)."
+ ],
+ "tb.monat.schwach": [
+  "A difficult month: only %1 wins against %3 defeats (goals %4). Place %5 gives food for thought.",
+  "It did not go well. Record %1-%2-%3, goals %4, table place %5 – work is needed here.",
+  "The month left its mark: %3 defeats, goal ratio %4, place %5."
+ ],
+ "tb.monat.ohne": [
+  "A quiet month without competitive games. Time for training, conversations and planning.",
+  "No games this month – the work happened behind the scenes."
+ ],
+ "tb.moment.hattrick": [
+  "%1 scores a hat-trick against %2 (%3 goals).",
+  "Hat-trick: %1 scores %3 times against %2."
+ ],
+ "tb.moment.kantersieg": [
+  "Landslide against %1: %2.",
+  "A goal feast against %1 (%2)."
+ ],
+ "tb.moment.klatsche": [
+  "Heavy defeat against %1: %2.",
+  "A black day against %1 (%2)."
+ ],
+ "tb.moment.serie_sieg": [
+  "%1 wins in a row – the team is on fire.",
+  "The streak stands: %1 successes in a row."
+ ],
+ "tb.moment.serie_niederlage": [
+  "%1 defeats in a row – the pressure grows.",
+  "The streak will not end: %1 losses on the trot."
+ ],
+ "tb.moment.spitze": [
+  "The team takes the top of the table.",
+  "Place one: right at the top of the table."
+ ],
+ "tb.transfer.kauf": [
+  "%1 arrives from %2.",
+  "Signing: %1 (from %2)."
+ ],
+ "tb.transfer.verkauf": [
+  "%1 moves to %2.",
+  "Departure: %1 (to %2)."
+ ],
+ "tb.transfer.leihe_hin": [
+  "%1 arrives on loan from %2.",
+  "Loan: %1 (from %2)."
+ ],
+ "tb.transfer.leihe_raus": [
+  "%1 is loaned out to %2.",
+  "Loaned out: %1 (to %2)."
+ ],
+ "tb.verletzung": [
+  "%1 is injured and out for about %2 days.",
+  "Absence: %1 (around %2 days)."
+ ],
+ "tb.auszeichnung.spieler_monat": [
+  "%1 is player of the month (%2).",
+  "Player of the month %2: %1."
+ ],
+ "tb.auszeichnung.trainer_monat": [
+  "Manager of the month (%2): %1.",
+  "%1 is named manager of the month (%2)."
+ ],
+ "tb.auszeichnung.spieler_jahr": [
+  "Player of the season %2: %1.",
+  "%1 is named player of the season (%2)."
+ ],
+ "tb.auszeichnung.trainer_jahr": [
+  "Manager of the season %2: %1.",
+  "%1 is named manager of the season (%2)."
+ ],
+ "tb.titel.meisterschaft": [
+  "Championship: %1.",
+  "Champions! %1 is yours."
+ ],
+ "tb.titel.pokal": [
+  "Cup win: %1.",
+  "The cup is yours: %1."
+ ],
+ "tb.titel.sonstiges": [
+  "Title won: %1.",
+  "One more title: %1."
+ ],
+ "menu.tagebuch.titel": "Diary",
+ "menu.tagebuch.reiter.0": "Timeline",
+ "menu.tagebuch.reiter.1": "Season history",
+ "tb.ui.titel": "Diary",
+ "tb.ui.saison": "Season %1",
+ "tb.ui.platz": "Place %1",
+ "tb.ui.bilanz": "%1 W · %2 D · %3 L",
+ "tb.ui.tore": "Goals %1",
+ "tb.ui.laufend": "ongoing",
+ "tb.ui.titel_n": "Titles: %1",
+ "tb.ui.transfers_n": "Transfers: %1",
+ "tb.ui.verletzungen_n": "Injuries: %1",
+ "tb.ui.filter": "Show",
+ "tb.ui.filter.alle": "Everything",
+ "tb.ui.art.spiel": "Matches",
+ "tb.ui.art.moment": "Moments",
+ "tb.ui.art.transfer": "Transfers",
+ "tb.ui.art.verletzung": "Injuries",
+ "tb.ui.art.auszeichnung": "Awards",
+ "tb.ui.art.titel": "Titles",
+ "tb.ui.aufstellung": "Line-up",
+ "tb.ui.statistik": "Statistics",
+ "tb.ui.schuetzen": "Scorers: %1",
+ "tb.ui.beste": "Best performance: %1 (%2)",
+ "tb.ui.vorlagen": "Assists: %1",
+ "tb.ui.heim": "Home",
+ "tb.ui.auswaerts": "Away",
+ "tb.ui.gegen": "vs %1",
+ "tb.ui.leer": "The diary fills up with the first week of games.",
+ "tb.ui.monat_leer": "This month has no entries for the chosen filter.",
+ "tb.ui.laedt_saison": "Opening the season …",
+ "tb.ui.zeigen": "Open",
+ "tb.ui.zuklappen": "Close",
+ "tb.ui.monatsbericht": "Monthly report",
+ "wartet.tagebuch.0": "You open the diary …",
+ "wartet.tagebuch.1": "Old pages rustle …",
+ "wartet.tagebuch.2": "The notes are being sorted …"
+}

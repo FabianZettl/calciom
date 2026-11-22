@@ -1,0 +1,2626 @@
+{
+ "limits": {
+  "window_days": 10,
+  "max_mails": 4,
+  "max_per_kind": 2,
+  "club_week_cap": 2,
+  "world_news_per_day": 5,
+  "clubs_per_day": 40,
+  "extra_clubs": 6,
+  "players_own": 4,
+  "players_other": 3,
+  "mail_expire_days": 14,
+  "inbox_keep": 40,
+  "articles_keep": 80,
+  "log_keep": 400,
+  "highlights_per_day": 12,
+  "fav_gap": 3,
+  "upset_gap": 6,
+  "chronik_keep": 8,
+  "rumor_open": 4,
+  "rumor_days": 21,
+  "rumor_pause": 60
+ },
+ "mood": {
+  "win_fans": 0.7,
+  "loss_fans": -0.9,
+  "win_board": 0.6,
+  "loss_board": -0.8,
+  "pull": 0.01,
+  "gap_board": 0.4,
+  "gap_fans": 0.3,
+  "labels": [
+   [
+    80,
+    "begeistert"
+   ],
+   [
+    60,
+    "zufrieden"
+   ],
+   [
+    40,
+    "abwartend"
+   ],
+   [
+    25,
+    "unzufrieden"
+   ],
+   [
+    0,
+    "auf den Barrikaden"
+   ]
+  ],
+  "board_labels": [
+   [
+    80,
+    "uneingeschränktes Vertrauen"
+   ],
+   [
+    60,
+    "Vertrauen"
+   ],
+   [
+    40,
+    "abwartend"
+   ],
+   [
+    25,
+    "unruhig"
+   ],
+   [
+    0,
+    "Trainerstuhl wackelt"
+   ]
+  ]
+ },
+ "goals": [
+  {
+   "upto": 0.1,
+   "label": "Titelkampf",
+   "target_frac": 0.05
+  },
+  {
+   "upto": 0.3,
+   "label": "ein Platz im Europapokal",
+   "target_frac": 0.2
+  },
+  {
+   "upto": 0.6,
+   "label": "gesichertes Mittelfeld",
+   "target_frac": 0.5
+  },
+  {
+   "upto": 0.85,
+   "label": "ein ruhiger Klassenerhalt",
+   "target_frac": 0.7
+  },
+  {
+   "upto": 1.01,
+   "label": "der Klassenerhalt, koste es, was es wolle",
+   "target_frac": 0.82
+  }
+ ],
+ "goal_eval": {
+  "over": 3,
+  "tol": 1,
+  "over_board": 10,
+  "ok_board": 3,
+  "miss_board": -10,
+  "bad_board": -16,
+  "over_fans": 8,
+  "miss_fans": -8
+ },
+ "derby_stop": [
+  "United",
+  "City",
+  "Town",
+  "Albion",
+  "Hotspur",
+  "Rovers",
+  "Real",
+  "Club",
+  "Sporting",
+  "Atlético",
+  "Athletic",
+  "Deportivo",
+  "Olympique",
+  "Stade",
+  "Racing",
+  "Borussia",
+  "Eintracht",
+  "Wanderers",
+  "Rangers"
+ ],
+ "from": {
+  "privat": "Betreuerteam",
+  "presse": "Pressestelle",
+  "vorstand": "Vorstand",
+  "intrige": "Ein Vögelchen",
+  "skandal": "Pressesprecher",
+  "kabine": "Kabine",
+  "fans": "Fanbeauftragter",
+  "welt": "Pressestelle",
+  "berater": "Spielerberater"
+ },
+ "personas": {
+  "list": [
+   "Profi",
+   "Heißsporn",
+   "Sensibel",
+   "Anführer",
+   "Partyhase",
+   "Familienmensch",
+   "Ehrgeizig",
+   "Stiller"
+  ],
+  "text": {
+   "Profi": "ein Vollprofi, der alles abhakt",
+   "Heißsporn": "ein Heißsporn mit kurzer Lunte",
+   "Sensibel": "ein feinfühliger Typ, der Kritik mit nach Hause nimmt",
+   "Anführer": "ein geborener Anführer",
+   "Partyhase": "ein lebenslustiger Typ, der die Nacht liebt",
+   "Familienmensch": "ein Familienmensch, dem Ruhe wichtig ist",
+   "Ehrgeizig": "ein Ehrgeiziger, der immer spielen will",
+   "Stiller": "ein stiller Arbeiter, der selten etwas sagt"
+  }
+ },
+ "talk": {
+  "cooldown": {
+   "player": 7,
+   "board": 14,
+   "captain": 7,
+   "press": 7
+  },
+  "player": [
+   {
+    "id": "lob",
+    "label": "Loben",
+    "hint": "Ein Schulterklopfen. Hilft vor allem, wenn die Laune im Keller ist.",
+    "fx": {
+     "p_morale": 4,
+     "p_form": 0.2
+    },
+    "low": 1.5,
+    "high": 0.4,
+    "persona": {
+     "Sensibel": 1.5,
+     "Stiller": 1.2,
+     "Heißsporn": 0.8,
+     "Profi": 0.8
+    },
+    "reply": "Das tut gut. Er nimmt das Lob mit und lächelt zum ersten Mal seit Tagen.",
+    "reply_bad": "Er zuckt nur mit den Schultern."
+   },
+   {
+    "id": "kritik",
+    "label": "Kritik üben",
+    "hint": "Klare Worte. Manche wachsen daran, andere gehen daran kaputt.",
+    "fx": {
+     "p_morale": -3,
+     "p_form": 0.4
+    },
+    "low": 1.5,
+    "high": 0.7,
+    "persona": {
+     "Ehrgeizig": -0.6,
+     "Profi": -0.3,
+     "Sensibel": 2.0,
+     "Heißsporn": 1.5
+    },
+    "reply": "Er nickt grimmig: Recht hat der Trainer, und er will es besser machen.",
+    "reply_bad": "Das kam nicht gut an. Er verlässt den Raum mit hängenden Schultern."
+   },
+   {
+    "id": "vier_augen",
+    "label": "Gespräch unter vier Augen",
+    "hint": "Zeit nehmen, zuhören. Wirkt am stärksten, wenn es gerade nicht läuft.",
+    "fx": {
+     "p_morale": 3
+    },
+    "low": 2.0,
+    "high": 0.3,
+    "persona": {
+     "Sensibel": 1.4,
+     "Familienmensch": 1.3,
+     "Stiller": 1.3,
+     "Heißsporn": 0.7
+    },
+    "reply": "Er öffnet sich und ist danach sichtlich leichter.",
+    "reply_bad": "Er hat keinen Gesprächsbedarf."
+   },
+   {
+    "id": "spielzeit",
+    "label": "Mehr Spielzeit versprechen",
+    "hint": "Wer spielen will, hört das gern. Ein Versprechen, das man halten sollte.",
+    "fx": {
+     "p_morale": 5
+    },
+    "low": 1.2,
+    "high": 0.5,
+    "persona": {
+     "Ehrgeizig": 1.5,
+     "Stiller": 0.8,
+     "Familienmensch": 0.6
+    },
+    "reply": "Er strahlt: Das wollte er hören.",
+    "reply_bad": "Er hat andere Sorgen als die Spielzeit."
+   },
+   {
+    "id": "freitag",
+    "label": "Einen freien Tag geben",
+    "hint": "Durchatmen. Die Beine danken es.",
+    "fx": {
+     "p_morale": 2,
+     "p_fit": 15
+    },
+    "low": 1.2,
+    "high": 0.8,
+    "persona": {
+     "Partyhase": 1.3,
+     "Familienmensch": 1.4,
+     "Ehrgeizig": 0.4
+    },
+    "reply": "Frischer Kopf, frische Beine.",
+    "reply_bad": "Er hätte lieber trainiert."
+   },
+   {
+    "id": "ansage",
+    "label": "Ansage machen",
+    "hint": "Die Zügel anziehen. Für Lebemänner gut, für Sensibelchen Gift.",
+    "fx": {
+     "p_morale": -1,
+     "p_form": 0.5
+    },
+    "low": 1.0,
+    "high": 1.0,
+    "persona": {
+     "Partyhase": -0.5,
+     "Sensibel": 3.0,
+     "Heißsporn": 2.0,
+     "Profi": 0.2
+    },
+    "reply": "Er hat verstanden: Ab jetzt wird gearbeitet.",
+    "reply_bad": "Er fühlt sich ungerecht behandelt."
+   }
+  ],
+  "board": [
+   {
+    "id": "budget",
+    "label": "Mehr Geld für Verstärkungen verlangen",
+    "hint": "Funktioniert nur, wenn der Vorstand dir vertraut.",
+    "need": {
+     "board_min": 60
+    },
+    "fx": {
+     "board": -3,
+     "money": 300000
+    },
+    "fx_no": {
+     "board": -4
+    },
+    "reply": "Der Präsident räuspert sich, nickt und gibt eine Summe frei.",
+    "reply_no": "Der Vorstand lacht höflich und bittet dich, erst einmal Ergebnisse zu liefern."
+   },
+   {
+    "id": "geduld",
+    "label": "Um Geduld bitten",
+    "hint": "Hilft in der Krise, wirkt oben in der Tabelle eher schwach.",
+    "need": {
+     "goal_gap_min": 1
+    },
+    "fx": {
+     "board": 3
+    },
+    "fx_no": {
+     "board": 1
+    },
+    "reply": "Der Vorstand gewährt dir noch etwas Zeit.",
+    "reply_no": "Wozu Geduld, es läuft doch? Man nimmt es zur Kenntnis."
+   },
+   {
+    "id": "ziele",
+    "label": "Ziele bekräftigen",
+    "hint": "Setzt auf Vertrauen: ohne das wirkt es hohl.",
+    "need": {
+     "board_min": 45
+    },
+    "fx": {
+     "board": 2,
+     "fans": 1
+    },
+    "fx_no": {
+     "board": -2
+    },
+    "reply": "Entschlossenheit kommt gut an.",
+    "reply_no": "In deiner Lage klingen große Worte eher nach Ausrede."
+   },
+   {
+    "id": "vertrauen",
+    "label": "Vertrauen einfordern",
+    "hint": "Hoch gepokert: im Tief kann es nach hinten losgehen.",
+    "need": {
+     "board_min": 35
+    },
+    "fx": {
+     "board": 4
+    },
+    "fx_no": {
+     "board": -5
+    },
+    "reply": "Man versichert dir, hinter dir zu stehen.",
+    "reply_no": "Das war zu viel verlangt. Der Präsident notiert sich das."
+   }
+  ],
+  "captain": [
+   {
+    "id": "kabine",
+    "label": "Kabine zusammenhalten lassen",
+    "hint": "Der Kapitän soll die Reihen schließen. Klappt, wenn er selbst gut drauf ist.",
+    "need": {
+     "morale_min": 45
+    },
+    "fx": {
+     "c_morale": 3
+    },
+    "fx_no": {
+     "c_morale": -1
+    },
+    "persona": {
+     "Anführer": 1.5,
+     "Stiller": 0.6
+    },
+    "reply": "Der Kapitän nimmt sich die Jungs zur Brust, danach herrscht wieder Ruhe.",
+    "reply_no": "Der Kapitän ist selbst bedient und kann keine Ruhe stiften."
+   },
+   {
+    "id": "ansage",
+    "label": "Ansage an die Mannschaft",
+    "hint": "Eine Kabinenpredigt, von Spieler zu Spieler.",
+    "need": {
+     "form_min": -0.5
+    },
+    "fx": {
+     "c_morale": 1,
+     "c_form": 0.3
+    },
+    "fx_no": {
+     "c_morale": -1
+    },
+    "persona": {
+     "Anführer": 1.6,
+     "Heißsporn": 1.2,
+     "Sensibel": 0.5
+    },
+    "reply": "Wenn der Kapitän spricht, hören sie zu.",
+    "reply_no": "Wer selbst schwächelt, wird schlecht gehört."
+   },
+   {
+    "id": "abend",
+    "label": "Mannschaftsabend anregen",
+    "hint": "Zusammen essen, zusammen lachen.",
+    "need": {},
+    "fx": {
+     "c_morale": 2,
+     "money": -2000
+    },
+    "fx_no": {},
+    "persona": {
+     "Partyhase": 1.5,
+     "Familienmensch": 0.8
+    },
+    "reply": "Der Kapitän organisiert Pizza und Tischkicker. Die Stimmung steigt.",
+    "reply_no": ""
+   }
+  ],
+  "press": [
+   {
+    "id": "selbstbewusst",
+    "label": "Selbstbewusst auftreten",
+    "hint": "Große Töne kommen nach einem Sieg gut an, nach einer Pleite nicht.",
+    "need": {
+     "win_streak": 1
+    },
+    "fx": {
+     "fans": 2,
+     "board": 1
+    },
+    "fx_no": {
+     "fans": -2,
+     "board": -1
+    },
+    "reply": "Die Journalisten schreiben mit: Der Trainer hat Haltung.",
+    "reply_no": "Große Töne nach schwachem Spiel: Das Echo ist eher bissig."
+   },
+   {
+    "id": "bescheiden",
+    "label": "Bescheiden bleiben",
+    "hint": "Nichts falsch, nichts gewonnen.",
+    "need": {},
+    "fx": {
+     "fans": 1,
+     "board": 1
+    },
+    "fx_no": {},
+    "reply": "Eine ruhige Pressekonferenz. Niemand regt sich auf.",
+    "reply_no": ""
+   },
+   {
+    "id": "schiri",
+    "label": "Den Schiedsrichter kritisieren",
+    "hint": "Die Fans lieben es nach einer Niederlage, der Vorstand weniger.",
+    "need": {
+     "last_margin_max": 0
+    },
+    "fx": {
+     "fans": 2,
+     "board": -1
+    },
+    "fx_no": {
+     "fans": -2,
+     "board": -1
+    },
+    "reply": "Die Kurve tobt vor Freude: Endlich sagt es einer.",
+    "reply_no": "Meckern nach einem Sieg? Das wirkt kleinlich."
+   },
+   {
+    "id": "team_loben",
+    "label": "Die Mannschaft loben",
+    "hint": "Zieht die Mannschaft hinter dich.",
+    "need": {},
+    "fx": {
+     "c_morale": 2,
+     "fans": 1
+    },
+    "fx_no": {},
+    "reply": "Die Spieler lesen die Zeitung und fühlen sich gesehen.",
+    "reply_no": ""
+   }
+  ]
+ },
+ "medien": {
+  "bericht": {
+   "rekord": [
+    "Torfestival mit {gm} Treffern: {w} schlägt {l} {sc}{wo}",
+    "Fast zweistellig: {w} gewinnt {sc} gegen {l}{wo}"
+   ],
+   "schuetzenfest": [
+    "Schützenfest: {w} schlägt {l} {sc}{wo}",
+    "{w} überrollt {l}: {sc}{wo}"
+   ],
+   "debakel": [
+    "Debakel für {l}: {w} gewinnt {sc}{wo}",
+    "Schwarzer Tag für {l}: {sc} gegen {w}"
+   ],
+   "ueberraschung": [
+    "Überraschung: Außenseiter {w} schlägt {l} {sc}{wo}",
+    "Pokalfieber im Liga-Alltag: {w} ärgert Favorit {l}, {sc}{wo}"
+   ],
+   "blamage": [
+    "Blamage für Favorit {l}: {w} gewinnt {sc}{wo}",
+    "{l} stolpert gegen {w}: {sc}{wo}"
+   ],
+   "sieg": [
+    "{w} schlägt {l} {sc}{wo}",
+    "Verdient: {w} gewinnt {sc} gegen {l}{wo}",
+    "{w} bezwingt {l} mit {sc}{wo}"
+   ],
+   "sieg_knapp": [
+    "Zittersieg: {w} gewinnt {sc} gegen {l}{wo}",
+    "{w} rettet einen knappen Sieg gegen {l}, {sc}{wo}",
+    "Dreckiger Sieg: {w} schlägt {l} {sc}{wo}"
+   ],
+   "nl": [
+    "{l} verliert gegen {w} {sc}{wo}",
+    "Pleite für {l}: {w} gewinnt {sc}{wo}"
+   ],
+   "nl_knapp": [
+    "Bitter für {l}: {w} gewinnt knapp {sc}{wo}",
+    "{l} unterliegt {w} denkbar knapp, {sc}{wo}"
+   ],
+   "remis_tore": [
+    "Spektakel ohne Sieger: {a} und {b} trennen sich {sc}",
+    "Torreiches Remis: {a} gegen {b}, {sc}"
+   ],
+   "remis_0": [
+    "Nullnummer: {a} und {b} trennen sich torlos",
+    "Langeweile pur: {a} gegen {b} ohne Tore"
+   ],
+   "remis_fav": [
+    "Punktverlust für den Favoriten: {a} und {b} trennen sich {sc}"
+   ],
+   "remis_aussenseiter": [
+    "Teilerfolg für den Außenseiter: {a} und {b} trennen sich {sc}"
+   ],
+   "elfer_sieg": [
+    "Nervenstark: {w} gewinnt das Elfmeterschießen gegen {l}"
+   ],
+   "elfer_nl": [
+    "Elfmeter-Drama: {l} scheitert vom Punkt an {w}"
+   ],
+   "derby_sieg": [
+    "Derbysieg! {w} gewinnt das Stadtduell gegen {l}, {sc}{wo}",
+    "{w} gewinnt das Derby gegen Rivale {l}, {sc}{wo}"
+   ],
+   "derby_remis": [
+    "Derby ohne Sieger: {a} und {b} trennen sich {sc}"
+   ]
+  },
+  "spieltag": [
+   "Spieltag in der {liga}: {top}",
+   "Die Liga im Überblick: {top}",
+   "Was war los in der {liga}? {top}"
+  ],
+  "tabelle": [
+   "{lead} führt die {liga} an, {last} steckt unten fest",
+   "Spitze und Keller: {lead} oben, {last} unten"
+  ],
+  "transfer": [
+   "Transfer-Ticker: {text}"
+  ],
+  "welt": {
+   "derby": [
+    "Derby: {w} schlägt Rivale {l} {sc}{wo}"
+   ],
+   "derby_remis": [
+    "Derby ohne Sieger: {a} und {b} {sc}"
+   ],
+   "ueberraschung": [
+    "Überraschung: Außenseiter {w} schlägt {l} {sc}{wo}"
+   ],
+   "dreierpack": [
+    "Dreierpack: {name} trifft dreifach, {a} gegen {b} endet {hs}"
+   ]
+  },
+  "geruecht": {
+   "titel": [
+    "{source}: {other} will {name} von {club}",
+    "Wechselgerücht: {name} ({club}) im Visier von {other}"
+   ],
+   "source_welt": [
+    "Die große Tageszeitung",
+    "Ein bekannter Transferinsider",
+    "Das internationale Fachblatt",
+    "Ein renommierter Transferjournalist",
+    "Die überregionale Sportpresse",
+    "Das englischsprachige Fachportal"
+   ],
+   "source_gross": [
+    "Die Sportzeitung",
+    "Das Fachmagazin",
+    "Ein Insider aus dem Berateraum",
+    "Ein erfahrener Reporter der Sportzeitung",
+    "Das Branchenportal",
+    "Ein gut vernetzter Berater"
+   ],
+   "source_normal": [
+    "Das Regionalblatt",
+    "Die Lokalzeitung",
+    "Ein Sportreporter vor Ort",
+    "Ein Reporter des Lokalradios",
+    "Der Vereinsblogger",
+    "Die Heimatzeitung"
+   ],
+   "source_witz": [
+    "Ein Kellner aus dem Vereinsrestaurant",
+    "Der Zeugwart, der alles gehört haben will",
+    "Der Busfahrer der Mannschaft",
+    "Ein Stammgast aus der Vereinskneipe",
+    "Der Platzwart, der alles zu wissen glaubt"
+   ],
+   "witz_hinweis": "(Quelle mit Augenzwinkern zu lesen: Genaues weiß man nicht.)",
+   "anlass": {
+    "vertrag": "Der Vertrag läuft {bis}.",
+    "liste": "Er steht auf der Transferliste.",
+    "geld": "{club} steckt in Geldnot und muss verkaufen.",
+    "unzufrieden": "Er ist unzufrieden: {warum}."
+   },
+   "ok_titel": [
+    "Bestätigt: {name} wechselt zu {other}",
+    "Perfekt: {name} geht zu {other}"
+   ],
+   "ok_body": "Das Gerücht vom {tag} hat sich bewahrheitet: {name} wechselt von {club} zu {other}.",
+   "no_titel": [
+    "Dementi: An den Gerüchten um {name} ist nichts dran",
+    "Kein Wechsel: {name} bleibt bei {club}"
+   ],
+   "no_body": "{name} steht weiter bei {club}, {other} hat sich nicht gemeldet. Das Gerücht vom {tag} war heiße Luft.",
+   "anders_body": "{name} wechselt tatsächlich, aber nicht zu {other}. Das Gerücht vom {tag} war nur halb richtig."
+  }
+ },
+ "templates": [
+  {
+   "id": "verliebt",
+   "cat": "privat",
+   "scope": "player",
+   "p": 0.03,
+   "cool": 150,
+   "when": {
+    "age_min": 19,
+    "age_max": 34
+   },
+   "fx": {
+    "p_morale": 4,
+    "p_form": 0.3
+   },
+   "title": "{name} frisch verliebt",
+   "text": "Trainer, {name} schwebt auf Wolke sieben. Das Training ist ihm egal, solange sein Handy klingelt.",
+   "humor": [
+    "Zum Glück sind Schmetterlinge im Bauch nicht auf der Dopingliste.",
+    "Man sagt, Liebe macht blind. Hoffentlich nicht beim Abschluss."
+   ],
+   "reason": "Privatleben: gute Laune strahlt auf Moral und Form aus. Wie lange das hält, bestimmt allein das Leben."
+  },
+  {
+   "id": "hochzeit",
+   "cat": "privat",
+   "scope": "player",
+   "p": 0.015,
+   "cool": 400,
+   "when": {
+    "age_min": 24,
+    "age_max": 37
+   },
+   "fx": {
+    "p_morale": 5
+   },
+   "title": "{name} gibt sein Jawort",
+   "text": "{name} heiratet am Wochenende. Die Mannschaft ist eingeladen, der Anzug schon bestellt.",
+   "humor": [
+    "Der Trauzeuge hat die Ringe, hoffentlich hat er auch die Rede."
+   ],
+   "reason": "Ein großer Tag im Privatleben hebt die Stimmung, die Mannschaft feiert mit."
+  },
+  {
+   "id": "baby",
+   "cat": "privat",
+   "scope": "player",
+   "p": 0.025,
+   "cool": 300,
+   "when": {
+    "age_min": 25,
+    "age_max": 38
+   },
+   "fx": {
+    "p_morale": 3
+   },
+   "title": "Nachwuchs bei {name}: ein Baby ist da",
+   "text": "{name} ist Vater geworden und möchte ein paar Tage freibekommen. Stolz und schlaflos zugleich.",
+   "choices": [
+    {
+     "id": "urlaub",
+     "label": "Sonderurlaub gewähren",
+     "fx": {
+      "p_morale": 6,
+      "p_fit": 10
+     },
+     "reason": "Der Trainer zeigt Herz: Die Familie dankt es mit guter Laune."
+    },
+    {
+     "id": "normal",
+     "label": "Normaler Trainingsplan",
+     "fx": {
+      "p_morale": 1,
+      "p_form": -0.2
+     },
+     "reason": "Pflicht ist Pflicht: Die Nächte sind kurz, die Konzentration leidet etwas."
+    }
+   ],
+   "humor": [
+    "Der Spieler hat im Training erstmals Augenringe, die nicht vom Spiel stammen."
+   ],
+   "reason": "Familienzuwachs: Je nachdem, wie der Trainer reagiert, steigt die Moral oder die Müdigkeit."
+  },
+  {
+   "id": "streit_partnerin",
+   "cat": "privat",
+   "scope": "player",
+   "p": 0.03,
+   "cool": 90,
+   "when": {
+    "persona": [
+     "Heißsporn",
+     "Sensibel",
+     "Partyhase"
+    ],
+    "age_min": 20
+   },
+   "fx": {
+    "p_morale": -4,
+    "p_form": -0.3
+   },
+   "title": "Beziehungsstress bei {name}",
+   "text": "Es kriselt zu Hause bei {name}. Die Kameraden merken es im Training an seinem Blick.",
+   "choices": [
+    {
+     "id": "reden",
+     "label": "Das Gespräch suchen",
+     "fx": {
+      "p_morale": 3
+     },
+     "reason": "Ein offenes Ohr hilft: Der Spieler fühlt sich verstanden."
+    },
+    {
+     "id": "raushalten",
+     "label": "Privatsache, nicht einmischen",
+     "fx": {
+      "p_morale": -1
+     },
+     "reason": "Der Trainer hält sich raus. Das Problem bleibt, die Laune ebenfalls."
+    }
+   ],
+   "humor": [
+    "Beim Torjubel schaut er verdächtig oft in die Kurve."
+   ],
+   "reason": "Streit zu Hause drückt auf Kopf und Beine, vor allem bei empfindsamen Naturen."
+  },
+  {
+   "id": "nachtleben",
+   "cat": "privat",
+   "scope": "player",
+   "p": 0.04,
+   "cool": 60,
+   "when": {
+    "persona": [
+     "Partyhase"
+    ],
+    "age_max": 33
+   },
+   "fx": {
+    "p_form": -0.6,
+    "p_morale": 1
+   },
+   "title": "{name} nachts in der Disco gesichtet",
+   "text": "Trainer, {name} wurde bis vier Uhr früh in der Stadt gesehen. Heute Morgen kam er verdächtig langsam auf den Platz.",
+   "choices": [
+    {
+     "id": "strafe",
+     "label": "Geldstrafe verhängen",
+     "fx": {
+      "p_morale": -3,
+      "money": 5000
+     },
+     "reason": "Die Kasse klingelt, die Laune des Spielers sinkt."
+    },
+    {
+     "id": "aussprache",
+     "label": "Aussprache",
+     "fx": {
+      "p_morale": 1,
+      "p_form": -0.3
+     },
+     "reason": "Ein ernstes Wort ohne Strafe: Er gelobt Besserung, ein Rest Müdigkeit bleibt."
+    },
+    {
+     "id": "ignorieren",
+     "label": "Ignorieren",
+     "fx": {
+      "p_form": -0.8
+     },
+     "reason": "Wer nichts sagt, bekommt mehr davon: Er ist spürbar müde."
+    }
+   ],
+   "humor": [
+    "Seine Ausrede: Er habe nur taktische Laufwege in der Tanzfläche geübt."
+   ],
+   "reason": "Ein Spieler vom Typ Lebemann: Nachtleben kostet Form, manche Spieler brauchen eben klare Grenzen."
+  },
+  {
+   "id": "treppensturz",
+   "cat": "privat",
+   "scope": "player",
+   "p": 0.006,
+   "cool": 200,
+   "when": {
+    "persona": [
+     "Partyhase"
+    ],
+    "inj_max": 0
+   },
+   "fx": {
+    "p_inj": 7,
+    "p_morale": -3
+   },
+   "title": "{name} stürzt auf dem Heimweg die Treppe hinunter",
+   "text": "Ein dummer Sturz nach einem langen Abend: {name} fällt eine Woche aus. Die Version für die Presse: Trainingsunfall.",
+   "humor": [
+    "Die Treppe war laut Spieler schuld."
+   ],
+   "reason": "Ein Unfall im Privatleben, reiner Zufall. Aber nüchtern wäre es vielleicht nicht passiert."
+  },
+  {
+   "id": "hausbau",
+   "cat": "privat",
+   "scope": "player",
+   "p": 0.02,
+   "cool": 300,
+   "when": {
+    "persona": [
+     "Familienmensch",
+     "Profi"
+    ],
+    "age_min": 26
+   },
+   "fx": {
+    "p_morale": 2
+   },
+   "title": "{name} baut ein Haus",
+   "text": "{name} lässt sich ein Haus am Stadtrand bauen und redet nur noch über Fliesen.",
+   "humor": [
+    "Der Bauleiter hat bessere Standards als manche Mittelfeldreihe."
+   ],
+   "reason": "Ein Ziel außerhalb des Platzes gibt Halt und gute Laune."
+  },
+  {
+   "id": "hund",
+   "cat": "privat",
+   "scope": "player",
+   "p": 0.02,
+   "cool": 300,
+   "when": {},
+   "fx": {
+    "p_morale": 2
+   },
+   "title": "{name} hat einen neuen Mitbewohner: einen Welpen",
+   "text": "{name} hat sich einen Hund zugelegt und bringt ständig Fotos mit in die Kabine.",
+   "humor": [
+    "Der Welpe hat schon mehr Follower als der Ersatztorwart."
+   ],
+   "reason": "Kleine Freuden im Alltag verbessern die Laune."
+  },
+  {
+   "id": "scheidung",
+   "cat": "privat",
+   "scope": "player",
+   "p": 0.008,
+   "cool": 400,
+   "when": {
+    "age_min": 28
+   },
+   "fx": {
+    "p_morale": -5,
+    "p_form": -0.5
+   },
+   "title": "Trennung bei {name}",
+   "text": "{name} und seine Partnerin gehen getrennte Wege. Er wirkt in sich gekehrt.",
+   "choices": [
+    {
+     "id": "auszeit",
+     "label": "Ein paar Tage Auszeit",
+     "fx": {
+      "p_morale": 2,
+      "p_fit": 10
+     },
+     "reason": "Die Auszeit tut gut: Der Kopf wird freier."
+    },
+    {
+     "id": "weitermachen",
+     "label": "Ablenkung durch Training",
+     "fx": {
+      "p_morale": -1,
+      "p_form": 0.2
+     },
+     "reason": "Der Spieler stürzt sich in die Arbeit, aber ist nicht glücklich dabei."
+    }
+   ],
+   "humor": [],
+   "reason": "Persönliche Krisen gehören zum Leben und treffen jeden anders. Es ist nicht der Trainer schuld."
+  },
+  {
+   "id": "sportwagen",
+   "cat": "privat",
+   "scope": "player",
+   "p": 0.02,
+   "cool": 250,
+   "when": {
+    "ovr_min": 70,
+    "age_max": 28,
+    "persona": [
+     "Partyhase",
+     "Ehrgeizig",
+     "Heißsporn"
+    ]
+   },
+   "fx": {
+    "p_morale": 1,
+    "fans": -1
+   },
+   "title": "Neuer Sportwagen für {name}: knallgelb",
+   "text": "{name} parkt einen knallgelben Flitzer vor dem Trainingsgelände. Die Fans sind geteilter Meinung.",
+   "choices": [
+    {
+     "id": "lachen",
+     "label": "Mit Humor nehmen",
+     "fx": {
+      "p_morale": 1
+     },
+     "reason": "Kleine Leidenschaft, kein Drama: Die Stimmung bleibt gut."
+    },
+    {
+     "id": "ansage",
+     "label": "Bodenständigkeit anmahnen",
+     "fx": {
+      "p_morale": -1,
+      "fans": 1
+     },
+     "reason": "Der Trainer bremst: Die Fans freuen sich, der Spieler ist kurz beleidigt."
+    }
+   ],
+   "humor": [
+    "Das Nummernschild lautet MEGA-10."
+   ],
+   "reason": "Ein auffälliger Kauf wird in der Stadt sofort Gesprächsthema, mal mit Neid, mal mit Schmunzeln."
+  },
+  {
+   "id": "heimweh",
+   "cat": "privat",
+   "scope": "player",
+   "p": 0.03,
+   "cool": 120,
+   "when": {
+    "age_max": 22,
+    "morale_max": 60
+   },
+   "fx": {
+    "p_morale": -3
+   },
+   "title": "{name} hat Heimweh",
+   "text": "Der junge {name} vermisst seine Familie und telefoniert abends stundenlang.",
+   "choices": [
+    {
+     "id": "besuch",
+     "label": "Familie einladen lassen",
+     "fx": {
+      "p_morale": 5,
+      "money": -1500
+     },
+     "reason": "Die Eltern kommen zu Besuch, der Junge blüht auf."
+    },
+    {
+     "id": "hart",
+     "label": "Da muss er durch",
+     "fx": {
+      "p_morale": -2
+     },
+     "reason": "Der Junge beißt sich durch, aber die Laune bleibt gedrückt."
+    }
+   ],
+   "humor": [],
+   "reason": "Junge Spieler fern der Heimat leiden öfter an Heimweh. Das ist normal und geht oft von selbst vorbei."
+  },
+  {
+   "id": "wechselgeruecht",
+   "cat": "presse",
+   "scope": "player",
+   "p": 0.035,
+   "cool": 60,
+   "when": {
+    "ovr_min": 72,
+    "contract_left_max": 1
+   },
+   "fx": {
+    "p_morale": -1
+   },
+   "title": "Wechselgerüchte um {name}",
+   "text": "Die Boulevardpresse schreibt, {name} wolle den Verein verlassen. Sein Berater lächelt vielsagend.",
+   "choices": [
+    {
+     "id": "dementi",
+     "label": "Offiziell dementieren",
+     "fx": {
+      "p_morale": 2,
+      "fans": 1
+     },
+     "reason": "Das klare Wort beruhigt die Fans, der Spieler fühlt sich gebraucht."
+    },
+    {
+     "id": "schweigen",
+     "label": "Kein Kommentar",
+     "fx": {
+      "p_morale": -2,
+      "fans": -1
+     },
+     "reason": "Schweigen nährt das Gerücht: Die Unruhe wächst."
+    }
+   ],
+   "humor": [
+    "Angeblich interessiert sich halb Europa. Wer genau, weiß nur der Kellner."
+   ],
+   "reason": "Läuft ein Vertrag aus, wird gern spekuliert. Gerüchte sind meist heiße Luft, wirken aber auf die Stimmung."
+  },
+  {
+   "id": "interview_lob",
+   "cat": "presse",
+   "scope": "player",
+   "p": 0.04,
+   "cool": 50,
+   "when": {
+    "form_min": 1.5
+   },
+   "fx": {
+    "p_morale": 2,
+    "fans": 2
+   },
+   "title": "{name} schwärmt im Interview vom Verein",
+   "text": "{name} hat der Lokalzeitung ein Interview gegeben: Er fühle sich pudelwohl.",
+   "humor": [
+    "Schlagzeile: »Hier will ich alt werden«. Beim letzten Verein sagte er das auch."
+   ],
+   "reason": "Ein Spieler in Topform spricht gern über seine Freude, das gefällt den Fans."
+  },
+  {
+   "id": "interview_kritik",
+   "cat": "presse",
+   "scope": "player",
+   "p": 0.05,
+   "cool": 45,
+   "when": {
+    "no_play": 2,
+    "persona": [
+     "Ehrgeizig",
+     "Heißsporn",
+     "Anführer"
+    ],
+    "ovr_min": 62
+   },
+   "fx": {
+    "p_morale": -3,
+    "board": -1
+   },
+   "title": "{name} beschwert sich öffentlich über fehlende Einsätze",
+   "text": "In der Zeitung beklagt sich {name}, er sehe sich unter Wert gehandelt. Die Kabine schaut dich an.",
+   "choices": [
+    {
+     "id": "strafe",
+     "label": "Strafe verhängen",
+     "fx": {
+      "p_morale": -3,
+      "c_morale": 1
+     },
+     "reason": "Autorität gezeigt: Die Mannschaft nickt, der Spieler schmollt."
+    },
+    {
+     "id": "gespraech",
+     "label": "Zum Gespräch bitten",
+     "fx": {
+      "p_morale": 3
+     },
+     "reason": "Nach einer klaren Aussprache ist der Spieler wieder bei der Sache."
+    },
+    {
+     "id": "ignorieren",
+     "label": "Ignorieren",
+     "fx": {
+      "p_morale": -1,
+      "board": -1
+     },
+     "reason": "Die Sache köchelt weiter, der Vorstand sieht es nicht gern."
+    }
+   ],
+   "humor": [
+    "Er sei kein Bankdrücker, er sei ein Stehgeiger, sagte er."
+   ],
+   "reason": "Wer wenig spielt und ehrgeizig ist, sagt es gern laut. Ob der Trainer richtig liegt, steht auf einem anderen Blatt."
+  },
+  {
+   "id": "serie_schlagzeile",
+   "cat": "presse",
+   "scope": "club",
+   "p": 0.35,
+   "cool": 21,
+   "when": {
+    "win_streak": 3
+   },
+   "fx": {
+    "fans": 3,
+    "board": 1
+   },
+   "title": "{club} im Lauf: Serie hält",
+   "text": "Die Zeitungen sind voll des Lobes: Drei Siege in Serie, {club} ist in aller Munde.",
+   "humor": [
+    "Selbst der Platzwart gibt jetzt Interviews."
+   ],
+   "reason": "Eine Siegesserie hebt Stimmung und Vertrauen. Dass es so weitergeht, ist nicht versprochen."
+  },
+  {
+   "id": "krise_schlagzeile",
+   "cat": "presse",
+   "scope": "club",
+   "p": 0.35,
+   "cool": 21,
+   "when": {
+    "loss_streak": 3
+   },
+   "fx": {
+    "fans": -3,
+    "board": -3
+   },
+   "title": "{club} in der Krise: Die Serie reißt nicht ab",
+   "text": "Drei Niederlagen in Folge: Die Presse spricht schon von Krise. Der Boulevard will Köpfe rollen sehen.",
+   "choices": [
+    {
+     "id": "angriff",
+     "label": "Pressekonferenz: Gegenangriff",
+     "fx": {
+      "fans": 2,
+      "board": -2
+     },
+     "reason": "Starke Worte machen die Fans froh, den Vorstand nervös."
+    },
+    {
+     "id": "sachlich",
+     "label": "Sachlich bleiben und Fehler eingestehen",
+     "fx": {
+      "board": 2,
+      "fans": -1
+     },
+     "reason": "Ehrlichkeit kommt oben gut an, die Fans wollen aber Siege."
+    }
+   ],
+   "humor": [
+    "Ein Kommentator fordert eine Neuausrichtung: bei Stürmern, Trainer und Kaffeemaschine."
+   ],
+   "reason": "Mehrere Niederlagen am Stück erzeugen Druck, auch wenn Pech im Spiel war."
+  },
+  {
+   "id": "taktik_lob",
+   "cat": "presse",
+   "scope": "club",
+   "p": 0.2,
+   "cool": 40,
+   "when": {
+    "unbeaten": 5
+   },
+   "fx": {
+    "fans": 2
+   },
+   "title": "Experten loben die Taktik von {club}",
+   "text": "Fünf Spiele ohne Niederlage: Ein TV-Experte lobt Taktik und Ordnung bei {club}.",
+   "humor": [
+    "Er sprach von »Raumdeckung im Halbraum«. Verstanden hat es keiner, aber es klang gut."
+   ],
+   "reason": "Eine Serie ohne Niederlage lässt die Fachwelt aufhorchen."
+  },
+  {
+   "id": "social_media",
+   "cat": "presse",
+   "scope": "player",
+   "p": 0.035,
+   "cool": 70,
+   "when": {
+    "persona": [
+     "Partyhase",
+     "Heißsporn"
+    ],
+    "age_max": 30
+   },
+   "fx": {
+    "fans": -1
+   },
+   "title": "{name} sorgt mit einem Posting für Wirbel",
+   "text": "{name} hat bei Instagram ein Foto gepostet, das den Fans nicht gefällt. Der Pressesprecher schwitzt.",
+   "choices": [
+    {
+     "id": "loeschen",
+     "label": "Löschen lassen",
+     "fx": {
+      "p_morale": -1,
+      "fans": 1
+     },
+     "reason": "Das Foto verschwindet, die Wogen glätten sich."
+    },
+    {
+     "id": "lassen",
+     "label": "Das liegt in seiner Verantwortung",
+     "fx": {
+      "fans": -2,
+      "p_morale": 1
+     },
+     "reason": "Der Spieler fühlt sich verstanden, die Fans weniger."
+    }
+   ],
+   "humor": [
+    "Das Foto zeigt ihn mit einem Rivalentrikot. Als Scherz, behauptet er."
+   ],
+   "reason": "Soziale Medien machen aus Kleinigkeiten Schlagzeilen, so ist das heute."
+  },
+  {
+   "id": "autobiografie",
+   "cat": "presse",
+   "scope": "player",
+   "p": 0.01,
+   "cool": 500,
+   "when": {
+    "age_max": 24,
+    "ovr_min": 72
+   },
+   "fx": {
+    "fans": 1
+   },
+   "title": "{name} kündigt Autobiografie an",
+   "text": "{name} will ein Buch schreiben. Arbeitstitel: »Ich und der Ball«.",
+   "humor": [
+    "Vorwort vom Ersatztorwart."
+   ],
+   "reason": "Eigenwerbung eines Talents: harmlos, aber die Presse liebt es."
+  },
+  {
+   "id": "pressekritik_trainer",
+   "cat": "presse",
+   "scope": "club",
+   "p": 0.3,
+   "cool": 35,
+   "when": {
+    "loss_streak": 4
+   },
+   "who": "own",
+   "fx": {
+    "fans": -2
+   },
+   "title": "Boulevard fordert den Trainerkopf",
+   "text": "Vier Niederlagen: Eine Zeitung titelt »Trainer raus?«. Kamerateams stehen vor dem Trainingsgelände.",
+   "choices": [
+    {
+     "id": "kamera",
+     "label": "Den Reportern Rede und Antwort stehen",
+     "fx": {
+      "fans": 2,
+      "board": 1
+     },
+     "reason": "Du stellst dich: Das wird respektiert."
+    },
+    {
+     "id": "tor",
+     "label": "Training hinter verschlossenen Toren",
+     "fx": {
+      "fans": -1,
+      "c_morale": 1
+     },
+     "reason": "Ruhe im Training, aber die Fans fühlen sich ausgesperrt."
+    }
+   ],
+   "humor": [],
+   "reason": "Nach einer Serie von Niederlagen sucht die Presse nach Schuldigen."
+  },
+  {
+   "id": "vorstand_unruhig",
+   "cat": "vorstand",
+   "scope": "club",
+   "p": 0.2,
+   "cool": 28,
+   "when": {
+    "board_max": 40,
+    "winless": 3
+   },
+   "who": "own",
+   "fx": {
+    "board": -2
+   },
+   "title": "Unruhe im Vorstand",
+   "text": "Im Aufsichtsrat wird getuschelt: Das Ergebnis der letzten Wochen sei nicht, was man sich vorgestellt habe. Der Präsident bittet um ein Gespräch.",
+   "choices": [
+    {
+     "id": "hingehen",
+     "label": "Zum Gespräch gehen und Plan vorstellen",
+     "fx": {
+      "board": 3
+     },
+     "reason": "Ein klarer Plan überzeugt, der Druck sinkt etwas."
+    },
+    {
+     "id": "abwarten",
+     "label": "Die Ergebnisse sprechen lassen",
+     "fx": {
+      "board": -3
+     },
+     "reason": "Ohne Siege überzeugt Abwarten nicht: Das Misstrauen wächst."
+    }
+   ],
+   "humor": [
+    "Der Präsident schaut in letzter Zeit häufig auf die Uhr, vor allem bei deinen Pressekonferenzen."
+   ],
+   "reason": "Der Vorstand misst den Trainer an der Tabelle, und die sieht gerade nicht gut aus."
+  },
+  {
+   "id": "vertrauensfrage",
+   "cat": "vorstand",
+   "scope": "club",
+   "p": 0.25,
+   "cool": 60,
+   "when": {
+    "board_max": 25
+   },
+   "who": "own",
+   "fx": {
+    "board": -4
+   },
+   "title": "Vertrauensfrage: Der Vorstand will Klarheit",
+   "text": "Der Präsident bestellt dich ein: Der Vorstand will wissen, ob du noch der Richtige bist. Jetzt musst du überzeugen.",
+   "choices": [
+    {
+     "id": "kampf",
+     "label": "Kämpferisch auftreten",
+     "fx": {
+      "board": 5,
+      "fans": 1
+     },
+     "reason": "Deine Leidenschaft überzeugt, die Gegner im Vorstand schweigen vorerst."
+    },
+    {
+     "id": "demut",
+     "label": "Fehler einräumen, Besserung geloben",
+     "fx": {
+      "board": 3
+     },
+     "reason": "Demut kommt an, aber nicht alle sind überzeugt."
+    },
+    {
+     "id": "trotz",
+     "label": "Auf den Vertrag pochen",
+     "fx": {
+      "board": -6,
+      "fans": -1
+     },
+     "reason": "Das war ungeschickt: Der Vorstand fühlt sich provoziert."
+    }
+   ],
+   "humor": [],
+   "reason": "Das Vertrauen des Vorstands ist gering, jetzt entscheidet das Auftreten."
+  },
+  {
+   "id": "budget_frage",
+   "cat": "vorstand",
+   "scope": "club",
+   "p": 0.15,
+   "cool": 90,
+   "when": {
+    "board_min": 65,
+    "pos_max": 6
+   },
+   "who": "own",
+   "fx": {},
+   "title": "Vorstand fragt: Brauchst du Verstärkungen?",
+   "text": "Der Präsident lächelt: Es läuft ordentlich, also darfst du einen Wunsch äußern.",
+   "choices": [
+    {
+     "id": "geld",
+     "label": "Zusätzliches Budget verlangen",
+     "fx": {
+      "money": 300000,
+      "board": -3
+     },
+     "reason": "Der Vorstand gibt Geld frei, merkt sich aber, dass du forderst."
+    },
+    {
+     "id": "bescheiden",
+     "label": "Bescheiden abwinken",
+     "fx": {
+      "board": 3
+     },
+     "reason": "Bescheidenheit kommt in der Chefetage gut an."
+    }
+   ],
+   "humor": [
+    "Der Präsident hofft auf ein Nein. Das Lächeln ist gequält."
+   ],
+   "reason": "Gute Ergebnisse und viel Vertrauen öffnen die Kasse, wenn man höflich fragt."
+  },
+  {
+   "id": "sponsor_deal",
+   "cat": "vorstand",
+   "scope": "club",
+   "p": 0.08,
+   "cool": 120,
+   "when": {
+    "board_min": 50,
+    "fans_min": 55
+   },
+   "fx": {
+    "money": 150000,
+    "board": 1
+   },
+   "title": "Neuer Sponsor bei {club}",
+   "text": "Der Vorstand hat einen neuen Sponsor an Land gezogen: ein Sanitärhersteller. Das gibt Geld in die Kasse.",
+   "humor": [
+    "Das Logo ist ein lächelnder Wasserhahn. Die Fans fremdeln noch."
+   ],
+   "reason": "Gute Stimmung rund um den Verein lockt Sponsoren an."
+  },
+  {
+   "id": "stadion_plan",
+   "cat": "vorstand",
+   "scope": "club",
+   "p": 0.05,
+   "cool": 300,
+   "when": {
+    "board_min": 55,
+    "fans_min": 60
+   },
+   "fx": {
+    "fans": 4,
+    "board": 1
+   },
+   "title": "{club} plant den Stadionausbau",
+   "text": "Der Vorstand präsentiert Pläne für eine neue Tribüne. Die Fans sind aus dem Häuschen.",
+   "humor": [
+    "Die Pläne enthalten eine VIP-Sauna. Warum, weiß keiner."
+   ],
+   "reason": "Ein stabiler Verein mit guter Stimmung kann auch langfristig planen."
+  },
+  {
+   "id": "sparkurs",
+   "cat": "vorstand",
+   "scope": "club",
+   "p": 0.12,
+   "cool": 150,
+   "when": {
+    "board_max": 45,
+    "day_min": 150
+   },
+   "who": "own",
+   "fx": {
+    "board": -1
+   },
+   "title": "Vorstand verordnet Sparkurs",
+   "text": "Der Finanzchef verlangt Einsparungen. Er schlägt vor, bei Prämien und Dienstreisen zu kürzen.",
+   "choices": [
+    {
+     "id": "praemien",
+     "label": "Prämien kürzen",
+     "fx": {
+      "c_morale": -2,
+      "board": 3,
+      "money": 20000
+     },
+     "reason": "Die Kasse füllt sich, die Spieler murren."
+    },
+    {
+     "id": "reisen",
+     "label": "Bei den Reisen sparen",
+     "fx": {
+      "c_morale": -1,
+      "board": 2,
+      "money": 8000
+     },
+     "reason": "Billigflieger statt Charter: Nicht schön, aber es hilft."
+    },
+    {
+     "id": "nein",
+     "label": "Nichts kürzen",
+     "fx": {
+      "board": -3
+     },
+     "reason": "Der Finanzchef schüttelt den Kopf, der Vorstand ist verstimmt."
+    }
+   ],
+   "humor": [],
+   "reason": "Die Lage ist angespannt und der Vorstand will sparen. Das trifft meist die Spieler."
+  },
+  {
+   "id": "ziel_verfehlt_warnung",
+   "cat": "vorstand",
+   "scope": "club",
+   "p": 0.3,
+   "cool": 60,
+   "when": {
+    "goal_gap_min": 4,
+    "day_min": 100
+   },
+   "who": "own",
+   "fx": {
+    "board": -2
+   },
+   "title": "Vorstand mahnt: Das Saisonziel ist in Gefahr",
+   "text": "Laut Tabelle liegst du deutlich hinter dem vereinbarten Ziel. Der Vorstand erwartet eine Reaktion.",
+   "humor": [],
+   "reason": "Das Ziel vor der Saison war klar, die Tabelle zeigt gerade ein anderes Bild."
+  },
+  {
+   "id": "ziel_uebertroffen",
+   "cat": "vorstand",
+   "scope": "club",
+   "p": 0.3,
+   "cool": 90,
+   "when": {
+    "goal_gap_max": -4,
+    "day_min": 100
+   },
+   "who": "own",
+   "fx": {
+    "board": 3,
+    "fans": 2
+   },
+   "title": "Vorstand begeistert: Ihr liegt weit über Plan",
+   "text": "Der Präsident gratuliert: So hatte sich niemand die Saison vorgestellt. Er erwähnt schon eine Vertragsverlängerung.",
+   "humor": [
+    "Die Kaffeemaschine im Büro wurde zur Feier ausgetauscht."
+   ],
+   "reason": "Die Tabelle liegt deutlich besser als das Ziel, das merkt man oben."
+  },
+  {
+   "id": "intrige_kapitaen",
+   "cat": "intrige",
+   "scope": "player",
+   "p": 0.03,
+   "cool": 80,
+   "when": {
+    "persona": [
+     "Heißsporn",
+     "Ehrgeizig"
+    ],
+    "morale_max": 55
+   },
+   "fx": {
+    "c_morale": -1,
+    "p_morale": -1
+   },
+   "title": "{name} stichelt gegen den Kapitän",
+   "text": "In der Kabine macht das Gerücht die Runde, {name} wolle dem Kapitän das Amt streitig machen.",
+   "choices": [
+    {
+     "id": "ausspruch",
+     "label": "Beide zum Gespräch bitten",
+     "fx": {
+      "c_morale": 1,
+      "p_morale": 1
+     },
+     "reason": "Die Streithähne reden. Es bleibt Reibung, aber die Kabine atmet auf."
+    },
+    {
+     "id": "bank",
+     "label": "{name} auf die Bank setzen",
+     "fx": {
+      "p_morale": -4,
+      "c_morale": 1
+     },
+     "reason": "Deutliche Botschaft: Der Spieler grollt, die Kabine versteht es."
+    }
+   ],
+   "humor": [
+    "Der Streit begann wegen der Sitzordnung im Bus."
+   ],
+   "reason": "Reibung ist in jeder Kabine normal, bei Unzufriedenen wird sie öfter laut."
+  },
+  {
+   "id": "cotrainer_plaudert",
+   "cat": "intrige",
+   "scope": "club",
+   "p": 0.04,
+   "cool": 120,
+   "when": {
+    "winless": 2
+   },
+   "who": "own",
+   "fx": {
+    "board": -2
+   },
+   "title": "Ein Assistent plaudert Interna aus",
+   "text": "In der Zeitung stehen Details aus der Kabinenbesprechung. Jemand aus deinem Stab hat geplaudert.",
+   "choices": [
+    {
+     "id": "suchen",
+     "label": "Den Maulwurf suchen",
+     "fx": {
+      "c_morale": -1,
+      "board": 1
+     },
+     "reason": "Die Suche kostet Nerven, zeigt aber Härte."
+    },
+    {
+     "id": "ruhe",
+     "label": "Ruhe bewahren",
+     "fx": {
+      "board": -1
+     },
+     "reason": "Du bleibst gelassen, das Thema verpufft langsam."
+    }
+   ],
+   "humor": [
+    "Verdächtig ist der Zeugwart, aber der schweigt wie ein Grab."
+   ],
+   "reason": "Wenn es nicht läuft, sucht man Schuldige, auch im eigenen Stab."
+  },
+  {
+   "id": "berater_hetzt",
+   "cat": "intrige",
+   "scope": "player",
+   "p": 0.04,
+   "cool": 90,
+   "when": {
+    "ovr_min": 70,
+    "contract_left_max": 1
+   },
+   "fx": {
+    "p_morale": -2
+   },
+   "title": "Berater von {name} schürt Unruhe",
+   "text": "Der Berater von {name} lässt in der Presse verlauten, sein Klient sei unterbezahlt. Die Boulevardreporter spitzen die Stifte.",
+   "choices": [
+    {
+     "id": "reden",
+     "label": "Mit Spieler und Berater reden",
+     "fx": {
+      "p_morale": 2,
+      "board": -1
+     },
+     "reason": "Ein Gespräch beruhigt, aber der Vorstand fürchtet höhere Forderungen."
+    },
+    {
+     "id": "hart",
+     "label": "Hart bleiben",
+     "fx": {
+      "p_morale": -3,
+      "board": 1
+     },
+     "reason": "Der Vorstand lobt die Standhaftigkeit, der Spieler ist sauer."
+    }
+   ],
+   "humor": [
+    "Berater verdienen an jedem Wechsel. Zufall, sicher."
+   ],
+   "reason": "Bei auslaufenden Verträgen mischen Berater gern mit."
+  },
+  {
+   "id": "aufstellung_geleakt",
+   "cat": "intrige",
+   "scope": "club",
+   "p": 0.02,
+   "cool": 150,
+   "when": {
+    "day_min": 20
+   },
+   "fx": {
+    "c_morale": -1,
+    "fans": -1
+   },
+   "title": "Aufstellung vorab in der Zeitung",
+   "text": "Die Elf für das Wochenende stand schon vor dem Training im Blatt. Wer das durchgesteckt hat, ist unklar.",
+   "humor": [
+    "Der Gegner hat sich bei der Zeitung bedankt."
+   ],
+   "reason": "Informationen sickern durch, ein Fall für den Zufall oder für einen Plaudertasche."
+  },
+  {
+   "id": "rueckennummer",
+   "cat": "intrige",
+   "scope": "player",
+   "p": 0.015,
+   "cool": 250,
+   "when": {
+    "persona": [
+     "Ehrgeizig",
+     "Heißsporn"
+    ],
+    "ovr_min": 66
+   },
+   "fx": {
+    "p_morale": -1
+   },
+   "title": "Zoff um die Rückennummer: {name} will die 10",
+   "text": "{name} will unbedingt die Zehn. Der bisherige Träger tut so, als sei er schwerhörig.",
+   "choices": [
+    {
+     "id": "gewaehren",
+     "label": "{name} die Nummer geben",
+     "fx": {
+      "p_morale": 3,
+      "c_morale": -1
+     },
+     "reason": "Er strahlt, der bisherige Träger nicht."
+    },
+    {
+     "id": "nein",
+     "label": "Es bleibt, wie es ist",
+     "fx": {
+      "p_morale": -2
+     },
+     "reason": "Er schmollt, aber akzeptiert es."
+    }
+   ],
+   "humor": [
+    "Kompromissvorschlag: die 10,5. Abgelehnt."
+   ],
+   "reason": "Zahlen auf dem Trikot sind wichtiger, als man denkt, vor allem für Ehrgeizige."
+  },
+  {
+   "id": "alkoholfahrt",
+   "cat": "skandal",
+   "scope": "player",
+   "p": 0.004,
+   "cool": 500,
+   "when": {
+    "persona": [
+     "Partyhase"
+    ],
+    "age_min": 20
+   },
+   "fx": {
+    "p_susp": 2,
+    "p_morale": -4,
+    "fans": -4,
+    "board": -3,
+    "money": -20000
+   },
+   "title": "{name} bei Alkoholkontrolle erwischt",
+   "text": "Die Polizei hat {name} nach einem Abend angehalten. Der Führerschein ist weg, die Schlagzeile steht.",
+   "humor": [
+    "Er behauptet, es sei Hustensaft gewesen."
+   ],
+   "reason": "Ein Fehltritt im Privatleben mit Folgen: Sperre, Geldstrafe, Ärger beim Vorstand. Kein Zufall, aber ein Ausrutscher.",
+   "big": true
+  },
+  {
+   "id": "peinliches_video",
+   "cat": "skandal",
+   "scope": "player",
+   "p": 0.005,
+   "cool": 400,
+   "when": {
+    "persona": [
+     "Partyhase",
+     "Heißsporn"
+    ]
+   },
+   "fx": {
+    "fans": -3,
+    "p_morale": -2
+   },
+   "title": "Peinliches Video von {name} im Netz",
+   "text": "Ein Handyvideo zeigt {name} in unvorteilhafter Lage. Es hat bereits eine Million Aufrufe.",
+   "humor": [
+    "Der Verein hat angeblich nicht hingesehen. Dreimal."
+   ],
+   "reason": "Handykameras sind überall, und die Fans sehen genau hin.",
+   "big": true
+  },
+  {
+   "id": "disco_schlaegerei",
+   "cat": "skandal",
+   "scope": "player",
+   "p": 0.004,
+   "cool": 400,
+   "when": {
+    "persona": [
+     "Heißsporn"
+    ]
+   },
+   "fx": {
+    "p_susp": 1,
+    "board": -2,
+    "fans": -2
+   },
+   "title": "Rangelei vor der Disco: {name} verwickelt",
+   "text": "Nach einem Disco-Abend gab es Streit auf der Straße. {name} war mittendrin.",
+   "humor": [
+    "Zeugen sprechen von Fußball-Diskussionen, die aus dem Ruder liefen."
+   ],
+   "reason": "Ein Heißsporn, ein später Abend, ein falsches Wort: Die Folgen sind Sperre und Ärger.",
+   "big": true
+  },
+  {
+   "id": "steueraffaere",
+   "cat": "skandal",
+   "scope": "player",
+   "p": 0.003,
+   "cool": 600,
+   "when": {
+    "ovr_min": 76
+   },
+   "fx": {
+    "fans": -2,
+    "p_morale": -2,
+    "money": -10000
+   },
+   "title": "Steuerermittlungen gegen {name}",
+   "text": "Die Finanzbehörden prüfen die Einkünfte von {name}. Der Verein lässt seine Anwälte sprechen.",
+   "humor": [
+    "Der Verein beteuert, die Steuererklärung des Spielers nie gesehen zu haben."
+   ],
+   "reason": "Bei hohen Einkommen schauen die Behörden genauer hin, und das belastet auch den Verein.",
+   "big": true
+  },
+  {
+   "id": "kabinenstreit",
+   "cat": "kabine",
+   "scope": "player",
+   "p": 0.05,
+   "cool": 50,
+   "when": {
+    "persona": [
+     "Heißsporn"
+    ],
+    "loss_streak": 2
+   },
+   "fx": {
+    "c_morale": -2,
+    "p_morale": -1
+   },
+   "title": "Krach in der Kabine bei {club}",
+   "text": "Nach der Pleite fliegen in der Kabine die Fetzen, mittendrin {name}. Die Tür war offenbar dünn.",
+   "choices": [
+    {
+     "id": "machtwort",
+     "label": "Machtwort sprechen",
+     "fx": {
+      "c_morale": 2,
+      "p_morale": -1
+     },
+     "reason": "Der Trainer greift durch, die Mannschaft ist beeindruckt."
+    },
+    {
+     "id": "laufen",
+     "label": "Die Mannschaft das selbst klären lassen",
+     "fx": {
+      "c_morale": -1
+     },
+     "reason": "Die Mannschaft klärt es, aber es bleibt ein Nachgeschmack."
+    }
+   ],
+   "humor": [
+    "Der Kicker wurde zum Streitschlichter, der Zeugwart zum Zeugen."
+   ],
+   "reason": "Nach Niederlagen kocht es in der Kabine, besonders bei Hitzköpfen."
+  },
+  {
+   "id": "chemie_stimmt",
+   "cat": "kabine",
+   "scope": "club",
+   "p": 0.15,
+   "cool": 40,
+   "when": {
+    "unbeaten": 5
+   },
+   "fx": {
+    "c_morale": 2
+   },
+   "title": "Die Chemie stimmt bei {club}",
+   "text": "Fünf Spiele ohne Niederlage und gemeinsames Essen danach: In der Kabine herrscht beste Stimmung.",
+   "humor": [
+    "Sogar die Ersatzspieler lachen mit."
+   ],
+   "reason": "Erfolg schweißt zusammen und zusammengeschweißte Mannschaften gewinnen mehr."
+  },
+  {
+   "id": "kapitaen_ansprache",
+   "cat": "kabine",
+   "scope": "player",
+   "p": 0.05,
+   "cool": 45,
+   "when": {
+    "persona": [
+     "Anführer"
+    ],
+    "form_min": 0.5
+   },
+   "fx": {
+    "c_morale": 2
+   },
+   "title": "Kapitän {name} hält eine flammende Rede",
+   "text": "{name} hat die Mannschaft nach dem Training zusammengerufen und ihr die Leviten gelesen. Danach herrschte ein gutes Klima.",
+   "humor": [
+    "Er sprach drei Minuten. Der Zeugwart will mitgeschrieben haben."
+   ],
+   "reason": "Ein Anführer in guter Form reißt die anderen mit."
+  },
+  {
+   "id": "mannschaftsabend",
+   "cat": "kabine",
+   "scope": "club",
+   "p": 0.1,
+   "cool": 50,
+   "when": {
+    "win_streak": 2
+   },
+   "who": "own",
+   "fx": {},
+   "title": "Mannschaftsabend vorgeschlagen",
+   "text": "Nach zwei Siegen in Folge schlägt der Kapitän einen gemeinsamen Abend vor. Bowling oder Karaoke?",
+   "choices": [
+    {
+     "id": "bowling",
+     "label": "Bowling",
+     "fx": {
+      "c_morale": 2,
+      "money": -2000
+     },
+     "reason": "Ein lustiger Abend: Wer verliert, zahlt die Getränke."
+    },
+    {
+     "id": "karaoke",
+     "label": "Karaoke",
+     "fx": {
+      "c_morale": 3,
+      "money": -3000,
+      "fans": -1
+     },
+     "reason": "Die Videos landen im Netz, die Stimmung ist grandios."
+    },
+    {
+     "id": "nein",
+     "label": "Lieber nicht",
+     "fx": {
+      "c_morale": -1
+     },
+     "reason": "Die Spieler hatten sich gefreut."
+    }
+   ],
+   "humor": [
+    "Beim Karaoke gewinnt der Ersatztorwart. Mit einem Lied von Helene Fischer."
+   ],
+   "reason": "Erfolgsserien sind der beste Zeitpunkt für etwas Teambuilding."
+  },
+  {
+   "id": "neuer_kapitaen",
+   "cat": "kabine",
+   "scope": "player",
+   "p": 0.015,
+   "cool": 365,
+   "when": {
+    "persona": [
+     "Anführer"
+    ],
+    "age_min": 27,
+    "ovr_min": 68
+   },
+   "who": "own",
+   "fx": {},
+   "title": "Soll {name} Kapitän werden?",
+   "text": "Die Kabine kann sich {name} gut als Kapitän vorstellen. Er hat Autorität und ein großes Mundwerk.",
+   "choices": [
+    {
+     "id": "ja",
+     "label": "Ihn zum Kapitän ernennen",
+     "fx": {
+      "p_morale": 5,
+      "c_morale": 1
+     },
+     "reason": "Er wächst an der Aufgabe, die Mannschaft folgt ihm."
+    },
+    {
+     "id": "nein",
+     "label": "Es bleibt beim jetzigen Kapitän",
+     "fx": {
+      "p_morale": -2
+     },
+     "reason": "Er nimmt es sportlich, aber enttäuscht ist er schon."
+    }
+   ],
+   "humor": [],
+   "reason": "Er ist ein Anführer-Typ, die Binde würde ihm stehen."
+  },
+  {
+   "id": "joker_unmut",
+   "cat": "kabine",
+   "scope": "player",
+   "p": 0.05,
+   "cool": 60,
+   "when": {
+    "no_play": 2,
+    "persona": [
+     "Ehrgeizig"
+    ],
+    "ovr_min": 60
+   },
+   "fx": {
+    "p_morale": -3
+   },
+   "title": "{name} will nicht länger Joker sein",
+   "text": "{name} hat um ein Gespräch gebeten: So viel Bank halte er nicht aus.",
+   "choices": [
+    {
+     "id": "versprechen",
+     "label": "Mehr Einsätze versprechen",
+     "fx": {
+      "p_morale": 4
+     },
+     "reason": "Er glaubt dir und trainiert wie ein Besessener. Halte dein Wort."
+    },
+    {
+     "id": "geduld",
+     "label": "Um Geduld bitten",
+     "fx": {
+      "p_morale": -1
+     },
+     "reason": "Er schluckt es runter, aber lange hält das nicht."
+    }
+   ],
+   "humor": [
+    "Er stellt die Frage, ob die Bank beheizt sei."
+   ],
+   "reason": "Ehrgeizige Spieler ohne Einsätze werden unzufrieden. Das ist Wesensart, kein Fehler."
+  },
+  {
+   "id": "jungspund_lob",
+   "cat": "kabine",
+   "scope": "player",
+   "p": 0.05,
+   "cool": 60,
+   "when": {
+    "age_max": 21,
+    "form_min": 1.0
+   },
+   "fx": {
+    "p_morale": 3,
+    "c_morale": 0.5
+   },
+   "title": "Talent {name} sorgt für Staunen im Training",
+   "text": "Die alten Hasen sind beeindruckt: {name} hat im Trainingsspiel jeden Zweikampf gewonnen.",
+   "humor": [
+    "Ein Routinier fragt, ob der Junge schon Bartwuchs hat."
+   ],
+   "reason": "Ein junger Spieler in Topform macht Eindruck."
+  },
+  {
+   "id": "geburtstag",
+   "cat": "kabine",
+   "scope": "player",
+   "p": 0.01,
+   "cool": 360,
+   "when": {},
+   "fx": {
+    "p_morale": 1
+   },
+   "title": "Geburtstagsfeier für {name}",
+   "text": "{name} hat Geburtstag: Die Kabine hat eine Torte gebacken, die verdächtig nach Rasen schmeckt.",
+   "humor": [
+    "Die Kerzen wurden vom Zeugwart gezählt. Es waren genug."
+   ],
+   "reason": "Kleine Gesten, große Wirkung: Ein Geburtstag stärkt den Zusammenhalt."
+  },
+  {
+   "id": "musikstreit",
+   "cat": "kabine",
+   "scope": "club",
+   "p": 0.02,
+   "cool": 120,
+   "when": {},
+   "fx": {
+    "c_morale": 0.5
+   },
+   "title": "Musikstreit in der Kabine bei {club}",
+   "text": "Wer darf die Playlist wählen? Der Streit ist beigelegt: Alle dürfen abwechselnd.",
+   "humor": [
+    "Der Ersatztorwart hat jetzt das letzte Wort, aber nur freitags."
+   ],
+   "reason": "Kleine Reibereien im Alltag, die meistens schnell vergehen."
+  },
+  {
+   "id": "fanprotest",
+   "cat": "fans",
+   "scope": "club",
+   "p": 0.3,
+   "cool": 40,
+   "when": {
+    "loss_streak": 3,
+    "fans_max": 45
+   },
+   "who": "own",
+   "fx": {
+    "fans": -3,
+    "board": -2
+   },
+   "title": "Fanproteste vor dem Stadion",
+   "text": "Nach der dritten Pleite in Folge stehen Fans mit Plakaten vor dem Trainingsgelände: »Wir wollen Siege sehen!«.",
+   "choices": [
+    {
+     "id": "rede",
+     "label": "Rausgehen und mit den Fans reden",
+     "fx": {
+      "fans": 3,
+      "board": -1
+     },
+     "reason": "Du stellst dich, das imponiert den Anhängern."
+    },
+    {
+     "id": "durchfahren",
+     "label": "Durchfahren",
+     "fx": {
+      "fans": -3
+     },
+     "reason": "Der Wagen rollt durch: Das wurde den Fans übel genommen."
+    }
+   ],
+   "humor": [
+    "Ein Transparent kritisiert die Frisur des Trainers. Du hast dich nicht angesprochen gefühlt."
+   ],
+   "reason": "Nach einer Serie von Niederlagen und schlechter Stimmung gehen Fans auf die Straße."
+  },
+  {
+   "id": "choreo",
+   "cat": "fans",
+   "scope": "club",
+   "p": 0.15,
+   "cool": 70,
+   "when": {
+    "pos_max": 3,
+    "fans_min": 55
+   },
+   "fx": {
+    "fans": 4,
+    "c_morale": 1
+   },
+   "title": "Spektakuläre Choreografie bei {club}",
+   "text": "Die Kurve hat eine riesige Choreografie gebaut, die Gänsehaut bei den Spielern auslöst.",
+   "humor": [
+    "Zehn Tage Arbeit, ein Zufall: Es hat geklappt."
+   ],
+   "reason": "Ein Verein oben in der Tabelle, eine Kurve in Feierlaune."
+  },
+  {
+   "id": "fanfeier",
+   "cat": "fans",
+   "scope": "club",
+   "p": 0.3,
+   "cool": 40,
+   "when": {
+    "win_streak": 4
+   },
+   "fx": {
+    "fans": 4
+   },
+   "title": "Fans feiern {club} nach der Siegesserie",
+   "text": "Vier Siege in Folge: Nach dem Abpfiff feiert das ganze Stadion minutenlang.",
+   "humor": [
+    "Selbst der Stadionsprecher hat den Faden verloren."
+   ],
+   "reason": "Eine lange Siegesserie lässt die Fans träumen."
+  },
+  {
+   "id": "fanklub_besuch",
+   "cat": "fans",
+   "scope": "club",
+   "p": 0.04,
+   "cool": 120,
+   "when": {
+    "fans_min": 40
+   },
+   "who": "own",
+   "fx": {},
+   "title": "Fanklub lädt zum Grillabend ein",
+   "text": "Der größte Fanklub bittet dich und ein paar Spieler zum Grillabend. Es gibt Bratwurst und Bier.",
+   "choices": [
+    {
+     "id": "hin",
+     "label": "Hingehen",
+     "fx": {
+      "fans": 3,
+      "c_morale": 0.5
+     },
+     "reason": "Du nimmst dir Zeit, das Fanherz schlägt höher."
+    },
+    {
+     "id": "absagen",
+     "label": "Absagen",
+     "fx": {
+      "fans": -1
+     },
+     "reason": "Terminprobleme: Die Fans sind etwas enttäuscht."
+    }
+   ],
+   "humor": [
+    "Du bekommst eine Bratwurst, die so lang ist wie dein Arm."
+   ],
+   "reason": "Nähe zu den Fans zahlt sich aus."
+  },
+  {
+   "id": "spruchband",
+   "cat": "fans",
+   "scope": "club",
+   "p": 0.1,
+   "cool": 30,
+   "when": {
+    "loss_streak": 2
+   },
+   "fx": {
+    "fans": -2
+   },
+   "title": "Spruchband bei {club}: »Wir haben Besseres verdient«",
+   "text": "Beim letzten Heimspiel hing ein Banner mit deutlicher Botschaft in der Kurve.",
+   "humor": [
+    "Rechtschreibfehler im Spruchband inklusive."
+   ],
+   "reason": "Zwei Niederlagen nacheinander und die Kurve macht sich bemerkbar."
+  },
+  {
+   "id": "derby_marsch",
+   "cat": "fans",
+   "scope": "club",
+   "p": 0.5,
+   "cool": 20,
+   "when": {
+    "derby_last": 1,
+    "last_margin_min": 1
+   },
+   "fx": {
+    "fans": 3
+   },
+   "title": "Derbysieg: {club}-Fans feiern bis in die Nacht",
+   "text": "Die Stadt gehört heute den Fans von {club}: Hupkonzerte bis nach Mitternacht.",
+   "humor": [
+    "Die Rivalen haben bis Montag ihre Schals versteckt."
+   ],
+   "reason": "Ein Derbysieg ist für Fans mehr wert als drei Punkte."
+  },
+  {
+   "id": "fanumfrage",
+   "cat": "fans",
+   "scope": "club",
+   "p": 0.06,
+   "cool": 200,
+   "when": {
+    "fans_min": 70
+   },
+   "fx": {
+    "board": 1
+   },
+   "title": "Fanumfrage: {club} hat treue Anhänger",
+   "text": "Eine Umfrage ergibt: Die Anhänger stehen hinter dem Verein, auch in Krisenzeiten.",
+   "humor": [],
+   "reason": "Hohe Zufriedenheit der Fans stärkt auch den Rückhalt oben."
+  },
+  {
+   "id": "trainerdebatte",
+   "cat": "welt",
+   "scope": "club",
+   "p": 0.15,
+   "cool": 40,
+   "when": {
+    "loss_streak": 3
+   },
+   "who": "ai",
+   "fx": {
+    "board": -3,
+    "fans": -2
+   },
+   "title": "Trainerdebatte bei {club}",
+   "text": "",
+   "humor": [],
+   "reason": "Drei Niederlagen in Folge: Dann wird in der Chefetage gern diskutiert.",
+   "big": true
+  },
+  {
+   "id": "ausverkauft",
+   "cat": "welt",
+   "scope": "club",
+   "p": 0.12,
+   "cool": 60,
+   "when": {
+    "win_streak": 3,
+    "fans_min": 55
+   },
+   "who": "ai",
+   "fx": {
+    "fans": 2
+   },
+   "title": "{club}: Stadion bleibt wochenlang ausverkauft",
+   "text": "",
+   "humor": [],
+   "reason": "Eine Siegesserie zieht die Zuschauer ins Stadion."
+  },
+  {
+   "id": "flutlicht",
+   "cat": "welt",
+   "scope": "club",
+   "p": 0.01,
+   "cool": 300,
+   "when": {},
+   "who": "ai",
+   "fx": {
+    "fans": -1
+   },
+   "title": "Flutlichtausfall bei {club}: Spiel verzögert sich",
+   "text": "",
+   "humor": [],
+   "reason": "Ein technischer Defekt, reiner Zufall."
+  },
+  {
+   "id": "pokalschreck",
+   "cat": "welt",
+   "scope": "club",
+   "p": 0.5,
+   "cool": 20,
+   "when": {
+    "cup_out": 1
+   },
+   "who": "ai",
+   "fx": {
+    "fans": -3,
+    "board": -2
+   },
+   "title": "Pokal-Aus für {club}: Enttäuschung im Umfeld",
+   "text": "",
+   "humor": [],
+   "reason": "Das Aus im Pokal schmerzt: Es ist für viele Fans die schnellste Chance auf einen Titel.",
+   "big": true
+  },
+  {
+   "id": "derbyniederlage",
+   "cat": "welt",
+   "scope": "club",
+   "p": 0.4,
+   "cool": 20,
+   "when": {
+    "derby_last": 1,
+    "last_margin_max": -1
+   },
+   "who": "ai",
+   "fx": {
+    "fans": -3,
+    "c_morale": -1
+   },
+   "title": "Derby verloren: Frust bei {club}",
+   "text": "",
+   "humor": [],
+   "reason": "Eine Derbyniederlage tut doppelt weh."
+  },
+  {
+   "id": "finanzloch",
+   "cat": "welt",
+   "scope": "club",
+   "p": 0.04,
+   "cool": 200,
+   "when": {
+    "board_max": 30
+   },
+   "who": "ai",
+   "fx": {
+    "board": -2
+   },
+   "title": "Gerüchte um Finanzprobleme bei {club}",
+   "text": "",
+   "humor": [],
+   "reason": "Wenn Ergebnisse ausbleiben, bleiben auch die Einnahmen aus."
+  },
+  {
+   "id": "wunderkind",
+   "cat": "welt",
+   "scope": "player",
+   "p": 0.03,
+   "cool": 100,
+   "when": {
+    "age_max": 19,
+    "form_min": 1.5
+   },
+   "who": "ai",
+   "fx": {
+    "p_morale": 3,
+    "fans": 2
+   },
+   "title": "{name} ({club}): Ein Talent, über das alle reden",
+   "text": "",
+   "humor": [],
+   "reason": "Starke Leistungen eines Jungen lassen die Presse aufmerken.",
+   "big": true
+  },
+  {
+   "id": "formhoch",
+   "cat": "welt",
+   "scope": "player",
+   "p": 0.03,
+   "cool": 60,
+   "when": {
+    "form_min": 2.5
+   },
+   "who": "ai",
+   "fx": {
+    "fans": 1
+   },
+   "title": "{name} ({club}) in Galaform",
+   "text": "",
+   "humor": [],
+   "reason": "Mehrere starke Auftritte nacheinander."
+  },
+  {
+   "id": "langzeitverletzt",
+   "cat": "privat",
+   "scope": "player",
+   "p": 0.05,
+   "cool": 60,
+   "when": {
+    "inj_min": 30
+   },
+   "fx": {
+    "p_morale": -3
+   },
+   "title": "{name} lange verletzt: Frust bei dem Spieler",
+   "text": "{name} hängt seit Wochen in der Reha und wird langsam ungeduldig.",
+   "choices": [
+    {
+     "id": "reha",
+     "label": "Zusätzliches Reha-Programm",
+     "fx": {
+      "p_morale": 3,
+      "money": -3000
+     },
+     "reason": "Er sieht ein Ziel vor Augen und macht mit Eifer mit."
+    },
+    {
+     "id": "geduld",
+     "label": "Um Geduld bitten",
+     "fx": {
+      "p_morale": -1
+     },
+     "reason": "Er beißt sich durch, aber der Frust bleibt."
+    }
+   ],
+   "humor": [
+    "Die Physios kennen ihn inzwischen besser als seine Familie."
+   ],
+   "reason": "Lange Ausfälle drücken auf die Stimmung, das ist normal."
+  },
+  {
+   "id": "formtief",
+   "cat": "kabine",
+   "scope": "player",
+   "p": 0.05,
+   "cool": 40,
+   "when": {
+    "form_max": -2.0
+   },
+   "fx": {
+    "p_morale": -2
+   },
+   "title": "{name} in der Krise: nichts will gelingen",
+   "text": "{name} hängt in einem Formloch. Jeder Ball springt ihm vom Fuß, nichts will gelingen.",
+   "choices": [
+    {
+     "id": "ruhe",
+     "label": "Ermutigen und weiterspielen lassen",
+     "fx": {
+      "p_morale": 3
+     },
+     "reason": "Vertrauen hilft: Er fasst wieder Mut."
+    },
+    {
+     "id": "bank",
+     "label": "Eine Pause auf der Bank",
+     "fx": {
+      "p_morale": -1,
+      "p_form": 0.4
+     },
+     "reason": "Die Pause tut der Form gut, dem Stolz weniger."
+    }
+   ],
+   "humor": [
+    "Der Ball scheint ihn persönlich zu hassen."
+   ],
+   "reason": "Formkrisen kommen und gehen, manchmal ohne erkennbaren Grund."
+  },
+  {
+   "id": "formhoch_own",
+   "cat": "kabine",
+   "scope": "player",
+   "p": 0.04,
+   "cool": 40,
+   "when": {
+    "form_min": 2.0
+   },
+   "who": "own",
+   "fx": {
+    "p_morale": 2
+   },
+   "title": "{name} spielt wie entfesselt",
+   "text": "{name} läuft derzeit heiß: Alles gelingt, sogar die Fehlpässe landen bei Mitspielern.",
+   "humor": [
+    "Er könnte vermutlich auch mit Gummistiefeln treffen."
+   ],
+   "reason": "Mehrere starke Auftritte in Folge haben die Form nach oben gezogen."
+  },
+  {
+   "id": "vertrag_ende",
+   "cat": "presse",
+   "scope": "player",
+   "p": 0.04,
+   "cool": 100,
+   "when": {
+    "contract_left_max": 0,
+    "ovr_min": 65
+   },
+   "who": "own",
+   "fx": {
+    "p_morale": -2
+   },
+   "title": "{name}: Wie geht es weiter?",
+   "text": "Der Vertrag von {name} läuft aus. Er will wissen, wie es weitergeht, und sein Handy hat schon mehrere Angebote gespeichert.",
+   "choices": [
+    {
+     "id": "signal",
+     "label": "Verlängerung in Aussicht stellen",
+     "fx": {
+      "p_morale": 4
+     },
+     "reason": "Er fühlt sich wertgeschätzt und will bleiben, wenn die Zahlen stimmen."
+    },
+    {
+     "id": "offen",
+     "label": "Alles offenlassen",
+     "fx": {
+      "p_morale": -3
+     },
+     "reason": "Unsicherheit nagt: Er hält sich Optionen offen."
+    }
+   ],
+   "humor": [],
+   "reason": "Ein auslaufender Vertrag sorgt für Unruhe, bis alles geklärt ist."
+  },
+  {
+   "id": "routinier",
+   "cat": "presse",
+   "scope": "player",
+   "p": 0.03,
+   "cool": 200,
+   "when": {
+    "age_min": 34
+   },
+   "fx": {
+    "p_morale": 1
+   },
+   "title": "Karriereende von {name}? Der Routinier schweigt",
+   "text": "{name} wird nach dem Alter gefragt und antwortet: »Ich laufe immer noch schneller als der Trainer.«",
+   "humor": [
+    "Die Presse rechnet nach: Er ist älter als manche Fans im Stadion."
+   ],
+   "reason": "Routiniers haben stets Gesprächsstoff. Ob er aufhört, entscheidet sein Körper."
+  },
+  {
+   "id": "winter_trainingslager",
+   "cat": "kabine",
+   "scope": "club",
+   "p": 0.2,
+   "cool": 300,
+   "when": {
+    "day_min": 100,
+    "day_max": 120
+   },
+   "who": "own",
+   "fx": {},
+   "title": "Trainingslager: Wohin soll es gehen?",
+   "text": "Die Wintertage kommen. Der Vorstand fragt, ob ein Trainingslager im Süden gewünscht ist.",
+   "choices": [
+    {
+     "id": "sonne",
+     "label": "Ab in die Sonne",
+     "fx": {
+      "c_morale": 3,
+      "money": -25000,
+      "board": -1
+     },
+     "reason": "Sonne, Strand und Training: Die Mannschaft ist begeistert, die Kasse ärmer."
+    },
+    {
+     "id": "zuhause",
+     "label": "Zuhause bleiben",
+     "fx": {
+      "c_morale": -1,
+      "board": 2
+     },
+     "reason": "Sparsamkeit freut den Vorstand, die Spieler weniger."
+    }
+   ],
+   "humor": [
+    "Der Zeugwart packt schon Sonnencreme und Sandspielzeug."
+   ],
+   "reason": "Eine Frage der Prioritäten: Erholung gegen Kasse."
+  },
+  {
+   "id": "rekordserie",
+   "cat": "welt",
+   "scope": "club",
+   "p": 0.3,
+   "cool": 40,
+   "when": {
+    "win_streak": 6
+   },
+   "who": "ai",
+   "big": true,
+   "fx": {
+    "fans": 4,
+    "board": 2
+   },
+   "title": "{club}: Sechs Siege am Stück, die Serie hält",
+   "text": "",
+   "humor": [],
+   "reason": "Sechs Siege in Folge: Das gelingt nur den wenigen Besten, auch wenn Glück dabei ist."
+  }
+ ]
+}

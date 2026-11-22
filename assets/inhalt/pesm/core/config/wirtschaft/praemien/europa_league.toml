@@ -1,0 +1,26 @@
+# Prämien Europa League (Nutzerrecherche 27.10., Schätzung 2026/27); Erläuterung der Felder und des Bezugs: champions_league.toml.
+wettbewerb = "el"
+bezug_mio = 284.6
+startgeld = 4.31
+vorauszahlung = 0.0                # keine Vorauszahlung
+sieg = 0.45
+remis = 0.15
+platz = [2.7, 0.075]
+ligaphase_plaetze = 36
+bonus_1_8 = 0.6
+zusatz_9_16 = 0.3
+playoff = 0.3
+titel = 6.0
+ko_vorrunden = 1                   # erste K.-o.-Runde (Sechzehntelfinale) zahlt nichts extra: das Play-off ist schon bezahlt
+markt_anteil = 0.0                 # kein Marktpool
+[runden]
+achtelfinale = 1.75
+viertelfinale = 2.5
+halbfinale = 4.2
+finale = 7.0
+[gruppenphase]
+abbilden = true
+[szenario]                         # Annahmen für die Spanne der erwarteten Erlöse (praemien.spanne); 8 Ligaphasen-Spiele
+aus_in_ligaphase = { siege = 1, remis = 2, platz = 30 }
+weiter = { siege = 3, remis = 1, platz = 14 }
+sieger = { siege = 8, remis = 0, platz = 1 }

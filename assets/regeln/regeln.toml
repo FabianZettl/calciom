@@ -1,0 +1,41 @@
+# Zahlen der Co-Trainer-Regeln (pesm/core/assistent/regeln.py). Anteile = Einsatzminuten / mögliche Minuten der Saison.
+min_spiele = 3                  # erst ab so vielen eigenen Spielen urteilt er über Spielzeit und Form
+
+[form]
+gut_note = 7.0                  # Schnitt der letzten Noten
+schwach_note = 6.0
+gut_form = 1.0                  # Formschritt der Welt (-3 … 3)
+tief_form = -1.0
+wenig_anteil = 0.4
+stamm_anteil = 0.5
+
+[jugend]
+max_alter = 21
+pot_luecke = 6                  # so viel Luft nach oben, damit er von einem Talent spricht
+wenig_anteil = 0.25
+
+[stimmung]
+unzufrieden = 35
+sehr = 25
+
+[verletzt]
+lang_tage = 21
+
+[luecken]                       # einsatzbereite Spieler je Mannschaftsteil, darunter schlägt er Alarm
+tor = 2
+abwehr = 6
+mittelfeld = 5
+angriff = 3
+
+[beziehung]
+start = 55
+angenommen = 2.0
+abgelehnt = -2.0
+ausrichtung_faktor = 2.0        # Rat aus seinem Steckenpferd wiegt doppelt (in beide Richtungen)
+hoch_faktor = 1.5               # dringender Rat wiegt schwerer
+heilt_tage = 60                 # ein Eintrag verblasst über so viele Tage ganz
+sieg = 1.0                      # je Sieg/Niederlage der letzten fünf Spiele
+niederlage = -1.0
+
+[ablauf]
+tage = 21                       # angenommene oder abgelehnte Empfehlungen bleiben so lange weg

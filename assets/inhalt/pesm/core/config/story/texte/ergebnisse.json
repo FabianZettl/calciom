@@ -1,0 +1,32 @@
+{
+  "_hinweis": "Texte zum Thema Ergebnisse. siegesserie: Stimmen der Fans, {zahl} = Siege in Folge. sieglos_serie: Schlagzeile der Presse, {zahl} = Spiele ohne Sieg. vorstand_nach_niederlagen: Ein Vorstandsmitglied schreibt (förmlich, „Sie“), {zahl} = Niederlagen in Folge. Platzhalter: {verein}, {zahl}, {reporter}, {medium}, {vorstand}, {fanvertreter}.",
+  "siegesserie.schlagzeile": { "standard": ["{zahl} Siege in Folge: Die Kurve singt", "Fans feiern die Serie von {verein}"] },
+  "siegesserie.kurztext": {
+    "standard": [
+      "{zahl} Siege am Stück, und im Stadion ist es so laut wie lange nicht. {fanvertreter} vom Fanrat: „Die Mannschaft gibt uns gerade viel zurück. Wir fahren überall mit hin.“",
+      "Nach dem {zahl}. Sieg in Folge werden die Karten knapp. {fanvertreter}, Sprecher der Fanszene: „Keiner soll jetzt abheben. Aber freuen dürfen wir uns.“"
+    ]
+  },
+
+  "sieglos_serie.schlagzeile": { "standard": ["{zahl} Spiele ohne Sieg: Wo bleibt die Wende?", "Wieder kein Sieg für {verein}"] },
+  "sieglos_serie.kurztext": {
+    "standard": [
+      "{verein} wartet seit {zahl} Spielen auf einen Sieg. {reporter} ({medium}): „Am Einsatz liegt es nicht, es fehlen die Ideen. Lange geht das nicht mehr gut.“",
+      "Seit {zahl} Spielen ohne Sieg: Bei {verein} wird der Ton rauer. {reporter} ({medium}) sieht den Trainer in der Pflicht, eine Antwort zu finden."
+    ]
+  },
+
+  "vorstand_nach_niederlagen.betreff": { "standard": ["{zahl} Niederlagen in Folge"] },
+  "vorstand_nach_niederlagen.text": {
+    "standard": [
+      "{zahl} Niederlagen hintereinander sind zu viel. Der Vorstand möchte von Ihnen hören, woran es liegt und was Sie ändern. – {vorstand}",
+      "Nach der {zahl}. Niederlage in Folge kommen Fragen aus dem Umfeld, die ich nicht mehr allein beantworten kann. Ich bitte um Ihre Einschätzung. – {vorstand}"
+    ]
+  },
+  "vorstand_nach_niederlagen.antwort.verantwortung": { "standard": ["Die Verantwortung liegt bei mir. Ich stelle um, im nächsten Spiel sehen Sie eine Reaktion."] },
+  "vorstand_nach_niederlagen.antwort.erklaeren":     { "standard": ["Die Leistungen waren besser als die Ergebnisse. Wir bleiben bei unserem Weg."] },
+  "vorstand_nach_niederlagen.antwort.mannschaft":    { "standard": ["Einige Spieler bringen nicht, was sie können. Ich greife in der Mannschaft durch."] },
+  "vorstand_nach_niederlagen.rueckmeldung.verantwortung": { "standard": ["Das wollten wir hören. Wir verlassen uns darauf, dass die Reaktion kommt."] },
+  "vorstand_nach_niederlagen.rueckmeldung.erklaeren":     { "standard": ["Der Vorstand trägt das vorerst mit. Viel Geduld ist aber nicht mehr da."] },
+  "vorstand_nach_niederlagen.rueckmeldung.mannschaft":    { "standard": ["Das ist Ihre Sache. Achten Sie darauf, dass sich die Kabine dabei nicht gegen Sie stellt."] }
+}

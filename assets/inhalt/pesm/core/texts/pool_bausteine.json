@@ -1,0 +1,115 @@
+{
+ "pool.b.gruss": [
+  "Trainer,",
+  "Chef,",
+  "Hast du kurz Zeit?"
+ ],
+ "pool.b.gruss.hitzig": [
+  "Trainer, so geht das nicht!",
+  "Trainer, jetzt reicht es!"
+ ],
+ "pool.b.gruss.loyal": [
+  "Trainer, ich komme nicht gern damit zu dir, aber:",
+  "Trainer, ich habe immer für dich gespielt, deshalb sage ich es offen:"
+ ],
+ "pool.b.gruss.ehrgeizig": [
+  "Trainer, ich will spielen.",
+  "Trainer, ich will mehr als die Bank."
+ ],
+ "pool.b.gruss.sensibel": [
+  "Trainer, es fällt mir nicht leicht, das anzusprechen.",
+  "Trainer, ich habe lange überlegt, ob ich komme."
+ ],
+ "pool.b.gruss.gelassen": [
+  "Trainer, kurz ein Wort unter uns.",
+  "Trainer, ganz ruhig gesagt:"
+ ],
+ "pool.b.gruss.wechselfreudig": [
+  "Trainer, ich sage es offen:",
+  "Trainer, ich will ehrlich sein:"
+ ],
+ "pool.b.gruss.launisch": [
+  "Trainer... ach, egal. Doch, ich sage es.",
+  "Trainer, ich war heute nicht sicher, ob ich komme."
+ ],
+ "pool.b.klage": [
+  "Ich sitze seit {spiele} Spielen draußen.",
+  "Seit {spiele} Spielen komme ich nicht mehr zum Zug."
+ ],
+ "pool.b.klage.hitzig": [
+  "Seit {spiele} Spielen sitze ich auf der Bank, das ist eine Frechheit.",
+  "{spiele} Spiele ohne mich, und keiner sagt etwas."
+ ],
+ "pool.b.klage.loyal": [
+  "Seit {spiele} Spielen stehe ich nicht mehr auf dem Platz.",
+  "Ich habe in den letzten {spiele} Spielen zugesehen und still gehalten."
+ ],
+ "pool.b.klage.ehrgeizig": [
+  "Ich habe {spiele} Spiele verpasst und will wissen, was ich ändern muss.",
+  "{spiele} Spiele ohne Einsatz: Das passt nicht zu meinen Zielen."
+ ],
+ "pool.b.gut": [
+  "Gut.",
+  "In Ordnung."
+ ],
+ "pool.b.gut.loyal": [
+  "Danke, Trainer.",
+  "Das bedeutet mir viel."
+ ],
+ "pool.b.gut.ehrgeizig": [
+  "Dann liefere ich.",
+  "Okay, jetzt lege ich los."
+ ],
+ "pool.b.gut.hitzig": [
+  "Na also.",
+  "Endlich redet mal einer Klartext."
+ ],
+ "pool.b.neutral": [
+  "Hm.",
+  "Na ja."
+ ],
+ "pool.b.neutral.sensibel": [
+  "Hm, ich weiß nicht.",
+  "Ich bin mir nicht sicher."
+ ],
+ "pool.b.neutral.launisch": [
+  "Mal so, mal so.",
+  "Heute fällt es mir schwer, etwas dazu zu sagen."
+ ],
+ "pool.b.schlecht": [
+  "Das ist zu wenig.",
+  "Nein."
+ ],
+ "pool.b.schlecht.hitzig": [
+  "Das ist doch ein Witz!",
+  "Ach, hör auf!"
+ ],
+ "pool.b.schlecht.sensibel": [
+  "Das tut weh.",
+  "Damit habe ich nicht gerechnet."
+ ],
+ "pool.b.schlecht.wechselfreudig": [
+  "Dann war es das wohl.",
+  "Gut zu wissen."
+ ],
+ "pool.zusageart.spielzeit": "Spielzeit",
+ "pool.zusageart.rolle": "Rolle",
+ "pool.zusageart.vertrag": "Vertrag",
+ "pool.zusageart.gehalt": "Gehalt",
+ "pool.zusageart.freigabe": "Freigabe",
+ "pool.frist": ["in %1 Tagen"],
+ "pool.b.gut.sensibel": ["Danke, das beruhigt mich.", "Das tut gut zu hören."],
+ "pool.b.gut.gelassen": ["Gut, damit kann ich leben.", "Passt."],
+ "pool.b.gut.wechselfreudig": ["Na gut, dann bleibe ich vorerst dabei.", "Okay, das ist ein Wort."],
+ "pool.b.gut.launisch": ["Na, heute bist du ja richtig nett.", "Gut, dann lasse ich mich heute überzeugen."],
+ "pool.b.neutral.hitzig": ["Mal abwarten, aber ich behalte das im Auge.", "Hm, das muss sich erst beweisen."],
+ "pool.b.neutral.loyal": ["Ich verstehe dich, aber ganz überzeugt bin ich nicht.", "Ich vertraue dir, auch wenn es mir schwerfällt."],
+ "pool.b.neutral.ehrgeizig": ["Reicht mir noch nicht, ich will Taten sehen.", "Wir werden sehen, ob daraus etwas wird."],
+ "pool.b.neutral.gelassen": ["Kann man so machen.", "Wir schauen mal."],
+ "pool.b.neutral.wechselfreudig": ["Ich höre es mir an und sehe, was sich ergibt.", "Mal sehen, wie lange das trägt."],
+ "pool.b.schlecht.loyal": ["Das enttäuscht mich, Trainer.", "Das hätte ich von dir nicht erwartet."],
+ "pool.b.schlecht.ehrgeizig": ["Damit komme ich nicht weiter.", "So erreiche ich meine Ziele nicht."],
+ "pool.b.schlecht.gelassen": ["Das sehe ich anders, aber gut.", "Schade, aber ich nehme es hin."],
+ "pool.b.schlecht.launisch": ["Weißt du was, mir reicht es heute.", "Ach, lass mich in Ruhe."],
+ "pool.entscheidung.zusage_wort": ["Du hast dein Wort gegeben."]
+}

@@ -1,0 +1,64 @@
+# Zweite Mannschaften und Farmteams (eigene Regeln für den Rust-Bau, keine Vorlage in Python).
+
+[zweite]
+# Kadergrenzen beim Verschieben zwischen erster und zweiter Mannschaft
+erste_max = 32
+erste_min = 18
+zweite_max = 30
+zweite_min = 16
+# wer oben gespielt hat, ist so viele Tage unten nicht spielberechtigt (das Wochenende)
+sperre_tage = 3
+# KI-Vereine gleichen jeden Monat aus: so viele Profis behält die erste Mannschaft
+ki_erste_ziel = 26
+ki_alter_hoechstens = 23
+
+# Altersregel je Land: [älter als, höchstens so viele Spieler] in der zweiten Mannschaft.
+# GESCHÄTZT: Alle Werte sind Schätzungen. Die Quelle je Land kommt hinter den Wert, sobald sie bekannt ist.
+[zweite.alter]
+standard = [23, 5]     # geschätzt, Quelle: noch offen
+Deutschland = [23, 3]  # geschätzt, Quelle: noch offen
+Spanien = [23, 5]      # geschätzt, Quelle: noch offen
+Niederlande = [23, 3]  # geschätzt, Quelle: noch offen
+Portugal = [23, 6]     # geschätzt, Quelle: noch offen
+England = [23, 5]      # geschätzt, Quelle: noch offen
+
+[koop]
+hoechstens = 2
+jahre = 2
+# Jahresbetrag einer Kooperation: Grundwert, der eigene Maßstab der Kasse wirkt darauf
+betrag_basis = 400000.0
+plaetze = 4
+# Leihe an den Partner: Zusage fast immer
+annahme = 0.95
+# Rahmen ohne Rückfrage beim Präsidium: Anteil am Jahresumsatz; darüber braucht es dieses Vertrauen
+rahmen_anteil = 0.006
+vorstand_freigabe = 55.0
+suche_tage = 14
+# Chance je Tag und passendem Verein, sich zu bewerben (mal Interesse)
+bewerbung_chance = 0.05
+bewerbungen_hoechstens = 5
+frist_tage = 7
+runden = 3
+# Anfrage eines kleinen Vereins von sich aus: Chance je Woche
+anfrage_chance = 0.02
+ablehnen_beziehung = -0.5
+# KI: Chance je Saison, dass ein großer Verein ohne Partner einen sucht; ab dieser Stärke; Leihen je Fenster
+ki_chance = 0.25
+ki_ab_staerke = 70.0
+ki_leihen = 2
+ki_verlaengern = 0.7
+# Partner lässt einen Leihspieler mit Spielzeit-Zusage eher spielen (Punkte in der Aufstellung)
+spielzeit_bonus = 5.0
+# zwei Verstöße gegen die Zahlung beenden die Zusammenarbeit
+zahlung_verstoesse = 2
+
+[koop.interesse]
+# Stärke-Abstand Hauptverein minus Bewerber: in diesem Bereich am liebsten, ab zu_gross schreckt es ab
+abstand_von = 3.0
+abstand_bis = 14.0
+abstand_zu_gross = 22.0
+klamm_faktor = 1.5
+fremde_koop = 0.4
+anderes_land = 0.35
+junger_trainer = 1.4
+luecke = 1.2

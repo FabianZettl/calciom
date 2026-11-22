@@ -1,0 +1,58 @@
+# Vertragsklauseln (Punkt 6). Zahlen aus dem Python-Original, wo es sie gibt: pesm/core/gespraeche/gespraeche.toml
+# [vertrag] und [transfer], pesm/fl/sim/config/transfers.json (markt.clause), fl/sim/verhandlung.py. „PES M“ = eigene Zahl.
+
+[ausstieg]
+# Stufen der Ausstiegsklausel als Vielfaches des Marktwerts (0 = keine)
+stufen = [0.0, 1.5, 2.0, 3.0]
+# ausstieg_wert: so viel Jahresgehalt ist sie dem Spieler wert, × (0,5 + Ehrgeiz)
+wert = 0.04
+# über diesem Vielfachen zieht sie kaum jemand: sie zählt nur halb (werte.py „sicher“)
+sicher_ab = 1.5
+# ab diesem Ego (oder mit dem Merkmal selbstbewusst) will er eine; ohne fehlt ihm so viel Jahresgehalt (PES M, wie ausstieg_wert)
+ego_ab = 70
+fehlt = 0.04
+# andere Vereine ziehen sie, wenn sie höchstens so viel × Marktwert kostet (markt.clause.mult 1,7 ist die Klausel der KI;
+# PES M: ab 1,6 lohnt es sich für keinen mehr) …
+zieh_bis = 1.6
+# … mit dieser Chance je Woche im offenen Fenster (PES M), wenn ein Verein mit dem Geld einen sportlichen Schritt bietet
+chance_woche = 0.2
+
+[praemie]
+# Torprämie je Tor und Einsatzprämie je Spiel als Anteil des Jahresgehalts (schritt_praemie_tor 0,01, schritt_praemie_einsatz 0,0025)
+tor_stufen = [0.0, 0.01, 0.02, 0.03]
+einsatz_stufen = [0.0, 0.0025, 0.005, 0.01]
+# Titelprämie je gewonnenem Titel als Anteil des Jahresgehalts (schritt_praemie_titel 0,05); erwartung_titel 0,08 Titel im Jahr
+titel_stufen = [0.0, 0.05, 0.10, 0.20]
+erwartung_titel = 0.08
+# erwartung_einsaetze und erwartung_tore je Position (PES-Kürzel): so rechnet der Spieler den Wert einer Prämie
+erwartung_einsaetze = 28
+erwartung_tore = { GK = 0, CB = 2, LB = 1, RB = 1, DMF = 2, CMF = 4, LMF = 4, RMF = 4, AMF = 7, LWF = 6, RWF = 6, SS = 9, CF = 14 }
+
+[steigerung]
+# Gehaltsplus zu jeder neuen Saison der Laufzeit (PES M; das Original kennt keine eigene Klausel dafür)
+stufen = [0.0, 0.05, 0.10]
+
+[weiterverkauf]
+# Beteiligung am nächsten Verkauf in Prozent (weiterverkauf_max 30)
+stufen = [0, 10, 20, 30]
+# weiterverkauf_erwartung: für den Käufer kostet sie Prozent × Marktwert × 0,5
+erwartung = 0.5
+
+[rueckkauf]
+# Rückkaufpreis als Vielfaches des Marktwerts (rueckkauf_basis 1,3; 0 = keine)
+stufen = [0.0, 1.3, 1.6]
+# rueckkauf_erwartung: für den Käufer kostet sie (1,3 × Marktwert − Rückkaufpreis, nicht unter 0) × 0,3 plus ein Grundbetrag (PES M)
+basis = 1.3
+erwartung = 0.3
+grund = 0.05
+# so viele Saisons gilt die Option (PES M; im Original ohne Frist)
+saisons = 2
+
+[ki]
+# Ausstiegsklauseln der Spieler anderer Vereine (transfers.json markt.clause): Anteil beim Weltstart, Anteil der KI-Verlängerungen, Marktwert × 1,7
+anteil_welt = 0.2
+anteil_verlaengerung = 0.25
+faktor = 1.7
+# KI-Vereine ziehen Klauseln anderer KI-Vereine: Chance je Spieler und Woche im offenen Fenster, höchstens so viele je Woche (PES M)
+chance_woche = 0.05
+je_woche = 3

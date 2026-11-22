@@ -1,0 +1,11 @@
+{
+  "med.vg.absender": "Mannschaftsarzt",
+  "med.vg.titel.rueckkehr": "%1 kehrt zurück",
+  "med.vg.titel.ausfall": "%1 fällt aus",
+  "med.vg.titel.belastung": "Die Mannschaft ist müde",
+  "med.vg.text.rueckkehr": "%1 ist wieder fit, aber noch in der Rückkehrphase: Das Risiko eines Rückfalls ist erhöht.",
+  "med.vg.text.ausfall": "Der Mannschaftsarzt meldet: %1 fällt aus.",
+  "med.vg.text.belastung": "Mehrere Spieler sind ausgelaugt. Das Verletzungsrisiko steigt mit der Belastung.",
+  "med.vg.ok": "Erledigt.",
+  "med.vg.fehler": "Das ging nicht."
+}

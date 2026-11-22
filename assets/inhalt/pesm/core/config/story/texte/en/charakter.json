@@ -1,0 +1,19 @@
+{
+  "_hinweis": "Type change (model 3): The assistant manager reports that a player has changed. The text names neither the direction nor the time frame of the change. No type names in the text; the interface shows before and after in the profile.",
+  "typwechsel.betreff": {
+    "standard": [
+      "{spieler_kurz} has changed"
+    ]
+  },
+  "typwechsel.text": {
+    "standard": [
+      "I've noticed that {spieler} carries himself differently than he used to. I think it's down to how you've handled him lately. Keep an eye on him.",
+      "One more thing on {spieler_kurz}: he's not the same player any more. Have a look at his profile before you next speak to him."
+    ]
+  },
+  "typwechsel.antwort.kenntnis": {
+    "standard": [
+      "Thanks, I'll have a look."
+    ]
+  }
+}

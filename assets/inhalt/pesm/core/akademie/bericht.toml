@@ -1,0 +1,13 @@
+# Saisonbericht der Akademie (Jugendausbau). Eigene Festlegungen von PESM, Startwerte, nicht kalibriert.
+
+[potenzial]
+breite = 8.0                   # halbe Spanne der Schätzung in Punkten bei Wissen 0 und Alter 18
+wissen_abbau = 0.6             # bei Wissen 100 bleibt so viel weniger übrig (Anteil)
+alter_zuschlag = 0.12          # je Jahr unter 18 breiter (Anteil)
+versatz = 0.6                  # Mitte der Schätzung weicht höchstens so viel der halben Spanne vom wahren Wert ab
+breit_ab = 12                  # ab dieser Spanne (hi minus lo) gilt die Schätzung als unsicher
+
+[bericht]
+talente = 5                    # so viele stehen einzeln im Bericht (höchstes Potenzial zuerst)
+vertrag_monate = 6             # Vertrag läuft innerhalb dieser Zeit nach Saisonende aus
+ohne_spiele = 0                # U23 mit höchstens so vielen Einsätzen verlässt uns wahrscheinlich

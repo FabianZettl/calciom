@@ -1,0 +1,470 @@
+{
+  "pool.angebot_fuer_spieler.e.e1": [
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Das Angebot gilt {frist} Tage.",
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Wir erwarten Ihre Antwort binnen {frist} Tagen."
+  ],
+  "pool.angebot_fuer_spieler.e.e2": [
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Ich wollte es Ihnen persönlich schreiben, bevor es Gerüchte gibt. Die Frist beträgt {frist} Tage.",
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Bitte behandeln Sie das vertraulich; bis zum Ablauf der Frist in {frist} Tagen bleibt es unter uns."
+  ],
+  "pool.angebot_fuer_spieler.e.e3": [
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Ich weiß, dass die Lage bei Ihnen gerade schwierig ist, trotzdem läuft unsere Frist nur {frist} Tage.",
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Vielleicht ist der Zeitpunkt unglücklich, aber wir können nicht länger als {frist} Tage warten."
+  ],
+  "pool.angebot_fuer_spieler.e.e4": [
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Entweder Sie antworten binnen {frist} Tagen, oder das Angebot ist vom Tisch!",
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Ich dulde kein Hinhalten: {frist} Tage, dann ist Schluss!"
+  ],
+  "pool.angebot_fuer_spieler.e.e5": [
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Lassen Sie sich Zeit, aber bitte nicht länger als {frist} Tage.",
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Wir wollen fair bleiben, daher gilt das Angebot {frist} Tage, damit Sie in Ruhe prüfen können."
+  ],
+  "pool.angebot_fuer_spieler.e.e6": [
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Nach {frist} Tagen sprechen wir mit anderen Spielern, die Gelegenheit ist jetzt.",
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Wer zögert, verliert: Die Frist beträgt {frist} Tage."
+  ],
+  "pool.angebot_fuer_spieler.e.e7": [
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Bitte nehmen Sie es uns nicht übel; wir hoffen auf Ihre Antwort in {frist} Tagen.",
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Ich möchte keinen Druck machen, aber nach {frist} Tagen müssten wir planen."
+  ],
+  "pool.angebot_fuer_spieler.e.e8": [
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Mir ist klar, dass das nicht Ihr Wunsch ist, doch die Frist beträgt {frist} Tage.",
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Ich rechne nicht fest damit, aber fragen wollte ich trotzdem; die Frist läuft {frist} Tage."
+  ],
+  "pool.angebot_fuer_spieler.e.e9": [
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Ich glaube, wir können uns einigen. Die Frist beträgt {frist} Tage.",
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Es ist alles offen, bis die Frist in {frist} Tagen abläuft."
+  ],
+  "pool.angebot_fuer_spieler.e.e10": [
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Ich gehe davon aus, dass wir uns schnell verständigen, die Frist läuft {frist} Tage.",
+    "{b.angebot_fuer_spieler_gruss} {b.angebot_fuer_spieler_lage} Die Unterlagen liegen bereit, es fehlt nur Ihre Zusage binnen {frist} Tagen."
+  ],
+  "pool.angebot_fuer_spieler.a.a1": [
+    "Einverstanden, wir nehmen das Angebot an. Schicken Sie mir die Unterlagen für {name}.",
+    "Wir sind im Geschäft. Ich gebe {name} frei, und Sie schicken den Vertragsentwurf."
+  ],
+  "pool.angebot_fuer_spieler.a.a2": [
+    "Der Betrag bildet nicht ab, was {name} für uns leistet. Ich erkläre Ihnen gern, wo ich mehr sehe.",
+    "Die Summe ist ein Anfang, aber unter seinem Wert. Lassen Sie uns über den Preis reden."
+  ],
+  "pool.angebot_fuer_spieler.a.a3": [
+    "Nein, {name} steht nicht zum Verkauf, auch nicht für diesen Preis.",
+    "Ich lehne ab. Sie brauchen nicht nachzulegen."
+  ],
+  "pool.angebot_fuer_spieler.a.a4": [
+    "Geben Sie mir mehr Zeit. Verlängern Sie die Frist, damit ich es intern klären kann.",
+    "Ich kann in der Frist nicht entscheiden. Ein paar Tage mehr, und Sie bekommen eine klare Antwort."
+  ],
+  "pool.angebot_fuer_spieler.a.a5": [
+    "Ich frage zuerst {name}, was er will, und melde mich danach.",
+    "Die Entscheidung liegt auch bei {name}. Ich spreche mit ihm und gebe Ihnen Bescheid."
+  ],
+  "pool.angebot_fuer_spieler.a.a6": [
+    "Was bieten Sie darüber hinaus? Ich will eine Beteiligung an einem späteren Weiterverkauf sehen.",
+    "Ohne Beteiligung am Weiterverkauf rede ich nicht. Wie stehen Sie dazu?"
+  ],
+  "pool.angebot_fuer_spieler.a.a7": [
+    "Mein Standpunkt bleibt: Der Spieler bleibt, und Sie müssen sich einen anderen suchen.",
+    "Sie können jeden Tag nachfragen, die Antwort bleibt dieselbe."
+  ],
+  "pool.angebot_fuer_spieler.a.a8": [
+    "Wenn Sie beim Preis ein Stück entgegenkommen und uns am Weiterverkauf beteiligen, trinken wir sogar gemeinsam Kaffee.",
+    "Treffen wir uns in der Mitte: ein bisschen mehr Geld, dazu eine Beteiligung, und ich lade Sie zum Essen ein."
+  ],
+  "pool.angebot_fuer_spieler.a.a9": [
+    "Ich verstehe, dass Sie {name} wollen, er ist ein guter Spieler. Kommen Sie uns beim Preis entgegen, dann reden wir ernsthaft.",
+    "Ihr Interesse ehrt uns, und ich will Ihnen nicht im Weg stehen. Mit einer fairen Summe finden wir einen Weg."
+  ],
+  "pool.angebot_fuer_spieler.a.a10": [
+    "Grundsätzlich ja, wenn eine Rückkaufklausel und die Zahlung in einer Summe vereinbart sind.",
+    "Ich stimme zu, sobald die Summe vollständig auf unserem Konto liegt und {name} zustimmt."
+  ],
+  "pool.angebot_fuer_spieler.a.a11": [
+    "Für diesen Betrag bekommen Sie bei uns höchstens den Zeugwart.",
+    "Nett gemeint, aber damit kaufen Sie nicht einmal unsere Trainingsbälle."
+  ],
+  "pool.angebot_fuer_spieler.r.r1": [
+    "{b.gut} Damit kann ich zu meinem Präsidenten gehen.",
+    "{b.gut} So kommen wir weiter, ich halte {name} weiter im Blick."
+  ],
+  "pool.angebot_fuer_spieler.r.r2": [
+    "{b.gut} Ich schätze, wie offen Sie mit uns reden.",
+    "{b.gut} Mit Ihnen lässt sich verhandeln, das war immer so."
+  ],
+  "pool.angebot_fuer_spieler.r.r3": [
+    "{b.gut} Das ist ein Schritt, der beiden Klubs nützt, ich bereite es vor.",
+    "{b.gut} Gut, dann arbeiten wir an einer Lösung, die beide weiterbringt."
+  ],
+  "pool.angebot_fuer_spieler.r.r4": [
+    "{b.neutral} Ich gebe es an unseren Vorstand weiter und melde mich.",
+    "{b.neutral} Dann warten wir ab, was daraus wird."
+  ],
+  "pool.angebot_fuer_spieler.r.r5": [
+    "{b.neutral} Ich weiß nicht recht, wie ich das aufnehmen soll.",
+    "{b.neutral} Darüber muss ich erst einmal nachdenken."
+  ],
+  "pool.angebot_fuer_spieler.r.r6": [
+    "{b.neutral} Kein Stress, wir haben noch etwas Zeit.",
+    "{b.neutral} Ich lehne mich zurück und sehe, was Sie mir schicken."
+  ],
+  "pool.angebot_fuer_spieler.r.r7": [
+    "{b.schlecht} Damit kann ich meinem Präsidenten nicht kommen.",
+    "{b.schlecht} Dann war meine Mühe vergebens."
+  ],
+  "pool.angebot_fuer_spieler.r.r8": [
+    "{b.schlecht} So reden Sie nicht mit mir, ich wende mich an die Presse!",
+    "{b.schlecht} Dann soll {name} sich selbst äußern, und zwar öffentlich!"
+  ],
+  "pool.angebot_fuer_spieler.r.r9": [
+    "{b.schlecht} Dann fragen wir eben direkt bei {name} an, der hört gern zu.",
+    "{b.schlecht} Es gibt andere Wege, um mit {name} zu sprechen."
+  ],
+  "pool.angebot_fuer_spieler.r.r10": [
+    "{b.schlecht} Ich hatte mehr Gesprächsbereitschaft erwartet, das enttäuscht mich.",
+    "{b.schlecht} Nach so vielen guten Jahren dachte ich, wir verstehen uns besser."
+  ],
+  "pool.angebot_fuer_spieler.r.r11": [
+    "{b.gut} Dann sind wir uns im Kern einig, ich schicke den Entwurf noch heute.",
+    "{b.gut} Das reicht mir, ich lasse die Papiere vorbereiten."
+  ],
+  "pool.angebot_fuer_spieler.r.r12": [
+    "{b.neutral} Es bleibt offen, ich halte mein Angebot vorerst aufrecht.",
+    "{b.neutral} Noch ist alles möglich, ich warte auf Ihre nächste Nachricht."
+  ],
+  "pool.angebot_fuer_spieler.r.r13": [
+    "{b.schlecht} Dann ziehe ich das Angebot zurück und suche anderswo.",
+    "{b.schlecht} Dann hat sich das Gespräch wohl erledigt, ich schaue mich anderswo um."
+  ],
+  "pool.angebot_fuer_spieler.x.x1": [
+    "Der Sportdirektor zeigt sich zufrieden. {entscheidung} Beide Klubs gehen im Guten auseinander.",
+    "{entscheidung} Das Gespräch endet freundlich, und die Drähte bleiben offen."
+  ],
+  "pool.angebot_fuer_spieler.x.x2": [
+    "Die Sache bleibt in der Schwebe. {entscheidung} {verein} wartet ab.",
+    "{entscheidung} Der andere Verein hält sein Angebot noch eine Weile aufrecht."
+  ],
+  "pool.angebot_fuer_spieler.x.x3": [
+    "Der Sportdirektor beendet die Verbindung schroff. {entscheidung} Bald darauf wird das Angebot öffentlich.",
+    "{entscheidung} Wenig später steht in der Zeitung, wie {verein} um {name} wirbt."
+  ],
+  "pool.angebot_fuer_spieler.x.x4": [
+    "Die Einigung ist da. {entscheidung} Die Papiere für {name} werden vorbereitet.",
+    "{entscheidung} Der Sportdirektor notiert es und kündigt den Vertragsentwurf an."
+  ],
+  "pool.angebot_fuer_spieler.x.x5": [
+    "Der Sportdirektor bricht das Gespräch ab. {entscheidung} Das Angebot gilt nicht mehr.",
+    "{entscheidung} {verein} zieht sich zurück und sucht einen anderen Spieler."
+  ],
+  "pool.leihanfrage.e.e1": [
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Wir bräuchten bis zum Ablauf von {frist} Tagen eine Antwort.",
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Das Angebot steht {frist} Tage."
+  ],
+  "pool.leihanfrage.e.e2": [
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Eine Kaufoption am Ende wäre denkbar, über die Rückrufklausel können wir reden. Antwort bitte in {frist} Tagen.",
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Wir sind bei Kaufoption und Rückruf flexibel. Geben Sie uns binnen {frist} Tagen Bescheid."
+  ],
+  "pool.leihanfrage.e.e3": [
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Ich merke, dass die Stimmung bei Ihnen angespannt ist, aber die Frist beträgt nur {frist} Tage.",
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Vielleicht passt es gerade nicht, doch in {frist} Tagen ist das Fenster für uns zu."
+  ],
+  "pool.leihanfrage.e.e4": [
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Lassen Sie ihn nicht länger schmoren, ich will binnen {frist} Tagen eine Antwort!",
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Hören Sie auf zu zögern, die Frist beträgt {frist} Tage!"
+  ],
+  "pool.leihanfrage.e.e5": [
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Überlegen Sie in Ruhe, bis in {frist} Tagen ist genug Zeit.",
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Kein Druck, aber eine Antwort in {frist} Tagen würde uns helfen."
+  ],
+  "pool.leihanfrage.e.e6": [
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Er kann bei uns den Sprung schaffen, wenn wir binnen {frist} Tagen handeln.",
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Die Gelegenheit ist {frist} Tage offen, danach ist unser Kader komplett."
+  ],
+  "pool.leihanfrage.e.e7": [
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Bitte entscheiden Sie mit Gefühl für den Jungen, aber nicht später als in {frist} Tagen.",
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Ich weiß, dass es Ihnen nicht leichtfällt; wir bräuchten eine Antwort in {frist} Tagen."
+  ],
+  "pool.leihanfrage.e.e8": [
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Ich rechne nicht mit einem Ja, trotzdem bitte ich um eine Antwort in {frist} Tagen.",
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Sie werden ihn wohl nicht hergeben wollen, doch fragen musste ich; Frist {frist} Tage."
+  ],
+  "pool.leihanfrage.e.e9": [
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Ich denke, wir finden einen Weg; die Frist beträgt {frist} Tage.",
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Alles ist verhandelbar, solange wir uns binnen {frist} Tagen melden."
+  ],
+  "pool.leihanfrage.e.e10": [
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Ich glaube, die Leihe liegt in unser beider Interesse, bitte antworten Sie in {frist} Tagen.",
+    "{b.leihanfrage_gruss} {b.leihanfrage_lage} Wir sind uns eigentlich einig, es fehlt nur die Unterschrift binnen {frist} Tagen."
+  ],
+  "pool.leihanfrage.a.a1": [
+    "Einverstanden, aber nur mit schriftlicher Spielzeitgarantie: {name} spielt bei Ihnen regelmäßig.",
+    "Wir leihen ihn aus, wenn Sie ihm feste Einsatzzeiten zusichern, und zwar im Vertrag."
+  ],
+  "pool.leihanfrage.a.a2": [
+    "Wir wollen eine Kaufoption, die ab einer festen Einsatzzahl zur Pflicht wird.",
+    "Ohne Kaufoption läuft nichts: Wenn er sich bei Ihnen durchsetzt, wollen wir den Preis kennen."
+  ],
+  "pool.leihanfrage.a.a3": [
+    "Nein, {name} wird nicht verliehen. Er bleibt, und wir entwickeln ihn selbst.",
+    "Eine Leihe kommt nicht infrage. Sie können das Thema abhaken."
+  ],
+  "pool.leihanfrage.a.a4": [
+    "Geben Sie mir Zeit bis nach dem nächsten Spieltag, dann habe ich eine Antwort.",
+    "Ich möchte erst sehen, wie sich {name} im Training entwickelt. Ich melde mich."
+  ],
+  "pool.leihanfrage.a.a5": [
+    "Das entscheidet {name} mit. Ich frage ihn und seinen Berater, was sie wollen.",
+    "Ich lasse {name} selbst wählen, er soll wissen, wo er spielen will."
+  ],
+  "pool.leihanfrage.a.a6": [
+    "Eine Leihe geht nur mit Rückrufklausel; ich erkläre Ihnen gern, warum wir sie brauchen.",
+    "Wir brauchen die Möglichkeit, ihn im Winter zurückzuholen. Lassen Sie uns die Klausel zusammen formulieren."
+  ],
+  "pool.leihanfrage.a.a7": [
+    "Ich sehe, dass Sie ihm eine echte Chance geben wollen, und das weiß ich zu schätzen. Lassen Sie uns die Bedingungen für den Jungen gemeinsam gestalten.",
+    "Dass Sie sich so um {name} bemühen, freut mich. Ich will, dass er spielt, und wir finden einen Weg."
+  ],
+  "pool.leihanfrage.a.a8": [
+    "Meine Bedingungen stehen: Spielgarantie, Kaufoption, Rückruf. Nehmen Sie es oder lassen Sie es.",
+    "Daran ändere ich nichts, sonst ist das Gespräch beendet."
+  ],
+  "pool.leihanfrage.a.a9": [
+    "Wie viele Einsätze sehen Sie für ihn vor, und in welcher Rolle?",
+    "Wo soll {name} bei Ihnen spielen, und wer spielt dort jetzt?"
+  ],
+  "pool.leihanfrage.a.a10": [
+    "Wir kommen bei der Leihgebühr entgegen, wenn Sie bei der Rückrufklausel nachgeben.",
+    "Ich bin flexibel beim Preis, wenn die Spielzeit stimmt."
+  ],
+  "pool.leihanfrage.a.a11": [
+    "Ein Talent verleiht man nicht, so wenig wie man ein Rezept verleiht. Fragen Sie in einem Jahr noch einmal.",
+    "Der Junge ist noch nicht fertig, und Ihr Klub offenbar auch nicht."
+  ],
+  "pool.leihanfrage.r.r1": [
+    "{b.gut} Damit können wir arbeiten, ich bereite die Unterlagen vor.",
+    "{b.gut} Das ist ein fairer Rahmen für {name}, ich schlage ihn meinem Präsidenten vor."
+  ],
+  "pool.leihanfrage.r.r2": [
+    "{b.gut} Sie gehen verantwortungsvoll mit dem Jungen um, das gefällt mir.",
+    "{b.gut} Von Ihnen leihe ich gern aus."
+  ],
+  "pool.leihanfrage.r.r3": [
+    "{b.gut} Das nehme ich mit, bei uns wird {name} zeigen, was er kann.",
+    "{b.gut} Abgemacht, wir geben ihm die Bühne, die er braucht."
+  ],
+  "pool.leihanfrage.r.r4": [
+    "{b.neutral} Ich trage es in unsere Runde, dann hören Sie von mir.",
+    "{b.neutral} Dann ist noch nichts entschieden, aber auch nichts verbaut."
+  ],
+  "pool.leihanfrage.r.r5": [
+    "{b.neutral} Ich bin unsicher, ob das für uns passt.",
+    "{b.neutral} Das muss ich erst einmal sacken lassen."
+  ],
+  "pool.leihanfrage.r.r6": [
+    "{b.neutral} Wir haben Zeit, bis das Fenster zugeht.",
+    "{b.neutral} Lassen Sie sich Zeit, ich suche währenddessen weiter."
+  ],
+  "pool.leihanfrage.r.r7": [
+    "{b.schlecht} Unter diesen Umständen verlieren wir das Interesse.",
+    "{b.schlecht} Eine Leihe unter diesen Bedingungen lohnt für uns nicht."
+  ],
+  "pool.leihanfrage.r.r8": [
+    "{b.schlecht} So geht man nicht mit einem Kollegen um, das merke ich mir!",
+    "{b.schlecht} Dann soll {name} halt weiter auf der Bank verfaulen!"
+  ],
+  "pool.leihanfrage.r.r9": [
+    "{b.schlecht} Dann sprechen wir mit {name} und seinem Berater selbst.",
+    "{b.schlecht} Er wird sich bei uns wohler fühlen, und das wird er auch erfahren."
+  ],
+  "pool.leihanfrage.r.r10": [
+    "{b.schlecht} Ich hatte auf mehr Vertrauen gehofft, das tut weh.",
+    "{b.schlecht} Ich dachte, wir pflegen ein gutes Verhältnis."
+  ],
+  "pool.leihanfrage.r.r11": [
+    "{b.gut} Dann machen wir das, ich lasse den Vertrag aufsetzen.",
+    "{b.gut} Wunderbar, die Leihe ist im Grunde beschlossen."
+  ],
+  "pool.leihanfrage.r.r12": [
+    "{b.neutral} Wir bleiben im Gespräch, nichts ist entschieden.",
+    "{b.neutral} Ich lasse das Angebot stehen und warte auf Sie."
+  ],
+  "pool.leihanfrage.r.r13": [
+    "{b.schlecht} Dann suchen wir uns einen anderen Jungen.",
+    "{b.schlecht} Schade, dann werde ich anderswo fündig."
+  ],
+  "pool.leihanfrage.x.x1": [
+    "Der Sportdirektor ist einverstanden. {entscheidung} Die Gespräche über Einzelheiten laufen gut.",
+    "{entscheidung} Man trennt sich mit dem Gefühl, dass beide Klubs profitieren."
+  ],
+  "pool.leihanfrage.x.x2": [
+    "Das Thema bleibt offen. {entscheidung} {verein} fragt später noch einmal nach.",
+    "{entscheidung} Der andere Verein hält die Tür einen Spalt geöffnet."
+  ],
+  "pool.leihanfrage.x.x3": [
+    "Der Sportdirektor ist verärgert. {entscheidung} Im Umfeld hört man bald, {name} werde nicht fair behandelt.",
+    "{entscheidung} Wenig später weiß die Presse, dass Sie ein Talent auf der Bank festhalten."
+  ],
+  "pool.leihanfrage.x.x4": [
+    "Die Leihe ist besiegelt. {entscheidung} {name} wird bei {verein} eine neue Aufgabe bekommen.",
+    "{entscheidung} Beide Seiten notieren die Eckpunkte der Leihe."
+  ],
+  "pool.leihanfrage.x.x5": [
+    "Der Sportdirektor bricht das Gespräch ab. {entscheidung} {verein} wendet sich einem anderen Talent zu.",
+    "{entscheidung} Die Anfrage wird nicht weiterverfolgt."
+  ],
+  "pool.tauschvorschlag.e.e1": [
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Bis wann können Sie mir antworten? Mir wäre in {frist} Tagen recht.",
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Ich bräuchte binnen {frist} Tagen eine Antwort."
+  ],
+  "pool.tauschvorschlag.e.e2": [
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Ich wollte das lieber am Telefon besprechen, nicht per Mail; sagen wir, Antwort in {frist} Tagen.",
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Reden wir offen: Der Vorschlag steht {frist} Tage."
+  ],
+  "pool.tauschvorschlag.e.e3": [
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Ich höre, dass bei Ihnen dicke Luft herrscht, trotzdem brauche ich in {frist} Tagen eine Antwort.",
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Vielleicht ist es gerade ungünstig, aber länger als {frist} Tage kann ich nicht warten."
+  ],
+  "pool.tauschvorschlag.e.e4": [
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Sagen Sie ja oder nein, und zwar binnen {frist} Tagen!",
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Ich lasse mich nicht hinhalten, {frist} Tage, dann ist der Tausch gestorben!"
+  ],
+  "pool.tauschvorschlag.e.e5": [
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Denken Sie in Ruhe nach, {frist} Tage haben wir ja.",
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Wir können das entspannt klären, solange Sie sich binnen {frist} Tagen melden."
+  ],
+  "pool.tauschvorschlag.e.e6": [
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Das ist eine Gelegenheit, die nicht wiederkommt, {frist} Tage, dann sind wir weg.",
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Entscheiden Sie sich binnen {frist} Tagen, sonst gehen wir auf andere Spieler zu."
+  ],
+  "pool.tauschvorschlag.e.e7": [
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Ich möchte nicht drängen; vielleicht äußern Sie sich in {frist} Tagen.",
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Lassen Sie mich wissen, was Sie fühlen, binnen {frist} Tagen wäre schön."
+  ],
+  "pool.tauschvorschlag.e.e8": [
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Ich rechne nicht mit Begeisterung, trotzdem wäre ich für eine Antwort binnen {frist} Tagen dankbar.",
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Ich weiß, dass Sie den Spieler eigentlich halten wollen, aber überlegen Sie es in {frist} Tagen."
+  ],
+  "pool.tauschvorschlag.e.e9": [
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Ich denke, wir sind nicht weit auseinander, in {frist} Tagen wissen wir mehr.",
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Es ist alles offen, wenn wir uns binnen {frist} Tagen wieder sprechen."
+  ],
+  "pool.tauschvorschlag.e.e10": [
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Wenn wir beide wollen, haben wir den Tausch in {frist} Tagen unter Dach und Fach.",
+    "{b.tauschvorschlag_gruss} {b.tauschvorschlag_lage} Aus meiner Sicht ist das fast fertig, ich brauche nur Ihr Wort in {frist} Tagen."
+  ],
+  "pool.tauschvorschlag.a.a1": [
+    "Einverstanden, wir tauschen. Schicken Sie mir die Unterlagen, dann klären wir die Einzelheiten.",
+    "Ja, so machen wir es. {name} gegen Ihren Mann, mit der Aufzahlung."
+  ],
+  "pool.tauschvorschlag.a.a2": [
+    "Der Wert der beiden Spieler ist nicht gleich. Ich verlange eine höhere Aufzahlung.",
+    "Die Aufzahlung ist zu niedrig. Legen Sie noch etwas drauf, dann reden wir."
+  ],
+  "pool.tauschvorschlag.a.a3": [
+    "Nein, ein Tausch kommt nicht infrage.",
+    "Ich tausche {name} nicht gegen einen Spieler, den ich gar nicht will."
+  ],
+  "pool.tauschvorschlag.a.a4": [
+    "Ich nehme nicht diesen, sondern einen anderen aus Ihrem Kader. Nennen Sie mir Alternativen.",
+    "Wenn Sie tauschen wollen, dann bitte mit einem Spieler, der zu uns passt. Wen haben Sie noch?"
+  ],
+  "pool.tauschvorschlag.a.a5": [
+    "Ich brauche Bedenkzeit. Ich rufe Sie in den nächsten Tagen an.",
+    "Lassen Sie mich darüber schlafen, ich melde mich."
+  ],
+  "pool.tauschvorschlag.a.a6": [
+    "Ich spreche zuerst mit {name}. Ohne ihn entscheide ich nichts.",
+    "Die Frage geht an {name}: Ich bespreche den Tausch mit ihm und rufe zurück."
+  ],
+  "pool.tauschvorschlag.a.a7": [
+    "{name} ist ein fester Baustein in unserem Plan, das erkläre ich Ihnen gern. Wenn Sie das sehen, reden wir über einen Weg.",
+    "Ich erkläre Ihnen, warum ich nicht einfach tauschen kann: Er ist für uns mehr wert, als er auf dem Papier kostet."
+  ],
+  "pool.tauschvorschlag.a.a8": [
+    "Ich merke, wie wichtig {name} für Ihre Pläne ist, und ich will Ihnen nicht im Weg stehen. Lassen Sie uns das gemeinsam gut lösen.",
+    "Ihr Interesse ehrt uns. Wir finden eine Lösung, mit der beide Klubs gut leben können."
+  ],
+  "pool.tauschvorschlag.a.a9": [
+    "Mein Nein bleibt ein Nein, egal, wie oft Sie anrufen.",
+    "Sie können die Aufzahlung verdoppeln, {name} geht nicht."
+  ],
+  "pool.tauschvorschlag.a.a10": [
+    "Ein Tausch? Dann nehme ich lieber das Tafelsilber Ihres Klubs.",
+    "Für diesen Tausch müsste ich schon sehr viel Humor mitbringen, und der ist heute aus."
+  ],
+  "pool.tauschvorschlag.a.a11": [
+    "Grundsätzlich bin ich dabei, wenn die Aufzahlung sofort fließt und {name} zustimmt.",
+    "Ich sage zu, sofern der Spieler einverstanden ist und die Aufzahlung vor dem Wechsel gezahlt wird."
+  ],
+  "pool.tauschvorschlag.r.r1": [
+    "{b.gut} Gut, dann haben wir eine Basis, ich spreche mit meinem Trainer.",
+    "{b.gut} So lässt sich arbeiten, ich bleibe dran."
+  ],
+  "pool.tauschvorschlag.r.r2": [
+    "{b.gut} Mit Ihnen spricht es sich leicht, das war schon immer so.",
+    "{b.gut} Ich danke Ihnen für die klare Antwort."
+  ],
+  "pool.tauschvorschlag.r.r3": [
+    "{b.gut} Dann gehen wir beide gestärkt aus diesem Tausch hervor.",
+    "{b.gut} Abgemacht, das bringt beide Klubs weiter."
+  ],
+  "pool.tauschvorschlag.r.r4": [
+    "{b.neutral} Ich nehme das mit in unsere Sitzung.",
+    "{b.neutral} Dann sehen wir weiter, nichts ist entschieden."
+  ],
+  "pool.tauschvorschlag.r.r5": [
+    "{b.neutral} Ich weiß nicht, ob ich mich ärgern oder freuen soll.",
+    "{b.neutral} Das war nicht, was ich erwartet hatte, aber ich überlege."
+  ],
+  "pool.tauschvorschlag.r.r6": [
+    "{b.neutral} Kein Problem, ich rufe in ein paar Tagen wieder an.",
+    "{b.neutral} Wir haben es nicht eilig."
+  ],
+  "pool.tauschvorschlag.r.r7": [
+    "{b.schlecht} Dann bleibt mir nur, anders zu planen.",
+    "{b.schlecht} Damit ist der Tausch wohl vom Tisch."
+  ],
+  "pool.tauschvorschlag.r.r8": [
+    "{b.schlecht} Mit diesem Ton können Sie mir gestohlen bleiben!",
+    "{b.schlecht} Dann reden wir eben über die Presse miteinander!"
+  ],
+  "pool.tauschvorschlag.r.r9": [
+    "{b.schlecht} Dann hören wir uns bei {name} direkt um.",
+    "{b.schlecht} Ich spreche einfach mit {name}, vielleicht denkt er anders."
+  ],
+  "pool.tauschvorschlag.r.r10": [
+    "{b.schlecht} Das hat mich überrascht und, ehrlich gesagt, gekränkt.",
+    "{b.schlecht} Ich dachte, wir seien Partner."
+  ],
+  "pool.tauschvorschlag.r.r11": [
+    "{b.gut} Dann haben wir einen Tausch, ich lasse die Papiere vorbereiten.",
+    "{b.gut} Prima, ich schicke Ihnen noch heute die Eckpunkte."
+  ],
+  "pool.tauschvorschlag.r.r12": [
+    "{b.neutral} Es bleibt offen, ich melde mich in den nächsten Tagen.",
+    "{b.neutral} Noch ist nichts verloren, wir telefonieren wieder."
+  ],
+  "pool.tauschvorschlag.r.r13": [
+    "{b.schlecht} Dann lasse ich es bleiben und schaue mich nach anderen Spielern um.",
+    "{b.schlecht} Damit ist die Sache für mich erledigt."
+  ],
+  "pool.tauschvorschlag.x.x1": [
+    "Das Telefonat endet freundlich. {entscheidung} Beide Seiten wissen nun, woran sie sind.",
+    "{entscheidung} Der Sportdirektor legt zufrieden auf."
+  ],
+  "pool.tauschvorschlag.x.x2": [
+    "Das Gespräch endet ohne Ergebnis. {entscheidung} Der Tausch bleibt eine Möglichkeit.",
+    "{entscheidung} {verein} meldet sich in einigen Tagen noch einmal."
+  ],
+  "pool.tauschvorschlag.x.x3": [
+    "Der Sportdirektor legt wütend auf. {entscheidung} Kurz darauf sickert der Tauschvorschlag an die Presse durch.",
+    "{entscheidung} Bald wissen auch die Fans, dass {name} im Gespräch war."
+  ],
+  "pool.tauschvorschlag.x.x4": [
+    "Der Tausch ist besiegelt. {entscheidung} Die Vertragsabteilungen bereiten die Papiere vor.",
+    "{entscheidung} Der Sportdirektor kündigt einen Vertragsentwurf an."
+  ],
+  "pool.tauschvorschlag.x.x5": [
+    "Der Sportdirektor beendet das Telefonat abrupt. {entscheidung} Der Vorschlag ist erledigt.",
+    "{entscheidung} {verein} zieht den Tauschvorschlag zurück."
+  ]
+}

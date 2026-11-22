@@ -1,0 +1,218 @@
+{
+ "min_apps_month": 3,
+ "min_apps_season": 18,
+ "min_apps_tour": 3,
+ "goal_weight": 0.35,
+ "pseudo": {
+  "base": 6.2,
+  "win": 0.25,
+  "loss": -0.25,
+  "ovr": 0.04,
+  "goal": 0.9,
+  "cs": 0.4,
+  "noise": 0.5
+ },
+ "week": {
+  "formations": [
+   [
+    4,
+    3,
+    3
+   ],
+   [
+    4,
+    4,
+    2
+   ],
+   [
+    3,
+    5,
+    2
+   ]
+  ],
+  "club_cap": 3,
+  "dg_steps": [
+   3,
+   5,
+   8,
+   12
+  ],
+  "morale": 1.5,
+  "own_hist": 10
+ },
+ "news_leagues": 3,
+ "keep_awards": 1400,
+ "keep_seasons": 20,
+ "keep_honours": 12,
+ "milestones": {
+  "goals": [
+   25,
+   50,
+   100,
+   150,
+   200,
+   250,
+   300
+  ],
+  "apps": [
+   50,
+   100,
+   250,
+   500,
+   750,
+   1000
+  ],
+  "streak": [
+   5,
+   8,
+   10,
+   15
+  ],
+  "big_win": 6,
+  "news_min_ovr": 80
+ },
+ "legend": {
+  "seasons": 6,
+  "apps": 150,
+  "goals": 60
+ },
+ "effects": {
+  "morale_award": 4,
+  "ehr_award": 0.03,
+  "ehr_final": 0.03,
+  "ehr_win": 0.12,
+  "ehr_top3": 0.07,
+  "ehr_top10": 0.04,
+  "ehr_cap": 1.25,
+  "decay": 0.5,
+  "envy_morale": 2
+ },
+ "ballon": {
+  "min_apps": 15,
+  "title": {
+   "league": 2.0,
+   "cup": 1.0,
+   "cl": 5.0,
+   "el": 2.5,
+   "ecl": 1.5
+  },
+  "groups": {
+   "Trainer": {
+    "leistung": 0.55,
+    "titel": 0.25,
+    "beliebt": 0.1,
+    "story": 0.1
+   },
+   "Kapitäne": {
+    "leistung": 0.4,
+    "titel": 0.3,
+    "beliebt": 0.2,
+    "story": 0.1
+   },
+   "Journalisten": {
+    "leistung": 0.3,
+    "titel": 0.3,
+    "beliebt": 0.15,
+    "story": 0.25
+   }
+  },
+  "points": [
+   5,
+   3,
+   2,
+   1,
+   1
+  ],
+  "candidates": 30
+ },
+ "t": {
+  "motm_goals1": "ein Tor",
+  "motm_goals2": "zwei Tore",
+  "motm_goals3": "drei Tore",
+  "week_news": "Elf der Woche in der {lg}: {n} Spieler deines Vereins dabei ({names}).",
+  "week_reason": "Die besten Leistungen des Spieltags, die Mannschaft wurde nach Position ausgewogen zusammengestellt (Formation {f}).",
+  "dg_news": "{name} ist Dauergast in der Elf der Woche",
+  "newcomer_month": "Neuling des Monats ({m}): {name}, {club}",
+  "player_month": "Spieler des Monats in der {lg} ({m}): {name}, {club}",
+  "coach_month": "Trainer des Monats in der {lg} ({m}): {name}, {club}",
+  "goal_month": "Tor des Monats in der {lg} ({m}): {name}, {club}",
+  "goal_kind_up": "ein Außenseiter-Tor, das die Partie drehte oder entschied",
+  "goal_kind_late": "spät und wichtig, das Stadion stand Kopf",
+  "goal_kind_plain": "ein sehenswerter Treffer",
+  "xi_why": "Die beständigsten Spieler der Saison, nach Position ausgewogen zusammengestellt (Formation {f}).",
+  "fair_player": "Fairplay-Preis deines Vereins: {name}",
+  "fair_club": "Fairplay-Preis der Liga: {club}",
+  "fair_club_why": "Die wenigsten Karten der gesamten Liga.",
+  "tour_player": "Spieler des Turniers ({cup}): {name} ({club})",
+  "boot": "Goldener Schuh ({cup}): {name} ({club})",
+  "glove": "Goldener Handschuh ({cup}): {name} ({club})",
+  "young_tour": "Bester junger Spieler ({cup}): {name} ({club})",
+  "xi_tour": "Elf des Turniers ({cup})",
+  "milestone_goal": "{name} erzielt sein {n}. Tor in seiner Karriere",
+  "streak": "{club} mit {n} Siegen in Serie",
+  "young_scorer": "{name} ({age}) ist der jüngste Torschütze der Saison in der {lg}",
+  "old_scorer": "{name} ({age}) ist der älteste Torschütze der Saison in der {lg}",
+  "age_why": "Erfahrung und Unbekümmertheit können sich eben auszahlen: Ein Tor gegen {opp} in der {min}. Minute.",
+  "bigwin": "Höchster Sieg der Saison: {home} {hg}:{ag} {away}",
+  "bigwin_why": "Ein Schützenfest mit {d} Toren Unterschied, das so schnell nicht vergessen wird.",
+  "bigwin_rec": "Neuer Rekordsieg: {home} {hg}:{ag} {away}",
+  "bigwin_rec_why": "Größer war ein Sieg seit Beginn der Aufzeichnung nicht, vorher stand die Bestmarke bei {d} Toren Unterschied.",
+  "legend": "{name} wird zur Vereinslegende von {club}",
+  "envy": "{name} nimmt die Ehrung für {other} mit gemischten Gefühlen auf",
+  "pride": "{name} strahlt: Die Ehrung beflügelt die Kabine",
+  "ballon_xi": "Mannschaft des Jahres",
+  "scorer_king": "Torschützenkönig {lg}: {name} ({club})",
+  "gk_king": "Bester Torwart der {lg}: {name} ({club})",
+  "rise": "Aufsteiger der Saison in der {lg}: {club}",
+  "coach_season": "Trainer der Saison in der {lg}: {name} ({club})",
+  "player_season": "Spieler der Saison in der {lg}: {name} ({club})",
+  "young_season": "Jugendspieler der Saison in der {lg}: {name} ({club})",
+  "disc_season": "Entdeckung der Saison in der {lg}: {name} ({club})",
+  "xi_season": "Elf der Saison in der {lg}",
+  "milestone_app": "{name} bestreitet sein {n}. Spiel in seiner Karriere",
+  "ballon": "Weltfußballer: {name} ({club})",
+  "ballon_gk": "Welttorhüter: {name} ({club})",
+  "ballon_young": "Nachwuchsspieler des Jahres: {name} ({club})",
+  "ballon_coach": "Welttrainer: {name} ({club})"
+ },
+ "archive_leagues": 6,
+ "monthly_leagues": 2,
+ "keep_text_seasons": 2,
+ "months": [
+  "Januar",
+  "Februar",
+  "März",
+  "April",
+  "Mai",
+  "Juni",
+  "Juli",
+  "August",
+  "September",
+  "Oktober",
+  "November",
+  "Dezember"
+ ],
+ "ordinal": [
+  "",
+  "bester",
+  "zweitbester",
+  "drittbester",
+  "viertbester",
+  "fünftbester",
+  "sechstbester",
+  "siebtbester",
+  "achtbester",
+  "neuntbester",
+  "zehntbester",
+  "elftbester",
+  "zwölftbester",
+  "dreizehntbester",
+  "vierzehntbester",
+  "fünfzehntbester",
+  "sechzehntbester",
+  "siebzehntbester",
+  "achtzehntbester",
+  "neunzehntbester",
+  "zwanzigster"
+ ]
+}

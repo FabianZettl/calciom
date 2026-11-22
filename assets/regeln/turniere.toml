@@ -1,0 +1,71 @@
+# Turniere und Reisen der Vorbereitung (Punkt 14, Fabians Antworten 2 und 3). Diese Datei darfst du ändern:
+# Einträge dazunehmen, umbenennen, löschen. echt = true heißt: das Turnier gibt es wirklich (Name wie im Fußball),
+# echt = false heißt: erfunden. Keine Hallenturniere; kleine Turniere auf Reisen mit 2 bis 4 Mannschaften.
+# region: wohin die Reise geht; tage: Länge der Reise; reise: Belastung der Anreise (Kondition, die die Spieler verlieren);
+# kosten: was die Reise den Verein kostet; antritt: Antrittsgeld des Veranstalters; teams: Mannschaften im Turnier (mit uns).
+
+[[turnier]]
+id = "asien_tour"
+name = "Asien-Tour mit dem Pacific Asia Trophy"
+echt = false
+region = "Asien"
+tage = 9
+reise = 9
+kosten = 1800000
+antritt = 2500000
+teams = 4
+
+[[turnier]]
+id = "usa_tour"
+name = "USA-Tour mit dem International Champions Cup"
+echt = true
+region = "USA"
+tage = 10
+reise = 10
+kosten = 2200000
+antritt = 3000000
+teams = 4
+
+[[turnier]]
+id = "sommer_cup"
+name = "Sommer-Cup am See"
+echt = false
+region = "Europa"
+tage = 4
+reise = 3
+kosten = 250000
+antritt = 300000
+teams = 3
+
+[[turnier]]
+id = "emirates_cup"
+name = "Emirates Cup"
+echt = true
+region = "Europa"
+tage = 4
+reise = 3
+kosten = 400000
+antritt = 800000
+teams = 4
+
+[[turnier]]
+id = "gamper"
+name = "Trofeo Joan Gamper"
+echt = true
+region = "Europa"
+tage = 3
+reise = 3
+kosten = 300000
+antritt = 600000
+teams = 2
+
+[[turnier]]
+id = "atlantik"
+name = "Atlantik-Trophy"
+echt = false
+region = "Europa"
+tage = 5
+reise = 4
+kosten = 500000
+antritt = 400000
+teams = 3

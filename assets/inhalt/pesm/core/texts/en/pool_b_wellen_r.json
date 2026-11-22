@@ -1,0 +1,58 @@
+{
+  "pool.b.fans_ticketpreise_gruss": [
+    "Dear coach, we are writing to you on behalf of the terraces.",
+    "Coach, this is the spokesman of the fan council, and we have a concern."
+  ],
+  "pool.b.fans_ticketpreise_lage": [
+    "Season tickets have become too expensive, and hardly any of us can afford an away trip any more.",
+    "More and more people in the terraces hand back their season tickets because tickets and away trips are barely affordable."
+  ],
+  "pool.b.fans_ticketpreise_lage.hitzig": [
+    "The prices are outrageous! We pay through the nose for season tickets and away trips!",
+    "What is going on with season tickets is a rip-off, and away trips are a bottomless pit!"
+  ],
+  "pool.b.fans_ticketpreise_lage.loyal": [
+    "We have been here for years and pay gladly, but prices for season tickets and away trips are hardly bearable now.",
+    "We are loyal to the club, but many of us reach our limit with season tickets and trips."
+  ],
+  "pool.b.fans_ticketpreise_lage.ehrgeizig": [
+    "If this club wants to aim higher it needs a full terrace, but at these season ticket prices it stays empty.",
+    "Big goals and expensive tickets do not go together, and you hardly see any of our fans away from home."
+  ],
+  "pool.b.fans_ticketpreise_lage.wechselfreudig": [
+    "If this goes on, many of us will look for another pastime, because the prices for season tickets and trips are inflated.",
+    "There are other things to do on a Saturday, and at these prices the first season tickets will stay unsold."
+  ],
+  "pool.b.fans_ticketpreise_lage.sensibel": [
+    "It is not easy for us to burden you with this, but ticket and trip prices hit many families hard.",
+    "We feel left alone with our worries, because a season ticket and an away trip are hardly possible for some."
+  ],
+  "pool.b.fans_lob_choreo_gruss": [
+    "Coach, this is the fan council of the terraces, and this time with good news.",
+    "Coach, the terraces are getting in touch, and in the best of moods."
+  ],
+  "pool.b.fans_lob_choreo_lage": [
+    "Since the team keeps winning game after game our block is shaking, and we want to celebrate it properly.",
+    "The winning run has transformed the stadium, and the terraces have nothing but praise."
+  ],
+  "pool.b.fans_lob_choreo_lage.hitzig": [
+    "What the lads are producing is madness! The terraces are on fire and we want everyone to see it!",
+    "The run is unbelievable, we go wild every time and want to make even more noise!"
+  ],
+  "pool.b.fans_lob_choreo_lage.loyal": [
+    "We stood by you in bad times, and now the run makes us all the prouder of the team and the coach.",
+    "We are happy for you and the lads that it is going so well, because we have always backed you."
+  ],
+  "pool.b.fans_lob_choreo_lage.ehrgeizig": [
+    "The run shows what this club is capable of, and with the terraces behind it even more is possible.",
+    "Now that things are going well we want to show that the terraces can carry this team to greater things."
+  ],
+  "pool.b.fans_lob_choreo_lage.wechselfreudig": [
+    "At last a reason again to come to the stadium every week, and we want to celebrate the team for it.",
+    "The run has brought us back, many of us were almost gone."
+  ],
+  "pool.b.fans_lob_choreo_lage.sensibel": [
+    "We are honestly moved by what the team gives us in these weeks and would like to say thank you.",
+    "The run means more to us than words can say, and we would like to show it."
+  ]
+}

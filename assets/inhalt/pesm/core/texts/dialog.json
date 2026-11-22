@@ -1,0 +1,1248 @@
+{
+ "dlg.absicht.zustimmen": "Zustimmen",
+ "dlg.absicht.danken": "Danken",
+ "dlg.absicht.loben": "Loben",
+ "dlg.absicht.erklaeren": "Erklären",
+ "dlg.absicht.nachfragen": "Nachfragen, warum",
+ "dlg.absicht.gegenangebot": "Gegenangebot",
+ "dlg.absicht.kompromiss": "Kompromiss anbieten",
+ "dlg.absicht.versprechen": "Versprechen geben",
+ "dlg.absicht.gefuehl": "Gefühl ansprechen",
+ "dlg.absicht.entschuldigen": "Entschuldigen",
+ "dlg.absicht.beruhigen": "Beruhigen",
+ "dlg.absicht.druck": "Druck machen",
+ "dlg.absicht.zeit": "Zeit verschaffen",
+ "dlg.absicht.ablehnen": "Ablehnen",
+ "dlg.absicht.kritisieren": "Kritik üben",
+ "dlg.absicht.ausblick": "Ausblick geben",
+ "dlg.absicht.auflockern": "Die Stimmung lockern",
+ "dlg.absicht.ablenken": "Ablenken",
+ "dlg.absicht.abschliessen": "Gespräch abschließen",
+ "dlg.absicht.abbrechen": "Abbrechen",
+ "dlg.absicht.nachfragen.2": "Noch einmal nachhaken",
+ "dlg.absicht.gegenangebot.2": "Nachlegen",
+ "dlg.absicht.zeit.2": "Noch mehr Zeit",
+ "dlg.absicht.ablehnen.2": "Nochmals ablehnen",
+ "dlg.absicht.druck.2": "Den Druck erhöhen",
+ "dlg.punkt.spielzeit": "Spielzeit",
+ "dlg.stufe.spielzeit.0": "keine Zusage",
+ "dlg.stufe.spielzeit.1": "regelmäßige Einsätze",
+ "dlg.stufe.spielzeit.2": "ein Stammplatz",
+ "dlg.punkt.rolle": "Rolle",
+ "dlg.stufe.rolle.0": "keine Aufgabe",
+ "dlg.stufe.rolle.1": "eine feste Aufgabe",
+ "dlg.stufe.rolle.2": "eine Führungsrolle",
+ "dlg.punkt.zukunft": "Zukunft im Verein",
+ "dlg.stufe.zukunft.0": "offen",
+ "dlg.stufe.zukunft.1": "Gespräche über einen neuen Vertrag",
+ "dlg.stufe.zukunft.2": "eine Verlängerung",
+ "dlg.stufe.zukunft.3": "eine Verlängerung mit besseren Bedingungen",
+ "dlg.punkt.heimweh": "Heimweh",
+ "dlg.stufe.heimweh.0": "nur Verständnis",
+ "dlg.stufe.heimweh.1": "einen Besuch zu Hause",
+ "dlg.stufe.heimweh.2": "eine längere Freistellung",
+ "dlg.punkt.streit": "Streit in der Kabine",
+ "dlg.stufe.streit.0": "ein Gespräch",
+ "dlg.stufe.streit.1": "eine Vermittlung",
+ "dlg.stufe.streit.2": "Konsequenzen für den anderen",
+ "dlg.punkt.wechselwunsch": "Wechselwunsch",
+ "dlg.stufe.wechselwunsch.0": "Bitte zu bleiben",
+ "dlg.stufe.wechselwunsch.1": "eine klare Perspektive",
+ "dlg.stufe.wechselwunsch.2": "Freigabe im Sommer",
+ "dlg.stufe.wechselwunsch.3": "Freigabe sofort",
+ "dlg.punkt.provision": "Provision",
+ "dlg.stufe.provision.0": "die bisherige Provision",
+ "dlg.stufe.provision.1": "ein kleiner Aufschlag",
+ "dlg.stufe.provision.2": "ein deutlicher Aufschlag",
+ "dlg.stufe.provision.3": "eine Prämie obendrauf",
+ "dlg.punkt.angebote": "Angebote anderer Vereine",
+ "dlg.stufe.angebote.0": "keine Weitergabe",
+ "dlg.stufe.angebote.1": "Weitergabe mit Frist",
+ "dlg.stufe.angebote.2": "volle Offenlegung",
+ "dlg.punkt.leihe": "Leihe",
+ "dlg.stufe.leihe.0": "Leihe ohne Option",
+ "dlg.stufe.leihe.1": "Leihe mit Kaufoption",
+ "dlg.stufe.leihe.2": "Leihe mit Kaufpflicht",
+ "dlg.punkt.klauseln": "Klauseln",
+ "dlg.stufe.klauseln.0": "keine Klauseln",
+ "dlg.stufe.klauseln.1": "eine Weiterverkaufsbeteiligung",
+ "dlg.stufe.klauseln.2": "Weiterverkaufsbeteiligung und Rückkaufoption",
+ "dlg.punkt.tausch": "Tauschgeschäft",
+ "dlg.stufe.tausch.0": "kein Tausch",
+ "dlg.stufe.tausch.1": "ein Spieler im Tausch",
+ "dlg.stufe.tausch.2": "zwei Spieler im Tausch",
+ "dlg.punkt.interview": "Interview",
+ "dlg.stufe.interview.0": "kein Interview",
+ "dlg.stufe.interview.1": "ein kurzes Statement",
+ "dlg.stufe.interview.2": "ein offenes Gespräch",
+ "dlg.stufe.interview.3": "ein Exklusivinterview",
+ "dlg.punkt.dementi": "Dementi",
+ "dlg.stufe.dementi.0": "kein Kommentar",
+ "dlg.stufe.dementi.1": "ein Dementi",
+ "dlg.stufe.dementi.2": "eine klare Stellungnahme",
+ "dlg.punkt.kommentar": "Kommentar zum Gerücht",
+ "dlg.stufe.kommentar.0": "kein Wort",
+ "dlg.stufe.kommentar.1": "eine vorsichtige Einordnung",
+ "dlg.stufe.kommentar.2": "eine offene Einordnung",
+ "dlg.punkt.training": "Trainingsbelastung",
+ "dlg.stufe.training.0": "unverändert",
+ "dlg.stufe.training.1": "etwas weniger",
+ "dlg.stufe.training.2": "deutlich weniger",
+ "dlg.punkt.perspektive": "Perspektive",
+ "dlg.stufe.perspektive.0": "keine Zusage",
+ "dlg.stufe.perspektive.1": "ein Platz im Jugendteam",
+ "dlg.stufe.perspektive.2": "ein Weg in den Profikader",
+ "dlg.punkt.akademie": "Platz in der Akademie",
+ "dlg.stufe.akademie.0": "kein Platz",
+ "dlg.stufe.akademie.1": "ein Probetraining",
+ "dlg.stufe.akademie.2": "ein fester Platz",
+ "dlg.punkt.budget": "Budget",
+ "dlg.stufe.budget.0": "das bisherige Budget",
+ "dlg.stufe.budget.1": "ein kleiner Zuschlag",
+ "dlg.stufe.budget.2": "ein deutlicher Zuschlag",
+ "dlg.stufe.budget.3": "ein großer Zuschlag",
+ "dlg.punkt.ziele": "Saisonziel",
+ "dlg.stufe.ziele.0": "ein vorsichtiges Ziel",
+ "dlg.stufe.ziele.1": "ein ehrgeiziges Ziel",
+ "dlg.stufe.ziele.2": "ein sehr hohes Ziel",
+ "dlg.punkt.preise": "Eintrittspreise",
+ "dlg.stufe.preise.0": "unveränderte Preise",
+ "dlg.stufe.preise.1": "ein Preisnachlass für Stammgäste",
+ "dlg.stufe.preise.2": "deutlich günstigere Karten",
+ "dlg.punkt.protest": "Protest",
+ "dlg.stufe.protest.0": "kein Entgegenkommen",
+ "dlg.stufe.protest.1": "ein Treffen mit den Fans",
+ "dlg.stufe.protest.2": "eine öffentliche Zusage",
+ "dlg.anliegen.spielzeit": [
+  "Mir geht es um %3."
+ ],
+ "dlg.einigung.spielzeit": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.anliegen.rolle": [
+  "Ich brauche %3."
+ ],
+ "dlg.einigung.rolle": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.anliegen.zukunft": [
+  "Ich will wissen, woran ich bin: %3."
+ ],
+ "dlg.einigung.zukunft": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.anliegen.heimweh": [
+  "Ich brauche %3."
+ ],
+ "dlg.einigung.heimweh": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.anliegen.streit": [
+  "Ich erwarte %3."
+ ],
+ "dlg.einigung.streit": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.anliegen.wechselwunsch": [
+  "Ich erwarte %3."
+ ],
+ "dlg.einigung.wechselwunsch": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.anliegen.provision": [
+  "Wir bestehen auf %3."
+ ],
+ "dlg.einigung.provision": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.anliegen.angebote": [
+  "Wir erwarten %3."
+ ],
+ "dlg.einigung.angebote": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.anliegen.leihe": [
+  "Wir denken an %3."
+ ],
+ "dlg.einigung.leihe": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.anliegen.klauseln": [
+  "Für uns gehört %3 dazu."
+ ],
+ "dlg.einigung.klauseln": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.anliegen.tausch": [
+  "Wir stellen uns %3 vor."
+ ],
+ "dlg.einigung.tausch": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.anliegen.interview": [
+  "Ich möchte %3."
+ ],
+ "dlg.einigung.interview": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.anliegen.dementi": [
+  "Wir brauchen %3."
+ ],
+ "dlg.einigung.dementi": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.anliegen.kommentar": [
+  "Die Leser erwarten %3."
+ ],
+ "dlg.einigung.kommentar": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.anliegen.training": [
+  "Ich schlage %3 vor."
+ ],
+ "dlg.einigung.training": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.anliegen.perspektive": [
+  "Wir möchten %3."
+ ],
+ "dlg.einigung.perspektive": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.anliegen.akademie": [
+  "Uns ist wichtig: %3."
+ ],
+ "dlg.einigung.akademie": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.anliegen.budget": [
+  "Wir müssen über %3 reden."
+ ],
+ "dlg.einigung.budget": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.anliegen.ziele": [
+  "Der Vorstand erwartet %3."
+ ],
+ "dlg.einigung.ziele": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.anliegen.preise": [
+  "Wir verlangen %3."
+ ],
+ "dlg.einigung.preise": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.anliegen.protest": [
+  "Wir fordern %3."
+ ],
+ "dlg.einigung.protest": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.eroeffnung.spielzeit": [
+  "%1 stellt sich vor Sie hin: „Ich spiele zu wenig. So geht das nicht weiter.“",
+  "%1 kommt direkt zur Sache: „Ich will wissen, warum ich auf der Bank sitze.“"
+ ],
+ "dlg.eroeffnung.rolle": [
+  "%1 fragt: „Was habe ich hier eigentlich für eine Aufgabe?“",
+  "%1 sagt: „Ich will Verantwortung. Sehen Sie mich überhaupt in der Rolle?“"
+ ],
+ "dlg.eroeffnung.form": [
+  "%1 sagt leise: „Ich merke selbst, dass es nicht läuft.“",
+  "%1 wirkt bedrückt: „Das Selbstvertrauen ist weg.“"
+ ],
+ "dlg.eroeffnung.lob": [
+  "%1 kommt gespannt zum Gespräch und ahnt nicht, worum es geht.",
+  "%1 setzt sich und wartet ab, was Sie zu sagen haben."
+ ],
+ "dlg.eroeffnung.kritik": [
+  "%1 verschränkt die Arme: „Sie wollten mich sprechen?“",
+  "%1 sitzt Ihnen gegenüber und ahnt, dass es unangenehm wird."
+ ],
+ "dlg.eroeffnung.zukunft": [
+  "%1 fragt direkt: „Wie sehen Sie meine Zukunft hier?“",
+  "%1 sagt: „Ich möchte Klarheit, wohin die Reise geht.“"
+ ],
+ "dlg.eroeffnung.heimweh": [
+  "%1 sagt stockend: „Zuhause fehlt mir so viel. Ich kann mich kaum konzentrieren.“",
+  "%1 wirkt abwesend: „Ich vermisse meine Familie.“"
+ ],
+ "dlg.eroeffnung.streit": [
+  "%1 ist aufgebracht: „Mit dem komme ich nicht mehr klar. Da muss etwas passieren.“",
+  "%1 sagt: „Ich lasse mir das in der Kabine nicht mehr bieten.“"
+ ],
+ "dlg.eroeffnung.wechselwunsch": [
+  "%1 legt es offen dar: „Ich möchte den Verein verlassen.“",
+  "%1 sagt ernst: „Ich habe mich entschieden. Ich will weg.“"
+ ],
+ "dlg.eroeffnung.marktlage": [
+  "%1 beugt sich vor: „Es gibt Bewegung auf dem Markt. Wollen Sie hören, was ich weiß?“",
+  "%1 sagt: „Ich höre mich um. Da gibt es Interessenten.“"
+ ],
+ "dlg.eroeffnung.provision": [
+  "%1 kommt zur Sache: „Meine Provision steht zur Diskussion. Das ist nicht mehr zeitgemäß.“",
+  "%1 sagt: „Für die Arbeit der letzten Monate erwarte ich eine Anpassung.“"
+ ],
+ "dlg.eroeffnung.angebote": [
+  "%1 deutet an: „Andere Vereine haben angefragt. Ich muss das nicht für mich behalten.“",
+  "%1 sagt kühl: „Ich habe Angebote auf dem Tisch. Ihre Antwort bestimmt, wie ich damit umgehe.“"
+ ],
+ "dlg.eroeffnung.austausch": [
+  "%1 begrüßt Sie höflich, aber vorsichtig.",
+  "%1 hat sich Zeit genommen: „Schön, dass Sie sich melden. Worum geht es?“"
+ ],
+ "dlg.eroeffnung.leihe": [
+  "%1 schlägt vor: „Wir können über eine Leihe reden, aber zu unseren Bedingungen.“",
+  "%1 sagt: „Eine Leihe ist denkbar. Was schwebt Ihnen vor?“"
+ ],
+ "dlg.eroeffnung.klauseln": [
+  "%1 sagt: „Ohne Klauseln wird das schwierig. Wir wollen abgesichert sein.“",
+  "%1 stellt klar: „Über die Klauseln müssen wir sprechen.“"
+ ],
+ "dlg.eroeffnung.tauschgeschaeft": [
+  "%1 meint: „Wir sind für einen Tausch offen, wenn die Werte stimmen.“",
+  "%1 fragt: „Wen würden Sie uns im Gegenzug anbieten?“"
+ ],
+ "dlg.eroeffnung.hintergrund": [
+  "%1 sagt: „Das Gespräch bleibt unter uns, aber ich möchte Ihre Sicht verstehen.“",
+  "%1 steckt den Block weg: „Nur zur Einordnung, nichts davon steht morgen in der Zeitung.“"
+ ],
+ "dlg.eroeffnung.interview": [
+  "%1 fragt: „Hätten Sie Zeit für ein Interview? Die Leser wollen Sie hören.“",
+  "%1 sagt: „Ein paar Fragen zur aktuellen Lage, wenn Sie erlauben.“"
+ ],
+ "dlg.eroeffnung.dementi": [
+  "%1 sagt: „Wir haben da etwas gehört. Können Sie das dementieren?“",
+  "%1 verlangt Klarheit: „Stimmt das Gerücht oder nicht?“"
+ ],
+ "dlg.eroeffnung.kommentar": [
+  "%1 fragt: „Zu den Gerüchten der letzten Tage: Wie ordnen Sie das ein?“",
+  "%1 sagt: „Es wird viel geredet. Was ist dran?“"
+ ],
+ "dlg.eroeffnung.einschaetzung": [
+  "%1 blättert in den Notizen: „Ich habe die Mannschaft in dieser Woche genau beobachtet.“",
+  "%1 sagt: „Wenn Sie mögen, gebe ich Ihnen meine ehrliche Einschätzung.“"
+ ],
+ "dlg.eroeffnung.training": [
+  "%1 meint: „Die Belastung ist hoch. Wie wollen wir weitermachen?“",
+  "%1 will wissen: „Wie hart soll ich die Einheiten ansetzen?“"
+ ],
+ "dlg.eroeffnung.eltern": [
+  "%1 ist skeptisch: „Wir geben unser Kind nicht einfach aus der Hand. Was haben Sie vor?“",
+  "%1 sagt: „Uns ist wichtig, dass es unserem Kind gut geht.“"
+ ],
+ "dlg.eroeffnung.akademie": [
+  "%1 fragt: „Was kann Ihre Akademie unserem Sohn bieten?“",
+  "%1 sagt: „Wir vergleichen mehrere Möglichkeiten. Überzeugen Sie uns.“"
+ ],
+ "dlg.eroeffnung.vorstand_budget": [
+  "%1 eröffnet: „Wir müssen über das Budget sprechen. Die Lage ist angespannt.“",
+  "%1 sagt nüchtern: „Sie wünschen mehr Mittel? Begründen Sie das.“"
+ ],
+ "dlg.eroeffnung.vorstand_ziele": [
+  "%1 sagt: „Wir erwarten für diese Saison ein klares Ziel von Ihnen.“",
+  "%1 fragt: „Was versprechen Sie uns für die Tabelle?“"
+ ],
+ "dlg.eroeffnung.vorstand_vertrauen": [
+  "%1 sagt kühl: „Im Präsidium wächst die Unruhe. Wir müssen reden.“",
+  "%1 bittet Sie herein: „Es gibt Fragen zu Ihrer Arbeit.“"
+ ],
+ "dlg.eroeffnung.fans_stimmung": [
+  "%1 sagt: „In der Kurve ist die Stimmung gekippt. Wir wollten, dass Sie das wissen.“",
+  "%1 spricht Sie an: „Die Fans sind enttäuscht.“"
+ ],
+ "dlg.eroeffnung.fans_preise": [
+  "%1 fordert: „Die Preise sind zu hoch. Viele können sich das Stadion nicht mehr leisten.“",
+  "%1 sagt: „Wir sprechen im Namen vieler Fans über die Preise.“"
+ ],
+ "dlg.eroeffnung.fans_protest": [
+  "%1 warnt: „Wenn sich nichts ändert, planen wir einen Protest.“",
+  "%1 sagt hart: „Die Geduld der Fans ist am Ende.“"
+ ],
+ "dlg.eroeffnung.vertrag": [
+  "%1 hat die Unterlagen schon auf dem Tisch: „Dann lassen Sie uns über die Eckdaten sprechen.“",
+  "%1 wartet auf Ihren ersten Vorschlag und lässt sich nichts anmerken."
+ ],
+ "dlg.eroeffnung.transfer": [
+  "%1 erwartet Ihren Vorschlag: „Nennen Sie uns die Eckdaten.“",
+  "%1 hört sich Ihren Rahmen an und wartet ab."
+ ],
+ "dlg.vz.vertrag.einig": "Dann ist der Vertrag unter Dach und Fach.",
+ "dlg.vz.transfer.einig": "Dann ist das Geschäft besiegelt.",
+ "dlg.vz.abgelehnt": "Das Gegenüber lehnt das Gegenangebot ab und nimmt Ihren Entwurf wieder auf.",
+ "dlg.vz.kompromiss.annahme": "Das ist ein Kompromiss, mit dem es leben kann: einverstanden.",
+ "dlg.vz.kompromiss.gegen": "Ein Stück näher, aber noch nicht ganz: Ein neues Gegenangebot liegt vor.",
+ "dlg.vz.kompromiss.ablehnung": "Auch die Mitte reicht noch nicht.",
+ "dlg.vz.kompromiss.beleidigt": "Das empfindet das Gegenüber auch als Mitte nicht akzeptabel.",
+ "dlg.vz.druck.wirkt": "Das Gegenüber rechnet nach und wird nachgiebiger.",
+ "dlg.vz.druck.verpufft": "Das Gegenüber lässt sich nicht beeindrucken und wird kühler.",
+ "dlg.vz.gefuehl.wirkt": "Das berührt das Gegenüber, die Härte lässt nach.",
+ "dlg.vz.gefuehl.kuehl": "Das Gegenüber bleibt nüchtern: Es geht ums Geschäft.",
+ "dlg.vz.vertrag.versprechen": "Das hört das Gegenüber gern: Mehr Spielzeit steht nun im Entwurf.",
+ "dlg.vz.transfer.versprechen": "Das hört das Gegenüber gern: Eine Weiterverkaufsbeteiligung steht nun im Entwurf.",
+ "dlg.vz.zeit": "Das Gegenüber gewährt ein paar Tage mehr.",
+ "dlg.vz.abbruch": "Das Gegenüber nickt knapp. Die Verhandlung ist beendet.",
+ "dlg.vz.grund.moral": "Ehrlich gesagt hängt es an der Stimmung: So jemand unterschreibt jetzt nicht.",
+ "dlg.vz.grund.misstrauen": "Frühere Zusagen wurden nicht gehalten. Das ist der Knackpunkt.",
+ "dlg.vz.grund.beziehung": "Das Verhältnis ist angespannt. Das macht es schwer.",
+ "dlg.vz.grund.gehalt": "Beim Gehalt fehlt noch etwas.",
+ "dlg.vz.grund.laufzeit": "Die Laufzeit ist nicht, was wir uns vorgestellt haben.",
+ "dlg.vz.grund.preis_weit": "Der Preis liegt noch deutlich unter unserer Vorstellung.",
+ "dlg.vz.grund.preis_nah": "Wir sind nah beieinander. Es fehlt nur noch ein Schritt.",
+ "dlg.vz.grund.keiner": "Im Grunde passt es, es fehlt nur der letzte Schritt.",
+ "dlg.ich.z_warm": [
+  "Du hast recht, %3 – das machen wir.",
+  "Einverstanden, du bekommst %3. Es ist mir wichtig, dass du dich gut aufgehoben fühlst."
+ ],
+ "dlg.ich.z_warm.sie": [
+  "Sie haben recht, %3 – so machen wir es.",
+  "Einverstanden, Sie bekommen %3. Mir ist wichtig, dass Sie sich gut aufgehoben fühlen."
+ ],
+ "dlg.ich.z_sachlich": [
+  "In Ordnung: %3. Das ist fair, damit sind wir uns einig.",
+  "Gut, %3. Dann halten wir das so fest."
+ ],
+ "dlg.ich.z_sachlich.sie": [
+  "In Ordnung: %3. Das ist fair, damit sind wir uns einig.",
+  "Gut, %3. Dann halten wir das so fest."
+ ],
+ "dlg.ich.z_widerwillig": [
+  "Na gut. %3, aber danach erwarte ich etwas von dir.",
+  "Ich gebe nach: %3. Mehr ist nicht drin."
+ ],
+ "dlg.ich.z_widerwillig.sie": [
+  "Na gut. %3, aber danach erwarte ich auch etwas von Ihnen.",
+  "Ich gebe nach: %3. Mehr ist nicht drin."
+ ],
+ "dlg.ich.d_warm": [
+  "Danke, das bedeutet mir viel.",
+  "Danke, dass du so offen mit mir bist."
+ ],
+ "dlg.ich.d_warm.sie": [
+  "Danke, das bedeutet mir viel.",
+  "Danke, dass Sie so offen mit mir sind."
+ ],
+ "dlg.ich.l_lob": [
+  "Ich sage das gern: Du leistest hier gute Arbeit, und das sehen alle.",
+  "Eins noch: Ich schätze, wie du dich einbringst."
+ ],
+ "dlg.ich.l_lob.sie": [
+  "Ich sage das gern: Sie leisten gute Arbeit, und das sehen alle.",
+  "Eins noch: Ich schätze, wie Sie sich einbringen."
+ ],
+ "dlg.ich.e_sachlich": [
+  "Ich erkläre dir kurz, wie ich das sehe: Es geht um das große Ganze und nicht um dich allein.",
+  "Die Lage ist so: Ich muss die ganze Mannschaft im Blick haben."
+ ],
+ "dlg.ich.e_sachlich.sie": [
+  "Ich erkläre Ihnen kurz, wie ich das sehe: Es geht um das große Ganze.",
+  "Die Lage ist so: Ich muss den ganzen Verein im Blick haben."
+ ],
+ "dlg.ich.e_warm": [
+  "Das war nicht gegen dich gemeint, glaub mir. Ich will, dass du das verstehst.",
+  "Lass mich erklären, wie ich dazu gekommen bin."
+ ],
+ "dlg.ich.e_warm.sie": [
+  "Das war nicht gegen Sie gerichtet. Ich möchte, dass Sie das verstehen.",
+  "Lassen Sie mich erklären, wie ich dazu gekommen bin."
+ ],
+ "dlg.ich.n_sachlich": [
+  "Woran machst du das fest, %2 betreffend? Sag mir, was genau dir fehlt.",
+  "Was brauchst du konkret bei %2?"
+ ],
+ "dlg.ich.n_sachlich.sie": [
+  "Woran machen Sie das fest, %2 betreffend? Was genau fehlt Ihnen?",
+  "Was brauchen Sie konkret bei %2?"
+ ],
+ "dlg.ich.n_warm": [
+  "Erzähl mir, was dich wirklich beschäftigt. Ich höre zu.",
+  "Was steckt dahinter? Ich möchte dich verstehen."
+ ],
+ "dlg.ich.n_warm.sie": [
+  "Erzählen Sie mir, was Sie wirklich beschäftigt. Ich höre zu.",
+  "Was steckt dahinter? Ich möchte Sie verstehen."
+ ],
+ "dlg.ich.n_hakt": [
+  "Das beantwortet meine Frage nicht. Was ist es wirklich?",
+  "Weich nicht aus: Worum geht es dir tatsächlich?"
+ ],
+ "dlg.ich.n_hakt.sie": [
+  "Das beantwortet meine Frage nicht. Worum geht es wirklich?",
+  "Bitte weichen Sie nicht aus: Worum geht es Ihnen tatsächlich?"
+ ],
+ "dlg.ich.n_allgemein": [
+  "Wie siehst du das Ganze?",
+  "Was ist dir an der Sache am wichtigsten?"
+ ],
+ "dlg.ich.n_allgemein.sie": [
+  "Wie sehen Sie das Ganze?",
+  "Was ist Ihnen an der Sache am wichtigsten?"
+ ],
+ "dlg.ich.g_sachlich": [
+  "Du willst %3, ich biete dir %4. Das ist mein Schritt auf dich zu.",
+  "Ich komme dir entgegen: %4. Mehr gibt es nicht ohne Gegenleistung."
+ ],
+ "dlg.ich.g_sachlich.sie": [
+  "Sie wollen %3, ich biete %4. Das ist mein Schritt auf Sie zu.",
+  "Ich komme Ihnen entgegen: %4. Mehr gibt es nicht ohne Gegenleistung."
+ ],
+ "dlg.ich.g_bestimmt": [
+  "%3 ist zu viel. Mein Angebot ist %4, und dabei bleibt es vorerst.",
+  "Ich biete %4 – das ist die Linie."
+ ],
+ "dlg.ich.g_bestimmt.sie": [
+  "%3 ist zu viel. Mein Angebot ist %4, und dabei bleibt es vorerst.",
+  "Ich biete %4 – das ist die Linie."
+ ],
+ "dlg.ich.k_warm": [
+  "Lass uns die Mitte finden: Wir treffen uns zwischen deiner Forderung und meinem Angebot.",
+  "Wir wollen beide etwas, also teilen wir den Weg."
+ ],
+ "dlg.ich.k_warm.sie": [
+  "Lassen Sie uns die Mitte finden: Wir treffen uns zwischen Ihrer Forderung und meinem Angebot.",
+  "Wir wollen beide etwas, also teilen wir den Weg."
+ ],
+ "dlg.ich.k_sachlich": [
+  "Ich schlage einen Kompromiss vor: halb so viel Entgegenkommen von jeder Seite.",
+  "Meinen Vorschlag kennst du; wie wäre es mit der Mitte?"
+ ],
+ "dlg.ich.k_sachlich.sie": [
+  "Ich schlage einen Kompromiss vor: je zur Hälfte.",
+  "Meinen Vorschlag kennen Sie; wie wäre es mit der Mitte?"
+ ],
+ "dlg.ich.v_warm": [
+  "Ich verspreche dir: Wenn du dich darauf einlässt, bekommst du %4 – und ich stehe dazu.",
+  "Du hast mein Wort: %4, sobald sich die Lage dafür eignet."
+ ],
+ "dlg.ich.v_warm.sie": [
+  "Ich verspreche Ihnen: Wenn Sie sich darauf einlassen, bekommen Sie %4 – und ich stehe dazu.",
+  "Sie haben mein Wort: %4, sobald es die Lage zulässt."
+ ],
+ "dlg.ich.v_bestimmt": [
+  "Ich gebe dir mein Wort auf %4, aber ich erwarte Leistung dafür.",
+  "%4 – das sage ich dir zu. Du weißt, was ich dafür sehen will."
+ ],
+ "dlg.ich.v_bestimmt.sie": [
+  "Ich gebe Ihnen mein Wort auf %4, aber ich erwarte dafür etwas.",
+  "%4 – das sage ich zu. Sie wissen, was ich dafür sehen möchte."
+ ],
+ "dlg.ich.f_warm": [
+  "Du bist mir als Mensch wichtig, nicht nur als Spieler. Das hier ist nicht gegen dich.",
+  "Wir haben viel zusammen erlebt. Das sollte etwas zählen."
+ ],
+ "dlg.ich.f_warm.sie": [
+  "Sie sind mir als Mensch wichtig, nicht nur beruflich. Das hier ist nicht gegen Sie gerichtet.",
+  "Wir haben viel zusammen erlebt. Das sollte etwas zählen."
+ ],
+ "dlg.ich.f_lob": [
+  "Ich habe großen Respekt vor dem, was du für den Verein geleistet hast.",
+  "Gerade du hast hier viel bewegt. Das vergesse ich nicht."
+ ],
+ "dlg.ich.f_lob.sie": [
+  "Ich habe großen Respekt vor dem, was Sie für den Verein geleistet haben.",
+  "Gerade Sie haben hier viel bewegt. Das vergesse ich nicht."
+ ],
+ "dlg.ich.s_warm": [
+  "Das tut mir leid. So war es nicht gemeint.",
+  "Entschuldige – ich habe das nicht gut gemacht."
+ ],
+ "dlg.ich.s_warm.sie": [
+  "Das tut mir leid. So war es nicht gemeint.",
+  "Entschuldigen Sie – das habe ich nicht gut gemacht."
+ ],
+ "dlg.ich.b_warm": [
+  "Lass uns alle einmal durchatmen. Wir kriegen das hin.",
+  "Ruhig. Wir finden eine Lösung, versprochen."
+ ],
+ "dlg.ich.b_warm.sie": [
+  "Lassen Sie uns alle einmal durchatmen. Wir bekommen das hin.",
+  "Ruhig. Wir finden eine Lösung."
+ ],
+ "dlg.ich.b_sachlich": [
+  "Gehen wir das in Ruhe durch, Punkt für Punkt.",
+  "Lass uns sachlich bleiben, dann kommen wir weiter."
+ ],
+ "dlg.ich.b_sachlich.sie": [
+  "Gehen wir das in Ruhe durch, Punkt für Punkt.",
+  "Lassen Sie uns sachlich bleiben, dann kommen wir weiter."
+ ],
+ "dlg.ich.p_bestimmt": [
+  "Ich habe Alternativen. Wenn wir uns nicht einig werden, plane ich ohne dich.",
+  "Ich muss das nicht zu deinen Bedingungen lösen."
+ ],
+ "dlg.ich.p_bestimmt.sie": [
+  "Ich habe Alternativen. Werden wir uns nicht einig, plane ich anders.",
+  "Ich muss das nicht zu Ihren Bedingungen lösen."
+ ],
+ "dlg.ich.p_hart": [
+  "Entweder wir einigen uns jetzt, oder die Sache ist für mich erledigt.",
+  "Du entscheidest dich besser heute: so oder gar nicht."
+ ],
+ "dlg.ich.p_hart.sie": [
+  "Entweder wir einigen uns jetzt, oder die Sache ist für mich erledigt.",
+  "Sie entscheiden sich besser heute: so oder gar nicht."
+ ],
+ "dlg.ich.p_bluff": [
+  "Ich habe andere Optionen, glaub mir. Viele sogar.",
+  "Es gibt mehr als genug Interessenten für diese Lösung."
+ ],
+ "dlg.ich.p_bluff.sie": [
+  "Ich habe andere Optionen, glauben Sie mir. Viele sogar.",
+  "Es gibt mehr als genug Interessenten für diese Lösung."
+ ],
+ "dlg.ich.t_sachlich": [
+  "Gib mir ein paar Tage Zeit, das sauber zu prüfen.",
+  "Ich muss das erst mit den anderen Beteiligten besprechen. Gib mir bis zur Frist."
+ ],
+ "dlg.ich.t_sachlich.sie": [
+  "Geben Sie mir ein paar Tage, das sauber zu prüfen.",
+  "Ich muss das erst mit den anderen Beteiligten besprechen."
+ ],
+ "dlg.ich.t_ausweichend": [
+  "Dazu kann ich heute noch nichts sagen. Lass uns später darauf zurückkommen.",
+  "Ich möchte mich da noch nicht festlegen."
+ ],
+ "dlg.ich.t_ausweichend.sie": [
+  "Dazu kann ich heute noch nichts sagen. Lassen Sie uns später darauf zurückkommen.",
+  "Ich möchte mich da noch nicht festlegen."
+ ],
+ "dlg.ich.t_nehmen": [
+  "Ich muss kurz darüber nachdenken. Können wir das später fortsetzen?",
+  "Lass mich eine Nacht darüber schlafen."
+ ],
+ "dlg.ich.t_nehmen.sie": [
+  "Ich muss kurz darüber nachdenken. Können wir das später fortsetzen?",
+  "Lassen Sie mich eine Nacht darüber schlafen."
+ ],
+ "dlg.ich.a_sachlich": [
+  "%3 kann ich dir so nicht geben, das passt nicht zur Lage.",
+  "Das lehne ich ab: %3 geht nicht."
+ ],
+ "dlg.ich.a_sachlich.sie": [
+  "%3 kann ich Ihnen so nicht geben, das passt nicht zur Lage.",
+  "Das lehne ich ab: %3 geht nicht."
+ ],
+ "dlg.ich.a_warm": [
+  "Ich würde dir gern entgegenkommen, aber %3 kann ich nicht zusagen.",
+  "Es tut mir leid, %3 geht nicht – aber lass uns trotzdem reden."
+ ],
+ "dlg.ich.a_warm.sie": [
+  "Ich würde Ihnen gern entgegenkommen, aber %3 kann ich nicht zusagen.",
+  "Es tut mir leid, %3 geht nicht – aber lassen Sie uns weiterreden."
+ ],
+ "dlg.ich.a_hart": [
+  "Vergiss es. %3 gibt es nicht, und damit ist das Thema durch.",
+  "Auf dieser Grundlage rede ich nicht weiter. %3 kommt nicht in Frage."
+ ],
+ "dlg.ich.a_hart.sie": [
+  "Das kommt nicht in Frage. %3 gibt es nicht, damit ist das Thema durch.",
+  "Auf dieser Grundlage rede ich nicht weiter. %3 kommt nicht in Frage."
+ ],
+ "dlg.ich.o_ausweichend": [
+  "Lass uns lieber über etwas anderes sprechen, das bringt uns gerade nicht weiter.",
+  "Darüber später. Wie siehst du die Lage insgesamt?"
+ ],
+ "dlg.ich.o_ausweichend.sie": [
+  "Lassen Sie uns lieber über etwas anderes sprechen, das bringt uns gerade nicht weiter.",
+  "Darüber später. Wie sehen Sie die Lage insgesamt?"
+ ],
+ "dlg.ich.y_warm": [
+  "Ich glaube, wir haben alles besprochen. Danke für das offene Gespräch.",
+  "Gut, dass wir geredet haben. Ich bin zufrieden mit dem Ergebnis."
+ ],
+ "dlg.ich.y_warm.sie": [
+  "Ich glaube, wir haben alles besprochen. Danke für das offene Gespräch.",
+  "Gut, dass wir geredet haben. Ich bin zufrieden mit dem Ergebnis."
+ ],
+ "dlg.ich.y_sachlich": [
+  "Dann belassen wir es dabei. Wir kommen darauf zurück, wenn es etwas Neues gibt.",
+  "Soweit ist alles gesagt."
+ ],
+ "dlg.ich.y_sachlich.sie": [
+  "Dann belassen wir es dabei. Wir kommen darauf zurück, wenn es etwas Neues gibt.",
+  "Soweit ist alles gesagt."
+ ],
+ "dlg.ich.x_sachlich": [
+  "Ich glaube, wir drehen uns im Kreis. Wir beenden das hier.",
+  "Das führt zu nichts. Wir lassen es für heute."
+ ],
+ "dlg.ich.x_sachlich.sie": [
+  "Ich glaube, wir drehen uns im Kreis. Wir beenden das hier.",
+  "Das führt zu nichts. Wir lassen es für heute."
+ ],
+ "dlg.ich.x_hart": [
+  "Das war's. Mit dieser Haltung rede ich nicht weiter.",
+  "Dann eben nicht. Das Gespräch ist beendet."
+ ],
+ "dlg.ich.x_hart.sie": [
+  "Das war's. Mit dieser Haltung rede ich nicht weiter.",
+  "Dann eben nicht. Das Gespräch ist beendet."
+ ],
+ "dlg.ich.m_loben": [
+  "Das war richtig gut. Ich wollte, dass du das weißt.",
+  "Du hast da etwas Besonderes gezeigt, und das fällt auf."
+ ],
+ "dlg.ich.m_loben.sie": [
+  "Das war richtig gut. Ich wollte, dass Sie das wissen.",
+  "Sie haben da etwas Besonderes gezeigt, und das fällt auf."
+ ],
+ "dlg.ich.m_ermutigen": [
+  "Lass den Kopf nicht hängen. Du hast die Qualität, da wieder herauszukommen.",
+  "Ich glaube an dich, auch wenn es gerade zäh ist."
+ ],
+ "dlg.ich.m_ermutigen.sie": [
+  "Lassen Sie den Kopf nicht hängen. Wir haben die Qualität, da gemeinsam herauszukommen.",
+  "Ich glaube an Sie, auch wenn es gerade zäh ist."
+ ],
+ "dlg.ich.m_kritik": [
+  "Mir ist aufgefallen, dass es zuletzt nicht gestimmt hat. Daran müssen wir arbeiten.",
+  "Ich sehe das kritisch: Da war zu wenig drin."
+ ],
+ "dlg.ich.m_kritik.sie": [
+  "Mir ist aufgefallen, dass es zuletzt nicht gestimmt hat. Daran müssen wir arbeiten.",
+  "Ich sehe das kritisch: Da war zu wenig drin."
+ ],
+ "dlg.ich.m_kritik_hart": [
+  "So geht das nicht. Ich erwarte, dass du das abstellst.",
+  "Das war nicht gut genug, und das weißt du auch."
+ ],
+ "dlg.ich.m_kritik_hart.sie": [
+  "So geht das nicht. Ich erwarte, dass das abgestellt wird.",
+  "Das war nicht gut genug, und das wissen Sie auch."
+ ],
+ "dlg.ich.m_zuhoeren": [
+  "Sprich ruhig weiter, ich höre dir zu.",
+  "Was würdest du dir wünschen?"
+ ],
+ "dlg.ich.m_zuhoeren.sie": [
+  "Sprechen Sie ruhig weiter, ich höre zu.",
+  "Was würden Sie sich wünschen?"
+ ],
+ "dlg.ich.m_einordnen": [
+  "Ich ordne das so ein: Es ist ein Prozess, und wir sind mittendrin.",
+  "Aus meiner Sicht gehört das zum normalen Verlauf einer Saison."
+ ],
+ "dlg.ich.m_einordnen.sie": [
+  "Ich ordne das so ein: Es ist ein Prozess, und wir sind mittendrin.",
+  "Aus meiner Sicht gehört das zum normalen Verlauf einer Saison."
+ ],
+ "dlg.ich.m_ausblick": [
+  "Schauen wir nach vorn: Die nächsten Wochen können gut für uns werden.",
+  "Ich sehe da einiges, worauf wir uns freuen können."
+ ],
+ "dlg.ich.m_ausblick.sie": [
+  "Schauen wir nach vorn: Die nächsten Wochen können gut für uns werden.",
+  "Ich sehe da einiges, worauf wir uns freuen können."
+ ],
+ "dlg.ich.m_ausblick_sachlich": [
+  "Wie geht es weiter? Ich schlage vor, wir sprechen in zwei Wochen noch einmal.",
+  "Dann legen wir den weiteren Weg fest und prüfen ihn nach dem nächsten Spiel."
+ ],
+ "dlg.ich.m_ausblick_sachlich.sie": [
+  "Wie geht es weiter? Ich schlage vor, wir sprechen in zwei Wochen noch einmal.",
+  "Dann legen wir den weiteren Weg fest und prüfen ihn nach dem nächsten Spiel."
+ ],
+ "dlg.ich.m_auflockern": [
+  "Komm, wir sind ja nicht im Gerichtssaal. Das kriegen wir hin.",
+  "Ein bisschen Luft: So schlimm ist es nicht."
+ ],
+ "dlg.ich.m_auflockern.sie": [
+  "Kommen Sie, wir sind ja nicht im Gerichtssaal. Das kriegen wir hin.",
+  "Ein bisschen Luft: So schlimm ist es nicht."
+ ],
+ "dlg.ich.vz_annehmen": [
+  "Gut, ich nehme Ihr Gegenangebot an. Dann machen wir es so.",
+  "Einverstanden. Das Gegenangebot passt für mich."
+ ],
+ "dlg.ich.vz_annehmen.sie": [
+  "Gut, ich nehme Ihr Gegenangebot an. Dann machen wir es so.",
+  "Einverstanden. Das Gegenangebot passt für mich."
+ ],
+ "dlg.ich.vz_kompromiss": [
+  "Lassen Sie uns die Mitte nehmen: Ich komme Ihnen halb entgegen, Sie mir halb.",
+  "Wie wäre es mit der Mitte zwischen Ihrem Gegenangebot und meinem Angebot?"
+ ],
+ "dlg.ich.vz_kompromiss.sie": [
+  "Lassen Sie uns die Mitte nehmen: Ich komme Ihnen halb entgegen, Sie mir halb.",
+  "Wie wäre es mit der Mitte zwischen Ihrem Gegenangebot und meinem Angebot?"
+ ],
+ "dlg.ich.vz_ablehnen": [
+  "Das Gegenangebot kann ich so nicht annehmen. Wir müssen anders ansetzen.",
+  "Nein, in dieser Form nicht. Ich bleibe bei meinem Angebot."
+ ],
+ "dlg.ich.vz_ablehnen.sie": [
+  "Das Gegenangebot kann ich so nicht annehmen. Wir müssen anders ansetzen.",
+  "Nein, in dieser Form nicht. Ich bleibe bei meinem Angebot."
+ ],
+ "dlg.ich.vz_nachfragen": [
+  "Woran scheitert es aus Ihrer Sicht noch? Sagen Sie mir, was fehlt.",
+  "Was genau stört Sie an meinem Angebot?"
+ ],
+ "dlg.ich.vz_nachfragen.sie": [
+  "Woran scheitert es aus Ihrer Sicht noch? Sagen Sie mir, was fehlt.",
+  "Was genau stört Sie an meinem Angebot?"
+ ],
+ "dlg.ich.vz_erklaeren": [
+  "Lassen Sie mich begründen, warum ich so viel nicht bieten kann: Wir müssen die ganze Mannschaft und die Kasse im Blick behalten.",
+  "Ich erkläre Ihnen gern, wie ich auf diese Zahlen komme."
+ ],
+ "dlg.ich.vz_erklaeren.sie": [
+  "Lassen Sie mich begründen, warum ich so viel nicht bieten kann: Wir müssen die ganze Mannschaft und die Kasse im Blick behalten.",
+  "Ich erkläre Ihnen gern, wie ich auf diese Zahlen komme."
+ ],
+ "dlg.ich.vz_druck": [
+  "Ich habe Alternativen. Wenn wir uns nicht einigen, schaue ich mich anderweitig um.",
+  "Ich muss das nicht um jeden Preis lösen."
+ ],
+ "dlg.ich.vz_druck.sie": [
+  "Ich habe Alternativen. Wenn wir uns nicht einigen, schaue ich mich anderweitig um.",
+  "Ich muss das nicht um jeden Preis lösen."
+ ],
+ "dlg.ich.vz_bluff": [
+  "Es gibt bereits andere Interessenten, die deutlich weniger verlangen.",
+  "Ich habe parallel schon konkrete Gespräche geführt."
+ ],
+ "dlg.ich.vz_bluff.sie": [
+  "Es gibt bereits andere Interessenten, die deutlich weniger verlangen.",
+  "Ich habe parallel schon konkrete Gespräche geführt."
+ ],
+ "dlg.ich.vz_gefuehl": [
+  "Uns verbindet viel. Ich möchte, dass das hier fair für beide Seiten bleibt.",
+  "Ich schätze die Zusammenarbeit sehr und würde sie gern fortsetzen."
+ ],
+ "dlg.ich.vz_gefuehl.sie": [
+  "Uns verbindet viel. Ich möchte, dass das hier fair für beide Seiten bleibt.",
+  "Ich schätze die Zusammenarbeit sehr und würde sie gern fortsetzen."
+ ],
+ "dlg.ich.vz_versprechen": [
+  "Ich sichere zu, dass Sie bei der Rolle und den Einsätzen bevorzugt behandelt werden.",
+  "Dafür garantiere ich einen festen Platz in meinen Planungen."
+ ],
+ "dlg.ich.vz_versprechen.sie": [
+  "Ich sichere zu, dass die Rolle und die Einsätze berücksichtigt werden.",
+  "Dafür garantiere ich einen festen Platz in meinen Planungen."
+ ],
+ "dlg.ich.vz_zeit": [
+  "Geben Sie mir bis zur Frist Zeit. Ich möchte das sorgfältig prüfen.",
+  "Ich brauche ein paar Tage, um das intern abzustimmen."
+ ],
+ "dlg.ich.vz_zeit.sie": [
+  "Geben Sie mir bis zur Frist Zeit. Ich möchte das sorgfältig prüfen.",
+  "Ich brauche ein paar Tage, um das intern abzustimmen."
+ ],
+ "dlg.ich.vz_beruhigen": [
+  "Bleiben wir ruhig. Wir wollen beide eine Lösung.",
+  "Das war nicht böse gemeint. Gehen wir es noch einmal in Ruhe durch."
+ ],
+ "dlg.ich.vz_beruhigen.sie": [
+  "Bleiben wir ruhig. Wir wollen beide eine Lösung.",
+  "Das war nicht böse gemeint. Gehen wir es noch einmal in Ruhe durch."
+ ],
+ "dlg.ich.vz_entschuldigen": [
+  "Das war ungeschickt von mir, entschuldigen Sie bitte.",
+  "Ich nehme das zurück. So wollte ich es nicht sagen."
+ ],
+ "dlg.ich.vz_entschuldigen.sie": [
+  "Das war ungeschickt von mir, entschuldigen Sie bitte.",
+  "Ich nehme das zurück. So wollte ich es nicht sagen."
+ ],
+ "dlg.ich.vz_abbrechen": [
+  "Ich sehe hier gerade keine Basis. Wir beenden die Verhandlung.",
+  "So kommen wir nicht zusammen. Ich breche das ab."
+ ],
+ "dlg.ich.vz_abbrechen.sie": [
+  "Ich sehe hier gerade keine Basis. Wir beenden die Verhandlung.",
+  "So kommen wir nicht zusammen. Ich breche das ab."
+ ],
+ "dlg.vorsatz.warm": [
+  "Ehrlich gesagt:",
+  "Mir ist wichtig:",
+  "Ganz offen:"
+ ],
+ "dlg.vorsatz.sachlich": [
+  "Zur Sache:",
+  "Kurz und klar:",
+  "Nüchtern betrachtet:"
+ ],
+ "dlg.vorsatz.lob": [
+  "Das muss ich einmal sagen:",
+  "Ehrlich beeindruckt:",
+  "Mit allem Respekt:"
+ ],
+ "dlg.vorsatz.bestimmt": [
+  "Eins ist klar:",
+  "Damit wir uns verstehen:",
+  "Passen Sie auf:"
+ ],
+ "dlg.vorsatz.hart": [
+  "Eins vorweg:",
+  "Ich sage es nur einmal:",
+  "Machen wir uns nichts vor:"
+ ],
+ "dlg.vorsatz.ausweichend": [
+  "Nun ja:",
+  "Wie soll ich sagen:",
+  "Das ist so eine Sache:"
+ ],
+ "dlg.gegen.zustimmend.spieler": [
+  "Das ist in Ordnung für mich.",
+  "Gut, damit kann ich leben.",
+  "Einverstanden, so machen wir es."
+ ],
+ "dlg.gegen.zustimmend.formell": [
+  "Das klingt akzeptabel.",
+  "Damit bin ich einverstanden.",
+  "Gut, das lässt sich so festhalten."
+ ],
+ "dlg.gegen.ablehnend.spieler": [
+  "Nein, so nicht.",
+  "Das reicht mir nicht.",
+  "Das kann ich so nicht akzeptieren."
+ ],
+ "dlg.gegen.ablehnend.formell": [
+  "Das ist in dieser Form nicht annehmbar.",
+  "Das reicht uns nicht.",
+  "Dem kann ich so nicht zustimmen."
+ ],
+ "dlg.gegen.fordernd.spieler": [
+  "Ich erwarte mehr als das.",
+  "Da muss mehr kommen.",
+  "Ich will eine klare Zusage."
+ ],
+ "dlg.gegen.fordernd.formell": [
+  "Wir erwarten mehr als das.",
+  "Da muss mehr kommen.",
+  "Wir brauchen eine klare Zusage."
+ ],
+ "dlg.gegen.ausweichend.spieler": [
+  "Hm, darüber muss ich nachdenken.",
+  "Das sehen wir später.",
+  "Schwer zu sagen."
+ ],
+ "dlg.gegen.ausweichend.formell": [
+  "Dazu möchte ich mich im Moment nicht äußern.",
+  "Das müssen wir später klären.",
+  "Das ist schwer zu beurteilen."
+ ],
+ "dlg.gegen.verletzt.spieler": [
+  "Das hat mich getroffen.",
+  "Das hätte ich von Ihnen nicht erwartet.",
+  "Das tut weh."
+ ],
+ "dlg.gegen.verletzt.formell": [
+  "Das empfinde ich als respektlos.",
+  "Das hätte ich nicht erwartet.",
+  "Das ist enttäuschend."
+ ],
+ "dlg.gegen.begeistert.spieler": [
+  "Das ist großartig, danke!",
+  "Genau so habe ich mir das gewünscht!",
+  "Das freut mich wirklich."
+ ],
+ "dlg.gegen.begeistert.formell": [
+  "Das ist ausgezeichnet.",
+  "Das freut uns sehr.",
+  "Genau so haben wir uns das vorgestellt."
+ ],
+ "dlg.gegen.misstrauisch.spieler": [
+  "Und woher soll ich wissen, dass das stimmt?",
+  "Das habe ich schon einmal gehört.",
+  "Ich bin da skeptisch."
+ ],
+ "dlg.gegen.misstrauisch.formell": [
+  "Woher soll ich das wissen?",
+  "Das habe ich schon einmal gehört.",
+  "Wir sind da skeptisch."
+ ],
+ "dlg.gegen.gegenangebot.spieler": [
+  "Dann machen wir es so, aber nicht weniger.",
+  "Ein Stück komme ich Ihnen entgegen, dann ist Schluss.",
+  "Wie wäre es hiermit?"
+ ],
+ "dlg.gegen.gegenangebot.formell": [
+  "Hier unser Gegenvorschlag.",
+  "Ein Stück weit können wir uns bewegen.",
+  "Wir kämen Ihnen so entgegen."
+ ],
+ "dlg.gegen.frage.spieler": [
+  "Und was heißt das konkret für mich?",
+  "Was bieten Sie mir dafür?",
+  "Wie meinen Sie das?"
+ ],
+ "dlg.gegen.frage.formell": [
+  "Was genau schlagen Sie vor?",
+  "Was heißt das konkret?",
+  "Wie darf ich das verstehen?"
+ ],
+ "dlg.gegen.drohung.spieler": [
+  "Wenn sich das nicht ändert, ziehe ich Konsequenzen.",
+  "Dann gehe ich einen anderen Weg.",
+  "Ich lasse mir das nicht länger bieten."
+ ],
+ "dlg.gegen.drohung.formell": [
+  "Wenn sich das nicht ändert, ziehen wir Konsequenzen.",
+  "Dann gehen wir andere Wege.",
+  "Wir lassen uns das nicht länger bieten."
+ ],
+ "dlg.gegen.ultimatum.spieler": [
+  "Das ist mein letztes Wort: Entscheiden Sie sich bis zur Frist.",
+  "Entweder jetzt oder gar nicht.",
+  "Mehr Geduld habe ich nicht."
+ ],
+ "dlg.gegen.ultimatum.formell": [
+  "Das ist unser letztes Wort: Entscheiden Sie sich bis zur Frist.",
+  "Entweder jetzt oder gar nicht.",
+  "Mehr Geduld haben wir nicht."
+ ],
+ "dlg.ereignis.berater_ruft": "Zwischenruf: Sein Berater ruft an und redet auf ihn ein.",
+ "dlg.ereignis.verein_meldet_sich": "Zwischenruf: Ein anderer Verein hat sich gemeldet. Das verändert die Lage.",
+ "dlg.ereignis.presse_wind": "Zwischenruf: Die Presse hat Wind von der Sache bekommen.",
+ "dlg.ereignis.kollege_vermittelt": "Zwischenruf: Ein Mitspieler hat ein gutes Wort eingelegt.",
+ "dlg.ereignis.angebot_vom_konkurrenten": "Zwischenruf: Ein Konkurrent hat ein Angebot eingereicht.",
+ "dlg.ereignis.familie_einmischung": "Zwischenruf: Die Familie mischt sich ein.",
+ "dlg.ereignis.fanmeinung": "Zwischenruf: Die Fans melden sich lautstark in den Netzwerken.",
+ "dlg.ereignis.sponsor_hinweis": "Zwischenruf: Ein Sponsor hat sich zur Sache geäußert.",
+ "dlg.ende.einig": "Sie haben sich geeinigt.",
+ "dlg.ende.teilweise": "Sie haben sich in einigen Punkten geeinigt, in anderen nicht.",
+ "dlg.ende.gut": "Das Gespräch endet in guter Atmosphäre.",
+ "dlg.ende.ergebnislos": "Das Gespräch bleibt ohne Ergebnis.",
+ "dlg.ende.abgebrochen": "Das Gespräch ist abgebrochen.",
+ "dlg.ende.verfallen": "Das Gespräch ist verfallen.",
+ "dlg.ui.risiko.0": "Risiko gering",
+ "dlg.ui.risiko.1": "Risiko gering",
+ "dlg.ui.risiko.2": "Risiko mittel",
+ "dlg.ui.risiko.3": "Risiko hoch",
+ "dlg.ui.verhaeltnis.besser": "Verhältnis besser",
+ "dlg.ui.verhaeltnis.gleich": "Verhältnis unverändert",
+ "dlg.ui.verhaeltnis.schlechter": "Verhältnis schlechter",
+ "dlg.ui.preis": "Preis: %2",
+ "dlg.ui.zusage": "Zusage: %1",
+ "dlg.ui.nichts": "kein Zugeständnis",
+ "dlg.ui.sperre.stark": "Nur mit starker Position",
+ "dlg.ui.sperre.verhaeltnis": "Braucht ein besseres Verhältnis",
+ "dlg.ui.sperre.stimmung": "Passt nicht zur Stimmung",
+ "dlg.ui.sperre.vertrauen": "Braucht mehr Vertrauen",
+ "dlg.ui.sperre.budget": "Dafür reicht das Budget nicht",
+ "dlg.ui.sperre.runde": "Erst im weiteren Verlauf",
+ "dlg.ui.vorschau.stimmung.gut": "Stimmung steigt",
+ "dlg.ui.vorschau.stimmung.gleich": "Stimmung unverändert",
+ "dlg.ui.vorschau.stimmung.schlecht": "Stimmung sinkt",
+ "dlg.ui.zusage_gespraech": "Zusage notiert: %1, bis %2.",
+ "dlg.ui.mitteilung": "Im Gespräch klären",
+ "dlg.ui.mitteilung_ende": "Antwort gegeben: %1",
+ "gs.partner.vorstand": "Vorstand",
+ "gs.partner.fans": "Fans",
+ "gs.partner.jugend": "Jugend",
+ "gs.thema.heimweh": "Heimweh",
+ "gs.thema.streit": "Streit in der Kabine",
+ "gs.thema.wechselwunsch": "Wechselwunsch",
+ "gs.thema.provision": "Provision",
+ "gs.thema.angebote": "Angebote anderer Vereine",
+ "gs.thema.leihe": "Leihe",
+ "gs.thema.klauseln": "Klauseln",
+ "gs.thema.tauschgeschaeft": "Tauschgeschäft",
+ "gs.thema.interview": "Interview",
+ "gs.thema.dementi": "Dementi",
+ "gs.thema.kommentar": "Kommentar zum Gerücht",
+ "gs.thema.eltern": "Gespräch mit den Eltern",
+ "gs.thema.akademie": "Akademie",
+ "gs.thema.vorstand_budget": "Budget",
+ "gs.thema.vorstand_ziele": "Saisonziel",
+ "gs.thema.vorstand_vertrauen": "Vertrauen des Vorstands",
+ "gs.thema.fans_stimmung": "Stimmung der Fans",
+ "gs.thema.fans_preise": "Eintrittspreise",
+ "gs.thema.fans_protest": "Protest der Fans",
+ "gs.deal.stand.vereinbart": "Vereinbart",
+ "gs.deal.stand.schreibt": "Wird ins Spiel geschrieben",
+ "gs.deal.stand.im_spiel": "Im Spiel bestätigt",
+ "gs.deal.stand.fehlgeschlagen": "Schreiben fehlgeschlagen",
+ "gs.deal.hinweis.klauseln": "Gehalt und Laufzeit gehen ins Spiel. Prämien, Klauseln und Spielzeit gelten in PESM; das Spiel kennt sie nicht.",
+ "gs.deal.hinweis.pesm": "Gilt in PESM und wird nicht ins Spiel geschrieben.",
+ "gs.deal.hinweis.fehlgeschlagen": "Das Schreiben ins Spiel hat nicht geklappt. Die Vereinbarung bleibt gültig; sie lässt sich in der Änderungsliste erneut senden.",
+ "gs.deal.titel.vertrag": "Vertrag",
+ "gs.deal.titel.kauf": "Kauf",
+ "gs.deal.titel.verkauf": "Verkauf",
+ "gs.deal.rolle": "Rolle: %1",
+ "gs.deal.rolle.kapitaen": "Kapitän",
+ "gs.deal.rolle.vizekapitaen": "Vizekapitän",
+ "gs.deal.rolle.fuehrungsspieler": "Führungsspieler",
+ "gs.deal.rolle.stammspieler": "Stammspieler",
+ "gs.deal.rolle.rotation": "Rotation",
+ "gs.ui.fehler.bereits_vereinbart": "Dazu gibt es schon eine Vereinbarung. Sie bleibt gültig.",
+ "dlg.ich.vi_arzt": [
+  "Lass dich vom Doc gründlich durchchecken, dann entscheiden wir gemeinsam.",
+  "Wir schauen uns das medizinisch genau an, bevor du wieder voll einsteigst.",
+  "Der Arzt hat das letzte Wort, nicht dein Bauchgefühl."
+ ],
+ "dlg.ich.vi_arzt.sie": [
+  "Wir lassen das ärztlich genau prüfen, bevor es weitergeht.",
+  "Der Arzt entscheidet, nicht das Bauchgefühl."
+ ],
+ "dlg.ich.vi_schonen": [
+  "Ich nehme dich raus, wenn du nicht bei hundert Prozent bist. Versprochen.",
+  "Niemand zwingt dich zu etwas. Sag mir, wenn es zwickt.",
+  "Deine Gesundheit geht vor dem nächsten Spiel."
+ ],
+ "dlg.ich.vi_schonen.sie": [
+  "Wir nehmen ihn raus, wenn er nicht bei hundert Prozent ist.",
+  "Seine Gesundheit geht vor dem nächsten Spiel."
+ ],
+ "dlg.ich.vi_haerte": [
+  "Wer Angst hat, hilft uns auf dem Platz nicht. Reiß dich zusammen.",
+  "Ich brauche Spieler, die in jeden Zweikampf gehen.",
+  "Die Verletzung ist auskuriert, jetzt zählt dein Kopf."
+ ],
+ "dlg.ich.vi_haerte.sie": [
+  "Wer Angst hat, hilft uns auf dem Platz nicht.",
+  "Die Verletzung ist auskuriert, jetzt zählt der Kopf."
+ ],
+ "dlg.ich.ka_zusagen": [
+  "Wenn die Binde dein Ziel ist, arbeite darauf hin. Ich antworte dir zum Saisonende.",
+  "Du bist im Rennen um die Binde. Mehr sage ich heute nicht.",
+  "Zeig mir weiter, dass die Kabine hinter dir steht, dann reden wir darüber."
+ ],
+ "dlg.ich.ka_zusagen.sie": [
+  "Er ist im Rennen um die Binde. Mehr sage ich heute nicht.",
+  "Wir sprechen zum Saisonende wieder darüber."
+ ],
+ "dlg.ich.ka_begruenden": [
+  "Der Kapitän muss die ganze Kabine hinter sich haben, nicht nur die eigene Ecke.",
+  "Es geht nicht nur um Leistung, sondern darum, wer im Streit vermittelt.",
+  "Die Binde gehört dem, der auch in schlechten Zeiten vorangeht."
+ ],
+ "dlg.ich.ka_begruenden.sie": [
+  "Der Kapitän muss die ganze Kabine hinter sich haben.",
+  "Die Binde gehört dem, der auch in schlechten Zeiten vorangeht."
+ ],
+ "dlg.ich.ka_ablehnen": [
+  "Die Binde bleibt vorerst da, wo sie ist.",
+  "Daran denke ich im Moment nicht. Konzentrier dich aufs Spiel.",
+  "Nein. Und ich möchte nicht, dass das in der Kabine Thema wird."
+ ],
+ "dlg.ich.ka_ablehnen.sie": [
+  "Die Binde bleibt vorerst da, wo sie ist.",
+  "Daran denke ich im Moment nicht."
+ ],
+ "dlg.ich.ka_loben": [
+  "Du führst schon jetzt, mit oder ohne Binde. Das sehen alle.",
+  "Deine Art, voranzugehen, ist genau das, was wir brauchen.",
+  "Ich schätze, wie du dich um die Jüngeren kümmerst."
+ ],
+ "dlg.ich.ka_loben.sie": [
+  "Er führt schon jetzt, mit oder ohne Binde.",
+  "Seine Art, voranzugehen, brauchen wir."
+ ],
+ "dlg.ich.fo_video": [
+  "Wir schauen uns die Szenen gemeinsam an, dann siehst du, woran es liegt.",
+  "Komm später zum Videoanalysten, wir gehen die letzten Spiele durch.",
+  "An den Details liegt es, nicht an deiner Klasse. Das zeige ich dir."
+ ],
+ "dlg.ich.fo_video.sie": [
+  "Wir gehen die Szenen gemeinsam durch.",
+  "An den Details liegt es, nicht an der Klasse."
+ ],
+ "dlg.ich.fo_geduld": [
+  "Ein Formtief gehört dazu. Du kommst da raus, und ich helfe dir dabei.",
+  "Ich habe die Geduld, die du gerade brauchst.",
+  "Du hast mehr Rückhalt, als du denkst."
+ ],
+ "dlg.ich.fo_geduld.sie": [
+  "Ein Formtief gehört dazu. Wir helfen ihm heraus.",
+  "Er hat mehr Rückhalt, als er denkt."
+ ],
+ "dlg.ich.fo_forderung": [
+  "Ich brauche in den nächsten Spielen mehr von dir. Das ist keine Bitte.",
+  "Die Mannschaft braucht dich in Form. Zeig es am Wochenende.",
+  "So wie zuletzt reicht es nicht, und das weißt du."
+ ],
+ "dlg.ich.fo_forderung.sie": [
+  "Ich brauche in den nächsten Spielen mehr von ihm.",
+  "So wie zuletzt reicht es nicht."
+ ],
+ "dlg.ich.he_familie": [
+  "Deine Familie ist wichtig. Nimm dir die Zeit, wenn du sie brauchst.",
+  "Ich verstehe, dass du sie vermisst. Wir finden eine Lösung.",
+  "Wenn zu Hause etwas ist, sag es mir. Der Fußball kann warten."
+ ],
+ "dlg.ich.he_familie.sie": [
+  "Die Familie ist wichtig. Wir finden eine Lösung.",
+  "Wenn zu Hause etwas ist, sagen Sie es mir."
+ ],
+ "dlg.ich.st_trennen": [
+  "Ich rede erst mit jedem allein, dann setzen wir uns zusammen.",
+  "Ich will beide Seiten hören, bevor ich etwas entscheide.",
+  "Das klären wir unter vier Augen, nicht vor der Mannschaft."
+ ],
+ "dlg.ich.st_trennen.sie": [
+  "Ich spreche erst mit jedem allein.",
+  "Ich will beide Seiten hören."
+ ],
+ "dlg.ich.st_ansage": [
+  "In meiner Kabine wird nicht gestritten. Das ist die letzte Warnung.",
+  "Klärt es, oder ich klär es für euch, und das wird euch nicht gefallen.",
+  "Der Verein steht über euren Befindlichkeiten."
+ ],
+ "dlg.ich.st_ansage.sie": [
+  "In meiner Kabine wird nicht gestritten.",
+  "Der Verein steht über den Befindlichkeiten."
+ ],
+ "dlg.ich.zk_ehrlich": [
+  "Ich sage dir ehrlich, wo du stehst und was dir noch fehlt.",
+  "Du bist näher dran, als du glaubst. Ein, zwei Dinge fehlen noch.",
+  "Ich will, dass du weißt, woran du bist, auch wenn es unbequem ist."
+ ],
+ "dlg.ich.zk_ehrlich.sie": [
+  "Ich sage Ihnen ehrlich, wo er steht.",
+  "Er ist näher dran, als er glaubt."
+ ],
+ "dlg.ich.zk_chance": [
+  "Beim nächsten Pokalspiel bekommst du deine Chance von Beginn an.",
+  "Ich plane dich in der kommenden Woche fest ein.",
+  "Du spielst bald, und dann will ich sehen, was du kannst."
+ ],
+ "dlg.ich.zk_chance.sie": [
+  "Er bekommt seine Chance bald von Beginn an.",
+  "Ich plane ihn in der kommenden Woche fest ein."
+ ],
+ "dlg.eroeffnung.verletzungsangst": "%1 zögert: „Trainer, ich habe Angst, dass es mich wieder erwischt.“",
+ "dlg.eroeffnung.kapitaen": "%1 steht vor dir: „Ich möchte die Binde tragen. Ich glaube, ich habe sie verdient.“",
+ "dlg.ich.tr_konkurrenz": ["Wir haben noch andere Kandidaten auf dem Zettel. Das Angebot gilt nicht ewig.", "Es gibt Alternativen, und andere Vereine fragen ebenfalls an. Entscheidet euch.", "Ich kann auch anders planen, wenn wir uns nicht bald einig werden."],
+ "dlg.ich.tr_konkurrenz.sie": ["Wir haben noch andere Kandidaten. Das Angebot gilt nicht ewig.", "Es gibt Alternativen. Bitte entscheiden Sie sich."],
+ "dlg.ich.tr_zeitplan": ["Wir müssen nichts übers Knie brechen. Einigen wir uns jetzt, vollzogen wird, sobald das Fenster offen ist.", "Lass uns alles festhalten und zum Fensterbeginn abwickeln.", "Gebt mir ein paar Tage, dann steht der Zeitplan."],
+ "dlg.ich.tr_zeitplan.sie": ["Wir müssen nichts übers Knie brechen. Vollzogen wird zum Fensterbeginn.", "Geben Sie mir ein paar Tage, dann steht der Zeitplan."],
+ "dlg.ich.tr_wunsch": ["Was ist dir wichtig: die Liga, die Rolle, die Stadt?", "Sag mir, was du dir von einem neuen Verein wünschst.", "Worauf kommt es dir an, wenn du über deine Zukunft nachdenkst?"],
+ "dlg.ich.tr_wunsch.sie": ["Was ist ihm wichtig: die Liga, die Rolle, die Stadt?", "Sagen Sie mir, was er sich wünscht."],
+ "dlg.ich.tr_berater": ["Mit deinem Berater bespreche ich die Zahlen, mit dir die Rolle.", "Ich telefoniere mit deinem Berater. Dir sage ich dann, wie es aussieht.", "Wo steht dein Berater bei den Details?"],
+ "dlg.ich.tr_berater.sie": ["Mit dem Berater bespreche ich die Zahlen.", "Wo steht Ihr Berater bei den Details?"],
+ "dlg.ich.tr_verein_hoch": ["Unser Angebot ist fair, gemessen an dem, was der Spieler bringt.", "Wir bieten das, was der Markt hergibt, mehr nicht.", "Rechnen Sie nach: Das ist ein ordentliches Angebot."],
+ "dlg.ich.tr_verein_hoch.sie": ["Unser Angebot ist fair.", "Rechnen Sie nach: Das ist ein ordentliches Angebot."],
+ "dlg.ich.ve_rolle": ["Du bekommst bei mir eine feste Rolle, das schreiben wir dir ehrlich auf.", "Ich sehe dich als wichtigen Teil der nächsten Jahre.", "Wir planen mit dir, auch wenn du kurz ausfällst."],
+ "dlg.ich.ve_rolle.sie": ["Er bekommt bei mir eine feste Rolle.", "Ich sehe ihn als wichtigen Teil der nächsten Jahre."],
+ "dlg.ereignis.konkurrenz_bietet": "Ein weiterer Verein hat sich gemeldet und macht Druck.",
+ "dlg.ereignis.spieler_wunsch": "Der Spieler lässt ausrichten, dass er sich eine starke Liga und eine feste Rolle wünscht.",
+ "dlg.eroeffnung.transferinteresse": "%1 hört dir zu: „Trainer, ich habe gehört, dass du dich für mich interessierst. Was hättest du mit mir vor?“",
+ "dlg.ich.g_abwiegeln": ["Ehrlich gesagt: Du machst das größer, als es ist.", "Das ist Jammern auf hohem Niveau."],
+ "dlg.ich.g_abwiegeln.sie": ["Ehrlich gesagt: Sie machen das größer, als es ist.", "Das ist Jammern auf hohem Niveau."],
+ "dlg.ich.g_abwimmeln": ["Darüber diskutiere ich nicht weiter.", "Das Thema ist für mich erledigt."],
+ "dlg.ich.g_abwimmeln.sie": ["Darüber diskutiere ich nicht weiter.", "Das Thema ist für mich erledigt."],
+ "dlg.ich.g_vertagen": ["Lass uns das ein anderes Mal in Ruhe besprechen.", "Dazu muss ich erst nachdenken."],
+ "dlg.ich.g_vertagen.sie": ["Lassen Sie uns das ein anderes Mal in Ruhe besprechen.", "Dazu muss ich erst nachdenken."],
+ "dlg.ich.g_geloest": ["Dann ist das geklärt. Danke dir.", "Gut, damit können wir beide leben."],
+ "dlg.ich.g_geloest.sie": ["Dann ist das geklärt. Vielen Dank.", "Gut, damit können wir beide leben."],
+ "dlg.ende.entschieden": "Entschieden: %1.",
+ "dlg.ende.nichts_entschieden": "Es wurde nichts Verbindliches entschieden.",
+ "dlg.ich.ag_gehalt": ["Wenn du dich noch gedulden kannst, schauen wir uns dein Gehalt in der nächsten Vertragsrunde an.", "Beim Geld ist Bewegung drin, wenn du mir zeigst, dass du mehr willst als einen Platz auf der Bank.", "Ich kann dir finanziell etwas anbieten, damit du die Wartezeit leichter nimmst."],
+ "dlg.ich.ag_gehalt.sie": ["Beim Gehalt lässt sich in der nächsten Vertragsrunde reden.", "Finanziell kann ich ihm etwas anbieten, damit er die Wartezeit leichter nimmt."],
+ "dlg.ich.ag_rolle": ["Ich sehe dich in der Rückrunde in einer größeren Rolle, aber dafür musst du im Training liefern.", "Du bekommst die Joker-Rolle, die in engen Spielen entscheidet. Das ist mehr, als es klingt.", "Ich gebe dir eine feste Aufgabe im Pokal, dort bist du mein Mann."],
+ "dlg.ich.ag_rolle.sie": ["Ich sehe ihn in der Rückrunde in einer größeren Rolle.", "Er bekommt die Joker-Rolle, die in engen Spielen entscheidet."],
+ "dlg.ich.ag_verleih": ["Wir könnten dich ausleihen, damit du Spielpraxis bekommst, und dich im Sommer zurückholen.", "Ein Leihgeschäft bei einem Verein, der dich braucht, bringt dich weiter als die Bank.", "Wenn du magst, suche ich dir einen Leihverein, bei dem du jede Woche spielst."],
+ "dlg.ich.ag_verleih.sie": ["Wir könnten ihn ausleihen, damit er Spielpraxis bekommt.", "Ein Leihgeschäft bringt ihn weiter als die Bank."],
+ "dlg.ich.ro_ablehnen": ["Eine größere Rolle gibt es im Moment nicht. Die Plätze sind vergeben.", "Nein, daran ändere ich nichts, solange die anderen besser sind.", "Ich verspreche nichts, was ich nicht halten kann."],
+ "dlg.ich.ro_ablehnen.sie": ["Eine größere Rolle gibt es im Moment nicht.", "Ich verspreche nichts, was ich nicht halten kann."],
+ "dlg.ich.we_erklaeren": ["Ich verstehe, dass du über einen Wechsel nachdenkst. Lass uns klären, was dich wirklich stört.", "Bevor wir über einen Abschied reden, möchte ich wissen, woran es liegt.", "Ein Wechsel löst nicht jedes Problem. Erzähl mir, was dir fehlt."],
+ "dlg.ich.we_erklaeren.sie": ["Ich verstehe, dass er über einen Wechsel nachdenkt. Was stört ihn wirklich?", "Ein Wechsel löst nicht jedes Problem."],
+ "gs.thema.belastung": "Belastung",
+ "dlg.eroeffnung.belastung": "%1 reibt sich die Beine: „Trainer, ich merke, dass ich nicht mehr frisch bin. Das war zu viel in letzter Zeit.“",
+ "dlg.ich.an_vertroesten": ["Gib mir noch ein paar Wochen, dann setzen wir uns noch einmal zusammen.", "Lass uns nach dem nächsten Spiel in Ruhe darüber reden.", "Ich nehme dein Anliegen mit und melde mich bei dir, versprochen."],
+ "dlg.ich.an_vertroesten.sie": ["Geben Sie mir noch ein paar Wochen, dann sprechen wir erneut.", "Ich nehme sein Anliegen mit und melde mich."]
+}

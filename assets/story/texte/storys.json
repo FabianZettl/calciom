@@ -1,0 +1,1383 @@
+{
+ "_hinweis": "Texte der Kabinen-Storys (kb_*): erfundene Figuren, Humor, keine Namen aus dem echten Spiel. Platzhalter {spieler}, {spieler_kurz}, {berater}.",
+ "kb_playlist.antwort.dj": {
+  "standard": [
+   "Du bist DJ – eine Stunde pro Woche."
+  ]
+ },
+ "kb_playlist.rueckmeldung.dj": {
+  "standard": [
+   "Ich bringe eine Liste mit! Und vielleicht eine Nebelmaschine."
+  ]
+ },
+ "kb_playlist.antwort.reihum": {
+  "standard": [
+   "Jeder wählt einen Song. Reihum."
+  ]
+ },
+ "kb_playlist.rueckmeldung.reihum": {
+  "standard": [
+   "Reihum ist fair. Ich nehme dann den Schlager – kleiner Scherz."
+  ]
+ },
+ "kb_playlist.antwort.stille": {
+  "standard": [
+   "Vor dem Spiel herrscht Ruhe. Punkt."
+  ]
+ },
+ "kb_playlist.rueckmeldung.stille": {
+  "standard": [
+   "Stille? Wie beim Zahnarzt. Verstanden, Trainer."
+  ]
+ },
+ "kb_playlist.betreff": {
+  "standard": [
+   "{spieler_kurz}: Der Playlist-Krieg"
+  ]
+ },
+ "kb_playlist.text": {
+  "standard": [
+   "Trainer, in der Kabine tobt ein Krieg: Ich will Schlager, die Jungs wollen Bass. Gestern lief dreimal dasselbe Lied. Ich überlege, Kopfhörer zu tragen – oder mein eigenes Kabel mitzubringen."
+  ]
+ },
+ "kb_playlist_gut.antwort.mitsingen": {
+  "standard": [
+   "Ich singe mit – schlecht, aber laut."
+  ]
+ },
+ "kb_playlist_gut.rueckmeldung.mitsingen": {
+  "standard": [
+   "Dann bleibt das Ritual. Und ich lerne endlich den Refrain."
+  ]
+ },
+ "kb_playlist_gut.antwort.ernst": {
+  "standard": [
+   "Schön. Aber vor dem Anpfiff ist Schluss."
+  ]
+ },
+ "kb_playlist_gut.rueckmeldung.ernst": {
+  "standard": [
+   "Verstanden. Kurz, laut, vorbei."
+  ]
+ },
+ "kb_playlist_gut.betreff": {
+  "standard": [
+   "Die Kabine singt mit"
+  ]
+ },
+ "kb_playlist_gut.text": {
+  "standard": [
+   "Seit {spieler_kurz} auflegen darf, singt die halbe Mannschaft beim Einlaufen mit. Der Torwart kennt jeden Text, nur nicht den Refrain."
+  ]
+ },
+ "kb_playlist_schlecht.antwort.lockern": {
+  "standard": [
+   "Musik ist wieder erlaubt – leise."
+  ]
+ },
+ "kb_playlist_schlecht.rueckmeldung.lockern": {
+  "standard": [
+   "Leise reicht. Sogar der Zeugwart wippt mit."
+  ]
+ },
+ "kb_playlist_schlecht.antwort.bleiben": {
+  "standard": [
+   "Es bleibt bei der Stille."
+  ]
+ },
+ "kb_playlist_schlecht.rueckmeldung.bleiben": {
+  "standard": [
+   "Wie Sie wünschen. Wir hören dann eben Atmen."
+  ]
+ },
+ "kb_playlist_schlecht.betreff": {
+  "standard": [
+   "Kabine im Funkloch"
+  ]
+ },
+ "kb_playlist_schlecht.text": {
+  "standard": [
+   "Seit der Stille vor dem Spiel hört man nur noch das Klacken der Stollen. {spieler_kurz} summt heimlich unter der Dusche. Die Stimmung ist … leise."
+  ]
+ },
+ "kb_playlist_szene.betreff": {
+  "standard": [
+   "Szene: Der Kabinenhit"
+  ]
+ },
+ "kb_playlist_szene.text": {
+  "standard": [
+   "Vor dem Anpfiff läuft ein Lied, das niemand ausgesucht haben will. Alle singen. Auch Sie, Trainer – wir haben Sie gehört."
+  ]
+ },
+ "kb_playlist_szene.antwort.kenntnis": {
+  "standard": [
+   "Das bleibt unter uns."
+  ]
+ },
+ "kb_socken.antwort.erlaubt": {
+  "standard": [
+   "Behalte sie. Aber wasche sie vorher."
+  ]
+ },
+ "kb_socken.rueckmeldung.erlaubt": {
+  "standard": [
+   "Danke! Ich wasche sie – im Geist."
+  ]
+ },
+ "kb_socken.antwort.abergl": {
+  "standard": [
+   "Glück hat man oder nicht. Socken egal."
+  ]
+ },
+ "kb_socken.rueckmeldung.abergl": {
+  "standard": [
+   "Eh. Ich lege ein zweites Paar dazu. Zur Sicherheit."
+  ]
+ },
+ "kb_socken.antwort.verbot": {
+  "standard": [
+   "Frische Socken. Sofort."
+  ]
+ },
+ "kb_socken.rueckmeldung.verbot": {
+  "standard": [
+   "Sofort? Wissen Sie, was das für das Karma heißt?"
+  ]
+ },
+ "kb_socken.betreff": {
+  "standard": [
+   "{spieler_kurz} und die Glückssocken"
+  ]
+ },
+ "kb_socken.text": {
+  "standard": [
+   "Trainer, ich muss etwas beichten: Seit dem Auswärtssieg trage ich dieselben Socken. Die Waschfrau wird nervös, ich auch. Darf ich so weitermachen, oder geht das zu weit?"
+  ]
+ },
+ "kb_socken_gut.antwort.grinsen": {
+  "standard": [
+   "Wenigstens riecht es nach Erfolg."
+  ]
+ },
+ "kb_socken_gut.rueckmeldung.grinsen": {
+  "standard": [
+   "Das Beste an der Serie: niemand sitzt neben mir."
+  ]
+ },
+ "kb_socken_gut.antwort.pragma": {
+  "standard": [
+   "Die Waschmaschine steht nebenan. Nutz sie."
+  ]
+ },
+ "kb_socken_gut.rueckmeldung.pragma": {
+  "standard": [
+   "Wird gemacht. Mit Zeremonie."
+  ]
+ },
+ "kb_socken_gut.betreff": {
+  "standard": [
+   "Die Socken siegen weiter"
+  ]
+ },
+ "kb_socken_gut.text": {
+  "standard": [
+   "Die Serie hält, die Socken auch. Zeugwart und Physio haben eine Wette laufen, wann sie sich selbstständig machen."
+  ]
+ },
+ "kb_socken_schlecht.antwort.nachgeben": {
+  "standard": [
+   "Na gut, trag sie wieder. Einmal pro Woche gewaschen."
+  ]
+ },
+ "kb_socken_schlecht.rueckmeldung.nachgeben": {
+  "standard": [
+   "Einmal pro Woche! Das ist ein Kompromiss, mit dem ich leben kann."
+  ]
+ },
+ "kb_socken_schlecht.antwort.hartbleiben": {
+  "standard": [
+   "Die Entscheidung steht."
+  ]
+ },
+ "kb_socken_schlecht.rueckmeldung.hartbleiben": {
+  "standard": [
+   "Gut. Dann eben mit Kopfschmerzen."
+  ]
+ },
+ "kb_socken_schlecht.betreff": {
+  "standard": [
+   "Der Sockenstreit"
+  ]
+ },
+ "kb_socken_schlecht.text": {
+  "standard": [
+   "Seit dem Verbot spielt {spieler_kurz} spürbar verkrampfter. Er sagt, die neuen Socken seien zu 'eng im Kopf'. Der Physio rät zu einem Gespräch."
+  ]
+ },
+ "kb_socken_szene.betreff": {
+  "standard": [
+   "Szene: Die letzte Socke"
+  ]
+ },
+ "kb_socken_szene.text": {
+  "standard": [
+   "Im Pokalspiel hängt eine einzelne Socke an der Eckfahne. Niemand gibt zu, sie dort aufgehängt zu haben. Das Spiel gewinnen wir trotzdem."
+  ]
+ },
+ "kb_socken_szene.antwort.kenntnis": {
+  "standard": [
+   "Wir fragen nicht."
+  ]
+ },
+ "kb_vize.antwort.klaeren": {
+  "standard": [
+   "Ich rede mit euch beiden. Zusammen."
+  ]
+ },
+ "kb_vize.rueckmeldung.klaeren": {
+  "standard": [
+   "Zusammen ist gut. Mit Kaffee? Ich bringe den Kaffee."
+  ]
+ },
+ "kb_vize.antwort.regeln": {
+  "standard": [
+   "Wer fehlt, gibt die Binde ab. Fertig."
+  ]
+ },
+ "kb_vize.rueckmeldung.regeln": {
+  "standard": [
+   "Klare Regel, klare Köpfe. Danke."
+  ]
+ },
+ "kb_vize.antwort.abtun": {
+  "standard": [
+   "Binden sind Nebensache."
+  ]
+ },
+ "kb_vize.rueckmeldung.abtun": {
+  "standard": [
+   "Nebensache. Natürlich. Für Sie vielleicht."
+  ]
+ },
+ "kb_vize.betreff": {
+  "standard": [
+   "{spieler_kurz} und die Binde"
+  ]
+ },
+ "kb_vize.text": {
+  "standard": [
+   "Trainer, ich bin gern Vize. Aber wenn der Kapitän fehlt, trägt er die Binde trotzdem nach dem Spiel noch eine Stunde am Arm. Ich habe nichts gegen ihn. Nur gegen Binden an Armen, die nicht meine sind."
+  ]
+ },
+ "kb_vize_gut.antwort.loben": {
+  "standard": [
+   "Das ist erwachsen. Danke euch."
+  ]
+ },
+ "kb_vize_gut.rueckmeldung.loben": {
+  "standard": [
+   "Wir haben sogar ein Foto gemacht. Für das Archiv."
+  ]
+ },
+ "kb_vize_gut.antwort.kurz": {
+  "standard": [
+   "Gut. Weiter im Training."
+  ]
+ },
+ "kb_vize_gut.rueckmeldung.kurz": {
+  "standard": [
+   "Weiter. Mit Haken."
+  ]
+ },
+ "kb_vize_gut.betreff": {
+  "standard": [
+   "Frieden im Binden-Streit"
+  ]
+ },
+ "kb_vize_gut.text": {
+  "standard": [
+   "Kapitän und {spieler_kurz} haben sich geeinigt: Die Binde hängt künftig an einem Haken in der Kabine, mit Namensschild und Waschanleitung."
+  ]
+ },
+ "kb_vize_schlecht.antwort.vermitteln": {
+  "standard": [
+   "Ich setze euch an einen Tisch."
+  ]
+ },
+ "kb_vize_schlecht.rueckmeldung.vermitteln": {
+  "standard": [
+   "An einen Tisch? Gut, wenn es Kuchen gibt."
+  ]
+ },
+ "kb_vize_schlecht.antwort.ignorieren": {
+  "standard": [
+   "Klärt das unter euch."
+  ]
+ },
+ "kb_vize_schlecht.rueckmeldung.ignorieren": {
+  "standard": [
+   "Wir klären. Wahrscheinlich nicht."
+  ]
+ },
+ "kb_vize_schlecht.betreff": {
+  "standard": [
+   "Kalter Krieg am Haken"
+  ]
+ },
+ "kb_vize_schlecht.text": {
+  "standard": [
+   "{spieler_kurz} und der Kapitän grüßen sich nur noch per Handzeichen. In der Kabine hängt ein Zettel: 'Binde bitte nicht berühren'. Niemand will ihn geschrieben haben."
+  ]
+ },
+ "kb_vize_szene.betreff": {
+  "standard": [
+   "Szene: Ein Haken für zwei"
+  ]
+ },
+ "kb_vize_szene.text": {
+  "standard": [
+   "Vor dem Spiel hängen beide Binden nebeneinander am Haken, mit Namensschild und einem kleinen Herz. Wer das gemalt hat, bleibt Geheimnis der Kabine."
+  ]
+ },
+ "kb_vize_szene.antwort.kenntnis": {
+  "standard": [
+   "Wir haben nichts gesehen."
+  ]
+ },
+ "kb_neuling.antwort.taufe": {
+  "standard": [
+   "Ja, tauft ihn. Mit Kuchen für alle."
+  ]
+ },
+ "kb_neuling.rueckmeldung.taufe": {
+  "standard": [
+   "Mit Kuchen für alle! Ich suche gleich einen Bäcker."
+  ]
+ },
+ "kb_neuling.antwort.kurz": {
+  "standard": [
+   "Kurz und freundlich. Ohne Zuschauer."
+  ]
+ },
+ "kb_neuling.rueckmeldung.kurz": {
+  "standard": [
+   "Kurz und freundlich. Wir singen leise."
+  ]
+ },
+ "kb_neuling.antwort.nein": {
+  "standard": [
+   "Nein. Keine Spielchen."
+  ]
+ },
+ "kb_neuling.rueckmeldung.nein": {
+  "standard": [
+   "Keine Spielchen. Alles klar. Es war nur ein Lied."
+  ]
+ },
+ "kb_neuling.betreff": {
+  "standard": [
+   "Taufe für {spieler_kurz}"
+  ]
+ },
+ "kb_neuling.text": {
+  "standard": [
+   "Trainer, {spieler_kurz} ist jetzt lange genug da. Die Mannschaft möchte ihn taufen: Lied vorsingen, Kuchen holen, einmal den Ball an der Eckfahne küssen. Harmlos. Wir wollten nur vorher fragen."
+  ]
+ },
+ "kb_neuling_gut.antwort.applaus": {
+  "standard": [
+   "Der Kuchen war ausgezeichnet. Ich lüge gern."
+  ]
+ },
+ "kb_neuling_gut.rueckmeldung.applaus": {
+  "standard": [
+   "Ich habe das Rezept erfragt: Tankstelle, Regal vier."
+  ]
+ },
+ "kb_neuling_gut.antwort.ruhig": {
+  "standard": [
+   "Schön. Morgen wieder Training."
+  ]
+ },
+ "kb_neuling_gut.rueckmeldung.ruhig": {
+  "standard": [
+   "Morgen wieder. Mit Zuckerschock."
+  ]
+ },
+ "kb_neuling_gut.betreff": {
+  "standard": [
+   "Der Neue singt"
+  ]
+ },
+ "kb_neuling_gut.text": {
+  "standard": [
+   "{spieler_kurz} hat die Taufe überlebt. Sein Lied war falsch, laut und trotzdem ein Hit. Der Kuchen war aus einer Tankstelle, hat aber niemand gesagt."
+  ]
+ },
+ "kb_neuling_schlecht.antwort.nachholen": {
+  "standard": [
+   "Holt die Taufe nach – kurz."
+  ]
+ },
+ "kb_neuling_schlecht.rueckmeldung.nachholen": {
+  "standard": [
+   "Kurz? Ich singe sehr kurz. Versprochen."
+  ]
+ },
+ "kb_neuling_schlecht.antwort.bleibt": {
+  "standard": [
+   "Es bleibt beim Nein."
+  ]
+ },
+ "kb_neuling_schlecht.rueckmeldung.bleibt": {
+  "standard": [
+   "Gut. Dann bekommt er sein Lied zum Geburtstag."
+  ]
+ },
+ "kb_neuling_schlecht.betreff": {
+  "standard": [
+   "{spieler_kurz} bleibt außen vor"
+  ]
+ },
+ "kb_neuling_schlecht.text": {
+  "standard": [
+   "Seit dem Verbot der Taufe sitzt {spieler_kurz} beim Essen etwas abseits. Niemand ist böse, aber ein Lied fehlt. Der Kapitän summt es beim Kaffeeholen."
+  ]
+ },
+ "kb_neuling_szene.betreff": {
+  "standard": [
+   "Szene: Das späte Lied"
+  ]
+ },
+ "kb_neuling_szene.text": {
+  "standard": [
+   "Nach dem Sieg stimmt jemand das Taufliedchen an. {spieler_kurz} steht auf dem Tisch und singt mit. Der Zeugwart filmt, der Physio weint ein bisschen."
+  ]
+ },
+ "kb_neuling_szene.antwort.kenntnis": {
+  "standard": [
+   "Ich war nicht dabei."
+  ]
+ },
+ "kb_heimweh.antwort.freitag": {
+  "standard": [
+   "Nimm dir ein langes Wochenende frei."
+  ]
+ },
+ "kb_heimweh.rueckmeldung.freitag": {
+  "standard": [
+   "Ein langes Wochenende! Ich bringe Suppe mit. Für alle."
+  ]
+ },
+ "kb_heimweh.antwort.kumpel": {
+  "standard": [
+   "Wir setzen dich zu den Landsleuten."
+  ]
+ },
+ "kb_heimweh.rueckmeldung.kumpel": {
+  "standard": [
+   "Das klingt gut. Ich lerne das Kartenspiel."
+  ]
+ },
+ "kb_heimweh.antwort.durch": {
+  "standard": [
+   "Das gehört dazu. Beiß dich durch."
+  ]
+ },
+ "kb_heimweh.rueckmeldung.durch": {
+  "standard": [
+   "Durchbeißen. Mit Suppe im Herzen."
+  ]
+ },
+ "kb_heimweh.betreff": {
+  "standard": [
+   "{spieler_kurz} vermisst die Heimat"
+  ]
+ },
+ "kb_heimweh.text": {
+  "standard": [
+   "Trainer, ich will nicht jammern. Aber seit Tagen träume ich von Omas Suppe, und das Wetter hier macht es nicht besser. Ich habe Angst, dass es auf dem Platz zu sehen ist."
+  ]
+ },
+ "kb_heimweh_gut.antwort.probieren": {
+  "standard": [
+   "Ich probiere. Nur aus fachlichem Interesse."
+  ]
+ },
+ "kb_heimweh_gut.rueckmeldung.probieren": {
+  "standard": [
+   "Fachliches Interesse mit Nachschlag. Verstanden."
+  ]
+ },
+ "kb_heimweh_gut.antwort.sachlich": {
+  "standard": [
+   "Schön, dass du wieder da bist."
+  ]
+ },
+ "kb_heimweh_gut.rueckmeldung.sachlich": {
+  "standard": [
+   "Schön, wieder da zu sein. Und satt."
+  ]
+ },
+ "kb_heimweh_gut.betreff": {
+  "standard": [
+   "Suppe für alle"
+  ]
+ },
+ "kb_heimweh_gut.text": {
+  "standard": [
+   "{spieler_kurz} ist aus der Heimat zurück – mit drei Töpfen. Die Kabine riecht nach Suppe und Zufriedenheit. Der Ernährungsberater verzieht keine Miene."
+  ]
+ },
+ "kb_heimweh_schlecht.antwort.freistellen": {
+  "standard": [
+   "Du bekommst zwei Tage. Ruf deine Familie an."
+  ]
+ },
+ "kb_heimweh_schlecht.rueckmeldung.freistellen": {
+  "standard": [
+   "Zwei Tage. Ich sage Omas Suppe Bescheid."
+  ]
+ },
+ "kb_heimweh_schlecht.antwort.klartext": {
+  "standard": [
+   "Handy aus. Konzentration."
+  ]
+ },
+ "kb_heimweh_schlecht.rueckmeldung.klartext": {
+  "standard": [
+   "Handy aus. Schweren Herzens."
+  ]
+ },
+ "kb_heimweh_schlecht.betreff": {
+  "standard": [
+   "{spieler_kurz} wirkt abwesend"
+  ]
+ },
+ "kb_heimweh_schlecht.text": {
+  "standard": [
+   "{spieler_kurz} schaut im Training häufiger aufs Handy als auf den Ball. Der Physio vermutet Heimweh, der Zeugwart eine neue Serie. Beides schlecht für die Passquote."
+  ]
+ },
+ "kb_heimweh_szene.betreff": {
+  "standard": [
+   "Szene: Der Topf im Bus"
+  ]
+ },
+ "kb_heimweh_szene.text": {
+  "standard": [
+   "Auf der Auswärtsfahrt wandert ein Topf durch den Bus. Alle löffeln, der Busfahrer lehnt höflich ab, bekommt aber doch einen Teller. Nach dem Spiel fragt er nach dem Rezept."
+  ]
+ },
+ "kb_heimweh_szene.antwort.kenntnis": {
+  "standard": [
+   "Rezept liegt bei."
+  ]
+ },
+ "kb_diva.antwort.spiegel": {
+  "standard": [
+   "Den Spiegel kriegst du. Die Pflanze gießt du selbst."
+  ]
+ },
+ "kb_diva.rueckmeldung.spiegel": {
+  "standard": [
+   "Ein Kaktus reicht. Der passt zu meiner Aura."
+  ]
+ },
+ "kb_diva.antwort.leistung": {
+  "standard": [
+   "Der Spind folgt der Leistung."
+  ]
+ },
+ "kb_diva.rueckmeldung.leistung": {
+  "standard": [
+   "Leistung bekommt Licht. Ich nehme das als Wette."
+  ]
+ },
+ "kb_diva.antwort.neinsage": {
+  "standard": [
+   "Spind ist Spind. Keine Extras."
+  ]
+ },
+ "kb_diva.rueckmeldung.neinsage": {
+  "standard": [
+   "Keine Extras. Ich merke es mir. In der Verlängerung."
+  ]
+ },
+ "kb_diva.betreff": {
+  "standard": [
+   "{spieler_kurz} will den eigenen Spind"
+  ]
+ },
+ "kb_diva.text": {
+  "standard": [
+   "Trainer, kein Vorwurf, aber ich brauche einen Spind mit Beleuchtung. Wirklich: Ein Spiegel, ein Strahler, vielleicht eine Pflanze. Wer so spielt wie ich, will auch so wohnen."
+  ]
+ },
+ "kb_diva_gut.antwort.schmunzeln": {
+  "standard": [
+   "Der Kaktus gefällt mir. Aber die Zeit auf dem Platz zählt."
+  ]
+ },
+ "kb_diva_gut.rueckmeldung.schmunzeln": {
+  "standard": [
+   "Zeit auf dem Platz. Der Kaktus vertritt mich im Notfall."
+  ]
+ },
+ "kb_diva_gut.antwort.pragma": {
+  "standard": [
+   "Gut. Dann zeig es im Training."
+  ]
+ },
+ "kb_diva_gut.rueckmeldung.pragma": {
+  "standard": [
+   "Im Training strahle ich auch. Ohne Strahler."
+  ]
+ },
+ "kb_diva_gut.betreff": {
+  "standard": [
+   "Der Spind strahlt"
+  ]
+ },
+ "kb_diva_gut.text": {
+  "standard": [
+   "{spieler_kurz} hat seinen Spind selbst eingerichtet: Spiegel, kleiner Strahler, Kaktus namens 'Torsten'. Die Mannschaft bewundert es heimlich und lässt es sich nicht anmerken."
+  ]
+ },
+ "kb_diva_schlecht.antwort.bruecke": {
+  "standard": [
+   "Komm, wir finden eine Lösung. Kaktus inklusive."
+  ]
+ },
+ "kb_diva_schlecht.rueckmeldung.bruecke": {
+  "standard": [
+   "Kaktus inklusive. Das ist ein Wort."
+  ]
+ },
+ "kb_diva_schlecht.antwort.fest": {
+  "standard": [
+   "Die Entscheidung bleibt."
+  ]
+ },
+ "kb_diva_schlecht.rueckmeldung.fest": {
+  "standard": [
+   "Bleibt. Und ich bleibe im Eck."
+  ]
+ },
+ "kb_diva_schlecht.betreff": {
+  "standard": [
+   "{spieler_kurz} schmollt"
+  ]
+ },
+ "kb_diva_schlecht.text": {
+  "standard": [
+   "{spieler_kurz} hat sich einen Eckplatz in der Kabine gesucht, mit Kopfhörern. Der Kapitän sagt, er würde Szenen gern mal ohne Premiere sehen. Die Stimmung ist theatralisch."
+  ]
+ },
+ "kb_diva_szene.betreff": {
+  "standard": [
+   "Szene: Applaus für den Kaktus"
+  ]
+ },
+ "kb_diva_szene.text": {
+  "standard": [
+   "Nach dem Spiel steht ein Kaktus auf der Pressekonferenz neben {spieler_kurz}. Niemand fragt, warum. Der Kaktus bekommt die beste Frage des Tages."
+  ]
+ },
+ "kb_diva_szene.antwort.kenntnis": {
+  "standard": [
+   "Kein Kommentar."
+  ]
+ },
+ "kb_elfmeter.antwort.liste": {
+  "standard": [
+   "Es gibt eine Liste. Ich hänge sie auf."
+  ]
+ },
+ "kb_elfmeter.rueckmeldung.liste": {
+  "standard": [
+   "Eine Liste! Mit Reihenfolge, Nummern und Unterschrift."
+  ]
+ },
+ "kb_elfmeter.antwort.hand": {
+  "standard": [
+   "Wer sich am sichersten fühlt, schießt."
+  ]
+ },
+ "kb_elfmeter.rueckmeldung.hand": {
+  "standard": [
+   "Sicher fühlt sich jeder. Das ist das Problem."
+  ]
+ },
+ "kb_elfmeter.antwort.kapitaen": {
+  "standard": [
+   "Der Kapitän entscheidet. Basta."
+  ]
+ },
+ "kb_elfmeter.rueckmeldung.kapitaen": {
+  "standard": [
+   "Basta. Das gefällt mir. Der Rest wird es lernen."
+  ]
+ },
+ "kb_elfmeter.betreff": {
+  "standard": [
+   "Elfmeterstreit um {spieler_kurz}"
+  ]
+ },
+ "kb_elfmeter.text": {
+  "standard": [
+   "Trainer, wir haben ein Problem mit dem Elfmeter: {spieler_kurz} will schießen, der Stammschütze auch, und gestern lag der Ball zwei Minuten auf dem Punkt. Der Schiedsrichter hat gelächelt. Wir nicht."
+  ]
+ },
+ "kb_elfmeter_gut.antwort.zufrieden": {
+  "standard": [
+   "Gute Liste. Danke fürs Mitmachen."
+  ]
+ },
+ "kb_elfmeter_gut.rueckmeldung.zufrieden": {
+  "standard": [
+   "Platz zwei ist die neue eins. Offiziell."
+  ]
+ },
+ "kb_elfmeter_gut.antwort.pragma": {
+  "standard": [
+   "Hauptsache, er trifft."
+  ]
+ },
+ "kb_elfmeter_gut.rueckmeldung.pragma": {
+  "standard": [
+   "Er trifft. Meistens. Die Liste hilft."
+  ]
+ },
+ "kb_elfmeter_gut.betreff": {
+  "standard": [
+   "Die Liste hängt"
+  ]
+ },
+ "kb_elfmeter_gut.text": {
+  "standard": [
+   "Am Brett in der Kabine hängt die Elfmeterliste, geordnet nach Nervenstärke. {spieler_kurz} steht auf Platz zwei und lächelt, als sei es Platz eins."
+  ]
+ },
+ "kb_elfmeter_schlecht.antwort.lachen": {
+  "standard": [
+   "Er hat getroffen. Beim nächsten Mal fragt er."
+  ]
+ },
+ "kb_elfmeter_schlecht.rueckmeldung.lachen": {
+  "standard": [
+   "Beim nächsten Mal frage ich. Wahrscheinlich."
+  ]
+ },
+ "kb_elfmeter_schlecht.antwort.strafe": {
+  "standard": [
+   "Zehn Euro in die Kasse. Für den Kaffee."
+  ]
+ },
+ "kb_elfmeter_schlecht.rueckmeldung.strafe": {
+  "standard": [
+   "Zehn Euro. Der Kaffee wird teuer."
+  ]
+ },
+ "kb_elfmeter_schlecht.betreff": {
+  "standard": [
+   "Der Ball im Netz – aber falsch"
+  ]
+ },
+ "kb_elfmeter_schlecht.text": {
+  "standard": [
+   "Beim Elfmeter schnappt sich {spieler_kurz} den Ball trotz Anweisung und trifft. Die Kabine ist geteilter Meinung: halb Jubel, halb Aktenzeichen."
+  ]
+ },
+ "kb_elfmeter_szene.betreff": {
+  "standard": [
+   "Szene: Die Mannschaftskasse"
+  ]
+ },
+ "kb_elfmeter_szene.text": {
+  "standard": [
+   "Die Mannschaftskasse füllt sich, weil jeder seine Strafen mit Stolz bezahlt. Am Saisonende reicht sie für ein Grillfest. Der Torwart hält die Rede, zum Glück kurz."
+  ]
+ },
+ "kb_elfmeter_szene.antwort.kenntnis": {
+  "standard": [
+   "Prost."
+  ]
+ },
+ "kb_mentor.antwort.paten": {
+  "standard": [
+   "Gut so. Lass die beiden zusammen üben."
+  ]
+ },
+ "kb_mentor.rueckmeldung.paten": {
+  "standard": [
+   "Ich stelle sie ans selbe Hütchen. Was kann schiefgehen?"
+  ]
+ },
+ "kb_mentor.antwort.beobachten": {
+  "standard": [
+   "Erst zuschauen, dann entscheiden."
+  ]
+ },
+ "kb_mentor.rueckmeldung.beobachten": {
+  "standard": [
+   "Ich beobachte. Mit Notizblock und Brille."
+  ]
+ },
+ "kb_mentor.antwort.alleine": {
+  "standard": [
+   "Der Junge muss allein klarkommen."
+  ]
+ },
+ "kb_mentor.rueckmeldung.alleine": {
+  "standard": [
+   "Allein. Wie wir damals. Mit Gegenwind."
+  ]
+ },
+ "kb_mentor.betreff": {
+  "standard": [
+   "Ein Pate für {spieler_kurz}"
+  ]
+ },
+ "kb_mentor.text": {
+  "standard": [
+   "Chef, {spieler_kurz} läuft im Training herum wie ein Reh auf Glatteis. Der Routinier aus der Innenverteidigung hat angeboten, ihn unter seine Fittiche zu nehmen. Das klingt gut, aber ich wollte fragen."
+  ]
+ },
+ "kb_mentor_gut.antwort.loben": {
+  "standard": [
+   "Sag beiden, dass ich stolz bin."
+  ]
+ },
+ "kb_mentor_gut.rueckmeldung.loben": {
+  "standard": [
+   "Ich sage es. Dem Alten zuerst – der wird rot."
+  ]
+ },
+ "kb_mentor_gut.antwort.weiter": {
+  "standard": [
+   "Weiter so, aber ohne Feier."
+  ]
+ },
+ "kb_mentor_gut.rueckmeldung.weiter": {
+  "standard": [
+   "Ohne Feier. Ein kleiner Kuchen geht schon."
+  ]
+ },
+ "kb_mentor_gut.betreff": {
+  "standard": [
+   "Der Pate liefert"
+  ]
+ },
+ "kb_mentor_gut.text": {
+  "standard": [
+   "{spieler_kurz} hat im Training erstmals den Ball angenommen, ohne sich nach dem Co-Trainer umzusehen. Der Routinier tut so, als sei das nichts. Es ist alles."
+  ]
+ },
+ "kb_mentor_schlecht.antwort.doch": {
+  "standard": [
+   "Nehmt euch zusammen. Ihr beiden zusammen."
+  ]
+ },
+ "kb_mentor_schlecht.rueckmeldung.doch": {
+  "standard": [
+   "Wir haben schon Kaffee getrunken. Der Alte hat bezahlt."
+  ]
+ },
+ "kb_mentor_schlecht.antwort.selbst": {
+  "standard": [
+   "Er löst das selbst."
+  ]
+ },
+ "kb_mentor_schlecht.rueckmeldung.selbst": {
+  "standard": [
+   "Selbst. Er nimmt sich Mut mit Tee."
+  ]
+ },
+ "kb_mentor_schlecht.betreff": {
+  "standard": [
+   "{spieler_kurz} grübelt"
+  ]
+ },
+ "kb_mentor_schlecht.text": {
+  "standard": [
+   "Ohne Pate wirkt {spieler_kurz} im Training wie ein Tourist: freundlich, verloren, ständig mit Kamera. Der Routinier schaut ihm aus der Ferne zu und seufzt hörbar."
+  ]
+ },
+ "kb_mentor_szene.betreff": {
+  "standard": [
+   "Szene: Zwei Reihen Hütchen"
+  ]
+ },
+ "kb_mentor_szene.text": {
+  "standard": [
+   "Nach dem Training bleiben der Routinier und {spieler_kurz} noch auf dem Platz und stellen Hütchen um. Auf dem Weg zur Kabine hört man ein 'Das war nicht schlecht' und ein 'Danke, Chef'."
+  ]
+ },
+ "kb_mentor_szene.antwort.kenntnis": {
+  "standard": [
+   "Ein ruhiger Moment."
+  ]
+ },
+ "kb_muede.antwort.pause": {
+  "standard": [
+   "Du bekommst einen freien Nachmittag."
+  ]
+ },
+ "kb_muede.rueckmeldung.pause": {
+  "standard": [
+   "Ein freier Nachmittag! Ich schlafe wie ein Murmeltier. Im Stehen."
+  ]
+ },
+ "kb_muede.antwort.plan": {
+  "standard": [
+   "Wir kürzen deine Einheiten diese Woche."
+  ]
+ },
+ "kb_muede.rueckmeldung.plan": {
+  "standard": [
+   "Kürzer ist gut. Länger schlafen auch."
+  ]
+ },
+ "kb_muede.antwort.weiter": {
+  "standard": [
+   "Das ist Profisport. Weitermachen."
+  ]
+ },
+ "kb_muede.rueckmeldung.weiter": {
+  "standard": [
+   "Weitermachen. Ich versuche es – wach."
+  ]
+ },
+ "kb_muede.betreff": {
+  "standard": [
+   "{spieler_kurz} ist platt"
+  ]
+ },
+ "kb_muede.text": {
+  "standard": [
+   "Trainer, ich gebe es zu: Ich bin müde. Nicht körperlich – im Kopf. Gestern bin ich im Bus eingeschlafen und habe im Traum eine Flanke geschlagen. Sie kam an."
+  ]
+ },
+ "kb_muede_gut.antwort.freuen": {
+  "standard": [
+   "Schön. Ich gönne dir jede Pause."
+  ]
+ },
+ "kb_muede_gut.rueckmeldung.freuen": {
+  "standard": [
+   "Pausen sind mein neues Hobby. Danke, Trainer."
+  ]
+ },
+ "kb_muede_gut.antwort.kurz": {
+  "standard": [
+   "Gut. Bleib in der Spur."
+  ]
+ },
+ "kb_muede_gut.rueckmeldung.kurz": {
+  "standard": [
+   "Spur gefunden. Sogar mit Rückspiegel."
+  ]
+ },
+ "kb_muede_gut.betreff": {
+  "standard": [
+   "Der Murmeltier-Effekt"
+  ]
+ },
+ "kb_muede_gut.text": {
+  "standard": [
+   "Nach seinem freien Nachmittag ist {spieler_kurz} im Training kaum zu bremsen. Er hat sogar den Ball gejagt, den er sonst nur höflich begleitet hat. Die Kabine glaubt an ein Wunder."
+  ]
+ },
+ "kb_muede_schlecht.antwort.kehrtwende": {
+  "standard": [
+   "Okay, du bekommst deine Pause doch."
+  ]
+ },
+ "kb_muede_schlecht.rueckmeldung.kehrtwende": {
+  "standard": [
+   "Pause! Ich schwöre, ich schlafe nicht ein. Fast."
+  ]
+ },
+ "kb_muede_schlecht.antwort.wecker": {
+  "standard": [
+   "Stell dir einen Wecker."
+  ]
+ },
+ "kb_muede_schlecht.rueckmeldung.wecker": {
+  "standard": [
+   "Wecker gestellt. Fünf Stück. Gegen den Schlaf."
+  ]
+ },
+ "kb_muede_schlecht.betreff": {
+  "standard": [
+   "{spieler_kurz} nickt ein"
+  ]
+ },
+ "kb_muede_schlecht.text": {
+  "standard": [
+   "Bei der Taktikbesprechung ist {spieler_kurz} zum ersten Mal in der Vereinsgeschichte mit offenen Augen eingeschlafen. Der Analyst notiert 'Taktische Blickrichtung: Decke'."
+  ]
+ },
+ "kb_muede_szene.betreff": {
+  "standard": [
+   "Szene: Der schlafende Löwe"
+  ]
+ },
+ "kb_muede_szene.text": {
+  "standard": [
+   "In der Halbzeit liegt {spieler_kurz} mit geschlossenen Augen auf der Bank und sagt: 'Ich sammle Kraft.' Zehn Minuten später schießt er das Tor des Spiels."
+  ]
+ },
+ "kb_muede_szene.antwort.kenntnis": {
+  "standard": [
+   "Man soll nichts verschreien."
+  ]
+ },
+ "kb_reha.antwort.dabei": {
+  "standard": [
+   "Komm zu den Besprechungen. Mit Tee."
+  ]
+ },
+ "kb_reha.rueckmeldung.dabei": {
+  "standard": [
+   "Mit Tee und Notizblock. Ich bin so gut wie eingestellt."
+  ]
+ },
+ "kb_reha.antwort.erst_heilen": {
+  "standard": [
+   "Erst gesund werden. Dann Besprechung."
+  ]
+ },
+ "kb_reha.rueckmeldung.erst_heilen": {
+  "standard": [
+   "Gesund, dann Besprechung. Reihenfolge verstanden."
+  ]
+ },
+ "kb_reha.antwort.ruhe": {
+  "standard": [
+   "Ruhe. Das ist ein Befehl."
+  ]
+ },
+ "kb_reha.rueckmeldung.ruhe": {
+  "standard": [
+   "Ruhe. Ich zähle die Fliegen an der Decke."
+  ]
+ },
+ "kb_reha.betreff": {
+  "standard": [
+   "{spieler_kurz} will dabei sein"
+  ]
+ },
+ "kb_reha.text": {
+  "standard": [
+   "Trainer, die Reha macht mich verrückt. Ich habe die Fahrradergometer-Wand schon auswendig gelernt. Darf ich wenigstens zu den Besprechungen kommen? Ich bringe auch Tee mit."
+  ]
+ },
+ "kb_reha_gut.antwort.loben": {
+  "standard": [
+   "Gute Idee. Weiter so."
+  ]
+ },
+ "kb_reha_gut.rueckmeldung.loben": {
+  "standard": [
+   "Ich habe sogar eine Gegnerskizze gemalt. Mit Farbe."
+  ]
+ },
+ "kb_reha_gut.antwort.sachlich": {
+  "standard": [
+   "Gut. Aber vergiss die Reha nicht."
+  ]
+ },
+ "kb_reha_gut.rueckmeldung.sachlich": {
+  "standard": [
+   "Reha vergesse ich nie. Sie vergisst mich nicht."
+  ]
+ },
+ "kb_reha_gut.betreff": {
+  "standard": [
+   "Der Teetrinker auf der Bank"
+  ]
+ },
+ "kb_reha_gut.text": {
+  "standard": [
+   "{spieler_kurz} sitzt bei jeder Besprechung in der ersten Reihe und notiert mit. Der Analyst hat ihn schon einmal gefragt, ob er nicht auch Zahlen mitbringen könne. Er kann."
+  ]
+ },
+ "kb_reha_schlecht.antwort.einlenken": {
+  "standard": [
+   "Okay, dann komm mit. Aber ohne Bälle."
+  ]
+ },
+ "kb_reha_schlecht.rueckmeldung.einlenken": {
+  "standard": [
+   "Ohne Bälle. Versprochen. Außer einem kleinen."
+  ]
+ },
+ "kb_reha_schlecht.antwort.hart": {
+  "standard": [
+   "Du bleibst im Reha-Raum."
+  ]
+ },
+ "kb_reha_schlecht.rueckmeldung.hart": {
+  "standard": [
+   "Der Raum und ich – eine Freundschaft."
+  ]
+ },
+ "kb_reha_schlecht.betreff": {
+  "standard": [
+   "{spieler_kurz} schleicht durch die Kabine"
+  ]
+ },
+ "kb_reha_schlecht.text": {
+  "standard": [
+   "Seit der Anordnung zur Ruhe taucht {spieler_kurz} plötzlich überall auf: am Kaffeeautomaten, bei der Physio, einmal sogar im Bus. Er sagt, er sei nur zufällig vorbeigekommen."
+  ]
+ },
+ "kb_reha_szene.betreff": {
+  "standard": [
+   "Szene: Das Comeback im Mannschaftsfoto"
+  ]
+ },
+ "kb_reha_szene.text": {
+  "standard": [
+   "Beim Mannschaftsfoto steht {spieler_kurz} in Zivil in der letzten Reihe und winkt. Auf dem Bild sieht es aus, als hätte er das Tor geschossen. Das Foto hängt jetzt im Flur."
+  ]
+ },
+ "kb_reha_szene.antwort.kenntnis": {
+  "standard": [
+   "Gut gehängt."
+  ]
+ },
+ "kb_berater.antwort.termin": {
+  "standard": [
+   "Gern. Kommen Sie nächste Woche vorbei."
+  ]
+ },
+ "kb_berater.rueckmeldung.termin": {
+  "standard": [
+   "Nächste Woche. Ich bringe Unterlagen und einen Keks."
+  ]
+ },
+ "kb_berater.antwort.abwarten": {
+  "standard": [
+   "Lassen Sie uns die Saison abwarten."
+  ]
+ },
+ "kb_berater.rueckmeldung.abwarten": {
+  "standard": [
+   "Abwarten. Ich werde ungeduldig, aber höflich."
+  ]
+ },
+ "kb_berater.antwort.abblitzen": {
+  "standard": [
+   "Ich verhandle nicht über Gerüchte."
+  ]
+ },
+ "kb_berater.rueckmeldung.abblitzen": {
+  "standard": [
+   "Gerüchte sind meine Spezialität. Sie werden hören."
+  ]
+ },
+ "kb_berater.betreff": {
+  "standard": [
+   "{berater} ruft wegen {spieler_kurz} an"
+  ]
+ },
+ "kb_berater.text": {
+  "standard": [
+   "Guten Tag, Trainer. {berater} hier. Mein Mandant {spieler} ist ein gefragter Mann, und ich höre Dinge. Nichts Konkretes, aber ich wollte vorfühlen, ob wir über seine Zukunft reden sollten, bevor andere es tun."
+  ]
+ },
+ "kb_berater_gut.antwort.lachen": {
+  "standard": [
+   "Wir sind uns einig: erst reden, dann sehen."
+  ]
+ },
+ "kb_berater_gut.rueckmeldung.lachen": {
+  "standard": [
+   "Erst reden. Das hat selten jemand gesagt."
+  ]
+ },
+ "kb_berater_gut.antwort.kuehl": {
+  "standard": [
+   "Danke für das Gespräch."
+  ]
+ },
+ "kb_berater_gut.rueckmeldung.kuehl": {
+  "standard": [
+   "Gern. Ich schicke die Rechnung für den Kaffee."
+  ]
+ },
+ "kb_berater_gut.betreff": {
+  "standard": [
+   "{berater} schaut vorbei"
+  ]
+ },
+ "kb_berater_gut.text": {
+  "standard": [
+   "{berater} sitzt zwei Stunden bei Ihnen, trinkt drei Kaffee und sagt zehnmal 'nur zur Information'. Gegangen ist er mit einem Handschlag und dem Vorsatz, nichts zu unterschreiben."
+  ]
+ },
+ "kb_berater_schlecht.antwort.klaeren": {
+  "standard": [
+   "Ich rufe zurück. Wir klären das ruhig."
+  ]
+ },
+ "kb_berater_schlecht.rueckmeldung.klaeren": {
+  "standard": [
+   "Ruhig klären. Ich hole die Zeitung als Beweis."
+  ]
+ },
+ "kb_berater_schlecht.antwort.klarstellen": {
+  "standard": [
+   "Öffentliche Klarstellung. Heute noch."
+  ]
+ },
+ "kb_berater_schlecht.rueckmeldung.klarstellen": {
+  "standard": [
+   "Heute noch. Mit Foto, wenn Sie wollen."
+  ]
+ },
+ "kb_berater_schlecht.betreff": {
+  "standard": [
+   "{berater} streut Gerüchte"
+  ]
+ },
+ "kb_berater_schlecht.text": {
+  "standard": [
+   "In den Zeitungen steht, {spieler} sei 'unzufrieden und begehrt'. Die Quelle: ein 'gut informierter Kreis' – drei Personen, davon einer {berater}. Der Pressesprecher läuft rot an."
+  ]
+ },
+ "kb_berater_szene.betreff": {
+  "standard": [
+   "Szene: Der Händedruck im Flur"
+  ]
+ },
+ "kb_berater_szene.text": {
+  "standard": [
+   "Auf dem Flur treffen Sie {berater}. Beide lächeln, beide schütteln die Hand, beide halten sie ein bisschen zu lange. Der Pressesprecher beschließt, heute früher Feierabend zu machen."
+  ]
+ },
+ "kb_berater_szene.antwort.kenntnis": {
+  "standard": [
+   "Man sieht sich."
+  ]
+ },
+ "kb_streich.antwort.ja": {
+  "standard": [
+   "Macht. Aber kein Wort zur Presse."
+  ]
+ },
+ "kb_streich.rueckmeldung.ja": {
+  "standard": [
+   "Kein Wort. Der Gummibärchenkleber ist schon bestellt."
+  ]
+ },
+ "kb_streich.antwort.klein": {
+  "standard": [
+   "Etwas Kleineres, bitte."
+  ]
+ },
+ "kb_streich.rueckmeldung.klein": {
+  "standard": [
+   "Etwas Kleineres. Dann nehmen wir Aufkleber."
+  ]
+ },
+ "kb_streich.antwort.nein": {
+  "standard": [
+   "Nein. Das ist ein Verein, kein Zirkus."
+  ]
+ },
+ "kb_streich.rueckmeldung.nein": {
+  "standard": [
+   "Zirkus ist auch nett. Aber gut, Trainer."
+  ]
+ },
+ "kb_streich.betreff": {
+  "standard": [
+   "{spieler_kurz} plant einen Streich"
+  ]
+ },
+ "kb_streich.text": {
+  "standard": [
+   "Trainer, ich sage es ehrlich: {spieler_kurz} will Ihrem Co-Trainer die Schuhe an den Boden kleben. Mit Gummibärchenkleber, also harmlos. Wir finden, es hebt die Stimmung. Aber Sie entscheiden."
+  ]
+ },
+ "kb_streich_gut.antwort.lachen": {
+  "standard": [
+   "Bezahlt. Die Schuhe auch."
+  ]
+ },
+ "kb_streich_gut.rueckmeldung.lachen": {
+  "standard": [
+   "Danke! Die Schuhe waren eh zu eng."
+  ]
+ },
+ "kb_streich_gut.antwort.ernst": {
+  "standard": [
+   "Genug. Jetzt wieder Training."
+  ]
+ },
+ "kb_streich_gut.rueckmeldung.ernst": {
+  "standard": [
+   "Genug ist genug. Mit Kleber im Schrank."
+  ]
+ },
+ "kb_streich_gut.betreff": {
+  "standard": [
+   "Die Schuhe halten"
+  ]
+ },
+ "kb_streich_gut.text": {
+  "standard": [
+   "Der Co-Trainer ist gestern zwei Meter gegangen und dann nicht mehr. Er hat gelacht, dann geflucht, dann wieder gelacht. Heute schickt er eine Gegenrechnung für ein Paar Schuhe."
+  ]
+ },
+ "kb_streich_schlecht.antwort.freigeben": {
+  "standard": [
+   "Na gut. Einer pro Monat. Offiziell."
+  ]
+ },
+ "kb_streich_schlecht.rueckmeldung.freigeben": {
+  "standard": [
+   "Einer pro Monat! Wir führen ein Protokoll."
+  ]
+ },
+ "kb_streich_schlecht.antwort.streng": {
+  "standard": [
+   "Es bleibt dabei."
+  ]
+ },
+ "kb_streich_schlecht.rueckmeldung.streng": {
+  "standard": [
+   "Dabei bleibt es. Nur noch heimlich."
+  ]
+ },
+ "kb_streich_schlecht.betreff": {
+  "standard": [
+   "Die Kabine schweigt"
+  ]
+ },
+ "kb_streich_schlecht.text": {
+  "standard": [
+   "Seit dem Verbot herrscht in der Kabine eine seltsame Ruhe. Jemand hat 'Streich' an die Tafel geschrieben und wieder gewischt. Der Torwart kichert trotzdem leise."
+  ]
+ },
+ "kb_streich_szene.betreff": {
+  "standard": [
+   "Szene: Die Gegenrechnung"
+  ]
+ },
+ "kb_streich_szene.text": {
+  "standard": [
+   "Auf dem Brett der Kabine hängt eine Rechnung: 'Ein Paar Schuhe, ein Paar Socken, Nerven (pauschal)'. Darunter steht die Unterschrift des Kapitäns und ein kleines Smiley."
+  ]
+ },
+ "kb_streich_szene.antwort.kenntnis": {
+  "standard": [
+   "Ablage."
+  ]
+ }
+}

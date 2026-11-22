@@ -1,0 +1,201 @@
+# Konfiguration der Vereinswelt (Sitzung F). Alles hier ist eine eigene Festlegung von PESM und austauschbar.
+# Beträge in Euro. `ruf` ist der Rang der Kaderstärke unter allen Vereinen, 0 (schwächster) bis 1 (stärkster).
+
+[verein]
+ruf_potenz = 3.0                   # Wirtschaftskraft = Rang^3 (kalibriert: Lohn/Umsatz 0,4 bis 0,9 über alle Rangzehntel, Messung 23.10.)
+kapazitaet_basis = 8_000
+kapazitaet_je_ruf = 55_000
+fanbasis = 15_000
+fanbasis_je_ruf = 350_000
+mitglieder_anteil = 0.12
+heimspiele_je_monat = 1.7          # nur für die Prognose; gebucht wird nach dem Spielplan
+startkasse = 2_000_000
+startkasse_je_ruf = 90_000_000
+
+[einnahmen]
+ticketpreis = 18
+ticketpreis_je_ruf = 40
+preisstufen = [0.8, 1.0, 1.25]     # niedrig, normal, hoch
+auslastung_basis = 0.30
+auslastung_basis_liga = [0.60, 0.45, 0.35]   # nur mit bekanntem Stadion (Kapazität echt): Grundauslastung je Liga-Stufe (1. Liga ca. 95 % bei mittlerer Stimmung)
+auslastung_je_fan = 0.70           # bei Fanstimmung 100
+auslastung_je_preisstufe = -0.10   # je Stufe über „normal“
+merch_je_fan_monat = 0.9
+merch_je_fanshopstufe = 0.25
+tv_basis = 1_100_000
+tv_je_ruf = 21_000_000
+tv_platzbonus = 0.2                # Anteil bei Tabellenplatz 1
+praemie_sieg = 50_000
+praemie_sieg_je_ruf = 400_000
+
+[ausgaben]
+betrieb_monat = 60_000
+betrieb_monat_je_ruf = 1_500_000
+unterhalt_je_stufe_monat = 4_000
+unterhalt_je_ruf = 60_000
+
+[budget]
+transferanteil = 0.5               # Anteil des Monatsüberschusses, der ins Transferbudget geht
+transferanteil_freigabe = 0.7      # bei Vorstandsvertrauen ab `freigabe_ab`
+transferanteil_knapp = 0.2         # bei Vorstandsvertrauen unter `knapp_unter`
+freigabe_ab = 60
+knapp_unter = 35
+gehaltsquote = 0.62                # Gehälter höchstens so viel der prognostizierten Jahreseinnahmen
+schuldengrenze_anteil = 0.15       # der prognostizierten Jahreseinnahmen
+
+[fans]
+transfer_wirkung_je_anteil = 40    # Punkte je Anteil der Ablöse am Jahresumsatz
+transfer_wirkung_grenze = 15
+abklingen = 0.8                    # je Monat
+protest_unter = 45                 # Fanstimmung: Pfiffe und Unmut
+unruhe_unter = 30                  # Fanstimmung: Proteste
+
+[anlagen]
+# Kosten der nächsten Stufe = basis * stufe^2; Dauer in Monaten; Stufen 1 bis 5
+stufen_max = 5
+kosten = { stadion = 2_000_000, fanshop = 400_000, training = 800_000, jugend = 600_000, medizin = 500_000 }     # kalibriert 23.10. auf die Umsätze der Rangzehntel (Stufe 2 → 3 kostet 4× Basis)
+dauer = { stadion = 10, fanshop = 3, training = 5, jugend = 6, medizin = 4 }
+kapazitaet_je_stufe = 0.12
+kosten_je_platz = 5_500            # Euro je neuem Sitzplatz (nur mit bekanntem Stadion; Neubauten kosten real 5.000 bis 11.000)
+kosten_stufe_anstieg = 0.10        # je Stufe teurer (Anbau an Anbau)
+training_je_stufe = 0.05
+medizin_je_stufe = 0.04
+jugend_je_stufe = 4                # Punkte Stärke und Potenzial je Stufe
+
+[staff]
+gehalt_basis = 60_000
+gehalt_je_staerke = 3_500
+vertrag_jahre = 2
+kandidaten_je_rolle = 3
+start_staerke = [35, 70]           # bei Ruf 0 und 1
+
+[sponsor]
+trikot = 840_000
+ausruester = 340_000
+stadion = 500_000
+je_ruf = 25.0                      # Faktor 1 + je_ruf * ruf (Trikot: 1.5 Mio. bis 39 Mio.)
+laufzeiten = [1, 2, 3]
+bonus_anteil = 0.15
+angebote_je_art = 2
+frist_tage = 45
+
+[jugend]
+jahrgang_monat = 7
+jahrgang_groesse = [3, 6]
+staerke = [34, 52]
+potenzial = [55, 90]
+zugang_alter = [16, 17]
+wachstum_je_monat = 0.7
+befoerderung_ab_alter = 18
+befoerderung_mindeststaerke = 58
+positionen = ["TW", "IV", "LV", "RV", "DM", "ZM", "LM", "RM", "OM", "LA", "RA", "ST"]
+
+[praesidium]
+ultimatum_unter = 25
+ultimatum_erfuellt_ab = 35
+ultimatum_tage = 60
+
+# ---- Wirtschaft: Stellschrauben, Nachfrage und Fanaktionen (`wirtschaft.py`) ----
+[spielart]                         # Füllung des Stadions nach Spielart (Startwerte): Liga bleibt beim Modell unten
+pokal_frueh = 0.52
+topspiel = 0.92                    # Liga gegen einen Gegner ab `topspiel_ab_gegnerruf`: mindestens so voll
+topspiel_ab_gegnerruf = 0.8
+europa_ko = 0.98
+finale = 1.0
+
+[wirtschaft]
+elastizitaet = 0.9                 # Nachfrage ~ Preisfaktor^-elastizitaet
+gegner = [0.90, 1.12]              # Nachfragefaktor bei Gegner-Ruf 0 und 1
+form = [0.92, 1.08]                # bei 0 und 15 Punkten aus den letzten fünf Spielen
+wetter = [0.82, 0.93, 1.0, 1.05]   # Regen oder Schnee, Wind, Wolken, Sonne
+wetter_winter = [0.35, 0.35, 0.25, 0.05]
+wetter_sommer = [0.10, 0.20, 0.40, 0.30]
+steh_preis = 0.5                   # Stehplatz im Verhältnis zum Sitzplatz
+steh_nachfrage = 1.1               # Stehplätze sind bei Stammfans beliebter
+vip_preis = 6.0
+dauer_basis = 0.25                 # Anteil der Sitzplätze als Dauerkarten bei Fanstimmung 0
+dauer_je_fan = 0.30
+dauer_grenze = 0.6
+heimspiele_je_monat = 1.7
+risiko_strafe_ab = 35              # Sicherheitsrisiko, ab dem Verbandsstrafen fallen
+strafe_je_spiel = 120_000          # bei Risiko 100, skaliert mit Ruf
+umbau_ruf = [0.4, 1.6]             # Einmalkosten bei Ruf 0 und 1: Faktor
+stimmung_grenze = 12
+stimmung_glaettung = 0.3           # Anteil des Zielwerts, der je Monat nachrückt
+ausbau_stimmung = 3                # einmaliger Schub bei fertigem Ausbau des Stadions
+atmosphaere_je_stadionstufe = 3
+
+# Stellschrauben: `standard` = Stufe zu Beginn; jede Liste hat je Stufe einen Eintrag. `einmal` = Umbaukosten (Euro bei Ruf 1,
+# skaliert), `monat` = laufende Kosten je Monat, `je_spiel` = Kosten je Heimspiel (Basis Ruf 1).
+[posten.preis_sitz]
+standard = 1                       # Stufe der Sitzplatzpreise = bisherige Preisstufe (einnahmen.preisstufen)
+[posten.preis_steh]
+standard = 2
+faktoren = [0.7, 0.85, 1.0, 1.2, 1.45]
+[posten.preis_dauer]
+standard = 2
+faktoren = [0.6, 0.7, 0.8, 0.9]    # Anteil des Sitzplatzpreises je Spiel
+[posten.preis_gast]
+standard = 1
+faktoren = [0.8, 1.0, 1.25]
+[posten.gaeste]
+standard = 1
+anteil = [0.03, 0.06, 0.10]
+einmal = [0, 250_000, 900_000]
+[posten.steh]
+standard = 1
+anteil = [0.0, 0.15, 0.30, 0.45]
+einmal = [1_800_000, 0, 600_000, 1_400_000]
+[posten.vip]
+standard = 0
+anteil = [0.0, 0.01, 0.025, 0.05]
+einmal = [0, 1_500_000, 4_500_000, 10_000_000]
+monat = [0, 20_000, 50_000, 110_000]
+[posten.catering]
+standard = 1
+ausgabe = [4.0, 6.0, 8.5, 11.0]     # Euro je Zuschauer
+kosten = [1.5, 2.2, 3.5, 5.0]       # Euro je Zuschauer
+zufriedenheit = [-1, 0, 1, 2]       # Punkte Fanstimmung (Zielwert)
+einmal = [0, 0, 400_000, 1_100_000]
+[posten.merch]
+standard = 1
+faktor = [0.8, 1.0, 1.2, 1.4]
+monat = [0, 15_000, 40_000, 90_000]
+einmal = [0, 0, 250_000, 700_000]
+[posten.sicherheit]
+standard = 1
+je_spiel = [10_000, 25_000, 50_000, 90_000]
+abzug = [0, 18, 36, 54]            # senkt das Risiko
+[posten.werbung]
+standard = 1
+je_spiel = [0, 12_000, 30_000, 55_000]   # Bandenwerbung, Basis Ruf 1
+atmosphaere = [0, 0, -3, -7]
+stimmung = [0, 0, -1, -3]
+einmal = [0, 0, 80_000, 200_000]
+
+# Fanaktionen: Kosten bei Ruf 1 (skaliert), Wirkung auf Fanstimmung (klingt ab) und Medienbild (bleibt), Sperre in Tagen.
+[aktion.fanfest]
+kosten = 160_000
+stimmung = 5
+medien = 2
+sperre = 90
+[aktion.familientag]
+kosten = 45_000
+stimmung = 2
+medien = 1
+sperre = 30
+[aktion.legendenspiel]
+kosten = 320_000
+stimmung = 6
+medien = 5
+sperre = 180
+[aktion.wohltaetigkeit]
+kosten = 90_000
+stimmung = 1
+medien = 4
+sperre = 60
+[aktion.auswaertsfahrt]
+kosten = 60_000
+stimmung = 3
+medien = 0
+sperre = 30

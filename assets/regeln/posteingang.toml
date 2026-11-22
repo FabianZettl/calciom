@@ -1,0 +1,215 @@
+# Inhaltspool im Posteingang (Rust-Fassung von pesm/core/inhalt/{komposition,pool,pruefung,vorgang}.py und backend/vorgang.py).
+# Zahlen und Namenslisten, die im Python-Original im Code standen, stehen hier; die Texte bleiben in assets/inhalt (unverändert kopiert).
+
+[typ]
+# komposition.py TYP_MERKMALE: wer mehrere Typen erfüllt, bekommt den ersten
+merkmale = [["launisch", ["launisch"]], ["hitzig", ["hitzkopf", "lautsprecher", "provokateur"]], ["wechselfreudig", ["wechselfreudig"]], ["sensibel", ["sensibel", "emotional"]],
+            ["ehrgeizig", ["ehrgeizig", "selbstbewusst", "siegermentalitaet"]], ["loyal", ["loyal", "teamplayer", "vorbild_profi"]], ["gelassen", ["gelassen", "geduldig", "ruhig", "bescheiden"]]]
+# komposition.py typ(): Schwellen auf den Charakterwerten 0…1, in dieser Reihenfolge
+hitzig_temperament_ab = 0.8
+wechselfreudig_loyalitaet_bis = 0.25
+sensibel_nerven_bis = 0.25
+ehrgeizig_ehrgeiz_ab = 0.8
+loyal_loyalitaet_ab = 0.8
+gelassen_nerven_ab = 0.8
+gelassen_temperament_bis = 0.3
+# pool.py gruppe(): Launische kippen je Samen um eine Stufe
+launisch_besser_ab = 0.7
+launisch_schlechter_unter = 0.3
+
+# pool.py TYP_WIRKUNG: wie ein Typ eine Antwort aufnimmt (+1 besser, −1 schlechter)
+[typ_wirkung]
+hitzig = { "ton:hart" = -1, "strategie:hart_bleiben" = -1, "strategie:einfuehlen" = 1 }
+sensibel = { "ton:hart" = -1, "ton:einfuehlsam" = 1, "strategie:einfuehlen" = 1 }
+launisch = { "strategie:vertroesten" = -1 }
+ehrgeizig = { "strategie:zusage" = 1, "strategie:ausgleich" = 1, "strategie:ablehnen" = -1 }
+loyal = { "strategie:einfuehlen" = 1, "strategie:zusage" = 1 }
+wechselfreudig = { "strategie:vertroesten" = -1, "strategie:ablehnen" = -1 }
+gelassen = {}
+neutral = {}
+
+[vorgang]
+folge_ziele = ["moral", "beziehung", "vertrauen", "vorstandsvertrauen", "fanstimmung", "medienbild", "kosten", "zusage", "rolle", "wechselwunsch", "nachlass"]   # core/vorgang/bruecke.py FOLGE_ZIELE
+abschliessend = ["geloest", "zusage", "abbruch"]     # inhalt/vorgang.py ABSCHLIESSEND
+stark_ab = 6                                         # bruecke.py: ab diesem Betrag „deutlich“
+moral_faktor = 0.5                                   # backend/vorgang.py POOL_MORAL_FAKTOR: Pool-Gespräche wirken mit halber Gesprächswirkung auf die Moral
+stimmung_ziele = ["moral", "wechselwunsch"]          # backend/vorgang.py STIMMUNG
+stimmung_max_je_woche = 3                            # POOL_MAX_JE_WOCHE: so viele Antworten je Bezug und Woche wirken auf die Stimmung
+stimmung_tage = 7                                    # POOL_TAGE
+neu_je_tag = 2                                       # AUTO_NEU_JE_TAG
+offen_hoechstens = 8                                 # AUTO_OFFEN_MAX
+gremien = ["vorstand", "fans", "presse", "verein", "jugend", "staff", "sponsor"]    # GREMIEN: Themen ohne Spieler als Bezug
+nicht_von_selbst = ["verein", "sondierung"]          # Verein-Themen gehören den Transfers, Sondierung startet der Mensch
+
+[pruefung]
+# pruefung.py
+variablen = ["name", "position", "verein", "zahl", "frist", "spiele", "entscheidung", "haken", "gegner", "betrag", "monate", "rolle", "trainer"]
+berechtigungen = ["spielzeit", "form", "wechsel", "vertrag", "gehalt", "belastung"]
+stilplatz = ["spielstil", "platzhalter", "todo", "xxx", "lorem"]
+
+# Posteingang (Teil 2): Wiederholungsschutz, Kategorien, Stimmen, Karten
+[wiederholung]
+merken = 12                     # so viele gezeigte Eröffnungen je Thema (katalog.toml: höchstens 12 je Thema), danach beginnt die Runde von vorn
+
+# Kategorie des Themas → Ordner im Posteingang (game.rs CATS: 0 Spiel und Liga, 1 Kader, 2 Transfers, 3 Finanzen, 4 Medien, 5 Präsidium, 6 Scouting)
+[ordner]
+spieler = 1
+kabine = 1
+medizin = 1
+drama = 1
+jugend = 1
+staff = 1
+vertrag = 2
+verein = 2
+sondierung = 6
+sponsor = 3
+presse = 4
+fans = 4
+vorstand = 5
+
+# Absender: Rolle (Kennung aus den Themen) → Wort auf der Karte
+[rolle.de]
+# neutrale Amtsbezeichnungen: die Namen der Ämter (absender.json) sind gemischt, ein Geschlecht wird nicht aus dem Namen geraten
+spieler = "Spieler"
+kapitaen = "Kapitän"
+berater = "Beratung"
+journalist = "Presse"
+sportdirektor = "Sportliche Leitung"
+co_trainer = "Co-Trainer"
+praesident = "Präsidium"
+arzt = "Medizinische Abteilung"
+jugendtrainer = "Jugendabteilung"
+fans = "Fanvertretung"
+sponsor = "Sponsor"
+liga = "Spielleitung der Liga"
+pressesprecher = "Pressestelle"
+finanzen = "Finanzabteilung"
+marketing = "Marketing"
+bau = "Bauleitung"
+eltern = "Eltern"
+physio = "Physiotherapie"
+[rolle.en]
+spieler = "Player"
+kapitaen = "Captain"
+berater = "Agent"
+journalist = "Journalist"
+sportdirektor = "Sporting director"
+co_trainer = "Assistant coach"
+praesident = "President"
+arzt = "Club doctor"
+jugendtrainer = "Youth coach"
+fans = "Fan representative"
+sponsor = "Sponsor"
+liga = "League office"
+pressesprecher = "Press officer"
+finanzen = "Finance director"
+marketing = "Head of marketing"
+bau = "Site manager"
+eltern = "Parents"
+physio = "Physiotherapist"
+
+# Wer im Feld „von“ einer Meldung steht (Meldungen der anderen Teile des Spiels) → Rolle
+[von]
+"Präsidium" = "praesident"
+"Präsident" = "praesident"
+"Transferabteilung" = "sportdirektor"
+"Liga" = "liga"
+"Spielbericht" = "liga"
+"Jugendleiter" = "jugendtrainer"
+"Mannschaftsarzt" = "arzt"
+"Pressestelle" = "pressesprecher"
+"Presse" = "journalist"
+"Fanvertreter" = "fans"
+"Berater" = "berater"
+"Finanzabteilung" = "finanzen"
+"Marketing" = "marketing"
+"Bauabteilung" = "bau"
+
+# Namen der Rollen ohne eigene Person im Spielstand: Liste in config/story/absender.json, Stelle in der Liste aus dem Vereinsschlüssel
+[namen]
+praesident = { liste = "vorstand", versatz = 0 }
+sportdirektor = { liste = "vorstand", versatz = 1 }
+finanzen = { liste = "vorstand", versatz = 2 }
+marketing = { liste = "vorstand", versatz = 3 }
+bau = { liste = "vorstand", versatz = 4 }
+pressesprecher = { liste = "vorstand", versatz = 5 }
+journalist = { liste = "reporter", versatz = 0 }
+berater = { liste = "berater", versatz = 0 }
+fans = { liste = "fanvertreter", versatz = 0 }
+sponsor = { liste = "vorstand", versatz = 2 }
+liga = { liste = "vorstand", versatz = 3 }
+
+# Stimme: Ton eines Mediums (config/story/medienpool.json „ton“) → Persönlichkeitstyp, der die Bausteine färbt, und Art des Blatts (zeitung_artikel.json zt.art.<blatt>)
+[stimme.medienton]
+boulevard = { typ = "hitzig", blatt = "boulevard" }
+serioes = { typ = "gelassen", blatt = "qualitaet" }
+insider = { typ = "neutral", blatt = "regional" }
+taktik = { typ = "ehrgeizig", blatt = "qualitaet" }
+fankultur = { typ = "loyal", blatt = "fan" }
+geruechte = { typ = "launisch", blatt = "boulevard" }
+investigativ = { typ = "ehrgeizig", blatt = "qualitaet" }
+
+# Karten der Antworten: kurzes Wort je Strategie, Symbol (Ecken, 0 = Kreis) und Farbe je Ton
+[karte.strategie.de]
+zusage = "Zusagen"
+erklaeren = "Erklären"
+vertroesten = "Vertrösten"
+ablehnen = "Ablehnen"
+ausgleich = "Ausgleich anbieten"
+gegenfrage = "Nachfragen"
+hart_bleiben = "Hart bleiben"
+einfuehlen = "Verständnis zeigen"
+delegieren = "Abgeben"
+[karte.strategie.en]
+zusage = "Promise"
+erklaeren = "Explain"
+vertroesten = "Put off"
+ablehnen = "Refuse"
+ausgleich = "Offer something"
+gegenfrage = "Ask back"
+hart_bleiben = "Stay firm"
+einfuehlen = "Show empathy"
+delegieren = "Hand over"
+[karte.ton]
+offen = { ecken = 0, farbe = 0x38bdf8, de = "offen", en = "open" }
+sachlich = { ecken = 4, farbe = 0x94a3b8, de = "sachlich", en = "matter-of-fact" }
+bestimmt = { ecken = 5, farbe = 0xf5b942, de = "bestimmt", en = "firm" }
+einfuehlsam = { ecken = 0, farbe = 0x3ecf8e, de = "einfühlsam", en = "caring" }
+hart = { ecken = 3, farbe = 0xf87171, de = "hart", en = "hard" }
+humorvoll = { ecken = 6, farbe = 0xf472b6, de = "humorvoll", en = "humorous" }
+# Töne der Spielergespräche (gespraeche.toml) und der Story-Antworten
+warm = { ecken = 0, farbe = 0x3ecf8e, de = "warm", en = "warm" }
+lob = { ecken = 6, farbe = 0x3ecf8e, de = "lobend", en = "praising" }
+foerdernd = { ecken = 0, farbe = 0x3ecf8e, de = "fördernd", en = "supportive" }
+
+# Mehrstufige Geschichten: ein Pool-Gespräch, dann Folgen (Pool-Thema oder Story-Regel aus assets/story) nach Tagen.
+# nur_nach: nur, wenn der vorige Schritt so ausging (Ausgang-Art: geloest, offen, eskalation, abbruch, zusage); leer = immer.
+[[kette]]
+id = "neuer_ohne_anschluss"
+titel = "Der Neue findet keinen Anschluss"
+start = "neuzugang_aussen_vor"                                   # der Co-Trainer meldet es: das Gespräch
+schritte = [
+  { thema = "mentor_vorschlag", nach_tagen = 21, nur_nach = [] },   # Nachfrage nach drei Wochen
+  { story = "kb_neuling", nach_tagen = 14, nur_nach = [] },         # Szene in der Kabine und im Training (Taufe, danach eigene Folgen)
+]
+[[kette]]
+id = "heimweh"
+titel = "Heimweh"
+start = "heimweh_familie"
+schritte = [
+  { story = "kb_heimweh_gut", nach_tagen = 21, nur_nach = ["geloest", "zusage"] },
+  { story = "kb_heimweh_schlecht", nach_tagen = 21, nur_nach = ["offen", "eskalation", "abbruch"] },
+]
+[[kette]]
+id = "muede_beine"
+titel = "Müde Beine"
+start = "belastung_muede"
+schritte = [
+  { story = "kb_muede_gut", nach_tagen = 21, nur_nach = ["geloest", "zusage"] },
+  { story = "kb_muede_schlecht", nach_tagen = 21, nur_nach = ["offen", "eskalation", "abbruch"] },
+]
+
+[zeitung]
+wochentag = 0                   # an diesem Wochentag (0 Montag) erscheint die Wochenschau
+aussagen_tage = 7               # Aussagen des Trainers aus so vielen Tagen kommen in die Schlagzeilen
+schlagzeilen = 4

@@ -1,0 +1,38 @@
+# Konfiguration des Jugendnetzwerks (Sitzung S). Eigene Festlegungen von PESM, austauschbar.
+
+[spieler]
+alter_max = 17                 # U17: so alt dürfen die beobachteten Talente höchstens sein
+liste_hoechstens = 25
+
+[netz]
+start_heimat = 25
+start_fremd = 4
+start_scout = 12               # Region eines eigenen Scouts beim ersten Start
+invest_kosten = [0, 6_000, 18_000, 45_000]     # je Monat und Region, Stufe 0 … 3
+invest_zuwachs = [0.0, 1.2, 2.6, 4.5]          # Punkte je Monat bei Stufe 0 … 3
+leiter_zuwachs = 3.0           # bei Jugendleiter-Wert 100, je Monat
+scout_zuwachs = 2.5            # bei bestem Scout mit voller Kenntnis der Region
+verfall = 0.6                  # je Monat ohne Pflege
+sicht_ab = 20                  # ab dieser Stärke sieht der Verein die Talente einer Region
+anwerben_ab = 35
+
+[kontakt]
+kosten = 12_000                # einmalig
+start = 15
+zuwachs = 3.0                  # je Monat bei Jugendleiter-Wert 100 (mindestens 0,8)
+sicht_ab = 20
+hoechstens = 6
+
+[beobachtung]
+je_tag = 2.5                   # Wissenszuwachs je Tag bei voller Netzstärke und Leiter 100
+anwerben_wissen = 40
+
+[anwerbung]
+dauer_tage = 28
+gleichzeitig = 2
+basis = 0.25
+netz_gewicht = 0.45
+kontakt_gewicht = 0.15
+ruf_gewicht = 0.2              # Ruf des eigenen Vereins gegen den des abgebenden
+entschaedigung = 0.25          # Anteil des Marktwerts
+mindest_entschaedigung = 10_000

@@ -1,0 +1,642 @@
+{
+ "md.absender.vorstand": "Helene Vogt, Board",
+ "md.absender.berater": "Marc Dietrich, Agent",
+ "md.absender.scout": "Tomasz Weber, Chief Scout",
+ "md.absender.physio": "Svenja Arnold, Physiotherapy",
+ "md.absender.trainerstab": "Jens Kraft, Assistant manager",
+ "md.absender.presse": "Mareike Sander, Press Office",
+ "md.absender.spieler": "",
+ "md.absender.liga": "Ralf Hoyer, League Office",
+ "md.anlass.spiel_gewertet.betreff": [
+  "The match against %2 has been analysed",
+  "Match report: %3 against %2"
+ ],
+ "md.anlass.spiel_gewertet.text": [
+  "Final score %3 against %2. The report with scorers and ratings is in the match analysis. Every point counts in the table, and the squad now looks ahead to the next task.",
+  "The match against %2 ended %3. The figures have been worked in. Every point counts in the table, and the squad now looks ahead to the next task."
+ ],
+ "md.anlass.verletzung.betreff": [
+  "%1 is out",
+  "Injury report: %1"
+ ],
+ "md.anlass.verletzung.text": [
+  "%1 has been injured and is expected to miss %3 days. I'll keep you posted on his recovery. I am adjusting the load plan and will let you know as soon as his recovery changes. For your lineup it means you need an alternative in his position for that time.",
+  "The examination of %1 is done. He will be unavailable for around %3 days. I am adjusting the load plan and will let you know as soon as his recovery changes. For your lineup it means you need an alternative in his position for that time."
+ ],
+ "md.anlass.genesen.betreff": "%1 is fit again",
+ "md.anlass.genesen.text": "%1 has finished rehab and is available again. We'll build his workload up slowly. He is easing back into training. Whether you start him right away or bring him off the bench is up to you.",
+ "md.anlass.vertrag_laeuft_aus.betreff": [
+  "%1's contract is running out",
+  "%1: contract end approaching"
+ ],
+ "md.anlass.vertrag_laeuft_aus.text": [
+  "%1's contract ends in %3 days. If you want to keep him, we should talk soon. Without an agreement he can leave for free in the next window or become a plaything of the rumour mill. An early talk shows him that you are planning with him.",
+  "The clock is ticking on %1: %3 days left on his contract. Other clubs are taking notice. Without an agreement he can leave for free in the next window or become a plaything of the rumour mill. An early talk shows him that you are planning with him."
+ ],
+ "md.anlass.vertrag_verlaengert.betreff": "%1 has extended",
+ "md.anlass.vertrag_verlaengert.text": "%1 is staying. The contract extension is agreed. This gives you planning security in the squad and calms the dressing room. You will find the new wage frame in the finances.",
+ "md.anlass.angebot_eingegangen.betreff": [
+  "Offer for %1 from %2",
+  "%2 want %1"
+ ],
+ "md.anlass.angebot_eingegangen.text": [
+  "%2 have made an offer for %1. The deadline runs out in %3 days. If you accept, you will miss him on the pitch. If you decline, the question is how he reacts. You can negotiate as long as the deadline runs.",
+  "An offer for %1 has come in from %2. Take your time looking at it, but don't let it lapse. If you accept, you will miss him on the pitch. If you decline, the question is how he reacts. You can negotiate as long as the deadline runs."
+ ],
+ "md.anlass.transfer_abgeschlossen.betreff": [
+  "%1's move is done",
+  "%1: the transfer is complete"
+ ],
+ "md.anlass.transfer_abgeschlossen.text": "%1's move has gone through. The press will ask questions. Fans and journalists will want to know what comes next. A clear line in the next press conference will help you.",
+ "md.anlass.wechselwunsch.betreff": [
+  "%1 wants to leave",
+  "Transfer request from %1"
+ ],
+ "md.anlass.wechselwunsch.text": "%1 has told me he wants to leave the club. Speak to him before it gets out. If you act now, you keep control of the story. If you ignore it, the mood in the dressing room may turn.",
+ "md.anlass.spieler_unzufrieden.betreff": [
+  "%1 is unhappy",
+  "Talk with %1"
+ ],
+ "md.anlass.spieler_unzufrieden.text": [
+  "%1 is unhappy with his situation and wants to raise it. An open talk costs little and keeps discontent from turning into a transfer request.",
+  "I need a quick word with you about my situation, boss. An open talk costs little and keeps discontent from turning into a transfer request."
+ ],
+ "md.anlass.scouting_bericht.betreff": [
+  "Report on %1 is ready",
+  "Scouting report: %1"
+ ],
+ "md.anlass.scouting_bericht.text": "My report on %1 is ready. He looks promising; more in the file. He could help in a position where your squad is thin. Whether an offer is worth it, you will see in the file with strengths, weaknesses and contract situation.",
+ "md.anlass.budget_geaendert.betreff": "The budget has been adjusted",
+ "md.anlass.budget_geaendert.text": "The board has redistributed funds for transfers and wages. The details are in Finances. This decides how much room you have for contracts and signings. Check whether your plans still fit the budget.",
+ "md.anlass.praesidium_ultimatum.betreff": "The board sets a deadline",
+ "md.anlass.praesidium_ultimatum.text": "The board is not happy with the way things are going and expects an improvement by the stated date. The next matches decide whether trust returns. A talk with the board and clear results matter now.",
+ "md.anlass.praesidium_entlassung.betreff": "The board is discussing your future",
+ "md.anlass.praesidium_entlassung.text": "The board has lost confidence. A decision is pending. In the worst case your time here is coming to an end. What still helps now are results and an honest talk with the board.",
+ "md.anlass.staff_geaendert.betreff": "Change in the coaching staff",
+ "md.anlass.staff_geaendert.text": "Something has changed on the staff. Responsibilities have been redistributed. This changes who supports you in training, medicine and scouting. Check whether the duties and strengths of your staff have shifted.",
+ "md.anlass.jugend_befoerdert.betreff": "%1 moves up to the squad",
+ "md.anlass.jugend_befoerdert.text": "%1 from the academy will now train with the first team. He has to get used to the pace of the professionals. If you give him minutes, his confidence grows. If you wait too long, his patience may run out.",
+ "md.anlass.saisonwechsel.betreff": "A new season begins",
+ "md.anlass.saisonwechsel.text": "The season is over and the count starts again from zero. Fixtures and opponents are in the calendar. Contracts, goals and the fixture list start from scratch. Use the break to put squad and tactics in order for the new round.",
+ "md.notiz.verletzung.betreff": "Statement on %1's injury",
+ "md.notiz.verletzung.text": [
+  "We would like to publish %1's injury. Should the statement go out, should we keep it brief, or keep it to ourselves?",
+  "The press are asking about %1. We have prepared a statement."
+ ],
+ "md.notiz.verlaengerung.betreff": "Statement on %1's extension",
+ "md.notiz.verlaengerung.text": "%1's new contract can be announced today. How should the press office handle it?",
+ "md.notiz.transfer.betreff": "Statement on %1's transfer",
+ "md.notiz.transfer.text": "A press release on %1's transfer is ready. Approve?",
+ "md.notiz.freigeben": "Approve statement",
+ "md.notiz.kurz_halten": "Keep it brief, no details",
+ "md.notiz.zurueckhalten": "Say nothing for now",
+ "md.geruecht.betreff": [
+  "Rumours about %1",
+  "Press: %1 on the verge of leaving"
+ ],
+ "md.geruecht.text": [
+  "Several newspapers are reporting on %1's future. The press office asks for a line on how we respond.",
+  "The rumour about %1 is doing the rounds. How should we react?"
+ ],
+ "md.geruecht.antwort.dementiert": "Deny: it's made up",
+ "md.geruecht.antwort.kein_kommentar": "No comment",
+ "md.geruecht.antwort.bestaetigt": "Confirm: there are talks",
+ "md.widerlegt.betreff": "Denial about %1 overtaken by events",
+ "md.widerlegt.text": "We had denied the rumours about %1, and now the move has happened after all. The press are throwing it back at us.",
+ "md.pk.vor.betreff": [
+  "Press conference before the match against %1"
+ ],
+ "md.pk.vor.text": [
+  "The journalists are waiting. It is about the match against %1, the state of the squad and whatever else is going on at the club."
+ ],
+ "md.pk.nach.betreff": [
+  "Press conference after the match against %1"
+ ],
+ "md.pk.nach.text": [
+  "The match against %1 is over and the press want your view."
+ ],
+ "md.pk.interview.betreff": "Interview request about %1",
+ "md.pk.interview.text": "A broadcaster wants to talk to you about %1. It will only take a few minutes.",
+ "md.frage.gegner": [
+  "How do you rate %2 ahead of this match?",
+  "You are at position %3 and %2 want to put something in your way. What will it come down to?",
+  "What can the team expect against %2?"
+ ],
+ "md.frage.star": [
+  "%1 has attracted a lot of attention lately. How important is he to you?",
+  "Does a lot depend on %1 against %2?",
+  "Is %1 the decisive man for you right now?"
+ ],
+ "md.frage.serie_gut": [
+  "The team is on a run. How do you keep the tension up?",
+  "Things are going well. When does the moment come where you start to get cautious?",
+  "The wins are piling up: is this already a title contender?"
+ ],
+ "md.frage.serie_schlecht": [
+  "The results aren't there. What's going wrong?",
+  "How much longer can you keep saying it will get better?",
+  "The fans are getting restless. Do you still have everyone behind you?"
+ ],
+ "md.frage.ausfall": [
+  "%1 is missing. How do you make up for that?",
+  "Can the team cope with the loss of %1?",
+  "What does %1's injury mean for your planning?"
+ ],
+ "md.frage.ziel": [
+  "The club is at position %3. Is that enough for your goals?",
+  "The season objective is clear. Are you on course?",
+  "Do you see your team where it belongs?"
+ ],
+ "md.frage.vorstand": [
+  "How is the relationship with the board? There is talk of unrest.",
+  "Does the board still have patience with you?",
+  "Are you secure in your job?"
+ ],
+ "md.frage.geruecht": [
+  "There are rumours about %1. What is there to them?",
+  "Is %1 leaving the club?",
+  "Is it true that other clubs are interested in %1?"
+ ],
+ "md.frage.sieg": [
+  "What made the difference in the win against %2?",
+  "A strong performance. Your view?",
+  "How pleased are you after the win?"
+ ],
+ "md.frage.niederlage": [
+  "How do you explain the defeat against %2?",
+  "That was nothing. What do you say to the team?",
+  "Who takes responsibility for this defeat?"
+ ],
+ "md.frage.remis": [
+  "A draw against %2: one point gained or two dropped?",
+  "How do you assess the draw?",
+  "Should it have been more?"
+ ],
+ "md.frage.leistung": [
+  "%1 stood out today. What was your impression?",
+  "How do you rate %1's performance?",
+  "Can you be happy with %1?"
+ ],
+ "md.frage.tabelle": [
+  "How do you see the league table after this matchday?",
+  "The club is at position %3. What does that mean for the coming weeks?",
+  "Where is this heading?"
+ ],
+ "md.frage.neuzugang": [
+  "Why %1 in particular, what is he meant to bring?",
+  "What do you expect from %1?",
+  "How quickly can %1 help the team?"
+ ],
+ "md.antwort.gegner.ehrlich": "They are strong, and we will have to play our best game.",
+ "md.antwort.gegner.kaempferisch": "We're not going there to sit back. We want to win.",
+ "md.antwort.gegner.ausweichend": "Every match is hard, there's nothing more to say.",
+ "md.antwort.gegner.lob": "A very well organised team. I have respect for that.",
+ "md.antwort.gegner.kritik": "They don't play pretty football, but we'll have to deal with it first.",
+ "md.antwort.star.ehrlich": "He is important, but we're not a one-man team.",
+ "md.antwort.star.kaempferisch": "With him in this form, anything is possible.",
+ "md.antwort.star.ausweichend": "All eleven play for us.",
+ "md.antwort.star.lob": "%1 is outstanding right now and deserves the praise.",
+ "md.antwort.star.kritik": "%1 can do a lot more, and he knows it.",
+ "md.antwort.serie_gut.ehrlich": "We know not everything is perfect. We keep working.",
+ "md.antwort.serie_gut.kaempferisch": "We want to extend the run, especially now.",
+ "md.antwort.serie_gut.ausweichend": "I'm only looking at the next match.",
+ "md.antwort.serie_gut.lob": "The team has worked hard for this, great credit to them.",
+ "md.antwort.serie_gut.kritik": "We mustn't be blinded, we're still shaky at the back.",
+ "md.antwort.serie_schlecht.ehrlich": "It's unsatisfactory. The mistakes are mine as well.",
+ "md.antwort.serie_schlecht.kaempferisch": "We'll come back, starting in the next match.",
+ "md.antwort.serie_schlecht.ausweichend": "I don't want to pin this on individual matches.",
+ "md.antwort.serie_schlecht.lob": "The lads are giving everything, you can't take that away from them.",
+ "md.antwort.serie_schlecht.kritik": "If everyone doesn't pull their weight, we won't get points.",
+ "md.antwort.ausfall.ehrlich": "It hurts, but we have to live with it.",
+ "md.antwort.ausfall.kaempferisch": "Then it's a chance for the next man.",
+ "md.antwort.ausfall.ausweichend": "I don't comment on personnel before a match.",
+ "md.antwort.ausfall.lob": "We miss %1, but the squad has quality.",
+ "md.antwort.ausfall.kritik": "We should have paid more attention to the workload.",
+ "md.antwort.ziel.ehrlich": "We're not quite where we want to be.",
+ "md.antwort.ziel.kaempferisch": "We're pushing on, the objective stands.",
+ "md.antwort.ziel.ausweichend": "The season is long, we'll count up at the end.",
+ "md.antwort.ziel.lob": "The team is on the right track.",
+ "md.antwort.ziel.kritik": "For that objective we need more consistency.",
+ "md.antwort.vorstand.ehrlich": "There are talks, and I appreciate straight talking.",
+ "md.antwort.vorstand.kaempferisch": "I have their confidence and I will repay it.",
+ "md.antwort.vorstand.ausweichend": "Internal matters stay in-house.",
+ "md.antwort.vorstand.lob": "The board supports us a great deal, and I want to stress that.",
+ "md.antwort.vorstand.kritik": "I'd like more backing from above.",
+ "md.antwort.geruecht.ehrlich": "There is interest, I can't say more than that.",
+ "md.antwort.geruecht.kaempferisch": "%1 is staying, that much is certain.",
+ "md.antwort.geruecht.ausweichend": "I won't comment on rumours.",
+ "md.antwort.geruecht.lob": "That other clubs are looking at %1 only shows his class.",
+ "md.antwort.geruecht.kritik": "I'd like more focus on football and less on transfers.",
+ "md.antwort.sieg.ehrlich": "We had some luck too, but the win is deserved.",
+ "md.antwort.sieg.kaempferisch": "That was only the start, we want more.",
+ "md.antwort.sieg.ausweichend": "Today the win is what counts. The analysis comes tomorrow.",
+ "md.antwort.sieg.lob": "The team did a great job.",
+ "md.antwort.sieg.kritik": "The result is good, the second-half performance was not.",
+ "md.antwort.niederlage.ehrlich": "We weren't good enough. I take that on myself.",
+ "md.antwort.niederlage.kaempferisch": "We'll pick ourselves up and win it back, I promise.",
+ "md.antwort.niederlage.ausweichend": "I need to let that sink in first, I'll say more later.",
+ "md.antwort.niederlage.lob": "The lads fought, it just wasn't enough.",
+ "md.antwort.niederlage.kritik": "That wasn't enough, and we deserved to lose.",
+ "md.antwort.remis.ehrlich": "One point is too little, and yet not nothing.",
+ "md.antwort.remis.kaempferisch": "We wanted the win, and we'll get it next time.",
+ "md.antwort.remis.ausweichend": "It's a draw, what can I say.",
+ "md.antwort.remis.lob": "That was a decent performance from the team.",
+ "md.antwort.remis.kritik": "We failed to put the game to bed.",
+ "md.antwort.leistung.ehrlich": "He played well, but that's what I expect.",
+ "md.antwort.leistung.kaempferisch": "It has to go on like this, the lad is hungry.",
+ "md.antwort.leistung.ausweichend": "I don't rate individual performances.",
+ "md.antwort.leistung.lob": "%1 had an outstanding game.",
+ "md.antwort.leistung.kritik": "%1 should have done more, there's room for improvement.",
+ "md.antwort.tabelle.ehrlich": "The table doesn't lie. We need to pick up more.",
+ "md.antwort.tabelle.kaempferisch": "We keep climbing.",
+ "md.antwort.tabelle.ausweichend": "The table doesn't interest me at the moment.",
+ "md.antwort.tabelle.lob": "The team has worked its way up the table.",
+ "md.antwort.tabelle.kritik": "If we carry on like this, we'll slip down.",
+ "md.antwort.neuzugang.ehrlich": "He should make us better, but he needs time.",
+ "md.antwort.neuzugang.kaempferisch": "%1 is a great addition, he'll help straight away.",
+ "md.antwort.neuzugang.ausweichend": "I'll let him settle in first.",
+ "md.antwort.neuzugang.lob": "%1 is exactly the player we were looking for.",
+ "md.antwort.neuzugang.kritik": "He still has to prove himself, there's no credit in advance.",
+ "md.antwort.ehrlich": "I'll tell it like it is.",
+ "md.antwort.kaempferisch": "We don't give up.",
+ "md.antwort.ausweichend": "I don't want to say anything on that.",
+ "md.antwort.lob": "Great credit to everyone involved.",
+ "md.antwort.kritik": "That wasn't good enough.",
+ "md.ui.ton.ehrlich": "Honest",
+ "md.ui.ton.kaempferisch": "Confident",
+ "md.ui.ton.ausweichend": "Evasive",
+ "md.ui.ton.lob": "Praise",
+ "md.ui.ton.kritik": "Criticism",
+ "md.ui.ton.ferngeblieben": "Did not attend",
+ "md.ui.status.ungelesen": "New",
+ "md.ui.status.gelesen": "Read",
+ "md.ui.status.erledigt": "Done",
+ "md.ui.status.verfallen": "Expired",
+ "md.ui.kategorie.spiel": "Match",
+ "md.ui.kategorie.kader": "Squad",
+ "md.ui.kategorie.transfer": "Transfers",
+ "md.ui.kategorie.vertrag": "Contracts",
+ "md.ui.kategorie.medizin": "Medical",
+ "md.ui.kategorie.finanzen": "Finances",
+ "md.ui.kategorie.verein": "Club",
+ "md.ui.kategorie.presse": "Press",
+ "md.ui.kategorie.liga": "League",
+ "md.ui.prio.1": "Info",
+ "md.ui.prio.2": "Important",
+ "md.ui.prio.3": "Urgent",
+ "md.ui.leer.posteingang": "No messages in this view.",
+ "md.ui.leer.konferenz": "No press conference is scheduled at the moment.",
+ "md.ui.leer.schlagzeilen": "No headlines yet.",
+ "md.ui.leer.journalisten": "The journalists are only getting to know you.",
+ "md.ui.leer.gehalten": "No press conference held yet.",
+ "md.ui.aktion.lesen": "Read",
+ "md.ui.aktion.erledigen": "Done",
+ "md.ui.posteingang.ungelesen": "Unread",
+ "md.ui.posteingang.gesamt": "Messages",
+ "md.ui.posteingang.dringend": "Urgent",
+ "md.ui.presse.frist": "By %1",
+ "md.ui.presse.frage": "Question %1 of %2",
+ "md.ui.presse.antwort": "Your answer: %1",
+ "md.ui.presse.gehalten": "Held",
+ "md.ui.presse.ausgefallen": "Not attended",
+ "md.ui.presse.wirkung_medien": "Media image",
+ "md.ui.presse.wirkung_fans": "Fans",
+ "md.ui.presse.wirkung_vorstand": "Board",
+ "md.ui.presse.wirkung_moral": "Squad morale",
+ "md.ui.presse.verlauf": "Press conferences",
+ "md.ui.presse.ton_dominant": "Tone: %1",
+ "md.ui.presse.fragt": "%1, %2",
+ "md.ui.journalist.stil.sachlich": "factual",
+ "md.ui.journalist.stil.boulevard": "tabloid",
+ "md.ui.journalist.stil.wohlwollend": "sympathetic",
+ "md.ui.journalist.stil.kritisch": "critical",
+ "md.ui.journalist.haltung.gut": "Speaks well of you",
+ "md.ui.journalist.haltung.neutral": "Keeps his distance",
+ "md.ui.journalist.haltung.schlecht": "Sceptical towards you",
+ "md.ui.bild.ruf": "Standing with the press",
+ "md.ui.bild.medienbild": "Media image",
+ "md.ui.bild.fans": "Fan mood",
+ "md.ui.bild.vorstand": "Board confidence",
+ "md.ui.bild.konferenzen": "Conferences held",
+ "md.ui.bild.journalisten": "Journalists",
+ "md.ui.bild.unter.gut": "The press like you.",
+ "md.ui.bild.unter.mittel": "Coverage is balanced.",
+ "md.ui.bild.unter.schlecht": "The press are critical.",
+ "md.ui.fehler.eingabe": "That didn't work.",
+ "md.ui.ok.antwort": "Answer given.",
+ "md.ui.ok.erledigt": "Done.",
+ "md.ui.ok.frage": "Answer given.",
+ "md.ui.ok.modus": "Saved.",
+ "md.ui.fehler.antwort_noetig": "An answer is required.",
+ "md.ui.modus.manuell": "Answer yourself",
+ "md.ui.modus.automatisch": "Press officer answers",
+ "md.ui.modus.aus": "No conferences",
+ "md.anlass.beobachtung_veraenderung.betreff": [
+  "News on %1",
+  "%1: change in scouting status"
+ ],
+ "md.anlass.beobachtung_veraenderung.text": "Something has happened with %1. The details are in the watch list. Check whether this opens an opportunity, for example because form, price or contract situation has changed.",
+ "md.anlass.zusage_gehalten.betreff": [
+  "%1 is happy",
+  "Promise kept: %1"
+ ],
+ "md.anlass.zusage_gehalten.text": "You kept your word. %1 appreciates that. This gets around the dressing room and strengthens your word for future promises.",
+ "md.anlass.zusage_gebrochen.betreff": [
+  "%1 feels overlooked",
+  "Promise not kept: %1"
+ ],
+ "md.anlass.zusage_gebrochen.text": "You had promised %1 something, and it didn't happen. That will affect morale in the dressing room. Players remember promises. An explanatory talk can limit the damage before the disappointment sets in.",
+ "md.anlass.spieler_diszipliniert.betreff": [
+  "Discipline: %1",
+  "%1 has been called to account"
+ ],
+ "md.anlass.spieler_diszipliniert.text": "The action against %1 has been decided. The squad has noticed. This shows the squad where the limits are. Watch how he reacts over the next weeks.",
+ "md.anlass.gespraech_einigung.betreff": [
+  "Agreement with %1",
+  "An agreement is in place: %1"
+ ],
+ "md.anlass.gespraech_einigung.text": "An agreement is in place with %1. The details are in the talks log. That settles the matter, and you can all focus on football again.",
+ "md.ui.chip.transfer": "Transfer",
+ "md.ui.chip.spiel": "Match",
+ "md.ui.chip.personal": "Staff",
+ "md.ui.chip.scouting": "Scouting",
+ "md.ui.chip.medien": "Media",
+ "md.ui.chip.vorstand": "Board",
+ "md.ui.chip.verletzung": "Injury",
+ "md.ui.chip.vertrag": "Contract",
+ "md.ui.karte.angebot.kauf": "Purchase offer",
+ "md.ui.karte.angebot.leihe": "Loan offer",
+ "md.ui.karte.abloese": "Transfer fee",
+ "md.ui.karte.gehalt": "Wage",
+ "md.ui.karte.laufzeit": "Length",
+ "md.ui.karte.jahre": "%1 years",
+ "md.ui.karte.klauseln": "Clauses",
+ "md.ui.karte.frist": "Deadline",
+ "md.ui.karte.nicht_zugestellt": "Did not reach the game: %1. The transfer does not count as done yet; send it again.",
+ "md.ui.karte.wartet_spiel": "Waiting for the game: the transfer only counts as done once the game has carried it out.",
+ "md.ui.karte.tage": "Days",
+ "md.ui.karte.wissen": "Knowledge level",
+ "md.ui.ok.weitergeleitet": "Forwarded.",
+ "md.ui.mail.titel": "Inbox",
+ "md.ui.mail.alle": "All",
+ "md.ui.mail.transfers": "Transfers",
+ "md.ui.mail.spiel": "Match",
+ "md.ui.mail.personal": "Staff",
+ "md.ui.mail.scouting": "Scouting",
+ "md.ui.mail.medien": "Media",
+ "md.ui.mail.archiv": "Archive",
+ "md.ui.mail.ungelesen": "Unread",
+ "md.ui.mail.markiert": "Flagged",
+ "md.ui.mail.suche": "Search",
+ "md.ui.mail.leer_detail": "Select a message on the left.",
+ "md.ui.mail.antworten": "Reply",
+ "md.ui.mail.weiterleiten": "Forward",
+ "md.ui.mail.an_berater": "Agent",
+ "md.ui.mail.an_scout": "Scout",
+ "md.ui.mail.an_trainerstab": "Coaching staff",
+ "md.ui.mail.markieren": "Flag",
+ "md.ui.mail.entmarkieren": "Remove flag",
+ "md.ui.mail.archivieren": "Archive",
+ "md.ui.mail.zurueckholen": "Restore",
+ "md.ui.mail.loeschen": "Delete",
+ "md.ui.mail.zurueck": "Back to list",
+ "md.ui.mail.annehmen": "Accept",
+ "md.ui.mail.ablehnen": "Decline",
+ "md.ui.mail.verhandeln": "Negotiate",
+ "md.ui.mail.alter": "%1 years old",
+ "md.ui.mail.wert": "Rating %1",
+ "md.ui.mail.vertrag_bis": "Contract until %1",
+ "md.ui.mail.schuetzen": "Scorers",
+ "md.ui.mail.noten": "Top ratings",
+ "md.ui.mail.deine_antwort": "Your answer",
+ "md.ui.mail.beantwortet": "Answered.",
+ "md.ui.vorschau.moral.plus": "Squad morale improves.",
+ "md.ui.vorschau.moral.minus": "Squad morale suffers.",
+ "md.ui.vorschau.moral.spieler.plus": "The player feels valued and his morale rises.",
+ "md.ui.vorschau.moral.spieler.minus": "The player is annoyed and his morale drops.",
+ "md.ui.vorschau.medienbild.plus": "The media image improves.",
+ "md.ui.vorschau.medienbild.minus": "The media image worsens.",
+ "md.ui.vorschau.fanstimmung.plus": "The fans are pleased.",
+ "md.ui.vorschau.fanstimmung.minus": "The fans are unhappy.",
+ "md.ui.vorschau.vorstandsvertrauen.plus": "Board confidence grows.",
+ "md.ui.vorschau.vorstandsvertrauen.minus": "Board confidence falls.",
+ "md.ui.vorschau.geruecht.plus": "The rumour gains weight.",
+ "md.ui.vorschau.geruecht.minus": "The rumour loses weight.",
+ "md.ui.vorschau.geruecht.dementiert": "The media image gains if there is nothing to it. If the move does happen, it costs credibility with press, fans and board.",
+ "md.ui.vorschau.geruecht.kein_kommentar": "No immediate effect. The rumour stays in circulation.",
+ "md.ui.vorschau.geruecht.bestaetigt": "If it is true, the media image gains a little. The rumour heats up.",
+ "md.ui.vorschau.angebot.annehmen": "Agreement at a price of %1. The move will be prepared; the fee is only paid on completion.",
+ "md.ui.vorschau.angebot.ablehnen": "The offer lapses and the player stays in the squad.",
+ "md.ui.vorschau.angebot.verhandeln": "You talk to the player and the club. If you ask for more than %1, the reply depends on how important the player is and may take a few days.",
+ "md.ui.leer.posteingang_neu": "No messages yet. They appear after the next matchday and with every newly imported save.",
+ "md.ui.leer.zuletzt": "Last imported",
+ "md.ui.leer.noch_nicht": "not yet",
+ "md.ui.wirk.fans": "Fans",
+ "md.ui.wirk.vorstand": "Board",
+ "md.ui.wirk.kabine": "Dressing room",
+ "md.ui.wirk.presse": "Press",
+ "md.ui.wirk.keine": "No effect",
+ "md.ui.wirk.letzte": "Last press conference, %1",
+ "md.ui.presse.frage_n": "%1 of %2 answered",
+ "md.ui.zeitung.nach_pk": "After the press conference",
+ "md.ui.zeitung.pressestelle": "Press office notices",
+ "md.ui.zeitung.ausgaben": "Issues",
+ "md.ui.protest.stufe": "Mood in the stands",
+ "md.ui.protest.stufe.ruhig": "Calm",
+ "md.ui.protest.stufe.murren": "Grumbling",
+ "md.ui.protest.stufe.pfiffe": "Whistles",
+ "md.ui.protest.stufe.transparente": "Banners",
+ "md.ui.protest.stufe.stadion": "Open protest",
+ "md.ui.protest.unter": "Fans %1 · Board %2",
+ "md.ui.protest.serie": "Defeats in a row",
+ "md.ui.protest.serie_unter": "From the second defeat on, the stands get rougher.",
+ "md.ui.leer.proteste": "It is quiet in the stands.",
+ "md.pk.eroeffnung.sachlich": "%1 opens the notebook: “Three questions, then we all go home.”",
+ "md.pk.eroeffnung.boulevard": "%1 is grinning before sitting down. The headline is written already, only your answer is missing.",
+ "md.pk.eroeffnung.wohlwollend": "%1 smiles warmly and sets down the recorder. Today's questions are polite, at least at first.",
+ "md.pk.eroeffnung.kritisch": "%1 has brought a stack of notes. That looks like homework.",
+ "md.protest.ruhig.1": "The terrace sings, the sausage is hot, the manager is left alone. Almost boring.",
+ "md.protest.ruhig.2": "Even the stadium announcer has nothing to complain about and asks about the weather.",
+ "md.protest.ruhig.3": "One fan holds up a sign: “Keep it up!” It is the only sign.",
+ "md.protest.murren.1": "There is grumbling in the stands. You hear it best when the ball goes out of play.",
+ "md.protest.murren.2": "The regulars' tables agree on something, though nobody knows quite what yet.",
+ "md.protest.murren.3": "A season ticket holder sighs so loudly that the row in front turns around.",
+ "md.protest.pfiffe.1": "There are whistles after the final whistle. The referee briefly thinks they are for him.",
+ "md.protest.pfiffe.2": "The whistles are so loud that the groundsman looks up from the pitch.",
+ "md.protest.pfiffe.3": "A long drawn-out “Ooooh” rolls from the south end. Not a good one.",
+ "md.protest.transparente.1": "A banner hangs on the fence: “More passion or pizza for everyone.” Either would do.",
+ "md.protest.transparente.2": "The ultras have painted a banner. The spelling is poor, the message clear.",
+ "md.protest.transparente.3": "Outside the ground fans hand out flyers. Headline: “We need to talk.”",
+ "md.protest.stadion.1": "The stadium is in uproar: chants, banners, a megaphone. Even the mascots keep their distance.",
+ "md.protest.stadion.2": "The fan club demands a talk, right now, in the presence of the press and a cake.",
+ "md.protest.stadion.3": "A human chain stands outside the club office. It is singing. Off-key, but very loudly.",
+ "md.zeitung.pk.sachlich.ehrlich.titel": "Manager calls it as it is: “%1”",
+ "md.zeitung.pk.sachlich.ehrlich.text": "Plain words the day before. You can accuse the manager of a lot, but not of waffling. Said from the podium the day before.",
+ "md.zeitung.pk.sachlich.kaempferisch.titel": "The manager wants a fight: “%1”",
+ "md.zeitung.pk.sachlich.kaempferisch.text": "The message was clear. Now the team has to deliver, because messages alone do not win matches. Said from the podium the day before.",
+ "md.zeitung.pk.sachlich.ausweichend.titel": "Many words, little content: “%1”",
+ "md.zeitung.pk.sachlich.ausweichend.text": "The press conference lasted twelve minutes. Content-wise four would have done. Said from the podium the day before.",
+ "md.zeitung.pk.sachlich.lob.titel": "The manager hands out praise: “%1”",
+ "md.zeitung.pk.sachlich.lob.text": "Warm words from the top of the team. The dressing room will have liked hearing that. Said from the podium the day before.",
+ "md.zeitung.pk.sachlich.kritik.titel": "The manager gets blunt: “%1”",
+ "md.zeitung.pk.sachlich.kritik.text": "Rarely has he been so direct. Whether the dressing room takes it as calmly remains to be seen. Said from the podium the day before.",
+ "md.zeitung.pk.boulevard.ehrlich.titel": "“%1”: The manager spills the beans!",
+ "md.zeitung.pk.boulevard.ehrlich.text": "Nobody has been this honest in a long time. The editor-in-chief spilled his coffee for joy. Said from the podium the day before.",
+ "md.zeitung.pk.boulevard.kaempferisch.titel": "Declaration of war! “%1”",
+ "md.zeitung.pk.boulevard.kaempferisch.text": "The manager clenches his fists, the fans applaud, the opponent gulps. At least in our imagination. Said from the podium the day before.",
+ "md.zeitung.pk.boulevard.ausweichend.titel": "Manager talks and talks: “%1”",
+ "md.zeitung.pk.boulevard.ausweichend.text": "We took careful notes and still wrote nothing down. That takes some doing. Said from the podium the day before.",
+ "md.zeitung.pk.boulevard.lob.titel": "Love letter to the squad: “%1”",
+ "md.zeitung.pk.boulevard.lob.text": "All that was missing was a bunch of flowers. The dressing room has already booked a spot in the manager's heart. Said from the podium the day before.",
+ "md.zeitung.pk.boulevard.kritik.titel": "Rant! “%1”",
+ "md.zeitung.pk.boulevard.kritik.text": "The dressing room will crackle until morning. We keep our fingers crossed for the shin pads. Said from the podium the day before.",
+ "md.zeitung.pk.wohlwollend.ehrlich.titel": "Sincere and clear: “%1”",
+ "md.zeitung.pk.wohlwollend.ehrlich.text": "We like it when someone speaks plainly, especially when he stays this likeable. Said from the podium the day before.",
+ "md.zeitung.pk.wohlwollend.kaempferisch.titel": "Into the next match with courage: “%1”",
+ "md.zeitung.pk.wohlwollend.kaempferisch.text": "This is what confidence sounds like. The fans will appreciate it, and so will the sausage stands. Said from the podium the day before.",
+ "md.zeitung.pk.wohlwollend.ausweichend.titel": "The manager keeps his cards close: “%1”",
+ "md.zeitung.pk.wohlwollend.ausweichend.text": "We understand. You do not have to show every card, especially before a match. Said from the podium the day before.",
+ "md.zeitung.pk.wohlwollend.lob.titel": "A manager who praises: “%1”",
+ "md.zeitung.pk.wohlwollend.lob.text": "That is how you build a mood. Whoever talks like this will surely get a few extra yards on Saturday. Said from the podium the day before.",
+ "md.zeitung.pk.wohlwollend.kritik.titel": "The manager demands more: “%1”",
+ "md.zeitung.pk.wohlwollend.kritik.text": "Clear words, but never unfair. That is exactly how a team that looks ahead is built. Said from the podium the day before.",
+ "md.zeitung.pk.kritisch.ehrlich.titel": "Honest at last: “%1”. Is that enough?",
+ "md.zeitung.pk.kritisch.ehrlich.text": "The admission is a start. On the pitch, more than insight has to happen now. Said from the podium the day before.",
+ "md.zeitung.pk.kritisch.kaempferisch.titel": "Big words: “%1”",
+ "md.zeitung.pk.kritisch.kaempferisch.text": "We have filed the quote safely and will check on Saturday how much of it is left. Said from the podium the day before.",
+ "md.zeitung.pk.kritisch.ausweichend.titel": "Said nothing, meant everything: “%1”",
+ "md.zeitung.pk.kritisch.ausweichend.text": "The manager has mastered the art of saying nothing. It is the only streak that holds. Said from the podium the day before.",
+ "md.zeitung.pk.kritisch.lob.titel": "Flattery? “%1”",
+ "md.zeitung.pk.kritisch.lob.text": "Nice words cost nothing. The table keeps score, though, and it knows no mercy. Said from the podium the day before.",
+ "md.zeitung.pk.kritisch.kritik.titel": "The manager lashes out: “%1”",
+ "md.zeitung.pk.kritisch.kritik.text": "Whoever criticises others like this had better deliver himself. We watch with interest, and with a notepad. Said from the podium the day before.",
+ "md.zeitung.spiel.sachlich.s.titel": "%2 against %1: a deserved win",
+ "md.zeitung.spiel.sachlich.s.text": "The team worked cleanly, the points are in the bag.",
+ "md.zeitung.spiel.sachlich.u.titel": "%2 against %1: a point that feeds nobody",
+ "md.zeitung.spiel.sachlich.u.text": "A draw both sides can live with, but neither really wants.",
+ "md.zeitung.spiel.sachlich.n.titel": "%2 against %1: a defeat foretold",
+ "md.zeitung.spiel.sachlich.n.text": "The mistakes were many, and so will the explanations be.",
+ "md.zeitung.spiel.boulevard.s.titel": "%2! Hats fly against %1",
+ "md.zeitung.spiel.boulevard.s.text": "We danced, we sang and woke the neighbours. Thank you!",
+ "md.zeitung.spiel.boulevard.u.titel": "%2 against %1: draw, shrug, beer",
+ "md.zeitung.spiel.boulevard.u.text": "Nobody lost, nobody won. The beer still tasted fine.",
+ "md.zeitung.spiel.boulevard.n.titel": "%2 against %1: Ouch!",
+ "md.zeitung.spiel.boulevard.n.text": "That hurt, and not only the fans. The turf suffered too.",
+ "md.zeitung.spiel.wohlwollend.s.titel": "Lovely win over %1: %2",
+ "md.zeitung.spiel.wohlwollend.s.text": "This is how it can go on. The team deserves a bit of praise today.",
+ "md.zeitung.spiel.wohlwollend.u.titel": "Against %1 it stays at %2",
+ "md.zeitung.spiel.wohlwollend.u.text": "One point in a tight game. More was possible, but less was possible too.",
+ "md.zeitung.spiel.wohlwollend.n.titel": "%2 against %1: chin up",
+ "md.zeitung.spiel.wohlwollend.n.text": "It was not the team's day. The next one will surely come.",
+ "md.zeitung.spiel.kritisch.s.titel": "%2 against %1: a win, but not pretty",
+ "md.zeitung.spiel.kritisch.s.text": "Three points are three points. Little of the performance will stick in the memory.",
+ "md.zeitung.spiel.kritisch.u.titel": "%2 against %1: a draw to yawn at",
+ "md.zeitung.spiel.kritisch.u.text": "Anyone looking for excitement here would have been better off reading the table.",
+ "md.zeitung.spiel.kritisch.n.titel": "%2 against %1: that was not enough",
+ "md.zeitung.spiel.kritisch.n.text": "We looked at the defeat and wonder who had the plan.",
+ "md.ui.fehler.abgeschlossen": "This question has been answered; nothing can be changed any more.",
+ "md.ui.fehler.nicht_moeglich": "That is not possible right now.",
+ "md.ui.fehler.konferenz_unbekannt": "There is no press conference for this message.",
+ "md.ui.fehler.modus_aus": "Press conferences are switched off.",
+ "md.ui.ok.konferenz_gestartet": "The press conference begins.",
+ "md.ui.konferenz.status.offen": "Running",
+ "md.ui.konferenz.status.gehalten": "Held",
+ "md.ui.konferenz.status.verfallen": "Not attended",
+ "md.ui.konferenz.folgen_offen": "No answer given yet.",
+ "md.ui.konferenz.artikel_morgen": "Articles about your answers will appear the next day.",
+ "md.ui.ton.diplomatisch": "Diplomatic",
+ "md.ui.ton.kontern": "Hit back",
+ "md.antwort.diplomatisch": [
+  "Everyone sees it a little differently, and I understand the concerns. We are talking to each other.",
+  "There are good arguments on both sides, and we are looking for the common way."
+ ],
+ "md.antwort.kontern": [
+  "Interesting theory. Do you have proof for that, or is the headline enough?",
+  "If I took every headline seriously, I would have disbanded this team long ago."
+ ],
+ "md.nachhaken.ehrlich": [
+  "That is candid. Are we to conclude there was a row behind closed doors?",
+  "Thanks for being open. How do you plan to get a grip on this?"
+ ],
+ "md.nachhaken.kaempferisch": [
+  "Big words. How are we supposed to tell that you will keep them?",
+  "That sounds confident. And what if it goes wrong again?"
+ ],
+ "md.nachhaken.ausweichend": [
+  "That was not an answer. I would rather ask again.",
+  "You are dodging. Is there something you do not want to tell us?"
+ ],
+ "md.nachhaken.lob": [
+  "Nicely put. But is that not a bit too much icing?",
+  "You praise a lot. Was there anything that did not go well?"
+ ],
+ "md.nachhaken.kritik": [
+  "A clear statement. Will you say that to the squad's face as well?",
+  "That will not go down well in the dressing room. Do you not care?"
+ ],
+ "md.nachhaken.diplomatisch": [
+  "Very balanced. But where do you stand personally?",
+  "A Solomonic verdict. And if you had to decide?"
+ ],
+ "md.nachhaken.kontern": [
+  "A counter-question is also an answer. I will keep asking anyway.",
+  "Quick-witted, I admit. Will you still answer my question?"
+ ],
+ "md.reaktion.murmeln": [
+  "Whispers run along the press bench, pens scratch over notepads.",
+  "A murmur goes through the rows, and several heads bend over their notes."
+ ],
+ "md.reaktion.applaus": [
+  "Heads nod approvingly across the room, and someone taps the table.",
+  "A few reporters applaud quietly, and the mood in the room brightens."
+ ],
+ "md.reaktion.blitzlicht": [
+  "Cameras click, and flashes fill the room.",
+  "Several photographers fire at once, the picture is in the can."
+ ],
+ "md.schlagzeile.ehrlich": [
+  "Manager speaks plainly: \"I say it as it is\"",
+  "Frank words at the podium: the manager lays his cards on the table"
+ ],
+ "md.schlagzeile.kaempferisch": [
+  "Manager issues a declaration of intent",
+  "Confident appearance: \"We do not give up\""
+ ],
+ "md.schlagzeile.ausweichend": [
+  "Manager dodges: many questions remain open",
+  "Nothing new at the podium: the manager says little and means a lot"
+ ],
+ "md.schlagzeile.lob": [
+  "Manager showers the squad with praise",
+  "Big gesture: the manager stands behind his players"
+ ],
+ "md.schlagzeile.kritik": [
+  "Manager settles the score in public",
+  "Sharp tone: the manager does not hold back criticism"
+ ],
+ "md.schlagzeile.diplomatisch": [
+  "Manager stays diplomatic and weighs it up",
+  "Calm appearance: the manager seeks the middle ground"
+ ],
+ "md.schlagzeile.kontern": [
+  "Manager hits back and leaves reporters stranded",
+  "Slanging match in the press room: the manager pushes back"
+ ],
+ "md.pk.sprecher.name": "Press officer",
+ "md.pk.sprecher.vor": [
+  "Good afternoon, ladies and gentlemen, let us begin. The manager is ready for your questions ahead of the game against %1.",
+  "Please take a seat. We are talking before the game against %1, first question please."
+ ],
+ "md.pk.sprecher.nach": [
+  "Good evening, we begin the press conference after the game against %1. First question, please.",
+  "Welcome to the review of the game against %1. The manager will answer your questions."
+ ],
+ "md.pk.sprecher.interview": [
+  "Welcome, this is a short conversation, and the manager has time for your questions.",
+  "We are ready, please start with your first question."
+ ],
+ "md.pk.schluss": [
+  "The press officer closes the conference: \"Thank you, that is all for today.\"",
+  "\"That was the last question,\" calls the press officer, and the reporters pack up their things."
+ ]
+}

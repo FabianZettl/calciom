@@ -1,0 +1,20 @@
+{
+ "gb.grund.kit_star": "%1 is one of the most expensive players in the squad and starts ahead of %2.",
+ "gb.grund.kit_neuer_trainer": "The new coach brings his own system: %1 (idea: %2).",
+ "gb.grund.kit_gegentore": "%1 goals against per game on average: he plays deeper and more compact, with less risk.",
+ "gb.grund.kit_keine_tore": "Only %1 goals per game on average: he pushes the line up and sends more players forward.",
+ "gb.grund.kit_siegesserie_hoeher": "After %1 wins in a row he sticks to his game and plays a little higher.",
+ "gb.grund.kit_wichtig_titel": "The title is at stake: he fields the strongest XI.",
+ "gb.grund.kit_wichtig_abstieg": "It is a fight against relegation: he fields the strongest XI.",
+ "gb.grund.kit_wichtig_europa": "Europe is at stake: he fields the strongest XI.",
+ "gb.grund.kit_wichtig_topspiel": "Against the team in place %1 he plays his strongest XI.",
+ "gb.grund.kit_rotation_nichts": "Nothing is left to play for on either side: he lets the youngsters play.",
+ "gb.grund.kit_rotation_schwacher_gegner": "The opponent is clearly weaker: he rotates and gives youngsters a chance.",
+ "gb.grund.kit_schonen_dicht": "%1 games in a short time: he rests the tired players.",
+ "gb.grund.kit_elf_ausfall": "%1 replaces the injured %2.",
+ "gb.grund.kit_elf_star": "%1 was signed for big money and does not sit on the bench: he plays instead of %2.",
+ "gb.grund.kit_elf_staerkste": "%1 is stronger than %2 and plays.",
+ "gb.grund.kit_elf_rotation": "%1 gets a start in place of %2.",
+ "gb.grund.kit_elf_schonen": "%2 is rested, %1 plays.",
+ "gb.grund.kit_neuer_trainer_idee": "The new coach plays his own idea (%1) and sets the sliders to match."
+}

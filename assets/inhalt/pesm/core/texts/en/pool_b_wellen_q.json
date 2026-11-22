@@ -1,0 +1,114 @@
+{
+ "pool.b.jugend_befoerderung_vorschlag_gruss": [
+  "Coach, I am writing to you about the academy, please take your time with this.",
+  "Coach, here is a proposal from the academy that matters a great deal to me."
+ ],
+ "pool.b.jugend_befoerderung_vorschlag_lage": [
+  "One of the juniors is so far along that I can hardly challenge him there any longer.",
+  "One of my lads has outgrown his age group, and I see nobody there who can make him better."
+ ],
+ "pool.b.jugend_befoerderung_vorschlag_lage.hitzig": [
+  "The boy runs rings around his peers, and I will not be told any longer that he is not ready yet!",
+  "I have watched for weeks how he is under-challenged, and it drives me mad!"
+ ],
+ "pool.b.jugend_befoerderung_vorschlag_lage.loyal": [
+  "I have worked for this academy for years, and we rarely had one like him, which is why he means so much to me.",
+  "I have guided the boy since he was small and would never propose him if I did not firmly believe in it."
+ ],
+ "pool.b.jugend_befoerderung_vorschlag_lage.ehrgeizig": [
+  "This boy can become a figurehead of the club, and I do not want us to sleep through it.",
+  "If we guide him properly now, he will soon be at the top, and that is exactly what I want for the academy."
+ ],
+ "pool.b.jugend_befoerderung_vorschlag_lage.wechselfreudig": [
+  "I will say it openly: other clubs are already watching him, and nothing will hold him here for long unless we bring him up.",
+  "The boy will not wait forever, and I fear we lose him to a rival if nothing happens."
+ ],
+ "pool.b.jugend_befoerderung_vorschlag_lage.sensibel": [
+  "I thought long about whether to burden you with this, but the boy deserves an honest chance.",
+  "It is not easy for me to bring this up, because I know what it means for the boy."
+ ],
+ "pool.b.jugend_ohne_spiele_gruss": [
+  "Hello coach, I am writing to you about the playing time of the juniors.",
+  "Coach, I have to write to you about the juniors, and it cannot wait."
+ ],
+ "pool.b.jugend_ohne_spiele_lage": [
+  "Several lads have sat only on the bench or in the stand for weeks and get no minute of match practice.",
+  "It is showing with some of our juniors that they hardly play any more. They train, but without matches they stagnate."
+ ],
+ "pool.b.jugend_ohne_spiele_lage.hitzig": [
+  "A handful of talents are rotting away on the substitutes' bench, and I will not watch it any longer!",
+  "We are ruining good lads right now because nobody lets them play, and that is a scandal!"
+ ],
+ "pool.b.jugend_ohne_spiele_lage.loyal": [
+  "I stand behind the club's course, but several juniors get too little playing time, and it gnaws at me.",
+  "I go along with a lot, but I cannot silently accept that the lads hardly get to play."
+ ],
+ "pool.b.jugend_ohne_spiele_lage.ehrgeizig": [
+  "Without competition our talents will never reach the top, and that is our goal.",
+  "We want to train players for the first eleven, and you only learn that in matches, not on the bench."
+ ],
+ "pool.b.jugend_ohne_spiele_lage.wechselfreudig": [
+  "If the lads get no appearances here they will look for other clubs, and I cannot blame them.",
+  "A few agents are already calling because their clients do not play with us. I can understand them."
+ ],
+ "pool.b.jugend_ohne_spiele_lage.sensibel": [
+  "The lads show nothing, but I see how quiet they become after matchdays.",
+  "You can see how much it weighs on them to only watch, even if they say nothing."
+ ],
+ "pool.b.jugend_eltern_gespraech_gruss": [
+  "Coach, do you have a moment? The parents of a talent came to see me.",
+  "Coach, may I speak to you in private? It is about the family of one of our lads."
+ ],
+ "pool.b.jugend_eltern_gespraech_lage": [
+  "His parents want to know how things go on for their son, and no longer accept stock phrases.",
+  "The boy's family put me through the wringer. They want to clear up prospects, school and pay."
+ ],
+ "pool.b.jugend_eltern_gespraech_lage.hitzig": [
+  "The parents are upset and demand answers, and I cannot give them any that would be enough!",
+  "The father almost shouted at me today, that is how hard they press me with their questions!"
+ ],
+ "pool.b.jugend_eltern_gespraech_lage.loyal": [
+  "The parents are decent people and trust the club. That is exactly why they only want an honest word.",
+  "The family has always supported us and drives the boy every day. They deserve an honest answer."
+ ],
+ "pool.b.jugend_eltern_gespraech_lage.ehrgeizig": [
+  "The parents firmly believe in a great career for their son and want to know whether we pave that way.",
+  "The father already sees his son with the professionals. He expects a clear plan from us for it."
+ ],
+ "pool.b.jugend_eltern_gespraech_lage.wechselfreudig": [
+  "The family's agent hinted that other clubs are interested too. That puts pressure on the talk.",
+  "The parents let it show that they would look elsewhere too if we offer no prospects."
+ ],
+ "pool.b.jugend_eltern_gespraech_lage.sensibel": [
+  "The mother was close to tears because she does not know whether her son is in good hands here.",
+  "The parents worry whether the boy can handle the pressure, and that has made me thoughtful myself."
+ ],
+ "pool.b.jugend_abwerbung_gruss": [
+  "Coach, I am writing to you with bad news from the academy.",
+  "Coach, there is trouble, and I want you to be the first to hear of it."
+ ],
+ "pool.b.jugend_abwerbung_lage": [
+  "Another club has knocked on the door of one of our talents and made him an offer.",
+  "A rival is trying to detach one of our lads from the academy."
+ ],
+ "pool.b.jugend_abwerbung_lage.hitzig": [
+  "Another club is poaching in our academy, and I want us not to put up with it!",
+  "Someone comes along and lures our boy with promises he will never keep!"
+ ],
+ "pool.b.jugend_abwerbung_lage.loyal": [
+  "I am attached to the boy, and it hurts me that another club is turning his head.",
+  "For years I have put work into the academy, and now someone reaches out a hand for our talent."
+ ],
+ "pool.b.jugend_abwerbung_lage.ehrgeizig": [
+  "The boy is one of the best talents we have, and that is exactly why the others want him.",
+  "If we keep him we have a future key player, and our rivals know that."
+ ],
+ "pool.b.jugend_abwerbung_lage.wechselfreudig": [
+  "Honestly, the offer sounds not bad for him, and I understand that he is curious.",
+  "The boy is already eyeing the other club, and I can hardly blame him for listening."
+ ],
+ "pool.b.jugend_abwerbung_lage.sensibel": [
+  "The boy is torn, and I notice how much the matter upsets him.",
+  "He did not sleep last night, that is how much the offer occupies him."
+ ]
+}

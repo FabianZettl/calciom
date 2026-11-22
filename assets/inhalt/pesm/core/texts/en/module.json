@@ -1,0 +1,21 @@
+{
+  "module.zustand.lesend": "reading",
+  "module.zustand.gesperrt": "locked",
+  "module.zustand.aus": "off",
+  "module.zustand.fehlt": "not loaded",
+  "module.zustand.keine_meldung": "no report",
+  "module.zustand.nicht_eingebunden": "not installed",
+  "module.zustand.spiel_aus": "game not running",
+  "module.zustand.fehler": "error",
+  "module.hinweis.nicht_geladen": "Module not loaded: it is registered but silent. Restart the game.",
+  "module.hinweis.nicht_eingebunden": "The module is not installed.",
+  "module.hinweis.unlesbar": "The module's report cannot be read.",
+  "module.hinweis.andere_sitzung": "The report comes from a different game session.",
+  "module.hinweis.veraltet": "The module has not reported in for a while.",
+  "module.hinweis.aus": "The module switched itself off after errors.",
+  "module.hinweis.spiel_aus": "The game is not running or not reporting.",
+  "module.hinweis.veraltet_version": "The version in the game folder is older than the one shipped with PESM: update it.",
+  "module.hinweis.datei_fehlt": "The module file is missing from the game folder.",
+  "module.hinweis.neustart": "A new version is ready: restart the game.",
+  "module.zustand.ruht": "idle (switch off)"
+}

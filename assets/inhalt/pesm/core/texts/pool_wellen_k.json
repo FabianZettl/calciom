@@ -1,0 +1,582 @@
+{
+ "pool.vorstand_budget_antrag.e.e1": [
+  "{b.vorstand_budget_antrag_gruss} {b.vorstand_budget_antrag_lage} Nennen Sie mir bitte Ihre Gründe, damit ich dem Vorstand etwas vorlegen kann.",
+  "{b.vorstand_budget_antrag_gruss} {b.vorstand_budget_antrag_lage} Bevor ich etwas zusage, will ich verstehen, was Sie mit dem Geld vorhaben."
+ ],
+ "pool.vorstand_budget_antrag.e.e2": [
+  "{b.vorstand_budget_antrag_gruss} {b.vorstand_budget_antrag_lage} Finanzlage, Ziele und Risiko muss ich gegeneinander abwägen, und dazu brauche ich Ihre Einschätzung.",
+  "{b.vorstand_budget_antrag_gruss} {b.vorstand_budget_antrag_lage} Wie groß das Risiko ist, entscheidet am Ende auch Ihre Antwort."
+ ],
+ "pool.vorstand_budget_antrag.e.e3": [
+  "{b.vorstand_budget_antrag_gruss} {b.vorstand_budget_antrag_lage} Ich weiß, dass es zwischen uns gerade nicht rund läuft, trotzdem muss ich über diesen Antrag entscheiden.",
+  "{b.vorstand_budget_antrag_gruss} {b.vorstand_budget_antrag_lage} Die Stimmung ist gedrückt, doch Ihr Antrag verdient eine ehrliche Antwort, und die erwarte ich auch von Ihnen."
+ ],
+ "pool.vorstand_budget_antrag.e.e4": [
+  "{b.vorstand_budget_antrag_gruss} {b.vorstand_budget_antrag_lage} Rechtfertigen Sie das, und zwar überzeugend, sonst lehne ich auf der Stelle ab!",
+  "{b.vorstand_budget_antrag_gruss} {b.vorstand_budget_antrag_lage} Ich lasse mich nicht unter Druck setzen: Entweder Sie liefern Argumente, oder die Sache ist erledigt!"
+ ],
+ "pool.vorstand_budget_antrag.e.e5": [
+  "{b.vorstand_budget_antrag_gruss} {b.vorstand_budget_antrag_lage} Wir haben Zeit, wenn auch nicht unendlich viel. Erzählen Sie mir in Ruhe, was Sie brauchen.",
+  "{b.vorstand_budget_antrag_gruss} {b.vorstand_budget_antrag_lage} Ich höre Ihnen gern zu, lassen Sie uns sachlich besprechen, was möglich ist."
+ ],
+ "pool.vorstand_budget_antrag.e.e6": [
+  "{b.vorstand_budget_antrag_gruss} {b.vorstand_budget_antrag_lage} Was bringt uns mehr Budget sportlich? Ich will eine Rechnung sehen, die über die Saison hinausreicht.",
+  "{b.vorstand_budget_antrag_gruss} {b.vorstand_budget_antrag_lage} Wenn ich investiere, will ich wissen, wo der Verein danach steht."
+ ],
+ "pool.vorstand_budget_antrag.e.e7": [
+  "{b.vorstand_budget_antrag_gruss} {b.vorstand_budget_antrag_lage} Mir liegt daran, dass Sie sich fair behandelt fühlen, also sprechen wir offen über das Machbare.",
+  "{b.vorstand_budget_antrag_gruss} {b.vorstand_budget_antrag_lage} Wichtig ist mir, dass wir im Guten bleiben, wie auch immer die Entscheidung ausfällt."
+ ],
+ "pool.vorstand_budget_antrag.e.e8": [
+  "{b.vorstand_budget_antrag_gruss} {b.vorstand_budget_antrag_lage} Wir liegen hinter dem Ziel, und ausgerechnet jetzt verlangen Sie mehr Geld. Das muss mir jemand erklären.",
+  "{b.vorstand_budget_antrag_gruss} {b.vorstand_budget_antrag_lage} Die Tabelle spricht nicht für mehr Mittel. Was spricht denn dafür?"
+ ],
+ "pool.vorstand_budget_antrag.e.e9": [
+  "{b.vorstand_budget_antrag_gruss} {b.vorstand_budget_antrag_lage} Die Ergebnisse stimmen, das macht mich milde. Dennoch ist das Budget keine Selbstverständlichkeit.",
+  "{b.vorstand_budget_antrag_gruss} {b.vorstand_budget_antrag_lage} Nach den letzten Siegen bin ich offener, aber Geld bleibt Geld, und das Risiko bleibt auch."
+ ],
+ "pool.vorstand_budget_antrag.e.e10": [
+  "{b.vorstand_budget_antrag_gruss} {b.vorstand_budget_antrag_lage} Im Vorstand gibt es Zweifel an der Arbeit, deshalb steht Ihr Antrag auf wackligen Füßen.",
+  "{b.vorstand_budget_antrag_gruss} {b.vorstand_budget_antrag_lage} Das Gremium ist nicht überzeugt von uns, und Ihr Antrag macht es nicht leichter."
+ ],
+ "pool.vorstand_budget_antrag.a.a1": [
+  "Der Kader hat eine Lücke, und ich kann sie belegen: Mit einer gezielten Verstärkung auf dieser Position würden wir Punkte holen, die uns jetzt fehlen.",
+  "Ich lege Ihnen die Zahlen vor: Ohne zwei Neuzugänge fehlt uns Tiefe, und die kostet uns am Ende mehr als das Budget."
+ ],
+ "pool.vorstand_budget_antrag.a.a2": [
+  "Ich will nicht viel, nur das Nötigste. Ein bescheidener Betrag genügt mir, den Rest löse ich mit dem, was wir haben.",
+  "Ich bitte nur um einen kleinen Spielraum und verspreche, ihn nicht auszureizen."
+ ],
+ "pool.vorstand_budget_antrag.a.a3": [
+  "Ohne Verstärkung übernehme ich keine Garantie für das Saisonziel. Das ist ein Ultimatum, und ich sage es Ihnen ins Gesicht.",
+  "Entweder ich bekomme das Geld, oder Sie suchen sich jemanden, der mit diesem Kader Wunder vollbringt."
+ ],
+ "pool.vorstand_budget_antrag.a.a4": [
+  "Ihre Bedingungen sind mir recht: Wir bleiben im Rahmen, und ich nehme den Auftrag an, damit zu arbeiten.",
+  "Wenn Sie das Geld an Bedingungen knüpfen, nehme ich sie an und stehe für das Ergebnis gerade."
+ ],
+ "pool.vorstand_budget_antrag.a.a5": [
+  "Dann verkaufen wir eben einen Spieler, das spült Geld in die Kasse, und im Training wird es wenigstens leiser.",
+  "Ich biete Ihnen einen Verkauf an: Ein Abgang finanziert den Zugang, und die Bilanz bleibt in der Waage."
+ ],
+ "pool.vorstand_budget_antrag.a.a6": [
+  "Ich ziehe den Antrag zurück. Offenbar ist der Zeitpunkt falsch, und ich will den Verein nicht unnötig belasten.",
+  "Vergessen Sie meinen Antrag, ich komme zu einem besseren Moment darauf zurück."
+ ],
+ "pool.vorstand_budget_antrag.a.a7": [
+  "Welche Ergebnisse erwartet der Vorstand denn, wenn er mir das Geld gibt, und woran will er sie messen?",
+  "Sagen Sie mir, wie viel Spielraum es realistisch gibt, dann plane ich damit."
+ ],
+ "pool.vorstand_budget_antrag.a.a8": [
+  "Der Sportdirektor soll Ihnen die Marktlage und die Preise darlegen, er kennt die Zahlen besser als ich.",
+  "Ich schlage vor, dass Sportdirektor und Finanzchef das gemeinsam prüfen und Ihnen einen Vorschlag machen."
+ ],
+ "pool.vorstand_budget_antrag.a.a9": [
+  "Wer sagt denn, dass man Spiele nur mit Geld gewinnt? Mit etwas Glück reicht auch der Kader von heute.",
+  "Machen Sie sich keine Sorgen, früher ging es doch auch ohne Neuzugänge, irgendwie."
+ ],
+ "pool.vorstand_budget_antrag.a.a10": [
+  "Ich verstehe, dass die Finanzlage Ihnen Sorgen macht, und ich will nichts erzwingen, was dem Verein schadet.",
+  "Ihre Verantwortung für die Kasse ist groß, das sehe ich. Lassen Sie uns einen Weg suchen, der Sie nicht überfordert."
+ ],
+ "pool.vorstand_budget_antrag.a.a11": [
+  "Die Konkurrenz rüstet auf, und wir fallen zurück, wenn wir stillhalten. Das ist kein Wunsch, sondern ein Marktbefund.",
+  "Andere Vereine investieren, und wir sehen zu. Stillstand ist in dieser Liga ein Rückschritt."
+ ],
+ "pool.vorstand_budget_antrag.a.a12": [
+  "Dann sage ich den Fans eben, woran es liegt: Der Verein spart dort, wo es wehtut.",
+  "Wenn Sie mir das Geld verweigern, werde ich nicht schweigen, wenn man mich nach dem Grund fragt."
+ ],
+ "pool.vorstand_budget_antrag.r.r1": [
+  "{b.gut} Das leuchtet mir ein, ich nehme es mit in die Sitzung und setze mich dafür ein.",
+  "{b.gut} Das ist ein vernünftiger Vorschlag, damit kann ich im Gremium arbeiten."
+ ],
+ "pool.vorstand_budget_antrag.r.r2": [
+  "{b.gut} Danke für die offenen Worte. Wir finden eine Lösung, ohne den Verein zu gefährden.",
+  "{b.gut} Ich schätze es, dass Sie mir nichts vormachen, so lässt es sich gut verhandeln."
+ ],
+ "pool.vorstand_budget_antrag.r.r3": [
+  "{b.gut} Das klingt nach einem Plan, der aufgehen kann. Ich bin gespannt, was Sie daraus machen.",
+  "{b.gut} Mit dieser Haltung lässt sich etwas aufbauen, ich unterstütze Sie."
+ ],
+ "pool.vorstand_budget_antrag.r.r4": [
+  "{b.neutral} Ich prüfe das und melde mich, bis dahin bleibt alles, wie es ist.",
+  "{b.neutral} Eine Entscheidung gibt es heute nicht, aber ich habe Ihre Position verstanden."
+ ],
+ "pool.vorstand_budget_antrag.r.r5": [
+  "{b.neutral} Ich bin mir nicht sicher, ob das reicht, und das beschäftigt mich.",
+  "{b.neutral} Ich muss darüber schlafen, ich weiß nicht, wie ich das einordnen soll."
+ ],
+ "pool.vorstand_budget_antrag.r.r6": [
+  "{b.neutral} Kein Grund zur Eile, wir haben noch ein paar Wochen, bis die Mittel verplant sind.",
+  "{b.neutral} Ich lasse es sacken und schaue, wie sich die Lage entwickelt."
+ ],
+ "pool.vorstand_budget_antrag.r.r7": [
+  "{b.schlecht} Damit kann ich im Vorstand nichts anfangen, das reicht nicht.",
+  "{b.schlecht} So bekomme ich keine Mehrheit zusammen, das müssen Sie mir besser erklären."
+ ],
+ "pool.vorstand_budget_antrag.r.r8": [
+  "{b.schlecht} Ich lasse mich nicht erpressen, von niemandem, und von Ihnen schon gar nicht!",
+  "{b.schlecht} Das ist eine Unverschämtheit, Sie vergessen, wer hier die Rechnungen bezahlt!"
+ ],
+ "pool.vorstand_budget_antrag.r.r9": [
+  "{b.schlecht} Dann überlege ich mir, ob das Projekt mit einem anderen Trainer nicht einfacher wäre.",
+  "{b.schlecht} Wenn das Ihre Antwort ist, schaue ich mich lieber nach Alternativen um."
+ ],
+ "pool.vorstand_budget_antrag.r.r10": [
+  "{b.schlecht} Ich hätte mir von Ihnen mehr Verständnis für die Lage des Vereins gewünscht.",
+  "{b.schlecht} Das enttäuscht mich, ich habe mich bisher immer für Sie starkgemacht."
+ ],
+ "pool.vorstand_budget_antrag.x.x1": [
+  "Der Präsident nickt, und die Sitzung des Vorstands wird Ihren Antrag wohlwollend behandeln. {entscheidung} Die Finanzabteilung rechnet nach.",
+  "{entscheidung} Der Präsident lässt das Budget prüfen und sieht Ihren Wunsch mit Wohlwollen."
+ ],
+ "pool.vorstand_budget_antrag.x.x2": [
+  "Der Präsident lässt die Sache in der Schwebe. {entscheidung} Eine Entscheidung fällt erst im nächsten Gremium.",
+  "{entscheidung} Der Antrag liegt weiter auf dem Tisch, und niemand sagt Ihnen, wann er behandelt wird."
+ ],
+ "pool.vorstand_budget_antrag.x.x3": [
+  "Der Präsident beendet das Gespräch kühl. {entscheidung} Im Vorstand wird man sich Ihren Ton merken.",
+  "{entscheidung} Der Präsident lässt den Antrag fallen und vermerkt, dass Sie ihn unter Druck setzen wollten."
+ ],
+ "pool.vorstand_budget_antrag.x.x4": [
+  "Sie haben sich auf Bedingungen eingelassen, und der Präsident hält es fest. {entscheidung} Er wird Sie daran erinnern.",
+  "{entscheidung} Der Präsident vermerkt Ihr Einverständnis und wird es bei der nächsten Bilanz hervorholen."
+ ],
+ "pool.vorstand_budget_antrag.x.x5": [
+  "Der Präsident schreibt nichts mehr zurück. {entscheidung} Der Antrag gilt als erledigt.",
+  "{entscheidung} Das Thema Budget ist damit vom Tisch, zumindest vorerst."
+ ],
+ "pool.vorstand_saisonziel.e.e1": [
+  "{b.vorstand_saisonziel_gruss} {b.vorstand_saisonziel_lage} Erklären Sie dem Gremium, warum wir dort stehen, wo wir stehen, und was Sie ändern wollen.",
+  "{b.vorstand_saisonziel_gruss} {b.vorstand_saisonziel_lage} Der Vorstand erwartet von Ihnen eine Einschätzung, wie das Ziel noch zu erreichen ist."
+ ],
+ "pool.vorstand_saisonziel.e.e2": [
+  "{b.vorstand_saisonziel_gruss} {b.vorstand_saisonziel_lage} Ist das Ziel noch realistisch, oder sollten wir uns ehrlich auf etwas anderes einigen?",
+  "{b.vorstand_saisonziel_gruss} {b.vorstand_saisonziel_lage} Bleiben wir bei dem Ziel, oder ist es an der Zeit, es anzupassen?"
+ ],
+ "pool.vorstand_saisonziel.e.e3": [
+  "{b.vorstand_saisonziel_gruss} {b.vorstand_saisonziel_lage} Die Stimmung ist schlecht, das merken wir beide. Trotzdem brauche ich eine klare Aussage zum Ziel.",
+  "{b.vorstand_saisonziel_gruss} {b.vorstand_saisonziel_lage} Wir sprechen nicht im Streit, aber auch nicht entspannt. Das Ziel muss besprochen werden."
+ ],
+ "pool.vorstand_saisonziel.e.e4": [
+  "{b.vorstand_saisonziel_gruss} {b.vorstand_saisonziel_lage} Und kommen Sie mir bloß nicht mit Ausreden, die habe ich in dieser Saison schon genug gehört!",
+  "{b.vorstand_saisonziel_gruss} {b.vorstand_saisonziel_lage} Ich will keine Ausflüchte, ich will Punkte, und zwar sofort!"
+ ],
+ "pool.vorstand_saisonziel.e.e5": [
+  "{b.vorstand_saisonziel_gruss} {b.vorstand_saisonziel_lage} Atmen wir durch und schauen wir gemeinsam, was noch drin ist.",
+  "{b.vorstand_saisonziel_gruss} {b.vorstand_saisonziel_lage} Noch ist nichts verloren, aber wir sollten ehrlich bleiben."
+ ],
+ "pool.vorstand_saisonziel.e.e6": [
+  "{b.vorstand_saisonziel_gruss} {b.vorstand_saisonziel_lage} Ich will von Ihnen einen Plan, der uns schnell in die Spur bringt, sonst muss ich eingreifen.",
+  "{b.vorstand_saisonziel_gruss} {b.vorstand_saisonziel_lage} Zeigen Sie mir, dass Sie die Wende schaffen, dann bleiben wir bei unserem Kurs."
+ ],
+ "pool.vorstand_saisonziel.e.e7": [
+  "{b.vorstand_saisonziel_gruss} {b.vorstand_saisonziel_lage} Ich weiß, dass Sie hart arbeiten. Sagen Sie mir, wo Sie Unterstützung brauchen.",
+  "{b.vorstand_saisonziel_gruss} {b.vorstand_saisonziel_lage} Sprechen Sie offen, ich höre zu, ohne Vorwürfe."
+ ],
+ "pool.vorstand_saisonziel.e.e8": [
+  "{b.vorstand_saisonziel_gruss} {b.vorstand_saisonziel_lage} Die letzten Niederlagen haben das Ziel zusätzlich beschädigt, und die Öffentlichkeit schaut genau hin.",
+  "{b.vorstand_saisonziel_gruss} {b.vorstand_saisonziel_lage} Nach dieser Serie ohne Sieg wird das Ziel zur Frage der Glaubwürdigkeit."
+ ],
+ "pool.vorstand_saisonziel.e.e9": [
+  "{b.vorstand_saisonziel_gruss} {b.vorstand_saisonziel_lage} Der Rückstand auf das Ziel ist groß. Mit kleinen Korrekturen werden wir ihn nicht aufholen.",
+  "{b.vorstand_saisonziel_gruss} {b.vorstand_saisonziel_lage} So weit hinter dem Ziel zu liegen, zwingt uns zu einer Grundsatzentscheidung."
+ ],
+ "pool.vorstand_saisonziel.e.e10": [
+  "{b.vorstand_saisonziel_gruss} {b.vorstand_saisonziel_lage} Im Vorstand wächst die Ungeduld, und Ihr Rückhalt ist dünner, als Sie vielleicht glauben.",
+  "{b.vorstand_saisonziel_gruss} {b.vorstand_saisonziel_lage} Mehrere Mitglieder fragen, ob der Trainer noch der Richtige ist, und ich muss darauf antworten."
+ ],
+ "pool.vorstand_saisonziel.a.a1": [
+  "Das Ziel bleibt richtig. Wir haben die Mannschaft dafür, und ich zeige Ihnen, welche Spiele wir noch gewinnen werden.",
+  "Ich verteidige das Ziel, denn die Qualität im Kader reicht dafür, und das Restprogramm ist machbar."
+ ],
+ "pool.vorstand_saisonziel.a.a2": [
+  "Ich schlage vor, das Ziel neu zu definieren: realistisch, aber ehrgeizig genug, dass niemand sich zurücklehnen kann.",
+  "Lassen Sie uns ein angepasstes Ziel vereinbaren, an dem Sie mich messen können."
+ ],
+ "pool.vorstand_saisonziel.a.a3": [
+  "Ich übernehme die Verantwortung. Wenn wir das Ziel verfehlen, liegt es an meinen Entscheidungen, nicht an der Mannschaft.",
+  "Die Lage ist meine Sache, und ich stelle mich dem. Schuld zuzuweisen hilft uns nicht."
+ ],
+ "pool.vorstand_saisonziel.a.a4": [
+  "Wir hatten Verletzte, schlechtes Wetter, und der Schiedsrichter war auch nicht auf unserer Seite. Das gleicht sich noch aus.",
+  "Der Ball wollte einfach nicht rein, aber das Glück kehrt zurück, es muss ja irgendwann."
+ ],
+ "pool.vorstand_saisonziel.a.a5": [
+  "Setzen wir Zwischenziele: Bis zur nächsten Länderspielpause will ich eine feste Punktzahl, und daran dürfen Sie mich messen.",
+  "Ich gebe Ihnen Etappenziele, die wir Spiel für Spiel abhaken, damit niemand im Nebel arbeitet."
+ ],
+ "pool.vorstand_saisonziel.a.a6": [
+  "Woran machen Sie fest, dass das Ziel verfehlt ist? Die Saison hat noch einige Spiele, und die Tabelle bewegt sich schnell.",
+  "Was erwartet der Vorstand konkret von mir: Ergebnisse, Auftreten oder beides?"
+ ],
+ "pool.vorstand_saisonziel.a.a7": [
+  "Der Sportdirektor und ich legen Ihnen bis zur nächsten Sitzung eine Analyse mit Maßnahmen vor.",
+  "Ich bitte darum, dass die Scouting-Abteilung die Daten aufbereitet, damit wir auf gleicher Grundlage entscheiden."
+ ],
+ "pool.vorstand_saisonziel.a.a8": [
+  "Das Ziel war von Anfang an unrealistisch, und Sie wissen es. Machen Sie mich nicht für Ihre Fehlplanung verantwortlich.",
+  "Wer dieses Ziel gesetzt hat, soll es auch erklären. Ich habe mit dem gearbeitet, was ich bekam."
+ ],
+ "pool.vorstand_saisonziel.a.a9": [
+  "Die Mannschaft gibt alles, und die Fans spüren das. Wir sollten sie jetzt tragen, statt sie zu verunsichern.",
+  "Ich will, dass die Spieler gerade jetzt Rückhalt spüren, und wünsche mir den vom Vorstand ebenfalls."
+ ],
+ "pool.vorstand_saisonziel.a.a10": [
+  "Eine Debatte über das Ziel führe ich nicht. Wer mir misstraut, soll es offen sagen, statt Sitzungen anzuberaumen.",
+  "Ich diskutiere nicht über Zahlen von gestern. Entweder Sie vertrauen mir, oder Sie ziehen die Konsequenz."
+ ],
+ "pool.vorstand_saisonziel.a.a11": [
+  "Ich schlage einen Mittelweg vor: Wir halten am Ziel fest, räumen aber ein, dass wir einen Platz mehr Spielraum brauchen.",
+  "Wir verteidigen das Ziel nach außen und vereinbaren intern einen Puffer, an dem ich mich messen lasse."
+ ],
+ "pool.vorstand_saisonziel.r.r1": [
+  "{b.gut} Das nehme ich so an. Mit dieser Linie kann der Vorstand arbeiten und ruhiger schlafen.",
+  "{b.gut} Das überzeugt mich, ich vertrete Ihre Position gegenüber dem Gremium."
+ ],
+ "pool.vorstand_saisonziel.r.r2": [
+  "{b.gut} Ihre Offenheit weiß ich zu schätzen, so geht man miteinander um.",
+  "{b.gut} Gut, dass wir so reden können, das macht den Unterschied."
+ ],
+ "pool.vorstand_saisonziel.r.r3": [
+  "{b.gut} Das ist ein klarer Auftrag, und ich werde Sie daran messen. Ich traue Ihnen die Wende zu.",
+  "{b.gut} Mit festen Etappen weiß ich, woran ich bin. So gefällt mir das."
+ ],
+ "pool.vorstand_saisonziel.r.r4": [
+  "{b.neutral} Ich nehme das zur Kenntnis. Endgültig entscheiden wir erst nach den nächsten Spielen.",
+  "{b.neutral} Das Gremium wird das beraten, ein Ergebnis gibt es heute nicht."
+ ],
+ "pool.vorstand_saisonziel.r.r5": [
+  "{b.neutral} Ich weiß nicht recht, was ich davon halten soll. Es klingt nicht falsch, aber auch nicht beruhigend.",
+  "{b.neutral} Hm, ich bin hin- und hergerissen, ob das genügt."
+ ],
+ "pool.vorstand_saisonziel.r.r6": [
+  "{b.neutral} Warten wir die nächsten Wochen ab. Die Tabelle wird uns zeigen, wer recht hat.",
+  "{b.neutral} Ich lege mich nicht fest. Wir sprechen nach dem nächsten Spieltag erneut."
+ ],
+ "pool.vorstand_saisonziel.r.r7": [
+  "{b.schlecht} Das ist keine Antwort auf meine Frage, und der Vorstand wird es auch nicht als eine werten.",
+  "{b.schlecht} So überzeugen Sie niemanden hier am Tisch."
+ ],
+ "pool.vorstand_saisonziel.r.r8": [
+  "{b.schlecht} Das ist unerhört! Sie reden sich heraus, während der Verein Punkte verliert!",
+  "{b.schlecht} Mit diesem Ton kommen Sie bei mir nicht weit, ich habe Ihre Spielchen satt!"
+ ],
+ "pool.vorstand_saisonziel.r.r9": [
+  "{b.schlecht} Dann werden wir wohl über andere Optionen auf der Trainerbank nachdenken müssen.",
+  "{b.schlecht} Wenn Sie nichts bieten, bleibt mir nur, den Kurs zu ändern, und zwar grundlegend."
+ ],
+ "pool.vorstand_saisonziel.r.r10": [
+  "{b.schlecht} Ich hatte gehofft, Sie würden mir entgegenkommen. Das enttäuscht mich.",
+  "{b.schlecht} Nach allem, was wir zusammen durchgestanden haben, hätte ich mehr erwartet."
+ ],
+ "pool.vorstand_saisonziel.x.x1": [
+  "Der Präsident lehnt sich zurück, die Anspannung weicht. {entscheidung} Das Gremium trägt den Weg mit.",
+  "{entscheidung} Die Sitzung endet mit einem gemeinsamen Beschluss, und das Saisonziel wird entsprechend gefasst."
+ ],
+ "pool.vorstand_saisonziel.x.x2": [
+  "Die Sitzung endet ohne Beschluss. {entscheidung} Das Ziel bleibt Thema, und der Druck bleibt auch.",
+  "{entscheidung} Der Präsident vertagt die Entscheidung und lässt offen, wie sie ausfällt."
+ ],
+ "pool.vorstand_saisonziel.x.x3": [
+  "Der Präsident verlässt die Sitzung grußlos. {entscheidung} Im Vorstand ist die Stimmung gekippt.",
+  "{entscheidung} Die Sitzung endet im Streit, und die Protokollführerin schreibt mit."
+ ],
+ "pool.vorstand_saisonziel.x.x4": [
+  "Sie haben sich festgelegt, und der Präsident protokolliert es. {entscheidung} Spätestens zur nächsten Sitzung wird abgerechnet.",
+  "{entscheidung} Die Etappenziele stehen im Protokoll, und Sie werden daran erinnert werden."
+ ],
+ "pool.vorstand_saisonziel.x.x5": [
+  "Der Präsident bricht die Aussprache ab. {entscheidung} Er will erst mit dem Gremium reden, bevor er Sie wieder anhört.",
+  "{entscheidung} Das Gespräch endet abrupt, und der Raum leert sich schweigend."
+ ],
+ "pool.verkaufsdruck_vorstand.e.e1": [
+  "{b.verkaufsdruck_vorstand_gruss} {b.verkaufsdruck_vorstand_lage} Nennen Sie mir bitte, wen Sie entbehren können, ohne dass die Mannschaft Schaden nimmt.",
+  "{b.verkaufsdruck_vorstand_gruss} {b.verkaufsdruck_vorstand_lage} Welcher Spieler käme für Sie in Frage, und wie schnell ließe sich ein Käufer finden?"
+ ],
+ "pool.verkaufsdruck_vorstand.e.e2": [
+  "{b.verkaufsdruck_vorstand_gruss} {b.verkaufsdruck_vorstand_lage} Der Vorstand erwartet, dass wir die Lage bis zur nächsten Sitzung verbessern, und da bleibt nicht viel Spielraum.",
+  "{b.verkaufsdruck_vorstand_gruss} {b.verkaufsdruck_vorstand_lage} Es ist keine Strafe, sondern Buchhaltung. Aber die Sache duldet keinen langen Aufschub."
+ ],
+ "pool.verkaufsdruck_vorstand.e.e3": [
+  "{b.verkaufsdruck_vorstand_gruss} {b.verkaufsdruck_vorstand_lage} Ich weiß, dass wir gerade nicht auf einer Linie sind. Das ändert nichts daran, dass die Zahlen es verlangen.",
+  "{b.verkaufsdruck_vorstand_gruss} {b.verkaufsdruck_vorstand_lage} Die Stimmung ist angespannt, trotzdem muss ich Sie bitten, den Verkauf ernsthaft zu bedenken."
+ ],
+ "pool.verkaufsdruck_vorstand.e.e4": [
+  "{b.verkaufsdruck_vorstand_gruss} {b.verkaufsdruck_vorstand_lage} Noch ein Aufschub, und ich entscheide selbst, wer geht!",
+  "{b.verkaufsdruck_vorstand_gruss} {b.verkaufsdruck_vorstand_lage} Spielen Sie nicht auf Zeit, die Geduld des Vorstands ist am Ende!"
+ ],
+ "pool.verkaufsdruck_vorstand.e.e5": [
+  "{b.verkaufsdruck_vorstand_gruss} {b.verkaufsdruck_vorstand_lage} Wir haben noch etwas Zeit, aber nicht ewig. Prüfen Sie in Ruhe, was ohne Schmerzen geht.",
+  "{b.verkaufsdruck_vorstand_gruss} {b.verkaufsdruck_vorstand_lage} Ich dränge nicht, ich bitte. Lassen Sie uns einen vertretbaren Weg finden."
+ ],
+ "pool.verkaufsdruck_vorstand.e.e6": [
+  "{b.verkaufsdruck_vorstand_gruss} {b.verkaufsdruck_vorstand_lage} Wenn wir den Kader umbauen wollen, ist jetzt der Zeitpunkt. Wer passt nicht mehr in unser Konzept?",
+  "{b.verkaufsdruck_vorstand_gruss} {b.verkaufsdruck_vorstand_lage} Ein Verkauf kann der Anfang eines besseren Kaders sein, wenn wir ihn richtig anlegen."
+ ],
+ "pool.verkaufsdruck_vorstand.e.e7": [
+  "{b.verkaufsdruck_vorstand_gruss} {b.verkaufsdruck_vorstand_lage} Bitte sprechen Sie vorher mit dem betroffenen Spieler, ich will, dass es anständig abläuft.",
+  "{b.verkaufsdruck_vorstand_gruss} {b.verkaufsdruck_vorstand_lage} Mir ist wichtig, dass der Spieler nicht aus der Zeitung davon erfährt."
+ ],
+ "pool.verkaufsdruck_vorstand.e.e8": [
+  "{b.verkaufsdruck_vorstand_gruss} {b.verkaufsdruck_vorstand_lage} Die Stimmung im Umfeld ist ohnehin schlecht, ein Verkauf wird sie nicht bessern. Aber was ist die Alternative?",
+  "{b.verkaufsdruck_vorstand_gruss} {b.verkaufsdruck_vorstand_lage} Ich weiß, dass die Fans einen Abgang nicht mögen werden. Dennoch sehe ich keinen anderen Weg."
+ ],
+ "pool.verkaufsdruck_vorstand.e.e9": [
+  "{b.verkaufsdruck_vorstand_gruss} {b.verkaufsdruck_vorstand_lage} Das Minus ist tief, und die Bank macht Druck. Ein einzelner Verkauf wird kaum reichen, aber er ist der Anfang.",
+  "{b.verkaufsdruck_vorstand_gruss} {b.verkaufsdruck_vorstand_lage} Der Fehlbetrag wächst, und er wird uns in die Knie zwingen, wenn wir nichts tun."
+ ],
+ "pool.verkaufsdruck_vorstand.e.e10": [
+  "{b.verkaufsdruck_vorstand_gruss} {b.verkaufsdruck_vorstand_lage} Wir liegen hinter dem Ziel, und nun auch noch das Geld. Das ist eine schwierige Doppelbelastung.",
+  "{b.verkaufsdruck_vorstand_gruss} {b.verkaufsdruck_vorstand_lage} Sportlich läuft es nicht, finanziell erst recht nicht. Irgendwo müssen wir anfangen."
+ ],
+ "pool.verkaufsdruck_vorstand.a.a1": [
+  "Einverstanden, ich werde einen Spieler zum Verkauf freigeben, und Sie bekommen von mir den Namen, sobald ich ihn geprüft habe.",
+  "Sie haben recht, die Kasse geht vor. Ich stimme einem Verkauf zu."
+ ],
+ "pool.verkaufsdruck_vorstand.a.a2": [
+  "Wir können auch über die Gehälter gehen: Wenn einige Spieler Verzicht üben, ersparen wir uns den Verkauf.",
+  "Ich schlage vor, die Gehälter zu senken, mit Leistungsklauseln, damit die Last verteilt wird."
+ ],
+ "pool.verkaufsdruck_vorstand.a.a3": [
+  "Wir sollten einen Sponsor suchen, der die Lücke schließt. Ein Verkauf schwächt uns sportlich, ein Sponsor nicht.",
+  "Ein neuer Werbepartner brächte schneller Geld als jeder Spielerverkauf, und er kostet uns kein Spiel."
+ ],
+ "pool.verkaufsdruck_vorstand.a.a4": [
+  "Mit mir gibt es keinen Verkauf. Der Kader ist ohnehin dünn, und wenn Sie ihn schwächen, tragen Sie die Folgen.",
+  "Ich verkaufe niemanden, nur weil die Bilanz schlecht aussieht. Das ist nicht mein Fehler."
+ ],
+ "pool.verkaufsdruck_vorstand.a.a5": [
+  "Geben Sie mir noch ein paar Wochen, dann bringe ich Ihnen eine Lösung, die niemandem wehtut.",
+  "Ich brauche Zeit, um den Markt zu sondieren und den richtigen Moment abzuwarten."
+ ],
+ "pool.verkaufsdruck_vorstand.a.a6": [
+  "Der Sportdirektor soll mir Kandidaten und Marktwerte vorlegen, dann entscheiden wir gemeinsam, wer gehen kann.",
+  "Ich bitte den Sportdirektor, die Angebote zu sammeln, bevor ich einen Namen nenne."
+ ],
+ "pool.verkaufsdruck_vorstand.a.a7": [
+  "Wie hoch muss der Verkaufserlös sein, damit die Lage stabil ist, und bis wann? Ohne diese Zahl rate ich nur.",
+  "Wie viel genau fehlt in der Kasse? Dann sehen wir, ob ein Verkauf überhaupt reicht."
+ ],
+ "pool.verkaufsdruck_vorstand.a.a8": [
+  "Die Fans hängen an dieser Mannschaft. Ein Verkauf mitten in der Saison würde die Stimmung im Stadion kippen.",
+  "Denken Sie an die Anhänger: Wer einen Liebling verkauft, riskiert den Rückhalt der Tribüne, und der zahlt sich aus."
+ ],
+ "pool.verkaufsdruck_vorstand.a.a9": [
+  "Ich verstehe den Druck, unter dem Sie stehen, und will helfen. Lassen Sie uns einen Weg finden, der dem Verein nützt und den Spieler nicht verbrennt.",
+  "Danke für Ihre Offenheit. Ich sehe, dass Sie keine Wahl haben, und ich suche mit Ihnen eine saubere Lösung."
+ ],
+ "pool.verkaufsdruck_vorstand.a.a10": [
+  "Dann verkaufen Sie halt das Stadion, und die Mannschaft spielt auf der Straße. So ist es, wenn man nicht plant.",
+  "Wer so wirtschaftet, soll nicht von mir verlangen, die Zeche zu zahlen."
+ ],
+ "pool.verkaufsdruck_vorstand.a.a11": [
+  "Ich nenne Ihnen einen Spieler, bei dem der Abgang am wenigsten schmerzt, und begleite den Wechsel persönlich.",
+  "Wenn jemand gehen muss, dann einer, der ohnehin wenig spielt. Ich nenne Ihnen den Namen noch heute."
+ ],
+ "pool.verkaufsdruck_vorstand.r.r1": [
+  "{b.gut} Das ist ein tragfähiger Weg, den kann ich dem Vorstand vorlegen.",
+  "{b.gut} Das entspannt die Lage, danke für die Lösung."
+ ],
+ "pool.verkaufsdruck_vorstand.r.r2": [
+  "{b.gut} Ich wusste, dass ich mich auf Sie verlassen kann, auch in schwierigen Zeiten.",
+  "{b.gut} Ihr Beitrag wird im Verein nicht vergessen werden."
+ ],
+ "pool.verkaufsdruck_vorstand.r.r3": [
+  "{b.gut} So schaffen wir Platz für die nächste Stufe, das gefällt mir.",
+  "{b.gut} Das ist unternehmerisch gedacht, genau so müssen wir vorgehen."
+ ],
+ "pool.verkaufsdruck_vorstand.r.r4": [
+  "{b.neutral} Ich schaue mir das an und gebe Ihnen Bescheid, ob der Vorstand das mitträgt.",
+  "{b.neutral} Das ist ein Ansatz, aber noch keine Lösung. Wir brauchen mehr Konkretes."
+ ],
+ "pool.verkaufsdruck_vorstand.r.r5": [
+  "{b.neutral} Ich bin nicht sicher, ob das genügt, aber ich möchte Sie nicht kränken. Lassen Sie mich nachdenken.",
+  "{b.neutral} Ich kann gerade nicht sagen, ob das reicht. Ich melde mich."
+ ],
+ "pool.verkaufsdruck_vorstand.r.r6": [
+  "{b.neutral} Gut, dann sehen wir weiter. Ein paar Tage bleiben uns noch.",
+  "{b.neutral} Ich lasse es auf mich wirken und warte auf Ihre nächste Meldung."
+ ],
+ "pool.verkaufsdruck_vorstand.r.r7": [
+  "{b.schlecht} Das hilft der Kasse nicht, und ich habe keine Zeit für Umwege.",
+  "{b.schlecht} Damit können wir die Löcher nicht stopfen. Das muss anders laufen."
+ ],
+ "pool.verkaufsdruck_vorstand.r.r8": [
+  "{b.schlecht} Sie widersetzen sich dem Vorstand? Dann setze ich Ihnen eine Frist, und die läuft ab heute!",
+  "{b.schlecht} Das lasse ich mir nicht bieten! Ich handle selbst, wenn Sie es nicht tun!"
+ ],
+ "pool.verkaufsdruck_vorstand.r.r9": [
+  "{b.schlecht} Dann soll eben jemand anderes das Geld besorgen, vielleicht ein anderer Trainer.",
+  "{b.schlecht} Wenn das Ihre Linie ist, suche ich mir einen anderen Partner für den Umbau."
+ ],
+ "pool.verkaufsdruck_vorstand.r.r10": [
+  "{b.schlecht} Sie lassen mich im Stich, und das nach allem, was ich für Sie getan habe.",
+  "{b.schlecht} Das hätte ich von Ihnen nicht erwartet, ich bin wirklich enttäuscht."
+ ],
+ "pool.verkaufsdruck_vorstand.x.x1": [
+  "Der Präsident atmet hörbar auf. {entscheidung} Die Finanzabteilung kann wieder planen.",
+  "{entscheidung} Der Verkaufsdruck lässt nach, und die Kasse bekommt eine Verschnaufpause."
+ ],
+ "pool.verkaufsdruck_vorstand.x.x2": [
+  "Die Sache bleibt unentschieden. {entscheidung} Der Präsident sagt, er melde sich wieder, und Sie sollten sich auf Drängen gefasst machen.",
+  "{entscheidung} Die Frage des Verkaufs ist nicht gelöst, nur verschoben."
+ ],
+ "pool.verkaufsdruck_vorstand.x.x3": [
+  "Der Präsident knallt den Hörer auf. {entscheidung} Wenig später steht der Vorstand mit eigener Liste vor der Tür.",
+  "{entscheidung} Der Streit ist offen ausgebrochen, und die Kaderplanung liegt nicht mehr allein in Ihrer Hand."
+ ],
+ "pool.verkaufsdruck_vorstand.x.x4": [
+  "Sie haben dem Verkauf zugestimmt, und der Präsident hält es fest. {entscheidung} Er erwartet bald einen Namen.",
+  "{entscheidung} Der Präsident nimmt Ihre Zustimmung zu Protokoll und bedankt sich knapp."
+ ],
+ "pool.verkaufsdruck_vorstand.x.x5": [
+  "Der Präsident bricht den Austausch ab. {entscheidung} Der Verkauf wird jetzt ohne Ihr Mitwirken vorbereitet.",
+  "{entscheidung} Er schreibt nicht mehr und lässt die Sache vom Vorstand entscheiden."
+ ],
+ "pool.vorstand_lob_serie.e.e1": [
+  "{b.vorstand_lob_serie_gruss} {b.vorstand_lob_serie_lage} Dafür gebührt Ihnen und dem Trainerstab ein ausdrückliches Dankeschön des Vorstands.",
+  "{b.vorstand_lob_serie_gruss} {b.vorstand_lob_serie_lage} Der Vorstand hat Ihre Arbeit in der Sitzung gelobt, und ich gebe das gern weiter."
+ ],
+ "pool.vorstand_lob_serie.e.e2": [
+  "{b.vorstand_lob_serie_gruss} {b.vorstand_lob_serie_lage} Es gibt Überlegungen, die Mannschaft mit einer Prämie zu belohnen. Was halten Sie davon?",
+  "{b.vorstand_lob_serie_gruss} {b.vorstand_lob_serie_lage} Wir sprechen im Vorstand über Prämien für die Spieler, und ich möchte Ihre Meinung dazu hören."
+ ],
+ "pool.vorstand_lob_serie.e.e3": [
+  "{b.vorstand_lob_serie_gruss} {b.vorstand_lob_serie_lage} Wir hatten zuletzt unsere Differenzen, aber Erfolg verdient Anerkennung, und die gebe ich Ihnen.",
+  "{b.vorstand_lob_serie_gruss} {b.vorstand_lob_serie_lage} Auch wenn die Stimmung zwischen uns schwankt, die Ergebnisse sprechen für Sie."
+ ],
+ "pool.vorstand_lob_serie.e.e4": [
+  "{b.vorstand_lob_serie_gruss} {b.vorstand_lob_serie_lage} Aber glauben Sie nicht, dass ich nun alles durchwinke. Wer oben steht, wird genauer beobachtet!",
+  "{b.vorstand_lob_serie_gruss} {b.vorstand_lob_serie_lage} Ein Fehltritt, und die Stimmung kippt, das sage ich Ihnen schon heute!"
+ ],
+ "pool.vorstand_lob_serie.e.e5": [
+  "{b.vorstand_lob_serie_gruss} {b.vorstand_lob_serie_lage} Bleiben Sie, wie Sie sind, ruhig und beständig. Das ist das Geheimnis dieser Serie.",
+  "{b.vorstand_lob_serie_gruss} {b.vorstand_lob_serie_lage} Ich erwarte nichts Besonderes, nur dass Sie weitermachen wie bisher."
+ ],
+ "pool.vorstand_lob_serie.e.e6": [
+  "{b.vorstand_lob_serie_gruss} {b.vorstand_lob_serie_lage} Wir sollten die Ziele für den Rest der Saison überdenken, denn mehr scheint möglich.",
+  "{b.vorstand_lob_serie_gruss} {b.vorstand_lob_serie_lage} Ich möchte über neue Erwartungen sprechen, und zwar solche, die uns weiter nach oben tragen."
+ ],
+ "pool.vorstand_lob_serie.e.e7": [
+  "{b.vorstand_lob_serie_gruss} {b.vorstand_lob_serie_lage} Bitte richten Sie der Mannschaft aus, wie sehr wir ihren Einsatz schätzen.",
+  "{b.vorstand_lob_serie_gruss} {b.vorstand_lob_serie_lage} Ich weiß, dass Erfolg auch Druck bedeutet, und ich möchte ihn Ihnen nicht zusätzlich aufladen."
+ ],
+ "pool.vorstand_lob_serie.e.e8": [
+  "{b.vorstand_lob_serie_gruss} {b.vorstand_lob_serie_lage} Im Vorstand gibt es derzeit nichts als Zuspruch für Sie, und das hat selten ein Trainer erlebt.",
+  "{b.vorstand_lob_serie_gruss} {b.vorstand_lob_serie_lage} Der Rückhalt im Gremium ist so groß wie lange nicht, und ich bin der Letzte, der daran rüttelt."
+ ],
+ "pool.vorstand_lob_serie.e.e9": [
+  "{b.vorstand_lob_serie_gruss} {b.vorstand_lob_serie_lage} Auch die Tribüne feiert Sie, das spüre ich bei jedem Heimspiel. Die Stimmung im Stadion ist großartig.",
+  "{b.vorstand_lob_serie_gruss} {b.vorstand_lob_serie_lage} Die Anhänger singen Ihren Namen, und der Verein profitiert in jeder Hinsicht davon."
+ ],
+ "pool.vorstand_lob_serie.e.e10": [
+  "{b.vorstand_lob_serie_gruss} {b.vorstand_lob_serie_lage} Mit diesem Platz in der Tabelle rücken Ziele in Reichweite, die vor Kurzem noch niemand aussprach.",
+  "{b.vorstand_lob_serie_gruss} {b.vorstand_lob_serie_lage} Die Tabelle sieht so gut aus, dass ich fast Angst bekomme, es auszusprechen."
+ ],
+ "pool.vorstand_lob_serie.a.a1": [
+  "Danke, aber der Dank gehört der Mannschaft und dem Stab. Ich gebe ihn gern weiter, denn sie haben es verdient.",
+  "Ich freue mich sehr über Ihr Lob und reiche es an alle weiter, die im Hintergrund mitarbeiten."
+ ],
+ "pool.vorstand_lob_serie.a.a2": [
+  "Wir sollten die Erwartungen nicht überhöhen: Die Serie ist erfreulich, aber noch ist nichts gewonnen. Ich bleibe vorsichtig.",
+  "Bitte bremsen Sie die Euphorie in der Öffentlichkeit, damit wir nicht an den eigenen Ansprüchen scheitern."
+ ],
+ "pool.vorstand_lob_serie.a.a3": [
+  "Wenn Sie schon großzügig sind: Eine Prämie für die Spieler wäre eine hübsche Geste, und das Training würde wieder lauter.",
+  "Die Spieler hätten sicher nichts gegen ein Essen auf Kosten des Vereins, und ich esse zur Not mit."
+ ],
+ "pool.vorstand_lob_serie.a.a4": [
+  "Ich nehme neue Ziele gern an, denn die Mannschaft ist bereit. Wir legen sie gemeinsam fest und gehen sie Schritt für Schritt an.",
+  "Setzen Sie uns die Marke, ich nehme sie an. Wir arbeiten weiter hart dafür."
+ ],
+ "pool.vorstand_lob_serie.a.a5": [
+  "Es ist nur eine Serie, sie kann morgen enden. Ich würde über Prämien erst sprechen, wenn die Saison vorbei ist.",
+  "Lassen Sie uns das Lob für später aufheben, jetzt kommt das nächste Spiel, und das zählt."
+ ],
+ "pool.vorstand_lob_serie.a.a6": [
+  "Welche Erwartungen verbindet der Vorstand denn konkret mit der Serie, damit ich nicht ins Blaue plane?",
+  "Was genau ist mit neuen Erwartungen gemeint? Ich möchte nicht überrascht werden."
+ ],
+ "pool.vorstand_lob_serie.a.a7": [
+  "Danken Sie bitte auch dem Sportdirektor und dem medizinischen Stab, denn ohne sie gäbe es diese Serie nicht.",
+  "Reden Sie über die Prämien am besten mit dem Mannschaftsrat, der kennt die Stimmung im Team."
+ ],
+ "pool.vorstand_lob_serie.a.a8": [
+  "Ich möchte vorerst keine neuen Zielvorgaben. Wir sollten bei dem bleiben, was vereinbart ist, und das sauber abarbeiten.",
+  "Neue Vorgaben mitten in der Serie bringen Unruhe. Ich bitte darum, sie auf die Sommerpause zu verschieben."
+ ],
+ "pool.vorstand_lob_serie.a.a9": [
+  "Die Serie ist mein Verdienst, und das sollte sich auch im Vertrag zeigen. Es wird Zeit, dass der Verein das anerkennt.",
+  "Ohne mich gäbe es diese Siege nicht, und ich erwarte, dass das gewürdigt wird, nicht nur mit Worten."
+ ],
+ "pool.vorstand_lob_serie.a.a10": [
+  "Prämien für die Mannschaft reichen mir nicht, ich will für mich eine Gehaltserhöhung, und zwar jetzt, solange es läuft.",
+  "Ein Dankeschön ist schön, aber Geld ist besser. Her mit der Gehaltserhöhung, sonst verhandle ich woanders."
+ ],
+ "pool.vorstand_lob_serie.a.a11": [
+  "Das war erst der Anfang, nächstes Jahr greifen wir ganz oben an, und das verspreche ich Ihnen schon heute.",
+  "Wenn wir so weitermachen, fordern wir den Titel heraus, und ich garantiere Ihnen den Höhenflug."
+ ],
+ "pool.vorstand_lob_serie.r.r1": [
+  "{b.gut} Das ist die richtige Einstellung, und genau deshalb stehen wir so gut da.",
+  "{b.gut} Danke, das klingt nach einem Trainer, mit dem man gern arbeitet."
+ ],
+ "pool.vorstand_lob_serie.r.r2": [
+  "{b.gut} Genau Ihre Bescheidenheit schätze ich so an Ihnen. Der Vorstand weiß, was er an Ihnen hat.",
+  "{b.gut} Wir verstehen uns, ohne viele Worte, und das ist selten."
+ ],
+ "pool.vorstand_lob_serie.r.r3": [
+  "{b.gut} Das gefällt mir. Mit diesem Ehrgeiz holen wir noch mehr heraus, und ich stehe hinter Ihnen.",
+  "{b.gut} Dann machen wir einen Plan für die nächsten Wochen, ich bin gespannt auf Ihre Ideen."
+ ],
+ "pool.vorstand_lob_serie.r.r4": [
+  "{b.neutral} Ich nehme das zur Kenntnis, wir besprechen es in der nächsten Sitzung weiter.",
+  "{b.neutral} Das kann man so sehen. Entschieden ist damit noch nichts."
+ ],
+ "pool.vorstand_lob_serie.r.r5": [
+  "{b.neutral} Ich bin nicht ganz sicher, wie ich das verstehen soll, aber ich nehme es nicht übel.",
+  "{b.neutral} Hm, das habe ich anders erwartet. Ich lasse es auf mich wirken."
+ ],
+ "pool.vorstand_lob_serie.r.r6": [
+  "{b.neutral} Alles zu seiner Zeit. Wir haben ja keine Eile, solange der Ball rollt.",
+  "{b.neutral} Kein Problem, wir sprechen später in Ruhe darüber."
+ ],
+ "pool.vorstand_lob_serie.r.r7": [
+  "{b.schlecht} Das habe ich mir anders vorgestellt, und der Vorstand wird es auch nicht gern hören.",
+  "{b.schlecht} Schade, dass ein Lob so beantwortet wird. Das trübt die Stimmung."
+ ],
+ "pool.vorstand_lob_serie.r.r8": [
+  "{b.schlecht} So reden Sie mit mir? Nach allem, was wir für Sie getan haben, ist das ein Hohn!",
+  "{b.schlecht} Ich fasse es nicht, dass Sie sich im Erfolg so aufführen! Überlegen Sie sich, was Sie sagen!"
+ ],
+ "pool.vorstand_lob_serie.r.r9": [
+  "{b.schlecht} Dann halte ich mir andere Wege offen, denn Erfolg macht Trainer begehrlich, und ich ziehe meine Schlüsse.",
+  "{b.schlecht} Wenn Sie so denken, überlege ich, ob Ihnen nicht jemand anderes bald lieber wäre."
+ ],
+ "pool.vorstand_lob_serie.r.r10": [
+  "{b.schlecht} Gerade in guten Zeiten hätte ich mir mehr Dankbarkeit gewünscht.",
+  "{b.schlecht} Ich dachte, wir feiern gemeinsam, und nun fühlt es sich an wie eine Forderung."
+ ],
+ "pool.vorstand_lob_serie.x.x1": [
+  "Der Präsident strahlt, die Atmosphäre ist herzlich. {entscheidung} Die Mannschaft darf sich auf mehr Rückhalt freuen.",
+  "{entscheidung} Die Serie wird im Vorstand gefeiert, und das Verhältnis zwischen Ihnen wird fester."
+ ],
+ "pool.vorstand_lob_serie.x.x2": [
+  "Das Lob steht, doch die Erwartungen bleiben unausgesprochen. {entscheidung} Der Vorstand wartet das nächste Spiel ab.",
+  "{entscheidung} Der Präsident lässt offen, was auf die Serie folgt, und ruft zur Geduld auf."
+ ],
+ "pool.vorstand_lob_serie.x.x3": [
+  "Der Präsident verliert die Fassung. {entscheidung} Aus dem Lob ist eine Mahnung geworden, und der Vorstand merkt sich Ihren Auftritt.",
+  "{entscheidung} Der Ton kippt, und die Freude über die Serie ist verflogen."
+ ],
+ "pool.vorstand_lob_serie.x.x4": [
+  "Sie haben neue Ziele angenommen, und der Präsident hält es fest. {entscheidung} Der Vorstand wird die Latte höher legen.",
+  "{entscheidung} Der Präsident notiert die neuen Erwartungen, und mit ihnen die Prämien, die daran hängen."
+ ],
+ "pool.vorstand_lob_serie.x.x5": [
+  "Der Präsident bricht das Gespräch ab. {entscheidung} Die Gratulation endet damit, dass er das Büro verlässt.",
+  "{entscheidung} Er sagt kein Wort mehr und überlässt die Prämienfrage dem Vorstand."
+ ]
+}

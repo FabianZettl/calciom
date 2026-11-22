@@ -1,0 +1,1383 @@
+{
+ "_hinweis": "English texts of the dressing-room stories (kb_*).",
+ "kb_playlist.antwort.dj": {
+  "standard": [
+   "You're the DJ – one hour a week."
+  ]
+ },
+ "kb_playlist.rueckmeldung.dj": {
+  "standard": [
+   "I'll bring a list! And maybe a fog machine."
+  ]
+ },
+ "kb_playlist.antwort.reihum": {
+  "standard": [
+   "Everyone picks one song. In turn."
+  ]
+ },
+ "kb_playlist.rueckmeldung.reihum": {
+  "standard": [
+   "In turn is fair. I'll take the ballad then – just kidding."
+  ]
+ },
+ "kb_playlist.antwort.stille": {
+  "standard": [
+   "Before the game it's quiet. Full stop."
+  ]
+ },
+ "kb_playlist.rueckmeldung.stille": {
+  "standard": [
+   "Silence? Like at the dentist. Understood, Coach."
+  ]
+ },
+ "kb_playlist.betreff": {
+  "standard": [
+   "{spieler_kurz}: The playlist war"
+  ]
+ },
+ "kb_playlist.text": {
+  "standard": [
+   "Coach, there's a war going on in the dressing room: I want pop ballads, the lads want bass. Yesterday the same song played three times in a row. I'm thinking of wearing headphones – or bringing my own cable."
+  ]
+ },
+ "kb_playlist_gut.antwort.mitsingen": {
+  "standard": [
+   "I'll sing along – badly but loudly."
+  ]
+ },
+ "kb_playlist_gut.rueckmeldung.mitsingen": {
+  "standard": [
+   "Then the ritual stays. And I'll finally learn the chorus."
+  ]
+ },
+ "kb_playlist_gut.antwort.ernst": {
+  "standard": [
+   "Nice. But it stops before kick-off."
+  ]
+ },
+ "kb_playlist_gut.rueckmeldung.ernst": {
+  "standard": [
+   "Understood. Short, loud, over."
+  ]
+ },
+ "kb_playlist_gut.betreff": {
+  "standard": [
+   "The dressing room sings along"
+  ]
+ },
+ "kb_playlist_gut.text": {
+  "standard": [
+   "Since {spieler_kurz} got to choose the music, half the squad sings along on the way out. The keeper knows every verse, just not the chorus."
+  ]
+ },
+ "kb_playlist_schlecht.antwort.lockern": {
+  "standard": [
+   "Music is allowed again – quietly."
+  ]
+ },
+ "kb_playlist_schlecht.rueckmeldung.lockern": {
+  "standard": [
+   "Quietly is enough. Even the kit man is bobbing along."
+  ]
+ },
+ "kb_playlist_schlecht.antwort.bleiben": {
+  "standard": [
+   "The silence stays."
+  ]
+ },
+ "kb_playlist_schlecht.rueckmeldung.bleiben": {
+  "standard": [
+   "As you wish. We'll listen to breathing then."
+  ]
+ },
+ "kb_playlist_schlecht.betreff": {
+  "standard": [
+   "Dressing room, no signal"
+  ]
+ },
+ "kb_playlist_schlecht.text": {
+  "standard": [
+   "Since the pre-match silence all you hear is studs clicking. {spieler_kurz} hums secretly in the shower. The mood is … quiet."
+  ]
+ },
+ "kb_playlist_szene.betreff": {
+  "standard": [
+   "Scene: The dressing-room hit"
+  ]
+ },
+ "kb_playlist_szene.text": {
+  "standard": [
+   "Before kick-off a song plays that nobody wants to have chosen. Everyone sings. You too, Coach – we heard you."
+  ]
+ },
+ "kb_playlist_szene.antwort.kenntnis": {
+  "standard": [
+   "That stays between us."
+  ]
+ },
+ "kb_socken.antwort.erlaubt": {
+  "standard": [
+   "Keep them. But wash them first."
+  ]
+ },
+ "kb_socken.rueckmeldung.erlaubt": {
+  "standard": [
+   "Thanks! I'll wash them – in spirit."
+  ]
+ },
+ "kb_socken.antwort.abergl": {
+  "standard": [
+   "You have luck or you don't. Socks don't matter."
+  ]
+ },
+ "kb_socken.rueckmeldung.abergl": {
+  "standard": [
+   "Hm. I'll put a second pair in. To be safe."
+  ]
+ },
+ "kb_socken.antwort.verbot": {
+  "standard": [
+   "Fresh socks. Now."
+  ]
+ },
+ "kb_socken.rueckmeldung.verbot": {
+  "standard": [
+   "Now? Do you know what that does to the karma?"
+  ]
+ },
+ "kb_socken.betreff": {
+  "standard": [
+   "{spieler_kurz} and the lucky socks"
+  ]
+ },
+ "kb_socken.text": {
+  "standard": [
+   "Coach, I have a confession: since the away win I've worn the same socks. The laundry lady is getting nervous, so am I. May I carry on, or is that going too far?"
+  ]
+ },
+ "kb_socken_gut.antwort.grinsen": {
+  "standard": [
+   "At least it smells of success."
+  ]
+ },
+ "kb_socken_gut.rueckmeldung.grinsen": {
+  "standard": [
+   "The best thing about the run: nobody sits next to me."
+  ]
+ },
+ "kb_socken_gut.antwort.pragma": {
+  "standard": [
+   "The washing machine is next door. Use it."
+  ]
+ },
+ "kb_socken_gut.rueckmeldung.pragma": {
+  "standard": [
+   "Will do. With ceremony."
+  ]
+ },
+ "kb_socken_gut.betreff": {
+  "standard": [
+   "The socks keep winning"
+  ]
+ },
+ "kb_socken_gut.text": {
+  "standard": [
+   "The run continues, so do the socks. The kit man and the physio have a bet on when they will walk off on their own."
+  ]
+ },
+ "kb_socken_schlecht.antwort.nachgeben": {
+  "standard": [
+   "Fine, wear them again. Washed once a week."
+  ]
+ },
+ "kb_socken_schlecht.rueckmeldung.nachgeben": {
+  "standard": [
+   "Once a week! A compromise I can live with."
+  ]
+ },
+ "kb_socken_schlecht.antwort.hartbleiben": {
+  "standard": [
+   "The decision stands."
+  ]
+ },
+ "kb_socken_schlecht.rueckmeldung.hartbleiben": {
+  "standard": [
+   "Fine. With a headache, then."
+  ]
+ },
+ "kb_socken_schlecht.betreff": {
+  "standard": [
+   "The sock dispute"
+  ]
+ },
+ "kb_socken_schlecht.text": {
+  "standard": [
+   "Since the ban {spieler_kurz} plays visibly stiffer. He says the new socks are 'too tight in the head'. The physio recommends a talk."
+  ]
+ },
+ "kb_socken_szene.betreff": {
+  "standard": [
+   "Scene: The last sock"
+  ]
+ },
+ "kb_socken_szene.text": {
+  "standard": [
+   "In the cup tie a single sock hangs on the corner flag. Nobody admits hanging it there. We win the game anyway."
+  ]
+ },
+ "kb_socken_szene.antwort.kenntnis": {
+  "standard": [
+   "We don't ask."
+  ]
+ },
+ "kb_vize.antwort.klaeren": {
+  "standard": [
+   "I'll talk to both of you. Together."
+  ]
+ },
+ "kb_vize.rueckmeldung.klaeren": {
+  "standard": [
+   "Together is good. With coffee? I'll bring the coffee."
+  ]
+ },
+ "kb_vize.antwort.regeln": {
+  "standard": [
+   "Whoever is out hands the armband in. Done."
+  ]
+ },
+ "kb_vize.rueckmeldung.regeln": {
+  "standard": [
+   "Clear rule, clear heads. Thanks."
+  ]
+ },
+ "kb_vize.antwort.abtun": {
+  "standard": [
+   "Armbands are a side issue."
+  ]
+ },
+ "kb_vize.rueckmeldung.abtun": {
+  "standard": [
+   "A side issue. Of course. For you, maybe."
+  ]
+ },
+ "kb_vize.betreff": {
+  "standard": [
+   "{spieler_kurz} and the armband"
+  ]
+ },
+ "kb_vize.text": {
+  "standard": [
+   "Coach, I'm glad to be vice-captain. But when the skipper is out he still wears the armband for an hour after the match. I have nothing against him. Just against armbands on arms that aren't mine."
+  ]
+ },
+ "kb_vize_gut.antwort.loben": {
+  "standard": [
+   "That's mature. Thanks, both of you."
+  ]
+ },
+ "kb_vize_gut.rueckmeldung.loben": {
+  "standard": [
+   "We even took a photo. For the archive."
+  ]
+ },
+ "kb_vize_gut.antwort.kurz": {
+  "standard": [
+   "Good. Back to training."
+  ]
+ },
+ "kb_vize_gut.rueckmeldung.kurz": {
+  "standard": [
+   "Back to it. With hook."
+  ]
+ },
+ "kb_vize_gut.betreff": {
+  "standard": [
+   "Peace in the armband row"
+  ]
+ },
+ "kb_vize_gut.text": {
+  "standard": [
+   "The skipper and {spieler_kurz} have agreed: the armband will hang on a hook in the dressing room, with a name tag and washing instructions."
+  ]
+ },
+ "kb_vize_schlecht.antwort.vermitteln": {
+  "standard": [
+   "I'll sit you at one table."
+  ]
+ },
+ "kb_vize_schlecht.rueckmeldung.vermitteln": {
+  "standard": [
+   "At one table? Fine, if there's cake."
+  ]
+ },
+ "kb_vize_schlecht.antwort.ignorieren": {
+  "standard": [
+   "Sort it out between you."
+  ]
+ },
+ "kb_vize_schlecht.rueckmeldung.ignorieren": {
+  "standard": [
+   "We'll sort it. Probably not."
+  ]
+ },
+ "kb_vize_schlecht.betreff": {
+  "standard": [
+   "Cold war at the hook"
+  ]
+ },
+ "kb_vize_schlecht.text": {
+  "standard": [
+   "{spieler_kurz} and the skipper only greet each other with hand signals. A note hangs in the dressing room: 'Please do not touch the armband'. Nobody admits to writing it."
+  ]
+ },
+ "kb_vize_szene.betreff": {
+  "standard": [
+   "Scene: One hook for two"
+  ]
+ },
+ "kb_vize_szene.text": {
+  "standard": [
+   "Before the match both armbands hang side by side on the hook, with a name tag and a little heart. Who drew it remains the dressing room's secret."
+  ]
+ },
+ "kb_vize_szene.antwort.kenntnis": {
+  "standard": [
+   "We saw nothing."
+  ]
+ },
+ "kb_neuling.antwort.taufe": {
+  "standard": [
+   "Yes, initiate him. With cake for everyone."
+  ]
+ },
+ "kb_neuling.rueckmeldung.taufe": {
+  "standard": [
+   "Cake for everyone! I'll find a baker right away."
+  ]
+ },
+ "kb_neuling.antwort.kurz": {
+  "standard": [
+   "Short and friendly. Without an audience."
+  ]
+ },
+ "kb_neuling.rueckmeldung.kurz": {
+  "standard": [
+   "Short and friendly. We'll sing quietly."
+  ]
+ },
+ "kb_neuling.antwort.nein": {
+  "standard": [
+   "No. No games."
+  ]
+ },
+ "kb_neuling.rueckmeldung.nein": {
+  "standard": [
+   "No games. All right. It was just a song."
+  ]
+ },
+ "kb_neuling.betreff": {
+  "standard": [
+   "Initiation for {spieler_kurz}"
+  ]
+ },
+ "kb_neuling.text": {
+  "standard": [
+   "Coach, {spieler_kurz} has been here long enough. The squad wants to initiate him: sing a song, fetch cake, kiss the ball at the corner flag once. Harmless. We just wanted to ask first."
+  ]
+ },
+ "kb_neuling_gut.antwort.applaus": {
+  "standard": [
+   "The cake was excellent. I lie gladly."
+  ]
+ },
+ "kb_neuling_gut.rueckmeldung.applaus": {
+  "standard": [
+   "I asked for the recipe: petrol station, shelf four."
+  ]
+ },
+ "kb_neuling_gut.antwort.ruhig": {
+  "standard": [
+   "Nice. Training again tomorrow."
+  ]
+ },
+ "kb_neuling_gut.rueckmeldung.ruhig": {
+  "standard": [
+   "Tomorrow again. With a sugar rush."
+  ]
+ },
+ "kb_neuling_gut.betreff": {
+  "standard": [
+   "The new boy sings"
+  ]
+ },
+ "kb_neuling_gut.text": {
+  "standard": [
+   "{spieler_kurz} survived the initiation. His song was wrong, loud and a hit anyway. The cake came from a petrol station, but nobody said so."
+  ]
+ },
+ "kb_neuling_schlecht.antwort.nachholen": {
+  "standard": [
+   "Do the initiation after all – briefly."
+  ]
+ },
+ "kb_neuling_schlecht.rueckmeldung.nachholen": {
+  "standard": [
+   "Briefly? I sing very briefly. Promise."
+  ]
+ },
+ "kb_neuling_schlecht.antwort.bleibt": {
+  "standard": [
+   "It stays a no."
+  ]
+ },
+ "kb_neuling_schlecht.rueckmeldung.bleibt": {
+  "standard": [
+   "Fine. He gets his song for his birthday."
+  ]
+ },
+ "kb_neuling_schlecht.betreff": {
+  "standard": [
+   "{spieler_kurz} stays on the outside"
+  ]
+ },
+ "kb_neuling_schlecht.text": {
+  "standard": [
+   "Since the initiation was banned {spieler_kurz} sits a little apart at meals. Nobody is angry, but a song is missing. The skipper hums it while fetching coffee."
+  ]
+ },
+ "kb_neuling_szene.betreff": {
+  "standard": [
+   "Scene: The late song"
+  ]
+ },
+ "kb_neuling_szene.text": {
+  "standard": [
+   "After the win someone starts the initiation song. {spieler_kurz} stands on the table and sings along. The kit man films, the physio cries a little."
+  ]
+ },
+ "kb_neuling_szene.antwort.kenntnis": {
+  "standard": [
+   "I wasn't there."
+  ]
+ },
+ "kb_heimweh.antwort.freitag": {
+  "standard": [
+   "Take a long weekend off."
+  ]
+ },
+ "kb_heimweh.rueckmeldung.freitag": {
+  "standard": [
+   "A long weekend! I'll bring soup. For everyone."
+  ]
+ },
+ "kb_heimweh.antwort.kumpel": {
+  "standard": [
+   "We'll sit you with the countrymen."
+  ]
+ },
+ "kb_heimweh.rueckmeldung.kumpel": {
+  "standard": [
+   "That sounds good. I'll learn the card game."
+  ]
+ },
+ "kb_heimweh.antwort.durch": {
+  "standard": [
+   "It comes with the job. Tough it out."
+  ]
+ },
+ "kb_heimweh.rueckmeldung.durch": {
+  "standard": [
+   "Tough it out. With soup in my heart."
+  ]
+ },
+ "kb_heimweh.betreff": {
+  "standard": [
+   "{spieler_kurz} misses home"
+  ]
+ },
+ "kb_heimweh.text": {
+  "standard": [
+   "Coach, I don't want to whine. But for days I've been dreaming of Grandma's soup, and the weather here doesn't help. I'm afraid it shows on the pitch."
+  ]
+ },
+ "kb_heimweh_gut.antwort.probieren": {
+  "standard": [
+   "I'll try some. Purely out of professional interest."
+  ]
+ },
+ "kb_heimweh_gut.rueckmeldung.probieren": {
+  "standard": [
+   "Professional interest with seconds. Understood."
+  ]
+ },
+ "kb_heimweh_gut.antwort.sachlich": {
+  "standard": [
+   "Good to have you back."
+  ]
+ },
+ "kb_heimweh_gut.rueckmeldung.sachlich": {
+  "standard": [
+   "Good to be back. And full."
+  ]
+ },
+ "kb_heimweh_gut.betreff": {
+  "standard": [
+   "Soup for everyone"
+  ]
+ },
+ "kb_heimweh_gut.text": {
+  "standard": [
+   "{spieler_kurz} is back from home – with three pots. The dressing room smells of soup and contentment. The nutritionist doesn't change expression."
+  ]
+ },
+ "kb_heimweh_schlecht.antwort.freistellen": {
+  "standard": [
+   "You get two days. Call your family."
+  ]
+ },
+ "kb_heimweh_schlecht.rueckmeldung.freistellen": {
+  "standard": [
+   "Two days. I'll let Grandma's soup know."
+  ]
+ },
+ "kb_heimweh_schlecht.antwort.klartext": {
+  "standard": [
+   "Phone off. Concentration."
+  ]
+ },
+ "kb_heimweh_schlecht.rueckmeldung.klartext": {
+  "standard": [
+   "Phone off. Heavy-hearted."
+  ]
+ },
+ "kb_heimweh_schlecht.betreff": {
+  "standard": [
+   "{spieler_kurz} seems absent"
+  ]
+ },
+ "kb_heimweh_schlecht.text": {
+  "standard": [
+   "{spieler_kurz} looks at his phone more than at the ball in training. The physio suspects homesickness, the kit man a new series. Both bad for passing accuracy."
+  ]
+ },
+ "kb_heimweh_szene.betreff": {
+  "standard": [
+   "Scene: The pot on the bus"
+  ]
+ },
+ "kb_heimweh_szene.text": {
+  "standard": [
+   "On the away trip a pot travels through the bus. Everyone spoons, the driver politely declines but gets a bowl anyway. After the match he asks for the recipe."
+  ]
+ },
+ "kb_heimweh_szene.antwort.kenntnis": {
+  "standard": [
+   "Recipe enclosed."
+  ]
+ },
+ "kb_diva.antwort.spiegel": {
+  "standard": [
+   "You get the mirror. You water the plant yourself."
+  ]
+ },
+ "kb_diva.rueckmeldung.spiegel": {
+  "standard": [
+   "A cactus will do. It matches my aura."
+  ]
+ },
+ "kb_diva.antwort.leistung": {
+  "standard": [
+   "The locker follows the performance."
+  ]
+ },
+ "kb_diva.rueckmeldung.leistung": {
+  "standard": [
+   "Performance gets light. I take that as a bet."
+  ]
+ },
+ "kb_diva.antwort.neinsage": {
+  "standard": [
+   "A locker is a locker. No extras."
+  ]
+ },
+ "kb_diva.rueckmeldung.neinsage": {
+  "standard": [
+   "No extras. I'll remember that. In extra time."
+  ]
+ },
+ "kb_diva.betreff": {
+  "standard": [
+   "{spieler_kurz} wants a locker of his own"
+  ]
+ },
+ "kb_diva.text": {
+  "standard": [
+   "Coach, no offence, but I need a locker with lighting. Really: a mirror, a spotlight, maybe a plant. If you play like I do, you want to live like it too."
+  ]
+ },
+ "kb_diva_gut.antwort.schmunzeln": {
+  "standard": [
+   "I like the cactus. But time on the pitch counts."
+  ]
+ },
+ "kb_diva_gut.rueckmeldung.schmunzeln": {
+  "standard": [
+   "Time on the pitch. The cactus will stand in if need be."
+  ]
+ },
+ "kb_diva_gut.antwort.pragma": {
+  "standard": [
+   "Good. Then show it in training."
+  ]
+ },
+ "kb_diva_gut.rueckmeldung.pragma": {
+  "standard": [
+   "I shine in training too. Without a spotlight."
+  ]
+ },
+ "kb_diva_gut.betreff": {
+  "standard": [
+   "The locker glows"
+  ]
+ },
+ "kb_diva_gut.text": {
+  "standard": [
+   "{spieler_kurz} has furnished his locker himself: mirror, small spotlight, cactus called 'Gerald'. The squad secretly admires it and hides the fact."
+  ]
+ },
+ "kb_diva_schlecht.antwort.bruecke": {
+  "standard": [
+   "Come on, let's find a solution. Cactus included."
+  ]
+ },
+ "kb_diva_schlecht.rueckmeldung.bruecke": {
+  "standard": [
+   "Cactus included. That's something."
+  ]
+ },
+ "kb_diva_schlecht.antwort.fest": {
+  "standard": [
+   "The decision stands."
+  ]
+ },
+ "kb_diva_schlecht.rueckmeldung.fest": {
+  "standard": [
+   "It stands. And I stay in the corner."
+  ]
+ },
+ "kb_diva_schlecht.betreff": {
+  "standard": [
+   "{spieler_kurz} sulks"
+  ]
+ },
+ "kb_diva_schlecht.text": {
+  "standard": [
+   "{spieler_kurz} has taken a corner spot in the dressing room, wearing headphones. The skipper says he would like to see scenes without premieres. The mood is theatrical."
+  ]
+ },
+ "kb_diva_szene.betreff": {
+  "standard": [
+   "Scene: Applause for the cactus"
+  ]
+ },
+ "kb_diva_szene.text": {
+  "standard": [
+   "After the match a cactus stands at the press conference next to {spieler_kurz}. Nobody asks why. The cactus gets the best question of the day."
+  ]
+ },
+ "kb_diva_szene.antwort.kenntnis": {
+  "standard": [
+   "No comment."
+  ]
+ },
+ "kb_elfmeter.antwort.liste": {
+  "standard": [
+   "There's a list. I'll pin it up."
+  ]
+ },
+ "kb_elfmeter.rueckmeldung.liste": {
+  "standard": [
+   "A list! With order, numbers and a signature."
+  ]
+ },
+ "kb_elfmeter.antwort.hand": {
+  "standard": [
+   "Whoever feels most certain takes it."
+  ]
+ },
+ "kb_elfmeter.rueckmeldung.hand": {
+  "standard": [
+   "Everyone feels certain. That's the problem."
+  ]
+ },
+ "kb_elfmeter.antwort.kapitaen": {
+  "standard": [
+   "The captain decides. Full stop."
+  ]
+ },
+ "kb_elfmeter.rueckmeldung.kapitaen": {
+  "standard": [
+   "Full stop. I like that. The rest will learn."
+  ]
+ },
+ "kb_elfmeter.betreff": {
+  "standard": [
+   "Penalty row around {spieler_kurz}"
+  ]
+ },
+ "kb_elfmeter.text": {
+  "standard": [
+   "Coach, we have a problem with penalties: {spieler_kurz} wants to take it, so does the regular taker, and yesterday the ball lay on the spot for two minutes. The referee smiled. We didn't."
+  ]
+ },
+ "kb_elfmeter_gut.antwort.zufrieden": {
+  "standard": [
+   "Good list. Thanks for joining in."
+  ]
+ },
+ "kb_elfmeter_gut.rueckmeldung.zufrieden": {
+  "standard": [
+   "Second is the new first. Officially."
+  ]
+ },
+ "kb_elfmeter_gut.antwort.pragma": {
+  "standard": [
+   "As long as he scores."
+  ]
+ },
+ "kb_elfmeter_gut.rueckmeldung.pragma": {
+  "standard": [
+   "He scores. Mostly. The list helps."
+  ]
+ },
+ "kb_elfmeter_gut.betreff": {
+  "standard": [
+   "The list is up"
+  ]
+ },
+ "kb_elfmeter_gut.text": {
+  "standard": [
+   "On the board in the dressing room hangs the penalty list, ordered by nerves of steel. {spieler_kurz} is second and smiles as if it were first."
+  ]
+ },
+ "kb_elfmeter_schlecht.antwort.lachen": {
+  "standard": [
+   "He scored. Next time he asks."
+  ]
+ },
+ "kb_elfmeter_schlecht.rueckmeldung.lachen": {
+  "standard": [
+   "Next time I'll ask. Probably."
+  ]
+ },
+ "kb_elfmeter_schlecht.antwort.strafe": {
+  "standard": [
+   "Ten euros in the kitty. For the coffee."
+  ]
+ },
+ "kb_elfmeter_schlecht.rueckmeldung.strafe": {
+  "standard": [
+   "Ten euros. The coffee gets expensive."
+  ]
+ },
+ "kb_elfmeter_schlecht.betreff": {
+  "standard": [
+   "The ball in the net – the wrong way"
+  ]
+ },
+ "kb_elfmeter_schlecht.text": {
+  "standard": [
+   "At the penalty {spieler_kurz} grabs the ball despite instructions and scores. The dressing room is divided: half cheering, half filing a complaint."
+  ]
+ },
+ "kb_elfmeter_szene.betreff": {
+  "standard": [
+   "Scene: The team kitty"
+  ]
+ },
+ "kb_elfmeter_szene.text": {
+  "standard": [
+   "The team kitty fills up because everyone pays fines with pride. By the end of the season it covers a barbecue. The keeper gives the speech – mercifully short."
+  ]
+ },
+ "kb_elfmeter_szene.antwort.kenntnis": {
+  "standard": [
+   "Cheers."
+  ]
+ },
+ "kb_mentor.antwort.paten": {
+  "standard": [
+   "Good. Let the two practise together."
+  ]
+ },
+ "kb_mentor.rueckmeldung.paten": {
+  "standard": [
+   "I'll put them at the same cone. What could go wrong?"
+  ]
+ },
+ "kb_mentor.antwort.beobachten": {
+  "standard": [
+   "Watch first, decide later."
+  ]
+ },
+ "kb_mentor.rueckmeldung.beobachten": {
+  "standard": [
+   "I'll observe. With notepad and glasses."
+  ]
+ },
+ "kb_mentor.antwort.alleine": {
+  "standard": [
+   "The boy has to cope on his own."
+  ]
+ },
+ "kb_mentor.rueckmeldung.alleine": {
+  "standard": [
+   "Alone. Like in our day. Into the wind."
+  ]
+ },
+ "kb_mentor.betreff": {
+  "standard": [
+   "A godfather for {spieler_kurz}"
+  ]
+ },
+ "kb_mentor.text": {
+  "standard": [
+   "Boss, {spieler_kurz} moves around in training like a deer on ice. The veteran centre-back has offered to take him under his wing. Sounds good, but I wanted to ask."
+  ]
+ },
+ "kb_mentor_gut.antwort.loben": {
+  "standard": [
+   "Tell both that I'm proud."
+  ]
+ },
+ "kb_mentor_gut.rueckmeldung.loben": {
+  "standard": [
+   "I'll tell them. The old one first – he'll blush."
+  ]
+ },
+ "kb_mentor_gut.antwort.weiter": {
+  "standard": [
+   "Keep going, but no celebration."
+  ]
+ },
+ "kb_mentor_gut.rueckmeldung.weiter": {
+  "standard": [
+   "No celebration. A small cake is fine."
+  ]
+ },
+ "kb_mentor_gut.betreff": {
+  "standard": [
+   "The godfather delivers"
+  ]
+ },
+ "kb_mentor_gut.text": {
+  "standard": [
+   "{spieler_kurz} controlled the ball in training for the first time without looking round for the assistant coach. The veteran acts like it's nothing. It's everything."
+  ]
+ },
+ "kb_mentor_schlecht.antwort.doch": {
+  "standard": [
+   "Team up, you two."
+  ]
+ },
+ "kb_mentor_schlecht.rueckmeldung.doch": {
+  "standard": [
+   "We've already had coffee. The old man paid."
+  ]
+ },
+ "kb_mentor_schlecht.antwort.selbst": {
+  "standard": [
+   "He'll sort it out himself."
+  ]
+ },
+ "kb_mentor_schlecht.rueckmeldung.selbst": {
+  "standard": [
+   "Himself. He's taking courage with tea."
+  ]
+ },
+ "kb_mentor_schlecht.betreff": {
+  "standard": [
+   "{spieler_kurz} broods"
+  ]
+ },
+ "kb_mentor_schlecht.text": {
+  "standard": [
+   "Without a godfather {spieler_kurz} looks like a tourist in training: friendly, lost, constantly holding a camera. The veteran watches from afar and sighs audibly."
+  ]
+ },
+ "kb_mentor_szene.betreff": {
+  "standard": [
+   "Scene: Two rows of cones"
+  ]
+ },
+ "kb_mentor_szene.text": {
+  "standard": [
+   "After training the veteran and {spieler_kurz} stay on the pitch and rearrange cones. On the way to the dressing room you hear 'That wasn't bad' and 'Thanks, boss'."
+  ]
+ },
+ "kb_mentor_szene.antwort.kenntnis": {
+  "standard": [
+   "A quiet moment."
+  ]
+ },
+ "kb_muede.antwort.pause": {
+  "standard": [
+   "You get a free afternoon."
+  ]
+ },
+ "kb_muede.rueckmeldung.pause": {
+  "standard": [
+   "A free afternoon! I'll sleep like a log. Standing up."
+  ]
+ },
+ "kb_muede.antwort.plan": {
+  "standard": [
+   "We'll shorten your sessions this week."
+  ]
+ },
+ "kb_muede.rueckmeldung.plan": {
+  "standard": [
+   "Shorter is good. Sleeping longer too."
+  ]
+ },
+ "kb_muede.antwort.weiter": {
+  "standard": [
+   "This is pro sport. Carry on."
+  ]
+ },
+ "kb_muede.rueckmeldung.weiter": {
+  "standard": [
+   "Carry on. I'll try – awake."
+  ]
+ },
+ "kb_muede.betreff": {
+  "standard": [
+   "{spieler_kurz} is shattered"
+  ]
+ },
+ "kb_muede.text": {
+  "standard": [
+   "Coach, I admit it: I'm tired. Not physically – in my head. Yesterday I fell asleep on the bus and swung in a cross in my dream. It reached its man."
+  ]
+ },
+ "kb_muede_gut.antwort.freuen": {
+  "standard": [
+   "Great. I grant you every break."
+  ]
+ },
+ "kb_muede_gut.rueckmeldung.freuen": {
+  "standard": [
+   "Breaks are my new hobby. Thanks, Coach."
+  ]
+ },
+ "kb_muede_gut.antwort.kurz": {
+  "standard": [
+   "Good. Stay on track."
+  ]
+ },
+ "kb_muede_gut.rueckmeldung.kurz": {
+  "standard": [
+   "Track found. Even with a rear-view mirror."
+  ]
+ },
+ "kb_muede_gut.betreff": {
+  "standard": [
+   "The dormouse effect"
+  ]
+ },
+ "kb_muede_gut.text": {
+  "standard": [
+   "After his free afternoon {spieler_kurz} is hard to stop in training. He even chased the ball he usually just politely escorted. The dressing room believes in a miracle."
+  ]
+ },
+ "kb_muede_schlecht.antwort.kehrtwende": {
+  "standard": [
+   "Okay, you get your break after all."
+  ]
+ },
+ "kb_muede_schlecht.rueckmeldung.kehrtwende": {
+  "standard": [
+   "A break! I swear I won't nod off. Almost."
+  ]
+ },
+ "kb_muede_schlecht.antwort.wecker": {
+  "standard": [
+   "Set yourself an alarm."
+  ]
+ },
+ "kb_muede_schlecht.rueckmeldung.wecker": {
+  "standard": [
+   "Alarm set. Five of them. Against sleep."
+  ]
+ },
+ "kb_muede_schlecht.betreff": {
+  "standard": [
+   "{spieler_kurz} nods off"
+  ]
+ },
+ "kb_muede_schlecht.text": {
+  "standard": [
+   "During the tactics meeting {spieler_kurz} fell asleep with his eyes open for the first time in club history. The analyst notes 'Tactical line of sight: ceiling'."
+  ]
+ },
+ "kb_muede_szene.betreff": {
+  "standard": [
+   "Scene: The sleeping lion"
+  ]
+ },
+ "kb_muede_szene.text": {
+  "standard": [
+   "At half-time {spieler_kurz} lies on the bench with his eyes closed and says: 'I'm gathering strength.' Ten minutes later he scores the goal of the game."
+  ]
+ },
+ "kb_muede_szene.antwort.kenntnis": {
+  "standard": [
+   "Don't tempt fate."
+  ]
+ },
+ "kb_reha.antwort.dabei": {
+  "standard": [
+   "Come to the meetings. With tea."
+  ]
+ },
+ "kb_reha.rueckmeldung.dabei": {
+  "standard": [
+   "With tea and notepad. I'm practically hired."
+  ]
+ },
+ "kb_reha.antwort.erst_heilen": {
+  "standard": [
+   "Get well first. Then meetings."
+  ]
+ },
+ "kb_reha.rueckmeldung.erst_heilen": {
+  "standard": [
+   "Well, then meetings. Order understood."
+  ]
+ },
+ "kb_reha.antwort.ruhe": {
+  "standard": [
+   "Rest. That's an order."
+  ]
+ },
+ "kb_reha.rueckmeldung.ruhe": {
+  "standard": [
+   "Rest. I'll count the flies on the ceiling."
+  ]
+ },
+ "kb_reha.betreff": {
+  "standard": [
+   "{spieler_kurz} wants to be there"
+  ]
+ },
+ "kb_reha.text": {
+  "standard": [
+   "Coach, rehab is driving me mad. I've learned the exercise-bike wall by heart. May I at least come to the meetings? I'll bring tea too."
+  ]
+ },
+ "kb_reha_gut.antwort.loben": {
+  "standard": [
+   "Good idea. Keep it up."
+  ]
+ },
+ "kb_reha_gut.rueckmeldung.loben": {
+  "standard": [
+   "I even drew a sketch of the opponent. In colour."
+  ]
+ },
+ "kb_reha_gut.antwort.sachlich": {
+  "standard": [
+   "Good. But don't forget the rehab."
+  ]
+ },
+ "kb_reha_gut.rueckmeldung.sachlich": {
+  "standard": [
+   "I never forget rehab. It doesn't forget me."
+  ]
+ },
+ "kb_reha_gut.betreff": {
+  "standard": [
+   "The tea drinker on the bench"
+  ]
+ },
+ "kb_reha_gut.text": {
+  "standard": [
+   "{spieler_kurz} sits in the front row at every meeting and takes notes. The analyst once asked whether he could bring figures too. He can."
+  ]
+ },
+ "kb_reha_schlecht.antwort.einlenken": {
+  "standard": [
+   "Okay, come along. But no balls."
+  ]
+ },
+ "kb_reha_schlecht.rueckmeldung.einlenken": {
+  "standard": [
+   "No balls. Promise. Except a small one."
+  ]
+ },
+ "kb_reha_schlecht.antwort.hart": {
+  "standard": [
+   "You stay in the rehab room."
+  ]
+ },
+ "kb_reha_schlecht.rueckmeldung.hart": {
+  "standard": [
+   "The room and I – a friendship."
+  ]
+ },
+ "kb_reha_schlecht.betreff": {
+  "standard": [
+   "{spieler_kurz} creeps round the dressing room"
+  ]
+ },
+ "kb_reha_schlecht.text": {
+  "standard": [
+   "Since the order to rest {spieler_kurz} suddenly turns up everywhere: at the coffee machine, at the physio, once even on the bus. He says he just happened to pass."
+  ]
+ },
+ "kb_reha_szene.betreff": {
+  "standard": [
+   "Scene: The comeback in the team photo"
+  ]
+ },
+ "kb_reha_szene.text": {
+  "standard": [
+   "In the team photo {spieler_kurz} stands in civvies in the back row and waves. In the picture it looks as if he'd scored the goal. The photo now hangs in the corridor."
+  ]
+ },
+ "kb_reha_szene.antwort.kenntnis": {
+  "standard": [
+   "Well hung."
+  ]
+ },
+ "kb_berater.antwort.termin": {
+  "standard": [
+   "Gladly. Drop by next week."
+  ]
+ },
+ "kb_berater.rueckmeldung.termin": {
+  "standard": [
+   "Next week. I'll bring papers and a biscuit."
+  ]
+ },
+ "kb_berater.antwort.abwarten": {
+  "standard": [
+   "Let's wait out the season."
+  ]
+ },
+ "kb_berater.rueckmeldung.abwarten": {
+  "standard": [
+   "Wait. I'll be impatient but polite."
+  ]
+ },
+ "kb_berater.antwort.abblitzen": {
+  "standard": [
+   "I don't negotiate over rumours."
+  ]
+ },
+ "kb_berater.rueckmeldung.abblitzen": {
+  "standard": [
+   "Rumours are my speciality. You'll hear."
+  ]
+ },
+ "kb_berater.betreff": {
+  "standard": [
+   "{berater} calls about {spieler_kurz}"
+  ]
+ },
+ "kb_berater.text": {
+  "standard": [
+   "Good day, Coach. {berater} here. My client {spieler} is in demand and I hear things. Nothing concrete, but I wanted to sound out whether we should talk about his future before others do."
+  ]
+ },
+ "kb_berater_gut.antwort.lachen": {
+  "standard": [
+   "We agree: talk first, then see."
+  ]
+ },
+ "kb_berater_gut.rueckmeldung.lachen": {
+  "standard": [
+   "Talk first. Rarely has anyone said that."
+  ]
+ },
+ "kb_berater_gut.antwort.kuehl": {
+  "standard": [
+   "Thanks for the talk."
+  ]
+ },
+ "kb_berater_gut.rueckmeldung.kuehl": {
+  "standard": [
+   "My pleasure. I'll send the bill for the coffee."
+  ]
+ },
+ "kb_berater_gut.betreff": {
+  "standard": [
+   "{berater} drops by"
+  ]
+ },
+ "kb_berater_gut.text": {
+  "standard": [
+   "{berater} sits with you for two hours, drinks three coffees and says 'just for information' ten times. He left with a handshake and the resolve not to sign anything."
+  ]
+ },
+ "kb_berater_schlecht.antwort.klaeren": {
+  "standard": [
+   "I'll call back. We'll settle it calmly."
+  ]
+ },
+ "kb_berater_schlecht.rueckmeldung.klaeren": {
+  "standard": [
+   "Calmly settle it. I'll fetch the paper as evidence."
+  ]
+ },
+ "kb_berater_schlecht.antwort.klarstellen": {
+  "standard": [
+   "Public statement. Today."
+  ]
+ },
+ "kb_berater_schlecht.rueckmeldung.klarstellen": {
+  "standard": [
+   "Today. With a photo if you like."
+  ]
+ },
+ "kb_berater_schlecht.betreff": {
+  "standard": [
+   "{berater} spreads rumours"
+  ]
+ },
+ "kb_berater_schlecht.text": {
+  "standard": [
+   "The papers say {spieler} is 'unhappy and in demand'. The source: a 'well-informed circle' – three people, one of them {berater}. The press officer turns red."
+  ]
+ },
+ "kb_berater_szene.betreff": {
+  "standard": [
+   "Scene: The handshake in the corridor"
+  ]
+ },
+ "kb_berater_szene.text": {
+  "standard": [
+   "In the corridor you meet {berater}. Both smile, both shake hands, both hold on a bit too long. The press officer decides to finish early today."
+  ]
+ },
+ "kb_berater_szene.antwort.kenntnis": {
+  "standard": [
+   "See you around."
+  ]
+ },
+ "kb_streich.antwort.ja": {
+  "standard": [
+   "Go ahead. But not a word to the press."
+  ]
+ },
+ "kb_streich.rueckmeldung.ja": {
+  "standard": [
+   "Not a word. The gummy-bear glue is already ordered."
+  ]
+ },
+ "kb_streich.antwort.klein": {
+  "standard": [
+   "Something smaller, please."
+  ]
+ },
+ "kb_streich.rueckmeldung.klein": {
+  "standard": [
+   "Something smaller. We'll use stickers then."
+  ]
+ },
+ "kb_streich.antwort.nein": {
+  "standard": [
+   "No. This is a club, not a circus."
+  ]
+ },
+ "kb_streich.rueckmeldung.nein": {
+  "standard": [
+   "Circus is nice too. But fine, Coach."
+  ]
+ },
+ "kb_streich.betreff": {
+  "standard": [
+   "{spieler_kurz} is planning a prank"
+  ]
+ },
+ "kb_streich.text": {
+  "standard": [
+   "Coach, I'll be honest: {spieler_kurz} wants to glue your assistant's shoes to the floor. With gummy-bear glue, so harmless. We think it lifts the mood. But you decide."
+  ]
+ },
+ "kb_streich_gut.antwort.lachen": {
+  "standard": [
+   "Paid. The shoes too."
+  ]
+ },
+ "kb_streich_gut.rueckmeldung.lachen": {
+  "standard": [
+   "Thanks! The shoes were too tight anyway."
+  ]
+ },
+ "kb_streich_gut.antwort.ernst": {
+  "standard": [
+   "Enough. Back to training now."
+  ]
+ },
+ "kb_streich_gut.rueckmeldung.ernst": {
+  "standard": [
+   "Enough is enough. With glue in the cupboard."
+  ]
+ },
+ "kb_streich_gut.betreff": {
+  "standard": [
+   "The shoes hold"
+  ]
+ },
+ "kb_streich_gut.text": {
+  "standard": [
+   "The assistant coach walked two metres yesterday and then no further. He laughed, then swore, then laughed again. Today he sends a counter-bill for a pair of shoes."
+  ]
+ },
+ "kb_streich_schlecht.antwort.freigeben": {
+  "standard": [
+   "All right. One a month. Officially."
+  ]
+ },
+ "kb_streich_schlecht.rueckmeldung.freigeben": {
+  "standard": [
+   "One a month! We'll keep minutes."
+  ]
+ },
+ "kb_streich_schlecht.antwort.streng": {
+  "standard": [
+   "It stays that way."
+  ]
+ },
+ "kb_streich_schlecht.rueckmeldung.streng": {
+  "standard": [
+   "It stays. Only secretly now."
+  ]
+ },
+ "kb_streich_schlecht.betreff": {
+  "standard": [
+   "The dressing room is silent"
+  ]
+ },
+ "kb_streich_schlecht.text": {
+  "standard": [
+   "Since the ban a strange calm has settled over the dressing room. Someone wrote 'prank' on the board and wiped it off. The keeper still giggles quietly."
+  ]
+ },
+ "kb_streich_szene.betreff": {
+  "standard": [
+   "Scene: The counter-bill"
+  ]
+ },
+ "kb_streich_szene.text": {
+  "standard": [
+   "On the dressing-room board hangs a bill: 'One pair of shoes, one pair of socks, nerves (flat rate)'. Underneath, the captain's signature and a small smiley."
+  ]
+ },
+ "kb_streich_szene.antwort.kenntnis": {
+  "standard": [
+   "File it."
+  ]
+ }
+}

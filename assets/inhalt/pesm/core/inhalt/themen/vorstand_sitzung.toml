@@ -1,0 +1,196 @@
+[thema.vorstand_stadionausbau]
+kategorie = "vorstand"
+absender = "praesident"
+kanal = "sitzung"
+dringlichkeit = 1
+sperre_tage = 60
+haeufigkeit = 0.3
+wenn = ["vorstand>=40", "fans>=40"]
+eroeffnung = [
+  { id = "e1" },
+  { id = "e2" },
+  { id = "e3", wenn = ["stimmung<40"] },
+  { id = "e4", typ = ["hitzig", "launisch"] },
+  { id = "e5", typ = ["loyal", "gelassen"] },
+  { id = "e6", typ = ["ehrgeizig", "wechselfreudig"] },
+  { id = "e7", typ = ["sensibel"] },
+  { id = "e8", wenn = ["vorstand>=70"] },
+  { id = "e9", wenn = ["fans>=70"] },
+  { id = "e10", wenn = ["tabellenplatz<=6"] },
+]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "beziehung", delta = 4 }, { ziel = "vorstandsvertrauen", delta = 5 }, { ziel = "fanstimmung", delta = 3 }] },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 3 }, { ziel = "vorstandsvertrauen", delta = 6 }, { ziel = "medienbild", delta = 4 }] },
+  { id = "a3", strategie = "ausgleich", ton = "humorvoll", wirkungen = [{ ziel = "beziehung", delta = 4 }, { ziel = "vorstandsvertrauen", delta = 5 }, { ziel = "fanstimmung", delta = 4 }, { ziel = "kosten", betrag = 100000 }] },
+  { id = "a4", strategie = "zusage", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = 3 }, { ziel = "vorstandsvertrauen", delta = 5 }, { ziel = "medienbild", delta = 1 }] },
+  { id = "a5", strategie = "vertroesten", ton = "offen", wirkungen = [{ ziel = "beziehung", delta = 0 }, { ziel = "vorstandsvertrauen", delta = 1 }] },
+  { id = "a6", strategie = "gegenfrage", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 1 }, { ziel = "vorstandsvertrauen", delta = 2 }] },
+  { id = "a7", strategie = "delegieren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 1 }, { ziel = "vorstandsvertrauen", delta = 1 }] },
+  { id = "a8", strategie = "ablehnen", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 1 }, { ziel = "vorstandsvertrauen", delta = 3 }] },
+  { id = "a9", strategie = "hart_bleiben", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -4 }, { ziel = "vorstandsvertrauen", delta = -6 }, { ziel = "medienbild", delta = -2 }] },
+  { id = "a10", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -5 }, { ziel = "vorstandsvertrauen", delta = -5 }, { ziel = "kosten", betrag = 300000 }] },
+  { id = "a11", strategie = "zusage", ton = "humorvoll", wirkungen = [{ ziel = "beziehung", delta = -3 }, { ziel = "vorstandsvertrauen", delta = -6 }, { ziel = "medienbild", delta = -4 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen"] },
+  { id = "r3", gruppe = "gut", typ = ["ehrgeizig"], fuer = ["zusage", "ausgleich"] },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral", typ = ["sensibel", "launisch"] },
+  { id = "r6", gruppe = "neutral", typ = ["gelassen"] },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht", typ = ["hitzig"] },
+  { id = "r9", gruppe = "schlecht", typ = ["wechselfreudig"] },
+  { id = "r10", gruppe = "schlecht", typ = ["launisch", "loyal"] },
+]
+ausgang = [
+  { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "zusage" }, { id = "x5", art = "abbruch" },
+]
+
+[thema.vorstand_sparrunde]
+kategorie = "vorstand"
+absender = "praesident"
+kanal = "sitzung"
+dringlichkeit = 2
+sperre_tage = 45
+haeufigkeit = 0.3
+wenn = ["budget<3000000", "vorstand<=70"]
+eroeffnung = [
+  { id = "e1" },
+  { id = "e2" },
+  { id = "e3", wenn = ["stimmung<40"] },
+  { id = "e4", typ = ["hitzig", "launisch"] },
+  { id = "e5", typ = ["loyal", "gelassen"] },
+  { id = "e6", typ = ["ehrgeizig", "wechselfreudig"] },
+  { id = "e7", typ = ["sensibel"] },
+  { id = "e8", wenn = ["vorstand<40"] },
+  { id = "e9", wenn = ["fans<40"] },
+  { id = "e10", wenn = ["tabellenplatz>=10"] },
+]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "beziehung", delta = 4 }, { ziel = "vorstandsvertrauen", delta = 5 }, { ziel = "fanstimmung", delta = 3 }] },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 3 }, { ziel = "vorstandsvertrauen", delta = 6 }, { ziel = "medienbild", delta = 4 }] },
+  { id = "a3", strategie = "ausgleich", ton = "humorvoll", wirkungen = [{ ziel = "beziehung", delta = 4 }, { ziel = "vorstandsvertrauen", delta = 5 }, { ziel = "fanstimmung", delta = 4 }, { ziel = "kosten", betrag = 100000 }] },
+  { id = "a4", strategie = "zusage", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = 3 }, { ziel = "vorstandsvertrauen", delta = 5 }, { ziel = "medienbild", delta = 1 }] },
+  { id = "a5", strategie = "vertroesten", ton = "offen", wirkungen = [{ ziel = "beziehung", delta = 0 }, { ziel = "vorstandsvertrauen", delta = 1 }] },
+  { id = "a6", strategie = "gegenfrage", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 1 }, { ziel = "vorstandsvertrauen", delta = 2 }] },
+  { id = "a7", strategie = "delegieren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 1 }, { ziel = "vorstandsvertrauen", delta = 1 }] },
+  { id = "a8", strategie = "ablehnen", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 1 }, { ziel = "vorstandsvertrauen", delta = 3 }] },
+  { id = "a9", strategie = "hart_bleiben", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -4 }, { ziel = "vorstandsvertrauen", delta = -6 }, { ziel = "medienbild", delta = -2 }] },
+  { id = "a10", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -5 }, { ziel = "vorstandsvertrauen", delta = -5 }, { ziel = "kosten", betrag = 300000 }] },
+  { id = "a11", strategie = "zusage", ton = "humorvoll", wirkungen = [{ ziel = "beziehung", delta = -3 }, { ziel = "vorstandsvertrauen", delta = -6 }, { ziel = "medienbild", delta = -4 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen"] },
+  { id = "r3", gruppe = "gut", typ = ["ehrgeizig"], fuer = ["zusage", "ausgleich"] },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral", typ = ["sensibel", "launisch"] },
+  { id = "r6", gruppe = "neutral", typ = ["gelassen"] },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht", typ = ["hitzig"] },
+  { id = "r9", gruppe = "schlecht", typ = ["wechselfreudig"] },
+  { id = "r10", gruppe = "schlecht", typ = ["launisch", "loyal"] },
+]
+ausgang = [
+  { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "zusage" }, { id = "x5", art = "abbruch" },
+]
+
+[thema.vorstand_sponsor_druck]
+kategorie = "vorstand"
+absender = "praesident"
+kanal = "sitzung"
+dringlichkeit = 1
+sperre_tage = 50
+haeufigkeit = 0.3
+wenn = ["medien<55", "tabellenplatz>=5"]
+eroeffnung = [
+  { id = "e1" },
+  { id = "e2" },
+  { id = "e3", wenn = ["stimmung<40"] },
+  { id = "e4", typ = ["hitzig", "launisch"] },
+  { id = "e5", typ = ["loyal", "gelassen"] },
+  { id = "e6", typ = ["ehrgeizig", "wechselfreudig"] },
+  { id = "e7", typ = ["sensibel"] },
+  { id = "e8", wenn = ["medien<30"] },
+  { id = "e9", wenn = ["fans>=60"] },
+  { id = "e10", wenn = ["niederlagen>=2"] },
+]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "beziehung", delta = 4 }, { ziel = "vorstandsvertrauen", delta = 5 }, { ziel = "fanstimmung", delta = 3 }] },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 3 }, { ziel = "vorstandsvertrauen", delta = 6 }, { ziel = "medienbild", delta = 4 }] },
+  { id = "a3", strategie = "ausgleich", ton = "humorvoll", wirkungen = [{ ziel = "beziehung", delta = 4 }, { ziel = "vorstandsvertrauen", delta = 5 }, { ziel = "fanstimmung", delta = 4 }, { ziel = "kosten", betrag = 100000 }] },
+  { id = "a4", strategie = "zusage", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = 3 }, { ziel = "vorstandsvertrauen", delta = 5 }, { ziel = "medienbild", delta = 1 }] },
+  { id = "a5", strategie = "vertroesten", ton = "offen", wirkungen = [{ ziel = "beziehung", delta = 0 }, { ziel = "vorstandsvertrauen", delta = 1 }] },
+  { id = "a6", strategie = "gegenfrage", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 1 }, { ziel = "vorstandsvertrauen", delta = 2 }] },
+  { id = "a7", strategie = "delegieren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 1 }, { ziel = "vorstandsvertrauen", delta = 1 }] },
+  { id = "a8", strategie = "ablehnen", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 1 }, { ziel = "vorstandsvertrauen", delta = 3 }] },
+  { id = "a9", strategie = "hart_bleiben", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -4 }, { ziel = "vorstandsvertrauen", delta = -6 }, { ziel = "medienbild", delta = -2 }] },
+  { id = "a10", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -5 }, { ziel = "vorstandsvertrauen", delta = -5 }, { ziel = "kosten", betrag = 300000 }] },
+  { id = "a11", strategie = "zusage", ton = "humorvoll", wirkungen = [{ ziel = "beziehung", delta = -3 }, { ziel = "vorstandsvertrauen", delta = -6 }, { ziel = "medienbild", delta = -4 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen"] },
+  { id = "r3", gruppe = "gut", typ = ["ehrgeizig"], fuer = ["zusage", "ausgleich"] },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral", typ = ["sensibel", "launisch"] },
+  { id = "r6", gruppe = "neutral", typ = ["gelassen"] },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht", typ = ["hitzig"] },
+  { id = "r9", gruppe = "schlecht", typ = ["wechselfreudig"] },
+  { id = "r10", gruppe = "schlecht", typ = ["launisch", "loyal"] },
+]
+ausgang = [
+  { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "zusage" }, { id = "x5", art = "abbruch" },
+]
+
+[thema.vorstand_fanproteste]
+kategorie = "vorstand"
+absender = "praesident"
+kanal = "sitzung"
+dringlichkeit = 2
+sperre_tage = 40
+haeufigkeit = 0.35
+wenn = ["fans<40", "niederlagen>=1"]
+eroeffnung = [
+  { id = "e1" },
+  { id = "e2" },
+  { id = "e3", wenn = ["stimmung<40"] },
+  { id = "e4", typ = ["hitzig", "launisch"] },
+  { id = "e5", typ = ["loyal", "gelassen"] },
+  { id = "e6", typ = ["ehrgeizig", "wechselfreudig"] },
+  { id = "e7", typ = ["sensibel"] },
+  { id = "e8", wenn = ["fans<20"] },
+  { id = "e9", wenn = ["medien<40"] },
+  { id = "e10", wenn = ["tabellenplatz>=12"] },
+]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "beziehung", delta = 4 }, { ziel = "vorstandsvertrauen", delta = 5 }, { ziel = "fanstimmung", delta = 3 }] },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 3 }, { ziel = "vorstandsvertrauen", delta = 6 }, { ziel = "medienbild", delta = 4 }] },
+  { id = "a3", strategie = "ausgleich", ton = "humorvoll", wirkungen = [{ ziel = "beziehung", delta = 4 }, { ziel = "vorstandsvertrauen", delta = 5 }, { ziel = "fanstimmung", delta = 4 }, { ziel = "kosten", betrag = 100000 }] },
+  { id = "a4", strategie = "zusage", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = 3 }, { ziel = "vorstandsvertrauen", delta = 5 }, { ziel = "medienbild", delta = 1 }] },
+  { id = "a5", strategie = "vertroesten", ton = "offen", wirkungen = [{ ziel = "beziehung", delta = 0 }, { ziel = "vorstandsvertrauen", delta = 1 }] },
+  { id = "a6", strategie = "gegenfrage", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 1 }, { ziel = "vorstandsvertrauen", delta = 2 }] },
+  { id = "a7", strategie = "delegieren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 1 }, { ziel = "vorstandsvertrauen", delta = 1 }] },
+  { id = "a8", strategie = "ablehnen", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 1 }, { ziel = "vorstandsvertrauen", delta = 3 }] },
+  { id = "a9", strategie = "hart_bleiben", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -4 }, { ziel = "vorstandsvertrauen", delta = -6 }, { ziel = "medienbild", delta = -2 }] },
+  { id = "a10", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -5 }, { ziel = "vorstandsvertrauen", delta = -5 }, { ziel = "kosten", betrag = 300000 }] },
+  { id = "a11", strategie = "zusage", ton = "humorvoll", wirkungen = [{ ziel = "beziehung", delta = -3 }, { ziel = "vorstandsvertrauen", delta = -6 }, { ziel = "medienbild", delta = -4 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen"] },
+  { id = "r3", gruppe = "gut", typ = ["ehrgeizig"], fuer = ["zusage", "ausgleich"] },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral", typ = ["sensibel", "launisch"] },
+  { id = "r6", gruppe = "neutral", typ = ["gelassen"] },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht", typ = ["hitzig"] },
+  { id = "r9", gruppe = "schlecht", typ = ["wechselfreudig"] },
+  { id = "r10", gruppe = "schlecht", typ = ["launisch", "loyal"] },
+]
+ausgang = [
+  { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "zusage" }, { id = "x5", art = "abbruch" },
+]
+

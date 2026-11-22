@@ -1,0 +1,160 @@
+# Trainingslager (Punkt 14, Konzept Teil 4). Diese Datei darfst du ändern: Orte dazunehmen, umbenennen, löschen.
+# art: sommer, winter, kurz, marketing · kosten_tag: je Person und Tag in Euro · reise_kosten: Reise hin und zurück für alle
+# reisetage: Tage ohne Training (An- und Abreise) · zeit: Zeitverschiebung in Stunden (ab 4: Jetlag)
+# plaetze und ruhe: 1–5 (Trainingsnutzen × 1 + 0,05 · (Plätze − 3) + 0,05 · (Ruhe − 3)) · klima: hoehe, warm, mild, kuehl, heiss
+# marketing: 0–5 (nur Marketing-Reise: Antrittsgeld und Fans im Ausland) · prestige_ab: nur für Vereine ab dieser Größe (0–1)
+
+[regeln]
+stab = 15                    # mitreisende Betreuer und Trainer
+eingespielt_tag = 0.9        # Eingespieltheit je Trainingstag bei Faktor 1
+hoehe_faktor = 1.3           # Höhe: mehr Aufbau
+teamgeist_basis = 2.0        # Teamgeist „Lager“: 2 + 0,5 je Tag, höchstens 7
+teamgeist_je_tag = 0.5
+teamgeist_max = 7.0
+jetlag_ab = 4                # Stunden Zeitverschiebung
+jetlag_kondition = 2.5       # je Tag in den ersten zwei Tagen nach der Ankunft
+vorstand_knapp = 35          # Vorstandsvertrauen darunter: nur Lager bis zur Grenze
+grenze_knapp = 120000
+marketing_antritt = 900000   # Antrittsgeld je Marketing-Stufe
+marketing_fans = 0.6         # Fanstimmung je Marketing-Stufe
+marketing_eingespielt = 0.8  # Marketing-Reise: Eingespieltheit × 0,8
+
+[[ort]]
+id = "alpen"
+name = "Höhenlager in den Alpen"
+art = "sommer"
+kosten_tag = 220
+reise_kosten = 25000
+reisetage = 1
+zeit = 0
+plaetze = 4
+klima = "hoehe"
+ruhe = 5
+marketing = 0
+prestige_ab = 0.0
+
+[[ort]]
+id = "sportschule"
+name = "Sportschule in der Region"
+art = "kurz"
+kosten_tag = 110
+reise_kosten = 5000
+reisetage = 0
+zeit = 0
+plaetze = 3
+klima = "mild"
+ruhe = 4
+marketing = 0
+prestige_ab = 0.0
+
+[[ort]]
+id = "suedtirol"
+name = "Sommerlager in Südtirol"
+art = "sommer"
+kosten_tag = 190
+reise_kosten = 30000
+reisetage = 1
+zeit = 0
+plaetze = 4
+klima = "kuehl"
+ruhe = 4
+marketing = 0
+prestige_ab = 0.0
+
+[[ort]]
+id = "algarve"
+name = "Winterlager an der Algarve"
+art = "winter"
+kosten_tag = 260
+reise_kosten = 90000
+reisetage = 1
+zeit = 0
+plaetze = 5
+klima = "warm"
+ruhe = 3
+marketing = 0
+prestige_ab = 0.0
+
+[[ort]]
+id = "belek"
+name = "Winterlager in Belek"
+art = "winter"
+kosten_tag = 240
+reise_kosten = 110000
+reisetage = 1
+zeit = 1
+plaetze = 5
+klima = "warm"
+ruhe = 3
+marketing = 0
+prestige_ab = 0.0
+
+[[ort]]
+id = "marbella"
+name = "Winterlager in Marbella"
+art = "winter"
+kosten_tag = 280
+reise_kosten = 100000
+reisetage = 1
+zeit = 0
+plaetze = 5
+klima = "warm"
+ruhe = 3
+marketing = 0
+prestige_ab = 0.0
+
+[[ort]]
+id = "doha"
+name = "Winterlager in Doha"
+art = "winter"
+kosten_tag = 320
+reise_kosten = 180000
+reisetage = 1
+zeit = 2
+plaetze = 5
+klima = "heiss"
+ruhe = 4
+marketing = 1
+prestige_ab = 0.3
+
+[[ort]]
+id = "klausur"
+name = "Klausur im Waldhotel"
+art = "kurz"
+kosten_tag = 150
+reise_kosten = 8000
+reisetage = 0
+zeit = 0
+plaetze = 2
+klima = "mild"
+ruhe = 5
+marketing = 0
+prestige_ab = 0.0
+
+[[ort]]
+id = "asien_marketing"
+name = "Marketing-Reise nach Asien"
+art = "marketing"
+kosten_tag = 0
+reise_kosten = 0
+reisetage = 2
+zeit = 7
+plaetze = 3
+klima = "heiss"
+ruhe = 1
+marketing = 5
+prestige_ab = 0.75
+
+[[ort]]
+id = "usa_marketing"
+name = "Marketing-Reise in die USA"
+art = "marketing"
+kosten_tag = 0
+reise_kosten = 0
+reisetage = 2
+zeit = 6
+plaetze = 4
+klima = "warm"
+ruhe = 2
+marketing = 4
+prestige_ab = 0.75

@@ -1,0 +1,494 @@
+{
+ "pool.verhandlung_praemien.e.e1": [
+  "I propose a goal bonus, an appearance bonus and a title bonus, at a level that reflects his value.",
+  "We should reshape the fixed salary in favour of goal, appearance and title bonuses."
+ ],
+ "pool.verhandlung_praemien.e.e2": [
+  "My client prefers to earn where he makes a difference, so I need a model from you.",
+  "I want to know who hands out the bonuses at your club and by what key."
+ ],
+ "pool.verhandlung_praemien.e.e3": [
+  "I can tell the air is thin, but the bonus question still has to go on the table.",
+  "I know the timing is unfortunate, but silence will not shrink the question."
+ ],
+ "pool.verhandlung_praemien.e.e4": [
+  "On the fixed salary we are far apart, but variable parts might still bring us together.",
+  "I realise the club has been on the brakes so far, so I am offering a point on bonuses where we could meet."
+ ],
+ "pool.verhandlung_praemien.e.e5": [
+  "We are close in principle, only the bonuses are missing, then the package is complete.",
+  "Nearly everything is settled, the variable part remains, and I would like to nail it down today."
+ ],
+ "pool.verhandlung_praemien.e.e6": [
+  "The overall package is still movable, and the bonus structure can tip it either way.",
+  "Both sides are still open, and I think the bonuses will decide whether it works."
+ ],
+ "pool.verhandlung_praemien.e.e7": [
+  "Either goals get paid, or we talk about something else entirely!",
+  "A contract like that is a joke if a goal is worth nothing!"
+ ],
+ "pool.verhandlung_praemien.e.e8": [
+  "You once promised me an incentive that never made it onto paper, so this time I want it in writing.",
+  "I already had a verbal promise, nothing was delivered, so I insist on a bonus model with a signature."
+ ],
+ "pool.verhandlung_praemien.e.e9": [
+  "He does not want to cause the club trouble and only asks whether variable parts could give him security.",
+  "He is attached to the club and wants the bonuses shared fairly across the whole squad."
+ ],
+ "pool.verhandlung_praemien.e.e10": [
+  "Anyone who wins trophies should see it in his account, and my client is counting on that.",
+  "Elsewhere they pay clearly more for trophies and goals, and that should give you pause."
+ ],
+ "pool.verhandlung_praemien.a.a1": [
+  "We tie a part to appearances and goals, but only when the team succeeds along the way.",
+  "A performance-based bonus system is feasible, as long as we do not inflate the fixed part."
+ ],
+ "pool.verhandlung_praemien.a.a2": [
+  "I will have a bonus scale drawn up for goals, appearances and titles. You get the paper within {frist} days.",
+  "Fine, we will build in the variable parts, and within {frist} days you will have a written draft."
+ ],
+ "pool.verhandlung_praemien.a.a3": [
+  "I am putting a cap on the total of all bonuses. Otherwise goal and title bonuses throw my pay structure off balance.",
+  "The club carries only limited risk, so there is an upper limit on total bonuses."
+ ],
+ "pool.verhandlung_praemien.a.a4": [
+  "I will top up the bonus pot so every goal pays off, but please not at the first penalty.",
+  "Then I will add extra bonuses for titles and goals, noting only that defenders are allowed to score as well."
+ ],
+ "pool.verhandlung_praemien.a.a5": [
+  "I understand that security matters to him. One part stays fixed, and the variable part comes on top as a bonus.",
+  "He should not have to fear for his income at every dip in form. That is why the base stays stable."
+ ],
+ "pool.verhandlung_praemien.a.a6": [
+  "The bonus keys are decided by our sporting director together with the management. I am happy to arrange the contact.",
+  "Please turn to the management, that is where the guidelines for success bonuses are kept."
+ ],
+ "pool.verhandlung_praemien.a.a7": [
+  "Which incentives does he want in concrete terms, and what would he be willing to give up?",
+  "Which matters more to him, the goal bonus or the title bonus, and how much fixed pay would he sacrifice for it?"
+ ],
+ "pool.verhandlung_praemien.a.a8": [
+  "I refuse bonuses for individual players. That tears the dressing room apart, and I will not be blackmailed.",
+  "There is no room for that with me. Whoever wants more money should prove it on the pitch, not on the phone."
+ ],
+ "pool.verhandlung_praemien.a.a9": [
+  "It stays with the model as written in the contract. I will not negotiate it a second time.",
+  "I am sticking to it, you will get no extras, however often you call."
+ ],
+ "pool.verhandlung_praemien.a.a10": [
+  "I will look into it in peace. Sooner or later we will surely find a solution.",
+  "Let us discuss it after the season, there is no rush."
+ ],
+ "pool.verhandlung_praemien.a.a11": [
+  "Our cooperation has been fair so far, and it should stay that way. I will find a way that gives him recognition without tearing my squad apart.",
+  "Your client deserves recognition for his performance, and I want him to feel it. Together we will get this done."
+ ],
+ "pool.verhandlung_praemien.a.a12": [
+  "There will only be team bonuses: those who win, win together, and I am striking individual goal bonuses.",
+  "I pay bonuses only to the whole squad, not to individual names."
+ ],
+ "pool.verhandlung_praemien.r.r1": [
+  "{b.gut} That sounds like a model we can work with.",
+  "{b.gut} With that I can go back to my client."
+ ],
+ "pool.verhandlung_praemien.r.r2": [
+  "{b.gut} He will appreciate the fairness, and so will I.",
+  "{b.gut} The club shows a sense of proportion, I will note that."
+ ],
+ "pool.verhandlung_praemien.r.r3": [
+  "{b.gut} Title bonuses, exactly what he wanted to hear. That spurs him on even more.",
+  "{b.gut} If success is written into the contract too, he will run that bit further."
+ ],
+ "pool.verhandlung_praemien.r.r4": [
+  "{b.gut} He will appreciate that you take his worry seriously.",
+  "{b.gut} The cushion gives him peace, and calm players deliver."
+ ],
+ "pool.verhandlung_praemien.r.r5": [
+  "{b.neutral} I will take that away, but I promise nothing.",
+  "{b.neutral} I will pass it on as it is and get back to you."
+ ],
+ "pool.verhandlung_praemien.r.r6": [
+  "{b.neutral} I will explain it to him calmly, how he takes it I cannot say.",
+  "{b.neutral} His mood changes daily, I will talk to him tomorrow."
+ ],
+ "pool.verhandlung_praemien.r.r7": [
+  "{b.neutral} Then the variable part remains the swing factor.",
+  "{b.neutral} Both sides are keeping their cards close, and the bonuses remain the sticking point."
+ ],
+ "pool.verhandlung_praemien.r.r8": [
+  "{b.neutral} A few more days do not matter to me.",
+  "{b.neutral} I am patient, that goes with my trade."
+ ],
+ "pool.verhandlung_praemien.r.r9": [
+  "{b.schlecht} I will hardly be able to offer my client anything like that.",
+  "{b.schlecht} That leaves me little room, and he will not take it well."
+ ],
+ "pool.verhandlung_praemien.r.r10": [
+  "{b.schlecht} So he is to score his goals for free, as far as you are concerned!",
+  "{b.schlecht} You underestimate how angry he can get!"
+ ],
+ "pool.verhandlung_praemien.r.r11": [
+  "{b.schlecht} Then I will examine the offers with better bonuses more closely.",
+  "{b.schlecht} There are clubs that reward success more generously."
+ ],
+ "pool.verhandlung_praemien.r.r12": [
+  "{b.schlecht} He hoped for so much from this conversation and will be very disappointed.",
+  "{b.schlecht} After all these years I would have expected more goodwill."
+ ],
+ "pool.verhandlung_praemien.r.r13": [
+  "{b.gut} Then we close the bonuses and can prepare the signature.",
+  "{b.gut} That clears the last open point, I am confident."
+ ],
+ "pool.verhandlung_praemien.r.r14": [
+  "{b.schlecht} Then we are even further apart than I thought.",
+  "{b.schlecht} With that attitude we will not come together, I say that openly."
+ ],
+ "pool.verhandlung_praemien.x.x1": [
+  "The agent sounds satisfied, the bonus question is off the table. {entscheidung} The call ends on friendly terms.",
+  "{entscheidung} Both sides agree on a model that sets incentives and limits risks."
+ ],
+ "pool.verhandlung_praemien.x.x2": [
+  "{entscheidung} The agent wants to work through the scale with his client and will get back to you.",
+  "The call ends without a result. {entscheidung} The bonus question is left open."
+ ],
+ "pool.verhandlung_praemien.x.x3": [
+  "{entscheidung} The agent hints that he might make the demands public and hangs up irritably.",
+  "The call turns loud. {entscheidung} Around the player the matter will soon be doing the rounds."
+ ],
+ "pool.verhandlung_praemien.x.x4": [
+  "You settle on a bonus scale. {entscheidung} The agent writes the date in his calendar.",
+  "{entscheidung} He thanks you briefly and reminds you of the paper."
+ ],
+ "pool.verhandlung_praemien.x.x5": [
+  "The agent ends the call mid-sentence. {entscheidung} After that the line goes dead.",
+  "{entscheidung} He hangs up, and the topic stays unresolved."
+ ],
+ "pool.verhandlung_handgeld.e.e1": [
+  "I put a figure on the loyalty bonus in an attachment and ask for feedback on amount and payment date.",
+  "I set out our demand for a signing bonus in writing, please respond by the weekend."
+ ],
+ "pool.verhandlung_handgeld.e.e2": [
+  "Without a one-off payment on signing I see no agreement, so I ask for a fair offer.",
+  "Please check whether the club can bear a signing bonus of a sensible size, it would be a strong signal."
+ ],
+ "pool.verhandlung_handgeld.e.e3": [
+  "I know the relationship is strained at the moment, and yet the signing bonus is a topic I cannot skip.",
+  "The mood is bad, I can see that, but this question belongs before the signature."
+ ],
+ "pool.verhandlung_handgeld.e.e4": [
+  "I suspect the club is struggling, but please consider a staggered payment so that we do not fail.",
+  "The talks are stalling, a signing bonus in instalments might be the way out before the whole thing collapses."
+ ],
+ "pool.verhandlung_handgeld.e.e5": [
+  "We are close to signing, only the signing bonus is still open, so let us settle it quickly.",
+  "The contract is nearly finished, only the one-off payment is missing, and then we can sign."
+ ],
+ "pool.verhandlung_handgeld.e.e6": [
+  "The signing bonus is our lever, and with it the overall picture can still move in either direction.",
+  "Everything is still movable, and a one-off payment could be the decisive factor."
+ ],
+ "pool.verhandlung_handgeld.e.e7": [
+  "Without a signing bonus he will not put a stroke on the paper, and that is my final word!",
+  "He will not be tied down for pocket money, please read that carefully!"
+ ],
+ "pool.verhandlung_handgeld.e.e8": [
+  "You once promised me a loyalty bonus that never came. This time I expect it before the signature.",
+  "A word given about a one-off payment was not kept, so I now insist on clarity on paper."
+ ],
+ "pool.verhandlung_handgeld.e.e9": [
+  "He would be pleased with a gesture for the extension, I leave the amount to you.",
+  "Appreciation counts for him, and a loyalty bonus would be the visible proof."
+ ],
+ "pool.verhandlung_handgeld.e.e10": [
+  "Anyone who takes his career seriously gets paid for committing, and my client does the same.",
+  "A signing bonus is not charity, it is the price for turning down other offers."
+ ],
+ "pool.verhandlung_handgeld.a.a1": [
+  "I will pay the signing bonus on signature. The commitment comes in writing, and the contract should be done within {frist} days.",
+  "Agreed, the club bears the one-off payment, and in return he signs within {frist} days."
+ ],
+ "pool.verhandlung_handgeld.a.a2": [
+  "I will split the sum into instalments tied to appearances and staying in the squad.",
+  "Staggered it would be feasible, one part on signing, the rest after the first half of the season and at the end of it."
+ ],
+ "pool.verhandlung_handgeld.a.a3": [
+  "What does he offer in return? An extension without a release clause would be a start.",
+  "What does the club get in return, more years, a waiver of the clause?"
+ ],
+ "pool.verhandlung_handgeld.a.a4": [
+  "A signing bonus only comes against something in return, namely length and waiving the clause. The sum has to work out for both.",
+  "We pay for commitment, not for a signature alone. Whoever stays long also gets more."
+ ],
+ "pool.verhandlung_handgeld.a.a5": [
+  "We have worked together fairly for a long time. I am looking for a solution that honours his performance without overburdening the club.",
+  "Your client means something to us, and I want to show him that, in a way that everyone can bear."
+ ],
+ "pool.verhandlung_handgeld.a.a6": [
+  "A signing bonus is not on the table here. Whoever wants to stay should do so out of conviction and not for cash.",
+  "I do not pay for a signature. I tell you that as plainly as I can."
+ ],
+ "pool.verhandlung_handgeld.a.a7": [
+  "Please turn to the club: signing bonuses are approved by the board, not the sporting side.",
+  "The club keeps the purse. Send your demand to the board, I will give no recommendation on it."
+ ],
+ "pool.verhandlung_handgeld.a.a8": [
+  "My position stands. You will receive no one-off payment from me, not even on the third attempt.",
+  "That is how it stays, I give no signing bonus, and another letter changes nothing."
+ ],
+ "pool.verhandlung_handgeld.a.a9": [
+  "I will see to it as soon as the situation allows. It will work itself out.",
+  "A signing bonus can surely be arranged at some point, for now I ask for patience."
+ ],
+ "pool.verhandlung_handgeld.a.a10": [
+  "There are no loyalty bonuses here, that is club policy and I will not bypass it.",
+  "There will be no special payment for an individual, that applies to everyone in the squad."
+ ],
+ "pool.verhandlung_handgeld.a.a11": [
+  "I understand that he wants to see appreciation. I will show it to him another way, in conversations and in the line-up.",
+  "It is about recognition for him, I have understood that. Money is only one way among many."
+ ],
+ "pool.verhandlung_handgeld.a.a12": [
+  "A loyalty bonus is nice, but I would like to know whether it also applies retroactively for all the years in which he earned well with us.",
+  "A signing bonus sounds lovely, but my bank statement also has a claim to a say in it."
+ ],
+ "pool.verhandlung_handgeld.r.r1": [
+  "{b.gut} That is an offer I can put to my client with a clear conscience.",
+  "{b.gut} I can work with this answer, thank you for the clear line."
+ ],
+ "pool.verhandlung_handgeld.r.r2": [
+  "{b.gut} He will appreciate the gesture, and so will I.",
+  "{b.gut} I like the tone of your reply, that is how partners negotiate."
+ ],
+ "pool.verhandlung_handgeld.r.r3": [
+  "{b.gut} A payment for clear performance, that is entirely in his spirit.",
+  "{b.gut} He will read every instalment as a spur, and he will supply the performance."
+ ],
+ "pool.verhandlung_handgeld.r.r4": [
+  "{b.gut} That you take his feelings seriously weighs more for him than any number.",
+  "{b.gut} He felt seen, and I credit your reply for that."
+ ],
+ "pool.verhandlung_handgeld.r.r5": [
+  "{b.neutral} I will forward your reply and keep you posted.",
+  "{b.neutral} Thank you for your message, I will consult my client."
+ ],
+ "pool.verhandlung_handgeld.r.r6": [
+  "{b.neutral} How he takes that I cannot predict, he is one way today and another tomorrow.",
+  "{b.neutral} I will read him your lines calmly, whether he agrees remains open."
+ ],
+ "pool.verhandlung_handgeld.r.r7": [
+  "{b.neutral} So it stays exciting, the payment decides in the end.",
+  "{b.neutral} Neither yes nor no, the signing bonus remains the open flank."
+ ],
+ "pool.verhandlung_handgeld.r.r8": [
+  "{b.neutral} I will take it calmly, a few days to think never hurt anyone.",
+  "{b.neutral} No reason to hurry, we will talk further next week."
+ ],
+ "pool.verhandlung_handgeld.r.r9": [
+  "{b.schlecht} I cannot come to him with an answer like that.",
+  "{b.schlecht} That is far below what I expected."
+ ],
+ "pool.verhandlung_handgeld.r.r10": [
+  "{b.schlecht} He will rage when he reads this, and I cannot blame him!",
+  "{b.schlecht} He will take that personally, and I will not hold him back!"
+ ],
+ "pool.verhandlung_handgeld.r.r11": [
+  "{b.schlecht} Then the signing bonus is simply waiting at a rival.",
+  "{b.schlecht} There are plenty of clubs that pay for a signature."
+ ],
+ "pool.verhandlung_handgeld.r.r12": [
+  "{b.schlecht} After such long cooperation I would have expected a bit more tact.",
+  "{b.schlecht} The answer hits him deeply, and I can see how hard he will take it."
+ ],
+ "pool.verhandlung_handgeld.r.r13": [
+  "{b.gut} Then practically nothing stands in the way of the signature.",
+  "{b.gut} I will prepare the paperwork, the one-off payment is settled."
+ ],
+ "pool.verhandlung_handgeld.r.r14": [
+  "{b.schlecht} Then we are definitely not on the same line, and I say that without resentment.",
+  "{b.schlecht} That seems to be it for an agreement, I fear we are both wasting time."
+ ],
+ "pool.verhandlung_handgeld.x.x1": [
+  "The agent's reply comes quickly and in a friendly tone. {entscheidung} The dispute over the signing bonus is settled.",
+  "{entscheidung} Both sides arrive at a sum they can live with."
+ ],
+ "pool.verhandlung_handgeld.x.x2": [
+  "{entscheidung} The agent writes that he needs time to think, and the topic hangs in the balance.",
+  "The mail ends without a commitment. {entscheidung} Everyone waits for the next round."
+ ],
+ "pool.verhandlung_handgeld.x.x3": [
+  "{entscheidung} The agent replies sharply and copies in the management.",
+  "The reply turns poisonous. {entscheidung} Soon afterwards the tone around the player is noticeably cooler."
+ ],
+ "pool.verhandlung_handgeld.x.x4": [
+  "You put the arrangement in writing. {entscheidung} The agent confirms receipt and waits for the documents.",
+  "{entscheidung} The agent acknowledges the commitment with a short thank-you."
+ ],
+ "pool.verhandlung_handgeld.x.x5": [
+  "The agent stops replying. {entscheidung} Further mails go unread.",
+  "{entscheidung} He breaks off the correspondence without saying goodbye."
+ ],
+ "pool.verhandlung_laufzeit.e.e1": [
+  "At his age he needs security, so I demand a long term and fewer clauses.",
+  "He is no longer the youngest and wants to be covered until the end of his career, which means a long term."
+ ],
+ "pool.verhandlung_laufzeit.e.e2": [
+  "He is young and wants no long shackles, so a short term with higher pay.",
+  "For his age a long contract is a ball and chain, I argue for a short term with better pay."
+ ],
+ "pool.verhandlung_laufzeit.e.e3": [
+  "The mood is not the best, but I still have to talk about the length, because the decision brooks no delay.",
+  "I can feel the tension, but on length we are far apart, and that has to go on the table."
+ ],
+ "pool.verhandlung_laufzeit.e.e4": [
+  "I do not believe we will meet here unless someone moves on the length.",
+  "On duration we face each other like two walls, perhaps something can be built in the middle."
+ ],
+ "pool.verhandlung_laufzeit.e.e5": [
+  "Almost everything is settled, we only need to talk about the length once more.",
+  "All that is missing is an agreement on the duration, then the contract stands."
+ ],
+ "pool.verhandlung_laufzeit.e.e6": [
+  "The length decides which way it tips, and I hope we find a middle path.",
+  "Everything is still possible, and the duration is the lever with which the package can be rearranged."
+ ],
+ "pool.verhandlung_laufzeit.e.e7": [
+  "Either we agree on a sensible length, or the talks are over!",
+  "I will not sign a length that is dictated to me, even if it means a fight!"
+ ],
+ "pool.verhandlung_laufzeit.e.e8": [
+  "You held out an extension option that never got written down, so I now insist on a clear length.",
+  "The verbal promise on duration was not kept, so this time I only talk about paper."
+ ],
+ "pool.verhandlung_laufzeit.e.e9": [
+  "He wants a bond that shows trust and sees the length as a sign of how much he is wanted here.",
+  "The duration of the contract means a lot to him because it shows whether he has a future here."
+ ],
+ "pool.verhandlung_laufzeit.e.e10": [
+  "My client does not want to commit before he knows where the club is heading.",
+  "I consider short contracts the wiser choice, because they keep him free to plan anew with me at any time."
+ ],
+ "pool.verhandlung_laufzeit.a.a1": [
+  "He gets a long term, with development steps in his pay. The draft will be with you within {frist} days.",
+  "I offer long security with performance steps and will put the contract to you within {frist} days."
+ ],
+ "pool.verhandlung_laufzeit.a.a2": [
+  "I propose a short term with an extension option. The paper comes within {frist} days.",
+  "Short and flexible is possible if the club gets the extension option. Within {frist} days I will send the drafts."
+ ],
+ "pool.verhandlung_laufzeit.a.a3": [
+  "We meet in the middle: a medium term, with a review after a year.",
+  "A year less than the club wants, a year more than your client wants, that is my proposal."
+ ],
+ "pool.verhandlung_laufzeit.a.a4": [
+  "A long term helps both, he can plan, and we can invest in him.",
+  "A long contract protects him from fluctuations in form, so I consider it wise."
+ ],
+ "pool.verhandlung_laufzeit.a.a5": [
+  "I understand his wish for security. He should know that he has a future here.",
+  "The uncertainty of a short contract can weigh heavily, I take that seriously."
+ ],
+ "pool.verhandlung_laufzeit.a.a6": [
+  "What matters more to him, security or freedom, and what would he be willing to trade for it?",
+  "How does he see himself, rather as a man for the moment or as one who stays?"
+ ],
+ "pool.verhandlung_laufzeit.a.a7": [
+  "Contract lengths are set by the sporting director with the management, I will gladly put you through.",
+  "Please speak directly with the management, that is where the guidelines lie."
+ ],
+ "pool.verhandlung_laufzeit.a.a8": [
+  "The length is fixed, no more and no less, and your pressure changes nothing.",
+  "I do not negotiate the duration, full stop."
+ ],
+ "pool.verhandlung_laufzeit.a.a9": [
+  "I refuse a release clause after a short time. Then he could leave every summer.",
+  "There is no contract with a back door with me."
+ ],
+ "pool.verhandlung_laufzeit.a.a10": [
+  "We will sort that out, the duration will resolve itself.",
+  "Do not worry about the length, in the end it will fit."
+ ],
+ "pool.verhandlung_laufzeit.a.a11": [
+  "We know each other, and I want to keep him. Tell me openly what matters to him and I will build it in.",
+  "I value your client and am looking for a length that suits his circumstances."
+ ],
+ "pool.verhandlung_laufzeit.a.a12": [
+  "A contract is not a marriage, but a few years are allowed.",
+  "Short contracts are like short breaks: nice, but you have to keep repacking."
+ ],
+ "pool.verhandlung_laufzeit.r.r1": [
+  "{b.gut} That is a proposal one can seriously talk about.",
+  "{b.gut} With that I can convince my client."
+ ],
+ "pool.verhandlung_laufzeit.r.r2": [
+  "{b.gut} He will notice that he is wanted here, and that is worth a lot to him.",
+  "{b.gut} You have a way with him, I like that."
+ ],
+ "pool.verhandlung_laufzeit.r.r3": [
+  "{b.gut} With a clear outlook and performance steps he can count on something, that motivates him.",
+  "{b.gut} If the length fits his plan, he goes full throttle."
+ ],
+ "pool.verhandlung_laufzeit.r.r4": [
+  "{b.gut} You have understood how much uncertainty torments him.",
+  "{b.gut} These words calm him, I can already feel it."
+ ],
+ "pool.verhandlung_laufzeit.r.r5": [
+  "{b.neutral} I will take that to him and be in touch shortly.",
+  "{b.neutral} I will think it over and put it to him."
+ ],
+ "pool.verhandlung_laufzeit.r.r6": [
+  "{b.neutral} How he will react I cannot say, he is wavering these days.",
+  "{b.neutral} I hope he takes it calmly, I am not sure."
+ ],
+ "pool.verhandlung_laufzeit.r.r7": [
+  "{b.neutral} Then in the end everything hangs on the length, as before.",
+  "{b.neutral} The stalemate remains, the length decides."
+ ],
+ "pool.verhandlung_laufzeit.r.r8": [
+  "{b.neutral} No hurry, we will talk further about the length when the chance arises.",
+  "{b.neutral} I take that calmly, we still have time."
+ ],
+ "pool.verhandlung_laufzeit.r.r9": [
+  "{b.schlecht} That puts us back at the beginning.",
+  "{b.schlecht} That does not help me, I cannot put anything to him like this."
+ ],
+ "pool.verhandlung_laufzeit.r.r10": [
+  "{b.schlecht} He will not be pinned down, and neither will I!",
+  "{b.schlecht} That is no way to talk to a professional who knows his worth!"
+ ],
+ "pool.verhandlung_laufzeit.r.r11": [
+  "{b.schlecht} Then I will simply look at clubs that offer shorter contracts.",
+  "{b.schlecht} If he gets no freedom here, there are other places that will leave it to him."
+ ],
+ "pool.verhandlung_laufzeit.r.r12": [
+  "{b.schlecht} He had hoped to find a home here and feels rejected.",
+  "{b.schlecht} I had expected more understanding, after everything he does for this club."
+ ],
+ "pool.verhandlung_laufzeit.r.r13": [
+  "{b.gut} That clears the last point of dispute, I will call him right away.",
+  "{b.gut} Now the length fits, and we can finish the paper."
+ ],
+ "pool.verhandlung_laufzeit.r.r14": [
+  "{b.schlecht} Then we are no longer talking about the length but about his end here.",
+  "{b.schlecht} It will not work like this, and I will no longer hold my client back."
+ ],
+ "pool.verhandlung_laufzeit.x.x1": [
+  "The agent audibly breathes out. {entscheidung} The length is no longer a point of contention.",
+  "{entscheidung} Both sides arrive at a duration that combines security and freedom."
+ ],
+ "pool.verhandlung_laufzeit.x.x2": [
+  "{entscheidung} The agent wants to think the duration over with his client, and the call ends open.",
+  "The call is over, but nothing is decided. {entscheidung} The question remains in the air."
+ ],
+ "pool.verhandlung_laufzeit.x.x3": [
+  "{entscheidung} The agent accuses you of stalling him, and the argument gets loud.",
+  "The call ends in a quarrel. {entscheidung} In the following days the player avoids any conversation with you."
+ ],
+ "pool.verhandlung_laufzeit.x.x4": [
+  "You put a length in writing. {entscheidung} The agent keeps an eye on the deadline.",
+  "{entscheidung} He takes up the proposal and announces that he will examine it."
+ ],
+ "pool.verhandlung_laufzeit.x.x5": [
+  "The agent ends the call without comment. {entscheidung} All that remains is the dial tone.",
+  "{entscheidung} He hangs up without mentioning the length again."
+ ]
+}

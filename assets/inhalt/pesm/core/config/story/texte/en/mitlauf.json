@@ -1,0 +1,18 @@
+{
+  "_hinweis": "Texts for following along with the game: notice after loading an older save game.",
+  "aelterer_spielstand.betreff": {
+    "standard": [
+      "Back on an earlier day"
+    ]
+  },
+  "aelterer_spielstand.text": {
+    "standard": [
+      "You've loaded an earlier save game. What has already happened on the later days stays as it is. If you play those days again, none of it will happen a second time."
+    ]
+  },
+  "aelterer_spielstand.antwort.kenntnis": {
+    "standard": [
+      "Understood."
+    ]
+  }
+}

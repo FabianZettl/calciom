@@ -1,0 +1,78 @@
+{
+ "pool.b.ungeduld_nach_reha_lage": [
+  "I feel nothing anymore, and the doctor is still holding me back.",
+  "Rehab is almost done, only the doctor keeps me waiting."
+ ],
+ "pool.b.ungeduld_nach_reha_lage.hitzig": [
+  "I have been sitting around for weeks, and the doctor keeps interfering!",
+  "I am healthy and nobody lets me play, it drives me mad!"
+ ],
+ "pool.b.ungeduld_nach_reha_lage.loyal": [
+  "The team needs me, I can feel it, even though the doctor still warns.",
+  "I want to help the team again at last, but the doctor is still cautious."
+ ],
+ "pool.b.ungeduld_nach_reha_lage.ehrgeizig": [
+  "Every week on the bench costs me my place, doctor or not.",
+  "I want back in the starting eleven before my rival settles in."
+ ],
+ "pool.b.ungeduld_nach_reha_lage.wechselfreudig": [
+  "I want to play, here or elsewhere, and the doctor should not slow me down.",
+  "If I am not on the pitch soon, I will look for a club that needs me."
+ ],
+ "pool.b.ungeduld_nach_reha_lage.sensibel": [
+  "I feel pushed aside since my injury, and the doctor does not make it better.",
+  "I am afraid of being forgotten while everyone keeps sparing me."
+ ],
+ "pool.b.kritik_oeffentlich_lage": [
+  "The paper tore me apart after the last match.",
+  "Since the press report I get stared at in the street."
+ ],
+ "pool.b.kritik_oeffentlich_lage.hitzig": [
+  "They paraded me in the paper and everyone is watching!",
+  "What they write about me is outrageous, and nobody sets it straight!"
+ ],
+ "pool.b.kritik_oeffentlich_lage.loyal": [
+  "I never said a bad word about the club, and now my name is on the pillory.",
+  "I accept criticism, but I did not want to read it so publicly."
+ ],
+ "pool.b.kritik_oeffentlich_lage.ehrgeizig": [
+  "I know I must be better, but that slating was over the top.",
+  "I want to prove myself by performing, but the headline follows me until then."
+ ],
+ "pool.b.kritik_oeffentlich_lage.wechselfreudig": [
+  "Elsewhere they would not have dragged me through the mud like this.",
+  "If everyone here may pounce on me, I wonder whether I belong."
+ ],
+ "pool.b.kritik_oeffentlich_lage.sensibel": [
+  "The articles kept me awake, every line stays with me.",
+  "I hardly dare go into town anymore, it is all so uncomfortable."
+ ],
+ "pool.b.berater_druck_wechsel_lage": [
+  "There are several offers for {name}, and my patience is not endless.",
+  "There are concrete enquiries for {name}, and I must reply soon."
+ ],
+ "pool.b.berater_druck_wechsel_lage.hitzig": [
+  "{name} is furious and wants something to happen at last, or he signs elsewhere!",
+  "My client is about to explode, and I can barely hold him back!"
+ ],
+ "pool.b.berater_druck_wechsel_lage.loyal": [
+  "{name} would like to stay, but the situation hardly leaves him a choice.",
+  "He is attached to the club, which makes advising him hard, but the clock is running."
+ ],
+ "pool.b.berater_druck_wechsel_lage.ehrgeizig": [
+  "{name} wants to take the next career step, and the offers provide it.",
+  "My client sees his future at a top club, and the enquiries are coming."
+ ],
+ "pool.b.berater_druck_wechsel_lage.wechselfreudig": [
+  "{name} is long since in his head with the other clubs courting him.",
+  "He is already looking around, and I have not contradicted him."
+ ],
+ "pool.b.berater_druck_wechsel_lage.sensibel": [
+  "{name} does not feel valued and asked me to sort this out.",
+  "He does not dare say it himself, so I am calling."
+ ],
+ "pool.b.berater_druck_wechsel_gruss": [
+  "Good day, this is the agent of {name}.",
+  "Good day, I am calling about my client {name}."
+ ]
+}

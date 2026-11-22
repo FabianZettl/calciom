@@ -1,0 +1,499 @@
+{
+ "ueber_ziel": {
+  "teile": [
+   [
+    "{gegner} schlägt ein.",
+    "{gegner} muss nicht lange überlegen.",
+    "Das passt {gegner} sofort."
+   ],
+   [
+    "Der Vorschlag liegt über dem, was man dort erwartet hat.",
+    "Mehr hatte man gar nicht verlangt.",
+    "So ein Angebot lehnt niemand ab."
+   ],
+   [
+    "Die Sache ist beschlossen.",
+    "Ihr seid euch einig.",
+    ""
+   ]
+  ]
+ },
+ "in_zone": {
+  "teile": [
+   [
+    "{gegner} überlegt kurz und stimmt zu.",
+    "Nach kurzem Zögern sagt {gegner} ja.",
+    "{gegner} lenkt ein."
+   ],
+   [
+    "Es ist nicht ganz das, was man wollte, aber es ist fair.",
+    "Man trifft sich in der Mitte.",
+    "Das Paket stimmt in der Summe."
+   ],
+   [
+    "Ihr seid euch einig.",
+    "Handschlag.",
+    ""
+   ]
+  ],
+  "ton": {
+   "hardliner": [
+    [
+     "{gegner} knurrt, nimmt aber an.",
+     "Ausnahmsweise sagt {gegner} ja."
+    ],
+    [
+     "Mehr gibt es von dort nicht, und mehr war auch nicht drin.",
+     "Das war schon knapp an der Schmerzgrenze."
+    ],
+    [
+     "Den Rest verhandelt man nicht mehr.",
+     ""
+    ]
+   ],
+   "pragmatiker": [
+    [
+     "{gegner} sagt zu.",
+     "{gegner} will keine Zeit verlieren und sagt zu."
+    ],
+    [
+     "Beide Seiten können damit leben.",
+     "Ein vernünftiger Kompromiss."
+    ],
+    [
+     "Gut, dass ihr es unkompliziert gelöst habt.",
+     ""
+    ]
+   ]
+  }
+ },
+ "gegenvorschlag": {
+  "teile": [
+   [
+    "{gegner} kommt dir entgegen.",
+    "{gegner} antwortet mit einem Gegenvorschlag.",
+    "Von {gegner} kommt eine Gegenforderung."
+   ],
+   [
+    "Für {summe} wäre man bereit, die Sache zu besiegeln.",
+    "Mit {summe} könnte man sich dort einigen.",
+    "Unter {summe} sieht man keinen Spielraum."
+   ],
+   [
+    "Ein Stück seid ihr schon beieinander.",
+    "Das ist ein Angebot, kein Ultimatum.",
+    "Überlege es dir."
+   ]
+  ],
+  "ton": {
+   "hardliner": [
+    [
+     "{gegner} bleibt hart.",
+     "{gegner} rückt nur einen Millimeter ab."
+    ],
+    [
+     "Mehr als {summe} liegt nicht drin.",
+     "Man verlangt {summe}, sonst nichts."
+    ],
+    [
+     "Das ist der Preis.",
+     ""
+    ]
+   ],
+   "pragmatiker": [
+    [
+     "{gegner} bewegt sich auf dich zu.",
+     "{gegner} schlägt einen Mittelweg vor."
+    ],
+    [
+     "{summe} wäre ein Weg, den man dort gehen kann.",
+     "Bei {summe} sind beide Seiten zufrieden."
+    ],
+    [
+     "Schlag ein, und alles ist klar.",
+     ""
+    ]
+   ]
+  }
+ },
+ "letztes_wort": {
+  "teile": [
+   [
+    "{gegner} legt sich fest.",
+    "Das ist das letzte Wort von {gegner}.",
+    "{gegner} zieht einen Schlussstrich."
+   ],
+   [
+    "Man bleibt bei {summe}.",
+    "Mehr als {summe} verlangt man nicht, weniger nimmt man nicht.",
+    "Zu {summe} oder gar nicht."
+   ],
+   [
+    "Du kannst annehmen, ablehnen oder aufstehen.",
+    "Weitere Vorschläge nimmt man nicht mehr an.",
+    "Das war es."
+   ]
+  ]
+ },
+ "ablehnen_zu_wenig": {
+  "teile": [
+   [
+    "{gegner} schüttelt den Kopf.",
+    "{gegner} lehnt den Vorschlag ab.",
+    "So nicht, sagt {gegner}."
+   ],
+   [
+    "Das liegt unter dem, was man akzeptieren kann.",
+    "Die Summe ist deutlich zu niedrig.",
+    "Damit fängt man dort nicht an."
+   ],
+   [
+    "Leg nach.",
+    "Ein besserer Vorschlag wird gehört.",
+    "Man erwartet mehr."
+   ]
+  ],
+  "ton": {
+   "hardliner": [
+    [
+     "{gegner} lässt dich abblitzen.",
+     "{gegner} lacht kurz auf."
+    ],
+    [
+     "Damit braucht man gar nicht erst zu kommen.",
+     "Das ist keine Verhandlungsbasis."
+    ],
+    [
+     "Komm mit Substanz wieder.",
+     ""
+    ]
+   ],
+   "pragmatiker": [
+    [
+     "{gegner} bedauert.",
+     "{gegner} bleibt freundlich, sagt aber nein."
+    ],
+    [
+     "Der Vorschlag liegt noch zu weit entfernt.",
+     "Hier fehlt noch ein gutes Stück."
+    ],
+    [
+     "Mit etwas mehr geht es weiter.",
+     ""
+    ]
+   ]
+  }
+ },
+ "nicht_ernst": {
+  "teile": [
+   [
+    "{gegner} ist verärgert.",
+    "{gegner} fühlt sich nicht ernst genommen.",
+    "{gegner} reagiert gereizt."
+   ],
+   [
+    "Das ist nicht ernst gemeint.",
+    "So ein Vorschlag ist eine Beleidigung.",
+    "Wer so anfängt, will nicht verhandeln."
+   ],
+   [
+    "Die Stimmung leidet.",
+    "Das war ein Fehlstart.",
+    ""
+   ]
+  ]
+ },
+ "abbruch_geduld": {
+  "teile": [
+   [
+    "{gegner} hat genug.",
+    "Die Geduld von {gegner} ist am Ende.",
+    "{gegner} beendet das Gespräch."
+   ],
+   [
+    "Man kommt nicht zusammen.",
+    "Es geht seit Runden nicht voran.",
+    "Der Aufwand lohnt sich nicht mehr."
+   ],
+   [
+    "Für {tage} Tage ruft dort niemand zurück.",
+    "Vorerst ist das Thema vom Tisch ({tage} Tage Pause).",
+    ""
+   ]
+  ],
+  "ton": {
+   "hardliner": [
+    [
+     "{gegner} knallt den Hörer auf.",
+     "{gegner} steht auf und geht."
+    ],
+    [
+     "So kommt man nicht weiter.",
+     "Man hat keine Lust mehr auf dein Spiel."
+    ],
+    [
+     "{tage} Tage Funkstille.",
+     ""
+    ]
+   ]
+  }
+ },
+ "druck_geplatzt": {
+  "teile": [
+   [
+    "Der Druck geht nach hinten los.",
+    "{gegner} lässt sich nicht drängen.",
+    "{gegner} reagiert auf den Druck mit Trotz."
+   ],
+   [
+    "Man fühlt sich überfahren.",
+    "Das Vertrauen leidet.",
+    "Wer drängelt, bekommt weniger."
+   ],
+   [
+    "Die Stimmung kippt.",
+    "Es wird frostig.",
+    ""
+   ]
+  ]
+ },
+ "bedenkzeit": {
+  "teile": [
+   [
+    "{gegner} bittet um Bedenkzeit.",
+    "\"Wir melden uns\", sagt {gegner}.",
+    "{gegner} will darüber schlafen."
+   ],
+   [
+    "Man will die Sache intern besprechen.",
+    "Es gibt noch Rücksprache.",
+    "Eine schnelle Antwort gibt es nicht."
+   ],
+   [
+    "Die Antwort kommt bis zum Tagesabschluss.",
+    "Morgen weißt du mehr.",
+    ""
+   ]
+  ]
+ },
+ "bedenkzeit_ja": {
+  "teile": [
+   [
+    "{gegner} meldet sich mit einer guten Nachricht.",
+    "Die Bedenkzeit hat sich gelohnt."
+   ],
+   [
+    "{gegner} sagt zu.",
+    "Man ist einverstanden."
+   ],
+   [
+    "Ihr seid euch einig.",
+    ""
+   ]
+  ]
+ },
+ "bedenkzeit_gegen": {
+  "teile": [
+   [
+    "{gegner} hat nachgedacht.",
+    "Nach der Bedenkzeit meldet sich {gegner}."
+   ],
+   [
+    "Man hat intern gerechnet.",
+    "Die Rücksprache ist durch."
+   ],
+   [
+    "Mit {summe} wäre man einverstanden.",
+    "Man bleibt bei etwa {summe}."
+   ]
+  ]
+ },
+ "letztes_ok": {
+  "teile": [
+   [
+    "{gegner} schlägt ein.",
+    "{gegner} respektiert das letzte Angebot.",
+    "{gegner} nimmt dein letztes Angebot an."
+   ],
+   [
+    "Es ist hart, aber man hat es verstanden.",
+    "Die Grenze ist ernst gemeint, das merkt man.",
+    "Hier bedarf es keiner weiteren Worte."
+   ],
+   [
+    "Ihr seid euch einig.",
+    "Abgemacht.",
+    ""
+   ]
+  ],
+  "ton": {
+   "hardliner": [
+    [
+     "{gegner} schluckt und nimmt an.",
+     "Du hast es geschafft: {gegner} sagt ja."
+    ],
+    [
+     "Das war knapp, ein Bluff wäre es nicht gewesen."
+    ],
+    [
+     ""
+    ]
+   ],
+   "pragmatiker": [
+    [
+     "{gegner} respektiert deine Klarheit und nimmt an."
+    ],
+    [
+     "Wer eine Grenze nennt, den nimmt man ernst."
+    ],
+    [
+     ""
+    ]
+   ]
+  }
+ },
+ "letztes_unter_schmerz": {
+  "teile": [
+   [
+    "{gegner} lehnt ab.",
+    "Für {gegner} ist das kein Angebot."
+   ],
+   [
+    "Das letzte Angebot liegt weit unter der Grenze, die man ziehen kann.",
+    "So tief geht man nicht."
+   ],
+   [
+    "Die Gespräche sind beendet.",
+    "Man ruft dort vorerst nicht zurück.",
+    ""
+   ]
+  ]
+ },
+ "letztes_bluff": {
+  "teile": [
+   [
+    "{gegner} glaubt an einen Bluff.",
+    "{gegner} nimmt das letzte Angebot nicht ernst."
+   ],
+   [
+    "Wer so eine Grenze setzt, der hat noch Luft, denkt man dort.",
+    "Man will es nicht darauf ankommen lassen."
+   ],
+   [
+    "Die Gespräche sind beendet.",
+    "Das kostet Vertrauen.",
+    ""
+   ]
+  ]
+ },
+ "letztes_nein": {
+  "teile": [
+   [
+    "{gegner} lehnt dein letztes Angebot ab.",
+    "{gegner} sagt nein."
+   ],
+   [
+    "Es fehlt noch ein Stück.",
+    "Zu diesem Preis will man nicht.",
+    "Die Seiten kommen nicht zusammen."
+   ],
+   [
+    "Die Gespräche sind beendet.",
+    "Eine Pause von {tage} Tagen folgt.",
+    ""
+   ]
+  ]
+ },
+ "frist": {
+  "teile": [
+   [
+    "Die Frist ist abgelaufen.",
+    "{gegner} hat nicht mehr gewartet."
+   ],
+   [
+    "Zu lange ohne Antwort.",
+    "Man hat sich anders entschieden."
+   ],
+   [
+    "Die Gespräche sind vorbei.",
+    ""
+   ]
+  ]
+ },
+ "abgebrochen": {
+  "teile": [
+   [
+    "Du hast die Gespräche abgebrochen.",
+    "Du bist aufgestanden."
+   ],
+   [
+    "Mit {gegner} geht es erst einmal nicht weiter.",
+    "{gegner} nimmt es zur Kenntnis."
+   ],
+   [
+    "Es gibt eine Pause von {tage} Tagen.",
+    ""
+   ]
+  ]
+ },
+ "vom_nutzer_abgelehnt": {
+  "teile": [
+   [
+    "Du lehnst das letzte Wort von {gegner} ab.",
+    "Du gehst nicht auf das letzte Wort ein."
+   ],
+   [
+    "Das Geschäft platzt.",
+    "Damit ist das Thema vom Tisch."
+   ],
+   [
+    "Pause von {tage} Tagen.",
+    ""
+   ]
+  ]
+ },
+ "zeit_gewaehrt": {
+  "teile": [
+   [
+    "{gegner} gibt dir ein paar Tage mehr.",
+    "{gegner} verlängert die Frist."
+   ],
+   [
+    "Die Geduld sinkt trotzdem.",
+    "Man wartet, aber nicht ewig."
+   ],
+   [
+    ""
+   ]
+  ]
+ },
+ "bedingung": {
+  "teile": [
+   [
+    "{gegner} stellt eine Bedingung.",
+    "Bei {gegner} gibt es noch einen offenen Punkt."
+   ],
+   [
+    "{text}"
+   ],
+   [
+    ""
+   ]
+  ]
+ },
+ "annehmen_gegen": {
+  "teile": [
+   [
+    "Du nimmst das Angebot von {gegner} an.",
+    "Ihr schlagt ein."
+   ],
+   [
+    "Es steht {summe} im Vertrag.",
+    "Das Paket steht."
+   ],
+   [
+    ""
+   ]
+  ]
+ }
+}

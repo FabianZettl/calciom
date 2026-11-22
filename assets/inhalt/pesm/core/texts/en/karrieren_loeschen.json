@@ -1,0 +1,6 @@
+{
+ "karrieren.loeschen.nicht_bestaetigt": "Deleting needs your explicit confirmation.",
+ "karrieren.loeschen.aktiv": "The career that is currently open cannot be deleted. Pick another one first or close the selection.",
+ "karrieren.loeschen.backup_fehlt": "The backup before deleting did not work, so the career is left unchanged.",
+ "karrieren.loeschen.ok": "The career “%1” has been removed from PESM. A backup is in the backup folder; your save in the game is untouched."
+}

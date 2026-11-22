@@ -1,0 +1,186 @@
+{
+  "_hinweis": "Follow-up texts for step 3: the player gets in touch after a promise or with a transfer request (“Gaffer”, formal); the manager replies informally. The texts don't name the promise in detail and so fit any kind of promise. Placeholders: {spieler_kurz}.",
+  "versprechen_gehalten.betreff": {
+    "standard": [
+      "{spieler_kurz} says thanks"
+    ]
+  },
+  "versprechen_gehalten.text": {
+    "standard": [
+      "Gaffer, you kept your word. I won't forget that. I wanted to thank you for it.",
+      "Gaffer, just a quick word from me: you did what you said you would. That's not a given. Thanks."
+    ],
+    "typ": {
+      "egoist": [
+        "Gaffer, you delivered what was agreed. Good. Now you can see what you have in me."
+      ],
+      "kumpel": [
+        "Gaffer, you kept your promise, and I told the lads as much. You can be relied on. Thanks for that."
+      ],
+      "heisssporn": [
+        "Gaffer, I'll admit I didn't believe it. You've proved me wrong. Respect."
+      ],
+      "vorbildprofi": [
+        "Gaffer, thank you for keeping your promise. I'll repay it with performances."
+      ],
+      "diva": [
+        "Gaffer, you did what you promised me. I expect that, but I appreciate it. That's how I like working with you."
+      ],
+      "anfuehrer": [
+        "Gaffer, your word could be trusted. That gets around the dressing room, and it helps me keep the squad behind you."
+      ]
+    }
+  },
+  "versprechen_gehalten.antwort.anerkennung": {
+    "standard": [
+      "A deal is a deal. You've earned it."
+    ]
+  },
+  "versprechen_gehalten.antwort.ansporn": {
+    "standard": [
+      "That was the start. Now I want to see you back it up."
+    ]
+  },
+  "versprechen_gehalten.antwort.abwinken": {
+    "standard": [
+      "Don't thank me. Ease off and you're back out of the side."
+    ]
+  },
+  "versprechen_gehalten.rueckmeldung.anerkennung": {
+    "standard": [
+      "Glad to hear it, gaffer. You can count on me."
+    ]
+  },
+  "versprechen_gehalten.rueckmeldung.ansporn": {
+    "standard": [
+      "Understood. I'll keep at it."
+    ]
+  },
+  "versprechen_gehalten.rueckmeldung.abwinken": {
+    "standard": [
+      "Fair enough. I just wanted to say it."
+    ]
+  },
+  "versprechen_gebrochen.betreff": {
+    "standard": [
+      "{spieler_kurz}: promise not kept"
+    ]
+  },
+  "versprechen_gebrochen.text": {
+    "standard": [
+      "Gaffer, you promised me something. Nothing has happened. I want to know whether your word still counts.",
+      "Gaffer, I've waited, as we agreed. The promise hasn't been honoured. That disappoints me."
+    ],
+    "typ": {
+      "egoist": [
+        "Gaffer, you promised me something and didn't keep it. That's no way to treat me. I'll draw my own conclusions."
+      ],
+      "kumpel": [
+        "Gaffer, I believed you and defended you in front of the others. Now I look a fool. What am I supposed to make of that?"
+      ],
+      "heisssporn": [
+        "Gaffer, you promised me to my face, and nothing has come of it. I won't be strung along!"
+      ],
+      "vorbildprofi": [
+        "Gaffer, I've done my part. Your promise is still outstanding. I'd ask for an honest explanation."
+      ],
+      "diva": [
+        "Gaffer, I'm not used to being promised something and then forgotten. That shouldn't happen with a player of my standing."
+      ],
+      "anfuehrer": [
+        "Gaffer, you haven't kept your word to me. That's not just my business: the dressing room is watching closely how you handle promises."
+      ]
+    }
+  },
+  "versprechen_gebrochen.antwort.einloesen": {
+    "standard": [
+      "You're right. I'll put it right, and straight away."
+    ]
+  },
+  "versprechen_gebrochen.antwort.erklaeren": {
+    "standard": [
+      "The situation has changed. I couldn't keep it, and I'll tell you openly why."
+    ]
+  },
+  "versprechen_gebrochen.antwort.abstreiten": {
+    "standard": [
+      "I didn't guarantee you anything. On the pitch, whoever deserves it plays."
+    ]
+  },
+  "versprechen_gebrochen.rueckmeldung.einloesen": {
+    "standard": [
+      "Good. I won't wait a second time, though."
+    ]
+  },
+  "versprechen_gebrochen.rueckmeldung.erklaeren": {
+    "standard": [
+      "I'm not happy. But at least you're telling me straight."
+    ]
+  },
+  "versprechen_gebrochen.rueckmeldung.abstreiten": {
+    "standard": [
+      "So that's how it is. Then I know what your word is worth."
+    ]
+  },
+  "wechselwunsch.betreff": {
+    "standard": [
+      "{spieler_kurz} wants to leave the club"
+    ]
+  },
+  "wechselwunsch.text": {
+    "standard": [
+      "Gaffer, I've thought long and hard. I see no future for myself here any more and want to leave the club.",
+      "Gaffer, I'll tell you straight: I want to move. I'm asking you to agree to a transfer."
+    ],
+    "typ": {
+      "egoist": [
+        "Gaffer, I'm wasting my time here. I want out, and to a club that knows what it has in me."
+      ],
+      "kumpel": [
+        "Gaffer, this is hard for me because I like the lads. But I can't go on like this. I'd like to make a fresh start somewhere else."
+      ],
+      "heisssporn": [
+        "Gaffer, I've had enough, finally. I want out. Put me on the transfer list."
+      ],
+      "vorbildprofi": [
+        "Gaffer, I'd like to ask you to allow a move. Until then I'll honour my contract and train as always."
+      ],
+      "diva": [
+        "Gaffer, I've watched this long enough. A player like me belongs on a bigger stage. I want to go."
+      ],
+      "anfuehrer": [
+        "Gaffer, I've always taken responsibility here. If I'm asking for a move now, it's not done lightly. Let's sort this out properly."
+      ]
+    }
+  },
+  "wechselwunsch.antwort.freigabe": {
+    "standard": [
+      "I won't stand in your way. If a suitable offer comes in, you can go."
+    ]
+  },
+  "wechselwunsch.antwort.umstimmen": {
+    "standard": [
+      "I want to keep you. Tell me what has to change for you to stay."
+    ]
+  },
+  "wechselwunsch.antwort.verweigern": {
+    "standard": [
+      "You have a contract, and you'll honour it. A move is out of the question."
+    ]
+  },
+  "wechselwunsch.rueckmeldung.freigabe": {
+    "standard": [
+      "Thanks, gaffer. Until then I'll give everything for the team."
+    ]
+  },
+  "wechselwunsch.rueckmeldung.umstimmen": {
+    "standard": [
+      "We can talk about that. But actions have to follow."
+    ]
+  },
+  "wechselwunsch.rueckmeldung.verweigern": {
+    "standard": [
+      "Noted. It won't make anyone happy here."
+    ]
+  }
+}

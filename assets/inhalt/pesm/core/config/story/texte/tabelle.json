@@ -1,0 +1,24 @@
+{
+  "_hinweis": "Texte zum Thema Tabelle. tabellenspitze: Schlagzeile der Presse. abstiegszone: Ein Vorstandsmitglied schreibt dem Trainer (förmlich, „Sie“). Platzhalter: {verein}, {platz}, {reporter}, {medium}, {vorstand}.",
+  "tabellenspitze.schlagzeile": { "standard": ["{verein} steht ganz oben", "Platz 1: {verein} gibt das Tempo vor"] },
+  "tabellenspitze.kurztext": {
+    "standard": [
+      "{verein} führt die Tabelle an. {reporter} ({medium}): „Wer nach so vielen Spieltagen oben steht, steht dort zu Recht. Ab jetzt ist jeder Gegner besonders motiviert.“",
+      "Tabellenführer: {verein} hat sich oben festgesetzt. {reporter} ({medium}) fragt, wie die Mannschaft damit umgeht, dass nun alle anderen hinter ihr her sind."
+    ]
+  },
+
+  "abstiegszone.betreff": { "standard": ["Tabellenlage: Platz {platz}"] },
+  "abstiegszone.text": {
+    "standard": [
+      "Platz {platz} entspricht nicht dem, was wir uns vorgenommen haben. Der Vorstand erwartet von Ihnen eine Einschätzung, wie wir aus dieser Lage herauskommen. – {vorstand}",
+      "Wir stehen auf Platz {platz}. Im Verein wächst die Sorge um den Klassenerhalt. Bitte teilen Sie mir mit, wie Sie die nächsten Wochen angehen wollen. – {vorstand}"
+    ]
+  },
+  "abstiegszone.antwort.plan":         { "standard": ["Wir stellen defensiver um und holen die Punkte über Stabilität. Geben Sie mir vier Spiele."] },
+  "abstiegszone.antwort.verstaerkung": { "standard": ["Mit diesem Kader wird es eng. Ich brauche Verstärkung."] },
+  "abstiegszone.antwort.ruhe":         { "standard": ["Die Mannschaft ist besser als ihr Tabellenplatz. Ich ändere nichts, wir bleiben ruhig."] },
+  "abstiegszone.rueckmeldung.plan":         { "standard": ["Gut. Vier Spiele, dann sprechen wir wieder. Der Vorstand misst Sie an diesem Plan."] },
+  "abstiegszone.rueckmeldung.verstaerkung": { "standard": ["Ich nehme das mit in die Sitzung. Zusagen kann ich nichts, und man wird fragen, warum der Kader erst jetzt nicht reicht."] },
+  "abstiegszone.rueckmeldung.ruhe":         { "standard": ["Wir nehmen das zur Kenntnis. Überzeugt hat es den Vorstand nicht. Die Ergebnisse müssen jetzt für Sie sprechen."] }
+}

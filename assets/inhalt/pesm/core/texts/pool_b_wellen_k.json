@@ -1,0 +1,114 @@
+{
+ "pool.b.vorstand_budget_antrag_gruss": [
+  "Guten Tag, hier schreibt Ihr Präsident.",
+  "Guten Tag, ich melde mich als Präsident zu Ihrem Antrag."
+ ],
+ "pool.b.vorstand_budget_antrag_lage": [
+  "Ihr Antrag auf mehr Transferbudget liegt mir vor, und die Kasse ist leerer, als uns lieb ist.",
+  "Sie möchten mehr Geld für Verpflichtungen, und ich muss das gegen die Finanzlage abwägen."
+ ],
+ "pool.b.vorstand_budget_antrag_lage.hitzig": [
+  "Schon wieder eine Geldforderung! Das Budget ist knapp, und Sie tun, als hätten wir eine Druckmaschine im Keller!",
+  "Ihr Antrag kommt zur Unzeit, und für Wunschlisten fehlt mir heute jede Geduld!"
+ ],
+ "pool.b.vorstand_budget_antrag_lage.loyal": [
+  "Ich vertraue Ihrer Arbeit und nehme Ihren Antrag deshalb ernst, auch wenn die Kasse dünn ist.",
+  "Sie haben den Rückhalt des Vereins, nur das Geld für Ihren Antrag muss ich erst auftreiben."
+ ],
+ "pool.b.vorstand_budget_antrag_lage.ehrgeizig": [
+  "Ich will diesen Verein nach oben bringen, und dafür kann mehr Budget sinnvoll sein. Überzeugen Sie mich, dass es sich lohnt.",
+  "Wenn mehr Geld uns einen Schritt weiterbringt, bin ich offen. Ihr Antrag liegt vor, und ich will Ergebnisse sehen."
+ ],
+ "pool.b.vorstand_budget_antrag_lage.wechselfreudig": [
+  "Ich überlege ohnehin, die Mittel neu zu verteilen, und Ihr Antrag fällt mitten in diese Überlegung.",
+  "Bei uns ändern sich Pläne schnell, auch die Finanzplanung. Ihr Antrag liegt vor, doch ob er noch passt, ist offen."
+ ],
+ "pool.b.vorstand_budget_antrag_lage.sensibel": [
+  "Ich habe lange überlegt, wie ich Ihnen antworte, denn ich möchte Sie nicht vor den Kopf stoßen: Das Budget ist knapp.",
+  "Ihr Antrag beschäftigt mich, und ich weiß, wie viel er Ihnen bedeutet, doch die Lage ist schwierig."
+ ],
+ "pool.b.vorstand_saisonziel_gruss": [
+  "Guten Tag, nehmen Sie bitte Platz, wir haben einiges zu besprechen.",
+  "Willkommen in der Sitzung, ich habe das Saisonziel auf die Tagesordnung gesetzt."
+ ],
+ "pool.b.vorstand_saisonziel_lage": [
+  "Die Tabelle zeigt, dass wir hinter dem Ziel liegen, das wir zu Saisonbeginn vereinbart haben.",
+  "Das Saisonziel rückt in die Ferne, und der Vorstand will wissen, wie es weitergehen soll."
+ ],
+ "pool.b.vorstand_saisonziel_lage.hitzig": [
+  "Wir sind hinter dem Ziel, und das ist nicht hinnehmbar! Der Vorstand hat genug von schönen Erklärungen!",
+  "Die Tabelle lügt nicht, und ich auch nicht: Das Saisonziel ist in Gefahr, und ich will Antworten!"
+ ],
+ "pool.b.vorstand_saisonziel_lage.loyal": [
+  "Ich stehe zu Ihnen, aber das Saisonziel gerät ins Wanken, und darüber müssen wir offen reden.",
+  "Wir sind seit Langem miteinander unterwegs, deshalb sage ich es geradeheraus: Das Ziel wackelt."
+ ],
+ "pool.b.vorstand_saisonziel_lage.ehrgeizig": [
+  "Ich habe diesem Verein ein klares Ziel gesetzt, und ich will es erreichen. Im Moment sieht es nicht danach aus.",
+  "Wer oben ankommen will, darf nicht hinterherlaufen, und genau das tun wir gerade."
+ ],
+ "pool.b.vorstand_saisonziel_lage.wechselfreudig": [
+  "Vielleicht war das Ziel von Anfang an falsch gewählt, und vielleicht ist es der Trainer. Das müssen wir klären.",
+  "Ich bin bereit, Ziel, Plan und Personal neu zu denken, wenn es so weitergeht."
+ ],
+ "pool.b.vorstand_saisonziel_lage.sensibel": [
+  "Es fällt mir nicht leicht, das anzusprechen, aber das Saisonziel liegt außer Reichweite, und es belastet uns alle.",
+  "Ich möchte niemanden bloßstellen, doch die Lage in der Tabelle macht mir Sorgen."
+ ],
+ "pool.b.verkaufsdruck_vorstand_gruss": [
+  "Guten Tag, ich wende mich in einer unangenehmen Sache an Sie.",
+  "Guten Tag, hier schreibt der Präsident, und es geht ums Geld."
+ ],
+ "pool.b.verkaufsdruck_vorstand_lage": [
+  "Das Transferbudget ist aufgebraucht, und der Verein muss die Kasse entlasten. Ein Spielerverkauf wäre der schnellste Weg.",
+  "Wir stehen im Minus, und die Bilanz verlangt Handlung. Ich erwarte, dass ein Spieler den Verein verlässt."
+ ],
+ "pool.b.verkaufsdruck_vorstand_lage.hitzig": [
+  "Die Kasse ist leer, und Sie sitzen auf Gehältern, die wir uns nicht leisten können! Ein Spieler geht, und zwar bald!",
+  "Ich habe genug von roten Zahlen! Verkaufen Sie jemanden, sonst tue ich es für Sie!"
+ ],
+ "pool.b.verkaufsdruck_vorstand_lage.loyal": [
+  "Ich will Ihnen nicht in die Kaderplanung reden, aber die Finanzlage lässt mir keine Wahl. Ein Verkauf muss ernsthaft geprüft werden.",
+  "Sie kennen meine Haltung zu Ihnen. Gerade deshalb bitte ich Sie, bei der Entlastung der Kasse mitzuhelfen."
+ ],
+ "pool.b.verkaufsdruck_vorstand_lage.ehrgeizig": [
+  "Wir können nur wachsen, wenn die Bilanz stimmt, und im Moment tut sie das nicht. Ein Verkauf schafft Luft für die nächste Investition.",
+  "Ein kluger Verkauf heute ist die Verpflichtung von morgen. Welche Entscheidung treffen Sie?"
+ ],
+ "pool.b.verkaufsdruck_vorstand_lage.wechselfreudig": [
+  "Spieler kommen und gehen, das ist das Geschäft. Ich sehe keinen Grund, warum nicht auch dieses Mal einer geht.",
+  "Ich habe die Mannschaft ohnehin nicht für die Ewigkeit geplant. Ein Verkauf passt in unser Modell."
+ ],
+ "pool.b.verkaufsdruck_vorstand_lage.sensibel": [
+  "Ich weiß, wie eng Sie mit Ihren Spielern verbunden sind, und es fällt mir schwer, das zu verlangen. Die Zahlen lassen aber nichts anderes zu.",
+  "Mir ist nicht wohl dabei, Ihnen das zu schreiben, aber ein Verkauf ist unvermeidlich geworden."
+ ],
+ "pool.b.vorstand_lob_serie_gruss": [
+  "Guten Tag, ich schreibe Ihnen heute einmal mit Freude.",
+  "Guten Tag, hier der Präsident, und diesmal mit guten Nachrichten."
+ ],
+ "pool.b.vorstand_lob_serie_lage": [
+  "Die Siegesserie ist im ganzen Verein spürbar, und der Vorstand ist des Lobes voll.",
+  "Mehrere Siege hintereinander, das hat uns allen gutgetan, und das möchte ich Ihnen persönlich sagen."
+ ],
+ "pool.b.vorstand_lob_serie_lage.hitzig": [
+  "Das ist endlich die Leistung, die ich sehen wollte! Weiter so, und lassen Sie bloß nicht nach!",
+  "Diese Serie ist genau richtig, und ich erwarte, dass sie nicht abreißt!"
+ ],
+ "pool.b.vorstand_lob_serie_lage.loyal": [
+  "Ich habe immer an Sie geglaubt, und die Serie gibt mir recht. Der Verein ist stolz auf Sie.",
+  "Es freut mich besonders, dass Ihre Arbeit nun Früchte trägt, denn Sie haben dem Verein lange die Treue gehalten."
+ ],
+ "pool.b.vorstand_lob_serie_lage.ehrgeizig": [
+  "Das ist eine Basis, auf der wir etwas Großes bauen können. Jetzt müssen wir nur den nächsten Schritt wagen.",
+  "Mit dieser Serie sind wir im Rennen, und ich will wissen, wie weit wir gehen können."
+ ],
+ "pool.b.vorstand_lob_serie_lage.wechselfreudig": [
+  "Die Serie ist erfreulich, doch ich weiß: Im Fußball dreht sich der Wind schnell. Genießen wir es, solange es dauert.",
+  "Erfolg hält nicht ewig, deshalb plane ich schon, wie wir ihn nutzen können, bevor er vergeht."
+ ],
+ "pool.b.vorstand_lob_serie_lage.sensibel": [
+  "Ihre Arbeit hat den ganzen Verein aufgerichtet, und ich wollte, dass Sie das aus erster Hand erfahren.",
+  "Es berührt mich, wie die Mannschaft sich entwickelt hat, und ich möchte Ihnen dafür danken."
+ ]
+}

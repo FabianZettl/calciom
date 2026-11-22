@@ -1,0 +1,17 @@
+{
+ "karrieren.entfernen.knopf": "Aus PESM entfernen",
+ "karrieren.entfernen.titel": "Karriere aus PESM entfernen?",
+ "karrieren.entfernen.text": "Alles, was PESM zu %1 gespeichert hat (Gespräche, Berichte, Entwicklung, Pläne), wird entfernt. Dein Spielstand im Spiel bleibt unberührt. Vorher legt PESM eine Sicherung unter ~/pesm-backup an.",
+ "karrieren.entfernen.tippen": "Zur Bestätigung den Namen eintippen",
+ "karrieren.entfernen.oder": "oder bewusst gedrückt halten",
+ "karrieren.entfernen.halten": "Gedrückt halten",
+ "karrieren.entfernen.gehalten": "Bestätigt",
+ "karrieren.entfernen.abbrechen": "Abbrechen",
+ "karrieren.entfernen.ja": "Entfernen",
+ "karrieren.entfernen.wartet": "Die Akte wird eingepackt …",
+ "karrieren.entfernen.fertig": "%1 wurde entfernt. Sicherung: %2",
+ "karrieren.entfernen.fertig_ohne": "%1 wurde entfernt.",
+ "karrieren.entfernen.schliessen": "Weiter",
+ "karrieren.entfernen.aktiv": "Diese Karriere ist gerade geöffnet.",
+ "karrieren.entfernen.fehler": "Das hat nicht geklappt. Die Karriere bleibt, wie sie war."
+}

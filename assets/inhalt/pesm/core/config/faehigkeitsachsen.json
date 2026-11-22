@@ -1,0 +1,23 @@
+{
+  "hinweis": "PESM-Gruppierung der 25 Fähigkeiten auf sechs Achsen (eigene Festlegung, nicht aus dem Spiel). Achsenwert = Mittelwert (Ø) der bekannten Fähigkeiten der Achse; eine Achse gilt als gelesen, wenn mindestens die Hälfte ihrer Fähigkeiten bekannt ist.",
+  "feld": {
+    "angriff": ["offensivgeist", "abschluss", "schusskraft", "kopfball"],
+    "technik": ["ballkontrolle", "dribbling", "enge_ballfuehrung", "effet"],
+    "passspiel": ["flachpass", "steilpass", "freistoss"],
+    "verteidigung": ["defensivgeist", "balleroberung", "aggressivitaet"],
+    "tempo": ["schnelligkeit", "antritt"],
+    "physis": ["koerperkontakt", "balance", "sprungkraft", "ausdauer"]
+  },
+  "torwart": {
+    "stellungsspiel": ["torwartgefuehl"],
+    "fangen": ["fangen"],
+    "abwehren": ["klaeren"],
+    "reflexe": ["reflexe"],
+    "reichweite": ["reichweite"],
+    "athletik": ["sprungkraft", "antritt", "schnelligkeit", "balance", "koerperkontakt"]
+  },
+  "weitere": {
+    "feld": ["torwartgefuehl", "fangen", "klaeren", "reflexe", "reichweite"],
+    "torwart": ["offensivgeist", "abschluss", "schusskraft", "kopfball", "ballkontrolle", "dribbling", "enge_ballfuehrung", "effet", "flachpass", "steilpass", "freistoss", "defensivgeist", "balleroberung", "aggressivitaet", "ausdauer"]
+  }
+}

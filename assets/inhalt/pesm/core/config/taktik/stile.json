@@ -1,0 +1,11 @@
+{
+  "hinweis": "Stilvorlagen des Taktik-Assistenten: eigene PESM-Heuristik (nicht aus dem Spiel). Schalter in der Reihenfolge Offensivstil, Aufbau, Angriffsbereich, Stellungsspiel, Defensivstil, Kontrollbereich, Pressing (0/1); Regler Unterstützungsbereich, Abwehrreihe, Kompaktheit (1-10). Nur Entwurf in PESM.",
+  "stile": {
+    "ballbesitz":    {"schalter": [1, 1, 1, 1, 1, 0, 1], "regler": [5, 5, 6], "ip": "4-3-3",   "oop": "4-4-2",   "plus": 2, "minus": 2},
+    "gegenpressing": {"schalter": [1, 1, 1, 1, 0, 0, 0], "regler": [7, 8, 7], "ip": "4-2-3-1", "oop": "4-4-2",   "plus": 2, "minus": 2},
+    "fluegelspiel":  {"schalter": [1, 0, 0, 1, 1, 1, 1], "regler": [6, 5, 5], "ip": "4-4-2",   "oop": "4-4-2",   "plus": 2, "minus": 2},
+    "direktspiel":   {"schalter": [0, 0, 1, 0, 1, 1, 1], "regler": [5, 4, 5], "ip": "4-4-2",   "oop": "4-1-4-1", "plus": 2, "minus": 2},
+    "konterspiel":   {"schalter": [0, 0, 0, 0, 1, 1, 1], "regler": [4, 3, 5], "ip": "4-1-4-1", "oop": "4-4-2",   "plus": 2, "minus": 2},
+    "catenaccio":    {"schalter": [0, 0, 1, 0, 1, 0, 1], "regler": [3, 2, 8], "ip": "5-3-2",   "oop": "5-3-2",   "plus": 2, "minus": 2}
+  }
+}

@@ -1,0 +1,458 @@
+{
+ "pool.kabinenstreit.e.e1": [
+  "{b.gruss} {b.kabinenstreit_lage} I wanted to tell you before it escalates.",
+  "{b.gruss} {b.kabinenstreit_lage} We hardly talk to each other anymore."
+ ],
+ "pool.kabinenstreit.e.e2": [
+  "{b.gruss} {b.kabinenstreit_lage} There was another jibe before training.",
+  "{b.gruss} {b.kabinenstreit_lage} The others notice it too."
+ ],
+ "pool.kabinenstreit.e.e3": [
+  "{b.gruss} {b.kabinenstreit_lage} Honestly, I'm at the end of my patience.",
+  "{b.gruss} {b.kabinenstreit_lage} I sleep badly because of it, and it shows on the pitch."
+ ],
+ "pool.kabinenstreit.e.e4": [
+  "{b.gruss} {b.kabinenstreit_lage} Either you sort it out, or I'll do it my way!",
+  "{b.gruss} {b.kabinenstreit_lage} One more jibe and it kicks off!"
+ ],
+ "pool.kabinenstreit.e.e5": [
+  "{b.gruss} {b.kabinenstreit_lage} I didn't want to tell tales, but it can't stay like this.",
+  "{b.gruss} {b.kabinenstreit_lage} I'm coming to you because I trust you."
+ ],
+ "pool.kabinenstreit.e.e6": [
+  "{b.gruss} {b.kabinenstreit_lage} We want to win something, and for that this has to go away.",
+  "{b.gruss} {b.kabinenstreit_lage} We won't win any trophies like this."
+ ],
+ "pool.kabinenstreit.e.e7": [
+  "{b.gruss} {b.kabinenstreit_lage} I don't want to be caught between the fronts.",
+  "{b.gruss} {b.kabinenstreit_lage} If nothing improves, I'll draw my conclusions."
+ ],
+ "pool.kabinenstreit.e.e8": [
+  "{b.gruss} {b.kabinenstreit_lage} You promised to look into it, and nothing has happened.",
+  "{b.gruss} {b.kabinenstreit_lage} Last time you pledged to help me, and I'm still waiting."
+ ],
+ "pool.kabinenstreit.e.e9": [
+  "{b.gruss} {b.kabinenstreit_lage} This isn't the first row in this dressing room, and it won't be the last.",
+  "{b.gruss} {b.kabinenstreit_lage} I fear camps have long since formed."
+ ],
+ "pool.kabinenstreit.a.a1": [
+  "First I want to hear what weighs on you. We'll find a way for you to work together again.",
+  "This is getting to you, I can tell. Tell me calmly what happened."
+ ],
+ "pool.kabinenstreit.a.a2": [
+  "Today I'll make a clear statement to the squad: arguments stay outside, the team comes first.",
+  "I'll tell everyone what I expect without naming names. Whoever sticks to it will have peace."
+ ],
+ "pool.kabinenstreit.a.a3": [
+  "I'll bring in the captain, he knows the dressing room and will mediate between you.",
+  "The captain will sit down with both of you. Then he reports back to me."
+ ],
+ "pool.kabinenstreit.a.a4": [
+  "A joint evening is on me, with the whole squad and no football talk. Maybe things will thaw.",
+  "I'll treat the team to dinner, you'll sit at one table, and we'll laugh again."
+ ],
+ "pool.kabinenstreit.a.a5": [
+  "I'll separate you in training, and if it doesn't settle, in {frist} days I'll see to it that one of you may leave the club.",
+  "Give me {frist} days. If it hasn't improved by then, one of you is free to move."
+ ],
+ "pool.kabinenstreit.a.a6": [
+  "It will surely settle by itself. Wait a few weeks.",
+  "Things like this happen in every dressing room, give it some time."
+ ],
+ "pool.kabinenstreit.a.a7": [
+  "Sort it out between yourselves, I'm not your referee.",
+  "I have more important things to do than settle dressing room rows."
+ ],
+ "pool.kabinenstreit.a.a8": [
+  "I demand calm. Whoever keeps needling will answer to me.",
+  "You behave like professionals, or there will be consequences. That includes you."
+ ],
+ "pool.kabinenstreit.a.a9": [
+  "What exactly happened, and who started it?",
+  "First tell me how it came to this. I want to know both sides."
+ ],
+ "pool.kabinenstreit.a.a10": [
+  "In training I'll use different pairings, you'll work apart for now. I can't do more right now.",
+  "From tomorrow you're in different groups, that creates distance."
+ ],
+ "pool.kabinenstreit.a.a11": [
+  "If this doesn't stop, you'll both sit on the bench, no matter who is right.",
+  "I won't pick either of you as long as you keep fighting."
+ ],
+ "pool.kabinenstreit.a.a12": [
+  "I know you hate arguments. Let's talk calmly, the three of us, I'll listen to both of you.",
+  "Thanks for coming. I take you seriously, and we'll clear this up together."
+ ],
+ "pool.kabinenstreit.r.r1": [
+  "{b.gut} Then I can walk into the dressing room calmly again.",
+  "{b.gut} That's a fair way."
+ ],
+ "pool.kabinenstreit.r.r2": [
+  "{b.gut} I'm glad you're taking care of it.",
+  "{b.gut} For the squad I'll gladly make the first move."
+ ],
+ "pool.kabinenstreit.r.r3": [
+  "{b.gut} If that helps, I'll be fully back at the next game.",
+  "{b.gut} Then we're soon back on course for a title."
+ ],
+ "pool.kabinenstreit.r.r4": [
+  "{b.gut} Just having you listen makes it easier.",
+  "{b.gut} I feel understood, thank you."
+ ],
+ "pool.kabinenstreit.r.r5": [
+  "{b.neutral} We'll see whether the statement changes anything.",
+  "{b.neutral} It's a start."
+ ],
+ "pool.kabinenstreit.r.r6": [
+  "{b.neutral} I don't know whether it helps, but I'll give it a chance.",
+  "{b.neutral} I'm still unsure how to behave now."
+ ],
+ "pool.kabinenstreit.r.r7": [
+  "{b.neutral} Hopefully it stays quiet.",
+  "{b.neutral} I'll watch how this develops."
+ ],
+ "pool.kabinenstreit.r.r8": [
+  "{b.neutral} Then I'll just see it matter-of-factly, it's not that bad.",
+  "{b.neutral} Fine by me, I can cope."
+ ],
+ "pool.kabinenstreit.r.r9": [
+  "{b.schlecht} That doesn't solve the problem.",
+  "{b.schlecht} Then the dressing room stays a powder keg."
+ ],
+ "pool.kabinenstreit.r.r10": [
+  "{b.schlecht} Then I'll sort it out myself, and you can watch!",
+  "{b.schlecht} You can't make me keep quiet!"
+ ],
+ "pool.kabinenstreit.r.r11": [
+  "{b.schlecht} If the club can't handle it, I'll look around.",
+  "{b.schlecht} Apparently nobody here wants to protect me."
+ ],
+ "pool.kabinenstreit.r.r12": [
+  "{b.schlecht} Pity, I thought you'd at least listen to me.",
+  "{b.schlecht} That's not how I pictured coming to you."
+ ],
+ "pool.kabinenstreit.x.x1": [
+  "The argument isn't forgotten, but defused. {entscheidung} It gets noticeably quieter in the dressing room.",
+  "{entscheidung} They leave separately, but without a grudge."
+ ],
+ "pool.kabinenstreit.x.x2": [
+  "Whether the fronts dissolve remains open. {entscheidung} It keeps simmering.",
+  "{entscheidung} Until the next incident, the peace is shaky."
+ ],
+ "pool.kabinenstreit.x.x3": [
+  "He storms out, and the door slams. {entscheidung} The dressing room splits further.",
+  "{entscheidung} The row will likely now be fought in the open."
+ ],
+ "pool.kabinenstreit.x.x4": [
+  "You have committed yourself. {entscheidung} Both players will make sure you keep your word.",
+  "{entscheidung} The clock is ticking, and the dressing room is watching."
+ ],
+ "pool.kabinenstreit.x.x5": [
+  "He cuts off the conversation mid-sentence. {entscheidung} He takes the quarrel with him into daily life.",
+  "{entscheidung} He gets up and leaves without another word."
+ ],
+ "pool.kapitaensbinde.e.e1": [
+  "{b.gruss} {b.kapitaensbinde_lage} I think the squad should be able to rely on me.",
+  "{b.gruss} {b.kapitaensbinde_lage} I'd like to know how you see it."
+ ],
+ "pool.kapitaensbinde.e.e2": [
+  "{b.gruss} {b.kapitaensbinde_lage} The lads bring their worries to me, not to the captain.",
+  "{b.gruss} {b.kapitaensbinde_lage} In the dressing room I'm the one who speaks up anyway."
+ ],
+ "pool.kapitaensbinde.e.e3": [
+  "{b.gruss} {b.kapitaensbinde_lage} It gnaws at me, and I can't easily shake it off.",
+  "{b.gruss} {b.kapitaensbinde_lage} I'm not in a good place right now, and this is part of it."
+ ],
+ "pool.kapitaensbinde.e.e4": [
+  "{b.gruss} {b.kapitaensbinde_lage} Either I get it, or you explain to everyone why not!",
+  "{b.gruss} {b.kapitaensbinde_lage} I won't be passed over, do you hear?"
+ ],
+ "pool.kapitaensbinde.e.e5": [
+  "{b.gruss} {b.kapitaensbinde_lage} I say it without resentment, it simply matters to me.",
+  "{b.gruss} {b.kapitaensbinde_lage} I accept your decision, but I'd like to understand it."
+ ],
+ "pool.kapitaensbinde.e.e6": [
+  "{b.gruss} {b.kapitaensbinde_lage} With the armband I'd take the team even further forward.",
+  "{b.gruss} {b.kapitaensbinde_lage} Give me the responsibility, and I'll show you what I make of it."
+ ],
+ "pool.kapitaensbinde.e.e7": [
+  "{b.gruss} {b.kapitaensbinde_lage} It's not just about the armband, it's about appreciation.",
+  "{b.gruss} {b.kapitaensbinde_lage} I wonder whether I'm really seen here."
+ ],
+ "pool.kapitaensbinde.e.e8": [
+  "{b.gruss} {b.kapitaensbinde_lage} You once held out the armband to me, and nothing has happened since.",
+  "{b.gruss} {b.kapitaensbinde_lage} Do you remember your word? I'm still waiting."
+ ],
+ "pool.kapitaensbinde.e.e9": [
+  "{b.gruss} {b.kapitaensbinde_lage} I feel the others looking to me and want to live up to that role.",
+  "{b.gruss} {b.kapitaensbinde_lage} The squad follows me anyway, the armband would just confirm it."
+ ],
+ "pool.kapitaensbinde.a.a1": [
+  "I see how much this means to you. You matter to this squad, armband or not.",
+  "That it occupies you so much shows how deeply you commit. I appreciate that."
+ ],
+ "pool.kapitaensbinde.a.a2": [
+  "I chose the captain by experience, time at the club and backing. Your influence is still great.",
+  "The decision wasn't against you, it reflects what I currently need for the squad."
+ ],
+ "pool.kapitaensbinde.a.a3": [
+  "Talk to the players' council, I want to know whom the players really stand behind.",
+  "The board and the captain should weigh in, then we'll talk again."
+ ],
+ "pool.kapitaensbinde.a.a4": [
+  "I'll invite you to dinner, we'll discuss your role over a good drink. The bill is mine.",
+  "You get an evening where we only talk about your role, at my expense."
+ ],
+ "pool.kapitaensbinde.a.a5": [
+  "You will be captain, handshake on it. In {frist} days we'll see how you fill the role.",
+  "The armband is yours from now on. After {frist} days I'll check whether it works for everyone."
+ ],
+ "pool.kapitaensbinde.a.a6": [
+  "Be patient, the season is long, and the armband isn't handed out forever.",
+  "We'll look again later, but not now."
+ ],
+ "pool.kapitaensbinde.a.a7": [
+  "The armband stays where it is. I won't discuss it.",
+  "No, that's out of the question. The decision stands."
+ ],
+ "pool.kapitaensbinde.a.a8": [
+  "Leadership shows in attitude, not fabric on the arm. Stop demanding.",
+  "I decide who wears the armband. Whoever applies pressure harms their own cause."
+ ],
+ "pool.kapitaensbinde.a.a9": [
+  "What would you do differently as captain, specifically?",
+  "Why now, and what exactly has changed for you?"
+ ],
+ "pool.kapitaensbinde.a.a10": [
+  "The pecking order is clear, and your place is behind the captain. That's no downgrade.",
+  "The captain answers to press and board, and that fits his role better right now."
+ ],
+ "pool.kapitaensbinde.a.a11": [
+  "Anyone who demands like this shows they aren't ready for the armband. I'm done with this topic.",
+  "After this performance, the topic is closed for a long time."
+ ],
+ "pool.kapitaensbinde.a.a12": [
+  "I know nobody makes this easy for you. Let's speak openly about what I value in you and where you can still grow.",
+  "Thanks for your honesty. I take you seriously as a leader, and we'll clear this up together."
+ ],
+ "pool.kapitaensbinde.r.r1": [
+  "{b.gut} That's an honest answer I can work with.",
+  "{b.gut} I can live with that."
+ ],
+ "pool.kapitaensbinde.r.r2": [
+  "{b.gut} I'll stay there for the squad, armband or not.",
+  "{b.gut} You can keep counting on me."
+ ],
+ "pool.kapitaensbinde.r.r3": [
+  "{b.gut} Then I'll give more every day so you won't regret it.",
+  "{b.gut} Responsibility is exactly what drives me."
+ ],
+ "pool.kapitaensbinde.r.r4": [
+  "{b.gut} That you put it to me like this means a lot.",
+  "{b.gut} Now I feel a bit appreciated."
+ ],
+ "pool.kapitaensbinde.r.r5": [
+  "{b.neutral} I'll sleep on it.",
+  "{b.neutral} Let's see how it develops."
+ ],
+ "pool.kapitaensbinde.r.r6": [
+  "{b.neutral} I'm still torn on whether to leave it at that.",
+  "{b.neutral} It only half reassures me, but I'm listening."
+ ],
+ "pool.kapitaensbinde.r.r7": [
+  "{b.neutral} Then I'll wait and see what the next weeks bring.",
+  "{b.neutral} The armband will probably remain an issue, but not today."
+ ],
+ "pool.kapitaensbinde.r.r8": [
+  "{b.neutral} It's only a piece of fabric, I can live with it.",
+  "{b.neutral} So be it, I'll keep playing anyway."
+ ],
+ "pool.kapitaensbinde.r.r9": [
+  "{b.schlecht} That's no way to treat a leader.",
+  "{b.schlecht} You're gambling away respect in the dressing room."
+ ],
+ "pool.kapitaensbinde.r.r10": [
+  "{b.schlecht} Then I'll tell the squad myself, and they will listen to me!",
+  "{b.schlecht} I won't forget this!"
+ ],
+ "pool.kapitaensbinde.r.r11": [
+  "{b.schlecht} Then I'll look for a club that gives me responsibility.",
+  "{b.schlecht} Elsewhere they know what they have in me."
+ ],
+ "pool.kapitaensbinde.r.r12": [
+  "{b.schlecht} I had expected more recognition.",
+  "{b.schlecht} Nobody listened to me today."
+ ],
+ "pool.kapitaensbinde.x.x1": [
+  "The wish for the armband loses its edge. {entscheidung} The player leaves the talk with his head high.",
+  "{entscheidung} He accepts his role and wants to fill it."
+ ],
+ "pool.kapitaensbinde.x.x2": [
+  "The armband question stays in limbo. {entscheidung} He'll raise it again.",
+  "{entscheidung} The matter is far from settled."
+ ],
+ "pool.kapitaensbinde.x.x3": [
+  "He feels passed over and withdraws. {entscheidung} The squad senses the tension.",
+  "{entscheidung} He carries his frustration openly into the dressing room."
+ ],
+ "pool.kapitaensbinde.x.x4": [
+  "The armband has been handed over, and word spreads fast. {entscheidung} The previous captain will hear of it.",
+  "{entscheidung} You have committed yourself, and the dressing room will watch closely."
+ ],
+ "pool.kapitaensbinde.x.x5": [
+  "He waves it off and leaves the talk unfinished. {entscheidung} The matter isn't settled.",
+  "{entscheidung} In mid-sentence he stands up and leaves the room."
+ ],
+ "pool.heimweh_familie.e.e1": [
+  "{b.gruss} {b.heimweh_lage} It's hard for me to concentrate on training.",
+  "{b.gruss} {b.heimweh_lage} Actually I didn't want to say anything."
+ ],
+ "pool.heimweh_familie.e.e2": [
+  "{b.gruss} {b.heimweh_lage} I phone home every evening and hardly sleep afterwards.",
+  "{b.gruss} {b.heimweh_lage} The city still feels strange to me."
+ ],
+ "pool.heimweh_familie.e.e3": [
+  "{b.gruss} {b.heimweh_lage} I know my performance is suffering, and that makes it worse.",
+  "{b.gruss} {b.heimweh_lage} I'm not doing well right now, to be honest."
+ ],
+ "pool.heimweh_familie.e.e4": [
+  "{b.gruss} {b.heimweh_lage} If nobody helps me, I'll get on the next plane!",
+  "{b.gruss} {b.heimweh_lage} I can't take this much longer!"
+ ],
+ "pool.heimweh_familie.e.e5": [
+  "{b.gruss} {b.heimweh_lage} I tried to manage it alone, but it doesn't quite work.",
+  "{b.gruss} {b.heimweh_lage} The club means a lot to me, which is why I'm telling you."
+ ],
+ "pool.heimweh_familie.e.e6": [
+  "{b.gruss} {b.heimweh_lage} I want to be fully back, I just don't know how.",
+  "{b.gruss} {b.heimweh_lage} I don't want an excuse, I want a solution."
+ ],
+ "pool.heimweh_familie.e.e7": [
+  "{b.gruss} {b.heimweh_lage} I don't know whether I'll be happy here in the long run.",
+  "{b.gruss} {b.heimweh_lage} Sometimes I wonder if I'm in the right place."
+ ],
+ "pool.heimweh_familie.e.e8": [
+  "{b.gruss} {b.heimweh_lage} You said it would get easier with time. It doesn't.",
+  "{b.gruss} {b.heimweh_lage} You wanted to help me with my family, but nothing has come of it so far."
+ ],
+ "pool.heimweh_familie.e.e9": [
+  "{b.gruss} {b.heimweh_lage} I'm still young and have never been away from my parents this long.",
+  "{b.gruss} {b.heimweh_lage} For the first time in my life I have no family nearby."
+ ],
+ "pool.heimweh_familie.a.a1": [
+  "That sounds like a hard time. You're not alone with it, and together we'll find something that helps.",
+  "I take you seriously, and you may come to me anytime when it overwhelms you."
+ ],
+ "pool.heimweh_familie.a.a2": [
+  "That's a normal step when you move to a new country. With routine and fixed rhythms it gets better.",
+  "Almost every player knows this in the first months. We'll build you a daily life where you find your footing."
+ ],
+ "pool.heimweh_familie.a.a3": [
+  "I'll ask an experienced teammate to look after you and show you the city.",
+  "You'll get a mentor from the squad who takes you under his wing."
+ ],
+ "pool.heimweh_familie.a.a4": [
+  "We'll invite your family for a weekend, the club pays for travel and hotel.",
+  "Your parents can come, we'll take care of the organisation and the costs."
+ ],
+ "pool.heimweh_familie.a.a5": [
+  "After the next match, within {frist} days, you get time off to fly home.",
+  "In {frist} days you may travel to your family, I promise you that firmly."
+ ],
+ "pool.heimweh_familie.a.a6": [
+  "It will pass, believe me. Give yourself a few more weeks.",
+  "You get used to anything with time."
+ ],
+ "pool.heimweh_familie.a.a7": [
+  "That's your private matter, it has nothing to do with football.",
+  "This is about performance. You have to leave private worries outside."
+ ],
+ "pool.heimweh_familie.a.a8": [
+  "Pull yourself together, others went through the same. I expect full effort.",
+  "I can't make allowances for homesickness, you're a professional."
+ ],
+ "pool.heimweh_familie.a.a9": [
+  "What exactly do you miss most, and when is it worst?",
+  "Tell me what your daily life is like here. Where does it stick the most?"
+ ],
+ "pool.heimweh_familie.a.a10": [
+  "Talk to our welfare officer, he has experience and time for this. Afterwards we'll go through the next steps together.",
+  "The club psychologist is there for cases like this. Book an appointment and then tell me."
+ ],
+ "pool.heimweh_familie.a.a11": [
+  "If you carry on like this, I'll have to drop you from the squad. That's not a threat, just consequence.",
+  "Whoever can't focus on football has no place in the matchday squad."
+ ],
+ "pool.heimweh_familie.a.a12": [
+  "I know how hard it is. If it helps, call me in the evening too, and we'll talk.",
+  "Thanks for telling me. That took courage, and I'm glad you trust me."
+ ],
+ "pool.heimweh_familie.r.r1": [
+  "{b.gut} That really does me good.",
+  "{b.gut} Then I see a ray of light again."
+ ],
+ "pool.heimweh_familie.r.r2": [
+  "{b.gut} I won't let you down, promise.",
+  "{b.gut} Thank you for caring about me like this."
+ ],
+ "pool.heimweh_familie.r.r3": [
+  "{b.gut} With a clear head I can go full throttle again.",
+  "{b.gut} Then I'll soon deliver again the way I can."
+ ],
+ "pool.heimweh_familie.r.r4": [
+  "{b.gut} It's as if a weight has been lifted.",
+  "{b.gut} Hearing that it's all right helps me a lot."
+ ],
+ "pool.heimweh_familie.r.r5": [
+  "{b.neutral} I'll try it and see if it holds.",
+  "{b.neutral} I'll give it a week."
+ ],
+ "pool.heimweh_familie.r.r6": [
+  "{b.neutral} I'm tired and can't think clearly right now.",
+  "{b.neutral} Maybe it helps, maybe not."
+ ],
+ "pool.heimweh_familie.r.r7": [
+  "{b.neutral} I need to digest what you said first.",
+  "{b.neutral} It's a start, I can't say more."
+ ],
+ "pool.heimweh_familie.r.r8": [
+  "{b.neutral} It'll be fine, I'll muddle through somehow.",
+  "{b.neutral} I'll take it as it comes."
+ ],
+ "pool.heimweh_familie.r.r9": [
+  "{b.schlecht} That makes me feel even lonelier.",
+  "{b.schlecht} That wasn't the help I needed."
+ ],
+ "pool.heimweh_familie.r.r10": [
+  "{b.schlecht} Then let someone else understand me, you certainly don't!",
+  "{b.schlecht} You have no idea how I feel!"
+ ],
+ "pool.heimweh_familie.r.r11": [
+  "{b.schlecht} Then I'll just go home, nothing holds me here.",
+  "{b.schlecht} If the club has so little understanding, the goal is clear."
+ ],
+ "pool.heimweh_familie.r.r12": [
+  "{b.schlecht} Oh never mind, I shouldn't have said anything.",
+  "{b.schlecht} It hurts that it counts for so little."
+ ],
+ "pool.heimweh_familie.x.x1": [
+  "The burden seems a little lighter. {entscheidung} The smile slowly returns.",
+  "{entscheidung} He leaves relieved and with new courage for the next session."
+ ],
+ "pool.heimweh_familie.x.x2": [
+  "Whether the homesickness eases remains open. {entscheidung} He has to find out how to bear it himself.",
+  "{entscheidung} The longing remains, and his form will show it."
+ ],
+ "pool.heimweh_familie.x.x3": [
+  "He withdraws completely and hardly gets in touch. {entscheidung} The situation worsens.",
+  "{entscheidung} Thoughts of leaving grow louder."
+ ],
+ "pool.heimweh_familie.x.x4": [
+  "The pledge gives him support. {entscheidung} He counts the days and expects you to keep your word.",
+  "{entscheidung} He now has something to look forward to."
+ ],
+ "pool.heimweh_familie.x.x5": [
+  "Mid-conversation his voice breaks, and he leaves the room. {entscheidung} The matter stays unresolved.",
+  "{entscheidung} He puts the phone aside and no longer replies."
+ ]
+}

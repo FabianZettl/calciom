@@ -1,0 +1,234 @@
+{
+ "need_upgrade": {
+  "teile": [
+   [
+    "Dem Trainer fehlte Qualität {rolle}, und {name} war genau der Mann, den er dafür wollte.",
+    "{club} suchte {rolle} Verstärkung, {name} passte in Klasse und Position.",
+    "Der Kader von {club} hatte {rolle} noch Luft nach oben, {name} soll die Lücke schließen.",
+    "Auf dem Papier war {club} {rolle} nicht gut genug besetzt, deshalb der Griff zu {name}.",
+    "Die Verantwortlichen bei {club} sahen {rolle} Handlungsbedarf und entschieden sich für {name}.",
+    "{name} war der Wunschspieler des Trainers {rolle}.",
+    "Wer {rolle} den Unterschied machen will, braucht Typen wie {name}: {club} hat zugegriffen."
+   ]
+  ]
+ },
+ "need_mangel": {
+  "teile": [
+   [
+    "{club} war {rolle} zu dünn besetzt, nur {cnt} {pos} im Kader, also musste {name} her.",
+    "Die Breite {rolle} fehlte bei {club}, mit {name} ist die Lücke zu.",
+    "Zu wenige {pos} im Kader von {club}: {name} füllt das Loch.",
+    "Ein Notfall {rolle}: {club} brauchte schnell Personal, und {name} war verfügbar."
+   ]
+  ]
+ },
+ "need_mangel_leer": {
+  "teile": [
+   [
+    "Der Kader von {club} war noch nicht voll, es fehlte Breite {rolle}. {name} kommt dafür.",
+    "{club} füllt den Kader auf: {rolle} war noch Platz, {name} bekommt ihn.",
+    "Für die Breite {rolle} holt {club} noch {name}."
+   ]
+  ]
+ },
+ "need_ersatz": {
+  "teile": [
+   [
+    "Als Ersatz für den Abgang von {gap} suchte {club} Qualität {rolle} und fand {name}.",
+    "{gap} ist weg, {name} soll {rolle} in seine Fußstapfen treten.",
+    "Nach dem Abschied von {gap} musste {club} {rolle} nachlegen, die Wahl fiel auf {name}.",
+    "Die Lücke, die {gap} hinterlassen hat, soll {name} schließen."
+   ]
+  ]
+ },
+ "prof_jung": {
+  "teile": [
+   [
+    "Der Trainer setzt auf junge Spieler.",
+    "Die Philosophie des Trainers: junge Spieler, die sich entwickeln.",
+    "Bei {club} spielt der Nachwuchsgedanke eine große Rolle."
+   ]
+  ]
+ },
+ "prof_erfahren": {
+  "teile": [
+   [
+    "Der Trainer setzt auf erfahrene Spieler.",
+    "Der Trainer vertraut lieber auf gestandene Kräfte.",
+    "Bei {club} zählt in dieser Phase Routine."
+   ]
+  ]
+ },
+ "via_pool": {
+  "teile": [
+   [
+    "{name} war vertragslos und kostete keine Ablöse.",
+    "{name} war ohne Verein, {club} musste nur ihn überzeugen.",
+    "Ohne Ablöse zu haben: {name} suchte noch einen Arbeitgeber.",
+    "Vereinslos und sofort verfügbar, das machte {name} interessant."
+   ]
+  ]
+ },
+ "via_clause": {
+  "teile": [
+   [
+    "{club} zog die Ausstiegsklausel in seinem Vertrag, {seller} hatte kein Mitspracherecht mehr.",
+    "Die Ausstiegsklausel machte es möglich: {seller} konnte den Wechsel nicht mehr verhindern.",
+    "Mit der festgeschriebenen Summe hebelte {club} den Vertrag bei {seller} aus."
+   ]
+  ]
+ },
+ "via_up": {
+  "teile": [
+   [
+    "{name} wollte den nächsten Schritt machen, und das Angebot von {club} war zu gut, um es abzulehnen.",
+    "Für {name} ist {club} sportlich ein Aufstieg, deshalb zögerte er nicht lange.",
+    "Perspektive und Angebot stimmten: {name} sagte {club} zu.",
+    "Der Spieler sah bei {club} mehr Zukunft als bei {seller} und drängte auf den Wechsel."
+   ]
+  ]
+ },
+ "via_down": {
+  "teile": [
+   [
+    "{seller} konnte das hohe Angebot nicht ausschlagen.",
+    "Bei dieser Summe wurde {seller} schwach.",
+    "{seller} nahm das Geld, auch wenn der Spieler sportlich eher ein Rückschritt war.",
+    "Das Angebot von {club} war so hoch, dass {seller} nicht Nein sagen konnte."
+   ]
+  ]
+ },
+ "last_minute": {
+  "teile": [
+   [
+    "Der Wechsel kam auf den letzten Drücker zustande.",
+    "Es ging ganz knapp: Die Unterschriften kamen kurz vor Fensterschluss.",
+    "Ein Last-Minute-Deal: Am Ende war nur noch wenig Zeit."
+   ]
+  ]
+ },
+ "loan_end": {
+  "teile": [
+   [
+    "Die Leihe ist abgelaufen, {name} kehrt zu {seller} zurück.",
+    "{name} hat seine Leihzeit hinter sich und ist wieder bei {seller}.",
+    "Nach der Leihe zu {club} geht {name} zurück zu seinem Stammverein {seller}.",
+    "Die Leihfrist ist um, {name} kehrt heim."
+   ]
+  ]
+ },
+ "finance_abstieg": {
+  "teile": [
+   [
+    "Die Fernsehgelder brechen nach dem Abstieg von {club} weg, deshalb greift die Abstiegsklausel in den Verträgen und alle Gehälter sinken.",
+    "Mit dem Abstieg verliert {club} einen großen Teil der TV-Einnahmen, die Gehälter werden laut Abstiegsklausel gekürzt.",
+    "Ohne die Erstligaeinnahmen kann {club} die Gehälter nicht halten: Die Abstiegsklausel greift bei allen Verträgen.",
+    "{club} muss sparen. Durch den Abstieg gelten in den Verträgen automatisch niedrigere Gehälter.",
+    "Der Abstieg hat Folgen für die Kasse von {club}: weniger Fernsehgeld, weniger Gehalt für alle."
+   ]
+  ]
+ },
+ "uefa_ligaphase": {
+  "teile": [
+   [
+    "Vier Töpfe nach Klasse; jeder Verein bekommt acht verschiedene Gegner, vier zu Hause und vier auswärts.",
+    "Die Auslosung teilt die Teams in vier Töpfe, jeder spielt gegen acht verschiedene Gegner, davon vier daheim.",
+    "Acht Spiele gegen acht verschiedene Gegner, vier zu Hause und vier auswärts: so läuft die Ligaphase.",
+    "Aus jedem Topf warten zwei Gegner, einmal im eigenen Stadion, einmal auswärts.",
+    "In der {liga} bekommt jeder Verein acht verschiedene Gegner, vier davon im eigenen Stadion.",
+    "Die Ligaphase der {liga} ist angerichtet: acht Spiele, acht Gegner, vier zu Hause."
+   ]
+  ]
+ },
+ "uefa_rueck": {
+  "teile": [
+   [
+    "Der besser Platzierte der Ligaphase hat das Rückspiel zu Hause.",
+    "Das Rückspiel gehört dem Team mit der besseren Ligaphase, es spielt vor eigenem Publikum.",
+    "Heimrecht im Rückspiel hat, wer in der Ligaphase besser abgeschnitten hat.",
+    "Wer in der Ligaphase vorn lag, darf im Rückspiel zu Hause antreten.",
+    "In der {liga} zählt für das Heimrecht im Rückspiel die Ligaphase.",
+    "{liga}: Das Rückspiel steigt beim besser Platzierten der Ligaphase."
+   ]
+  ]
+ },
+ "uefa_weiter": {
+  "teile": [
+   [
+    "{name} kommt weiter.",
+    "{name} steht in der nächsten Runde.",
+    "Für {name} geht es im Wettbewerb weiter.",
+    "{name} setzt sich durch und erreicht die nächste Runde."
+   ]
+  ]
+ },
+ "retire": {
+  "teile": [
+   [
+    "Mit {age} Jahren sucht {name} keinen neuen Vertrag mehr und hängt die Schuhe an den Nagel.",
+    "{name} ist {age} und hört auf, der Körper macht nicht mehr mit.",
+    "Nach einer langen Karriere beendet {name} mit {age} Jahren seine Laufbahn.",
+    "Mit {age} sagt {name} Lebewohl: Es ist Zeit für etwas Neues.",
+    "Mit {age} Jahren ist für {name} Schluss, er will sich anderem widmen."
+   ]
+  ]
+ },
+ "renew_why_stamm": {
+  "teile": [
+   [
+    "Um {y} {jahre}: wichtiger Stammspieler, neues Gehalt {wage} im Jahr.",
+    "{y} {jahre} mehr: Er ist gesetzt und bekommt {wage} im Jahr.",
+    "Der Verein bindet seinen Stammspieler {y} {jahre} länger, Gehalt {wage}.",
+    "Für {y} {jahre} verlängert: Stammkraft zu {wage} im Jahr."
+   ]
+  ]
+ },
+ "renew_why_talent": {
+  "teile": [
+   [
+    "Um {y} {jahre}: junges Talent mit Perspektive, neues Gehalt {wage} im Jahr.",
+    "{y} {jahre} mehr für das Talent, das sich entwickeln soll: {wage} im Jahr.",
+    "Der Klub sichert sich das Talent {y} {jahre} länger, Gehalt {wage}."
+   ]
+  ]
+ },
+ "renew_why_ok": {
+  "teile": [
+   [
+    "Um {y} {jahre}: gute Leistungen und bezahlbar, neues Gehalt {wage} im Jahr.",
+    "{y} {jahre} länger: Die Leistung stimmt, das Gehalt von {wage} passt.",
+    "Solide Leistungen, vernünftiges Geld: Er bleibt {y} {jahre} für {wage} im Jahr."
+   ]
+  ]
+ },
+ "uefa_topf": {
+  "teile": [
+   [
+    "Töpfe nach Stärke: aus jedem Topf zwei Gegner, einmal Heim- und einmal Auswärtsspiel.",
+    "In der {liga} warten aus jedem Topf zwei Gegner, einer zu Hause, einer auswärts.",
+    "Die Auslosung der {liga} hat {club} acht Gegner aus vier Töpfen beschert, vier davon daheim.",
+    "Je zwei Gegner aus jedem Topf, einmal Heimspiel, einmal Auswärtsspiel: so sieht der Plan für {club} aus."
+   ]
+  ]
+ },
+ "uefa_ende_ligaphase": {
+  "teile": [
+   [
+    "Die acht Besten der Ligaphase sind durch; Platz {a} bis {b} spielen die Play-offs, ab Platz {c} ist Schluss.",
+    "Wer unter den ersten acht landete, ist direkt weiter, die Plätze {a} bis {b} müssen in die Play-offs, danach ist Endstation.",
+    "Direkt im Achtelfinale stehen die Top Acht der {liga}; Platz {a} bis {b} spielt Play-offs, ab Platz {c} ist die Reise zu Ende.",
+    "Die {liga} trennt sich: oben die Direktqualifikation, Plätze {a} bis {b} in den Play-offs, der Rest scheidet aus."
+   ]
+  ]
+ },
+ "uefa_finale": {
+  "teile": [
+   [
+    "Beide haben sich im Halbfinale durchgesetzt.",
+    "Im Halbfinale mussten beide zittern, jetzt wartet das Endspiel.",
+    "Zwei Mannschaften, die den Weg bis hierher geschafft haben: {liga} hat sein Finale.",
+    "Das Finale der {liga} steht: Nach den Halbfinals bleiben diese beiden übrig."
+   ]
+  ]
+ }
+}

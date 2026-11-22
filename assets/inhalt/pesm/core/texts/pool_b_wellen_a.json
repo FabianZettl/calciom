@@ -1,0 +1,98 @@
+{
+ "pool.b.belastung_muede_lage": [
+  "Ich bin nach {spiele} Spielen am Stück ziemlich leer.",
+  "Die Beine sind schwer, und der Kopf ist es auch."
+ ],
+ "pool.b.belastung_muede_lage.hitzig": [
+  "Ihr verheizt mich, {spiele} Spiele nacheinander, und keiner fragt!",
+  "Ich bin doch keine Maschine, und trotzdem lauft ihr mich in Grund und Boden!"
+ ],
+ "pool.b.belastung_muede_lage.loyal": [
+  "Ich spiele gern für dich, aber nach {spiele} Spielen geht mir die Luft aus.",
+  "Ich beklage mich ungern, doch die Last der letzten Wochen drückt."
+ ],
+ "pool.b.belastung_muede_lage.ehrgeizig": [
+  "Ich will fit sein für die großen Spiele, und im Moment bin ich es nicht.",
+  "Mit leeren Akkus hole ich nichts mehr raus, und das ärgert mich."
+ ],
+ "pool.b.belastung_muede_lage.wechselfreudig": [
+  "Bei einem Verein, der mich so auslaugt, bleibe ich nicht ewig.",
+  "Anderswo würde man besser mit meinen Kräften haushalten."
+ ],
+ "pool.b.belastung_muede_lage.sensibel": [
+  "Ich fühle mich ausgelaugt und traue mich kaum, es zu sagen.",
+  "Abends liege ich wach, so angespannt ist alles in mir."
+ ],
+ "pool.b.verletzungsangst_rueckkehr_lage": [
+  "Körperlich bin ich wieder da, nur im Kopf noch nicht.",
+  "Seit der Verletzung bin ich im Zweikampf nicht mehr ich selbst."
+ ],
+ "pool.b.verletzungsangst_rueckkehr_lage.hitzig": [
+  "Alle drängen mich auf den Platz, und keiner sagt mir, wie ich die Angst loswerde!",
+  "Ich ärgere mich über mich selbst, weil ich im Zweikampf bremse."
+ ],
+ "pool.b.verletzungsangst_rueckkehr_lage.loyal": [
+  "Ich will der Mannschaft helfen, aber im Zweikampf halte ich noch zurück.",
+  "Ich möchte euch nicht enttäuschen, doch mein Kopf macht noch nicht mit."
+ ],
+ "pool.b.verletzungsangst_rueckkehr_lage.ehrgeizig": [
+  "Ich will zu alter Stärke zurück, und die Angst steht mir dabei im Weg.",
+  "Mein Ziel ist die alte Form, aber im Zweikampf bremst mich die Erinnerung."
+ ],
+ "pool.b.verletzungsangst_rueckkehr_lage.wechselfreudig": [
+  "Vielleicht tut mir ein Neuanfang woanders gut, hier erinnert mich zu viel an die Verletzung.",
+  "Ein Tapetenwechsel wäre vielleicht besser für meinen Kopf."
+ ],
+ "pool.b.verletzungsangst_rueckkehr_lage.sensibel": [
+  "Jeder Zweikampf bringt die Bilder von damals zurück.",
+  "Ich habe Angst, dass es wieder passiert, und ich traue mich kaum, das zu sagen."
+ ],
+ "pool.b.ehrgeiz_saisonziel_lage": [
+  "Ich frage mich, ob {verein} wirklich dahin kommt, wo es hinwill.",
+  "Wir liegen hinter dem Saisonziel, und das macht mir Sorgen."
+ ],
+ "pool.b.ehrgeiz_saisonziel_lage.hitzig": [
+  "Wir hängen hinter dem Ziel, und bei {verein} tut man, als sei alles in Ordnung!",
+  "Diese Tabelle ist eine Schande für einen Verein mit unseren Ansprüchen!"
+ ],
+ "pool.b.ehrgeiz_saisonziel_lage.loyal": [
+  "Ich glaube an {verein}, aber ich sehe, dass wir hinter dem Ziel liegen.",
+  "Ich will, dass {verein} Erfolg hat, und deshalb muss ich den Rückstand ansprechen."
+ ],
+ "pool.b.ehrgeiz_saisonziel_lage.ehrgeizig": [
+  "Ich will Titel, und mit diesem Tabellenstand sehe ich sie nicht.",
+  "Wer Großes will, darf nicht hinter dem Saisonziel liegen."
+ ],
+ "pool.b.ehrgeiz_saisonziel_lage.wechselfreudig": [
+  "Wenn {verein} die Ziele nicht erreicht, schaue ich mich nach einem Verein um, der es tut.",
+  "Ein Verein, der hinter seinen Zielen bleibt, ist auf Dauer nichts für mich."
+ ],
+ "pool.b.ehrgeiz_saisonziel_lage.sensibel": [
+  "Der Rückstand aufs Saisonziel nagt an mir, mehr als ich zeigen will.",
+  "Ich zweifle, ob unsere Mühe am Ende belohnt wird."
+ ],
+ "pool.b.positionswunsch_lage": [
+  "Ich würde gern woanders spielen als auf {position}.",
+  "Ich sehe mich auf einer anderen Position besser als auf {position}."
+ ],
+ "pool.b.positionswunsch_lage.hitzig": [
+  "Ich stehe auf {position} fest, obwohl ich woanders viel besser wäre, und keiner fragt!",
+  "Ich habe es satt, auf {position} festgenagelt zu sein!"
+ ],
+ "pool.b.positionswunsch_lage.loyal": [
+  "Ich spiele, wo du mich brauchst, aber anderswo könnte ich vielleicht mehr bringen.",
+  "Ich diene der Mannschaft auf {position}, würde aber gern eine andere Rolle ausprobieren."
+ ],
+ "pool.b.positionswunsch_lage.ehrgeizig": [
+  "Auf {position} bleibe ich unter meinen Möglichkeiten, ich will dort spielen, wo ich das Spiel prägen kann.",
+  "Ich will im Zentrum des Spiels stehen, nicht am Rand."
+ ],
+ "pool.b.positionswunsch_lage.wechselfreudig": [
+  "Bleibe ich auf {position} festgelegt, suche ich mir einen Verein, der mir mehr Freiheit lässt.",
+  "Anderswo hätte ich die Position, die mir liegt, vielleicht längst bekommen."
+ ],
+ "pool.b.positionswunsch_lage.sensibel": [
+  "Ich fühle mich auf {position} nicht ganz wohl, auch wenn ich es lange nicht gesagt habe.",
+  "Ich weiß nicht, ob ich das aussprechen darf, aber {position} liegt mir nicht."
+ ]
+}

@@ -1,0 +1,47 @@
+# Konfiguration des Personalmarkts (Sitzung S). Eigene Festlegungen von PESM, austauschbar.
+# Beträge in Euro je Jahr, Zeiten in Monaten, Fähigkeiten 1–100.
+
+[markt]
+bewerber_je_monat = { scout = 4, trainer = 5, jugendleiter = 2, co_trainer = 3, physio = 3, analyst = 2, arzt = 2, reha_trainer = 2, sportwissenschaftler = 2 }
+lebensdauer = [1, 3]              # so viele Monate bleibt ein Bewerber im Markt, danach hat er anderswo unterschrieben
+rueckblick = 3                    # Bewerber der letzten Monate sind noch im Angebot, soweit ihre Lebensdauer reicht
+stab_max = { scout = 6, trainer = 6, jugendleiter = 1, co_trainer = 3, physio = 3, analyst = 2, arzt = 2, reha_trainer = 2, sportwissenschaftler = 2 }
+vertrag_wunsch = [1, 4]
+alter = [29, 62]
+handgeld_anteil = 0.10            # einmalig, Anteil des Jahresgehalts
+abfindung_anteil = 0.5            # Restlaufzeit × Gehalt × Anteil
+trainer_bereiche = ["tor", "abwehr", "mittelfeld", "angriff", "alle"]
+
+[gehalt]
+# Grundgehälter eines kleinen Vereins; das Backend setzt sie je Verein aus der Geld-Schicht (pesm/fl/sim/geld.personal_basis) neu
+basis = { scout = 45_000, trainer = 70_000, jugendleiter = 60_000, co_trainer = 85_000, physio = 55_000, analyst = 50_000, arzt = 90_000, reha_trainer = 60_000, sportwissenschaftler = 70_000 }
+je_punkt = 0.012                  # je Punkt Fähigkeitsmittel über 50: Faktor
+ruf_je_punkt = 0.006              # je Punkt Ruf über 50
+
+[wirkung]
+bereich_gewicht = 1.0             # Trainer des eigenen Bereichs
+allgemein_gewicht = 0.6           # Trainer ohne festen Bereich
+co_gewicht = 0.4                  # Co-Trainer
+analyst_zeilen = [2, 6]           # so viele Stärken und Schwächen deckt die Gegneranalyse auf: ohne Analysten, mit bestem Analysten
+
+[medizin]
+# Medizinische Abteilung (MEDIZIN-KONZEPT): Posten und Einrichtung ergeben die Wirkungswerte, die das Medizinmodell (E) abfragt. Startwerte, nicht kalibriert.
+posten_gewicht = { arzt = 0.35, physio = 0.2, reha_trainer = 0.25, sportwissenschaftler = 0.2 }   # Anteil an der Qualität; fehlt ein Posten, zählt sein Anteil als Qualität 0
+posten_max_zaehlt = { arzt = 1, physio = 3, reha_trainer = 2, sportwissenschaftler = 1 }          # mehrere gleiche Posten: Mittel der besten
+stufen_max = 3
+einrichtung_bonus = 12.0          # Qualitätspunkte, die eine voll ausgebaute Einrichtung zusätzlich bringt (verteilt nach `einrichtung_gewicht`)
+einrichtung_gewicht = { reha = 0.4, diagnostik = 0.3, regeneration = 0.3 }
+ausbau_kosten = { reha = [400_000, 900_000, 1_800_000], diagnostik = [300_000, 700_000, 1_400_000], regeneration = [250_000, 600_000, 1_200_000] }   # Stufe 1, 2, 3
+unterhalt_je_stufe = 25_000       # je Jahr und Stufe
+# Wirkung: bei Qualität 0 / 50 / 100 (linear dazwischen); 1.0 = neutral. Streuung = ± Anteil der Prognosedauer
+verletzungsrate = [1.25, 1.0, 0.7]
+ausfalldauer = [1.3, 1.0, 0.75]
+rueckfall = [1.5, 1.0, 0.55]
+prognose_streuung = [0.55, 0.35, 0.12]
+belastung_genauigkeit = [0.3, 0.6, 0.95]
+# Persönlichkeit des Mannschaftsarztes: Faktoren auf Rückfall / Ausfalldauer / Streuung
+[medizin.persoenlichkeit]
+vorsichtig = { rueckfall = 0.9, ausfalldauer = 1.1, streuung = 0.9 }       # lässt lieber länger pausieren
+risikofreudig = { rueckfall = 1.15, ausfalldauer = 0.9, streuung = 1.1 }   # bringt Spieler früher zurück
+gewissenhaft = { rueckfall = 1.0, ausfalldauer = 1.0, streuung = 0.8 }     # genauere Prognosen
+pragmatisch = { rueckfall = 1.0, ausfalldauer = 1.0, streuung = 1.0 }

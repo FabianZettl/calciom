@@ -1,0 +1,88 @@
+{
+ "gs.angebot.eroeffnung": [
+  "%1 hat ein Angebot für %2 abgegeben: %3. Die Frist läuft, wir sollten reden.",
+  "Sportlich wie finanziell ist es ernst gemeint: %1 bietet %3 für %2."
+ ],
+ "gs.angebot.haltung.unbedingt": [
+  "„%1? Da will ich unbedingt hin. Bitte lass mich gehen.“",
+  "„%1 war immer mein Traum. Wenn es klappt, bin ich der glücklichste Mensch.“"
+ ],
+ "gs.angebot.haltung.chance": [
+  "„%1, ich sehe das als große Chance für meine Zukunft.“",
+  "„Ein Schritt nach oben, %1 ist eine Chance, die kommt nicht zweimal.“"
+ ],
+ "gs.angebot.haltung.offen": [
+  "„Ich höre mir an, was %1 bietet, entschieden ist noch nichts.“",
+  "„%1 ist interessant. Ich bleibe offen, wenn die Bedingungen stimmen.“"
+ ],
+ "gs.angebot.haltung.zoegernd": [
+  "„Ich bin hin- und hergerissen wegen %1. Es müsste schon einiges stimmen.“",
+  "„Ehrlich gesagt: Ich weiß nicht, ob ich %1 will. Lass uns reden.“"
+ ],
+ "gs.angebot.haltung.bleiben": [
+  "„Ich will hier nicht weg, auch nicht zu %1. Ich bleibe.“",
+  "„Danke für %1, aber ich fühle mich hier zu Hause. Bitte nicht verkaufen.“"
+ ],
+ "gs.angebot.grund.ehrgeiz.plus": "Er will mehr erreichen.",
+ "gs.angebot.grund.ehrgeiz.minus": "Sein Ehrgeiz hält sich in Grenzen.",
+ "gs.angebot.grund.ruf.plus": "%1 ist ein größerer Verein.",
+ "gs.angebot.grund.ruf.minus": "%1 ist kein Schritt nach oben.",
+ "gs.angebot.grund.loyalitaet.plus": "Die Bindung an den Verein ist nicht stark.",
+ "gs.angebot.grund.loyalitaet.minus": "Er hängt am Verein.",
+ "gs.angebot.grund.wechselbereitschaft.plus": "Mit einem Wechsel hat er sich schon beschäftigt.",
+ "gs.angebot.grund.wechselbereitschaft.minus": "Wechseln liegt ihm fern.",
+ "gs.angebot.grund.rolle.plus": "Hier ist er nicht unersetzlich.",
+ "gs.angebot.grund.rolle.minus": "Er ist ein wichtiger Mann für die Mannschaft.",
+ "gs.angebot.grund.spielzeit.plus": "Er spielt zu wenig.",
+ "gs.angebot.grund.spielzeit.minus": "Er spielt viel und will das behalten.",
+ "gs.angebot.grund.moral.plus": "Er ist unzufrieden.",
+ "gs.angebot.grund.moral.minus": "Er fühlt sich wohl.",
+ "gs.angebot.grund.vertrag.plus": "Sein Vertrag läuft bald aus.",
+ "gs.angebot.grund.vertrag.minus": "Sein Vertrag läuft noch lange.",
+ "gs.angebot.grund.gehalt.plus": "Dort würde er mehr verdienen.",
+ "gs.angebot.grund.gehalt.minus": "Dort würde er weniger verdienen.",
+ "gs.angebot.ohne_zustimmung": "Gegen seinen Willen wird er nicht verkauft. Sprich zuerst mit ihm.",
+ "gs.ui.angebot.wartet": "Der Verein antwortet voraussichtlich am %1.",
+ "gs.ui.angebot.einig": "Einigung mit %1. Der Wechsel kann abgeschlossen werden.",
+ "gs.ui.angebot.vollziehen": "Wechsel abschließen",
+ "gs.ui.angebot_spieler": "Spieler anhören",
+ "gs.ui.angebot_ablehnen": "Angebot ablehnen",
+ "gs.ui.ok.angebot_begonnen": "Das Gespräch zum Angebot beginnt.",
+ "gs.ui.ok.angebot_spieler": "Du sprichst mit dem Spieler.",
+ "gs.ui.ok.angebot_abgelehnt": "Das Angebot ist abgelehnt. Der Spieler bleibt.",
+ "gs.ui.fehler.spieler_will_bleiben": "Er will bleiben und stimmt dem Verkauf nicht zu. Sprich zuerst mit ihm.",
+ "gs.ui.fehler.wartet": "Der Verein hat noch nicht geantwortet.",
+ "gs.ui.fehler.angebot_vorbei": "Das Angebot gilt nicht mehr.",
+ "gs.ui.fehler.kein_angebot": "Zu diesem Angebot gibt es kein Gespräch.",
+ "gs.vorfall.angebot_antwort_annahme.betreff": "Einigung über %1",
+ "gs.vorfall.angebot_antwort_annahme.text": "Der Verkauf von %1 ist vereinbart. Schließ den Wechsel ab, wenn du so weit bist.",
+ "gs.vorfall.angebot_antwort_gegen.betreff": "Neues Angebot für %1",
+ "gs.vorfall.angebot_antwort_gegen.text": "Der Verein hat auf deinen Vorschlag geantwortet und bietet neu für %1. Schau es dir an.",
+ "gs.vorfall.angebot_antwort_ablehnung.betreff": "Der Verein zieht sich zurück: %1",
+ "gs.vorfall.angebot_antwort_ablehnung.text": "Der Verein hat deinen Vorschlag für %1 abgelehnt und zieht das Angebot zurück.",
+ "gs.vorfall.angebot_antwort_offen.betreff": "Antwort zum Angebot für %1",
+ "gs.vorfall.angebot_antwort_offen.text": "Der Verein hat geantwortet, die Einzelheiten stehen im Gespräch.",
+ "gs.vorfall.angebot_antwort_spieler_will_bleiben.betreff": "%1 will bleiben",
+ "gs.vorfall.angebot_antwort_spieler_will_bleiben.text": "Der Spieler stimmt dem Verkauf nicht zu. Sprich mit ihm.",
+ "dlg.punkt.verkauf_ok": "Zustimmung zum Wechsel",
+ "dlg.stufe.verkauf_ok.0": "keine besonderen Zusagen",
+ "dlg.stufe.verkauf_ok.1": "ein offenes Wort über deine Zukunft",
+ "dlg.stufe.verkauf_ok.2": "eine Wechselprämie",
+ "dlg.stufe.verkauf_ok.3": "eine Beteiligung an der Ablöse",
+ "dlg.anliegen.verkauf_ok": [
+  "Dafür erwarte ich %3."
+ ],
+ "dlg.einigung.verkauf_ok": [
+  "Damit steht fest: %3."
+ ],
+ "dlg.eroeffnung.angebot": [
+  "%1 hat vom Angebot gehört: „Es gibt ein Angebot. Was hast du vor?“",
+  "%1 sagt: „Ich habe gehört, dass ein Verein mich will. Reden wir darüber.“"
+ ],
+ "gs.thema.angebot": "Angebot besprechen",
+ "gs.frage.angebot.0": [
+  "Es gibt ein Angebot für mich. Was hast du vor?"
+ ],
+ "tf.aktion.besprechen": "Besprechen",
+ "tv.aktion.besprechen": "Besprechen"
+}

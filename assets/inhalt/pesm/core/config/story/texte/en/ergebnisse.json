@@ -1,0 +1,68 @@
+{
+  "_hinweis": "Texts on the topic of results. siegesserie: voices of the fans, {zahl} = consecutive wins. sieglos_serie: press headline, {zahl} = games without a win. vorstand_nach_niederlagen: a board member writes (formal), {zahl} = consecutive defeats. Placeholders: {verein}, {zahl}, {reporter}, {medium}, {vorstand}, {fanvertreter}.",
+  "siegesserie.schlagzeile": {
+    "standard": [
+      "{zahl} wins in a row: the terraces are singing",
+      "Fans celebrate {verein}'s run"
+    ]
+  },
+  "siegesserie.kurztext": {
+    "standard": [
+      "{zahl} wins on the bounce, and the stadium is as loud as it's been in years. {fanvertreter} of the fans' council: “The team is giving us a lot back right now. We'll follow them everywhere.”",
+      "After win number {zahl} in a row, tickets are getting scarce. {fanvertreter}, fan spokesperson: “Nobody should get carried away. But we're allowed to enjoy it.”"
+    ]
+  },
+  "sieglos_serie.schlagzeile": {
+    "standard": [
+      "{zahl} games without a win: where is the turnaround?",
+      "Still no win for {verein}"
+    ]
+  },
+  "sieglos_serie.kurztext": {
+    "standard": [
+      "{verein} have waited {zahl} games for a win. {reporter} ({medium}): “It's not a lack of effort, it's a lack of ideas. This can't go on much longer.”",
+      "{zahl} games without a win: the mood is turning sour at {verein}. {reporter} ({medium}) says the manager must find an answer."
+    ]
+  },
+  "vorstand_nach_niederlagen.betreff": {
+    "standard": [
+      "{zahl} defeats in a row"
+    ]
+  },
+  "vorstand_nach_niederlagen.text": {
+    "standard": [
+      "{zahl} defeats on the trot are too many. The board would like to hear from you what's behind it and what you are changing. – {vorstand}",
+      "After {zahl} defeats in a row, questions are coming from around the club that I can no longer answer alone. I ask for your assessment. – {vorstand}"
+    ]
+  },
+  "vorstand_nach_niederlagen.antwort.verantwortung": {
+    "standard": [
+      "The responsibility is mine. I'm making changes, and you'll see a reaction in the next game."
+    ]
+  },
+  "vorstand_nach_niederlagen.antwort.erklaeren": {
+    "standard": [
+      "The performances were better than the results. We're sticking to our path."
+    ]
+  },
+  "vorstand_nach_niederlagen.antwort.mannschaft": {
+    "standard": [
+      "Some players aren't delivering what they're capable of. I'm taking a firm hand with the squad."
+    ]
+  },
+  "vorstand_nach_niederlagen.rueckmeldung.verantwortung": {
+    "standard": [
+      "That's what we wanted to hear. We're counting on the reaction coming."
+    ]
+  },
+  "vorstand_nach_niederlagen.rueckmeldung.erklaeren": {
+    "standard": [
+      "The board will back that for now. But there isn't much patience left."
+    ]
+  },
+  "vorstand_nach_niederlagen.rueckmeldung.mannschaft": {
+    "standard": [
+      "That's your call. Make sure the dressing room doesn't turn against you in the process."
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "_hinweis": "Texts on the topic of performance. torjaeger_im_lauf: press headline, {zahl} = goals this season. fuehrungsspieler_ausser_form: the player speaks in the conversation (“Gaffer”, formal); the manager replies informally. Placeholders: {spieler}, {spieler_kurz}, {verein}, {zahl}, {reporter}, {medium}.",
+  "torjaeger_im_lauf.schlagzeile": {
+    "standard": [
+      "{spieler_kurz} keeps scoring",
+      "{zahl} goals this season: {spieler_kurz} in top form"
+    ]
+  },
+  "torjaeger_im_lauf.kurztext": {
+    "standard": [
+      "{spieler} is on {zahl} goals this season for {verein}. {reporter} ({medium}): “At the moment almost everything he hits goes in. The only question is how long it lasts.”",
+      "{zahl} goals this season: {verein} are leaning heavily on {spieler} right now. {reporter} ({medium}) asks who will score if he's ever out."
+    ]
+  },
+  "fuehrungsspieler_ausser_form.betreff": {
+    "standard": [
+      "{spieler_kurz} is in a slump"
+    ]
+  },
+  "fuehrungsspieler_ausser_form.text": {
+    "standard": [
+      "Gaffer, I know myself that it's not going well. The simple things aren't coming off. I wanted to raise it before you did.",
+      "Gaffer, I'm not happy with my last few games. The team looks to me, and right now I'm giving them too little."
+    ],
+    "typ": {
+      "egoist": [
+        "Gaffer, I hear what's being said. A few weaker games and everything is questioned. I'll come out of it, but I need your backing."
+      ],
+      "kumpel": [
+        "Gaffer, what bothers me most is that I'm letting the lads down. If someone else is helping the team more right now, say so. I understand."
+      ],
+      "heisssporn": [
+        "Gaffer, I could scream right now. Nothing works, and the more I try, the worse it gets. What should I do?"
+      ],
+      "vorbildprofi": [
+        "Gaffer, I've watched my last games again. I lack freshness and pace. I'd like to put in extra work, if you agree."
+      ],
+      "diva": [
+        "Gaffer, a few games without sparkle and people start carping straight away. I know what I can do. Please make sure I'm left in peace during this spell."
+      ],
+      "anfuehrer": [
+        "Gaffer, I lead from the front, even when things aren't going my way. But I don't want to hurt the team. If you have to take me out, I'll accept it."
+      ]
+    }
+  },
+  "fuehrungsspieler_ausser_form.antwort.vertrauen": {
+    "standard": [
+      "You keep playing. I know what you can do, and it will come back."
+    ]
+  },
+  "fuehrungsspieler_ausser_form.antwort.pause": {
+    "standard": [
+      "You sit out a game or two and get your freshness back. Then you attack it again."
+    ]
+  },
+  "fuehrungsspieler_ausser_form.antwort.druck": {
+    "standard": [
+      "More has to come from you. Otherwise someone else plays at the weekend."
+    ]
+  },
+  "fuehrungsspieler_ausser_form.rueckmeldung.vertrauen": {
+    "standard": [
+      "Thanks, gaffer. I'll repay that trust."
+    ]
+  },
+  "fuehrungsspieler_ausser_form.rueckmeldung.pause": {
+    "standard": [
+      "It's not easy for me, but you're probably right."
+    ]
+  },
+  "fuehrungsspieler_ausser_form.rueckmeldung.druck": {
+    "standard": [
+      "Received. In this phase I'd have wished for something different."
+    ]
+  }
+}

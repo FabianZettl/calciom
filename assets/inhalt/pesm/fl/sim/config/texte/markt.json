@@ -1,0 +1,971 @@
+{
+ "club_zu_wenig": {
+  "teile": [
+   [
+    "{klub} lacht über das Angebot.",
+    "In der Chefetage von {klub} schüttelt man nur den Kopf.",
+    "{klub} winkt sofort ab.",
+    "Die Antwort von {klub} kommt prompt: So nicht."
+   ],
+   [
+    "Das liegt weit unter dem, was man für {name} erwartet.",
+    "Für einen Spieler wie {name} ist das deutlich zu wenig.",
+    "Mit dieser Summe fängt man bei {name} gar nicht erst an.",
+    "{name} ist dem Klub mehr wert."
+   ],
+   [
+    "",
+    "Ein ernsthaftes Angebot sieht anders aus.",
+    "Wer {name} will, muss spürbar mehr auf den Tisch legen.",
+    "Da ist noch viel Luft nach oben."
+   ]
+  ],
+  "ton": {
+   "hart": [
+    [
+     "{klub} lässt dich kühl abblitzen.",
+     "Von {klub} kommt nur ein knappes Nein."
+    ],
+    [
+     "Mit {name} spielt man dort nicht, schon gar nicht für diesen Preis.",
+     "Für {name} ruft {klub} einen ganz anderen Preis auf."
+    ],
+    [
+     "Wer so anfängt, braucht gar nicht weiterzureden.",
+     "Ihr müsst schon deutlich nachlegen, sonst wird das nichts."
+    ]
+   ],
+   "locker": [
+    [
+     "{klub} bleibt freundlich, schüttelt aber den Kopf.",
+     "Bei {klub} lächelt man höflich."
+    ],
+    [
+     "Das ist für {name} noch etwas zu wenig.",
+     "Mit {name} sollte schon mehr hereinkommen."
+    ],
+    [
+     "Gesprächsbereit ist man aber.",
+     "Ein paar Millionen mehr, dann kann man reden."
+    ]
+   ]
+  }
+ },
+ "club_gegenangebot": {
+  "teile": [
+   [
+    "{klub} ist nicht weit weg.",
+    "Bei {klub} sieht man Spielraum für eine Einigung.",
+    "{klub} zeigt sich gesprächsbereit.",
+    "Die Antwort von {klub} klingt nach Entgegenkommen."
+   ],
+   [
+    "Bei diesen Bedingungen will man für {name} etwa {summe}.",
+    "Für {name} stellt man sich etwa {summe} vor.",
+    "Mit etwa {summe} wäre {name} zu haben."
+   ],
+   [
+    "Dann könnte es klappen.",
+    "Das ist der Preis, bei dem man sich trifft.",
+    "Darunter geht nichts mehr.",
+    ""
+   ]
+  ],
+  "ton": {
+   "hart": [
+    [
+     "{klub} bewegt sich nur widerwillig."
+    ],
+    [
+     "Für {name} sind etwa {summe} das letzte Wort."
+    ],
+    [
+     "Mehr Entgegenkommen gibt es nicht."
+    ]
+   ],
+   "locker": [
+    [
+     "{klub} will sich nicht streiten."
+    ],
+    [
+     "Bei etwa {summe} wäre {name} zu haben."
+    ],
+    [
+     "Dann ist die Sache für alle erledigt."
+    ]
+   ]
+  }
+ },
+ "club_genug": {
+  "teile": [
+   [
+    "{klub} hat genug.",
+    "Bei {klub} ist die Geduld am Ende.",
+    "{klub} bricht die Gespräche ab."
+   ],
+   [
+    "Das Angebot bleibt weit unter den Vorstellungen.",
+    "Man hat sich nicht angenähert.",
+    "Die Vorstellungen liegen zu weit auseinander."
+   ],
+   [
+    "Die Gespräche sind beendet.",
+    "Vorerst ist das Thema vom Tisch.",
+    "Bis auf Weiteres gibt es nichts mehr zu besprechen."
+   ]
+  ]
+ },
+ "club_duenn": {
+  "teile": [
+   [
+    "{klub} kann {name} nicht abgeben.",
+    "Bei {klub} geht es nicht: {name} ist nicht zu ersetzen.",
+    "{klub} muss ablehnen."
+   ],
+   [
+    "Sonst wird der Kader auf seiner Position zu dünn.",
+    "Auf seiner Position hätte der Klub sonst kaum noch Alternativen.",
+    "Der Trainer hätte keinen Ersatz."
+   ],
+   [
+    "Die Gespräche sind beendet.",
+    "Das war es damit.",
+    ""
+   ]
+  ]
+ },
+ "club_angenommen": {
+  "teile": [
+   [
+    "{klub} ist mit den Bedingungen einverstanden.",
+    "Handschlag mit {klub}: Man ist sich einig.",
+    "{klub} sagt Ja zu deinem Angebot."
+   ],
+   [
+    "Jetzt musst du dich mit {name} und seinem Berater einigen.",
+    "Fehlt nur noch die Einigung mit {name} und seiner Seite.",
+    "Als Nächstes sitzt du mit {name} und seinem Berater am Tisch."
+   ],
+   [
+    ""
+   ]
+  ]
+ },
+ "spieler_gehalt": {
+  "teile": [
+   [
+    "{name} will mehr Gehalt.",
+    "Der Berater von {name} schüttelt den Kopf.",
+    "Bei {name} ist die Summe noch nicht angekommen.",
+    "{name} fühlt sich zu niedrig bezahlt."
+   ],
+   [
+    "Für diese Laufzeit und Rolle stellt er sich etwa {summe} im Jahr vor.",
+    "Er hat etwa {summe} im Jahr im Kopf.",
+    "Mit etwa {summe} im Jahr wäre er dabei."
+   ],
+   [
+    "",
+    "Das ist nicht unverschämt, sondern der Marktpreis.",
+    "Darunter wird er nicht unterschreiben."
+   ]
+  ],
+  "ton": {
+   "Geldgierig": [
+    [
+     "Der Berater von {name} pokert hoch.",
+     "Das Management von {name} greift tief in die Tasche, nur nicht in die eigene."
+    ],
+    [
+     "Er verlangt etwa {summe} im Jahr, und das ist erst der Anfang.",
+     "Unter {summe} im Jahr will er gar nicht weiterreden."
+    ],
+    [
+     "Verhandlungsspielraum? Eher nicht.",
+     "Das ist sein Preis, das ist sein Beruf."
+    ]
+   ],
+   "Loyal": [
+    [
+     "{name} hängt an seinem Umfeld und gibt sich verständnisvoll."
+    ],
+    [
+     "Nur etwas mehr als bisher: etwa {summe} im Jahr."
+    ],
+    [
+     "Dann ist er gern dabei."
+    ]
+   ],
+   "Ehrgeizig": [
+    [
+     "{name} will sportlich weiterkommen und das Gehalt soll das zeigen."
+    ],
+    [
+     "Etwa {summe} im Jahr, das entspricht seiner Rolle."
+    ],
+    [
+     "Er will gebraucht werden und das auch sehen."
+    ]
+   ]
+  }
+ },
+ "spieler_gehalt_ende": {
+  "teile": [
+   [
+    "{name} und sein Berater sind nicht zufrieden.",
+    "Das Angebot liegt für {name} zu weit unter dem Gewünschten.",
+    "So kommt ihr mit {name} nicht zusammen."
+   ],
+   [
+    "Gewünscht waren etwa {summe} im Jahr.",
+    "Er braucht etwa {summe} im Jahr, um zu unterschreiben."
+   ],
+   [
+    "Die Gespräche sind beendet.",
+    "Man geht ohne Einigung auseinander.",
+    "Damit ist die Sache vorerst erledigt."
+   ]
+  ]
+ },
+ "spieler_jahre": {
+  "teile": [
+   [
+    "Beim Gehalt seid ihr euch einig, aber {name} will {wunsch} Jahre statt {jahre}.",
+    "Letzter Knackpunkt: die Laufzeit. {name} denkt an {wunsch} Jahre, nicht an {jahre}.",
+    "{name} ist beim Geld zufrieden, möchte die Laufzeit aber auf {wunsch} Jahre ändern."
+   ],
+   [
+    "{grund}.",
+    "Das hat für ihn einen guten Grund: {grund}.",
+    ""
+   ],
+   [
+    "Ändere die Laufzeit, und es steht.",
+    "Mit {wunsch} Jahren wäre er dabei.",
+    ""
+   ]
+  ]
+ },
+ "spieler_stammplatz_glaubt_nicht": {
+  "teile": [
+   [
+    "{name} glaubt dir die Stammplatz-Zusage nicht.",
+    "{name} winkt bei der Stammplatz-Zusage ab.",
+    "Der Stammplatz ist für {name} nicht glaubwürdig."
+   ],
+   [
+    "Auf seiner Position sind bei dir schon bessere Leute gesetzt.",
+    "Bei dir stehen auf seiner Position Spieler vor ihm.",
+    "Er sieht auf seiner Position starke Konkurrenz im Kader."
+   ],
+   [
+    "Versprich ihm eine ehrlichere Rolle.",
+    "Biete ihm besser die Rolle an, die er wirklich hätte.",
+    ""
+   ]
+  ]
+ },
+ "spieler_will_spielen": {
+  "teile": [
+   [
+    "{name} will spielen und nicht auf der Bank sitzen.",
+    "Ersatz zu sein kommt für {name} nicht infrage.",
+    "{name} sieht sich als Stammspieler."
+   ],
+   [
+    "Bei dieser Rolle ist er nicht zu haben.",
+    "Mit einer Nebenrolle fängt er bei dir nicht an.",
+    "Er will in der Startelf stehen."
+   ],
+   [
+    ""
+   ]
+  ]
+ },
+ "spieler_kein_schritt": {
+  "teile": [
+   [
+    "{name} sieht bei deinem Klub sportlich keinen Schritt und winkt ab.",
+    "Für {name} wäre der Wechsel zu dir ein Rückschritt: Er lehnt ab.",
+    "{name} hat Größeres vor als deinen Klub."
+   ],
+   [
+    ""
+   ]
+  ]
+ },
+ "berater_honorar": {
+  "teile": [
+   [
+    "Der Berater verlangt ein ordentliches Honorar.",
+    "Sein Berater will ordentlich mitverdienen.",
+    "Der Agent von {name} möchte seinen Anteil sehen."
+   ],
+   [
+    "Er denkt an etwa {summe}.",
+    "Etwa {summe} stehen im Raum.",
+    "Mit etwa {summe} wäre er zufrieden."
+   ],
+   [
+    "Ohne das läuft nichts.",
+    "Darauf besteht er.",
+    "Das ist bei ihm Bedingung."
+   ]
+  ],
+  "ton": {
+   "Geldgierig": [
+    [
+     "Der Berater von {name} ist ein Hardliner."
+    ],
+    [
+     "Für sein Honorar will er etwa {summe} sehen."
+    ],
+    [
+     "Ohne läuft gar nichts, so ist das bei ihm immer."
+    ]
+   ]
+  }
+ },
+ "druck_club": {
+  "teile": [
+   [
+    "{klub} fühlt sich überfahren.",
+    "Das Drängeln kommt bei {klub} schlecht an.",
+    "{klub} lässt sich nicht unter Druck setzen."
+   ],
+   [
+    "Man bricht die Gespräche ab.",
+    "Man legt auf.",
+    "Die Verhandlung ist vorbei."
+   ],
+   [
+    "Der Wechsel ist geplatzt.",
+    "Das Vertrauen ist erschüttert.",
+    "Zu viel Druck."
+   ]
+  ]
+ },
+ "druck_spieler": {
+  "teile": [
+   [
+    "{name} fühlt sich überrumpelt.",
+    "Sein Berater lässt {name} nicht unter Druck setzen."
+   ],
+   [
+    "Man bricht ab.",
+    "Die Gespräche sind gescheitert.",
+    "Der Berater verlässt den Raum."
+   ],
+   [
+    ""
+   ]
+  ]
+ },
+ "geruecht_titel": {
+  "teile": [
+   [
+    "Gerücht: {name} soll bei {klub} auf dem Zettel stehen",
+    "{klub} soll sich für {name} interessieren",
+    "Berichte: {klub} fragt nach {name}",
+    "Gerüchteküche: {name} und {klub}?"
+   ]
+  ]
+ },
+ "geruecht_text": {
+  "teile": [
+   [
+    "Ohne Gewähr.",
+    "Wie es heißt,",
+    "Aus dem Umfeld ist zu hören:",
+    "Nach Informationen aus der Szene:"
+   ],
+   [
+    "{klub} sucht Verstärkung {ort} und hat das Geld.",
+    "{klub} will sich {ort} verbessern und hat sich umgehört.",
+    "{klub} braucht {ort} Qualität."
+   ],
+   [
+    "Die Verantwortlichen haben sich nach {name} erkundigt.",
+    "Ein Berater hat bereits Kontakt aufgenommen.",
+    "Von einem Angebot ist bisher nichts bekannt.",
+    "Offiziell bestätigt ist nichts."
+   ]
+  ]
+ },
+ "vorab_gelistet": {
+  "teile": [
+   [
+    "Der Sportdirektor hat nachgefragt: {name} steht auf der Transferliste.",
+    "Der Sportdirektor kommt mit guten Nachrichten: {name} ist zu haben, {klub} hat ihn auf die Liste gesetzt."
+   ],
+   [
+    "Die Preisvorstellung liegt bei etwa {preis}.",
+    "Man denkt an etwa {preis}.",
+    "{klub} will etwa {preis} sehen."
+   ]
+  ]
+ },
+ "vorab_unverkaeuflich": {
+  "teile": [
+   [
+    "Der Sportdirektor winkt ab: {klub} will {name} auf keinen Fall hergeben.",
+    "Bei {klub} gilt {name} als unantastbar."
+   ],
+   [
+    "Nur ein außergewöhnliches Angebot, ab etwa {preis}, würde man überhaupt prüfen.",
+    "Zu hören ist: Unter {preis} lohnt der Anruf nicht."
+   ]
+  ]
+ },
+ "vorab_inoffiziell": {
+  "teile": [
+   [
+    "Der Sportdirektor hat sich umgehört, und es gibt Entgegenkommen.",
+    "Über Umwege kam die Antwort: {name} wäre zu haben."
+   ],
+   [
+    "{grund}",
+    "Offiziell sagt der Klub nichts. {grund}"
+   ],
+   [
+    "Rechne mit etwa {preis}.",
+    "Die Preisvorstellung liegt bei etwa {preis}.",
+    "Etwa {preis} wären fällig."
+   ]
+  ]
+ },
+ "vorab_normal": {
+  "teile": [
+   [
+    "Der Sportdirektor hat nachgefragt: {name} ist bei {klub} kein Thema.",
+    "{klub} bietet {name} nicht an."
+   ],
+   [
+    "Ein Angebot deutlich über Wert, etwa {preis}, würde man aber prüfen.",
+    "Wer etwa {preis} zahlt, kann mit einer Antwort rechnen."
+   ]
+  ]
+ },
+ "vorab_vorvertrag": {
+  "teile": [
+   [
+    "Sein Vertrag bei {klub} endet im Sommer.",
+    "{name} geht ins letzte halbe Vertragsjahr."
+   ],
+   [
+    "Du darfst jetzt direkt mit ihm reden und einen Vorvertrag aushandeln.",
+    "Der Klub kann nur zusehen, wenn du ihn ansprichst."
+   ],
+   [
+    ""
+   ]
+  ]
+ },
+ "vorab_vertragslos": {
+  "teile": [
+   [
+    "{name} ist ohne Verein und für jeden Klub frei.",
+    "{name} hat keinen Klub und sucht eine Aufgabe."
+   ],
+   [
+    "Es zählt nur, was du ihm beim Gehalt und beim Handgeld bietest.",
+    "Eine Ablöse fällt nicht an, aber er will überzeugt werden.",
+    ""
+   ]
+  ]
+ },
+ "vorab_sonst": {
+  "teile": [
+   [
+    "Der Sportdirektor kommt zurück: Bei {name} ist im Moment nichts zu machen.",
+    "Zu {name} gibt es keine neuen Hinweise."
+   ],
+   [
+    "{grund}"
+   ]
+  ]
+ },
+ "gerucht_streuen_ok": {
+  "teile": [
+   [
+    "Die Gerüchte sind in der Welt.",
+    "Die Presse hat angebissen.",
+    "Die Meldung macht die Runde."
+   ],
+   [
+    "{klub} hört, {name} sei nicht mehr ganz so glücklich, und rechnet neu.",
+    "Bei {klub} wird {name} nicht mehr als unverzichtbar gesehen."
+   ],
+   [
+    "Der Preis dürfte in den nächsten Wochen sinken.",
+    "Das könnte den Preis drücken.",
+    ""
+   ]
+  ]
+ },
+ "gerucht_streuen_ertappt": {
+  "teile": [
+   [
+    "Die Sache fliegt auf.",
+    "Bei {klub} riecht man den Braten.",
+    "Jemand hat geplaudert, und die Spur führt zu dir."
+   ],
+   [
+    "{klub} fühlt sich hintergangen und bricht die Gespräche ab.",
+    "Bei {klub} ist man verärgert, der Ruf leidet."
+   ],
+   [
+    "Das merkst du bei künftigen Verhandlungen.",
+    "Das Vertrauen ist weg.",
+    ""
+   ]
+  ]
+ },
+ "gerucht_verunsichern_ok": {
+  "teile": [
+   [
+    "Die Nachricht wirkt: {klub} zieht sich bei {name} zurück.",
+    "{klub} wird unsicher und macht bei {name} einen Rückzieher.",
+    "Bei {klub} wächst der Zweifel, {name} zahlt sich nicht aus."
+   ],
+   [
+    ""
+   ]
+  ]
+ },
+ "gerucht_verunsichern_nichts": {
+  "teile": [
+   [
+    "Die Meldung verpufft.",
+    "Bei {klub} nimmt man die Gerüchte nicht ernst.",
+    "Niemand springt auf die Nachricht an."
+   ],
+   [
+    ""
+   ]
+  ]
+ },
+ "gerucht_verunsichern_ertappt": {
+  "teile": [
+   [
+    "Die Sache fliegt auf.",
+    "{klub} bekommt Wind davon."
+   ],
+   [
+    "Man fühlt sich bei {klub} verschaukelt.",
+    "Der Ruf als fairer Verhandler leidet."
+   ],
+   [
+    ""
+   ]
+  ]
+ },
+ "geruecht_unruhig": {
+  "teile": [
+   [
+    "Er liest die Berichte und wirkt unruhig.",
+    "Im Training merkt man, dass ihn die Meldungen beschäftigen.",
+    "Die Schlagzeilen gehen an ihm nicht spurlos vorüber."
+   ]
+  ]
+ },
+ "spieler_zusage": {
+  "teile": [
+   [
+    "Mit {name} ist alles besprochen.",
+    "{name} und sein Berater sind mit den Bedingungen einverstanden.",
+    "{name} nickt: Die Vertragsbedingungen passen."
+   ],
+   [
+    "Jetzt fehlt nur noch das Honorar für den Berater.",
+    "Als Nächstes geht es um das Beraterhonorar.",
+    "Der Berater will nun noch über sein Honorar reden."
+   ]
+  ]
+ },
+ "agent_ask": {
+  "teile": [
+   [
+    "Für meine Arbeit an diesem Wechsel verlange ich {summe}.",
+    "Mein Honorar für diesen Deal liegt bei {summe}.",
+    "Bevor {name} unterschreibt: Ich bekomme {summe}."
+   ],
+   [
+    "Das ist branchenüblich.",
+    "Dafür habe ich lange mit allen Seiten verhandelt.",
+    "Ohne meine Arbeit wäre der Wechsel nie zustande gekommen.",
+    ""
+   ]
+  ],
+  "ton": {
+   "Geldgierig": [
+    [
+     "Mein Honorar: {summe}."
+    ],
+    [
+     "Daran gibt es nichts zu rütteln.",
+     "Und damit das klar ist: Das ist mein Einstiegspreis."
+    ]
+   ]
+  }
+ },
+ "agent_pay": {
+  "teile": [
+   [
+    "Einverstanden, wir zahlen dem Berater {summe}.",
+    "Abgemacht: {summe} für den Berater.",
+    "Wir überweisen das Honorar von {summe}."
+   ]
+  ]
+ },
+ "agent_haggle": {
+  "teile": [
+   [
+    "Das Honorar ist zu hoch. Da muss etwas gehen.",
+    "Das ist uns zu viel. Kommt uns entgegen.",
+    "So viel zahlen wir nicht ohne Weiteres."
+   ]
+  ]
+ },
+ "agent_cut": {
+  "teile": [
+   [
+    "Na gut, {summe}, und wir machen den Haken dran.",
+    "Weil ich den Wechsel will: {summe}.",
+    "Ich komme euch entgegen: {summe}."
+   ]
+  ]
+ },
+ "agent_firm": {
+  "teile": [
+   [
+    "{summe}. Das ist mein Honorar, keinen Cent weniger.",
+    "Bei {summe} bleibt es."
+   ],
+   [
+    "Ihr wisst, was {name} wert ist.",
+    ""
+   ]
+  ]
+ },
+ "agent_offended": {
+  "teile": [
+   [
+    "Sie stellen meine Arbeit infrage? {summe}, nehmen oder lassen.",
+    "Das war kein guter Ton. Es bleibt bei {summe}."
+   ]
+  ]
+ },
+ "agent_walk": {
+  "teile": [
+   [
+    "Ich nehme meinen Spieler mit. Wir sind fertig.",
+    "So geht man nicht mit uns um: Der Wechsel ist geplatzt."
+   ]
+  ]
+ },
+ "agent_refuse": {
+  "teile": [
+   [
+    "Wir zahlen dem Berater nichts.",
+    "Kein Honorar von uns."
+   ]
+  ]
+ },
+ "agent_overruled": {
+  "teile": [
+   [
+    "Ich will diesen Wechsel. Mein Berater soll das Honorar fallen lassen.",
+    "Ich möchte zu euch. Das Honorar machen wir nicht zum Streitpunkt."
+   ]
+  ]
+ },
+ "agent_takes_away": {
+  "teile": [
+   [
+    "Ohne Honorar gibt es keinen Deal. Mein Spieler hört auf mich.",
+    "Dann sind wir hier fertig: {name} geht woanders hin."
+   ]
+  ]
+ },
+ "verkauf_spieler_will_nicht": {
+  "teile": [
+   [
+    "{name} hat von dem Interesse von {klub} erfahren und winkt ab.",
+    "Auf den Wechsel zu {klub} hat {name} keine Lust.",
+    "{name} lässt ausrichten, dass {klub} für ihn keine Option ist."
+   ],
+   [
+    "Er fühlt sich bei dir wohl und hat noch lange Vertrag.",
+    "Sportlich sieht er dort keinen Schritt nach vorn und bleibt lieber.",
+    "Seine Familie ist angekommen, er will hier weitermachen."
+   ]
+  ]
+ },
+ "verkauf_abbruch_klub": {
+  "teile": [
+   [
+    "{klub} bricht die Gespräche um {name} ab.",
+    "Für {klub} ist die Sache um {name} erledigt.",
+    "Bei {klub} hat man genug gehört und sucht anderswo."
+   ],
+   [
+    "Dir war der Preis zu hoch, man will sich nicht länger hinhalten lassen.",
+    "Die Verantwortlichen fühlten sich zu lange vertröstet.",
+    "Das Angebot bleibt nicht liegen, ein anderer Spieler rückt in den Fokus."
+   ]
+  ]
+ },
+ "verkauf_abbruch_spieler": {
+  "teile": [
+   [
+    "{name} hat sich gegen den Wechsel zu {klub} entschieden.",
+    "Der Wechsel von {name} zu {klub} platzt am Spieler.",
+    "{name} sagt {klub} ab."
+   ],
+   [
+    "Die Abschiedsprämie war ihm zu niedrig, er fühlt sich nicht wertgeschätzt.",
+    "Er hat das Gefühl, nach allem, was er hier geleistet hat, zu wenig mitzubekommen.",
+    "Seine Vorstellungen und dein Angebot lagen am Ende zu weit auseinander."
+   ]
+  ]
+ },
+ "verkauf_leak_moral": {
+  "teile": [
+   [
+    "{name} liest in der Zeitung von seinem möglichen Abschied.",
+    "Die Meldung über einen Wechsel von {name} macht ihn nervös.",
+    "In der Presse steht plötzlich, dass {name} zum Verkauf steht."
+   ],
+   [
+    "Er fühlt sich vom eigenen Verein vorgeführt.",
+    "Das hat ihn verunsichert, er wirkt im Training fahrig.",
+    "Unruhe, die man in der Kabine merkt."
+   ]
+  ]
+ },
+ "verkauf_praemie": {
+  "teile": [
+   [
+    "{name} bekommt seine vereinbarte Abschiedsprämie.",
+    "Die Abschiedsprämie für {name} wird ausgezahlt.",
+    "Wie versprochen erhält {name} einen Anteil am Erlös."
+   ],
+   [
+    "Er verabschiedet sich im Guten.",
+    "Das schließt die Sache für ihn ab.",
+    "Das stimmt ihn versöhnlich."
+   ]
+  ]
+ },
+ "verkauf_beteiligung": {
+  "teile": [
+   [
+    "{klub} behält eine Beteiligung am nächsten Weiterverkauf.",
+    "Bei einem Weiterverkauf verdient {klub} künftig mit.",
+    "{klub} hat sich einen Anteil am nächsten Transfer gesichert."
+   ],
+   [
+    "Dafür war die sofortige Zahlung etwas niedriger.",
+    "Der Käufer hat dafür bei der Ablöse nachgegeben.",
+    "Das ist der Preis für den schnelleren Abschluss."
+   ]
+  ]
+ },
+ "leih_braucht_ihn": {
+  "teile": [
+   [
+    "{klub} braucht {name} selbst.",
+    "{name} gehört bei {klub} zum Stamm.",
+    "{klub} denkt nicht daran, {name} abzugeben."
+   ],
+   [
+    "Verliehen werden dort nur junge Reservisten.",
+    "Eine Leihe kommt höchstens für Spieler in Frage, die nicht spielen.",
+    "Ohne Transferliste sind Stammkräfte nicht zu haben."
+   ]
+  ]
+ },
+ "leih_zu_duenn": {
+  "teile": [
+   [
+    "{klub} kann niemanden mehr abgeben.",
+    "Der Kader von {klub} ist schon dünn.",
+    "{klub} fehlt auf der Position die Breite."
+   ],
+   [
+    "Sonst wird der Kader zu klein.",
+    "Eine Leihe wäre nicht zu verantworten.",
+    "Der Trainer legt sein Veto ein."
+   ]
+  ]
+ },
+ "leih_gesperrt": {
+  "teile": [
+   [
+    "Mit {klub} sind die Gespräche gerade abgebrochen.",
+    "{klub} ist gerade nicht gut auf dich zu sprechen.",
+    "Bei {klub} nimmt man vorerst keinen Anruf an."
+   ],
+   [
+    "Versuch es in ein paar Wochen noch einmal.",
+    "Man braucht etwas Abstand.",
+    "Lass etwas Zeit vergehen."
+   ]
+  ]
+ },
+ "leih_abbruch": {
+  "teile": [
+   [
+    "{klub} bricht die Leih-Gespräche um {name} ab.",
+    "Aus der Leihe von {name} wird nichts.",
+    "{klub} hat genug und beendet die Verhandlung um {name}."
+   ],
+   [
+    "Die Leihgebühr lag zu weit unter den Vorstellungen.",
+    "Man fühlte sich nicht ernst genommen.",
+    "Die Seiten lagen zu weit auseinander."
+   ]
+  ]
+ },
+ "leih_spieler_nein": {
+  "teile": [
+   [
+    "{name} lehnt die Leihe ab.",
+    "{name} will auf Leihbasis nicht kommen.",
+    "Für {name} ist die Leihe keine Option."
+   ],
+   [
+    "Die versprochene Rolle und die Prämie waren ihm nicht genug.",
+    "Er wollte mehr Spielzeit zugesichert haben.",
+    "Er sieht darin keinen Schritt für seine Karriere."
+   ]
+  ]
+ },
+ "leih_ok": {
+  "teile": [
+   [
+    "{name} kommt von {klub} auf Leihbasis.",
+    "{name} wird von {klub} ausgeliehen.",
+    "Die Leihe von {name} aus {klub} ist perfekt."
+   ],
+   [
+    "Du hast ihm die Rolle {rolle} zugesagt.",
+    "Als {rolle} soll er der Mannschaft helfen.",
+    "Er soll als {rolle} planen können."
+   ],
+   [
+    "Am Saisonende kehrt er zurück.",
+    "Danach geht er zurück zu seinem Klub.",
+    "Zum Ende der Saison endet die Leihe."
+   ]
+  ]
+ },
+ "leih_ok_opt": {
+  "teile": [
+   [
+    "{name} kommt von {klub} auf Leihbasis mit Kaufoption.",
+    "{name} wird von {klub} mit Kaufoption ausgeliehen.",
+    "Die Leihe von {name} aus {klub} samt Kaufoption ist perfekt."
+   ],
+   [
+    "Du hast ihm die Rolle {rolle} zugesagt.",
+    "Als {rolle} soll er sich beweisen.",
+    "Er soll als {rolle} zeigen, was in ihm steckt."
+   ],
+   [
+    "Gefällt er dir, kannst du ihn am Ende übernehmen.",
+    "Du entscheidest zum Saisonende, ob er bleibt.",
+    "Die Option hältst du dir offen."
+   ]
+  ]
+ },
+ "leih_anfrage": {
+  "teile": [
+   [
+    "{klub} fragt nach {name}.",
+    "Bei {klub} ist man an einer Leihe von {name} interessiert.",
+    "{klub} würde {name} gern ausleihen."
+   ],
+   [
+    "Dort soll er Spielpraxis bekommen, die er bei dir nicht findet.",
+    "Man verspricht ihm regelmäßige Einsätze.",
+    "Für seine Entwicklung wäre das ein Gewinn."
+   ]
+  ]
+ },
+ "leih_aus_zusage": {
+  "teile": [
+   [
+    "{klub} hat zugesichert, dass {name} regelmäßig spielt.",
+    "Beim Leihklub {klub} soll {name} viel Spielzeit bekommen.",
+    "{klub} hat dir die Spielzeit für {name} zugesagt."
+   ],
+   [
+    "Das war der Grund, warum du zugestimmt hast.",
+    "Wenn nicht, kannst du dich darauf berufen.",
+    "Das wirst du im Auge behalten."
+   ]
+  ]
+ },
+ "berater_betreff": {
+  "teile": [
+   [
+    "Berater bietet {name} an",
+    "Angebot eines Beraters: {name}",
+    "{name} sucht einen neuen Verein"
+   ]
+  ]
+ },
+ "berater_text": {
+  "teile": [
+   [
+    "Ein Berater meldet sich bei dir: Sein Klient {name} ({pos}) {grund}.",
+    "Der Berater von {name} ({pos}) ruft an: {name} {grund}.",
+    "Aus dem Umfeld von {name} ({pos}) kommt eine Nachricht: Er {grund}."
+   ],
+   [
+    "Er würde sich einen Wechsel zu dir durchaus vorstellen.",
+    "Man fragt nach, ob ihr Interesse habt.",
+    "Wenn die Konditionen stimmen, ist vieles möglich."
+   ],
+   [
+    "Der Berater verlangt erfahrungsgemäß ein ordentliches Honorar.",
+    "Rechne mit einem harten Verhandlungspartner.",
+    "Er wartet auf deine Antwort."
+   ]
+  ]
+ },
+ "berater_grund": {
+  "teile": [
+   [
+    "Beraterangebote kommen, wenn ein Spieler unzufrieden ist, sein Vertrag ausläuft oder er keinen Klub hat.",
+    "Berater bringen ihre Klienten gezielt bei Vereinen ins Gespräch, wenn der Spieler wechseln will.",
+    "Der Berater hat deinen Klub als interessanten Abnehmer ausgemacht."
+   ]
+  ]
+ },
+ "bieterkampf_titel": {
+  "teile": [
+   [
+    "Bieterkampf um {name}",
+    "Mehrere Klubs wollen {name}",
+    "{name} ist heiß begehrt"
+   ]
+  ]
+ },
+ "bieterkampf_text": {
+  "teile": [
+   [
+    "{klubs} bemühen sich gleichzeitig um {name}.",
+    "Gleich mehrere Klubs ({klubs}) haben Interesse an {name} angemeldet.",
+    "Um {name} ist ein Wettbieten entbrannt: {klubs}."
+   ],
+   [
+    "Die Konkurrenz treibt den Preis nach oben.",
+    "Das spielt dir in die Karten, die Ablöse steigt.",
+    "Wer ihn will, muss tiefer in die Tasche greifen."
+   ]
+  ]
+ }
+}

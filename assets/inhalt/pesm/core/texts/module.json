@@ -1,0 +1,21 @@
+{
+  "module.zustand.lesend": "liest",
+  "module.zustand.gesperrt": "gesperrt",
+  "module.zustand.aus": "aus",
+  "module.zustand.fehlt": "nicht geladen",
+  "module.zustand.keine_meldung": "keine Meldung",
+  "module.zustand.nicht_eingebunden": "nicht eingebunden",
+  "module.zustand.spiel_aus": "Spiel läuft nicht",
+  "module.zustand.fehler": "Fehler",
+  "module.hinweis.nicht_geladen": "Modul nicht geladen: Es ist eingetragen, meldet sich aber nicht. Starte das Spiel neu.",
+  "module.hinweis.nicht_eingebunden": "Modul ist nicht eingebunden.",
+  "module.hinweis.unlesbar": "Die Meldung des Moduls ist nicht lesbar.",
+  "module.hinweis.andere_sitzung": "Die Meldung stammt aus einer anderen Spielsitzung.",
+  "module.hinweis.veraltet": "Das Modul hat sich länger nicht gemeldet.",
+  "module.hinweis.aus": "Das Modul hat sich nach Fehlern selbst ausgeschaltet.",
+  "module.hinweis.spiel_aus": "Das Spiel läuft nicht oder meldet sich nicht.",
+  "module.hinweis.veraltet_version": "Die Fassung im Spiel-Ordner ist älter als die von PESM: aktualisieren.",
+  "module.hinweis.datei_fehlt": "Die Modul-Datei fehlt im Spiel-Ordner.",
+  "module.hinweis.neustart": "Neue Fassung liegt bereit: Spiel neu starten.",
+  "module.zustand.ruht": "ruht (Schalter aus)"
+}

@@ -1,0 +1,166 @@
+{
+  "_hinweis": "Texts on the topic of playing time. talent_wartet_auf_einsatz: the assistant manager writes (informal). The other two: the player writes to the manager (“Gaffer”, formal); the manager replies informally. Placeholders: {spieler}, {spieler_kurz}.",
+  "talent_wartet_auf_einsatz.betreff": {
+    "standard": [
+      "{spieler_kurz} is waiting for his first game"
+    ]
+  },
+  "talent_wartet_auf_einsatz.text": {
+    "standard": [
+      "{spieler} hasn't started a single game this season. In training he's one of the standouts. At some point we have to see what he can do in a match.",
+      "I want to put {spieler_kurz} on your radar. He hasn't started a game yet but works properly every day. If he waits too long, he'll lose faith in it."
+    ]
+  },
+  "talent_wartet_auf_einsatz.antwort.einsatz": {
+    "standard": [
+      "He'll get his chance from the start soon. Tell him that."
+    ]
+  },
+  "talent_wartet_auf_einsatz.antwort.geduld": {
+    "standard": [
+      "He should keep going. When he's ready, he plays. I'm not naming a date."
+    ]
+  },
+  "talent_wartet_auf_einsatz.antwort.absage": {
+    "standard": [
+      "He's not ready yet. For the starting XI he's out of the picture until further notice."
+    ]
+  },
+  "talent_wartet_auf_einsatz.rueckmeldung.einsatz": {
+    "standard": [
+      "He'll be pleased. I'll prepare him. He'll remind you of your word."
+    ]
+  },
+  "talent_wartet_auf_einsatz.rueckmeldung.geduld": {
+    "standard": [
+      "I'll tell him that. He can work with it, even if he had hoped for more."
+    ]
+  },
+  "talent_wartet_auf_einsatz.rueckmeldung.absage": {
+    "standard": [
+      "That's hard on a lad that age. I'll break it to him, but expect him to be down."
+    ]
+  },
+  "wenig_spielzeit_stammkraft.betreff": {
+    "standard": [
+      "{spieler_kurz} wants to talk about his role"
+    ]
+  },
+  "wenig_spielzeit_stammkraft.text": {
+    "standard": [
+      "Gaffer, I'm hardly in the starting XI any more. I'd like to know why that is and what you expect from me.",
+      "Gaffer, have you got a moment? I've been on the bench almost every time lately. That's not how I imagined the season. I'd like to hear how you're planning with me."
+    ],
+    "typ": {
+      "egoist": [
+        "Gaffer, I belong in the starting XI, and you know it. I don't see anyone in the squad who does it better in my position. How long is this going to go on?"
+      ],
+      "kumpel": [
+        "Gaffer, I'm happy for the lads to play, I really am. But I'm starting to have my doubts. Just tell me honestly where I stand."
+      ],
+      "heisssporn": [
+        "Gaffer, I've had enough. Week after week on the bench, and nobody tells me why. Tell me to my face."
+      ],
+      "vorbildprofi": [
+        "Gaffer, I'm working as hard as before, that won't change. Still, I'd like to know what I'm missing, in your eyes, for the starting XI."
+      ],
+      "diva": [
+        "Gaffer, I'm on the bench and people are asking why. So am I. A player with my ability belongs on the pitch, not next to it."
+      ],
+      "anfuehrer": [
+        "Gaffer, I can't lead the team very well from the bench. Tell me what you want to see from me and you'll get it."
+      ]
+    }
+  },
+  "wenig_spielzeit_stammkraft.antwort.zusage": {
+    "standard": [
+      "You'll get your starts over the coming weeks."
+    ]
+  },
+  "wenig_spielzeit_stammkraft.antwort.ehrlich": {
+    "standard": [
+      "Right now others are ahead of you. Show me in training and that will change."
+    ]
+  },
+  "wenig_spielzeit_stammkraft.antwort.abweisen": {
+    "standard": [
+      "I pick the team. I'm not discussing it."
+    ]
+  },
+  "wenig_spielzeit_stammkraft.rueckmeldung.zusage": {
+    "standard": [
+      "Thanks, gaffer. I'm counting on that."
+    ]
+  },
+  "wenig_spielzeit_stammkraft.rueckmeldung.ehrlich": {
+    "standard": [
+      "I don't like hearing that, but I can work with it."
+    ]
+  },
+  "wenig_spielzeit_stammkraft.rueckmeldung.abweisen": {
+    "standard": [
+      "Understood. Then at least I know where I stand."
+    ]
+  },
+  "reservist_unzufrieden.betreff": {
+    "standard": [
+      "{spieler_kurz} asks about his prospects"
+    ]
+  },
+  "reservist_unzufrieden.text": {
+    "standard": [
+      "Gaffer, I know I'm not first choice. But I've never played as little as this season. Is there still a future for me here?",
+      "Gaffer, I'm at an age where I need to play. I'm not progressing on the bench. How do you see my role for the rest of the season?"
+    ],
+    "typ": {
+      "egoist": [
+        "Gaffer, I didn't come here to watch. If I have no part to play here, say so. Then I'll find a club where I'm on the pitch."
+      ],
+      "kumpel": [
+        "Gaffer, I feel at home in the group and don't really want to leave. But just training isn't enough for me in the long run. Do you see a chance for me?"
+      ],
+      "heisssporn": [
+        "Gaffer, I pull myself together in training every day, and at the weekend I'm out again. What for? I want to know now."
+      ],
+      "vorbildprofi": [
+        "Gaffer, I accept my role and I'm there when you need me. I just want to know whether I can expect games or should look elsewhere."
+      ],
+      "diva": [
+        "Gaffer, with respect: I'm too good for the bench. Either I get a proper role here, or we find another solution."
+      ],
+      "anfuehrer": [
+        "Gaffer, I keep the second row in good spirits, even without games of my own. But I want to play myself. How are you planning with me?"
+      ]
+    }
+  },
+  "reservist_unzufrieden.antwort.einsaetze": {
+    "standard": [
+      "You'll get your games, in the cup and when we rotate. Stay ready."
+    ]
+  },
+  "reservist_unzufrieden.antwort.ehrlich": {
+    "standard": [
+      "You're a squad player for me. That won't change much this season."
+    ]
+  },
+  "reservist_unzufrieden.antwort.wechsel": {
+    "standard": [
+      "If you want to play more, I won't stand in your way if you move."
+    ]
+  },
+  "reservist_unzufrieden.rueckmeldung.einsaetze": {
+    "standard": [
+      "Good, that's enough for now. I'll be ready when the time comes."
+    ]
+  },
+  "reservist_unzufrieden.rueckmeldung.ehrlich": {
+    "standard": [
+      "At least that's a clear message. It's not nice."
+    ]
+  },
+  "reservist_unzufrieden.rueckmeldung.wechsel": {
+    "standard": [
+      "Then I'll put out feelers. Thanks for being open."
+    ]
+  }
+}

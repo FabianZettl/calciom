@@ -1,0 +1,93 @@
+# Geografie des Scoutings (Sitzung S). Quelle: docs/intern/GEOGRAFIE.md (Messung 2026-10-15), nur Nummern; Namen stehen nicht im Repo.
+# liga_land: nationaler Wettbewerb (Nummer, Stufe 0) → Flaggennummer des Landes (Anteil der Hauptnation ≥ 0,8).
+# international: echte internationale Wettbewerbe (Europa-, Südamerika-, Asienpokale, Klub-Weltpokal, internationale Vorbereitungsturniere) – Gebiet „International“.
+# Typ geprüft gegen die Spieldaten (Teilnehmer, Art, Größe): Wettbewerb 22 und 28 (nationale Liga und Pokal eines Landes mit vielen Legionären, nur ~50 % einer Nationalität)
+# sind national; 106 (internationales Vorbereitungsturnier mit 4 Vereinen) ist international.
+# weltregion: Flaggennummer → Weltregion, von PESM gepflegt; nicht verzeichnete Flaggen gelten als „weitere“. Ergänzen, sobald Ländernamen vorliegen.
+
+[liga_land]
+22 = 228
+28 = 228
+17 = 204
+18 = 215
+19 = 236
+20 = 210
+21 = 224
+23 = 204
+24 = 215
+25 = 236
+26 = 210
+27 = 224
+29 = 146
+30 = 144
+31 = 146
+50 = 227
+51 = 135
+52 = 13
+53 = 227
+54 = 135
+55 = 13
+59 = 144
+67 = 147
+68 = 147
+79 = 204
+80 = 236
+81 = 210
+82 = 215
+86 = 204
+87 = 236
+88 = 210
+89 = 215
+90 = 224
+91 = 146
+92 = 144
+95 = 227
+97 = 13
+115 = 197
+116 = 208
+117 = 211
+118 = 190
+119 = 148
+120 = 31
+122 = 197
+123 = 208
+124 = 211
+125 = 190
+126 = 148
+127 = 31
+128 = 197
+129 = 208
+130 = 190
+131 = 148
+132 = 31
+133 = 232
+134 = 232
+137 = 232
+141 = 203
+142 = 203
+147 = 203
+155 = 197
+160 = 148
+161 = 148
+162 = 16
+163 = 146
+164 = 16
+165 = 16
+166 = 135
+167 = 135
+168 = 148
+169 = 148
+
+[international]
+wettbewerbe = [1, 2, 3, 5, 7, 8, 9, 10, 15, 16, 105, 106, 107]
+
+[weltregion]
+europa_west = [204, 210, 224, 208, 197, 232]
+europa_sued = [215, 236, 228, 211, 190]
+europa_ost = [227]
+europa_nord = [203]
+suedamerika = [146, 144, 147, 148]
+nordamerika = [135]
+asien = [13, 31, 16]
+afrika = []
+ozeanien = []

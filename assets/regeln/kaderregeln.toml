@@ -1,0 +1,31 @@
+# Ausländer- und Kaderregeln (PES M, vereinfachte Startwerte; Fabian 22.11.2026: einbauen, in den Einstellungen abschaltbar).
+# Die Nationalität kommt aus Player.bin (Bit 233). "Nicht-Europäer" = Nationalität außerhalb Europas (Nationennummern 190–310),
+# eine Vereinfachung der echten EU-Regeln. nicht_europaeer_max: so viele Nicht-Europäer darf ein Profikader höchstens haben.
+# auslaender_max: so viele Spieler mit anderer Nationalität als der Liga. Fehlt ein Land, gilt keine Grenze.
+
+[land.Spanien]
+nicht_europaeer_max = 3
+
+[land.Italien]
+nicht_europaeer_max = 3
+
+[land.Frankreich]
+nicht_europaeer_max = 4
+
+[land.Portugal]
+nicht_europaeer_max = 6
+
+[land."Türkei"]
+auslaender_max = 14
+
+[land.Russland]
+auslaender_max = 8
+
+[land."Saudi-Arabien"]
+auslaender_max = 10
+
+[land.Katar]
+auslaender_max = 10
+
+[land.VAE]
+auslaender_max = 6

@@ -1,0 +1,614 @@
+{
+ "pool.arzt_rotation_empfohlen.e.e1": [
+  "{b.arzt_rotation_empfohlen_gruss} I recommend resting {name} on the coming matchday. The load of recent weeks has been too dense.",
+  "{b.arzt_rotation_empfohlen_gruss} I would give {name} a break this week. He has had too little time to recover."
+ ],
+ "pool.arzt_rotation_empfohlen.e.e2": [
+  "{b.arzt_rotation_empfohlen_gruss} The fixture density is catching up with {name}. I would rather not see him in the starting eleven this time.",
+  "{b.arzt_rotation_empfohlen_gruss} After {spiele} games in a row {name} is measurably tired. A rotation would be sensible."
+ ],
+ "pool.arzt_rotation_empfohlen.e.e3": [
+  "{b.arzt_rotation_empfohlen_gruss} I can tell the mood is tense. Even so, I have to say that {name} needs a rest.",
+  "{b.arzt_rotation_empfohlen_gruss} I know this is badly timed, but {name} should be rested before this game."
+ ],
+ "pool.arzt_rotation_empfohlen.e.e4": [
+  "{b.arzt_rotation_empfohlen_gruss} I recommend a rest for {name}. {b.arzt_rotation_empfohlen_haltung}",
+  "{b.arzt_rotation_empfohlen_gruss} There is friction over the rotation. {b.arzt_rotation_empfohlen_haltung}"
+ ],
+ "pool.arzt_rotation_empfohlen.e.e5": [
+  "{b.arzt_rotation_empfohlen_gruss} Medically a rest would make sense. {b.arzt_rotation_empfohlen_haltung}",
+  "{b.arzt_rotation_empfohlen_gruss} I advise rotating {name}. {b.arzt_rotation_empfohlen_haltung}"
+ ],
+ "pool.arzt_rotation_empfohlen.e.e6": [
+  "{b.arzt_rotation_empfohlen_gruss} The traffic light speaks for a rest for {name}. {b.arzt_rotation_empfohlen_haltung}",
+  "{b.arzt_rotation_empfohlen_gruss} I would take some load off {name} this week. {b.arzt_rotation_empfohlen_haltung}"
+ ],
+ "pool.arzt_rotation_empfohlen.e.e7": [
+  "{b.arzt_rotation_empfohlen_gruss} I would like to discuss resting {name} properly. {b.arzt_rotation_empfohlen_haltung}",
+  "{b.arzt_rotation_empfohlen_gruss} I advise a rest for {name}, and it needs a delicate touch. {b.arzt_rotation_empfohlen_haltung}"
+ ],
+ "pool.arzt_rotation_empfohlen.e.e8": [
+  "{b.arzt_rotation_empfohlen_gruss} The traffic light for {name} is no longer green. We should take him out before matchday.",
+  "{b.arzt_rotation_empfohlen_gruss} The traffic light shows a warning colour for {name}. I cannot in good conscience clear him like this."
+ ],
+ "pool.arzt_rotation_empfohlen.e.e9": [
+  "{b.arzt_rotation_empfohlen_gruss} It is your decision, but medically I advise not starting {name} this time.",
+  "{b.arzt_rotation_empfohlen_gruss} {name} is not an emergency, but if we do nothing now, he will become one."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a1": [
+  "We follow your recommendation. Within the next {frist} days he gets a game off.",
+  "Agreed, he rests. You have my word that he will be relieved within {frist} days."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a2": [
+  "I will use him for one half only, shorter if needed. Is that enough for you?",
+  "He starts on the bench and comes on for a closing spell. I will not give more than that."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a3": [
+  "The game is too important. He plays, and you keep him together.",
+  "I decide who takes the pitch. This time it is this player, until the end."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a4": [
+  "Please get a second opinion, an external one if you like. Then I will decide.",
+  "I will have a specialist take a look. Until then we stay ready."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a5": [
+  "How does he see it himself? I want to involve him in the decision.",
+  "Have you spoken to him? I want to know what he feels capable of before I decide."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a6": [
+  "Let us discuss it after the game. For now I am still planning with him.",
+  "I will watch him in training tomorrow and tell you then."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a7": [
+  "I know how much he wants to play. I will explain to him that the rest protects him and does not punish him.",
+  "Thank you for looking after him. I will tell him personally why he is resting."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a8": [
+  "No. A traffic light does not win games, and everyone has tired legs.",
+  "I have no replacement for him, so he plays. There is nothing more to say."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a9": [
+  "I am planning a rotation anyway. We take him out before the hard stretch and bring him back there.",
+  "I will reassign the minutes so that he gets room to breathe after the next game."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a10": [
+  "He is robust enough. Anyone who wants to be a regular has to put up with it.",
+  "I need him, and he knows it. I cannot afford to be soft."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a11": [
+  "Then he rests on the bus and at meals. That counts as a break too, does it not?",
+  "Fine, then he gets the massage with a view. He is allowed to sit on the bench, after all."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a12": [
+  "On yellow I will take the middle road: short minutes, and you tell me at once if something is wrong.",
+  "We will find a compromise where he does not feel sidelined and you can sleep soundly."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r1": [
+  "{b.gut} Then we have planned the matchday cleanly.",
+  "{b.gut} I can work with that decision."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r2": [
+  "{b.gut} He will understand if you put it to him like that.",
+  "{b.gut} That is a responsible way to think."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r3": [
+  "{b.gut} If he knows when he is back, he will accept the rest.",
+  "{b.gut} A clear plan takes the sting out for the ambitious."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r4": [
+  "{b.gut} That you tell him personally means a lot to him.",
+  "{b.gut} That way he does not feel discarded."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r5": [
+  "{b.neutral} I will document my recommendation, the decision stays with you.",
+  "{b.neutral} Let us see what the figures say after the weekend."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r6": [
+  "{b.neutral} He takes it one way one day and another way the next, I will keep an eye on him.",
+  "{b.neutral} How he digests it will show in training."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r7": [
+  "{b.neutral} I stand by my view, but I will listen if something changes.",
+  "{b.neutral} A compromise, the kind that happens in everyday work."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r8": [
+  "{b.neutral} He takes it soberly, and my report stays as it is.",
+  "{b.neutral} We will see on Monday whether it was enough."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r9": [
+  "{b.schlecht} Then I will put it in the minutes that I advised against it.",
+  "{b.schlecht} If it goes wrong, we did discuss it beforehand."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r10": [
+  "{b.schlecht} That gets us nowhere, and he hears every loud word through the door!",
+  "{b.schlecht} He will take it as a power move and report even less!"
+ ],
+ "pool.arzt_rotation_empfohlen.r.r11": [
+  "{b.schlecht} He has already hinted that he feels better looked after elsewhere.",
+  "{b.schlecht} Anyone who feels so overlooked keeps the suitcases ready."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r12": [
+  "{b.schlecht} He has always given everything, and that is exactly what is being exploited now.",
+  "{b.schlecht} I hope we do not regret this hardness later."
+ ],
+ "pool.arzt_rotation_empfohlen.x.x1": [
+  "The doctor nods, satisfied. {entscheidung} In training the player looks noticeably looser the next day.",
+  "{entscheidung} The player accepts the decision calmly and visibly recovers."
+ ],
+ "pool.arzt_rotation_empfohlen.x.x2": [
+  "Whether the decision holds will only show on matchday. {entscheidung} The doctor keeps an eye on the figures.",
+  "{entscheidung} The conversation ends without a clear outcome, the figures will have to tell."
+ ],
+ "pool.arzt_rotation_empfohlen.x.x3": [
+  "The doctor shakes his head and leaves the office. {entscheidung} Since then the staff have been noticeably more careful in their tone.",
+  "{entscheidung} The doctor puts his warning in writing, the mood in the staff is subdued."
+ ],
+ "pool.arzt_rotation_empfohlen.x.x4": [
+  "The doctor notes the plan. {entscheidung} The player will remind you of the promise should it wobble.",
+  "{entscheidung} The rest is now in the plan, and the staff arrange themselves around it."
+ ],
+ "pool.arzt_rotation_empfohlen.x.x5": [
+  "The coach cuts the conversation short. {entscheidung} The recommendation hangs in the room.",
+  "{entscheidung} The doctor is left alone with his report."
+ ],
+ "pool.arzt_muskelprobleme.e.e1": [
+  "{b.arzt_muskelprobleme_gruss} {name} complains of mild muscle trouble. Nothing has torn yet, but I do not trust the muscle.",
+  "{b.arzt_muskelprobleme_gruss} {name}'s muscle is hard as a board. That is not an absence, but it is a warning sign."
+ ],
+ "pool.arzt_muskelprobleme.e.e2": [
+  "{b.arzt_muskelprobleme_gruss} {name}'s thighs are overstrained. If he plays on Sunday he takes a risk.",
+  "{b.arzt_muskelprobleme_gruss} {name} has a pull in the calf. With rest it would be gone in a few days, with constant load I cannot say."
+ ],
+ "pool.arzt_muskelprobleme.e.e3": [
+  "{b.arzt_muskelprobleme_gruss} I can tell the mood is not at its best. Even so, with {name} we have to be careful.",
+  "{b.arzt_muskelprobleme_gruss} I know you are under pressure. But {name} could be out for longer if we are careless now."
+ ],
+ "pool.arzt_muskelprobleme.e.e4": [
+  "{b.arzt_muskelprobleme_gruss} It is about mild muscle trouble for {name}. {b.arzt_muskelprobleme_haltung}",
+  "{b.arzt_muskelprobleme_gruss} There is an argument with {name} about his muscle. {b.arzt_muskelprobleme_haltung}"
+ ],
+ "pool.arzt_muskelprobleme.e.e5": [
+  "{b.arzt_muskelprobleme_gruss} One of {name}'s muscles is giving trouble. {b.arzt_muskelprobleme_haltung}",
+  "{b.arzt_muskelprobleme_gruss} The findings for {name} are mild, but not harmless. {b.arzt_muskelprobleme_haltung}"
+ ],
+ "pool.arzt_muskelprobleme.e.e6": [
+  "{b.arzt_muskelprobleme_gruss} {name} has a mild muscle irritation. {b.arzt_muskelprobleme_haltung}",
+  "{b.arzt_muskelprobleme_gruss} I examined {name}, and the muscle is crying out for rest. {b.arzt_muskelprobleme_haltung}"
+ ],
+ "pool.arzt_muskelprobleme.e.e7": [
+  "{b.arzt_muskelprobleme_gruss} I have to talk to you about {name} and his muscle. {b.arzt_muskelprobleme_haltung}",
+  "{b.arzt_muskelprobleme_gruss} A small muscle matter has {name} more occupied than it should. {b.arzt_muskelprobleme_haltung}"
+ ],
+ "pool.arzt_muskelprobleme.e.e8": [
+  "{b.arzt_muskelprobleme_gruss} {name} has already had injections, and the muscle is speaking up again anyway. I do not like that.",
+  "{b.arzt_muskelprobleme_gruss} After the injections so far {name} has a difficult muscle. I would not give another lightly."
+ ],
+ "pool.arzt_muskelprobleme.e.e9": [
+  "{b.arzt_muskelprobleme_gruss} A matter of weighing up: {name} could play, but the muscle really ought to rest.",
+  "{b.arzt_muskelprobleme_gruss} With {name} the next appearance decides whether the twinge becomes more."
+ ],
+ "pool.arzt_muskelprobleme.a.a1": [
+  "He rests. We will see in {frist} days, and until then health comes first.",
+  "I am taking him out and giving him {frist} days, then we decide again."
+ ],
+ "pool.arzt_muskelprobleme.a.a2": [
+  "He plays, but with a load limit: short stints, and at the first twinge he comes off.",
+  "I will let him play and substitute him early. Tell me beforehand from which minute it gets critical."
+ ],
+ "pool.arzt_muskelprobleme.a.a3": [
+  "Treat him thoroughly first, heat, massage, whatever is needed. Then we decide.",
+  "Give him the full treatment today. I will ask for the update tomorrow morning."
+ ],
+ "pool.arzt_muskelprobleme.a.a4": [
+  "Would a fitness injection be an option? Tell me openly what speaks against it.",
+  "I want to know whether an injection gets him through Sunday, and what it could cost us later."
+ ],
+ "pool.arzt_muskelprobleme.a.a5": [
+  "How does he feel himself? I want to let him decide what he trusts himself with.",
+  "Let us ask him together. He knows his body better than any chart."
+ ],
+ "pool.arzt_muskelprobleme.a.a6": [
+  "That is probably just a twinge. Let us watch it until the game.",
+  "I think it will settle on its own. We will see again tomorrow."
+ ],
+ "pool.arzt_muskelprobleme.a.a7": [
+  "I will talk to him. He should know his body matters more than a single game.",
+  "Thank you for your honesty. I will tell him he does not have to hide it when it pulls."
+ ],
+ "pool.arzt_muskelprobleme.a.a8": [
+  "A muscle irritation is no reason to rest a regular. He plays.",
+  "In professional football something always pulls. He takes the pitch, and that is the end of it."
+ ],
+ "pool.arzt_muskelprobleme.a.a9": [
+  "Your concerns are noted. But I decide, and I need him today.",
+  "I will not pretend I have an alternative. He plays through, whether he likes it or not."
+ ],
+ "pool.arzt_muskelprobleme.a.a10": [
+  "I will only use him in an emergency. He stays within reach on the bench.",
+  "He sits on the bench and only warms up if it has to be."
+ ],
+ "pool.arzt_muskelprobleme.a.a11": [
+  "Then he gets the premium treatment, with a towel and name tag. That has never hurt anyone.",
+  "Tell him the muscle is welcome to rest as long as the rest of him trains."
+ ],
+ "pool.arzt_muskelprobleme.a.a12": [
+  "Please talk the plan through with him. If he feels uneasy he stays out, and it will not be held against him.",
+  "Let him help decide. He should know his voice counts."
+ ],
+ "pool.arzt_muskelprobleme.r.r1": [
+  "{b.gut} Then the muscle stays in good hands.",
+  "{b.gut} That is a plan I can support."
+ ],
+ "pool.arzt_muskelprobleme.r.r2": [
+  "{b.gut} He will understand that you want to protect him.",
+  "{b.gut} Good, there is no game worth permanent damage."
+ ],
+ "pool.arzt_muskelprobleme.r.r3": [
+  "{b.gut} With a fixed date he can bear the rest.",
+  "{b.gut} If he knows what is coming, he works twice as hard for the return."
+ ],
+ "pool.arzt_muskelprobleme.r.r4": [
+  "{b.gut} Being allowed to have a say visibly does him good.",
+  "{b.gut} That way he feels taken seriously and not shoved aside."
+ ],
+ "pool.arzt_muskelprobleme.r.r5": [
+  "{b.neutral} I will give you the findings again after the warm-up.",
+  "{b.neutral} We have discussed it, we share the responsibility."
+ ],
+ "pool.arzt_muskelprobleme.r.r6": [
+  "{b.neutral} How he copes with it I cannot say yet today.",
+  "{b.neutral} He wavers between relief and worry."
+ ],
+ "pool.arzt_muskelprobleme.r.r7": [
+  "{b.neutral} I will watch the muscle and speak up if it gets worse.",
+  "{b.neutral} That is feasible, but not without residual risk."
+ ],
+ "pool.arzt_muskelprobleme.r.r8": [
+  "{b.neutral} He takes it as it comes, and I stay on it.",
+  "{b.neutral} We will see on Sunday morning."
+ ],
+ "pool.arzt_muskelprobleme.r.r9": [
+  "{b.schlecht} I will record that exactly as I said it.",
+  "{b.schlecht} If the muscle tears, I want people to remember this."
+ ],
+ "pool.arzt_muskelprobleme.r.r10": [
+  "{b.schlecht} Do not tell me, tell him, and keep your distance!",
+  "{b.schlecht} That way he will no longer dare to show me anything!"
+ ],
+ "pool.arzt_muskelprobleme.r.r11": [
+  "{b.schlecht} He will remember that here his health is put at risk.",
+  "{b.schlecht} Someone treated like that starts looking for another doctor and another club."
+ ],
+ "pool.arzt_muskelprobleme.r.r12": [
+  "{b.schlecht} He would run for you until it tears, and that is exactly what worries me.",
+  "{b.schlecht} I hope we do not regret this in a few weeks."
+ ],
+ "pool.arzt_muskelprobleme.x.x1": [
+  "The doctor relaxes. {entscheidung} The muscle calms down noticeably over the following days.",
+  "{entscheidung} The player lets the muscle rest and soon trains pain-free again."
+ ],
+ "pool.arzt_muskelprobleme.x.x2": [
+  "The muscle remains a topic. {entscheidung} The doctor checks it again before every session.",
+  "{entscheidung} Whether it was a twinge or more will show in the coming days."
+ ],
+ "pool.arzt_muskelprobleme.x.x3": [
+  "The doctor leaves the treatment table with a closed expression. {entscheidung} The player runs out with an uneasy feeling.",
+  "{entscheidung} Concern grows between staff and players that this could end badly."
+ ],
+ "pool.arzt_muskelprobleme.x.x4": [
+  "The doctor records the plan. {entscheidung} The deadline is set, and the player knows where he stands.",
+  "{entscheidung} The player takes the date to heart and sticks to it."
+ ],
+ "pool.arzt_muskelprobleme.x.x5": [
+  "The conversation ends abruptly. {entscheidung} The doctor only notes down his warning.",
+  "{entscheidung} The chat goes unanswered, and so does the muscle."
+ ],
+ "pool.reha_fortschritt.e.e1": [
+  "{b.reha_fortschritt_gruss} {name} is ahead of schedule in rehab. As the next step I would suggest team training.",
+  "{b.reha_fortschritt_gruss} {name}'s load tests are clean. It would be time to bring him step by step back to the group."
+ ],
+ "pool.reha_fortschritt.e.e2": [
+  "{b.reha_fortschritt_gruss} {name} has completed the last build-up stage without pain. I suggest a trial appearance.",
+  "{b.reha_fortschritt_gruss} {name}'s knee holds, and the muscles are catching up. A friendly would be a sensible step."
+ ],
+ "pool.reha_fortschritt.e.e3": [
+  "{b.reha_fortschritt_gruss} At least one piece of good news in these days: {name} is progressing well in rehab.",
+  "{b.reha_fortschritt_gruss} Even if the mood is poor, {name} is making great strides in rehab."
+ ],
+ "pool.reha_fortschritt.e.e4": [
+  "{b.reha_fortschritt_gruss} {name}'s rehab is going well, but I have to apply the brakes. {b.reha_fortschritt_haltung}",
+  "{b.reha_fortschritt_gruss} {name}'s healing is going well, only his pace is not. {b.reha_fortschritt_haltung}"
+ ],
+ "pool.reha_fortschritt.e.e5": [
+  "{b.reha_fortschritt_gruss} {name}'s progress is pleasing. {b.reha_fortschritt_haltung}",
+  "{b.reha_fortschritt_gruss} {name} is doing everything right in rehab. {b.reha_fortschritt_haltung}"
+ ],
+ "pool.reha_fortschritt.e.e6": [
+  "{b.reha_fortschritt_gruss} {name}'s rehab has moved on quickly. {b.reha_fortschritt_haltung}",
+  "{b.reha_fortschritt_gruss} With {name} we are further along than I dared to hope. {b.reha_fortschritt_haltung}"
+ ],
+ "pool.reha_fortschritt.e.e7": [
+  "{b.reha_fortschritt_gruss} I wanted you to hear a good interim report on {name}. {b.reha_fortschritt_haltung}",
+  "{b.reha_fortschritt_gruss} {name} is moving forward, and how we handle it matters. {b.reha_fortschritt_haltung}"
+ ],
+ "pool.reha_fortschritt.e.e8": [
+  "{b.reha_fortschritt_gruss} {name} is on track in the build-up phase. From a medical view the next phase is possible if nothing gets in the way.",
+  "{b.reha_fortschritt_gruss} In team training {name} already looks almost as before. I advise a cautious plan for his appearances."
+ ],
+ "pool.reha_fortschritt.e.e9": [
+  "{b.reha_fortschritt_gruss} It is your line-up, but from my side {name} would soon be an option for the squad again.",
+  "{b.reha_fortschritt_gruss} I do not want to raise false hopes. But {name} has completed rehab in exemplary fashion so far."
+ ],
+ "pool.reha_fortschritt.a.a1": [
+  "We follow your plan. You set when he moves up the next stage, and I will go along with it.",
+  "Agreed, step by step. Report back after each session on how he is doing."
+ ],
+ "pool.reha_fortschritt.a.a2": [
+  "In {frist} days he is in the squad if the course stays like this. I will promise him that.",
+  "I will give him a return date: in {frist} days. You keep me posted."
+ ],
+ "pool.reha_fortschritt.a.a3": [
+  "Can we speed up rehab with extra sessions and more supervision? That may cost money.",
+  "If a second therapy session a day helps, I will pay for it. How quickly would he be back then?"
+ ],
+ "pool.reha_fortschritt.a.a4": [
+  "We take it calmly. A date is not due yet.",
+  "Fine, but let us not make a fuss. I will get in touch when I need him."
+ ],
+ "pool.reha_fortschritt.a.a5": [
+  "I stick to my schedule, and no partial successes change that. Too early gets us nothing.",
+  "Progress pleases me, but I have no interest in experiments. He comes when I say so."
+ ],
+ "pool.reha_fortschritt.a.a6": [
+  "What does he say himself, and how does his body feel? Please include him in the plan.",
+  "Let us ask him how much he trusts himself with. I want him to go along with the path."
+ ],
+ "pool.reha_fortschritt.a.a7": [
+  "Out of the question. He should watch for a long time yet so he does no foolish things.",
+  "I only trust progress once it has held for a quarter. Until then, nothing happens."
+ ],
+ "pool.reha_fortschritt.a.a8": [
+  "That is the best news of the week. I will tell him personally how proud I am of his work.",
+  "Thank you, he has earned it. He should know that we all expect him back."
+ ],
+ "pool.reha_fortschritt.a.a9": [
+  "Agree it with the fitness coach and put a step-by-step plan in front of me.",
+  "Plan the sessions with my assistant. I will decide on the squad afterwards."
+ ],
+ "pool.reha_fortschritt.a.a10": [
+  "I do not care how good the figures are. He is not ready yet, and that is the end of it.",
+  "I will not let readings dictate when he plays."
+ ],
+ "pool.reha_fortschritt.a.a11": [
+  "A friendly yes, but only one half and without hard challenges. Then you reassess.",
+  "Then we take the quiet test with the reserve side. Nothing rushed."
+ ],
+ "pool.reha_fortschritt.a.a12": [
+  "Wonderful, then he can soon sit through the bench again, as is proper.",
+  "Tell him he may look forward to two things: training and my mood."
+ ],
+ "pool.reha_fortschritt.a.a13": [
+  "If he sees rehab through to the end like this, he gets his role in the team back in {frist} days.",
+  "I promise him: in {frist} days he is back where he stood before the injury."
+ ],
+ "pool.reha_fortschritt.r.r1": [
+  "{b.gut} Then we agree, and he has a clear target.",
+  "{b.gut} That is the right path, I will take care of the implementation."
+ ],
+ "pool.reha_fortschritt.r.r2": [
+  "{b.gut} He will do every session for you, that is how he is.",
+  "{b.gut} You give him support, and that pays off in rehab."
+ ],
+ "pool.reha_fortschritt.r.r3": [
+  "{b.gut} With a goal in sight he becomes a model pupil in rehab.",
+  "{b.gut} That spurs him on, and I will have to hold him back rather than drive him."
+ ],
+ "pool.reha_fortschritt.r.r4": [
+  "{b.gut} That you listen to him helps him more than any massage.",
+  "{b.gut} He was afraid you no longer believed in him. Now he knows."
+ ],
+ "pool.reha_fortschritt.r.r5": [
+  "{b.neutral} I stick to my assessment and adjust it if something changes.",
+  "{b.neutral} We will see, the next tests will tell."
+ ],
+ "pool.reha_fortschritt.r.r6": [
+  "{b.neutral} He takes it calmly one day and anxiously the next, I stay close.",
+  "{b.neutral} How he copes with the pace remains to be seen."
+ ],
+ "pool.reha_fortschritt.r.r7": [
+  "{b.neutral} That is feasible, but not without discipline on both sides.",
+  "{b.neutral} A sensible compromise between wish and healing."
+ ],
+ "pool.reha_fortschritt.r.r8": [
+  "{b.neutral} He sees it matter-of-factly and simply carries on.",
+  "{b.neutral} One day after another, that is how it goes with him."
+ ],
+ "pool.reha_fortschritt.r.r9": [
+  "{b.schlecht} Then we lose valuable weeks that we could have used.",
+  "{b.schlecht} I take note of that, but it does not convince me."
+ ],
+ "pool.reha_fortschritt.r.r10": [
+  "{b.schlecht} He will rage when he hears that, and then he trains on his own!",
+  "{b.schlecht} Anyone who holds him back like that gets trouble in every session!"
+ ],
+ "pool.reha_fortschritt.r.r11": [
+  "{b.schlecht} If he sees no prospect here, he will look elsewhere.",
+  "{b.schlecht} He will compare how other clubs handle their returnees."
+ ],
+ "pool.reha_fortschritt.r.r12": [
+  "{b.schlecht} He has worked so hard, and it is simply brushed aside.",
+  "{b.schlecht} He has not deserved that, and he will remember it."
+ ],
+ "pool.reha_fortschritt.x.x1": [
+  "The doctor happily notes the next step. {entscheidung} The player beams in the next session.",
+  "{entscheidung} Rehab continues without friction, and the player looks stronger from day to day."
+ ],
+ "pool.reha_fortschritt.x.x2": [
+  "The conversation leaves a lot open. {entscheidung} The doctor waits for the next tests.",
+  "{entscheidung} Whether the step is due yet will be decided by next week's figures."
+ ],
+ "pool.reha_fortschritt.x.x3": [
+  "The doctor withdraws, annoyed. {entscheidung} In the days after, the player trains tensely and overeagerly.",
+  "{entscheidung} Concern grows in the staff that the player is overdoing it on his own."
+ ],
+ "pool.reha_fortschritt.x.x4": [
+  "The doctor records the date in writing. {entscheidung} The player now has a date in mind and works towards it.",
+  "{entscheidung} The date is in the rehab plan, and the player asks about it every day."
+ ],
+ "pool.reha_fortschritt.x.x5": [
+  "The conversation breaks off before a step has been agreed. {entscheidung} The plan remains unresolved.",
+  "{entscheidung} The doctor closes the folder, the next step remains open."
+ ],
+ "pool.reha_rueckschlag.e.e1": [
+  "{b.reha_rueckschlag_gruss} {name}'s pain has returned. That is a setback in rehab, and it hits him hard.",
+  "{b.reha_rueckschlag_gruss} In the last load stage {name} felt pain again. We have to go a step back."
+ ],
+ "pool.reha_rueckschlag.e.e2": [
+  "{b.reha_rueckschlag_gruss} {name}'s complaints are back, not dramatic but clear. He is dejected.",
+  "{b.reha_rueckschlag_gruss} {name} felt another twinge after training. His mood is on the floor."
+ ],
+ "pool.reha_rueckschlag.e.e3": [
+  "{b.reha_rueckschlag_gruss} I know the situation is difficult anyway. Even so, I have to say that {name} has had a setback.",
+  "{b.reha_rueckschlag_gruss} It is not a good time, but {name} has had a setback in rehab."
+ ],
+ "pool.reha_rueckschlag.e.e4": [
+  "{b.reha_rueckschlag_gruss} {name}'s setback is here. {b.reha_rueckschlag_haltung}",
+  "{b.reha_rueckschlag_gruss} {name}'s rehab has stalled, and he is not taking it well. {b.reha_rueckschlag_haltung}"
+ ],
+ "pool.reha_rueckschlag.e.e5": [
+  "{b.reha_rueckschlag_gruss} A setback for {name}. {b.reha_rueckschlag_haltung}",
+  "{b.reha_rueckschlag_gruss} The pain is back for {name}. {b.reha_rueckschlag_haltung}"
+ ],
+ "pool.reha_rueckschlag.e.e6": [
+  "{b.reha_rueckschlag_gruss} {name} has suffered a setback in rehab. {b.reha_rueckschlag_haltung}",
+  "{b.reha_rueckschlag_gruss} We have to reorganise rehab for {name}. {b.reha_rueckschlag_haltung}"
+ ],
+ "pool.reha_rueckschlag.e.e7": [
+  "{b.reha_rueckschlag_gruss} I want you to know how {name} is doing right now. {b.reha_rueckschlag_haltung}",
+  "{b.reha_rueckschlag_gruss} {name} has had a setback, and handling it is delicate. {b.reha_rueckschlag_haltung}"
+ ],
+ "pool.reha_rueckschlag.e.e8": [
+  "{b.reha_rueckschlag_gruss} {name}'s risk of relapse was already raised, and now the pain is back. We have to be careful.",
+  "{b.reha_rueckschlag_gruss} I had warned about building up too fast, and now {name}'s body shows the limit."
+ ],
+ "pool.reha_rueckschlag.e.e9": [
+  "{b.reha_rueckschlag_gruss} Rehab rarely runs straight, but this setback has visibly shaken {name}.",
+  "{b.reha_rueckschlag_gruss} Medically it is not the end, but {name} does not see it that way at the moment."
+ ],
+ "pool.reha_rueckschlag.a.a1": [
+  "I will go to him straight away. He should hear that he is not alone and that we will see this through together.",
+  "Thank you for telling me. I will make time for him, however long it takes."
+ ],
+ "pool.reha_rueckschlag.a.a2": [
+  "I will put it honestly into context for him: setbacks are part of rehab, but he is not at the beginning.",
+  "I will soberly explain to him what lies behind it medically. That takes the drama out of it."
+ ],
+ "pool.reha_rueckschlag.a.a3": [
+  "Let us extend the break by the time needed. Better a few extra weeks now than months later.",
+  "We take our time. He stays in treatment until you say it holds."
+ ],
+ "pool.reha_rueckschlag.a.a4": [
+  "Let us get a second opinion. Perhaps we are overlooking something.",
+  "I will have an outside specialist take a look. That may cost money."
+ ],
+ "pool.reha_rueckschlag.a.a5": [
+  "Make it clear to him that we are taking the pressure off. There is no date torturing him.",
+  "He should know that nobody is watching the clock. All that matters is that it heals properly."
+ ],
+ "pool.reha_rueckschlag.a.a6": [
+  "We set the schedule anew. In {frist} days we sit down together and fix the next step.",
+  "I will promise him a new date: {frist} days of build-up, then we decide without pressure."
+ ],
+ "pool.reha_rueckschlag.a.a7": [
+  "Setback or not, I see no reason to mollycoddle him. He should carry on.",
+  "I will not accept that. He has to pull himself together, others fight pain too."
+ ],
+ "pool.reha_rueckschlag.a.a8": [
+  "We keep the old plan. You do not win games with pity.",
+  "He should see rehab through as planned. A setback is no excuse."
+ ],
+ "pool.reha_rueckschlag.a.a9": [
+  "What was the trigger? I want to know whether it was the load or the pace.",
+  "How serious is it really, and how long is he likely to be out?"
+ ],
+ "pool.reha_rueckschlag.a.a10": [
+  "At least he will have more time to look at his cards. But I will not put it to him like that.",
+  "Setbacks are like conceded goals: annoying, but the game is not over."
+ ],
+ "pool.reha_rueckschlag.a.a11": [
+  "He does not need a plan right now, he needs someone to listen. I will sit with him.",
+  "I know what it is like when the body does not play along. I will talk to him without anyone pushing."
+ ],
+ "pool.reha_rueckschlag.a.a12": [
+  "I will tell him clearly: the new schedule applies, and nobody asks when he comes back before the doctor gives the green light.",
+  "From me he gets a clear line: health first, everything else will be renegotiated."
+ ],
+ "pool.reha_rueckschlag.r.r1": [
+  "{b.gut} That is the right tone, and he will feel it.",
+  "{b.gut} This is exactly the attitude he needs from you now."
+ ],
+ "pool.reha_rueckschlag.r.r2": [
+  "{b.gut} He will pick himself up when he sees that you stand by him.",
+  "{b.gut} That calms him, and me too."
+ ],
+ "pool.reha_rueckschlag.r.r3": [
+  "{b.gut} With a clear plan he finds his fighting spirit again.",
+  "{b.gut} If he knows what is coming, he can focus on it again."
+ ],
+ "pool.reha_rueckschlag.r.r4": [
+  "{b.gut} That you take time for him means a great deal to him.",
+  "{b.gut} He needed someone to say that it is all right not to be strong."
+ ],
+ "pool.reha_rueckschlag.r.r5": [
+  "{b.neutral} We will see how he reacts in the next few days.",
+  "{b.neutral} It is a step, but not yet a solution."
+ ],
+ "pool.reha_rueckschlag.r.r6": [
+  "{b.neutral} He needs time before he recovers, I will stay close.",
+  "{b.neutral} His mood could tip in any direction."
+ ],
+ "pool.reha_rueckschlag.r.r7": [
+  "{b.neutral} That is sensible, I will adjust the treatment accordingly.",
+  "{b.neutral} I will keep you informed of any change."
+ ],
+ "pool.reha_rueckschlag.r.r8": [
+  "{b.neutral} He accepts it, and tomorrow things carry on.",
+  "{b.neutral} He takes a setback better than many others."
+ ],
+ "pool.reha_rueckschlag.r.r9": [
+  "{b.schlecht} Then he is left alone with his frustration, and I do not like that.",
+  "{b.schlecht} That does not help him and the healing even less."
+ ],
+ "pool.reha_rueckschlag.r.r10": [
+  "{b.schlecht} He will explode, and I will be caught in between!",
+  "{b.schlecht} If he hears that, he throws everything away!"
+ ],
+ "pool.reha_rueckschlag.r.r11": [
+  "{b.schlecht} He will wonder whether he still has a future here, and his advisers will too.",
+  "{b.schlecht} He has hinted that other clubs show more patience with injured players."
+ ],
+ "pool.reha_rueckschlag.r.r12": [
+  "{b.schlecht} After all his efforts he would have deserved more support.",
+  "{b.schlecht} That hits him deeper than he lets on."
+ ],
+ "pool.reha_rueckschlag.x.x1": [
+  "The doctor breathes out. {entscheidung} Over the next few days the player slowly picks himself up again.",
+  "{entscheidung} The player accepts the setback, and treatment continues more calmly."
+ ],
+ "pool.reha_rueckschlag.x.x2": [
+  "The conversation clarifies little. {entscheidung} The player stays silent and remains in treatment.",
+  "{entscheidung} How he copes with the setback will only show in the next sessions."
+ ],
+ "pool.reha_rueckschlag.x.x3": [
+  "The doctor leaves the room visibly worried. {entscheidung} The player withdraws and avoids the staff.",
+  "{entscheidung} It goes round the dressing room that the injured man is being dropped."
+ ],
+ "pool.reha_rueckschlag.x.x4": [
+  "The doctor enters the new schedule. {entscheidung} The player clings to the date and works towards it.",
+  "{entscheidung} The new plan is set, and the player commits to rehab again."
+ ],
+ "pool.reha_rueckschlag.x.x5": [
+  "The conversation ends without result. {entscheidung} The doctor is left alone with the dejected player.",
+  "{entscheidung} The coach leaves, and it stays quiet in the treatment room."
+ ]
+}

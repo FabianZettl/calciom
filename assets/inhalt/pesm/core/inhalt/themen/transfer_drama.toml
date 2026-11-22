@@ -1,0 +1,74 @@
+# Inhaltspool: Transfer- und Vertragsdrama (Streik und Unruhe, Vertragspoker um einen Star). Auslöser sind die Felder `streik` und `vertragsdrama` aus core/transfers/drama.py.
+# Texte: pool.<thema>.<e|a|r|x>.<id> in pesm/core/texts/pool_transfer_drama.json (de) und en/. Kategorie drama (kurze Themen, Wirkungen aus dem Katalog).
+
+[thema.streik_gespraech]
+kategorie = "drama"
+absender = "spieler"
+kanal = "persoenlich"
+dringlichkeit = 3
+sperre_tage = 14
+haeufigkeit = 1.0
+wenn = ["streik>=1", "streik<=2"]
+eroeffnung = [
+  { id = "e1" },
+  { id = "e2", wenn = ["streik>=2"] },
+  { id = "e3", typ = ["ehrgeizig", "wechselfreudig", "hitzig"] },
+]
+antwort = [
+  { id = "a1", strategie = "zusage", ton = "bestimmt", wirkungen = [{ ziel = "zusage", art = "freigabe", frist = 90 }, { ziel = "moral", delta = 3 }], ausgang = "zusage" },
+  { id = "a2", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "beziehung", delta = 6 }, { ziel = "moral", delta = 3 }] },
+  { id = "a3", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 2 }] },
+  { id = "a4", strategie = "vertroesten", ton = "offen", wirkungen = [{ ziel = "wechselwunsch", delta = 3 }] },
+  { id = "a5", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = -6 }, { ziel = "wechselwunsch", delta = 6 }, { ziel = "vorstandsvertrauen", delta = 2 }], ausgang = "eskalation" },
+  { id = "a6", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -8 }, { ziel = "medienbild", delta = -3 }], ausgang = "eskalation" },
+]
+reaktion = [{ id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "neutral" }, { id = "r3", gruppe = "schlecht" }]
+ausgang = [{ id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "zusage" }]
+
+[thema.streik_einsatz]
+kategorie = "drama"
+absender = "spieler"
+kanal = "persoenlich"
+dringlichkeit = 3
+sperre_tage = 10
+haeufigkeit = 1.0
+wenn = ["streik>=3"]
+eroeffnung = [
+  { id = "e1" },
+  { id = "e2", wenn = ["beziehung<0"] },
+  { id = "e3", typ = ["loyal", "gelassen", "sensibel"] },
+]
+antwort = [
+  { id = "a1", strategie = "zusage", ton = "bestimmt", wirkungen = [{ ziel = "zusage", art = "freigabe", frist = 60 }, { ziel = "moral", delta = 4 }, { ziel = "vorstandsvertrauen", delta = -2 }], ausgang = "zusage" },
+  { id = "a2", strategie = "ausgleich", ton = "einfuehlsam", wirkungen = [{ ziel = "kosten", betrag = 400000 }, { ziel = "beziehung", delta = 8 }, { ziel = "moral", delta = 3 }] },
+  { id = "a3", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "vorstandsvertrauen", delta = 3 }, { ziel = "beziehung", delta = 1 }] },
+  { id = "a4", strategie = "delegieren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = -2 }, { ziel = "vorstandsvertrauen", delta = 1 }] },
+  { id = "a5", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = -6 }, { ziel = "fanstimmung", delta = -4 }, { ziel = "medienbild", delta = -3 }], ausgang = "eskalation" },
+  { id = "a6", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -9 }, { ziel = "wechselwunsch", delta = 5 }], ausgang = "eskalation" },
+]
+reaktion = [{ id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "neutral" }, { id = "r3", gruppe = "schlecht" }]
+ausgang = [{ id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "zusage" }]
+
+[thema.vertrag_verweigert_star]
+kategorie = "drama"
+absender = "berater"
+kanal = "verhandlungstisch"
+dringlichkeit = 3
+sperre_tage = 21
+haeufigkeit = 0.7
+wenn = ["vertragsdrama>=1"]
+eroeffnung = [
+  { id = "e1" },
+  { id = "e2", wenn = ["rest<=6"] },
+  { id = "e3", typ = ["ehrgeizig", "wechselfreudig"] },
+]
+antwort = [
+  { id = "a1", strategie = "zusage", ton = "bestimmt", wirkungen = [{ ziel = "zusage", art = "vertrag", frist = 30 }, { ziel = "beziehung", delta = 4 }, { ziel = "kosten", betrag = 500000 }], ausgang = "zusage" },
+  { id = "a2", strategie = "gegenfrage", ton = "offen", wirkungen = [{ ziel = "beziehung", delta = 1 }] },
+  { id = "a3", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 3 }, { ziel = "moral", delta = 1 }] },
+  { id = "a4", strategie = "vertroesten", ton = "offen", wirkungen = [{ ziel = "wechselwunsch", delta = 3 }, { ziel = "beziehung", delta = -1 }] },
+  { id = "a5", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = -5 }, { ziel = "wechselwunsch", delta = 6 }], ausgang = "eskalation" },
+  { id = "a6", strategie = "ablehnen", ton = "sachlich", wirkungen = [{ ziel = "wechselwunsch", delta = 4 }, { ziel = "beziehung", delta = -3 }] },
+]
+reaktion = [{ id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "neutral" }, { id = "r3", gruppe = "schlecht" }]
+ausgang = [{ id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "zusage" }]

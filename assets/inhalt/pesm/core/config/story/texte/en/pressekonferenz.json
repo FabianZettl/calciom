@@ -1,0 +1,138 @@
+{
+  "_hinweis": "Pre-match press conference. Five topics (gegner, serie, tabellenlage, spieler_im_blick, ausfaelle) with two questions each; per tone (zuversichtlich, sachlich, scharf) two answers that fit both questions of the topic. {ergebnis} = last result, {spieler} = player in focus. Placeholders: {gegner}, {ergebnis}, {platz}, {verein}, {spieler}, {spieler_kurz}, {medium}.",
+  "pk.gegner.frage": {
+    "standard": [
+      "Next up is {gegner}. What do you expect from this opponent?",
+      "{gegner} are said to be awkward to play against. How do you intend to approach the game?"
+    ]
+  },
+  "pk.gegner.antwort.zuversichtlich": {
+    "standard": [
+      "We know their strengths and we have a clear plan. If we carry it out, we win.",
+      "We look at ourselves. If we bring our own performance, {gegner} will have to adapt to us."
+    ]
+  },
+  "pk.gegner.antwort.sachlich": {
+    "standard": [
+      "{gegner} are well organised. We've prepared, and the rest is decided on the pitch.",
+      "We have to accept the duels and stay patient. Then we'll have our chances."
+    ]
+  },
+  "pk.gegner.antwort.scharf": {
+    "standard": [
+      "I'm not talking about {gegner}. They should be thinking about us.",
+      "Awkward, strong, dangerous: I hear that before every game. In the end it's who scores more goals that counts."
+    ]
+  },
+  "pk.serie.frage": {
+    "standard": [
+      "The last game ended {ergebnis}. What do you take from it?",
+      "How do you assess the results of the last few weeks?"
+    ]
+  },
+  "pk.serie.antwort.zuversichtlich": {
+    "standard": [
+      "I see a team that's developing. That's what we build on.",
+      "The direction is right. We'll improve further in the next games."
+    ]
+  },
+  "pk.serie.antwort.sachlich": {
+    "standard": [
+      "There was some good and some things we need to improve. We worked through that during the week.",
+      "Results are a snapshot. We're working on the details and looking ahead to the next game."
+    ]
+  },
+  "pk.serie.antwort.scharf": {
+    "standard": [
+      "I'm not satisfied with what I've seen recently. I've told the team so clearly.",
+      "The same question every week. Judge us at the end of the season, not after every matchday."
+    ]
+  },
+  "pk.tabellenlage.frage": {
+    "standard": [
+      "You're in position {platz}. Is that where {verein} belong?",
+      "Are you looking at the table or just at the next game?"
+    ]
+  },
+  "pk.tabellenlage.antwort.zuversichtlich": {
+    "standard": [
+      "We want to keep climbing, and we have the squad for it.",
+      "There's more in us. In the end the table will look better for us than it does today."
+    ]
+  },
+  "pk.tabellenlage.antwort.sachlich": {
+    "standard": [
+      "Position {platz} is where we stand today. The reckoning comes on the final day.",
+      "I know the table, but it doesn't win a game. We think week by week."
+    ]
+  },
+  "pk.tabellenlage.antwort.scharf": {
+    "standard": [
+      "The table doesn't interest me at the moment. And the team shouldn't be reading it either.",
+      "Anyone who judges us on the table alone hasn't watched our games."
+    ]
+  },
+  "pk.spieler_im_blick.frage": {
+    "standard": [
+      "There's a lot of talk about {spieler}. How do you see his role in the next game?",
+      "A word on {spieler_kurz}: are you happy with his performances?"
+    ]
+  },
+  "pk.spieler_im_blick.antwort.zuversichtlich": {
+    "standard": [
+      "{spieler_kurz} is important to us. I'm sure he'll show that in the next game.",
+      "He's working well and has my full confidence."
+    ]
+  },
+  "pk.spieler_im_blick.antwort.sachlich": {
+    "standard": [
+      "He's one of many in the squad. I decide who plays after the final training session.",
+      "I speak to individual players first and foremost with them. He knows where he stands."
+    ]
+  },
+  "pk.spieler_im_blick.antwort.scharf": {
+    "standard": [
+      "I expect more from {spieler_kurz}, and he knows it.",
+      "Nobody here is above the team. That goes for him too."
+    ]
+  },
+  "pk.ausfaelle.frage": {
+    "standard": [
+      "How are things with personnel? Will you have to do without players against {gegner}?",
+      "Several players are carrying knocks. How much does that hit you before this game?"
+    ]
+  },
+  "pk.ausfaelle.antwort.zuversichtlich": {
+    "standard": [
+      "We have a big squad. Whoever comes in does a good job.",
+      "Every absence is a chance for somebody else. I'm not worried."
+    ]
+  },
+  "pk.ausfaelle.antwort.sachlich": {
+    "standard": [
+      "With one or two players we'll decide at short notice. I won't say more on that today.",
+      "Absences are part of a season. We'll field a team that can win."
+    ]
+  },
+  "pk.ausfaelle.antwort.scharf": {
+    "standard": [
+      "I don't whinge about absences. Whoever pulls on the shirt has to deliver.",
+      "Shall I hand the opposition our line-up straight away? You'll see on matchday who's playing."
+    ]
+  },
+  "pk.nachklang.zuversichtlich": {
+    "standard": [
+      "{medium}: Manager confident of victory"
+    ]
+  },
+  "pk.nachklang.sachlich": {
+    "standard": [
+      "{medium}: Sober tone ahead of the game"
+    ]
+  },
+  "pk.nachklang.scharf": {
+    "standard": [
+      "{medium}: Manager lashes out before the game"
+    ]
+  }
+}

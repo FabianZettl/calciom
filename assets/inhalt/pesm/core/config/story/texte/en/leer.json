@@ -1,0 +1,48 @@
+{
+  "_hinweis": "Notice on empty story pages: in game language, what the situation is. “Nothing yet …” when the page can fill up; “Coming soon” when the feature is missing. No sentences about the origin or accuracy of the data. Keys: leer.<ID of the view as in the menu>. No placeholders. A notice only names senders and occasions that an active rule actually produces (aktive_regeln in zustand.json).",
+  "leer.posteingang": {
+    "standard": [
+      "No messages yet. The assistant manager, captain, players and board get in touch when there's a reason to."
+    ]
+  },
+  "leer.presse": {
+    "standard": [
+      "No headlines yet. The press doesn't write about every game, only when there's a reason: a run, a notable league position or a top scorer in form."
+    ]
+  },
+  "leer.fans_und_medien": {
+    "standard": [
+      "No voices yet: fans and media react to runs and to your league position."
+    ]
+  },
+  "leer.praesidium": {
+    "standard": [
+      "All quiet in the boardroom: the board gets in touch when its confidence in you rises or falls."
+    ]
+  },
+  "leer.ziele": {
+    "standard": [
+      "No season objective yet: the board will propose one, and you can accept or change it."
+    ]
+  },
+  "leer.gespraeche": {
+    "standard": [
+      "No conversations pending. A player asks to talk when something is on his mind, such as his role, his form or his contract."
+    ]
+  },
+  "leer.transfermarkt": {
+    "standard": [
+      "Coming soon: offers, negotiations, loans and shortlist."
+    ]
+  },
+  "leer.kabine": {
+    "standard": [
+      "Coming soon: relationships between players. You'll find pecking order, morale and promises in the other tabs."
+    ]
+  },
+  "leer.scouting": {
+    "standard": [
+      "Coming soon: scouts, assignments and reports. You can already use the search."
+    ]
+  }
+}

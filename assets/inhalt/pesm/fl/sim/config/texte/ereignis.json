@@ -1,0 +1,1012 @@
+{
+ "rahmen_privat": {
+  "teile": [
+   [
+    "Kurze Info aus dem Betreuerteam:",
+    "Aus dem Umfeld der Mannschaft hört man:",
+    "Das Betreuerteam meldet:",
+    "Eine Notiz für den Trainer:",
+    "Was abseits des Platzes gerade passiert:",
+    "Ein Hinweis aus dem Mannschaftsumfeld:",
+    "Vom Teammanager erreicht dich diese Nachricht:",
+    "Abseits vom Training gibt es Neuigkeiten:",
+    "Die Betreuer haben etwas mitbekommen:",
+    "Ein Gespräch am Rande des Trainings brachte es ans Licht:"
+   ],
+   [
+    "{text}"
+   ],
+   [
+    "",
+    "",
+    "Behalte es im Auge, Trainer.",
+    "Wie es weitergeht, entscheidet das Leben selbst.",
+    "Auf dem Platz wird man sehen, ob es Auswirkungen hat.",
+    "Das Betreuerteam bleibt dran.",
+    "Mehr weiß man im Moment nicht.",
+    "Im Trainingsalltag dürfte sich das schnell zeigen.",
+    "Es ist eine Sache, die man nicht unterschätzen sollte.",
+    "Noch ist das reine Privatsache."
+   ]
+  ]
+ },
+ "rahmen_kabine": {
+  "teile": [
+   [
+    "Aus der Kabine dringt durch:",
+    "Der Mannschaftsrat meldet sich bei dir:",
+    "In der Kabine wird gerade geredet:",
+    "Das Kabinenklima ist Thema:",
+    "Der Zeugwart hat etwas aufgeschnappt:",
+    "Die Spieler tuscheln über Folgendes:",
+    "Ein Vorfall in der Kabine macht die Runde:",
+    "Vor dem Training war in der Kabine zu hören:",
+    "Ein Spieler hat sich bei der Mannschaftsführung gemeldet:",
+    "Die Stimmung unter den Spielern ist gerade Thema:"
+   ],
+   [
+    "{text}"
+   ],
+   [
+    "",
+    "",
+    "Die Kabine beobachtet, wie du damit umgehst.",
+    "Ein Wort des Trainers könnte jetzt helfen.",
+    "Die Mannschaft wartet auf ein Signal von dir.",
+    "In einer Kabine bleibt nichts lange geheim.",
+    "Es ist eine Frage der Führung."
+   ]
+  ]
+ },
+ "rahmen_presse": {
+  "teile": [
+   [
+    "Die Pressestelle meldet:",
+    "Aus der Medienwelt erreicht dich:",
+    "Am Rande des Trainings fragen Reporter nach:",
+    "Die Presse hat ein neues Thema gefunden:",
+    "In den Zeitungen steht heute:",
+    "Ein Reporter hat sich bei der Pressestelle gemeldet:",
+    "Die Lokalpresse berichtet:",
+    "Das Medieninteresse am Verein wächst:",
+    "Der Pressesprecher gibt dir diese Lage durch:",
+    "Heute Morgen kam bei der Pressestelle an:"
+   ],
+   [
+    "{text}"
+   ],
+   [
+    "",
+    "",
+    "Die Pressestelle wartet auf deine Linie.",
+    "Eine klare Antwort kann das Thema schnell beenden.",
+    "Mit der Presse sollte man es sich nicht verscherzen.",
+    "Das Echo in der Stadt dürfte groß sein.",
+    "Man sollte vorbereitet sein, wenn die Fragen kommen.",
+    "Das Thema dürfte in den nächsten Tagen weiterlaufen.",
+    "Für Schlagzeilen ist gesorgt.",
+    "Die Fans werden das aufmerksam lesen."
+   ]
+  ]
+ },
+ "rahmen_welt": {
+  "teile": [
+   [
+    "Aus der Fußballwelt:",
+    "Nicht nur bei euch ist etwas los:",
+    "Die Branche spricht über Folgendes:",
+    "Ein Blick über den Tellerrand:",
+    "Im Fußballgeschäft hat sich Folgendes zugetragen:",
+    "Der Fachpresse ist aufgefallen:",
+    "Über die Liga hinaus macht die Runde:",
+    "Bei der Konkurrenz tut sich etwas:",
+    "Die Sportnachrichten melden:",
+    "In Fachkreisen wird gerade über Folgendes geredet:"
+   ],
+   [
+    "{text}"
+   ],
+   [
+    "",
+    "",
+    "Das dürfte auch für euch Folgen haben.",
+    "Der Verein sollte es zumindest im Blick behalten.",
+    "Wie sich das auswirkt, bleibt abzuwarten.",
+    "Solche Dinge verändern den Markt.",
+    "Das Thema wird in der Branche noch eine Weile diskutiert.",
+    "Für den Verein ist das zunächst ein Beobachtungsfall.",
+    "Daraus kann sich einiges entwickeln.",
+    "Es lohnt sich, die Entwicklung zu verfolgen."
+   ]
+  ]
+ },
+ "rahmen_vorstand": {
+  "teile": [
+   [
+    "Der Vorstand lässt dir ausrichten:",
+    "Aus der Chefetage kommt folgende Nachricht:",
+    "Der Präsident hat sich gemeldet:",
+    "Nach der Vorstandssitzung wird dir mitgeteilt:",
+    "Das Präsidium wendet sich an dich:",
+    "Der Geschäftsführer bittet um Kenntnisnahme:",
+    "Im Vorstandsbüro wurde Folgendes beschlossen:",
+    "Die Vereinsführung meldet sich zu Wort:",
+    "Der Aufsichtsrat gibt dir diese Linie mit:",
+    "Hinter den Kulissen im Präsidium heißt es:"
+   ],
+   [
+    "{text}"
+   ],
+   [
+    "",
+    "",
+    "Der Vorstand erwartet eine Reaktion.",
+    "Die Vereinsführung behält die Lage im Auge.",
+    "Das Vertrauen in dich hängt auch davon ab, wie du damit umgehst.",
+    "Man ist auf deine Einschätzung gespannt.",
+    "Das Präsidium zählt auf dein Fingerspitzengefühl.",
+    "Die Erwartungen im Verein sind klar.",
+    "Es wäre gut, das zeitnah zu klären.",
+    "Der Vorstand schaut genau hin."
+   ]
+  ]
+ },
+ "rahmen_fans": {
+  "teile": [
+   [
+    "Der Fanbeauftragte meldet:",
+    "Aus der Kurve kommt Folgendes:",
+    "Die Fans haben sich zu Wort gemeldet:",
+    "Auf den Rängen und im Fanforum ist zu hören:",
+    "Der Fanklub hat sich bei der Geschäftsstelle gemeldet:",
+    "Das Stimmungsbild unter den Anhängern:",
+    "In der Fankurve macht die Runde:",
+    "Vor dem Stadion wurde gesagt:",
+    "Der Supporters-Club lässt dir ausrichten:",
+    "Eine Abordnung der Fans hat Folgendes vorgebracht:"
+   ],
+   [
+    "{text}"
+   ],
+   [
+    "",
+    "",
+    "Die Anhänger erwarten ein Zeichen.",
+    "Die Kurve vergisst nicht, wie man mit ihr umgeht.",
+    "Fans sind das Herz des Vereins.",
+    "Das Echo im Stadion wird davon abhängen.",
+    "Die Stimmung auf den Rängen ist ein Gradmesser.",
+    "Du solltest die Fans nicht unterschätzen.",
+    "Eine gute Reaktion zahlt sich auf den Rängen aus.",
+    "Die Kurve wird das nicht so schnell vergessen."
+   ]
+  ]
+ },
+ "rahmen_intrige": {
+  "teile": [
+   [
+    "Ein Vögelchen hat dir gezwitschert:",
+    "Hinter vorgehaltener Hand heißt es:",
+    "Aus gut informierten Kreisen hörst du:",
+    "Gerüchteweise macht die Runde:",
+    "Es wird getuschelt:",
+    "Aus dem Umfeld des Vereins dringt durch:",
+    "Ein Informant, der nicht genannt werden will, berichtet:",
+    "Im Verein gärt es, denn:",
+    "Es kursiert eine Geschichte:",
+    "Bei einem Kaffee wurde dir zugetragen:"
+   ],
+   [
+    "{text}"
+   ],
+   [
+    "",
+    "",
+    "Ob das stimmt, bleibt offen.",
+    "Gerüchte haben im Fußball ihre eigene Dynamik.",
+    "Es wäre klug, vorsichtig zu sein.",
+    "Ein falscher Schritt, und die Sache wird größer.",
+    "Man weiß nie, wer dahintersteckt.",
+    "Das Thema schwelt, sollte aber geklärt werden.",
+    "Vertrauen ist schnell verspielt.",
+    "Hinter den Kulissen wird gerade viel gesprochen."
+   ]
+  ]
+ },
+ "rahmen_skandal": {
+  "teile": [
+   [
+    "Der Pressesprecher schlägt Alarm:",
+    "Es gibt unerfreuliche Nachrichten:",
+    "Das hat dem Verein gerade noch gefehlt:",
+    "Eine heikle Sache macht die Runde:",
+    "Der Pressesprecher bittet um schnelle Entscheidung:",
+    "Schlechte Nachrichten für die Pressestelle:",
+    "Die Boulevardpresse hat Wind davon bekommen:",
+    "Der Verein muss sich mit Folgendem befassen:",
+    "Es wird unangenehm:",
+    "Der Verein steht plötzlich im Rampenlicht, und das nicht freiwillig:"
+   ],
+   [
+    "{text}"
+   ],
+   [
+    "",
+    "",
+    "Der Verein muss jetzt Haltung zeigen.",
+    "Die Presse wartet auf eine Reaktion.",
+    "Das Image steht auf dem Spiel.",
+    "Eine ruhige Hand ist jetzt gefragt.",
+    "Es sollte nicht lange gewartet werden.",
+    "Der Schaden lässt sich noch begrenzen.",
+    "Wie der Verein reagiert, wird genau beobachtet.",
+    "Das Thema dürfte noch Wellen schlagen."
+   ]
+  ]
+ },
+ "ton_Profi": {
+  "teile": [
+   [
+    "Bei {name} bleibt es wohl bei professioneller Gelassenheit.",
+    "Wie man {name} kennt, nimmt er es sachlich.",
+    "{name} dürfte das ohne großes Aufheben wegstecken.",
+    "Ein Vollprofi wie {name} lässt sich selten aus der Ruhe bringen.",
+    "{name} trennt Privates und Sportliches konsequent.",
+    "Im Training wird {name} davon wohl nichts anmerken lassen."
+   ]
+  ]
+ },
+ "ton_Heißsporn": {
+  "teile": [
+   [
+    "Bei {name} kann die Stimmung schnell kippen.",
+    "{name} neigt dazu, impulsiv zu reagieren.",
+    "Mit seinem Temperament ist {name} nicht leicht einzuschätzen.",
+    "Man sollte {name} nicht reizen, die Lunte ist kurz.",
+    "Wenn es bei {name} knallt, dann richtig.",
+    "Ein ruhiges Wort könnte bei {name} Schlimmeres verhindern."
+   ]
+  ]
+ },
+ "ton_Sensibel": {
+  "teile": [
+   [
+    "{name} nimmt solche Dinge schnell persönlich.",
+    "Bei {name} hinterlässt das Spuren.",
+    "Mit etwas Feingefühl lässt sich {name} auffangen.",
+    "{name} grübelt viel, ein Gespräch kann helfen.",
+    "Wie sensibel {name} reagiert, ist schwer vorherzusagen.",
+    "Für {name} ist das mehr als eine Randnotiz."
+   ]
+  ]
+ },
+ "ton_Anführer": {
+  "teile": [
+   [
+    "Als Anführer trägt {name} das in die Kabine.",
+    "{name} wird sich als Wortführer dazu äußern.",
+    "Wie {name} damit umgeht, beeinflusst die Stimmung der Mannschaft.",
+    "Die Kollegen schauen darauf, wie {name} reagiert.",
+    "{name} übernimmt Verantwortung, auch in solchen Momenten.",
+    "Ein Wort von {name} wiegt in der Kabine schwer."
+   ]
+  ]
+ },
+ "ton_Partyhase": {
+  "teile": [
+   [
+    "{name} hat ohnehin ein Faible für das Nachtleben.",
+    "Bei {name} ist es oft das Drumherum, das für Gesprächsstoff sorgt.",
+    "Man munkelt, dass {name} die Sache locker sieht.",
+    "{name} nimmt das Leben gern leicht.",
+    "Wie ernst {name} das nimmt, wird sich zeigen.",
+    "Die Nächte von {name} sind in der Mannschaft bekannt."
+   ]
+  ]
+ },
+ "ton_Familienmensch": {
+  "teile": [
+   [
+    "{name} ist ein Familienmensch, dem Ruhe wichtig ist.",
+    "Für {name} zählt vor allem, was zu Hause passiert.",
+    "Mit seiner Familie im Rücken kann {name} vieles wegstecken.",
+    "Ein ruhiges Umfeld ist für {name} das Wichtigste.",
+    "{name} will vor allem Ruhe für seine Familie.",
+    "Stabilität bedeutet {name} viel."
+   ]
+  ]
+ },
+ "ton_Ehrgeizig": {
+  "teile": [
+   [
+    "{name} will immer mehr und lässt sich ungern bremsen.",
+    "Bei {name} dreht sich vieles um die eigene Karriere.",
+    "Ein Ehrgeiziger wie {name} sieht darin sofort seine Chance oder seine Gefahr.",
+    "{name} will spielen, alles andere ist Nebensache.",
+    "Der Ehrgeiz von {name} kann Fluch und Segen sein.",
+    "Bei {name} wird das sportliche Ziel nie aus den Augen verloren."
+   ]
+  ]
+ },
+ "ton_Stiller": {
+  "teile": [
+   [
+    "{name} sagt dazu wohl kaum etwas.",
+    "Von {name} hört man selten ein Wort, auch diesmal nicht.",
+    "Wie es in {name} aussieht, weiß man selten.",
+    "{name} arbeitet still weiter.",
+    "Ein stiller Arbeiter wie {name} macht vieles mit sich selbst aus.",
+    "Über {name} wird eher gesprochen als mit ihm."
+   ]
+  ]
+ },
+ "titel_serie_schlagzeile": {
+  "teile": [
+   [
+    "{club} im Lauf: Serie hält",
+    "{club} marschiert weiter: Die Serie geht weiter",
+    "Kein Halten mehr: {club} bleibt auf Erfolgskurs",
+    "{club} in Form: Die Erfolgsserie hält",
+    "Die Serie von {club} reißt nicht ab"
+   ]
+  ]
+ },
+ "titel_krise_schlagzeile": {
+  "teile": [
+   [
+    "{club} in der Krise: Die Serie reißt nicht ab",
+    "Es läuft nichts bei {club}: Die Negativserie hält",
+    "{club} steckt im Tief",
+    "Krisenstimmung bei {club}: Der Absturz geht weiter",
+    "{club} findet aus der Krise nicht heraus"
+   ]
+  ]
+ },
+ "titel_taktik_lob": {
+  "teile": [
+   [
+    "Experten loben die Taktik von {club}",
+    "Fachwelt lobt die Spielidee von {club}",
+    "{club} überzeugt taktisch",
+    "Taktikfüchse schwärmen von {club}",
+    "Die Handschrift des Trainers bei {club} überzeugt"
+   ]
+  ]
+ },
+ "titel_pressekritik_trainer": {
+  "teile": [
+   [
+    "Boulevard fordert den Trainerkopf",
+    "Die Presse zweifelt am Trainer",
+    "Kritik am Trainer wird lauter",
+    "Medien erhöhen den Druck auf den Trainer",
+    "Schlagzeilen gegen den Trainer häufen sich",
+    "{club}: Boulevard fordert den Trainerkopf",
+    "{club}: Die Presse zweifelt am Trainer",
+    "{club}: Kritik am Trainer wird lauter",
+    "{club}: Medien erhöhen den Druck auf den Trainer",
+    "{club}: Schlagzeilen gegen den Trainer häufen sich"
+   ]
+  ]
+ },
+ "titel_vorstand_unruhig": {
+  "teile": [
+   [
+    "Unruhe im Vorstand",
+    "Im Präsidium rumort es",
+    "Vorstand zeigt sich nervös",
+    "Spannungen in der Vereinsführung",
+    "Bei der Vereinsführung wächst die Unruhe",
+    "{club}: Unruhe im Vorstand",
+    "{club}: Im Präsidium rumort es",
+    "{club}: Vorstand zeigt sich nervös",
+    "{club}: Spannungen in der Vereinsführung",
+    "{club}: Bei der Vereinsführung wächst die Unruhe"
+   ]
+  ]
+ },
+ "titel_vertrauensfrage": {
+  "teile": [
+   [
+    "Vertrauensfrage: Der Vorstand will Klarheit",
+    "Der Vorstand verlangt ein Gespräch",
+    "Wie lange hält das Vertrauen? Der Vorstand will Antworten",
+    "Gespräch unter vier Augen: Der Vorstand fordert Klarheit",
+    "Der Präsident bittet zum Rapport",
+    "{club}: Vertrauensfrage: Der Vorstand will Klarheit",
+    "{club}: Der Vorstand verlangt ein Gespräch",
+    "{club}: Wie lange hält das Vertrauen? Der Vorstand will Antworten",
+    "{club}: Gespräch unter vier Augen: Der Vorstand fordert Klarheit",
+    "{club}: Der Präsident bittet zum Rapport"
+   ]
+  ]
+ },
+ "titel_budget_frage": {
+  "teile": [
+   [
+    "Vorstand fragt: Brauchst du Verstärkungen?",
+    "Der Vorstand bietet Unterstützung auf dem Transfermarkt an",
+    "Mehr Geld für den Kader? Der Vorstand fragt nach",
+    "Verstärkungen gewünscht? Der Vorstand hört zu",
+    "Der Geschäftsführer fragt nach deinen Transferwünschen",
+    "{club}: Vorstand fragt: Brauchst du Verstärkungen?",
+    "{club}: Der Vorstand bietet Unterstützung auf dem Transfermarkt an",
+    "{club}: Mehr Geld für den Kader? Der Vorstand fragt nach",
+    "{club}: Verstärkungen gewünscht? Der Vorstand hört zu",
+    "{club}: Der Geschäftsführer fragt nach deinen Transferwünschen"
+   ]
+  ]
+ },
+ "titel_sponsor_deal": {
+  "teile": [
+   [
+    "Neuer Sponsor bei {club}",
+    "{club} verkündet einen neuen Partner",
+    "Sponsoren-Deal für {club}",
+    "Frisches Geld: {club} präsentiert einen neuen Sponsor",
+    "{club} gewinnt einen neuen Geldgeber"
+   ]
+  ]
+ },
+ "titel_stadion_plan": {
+  "teile": [
+   [
+    "{club} plant den Stadionausbau",
+    "Pläne für ein größeres Stadion bei {club}",
+    "Ausbau im Blick: {club} denkt an die Arena",
+    "{club} will das Stadion modernisieren",
+    "Die Arena von {club} soll wachsen"
+   ]
+  ]
+ },
+ "titel_sparkurs": {
+  "teile": [
+   [
+    "Vorstand verordnet Sparkurs",
+    "Der Vorstand zieht die Zügel an",
+    "Sparen ist angesagt bei {club}",
+    "Die Kasse ist klamm: Der Vorstand mahnt zur Zurückhaltung",
+    "Sparprogramm im Verein",
+    "{club}: Vorstand verordnet Sparkurs",
+    "{club}: Der Vorstand zieht die Zügel an",
+    "{club}: Die Kasse ist klamm: Der Vorstand mahnt zur Zurückhaltung",
+    "{club}: Sparprogramm im Verein"
+   ]
+  ]
+ },
+ "titel_ziel_verfehlt_warnung": {
+  "teile": [
+   [
+    "Vorstand mahnt: Das Saisonziel ist in Gefahr",
+    "Das Saisonziel wackelt",
+    "Der Vorstand schlägt Alarm wegen des Saisonziels",
+    "Sorge im Präsidium: Das Ziel rückt in die Ferne",
+    "Saisonziel in Gefahr: Der Vorstand erwartet eine Reaktion",
+    "{club}: Vorstand mahnt: Das Saisonziel ist in Gefahr",
+    "{club}: Das Saisonziel wackelt",
+    "{club}: Der Vorstand schlägt Alarm wegen des Saisonziels",
+    "{club}: Sorge im Präsidium: Das Ziel rückt in die Ferne",
+    "{club}: Saisonziel in Gefahr: Der Vorstand erwartet eine Reaktion"
+   ]
+  ]
+ },
+ "titel_ziel_uebertroffen": {
+  "teile": [
+   [
+    "Vorstand begeistert: Ihr liegt weit über Plan",
+    "Der Vorstand schwärmt: Mehr als erhofft",
+    "Ziel übertroffen: Lob aus dem Präsidium",
+    "Besser als geplant: Der Vorstand ist begeistert",
+    "Der Vorstand klopft dir auf die Schulter",
+    "{club}: Vorstand begeistert: Ihr liegt weit über Plan",
+    "{club}: Der Vorstand schwärmt: Mehr als erhofft",
+    "{club}: Ziel übertroffen: Lob aus dem Präsidium",
+    "{club}: Besser als geplant: Der Vorstand ist begeistert",
+    "{club}: Der Vorstand klopft dir auf die Schulter"
+   ]
+  ]
+ },
+ "titel_cotrainer_plaudert": {
+  "teile": [
+   [
+    "Ein Assistent plaudert Interna aus",
+    "Aus dem Trainerteam sickert etwas durch",
+    "Interna aus dem Trainerstab landen in der Presse",
+    "Ein Mitarbeiter hat zu viel erzählt",
+    "Der Co-Trainer hat nicht dichtgehalten",
+    "{club}: Ein Assistent plaudert Interna aus",
+    "{club}: Aus dem Trainerteam sickert etwas durch",
+    "{club}: Interna aus dem Trainerstab landen in der Presse",
+    "{club}: Ein Mitarbeiter hat zu viel erzählt",
+    "{club}: Der Co-Trainer hat nicht dichtgehalten"
+   ]
+  ]
+ },
+ "titel_aufstellung_geleakt": {
+  "teile": [
+   [
+    "Aufstellung vorab in der Zeitung",
+    "Die Startelf stand schon vorher in der Zeitung",
+    "Geleakt: Die Aufstellung ist durchgesickert",
+    "Wer hat geplaudert? Die Elf steht in der Presse",
+    "Aufstellung durchgestochen",
+    "{club}: Aufstellung vorab in der Zeitung",
+    "{club}: Die Startelf stand schon vorher in der Zeitung",
+    "{club}: Geleakt: Die Aufstellung ist durchgesickert",
+    "{club}: Wer hat geplaudert? Die Elf steht in der Presse",
+    "{club}: Aufstellung durchgestochen"
+   ]
+  ]
+ },
+ "titel_chemie_stimmt": {
+  "teile": [
+   [
+    "Die Chemie stimmt bei {club}",
+    "Die Mannschaft von {club} wächst zusammen",
+    "Teamgeist bei {club}: Alle ziehen an einem Strang",
+    "Gute Stimmung in der Kabine von {club}",
+    "{club} präsentiert sich als Einheit"
+   ]
+  ]
+ },
+ "titel_mannschaftsabend": {
+  "teile": [
+   [
+    "Mannschaftsabend vorgeschlagen",
+    "Die Spieler wünschen sich einen Teamabend",
+    "Gemeinsam essen gehen? Die Mannschaft schlägt es vor",
+    "Ein Abend für den Teamgeist",
+    "Vorschlag aus der Kabine: ein gemeinsamer Abend",
+    "{club}: Mannschaftsabend vorgeschlagen",
+    "{club}: Die Spieler wünschen sich einen Teamabend",
+    "{club}: Gemeinsam essen gehen? Die Mannschaft schlägt es vor",
+    "{club}: Ein Abend für den Teamgeist",
+    "{club}: Vorschlag aus der Kabine: ein gemeinsamer Abend"
+   ]
+  ]
+ },
+ "titel_musikstreit": {
+  "teile": [
+   [
+    "Musikstreit in der Kabine bei {club}",
+    "Streit um die Playlist in der Kabine",
+    "Wer bestimmt die Musik? Zoff in der Kabine",
+    "Kabinenmusik sorgt für Ärger bei {club}",
+    "Die Lautsprecher-Frage spaltet die Kabine",
+    "{club}: Streit um die Playlist in der Kabine",
+    "{club}: Wer bestimmt die Musik? Zoff in der Kabine",
+    "{club}: Die Lautsprecher-Frage spaltet die Kabine"
+   ]
+  ]
+ },
+ "titel_fanprotest": {
+  "teile": [
+   [
+    "Fanproteste vor dem Stadion",
+    "Fans machen ihrem Ärger Luft",
+    "Die Kurve protestiert",
+    "Unmut auf den Rängen: Fans demonstrieren",
+    "Protest vor der Geschäftsstelle",
+    "{club}: Fanproteste vor dem Stadion",
+    "{club}: Fans machen ihrem Ärger Luft",
+    "{club}: Die Kurve protestiert",
+    "{club}: Unmut auf den Rängen: Fans demonstrieren",
+    "{club}: Protest vor der Geschäftsstelle"
+   ]
+  ]
+ },
+ "titel_choreo": {
+  "teile": [
+   [
+    "Spektakuläre Choreografie bei {club}",
+    "Die Kurve von {club} liefert eine Choreo der Extraklasse",
+    "Gänsehaut im Stadion: Choreografie der Fans",
+    "Fans zaubern ein Fahnenmeer bei {club}",
+    "Stimmungsvoller Abend: Die Fans setzen ein Zeichen",
+    "{club}: Gänsehaut im Stadion: Choreografie der Fans",
+    "{club}: Stimmungsvoller Abend: Die Fans setzen ein Zeichen"
+   ]
+  ]
+ },
+ "titel_fanfeier": {
+  "teile": [
+   [
+    "Fans feiern {club} nach der Siegesserie",
+    "Jubel für {club}: Die Fans bejubeln die Serie",
+    "Die Anhänger feiern ihre Mannschaft",
+    "Feierlaune bei den Fans von {club}",
+    "Der Erfolg treibt die Fans auf die Straße",
+    "{club}: Die Anhänger feiern ihre Mannschaft",
+    "{club}: Der Erfolg treibt die Fans auf die Straße"
+   ]
+  ]
+ },
+ "titel_fanklub_besuch": {
+  "teile": [
+   [
+    "Fanklub lädt zum Grillabend ein",
+    "Ein Fanklub lädt die Mannschaft ein",
+    "Grillen mit den Fans: Einladung eines Fanklubs",
+    "Der Fanklub möchte die Spieler kennenlernen",
+    "Einladung vom Fanklub: Ein Abend mit der Mannschaft",
+    "{club}: Fanklub lädt zum Grillabend ein",
+    "{club}: Ein Fanklub lädt die Mannschaft ein",
+    "{club}: Grillen mit den Fans: Einladung eines Fanklubs",
+    "{club}: Der Fanklub möchte die Spieler kennenlernen",
+    "{club}: Einladung vom Fanklub: Ein Abend mit der Mannschaft"
+   ]
+  ]
+ },
+ "titel_spruchband": {
+  "teile": [
+   [
+    "Spruchband bei {club}: »Wir haben Besseres verdient«",
+    "Fans zeigen Spruchband gegen die Vereinsführung",
+    "Kritik auf Stoff: Ein Banner sorgt für Gesprächsstoff",
+    "Banner in der Kurve: Fans sind unzufrieden",
+    "»Wir haben Besseres verdient«: Fans machen Druck",
+    "{club}: Fans zeigen Spruchband gegen die Vereinsführung",
+    "{club}: Kritik auf Stoff: Ein Banner sorgt für Gesprächsstoff",
+    "{club}: Banner in der Kurve: Fans sind unzufrieden",
+    "{club}: »Wir haben Besseres verdient«: Fans machen Druck"
+   ]
+  ]
+ },
+ "titel_derby_marsch": {
+  "teile": [
+   [
+    "Derbysieg: {club}-Fans feiern bis in die Nacht",
+    "Nach dem Derby: Die Stadt feiert {club}",
+    "Derby gewonnen: Fans ziehen durch die Straßen",
+    "Die Derbyfeier der Fans von {club} dauert bis in die Nacht",
+    "Autokorso nach dem Derbysieg",
+    "{club}: Derby gewonnen: Fans ziehen durch die Straßen",
+    "{club}: Autokorso nach dem Derbysieg"
+   ]
+  ]
+ },
+ "titel_fanumfrage": {
+  "teile": [
+   [
+    "Fanumfrage: {club} hat treue Anhänger",
+    "Umfrage unter Fans: Die Treue ist groß",
+    "Fans sind {club} treu geblieben",
+    "Anhänger stehen zu {club}, so eine neue Umfrage",
+    "Treue Fans: Umfrage bestätigt die Verbundenheit",
+    "{club}: Umfrage unter Fans: Die Treue ist groß",
+    "{club}: Treue Fans: Umfrage bestätigt die Verbundenheit"
+   ]
+  ]
+ },
+ "titel_trainerdebatte": {
+  "teile": [
+   [
+    "Trainerdebatte bei {club}",
+    "Wackelt der Trainer bei {club}?",
+    "Der Trainerstuhl bei {club} wird heißer",
+    "Debatte um den Trainer: Wie lange noch?",
+    "Muss der Trainer bei {club} gehen?",
+    "{club}: Debatte um den Trainer: Wie lange noch?"
+   ]
+  ]
+ },
+ "titel_ausverkauft": {
+  "teile": [
+   [
+    "{club}: Stadion bleibt wochenlang ausverkauft",
+    "Ausverkaufte Ränge bei {club}",
+    "Kein Ticket mehr zu haben: {club} spielt vor vollem Haus",
+    "Das Stadion von {club} platzt aus allen Nähten",
+    "Nachfrage nach Karten bei {club} ungebrochen"
+   ]
+  ]
+ },
+ "titel_flutlicht": {
+  "teile": [
+   [
+    "Flutlichtausfall bei {club}: Spiel verzögert sich",
+    "Dunkel im Stadion: Flutlichtpanne bei {club}",
+    "Stromausfall: Das Flutlicht von {club} streikt",
+    "Spielunterbrechung wegen Flutlichtausfall",
+    "Licht aus bei {club}",
+    "{club}: Spielunterbrechung wegen Flutlichtausfall"
+   ]
+  ]
+ },
+ "titel_pokalschreck": {
+  "teile": [
+   [
+    "Pokal-Aus für {club}: Enttäuschung im Umfeld",
+    "{club} fliegt aus dem Pokal",
+    "Pokal-Traum geplatzt bei {club}",
+    "Bittere Pokalpleite für {club}",
+    "Aus im Pokal: {club} muss die Heimreise antreten"
+   ]
+  ]
+ },
+ "titel_derbyniederlage": {
+  "teile": [
+   [
+    "Derby verloren: Frust bei {club}",
+    "Derbypleite: Frust bei {club}",
+    "Schmerzhafte Derbyniederlage für {club}",
+    "{club} verliert das Derby: Die Stimmung ist im Keller",
+    "Derby verpatzt: Die Fans sind sauer",
+    "{club}: Derby verpatzt: Die Fans sind sauer"
+   ]
+  ]
+ },
+ "titel_finanzloch": {
+  "teile": [
+   [
+    "Gerüchte um Finanzprobleme bei {club}",
+    "Wie gesund ist die Kasse? Gerüchte um {club}",
+    "Finanzsorgen bei {club}? Spekulationen werden lauter",
+    "Bei {club} soll Geld fehlen",
+    "Schlechte Zahlen bei {club}? Das Gerücht hält sich"
+   ]
+  ]
+ },
+ "titel_winter_trainingslager": {
+  "teile": [
+   [
+    "Trainingslager: Wohin soll es gehen?",
+    "Wintertrainingslager steht an",
+    "Die Planung fürs Trainingslager läuft",
+    "Ein Trainingslager im Warmen? Der Verein fragt nach deinen Wünschen",
+    "Wohin im Winter? Das Trainingslager muss geplant werden",
+    "{club}: Trainingslager: Wohin soll es gehen?",
+    "{club}: Wintertrainingslager steht an",
+    "{club}: Die Planung fürs Trainingslager läuft",
+    "{club}: Ein Trainingslager im Warmen? Der Verein fragt nach deinen Wünschen",
+    "{club}: Wohin im Winter? Das Trainingslager muss geplant werden"
+   ]
+  ]
+ },
+ "titel_rekordserie": {
+  "teile": [
+   [
+    "{club}: Sechs Siege am Stück, die Serie hält",
+    "{club} fliegt von Sieg zu Sieg",
+    "Serie hält: {club} gewinnt und gewinnt",
+    "Rekordserie bei {club}",
+    "Sechs Siege in Folge für {club}"
+   ]
+  ]
+ },
+ "grund_privat": {
+  "teile": [
+   [
+    "Privatleben:",
+    "Abseits des Platzes:",
+    "Menschliches:",
+    "Hintergrund aus dem Privaten:",
+    "Was dahintersteckt:",
+    "Zur Einordnung:",
+    "Aus dem Alltag der Spieler:",
+    "Das Leben spielt mit:",
+    "Privates bei {club}:",
+    "Aus dem Umfeld von {club}:"
+   ],
+   [
+    "{reason}"
+   ],
+   [
+    "",
+    "",
+    "Wie es weitergeht, bestimmt das Leben.",
+    "Das spielt sich vor allem im Kopf ab.",
+    "Solche Dinge gehören zum Profileben.",
+    "Auf dem Platz zeigt sich erst später, was es bewirkt.",
+    "Im Training wird man es merken.",
+    "Den Rest klärt die Zeit."
+   ]
+  ]
+ },
+ "grund_kabine": {
+  "teile": [
+   [
+    "In der Kabine:",
+    "Teamdynamik:",
+    "Im Mannschaftsgefüge:",
+    "Hintergrund aus der Kabine:",
+    "Was dahintersteckt:",
+    "Zur Einordnung:",
+    "Aus dem Innenleben der Mannschaft:",
+    "Gruppendynamik:",
+    "Kabine bei {club}:",
+    "Bei {club} brodelt es:",
+    "Stimmung bei {club}:"
+   ],
+   [
+    "{reason}"
+   ],
+   [
+    "",
+    "",
+    "Die Stimmung entscheidet am Ende mit.",
+    "Wie du damit umgehst, prägt das Klima.",
+    "Die Mannschaft beobachtet dich dabei.",
+    "Der Zusammenhalt entscheidet über vieles.",
+    "Ein Kabinenklima ist nie selbstverständlich."
+   ]
+  ]
+ },
+ "grund_presse": {
+  "teile": [
+   [
+    "Medien:",
+    "Die Presse schaut hin:",
+    "In der Öffentlichkeit:",
+    "Hintergrund:",
+    "Zur Einordnung:",
+    "Warum das Thema läuft:",
+    "Das Mediengeschäft:",
+    "Aus Sicht der Reporter:",
+    "Rund um {club}:",
+    "{club} im Gespräch:",
+    "Bei {club} schaut die Presse hin:"
+   ],
+   [
+    "{reason}"
+   ],
+   [
+    "",
+    "",
+    "Das Echo hängt auch von den nächsten Ergebnissen ab.",
+    "Medien leben von Geschichten, und das ist eine.",
+    "Die Schlagzeilen kommen und gehen.",
+    "Wie der Verein reagiert, zählt.",
+    "Die Berichterstattung wirkt auf Fans und Vorstand.",
+    "Ein Wort von dir kann das Thema lenken."
+   ]
+  ]
+ },
+ "grund_welt": {
+  "teile": [
+   [
+    "Aus der Fußballwelt:",
+    "Branchenlage:",
+    "Im Umfeld des Vereins:",
+    "Hintergrund:",
+    "Zur Einordnung:",
+    "Warum das gerade passiert:",
+    "Was dahintersteckt:",
+    "Der Zusammenhang:",
+    "{club} sorgt für Gesprächsstoff:",
+    "Rund um {club}:"
+   ],
+   [
+    "{reason}"
+   ],
+   [
+    "",
+    "",
+    "Das Geschäft Fußball bringt solche Momente hervor.",
+    "Entscheidend ist, wie der Verein damit umgeht.",
+    "Solche Meldungen prägen das Bild eines Klubs.",
+    "Das wirkt sich auf Stimmung und Ruf aus.",
+    "Die Lage kann schnell kippen.",
+    "Es bleibt abzuwarten, wie es weitergeht."
+   ]
+  ]
+ },
+ "grund_vorstand": {
+  "teile": [
+   [
+    "Im Präsidium:",
+    "Vorstandslage:",
+    "Aus der Chefetage:",
+    "Hintergrund:",
+    "Zur Einordnung:",
+    "Was den Vorstand treibt:",
+    "Warum der Vorstand sich meldet:",
+    "Die Sicht der Vereinsführung:",
+    "Bei {club} in der Chefetage:",
+    "Das Präsidium von {club}:",
+    "{club} intern:"
+   ],
+   [
+    "{reason}"
+   ],
+   [
+    "",
+    "",
+    "Der Vorstand misst dich an den Ergebnissen.",
+    "Vertrauen wird in der Chefetage täglich neu verhandelt.",
+    "Die Erwartungen sind klar formuliert.",
+    "Solche Signale sollte man ernst nehmen.",
+    "Die Vereinsführung achtet genau darauf.",
+    "Das Präsidium sieht auf Zahlen und Stimmung."
+   ]
+  ]
+ },
+ "grund_fans": {
+  "teile": [
+   [
+    "Von den Rängen:",
+    "Fanlage:",
+    "Aus der Kurve:",
+    "Hintergrund:",
+    "Zur Einordnung:",
+    "Warum die Fans sich äußern:",
+    "Das Stimmungsbild:",
+    "Der Blick der Anhänger:",
+    "Die Fans von {club}:",
+    "Rund ums Stadion von {club}:",
+    "Kurve bei {club}:"
+   ],
+   [
+    "{reason}"
+   ],
+   [
+    "",
+    "",
+    "Die Stimmung auf den Rängen folgt den Ergebnissen.",
+    "Fans vergessen nicht, was sie erleben.",
+    "Die Kurve ist ein Gradmesser für den Verein.",
+    "Der Rückhalt der Fans ist ein wichtiges Gut.",
+    "Anhänger sind der Rückhalt des Vereins.",
+    "Die Fans merken sich, wie man mit ihnen umgeht."
+   ]
+  ]
+ },
+ "grund_intrige": {
+  "teile": [
+   [
+    "Hinter den Kulissen:",
+    "Gerüchteküche:",
+    "Im Verborgenen:",
+    "Hintergrund:",
+    "Zur Einordnung:",
+    "Was dahintersteckt:",
+    "Wie so etwas entsteht:",
+    "Aus dem Umfeld:",
+    "Hinter den Kulissen von {club}:",
+    "{club} intern:"
+   ],
+   [
+    "{reason}"
+   ],
+   [
+    "",
+    "",
+    "Wem man trauen kann, ist selten klar.",
+    "Zwischen Wahrheit und Gerede liegt oft nur ein Satz.",
+    "Vorsicht ist hier der beste Berater.",
+    "Solche Dinge schwelen oft lange.",
+    "Vertrauen ist schnell verspielt.",
+    "Wer redet, hat meist ein Motiv."
+   ]
+  ]
+ },
+ "grund_skandal": {
+  "teile": [
+   [
+    "Der Schaden:",
+    "Imagefrage:",
+    "Was das für den Verein bedeutet:",
+    "Hintergrund:",
+    "Zur Einordnung:",
+    "Warum das Gewicht hat:",
+    "Die Folgen für das Ansehen:",
+    "Aus Sicht der Pressestelle:",
+    "Der Fall bei {club}:",
+    "{club} in den Schlagzeilen:"
+   ],
+   [
+    "{reason}"
+   ],
+   [
+    "",
+    "",
+    "Der Ruf eines Vereins ist schnell beschädigt.",
+    "Eine klare Linie hilft, das Thema zu beenden.",
+    "Die Presse vergisst solche Dinge selten.",
+    "Jetzt zählt eine ruhige Hand.",
+    "Das Image steht auf dem Spiel.",
+    "Wie der Verein reagiert, wird beobachtet."
+   ]
+  ]
+ }
+}

@@ -1,0 +1,78 @@
+{
+  "modellversion": 4,
+  "_hinweis": "Persönlichkeitsmodell von PESM (eigene Festlegung, alles austauschbar; erfundener Spielwert ohne Bezug zur realen Person). Eingabe sind die vier Achsen der PES-Persönlichkeit (Spezifikation 14). Je Achse s in −1 … +1. normierung = perzentil: s = 2·p − 1 mit p = Rangstelle des vorzeichenbehafteten Werts unter allen Spielern mit vergebener Persönlichkeit derselben Datenbank (gleiche Werte teilen sich die mittlere Rangstelle). normierung = roh: s = Seite × Stärke, Stärke = (|Wert| − staerke.unten) / staerke.spanne, begrenzt auf 0 bis 1. Ohne vergebene Persönlichkeit (alle vier Werte 0) sind alle s = 0. Charakterwert = neutral + Summe(Gewicht × s) + Alterszuschläge + Bonus + Zufall, begrenzt auf bereich; abgeleitete Werte danach. Die Stärkeformel gilt immer für die Anzeige der vier Paare.",
+  "bereich": [0, 100],
+  "neutral": 50,
+  "normierung": "perzentil",
+  "staerke": { "unten": 48, "spanne": 52, "art": "vermutung" },
+  "werte": {
+    "professionalitaet": { "s2": 25, "s4": -5 },
+    "ehrgeiz":           { "s2": -20, "s1": 10 },
+    "loyalitaet":        {},
+    "ego":               { "s1": 25, "s3": -5 },
+    "teamgeist":         { "s1": -30, "s4": -3 },
+    "fuehrung":          { "s2": 10, "s3": 5 },
+    "temperament":       { "s2": -30 },
+    "nervenstaerke":     { "s2": 15, "s3": 5 },
+    "vertraeglichkeit":  { "s1": -25, "s2": 10 },
+    "status":            {}
+  },
+  "_achsen": "s1 = Paar 1 Teamplayer (−) / Einsamer Wolf (+), s2 = Paar 2 Leidenschaft (−) / Haltung (+), s3 = Paar 3 Technik (−) / Stärke (+), s4 = Paar 4 Verständnis (−) / Instinkt (+) (Spezifikation 18). Paar 1 und 2 tragen die Charakterwerte; Paar 3 und 4 sind eher Spielstil und gehen schwach ein.",
+  "neutral_bis": 10,
+  "_neutral_bis": "Beträge bis zu dieser Schwelle gelten als neutral (s = 0, Anzeige „neutral“). Der kleinste im Spiel belegte Betrag ist 11, Beträge 1 bis 10 kommen bei Spielern in Vereinen nicht vor (Spezifikation 18); was das Spiel beim Wert 0 zeigt, ist offen.",
+  "teamrolle": {
+    "_hinweis": "Beitrag der Teamrolle des Spiels (Byte +336, Bits 0–4) zu den Charakterwerten, mal Faktor der Stufe (+323, Bits 6–7). Nur belegte Rollen (Spezifikation 18); unbekannte Werte (7, 10 und alle hier nicht genannten) zählen nicht. Rolle 3 „Teamplayer“ ist eine Rolle und nicht die linke Seite von Paar 1.",
+    "stufe": { "0": 0.5, "1": 0.5, "2": 0.75, "3": 1.0 },
+    "rollen": {
+      "1":  { "_name": "Nachwuchstalent", "ehrgeiz": 5 },
+      "3":  { "_name": "Teamplayer", "teamgeist": 6, "vertraeglichkeit": 3 },
+      "4":  { "_name": "Spielmacher", "fuehrung": 4, "nervenstaerke": 3 },
+      "5":  { "_name": "Starspieler", "ego": 5, "ehrgeiz": 4 },
+      "6":  { "_name": "Anführer", "fuehrung": 8 },
+      "8":  { "_name": "Schöpfer", "ego": 3, "nervenstaerke": 3 },
+      "9":  { "_name": "Maestro", "nervenstaerke": 5, "professionalitaet": 4 },
+      "12": { "_name": "Kämpfer", "teamgeist": 5, "temperament": 4 },
+      "19": { "_name": "Legende", "fuehrung": 6, "loyalitaet": 6 }
+    }
+  },
+  "verschiebung": {
+    "_hinweis": "Verschiebung der Charakterwerte durch Entscheidungen (nur in PESM, Tabelle pesm_persoenlichkeit_verschiebung): wirksamer Wert = Basis + Summe der Verschiebungen. Je Spieler und Wert höchstens je_monat im Kalendermonat des Spieldatums und gesamt insgesamt, in beide Richtungen.",
+    "je_monat": 5,
+    "gesamt": 40
+  },
+  "alter": {
+    "_hinweis": "Zuschläge nach Alter: ab = Alter ≥, bis = Alter ≤.",
+    "loyalitaet": [ { "ab": 30, "wert": 10 }, { "ab": 34, "wert": 5 }, { "bis": 22, "wert": -5 } ]
+  },
+  "abgeleitet": {
+    "_hinweis": "Nach den übrigen Werten berechnet: Wert = neutral + perzentil.faktor × (Perzentil − perzentil.bezug) + Summe(aus) + Zufall. Perzentil = Rangstelle des Gesamtwerts (Näherung, core/config/gesamtwert.json) unter allen Spielern der Datenbank, 0 bis 100. Mit faktor 1 und bezug 50 ist der Status genau dieses Perzentil. aus = Gewicht × (anderer Charakterwert − neutral). Früher möglich und weiter verstanden: gesamtwert = faktor × (Gesamtwert − bezug), begrenzt auf ± grenze. Ohne Gesamtwert bleibt der Wert neutral.",
+    "status": { "perzentil": { "faktor": 1.0, "bezug": 50 }, "aus": {} }
+  },
+  "zufall": {
+    "_hinweis": "Fester Anteil je Spieler und Wert aus Welt-Seed, Spieler-ID und Satzindex; gleichverteilt in ± grenze. je_wert überschreibt die Grenze einzelner Werte (0 = kein Zufall).",
+    "seed": 2026, "grenze": 12, "je_wert": { "status": 0 }
+  },
+  "bonus": {
+    "fuehrung": {
+      "alter_ab": 28, "alter_wert": 5,
+      "spielerfaehigkeit": null, "spielerfaehigkeit_wert": 10,
+      "_hinweis": "spielerfaehigkeit = Nummer der Spielerfähigkeit, die den Kapitänsrang trägt; null, solange sie keinem Bit zugeordnet ist (dann kein Bonus)."
+    }
+  },
+  "_nachrichten_typen": "Typen, für die Nachrichten eines Spielers in der Story-Schicht eine eigene Fassung haben (story/texte). Maßgeblich ist der erste Typ des Spielers (Haupttyp zuerst), der hier steht; sonst gilt die Grundfassung.",
+  "nachrichten_typen": ["egoist", "kumpel", "heisssporn", "vorbildprofi", "diva", "anfuehrer"],
+  "typen": [
+    { "id": "vorbildprofi",    "bedingungen": [ { "wert": "professionalitaet", "min": 65 }, { "wert": "teamgeist", "min": 55 }, { "wert": "ego", "max": 45 } ] },
+    { "id": "anfuehrer",       "bedingungen": [ { "wert": "fuehrung", "min": 60 }, { "wert": "nervenstaerke", "min": 55 } ] },
+    { "id": "kumpel",          "bedingungen": [ { "wert": "vertraeglichkeit", "min": 70 }, { "wert": "teamgeist", "min": 65 } ] },
+    { "id": "stimmungsmacher", "bedingungen": [ { "wert": "vertraeglichkeit", "min": 60 }, { "wert": "temperament", "min": 40, "max": 65 }, { "wert": "nervenstaerke", "min": 55 } ] },
+    { "id": "mentor",          "bedingungen": [ { "wert": "fuehrung", "min": 55 }, { "wert": "professionalitaet", "min": 60 }, { "wert": "alter", "min": 30 }, { "wert": "ego", "max": 50 } ] },
+    { "id": "egoist",          "bedingungen": [ { "wert": "ego", "min": 65 }, { "wert": "teamgeist", "max": 40 } ] },
+    { "id": "diva",            "bedingungen": [ { "wert": "status", "min": 65 }, { "wert": "ego", "min": 60 }, { "wert": "professionalitaet", "max": 40 } ] },
+    { "id": "heisssporn",      "bedingungen": [ { "wert": "temperament", "min": 65 }, { "wert": "nervenstaerke", "max": 45 } ] },
+    { "id": "soeldner",        "bedingungen": [ { "wert": "ehrgeiz", "min": 65 }, { "wert": "loyalitaet", "max": 40 } ] },
+    { "id": "vereinsikone",    "bedingungen": [ { "wert": "loyalitaet", "min": 70 }, { "wert": "alter", "min": 29 } ] },
+    { "id": "einzelgaenger",   "bedingungen": [ { "wert": "teamgeist", "max": 35 }, { "wert": "vertraeglichkeit", "min": 35, "max": 60 } ] },
+    { "id": "talent_mit_allueren", "bedingungen": [ { "wert": "alter", "max": 23 }, { "wert": "status", "min": 60 }, { "wert": "professionalitaet", "max": 45 } ] }
+  ]
+}

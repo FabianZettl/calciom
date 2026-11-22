@@ -1,0 +1,24 @@
+# Kabine: Halbzeitansprache, Mind Games, Figuren der Storys (Sitzung Kabine). Alles hier ist eine eigene Festlegung von PESM und austauschbar.
+
+[ansprache]
+icons = { warm = "heart", sachlich = "ruler-measure", lob = "thumb-up", bestimmt = "flag-3", hart = "flame", ausweichend = "wind" }
+halbzeit_toene = ["warm", "sachlich", "bestimmt", "hart", "lob"]
+staende = ["rueckstand", "remis", "fuehrung"]
+form_schwelle = 4              # Mittel der Stimmungsänderung, ab der die Formtendenz steigt oder sinkt
+
+# Passung von Ton und Spielstand zur Halbzeit (Punkte auf die Stimmung jedes Spielers)
+[halbzeit_passung]
+rueckstand = { warm = 2, sachlich = 1, bestimmt = 2, hart = -1, lob = -3 }
+remis = { warm = 0, sachlich = 1, bestimmt = 1, hart = -1, lob = 0 }
+fuehrung = { warm = 0, sachlich = 1, bestimmt = -1, hart = -3, lob = 1 }
+
+# Mind Games: Aussage vor dem Spiel. moral und medien je Stärkeverhältnis (favorit, offen, aussenseiter)
+[mind.respekt]
+moral = { favorit = 0, offen = 1, aussenseiter = 1 }
+medien = { favorit = 2, offen = 2, aussenseiter = 1 }
+[mind.selbstbewusst]
+moral = { favorit = 2, offen = 2, aussenseiter = 1 }
+medien = { favorit = 1, offen = 1, aussenseiter = -1 }
+[mind.sticheln]
+moral = { favorit = 1, offen = 2, aussenseiter = 3 }
+medien = { favorit = -2, offen = -2, aussenseiter = -1 }

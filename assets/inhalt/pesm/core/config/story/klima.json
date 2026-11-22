@@ -1,0 +1,21 @@
+{
+  "_hinweis": "Vereinsgrößen (Schritt 5): Medienbild, Vorstandsvertrauen, Fanstimmung, je 0 bis 100, neutral 50, nur in PESM. Sie bewegen sich an einem neuen Datenstand, wenn seitdem mindestens ein Spiel gewertet wurde: Jeder Treiber, dessen Bedingungen die Vereinswerte erfüllen, bucht seine Wirkungen mal der Zahl der neu gewerteten Spiele (die Werte selbst gibt es nur für den eingelesenen Stand); Treiber mit einmalig zählen einfach. je_takt begrenzt die Summe je Größe und Stand. Bedingungen wie in den Regeln (wert, min, max, gleich). Alle Zahlen sind Startwerte von PESM.",
+  "groessen": ["medienbild", "vorstandsvertrauen", "fanstimmung"],
+  "je_takt": 8,
+  "treiber": [
+    {"id": "siegesserie", "bedingungen": [{"wert": "siege_in_folge", "min": 3}], "wirkungen": {"fanstimmung": 4, "medienbild": 3, "vorstandsvertrauen": 2}},
+    {"id": "sieglos", "bedingungen": [{"wert": "spiele_ohne_sieg", "min": 3}], "wirkungen": {"fanstimmung": -4, "medienbild": -4, "vorstandsvertrauen": -2}},
+    {"id": "niederlagen", "bedingungen": [{"wert": "niederlagen_in_folge", "min": 3}], "wirkungen": {"vorstandsvertrauen": -4, "fanstimmung": -2}},
+    {"id": "form_stark", "bedingungen": [{"wert": "punkte_letzte_fuenf", "min": 11}, {"wert": "vereinsspiele_saison", "min": 5}], "wirkungen": {"fanstimmung": 2, "medienbild": 2, "vorstandsvertrauen": 1}},
+    {"id": "form_schwach", "bedingungen": [{"wert": "punkte_letzte_fuenf", "max": 3}, {"wert": "vereinsspiele_saison", "min": 5}], "wirkungen": {"fanstimmung": -2, "medienbild": -2, "vorstandsvertrauen": -2}},
+    {"id": "tabellenspitze", "bedingungen": [{"wert": "tabellenplatz", "max": 1}, {"wert": "vereinsspiele_saison", "min": 8}], "wirkungen": {"medienbild": 2, "fanstimmung": 2}},
+    {"id": "abstiegszone", "bedingungen": [{"wert": "abstiegsrang", "gleich": 1}, {"wert": "vereinsspiele_saison", "min": 8}], "wirkungen": {"vorstandsvertrauen": -4, "fanstimmung": -3, "medienbild": -3}},
+    {"id": "ziel_erfuellt", "bedingungen": [{"wert": "abstand_zum_ziel", "max": 0}, {"wert": "vereinsspiele_saison", "min": 8}], "wirkungen": {"vorstandsvertrauen": 3}},
+    {"id": "ziel_verfehlt", "bedingungen": [{"wert": "abstand_zum_ziel", "min": 3}, {"wert": "vereinsspiele_saison", "min": 8}], "wirkungen": {"vorstandsvertrauen": -3}},
+    {"id": "ziel_weit_weg", "bedingungen": [{"wert": "abstand_zum_ziel", "min": 6}, {"wert": "vereinsspiele_saison", "min": 8}], "wirkungen": {"vorstandsvertrauen": -3, "medienbild": -1}},
+    {"id": "saison_ziel_erreicht", "bedingungen": [{"wert": "spiele_offen", "max": 0}, {"wert": "vereinsspiele_saison", "min": 10}, {"wert": "abstand_zum_ziel", "max": 0}], "wirkungen": {"vorstandsvertrauen": 6, "fanstimmung": 3}, "einmalig": true},
+    {"id": "saison_ziel_verfehlt", "bedingungen": [{"wert": "spiele_offen", "max": 0}, {"wert": "vereinsspiele_saison", "min": 10}, {"wert": "abstand_zum_ziel", "min": 1}], "wirkungen": {"vorstandsvertrauen": -6, "medienbild": -2}, "einmalig": true}
+  ],
+  "liga": {"_hinweis": "Vorgaben für die Einstellung auf der Seite Ziele: Zahl der Aufstiegs- und Abstiegsplätze der eigenen Liga. PESM liest sie nicht aus dem Spielstand. Mit 0 Aufstiegsplätzen löst aufstiegszone nie aus.", "aufstiegsplaetze": 0, "abstiegsplaetze": 3},
+  "saisonziel": {"_hinweis": "Vorschlag des Vorstands: Rang der Vereinsstärke in der eigenen Liga (Mittel des Gesamtwerts der besten spieler_je_verein Spieler je Verein), ab tabelle_ab_spielen gespielten Spielen gemischt mit dem Tabellenplatz (gewicht_tabelle). Der stärkste Kader bekommt nicht den Titel als Pflicht: Der Vorschlag ist dann Platz 2 oder besser – Platz 1 nur, wenn sein Vorsprung auf den zweitstärksten Kader mindestens spitze_abstand Punkte des Gesamtwerts beträgt.", "spieler_je_verein": 16, "tabelle_ab_spielen": 6, "gewicht_tabelle": 0.3, "spitze_abstand": 4.0}
+}

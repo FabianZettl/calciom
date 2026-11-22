@@ -1,0 +1,86 @@
+{
+ "pool.b.sponsor_spielertermine_gruss": [
+  "Guten Tag, hier schreibt der Hauptsponsor des Vereins.",
+  "Guten Tag, wir wenden uns als Hauptsponsor an Sie."
+ ],
+ "pool.b.sponsor_spielertermine_lage": [
+  "Laut Vertrag stehen uns in dieser Saison {zahl} Werbetermine mit Spielern zu, und bisher ist erst ein Bruchteil davon zustande gekommen.",
+  "Wir haben für die kommenden Wochen {zahl} Auftritte mit Spielern geplant, die der Vertrag vorsieht."
+ ],
+ "pool.b.sponsor_spielertermine_lage.hitzig": [
+  "Wir haben {zahl} Werbetermine vertraglich zugesichert bekommen und bisher kaum einen gesehen, das ist nicht hinnehmbar!",
+  "Ihre Spieler drücken sich vor den {zahl} Terminen, die wir bezahlt haben, und das lassen wir uns nicht länger bieten!"
+ ],
+ "pool.b.sponsor_spielertermine_lage.loyal": [
+  "Wir sind stolz, Ihr Partner zu sein, und möchten die {zahl} vereinbarten Auftritte mit der Mannschaft nun gern einplanen.",
+  "Seit Jahren verbindet uns eine gute Zusammenarbeit, darum bitten wir höflich um die {zahl} Termine, die noch ausstehen."
+ ],
+ "pool.b.sponsor_spielertermine_lage.ehrgeizig": [
+  "Unsere Marke soll in dieser Saison wachsen, und dafür brauchen wir die {zahl} Auftritte mit Ihren besten Spielern.",
+  "Wir wollen mit Ihrem Team groß rauskommen, und dazu gehören {zahl} Termine mit den Gesichtern der Mannschaft."
+ ],
+ "pool.b.sponsor_spielertermine_lage.wechselfreudig": [
+  "Andere Vereine bieten uns mehr Präsenz mit ihren Spielern, bei Ihnen fehlen noch {zahl} Termine.",
+  "Wir prüfen ohnehin Alternativen, und die {zahl} offenen Werbetermine sind dabei ein wichtiges Argument."
+ ],
+ "pool.b.sponsor_spielertermine_lage.sensibel": [
+  "Wir haben das Gefühl, bei den {zahl} vereinbarten Auftritten nicht richtig wahrgenommen zu werden.",
+  "Es hat uns gekränkt, dass für die {zahl} Termine mit der Mannschaft bisher niemand Zeit hatte."
+ ],
+ "pool.b.sponsor_absturz_gruss": [
+  "Guten Tag, hier spricht der Vertreter des Hauptsponsors.",
+  "Guten Tag, ich rufe im Auftrag unseres Hauses an, wir sind Ihr Hauptsponsor."
+ ],
+ "pool.b.sponsor_absturz_lage": [
+  "Die Mannschaft liegt weit hinter dem Saisonziel, und das wirkt sich auf den Wert unserer Partnerschaft aus.",
+  "Der Tabellenstand hinkt den Erwartungen hinterher, und unsere Geschäftsleitung hat Fragen."
+ ],
+ "pool.b.sponsor_absturz_lage.hitzig": [
+  "Ihre Mannschaft stürzt ab, und wir zahlen für ein Spektakel, das uns blamiert!",
+  "Wir bezahlen für Erfolg und bekommen Niederlagen, das ist ein Skandal!"
+ ],
+ "pool.b.sponsor_absturz_lage.loyal": [
+  "Wir stehen zum Verein, aber der Absturz in der Tabelle macht es uns nicht leicht.",
+  "Seit Jahren sind wir treue Partner, doch nach dieser Serie müssen wir ehrlich miteinander reden."
+ ],
+ "pool.b.sponsor_absturz_lage.ehrgeizig": [
+  "Wir haben uns mit dem Verein für den Aufschwung verbündet, jetzt geht es in die falsche Richtung.",
+  "Wir wollen Sieger bewerben, keine Mitläufer, und der Tabellenstand passt nicht dazu."
+ ],
+ "pool.b.sponsor_absturz_lage.wechselfreudig": [
+  "Bei dieser Tabellenlage müssen wir ohnehin überlegen, ob unser Geld woanders besser angelegt wäre.",
+  "Ein anderer Klub hat uns bereits angesprochen, und ehrlich gesagt klingt das bei diesem Absturz verlockend."
+ ],
+ "pool.b.sponsor_absturz_lage.sensibel": [
+  "Es schmerzt uns, die Mannschaft so abrutschen zu sehen, wir haben mit ihr gefiebert.",
+  "Unsere Mitarbeiter fragen uns täglich, was mit dem Team los ist, und wir wissen keine Antwort."
+ ],
+ "pool.b.sponsor_ausruester_aktion_gruss": [
+  "Guten Tag, hier schreibt der Ausrüster des Vereins.",
+  "Guten Tag, wir sind der Ausrüster Ihrer Mannschaft und melden uns wegen einer Aktion."
+ ],
+ "pool.b.sponsor_ausruester_aktion_lage": [
+  "Wir planen ein Sondertrikot samt Kampagne, die Kosten von {betrag} verursacht, und bitten den Verein um eine Beteiligung.",
+  "Für unser neues Sondertrikot haben wir eine Imageaktion entworfen, die {betrag} kostet, und wünschen uns einen Beitrag des Vereins."
+ ],
+ "pool.b.sponsor_ausruester_aktion_lage.hitzig": [
+  "Sie wollten ein besseres Trikot, jetzt bekommen Sie es, aber dann zahlen Sie auch Ihren Teil von {betrag}!",
+  "Wir liefern das beste Trikot der Liga, und dafür verlangen wir {betrag}, ohne Diskussion!"
+ ],
+ "pool.b.sponsor_ausruester_aktion_lage.loyal": [
+  "Wir arbeiten gern mit Ihrem Verein, deshalb schlagen wir ein Sondertrikot vor und bitten um einen Beitrag von {betrag}.",
+  "Weil uns die Partnerschaft am Herzen liegt, möchten wir etwas Besonderes schaffen, mit {betrag} Beteiligung des Vereins."
+ ],
+ "pool.b.sponsor_ausruester_aktion_lage.ehrgeizig": [
+  "Mit diesem Sondertrikot wollen wir den Markt erobern, und der Verein soll mit {betrag} zum Erfolg beitragen.",
+  "Für eine Kampagne, die groß werden soll, brauchen wir {betrag} vom Verein, es lohnt sich für beide."
+ ],
+ "pool.b.sponsor_ausruester_aktion_lage.wechselfreudig": [
+  "Andere Vereine würden diese Aktion gleich mitfinanzieren, deshalb erwarten wir von Ihnen {betrag}.",
+  "Wir haben mehrere Anfragen für exklusive Trikots, Ihr Verein bekommt sie nur mit {betrag} Beteiligung."
+ ],
+ "pool.b.sponsor_ausruester_aktion_lage.sensibel": [
+  "Wir hoffen sehr, dass die Aktion Ihnen gefällt, und wären dankbar für einen Beitrag von {betrag}.",
+  "Es liegt uns viel an dem Sondertrikot, und wir würden uns freuen, wenn der Verein {betrag} dazu beiträgt."
+ ]
+}

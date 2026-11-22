@@ -1,0 +1,6 @@
+{
+ "pool.verhandlung_verlaengerung.titel": "The agent negotiates the contract extension",
+ "pool.verhandlung_gehalt.titel": "The agent argues about the salary",
+ "pool.verhandlung_rolle.titel": "The agent demands a fixed role in the contract",
+ "pool.verhandlung_klausel.titel": "The agent demands a release clause"
+}

@@ -1,0 +1,86 @@
+{
+ "pool.b.verhandlung_praemien_gruss": [
+  "Guten Tag, hier spricht der Berater von {name}, schönen Dank für Ihre Zeit.",
+  "Guten Tag, ich rufe im Namen meines Mandanten {name} an, um das Thema Prämien anzusprechen."
+ ],
+ "pool.b.verhandlung_praemien_lage": [
+  "{name} will einen größeren Teil seines Gehalts an Leistung koppeln, und ich habe dazu konkrete Vorstellungen.",
+  "Für {name} brauchen wir ein Prämienmodell, das seine Leistung sichtbar macht."
+ ],
+ "pool.b.verhandlung_praemien_lage.hitzig": [
+  "{name} kocht, weil seine Tore und Einsätze im Vertrag bisher keinen Cent zählen!",
+  "Mein Mandant ist sauer, dass er für Treffer und Spiele nichts extra sieht!"
+ ],
+ "pool.b.verhandlung_praemien_lage.loyal": [
+  "{name} will dem Verein entgegenkommen und trägt gern mehr Risiko, solange es fair verteilt ist.",
+  "Er würde für den Verein auf ein Stück Fixgehalt verzichten, wenn die Prämien stimmen."
+ ],
+ "pool.b.verhandlung_praemien_lage.ehrgeizig": [
+  "{name} will sich an Toren und Titeln messen lassen und verlangt dafür eine ordentliche Beteiligung.",
+  "Mein Mandant glaubt an seine Zahlen und will daran verdienen."
+ ],
+ "pool.b.verhandlung_praemien_lage.wechselfreudig": [
+  "{name} vergleicht die Prämien anderswo und rechnet genau nach.",
+  "Mein Mandant hat Angebote mit satten Erfolgsprämien auf dem Tisch liegen."
+ ],
+ "pool.b.verhandlung_praemien_lage.sensibel": [
+  "{name} sorgt sich, bei einer Formdelle finanziell abzustürzen, und wünscht sich ein Polster.",
+  "Er hat Angst, bei einem schwachen Monat bestraft zu werden, und möchte ein sicheres Gerüst."
+ ],
+ "pool.b.verhandlung_handgeld_gruss": [
+  "Guten Tag, ich schreibe Ihnen im Namen von {name}.",
+  "Guten Tag, anbei die Position meines Mandanten {name} zum Thema Unterschrift."
+ ],
+ "pool.b.verhandlung_handgeld_lage": [
+  "{name} erwartet für seine Unterschrift ein Handgeld, wie es bei Vertragsverlängerungen üblich ist.",
+  "Für die Unterschrift von {name} sollte eine Treueprämie fließen, das ist Marktstandard."
+ ],
+ "pool.b.verhandlung_handgeld_lage.hitzig": [
+  "{name} wird ungehalten, wenn man ihn für die Unterschrift nicht honoriert!",
+  "Mein Mandant sieht nicht ein, ohne Handgeld zu unterschreiben, und das sage ich ungefiltert!"
+ ],
+ "pool.b.verhandlung_handgeld_lage.loyal": [
+  "{name} würde auch ohne Extras bleiben, aber ein Zeichen der Wertschätzung wäre angemessen.",
+  "Er hängt am Verein, und eine Treueprämie würde zeigen, dass man das sieht."
+ ],
+ "pool.b.verhandlung_handgeld_lage.ehrgeizig": [
+  "{name} versteht ein Handgeld als Anerkennung seines Marktwerts.",
+  "Mein Mandant sieht sich als Leistungsträger, und das soll die Unterschriftsprämie spiegeln."
+ ],
+ "pool.b.verhandlung_handgeld_lage.wechselfreudig": [
+  "{name} weiß, dass andere Vereine hohe Handgelder bieten, und rechnet das gegen.",
+  "Anderswo winkt ihm für die Unterschrift eine ordentliche Summe, das muss ich Ihnen nicht verschweigen."
+ ],
+ "pool.b.verhandlung_handgeld_lage.sensibel": [
+  "{name} fühlt sich ein Stück weit abgewertet, wenn es für seine Unterschrift keine Geste gibt.",
+  "Ihm geht es weniger um die Summe als um das Zeichen, das mit ihr verbunden wäre."
+ ],
+ "pool.b.verhandlung_laufzeit_gruss": [
+  "Guten Tag, am Apparat ist der Berater von {name}, und es geht um die Vertragsdauer.",
+  "Guten Tag, ich rufe wegen der Laufzeit für {name} an."
+ ],
+ "pool.b.verhandlung_laufzeit_lage": [
+  "Zwischen uns steht die Frage, ob {name} kurz oder lang unterschreibt.",
+  "Bei {name} dreht sich alles um die Vertragsdauer, und da liegen Welten zwischen den Vorstellungen."
+ ],
+ "pool.b.verhandlung_laufzeit_lage.hitzig": [
+  "{name} will sich nicht in einen langen Vertrag zwingen lassen und wird laut, wenn man es versucht!",
+  "Mein Mandant lässt sich nicht fesseln, schon gar nicht für Jahre!"
+ ],
+ "pool.b.verhandlung_laufzeit_lage.loyal": [
+  "{name} würde sich gern langfristig an den Verein binden, wenn die Bedingungen stimmen.",
+  "Er sieht seine Zukunft hier, und die Laufzeit soll das zeigen."
+ ],
+ "pool.b.verhandlung_laufzeit_lage.ehrgeizig": [
+  "{name} will flexibel bleiben, um beim nächsten Karriereschritt nicht blockiert zu sein.",
+  "Mein Mandant rechnet fest damit, bald größere Aufgaben zu bekommen, und braucht dafür Luft."
+ ],
+ "pool.b.verhandlung_laufzeit_lage.wechselfreudig": [
+  "{name} schätzt kurze Verträge, weil sie ihm jedes Jahr alle Türen offen halten.",
+  "Er will sich nicht festlegen, ein Jahr hier, dann sehen wir weiter."
+ ],
+ "pool.b.verhandlung_laufzeit_lage.sensibel": [
+  "{name} sucht Halt und sorgt sich, nach einem Jahr wieder vor ungewisser Zukunft zu stehen.",
+  "Er braucht Planungssicherheit und fürchtet jede Unsicherheit am Ende eines kurzen Vertrags."
+ ]
+}

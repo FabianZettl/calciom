@@ -1,0 +1,86 @@
+{
+ "pool.b.ich_will_spielen_gruss": [
+  "Coach, have you got a minute?",
+  "Coach, I need to talk to you."
+ ],
+ "pool.b.ich_will_spielen_lage": [
+  "The doctor wants me out of the squad, but I feel fit enough to play.",
+  "The doctor advises a break, and I do not see why."
+ ],
+ "pool.b.ich_will_spielen_lage.hitzig": [
+  "The doctor wants to park me in the stands, and I will not put up with it!",
+  "Everybody is meddling with my knee, and I am sick of being told I cannot play!"
+ ],
+ "pool.b.ich_will_spielen_lage.loyal": [
+  "The team needs me, and the break the doctor recommends does not suit me at all.",
+  "I do not want to let my teammates down, even if the doctor advises rest."
+ ],
+ "pool.b.ich_will_spielen_lage.ehrgeizig": [
+  "If I rest, my rival takes my place, whatever the doctor advises.",
+  "I worked too hard for this place to give it up over a recommendation."
+ ],
+ "pool.b.ich_will_spielen_lage.wechselfreudig": [
+  "At another club they would simply play me with a knock like this.",
+  "If I am to sit out over every little thing here, I wonder whether I am in the right place."
+ ],
+ "pool.b.ich_will_spielen_lage.sensibel": [
+  "The doctor scares me with his warnings, but I am even more afraid of being forgotten.",
+  "I feel guilty when the others fight and I watch because I was told to."
+ ],
+ "pool.b.fitspritze_warnung_gruss": [
+  "Coach, one moment please, it is about {name}.",
+  "Coach, have you got a moment? I need to say something about {name}."
+ ],
+ "pool.b.fitspritze_warnung_lage": [
+  "After the appearance with the jab I have to warn you: the treatment has its price.",
+  "The jab got {name} through the match, but the body takes it back later."
+ ],
+ "pool.b.fitspritze_warnung_lage.hitzig": [
+  "{name} raged after the match that I had better not refuse him the next jab, and that is exactly what worries me.",
+  "{name} demands the jab as if it were a right, and that is dangerous."
+ ],
+ "pool.b.fitspritze_warnung_lage.loyal": [
+  "{name} says he plays for the team even with a jab, and that very willingness to sacrifice must not be exploited.",
+  "{name} would take jabs for the club until nothing is left, and I have to protect him from that."
+ ],
+ "pool.b.fitspritze_warnung_lage.ehrgeizig": [
+  "{name} is desperate to keep his place and is already asking about the next jab, which is a bad sign.",
+  "{name} sees the jab as a shortcut to the starting eleven, but a shortcut like that comes with a bill."
+ ],
+ "pool.b.fitspritze_warnung_lage.wechselfreudig": [
+  "{name} plays with a jab to show himself to other clubs, and what happens to his body afterwards means nothing to him.",
+  "{name} is thinking about his next contract, not his joints, and I have to say it out loud."
+ ],
+ "pool.b.fitspritze_warnung_lage.sensibel": [
+  "{name} seems unsettled after the appearance and asks whether the jab harms him, and I want to answer honestly.",
+  "{name} took the jab only reluctantly and is almost ashamed of it, so I want to talk openly with you."
+ ],
+ "pool.b.arzt_vertrauen_sinkt_gruss": [
+  "Coach, I am writing to you directly.",
+  "Coach, there is something I need to get off my chest."
+ ],
+ "pool.b.arzt_vertrauen_sinkt_lage": [
+  "I feel passed over in the latest decisions, because my advice on {name} was not heeded.",
+  "I advised against an appearance for {name}, and it took place anyway."
+ ],
+ "pool.b.arzt_vertrauen_sinkt_lage.hitzig": [
+  "{name} painted me as a spoilsport in front of everyone, and you let him play anyway!",
+  "I will no longer be made a laughing stock when {name} takes the field against my advice!"
+ ],
+ "pool.b.arzt_vertrauen_sinkt_lage.loyal": [
+  "I have always stood behind the coaching staff, but that {name} played against my advice hurts.",
+  "I enjoy working for this club, but my advice on {name} was overruled, and that gnaws at me."
+ ],
+ "pool.b.arzt_vertrauen_sinkt_lage.ehrgeizig": [
+  "{name} has noticed that the coach decides over my head, and uses it to his advantage.",
+  "If the player gets his way because he is loud enough, my work becomes a formality."
+ ],
+ "pool.b.arzt_vertrauen_sinkt_lage.wechselfreudig": [
+  "{name} laughs at my recommendations because he knows he plays anyway, and I wonder what I am there for.",
+  "If my advice counts for nothing, I might as well go to a club that takes it seriously."
+ ],
+ "pool.b.arzt_vertrauen_sinkt_lage.sensibel": [
+  "I blame myself because {name} played even though I could not convince him, and I feel alone with it.",
+  "That {name} played against my advice affects me more than I would like to admit."
+ ]
+}

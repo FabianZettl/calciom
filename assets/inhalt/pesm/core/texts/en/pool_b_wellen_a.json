@@ -1,0 +1,98 @@
+{
+ "pool.b.belastung_muede_lage": [
+  "After {spiele} games in a row I am pretty empty.",
+  "My legs are heavy, and so is my head."
+ ],
+ "pool.b.belastung_muede_lage.hitzig": [
+  "You are burning me out, {spiele} games back to back, and nobody asks!",
+  "I am not a machine, and yet you are running me into the ground!"
+ ],
+ "pool.b.belastung_muede_lage.loyal": [
+  "I love playing for you, but after {spiele} games I am running out of breath.",
+  "I hate complaining, but the load of the last weeks is weighing on me."
+ ],
+ "pool.b.belastung_muede_lage.ehrgeizig": [
+  "I want to be fit for the big games, and right now I am not.",
+  "With empty batteries I cannot give any more, and that annoys me."
+ ],
+ "pool.b.belastung_muede_lage.wechselfreudig": [
+  "I will not stay forever at a club that drains me like this.",
+  "Elsewhere they would manage my strength better."
+ ],
+ "pool.b.belastung_muede_lage.sensibel": [
+  "I feel drained and hardly dare to say it.",
+  "In the evening I lie awake, everything in me is so tense."
+ ],
+ "pool.b.verletzungsangst_rueckkehr_lage": [
+  "Physically I am back, only in my head I am not yet.",
+  "Since the injury I am not myself in a tackle."
+ ],
+ "pool.b.verletzungsangst_rueckkehr_lage.hitzig": [
+  "Everyone pushes me onto the pitch, and nobody tells me how to get rid of the fear!",
+  "I am angry at myself because I hold back in tackles."
+ ],
+ "pool.b.verletzungsangst_rueckkehr_lage.loyal": [
+  "I want to help the team, but I still hold back in tackles.",
+  "I do not want to let you down, but my head is not on board yet."
+ ],
+ "pool.b.verletzungsangst_rueckkehr_lage.ehrgeizig": [
+  "I want to get back to my old strength, and fear stands in my way.",
+  "My goal is my old form, but in a tackle the memory slows me down."
+ ],
+ "pool.b.verletzungsangst_rueckkehr_lage.wechselfreudig": [
+  "Maybe a fresh start somewhere else would do me good, too much here reminds me of the injury.",
+  "A change of scenery might be better for my head."
+ ],
+ "pool.b.verletzungsangst_rueckkehr_lage.sensibel": [
+  "Every tackle brings back the pictures from back then.",
+  "I am afraid it will happen again, and I hardly dare to say it."
+ ],
+ "pool.b.ehrgeiz_saisonziel_lage": [
+  "I wonder whether {verein} will really get to where it wants to go.",
+  "We are behind the season goal, and that worries me."
+ ],
+ "pool.b.ehrgeiz_saisonziel_lage.hitzig": [
+  "We are behind the target, and at {verein} they act as if everything is fine!",
+  "This table is a disgrace for a club with our ambitions!"
+ ],
+ "pool.b.ehrgeiz_saisonziel_lage.loyal": [
+  "I believe in {verein}, but I can see that we are behind the target.",
+  "I want {verein} to succeed, and that is why I have to raise the gap."
+ ],
+ "pool.b.ehrgeiz_saisonziel_lage.ehrgeizig": [
+  "I want trophies, and with this league position I do not see them.",
+  "Whoever wants great things must not be behind the season goal."
+ ],
+ "pool.b.ehrgeiz_saisonziel_lage.wechselfreudig": [
+  "If {verein} does not reach its goals, I will look for a club that does.",
+  "A club that falls short of its goals is not for me in the long run."
+ ],
+ "pool.b.ehrgeiz_saisonziel_lage.sensibel": [
+  "The gap to the season goal gnaws at me, more than I want to show.",
+  "I doubt whether our effort will be rewarded in the end."
+ ],
+ "pool.b.positionswunsch_lage": [
+  "I would like to play somewhere other than {position}.",
+  "I see myself better in a different position than {position}."
+ ],
+ "pool.b.positionswunsch_lage.hitzig": [
+  "I am stuck at {position} although I would be much better elsewhere, and nobody asks!",
+  "I am sick of being nailed down at {position}!"
+ ],
+ "pool.b.positionswunsch_lage.loyal": [
+  "I play where you need me, but elsewhere I might bring more.",
+  "I serve the team at {position}, but I would like to try a different role."
+ ],
+ "pool.b.positionswunsch_lage.ehrgeizig": [
+  "At {position} I stay below my potential, I want to play where I can shape the game.",
+  "I want to be at the centre of the game, not on the edge."
+ ],
+ "pool.b.positionswunsch_lage.wechselfreudig": [
+  "If I stay fixed at {position}, I will look for a club that gives me more freedom.",
+  "Elsewhere I might have been given the position that suits me long ago."
+ ],
+ "pool.b.positionswunsch_lage.sensibel": [
+  "I do not feel quite comfortable at {position}, even though I did not say it for a long time.",
+  "I do not know whether I may say this, but {position} does not suit me."
+ ]
+}

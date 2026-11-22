@@ -1,0 +1,614 @@
+{
+ "pool.arzt_rotation_empfohlen.e.e1": [
+  "{b.arzt_rotation_empfohlen_gruss} Ich empfehle, {name} am kommenden Spieltag zu schonen. Die Belastung der letzten Wochen war zu dicht.",
+  "{b.arzt_rotation_empfohlen_gruss} Bei {name} würde ich diese Woche eine Pause einlegen. Er hat zu wenig Zeit zur Erholung gehabt."
+ ],
+ "pool.arzt_rotation_empfohlen.e.e2": [
+  "{b.arzt_rotation_empfohlen_gruss} Die Spieldichte schlägt bei {name} durch. Ich würde ihn heute lieber nicht in der Startelf sehen.",
+  "{b.arzt_rotation_empfohlen_gruss} Nach {spiele} Spielen in Folge ist bei {name} die Müdigkeit messbar. Eine Rotation wäre angebracht."
+ ],
+ "pool.arzt_rotation_empfohlen.e.e3": [
+  "{b.arzt_rotation_empfohlen_gruss} Ich merke, dass die Stimmung angespannt ist. Trotzdem muss ich sagen, dass {name} eine Pause braucht.",
+  "{b.arzt_rotation_empfohlen_gruss} Ich weiß, dass das gerade ungelegen kommt, aber {name} gehört vor diesem Spiel geschont."
+ ],
+ "pool.arzt_rotation_empfohlen.e.e4": [
+  "{b.arzt_rotation_empfohlen_gruss} Ich empfehle eine Pause für {name}. {b.arzt_rotation_empfohlen_haltung}",
+  "{b.arzt_rotation_empfohlen_gruss} Es gibt Ärger um die Rotation. {b.arzt_rotation_empfohlen_haltung}"
+ ],
+ "pool.arzt_rotation_empfohlen.e.e5": [
+  "{b.arzt_rotation_empfohlen_gruss} Ärztlich wäre eine Schonung sinnvoll. {b.arzt_rotation_empfohlen_haltung}",
+  "{b.arzt_rotation_empfohlen_gruss} Ich rate zur Rotation bei {name}. {b.arzt_rotation_empfohlen_haltung}"
+ ],
+ "pool.arzt_rotation_empfohlen.e.e6": [
+  "{b.arzt_rotation_empfohlen_gruss} Die Ampel spricht für eine Pause bei {name}. {b.arzt_rotation_empfohlen_haltung}",
+  "{b.arzt_rotation_empfohlen_gruss} Ich würde {name} diese Woche entlasten. {b.arzt_rotation_empfohlen_haltung}"
+ ],
+ "pool.arzt_rotation_empfohlen.e.e7": [
+  "{b.arzt_rotation_empfohlen_gruss} Ich möchte die Schonung von {name} sauber besprechen. {b.arzt_rotation_empfohlen_haltung}",
+  "{b.arzt_rotation_empfohlen_gruss} Bei {name} rate ich zu einer Pause, und es braucht dabei Fingerspitzengefühl. {b.arzt_rotation_empfohlen_haltung}"
+ ],
+ "pool.arzt_rotation_empfohlen.e.e8": [
+  "{b.arzt_rotation_empfohlen_gruss} Bei {name} steht die Ampel nicht mehr auf Grün. Vor dem Spieltag sollten wir ihn herausnehmen.",
+  "{b.arzt_rotation_empfohlen_gruss} Die Ampel zeigt bei {name} Warnfarbe. Ich kann ihn so nicht guten Gewissens freigeben."
+ ],
+ "pool.arzt_rotation_empfohlen.e.e9": [
+  "{b.arzt_rotation_empfohlen_gruss} Es ist Ihre Entscheidung, aber ärztlich rate ich dazu, {name} diesmal nicht von Beginn an zu bringen.",
+  "{b.arzt_rotation_empfohlen_gruss} {name} ist kein Notfall, doch wenn wir jetzt nichts tun, wird es einer."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a1": [
+  "Wir folgen Ihrer Empfehlung. In den nächsten {frist} Tagen bekommt er ein freies Spiel.",
+  "Einverstanden, er pausiert. Sie haben mein Wort, dass er in {frist} Tagen entlastet wird."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a2": [
+  "Ich setze ihn nur eine Halbzeit ein, bei Bedarf kürzer. Reicht Ihnen das?",
+  "Er beginnt auf der Bank und kommt für eine Schlussphase. Mehr gebe ich nicht her."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a3": [
+  "Das Spiel ist zu wichtig. Er spielt, und Sie halten ihn zusammen.",
+  "Ich entscheide, wer aufläuft. Diesmal ist es dieser Spieler, bis zum Schluss."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a4": [
+  "Holen Sie bitte eine zweite Meinung ein, auch gern extern. Danach entscheide ich.",
+  "Ich lasse einen Spezialisten draufschauen. Bis dahin halten wir uns bereit."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a5": [
+  "Wie sieht er es selbst? Ich möchte ihn in die Entscheidung einbinden.",
+  "Haben Sie mit ihm gesprochen? Ich will wissen, was er sich zutraut, bevor ich entscheide."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a6": [
+  "Lassen Sie uns das nach dem Spiel besprechen. Heute plane ich noch mit ihm.",
+  "Ich schaue mir das morgen im Training an und gebe Ihnen dann Bescheid."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a7": [
+  "Ich weiß, wie sehr er spielen will. Ich erkläre ihm, dass die Pause ihn schützt und nicht bestraft.",
+  "Danke, dass Sie auf ihn achten. Ich sage ihm persönlich, warum er pausiert."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a8": [
+  "Nein. Eine Ampel gewinnt keine Spiele, und müde Beine gibt es bei allen.",
+  "Ich habe keinen Ersatz für ihn, also spielt er. Mehr gibt es dazu nicht zu sagen."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a9": [
+  "Ich plane ohnehin eine Rotation. Wir nehmen ihn vor dem schweren Block heraus und bringen ihn dort wieder.",
+  "Ich teile die Einsätze neu ein, sodass er nach dem nächsten Spiel Luft bekommt."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a10": [
+  "Er ist belastbar genug. Wer Stammspieler sein will, muss das aushalten.",
+  "Ich brauche ihn, und er weiß das. Zimperlichkeit kann ich mir nicht leisten."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a11": [
+  "Dann ruht er eben im Bus und beim Essen. Das zählt auch als Pause, oder?",
+  "Gut, dann bekommt er die Massage mit Aussicht. Auf der Bank darf er ja sitzen."
+ ],
+ "pool.arzt_rotation_empfohlen.a.a12": [
+  "Bei Gelb gehe ich einen Mittelweg: kurze Einsatzzeit, und Sie sagen mir sofort, wenn etwas nicht stimmt.",
+  "Wir finden einen Kompromiss, bei dem er sich nicht ausgebootet fühlt und Sie ruhig schlafen können."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r1": [
+  "{b.gut} Dann haben wir den Spieltag sauber geplant.",
+  "{b.gut} Mit dieser Entscheidung kann ich arbeiten."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r2": [
+  "{b.gut} Er wird es verstehen, wenn Sie es ihm so sagen.",
+  "{b.gut} Das ist verantwortungsvoll gedacht."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r3": [
+  "{b.gut} Wenn er weiß, wann er zurückkommt, trägt er die Pause mit.",
+  "{b.gut} Ein klarer Plan nimmt dem Ehrgeizigen den Stachel."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r4": [
+  "{b.gut} Dass Sie es ihm persönlich sagen, bedeutet ihm viel.",
+  "{b.gut} So fühlt er sich nicht ausgemustert."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r5": [
+  "{b.neutral} Ich dokumentiere meine Empfehlung, die Entscheidung bleibt bei Ihnen.",
+  "{b.neutral} Mal sehen, was die Werte nach dem Wochenende sagen."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r6": [
+  "{b.neutral} Er nimmt es mal so, mal so auf, ich behalte ihn im Blick.",
+  "{b.neutral} Wie er es verdaut, zeigt sich im Training."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r7": [
+  "{b.neutral} Ich bleibe dabei, höre aber zu, wenn sich etwas ändert.",
+  "{b.neutral} Ein Kompromiss, wie er im Alltag eben vorkommt."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r8": [
+  "{b.neutral} Er nimmt es nüchtern, und mein Bericht bleibt, wie er ist.",
+  "{b.neutral} Wir sehen am Montag, ob es genügt hat."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r9": [
+  "{b.schlecht} Dann schreibe ich es ins Protokoll, dass ich abgeraten habe.",
+  "{b.schlecht} Wenn es schiefgeht, haben wir es vorher besprochen."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r10": [
+  "{b.schlecht} So kommen wir nicht weiter, und er hört jedes laute Wort durch die Tür!",
+  "{b.schlecht} Er wird es als Machtwort verstehen und sich noch weniger melden!"
+ ],
+ "pool.arzt_rotation_empfohlen.r.r11": [
+  "{b.schlecht} Er hat schon angedeutet, dass er sich anderswo besser aufgehoben fühlt.",
+  "{b.schlecht} Wer sich so übergangen fühlt, hält die Koffer bereit."
+ ],
+ "pool.arzt_rotation_empfohlen.r.r12": [
+  "{b.schlecht} Er hat immer alles gegeben, und genau das nutzt man jetzt aus.",
+  "{b.schlecht} Ich hoffe, wir müssen diese Härte nicht später bereuen."
+ ],
+ "pool.arzt_rotation_empfohlen.x.x1": [
+  "Der Arzt nickt zufrieden. {entscheidung} Im Training wirkt der Spieler am nächsten Tag deutlich lockerer.",
+  "{entscheidung} Der Spieler nimmt die Entscheidung gelassen hin und erholt sich sichtbar."
+ ],
+ "pool.arzt_rotation_empfohlen.x.x2": [
+  "Ob die Entscheidung trägt, zeigt erst der Spieltag. {entscheidung} Der Arzt behält die Werte im Auge.",
+  "{entscheidung} Das Gespräch endet ohne klares Ergebnis, die Werte müssen es zeigen."
+ ],
+ "pool.arzt_rotation_empfohlen.x.x3": [
+  "Der Arzt schüttelt den Kopf und verlässt das Büro. {entscheidung} Im Stab ist man seither merklich vorsichtiger im Ton.",
+  "{entscheidung} Der Arzt hält seine Warnung schriftlich fest, die Stimmung im Stab ist gedrückt."
+ ],
+ "pool.arzt_rotation_empfohlen.x.x4": [
+  "Der Arzt notiert den Plan. {entscheidung} Der Spieler wird an die Zusage erinnern, sollte sie wackeln.",
+  "{entscheidung} Die Pause steht jetzt im Plan, und der Stab richtet sich danach."
+ ],
+ "pool.arzt_rotation_empfohlen.x.x5": [
+  "Der Trainer bricht das Gespräch ab. {entscheidung} Die Empfehlung bleibt im Raum stehen.",
+  "{entscheidung} Der Arzt bleibt allein mit seinem Bericht zurück."
+ ],
+ "pool.arzt_muskelprobleme.e.e1": [
+  "{b.arzt_muskelprobleme_gruss} {name} klagt über leichte Muskelprobleme. Noch ist nichts gerissen, aber ich traue dem Muskel nicht.",
+  "{b.arzt_muskelprobleme_gruss} Bei {name} ist der Muskel hart wie ein Brett. Das ist kein Ausfall, aber ein Warnzeichen."
+ ],
+ "pool.arzt_muskelprobleme.e.e2": [
+  "{b.arzt_muskelprobleme_gruss} Die Oberschenkel von {name} sind überreizt. Wenn er Sonntag spielt, geht er ein Risiko ein.",
+  "{b.arzt_muskelprobleme_gruss} {name} hat ein Ziehen in der Wade. Bei Pause wäre es in ein paar Tagen vorbei, bei Dauerbelastung weiß ich es nicht."
+ ],
+ "pool.arzt_muskelprobleme.e.e3": [
+  "{b.arzt_muskelprobleme_gruss} Ich merke, dass die Laune nicht die beste ist. Trotzdem: Bei {name} müssen wir vorsichtig sein.",
+  "{b.arzt_muskelprobleme_gruss} Ich weiß, dass Sie unter Druck stehen. Aber {name} könnte uns länger fehlen, wenn wir jetzt nachlässig sind."
+ ],
+ "pool.arzt_muskelprobleme.e.e4": [
+  "{b.arzt_muskelprobleme_gruss} Es geht um leichte Muskelprobleme bei {name}. {b.arzt_muskelprobleme_haltung}",
+  "{b.arzt_muskelprobleme_gruss} Mit {name} gibt es Streit um seinen Muskel. {b.arzt_muskelprobleme_haltung}"
+ ],
+ "pool.arzt_muskelprobleme.e.e5": [
+  "{b.arzt_muskelprobleme_gruss} Ein Muskel von {name} macht Ärger. {b.arzt_muskelprobleme_haltung}",
+  "{b.arzt_muskelprobleme_gruss} Die Befunde bei {name} sind leicht, aber nicht harmlos. {b.arzt_muskelprobleme_haltung}"
+ ],
+ "pool.arzt_muskelprobleme.e.e6": [
+  "{b.arzt_muskelprobleme_gruss} Bei {name} liegt eine leichte Muskelreizung vor. {b.arzt_muskelprobleme_haltung}",
+  "{b.arzt_muskelprobleme_gruss} Ich habe {name} untersucht, und der Muskel schreit nach Ruhe. {b.arzt_muskelprobleme_haltung}"
+ ],
+ "pool.arzt_muskelprobleme.e.e7": [
+  "{b.arzt_muskelprobleme_gruss} Ich muss mit Ihnen über {name} und seinen Muskel sprechen. {b.arzt_muskelprobleme_haltung}",
+  "{b.arzt_muskelprobleme_gruss} Eine kleine Muskelsache bei {name} beschäftigt ihn mehr, als sie müsste. {b.arzt_muskelprobleme_haltung}"
+ ],
+ "pool.arzt_muskelprobleme.e.e8": [
+  "{b.arzt_muskelprobleme_gruss} {name} hat schon Spritzen bekommen, und der Muskel meldet sich trotzdem wieder. Das gefällt mir nicht.",
+  "{b.arzt_muskelprobleme_gruss} Nach den bisherigen Spritzen reagiert {name} mit einem schwierigen Muskel. Noch eine würde ich nicht leichtfertig geben."
+ ],
+ "pool.arzt_muskelprobleme.e.e9": [
+  "{b.arzt_muskelprobleme_gruss} Eine Frage der Abwägung: {name} könnte spielen, aber der Muskel sollte eigentlich ruhen.",
+  "{b.arzt_muskelprobleme_gruss} Bei {name} entscheidet der nächste Einsatz darüber, ob aus dem Ziehen mehr wird."
+ ],
+ "pool.arzt_muskelprobleme.a.a1": [
+  "Er pausiert. In {frist} Tagen sehen wir weiter, und bis dahin geht Gesundheit vor.",
+  "Ich nehme ihn raus und gebe ihm {frist} Tage, danach entscheiden wir neu."
+ ],
+ "pool.arzt_muskelprobleme.a.a2": [
+  "Er spielt, aber mit Belastungsgrenze: kurze Einsätze, und bei dem ersten Ziehen geht er runter.",
+  "Ich lasse ihn spielen und tausche ihn früh aus. Sagen Sie mir vorher, ab welcher Minute es kritisch wird."
+ ],
+ "pool.arzt_muskelprobleme.a.a3": [
+  "Behandeln Sie ihn zuerst gründlich, Wärme, Massage, was nötig ist. Danach entscheiden wir.",
+  "Geben Sie ihm heute die volle Behandlung. Morgen früh frage ich nach dem Stand."
+ ],
+ "pool.arzt_muskelprobleme.a.a4": [
+  "Wäre eine Fitspritze denkbar? Sagen Sie mir offen, was dagegen spricht.",
+  "Ich will wissen, ob eine Spritze ihn für Sonntag bringt, und was uns das später kosten könnte."
+ ],
+ "pool.arzt_muskelprobleme.a.a5": [
+  "Wie fühlt er sich selbst? Ich möchte ihn entscheiden lassen, was er sich zutraut.",
+  "Fragen wir ihn gemeinsam. Er kennt seinen Körper besser als jede Tabelle."
+ ],
+ "pool.arzt_muskelprobleme.a.a6": [
+  "Das ist wohl nur ein Zwicken. Beobachten wir es bis zum Spiel.",
+  "Ich glaube, das legt sich von allein. Wir sehen morgen weiter."
+ ],
+ "pool.arzt_muskelprobleme.a.a7": [
+  "Ich spreche mit ihm. Er soll wissen, dass sein Körper wichtiger ist als ein einzelnes Spiel.",
+  "Danke für die Ehrlichkeit. Ich sage ihm, dass er sich nicht verstecken muss, wenn es zieht."
+ ],
+ "pool.arzt_muskelprobleme.a.a8": [
+  "Eine Muskelreizung ist kein Grund, einen Stammspieler zu schonen. Er spielt.",
+  "Im Profifußball zieht es immer irgendwo. Er läuft auf, und damit Schluss."
+ ],
+ "pool.arzt_muskelprobleme.a.a9": [
+  "Ihre Bedenken sind vermerkt. Aber ich entscheide, und ich brauche ihn heute.",
+  "Ich tue nicht so, als hätte ich eine Alternative. Er spielt durch, ob er will oder nicht."
+ ],
+ "pool.arzt_muskelprobleme.a.a10": [
+  "Ich setze ihn nur im Notfall ein. Auf der Bank bleibt er in Reichweite.",
+  "Er sitzt auf der Bank und wärmt sich nur auf, wenn es sein muss."
+ ],
+ "pool.arzt_muskelprobleme.a.a11": [
+  "Dann bekommt er eben die Premium-Behandlung, mit Handtuch und Namensschild. Das hat noch keinem geschadet.",
+  "Sagen Sie ihm, der Muskel darf sich gern ausruhen, solange der Rest von ihm trainiert."
+ ],
+ "pool.arzt_muskelprobleme.a.a12": [
+  "Besprechen Sie den Plan bitte mit ihm. Wenn er sich unwohl fühlt, bleibt er draußen, ohne dass es ihm angekreidet wird.",
+  "Lassen Sie ihn mitentscheiden. Er soll wissen, dass seine Stimme zählt."
+ ],
+ "pool.arzt_muskelprobleme.r.r1": [
+  "{b.gut} Dann bleibt der Muskel in guten Händen.",
+  "{b.gut} Das ist ein Plan, den ich mittragen kann."
+ ],
+ "pool.arzt_muskelprobleme.r.r2": [
+  "{b.gut} Er wird verstehen, dass Sie ihn schützen wollen.",
+  "{b.gut} Gut so, es gibt kein Spiel, das einen Dauerschaden wert ist."
+ ],
+ "pool.arzt_muskelprobleme.r.r3": [
+  "{b.gut} Mit einem festen Termin hält er die Pause aus.",
+  "{b.gut} Wenn er weiß, was kommt, arbeitet er doppelt hart an der Rückkehr."
+ ],
+ "pool.arzt_muskelprobleme.r.r4": [
+  "{b.gut} Dass er mitreden darf, tut ihm sichtbar gut.",
+  "{b.gut} So fühlt er sich ernst genommen und nicht abgeschoben."
+ ],
+ "pool.arzt_muskelprobleme.r.r5": [
+  "{b.neutral} Ich gebe Ihnen den Befund nach dem Aufwärmen noch einmal durch.",
+  "{b.neutral} Wir haben es besprochen, die Verantwortung teilen wir uns."
+ ],
+ "pool.arzt_muskelprobleme.r.r6": [
+  "{b.neutral} Wie er damit umgeht, kann ich heute noch nicht sagen.",
+  "{b.neutral} Er schwankt zwischen Erleichterung und Sorge."
+ ],
+ "pool.arzt_muskelprobleme.r.r7": [
+  "{b.neutral} Ich beobachte den Muskel und melde mich, wenn er sich verschlechtert.",
+  "{b.neutral} Das ist machbar, aber nicht ohne Restrisiko."
+ ],
+ "pool.arzt_muskelprobleme.r.r8": [
+  "{b.neutral} Er nimmt es, wie es kommt, und ich bleibe dran.",
+  "{b.neutral} Wir werden es am Sonntagmorgen sehen."
+ ],
+ "pool.arzt_muskelprobleme.r.r9": [
+  "{b.schlecht} Das protokolliere ich so, wie ich es gesagt habe.",
+  "{b.schlecht} Wenn der Muskel reißt, möchte ich, dass man sich daran erinnert."
+ ],
+ "pool.arzt_muskelprobleme.r.r10": [
+  "{b.schlecht} Sagen Sie das nicht mir, sagen Sie es ihm, und halten Sie Abstand!",
+  "{b.schlecht} So wird er sich nicht mehr trauen, mir etwas zu zeigen!"
+ ],
+ "pool.arzt_muskelprobleme.r.r11": [
+  "{b.schlecht} Er wird sich merken, dass man hier seine Gesundheit riskiert.",
+  "{b.schlecht} Wer so behandelt wird, schaut sich nach einem anderen Arzt und Verein um."
+ ],
+ "pool.arzt_muskelprobleme.r.r12": [
+  "{b.schlecht} Er würde für Sie laufen, bis es reißt, und genau das macht mir Sorgen.",
+  "{b.schlecht} Ich hoffe, wir bereuen das nicht in ein paar Wochen."
+ ],
+ "pool.arzt_muskelprobleme.x.x1": [
+  "Der Arzt entspannt sich. {entscheidung} Der Muskel beruhigt sich in den folgenden Tagen spürbar.",
+  "{entscheidung} Der Spieler gibt dem Muskel Ruhe und trainiert bald wieder schmerzfrei."
+ ],
+ "pool.arzt_muskelprobleme.x.x2": [
+  "Der Muskel bleibt Thema. {entscheidung} Der Arzt prüft ihn vor jedem Training neu.",
+  "{entscheidung} Ob es ein Zwicken oder mehr war, zeigt sich in den kommenden Tagen."
+ ],
+ "pool.arzt_muskelprobleme.x.x3": [
+  "Der Arzt verlässt die Behandlungsbank mit verschlossener Miene. {entscheidung} Der Spieler läuft mit einem unguten Gefühl ein.",
+  "{entscheidung} Zwischen Stab und Spielern wächst die Sorge, dass es böse enden könnte."
+ ],
+ "pool.arzt_muskelprobleme.x.x4": [
+  "Der Arzt hält den Plan fest. {entscheidung} Die Frist steht, und der Spieler weiß, woran er ist.",
+  "{entscheidung} Der Spieler schreibt sich den Termin hinter die Ohren und hält sich daran."
+ ],
+ "pool.arzt_muskelprobleme.x.x5": [
+  "Das Gespräch endet abrupt. {entscheidung} Der Arzt notiert nur noch seine Warnung.",
+  "{entscheidung} Der Chat bleibt unbeantwortet, der Muskel ebenfalls."
+ ],
+ "pool.reha_fortschritt.e.e1": [
+  "{b.reha_fortschritt_gruss} {name} liegt in der Reha vor dem Plan. Ich würde als nächsten Schritt das Mannschaftstraining vorschlagen.",
+  "{b.reha_fortschritt_gruss} Die Belastungstests bei {name} sind sauber. Es wäre Zeit, ihn schrittweise an die Gruppe heranzuführen."
+ ],
+ "pool.reha_fortschritt.e.e2": [
+  "{b.reha_fortschritt_gruss} {name} hat die letzte Aufbaustufe geschafft, ohne Schmerzen. Ich schlage einen Testeinsatz vor.",
+  "{b.reha_fortschritt_gruss} Das Knie von {name} hält, und die Muskulatur zieht nach. Ein Testspiel wäre ein vernünftiger Schritt."
+ ],
+ "pool.reha_fortschritt.e.e3": [
+  "{b.reha_fortschritt_gruss} Wenigstens eine gute Nachricht in diesen Tagen: {name} kommt in der Reha gut voran.",
+  "{b.reha_fortschritt_gruss} Auch wenn die Stimmung schlecht ist: {name} macht in der Reha großartige Schritte."
+ ],
+ "pool.reha_fortschritt.e.e4": [
+  "{b.reha_fortschritt_gruss} Die Reha von {name} läuft gut, doch ich muss bremsen. {b.reha_fortschritt_haltung}",
+  "{b.reha_fortschritt_gruss} Der Heilungsverlauf bei {name} ist gut, nur sein Tempo ist es nicht. {b.reha_fortschritt_haltung}"
+ ],
+ "pool.reha_fortschritt.e.e5": [
+  "{b.reha_fortschritt_gruss} Der Verlauf bei {name} ist erfreulich. {b.reha_fortschritt_haltung}",
+  "{b.reha_fortschritt_gruss} {name} macht in der Reha alles richtig. {b.reha_fortschritt_haltung}"
+ ],
+ "pool.reha_fortschritt.e.e6": [
+  "{b.reha_fortschritt_gruss} Die Reha von {name} ist zügig vorangekommen. {b.reha_fortschritt_haltung}",
+  "{b.reha_fortschritt_gruss} Bei {name} sind wir weiter, als ich zu hoffen wagte. {b.reha_fortschritt_haltung}"
+ ],
+ "pool.reha_fortschritt.e.e7": [
+  "{b.reha_fortschritt_gruss} Ich wollte, dass Sie von {name} einen guten Zwischenstand hören. {b.reha_fortschritt_haltung}",
+  "{b.reha_fortschritt_gruss} Mit {name} geht es voran, und es ist wichtig, wie wir es angehen. {b.reha_fortschritt_haltung}"
+ ],
+ "pool.reha_fortschritt.e.e8": [
+  "{b.reha_fortschritt_gruss} {name} ist im Aufbau gut unterwegs. Aus ärztlicher Sicht wäre die nächste Phase möglich, wenn nichts dazwischenkommt.",
+  "{b.reha_fortschritt_gruss} Im Mannschaftstraining wirkt {name} schon nahezu wie früher. Ich rate zu einem vorsichtigen Einsatzplan."
+ ],
+ "pool.reha_fortschritt.e.e9": [
+  "{b.reha_fortschritt_gruss} Es ist Ihre Aufstellung, aber {name} wäre aus meiner Sicht bald wieder eine Option für den Kader.",
+  "{b.reha_fortschritt_gruss} Ich möchte keine falschen Hoffnungen wecken. Doch {name} hat die Reha bisher mustergültig absolviert."
+ ],
+ "pool.reha_fortschritt.a.a1": [
+  "Wir folgen Ihrem Plan. Sie geben vor, wann er die nächste Stufe geht, ich richte mich danach.",
+  "Einverstanden, Schritt für Schritt. Berichten Sie mir nach jeder Einheit, wie es ihm geht."
+ ],
+ "pool.reha_fortschritt.a.a2": [
+  "In {frist} Tagen steht er im Kader, wenn der Verlauf so bleibt. Das sage ich ihm so zu.",
+  "Ich nenne ihm einen Rückkehrtermin: in {frist} Tagen. Sie halten mich auf dem Laufenden."
+ ],
+ "pool.reha_fortschritt.a.a3": [
+  "Können wir die Reha beschleunigen, mit zusätzlichen Sitzungen und mehr Betreuung? Das darf kosten.",
+  "Wenn eine zweite Therapieeinheit pro Tag hilft, bezahle ich sie. Wie schnell wäre er dann zurück?"
+ ],
+ "pool.reha_fortschritt.a.a4": [
+  "Wir lassen es ruhig angehen. Ein Termin ist noch nicht dran.",
+  "Gut, aber machen wir keinen Zirkus daraus. Ich melde mich, wenn ich ihn brauche."
+ ],
+ "pool.reha_fortschritt.a.a5": [
+  "Ich bleibe bei meinem Zeitplan, und keine Teilerfolge ändern daran etwas. Zu früh bringt nichts.",
+  "Fortschritte freuen mich, aber ich habe kein Interesse an Experimenten. Er kommt, wenn ich es sage."
+ ],
+ "pool.reha_fortschritt.a.a6": [
+  "Was sagt er selbst dazu, und wie fühlt sich sein Körper an? Beziehen Sie ihn bitte in den Plan ein.",
+  "Fragen wir ihn, wie viel er sich zutraut. Ich will, dass er den Weg mitgeht."
+ ],
+ "pool.reha_fortschritt.a.a7": [
+  "Kommt nicht infrage. Er soll noch lange zusehen, damit er keine Dummheiten macht.",
+  "Ich traue Fortschritten erst, wenn sie ein Vierteljahr halten. Bis dahin tut sich nichts."
+ ],
+ "pool.reha_fortschritt.a.a8": [
+  "Das ist die beste Nachricht der Woche. Ich sage ihm persönlich, wie stolz ich auf seine Arbeit bin.",
+  "Danke, das hat er sich verdient. Er soll wissen, dass wir ihn alle zurückerwarten."
+ ],
+ "pool.reha_fortschritt.a.a9": [
+  "Sprechen Sie das mit dem Fitnesstrainer ab, und legen Sie mir einen Stufenplan vor.",
+  "Planen Sie die Einheiten mit meinem Co-Trainer. Ich entscheide danach über den Kader."
+ ],
+ "pool.reha_fortschritt.a.a10": [
+  "Mir ist egal, wie gut die Werte sind. Er ist noch nicht dran, und damit hat sich das.",
+  "Ich werde mir von Messwerten nicht diktieren lassen, wann er spielt."
+ ],
+ "pool.reha_fortschritt.a.a11": [
+  "Testspiel ja, aber nur eine Halbzeit, und ohne Zweikampfdruck. Danach bewerten Sie neu.",
+  "Dann nehmen wir den ruhigen Test mit der U-Mannschaft. Nichts übereilen."
+ ],
+ "pool.reha_fortschritt.a.a12": [
+  "Wunderbar, dann kann er bald wieder die Bank durchsitzen, wie es sich gehört.",
+  "Sagen Sie ihm, er darf sich auf zwei Dinge freuen: das Training und meine Laune."
+ ],
+ "pool.reha_fortschritt.a.a13": [
+  "Wenn er die Reha bis zum Ende so durchzieht, bekommt er in {frist} Tagen seine Rolle im Team zurück.",
+  "Ich verspreche ihm: In {frist} Tagen steht er wieder dort, wo er vor der Verletzung stand."
+ ],
+ "pool.reha_fortschritt.r.r1": [
+  "{b.gut} Dann sind wir uns einig, und er hat ein klares Ziel.",
+  "{b.gut} Das ist der richtige Weg, ich kümmere mich um die Umsetzung."
+ ],
+ "pool.reha_fortschritt.r.r2": [
+  "{b.gut} Er wird jede Einheit für Sie machen, so ist er eben.",
+  "{b.gut} Sie geben ihm Halt, und das zahlt sich in der Reha aus."
+ ],
+ "pool.reha_fortschritt.r.r3": [
+  "{b.gut} Mit einem Ziel vor Augen wird er in der Reha zum Musterschüler.",
+  "{b.gut} Das spornt ihn an, und ich muss ihn eher bremsen als antreiben."
+ ],
+ "pool.reha_fortschritt.r.r4": [
+  "{b.gut} Dass Sie ihm zuhören, hilft ihm mehr als jede Massage.",
+  "{b.gut} Er hat gebangt, ob Sie noch an ihn glauben. Jetzt weiß er es."
+ ],
+ "pool.reha_fortschritt.r.r5": [
+  "{b.neutral} Ich bleibe bei meiner Einschätzung und passe sie an, wenn sich etwas ändert.",
+  "{b.neutral} Wir sehen weiter, die nächsten Tests werden es zeigen."
+ ],
+ "pool.reha_fortschritt.r.r6": [
+  "{b.neutral} Er nimmt es mal gelassen, mal mit Sorge, ich bleibe nah dran.",
+  "{b.neutral} Wie er mit dem Tempo klarkommt, wird sich zeigen."
+ ],
+ "pool.reha_fortschritt.r.r7": [
+  "{b.neutral} Das ist machbar, aber nicht ohne Disziplin auf beiden Seiten.",
+  "{b.neutral} Ein vernünftiger Kompromiss zwischen Wunsch und Heilung."
+ ],
+ "pool.reha_fortschritt.r.r8": [
+  "{b.neutral} Er sieht es sachlich und macht einfach weiter.",
+  "{b.neutral} Ein Tag nach dem anderen, so läuft es bei ihm."
+ ],
+ "pool.reha_fortschritt.r.r9": [
+  "{b.schlecht} Dann verlieren wir wertvolle Wochen, die wir hätten nutzen können.",
+  "{b.schlecht} Das nehme ich zur Kenntnis, aber es überzeugt mich nicht."
+ ],
+ "pool.reha_fortschritt.r.r10": [
+  "{b.schlecht} Er wird toben, wenn er das hört, und dann trainiert er auf eigene Faust!",
+  "{b.schlecht} Wer ihn so bremst, bekommt Ärger in jeder Einheit!"
+ ],
+ "pool.reha_fortschritt.r.r11": [
+  "{b.schlecht} Wenn er hier keine Perspektive sieht, sucht er sie woanders.",
+  "{b.schlecht} Er wird vergleichen, wie andere Vereine mit ihren Rückkehrern umgehen."
+ ],
+ "pool.reha_fortschritt.r.r12": [
+  "{b.schlecht} Er hat so hart gearbeitet, und es wird einfach abgetan.",
+  "{b.schlecht} Das hat er nicht verdient, und er wird es sich merken."
+ ],
+ "pool.reha_fortschritt.x.x1": [
+  "Der Arzt notiert zufrieden den nächsten Schritt. {entscheidung} Der Spieler strahlt in der nächsten Einheit.",
+  "{entscheidung} Die Reha geht ohne Reibung weiter, und der Spieler wirkt von Tag zu Tag stärker."
+ ],
+ "pool.reha_fortschritt.x.x2": [
+  "Das Gespräch lässt vieles offen. {entscheidung} Der Arzt wartet die nächsten Tests ab.",
+  "{entscheidung} Ob der Schritt schon dran ist, entscheiden die Werte der kommenden Woche."
+ ],
+ "pool.reha_fortschritt.x.x3": [
+  "Der Arzt zieht sich verärgert zurück. {entscheidung} Der Spieler trainiert in den Tagen darauf angespannt und übereifrig.",
+  "{entscheidung} Im Stab wächst die Sorge, dass der Spieler auf eigene Faust zu viel macht."
+ ],
+ "pool.reha_fortschritt.x.x4": [
+  "Der Arzt hält den Termin schriftlich fest. {entscheidung} Der Spieler hat nun einen Termin im Kopf und arbeitet darauf hin.",
+  "{entscheidung} Der Termin steht im Reha-Plan, und der Spieler fragt jeden Tag danach."
+ ],
+ "pool.reha_fortschritt.x.x5": [
+  "Das Gespräch bricht ab, bevor ein Schritt vereinbart ist. {entscheidung} Der Plan bleibt ungeklärt.",
+  "{entscheidung} Der Arzt klappt die Mappe zu, der nächste Schritt bleibt offen."
+ ],
+ "pool.reha_rueckschlag.e.e1": [
+  "{b.reha_rueckschlag_gruss} Bei {name} sind die Schmerzen zurückgekehrt. Das ist ein Rückschlag in der Reha, und er trifft ihn hart.",
+  "{b.reha_rueckschlag_gruss} In der letzten Belastungsstufe hat {name} wieder Schmerzen bekommen. Wir müssen einen Schritt zurück."
+ ],
+ "pool.reha_rueckschlag.e.e2": [
+  "{b.reha_rueckschlag_gruss} Die Beschwerden bei {name} sind wieder da, nicht dramatisch, aber deutlich. Er ist niedergeschlagen.",
+  "{b.reha_rueckschlag_gruss} {name} hatte nach dem Training erneut ein Ziehen. Die Stimmung bei ihm ist am Boden."
+ ],
+ "pool.reha_rueckschlag.e.e3": [
+  "{b.reha_rueckschlag_gruss} Ich weiß, dass die Lage ohnehin schwierig ist. Trotzdem muss ich sagen, dass {name} einen Rückschlag hatte.",
+  "{b.reha_rueckschlag_gruss} Es ist kein guter Zeitpunkt, aber {name} hatte in der Reha einen Rückschlag."
+ ],
+ "pool.reha_rueckschlag.e.e4": [
+  "{b.reha_rueckschlag_gruss} Der Rückschlag bei {name} ist da. {b.reha_rueckschlag_haltung}",
+  "{b.reha_rueckschlag_gruss} Die Reha von {name} stockt, und er nimmt es nicht gut auf. {b.reha_rueckschlag_haltung}"
+ ],
+ "pool.reha_rueckschlag.e.e5": [
+  "{b.reha_rueckschlag_gruss} Ein Rückschlag bei {name}. {b.reha_rueckschlag_haltung}",
+  "{b.reha_rueckschlag_gruss} Die Schmerzen sind bei {name} zurück. {b.reha_rueckschlag_haltung}"
+ ],
+ "pool.reha_rueckschlag.e.e6": [
+  "{b.reha_rueckschlag_gruss} {name} hat in der Reha einen Rückschlag erlitten. {b.reha_rueckschlag_haltung}",
+  "{b.reha_rueckschlag_gruss} Wir müssen bei {name} die Reha neu ordnen. {b.reha_rueckschlag_haltung}"
+ ],
+ "pool.reha_rueckschlag.e.e7": [
+  "{b.reha_rueckschlag_gruss} Ich möchte, dass Sie wissen, wie es {name} gerade geht. {b.reha_rueckschlag_haltung}",
+  "{b.reha_rueckschlag_gruss} Bei {name} gab es einen Rückschlag, und der Umgang damit ist heikel. {b.reha_rueckschlag_haltung}"
+ ],
+ "pool.reha_rueckschlag.e.e8": [
+  "{b.reha_rueckschlag_gruss} Das Rückfallrisiko bei {name} war ohnehin erhöht, und nun sind die Schmerzen zurück. Wir müssen vorsichtig sein.",
+  "{b.reha_rueckschlag_gruss} Ich hatte vor einem zu schnellen Aufbau gewarnt, und nun zeigt der Körper von {name} die Grenze."
+ ],
+ "pool.reha_rueckschlag.e.e9": [
+  "{b.reha_rueckschlag_gruss} Reha verläuft selten gerade, aber dieser Rückschlag bei {name} hat ihn sichtlich erschüttert.",
+  "{b.reha_rueckschlag_gruss} Medizinisch ist es nicht das Ende, doch {name} sieht das im Moment nicht so."
+ ],
+ "pool.reha_rueckschlag.a.a1": [
+  "Ich gehe sofort zu ihm. Er soll hören, dass er nicht allein ist und dass wir das gemeinsam durchstehen.",
+  "Danke, dass Sie es mir sagen. Ich nehme mir Zeit für ihn, so lange es dauert."
+ ],
+ "pool.reha_rueckschlag.a.a2": [
+  "Ich ordne es ehrlich für ihn ein: Rückschläge gehören zur Reha, aber er ist nicht am Anfang.",
+  "Ich erkläre ihm nüchtern, was medizinisch dahintersteckt. Das nimmt dem Ganzen die Dramatik."
+ ],
+ "pool.reha_rueckschlag.a.a3": [
+  "Verlängern wir die Pause um die nötige Zeit. Besser jetzt zwei Wochen mehr als später monatelang.",
+  "Wir nehmen uns Zeit. Er bleibt in der Behandlung, bis Sie sagen, dass es trägt."
+ ],
+ "pool.reha_rueckschlag.a.a4": [
+  "Holen wir eine zweite Meinung ein. Vielleicht übersehen wir etwas.",
+  "Ich lasse einen Spezialisten von außen draufschauen. Das darf kosten."
+ ],
+ "pool.reha_rueckschlag.a.a5": [
+  "Machen Sie ihm klar, dass wir den Druck rausnehmen. Es gibt keinen Termin, der ihn quält.",
+  "Er soll wissen, dass keiner auf die Uhr schaut. Wichtig ist nur, dass es richtig ausheilt."
+ ],
+ "pool.reha_rueckschlag.a.a6": [
+  "Wir setzen den Zeitplan neu auf. In {frist} Tagen setzen wir uns zusammen und legen den nächsten Schritt fest.",
+  "Ich sage ihm einen neuen Termin zu: {frist} Tage Aufbau, dann entscheiden wir ohne Druck."
+ ],
+ "pool.reha_rueckschlag.a.a7": [
+  "Rückschlag hin oder her, ich sehe keinen Grund, ihn zu hätscheln. Er soll weitermachen.",
+  "Das nehme ich nicht hin. Er muss sich zusammenreißen, andere kämpfen auch mit Schmerzen."
+ ],
+ "pool.reha_rueckschlag.a.a8": [
+  "Wir behalten den alten Plan bei. Mit Mitleid gewinnt man keine Spiele.",
+  "Er soll die Reha durchziehen wie geplant. Ein Rückschlag ist keine Ausrede."
+ ],
+ "pool.reha_rueckschlag.a.a9": [
+  "Was war der Auslöser? Ich möchte wissen, ob es an der Belastung oder am Tempo lag.",
+  "Wie gravierend ist es wirklich, und wie lange fällt er voraussichtlich aus?"
+ ],
+ "pool.reha_rueckschlag.a.a10": [
+  "Immerhin hat er dann mehr Zeit, auf seine Karten zu schauen. Aber das sage ich ihm nicht so.",
+  "Rückschläge sind wie Gegentore: ärgerlich, aber das Spiel dauert noch."
+ ],
+ "pool.reha_rueckschlag.a.a11": [
+  "Er braucht jetzt keinen Plan, sondern jemanden, der zuhört. Ich setze mich zu ihm.",
+  "Ich weiß, wie es ist, wenn der Körper nicht mitspielt. Ich rede mit ihm, ohne dass jemand drängt."
+ ],
+ "pool.reha_rueckschlag.a.a12": [
+  "Ich sage ihm klar: Der neue Zeitplan gilt, und niemand fragt, wann er zurückkommt, bevor der Arzt grünes Licht gibt.",
+  "Er bekommt von mir eine klare Linie: Gesundheit zuerst, alles andere wird neu verhandelt."
+ ],
+ "pool.reha_rueckschlag.r.r1": [
+  "{b.gut} Das ist der richtige Ton, und er wird ihn spüren.",
+  "{b.gut} Genau diese Haltung braucht er jetzt von Ihnen."
+ ],
+ "pool.reha_rueckschlag.r.r2": [
+  "{b.gut} Er wird sich wieder aufrichten, wenn er merkt, dass Sie zu ihm stehen.",
+  "{b.gut} Das beruhigt ihn, und mich ebenso."
+ ],
+ "pool.reha_rueckschlag.r.r3": [
+  "{b.gut} Mit einem klaren Plan findet er seinen Kampfgeist wieder.",
+  "{b.gut} Wenn er weiß, was kommt, kann er sich wieder darauf konzentrieren."
+ ],
+ "pool.reha_rueckschlag.r.r4": [
+  "{b.gut} Dass Sie sich Zeit für ihn nehmen, bedeutet ihm sehr viel.",
+  "{b.gut} Er hat gebraucht, dass jemand sagt, es ist in Ordnung, nicht stark zu sein."
+ ],
+ "pool.reha_rueckschlag.r.r5": [
+  "{b.neutral} Wir werden sehen, wie er in den nächsten Tagen reagiert.",
+  "{b.neutral} Es ist ein Schritt, aber noch keine Lösung."
+ ],
+ "pool.reha_rueckschlag.r.r6": [
+  "{b.neutral} Er braucht Zeit, bis er sich wieder fängt, ich bleibe nah dran.",
+  "{b.neutral} Seine Stimmung kann in jede Richtung kippen."
+ ],
+ "pool.reha_rueckschlag.r.r7": [
+  "{b.neutral} Das ist vernünftig, ich passe die Behandlung entsprechend an.",
+  "{b.neutral} Ich halte Sie über jede Veränderung auf dem Laufenden."
+ ],
+ "pool.reha_rueckschlag.r.r8": [
+  "{b.neutral} Er nimmt es hin, und morgen geht es weiter.",
+  "{b.neutral} Einen Rückschlag steckt er besser weg als manch anderer."
+ ],
+ "pool.reha_rueckschlag.r.r9": [
+  "{b.schlecht} Dann bleibt er mit seinem Frust allein, und das sehe ich ungern.",
+  "{b.schlecht} Das hilft ihm nicht und der Heilung noch weniger."
+ ],
+ "pool.reha_rueckschlag.r.r10": [
+  "{b.schlecht} Er wird explodieren, und ich stehe dann zwischen den Fronten!",
+  "{b.schlecht} Wenn er das hört, schmeißt er alles hin!"
+ ],
+ "pool.reha_rueckschlag.r.r11": [
+  "{b.schlecht} Er wird sich fragen, ob er hier noch eine Zukunft hat, und seine Berater fragen auch.",
+  "{b.schlecht} Er hat angedeutet, dass andere Klubs bei Verletzten mehr Geduld haben."
+ ],
+ "pool.reha_rueckschlag.r.r12": [
+  "{b.schlecht} Er hätte nach all seinen Mühen mehr Rückhalt verdient.",
+  "{b.schlecht} Das trifft ihn tiefer, als er es sich anmerken lässt."
+ ],
+ "pool.reha_rueckschlag.x.x1": [
+  "Der Arzt atmet auf. {entscheidung} Der Spieler richtet sich in den nächsten Tagen langsam wieder auf.",
+  "{entscheidung} Der Spieler nimmt den Rückschlag an, und die Behandlung läuft ruhiger weiter."
+ ],
+ "pool.reha_rueckschlag.x.x2": [
+  "Das Gespräch klärt wenig. {entscheidung} Der Spieler schweigt weiter und bleibt in der Behandlung.",
+  "{entscheidung} Wie er den Rückschlag verkraftet, wird sich erst in den nächsten Einheiten zeigen."
+ ],
+ "pool.reha_rueckschlag.x.x3": [
+  "Der Arzt verlässt das Zimmer sichtlich besorgt. {entscheidung} Der Spieler zieht sich zurück und meidet den Stab.",
+  "{entscheidung} In der Kabine macht die Runde, dass der Verletzte fallen gelassen wird."
+ ],
+ "pool.reha_rueckschlag.x.x4": [
+  "Der Arzt trägt den neuen Zeitplan ein. {entscheidung} Der Spieler klammert sich an den Termin und arbeitet darauf zu.",
+  "{entscheidung} Der neue Plan steht, und der Spieler lässt sich wieder auf die Reha ein."
+ ],
+ "pool.reha_rueckschlag.x.x5": [
+  "Das Gespräch endet ohne Ergebnis. {entscheidung} Der Arzt bleibt mit dem niedergeschlagenen Spieler allein zurück.",
+  "{entscheidung} Der Trainer geht, und im Behandlungsraum bleibt es still."
+ ]
+}

@@ -1,0 +1,361 @@
+{
+ "zt.spiel.sieg.serioes.titel": [
+  "%3 gewinnt gegen %1 mit %2",
+  "Verdienter Erfolg: %2 gegen %1",
+  "%3 setzt sich gegen %1 durch (%2)"
+ ],
+ "zt.spiel.sieg.serioes.text": [
+  "Das Spiel gegen %1 endete %2. Die Mannschaft blieb in den entscheidenden Phasen konzentriert und nutzte ihre Chancen. Treffer: %4.",
+  "Mit %2 gegen %1 bleibt %3 auf Kurs. Die Ordnung stimmte, die Abschlüsse waren effizient. Torschützen: %4."
+ ],
+ "zt.spiel.sieg.boulevard.titel": [
+  "Jubel! %3 fegt %1 mit %2 weg",
+  "Traumabend: %2 gegen %1!",
+  "%1 geht unter: %3 feiert ein Fest (%2)"
+ ],
+ "zt.spiel.sieg.boulevard.text": [
+  "Was für ein Abend! %3 überrollt %1 und die Tribüne feiert bis tief in die Nacht. Die Torjäger: %4.",
+  "Das war ein Statement. %2 gegen %1, die Gäste hatten nichts entgegenzusetzen. Getroffen haben: %4."
+ ],
+ "zt.spiel.remis.serioes.titel": [
+  "%3 und %1 trennen sich %2",
+  "Punkteteilung gegen %1 (%2)",
+  "%2 gegen %1: ein Punkt für %3"
+ ],
+ "zt.spiel.remis.serioes.text": [
+  "Gegen %1 blieb es beim %2. Beide Seiten neutralisierten sich über weite Strecken, die Chancen waren überschaubar. Treffer: %4.",
+  "Ein Unentschieden, mit dem keiner richtig zufrieden sein kann: %2 gegen %1. Zu den Treffern: %4."
+ ],
+ "zt.spiel.remis.boulevard.titel": [
+  "Drama pur: %2 gegen %1!",
+  "Zittern bis zum Schluss: %3 holt nur einen Punkt",
+  "Verschenkt? %2 gegen %1"
+ ],
+ "zt.spiel.remis.boulevard.text": [
+  "Es war ein Spiel zum Haareraufen. %3 und %1 trennen sich %2, und beide hätten gewinnen können. Die Treffer: %4.",
+  "Ein Krimi ohne Sieger: %2 gegen %1. Die Fans wissen nicht, ob sie lachen oder weinen sollen. Torschützen: %4."
+ ],
+ "zt.spiel.niederlage.serioes.titel": [
+  "%3 unterliegt %1 mit %2",
+  "Niederlage gegen %1 (%2)",
+  "%2: %1 nimmt die Punkte mit"
+ ],
+ "zt.spiel.niederlage.serioes.text": [
+  "Gegen %1 reichte es nicht: %2. Die Mannschaft fand keinen Zugriff, Gegentore fielen zu leicht. Treffer für %3: %4.",
+  "Eine Niederlage, die analysiert werden muss. %1 war in den Zweikämpfen präsenter. Torschützen: %4."
+ ],
+ "zt.spiel.niederlage.boulevard.titel": [
+  "Debakel! %3 geht gegen %1 unter (%2)",
+  "Schock im Stadion: %2 gegen %1",
+  "Blamage gegen %1: Fans fassungslos"
+ ],
+ "zt.spiel.niederlage.boulevard.text": [
+  "Ein rabenschwarzer Tag. %2 gegen %1 – so hat sich niemand diesen Abend vorgestellt. Der Trainer steht unter Druck. Trostpflaster: %4.",
+  "Die Ränge murren, die Spieler schleichen vom Platz: %3 verliert %2 gegen %1. Immerhin getroffen: %4."
+ ],
+ "zt.serie.sieg.serioes.titel": [
+  "%1 Siege in Folge für %2",
+  "%2 bleibt seit %1 Spielen ungeschlagen siegreich",
+  "Konstanz zahlt sich aus: %1 Erfolge am Stück"
+ ],
+ "zt.serie.sieg.serioes.text": [
+  "Die Serie hält: %1 Siege hintereinander. Die Mannschaft arbeitet kompakt und verwaltet Führungen routiniert.",
+  "Seit %1 Spielen hat %2 nicht mehr verloren und gewonnen. Das Zusammenspiel der Mannschaftsteile funktioniert."
+ ],
+ "zt.serie.sieg.boulevard.titel": [
+  "%2 im Rausch: %1 Siege in Folge!",
+  "Unaufhaltsam! %1 Mal nacheinander jubelt %2",
+  "Die Serie reißt nicht ab: %1 Siege am Stück"
+ ],
+ "zt.serie.sieg.boulevard.text": [
+  "Die Stadt träumt: %1 Siege hintereinander, und ein Ende ist nicht in Sicht. Wer soll %2 noch stoppen?",
+  "Fans und Mannschaft schweben auf Wolke sieben. %1 Siege am Stück – das hat es lange nicht gegeben."
+ ],
+ "zt.serie.niederlage.boulevard.titel": [
+  "Krise! %2 verliert zum %1. Mal in Folge",
+  "%1 Niederlagen am Stück: Es brennt bei %2",
+  "Absturz: %1 Pleiten nacheinander"
+ ],
+ "zt.serie.niederlage.boulevard.text": [
+  "Die Lage ist ernst: %1 Niederlagen in Folge. Der Druck auf den Trainer wächst von Spiel zu Spiel.",
+  "Bei %2 herrscht Alarmstimmung. %1 Spiele ohne Punkte, die Geduld der Fans ist am Ende."
+ ],
+ "zt.serie.ohne_sieg.serioes.titel": [
+  "%2 wartet seit %1 Spielen auf einen Sieg",
+  "Sieglos: %1 Spiele ohne Erfolg",
+  "Die Suche nach dem Erfolgserlebnis geht weiter"
+ ],
+ "zt.serie.ohne_sieg.serioes.text": [
+  "Seit %1 Partien hat %2 nicht mehr gewonnen. Die Ursachenforschung läuft: zu wenig Torgefahr, zu viele Fehler im Spielaufbau.",
+  "%1 Spiele ohne Sieg sind keine Katastrophe, aber ein Warnsignal. Die Mannschaft braucht ein Erfolgserlebnis."
+ ],
+ "zt.hattrick.serioes.titel": [
+  "Hattrick von %1 gegen %2",
+  "%1 trifft dreifach gegen %2",
+  "Drei Tore: %1 entscheidet das Spiel gegen %2"
+ ],
+ "zt.hattrick.serioes.text": [
+  "%1 erzielte gegen %2 drei Treffer und prägte die Partie mit klugen Laufwegen und konsequentem Abschluss.",
+  "Ein Spieler, drei Tore: %1 war für %2 nicht zu fassen."
+ ],
+ "zt.hattrick.boulevard.titel": [
+  "%1 schießt %2 allein ab: %3 Tore!",
+  "Der Mann des Abends: %1 mit %3 Treffern",
+  "Wahnsinn! %1 trifft und trifft und trifft"
+ ],
+ "zt.hattrick.boulevard.text": [
+  "Was für ein Auftritt! %1 netzt gegen %2 gleich %3 Mal ein und lässt die Tribüne toben.",
+  "Den Ball nimmt er sich nach dem Spiel mit: %1 hat gegen %2 %3 Tore erzielt."
+ ],
+ "zt.stark.serioes.titel": [
+  "Herausragend: %1 mit der Note %2",
+  "%1 überragt gegen %3",
+  "Bester Mann auf dem Platz: %1"
+ ],
+ "zt.stark.serioes.text": [
+  "Mit der Note %2 war %1 gegen %3 der auffälligste Spieler. Seine Zweikampfführung und sein Passspiel gaben der Mannschaft Halt.",
+  "%1 spielte gegen %3 auf höchstem Niveau (Note %2) und hielt das Gefüge zusammen."
+ ],
+ "zt.tabelle.spitze.boulevard.titel": [
+  "Ganz oben! %2 grüßt von der Tabellenspitze",
+  "Platz %1: %2 thront über der Liga",
+  "Spitzenreiter %2 – die Stadt feiert"
+ ],
+ "zt.tabelle.spitze.boulevard.text": [
+  "Die Tabelle zeigt Platz %1, und dort fühlt sich %2 sichtlich wohl. Die Konkurrenz blickt nach oben.",
+  "Von ganz oben lässt es sich schön träumen. %2 steht auf Platz %1 und will dort bleiben."
+ ],
+ "zt.tabelle.abstieg.boulevard.titel": [
+  "Alarm im Keller: %2 auf Platz %1",
+  "Abstiegskampf! %2 rutscht auf Platz %1",
+  "Gefahrenzone: Platz %1 für %2"
+ ],
+ "zt.tabelle.abstieg.boulevard.text": [
+  "Platz %1 ist kein Ort, an dem man sich einrichten will. %2 muss schnell punkten, um nicht ganz unten zu landen.",
+  "Die Tabelle lügt nicht: %2 steht auf Platz %1 und braucht Siege, keine Ausreden."
+ ],
+ "zt.verletzung.serioes.titel": [
+  "%1 fällt aus",
+  "Ausfall im Kader: %1 verletzt",
+  "Medizinische Abteilung meldet %1 als verletzt"
+ ],
+ "zt.verletzung.serioes.text": [
+  "%1 wird dem Team vorerst fehlen. Die Ausfallzeit wird derzeit mit etwa %2 Tagen veranschlagt, die Genesung wird eng begleitet.",
+  "Eine Verletzung zwingt %1 zur Pause (rund %2 Tage). Der Trainer muss die Rotation anpassen."
+ ],
+ "zt.verletzung.boulevard.titel": [
+  "Schock! %1 verletzt",
+  "Bitterer Ausfall: Star %1 muss pausieren",
+  "Zittern um %1: Wie schlimm ist es?"
+ ],
+ "zt.verletzung.boulevard.text": [
+  "Die Fans bangen: %1 hat es erwischt. Mit etwa %2 Tagen Pause muss gerechnet werden.",
+  "Ausgerechnet jetzt! %1 fällt rund %2 Tage aus und reißt eine Lücke in die Mannschaft."
+ ],
+ "zt.wechsel.eigen.boulevard.titel": [
+  "Es ist soweit: %1 wechselt zu %3",
+  "Transfer-Knall: %1 und %3 werden einig",
+  "%1 geht neue Wege: Ziel %3"
+ ],
+ "zt.wechsel.eigen.boulevard.text": [
+  "%2 und %3 haben sich geeinigt: %1 wechselt. Die Fans diskutieren, ob der Preis stimmt.",
+  "Die Unterschrift ist gesetzt. %1 verlässt %2 in Richtung %3, und die Stadt spricht von nichts anderem."
+ ],
+ "zt.wechsel.fremd.serioes.titel": [
+  "%1 wechselt von %2 zu %3",
+  "Wechsel in der Liga: %1 künftig bei %3",
+  "%3 verpflichtet %1"
+ ],
+ "zt.wechsel.fremd.serioes.text": [
+  "%3 hat sich die Dienste von %1 gesichert, abgebender Verein ist %2. Der Wechsel verschiebt die Kräfteverhältnisse leicht.",
+  "Marktbeobachter ordnen den Wechsel von %1 (%2 zu %3) als sinnvolle Verstärkung ein."
+ ],
+ "zt.geruecht.boulevard.text": [
+  "%1 im Visier: Hat %2 schon angefragt?",
+  "Gerüchteküche brodelt: %1 und %2?",
+  "Heißer Tipp: %1 könnte bald nicht mehr zu halten sein"
+ ],
+ "zt.geruecht.serioes.text": [
+  "Berichten zufolge beschäftigt sich %2 mit %1.",
+  "Bislang unbestätigt: Interesse an %1 aus dem Umfeld von %2.",
+  "Insider melden Gespräche rund um %1 und %2."
+ ],
+ "zt.saga.0.boulevard.titel": [
+  "Gerücht: Zieht es %1 zu %2?",
+  "%1 und %2 – mehr als ein Flüstern?",
+  "Die Spur führt zu %2: Es geht um %1"
+ ],
+ "zt.saga.0.boulevard.text": [
+  "Erste Hinweise aus dem Umfeld: %2 soll an %1 interessiert sein. Bestätigt ist nichts, aber der Markt ist in Bewegung. Fortsetzung folgt.",
+  "Es beginnt mit einem Raunen: %1 und %2 werden in einem Atemzug genannt. Wir bleiben dran."
+ ],
+ "zt.saga.1.serioes.titel": [
+  "Interesse an %1 konkretisiert sich",
+  "%2 hat sich nach %1 erkundigt",
+  "Berater sondieren: %1 und %2"
+ ],
+ "zt.saga.1.serioes.text": [
+  "Nach Informationen aus dem Umfeld haben Berater erste Gespräche geführt. %2 soll %1 ernsthaft verfolgen. Eine Entscheidung steht noch aus.",
+  "Der Fall %1 nimmt Konturen an: %2 hat Kontakt aufgenommen, die Positionen sind noch weit auseinander."
+ ],
+ "zt.saga.2.boulevard.titel": [
+  "Angebot auf dem Tisch: %2 will %1!",
+  "Jetzt wird es ernst: Offerte für %1",
+  "%2 legt nach – bekommt %1 sein Angebot?"
+ ],
+ "zt.saga.2.boulevard.text": [
+  "Die Verhandlungen laufen heiß: %2 hat ein konkretes Angebot für %1 vorgelegt. Die Entscheidung dürfte in den nächsten Tagen fallen.",
+  "Es wird laut hinter den Kulissen. %2 macht ernst, und %1 muss sich entscheiden."
+ ],
+ "zt.saga.3einigung.boulevard.titel": [
+  "Perfekt! %1 und %2 werden einig",
+  "Der Deal steht: %1 wechselt zu %2",
+  "Happy End? %1 sagt Ja zu %2"
+ ],
+ "zt.saga.3einigung.boulevard.text": [
+  "Nach Tagen des Hin und Her ist es amtlich: %1 und %2 haben sich geeinigt. Der Wechsel ist beschlossene Sache.",
+  "Das Warten hat ein Ende. %1 wechselt, %2 hat sein Ziel erreicht."
+ ],
+ "zt.saga.3absage.serioes.titel": [
+  "Kein Wechsel: %1 bleibt vorerst",
+  "Die Akte %1 ist geschlossen",
+  "%2 und %1 kommen nicht zusammen"
+ ],
+ "zt.saga.3absage.serioes.text": [
+  "Die Gespräche zwischen %2 und %1 sind ohne Ergebnis geblieben. Ein Wechsel ist derzeit nicht mehr zu erwarten.",
+  "Es wird kein Transfer: %1 bleibt, die Verhandlungen mit %2 sind beendet."
+ ],
+ "zt.pk.ehrlich.titel": [
+  "Offene Worte: „%1“",
+  "Offene Worte: „%1“"
+ ],
+ "zt.pk.ehrlich.text": [
+  "Der Trainer nahm am Podium kein Blatt vor den Mund. Zitat: „%1“. Man kann ihm vieles vorwerfen, aber kein Drumherumreden.",
+  "Der Trainer nahm am Podium kein Blatt vor den Mund. Zitat: „%1“. Man kann ihm vieles vorwerfen, aber kein Drumherumreden. Vor dem Spiel gegen %2 ein deutliches Signal. (%3)"
+ ],
+ "zt.pk.kaempferisch.titel": [
+  "Kampfansage: „%1“",
+  "Kampfansage: „%1“"
+ ],
+ "zt.pk.kaempferisch.text": [
+  "Die Ansage war unmissverständlich: „%1“. Nun muss die Mannschaft auf dem Platz liefern.",
+  "Die Ansage war unmissverständlich: „%1“. Nun muss die Mannschaft auf dem Platz liefern. Vor dem Spiel gegen %2 ein deutliches Signal. (%3)"
+ ],
+ "zt.pk.ausweichend.titel": [
+  "Viele Worte, wenig Inhalt",
+  "Viele Worte, wenig Inhalt"
+ ],
+ "zt.pk.ausweichend.text": [
+  "Auf die Fragen der Presse blieb der Trainer vage. Am deutlichsten noch: „%1“. Wer Klarheit suchte, wurde nicht fündig.",
+  "Auf die Fragen der Presse blieb der Trainer vage. Am deutlichsten noch: „%1“. Wer Klarheit suchte, wurde nicht fündig. Vor dem Spiel gegen %2 ein deutliches Signal. (%3)"
+ ],
+ "zt.pk.lob.titel": [
+  "Lob vom Trainer: „%1“",
+  "Lob vom Trainer: „%1“"
+ ],
+ "zt.pk.lob.text": [
+  "Der Trainer fand anerkennende Worte für sein Team: „%1“. Die Mannschaft wird es gern gehört haben.",
+  "Der Trainer fand anerkennende Worte für sein Team: „%1“. Die Mannschaft wird es gern gehört haben. Vor dem Spiel gegen %2 ein deutliches Signal. (%3)"
+ ],
+ "zt.pk.kritik.titel": [
+  "Der Trainer teilt aus: „%1“",
+  "Der Trainer teilt aus: „%1“"
+ ],
+ "zt.pk.kritik.text": [
+  "Es wurde deutlich im Pressesaal. „%1“ – ein Satz, der in der Kabine noch für Gesprächsstoff sorgen dürfte.",
+  "Es wurde deutlich im Pressesaal. „%1“ – ein Satz, der in der Kabine noch für Gesprächsstoff sorgen dürfte. Vor dem Spiel gegen %2 ein deutliches Signal. (%3)"
+ ],
+ "zt.pk.diplomatisch.titel": [
+  "Besonnener Auftritt: „%1“",
+  "Besonnener Auftritt: „%1“"
+ ],
+ "zt.pk.diplomatisch.text": [
+  "Der Trainer wog jedes Wort ab. Sein wichtigster Satz: „%1“. Ein Auftritt, der niemanden verprellt.",
+  "Der Trainer wog jedes Wort ab. Sein wichtigster Satz: „%1“. Ein Auftritt, der niemanden verprellt. Vor dem Spiel gegen %2 ein deutliches Signal. (%3)"
+ ],
+ "zt.pk.kontern.titel": [
+  "Gegenschlag: „%1“",
+  "Gegenschlag: „%1“"
+ ],
+ "zt.pk.kontern.text": [
+  "Der Trainer ließ die Kritik nicht auf sich sitzen und konterte scharf: „%1“. Das Echo dürfte nicht lange auf sich warten lassen.",
+  "Der Trainer ließ die Kritik nicht auf sich sitzen und konterte scharf: „%1“. Das Echo dürfte nicht lange auf sich warten lassen. Vor dem Spiel gegen %2 ein deutliches Signal. (%3)"
+ ],
+ "zt.ruhig.titel": [
+  "Ruhiger Tag bei %1",
+  "Alles beim Alten",
+  "Stille vor dem nächsten Spieltag"
+ ],
+ "zt.ruhig.text": [
+  "Bei %1 gibt es heute keine großen Neuigkeiten. Das Training läuft, die Mannschaft bereitet sich auf die kommenden Aufgaben vor.",
+  "Kein Skandal, kein Knall, keine Wechsel: %1 arbeitet im Alltag. Die Redaktion nutzt die Pause für einen Blick auf die Tabelle."
+ ],
+ "zt.eil.entlassung.titel": "Trainerentlassung bei %2",
+ "zt.eil.entlassung.text": "Der Vorstand von %2 hat die Zusammenarbeit beendet. Weitere Informationen folgen.",
+ "zt.eil.ultimatum.titel": "Ultimatum für den Trainer",
+ "zt.eil.ultimatum.text": "Der Vorstand von %2 hat dem Trainer eine Frist gesetzt. Ob sie reicht, entscheidet sich in den nächsten Spielen.",
+ "zt.eil.verkauf.titel": "%1 verlässt %2",
+ "zt.eil.verkauf.text": "Der Wechsel von %1 ist perfekt. Die Mannschaft verliert einen Leistungsträger.",
+ "zt.eil.star_verletzt.titel": "%1 verletzt sich schwer",
+ "zt.eil.star_verletzt.text": "Es ist ein Schlag für %2: %1 wird lange fehlen.",
+ "zt.ticker.spiel": [
+  "%1 – %2: %3",
+  "Endstand %3 gegen %2"
+ ],
+ "zt.ticker.tabelle": [
+  "%2 steht auf Platz %1",
+  "Tabelle: Platz %1 für %2"
+ ],
+ "zt.ticker.geruecht": [
+  "Gerücht: %1 und %2",
+  "%2 beobachtet %1"
+ ],
+ "zt.ticker.wechsel": [
+  "Wechsel: %1 von %2 zu %3",
+  "%1 wechselt zu %3 (%2)"
+ ],
+ "menu.zeitung.titel": "Zeitung",
+ "menu.zeitung.reiter.0": "Titelseite",
+ "menu.zeitung.reiter.1": "Archiv",
+ "zt.ui.titel": "Zeitung",
+ "zt.ui.name": "Der Sportbote",
+ "zt.ui.ausgabe": "Ausgabe %1 · %2",
+ "zt.ui.eil": "Eilmeldung",
+ "zt.ui.neben": "Weitere Meldungen",
+ "zt.ui.geruechte": "Transfergerüchte",
+ "zt.ui.sagas": "Die Geschichte dahinter",
+ "zt.ui.teil": "Teil %1",
+ "zt.ui.ticker": "Ticker",
+ "zt.ui.archiv": "Frühere Ausgaben",
+ "zt.ui.aktuell": "Zur aktuellen Ausgabe",
+ "zt.ui.zurueck": "Vorherige Ausgabe",
+ "zt.ui.vor": "Nächste Ausgabe",
+ "zt.ui.takt": "Erscheint",
+ "zt.ui.takt.taeglich": "täglich",
+ "zt.ui.takt.woechentlich": "wöchentlich",
+ "zt.ui.leer": "Die erste Ausgabe erscheint mit dem nächsten Tag. Die Redaktion sammelt schon Stoff.",
+ "zt.ui.archiv_leer": "Noch keine früheren Ausgaben.",
+ "zt.ui.zitat": "Gesagt auf der Pressekonferenz",
+ "zt.ui.ausgang.einigung": "Einigung",
+ "zt.ui.ausgang.absage": "Absage",
+ "zt.ui.art.welt": "Welt",
+ "zt.ui.art.rekord": "Rekord",
+ "zt.ui.art.spiel": "Spieltag",
+ "zt.ui.art.serie": "Serie",
+ "zt.ui.art.hattrick": "Hattrick",
+ "zt.ui.art.stark": "Leistung",
+ "zt.ui.art.verletzung": "Verletzung",
+ "zt.ui.art.wechsel": "Transfer",
+ "zt.ui.art.tabelle": "Tabelle",
+ "zt.ui.art.pk": "Pressekonferenz",
+ "zt.ui.art.saga": "Transfer-Saga",
+ "zt.ui.art.ruhig": "Aus dem Verein",
+ "zt.ui.ton.serioes": "Sachlich",
+ "zt.ui.ton.boulevard": "Boulevard",
+ "zt.ui.nummer": "Nr. %1",
+ "zt.ui.fehler.ausgabe": "Diese Ausgabe ist nicht mehr im Archiv.",
+ "zt.ui.takt.gesetzt": "Die Redaktion erscheint jetzt %1.",
+ "wartet.zeitung.0": "Die Druckerei läuft an …",
+ "wartet.zeitung.1": "Der Chefredakteur legt die Schlagzeile fest …",
+ "wartet.zeitung.2": "Die Bilder kommen aus dem Fotolabor …"
+}

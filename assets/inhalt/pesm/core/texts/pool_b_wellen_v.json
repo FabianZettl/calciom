@@ -1,0 +1,62 @@
+{
+ "pool.b.presse_siegesserie_demut_gruss": [
+  "Trainer, Glückwunsch zur Serie, ich komme mit einer Frage zur Bodenhaftung bei {verein}."
+ ],
+ "pool.b.presse_siegesserie_demut_lage": [
+  "Spiel um Spiel gewinnt Ihre Mannschaft, und in der Stadt spricht man schon von mehr als Platz im Mittelfeld."
+ ],
+ "pool.b.presse_schuldfrage_niederlage_gruss": [
+  "Trainer, danke für Ihre Zeit, nach diesem Ergebnis habe ich Fragen zur Verantwortung bei {verein}."
+ ],
+ "pool.b.presse_schuldfrage_niederlage_lage": [
+  "Die Niederlage war vermeidbar, und im Stadion wird laut darüber gesprochen, wer die Fehler gemacht hat."
+ ],
+ "pool.b.presse_verletzungswelle_belastung_gruss": [
+  "Trainer, bevor ich es vergesse, eine Nachfrage zur Lage im Lazarett von {verein}."
+ ],
+ "pool.b.presse_verletzungswelle_belastung_lage": [
+  "Schon wieder fehlen mehrere Spieler, und manche Beobachter sehen darin eine Folge der Trainingsbelastung."
+ ],
+ "pool.b.presse_wechselgeruecht_star_gruss": [
+  "Trainer, ich habe eine Information, die ich gern von Ihnen einordnen lasse, es betrifft {verein}."
+ ],
+ "pool.b.presse_wechselgeruecht_star_lage": [
+  "Seit Tagen halten sich Gerüchte, ein Leistungsträger könnte den Verein im nächsten Fenster verlassen."
+ ],
+ "pool.b.presse_vorstand_rueckendeckung_gruss": [
+  "Trainer, ich komme direkt zur Sache, es geht um Ihr Verhältnis zur Vereinsführung bei {verein}."
+ ],
+ "pool.b.presse_vorstand_rueckendeckung_lage": [
+  "Aus dem Umfeld des Vereins ist zu hören, dass die Geduld der Vereinsführung nachlässt."
+ ],
+ "pool.b.presse_taktikwechsel_nachfrage_gruss": [
+  "Trainer, mir ist eine Veränderung aufgefallen, und ich möchte sie bei {verein} einordnen."
+ ],
+ "pool.b.presse_taktikwechsel_nachfrage_lage": [
+  "Die Mannschaft trat zuletzt in einer anderen Grundordnung an, und manche Fans fragen sich, warum."
+ ],
+ "pool.b.presse_spielerstreit_oeffentlich_gruss": [
+  "Trainer, ich möchte etwas ansprechen, das seit gestern die Runde macht, und es geht um {verein}."
+ ],
+ "pool.b.presse_spielerstreit_oeffentlich_lage": [
+  "Zwei Spieler sollen sich lautstark gestritten haben, und davon ist einiges nach außen gedrungen."
+ ],
+ "pool.b.presse_titelkampf_druck_gruss": [
+  "Trainer, ein kurzer Blick nach vorn, bei {verein} wird die Luft nach oben dünner."
+ ],
+ "pool.b.presse_titelkampf_druck_lage": [
+  "Der Verein steht deutlich über den eigenen Erwartungen, und mit jedem Spieltag wächst der Druck."
+ ],
+ "pool.b.presse_schiedsrichter_zorn_gruss": [
+  "Trainer, es gab eine Szene, über die alle reden, und ich möchte Ihre Sicht bei {verein} hören."
+ ],
+ "pool.b.presse_schiedsrichter_zorn_lage": [
+  "Eine strittige Entscheidung des Schiedsrichters hat das Spiel gedreht, und in den Foren wird gekocht."
+ ],
+ "pool.b.presse_fanprotest_stimmung_gruss": [
+  "Trainer, ich war vor dem Stadion unterwegs, und was ich dort bei {verein} gehört habe, möchte ich Ihnen vorlegen."
+ ],
+ "pool.b.presse_fanprotest_stimmung_lage": [
+  "Die Anhänger sind unzufrieden, Pfiffe und Transparente zeigen, wie angespannt die Lage rund um den Verein ist."
+ ]
+}

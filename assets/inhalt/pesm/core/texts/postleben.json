@@ -1,0 +1,14 @@
+{
+ "pl.verletzung.betreff": "%1 ist verletzt",
+ "pl.verletzung.text": "%1 fällt voraussichtlich %2 Tage aus. Die Aufstellung sollte angepasst werden.",
+ "pl.genesung.betreff": "%1 ist wieder fit",
+ "pl.genesung.text": "%1 steht wieder zur Verfügung.",
+ "pl.reha.betreff": "%1: Rückkehr in Sicht",
+ "pl.reha.text": "%1 ist in etwa %2 Tagen wieder dabei. Die Reha läuft nach Plan.",
+ "pl.belastung.betreff": "Belastung im Kader: %1 Spieler müde",
+ "pl.belastung.text": "%1 Spieler liegen unter %2 Prozent Kondition (%3 …). Rotation oder ein ruhigeres Training würde helfen.",
+ "pl.finanzen.betreff": "Finanzbericht %1",
+ "pl.finanzen.text": "Transferbudget: %1. Gehaltsbudget: %2.",
+ "pl.ueberzogen.betreff": "Das Budget ist überzogen",
+ "pl.ueberzogen.text": "Transferbudget: %1, Gehaltsbudget: %2. Der Vorstand erwartet, dass das Minus ausgeglichen wird."
+}

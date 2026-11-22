@@ -1,0 +1,257 @@
+# Inhaltspool Manager: Einladungen und Anlässe rund um den Manager als Person (Golf, Dinner, Lehrgang, Urlaub, Erschöpfung, Nachbarn, Familie, Wohltätigkeit). Auslöser aus dem Kontext von backend/manager.py. Texte: pool_manager.json (de) und en/.
+
+[thema.manager_golf_einladung]
+kategorie = "vorstand"
+absender = "praesident"
+kanal = "telefon"
+dringlichkeit = 1
+sperre_tage = 28
+haeufigkeit = 0.35
+wenn = ["energie>=25", "privat_tage>=4"]
+eroeffnung = [{ id = "e1" }, { id = "e2" }, { id = "e3" }, { id = "e4" }, { id = "e5" }, { id = "e6" }]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "beziehung", delta = 5 }, { ziel = "vorstandsvertrauen", delta = 6 }, { ziel = "fanstimmung", delta = 2 }] },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 4 }, { ziel = "vorstandsvertrauen", delta = 6 }, { ziel = "fanstimmung", delta = 2 }] },
+  { id = "a3", strategie = "delegieren", ton = "offen", wirkungen = [{ ziel = "beziehung", delta = 1 }] },
+  { id = "a4", strategie = "ausgleich", ton = "humorvoll", wirkungen = [{ ziel = "beziehung", delta = 3 }, { ziel = "fanstimmung", delta = 4 }, { ziel = "kosten", betrag = 20000 }] },
+  { id = "a5", strategie = "gegenfrage", ton = "sachlich", wirkungen = [] },
+  { id = "a6", strategie = "zusage", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = 2 }, { ziel = "vorstandsvertrauen", delta = 3 }] },
+  { id = "a7", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -5 }, { ziel = "vorstandsvertrauen", delta = -6 }, { ziel = "fanstimmung", delta = -2 }], ausgang = "abbruch" },
+  { id = "a8", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = -4 }, { ziel = "vorstandsvertrauen", delta = -6 }, { ziel = "fanstimmung", delta = -2 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut" },
+  { id = "r3", gruppe = "gut" },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral" },
+  { id = "r6", gruppe = "neutral" },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht" },
+  { id = "r9", gruppe = "schlecht" },
+]
+ausgang = [{ id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "abbruch" }]
+
+[thema.manager_sponsor_dinner]
+kategorie = "sponsor"
+absender = "sponsor"
+kanal = "mail"
+dringlichkeit = 1
+sperre_tage = 35
+haeufigkeit = 0.3
+wenn = ["managerruf>=35", "privat_tage>=3"]
+eroeffnung = [{ id = "e1" }, { id = "e2" }, { id = "e3" }, { id = "e4" }, { id = "e5" }, { id = "e6" }]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "beziehung", delta = 5 }, { ziel = "medienbild", delta = 6 }, { ziel = "vorstandsvertrauen", delta = 2 }] },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 4 }, { ziel = "medienbild", delta = 6 }, { ziel = "vorstandsvertrauen", delta = 2 }] },
+  { id = "a3", strategie = "delegieren", ton = "offen", wirkungen = [{ ziel = "beziehung", delta = 1 }] },
+  { id = "a4", strategie = "ausgleich", ton = "humorvoll", wirkungen = [{ ziel = "beziehung", delta = 3 }, { ziel = "vorstandsvertrauen", delta = 4 }, { ziel = "kosten", betrag = 20000 }] },
+  { id = "a5", strategie = "gegenfrage", ton = "sachlich", wirkungen = [] },
+  { id = "a6", strategie = "zusage", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = 2 }, { ziel = "medienbild", delta = 3 }] },
+  { id = "a7", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -5 }, { ziel = "medienbild", delta = -6 }, { ziel = "vorstandsvertrauen", delta = -2 }], ausgang = "abbruch" },
+  { id = "a8", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = -4 }, { ziel = "medienbild", delta = -6 }, { ziel = "vorstandsvertrauen", delta = -2 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut" },
+  { id = "r3", gruppe = "gut" },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral" },
+  { id = "r6", gruppe = "neutral" },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht" },
+  { id = "r9", gruppe = "schlecht" },
+]
+ausgang = [{ id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "abbruch" }]
+
+[thema.manager_lehrgang_empfehlung]
+kategorie = "vorstand"
+absender = "praesident"
+kanal = "mail"
+dringlichkeit = 1
+sperre_tage = 60
+haeufigkeit = 0.3
+wenn = ["lehrgang<=0", "managerruf<=70"]
+eroeffnung = [{ id = "e1" }, { id = "e2" }, { id = "e3" }, { id = "e4" }, { id = "e5" }, { id = "e6" }]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "beziehung", delta = 5 }, { ziel = "vorstandsvertrauen", delta = 6 }, { ziel = "medienbild", delta = 2 }] },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 4 }, { ziel = "vorstandsvertrauen", delta = 6 }, { ziel = "medienbild", delta = 2 }] },
+  { id = "a3", strategie = "delegieren", ton = "offen", wirkungen = [{ ziel = "beziehung", delta = 1 }] },
+  { id = "a4", strategie = "ausgleich", ton = "humorvoll", wirkungen = [{ ziel = "beziehung", delta = 3 }, { ziel = "medienbild", delta = 4 }, { ziel = "kosten", betrag = 20000 }] },
+  { id = "a5", strategie = "gegenfrage", ton = "sachlich", wirkungen = [] },
+  { id = "a6", strategie = "zusage", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = 2 }, { ziel = "vorstandsvertrauen", delta = 3 }] },
+  { id = "a7", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -5 }, { ziel = "vorstandsvertrauen", delta = -6 }, { ziel = "medienbild", delta = -2 }], ausgang = "abbruch" },
+  { id = "a8", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = -4 }, { ziel = "vorstandsvertrauen", delta = -6 }, { ziel = "medienbild", delta = -2 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut" },
+  { id = "r3", gruppe = "gut" },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral" },
+  { id = "r6", gruppe = "neutral" },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht" },
+  { id = "r9", gruppe = "schlecht" },
+]
+ausgang = [{ id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "abbruch" }]
+
+[thema.manager_urlaub_kritik]
+kategorie = "presse"
+absender = "journalist"
+kanal = "pressekonferenz"
+dringlichkeit = 2
+sperre_tage = 45
+haeufigkeit = 0.5
+wenn = ["urlaub_nah>=1", "niederlagen>=2"]
+eroeffnung = [{ id = "e1" }, { id = "e2" }, { id = "e3" }, { id = "e4" }, { id = "e5" }, { id = "e6" }]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "beziehung", delta = 5 }, { ziel = "medienbild", delta = 6 }, { ziel = "fanstimmung", delta = 2 }] },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 4 }, { ziel = "medienbild", delta = 6 }, { ziel = "fanstimmung", delta = 2 }] },
+  { id = "a3", strategie = "delegieren", ton = "offen", wirkungen = [{ ziel = "beziehung", delta = 1 }] },
+  { id = "a4", strategie = "ausgleich", ton = "humorvoll", wirkungen = [{ ziel = "beziehung", delta = 3 }, { ziel = "fanstimmung", delta = 4 }] },
+  { id = "a5", strategie = "gegenfrage", ton = "sachlich", wirkungen = [] },
+  { id = "a6", strategie = "zusage", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = 2 }, { ziel = "medienbild", delta = 3 }] },
+  { id = "a7", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -5 }, { ziel = "medienbild", delta = -6 }, { ziel = "fanstimmung", delta = -2 }], ausgang = "abbruch" },
+  { id = "a8", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = -4 }, { ziel = "medienbild", delta = -6 }, { ziel = "fanstimmung", delta = -2 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut" },
+  { id = "r3", gruppe = "gut" },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral" },
+  { id = "r6", gruppe = "neutral" },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht" },
+  { id = "r9", gruppe = "schlecht" },
+]
+ausgang = [{ id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "abbruch" }]
+
+[thema.manager_ausgebrannt_sorge]
+kategorie = "staff"
+absender = "co_trainer"
+kanal = "persoenlich"
+dringlichkeit = 2
+sperre_tage = 21
+haeufigkeit = 0.6
+wenn = ["stress>=70"]
+eroeffnung = [{ id = "e1" }, { id = "e2" }, { id = "e3" }, { id = "e4" }, { id = "e5" }, { id = "e6" }]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "beziehung", delta = 5 }, { ziel = "beziehung", delta = 6 }, { ziel = "medienbild", delta = 2 }] },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 4 }, { ziel = "beziehung", delta = 6 }, { ziel = "medienbild", delta = 2 }] },
+  { id = "a3", strategie = "delegieren", ton = "offen", wirkungen = [{ ziel = "beziehung", delta = 1 }] },
+  { id = "a4", strategie = "ausgleich", ton = "humorvoll", wirkungen = [{ ziel = "beziehung", delta = 3 }, { ziel = "medienbild", delta = 4 }, { ziel = "kosten", betrag = 20000 }] },
+  { id = "a5", strategie = "gegenfrage", ton = "sachlich", wirkungen = [] },
+  { id = "a6", strategie = "zusage", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = 2 }, { ziel = "beziehung", delta = 3 }] },
+  { id = "a7", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -5 }, { ziel = "beziehung", delta = -6 }, { ziel = "medienbild", delta = -2 }], ausgang = "abbruch" },
+  { id = "a8", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = -4 }, { ziel = "beziehung", delta = -6 }, { ziel = "medienbild", delta = -2 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut" },
+  { id = "r3", gruppe = "gut" },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral" },
+  { id = "r6", gruppe = "neutral" },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht" },
+  { id = "r9", gruppe = "schlecht" },
+]
+ausgang = [{ id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "abbruch" }]
+
+[thema.manager_nachbarn_fans]
+kategorie = "fans"
+absender = "fans"
+kanal = "mail"
+dringlichkeit = 1
+sperre_tage = 40
+haeufigkeit = 0.4
+wenn = ["haus>=1", "niederlagen>=3"]
+eroeffnung = [{ id = "e1" }, { id = "e2" }, { id = "e3" }, { id = "e4" }, { id = "e5" }, { id = "e6" }]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "beziehung", delta = 5 }, { ziel = "fanstimmung", delta = 6 }, { ziel = "medienbild", delta = 2 }] },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 4 }, { ziel = "fanstimmung", delta = 6 }, { ziel = "medienbild", delta = 2 }] },
+  { id = "a3", strategie = "delegieren", ton = "offen", wirkungen = [{ ziel = "beziehung", delta = 1 }] },
+  { id = "a4", strategie = "ausgleich", ton = "humorvoll", wirkungen = [{ ziel = "beziehung", delta = 3 }, { ziel = "medienbild", delta = 4 }, { ziel = "kosten", betrag = 20000 }] },
+  { id = "a5", strategie = "gegenfrage", ton = "sachlich", wirkungen = [] },
+  { id = "a6", strategie = "zusage", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = 2 }, { ziel = "fanstimmung", delta = 3 }] },
+  { id = "a7", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -5 }, { ziel = "fanstimmung", delta = -6 }, { ziel = "medienbild", delta = -2 }], ausgang = "abbruch" },
+  { id = "a8", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = -4 }, { ziel = "fanstimmung", delta = -6 }, { ziel = "medienbild", delta = -2 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut" },
+  { id = "r3", gruppe = "gut" },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral" },
+  { id = "r6", gruppe = "neutral" },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht" },
+  { id = "r9", gruppe = "schlecht" },
+]
+ausgang = [{ id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "abbruch" }]
+
+[thema.manager_familienfoto]
+kategorie = "presse"
+absender = "journalist"
+kanal = "mail"
+dringlichkeit = 1
+sperre_tage = 30
+haeufigkeit = 0.35
+wenn = ["privat_tage<=3", "medien>=40"]
+eroeffnung = [{ id = "e1" }, { id = "e2" }, { id = "e3" }, { id = "e4" }, { id = "e5" }, { id = "e6" }]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "beziehung", delta = 5 }, { ziel = "medienbild", delta = 6 }, { ziel = "fanstimmung", delta = 2 }] },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 4 }, { ziel = "medienbild", delta = 6 }, { ziel = "fanstimmung", delta = 2 }] },
+  { id = "a3", strategie = "delegieren", ton = "offen", wirkungen = [{ ziel = "beziehung", delta = 1 }] },
+  { id = "a4", strategie = "ausgleich", ton = "humorvoll", wirkungen = [{ ziel = "beziehung", delta = 3 }, { ziel = "fanstimmung", delta = 4 }] },
+  { id = "a5", strategie = "gegenfrage", ton = "sachlich", wirkungen = [] },
+  { id = "a6", strategie = "zusage", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = 2 }, { ziel = "medienbild", delta = 3 }] },
+  { id = "a7", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -5 }, { ziel = "medienbild", delta = -6 }, { ziel = "fanstimmung", delta = -2 }], ausgang = "abbruch" },
+  { id = "a8", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = -4 }, { ziel = "medienbild", delta = -6 }, { ziel = "fanstimmung", delta = -2 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut" },
+  { id = "r3", gruppe = "gut" },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral" },
+  { id = "r6", gruppe = "neutral" },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht" },
+  { id = "r9", gruppe = "schlecht" },
+]
+ausgang = [{ id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "abbruch" }]
+
+[thema.manager_wohltaetigkeit]
+kategorie = "fans"
+absender = "fans"
+kanal = "mail"
+dringlichkeit = 1
+sperre_tage = 45
+haeufigkeit = 0.3
+wenn = ["managerruf>=55", "fans>=35"]
+eroeffnung = [{ id = "e1" }, { id = "e2" }, { id = "e3" }, { id = "e4" }, { id = "e5" }, { id = "e6" }]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "beziehung", delta = 5 }, { ziel = "fanstimmung", delta = 6 }, { ziel = "medienbild", delta = 2 }] },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 4 }, { ziel = "fanstimmung", delta = 6 }, { ziel = "medienbild", delta = 2 }] },
+  { id = "a3", strategie = "delegieren", ton = "offen", wirkungen = [{ ziel = "beziehung", delta = 1 }] },
+  { id = "a4", strategie = "ausgleich", ton = "humorvoll", wirkungen = [{ ziel = "beziehung", delta = 3 }, { ziel = "medienbild", delta = 4 }, { ziel = "kosten", betrag = 20000 }] },
+  { id = "a5", strategie = "gegenfrage", ton = "sachlich", wirkungen = [] },
+  { id = "a6", strategie = "zusage", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = 2 }, { ziel = "fanstimmung", delta = 3 }] },
+  { id = "a7", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -5 }, { ziel = "fanstimmung", delta = -6 }, { ziel = "medienbild", delta = -2 }], ausgang = "abbruch" },
+  { id = "a8", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = -4 }, { ziel = "fanstimmung", delta = -6 }, { ziel = "medienbild", delta = -2 }] },
+]
+reaktion = [
+  { id = "r1", gruppe = "gut" },
+  { id = "r2", gruppe = "gut" },
+  { id = "r3", gruppe = "gut" },
+  { id = "r4", gruppe = "neutral" },
+  { id = "r5", gruppe = "neutral" },
+  { id = "r6", gruppe = "neutral" },
+  { id = "r7", gruppe = "schlecht" },
+  { id = "r8", gruppe = "schlecht" },
+  { id = "r9", gruppe = "schlecht" },
+]
+ausgang = [{ id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "abbruch" }]

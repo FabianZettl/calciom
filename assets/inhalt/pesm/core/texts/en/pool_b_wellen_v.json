@@ -1,0 +1,62 @@
+{
+ "pool.b.presse_siegesserie_demut_gruss": [
+  "Gaffer, congratulations on the run, I have a question about staying grounded at {verein}."
+ ],
+ "pool.b.presse_siegesserie_demut_lage": [
+  "Game after game your side wins, and the town is already talking about more than a mid-table finish."
+ ],
+ "pool.b.presse_schuldfrage_niederlage_gruss": [
+  "Gaffer, thanks for your time, after this result I have questions about responsibility at {verein}."
+ ],
+ "pool.b.presse_schuldfrage_niederlage_lage": [
+  "The defeat was avoidable, and the stadium is loudly discussing who made the mistakes."
+ ],
+ "pool.b.presse_verletzungswelle_belastung_gruss": [
+  "Gaffer, before I forget, a follow-up on the situation in the treatment room at {verein}."
+ ],
+ "pool.b.presse_verletzungswelle_belastung_lage": [
+  "Again several players are missing, and some observers see a result of the training load."
+ ],
+ "pool.b.presse_wechselgeruecht_star_gruss": [
+  "Gaffer, I have a piece of information I would like you to put in context, it concerns {verein}."
+ ],
+ "pool.b.presse_wechselgeruecht_star_lage": [
+  "For days rumours have persisted that a key player could leave the club in the next window."
+ ],
+ "pool.b.presse_vorstand_rueckendeckung_gruss": [
+  "Gaffer, I will come straight to the point, it is about your relationship with the leadership at {verein}."
+ ],
+ "pool.b.presse_vorstand_rueckendeckung_lage": [
+  "From around the club it is said that the leadership's patience is wearing thin."
+ ],
+ "pool.b.presse_taktikwechsel_nachfrage_gruss": [
+  "Gaffer, I noticed a change, and I would like to put it in context for {verein}."
+ ],
+ "pool.b.presse_taktikwechsel_nachfrage_lage": [
+  "The team recently lined up in a different shape, and some fans wonder why."
+ ],
+ "pool.b.presse_spielerstreit_oeffentlich_gruss": [
+  "Gaffer, I would like to raise something that has been doing the rounds since yesterday, and it concerns {verein}."
+ ],
+ "pool.b.presse_spielerstreit_oeffentlich_lage": [
+  "Two players are said to have argued loudly, and some of it has leaked out."
+ ],
+ "pool.b.presse_titelkampf_druck_gruss": [
+  "Gaffer, a short look ahead, the air at {verein} is getting thinner up there."
+ ],
+ "pool.b.presse_titelkampf_druck_lage": [
+  "The club stands well above its own expectations, and the pressure grows with every matchday."
+ ],
+ "pool.b.presse_schiedsrichter_zorn_gruss": [
+  "Gaffer, there was a moment everyone is talking about, and I would like your view at {verein}."
+ ],
+ "pool.b.presse_schiedsrichter_zorn_lage": [
+  "A contentious decision by the referee turned the game, and the forums are boiling."
+ ],
+ "pool.b.presse_fanprotest_stimmung_gruss": [
+  "Gaffer, I was out in front of the stadium, and what I heard there at {verein} I would like to put to you."
+ ],
+ "pool.b.presse_fanprotest_stimmung_lage": [
+  "The supporters are unhappy, whistles and banners show how tense things are around the club."
+ ]
+}

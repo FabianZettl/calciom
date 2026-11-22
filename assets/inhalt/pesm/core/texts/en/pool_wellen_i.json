@@ -1,0 +1,478 @@
+{
+ "pool.berater_konkurrenzangebot.e.e1": [
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} The offer is valid for {frist} days only, after that it is gone.",
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} The other club wants an answer within {frist} days."
+ ],
+ "pool.berater_konkurrenzangebot.e.e2": [
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} I wanted you to hear it from me and not from the press. The deadline is {frist} days.",
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} How does the club respond? I have to answer in {frist} days."
+ ],
+ "pool.berater_konkurrenzangebot.e.e3": [
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} I know this comes at a bad time, but the deadline expires in {frist} days.",
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} The mood is tense, but we have to talk, because the deadline ends in {frist} days."
+ ],
+ "pool.berater_konkurrenzangebot.e.e4": [
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Either you raise your offer, or we say yes within {frist} days!",
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} You have {frist} days, then he signs there, and that is not a threat but a date!"
+ ],
+ "pool.berater_konkurrenzangebot.e.e5": [
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} We take our time, but not forever: The deadline ends in {frist} days.",
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} I kindly ask you to respond within {frist} days, then we decide calmly."
+ ],
+ "pool.berater_konkurrenzangebot.e.e6": [
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} This is a real career step, and the deadline is {frist} days. What do you offer against it?",
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Before the deadline ends in {frist} days, I would like to know how you counter."
+ ],
+ "pool.berater_konkurrenzangebot.e.e7": [
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} After your unkept promise I no longer trust blindly. The deadline runs for {frist} days.",
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} You promised something once before. This time I need it in writing within {frist} days."
+ ],
+ "pool.berater_konkurrenzangebot.a.a1": [
+  "Then let us look at the offer together. Show me the paperwork, and I will check what we can answer.",
+  "I will go through it with you: Send me the key points, and we will talk openly about every option."
+ ],
+ "pool.berater_konkurrenzangebot.a.a2": [
+  "We will raise it. Turn the other club down, we are coming with a better offer.",
+  "I will top that, in a way that leaves {name} nothing to think about."
+ ],
+ "pool.berater_konkurrenzangebot.a.a3": [
+  "Buy me more time. Ask the other club whether the deadline can be extended.",
+  "I need a few more days to clarify internally what is possible. Can you stretch the deadline?"
+ ],
+ "pool.berater_konkurrenzangebot.a.a4": [
+  "You are not negotiating with that club. As far as I am concerned the matter is closed.",
+  "I do not allow talks with the rival while the contract runs."
+ ],
+ "pool.berater_konkurrenzangebot.a.a5": [
+  "Let me speak with {name} myself. I want to hear what he wants.",
+  "I would rather talk to him directly, man to man, before we discuss offers."
+ ],
+ "pool.berater_konkurrenzangebot.a.a6": [
+  "Show me the offer in black and white, then we will talk on.",
+  "An offer without paper is a rumour. Put it on the table."
+ ],
+ "pool.berater_konkurrenzangebot.a.a7": [
+  "I think this is a bluff, and I will not be blackmailed.",
+  "I know this game. There is no offer that makes me nervous."
+ ],
+ "pool.berater_konkurrenzangebot.a.a8": [
+  "You have my word: Within {frist} days there will be an offer worth looking at.",
+  "You will get a proposal from me in {frist} days, and it will be meant seriously."
+ ],
+ "pool.berater_konkurrenzangebot.a.a9": [
+  "A better offer is still to come, I promise. Please keep the other club waiting until then.",
+  "Stay calm, something will happen here, just not today."
+ ],
+ "pool.berater_konkurrenzangebot.r.r1": [
+  "{b.gut} I can work with that, I will keep the other club waiting.",
+  "{b.gut} That sounds like a way forward, I will pass it on to {name}."
+ ],
+ "pool.berater_konkurrenzangebot.r.r2": [
+  "{b.gut} Thank you for the clear line, that keeps the trust intact.",
+  "{b.gut} I know you treat us fairly."
+ ],
+ "pool.berater_konkurrenzangebot.r.r3": [
+  "{b.gut} With this signal I can face the rival more calmly.",
+  "{b.gut} Then I am curious, and so will {name} be."
+ ],
+ "pool.berater_konkurrenzangebot.r.r4": [
+  "{b.neutral} I will pass it on, and we will see how the other club reacts.",
+  "{b.neutral} That leaves everything open, but at least nothing is ruined."
+ ],
+ "pool.berater_konkurrenzangebot.r.r5": [
+  "{b.neutral} I am not sure how {name} will take that.",
+  "{b.neutral} We will see whether that is enough, I am doubtful."
+ ],
+ "pool.berater_konkurrenzangebot.r.r6": [
+  "{b.neutral} No problem, we have time, a few days at least.",
+  "{b.neutral} I will wait to see what the other side does."
+ ],
+ "pool.berater_konkurrenzangebot.r.r7": [
+  "{b.schlecht} I cannot answer the rival with that.",
+  "{b.schlecht} Then all I can do is take the other offer more seriously."
+ ],
+ "pool.berater_konkurrenzangebot.r.r8": [
+  "{b.schlecht} I will not be spoken to like that, I am calling the other club today!",
+  "{b.schlecht} Then I will say yes there, and you will read it in the paper!"
+ ],
+ "pool.berater_konkurrenzangebot.r.r9": [
+  "{b.schlecht} Then {name} should sign there, there are plenty of interested parties.",
+  "{b.schlecht} If nothing comes from here, it will come from there."
+ ],
+ "pool.berater_konkurrenzangebot.r.r10": [
+  "{b.schlecht} I had expected more accommodation, after everything.",
+  "{b.schlecht} That disappoints me, I thought we understood each other better."
+ ],
+ "pool.berater_konkurrenzangebot.x.x1": [
+  "The agent relents. {entscheidung} The rival offer loses weight for now.",
+  "{entscheidung} The call ends on a friendly note, and the other club is put off."
+ ],
+ "pool.berater_konkurrenzangebot.x.x2": [
+  "The conversation stays up in the air. {entscheidung} The deadline keeps running.",
+  "{entscheidung} The agent leaves open what he will tell the other club."
+ ],
+ "pool.berater_konkurrenzangebot.x.x3": [
+  "The agent hangs up without a goodbye. {entscheidung} Shortly after, word comes from the other club.",
+  "{entscheidung} He calls the rival back the same day."
+ ],
+ "pool.berater_konkurrenzangebot.x.x4": [
+  "You have committed yourself, and the agent takes note. {entscheidung} He will remind you of the deadline.",
+  "{entscheidung} The agent keeps the other club waiting and awaits your offer."
+ ],
+ "pool.berater_konkurrenzangebot.x.x5": [
+  "The agent ends the conversation. {entscheidung} He will only get in touch when he has more in hand.",
+  "{entscheidung} He ends the call without saying goodbye."
+ ],
+ "pool.berater_provision.e.e1": [
+  "{b.berater_provision_gruss} {b.berater_provision_lage} I ask for a commitment before we finalise the contract.",
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Without agreement on the fee I cannot recommend the deal."
+ ],
+ "pool.berater_provision.e.e2": [
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Please confirm the payment in advance, then I will bring {name} to the signature.",
+  "{b.berater_provision_gruss} {b.berater_provision_lage} I expect your reply so that we do not endanger the deal."
+ ],
+ "pool.berater_provision.e.e3": [
+  "{b.berater_provision_gruss} {b.berater_provision_lage} I know it is not a good time for money questions, but they cannot be put off.",
+  "{b.berater_provision_gruss} {b.berater_provision_lage} The mood is bad, but the fee has to be settled before we continue."
+ ],
+ "pool.berater_provision.e.e4": [
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Pay up, or I block the deal, it is that simple!",
+  "{b.berater_provision_gruss} {b.berater_provision_lage} I have no desire for debates, the fee stands!"
+ ],
+ "pool.berater_provision.e.e5": [
+  "{b.berater_provision_gruss} {b.berater_provision_lage} We will surely find a solution, but without an arrangement it will not work.",
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Gladly we can discuss the amount calmly, but it has to be settled."
+ ],
+ "pool.berater_provision.e.e6": [
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Given the market value of {name} this is a modest rate.",
+  "{b.berater_provision_gruss} {b.berater_provision_lage} For a player of his quality this fee is customary."
+ ],
+ "pool.berater_provision.e.e7": [
+  "{b.berater_provision_gruss} {b.berater_provision_lage} After your unkept promise I demand payment in advance, in writing.",
+  "{b.berater_provision_gruss} {b.berater_provision_lage} I trusted a promise once before, this time please make it binding."
+ ],
+ "pool.berater_provision.a.a1": [
+  "Agreed, the fee will be paid. In return I expect a swift deal.",
+  "We will transfer the commission, and you bring {name} to the signature."
+ ],
+ "pool.berater_provision.a.a2": [
+  "The rate is too high. I will pay a part, nothing more.",
+  "We do not pay that much, meet me halfway."
+ ],
+ "pool.berater_provision.a.a3": [
+  "The club has fixed rules for agent fees, and I stick to them.",
+  "I may not go beyond the club's guidelines, and that applies to every agent."
+ ],
+ "pool.berater_provision.a.a4": [
+  "I will negotiate directly with {name}, you will hear from him afterwards.",
+  "I would like to discuss the contract with {name} without detours."
+ ],
+ "pool.berater_provision.a.a5": [
+  "If you insist on the fee, this conversation is over.",
+  "I will break off the negotiation unless you take that back."
+ ],
+ "pool.berater_provision.a.a6": [
+  "We will discuss that after the deal, I promise.",
+  "Let us settle the contract first, the fee comes later."
+ ],
+ "pool.berater_provision.a.a7": [
+  "A commission for the player is paid by the player himself, not by the club.",
+  "That is between you and {name}, it has nothing to do with the club."
+ ],
+ "pool.berater_provision.a.a8": [
+  "Within {frist} days I will commit to an amount we can agree on.",
+  "In {frist} days you will have a firm commitment from me, then the matter is clear."
+ ],
+ "pool.berater_provision.r.r1": [
+  "{b.gut} That is fair, I am happy to bring {name} to the signature.",
+  "{b.gut} Then nothing stands in the way of the deal anymore."
+ ],
+ "pool.berater_provision.r.r2": [
+  "{b.gut} Thank you for your openness, that is how we like to work together.",
+  "{b.gut} I appreciate that we can settle it like this."
+ ],
+ "pool.berater_provision.r.r3": [
+  "{b.gut} Well invested, I will make sure of a strong deal.",
+  "{b.gut} Then I will deliver too, I promise."
+ ],
+ "pool.berater_provision.r.r4": [
+  "{b.neutral} I have to check that and will get back to you.",
+  "{b.neutral} That is neither a yes nor a no, I will think about it."
+ ],
+ "pool.berater_provision.r.r5": [
+  "{b.neutral} I am not sure that is enough, but I am listening.",
+  "{b.neutral} We still need to discuss that again in peace."
+ ],
+ "pool.berater_provision.r.r6": [
+  "{b.neutral} No problem, I will wait and see what comes.",
+  "{b.neutral} Then it stays open for now, that is fine with me."
+ ],
+ "pool.berater_provision.r.r7": [
+  "{b.schlecht} I cannot live with that, that is not how business works.",
+  "{b.schlecht} That is too little, and you know it."
+ ],
+ "pool.berater_provision.r.r8": [
+  "{b.schlecht} Then I will make sure {name} does not sign!",
+  "{b.schlecht} I will not accept that, I am calling the press right away!"
+ ],
+ "pool.berater_provision.r.r9": [
+  "{b.schlecht} Other clubs are less petty about this, I will remember that.",
+  "{b.schlecht} Then I will see what {name} would get elsewhere."
+ ],
+ "pool.berater_provision.r.r10": [
+  "{b.schlecht} After everything I had expected more understanding.",
+  "{b.schlecht} That hurts, I thought we worked together in trust."
+ ],
+ "pool.berater_provision.x.x1": [
+  "The agent is appeased. {entscheidung} The signature moves closer.",
+  "{entscheidung} He confirms by mail that he can live with the arrangement."
+ ],
+ "pool.berater_provision.x.x2": [
+  "The fee remains an open point. {entscheidung} The agent keeps quiet for now.",
+  "{entscheidung} The contract stays on ice until the question is settled."
+ ],
+ "pool.berater_provision.x.x3": [
+  "The agent replies sharply. {entscheidung} The matter turns into a dispute about money.",
+  "{entscheidung} He threatens to pass details to journalists."
+ ],
+ "pool.berater_provision.x.x4": [
+  "You have announced an arrangement, and the agent notes it down. {entscheidung} He will follow up.",
+  "{entscheidung} The agent now waits for your firm figure."
+ ],
+ "pool.berater_provision.x.x5": [
+  "The agent writes only: Then not. {entscheidung} Contact is suspended.",
+  "{entscheidung} No further mail arrives, not even a refusal."
+ ],
+ "pool.verhandlung_spieler_wunsch.e.e1": [
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} What matters to me is fair pay and a clear role in the team.",
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} I want to know what I earn and where I stand in your plans."
+ ],
+ "pool.verhandlung_spieler_wunsch.e.e2": [
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} I want to play for titles, and I need to see that the club wants that too.",
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Title chances matter more to me than any extra in the contract."
+ ],
+ "pool.verhandlung_spieler_wunsch.e.e3": [
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Things are not going smoothly right now, so it matters to me that I feel wanted here.",
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} The mood is difficult, and I want to know whether I still have a future."
+ ],
+ "pool.verhandlung_spieler_wunsch.e.e4": [
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} I will not be fobbed off: money, role, prospects, I want everything on the table!",
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} I demand a proper role and pay that fits my performance!"
+ ],
+ "pool.verhandlung_spieler_wunsch.e.e5": [
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} I am not complicated, but a few things should be right before I sign.",
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} It is important that I keep feeling at home here, the rest will sort itself out."
+ ],
+ "pool.verhandlung_spieler_wunsch.e.e6": [
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} I want to play a leading role and attack at the top with the club.",
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} I want more responsibility and a club that wants to grow with me."
+ ],
+ "pool.verhandlung_spieler_wunsch.e.e7": [
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} My family is important to me, and I miss my home. I want that to be taken into account.",
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} It has to work for my family, and a bit of home in the contract would mean a lot to me."
+ ],
+ "pool.verhandlung_spieler_wunsch.e.e8": [
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} You promised me something, and I want it written into the contract this time.",
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} After what happened, I want to see my wishes in writing."
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a1": [
+  "Thank you for being so open. I take every point seriously and will see what is feasible.",
+  "That helps me understand you. We will go through your wishes one by one."
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a2": [
+  "Which of these matters most to you, and what could you most easily do without?",
+  "If you could get only one thing, which would it be?"
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a3": [
+  "On the role I can promise you something: Within {frist} days we will talk about your fixed place in the team.",
+  "You will get a clear role, I promise you, and within {frist} days we will talk about the details."
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a4": [
+  "I do not talk about money alone, that runs through the management and your agent.",
+  "The club settles the figures with your agent, and I will support you in that."
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a5": [
+  "You also have to see how the club calculates: There are limits, and they apply to everyone.",
+  "I will explain what the club can do and what it cannot, so that you can decide fairly."
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a6": [
+  "That is asking too much. That is not how it works here.",
+  "You do not even need to start with that list."
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a7": [
+  "To start with I will add a bonus, you earn the rest, and the coffee is on me.",
+  "A signing bonus should show that we mean it, and then we will see."
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a8": [
+  "The contract I offer you is what it is. I am not taking requests.",
+  "I will negotiate, but I will not be dictated to."
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a9": [
+  "I will remember everything, but I cannot promise anything today. Let us talk about it later.",
+  "Give me time, I will see what is possible and get back to you."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r1": [
+  "{b.gut} That is good to hear, I feel taken seriously.",
+  "{b.gut} I can work with that, thank you."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r2": [
+  "{b.gut} That you are so honest with me means a lot to me.",
+  "{b.gut} I trust you, so I am happy to take my time."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r3": [
+  "{b.gut} Good, then I will give even more on the pitch.",
+  "{b.gut} If it turns out that way, I am in and I will deliver."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r4": [
+  "{b.neutral} I will see what comes of it.",
+  "{b.neutral} Talking is nice, in the end only what is in the contract counts."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r5": [
+  "{b.neutral} I do not know whether to be happy or worried.",
+  "{b.neutral} Let us see whether it was more than a chat."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r6": [
+  "{b.neutral} A clear yes or no would have suited me better, but fine.",
+  "{b.neutral} At least you listened to me, that counts."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r7": [
+  "{b.schlecht} Then I know what I am worth here.",
+  "{b.schlecht} I will remember that for the negotiation."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r8": [
+  "{b.schlecht} That is no way to talk to someone who carries this team!",
+  "{b.schlecht} Then you can put the contract wherever you like!"
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r9": [
+  "{b.schlecht} There are clubs that take my wishes more seriously.",
+  "{b.schlecht} My agent will have quite a bit to say about this."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r10": [
+  "{b.schlecht} I had hoped my wishes meant more to you.",
+  "{b.schlecht} That you wave my wishes away hurts more than I show."
+ ],
+ "pool.verhandlung_spieler_wunsch.x.x1": [
+  "He leaves the conversation relieved. {entscheidung} His wishes have been heard.",
+  "{entscheidung} In training the next day he looks noticeably more relaxed."
+ ],
+ "pool.verhandlung_spieler_wunsch.x.x2": [
+  "The wishes hang in the air. {entscheidung} He says he will wait and see.",
+  "{entscheidung} Nothing is decided, but nothing is ruined either."
+ ],
+ "pool.verhandlung_spieler_wunsch.x.x3": [
+  "He shakes his head and leaves. {entscheidung} His agent gets in touch the same day.",
+  "{entscheidung} In the dressing room he tells everyone how the talk went."
+ ],
+ "pool.verhandlung_spieler_wunsch.x.x4": [
+  "You have held out a role for him. {entscheidung} He writes down the date.",
+  "{entscheidung} He will ask again once the deadline passes."
+ ],
+ "pool.verhandlung_spieler_wunsch.x.x5": [
+  "He stands up before you are finished. {entscheidung} He no longer talks about a contract, but about a move.",
+  "{entscheidung} The door slams behind him."
+ ],
+ "pool.berater_konkurrenzangebot.e.e8": [
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Frankly I see hardly any movement from you, so I take the other offer very seriously. The deadline is {frist} days.",
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} You have barely moved so far, so I have to answer the other club seriously, and within {frist} days."
+ ],
+ "pool.berater_konkurrenzangebot.e.e9": [
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} We are still talking, and I want to use that: What is moving on your side before the deadline ends in {frist} days?",
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Everything is still open, but the deadline of {frist} days is pressing, hence my call."
+ ],
+ "pool.berater_konkurrenzangebot.e.e10": [
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} We are actually close, so the offer is only an argument. I name it to you anyway, the deadline is {frist} days.",
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Things go well between us, but the other club is pushing: It left me {frist} days."
+ ],
+ "pool.berater_provision.e.e8": [
+  "{b.berater_provision_gruss} {b.berater_provision_lage} If the contract is hardly going to happen anyway, I at least want to be paid for my work.",
+  "{b.berater_provision_gruss} {b.berater_provision_lage} The state of the talks is weak, but my work was not, and it deserves payment."
+ ],
+ "pool.berater_provision.e.e9": [
+  "{b.berater_provision_gruss} {b.berater_provision_lage} The contract is not yet decided, but my fee should be settled before the decision.",
+  "{b.berater_provision_gruss} {b.berater_provision_lage} As long as everything is open I put my condition on the table so nobody is surprised."
+ ],
+ "pool.berater_provision.e.e10": [
+  "{b.berater_provision_gruss} {b.berater_provision_lage} The deal is almost certain, so it is time to pin down my fee.",
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Since we are in agreement, now is the right moment for the fee."
+ ],
+ "pool.verhandlung_spieler_wunsch.e.e9": [
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} I notice we are far apart, so I am telling you what I still wish for.",
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Even if we barely approach each other: On these points I would need movement."
+ ],
+ "pool.verhandlung_spieler_wunsch.e.e10": [
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} We are almost agreed, and I just want a few things secured.",
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} It looks good, so I am bringing my last wishes right along."
+ ],
+ "pool.berater_konkurrenzangebot.a.a10": [
+  "At our club the sporting director talks money first. Speak with him, I will back the proposal if it holds.",
+  "Please present the offer to the management, I will stay at your side."
+ ],
+ "pool.berater_konkurrenzangebot.a.a11": [
+  "Money is not everything: I can offer {name} more responsibility and a firm place in my plans, which makes up for a lot.",
+  "I will meet him on role and backing, so that here he has more than just a salary."
+ ],
+ "pool.berater_konkurrenzangebot.a.a12": [
+  "The club has a framework, and I keep to it. Within it I am willing to discuss every reasonable point.",
+  "My limit is the club's framework. What lies within it, we discuss right away."
+ ],
+ "pool.berater_provision.a.a9": [
+  "What exactly is the fee for, and what do I get for it in writing?",
+  "Break down which services the fee covers, then I will talk about it."
+ ],
+ "pool.berater_provision.a.a10": [
+  "The sporting director will settle the fee question with you, I am forwarding your message.",
+  "Please turn to the management about the commission, I will give you the contact details."
+ ],
+ "pool.berater_provision.a.a11": [
+  "I understand your work is worth something. We will settle it so both can bear it, for example in stages.",
+  "Let us look for a middle way where your work is appreciated and the club is not overstretched."
+ ],
+ "pool.berater_provision.a.a12": [
+  "The club pays no flat fees in advance. Once the contract stands, we will look at your contribution.",
+  "A fee before the signature is out of the question, afterwards we talk."
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a10": [
+  "I will tell you where I see room and where not, then we both know where we stand.",
+  "Let us look at the list honestly: Some things work, some do not, and I will tell you which."
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a11": [
+  "If little is possible on money, we can help with family and home, for example with flexible travel days.",
+  "I will find a way for your family, even if the figures are tight."
+ ],
+ "pool.berater_konkurrenzangebot.r.r11": [
+  "{b.gut} Then we are basically agreed, I will send the other club a polite refusal.",
+  "{b.gut} That is enough for me, I will let the other offer lapse."
+ ],
+ "pool.berater_konkurrenzangebot.r.r12": [
+  "{b.neutral} It stays exciting, I will keep both sides warm.",
+  "{b.neutral} Nothing is decided yet, I will await your next message."
+ ],
+ "pool.berater_konkurrenzangebot.r.r13": [
+  "{b.schlecht} That is probably it then, I will prepare the move.",
+  "{b.schlecht} With answers like these I need not even turn the other club down."
+ ],
+ "pool.berater_provision.r.r11": [
+  "{b.gut} Then nothing stands in the way of the deal anymore, I will prepare everything.",
+  "{b.gut} Since we are nearly through, we will settle the rest quickly."
+ ],
+ "pool.berater_provision.r.r12": [
+  "{b.neutral} As long as nothing is decided I will hold back.",
+  "{b.neutral} I will review my position and get in touch when it gets more concrete."
+ ],
+ "pool.berater_provision.r.r13": [
+  "{b.schlecht} Then the work here is no longer worth it for me.",
+  "{b.schlecht} With this attitude it does not surprise me that we are not getting anywhere."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r11": [
+  "{b.gut} This feels right, I see us close to the signature.",
+  "{b.gut} If it goes on like this, I will gladly sign."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r12": [
+  "{b.neutral} I am not yet sure where this leads.",
+  "{b.neutral} Everything is open, and I am thinking about what I make of it."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r13": [
+  "{b.schlecht} I no longer believe we will find each other.",
+  "{b.schlecht} This will not work, I already see myself elsewhere."
+ ]
+}

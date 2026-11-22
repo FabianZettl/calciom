@@ -1,0 +1,86 @@
+{
+ "pool.b.presse_provokation_serie_gruss": [
+  "Good evening, coach, one question for you as the man in charge at {verein}.",
+  "Coach, just before the deadline: I need an answer from you."
+ ],
+ "pool.b.presse_provokation_serie_lage": [
+  "Your team has taken one defeat after another, and our readers ask whether that is still chance.",
+  "A run without a win, coach: how long will you keep calling it bad luck?"
+ ],
+ "pool.b.presse_provokation_serie_lage.hitzig": [
+  "This streak is an embarrassment, and you stand there as if it had nothing to do with you!",
+  "Defeat after defeat, and you talk about patience? Nobody buys that any more!"
+ ],
+ "pool.b.presse_provokation_serie_lage.loyal": [
+  "I defended your work for a long time, but after this streak it is hard.",
+  "I do not like writing critically about {verein}, but these defeats leave me little choice."
+ ],
+ "pool.b.presse_provokation_serie_lage.ehrgeizig": [
+  "The streak is costing {verein} its goals for the season, and I want to be the first to hear what you change.",
+  "With this record you are losing touch, and my editors want a clear statement."
+ ],
+ "pool.b.presse_provokation_serie_lage.wechselfreudig": [
+  "In the trade they are already discussing who might succeed you.",
+  "Other coaches would have drawn their conclusions long ago after so many defeats."
+ ],
+ "pool.b.presse_provokation_serie_lage.sensibel": [
+  "I hate to ask, but I must: how are you doing after these defeats?",
+  "The streak must weigh on you, and readers want to know how you cope."
+ ],
+ "pool.b.presse_geruechte_unruhe_gruss": [
+  "Good day, this is the sports desk with an enquiry about {verein}.",
+  "Dear coach, I am writing about a story I am researching on your squad."
+ ],
+ "pool.b.presse_geruechte_unruhe_lage": [
+  "I have indications that things are creaking in the dressing room and some players are unhappy.",
+  "From around the squad I hear that the mood is not as good as it looks from outside."
+ ],
+ "pool.b.presse_geruechte_unruhe_lage.hitzig": [
+  "They say it got loud in the dressing room, properly loud, slamming doors and all!",
+  "My sources speak of a full-blown row in the squad, and I want to know what is true!"
+ ],
+ "pool.b.presse_geruechte_unruhe_lage.loyal": [
+  "I want to give you and the team a chance to counter a rumour before it takes hold.",
+  "I do not believe everything I hear, but people are talking about unrest in the squad at {verein}, and I would rather ask you."
+ ],
+ "pool.b.presse_geruechte_unruhe_lage.ehrgeizig": [
+  "I have a story on tensions in the squad, and it runs tomorrow unless I get a statement.",
+  "With my material on the mood in the team I could make a splash, but I want your side."
+ ],
+ "pool.b.presse_geruechte_unruhe_lage.wechselfreudig": [
+  "There is talk that some players are already looking at other clubs because things are not running smoothly inside.",
+  "People say some in the squad have already left in their heads."
+ ],
+ "pool.b.presse_geruechte_unruhe_lage.sensibel": [
+  "I have heard from players that they feel under pressure, and I would like to ask carefully.",
+  "I was told that some in the squad feel misunderstood, and I do not want to do anyone an injustice."
+ ],
+ "pool.b.presse_taktikkritik_sieg_gruss": [
+  "Coach, congratulations on the result, but I have another question about {verein}.",
+  "Thanks for your time, coach, I have a follow-up on the {verein} match."
+ ],
+ "pool.b.presse_taktikkritik_sieg_lage": [
+  "Three points are three points, but the style was grim, and many spectators are not happy with the football.",
+  "The win was lucky, and the tactics are being fiercely argued about in the stadium and in the forums."
+ ],
+ "pool.b.presse_taktikkritik_sieg_lage.hitzig": [
+  "That win was defensive scrubbing at its finest, and you call that football?",
+  "Parking the bus and hoping, that is not tactics, that is fear, and it shows!"
+ ],
+ "pool.b.presse_taktikkritik_sieg_lage.loyal": [
+  "I am glad about the win, but I must say the style worries me.",
+  "You won the game, and yet many supporters wonder where the tactical journey is heading."
+ ],
+ "pool.b.presse_taktikkritik_sieg_lage.ehrgeizig": [
+  "With that style you might win a game, but not a title, how do you see it?",
+  "Whoever wants to compete at the top must play braver, and that was not on show today."
+ ],
+ "pool.b.presse_taktikkritik_sieg_lage.wechselfreudig": [
+  "Your predecessor would have played more attacking here, and I wonder whether the style suits {verein} at all.",
+  "Other coaches would have used the same players differently, do you not think?"
+ ],
+ "pool.b.presse_taktikkritik_sieg_lage.sensibel": [
+  "I do not want to offend you, but the criticism of the style is not getting quieter after this win.",
+  "I find it hard to bring up, because the win mattered, but the style touches a nerve."
+ ]
+}

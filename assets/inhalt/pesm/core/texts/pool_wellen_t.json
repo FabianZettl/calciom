@@ -1,0 +1,422 @@
+{
+ "pool.sponsor_spielertermine.e.e1": [
+  "{b.sponsor_spielertermine_gruss} {b.sponsor_spielertermine_lage} Bitte nennen Sie uns binnen {frist} Tagen freie Tage, an denen Spieler zur Verfügung stehen.",
+  "{b.sponsor_spielertermine_gruss} {b.sponsor_spielertermine_lage} Wir brauchen von Ihnen einen Vorschlag, wann die Spieler für Fotos und Autogrammstunden Zeit haben."
+ ],
+ "pool.sponsor_spielertermine.e.e2": [
+  "{b.sponsor_spielertermine_gruss} {b.sponsor_spielertermine_lage} Wir würden die Termine gern bündeln, ein Tag mit der gesamten Mannschaft wäre uns recht.",
+  "{b.sponsor_spielertermine_gruss} {b.sponsor_spielertermine_lage} Ein Fototermin im Trainingszentrum und ein paar Besuche in unseren Filialen wären ein Anfang."
+ ],
+ "pool.sponsor_spielertermine.e.e3": [
+  "{b.sponsor_spielertermine_gruss} {b.sponsor_spielertermine_lage} Ich weiß, dass die Lage angespannt ist, aber der Vertrag gilt auch in schwierigen Wochen.",
+  "{b.sponsor_spielertermine_gruss} {b.sponsor_spielertermine_lage} Die Stimmung ist schlecht, das sehen wir, und trotzdem müssen wir über die Termine reden."
+ ],
+ "pool.sponsor_spielertermine.e.e4": [
+  "{b.sponsor_spielertermine_gruss} {b.sponsor_spielertermine_lage} Entweder die Spieler erscheinen, oder wir kürzen die Zahlungen, so einfach ist das!",
+  "{b.sponsor_spielertermine_gruss} {b.sponsor_spielertermine_lage} Ich dulde keine Ausreden mehr, die Spieler kommen zu den Terminen, Punkt!"
+ ],
+ "pool.sponsor_spielertermine.e.e5": [
+  "{b.sponsor_spielertermine_gruss} {b.sponsor_spielertermine_lage} Wir sind flexibel, was Tag und Ort angeht, es muss nur bald etwas stattfinden.",
+  "{b.sponsor_spielertermine_gruss} {b.sponsor_spielertermine_lage} Wir finden bestimmt eine Lösung, die Ihren Trainingsplan nicht stört."
+ ],
+ "pool.sponsor_spielertermine.e.e6": [
+  "{b.sponsor_spielertermine_gruss} {b.sponsor_spielertermine_lage} Wer nicht liefert, verliert seinen Platz auf der Trikotbrust, und das meine ich ernst.",
+  "{b.sponsor_spielertermine_gruss} {b.sponsor_spielertermine_lage} Für uns zählt Sichtbarkeit, und wenn Sie sie nicht bieten können, finden wir andere Wege."
+ ],
+ "pool.sponsor_spielertermine.e.e7": [
+  "{b.sponsor_spielertermine_gruss} {b.sponsor_spielertermine_lage} Es wäre schön, wenn die Spieler spürten, dass wir mehr sind als ein Logo auf dem Trikot.",
+  "{b.sponsor_spielertermine_gruss} {b.sponsor_spielertermine_lage} Uns liegt viel an persönlichen Begegnungen, ein lustloser Auftritt wäre für uns schlimmer als gar keiner."
+ ],
+ "pool.sponsor_spielertermine.e.e8": [
+  "{b.sponsor_spielertermine_gruss} {b.sponsor_spielertermine_lage} Das Medienecho um die Mannschaft ist dünn, ein guter Auftritt mit den Spielern könnte das ändern.",
+  "{b.sponsor_spielertermine_gruss} {b.sponsor_spielertermine_lage} Gerade weil die Presse kaum über Sie berichtet, wären die Termine für beide Seiten ein Gewinn."
+ ],
+ "pool.sponsor_spielertermine.e.e9": [
+  "{b.sponsor_spielertermine_gruss} {b.sponsor_spielertermine_lage} Nach den jüngsten Niederlagen wäre ein freundlicher Auftritt auch für das Ansehen der Mannschaft von Nutzen.",
+  "{b.sponsor_spielertermine_gruss} {b.sponsor_spielertermine_lage} Gerade jetzt, nach den Rückschlägen, könnten die Spieler bei uns Sympathie sammeln."
+ ],
+ "pool.sponsor_spielertermine.a.a1": [
+  "Ich sage Ihnen binnen {frist} Tagen feste Termine mit Spielern zu, einen Teil davon noch diesen Monat.",
+  "In {frist} Tagen steht ein Plan, und die Spieler halten sich daran, das verspreche ich."
+ ],
+ "pool.sponsor_spielertermine.a.a2": [
+  "Als Entschädigung lade ich Sie zu einem Tag im Trainingszentrum ein, und der Verein trägt die Kosten.",
+  "Für die ausgefallenen Termine bekommen Sie einen Sondertermin mit der Mannschaft, den bezahlt der Verein."
+ ],
+ "pool.sponsor_spielertermine.a.a3": [
+  "Wir spielen in dichter Folge, deshalb waren Termine schwer, aber ich schlage feste freie Tage für Auftritte vor.",
+  "Spieler brauchen ihre Erholung, doch an freien Tagen sind Auftritte möglich, einen Plan lege ich Ihnen vor."
+ ],
+ "pool.sponsor_spielertermine.a.a4": [
+  "Ich verstehe, dass Sie sich zu wenig gesehen fühlen, Sie sind für uns wichtig, und das soll man spüren.",
+  "Ihr Ärger ist berechtigt, ich möchte das persönlich wiedergutmachen."
+ ],
+ "pool.sponsor_spielertermine.a.a5": [
+  "Welcher Spieler soll es sein, der Torjäger oder der, der vor der Kamera am wenigsten nervös ist?",
+  "Was stellen Sie sich vor, Autogramme, Fotos oder Kuchen anschneiden? Dann plane ich passend."
+ ],
+ "pool.sponsor_spielertermine.a.a6": [
+  "Die Termine plant unser Mediendirektor, ich gebe Ihre Nachricht heute noch weiter.",
+  "Bitte stimmen Sie die Tage mit der Geschäftsstelle ab, ich informiere die Mannschaft."
+ ],
+ "pool.sponsor_spielertermine.a.a7": [
+  "Das kriegen wir hin, haben Sie etwas Geduld, es wird sich bald etwas ergeben.",
+  "Wir kommen darauf zurück, sobald der Spielplan ruhiger ist, versprochen."
+ ],
+ "pool.sponsor_spielertermine.a.a8": [
+  "Meine Spieler sind keine Werbefiguren, bei mir gilt der Trainingsplan, nicht Ihr Kalender.",
+  "Zusätzliche Auftritte lehne ich ab, ich brauche die Spieler auf dem Platz."
+ ],
+ "pool.sponsor_spielertermine.a.a9": [
+  "Es bleibt dabei, mehr Termine gibt es nicht, auch nicht auf Druck.",
+  "Ich ändere meinen Plan nicht, auch wenn Sie mit Kürzungen drohen."
+ ],
+ "pool.sponsor_spielertermine.a.a10": [
+  "Wir prüfen, wie sich Ihre Wünsche in den Spielplan fügen, und melden uns dann.",
+  "Lassen Sie uns die Saison ein Stück weiter laufen, dann sehen wir, was möglich ist."
+ ],
+ "pool.sponsor_spielertermine.a.a11": [
+  "Wie wäre es mit einem Grillabend mit der Mannschaft in Ihrer Kantine, dann haben auch die Spieler etwas von dem Termin?",
+  "Ich schlage einen Termin vor, bei dem die Mannschaft Ihre Produkte ausprobiert, dann hat jeder etwas davon."
+ ],
+ "pool.sponsor_spielertermine.r.r1": [
+  "{b.gut} Mit dieser Antwort kann ich unserer Geschäftsleitung etwas vorlegen.",
+  "{b.gut} Dann planen wir die Termine, wie besprochen."
+ ],
+ "pool.sponsor_spielertermine.r.r2": [
+  "{b.gut} Danke, so macht die Partnerschaft Freude.",
+  "{b.gut} Es freut mich, dass Sie sich Zeit nehmen, das wissen wir zu schätzen."
+ ],
+ "pool.sponsor_spielertermine.r.r3": [
+  "{b.gut} Das ist ein Angebot, aus dem wir etwas Großes machen.",
+  "{b.gut} Dann holen wir das Beste heraus, Ihre Spieler werden bei uns gut aussehen."
+ ],
+ "pool.sponsor_spielertermine.r.r4": [
+  "{b.neutral} Ich muss das mit meinem Team besprechen und melde mich.",
+  "{b.neutral} Das klingt nach einem Anfang, aber noch nicht nach einer Lösung."
+ ],
+ "pool.sponsor_spielertermine.r.r5": [
+  "{b.neutral} Ich weiß nicht recht, ob Sie das ernst meinen.",
+  "{b.neutral} Ich hoffe, dass daraus mehr wird als nur Worte."
+ ],
+ "pool.sponsor_spielertermine.r.r6": [
+  "{b.neutral} Gut, wir warten ab, wie sich der Plan entwickelt.",
+  "{b.neutral} Dann sehen wir in den nächsten Wochen, was passiert."
+ ],
+ "pool.sponsor_spielertermine.r.r7": [
+  "{b.schlecht} Damit verfehlen Sie unseren Vertrag, und das wird Folgen haben.",
+  "{b.schlecht} So gehen Sie mit einem zahlenden Partner nicht um."
+ ],
+ "pool.sponsor_spielertermine.r.r8": [
+  "{b.schlecht} Dann sehen Sie von uns keinen Cent mehr, bis die Termine stehen!",
+  "{b.schlecht} Ich schalte meinen Anwalt ein, wenn die Termine nicht kommen!"
+ ],
+ "pool.sponsor_spielertermine.r.r9": [
+  "{b.schlecht} Dann reden wir mit Ihrer Konkurrenz, andere Vereine bieten uns mehr.",
+  "{b.schlecht} Wir schauen uns nach einem Partner um, der Sichtbarkeit wirklich liefert."
+ ],
+ "pool.sponsor_spielertermine.r.r10": [
+  "{b.schlecht} Ich hatte gehofft, dass wir nach all den Jahren verständnisvoller miteinander umgehen.",
+  "{b.schlecht} Das enttäuscht mich, ich habe in der Geschäftsleitung für Sie geworben."
+ ],
+ "pool.sponsor_spielertermine.x.x1": [
+  "Der Sponsor ist zufrieden. {entscheidung} Die Termine werden eingetragen, und die Mannschaft erscheint zum ersten.",
+  "{entscheidung} Der Sponsor bestätigt per Mail, dass die Termine zustande kommen und das Klima wieder gut ist."
+ ],
+ "pool.sponsor_spielertermine.x.x2": [
+  "Die Termine bleiben unklar. {entscheidung} Der Sponsor wartet auf neue Vorschläge.",
+  "{entscheidung} Es gibt keinen Termin, aber auch keinen Streit, der Sponsor beobachtet weiter."
+ ],
+ "pool.sponsor_spielertermine.x.x3": [
+  "Der Sponsor reagiert verärgert. {entscheidung} Er schaltet die Geschäftsführung ein und prüft Vertragsstrafen.",
+  "{entscheidung} In der Presse tauchen Gerüchte über Streit mit dem Hauptsponsor auf."
+ ],
+ "pool.sponsor_spielertermine.x.x4": [
+  "Sie haben Termine angekündigt, und der Sponsor trägt sie in den Kalender ein. {entscheidung} Er wird nachfragen, ob sie eingehalten werden.",
+  "{entscheidung} Die Geschäftsstelle bekommt den Auftrag, die Auftritte zu organisieren."
+ ],
+ "pool.sponsor_spielertermine.x.x5": [
+  "Das Gespräch endet abrupt. {entscheidung} Der Sponsor meldet sich vorerst nicht mehr.",
+  "{entscheidung} Der Hauptsponsor legt auf, ohne noch etwas zu sagen."
+ ],
+ "pool.sponsor_absturz.e.e1": [
+  "{b.sponsor_absturz_gruss} {b.sponsor_absturz_lage} Wir erwarten von Ihnen eine klare Einschätzung, wie es weitergehen soll.",
+  "{b.sponsor_absturz_gruss} {b.sponsor_absturz_lage} Erklären Sie uns bitte, was Sie ändern wollen, bevor wir unsere Gremien informieren."
+ ],
+ "pool.sponsor_absturz.e.e2": [
+  "{b.sponsor_absturz_gruss} {b.sponsor_absturz_lage} Unser Vertrag enthält eine Klausel zur Sichtbarkeit, die bei anhaltendem Misserfolg neu verhandelt werden kann.",
+  "{b.sponsor_absturz_gruss} {b.sponsor_absturz_lage} Wir müssen die nächste Zahlung intern prüfen, wenn sich die Lage nicht bessert."
+ ],
+ "pool.sponsor_absturz.e.e3": [
+  "{b.sponsor_absturz_gruss} {b.sponsor_absturz_lage} Ich weiß, dass Sie unter Druck stehen, aber wir müssen trotzdem darüber reden.",
+  "{b.sponsor_absturz_gruss} {b.sponsor_absturz_lage} Die Atmosphäre ist angespannt, das verstehe ich, es ändert aber nichts an unserem Anliegen."
+ ],
+ "pool.sponsor_absturz.e.e4": [
+  "{b.sponsor_absturz_gruss} {b.sponsor_absturz_lage} Wenn das so weitergeht, ziehen wir den Namen von der Brust, und zwar sofort!",
+  "{b.sponsor_absturz_gruss} {b.sponsor_absturz_lage} Bringen Sie die Mannschaft in Ordnung, oder wir ziehen die Konsequenzen, ich warte nicht länger!"
+ ],
+ "pool.sponsor_absturz.e.e5": [
+  "{b.sponsor_absturz_gruss} {b.sponsor_absturz_lage} Wir geben Ihnen Zeit, aber wir müssen wissen, wie Sie die Wende schaffen wollen.",
+  "{b.sponsor_absturz_gruss} {b.sponsor_absturz_lage} Ein Tief gehört dazu, trotzdem möchten wir Ihren Plan kennen."
+ ],
+ "pool.sponsor_absturz.e.e6": [
+  "{b.sponsor_absturz_gruss} {b.sponsor_absturz_lage} Entweder Sie zeigen uns binnen {frist} Tagen eine Reaktion, oder wir verhandeln anders.",
+  "{b.sponsor_absturz_gruss} {b.sponsor_absturz_lage} Wir investieren in Gewinner, und derzeit sieht Ihre Mannschaft nicht danach aus."
+ ],
+ "pool.sponsor_absturz.e.e7": [
+  "{b.sponsor_absturz_gruss} {b.sponsor_absturz_lage} Wir haben das Gefühl, dass der Verein uns mit der Lage allein lässt, und das verletzt uns.",
+  "{b.sponsor_absturz_gruss} {b.sponsor_absturz_lage} Uns würde schon ein offenes Wort helfen, damit wir nicht aus der Zeitung erfahren, wie es steht."
+ ],
+ "pool.sponsor_absturz.e.e8": [
+  "{b.sponsor_absturz_gruss} {b.sponsor_absturz_lage} Die Niederlagenserie hat uns in den Medien schlecht aussehen lassen, das müssen wir klären.",
+  "{b.sponsor_absturz_gruss} {b.sponsor_absturz_lage} Bei jeder Niederlage in dieser Serie stand unsere Marke im Bild, das muss anders werden."
+ ],
+ "pool.sponsor_absturz.e.e9": [
+  "{b.sponsor_absturz_gruss} {b.sponsor_absturz_lage} Wir hören, dass auch im Vorstand die Zweifel wachsen, und fragen uns, ob Sie noch die Rückendeckung haben.",
+  "{b.sponsor_absturz_gruss} {b.sponsor_absturz_lage} Intern wird gemunkelt, dass Ihre Position wackelt, und wir möchten wissen, woran wir sind."
+ ],
+ "pool.sponsor_absturz.a.a1": [
+  "Die Mannschaft ist verunsichert, aber ich habe einen konkreten Plan für Aufstellung, Training und Ziele.",
+  "Wir haben die Ursachen der Serie analysiert, und ich nenne Ihnen gern die Schritte, die wir daraus ziehen."
+ ],
+ "pool.sponsor_absturz.a.a2": [
+  "Ich sage Ihnen binnen {frist} Tagen eine deutliche Reaktion der Mannschaft zu, sonst reden wir Klartext.",
+  "Geben Sie mir {frist} Tage, danach sehen Sie eine andere Mannschaft."
+ ],
+ "pool.sponsor_absturz.a.a3": [
+  "Ich verstehe Ihre Sorge und nehme sie ernst, denn Ihre Unterstützung trägt uns gerade jetzt.",
+  "Sie haben Geld und Vertrauen in uns gesteckt, und ich weiß, was es heißt, dass Sie jetzt nervös werden."
+ ],
+ "pool.sponsor_absturz.a.a4": [
+  "Ich bitte den Verein, Ihnen mehr Werbefläche im Stadion zu geben, und zwar auf unsere Kosten.",
+  "Wir kommen Ihnen entgegen und stellen Ihnen eine zusätzliche Präsentation vor den Fans zur Verfügung."
+ ],
+ "pool.sponsor_absturz.a.a5": [
+  "Wenn Ihre Firma einen schlechten Monat hat, wechseln Sie dann den Chef oder erst die Abteilung?",
+  "Was wäre Ihnen lieber, eine schnelle Entschuldigung oder ein Plan, der wirklich trägt?"
+ ],
+ "pool.sponsor_absturz.a.a6": [
+  "Über die Vertragsklausel spricht die Geschäftsführung mit Ihnen, ich bleibe für das Sportliche zuständig.",
+  "Die Zahlungsfragen gehören nicht zu meinem Bereich, ich leite Ihr Anliegen weiter."
+ ],
+ "pool.sponsor_absturz.a.a7": [
+  "Eine Serie kann sich schnell drehen, ein Sieg und alles sieht anders aus.",
+  "Solche Phasen hat jede Mannschaft, es kommt auf die nächsten Spiele an."
+ ],
+ "pool.sponsor_absturz.a.a8": [
+  "Mit dem Sportlichen haben Sie nichts zu tun, Sponsoren reden mir nicht in die Aufstellung hinein.",
+  "Ich lasse mich von Geldgebern nicht unter Druck setzen, das gehört sich nicht."
+ ],
+ "pool.sponsor_absturz.a.a9": [
+  "Ich bleibe bei meinem Weg, und wenn Ihnen das nicht passt, ist das Ihr Problem.",
+  "Meine Entscheidungen stehen, und die Drohung mit Kürzungen ändert daran nichts."
+ ],
+ "pool.sponsor_absturz.a.a10": [
+  "Das wird schon wieder, machen Sie sich keine Sorgen, es ist alles halb so schlimm.",
+  "Regen Sie sich nicht auf, die Tabelle ist nur eine Momentaufnahme."
+ ],
+ "pool.sponsor_absturz.a.a11": [
+  "Wen ich aufstelle, entscheide ich allein, aber über alles andere rede ich gern mit Ihnen.",
+  "Beim Sportlichen bleibe ich hart, bei der Kommunikation mit Ihnen suchen wir einen besseren Weg."
+ ],
+ "pool.sponsor_absturz.r.r1": [
+  "{b.gut} Das ist ein Plan, den ich meiner Geschäftsleitung vorlegen kann.",
+  "{b.gut} Damit haben wir wieder etwas in der Hand, vielen Dank."
+ ],
+ "pool.sponsor_absturz.r.r2": [
+  "{b.gut} Danke für Ihre Offenheit, wir stehen weiter zu Ihnen.",
+  "{b.gut} Wir haben Vertrauen, dass Sie die Wende schaffen."
+ ],
+ "pool.sponsor_absturz.r.r3": [
+  "{b.gut} Dann erwarte ich eine Reaktion, und wenn sie kommt, legen wir bei der Werbung nach.",
+  "{b.gut} Das klingt nach Kampfgeist, den wir als Marke gern unterstützen."
+ ],
+ "pool.sponsor_absturz.r.r4": [
+  "{b.neutral} Ich gebe das weiter, aber meine Geschäftsleitung wird Zahlen sehen wollen.",
+  "{b.neutral} Das klingt vernünftig, aber ich muss erst sehen, was daraus wird."
+ ],
+ "pool.sponsor_absturz.r.r5": [
+  "{b.neutral} Ich weiß nicht, ob ich das beruhigend finden soll.",
+  "{b.neutral} Mir ist nach Ihren Worten nicht klarer, wie es steht."
+ ],
+ "pool.sponsor_absturz.r.r6": [
+  "{b.neutral} Dann warten wir die nächsten Spiele ab.",
+  "{b.neutral} Gut, wir sehen die Entwicklung gelassen, aber aufmerksam."
+ ],
+ "pool.sponsor_absturz.r.r7": [
+  "{b.schlecht} Damit werden Sie unsere Geschäftsleitung nicht überzeugen.",
+  "{b.schlecht} Das ist keine Antwort auf unsere Fragen."
+ ],
+ "pool.sponsor_absturz.r.r8": [
+  "{b.schlecht} Dann kürzen wir die Zahlung, und zwar ab der nächsten Rate!",
+  "{b.schlecht} Ich rufe jetzt den Präsidenten an, so geht das nicht!"
+ ],
+ "pool.sponsor_absturz.r.r9": [
+  "{b.schlecht} Dann beenden wir die Zusammenarbeit zum Saisonende, andere warten schon.",
+  "{b.schlecht} Mehr wollte ich nicht hören, jetzt sprechen wir mit anderen Klubs."
+ ],
+ "pool.sponsor_absturz.r.r10": [
+  "{b.schlecht} Wir sind seit Jahren treu, und jetzt behandeln Sie uns so.",
+  "{b.schlecht} Nach allem, was wir für den Verein getan haben, hätte ich mehr Entgegenkommen erwartet."
+ ],
+ "pool.sponsor_absturz.x.x1": [
+  "Der Sponsor ist beruhigt. {entscheidung} Er bleibt dem Verein treu und wartet auf die nächsten Ergebnisse.",
+  "{entscheidung} Der Sponsor erklärt, an der Seite des Vereins zu bleiben, solange er die Richtung erkennt."
+ ],
+ "pool.sponsor_absturz.x.x2": [
+  "Der Sponsor bleibt skeptisch. {entscheidung} Er beobachtet die nächsten Spiele, bevor er sich äußert.",
+  "{entscheidung} Es bleibt offen, ob die Zusammenarbeit über die Saison hinaus Bestand hat."
+ ],
+ "pool.sponsor_absturz.x.x3": [
+  "Der Sponsor verliert die Geduld. {entscheidung} Er droht, die Zahlungen auszusetzen.",
+  "{entscheidung} In der Branche heißt es bald, der Hauptsponsor sei auf dem Absprung."
+ ],
+ "pool.sponsor_absturz.x.x4": [
+  "Sie haben eine Wende versprochen, und der Sponsor hält fest, woran er Sie messen wird. {entscheidung} Der Druck wächst.",
+  "{entscheidung} Der Sponsor hakt in ein paar Spielen nach, ob sich etwas bewegt hat."
+ ],
+ "pool.sponsor_absturz.x.x5": [
+  "Der Hauptsponsor beendet das Telefonat ohne Abschied. {entscheidung} Es bleibt still.",
+  "{entscheidung} Der Sponsor erklärt das Gespräch für beendet."
+ ],
+ "pool.sponsor_ausruester_aktion.e.e1": [
+  "{b.sponsor_ausruester_aktion_gruss} {b.sponsor_ausruester_aktion_lage} Dafür brauchen wir binnen {frist} Tagen Ihre Zusage und einen Termin für das Fotoshooting mit den Spielern.",
+  "{b.sponsor_ausruester_aktion_gruss} {b.sponsor_ausruester_aktion_lage} Bitte geben Sie uns binnen {frist} Tagen Bescheid, damit wir die Produktion starten können."
+ ],
+ "pool.sponsor_ausruester_aktion.e.e2": [
+  "{b.sponsor_ausruester_aktion_gruss} {b.sponsor_ausruester_aktion_lage} Die Aktion bringt Ihnen neue Fans und uns mehr Aufmerksamkeit, wir sehen darin eine Gelegenheit für beide Seiten.",
+  "{b.sponsor_ausruester_aktion_gruss} {b.sponsor_ausruester_aktion_lage} Wir würden das Trikot auch im Fanshop prominent platzieren, wenn Sie mitmachen."
+ ],
+ "pool.sponsor_ausruester_aktion.e.e3": [
+  "{b.sponsor_ausruester_aktion_gruss} {b.sponsor_ausruester_aktion_lage} Wir wissen, dass die Lage derzeit schwierig ist, trotzdem läuft unsere Planung weiter.",
+  "{b.sponsor_ausruester_aktion_gruss} {b.sponsor_ausruester_aktion_lage} Auch wenn die Stimmung schlecht ist, könnte die Aktion eine willkommene Abwechslung für die Fans sein."
+ ],
+ "pool.sponsor_ausruester_aktion.e.e4": [
+  "{b.sponsor_ausruester_aktion_gruss} {b.sponsor_ausruester_aktion_lage} Ohne Beteiligung des Vereins streichen wir die Aktion und liefern nur noch Standardtrikots, merken Sie sich das!",
+  "{b.sponsor_ausruester_aktion_gruss} {b.sponsor_ausruester_aktion_lage} Entweder Sie ziehen mit, oder wir sprechen mit Ihrer Konkurrenz, ich meine das ernst!"
+ ],
+ "pool.sponsor_ausruester_aktion.e.e5": [
+  "{b.sponsor_ausruester_aktion_gruss} {b.sponsor_ausruester_aktion_lage} Wir sind offen für Vorschläge, wie wir die Kosten teilen können.",
+  "{b.sponsor_ausruester_aktion_gruss} {b.sponsor_ausruester_aktion_lage} Wenn Ihnen etwas nicht passt, sagen Sie es einfach, wir finden bestimmt einen Weg."
+ ],
+ "pool.sponsor_ausruester_aktion.e.e6": [
+  "{b.sponsor_ausruester_aktion_gruss} {b.sponsor_ausruester_aktion_lage} Wir wollen Ihr Trikot zum meistverkauften der Liga machen, dafür braucht es Mut und Investition.",
+  "{b.sponsor_ausruester_aktion_gruss} {b.sponsor_ausruester_aktion_lage} Wer mitzieht, profitiert, und wer zögert, sieht zu, wie andere Vereine davon profitieren."
+ ],
+ "pool.sponsor_ausruester_aktion.e.e7": [
+  "{b.sponsor_ausruester_aktion_gruss} {b.sponsor_ausruester_aktion_lage} Es wäre schön, wenn Sie das Trikot als gemeinsames Projekt sehen, nicht als Geschäft.",
+  "{b.sponsor_ausruester_aktion_gruss} {b.sponsor_ausruester_aktion_lage} Wir haben viel Herzblut in den Entwurf gesteckt und hoffen, dass Sie das spüren."
+ ],
+ "pool.sponsor_ausruester_aktion.e.e8": [
+  "{b.sponsor_ausruester_aktion_gruss} {b.sponsor_ausruester_aktion_lage} Wir wissen, dass die Kassen knapp sind, deshalb wären wir auch mit einer kleineren Beteiligung einverstanden.",
+  "{b.sponsor_ausruester_aktion_gruss} {b.sponsor_ausruester_aktion_lage} Auch bei begrenztem Budget lässt sich etwas machen, wir sind verhandlungsbereit."
+ ],
+ "pool.sponsor_ausruester_aktion.e.e9": [
+  "{b.sponsor_ausruester_aktion_gruss} {b.sponsor_ausruester_aktion_lage} Gerade nach den jüngsten Siegen ist die Nachfrage nach Trikots hoch, und wir möchten sie nutzen.",
+  "{b.sponsor_ausruester_aktion_gruss} {b.sponsor_ausruester_aktion_lage} Mit der Siegesserie im Rücken ist jetzt der beste Moment für eine große Kampagne."
+ ],
+ "pool.sponsor_ausruester_aktion.a.a1": [
+  "Wir machen mit, und ich sage Ihnen binnen {frist} Tagen einen Termin für das Fotoshooting zu.",
+  "Sie bekommen die Spieler vor die Kamera, binnen {frist} Tagen steht der Termin."
+ ],
+ "pool.sponsor_ausruester_aktion.a.a2": [
+  "Der Verein beteiligt sich mit einem Beitrag, und im Gegenzug bekommen wir mehr Trikots für die Jugend.",
+  "Wir übernehmen einen Teil der Kosten, wenn Sie dafür den Fans ein günstiges Trikot anbieten."
+ ],
+ "pool.sponsor_ausruester_aktion.a.a3": [
+  "Ich beteilige mich nur, wenn Sie uns im Gegenzug mehr Werbefläche und eine Aktion für die Jugend zusagen.",
+  "Eine Beteiligung ist möglich, wenn Sie die Gewinne aus dem Sondertrikot mit uns teilen."
+ ],
+ "pool.sponsor_ausruester_aktion.a.a4": [
+  "Der Spielplan ist dicht, für ein Shooting haben wir nur wenige Tage, das müssen Sie berücksichtigen.",
+  "Die Spieler können nur in der spielfreien Woche vor die Kamera, danach wird es eng."
+ ],
+ "pool.sponsor_ausruester_aktion.a.a5": [
+  "Ich sehe, wie viel Arbeit darin steckt, und ich schätze Ihr Engagement.",
+  "Man merkt, dass Ihnen das Trikot wichtig ist, und das nehme ich ernst."
+ ],
+ "pool.sponsor_ausruester_aktion.a.a6": [
+  "Wird das Sondertrikot dann so teuer, dass die Fans es nur noch ansehen dürfen?",
+  "Muss der Torwart das Sondertrikot auch tragen, oder darf er in seinem alten Pullover bleiben?"
+ ],
+ "pool.sponsor_ausruester_aktion.a.a7": [
+  "Die Finanzfragen klärt die Geschäftsführung, ich stimme nur den Termin für das Fotoshooting ab.",
+  "Wenden Sie sich bitte wegen der Kosten an unseren Geschäftsführer, ich kümmere mich um die Spieler."
+ ],
+ "pool.sponsor_ausruester_aktion.a.a8": [
+  "Für Werbeaktionen ist mein Team nicht da, und mit Geld des Vereins rechnen Sie bitte nicht.",
+  "Ein Sondertrikot interessiert mich nicht, ich kümmere mich um den Sport, nicht um Ihr Geschäft."
+ ],
+ "pool.sponsor_ausruester_aktion.a.a9": [
+  "Ich bleibe dabei, keine Aktion, kein Geld, kein Fototermin, diskutieren Sie nicht mit mir.",
+  "Meine Entscheidung steht, auch wenn Sie noch dreimal nachfragen, ändert sich nichts."
+ ],
+ "pool.sponsor_ausruester_aktion.a.a10": [
+  "Wir schauen es uns an, vielleicht, irgendwann, wenn Zeit ist.",
+  "Das hört sich nett an, wir melden uns, wenn wir einmal Luft haben."
+ ],
+ "pool.sponsor_ausruester_aktion.a.a11": [
+  "Ich sage zu, dass die Spieler zum Termin erscheinen, über die Kosten sprechen wir später.",
+  "Die Mannschaft steht Ihnen für das Shooting zur Verfügung, die Geldfrage klären wir in Ruhe."
+ ],
+ "pool.sponsor_ausruester_aktion.r.r1": [
+  "{b.gut} Damit kommen wir ins Geschäft, die Produktion kann starten.",
+  "{b.gut} Das ist ein gutes Zeichen, ich gebe die Kampagne frei."
+ ],
+ "pool.sponsor_ausruester_aktion.r.r2": [
+  "{b.gut} Es freut uns, dass Sie so gut mit uns zusammenarbeiten.",
+  "{b.gut} Vielen Dank, genau so stelle ich mir eine Partnerschaft vor."
+ ],
+ "pool.sponsor_ausruester_aktion.r.r3": [
+  "{b.gut} Das wird ein Trikot, über das die ganze Liga redet.",
+  "{b.gut} Mit dieser Zusage machen wir aus der Kampagne einen Verkaufsschlager."
+ ],
+ "pool.sponsor_ausruester_aktion.r.r4": [
+  "{b.neutral} Ich lasse das von unserer Rechtsabteilung prüfen.",
+  "{b.neutral} Das ist nicht, was ich erwartet habe, aber nicht abwegig."
+ ],
+ "pool.sponsor_ausruester_aktion.r.r5": [
+  "{b.neutral} Ich bin unsicher, ob wir die Aktion so noch wollen.",
+  "{b.neutral} Ich muss darüber schlafen, nach Ihrer Antwort bin ich hin- und hergerissen."
+ ],
+ "pool.sponsor_ausruester_aktion.r.r6": [
+  "{b.neutral} Kein Stress, wir haben Zeit, und die Planung bleibt offen.",
+  "{b.neutral} Dann schauen wir, was sich bis zum Saisonende ergibt."
+ ],
+ "pool.sponsor_ausruester_aktion.r.r7": [
+  "{b.schlecht} Dann streichen wir die Aktion, und der Verein verliert die Sonderedition.",
+  "{b.schlecht} So lässt sich kein gemeinsames Projekt umsetzen."
+ ],
+ "pool.sponsor_ausruester_aktion.r.r8": [
+  "{b.schlecht} Dann besorgen Sie Ihre Trikots bald woanders, mit uns rechnen Sie nicht mehr!",
+  "{b.schlecht} Ich pfeife auf die Kooperation, wenn so mit uns geredet wird!"
+ ],
+ "pool.sponsor_ausruester_aktion.r.r9": [
+  "{b.schlecht} Andere Vereine reißen sich um die Aktion, dann gehen wir dorthin.",
+  "{b.schlecht} Es gibt interessierte Klubs, ich melde mich dort."
+ ],
+ "pool.sponsor_ausruester_aktion.r.r10": [
+  "{b.schlecht} Ich hatte nach unserer langen Zusammenarbeit mehr erwartet, das trifft mich.",
+  "{b.schlecht} Wir haben Ihnen immer geholfen, und jetzt dieses Nein."
+ ],
+ "pool.sponsor_ausruester_aktion.x.x1": [
+  "Die Aktion kommt zustande. {entscheidung} Der Ausrüster meldet sich mit ersten Entwürfen.",
+  "{entscheidung} Der Ausrüster bedankt sich und kündigt eine große Vorstellung des Sondertrikots an."
+ ],
+ "pool.sponsor_ausruester_aktion.x.x2": [
+  "Die Aktion hängt in der Schwebe. {entscheidung} Der Ausrüster stellt die Produktion zurück.",
+  "{entscheidung} Der Ausrüster wartet, bis klar ist, wer die Kosten trägt."
+ ],
+ "pool.sponsor_ausruester_aktion.x.x3": [
+  "Der Ausrüster ist verärgert. {entscheidung} Er droht, die Lieferung der nächsten Kollektion zu verzögern.",
+  "{entscheidung} Im Fanshop bleiben die neuen Trikots vorerst aus, und die Fans fragen nach."
+ ],
+ "pool.sponsor_ausruester_aktion.x.x4": [
+  "Sie haben dem Ausrüster etwas versprochen, er hält es schriftlich fest. {entscheidung} Der Termin steht.",
+  "{entscheidung} Der Ausrüster plant mit Ihrer Zusage und lässt das Fotoshooting vorbereiten."
+ ],
+ "pool.sponsor_ausruester_aktion.x.x5": [
+  "Der Ausrüster bricht das Gespräch ab. {entscheidung} Von ihm kommt nichts mehr.",
+  "{entscheidung} Die Mail an den Ausrüster bleibt unbeantwortet."
+ ]
+}

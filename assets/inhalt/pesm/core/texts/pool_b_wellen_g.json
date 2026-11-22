@@ -1,0 +1,98 @@
+{
+ "pool.b.verhandlung_verlaengerung_lage": [
+  "Guten Tag, Trainer, hier ist die Beratung von {name}. Es geht um den auslaufenden Vertrag.",
+  "Guten Tag, Trainer, ich rufe für {name} an. Wir müssen über die Verlängerung sprechen."
+ ],
+ "pool.b.verhandlung_verlaengerung_lage.hitzig": [
+  "Mein Mandant {name} ist es leid, hingehalten zu werden, und er schimpft mir jeden Abend ins Ohr.",
+  "Trainer, {name} ist auf hundertachtzig, und ich soll das Thema Vertrag endlich klären."
+ ],
+ "pool.b.verhandlung_verlaengerung_lage.loyal": [
+  "{name} fühlt sich dem Verein verbunden und bat mich, die Verlängerung ruhig und fair zu regeln.",
+  "Guten Tag, Trainer. {name} will bleiben und hat mir aufgetragen, nichts zu überstürzen."
+ ],
+ "pool.b.verhandlung_verlaengerung_lage.ehrgeizig": [
+  "{name} will wissen, wohin der Verein sportlich geht, bevor er irgendetwas unterschreibt.",
+  "Mein Mandant {name} denkt in Titeln, nicht in Monaten. Das prägt auch die Verlängerung."
+ ],
+ "pool.b.verhandlung_verlaengerung_lage.wechselfreudig": [
+  "{name} hat Anfragen auf dem Tisch, und ich muss ihm sagen, was hier möglich ist.",
+  "Guten Tag, Trainer, mein Mandant {name} schaut sich um, das gehört zum Geschäft."
+ ],
+ "pool.b.verhandlung_verlaengerung_lage.sensibel": [
+  "{name} wünscht sich Wertschätzung, und das Thema Vertrag beschäftigt ihn mehr, als er zeigt.",
+  "Trainer, mein Mandant {name} nimmt die Verlängerung persönlicher, als man denkt."
+ ],
+ "pool.b.verhandlung_gehalt_lage": [
+  "Trainer, am Apparat ist die Beratung von {name}. Wir müssen über Geld reden.",
+  "Hier spricht der Berater von {name}. Es geht um die Höhe des Gehalts."
+ ],
+ "pool.b.verhandlung_gehalt_lage.hitzig": [
+  "{name} schäumt, wenn er auf seinen Gehaltszettel schaut, und ich soll das ausbügeln.",
+  "Trainer, mein Mandant ist wegen der Bezahlung auf der Palme, und ich verstehe ihn."
+ ],
+ "pool.b.verhandlung_gehalt_lage.loyal": [
+  "{name} spricht ungern über Geld, deshalb mache ich es für ihn, und zwar höflich.",
+  "Mein Mandant liebt diesen Verein, und genau deshalb wünscht er sich eine faire Bezahlung."
+ ],
+ "pool.b.verhandlung_gehalt_lage.ehrgeizig": [
+  "{name} misst sich an den Besten, auch beim Gehalt, und das ist keine Eitelkeit, sondern Anspruch.",
+  "Mein Mandant sieht sich in der ersten Reihe und möchte, dass die Abrechnung das zeigt."
+ ],
+ "pool.b.verhandlung_gehalt_lage.wechselfreudig": [
+  "{name} kennt seinen Marktwert, und er weiß, dass andere Vereine mehr bieten würden.",
+  "Mein Mandant hat Angebote gesehen, die deutlich höher liegen. Das gehört in dieses Gespräch."
+ ],
+ "pool.b.verhandlung_gehalt_lage.sensibel": [
+  "{name} fühlt sich beim Gehalt unterbewertet und hat Mühe, das auszusprechen.",
+  "Mein Mandant kränkt sich, wenn er seine Bezahlung mit der der Kollegen vergleicht."
+ ],
+ "pool.b.verhandlung_rolle_lage": [
+  "Guten Tag, Trainer, ich rufe wegen der Rolle von {name} im Kader an. Das gehört in den Vertrag.",
+  "Hier ist die Beratung von {name}. Es geht um seinen Platz in der Mannschaft."
+ ],
+ "pool.b.verhandlung_rolle_lage.hitzig": [
+  "{name} hat es satt, auf der Bank zu schmoren, und ich soll das schriftlich bekommen.",
+  "Trainer, mein Mandant tobt wegen seiner Einsatzzeiten, und ich will etwas in der Hand haben."
+ ],
+ "pool.b.verhandlung_rolle_lage.loyal": [
+  "{name} vertraut Ihnen, bat mich aber, seinen Platz im Vertrag klarer zu fassen.",
+  "Mein Mandant bleibt gern, möchte aber wissen, woran er sportlich ist, und das soll ruhig geklärt werden."
+ ],
+ "pool.b.verhandlung_rolle_lage.ehrgeizig": [
+  "{name} will Stammspieler sein, nicht Ersatz, und dafür verlange ich ein Wort von Ihnen.",
+  "Mein Mandant will gebraucht werden. Eine Rolle im Hintergrund kommt für ihn nicht in Frage."
+ ],
+ "pool.b.verhandlung_rolle_lage.wechselfreudig": [
+  "{name} hat anderswo eine Stammplatz-Garantie auf dem Tisch. Hier muss ich Ähnliches vorweisen.",
+  "Mein Mandant kann sich überall die Rolle aussuchen, und ich will wissen, was Sie ihm bieten."
+ ],
+ "pool.b.verhandlung_rolle_lage.sensibel": [
+  "{name} leidet unter der Unsicherheit über seinen Platz, und das nagt an seinem Selbstvertrauen.",
+  "Mein Mandant braucht Klarheit, wo er hingehört, sonst verliert er den Mut."
+ ],
+ "pool.b.verhandlung_klausel_lage": [
+  "Guten Tag, Trainer, hier ist die Beratung von {name}. Es geht um eine Ausstiegsklausel im Vertrag.",
+  "Ich rufe für {name} an. Mein Mandant wünscht sich eine Klausel für den Fall der Fälle."
+ ],
+ "pool.b.verhandlung_klausel_lage.hitzig": [
+  "{name} will sich nicht einsperren lassen, und ohne Klausel bekommen Sie ihn nicht an den Schreibtisch.",
+  "Trainer, mein Mandant besteht auf einem Ausweg, und er duldet keine Ausreden."
+ ],
+ "pool.b.verhandlung_klausel_lage.loyal": [
+  "{name} würde den Verein nie verlassen wollen, doch er möchte aus Vorsicht eine Klausel sichern.",
+  "Mein Mandant bleibt aus Überzeugung. Die Klausel wäre nur ein Sicherheitsnetz, mehr nicht."
+ ],
+ "pool.b.verhandlung_klausel_lage.ehrgeizig": [
+  "{name} will sich die Tür zu einem Spitzenklub offenhalten. Dafür braucht er eine feste Ablöse im Vertrag.",
+  "Mein Mandant denkt an die nächste Stufe, und die Klausel ist der Schlüssel dazu."
+ ],
+ "pool.b.verhandlung_klausel_lage.wechselfreudig": [
+  "{name} lässt sich nichts verbauen. Eine Klausel gehört zu jedem Vertrag, den er in Betracht zieht.",
+  "Mein Mandant will jederzeit gehen können, wenn etwas Besseres kommt."
+ ],
+ "pool.b.verhandlung_klausel_lage.sensibel": [
+  "{name} braucht das Gefühl, nicht gefangen zu sein, und eine Klausel gäbe ihm Ruhe.",
+  "Mein Mandant fürchtet, im Verein festzusitzen, und möchte einen Ausweg wissen."
+ ]
+}

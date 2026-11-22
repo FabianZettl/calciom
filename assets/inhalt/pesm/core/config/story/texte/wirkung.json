@@ -1,0 +1,19 @@
+{
+  "_hinweis": "Ankündigung der Wirkung vor der Antwort: was die Entscheidung bewirken könnte, ohne Zahlen. Schlüssel: wirkung.<ziel>.<richtung>; wirkung.nur_in_pesm und wirkung.ins_spiel sind der Zusatz hinter einer Wirkung auf ein Feld im Spiel. Keine Platzhalter.",
+  "wirkung.stimmung.plus":            { "standard": ["Das dürfte seine Stimmung heben."] },
+  "wirkung.stimmung.minus":           { "standard": ["Das dürfte seine Stimmung drücken."] },
+  "wirkung.beziehung_trainer.plus":   { "standard": ["Er könnte dir danach mehr vertrauen."] },
+  "wirkung.beziehung_trainer.minus":  { "standard": ["Euer Verhältnis könnte darunter leiden."] },
+  "wirkung.medienbild.plus":          { "standard": ["Die Presse könnte das wohlwollend aufnehmen."] },
+  "wirkung.medienbild.minus":         { "standard": ["Die Presse könnte dir das ankreiden."] },
+  "wirkung.vorstandsvertrauen.plus":  { "standard": ["Der Vorstand könnte dir das anrechnen."] },
+  "wirkung.vorstandsvertrauen.minus": { "standard": ["Das könnte dich Vertrauen im Vorstand kosten."] },
+  "wirkung.fanstimmung.plus":         { "standard": ["Bei den Fans könnte das gut ankommen."] },
+  "wirkung.fanstimmung.minus":        { "standard": ["Die Fans könnten das übel nehmen."] },
+  "wirkung.versprechen":              { "standard": ["Du gibst damit eine Zusage. Er wird dich daran messen."] },
+  "wirkung.folge":                    { "standard": ["Das Thema könnte später noch einmal auf den Tisch kommen."] },
+  "wirkung.spielfeld.formpfeil":      { "standard": ["Das könnte sich auf seine Form auswirken."] },
+  "wirkung.spielfeld.kondition":      { "standard": ["Das könnte sich auf seine Kondition auswirken."] },
+  "wirkung.nur_in_pesm":              { "standard": ["nur in PESM"] },
+  "wirkung.ins_spiel":                { "standard": ["wirkt auch im Spiel"] }
+}

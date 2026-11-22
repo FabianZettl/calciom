@@ -1,0 +1,77 @@
+# Vertragsverhandlung und „Druck machen“ (Startwerte, nicht kalibriert). Gelesen von druck.py; Dokumentation: docs/intern/DRUCK.md
+
+[vertrag]
+runden = 3                 # höchstens so viele Verhandlungsrunden, danach Abbruch
+ruhe_tage = 28             # Ruhephase nach einem Abbruch (im Vorgang: „ruht bis <Datum>“)
+bedenk_tage = 2            # Bedenkzeit des Spielers, wenn das Angebot knapp unter der Annahme liegt
+bedenk_band = 0.06         # Verhältnis Angebot/Forderung: ab (annahme − Band) bis unter annahme gibt es Bedenkzeit (0 = nie)
+spitzen_moral = -4         # Moral der nächsten Verdiener, wenn ein neuer Spitzenverdiener unterschreibt
+spitzen_kreis = 2          # so viele Verdiener hinter ihm reagieren
+
+[klima]
+# fünf Stufen: gut, ruhig, angespannt, gereizt, veraergert
+aufschlag = [0.0, 0.0, 0.02, 0.05, 0.09]   # Anteil, um den die Forderung der Gegenseite je Stufe steigt (wirkt auf die Annahme)
+erholung_tage = 3          # so viele Tage bringen das Klima um eine Stufe zurück
+entgegenkommen = 0.03      # Verbesserung des Angebots (Verhältnis) von Runde zu Runde, die das Klima um eine Stufe bessert
+
+[druck]
+blockade_tage = 4          # so lange ruhen die Gespräche nach einer Blockade
+aufschlag_vertrag = 0.04   # der Spieler verlangt so viel mehr (Anteil), wenn die Stimmung sinkt
+aufschlag_abloese = 0.04   # der Verein schlägt so viel auf die Ablöse (Anteil, für den Kauf; Schnittstelle für den Transfer-Ablauf)
+beeindruckt_nachlass = 0.03
+stimmung_beziehung = -3.0  # Beziehung (Moral-Stand beim Start) sinkt
+# Wahrscheinlichkeiten: x = Gunst des Drucks (siehe druck.py), Blockade = clamp(b0 − bx·x), Stimmung = clamp(s0 − sx·x), beeindruckt = clamp(e0 + ex·max(0, x − e_ab))
+b0 = 0.30
+bx = 0.30
+bmin = 0.03
+bmax = 0.80
+s0 = 0.35
+sx = 0.15
+smin = 0.08
+smax = 0.55
+e0 = 0.02
+ex = 0.20
+e_ab = 0.5
+emax = 0.20
+# Gewichte von x
+abstand = 3.0              # (Angebot/Forderung − 1) · Gewicht
+ruf = 0.6                  # (eigener Ruf − Ruf der Gegenseite)/100 · Gewicht
+beziehung = 0.4            # Beziehung/100 · Gewicht
+konkurrenz = 0.25          # Konkurrenzangebot: Abzug
+frist = 0.5                # knappe Frist: Zuschlag (0 bis 1 · Gewicht)
+frist_tage = 7             # ab so wenigen Resttagen gilt die Frist als knapp
+uebel_milderung = 0.5      # knappe Frist mildert die Stimmungsfolge um so viel Anteil
+klima_gewicht = 0.2        # je Klimastufe Abzug
+draengler = 0.5            # Ruf „Drängler“ (0 bis 1) · Gewicht: Abzug
+persoenlichkeit = { geduldig = 0.15, stolz = -0.35, geldorientiert = 0.0 }
+geld_abstand = 1.5         # Geldorientierte reagieren stärker auf den Abstand (Faktor auf den Abstand)
+vertrag_monat_tage = 4    # Vertragsende: so viele „Fenstertage“ zählt ein Restmonat für die knappe Frist (1 Monat = knapp)
+
+[draengler]
+je_druck = { ohne_folgen = 6.0, stimmung = 12.0, blockade = 15.0, beeindruckt = 2.0 }   # Punkte (0 bis 100) je Druck
+abbau_je_tag = 0.25
+
+[einschaetzung]
+# Der Berater/Sportdirektor sieht die Blockadewahrscheinlichkeit; der Fehler wächst, wenn die Personalqualität (0 bis 100) sinkt.
+fehler_max = 0.35          # größter Fehler bei Qualität 0 (absolut, auf die Blockadewahrscheinlichkeit)
+gut_bis = 0.18             # „Er wird verstehen“ bis zu dieser (geschätzten) Blockadewahrscheinlichkeit
+heikel_ab = 0.34           # „Das könnte schiefgehen“ ab dieser
+
+[tisch]
+# Verhandlungstisch: unverbindliche Vorschläge, Wünsche, Geduld (Startwerte, nicht kalibriert). Dokumentation: docs/intern/VERTRAGSGESPRAECH.md
+geduld = 6                 # Geduldbudget des Gegenübers (Vorschläge und abgelehnte Wünsche kosten, Entgegenkommen und Zeit bringen zurück)
+vorschlag_kosten = 1       # je Vorschlag; bei Klima gereizt oder schlechter kostet er einen Punkt mehr
+gereizt_ab = 3             # Klimastufe (0 gut … 4 verärgert), ab der Vorschläge mehr Geduld kosten
+fortschritt = 0.02         # Verbesserung des Verhältnisses von Vorschlag zu Vorschlag, die als Entgegenkommen zählt (holt die Geduld des Vorschlags zurück)
+erholung_tage = 2          # so viele Tage bringen einen Geduldpunkt zurück
+wunsch_geduld = 1          # ein übernommener Wunsch bringt so viel Geduld zurück
+ablehnen_kosten = 1        # einen Wunsch auszuschlagen kostet so viel Geduld
+gegen_kosten = 1           # ein abgelehnter Gegenwunsch kostet so viel Geduld
+umgehen_marge = 0.04       # ein ausgeschlagener Wunsch verlangt, dass der Rest um so viel (Verhältnis) über der Annahme liegt
+wunsch_max_offen = 3       # so viele offene Wünsche gleichzeitig
+haerte_basis = 0.30        # Gegenwunsch geht durch, wenn der Weg zum Wunsch mindestens so weit gegangen ist: basis + ego · gewicht (± Streuung)
+haerte_ego = 0.45
+haerte_streuung = 0.10
+stillstand_stimmung = -2   # Stimmung, wenn ein Vorschlag auf der Stelle tritt
+wunsch_stimmung = 2        # Stimmung, wenn du einen Wunsch erfüllst
+beenden_ruhe_tage = 7      # Ruhephase, wenn du ein Gespräch mit Vorschlägen oder Angeboten selbst beendest

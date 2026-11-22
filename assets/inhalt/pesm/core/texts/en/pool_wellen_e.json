@@ -1,0 +1,458 @@
+{
+ "pool.ungeduld_nach_reha.e.e1": [
+  "{b.gruss} {b.ungeduld_nach_reha_lage} I want to be back in the squad this week.",
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Please put me back on the list for the next match."
+ ],
+ "pool.ungeduld_nach_reha.e.e2": [
+  "{b.gruss} {b.ungeduld_nach_reha_lage} The tests look good, only the doctor wants to wait. Why, actually?",
+  "{b.gruss} {b.ungeduld_nach_reha_lage} The doctor talks about a relapse risk, but I know my body better."
+ ],
+ "pool.ungeduld_nach_reha.e.e3": [
+  "{b.gruss} {b.ungeduld_nach_reha_lage} I am in a bad mood because I have only been watching for weeks, and now it is enough.",
+  "{b.gruss} {b.ungeduld_nach_reha_lage} I have no patience today, I finally want to get back on the pitch."
+ ],
+ "pool.ungeduld_nach_reha.e.e4": [
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Either I play at the weekend or I do not understand the whole rehab!",
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Tell the doctor to stop locking me up!"
+ ],
+ "pool.ungeduld_nach_reha.e.e5": [
+  "{b.gruss} {b.ungeduld_nach_reha_lage} I do not want to go behind anyone's back, but I cannot stand watching any longer.",
+  "{b.gruss} {b.ungeduld_nach_reha_lage} You can count on me, just please let me play again."
+ ],
+ "pool.ungeduld_nach_reha.e.e6": [
+  "{b.gruss} {b.ungeduld_nach_reha_lage} If I do not get back in now, I lose touch.",
+  "{b.gruss} {b.ungeduld_nach_reha_lage} I worked twice as hard in rehab and want to show it on the pitch."
+ ],
+ "pool.ungeduld_nach_reha.e.e7": [
+  "{b.gruss} {b.ungeduld_nach_reha_lage} I feel left out as long as I cannot play.",
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Watching, I see how the team grows together without me."
+ ],
+ "pool.ungeduld_nach_reha.e.e8": [
+  "{b.gruss} {b.ungeduld_nach_reha_lage} You promised me game time after the break, and now they keep stalling me.",
+  "{b.gruss} {b.ungeduld_nach_reha_lage} You said I would get my minutes after rehab. Where are they?"
+ ],
+ "pool.ungeduld_nach_reha.e.e9": [
+  "{b.gruss} {b.ungeduld_nach_reha_lage} Mentally I am in top shape and do not understand the caution.",
+  "{b.gruss} {b.ungeduld_nach_reha_lage} My head has never been better, only my body supposedly needs more time."
+ ],
+ "pool.ungeduld_nach_reha.a.a1": [
+  "I let the doctor decide. If he gives the green light, you are in.",
+  "The clearance comes from the doctor, not from me. As soon as he says yes, I plan with you."
+ ],
+ "pool.ungeduld_nach_reha.a.a2": [
+  "A relapse would cost you more than a few weeks of patience now. I would rather plan with you for the long run than for a second break.",
+  "The muscle is not ready for load yet, even if it feels good. If we are careful now, you have the whole season ahead."
+ ],
+ "pool.ungeduld_nach_reha.a.a3": [
+  "We set a rehab plan with fixed stages: running first, then team training, then a match. Every stage has its date.",
+  "You get a plan you can tick off. If you pass every stage, you are back soon."
+ ],
+ "pool.ungeduld_nach_reha.a.a4": [
+  "You get a short appearance once the doctor agrees, half an hour and no more. That holds for the next {frist} days.",
+  "If the doctor has no objection, I bring you on at the end. Within {frist} days you get your minutes."
+ ],
+ "pool.ungeduld_nach_reha.a.a5": [
+  "I know how hard it is to watch. You matter to us, and that is exactly why I do not want to burn you out.",
+  "The waiting wears you down, I see that. But I want you back completely, not halfway."
+ ],
+ "pool.ungeduld_nach_reha.a.a6": [
+  "All right, you start. I carry the decision, but heaven help us if it twinges.",
+  "Then go out and show us. If the doctor grumbles afterwards, I will talk to him."
+ ],
+ "pool.ungeduld_nach_reha.a.a7": [
+  "You play when the doctor says so, and not a day earlier. That ends the discussion.",
+  "I will not change my mind. The doctor has the last word, and so do I."
+ ],
+ "pool.ungeduld_nach_reha.a.a8": [
+  "Out of the question. You are not ready, even if you think so.",
+  "No, and stop pushing. Until you are fully healthy, I do not need you."
+ ],
+ "pool.ungeduld_nach_reha.a.a9": [
+  "Rest up, the matches will not run away. Enjoy the coffee in the stands.",
+  "Others would give a lot for a few free weeks. Use them."
+ ],
+ "pool.ungeduld_nach_reha.a.a10": [
+  "How does the thigh feel in a sprint, and the morning after training?",
+  "What exactly does the doctor say, and what do you say back to him?"
+ ],
+ "pool.ungeduld_nach_reha.a.a11": [
+  "I get you a specialist therapist who works with you daily. The club pays, so you are safe sooner.",
+  "We book an extra programme with an expert. It costs something, but you come back stronger."
+ ],
+ "pool.ungeduld_nach_reha.a.a12": [
+  "I trust you, so I say it openly: I need you healthy in the spring, not half fit now.",
+  "Things are good between us, so I tell you straight that I will not take a risk."
+ ],
+ "pool.ungeduld_nach_reha.r.r1": [
+  "{b.gut} Thanks for taking me seriously. I can live with that.",
+  "{b.gut} That way I feel heard, and I will stick to the plan."
+ ],
+ "pool.ungeduld_nach_reha.r.r2": [
+  "{b.gut} You are right, a relapse helps nobody in the end.",
+  "{b.gut} I trust you and the doctor, even if it is hard."
+ ],
+ "pool.ungeduld_nach_reha.r.r3": [
+  "{b.gut} As long as I have a fixed date, I work twice as hard for it.",
+  "{b.gut} Then I give everything in rehab so the date holds."
+ ],
+ "pool.ungeduld_nach_reha.r.r4": [
+  "{b.gut} It means a lot that you understand my fear.",
+  "{b.gut} At last someone talks with me and not about me."
+ ],
+ "pool.ungeduld_nach_reha.r.r5": [
+  "{b.neutral} Well then, I will wait a bit longer.",
+  "{b.neutral} I am not thrilled, but I will hear what the doctor says."
+ ],
+ "pool.ungeduld_nach_reha.r.r6": [
+  "{b.neutral} I do not know whether to believe you, but I will let it rest today.",
+  "{b.neutral} Some days I am calm, some days not, ask me again tomorrow."
+ ],
+ "pool.ungeduld_nach_reha.r.r7": [
+  "{b.neutral} Then it is down to the next check-ups.",
+  "{b.neutral} I take note of it and carry on with rehab."
+ ],
+ "pool.ungeduld_nach_reha.r.r8": [
+  "{b.neutral} A few more days will not kill me.",
+  "{b.neutral} I have sat out worse."
+ ],
+ "pool.ungeduld_nach_reha.r.r9": [
+  "{b.schlecht} You treat me like a child who does not know what it feels.",
+  "{b.schlecht} That way I stay in the stands and lose heart."
+ ],
+ "pool.ungeduld_nach_reha.r.r10": [
+  "{b.schlecht} Then I will just train on my own!",
+  "{b.schlecht} You are all holding me back, I will not allow it any longer!"
+ ],
+ "pool.ungeduld_nach_reha.r.r11": [
+  "{b.schlecht} Another club would let me play.",
+  "{b.schlecht} If I can only watch here, I will start looking around."
+ ],
+ "pool.ungeduld_nach_reha.r.r12": [
+  "{b.schlecht} I expected more backing from someone I tear myself apart for.",
+  "{b.schlecht} That hurts, I never complained when things were bad."
+ ],
+ "pool.ungeduld_nach_reha.x.x1": [
+  "He carries on with rehab with new zeal, and the doctor is pleased. {entscheidung}",
+  "He accepts the pause. {entscheidung} The therapists report good cooperation."
+ ],
+ "pool.ungeduld_nach_reha.x.x2": [
+  "{entscheidung} Whether he holds out will show at the next check-ups.",
+  "He nods but seems restless. {entscheidung} The doctor stays watchful."
+ ],
+ "pool.ungeduld_nach_reha.x.x3": [
+  "{entscheidung} In training he ignores his pain limit, and the doctor raises the alarm.",
+  "The player storms off. {entscheidung} The team doctor demands a talk."
+ ],
+ "pool.ungeduld_nach_reha.x.x4": [
+  "You agree on a careful comeback. {entscheidung} The doctor accompanies every step.",
+  "{entscheidung} The short appearance is set, and the player has a goal in sight."
+ ],
+ "pool.ungeduld_nach_reha.x.x5": [
+  "He ends the chat without another word. {entscheidung} The doctor is informed.",
+  "{entscheidung} The player stops answering, and the matter stays unsettled."
+ ],
+ "pool.kritik_oeffentlich.e.e1": [
+  "{b.gruss} {b.kritik_oeffentlich_lage} I need to talk to you about the reports of the last few days.",
+  "{b.gruss} {b.kritik_oeffentlich_lage} Have you read the paper? I want to know what you think about it."
+ ],
+ "pool.kritik_oeffentlich.e.e2": [
+  "{b.gruss} {b.kritik_oeffentlich_lage} After the match you talked about my performance in front of the microphones, and that hurt.",
+  "{b.gruss} {b.kritik_oeffentlich_lage} What you said about me in public I would rather have heard in private."
+ ],
+ "pool.kritik_oeffentlich.e.e3": [
+  "{b.gruss} {b.kritik_oeffentlich_lage} I am not doing well right now, and the headlines make it worse.",
+  "{b.gruss} {b.kritik_oeffentlich_lage} My nerves are shot, please do not tear me apart too."
+ ],
+ "pool.kritik_oeffentlich.e.e4": [
+  "{b.gruss} {b.kritik_oeffentlich_lage} I will not be the whipping boy any longer, do you hear?",
+  "{b.gruss} {b.kritik_oeffentlich_lage} Tell the reporters to leave me alone or I will do it myself!"
+ ],
+ "pool.kritik_oeffentlich.e.e5": [
+  "{b.gruss} {b.kritik_oeffentlich_lage} I do not want to whine, but a public word from you would help me.",
+  "{b.gruss} {b.kritik_oeffentlich_lage} With these bad reports I hope the club stands behind me."
+ ],
+ "pool.kritik_oeffentlich.e.e6": [
+  "{b.gruss} {b.kritik_oeffentlich_lage} I need your trust so I can strike back on the pitch.",
+  "{b.gruss} {b.kritik_oeffentlich_lage} Let me prove the critics wrong."
+ ],
+ "pool.kritik_oeffentlich.e.e7": [
+  "{b.gruss} {b.kritik_oeffentlich_lage} It hurt me so much that I wonder whether I am still in the right place.",
+  "{b.gruss} {b.kritik_oeffentlich_lage} Since the criticism I feel left alone."
+ ],
+ "pool.kritik_oeffentlich.e.e8": [
+  "{b.gruss} {b.kritik_oeffentlich_lage} After the last slating you wanted to back me publicly, I heard nothing of it.",
+  "{b.gruss} {b.kritik_oeffentlich_lage} You promised to have my back. I have seen nothing."
+ ],
+ "pool.kritik_oeffentlich.e.e9": [
+  "{b.gruss} {b.kritik_oeffentlich_lage} The mood against me in the media is turning, and I feel it with every step.",
+  "{b.gruss} {b.kritik_oeffentlich_lage} Almost every report about me is nasty by now, it wears me down."
+ ],
+ "pool.kritik_oeffentlich.a.a1": [
+  "I will stand behind you at the next press conference. I tell you now so you know beforehand.",
+  "In front of the cameras you get my backing, no ifs or buts."
+ ],
+ "pool.kritik_oeffentlich.a.a2": [
+  "My sentence after the match was too sharp, I am sorry. I should have told you first.",
+  "I got the tone wrong. I apologise for that, to you and in front of the team."
+ ],
+ "pool.kritik_oeffentlich.a.a3": [
+  "Come, let us sit down together, no phones. Tell me what hurt you most about it.",
+  "Let us talk in peace, just you and me. I want to know how you are coping."
+ ],
+ "pool.kritik_oeffentlich.a.a4": [
+  "The performance was weak, and I said so. Whoever plays like that gets criticised.",
+  "I take back no word. Improve, and the press will write differently."
+ ],
+ "pool.kritik_oeffentlich.a.a5": [
+  "That is the business. Whoever wants to be a pro has to put up with newspapers.",
+  "Stop feeling sorry for yourself. What counts is what happens on the grass, not what gets printed."
+ ],
+ "pool.kritik_oeffentlich.a.a6": [
+  "Today's paper is forgotten tomorrow. Do not worry.",
+  "Let people write, in a week nobody will talk about it."
+ ],
+ "pool.kritik_oeffentlich.a.a7": [
+  "What exactly in the report is wrong? And what of it is right?",
+  "Which line hurt you most, and why?"
+ ],
+ "pool.kritik_oeffentlich.a.a8": [
+  "I ask the press officer to bundle the requests for you. You focus on training.",
+  "Our press officer deals with the reporters. You do not have to say anything."
+ ],
+ "pool.kritik_oeffentlich.a.a9": [
+  "Give no interviews for the next few days, then it cools down. I will shield you.",
+  "Stay away from the microphones until things calm down. I take the questions."
+ ],
+ "pool.kritik_oeffentlich.a.a10": [
+  "I have read worse about myself and I am still here. We will get over it.",
+  "Yesterday's paper wraps tomorrow's fish. Let us remember that."
+ ],
+ "pool.kritik_oeffentlich.a.a11": [
+  "The club pays for media training so you can handle the next questions.",
+  "I book you a coach for dealing with the press, at the club's expense."
+ ],
+ "pool.kritik_oeffentlich.a.a12": [
+  "We analyse the match in the video room, not in the paper. There I show you what works and what does not.",
+  "Together we go through the scenes. Then you know what is in the criticism."
+ ],
+ "pool.kritik_oeffentlich.r.r1": [
+  "{b.gut} Thanks, that takes a weight off my chest.",
+  "{b.gut} With that I can walk upright again, thank you."
+ ],
+ "pool.kritik_oeffentlich.r.r2": [
+  "{b.gut} You are honest with me, I value that. I will hold on.",
+  "{b.gut} I knew I could rely on you."
+ ],
+ "pool.kritik_oeffentlich.r.r3": [
+  "{b.gut} If you stand behind me, I will show everyone at the weekend.",
+  "{b.gut} Then I will outplay the critics completely."
+ ],
+ "pool.kritik_oeffentlich.r.r4": [
+  "{b.gut} That you listen does me good, I no longer feel alone.",
+  "{b.gut} It was important that I could say it out loud once."
+ ],
+ "pool.kritik_oeffentlich.r.r5": [
+  "{b.neutral} I am thinking about how to deal with it. We will see.",
+  "{b.neutral} It changes nothing about the articles, but I hear you."
+ ],
+ "pool.kritik_oeffentlich.r.r6": [
+  "{b.neutral} I am too shaken right now to place this properly.",
+  "{b.neutral} Today it is fine, but I do not know about tomorrow."
+ ],
+ "pool.kritik_oeffentlich.r.r7": [
+  "{b.neutral} Fine, we do it that way and see what the press writes.",
+  "{b.neutral} I will wait and see how it develops over the next days."
+ ],
+ "pool.kritik_oeffentlich.r.r8": [
+  "{b.neutral} I can take a lot, this will pass.",
+  "{b.neutral} Criticism comes with the job, I shake it off."
+ ],
+ "pool.kritik_oeffentlich.r.r9": [
+  "{b.schlecht} You leave me alone with this, and people notice.",
+  "{b.schlecht} Then I stay the scapegoat, and nobody stands against it."
+ ],
+ "pool.kritik_oeffentlich.r.r10": [
+  "{b.schlecht} I will not take that from anyone, not even you!",
+  "{b.schlecht} If you talk like that, I will gladly give the press a word myself!"
+ ],
+ "pool.kritik_oeffentlich.r.r11": [
+  "{b.schlecht} Then I will find a club that stands by its players.",
+  "{b.schlecht} That is it for me, I no longer feel understood here."
+ ],
+ "pool.kritik_oeffentlich.r.r12": [
+  "{b.schlecht} I thought I was safe with you, that disappoints me deeply.",
+  "{b.schlecht} From you of all people I expected more backing."
+ ],
+ "pool.kritik_oeffentlich.x.x1": [
+  "He squares his shoulders and leaves the talk more composed. {entscheidung} In the dressing room he seems freer again.",
+  "{entscheidung} The player breathes out, and the mood in the team relaxes."
+ ],
+ "pool.kritik_oeffentlich.x.x2": [
+  "{entscheidung} How the press reacts remains to be seen, and he stays wary.",
+  "He nods slowly. {entscheidung} Whether it is enough will show in the next match."
+ ],
+ "pool.kritik_oeffentlich.x.x3": [
+  "{entscheidung} That same evening he gives a reporter an interview in which he holds nothing back.",
+  "The player leaves the room in anger. {entscheidung} The tabloids smell a quarrel."
+ ],
+ "pool.kritik_oeffentlich.x.x4": [
+  "You commit, and he listens closely. {entscheidung} He will hold you to your word.",
+  "{entscheidung} The press officer notes it down, and the player seems relieved."
+ ],
+ "pool.kritik_oeffentlich.x.x5": [
+  "He gets up and leaves the office. {entscheidung} The talk is over before it really began.",
+  "{entscheidung} The player stays silent and leaves without saying goodbye."
+ ],
+ "pool.berater_druck_wechsel.e.e1": [
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} I expect a concrete offer for him this week.",
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} We should talk about salary and length, and soon."
+ ],
+ "pool.berater_druck_wechsel.e.e2": [
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} Two clubs have prepared an offer well above what he earns here.",
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} An offer from another club is on the table, and I am not obliged to turn it down."
+ ],
+ "pool.berater_druck_wechsel.e.e3": [
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} The mood is tense and I do not want to get the tone wrong. But this cannot go on.",
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} I can tell how thin everyone's patience is, so I will get straight to the point."
+ ],
+ "pool.berater_druck_wechsel.e.e4": [
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} Either you move now or I say yes to the other clubs!",
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} I am giving you an ultimatum: I need clarity by the end of the week!"
+ ],
+ "pool.berater_druck_wechsel.e.e5": [
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} He wants to stay, but I cannot put him off indefinitely.",
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} His loyalty is an asset, but I cannot pay any bills with it."
+ ],
+ "pool.berater_druck_wechsel.e.e6": [
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} My client wants to win titles, and his salary should match.",
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} He has delivered on the pitch, now the club is on the move."
+ ],
+ "pool.berater_druck_wechsel.e.e7": [
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} He is ready to go unless you send a signal quickly.",
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} He has already said goodbye inside, and it is up to you to change that."
+ ],
+ "pool.berater_druck_wechsel.e.e8": [
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} You promised him a step, and nothing has happened. That is why I am impatient now.",
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} Your promise is still outstanding, and I now measure your credibility by it."
+ ],
+ "pool.berater_druck_wechsel.e.e9": [
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} His contract ends soon, and then he can talk to anyone free of a fee.",
+  "{b.berater_druck_wechsel_gruss} {b.berater_druck_wechsel_lage} The term expires soon, and then my options are greater than yours."
+ ],
+ "pool.berater_druck_wechsel.a.a1": [
+  "Then we negotiate. Give me the key figures, I will check what the club can bear.",
+  "Send me your proposals in writing, we will go through them together."
+ ],
+ "pool.berater_druck_wechsel.a.a2": [
+  "You get a binding answer from me within {frist} days. Until then you keep the other clubs waiting.",
+  "I set myself a deadline of {frist} days. After that an offer lies on your table."
+ ],
+ "pool.berater_druck_wechsel.a.a3": [
+  "I do not negotiate under pressure. The offer stays as it is.",
+  "Ultimatums will not get you far with me. There is nothing more."
+ ],
+ "pool.berater_druck_wechsel.a.a4": [
+  "We raise it, with more salary and, in return, a longer commitment.",
+  "I make a counteroffer: better pay, and he stays longer. I mean it."
+ ],
+ "pool.berater_druck_wechsel.a.a5": [
+  "I want to speak with {name} himself. What does he really want?",
+  "Let me hear him directly, then we talk numbers."
+ ],
+ "pool.berater_druck_wechsel.a.a6": [
+  "If you threaten me with the press, I inform the board, and then it gets uncomfortable for your client.",
+  "Whoever tries to blackmail me sees my other side. I take this to the president."
+ ],
+ "pool.berater_druck_wechsel.a.a7": [
+  "Let us finish the season first, then we will find a solution.",
+  "There is no rush, we will talk calmly after the winter."
+ ],
+ "pool.berater_druck_wechsel.a.a8": [
+  "He matters for our planning, but not at any price. I will explain the terms to you.",
+  "The club has a pay structure, and it applies to everyone. Here are my limits."
+ ],
+ "pool.berater_druck_wechsel.a.a9": [
+  "I understand that you want the best for him. Let us find a solution fair to both.",
+  "Your position is not easy, nor is mine. We will find a way together."
+ ],
+ "pool.berater_druck_wechsel.a.a10": [
+  "Talk to our sporting director about the figures, I give my word only afterwards.",
+  "Please settle the figures with the management, I decide on the sporting side."
+ ],
+ "pool.berater_druck_wechsel.a.a11": [
+  "I value our cooperation so far, so without detours: the offer is on the table, and it is sincere.",
+  "We know each other, so I say it straight: I want to keep him, but not at any price."
+ ],
+ "pool.berater_druck_wechsel.a.a12": [
+  "I note the ultimatum. It changes nothing about my line.",
+  "You may tell him the clock does not tick faster for me."
+ ],
+ "pool.berater_druck_wechsel.r.r1": [
+  "{b.gut} That is a word I can work with. I will slow the other clubs.",
+  "{b.gut} Good, that sounds like a way forward, I will pass it on."
+ ],
+ "pool.berater_druck_wechsel.r.r2": [
+  "{b.gut} You are fair to us, we will not forget that.",
+  "{b.gut} That way one can talk about anything, thank you for the tone."
+ ],
+ "pool.berater_druck_wechsel.r.r3": [
+  "{b.gut} If the numbers are right, he has little reason to leave.",
+  "{b.gut} That is an offer that matches his ambition."
+ ],
+ "pool.berater_druck_wechsel.r.r4": [
+  "{b.gut} He will appreciate that you take the time.",
+  "{b.gut} It already helps him that someone takes his situation seriously."
+ ],
+ "pool.berater_druck_wechsel.r.r5": [
+  "{b.neutral} I will pass that on and get back to you.",
+  "{b.neutral} I note it, I cannot say more today."
+ ],
+ "pool.berater_druck_wechsel.r.r6": [
+  "{b.neutral} I cannot predict how he will take it.",
+  "{b.neutral} He is changeable, I do not know whether he will accept it."
+ ],
+ "pool.berater_druck_wechsel.r.r7": [
+  "{b.neutral} Then we wait for the next step.",
+  "{b.neutral} I will write that down, the answer comes soon."
+ ],
+ "pool.berater_druck_wechsel.r.r8": [
+  "{b.neutral} We are in no hurry, this can be settled.",
+  "{b.neutral} I can wait too, if necessary."
+ ],
+ "pool.berater_druck_wechsel.r.r9": [
+  "{b.schlecht} I cannot go to my client with that answer.",
+  "{b.schlecht} That does not help me, nor him."
+ ],
+ "pool.berater_druck_wechsel.r.r10": [
+  "{b.schlecht} You do not talk to me like that, I will call the other clubs today!",
+  "{b.schlecht} Then I announce it in the press so everyone finds out!"
+ ],
+ "pool.berater_druck_wechsel.r.r11": [
+  "{b.schlecht} Then he signs elsewhere, there are plenty of interested parties.",
+  "{b.schlecht} I let him go if he wants, and he wants."
+ ],
+ "pool.berater_druck_wechsel.r.r12": [
+  "{b.schlecht} I expected more respect for my client.",
+  "{b.schlecht} That disappoints me, I worked well with the club for a long time."
+ ],
+ "pool.berater_druck_wechsel.x.x1": [
+  "The agent hangs up reassured. {entscheidung} The other clubs are set aside for now.",
+  "{entscheidung} The call ends on good terms, and the pressure eases."
+ ],
+ "pool.berater_druck_wechsel.x.x2": [
+  "{entscheidung} The agent promises to call back, but the distrust stays.",
+  "The call ends without result. {entscheidung} Both sides wait."
+ ],
+ "pool.berater_druck_wechsel.x.x3": [
+  "{entscheidung} A few hours later a hint appears in the paper, and the player avoids training.",
+  "The agent hangs up in anger. {entscheidung} The word of a conflict goes round the club."
+ ],
+ "pool.berater_druck_wechsel.x.x4": [
+  "You commit, and the agent notes it. {entscheidung} He will measure you by it.",
+  "{entscheidung} The agent confirms the date and keeps the other clubs waiting."
+ ],
+ "pool.berater_druck_wechsel.x.x5": [
+  "The agent ends the call abruptly. {entscheidung} It stays silent on the other end.",
+  "{entscheidung} He hangs up without saying goodbye."
+ ]
+}

@@ -1,0 +1,1226 @@
+{
+ "modellversion": 1,
+ "art": "vermutung",
+ "_hinweis": "Katalog der 41 Persönlichkeitsmerkmale (öffentliches Auftreten, erfundene Spielwerte). Alles hier ist austauschbar. wirkung = additive Verschiebung der zehn Charakterwerte (core/config/persoenlichkeit.json), gedeckelt je Wert durch wirkung_grenze; hooks = Größen, die kein Charakterwert trägt (presse: Medienpräsenz, kabine: Stimmung im Team, konflikt: Streitneigung), jeweils −50 … +50. Moral, Vertragsgespräch, Wechselbereitschaft, Teamrolle und Hierarchie wirken über die Charakterwerte (siehe wirkt_ueber) und werden nicht zusätzlich gerechnet. widerspruch = stark: schließen sich aus, schwach: selten zusammen. haeufigkeit = Anteil an allen vergebenen Merkmalen einer Vorlage mit 502 Einträgen (Prior der Schätzung). neigung wirkt nur auf die Schätzung: charakter = Faktor je Punkt der Wirkung (aus wirkung abgeleitet), alter [von, bis], rang und ruf (−1 … +1 je Abweichung vom Mittel), position {Position: Faktor}.",
+ "wirkung_grenze": 30,
+ "presse_faktor": 0.01,
+ "anzahl": {
+  "min": 2,
+  "max": 4,
+  "verteilung": {
+   "2": 0.62,
+   "3": 0.34,
+   "4": 0.04
+  }
+ },
+ "schaetzung": {
+  "charakter_faktor": 0.07,
+  "passt_zu_faktor": 2.2,
+  "schwach_faktor": 0.35,
+  "nation_streuung": 0.25,
+  "alter_aussen": 0.05,
+  "seed": 2026
+ },
+ "wirkt_ueber": {
+  "moral": [
+   "temperament",
+   "professionalitaet",
+   "ehrgeiz",
+   "ego"
+  ],
+  "vertragsgespraech": [
+   "ego",
+   "loyalitaet",
+   "ehrgeiz"
+  ],
+  "wechselbereitschaft": [
+   "loyalitaet",
+   "ehrgeiz"
+  ],
+  "teamrolle": [
+   "fuehrung",
+   "teamgeist"
+  ],
+  "hierarchie": [
+   "fuehrung",
+   "status",
+   "loyalitaet"
+  ],
+  "presse": "hooks.presse",
+  "kabine": "hooks.kabine",
+  "konflikt": "hooks.konflikt"
+ },
+ "merkmale": [
+  {
+   "id": "analytisch",
+   "import": "Analytisch",
+   "haeufigkeit": 0.0115,
+   "wirkung": {
+    "professionalitaet": 5,
+    "nervenstaerke": 4,
+    "temperament": -5
+   },
+   "hooks": {},
+   "widerspruch": {
+    "stark": [],
+    "schwach": []
+   },
+   "passt_zu": [
+    "perfektionist",
+    "diszipliniert",
+    "ruhig"
+   ],
+   "neigung": {
+    "position": {
+     "DM": 1.3,
+     "ZM": 1.2,
+     "TW": 1.2
+    }
+   }
+  },
+  {
+   "id": "anpassungsfaehig",
+   "import": "Anpassungsfähig",
+   "haeufigkeit": 0.0044,
+   "wirkung": {
+    "vertraeglichkeit": 6,
+    "teamgeist": 4,
+    "professionalitaet": 3
+   },
+   "hooks": {},
+   "widerspruch": {
+    "stark": [],
+    "schwach": []
+   },
+   "passt_zu": [
+    "teamplayer",
+    "vorbild_profi"
+   ],
+   "neigung": {}
+  },
+  {
+   "id": "arbeitstier",
+   "import": "Arbeitstier",
+   "haeufigkeit": 0.0371,
+   "wirkung": {
+    "professionalitaet": 8,
+    "ehrgeiz": 5,
+    "teamgeist": 3
+   },
+   "hooks": {
+    "kabine": 2
+   },
+   "widerspruch": {
+    "stark": [],
+    "schwach": []
+   },
+   "passt_zu": [
+    "kaempfer",
+    "diszipliniert",
+    "bescheiden"
+   ],
+   "neigung": {
+    "position": {
+     "ZM": 1.3,
+     "DM": 1.3,
+     "ST": 0.8
+    }
+   }
+  },
+  {
+   "id": "bescheiden",
+   "import": "Bescheiden",
+   "haeufigkeit": 0.0839,
+   "wirkung": {
+    "ego": -12,
+    "status": -6,
+    "vertraeglichkeit": 4
+   },
+   "hooks": {
+    "presse": -10
+   },
+   "widerspruch": {
+    "stark": [
+     "lautsprecher",
+     "showman",
+     "social_media_star"
+    ],
+    "schwach": [
+     "selbstbewusst",
+     "provokateur"
+    ]
+   },
+   "passt_zu": [
+    "teamplayer",
+    "arbeitstier",
+    "ruhig"
+   ],
+   "neigung": {
+    "rang": -0.3
+   }
+  },
+  {
+   "id": "direkt",
+   "import": "Direkt",
+   "haeufigkeit": 0.0106,
+   "wirkung": {
+    "vertraeglichkeit": -6,
+    "ego": 3,
+    "fuehrung": 3
+   },
+   "hooks": {
+    "presse": 5,
+    "konflikt": 4
+   },
+   "widerspruch": {
+    "stark": [],
+    "schwach": [
+     "bescheiden"
+    ]
+   },
+   "passt_zu": [
+    "selbstbewusst",
+    "fuehrungsspieler"
+   ],
+   "neigung": {}
+  },
+  {
+   "id": "diszipliniert",
+   "import": "Diszipliniert",
+   "haeufigkeit": 0.0009,
+   "wirkung": {
+    "professionalitaet": 10,
+    "temperament": -6
+   },
+   "hooks": {
+    "konflikt": -5
+   },
+   "widerspruch": {
+    "stark": [
+     "launisch",
+     "hitzkopf"
+    ],
+    "schwach": [
+     "exzentrisch",
+     "spassvogel"
+    ]
+   },
+   "passt_zu": [
+    "vorbild_profi",
+    "arbeitstier",
+    "perfektionist"
+   ],
+   "neigung": {}
+  },
+  {
+   "id": "ehrgeizig",
+   "import": "Ehrgeizig",
+   "haeufigkeit": 0.0468,
+   "wirkung": {
+    "ehrgeiz": 12,
+    "ego": 3
+   },
+   "hooks": {},
+   "widerspruch": {
+    "stark": [],
+    "schwach": []
+   },
+   "passt_zu": [
+    "siegermentalitaet",
+    "arbeitstier",
+    "kaempfer"
+   ],
+   "neigung": {
+    "alter": [
+     0,
+     32
+    ]
+   }
+  },
+  {
+   "id": "emotional",
+   "import": "Emotional",
+   "haeufigkeit": 0.0601,
+   "wirkung": {
+    "temperament": 10,
+    "nervenstaerke": -5
+   },
+   "hooks": {
+    "kabine": 3,
+    "konflikt": 3
+   },
+   "widerspruch": {
+    "stark": [
+     "ruhig",
+     "gelassen"
+    ],
+    "schwach": []
+   },
+   "passt_zu": [
+    "sensibel",
+    "launisch",
+    "kaempfer"
+   ],
+   "neigung": {}
+  },
+  {
+   "id": "erfahrener_mentor",
+   "import": "Erfahren-Mentor",
+   "haeufigkeit": 0.0115,
+   "wirkung": {
+    "fuehrung": 8,
+    "professionalitaet": 5,
+    "teamgeist": 4
+   },
+   "hooks": {
+    "kabine": 5
+   },
+   "widerspruch": {
+    "stark": [],
+    "schwach": []
+   },
+   "passt_zu": [
+    "vorbild_profi",
+    "fuehrungsspieler",
+    "gelassen"
+   ],
+   "neigung": {
+    "alter": [
+     29,
+     45
+    ]
+   }
+  },
+  {
+   "id": "extrovertiert",
+   "import": "Extrovertiert",
+   "haeufigkeit": 0.0168,
+   "wirkung": {
+    "vertraeglichkeit": 4,
+    "teamgeist": 3,
+    "status": 3
+   },
+   "hooks": {
+    "presse": 10,
+    "kabine": 3
+   },
+   "widerspruch": {
+    "stark": [
+     "introvertiert",
+     "medienscheu"
+    ],
+    "schwach": []
+   },
+   "passt_zu": [
+    "spassvogel",
+    "lautsprecher",
+    "showman"
+   ],
+   "neigung": {}
+  },
+  {
+   "id": "exzentrisch",
+   "import": "Exzentrisch",
+   "haeufigkeit": 0.0009,
+   "wirkung": {
+    "professionalitaet": -5,
+    "ego": 5,
+    "temperament": 3,
+    "status": 4
+   },
+   "hooks": {
+    "presse": 12
+   },
+   "widerspruch": {
+    "stark": [],
+    "schwach": [
+     "diszipliniert",
+     "vorbild_profi"
+    ]
+   },
+   "passt_zu": [
+    "kreativer_freigeist",
+    "showman"
+   ],
+   "neigung": {
+    "position": {
+     "TW": 1.5,
+     "OM": 1.2
+    }
+   }
+  },
+  {
+   "id": "fan_liebling",
+   "import": "Fan-Liebling",
+   "haeufigkeit": 0.0044,
+   "wirkung": {
+    "status": 10,
+    "loyalitaet": 5
+   },
+   "hooks": {
+    "presse": 6
+   },
+   "widerspruch": {
+    "stark": [
+     "wechselfreudig"
+    ],
+    "schwach": []
+   },
+   "passt_zu": [
+    "loyal",
+    "kaempfer",
+    "sozial_engagiert"
+   ],
+   "neigung": {
+    "ruf": 0.3
+   }
+  },
+  {
+   "id": "fruehreif",
+   "import": "Frühreif",
+   "haeufigkeit": 0.0283,
+   "wirkung": {
+    "nervenstaerke": 4,
+    "professionalitaet": 3,
+    "ehrgeiz": 3
+   },
+   "hooks": {},
+   "widerspruch": {
+    "stark": [],
+    "schwach": []
+   },
+   "passt_zu": [
+    "ehrgeizig",
+    "selbstbewusst"
+   ],
+   "neigung": {
+    "alter": [
+     15,
+     23
+    ]
+   }
+  },
+  {
+   "id": "fuehrungsspieler",
+   "import": "Führungsspieler",
+   "haeufigkeit": 0.061,
+   "wirkung": {
+    "fuehrung": 15,
+    "nervenstaerke": 4
+   },
+   "hooks": {
+    "kabine": 4
+   },
+   "widerspruch": {
+    "stark": [
+     "introvertiert"
+    ],
+    "schwach": []
+   },
+   "passt_zu": [
+    "vorbild_profi",
+    "kaempfer",
+    "siegermentalitaet",
+    "erfahrener_mentor"
+   ],
+   "neigung": {
+    "position": {
+     "IV": 1.3,
+     "DM": 1.3,
+     "TW": 1.2,
+     "ZM": 1.1
+    },
+    "alter": [
+     24,
+     45
+    ]
+   }
+  },
+  {
+   "id": "geduldig",
+   "import": "Geduldig",
+   "haeufigkeit": 0.0009,
+   "wirkung": {
+    "temperament": -8,
+    "nervenstaerke": 3
+   },
+   "hooks": {},
+   "widerspruch": {
+    "stark": [
+     "hitzkopf"
+    ],
+    "schwach": []
+   },
+   "passt_zu": [
+    "ruhig",
+    "gelassen",
+    "analytisch"
+   ],
+   "neigung": {}
+  },
+  {
+   "id": "gelassen",
+   "import": "Gelassen",
+   "haeufigkeit": 0.0106,
+   "wirkung": {
+    "temperament": -10,
+    "nervenstaerke": 6
+   },
+   "hooks": {
+    "konflikt": -4
+   },
+   "widerspruch": {
+    "stark": [
+     "hitzkopf",
+     "emotional",
+     "launisch",
+     "sensibel"
+    ],
+    "schwach": []
+   },
+   "passt_zu": [
+    "ruhig",
+    "nervenstark",
+    "geduldig"
+   ],
+   "neigung": {}
+  },
+  {
+   "id": "grosse_spiele",
+   "import": "Großer-Spiel-Spieler",
+   "haeufigkeit": 0.0035,
+   "wirkung": {
+    "nervenstaerke": 10,
+    "ehrgeiz": 3
+   },
+   "hooks": {},
+   "widerspruch": {
+    "stark": [
+     "sensibel"
+    ],
+    "schwach": []
+   },
+   "passt_zu": [
+    "nervenstark",
+    "siegermentalitaet",
+    "selbstbewusst"
+   ],
+   "neigung": {
+    "rang": 0.6
+   }
+  },
+  {
+   "id": "hitzkopf",
+   "import": "Hitzkopf",
+   "haeufigkeit": 0.0141,
+   "wirkung": {
+    "temperament": 14,
+    "nervenstaerke": -8,
+    "vertraeglichkeit": -4
+   },
+   "hooks": {
+    "konflikt": 8
+   },
+   "widerspruch": {
+    "stark": [
+     "ruhig",
+     "gelassen",
+     "geduldig"
+    ],
+    "schwach": [
+     "diszipliniert",
+     "vorbild_profi"
+    ]
+   },
+   "passt_zu": [
+    "emotional",
+    "kaempfer",
+    "provokateur"
+   ],
+   "neigung": {
+    "position": {
+     "IV": 1.3,
+     "DM": 1.3,
+     "TW": 0.7
+    }
+   }
+  },
+  {
+   "id": "introvertiert",
+   "import": "Introvertiert",
+   "haeufigkeit": 0.0186,
+   "wirkung": {
+    "teamgeist": -3,
+    "status": -4,
+    "fuehrung": -4
+   },
+   "hooks": {
+    "presse": -12
+   },
+   "widerspruch": {
+    "stark": [
+     "extrovertiert",
+     "lautsprecher",
+     "showman",
+     "social_media_star"
+    ],
+    "schwach": [
+     "fuehrungsspieler",
+     "medienprofi"
+    ]
+   },
+   "passt_zu": [
+    "medienscheu",
+    "ruhig",
+    "bescheiden",
+    "analytisch"
+   ],
+   "neigung": {
+    "position": {
+     "TW": 1.5
+    }
+   }
+  },
+  {
+   "id": "kreativer_freigeist",
+   "import": "Kreativer Freigeist",
+   "haeufigkeit": 0.0283,
+   "wirkung": {
+    "ego": 3,
+    "professionalitaet": -3,
+    "status": 3
+   },
+   "hooks": {
+    "presse": 5
+   },
+   "widerspruch": {
+    "stark": [],
+    "schwach": [
+     "diszipliniert"
+    ]
+   },
+   "passt_zu": [
+    "exzentrisch",
+    "risikofreudig",
+    "showman"
+   ],
+   "neigung": {
+    "position": {
+     "OM": 1.5,
+     "LA": 1.3,
+     "RA": 1.3,
+     "ZM": 1.1,
+     "IV": 0.6,
+     "TW": 0.5
+    }
+   }
+  },
+  {
+   "id": "kaempfer",
+   "import": "Kämpfer",
+   "haeufigkeit": 0.0804,
+   "wirkung": {
+    "ehrgeiz": 6,
+    "teamgeist": 5,
+    "professionalitaet": 3
+   },
+   "hooks": {
+    "kabine": 2
+   },
+   "widerspruch": {
+    "stark": [],
+    "schwach": []
+   },
+   "passt_zu": [
+    "arbeitstier",
+    "siegermentalitaet",
+    "fuehrungsspieler"
+   ],
+   "neigung": {
+    "position": {
+     "DM": 1.3,
+     "IV": 1.2,
+     "ZM": 1.2,
+     "OM": 0.8
+    }
+   }
+  },
+  {
+   "id": "launisch",
+   "import": "Launisch",
+   "haeufigkeit": 0.0097,
+   "wirkung": {
+    "temperament": 8,
+    "professionalitaet": -6,
+    "nervenstaerke": -5
+   },
+   "hooks": {
+    "kabine": -3,
+    "konflikt": 5
+   },
+   "widerspruch": {
+    "stark": [
+     "diszipliniert",
+     "gelassen",
+     "ruhig"
+    ],
+    "schwach": []
+   },
+   "passt_zu": [
+    "emotional",
+    "sensibel",
+    "exzentrisch"
+   ],
+   "neigung": {
+    "alter": [
+     0,
+     32
+    ]
+   }
+  },
+  {
+   "id": "lautsprecher",
+   "import": "Lautsprecher",
+   "haeufigkeit": 0.015,
+   "wirkung": {
+    "ego": 8,
+    "fuehrung": 4,
+    "vertraeglichkeit": -4,
+    "status": 4
+   },
+   "hooks": {
+    "presse": 18,
+    "konflikt": 3
+   },
+   "widerspruch": {
+    "stark": [
+     "introvertiert",
+     "bescheiden",
+     "medienscheu",
+     "ruhig"
+    ],
+    "schwach": [
+     "teamplayer"
+    ]
+   },
+   "passt_zu": [
+    "selbstbewusst",
+    "extrovertiert",
+    "showman"
+   ],
+   "neigung": {}
+  },
+  {
+   "id": "loyal",
+   "import": "Loyal",
+   "haeufigkeit": 0.0194,
+   "wirkung": {
+    "loyalitaet": 18
+   },
+   "hooks": {},
+   "widerspruch": {
+    "stark": [
+     "wechselfreudig"
+    ],
+    "schwach": []
+   },
+   "passt_zu": [
+    "fan_liebling",
+    "vorbild_profi",
+    "teamplayer"
+   ],
+   "neigung": {
+    "alter": [
+     22,
+     45
+    ]
+   }
+  },
+  {
+   "id": "medienprofi",
+   "import": "Medienprofi",
+   "haeufigkeit": 0.0106,
+   "wirkung": {
+    "professionalitaet": 4,
+    "status": 6,
+    "nervenstaerke": 3
+   },
+   "hooks": {
+    "presse": 30
+   },
+   "widerspruch": {
+    "stark": [
+     "medienscheu"
+    ],
+    "schwach": [
+     "introvertiert"
+    ]
+   },
+   "passt_zu": [
+    "selbstbewusst",
+    "vorbild_profi",
+    "extrovertiert"
+   ],
+   "neigung": {
+    "ruf": 0.4,
+    "rang": 0.3
+   }
+  },
+  {
+   "id": "medienscheu",
+   "import": "Medienscheu",
+   "haeufigkeit": 0.0018,
+   "wirkung": {
+    "status": -4
+   },
+   "hooks": {
+    "presse": -30
+   },
+   "widerspruch": {
+    "stark": [
+     "medienprofi",
+     "social_media_star",
+     "showman",
+     "lautsprecher",
+     "extrovertiert"
+    ],
+    "schwach": []
+   },
+   "passt_zu": [
+    "introvertiert",
+    "bescheiden",
+    "ruhig"
+   ],
+   "neigung": {}
+  },
+  {
+   "id": "nervenstark",
+   "import": "Nervenstark",
+   "haeufigkeit": 0.0088,
+   "wirkung": {
+    "nervenstaerke": 14
+   },
+   "hooks": {},
+   "widerspruch": {
+    "stark": [
+     "sensibel"
+    ],
+    "schwach": []
+   },
+   "passt_zu": [
+    "gelassen",
+    "grosse_spiele",
+    "selbstbewusst"
+   ],
+   "neigung": {
+    "position": {
+     "TW": 1.4,
+     "ST": 1.2
+    }
+   }
+  },
+  {
+   "id": "perfektionist",
+   "import": "Perfektionist",
+   "haeufigkeit": 0.0088,
+   "wirkung": {
+    "professionalitaet": 8,
+    "ehrgeiz": 4,
+    "temperament": 2
+   },
+   "hooks": {},
+   "widerspruch": {
+    "stark": [],
+    "schwach": [
+     "spassvogel",
+     "risikofreudig"
+    ]
+   },
+   "passt_zu": [
+    "diszipliniert",
+    "analytisch",
+    "vorbild_profi"
+   ],
+   "neigung": {
+    "position": {
+     "TW": 1.4
+    }
+   }
+  },
+  {
+   "id": "provokateur",
+   "import": "Provokateur",
+   "haeufigkeit": 0.0044,
+   "wirkung": {
+    "temperament": 5,
+    "vertraeglichkeit": -10,
+    "ego": 4
+   },
+   "hooks": {
+    "presse": 15,
+    "konflikt": 8,
+    "kabine": -3
+   },
+   "widerspruch": {
+    "stark": [
+     "ruhig",
+     "teamplayer",
+     "bescheiden"
+    ],
+    "schwach": [
+     "vorbild_profi",
+     "gelassen"
+    ]
+   },
+   "passt_zu": [
+    "hitzkopf",
+    "lautsprecher",
+    "direkt"
+   ],
+   "neigung": {
+    "position": {
+     "DM": 1.3,
+     "ST": 1.3,
+     "IV": 1.2,
+     "TW": 0.6
+    }
+   }
+  },
+  {
+   "id": "risikofreudig",
+   "import": "Risikofreudig",
+   "haeufigkeit": 0.0018,
+   "wirkung": {
+    "nervenstaerke": 4,
+    "professionalitaet": -3,
+    "ehrgeiz": 3
+   },
+   "hooks": {},
+   "widerspruch": {
+    "stark": [],
+    "schwach": [
+     "perfektionist",
+     "analytisch"
+    ]
+   },
+   "passt_zu": [
+    "kreativer_freigeist",
+    "ehrgeizig",
+    "selbstbewusst"
+   ],
+   "neigung": {
+    "position": {
+     "OM": 1.3,
+     "LA": 1.3,
+     "RA": 1.3,
+     "ST": 1.2
+    }
+   }
+  },
+  {
+   "id": "ruhig",
+   "import": "Ruhig",
+   "haeufigkeit": 0.1625,
+   "wirkung": {
+    "temperament": -8,
+    "ego": -3
+   },
+   "hooks": {
+    "konflikt": -3
+   },
+   "widerspruch": {
+    "stark": [
+     "hitzkopf",
+     "emotional",
+     "launisch",
+     "lautsprecher",
+     "showman",
+     "provokateur"
+    ],
+    "schwach": []
+   },
+   "passt_zu": [
+    "gelassen",
+    "geduldig",
+    "introvertiert"
+   ],
+   "neigung": {}
+  },
+  {
+   "id": "selbstbewusst",
+   "import": "Selbstbewusst",
+   "haeufigkeit": 0.1016,
+   "wirkung": {
+    "ego": 8,
+    "nervenstaerke": 5
+   },
+   "hooks": {
+    "presse": 6
+   },
+   "widerspruch": {
+    "stark": [
+     "sensibel"
+    ],
+    "schwach": [
+     "bescheiden"
+    ]
+   },
+   "passt_zu": [
+    "nervenstark",
+    "ehrgeizig",
+    "direkt"
+   ],
+   "neigung": {
+    "rang": 0.4
+   }
+  },
+  {
+   "id": "sensibel",
+   "import": "Sensibel",
+   "haeufigkeit": 0.0071,
+   "wirkung": {
+    "nervenstaerke": -8,
+    "temperament": 3
+   },
+   "hooks": {
+    "kabine": -2
+   },
+   "widerspruch": {
+    "stark": [
+     "nervenstark",
+     "gelassen",
+     "selbstbewusst",
+     "grosse_spiele"
+    ],
+    "schwach": []
+   },
+   "passt_zu": [
+    "emotional",
+    "launisch",
+    "introvertiert"
+   ],
+   "neigung": {}
+  },
+  {
+   "id": "showman",
+   "import": "Showman",
+   "haeufigkeit": 0.0115,
+   "wirkung": {
+    "ego": 8,
+    "status": 8
+   },
+   "hooks": {
+    "presse": 20
+   },
+   "widerspruch": {
+    "stark": [
+     "medienscheu",
+     "introvertiert",
+     "bescheiden",
+     "ruhig"
+    ],
+    "schwach": []
+   },
+   "passt_zu": [
+    "lautsprecher",
+    "social_media_star",
+    "exzentrisch",
+    "extrovertiert"
+   ],
+   "neigung": {
+    "position": {
+     "ST": 1.3,
+     "OM": 1.3,
+     "LA": 1.3,
+     "RA": 1.3,
+     "TW": 0.7,
+     "IV": 0.7
+    }
+   }
+  },
+  {
+   "id": "siegermentalitaet",
+   "import": "Siegermentalität",
+   "haeufigkeit": 0.0097,
+   "wirkung": {
+    "ehrgeiz": 10,
+    "nervenstaerke": 5
+   },
+   "hooks": {},
+   "widerspruch": {
+    "stark": [],
+    "schwach": []
+   },
+   "passt_zu": [
+    "ehrgeizig",
+    "grosse_spiele",
+    "kaempfer"
+   ],
+   "neigung": {
+    "rang": 0.5
+   }
+  },
+  {
+   "id": "social_media_star",
+   "import": "Social-Media-Star",
+   "haeufigkeit": 0.008,
+   "wirkung": {
+    "status": 10,
+    "ego": 4
+   },
+   "hooks": {
+    "presse": 20
+   },
+   "widerspruch": {
+    "stark": [
+     "medienscheu",
+     "introvertiert",
+     "bescheiden"
+    ],
+    "schwach": []
+   },
+   "passt_zu": [
+    "showman",
+    "extrovertiert",
+    "fan_liebling"
+   ],
+   "neigung": {
+    "alter": [
+     0,
+     32
+    ],
+    "ruf": 0.2
+   }
+  },
+  {
+   "id": "sozial_engagiert",
+   "import": "Sozial engagiert",
+   "haeufigkeit": 0.0062,
+   "wirkung": {
+    "vertraeglichkeit": 6,
+    "teamgeist": 3,
+    "professionalitaet": 3,
+    "status": 2
+   },
+   "hooks": {
+    "presse": 5
+   },
+   "widerspruch": {
+    "stark": [],
+    "schwach": []
+   },
+   "passt_zu": [
+    "vorbild_profi",
+    "fan_liebling",
+    "loyal"
+   ],
+   "neigung": {}
+  },
+  {
+   "id": "spassvogel",
+   "import": "Spaßvogel",
+   "haeufigkeit": 0.0283,
+   "wirkung": {
+    "vertraeglichkeit": 6,
+    "teamgeist": 4,
+    "professionalitaet": -3
+   },
+   "hooks": {
+    "kabine": 5,
+    "presse": 4
+   },
+   "widerspruch": {
+    "stark": [],
+    "schwach": [
+     "diszipliniert",
+     "perfektionist"
+    ]
+   },
+   "passt_zu": [
+    "extrovertiert",
+    "teamplayer"
+   ],
+   "neigung": {}
+  },
+  {
+   "id": "teamplayer",
+   "import": "Teamplayer",
+   "haeufigkeit": 0.0177,
+   "wirkung": {
+    "teamgeist": 12,
+    "vertraeglichkeit": 4,
+    "ego": -5
+   },
+   "hooks": {
+    "kabine": 3
+   },
+   "widerspruch": {
+    "stark": [
+     "provokateur"
+    ],
+    "schwach": [
+     "lautsprecher"
+    ]
+   },
+   "passt_zu": [
+    "bescheiden",
+    "vorbild_profi",
+    "arbeitstier"
+   ],
+   "neigung": {}
+  },
+  {
+   "id": "vorbild_profi",
+   "import": "Vorbild-Profi",
+   "haeufigkeit": 0.0283,
+   "wirkung": {
+    "professionalitaet": 12,
+    "teamgeist": 4
+   },
+   "hooks": {
+    "kabine": 3
+   },
+   "widerspruch": {
+    "stark": [
+     "provokateur",
+     "hitzkopf"
+    ],
+    "schwach": []
+   },
+   "passt_zu": [
+    "diszipliniert",
+    "teamplayer",
+    "loyal",
+    "perfektionist"
+   ],
+   "neigung": {}
+  },
+  {
+   "id": "wechselfreudig",
+   "import": "Wechselfreudig",
+   "haeufigkeit": 0.0044,
+   "wirkung": {
+    "loyalitaet": -18,
+    "ehrgeiz": 3
+   },
+   "hooks": {},
+   "widerspruch": {
+    "stark": [
+     "loyal",
+     "fan_liebling"
+    ],
+    "schwach": []
+   },
+   "passt_zu": [
+    "ehrgeizig",
+    "risikofreudig"
+   ],
+   "neigung": {
+    "alter": [
+     0,
+     33
+    ]
+   }
+  }
+ ]
+}

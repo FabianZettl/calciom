@@ -1,0 +1,11 @@
+# Alterswerte der zwei Ebenen (Konzept docs/intern/U23-KONZEPT.md). Jugend/Akademie: 16-17; U23: ab 18 bis 22 (Spieler im Jahr des 23. Geburtstags verlassen die Ebene).
+[alter]
+jugend_von = 16
+jugend_bis = 17
+u23_von = 18
+u23_bis = 22
+
+[doppelstatus]
+# U23-Spieler (ab 18) stehen dem Profikader zur Verfügung und sammeln Spielpraxis in der U23. Die Zuordnung ist PESM-intern, ins Spiel wird nichts geschrieben.
+standard_verfuegbar = false   # true: jeder U23-Rückgestufte gilt von selbst als für den Profikader verfügbar (sonst per Knopf)
+hochziehen_tage = 7           # Standarddauer eines kurzfristigen Hochziehens

@@ -1,0 +1,44 @@
+{
+  "_hinweis": "Texts on the topic of the dressing room. egoist_auf_der_bank: the captain writes to the manager (“Gaffer”, formal). Placeholders: {spieler}, {spieler_kurz}.",
+  "egoist_auf_der_bank.betreff": {
+    "standard": [
+      "{spieler_kurz} is causing unrest in the dressing room"
+    ]
+  },
+  "egoist_auf_der_bank.text": {
+    "standard": [
+      "Gaffer, {spieler_kurz} is on the bench and making sure everyone feels it. He's slagging off the line-up in the dressing room. Hardly anyone is listening yet, but it shouldn't carry on like this.",
+      "Gaffer, just between us: {spieler_kurz} can't cope with the bench. In training he does his own thing, and after the game he's the first one out. The lads notice."
+    ]
+  },
+  "egoist_auf_der_bank.antwort.gespraech": {
+    "standard": [
+      "I'll speak to him myself and tell him what he has to do to make the starting XI."
+    ]
+  },
+  "egoist_auf_der_bank.antwort.kapitaen": {
+    "standard": [
+      "Sort it out among yourselves. You have my trust in the dressing room."
+    ]
+  },
+  "egoist_auf_der_bank.antwort.durchgreifen": {
+    "standard": [
+      "Anyone who stirs up trouble trains with the second group for now."
+    ]
+  },
+  "egoist_auf_der_bank.rueckmeldung.gespraech": {
+    "standard": [
+      "Good, gaffer. If he hears it from you, he'll take it on board more readily. I'll keep the dressing room calm in the meantime."
+    ]
+  },
+  "egoist_auf_der_bank.rueckmeldung.kapitaen": {
+    "standard": [
+      "All right, I'll have a word with him. I can't promise you he'll listen to me, though."
+    ]
+  },
+  "egoist_auf_der_bank.rueckmeldung.durchgreifen": {
+    "standard": [
+      "Understood. That's a clear sign to everyone. Expect him not to take it quietly, though."
+    ]
+  }
+}

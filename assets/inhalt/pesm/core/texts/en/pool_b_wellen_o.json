@@ -1,0 +1,86 @@
+{
+ "pool.b.langzeitverletzt_anliegen_gruss": [
+  "Coach, do you have a minute for me?",
+  "Coach, may I ask you for a talk?"
+ ],
+ "pool.b.langzeitverletzt_anliegen_lage": [
+  "I have been out for so long, and I see the team moving on without me.",
+  "Rehab drags on, and with every week my worry about what becomes of me here grows."
+ ],
+ "pool.b.langzeitverletzt_anliegen_lage.hitzig": [
+  "I have been sitting in rehab for weeks and nobody tells me what happens afterwards!",
+  "For months I have been hobbling around here and nobody explains what awaits me!"
+ ],
+ "pool.b.langzeitverletzt_anliegen_lage.loyal": [
+  "I would do anything for this club, but being injured for so long gnaws at me.",
+  "I like it here and want to stay, but the long absence worries me about my future."
+ ],
+ "pool.b.langzeitverletzt_anliegen_lage.ehrgeizig": [
+  "Every day on the treatment table is a day someone else takes my place.",
+  "I grind in rehab like never before, but I fear the competition has taken my spot by now."
+ ],
+ "pool.b.langzeitverletzt_anliegen_lage.wechselfreudig": [
+  "Half a year without playing is lost time, and I wonder how much longer I should wait.",
+  "The long absence counts double in my career, and I am thinking about what that means for my future."
+ ],
+ "pool.b.langzeitverletzt_anliegen_lage.sensibel": [
+  "I swallowed it for a long time, but the long absence gets to me more than I show.",
+  "The longer I am gone, the quieter it gets around me, and that hurts."
+ ],
+ "pool.b.mentor_gibt_faehigkeit_gruss": [
+  "Do you have a minute? There is news from training.",
+  "Boss, do you have a moment? I have something good to report."
+ ],
+ "pool.b.mentor_gibt_faehigkeit_lage": [
+  "{name} has picked up a special skill from his mentor, you can already see it in training, or he is at least very close.",
+  "Working with the mentor is paying off: {name} almost has a special skill he took over from him."
+ ],
+ "pool.b.mentor_gibt_faehigkeit_lage.hitzig": [
+  "{name} walks around as if he had long overtaken his mentor since picking up his special skill!",
+  "Since {name} mastered his mentor's skill, he acts in the dressing room as if the place belonged to him!"
+ ],
+ "pool.b.mentor_gibt_faehigkeit_lage.loyal": [
+  "{name} raves about his mentor and says he would never have learned the new special skill without him.",
+  "{name} has taken over his mentor's special skill and speaks about him with great gratitude."
+ ],
+ "pool.b.mentor_gibt_faehigkeit_lage.ehrgeizig": [
+  "{name} wants to master his mentor's special skill completely and is already asking about the next one.",
+  "The new special skill has whetted {name}'s appetite, he wants to learn everything from his mentor."
+ ],
+ "pool.b.mentor_gibt_faehigkeit_lage.wechselfreudig": [
+  "{name} knows exactly that a special skill like this makes him more interesting to other clubs.",
+  "With his mentor's skill in his luggage {name} sees his market value rise and knows it."
+ ],
+ "pool.b.mentor_gibt_faehigkeit_lage.sensibel": [
+  "{name} does not yet trust his own progress and keeps asking me whether he really has the special skill.",
+  "{name} has taken over a special skill from his mentor but seems more unsure than proud."
+ ],
+ "pool.b.faehigkeit_verloren_position_gruss": [
+  "Do you have a minute? It is about a player.",
+  "Boss, I need a quick word about a player."
+ ],
+ "pool.b.faehigkeit_verloren_position_lage": [
+  "{name} has lost a special skill through his new position, one he no longer needs there, and he is attached to it.",
+  "Since {name} has been playing in the new position for a long time, his old special skill has faded, and he mourns it."
+ ],
+ "pool.b.faehigkeit_verloren_position_lage.hitzig": [
+  "{name} is raging because the new position took his special skill away!",
+  "{name} will not let it slide that he lost a special skill through the change of position!"
+ ],
+ "pool.b.faehigkeit_verloren_position_lage.loyal": [
+  "{name} took over the new position without grumbling, but losing a special skill hits him hard.",
+  "{name} changed position for the club, and in doing so lost a special skill that meant a lot to him."
+ ],
+ "pool.b.faehigkeit_verloren_position_lage.ehrgeizig": [
+  "{name} wants to be the best everywhere and is annoyed that he lost a special skill in the new position.",
+  "One special skill less means one edge less for {name}, and he does not want to accept that."
+ ],
+ "pool.b.faehigkeit_verloren_position_lage.wechselfreudig": [
+  "{name} lost a special skill through the new position and sees that as a reason to think about his future.",
+  "Losing a special skill in the new position gives {name} reason to doubt his place here."
+ ],
+ "pool.b.faehigkeit_verloren_position_lage.sensibel": [
+  "{name} feels somewhat devalued by losing a special skill in the new position.",
+  "That his special skill vanished in the new position gnaws at {name} more than he shows."
+ ]
+}

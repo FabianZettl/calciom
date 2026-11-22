@@ -1,0 +1,15 @@
+{
+  "note.komma": ",",
+  "note.quelle.geschaetzt": "geschätzt",
+  "note.quelle.keine": "keine Note",
+  "note.quelle.spiel": "Note des Spiels",
+  "note.satz": "%1: %2",
+  "note.satz_ohne": "Noch keine Einsätze, deshalb keine Note.",
+  "note.treiber.ausgeglichen": "ausgeglichen",
+  "note.treiber.spiel.minus": "schwache Spiele",
+  "note.treiber.spiel.plus": "starke Spiele",
+  "note.treiber.training.minus": "im Training schwach (Näherung)",
+  "note.treiber.training.plus": "im Training stark (Näherung)",
+  "note.treiber.verhalten.minus": "Verhalten gibt Anlass zur Sorge",
+  "note.treiber.verhalten.plus": "vorbildliches Verhalten"
+}

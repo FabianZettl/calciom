@@ -1,0 +1,143 @@
+# Saisonthemen der Tagesphasen (Startwerte, nicht kalibriert): Ereignisse, die OHNE Spielverlauf tragen (frische Karriere, Vorbereitung, spielfreie Tage).
+# Sie füllen eine Phase bis `min` (tagesphase.toml) auf, wenn die Pool-Themen (Auslöser aus Siegen, Niederlagen, Moral, Form ...) nicht genug liefern.
+# `braucht` = Felder des Kontexts (`pesm/backend/saison.py`), die da sein müssen, sonst gibt es das Thema nicht (nie ein Platzhalter im Text).
+# `sperre` (Standard unten) = Tage, die dasselbe Thema ruhen soll; reicht der Vorrat sonst nicht, kommt das am längsten ruhende Thema trotzdem (ein Tag bleibt nie leer), nie zweimal am selben Tag.
+# Texte: sa.<id>.titel und sa.<id>.text (Platzhalter {verein} {gegner} {wann} ...), Absender: sa.absender.<absender>.
+[standard]
+sperre = 4
+
+[[thema]]
+id = "training_fitness"
+phase = "morgen"
+absender = "co_trainer"
+kategorie = "kader"
+braucht = ["n_kader", "ausfall", "spielsatz"]
+link = { seite = "vorbereitung", text = "pe.akt.aufstellung" }
+[[thema]]
+id = "presse_saisonziel"
+phase = "morgen"
+absender = "presse"
+kategorie = "presse"
+braucht = ["verein", "ziel"]
+link = { seite = "ziele", text = "pe.akt.ziele" }
+[[thema]]
+id = "presse_ausblick"
+phase = "morgen"
+absender = "presse"
+kategorie = "presse"
+braucht = ["verein", "n_kader", "alter"]
+link = { seite = "kader", text = "pe.akt.kader" }
+[[thema]]
+id = "vorstand_erwartung"
+phase = "morgen"
+absender = "vorstand"
+kategorie = "verein"
+braucht = ["verein", "ziel"]
+link = { seite = "praesidium", text = "pe.akt.praesidium" }
+[[thema]]
+id = "vorstand_budget"
+phase = "morgen"
+absender = "vorstand"
+kategorie = "verein"
+braucht = ["verein", "budget"]
+link = { seite = "praesidium", text = "pe.akt.praesidium" }
+[[thema]]
+id = "berater_kaderplanung"
+phase = "morgen"
+absender = "sportdirektor"
+kategorie = "transfer"
+braucht = ["luecke"]
+link = { seite = "kader", text = "pe.akt.kader" }
+[[thema]]
+id = "berater_kader_ok"
+phase = "morgen"
+absender = "sportdirektor"
+kategorie = "transfer"
+braucht = ["n_kader", "alter", "ohne_luecke"]
+link = { seite = "kader", text = "pe.akt.kader" }
+
+[[thema]]
+id = "spieler_rolle"
+phase = "mittag"
+absender = "spieler"
+kategorie = "kader"
+braucht = ["ref_rolle", "n_pos"]
+link = { seite = "aufstellung_und_taktik", text = "pe.akt.aufstellung" }
+[[thema]]
+id = "spieler_vertrag"
+phase = "mittag"
+absender = "berater"
+kategorie = "kader"
+braucht = ["ref_vertrag", "monate"]
+link = { seite = "kader", text = "pe.akt.kader" }
+[[thema]]
+id = "transfer_geruecht"
+phase = "mittag"
+absender = "presse"
+kategorie = "transfer"
+braucht = ["ref_top", "gehalt_top"]
+link = { seite = "transfermarkt", text = "pe.akt.transfermarkt" }
+[[thema]]
+id = "transfer_fenster"
+phase = "mittag"
+absender = "sportdirektor"
+kategorie = "transfer"
+braucht = ["fenster_rest", "budget"]
+link = { seite = "transfermarkt", text = "pe.akt.transfermarkt" }
+[[thema]]
+id = "medizin_check"
+phase = "mittag"
+absender = "arzt"
+kategorie = "kader"
+braucht = ["n_kader", "ausfall"]
+link = { seite = "medizin", text = "pe.akt.arzt" }
+[[thema]]
+id = "scouting_gegner"
+phase = "mittag"
+absender = "scout"
+kategorie = "transfer"
+braucht = ["gegner", "wann", "ort"]
+link = { seite = "vorbereitung", text = "pe.akt.bericht" }
+[[thema]]
+id = "jugend_blick"
+phase = "mittag"
+absender = "jugend"
+kategorie = "kader"
+braucht = ["jung_da"]
+link = { seite = "kader", text = "pe.akt.kader" }
+
+[[thema]]
+id = "fans_spieltag"
+phase = "abend"
+absender = "fans"
+kategorie = "verein"
+braucht = ["gegner", "wann", "ort"]
+link = { seite = "wettbewerbe", text = "pe.akt.tabelle" }
+[[thema]]
+id = "kabine_mischung"
+phase = "abend"
+absender = "kabine"
+kategorie = "kader"
+braucht = ["n_kader", "n_jung", "n_alt"]
+link = { seite = "kader", text = "pe.akt.kader" }
+[[thema]]
+id = "abend_bilanz"
+phase = "abend"
+absender = "co_trainer"
+kategorie = "kader"
+braucht = ["n_heute", "n_offen"]
+link = { seite = "posteingang", text = "pe.akt.bericht" }
+[[thema]]
+id = "abend_vorschau"
+phase = "abend"
+absender = "co_trainer"
+kategorie = "kader"
+braucht = ["spielsatz", "gegner"]
+link = { seite = "vorbereitung", text = "pe.akt.aufstellung" }
+[[thema]]
+id = "abend_stab"
+phase = "abend"
+absender = "co_trainer"
+kategorie = "kader"
+braucht = ["n_kader", "ausfall"]
+link = { seite = "kader", text = "pe.akt.kader" }

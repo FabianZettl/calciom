@@ -1,0 +1,118 @@
+{
+ "pool.b.arzt_rotation_empfohlen_gruss": [
+  "Coach, a medical opinion before matchday.",
+  "Coach, do you have a moment? It is about the load figures.",
+  "Coach, the weekly review is in and I have to flag something."
+ ],
+ "pool.b.arzt_rotation_empfohlen_haltung": [
+  "{name} claims he is fine, but his figures say otherwise.",
+  "{name} has not complained, and that is exactly what makes me suspicious."
+ ],
+ "pool.b.arzt_rotation_empfohlen_haltung.hitzig": [
+  "{name} has already told me he will not let himself be dropped from the squad.",
+  "{name} raised his voice when I merely mentioned the word rest."
+ ],
+ "pool.b.arzt_rotation_empfohlen_haltung.loyal": [
+  "{name} would play on one leg for you, and that is exactly what I have to protect him from.",
+  "{name} says he will do whatever you ask of him."
+ ],
+ "pool.b.arzt_rotation_empfohlen_haltung.ehrgeizig": [
+  "{name} does not want to miss a minute and asked me to rate his figures more leniently.",
+  "{name} sees every rest as a lost chance at a regular place."
+ ],
+ "pool.b.arzt_rotation_empfohlen_haltung.wechselfreudig": [
+  "{name} remarked in passing that elsewhere he would be allowed to play straight through.",
+  "{name} hinted that being rested here feels too much like mistrust."
+ ],
+ "pool.b.arzt_rotation_empfohlen_haltung.sensibel": [
+  "{name} seems low and does not dare to ask for a rest himself.",
+  "{name} fears looking weak if he is rested."
+ ],
+ "pool.b.arzt_muskelprobleme_gruss": [
+  "Coach, a quick note from the treatment room.",
+  "Coach, {name} was just with me and I have to tell you something.",
+  "Coach, we need to talk about a muscle."
+ ],
+ "pool.b.arzt_muskelprobleme_haltung": [
+  "{name} plays it down, but winces at every pressure point.",
+  "{name} says it is only a twinge, and still flinches during the examination."
+ ],
+ "pool.b.arzt_muskelprobleme_haltung.hitzig": [
+  "{name} snapped at me not to make such a fuss.",
+  "{name} wants to hear nothing of it and is already halfway out the door."
+ ],
+ "pool.b.arzt_muskelprobleme_haltung.loyal": [
+  "{name} says he will grit his teeth if you need him.",
+  "{name} does not want to let you down and would rather not mention how it feels."
+ ],
+ "pool.b.arzt_muskelprobleme_haltung.ehrgeizig": [
+  "{name} badly wants to play and is already asking me for ways to get him fit.",
+  "{name} has announced he will not give up his place, however it pulls."
+ ],
+ "pool.b.arzt_muskelprobleme_haltung.wechselfreudig": [
+  "{name} keeps looking at his phone and asks whether an absence will hurt his market value.",
+  "{name} spoke of not being able to afford a break if he wants to move on."
+ ],
+ "pool.b.arzt_muskelprobleme_haltung.sensibel": [
+  "{name} seems unsettled and does not trust his body at the moment.",
+  "{name} speaks quietly and asks whether he is only imagining it."
+ ],
+ "pool.b.reha_fortschritt_gruss": [
+  "Coach, I have pleasing news from rehab.",
+  "Coach, a short interim report on {name}, and it is a good one.",
+  "Coach, rehab is going better than expected."
+ ],
+ "pool.b.reha_fortschritt_haltung": [
+  "{name} works cleanly and does not complain, which I like.",
+  "{name} is punctual and focused at every session."
+ ],
+ "pool.b.reha_fortschritt_haltung.hitzig": [
+  "{name} is already pushing for a return and keeps running ahead of me.",
+  "{name} storms into every session as if trying to catch up the time."
+ ],
+ "pool.b.reha_fortschritt_haltung.loyal": [
+  "{name} says he wants to help the team as soon as possible.",
+  "{name} asks every day whether he can pay something back to you yet."
+ ],
+ "pool.b.reha_fortschritt_haltung.ehrgeizig": [
+  "{name} wants to know when he gets his place back, and drives himself to the limit.",
+  "{name} has set himself a rehab target and regularly exceeds it."
+ ],
+ "pool.b.reha_fortschritt_haltung.wechselfreudig": [
+  "{name} asks strikingly often what his prospects in the squad look like.",
+  "{name} wants to be back quickly so he can show himself in the shop window again."
+ ],
+ "pool.b.reha_fortschritt_haltung.sensibel": [
+  "{name} is relieved but still careful and does not quite trust the good figures.",
+  "{name} is quietly pleased and secretly fears it is too good to be true."
+ ],
+ "pool.b.reha_rueckschlag_gruss": [
+  "Coach, do you have a moment? There is no good news.",
+  "Coach, I am afraid I have to report a setback.",
+  "Coach, please sit down, it is about {name}."
+ ],
+ "pool.b.reha_rueckschlag_haltung": [
+  "{name} sits quietly in the treatment room and stares at his foot.",
+  "{name} has barely said a word since he found out."
+ ],
+ "pool.b.reha_rueckschlag_haltung.hitzig": [
+  "{name} kicked the wall in anger and is talking himself into trouble.",
+  "{name} blames the staff and is hard to calm down."
+ ],
+ "pool.b.reha_rueckschlag_haltung.loyal": [
+  "{name} apologises to me for letting you down yet again.",
+  "{name} blames himself for being unable to help the team."
+ ],
+ "pool.b.reha_rueckschlag_haltung.ehrgeizig": [
+  "{name} wants to train on at once and asks how quickly he can make up the lost ground.",
+  "{name} sees his whole season at risk and seems turned to stone."
+ ],
+ "pool.b.reha_rueckschlag_haltung.wechselfreudig": [
+  "{name} hinted that in this situation he might be treated better elsewhere.",
+  "{name} asks how a setback affects his future and whether the club still believes in him."
+ ],
+ "pool.b.reha_rueckschlag_haltung.sensibel": [
+  "{name} is crushed and fighting back tears.",
+  "{name} asks quietly whether he will ever be his old self again."
+ ]
+}

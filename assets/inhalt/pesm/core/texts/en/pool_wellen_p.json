@@ -1,0 +1,626 @@
+{
+ "pool.rivalen_gleiche_position.a.a1": [
+  "With me it is competition alone that decides, and it is open for both of you. Whoever brings more in training and in games plays.",
+  "You both have the same chance and I want it to stay that way. Nobody has inherited a regular place with me."
+ ],
+ "pool.rivalen_gleiche_position.a.a2": [
+  "I will give you the criteria: the week in training, form over recent games and what the opponent demands. Then I decide, and you can hold me to it at any time.",
+  "Three things count: training performance, form and fit against the opponent. If you like we can go through the last weeks point by point."
+ ],
+ "pool.rivalen_gleiche_position.a.a3": [
+  "We turn it into a rotation: you share the games and nobody stays out for weeks. Whoever delivers in his turn gets the next one.",
+  "I will plan you both in alternately so neither withers. The competition stays, only the minutes are shared more fairly."
+ ],
+ "pool.rivalen_gleiche_position.a.a4": [
+  "I understand how that feels. I will put you both at one table so you say it openly and I am there before anything boils over.",
+  "This is not easy for you, I can see that. We will talk the three of us, each says what bothers him, and afterwards things go on more cleanly."
+ ],
+ "pool.rivalen_gleiche_position.a.a5": [
+  "You will get your chance, with real minutes within {frist} days. What you make of it is then up to you.",
+  "I promise you a start on your position within {frist} days. Use it."
+ ],
+ "pool.rivalen_gleiche_position.a.a6": [
+  "The assistant coach will run you both through the same drills and record the numbers. Then we talk with data rather than feelings.",
+  "I will ask the assistant coach to assess you both soberly. That way it is not just my impression that decides."
+ ],
+ "pool.rivalen_gleiche_position.a.a7": [
+  "My line-up is not up for negotiation, not even with you. Whoever complains instead of delivering does not help himself.",
+  "I do not discuss this. I pick whom I think right and that closes the subject."
+ ],
+ "pool.rivalen_gleiche_position.a.a8": [
+  "I stand by it: right now he is ahead. You can only change that on the pitch, not in my office.",
+  "My decision stands. If you want more games, convince me in training and not with complaints."
+ ],
+ "pool.rivalen_gleiche_position.a.a9": [
+  "What do you yourself think you lack compared to him, and what can you do better than he can?",
+  "How do you see things between the two of you, quite soberly and without resentment?"
+ ],
+ "pool.rivalen_gleiche_position.a.a10": [
+  "Stay patient, your time will come, with me that has almost always paid off.",
+  "Do not let your head drop, this changes faster than you think."
+ ],
+ "pool.rivalen_gleiche_position.a.a11": [
+  "Be glad there are two of you, otherwise you would only be competing with yourself. And competition makes you faster, even the physio says so.",
+  "Two on one position is like two shoes for one foot: one always fits better, and both belong in the cupboard. Take it with humour, we will find a solution."
+ ],
+ "pool.rivalen_gleiche_position.a.a12": [
+  "The position is taken and I will not change that. Better find another job in the team.",
+  "I do not see you ahead on that position. I advise you to concentrate on the role you have."
+ ],
+ "pool.rivalen_gleiche_position.r.r1": [
+  "{b.gut} That is fair, I can live and work with that.",
+  "{b.gut} Thanks for telling me so openly."
+ ],
+ "pool.rivalen_gleiche_position.r.r2": [
+  "{b.gut} You can be relied on, I will even help the other one if he lets me.",
+  "{b.gut} Then I am reassured and will carry on calmly."
+ ],
+ "pool.rivalen_gleiche_position.r.r3": [
+  "{b.gut} That is all I need: a chance, and the rest comes from me.",
+  "{b.gut} Then I will get going and leave no doubt."
+ ],
+ "pool.rivalen_gleiche_position.r.r4": [
+  "{b.gut} That you listen to me like this really does me good.",
+  "{b.gut} For the first time in weeks I feel seen."
+ ],
+ "pool.rivalen_gleiche_position.r.r5": [
+  "{b.neutral} I will think it over and we will see what the coming weeks bring.",
+  "{b.neutral} That sounds reasonable, but nothing is proven yet."
+ ],
+ "pool.rivalen_gleiche_position.r.r6": [
+  "{b.neutral} Sometimes I understand it, sometimes I do not, maybe it is just the day.",
+  "{b.neutral} Today I accept it, tomorrow I may see it differently."
+ ],
+ "pool.rivalen_gleiche_position.r.r7": [
+  "{b.neutral} Then all I can do is keep pushing in training.",
+  "{b.neutral} Fine, then I will wait and see how it develops."
+ ],
+ "pool.rivalen_gleiche_position.r.r8": [
+  "{b.neutral} It is what it is, I simply do my job.",
+  "{b.neutral} Getting worked up will not get me onto the pitch any faster."
+ ],
+ "pool.rivalen_gleiche_position.r.r9": [
+  "{b.schlecht} You have explained nothing to me, and I will remember that.",
+  "{b.schlecht} That leaves everything as it is, and that is exactly my problem."
+ ],
+ "pool.rivalen_gleiche_position.r.r10": [
+  "{b.schlecht} If you brush me off like this, I will soon stop keeping out of the other one's way!",
+  "{b.schlecht} I will not stand for that, I will raise it in front of the team!"
+ ],
+ "pool.rivalen_gleiche_position.r.r11": [
+  "{b.schlecht} Then I know where I stand, and my agent will look around elsewhere.",
+  "{b.schlecht} Good to know I am not needed here."
+ ],
+ "pool.rivalen_gleiche_position.r.r12": [
+  "{b.schlecht} Of all people I expected more from you, I have never behaved otherwise.",
+  "{b.schlecht} That hurts, and more than I care to show."
+ ],
+ "pool.rivalen_gleiche_position.x.x1": [
+  "The player looks relieved. {entscheidung} In training the two rivals look at each other again, and the tension in the dressing room eases noticeably.",
+  "{entscheidung} In the following days the two are seen running drills together, and nobody talks about favouritism any more."
+ ],
+ "pool.rivalen_gleiche_position.x.x2": [
+  "The player nods but does not seem convinced. {entscheidung} Whether the competition runs fairly will be settled on the coming match days.",
+  "{entscheidung} The player walks off thoughtfully, the question of the place remains unanswered."
+ ],
+ "pool.rivalen_gleiche_position.x.x3": [
+  "The player leaves the office without a word. {entscheidung} The same day the first team-mates are already discussing the quarrel between the two rivals.",
+  "{entscheidung} Little groups form around the two in the dressing room, and the mood tips."
+ ],
+ "pool.rivalen_gleiche_position.x.x4": [
+  "The conversation breaks off. {entscheidung} The player goes back to training and says nothing.",
+  "{entscheidung} The player waves it away and leaves without looking back."
+ ],
+ "pool.rivalen_gleiche_position.x.x5": [
+  "The player pauses briefly. {entscheidung} He returns to training with a clear aim for the next games.",
+  "{entscheidung} The player has something solid in hand and appears noticeably more focused the next day."
+ ],
+ "pool.rivalen_gleiche_position.e.e1": [
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} I want to understand why it is always him you pick.",
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Please tell me what decides it between the two of us."
+ ],
+ "pool.rivalen_gleiche_position.e.e2": [
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} It matters to me that the competition stays honest, that is all I ask.",
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} I do not want special treatment, only the same chances as he gets."
+ ],
+ "pool.rivalen_gleiche_position.e.e3": [
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} I know things are simmering in the dressing room right now, but I have to get this off my chest.",
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Sorry for the bad timing, it sits heavily on my stomach."
+ ],
+ "pool.rivalen_gleiche_position.e.e4": [
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} If this goes on it will blow up between him and me!",
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} I am already keeping out of his way so it does not escalate, but I will not hold out for ever!"
+ ],
+ "pool.rivalen_gleiche_position.e.e5": [
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} For the club's sake I keep quiet, but saying it plainly once would be better for all of us.",
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} The team is close to my heart, so I would rather tell you than the others."
+ ],
+ "pool.rivalen_gleiche_position.e.e6": [
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Give me one week on equal terms and you will see which of us belongs in there.",
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} I want to earn the place, so tell me what I have to deliver."
+ ],
+ "pool.rivalen_gleiche_position.e.e7": [
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Other clubs would let me play this position straight away, you know that.",
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} I only want to know whether I have a future in this position here or should look for something new."
+ ],
+ "pool.rivalen_gleiche_position.e.e8": [
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} I have the feeling the other one is your favourite and I am invisible.",
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} I am already withdrawing, because I am tired of being disappointed every single time."
+ ],
+ "pool.rivalen_gleiche_position.e.e9": [
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} The fact that we hardly greet each other in the dressing room now does not make it easier.",
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} Our fight for the place has long become a fight between the two of us, and the whole team feels it."
+ ],
+ "pool.rivalen_gleiche_position.e.e10": [
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} I have hardly collected any minutes lately, that cannot be the point.",
+  "{b.rivalen_gleiche_position_gruss} {b.rivalen_gleiche_position_lage} If I only ever come off the bench I will forget how to play."
+ ],
+ "pool.elfmeter_streit.a.a1": [
+  "We set a fixed order: first, second, third taker. You will have it in writing today, and whoever is first in the hierarchy shoots without debate.",
+  "From now on a clear hierarchy applies to penalties. I will write it down and hang it in the dressing room, and that ends the quarrel."
+ ],
+ "pool.elfmeter_streit.a.a2": [
+  "You are the captain, you decide on the pitch who shoots. I trust you with it and the others will have to accept it.",
+  "The decision is yours. You see on the spot who looks sure, and I will back your choice."
+ ],
+ "pool.elfmeter_streit.a.a3": [
+  "I do not want a rigid list, I want form on the day to decide. Whoever scores in training and in the game that week steps up.",
+  "Whoever is surest on the day shoots. For that I will give you feedback beforehand on how the takers stand in training."
+ ],
+ "pool.elfmeter_streit.a.a4": [
+  "We settle it in training: all candidates shoot several rounds under pressure and the success rate decides. After that there are no excuses.",
+  "I will set up a penalty contest, honest and with a count. The result stands, and whoever does not accept it has a problem with me."
+ ],
+ "pool.elfmeter_streit.a.a5": [
+  "I will talk to both takers in private. Often it is not about the ball at all but about recognition, and we can sort that.",
+  "I will take both aside, one by one and then together. When each is heard such a quarrel usually dissolves by itself."
+ ],
+ "pool.elfmeter_streit.a.a6": [
+  "Let them argue, whoever fights like that for the ball is at least not afraid of the spot. But yes, we will sort it before the referee reaches for a card.",
+  "Better two want to shoot than nobody dares. We will find a solution, I promise."
+ ],
+ "pool.elfmeter_streit.a.a7": [
+  "You need not bother me with that. A captain sorts this out himself, otherwise he is no captain.",
+  "That is no matter for my office. Sort it among yourselves and do not come running every time."
+ ],
+ "pool.elfmeter_streit.a.a8": [
+  "I decide who shoots, from the touchline. There will be no more debates on the pitch, not even with you.",
+  "I make the decision alone, each time before the game. Whoever resists is no longer named as a taker."
+ ],
+ "pool.elfmeter_streit.a.a9": [
+  "Whom would you like to see go to the spot in a tight game, and whom would you rather not?",
+  "How sure are the two quarrellers really in training, and who else would back himself to do it?"
+ ],
+ "pool.elfmeter_streit.a.a10": [
+  "I will fix the order within {frist} days, and you have the last word on filling the second and third taker.",
+  "In {frist} days the hierarchy is set, and I will involve you as captain in the selection."
+ ],
+ "pool.elfmeter_streit.a.a11": [
+  "It settles itself as soon as one of them scores. I will not touch it and I advise you not to either.",
+  "I do not see a problem I have to solve here. Let it run, we have more important things."
+ ],
+ "pool.elfmeter_streit.a.a12": [
+  "The team should have a say: you agree on three names and I confirm the result if it can be justified.",
+  "Let the players propose who they think is sure, and I will decide with an eye on the figures."
+ ],
+ "pool.elfmeter_streit.r.r1": [
+  "{b.gut} That is exactly the clear line we were missing.",
+  "{b.gut} With that I can go into the dressing room and end the quarrel."
+ ],
+ "pool.elfmeter_streit.r.r2": [
+  "{b.gut} Thanks for backing me, I will take care of the rest.",
+  "{b.gut} That is a good feeling, I will implement it calmly and cleanly."
+ ],
+ "pool.elfmeter_streit.r.r3": [
+  "{b.gut} That is how I want it, whoever scores shoots, and everyone knows where they stand.",
+  "{b.gut} With that we win points that would otherwise be left on the grass."
+ ],
+ "pool.elfmeter_streit.r.r4": [
+  "{b.gut} That you take the two aside relieves me enormously.",
+  "{b.gut} I am glad I do not have to carry this alone."
+ ],
+ "pool.elfmeter_streit.r.r5": [
+  "{b.neutral} I will see how the team takes it and report back.",
+  "{b.neutral} Let us see whether the two can live with that."
+ ],
+ "pool.elfmeter_streit.r.r6": [
+  "{b.neutral} Today it sounds fine, at the next penalty we will see how it really is.",
+  "{b.neutral} I hope it helps, I am not sure."
+ ],
+ "pool.elfmeter_streit.r.r7": [
+  "{b.neutral} Then I will take it to the dressing room and wait for the reaction.",
+  "{b.neutral} Fine, I will pass it on and keep you posted."
+ ],
+ "pool.elfmeter_streit.r.r8": [
+  "{b.neutral} It is only a penalty, we will survive.",
+  "{b.neutral} I am not losing sleep over it, we will find a way."
+ ],
+ "pool.elfmeter_streit.r.r9": [
+  "{b.schlecht} That does not settle the quarrel, it only moves it elsewhere.",
+  "{b.schlecht} That does not help me one bit in the dressing room."
+ ],
+ "pool.elfmeter_streit.r.r10": [
+  "{b.schlecht} Great, then the two can fight in front of your eyes!",
+  "{b.schlecht} I will not be fobbed off like that, I will make sure someone shoots myself!"
+ ],
+ "pool.elfmeter_streit.r.r11": [
+  "{b.schlecht} Then I drop the subject altogether and hold back otherwise too.",
+  "{b.schlecht} If this is how it runs here I will think about my future in the team."
+ ],
+ "pool.elfmeter_streit.r.r12": [
+  "{b.schlecht} I would have thought you take me more seriously as captain.",
+  "{b.schlecht} That disappoints me, I stood behind you."
+ ],
+ "pool.elfmeter_streit.x.x1": [
+  "The captain exhales audibly. {entscheidung} At the next penalty in training the taker is fixed without a word, and the team accepts it.",
+  "{entscheidung} Shortly afterwards the order of takers hangs in the dressing room and the quarrel is off the table."
+ ],
+ "pool.elfmeter_streit.x.x2": [
+  "The captain nods hesitantly. {entscheidung} How long it holds will be shown by the next penalty in a game.",
+  "{entscheidung} The captain returns to the team with mixed feelings."
+ ],
+ "pool.elfmeter_streit.x.x3": [
+  "The captain presses his lips together. {entscheidung} Before the next training session the dressing room is already talking about the penalty row and the coach's stance.",
+  "{entscheidung} The two takers no longer talk to each other and the captain steps between the fronts."
+ ],
+ "pool.elfmeter_streit.x.x4": [
+  "The conversation ends abruptly. {entscheidung} The captain walks out and the subject is left untouched.",
+  "{entscheidung} The captain shrugs and leaves the quarrel unattended."
+ ],
+ "pool.elfmeter_streit.x.x5": [
+  "The captain straightens up. {entscheidung} He now has a firm date and will prepare the takers accordingly.",
+  "{entscheidung} With a clear promise in his pocket the captain returns to the team with confidence."
+ ],
+ "pool.elfmeter_streit.e.e1": [
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} I am asking you for a clear rule so we stop debating in front of the referee every time.",
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} A fixed hierarchy from first to third taker would save us a lot of trouble."
+ ],
+ "pool.elfmeter_streit.e.e2": [
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} The team looks to me, and I do not want to have to decide every time myself.",
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} I can settle the argument, but only if I know what you have in mind."
+ ],
+ "pool.elfmeter_streit.e.e3": [
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Things are not going well, and now the quarrel over the penalty comes on top.",
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Sorry to bother you with something like this when things are hard anyway."
+ ],
+ "pool.elfmeter_streit.e.e4": [
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} If nobody decides soon I will take it myself, and then there will be real trouble!",
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} I told both of them to shut up, but that gets us nowhere!"
+ ],
+ "pool.elfmeter_streit.e.e5": [
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} I hope you do not see this as meddling, I only care about the balance in the team.",
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} For the sake of team spirit I would rather clear this up with you than in the dressing room."
+ ],
+ "pool.elfmeter_streit.e.e6": [
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} I want us to win penalties, not miss them, so it needs sorting.",
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} It is about goals, and we only win those if the surest taker steps up."
+ ],
+ "pool.elfmeter_streit.e.e7": [
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} I do not know whether I even want to step up for a penalty under these circumstances.",
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} The whole thing is too tiresome for me, and I am thinking of staying out of the matter altogether."
+ ],
+ "pool.elfmeter_streit.e.e8": [
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} I have the feeling both takers suffer under the quarrel and no longer shoot freely.",
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} Since the row one keeps missing penalties and the other hardly dares go to the spot."
+ ],
+ "pool.elfmeter_streit.e.e9": [
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} The last missed penalty still lingers with everyone, and since then it has been loud in the dressing room.",
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} After the penalty missed last time there is nothing but blame in the team."
+ ],
+ "pool.elfmeter_streit.e.e10": [
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} It has to be settled before the next home game, otherwise it hangs over us like a shadow.",
+  "{b.elfmeter_streit_gruss} {b.elfmeter_streit_lage} If the matter lies until the next game it will only get worse."
+ ],
+ "pool.kabine_clique.a.a1": [
+  "We will have a team night, just us, no press and no families. I will pay for the food and you will sit deliberately mixed.",
+  "I invite the squad to an evening together, paid for by the club. There is no seating plan and nobody talks about football."
+ ],
+ "pool.kabine_clique.a.a2": [
+  "I will mix the groups: new room-mates on trips, mixed training teams and fixed seats on the bus that I assign. It will hurt briefly and help in the long run.",
+  "We go for mixing: in training, on the bus and at meals the places are assigned from next week."
+ ],
+ "pool.kabine_clique.a.a3": [
+  "Tomorrow I will make an announcement in front of the whole squad: we are one team and I do not tolerate camps. Whoever does not go along has me to deal with.",
+  "I will make it clear to everyone that there are no fronts in this dressing room. I will say it without names but unmistakably."
+ ],
+ "pool.kabine_clique.a.a4": [
+  "We bring in the players' council. The older, the younger and the new ones should draw up rules for how you treat each other together, and I stand behind it.",
+  "I want the players' council to take the matter in hand. If the rules come from you, they are kept better than mine."
+ ],
+ "pool.kabine_clique.a.a5": [
+  "You stay my captain and I strengthen your back. In {frist} days we will review together whether your role in the dressing room needs more authority.",
+  "I stand behind you as captain. Within {frist} days we will fix together where you may step in from now on."
+ ],
+ "pool.kabine_clique.a.a6": [
+  "I will talk to the ringleaders of the camps one by one, without accusation and without an audience. I want to hear what drives them before I decide anything.",
+  "I will take on the two or three people the groups gather around. First with them, then with the squad."
+ ],
+ "pool.kabine_clique.a.a7": [
+  "Cliques exist in every dressing room, that is nothing special. Look after your own job and do not get held up by trivia.",
+  "That is dressing-room chatter I do not concern myself with. If you function on the pitch everything is fine."
+ ],
+ "pool.kabine_clique.a.a8": [
+  "Whoever builds camps sits on the bench, no matter how old he is or where he comes from. I will pass that on to the squad.",
+  "I will not tolerate groups against one another. Whoever leads them will not be picked until he comes to his senses."
+ ],
+ "pool.kabine_clique.a.a9": [
+  "By your observation who belongs to which camp, and since when has it been so obvious?",
+  "What do you base the split on, and is there a trigger you know of?"
+ ],
+ "pool.kabine_clique.a.a10": [
+  "It will pass, teams find each other again on their own. Give it a few weeks.",
+  "Do not worry too much, we have had this before and in the end it always settled."
+ ],
+ "pool.kabine_clique.a.a11": [
+  "As long as they pass each other the ball on the pitch they may sit apart in the dressing room for all I care. But I already have ideas for drawing lots for the seats.",
+  "If camps form the dressing room at least has life. I will deal with it before they plant flags."
+ ],
+ "pool.kabine_clique.a.a12": [
+  "I do not hold you to blame for the situation, but we two must restore cohesion. You give me hints, I step in.",
+  "We share the task: you observe and tell me where it jams, and I carry out the measures."
+ ],
+ "pool.kabine_clique.r.r1": [
+  "{b.gut} That is exactly what the team needs now.",
+  "{b.gut} I can work with that, thanks for your trust."
+ ],
+ "pool.kabine_clique.r.r2": [
+  "{b.gut} You can be relied on, I will do my best to hold the dressing room together.",
+  "{b.gut} That is how I picture it, calm and without a big fuss."
+ ],
+ "pool.kabine_clique.r.r3": [
+  "{b.gut} Once the dressing room is one again we will achieve more than anyone thinks.",
+  "{b.gut} That is the first step towards a team that competes at the top."
+ ],
+ "pool.kabine_clique.r.r4": [
+  "{b.gut} That you listen to individuals will mean more to some than you realise.",
+  "{b.gut} That gives me hope that nobody will feel excluded any more."
+ ],
+ "pool.kabine_clique.r.r5": [
+  "{b.neutral} I will watch how the team reacts and get back to you.",
+  "{b.neutral} It will take time before anything changes, but I am in."
+ ],
+ "pool.kabine_clique.r.r6": [
+  "{b.neutral} I am torn about whether that is enough, but I will try.",
+  "{b.neutral} Today I have hope, tomorrow perhaps not again."
+ ],
+ "pool.kabine_clique.r.r7": [
+  "{b.neutral} Then we wait and see how the groups develop.",
+  "{b.neutral} Fine, I will keep my eyes open and report if anything happens."
+ ],
+ "pool.kabine_clique.r.r8": [
+  "{b.neutral} Dressing rooms are not cuddle zones, we will see.",
+  "{b.neutral} Getting excited does not help here, we stay on it."
+ ],
+ "pool.kabine_clique.r.r9": [
+  "{b.schlecht} That has not made the split smaller, rather bigger.",
+  "{b.schlecht} Then it will go on like this in the dressing room, and I am left standing alone."
+ ],
+ "pool.kabine_clique.r.r10": [
+  "{b.schlecht} If that is how you see it the sparks will fly soon, and that will be your fault!",
+  "{b.schlecht} Then the dressing room will settle it itself, in its own way!"
+ ],
+ "pool.kabine_clique.r.r11": [
+  "{b.schlecht} Then those who want out may as well go, and I will think a few things over too.",
+  "{b.schlecht} That way the first will soon go looking for a new club."
+ ],
+ "pool.kabine_clique.r.r12": [
+  "{b.schlecht} I had hoped for more respect from you as captain, if I am honest.",
+  "{b.schlecht} That hits me, I stood behind you and the team."
+ ],
+ "pool.kabine_clique.x.x1": [
+  "The captain nods slowly and looks relieved. {entscheidung} Over the following weeks the groups are seen sitting mixed on the bus more and more often, and laughter returns to the dressing room.",
+  "{entscheidung} The camps dissolve bit by bit, and at the next evening old and young sit at the same table."
+ ],
+ "pool.kabine_clique.x.x2": [
+  "The captain takes note. {entscheidung} Whether the groups find each other again only shows in the coming weeks.",
+  "{entscheidung} The captain goes back to the others, the split remains for the time being."
+ ],
+ "pool.kabine_clique.x.x3": [
+  "The captain leaves the room with a stony face. {entscheidung} In the dressing room the fronts harden and the first visibly avoid each other.",
+  "{entscheidung} A little later the camps talk openly against each other, and something seeps out to the surroundings."
+ ],
+ "pool.kabine_clique.x.x4": [
+  "The conversation is broken off. {entscheidung} The captain leaves and the question of the camps remains unanswered.",
+  "{entscheidung} The captain shakes his head and stays silent in the dressing room."
+ ],
+ "pool.kabine_clique.x.x5": [
+  "The captain squares his shoulders. {entscheidung} With a clear promise he sets about bringing the groups together again.",
+  "{entscheidung} The captain now knows the coach stands behind him and speaks up more firmly in the dressing room."
+ ],
+ "pool.kabine_clique.e.e1": [
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} I have watched it for a long time and can no longer leave it just to myself.",
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} As captain I consider it my duty to tell you before it gets bigger."
+ ],
+ "pool.kabine_clique.e.e2": [
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} At meals and on the bus everyone sits only with his group, that used to be different.",
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} On away trips hardly anyone changes seats, everybody stays with his own people."
+ ],
+ "pool.kabine_clique.e.e3": [
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Things are going badly on the pitch right now and that deepens the split.",
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Since the poor results everyone is looking for culprits, and the camps are getting firmer."
+ ],
+ "pool.kabine_clique.e.e4": [
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} The two ringleaders avoid each other and the followers go along, that is getting dangerous!",
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} If nobody steps in soon the sparks will fly, and I will not be torn apart between the camps!"
+ ],
+ "pool.kabine_clique.e.e5": [
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} I do not want to name names, but I want us to find each other again as a team.",
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} It is not an accusation, only a worry I want to share with the coach."
+ ],
+ "pool.kabine_clique.e.e6": [
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} A top team has no camps, and if I want the title I have to raise the subject now.",
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Whoever wants to play at the front must have the dressing room behind him, and that is missing at the moment."
+ ],
+ "pool.kabine_clique.e.e7": [
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Two or three people are already openly saying they want out if this does not improve.",
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} I notice some have already resigned inwardly because they find no place in the camps."
+ ],
+ "pool.kabine_clique.e.e8": [
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} Two newcomers and a youngster often sit alone in training, and nobody looks after them.",
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} A few feel completely excluded, and I do not know how to bring them back in."
+ ],
+ "pool.kabine_clique.e.e9": [
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} That the old and the young hardly greet each other any more only struck me properly at the last briefing.",
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} At the last team meeting the groups visibly sat on separate sides."
+ ],
+ "pool.kabine_clique.e.e10": [
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} The compatriots now speak only their own language among themselves, and the rest feel shut out by it.",
+  "{b.kabine_clique_gruss} {b.kabine_clique_lage} When the compatriots talk in their own language the others feel lost, and the gap grows."
+ ],
+ "pool.kabine_streich.a.a1": [
+  "I will join in, but only if I am on the receiving end too. A coach walking out in a dressing gown is the best sign nobody is meant to be shown up.",
+  "I am in and I will provide the ball for the prank. If the boss laughs along, the new man will dare to do it too."
+ ],
+ "pool.kabine_streich.a.a2": [
+  "Three rules: nobody is shown up, no photos or videos, and the new man may say it is enough at any time. If you stick to them it has my blessing.",
+  "You may, if it stays small: no alcohol, nothing embarrassing and nothing the new man would not find funny himself. Stick to that or it is over."
+ ],
+ "pool.kabine_streich.a.a3": [
+  "Out of the question. Pranks often go wrong and I have no interest in having the trouble afterwards.",
+  "I forbid it. We are a professional club here, not a holiday camp."
+ ],
+ "pool.kabine_streich.a.a4": [
+  "My answer stays no, even if you ask three more times. The dressing room is not a place for dares.",
+  "You can keep digging as often as you like, but it does not change my decision. There will be no prank."
+ ],
+ "pool.kabine_streich.a.a5": [
+  "Let us postpone it until after the season or at least to a time after a win. Then nobody is under pressure and you still have the ritual.",
+  "Not now that we are in the thick of it. We will make up the evening when things are calmer on the pitch."
+ ],
+ "pool.kabine_streich.a.a6": [
+  "Instead of a prank there is a bonus for the team kitty and you turn it into a shared evening. I will invite the new man personally.",
+  "I will put something into the team kitty and you decide whether you barbecue or bowl with it. The ritual stays small and friendly."
+ ],
+ "pool.kabine_streich.a.a7": [
+  "The captain and the players' council will handle it. I trust you, but the responsibility lies with you if it gets out of hand.",
+  "Agree it with the captain, he knows the limits. If he consents it is fine with me."
+ ],
+ "pool.kabine_streich.a.a8": [
+  "Whom exactly does it hit, and does he know yet he is the victim? And more importantly: who has the camera?",
+  "What do you have in mind, and how much of it would a newspaper put up with if it printed it?"
+ ],
+ "pool.kabine_streich.a.a9": [
+  "Ask the new man beforehand whether he likes that kind of thing. Whoever does not dare should not feel exposed, and I will see to that myself if need be.",
+  "We will do it so he has no reason to be embarrassed. I will have a quick word with him before you start so he feels comfortable."
+ ],
+ "pool.kabine_streich.a.a10": [
+  "I have neither time nor patience for childish stuff right now. Save yourselves the bother, we have more important things to do.",
+  "That is too silly for me and I do not see what it brings us. Concentrate on the game."
+ ],
+ "pool.kabine_streich.a.a11": [
+  "As long as nobody is late for training and the kit man survives. Do the rest as you like as long as I do not read any of it in the paper.",
+  "If the shoes still fit afterwards and nobody ends up in hospital I am relaxed. I will expressly look the other way."
+ ],
+ "pool.kabine_streich.a.a12": [
+  "I have nothing against a ritual, but think of the effect on the outside. One photo at the wrong moment and it says we bully here.",
+  "A prank is fine as long as it stays within the team. As soon as someone outside hears of it, fun quickly becomes a headline."
+ ],
+ "pool.kabine_streich.r.r1": [
+  "{b.gut} That is a good plan, we will do it exactly like that.",
+  "{b.gut} That is why we love you, coach, it will be fun."
+ ],
+ "pool.kabine_streich.r.r2": [
+  "{b.gut} You stand behind us, that shows, and that is exactly what strengthens the team.",
+  "{b.gut} That is a relaxed answer, we will keep to the limits."
+ ],
+ "pool.kabine_streich.r.r3": [
+  "{b.gut} Then we go into the next game with momentum, that welds us together.",
+  "{b.gut} With the evening behind us we will run one metre more at the weekend."
+ ],
+ "pool.kabine_streich.r.r4": [
+  "{b.gut} That you think of the new man is exactly what had worried me.",
+  "{b.gut} Good that you protect him, that takes a weight off my heart."
+ ],
+ "pool.kabine_streich.r.r5": [
+  "{b.neutral} That sounds sensible, we will talk it over in the dressing room.",
+  "{b.neutral} Okay, then we will think about how to carry it out."
+ ],
+ "pool.kabine_streich.r.r6": [
+  "{b.neutral} Let us see whether we still enjoy it after that.",
+  "{b.neutral} I am torn on whether that is still the same as a proper prank."
+ ],
+ "pool.kabine_streich.r.r7": [
+  "{b.neutral} Fine, then we wait until it fits.",
+  "{b.neutral} We will pass it on to the lads and see what they say."
+ ],
+ "pool.kabine_streich.r.r8": [
+  "{b.neutral} As you like, it is not that important.",
+  "{b.neutral} Relaxed, we will manage."
+ ],
+ "pool.kabine_streich.r.r9": [
+  "{b.schlecht} You take all the fun out of it, a pity.",
+  "{b.schlecht} That feels as if we are being forbidden to have fun."
+ ],
+ "pool.kabine_streich.r.r10": [
+  "{b.schlecht} Then we will do it without you, we will not be forbidden!",
+  "{b.schlecht} With an answer like that you stir the mood up rather than calming it!"
+ ],
+ "pool.kabine_streich.r.r11": [
+  "{b.schlecht} If not even a prank is allowed here I feel out of place.",
+  "{b.schlecht} At other clubs they would have given us more room, I will remember that."
+ ],
+ "pool.kabine_streich.r.r12": [
+  "{b.schlecht} I would have thought you understood what a custom like this means to us.",
+  "{b.schlecht} That hurts, we only wanted to take you along."
+ ],
+ "pool.kabine_streich.x.x1": [
+  "The lads cheer and in the end the new man himself grins from ear to ear. {entscheidung} A little later half the squad sits in the lounge telling the story again and again.",
+  "{entscheidung} The prank goes off without anyone being shown up, and the mood in the dressing room is the best for a long time."
+ ],
+ "pool.kabine_streich.x.x2": [
+  "The joker shrugs. {entscheidung} How the ritual ends everyone will see at the next training session.",
+  "{entscheidung} There is some more whispering, then everyone goes back to his drills."
+ ],
+ "pool.kabine_streich.x.x3": [
+  "It does not take long for resentment to spread in the team. {entscheidung} And in the end there is an annoyed new man who feels left out and a picture a team-mate hands to the wrong people.",
+  "{entscheidung} The prank gets out of hand, somebody feels humiliated, and the matter finds its way outside."
+ ],
+ "pool.kabine_streich.x.x4": [
+  "The joker turns around and leaves. {entscheidung} The matter is off the table and the tone in the dressing room is noticeably cooler.",
+  "{entscheidung} The lads look at each other, say nothing more and go to training."
+ ],
+ "pool.kabine_streich.x.x5": [
+  "The joker beams. {entscheidung} The team looks forward to the agreed date and the new man suspects nothing yet.",
+  "{entscheidung} With the fixed date in the diary the dressing room goes cheerfully into the next days."
+ ],
+ "pool.kabine_streich.e.e1": [
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} We would stuff his shoes with foam on the bus and swap his shirt number in the locker, harmless stuff.",
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} The plan is simple: he gets a costume and has to turn up to training in it, and in the end everyone laughs."
+ ],
+ "pool.kabine_streich.e.e2": [
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Everyone has agreed, and it is only meant to stay a bit of fun among us with nobody coming to harm.",
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} The whole squad wants to join in and we will keep it within bounds, promised."
+ ],
+ "pool.kabine_streich.e.e3": [
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} We have had some bad weeks, a little distraction would do everyone good.",
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Right now, when things are stuck, a ritual like this could loosen the mood."
+ ],
+ "pool.kabine_streich.e.e4": [
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} If you ban it we will just do it in secret, then you will see!",
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} A prank belongs to football, and whoever does not get that does not get the sport!"
+ ],
+ "pool.kabine_streich.e.e5": [
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} It is an old custom with us and I want it to be kept up with honour, even under this coach.",
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} We do it every year, and it would be a pity if it stopped right now."
+ ],
+ "pool.kabine_streich.e.e6": [
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} A good ritual belongs to a winning team, and that is what we want to be.",
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} With the prank we release tension, and before the weekend that can make the difference."
+ ],
+ "pool.kabine_streich.e.e7": [
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} The new man should feel a real part of the group, otherwise he will soon think differently about us.",
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} We want to keep him, and the prank would be our way of showing it."
+ ],
+ "pool.kabine_streich.e.e8": [
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} He is a quiet type and I do not know how he would take a prank, but the others are pushing.",
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} I am not sure myself whether he would like it, but everyone expects us to do it."
+ ],
+ "pool.kabine_streich.e.e9": [
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} Someone already has photos of it in mind and I can already see the headline if the press gets hold of it.",
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} If anything gets out we will be in the papers tomorrow, I am aware of that."
+ ],
+ "pool.kabine_streich.e.e10": [
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} We also thought of a little something for the youth players currently training with us.",
+  "{b.kabine_streich_gruss} {b.kabine_streich_lage} It should not hit just the new man but everyone who enters this dressing room for the first time."
+ ]
+}

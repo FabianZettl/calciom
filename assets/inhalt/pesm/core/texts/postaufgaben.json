@@ -1,0 +1,12 @@
+{
+ "pe.aufgabe.vorstand.betreff": "Der Vorstand erwartet dein Saisonziel",
+ "pe.aufgabe.vorstand.text": "Der Vorstand schlägt Platz %1 vor. Lege das Saisonziel fest, damit er daran misst, wie die Saison läuft.",
+ "pe.aufgabe.vorstand.text_ohne": "Der Vorstand wartet auf dein Saisonziel. Lege es fest, damit er daran misst, wie die Saison läuft.",
+ "pe.knopf.vorstand_ziel": "Ziel festlegen",
+ "pe.aufgabe.aufstellung.betreff": "Aufstellungsvorschlag des Co-Trainers",
+ "pe.aufgabe.aufstellung.text": "Der Co-Trainer würde die Startelf an %1 Stellen ändern. Sieh dir den Vorschlag an, bevor das Spiel beginnt.",
+ "pe.knopf.aufstellung_vorschlag": "Vorschlag ansehen",
+ "pe.aufgabe.ausfall.betreff": "Aufstellung anpassen",
+ "pe.aufgabe.ausfall.text": "Ein Stammspieler fällt aus. Der Co-Trainer hat einen Ersatz für die Startelf ausgesucht. Nichts ändert sich, bevor du zustimmst.",
+ "pe.knopf.ausfall_ersatz": "Ersatz vorschlagen"
+}

@@ -1,0 +1,74 @@
+{
+ "pool.b.torjaeger_im_lauf_lage": [
+  "{name} trifft zurzeit, wie er will.",
+  "Bei {name} wird gerade alles zum Tor, was er anfasst."
+ ],
+ "pool.b.torjaeger_im_lauf_lage.hitzig": [
+  "{name} schießt die Gegner schwindelig, und das muss man nutzen!",
+  "Was {name} gerade zeigt, ist nicht mehr normal, das gehört bestätigt!"
+ ],
+ "pool.b.torjaeger_im_lauf_lage.loyal": [
+  "{name} läuft heiß, und ich will, dass wir ihn richtig anpacken.",
+  "Für den Verein ist es ein Geschenk, wie {name} derzeit trifft."
+ ],
+ "pool.b.torjaeger_im_lauf_lage.ehrgeizig": [
+  "{name} ist in einer Verfassung, mit der wir ganz oben mitreden können.",
+  "So wie {name} trifft, ist mehr drin als das Mittelfeld."
+ ],
+ "pool.b.torjaeger_im_lauf_lage.wechselfreudig": [
+  "{name} trifft am laufenden Band, und das spricht sich herum, nicht nur bei uns.",
+  "Die Tore von {name} bleiben anderen Vereinen nicht verborgen."
+ ],
+ "pool.b.torjaeger_im_lauf_lage.sensibel": [
+  "{name} geht es gut, und ich möchte, dass das so bleibt.",
+  "Es freut mich, wie {name} auflebt, nur denke ich daran, wie wir damit umgehen."
+ ],
+ "pool.b.disziplin_verspaetung_lage": [
+  "{name} ist schon wieder zu spät zum Training gekommen.",
+  "Bei {name} reißt die Pünktlichkeit ein, und im Training ist er nur mit halber Kraft dabei."
+ ],
+ "pool.b.disziplin_verspaetung_lage.hitzig": [
+  "{name} kommt zu spät und hat auch noch eine große Klappe, wenn man ihn darauf anspricht!",
+  "Mit {name} gibt es täglich Ärger wegen der Zeiten, ich habe langsam die Nase voll!"
+ ],
+ "pool.b.disziplin_verspaetung_lage.loyal": [
+  "Ich sage es ungern, doch {name} nimmt es mit den Zeiten nicht mehr genau.",
+  "Es fällt mir nicht leicht, etwas gegen {name} zu sagen, aber seine Verspätungen häufen sich."
+ ],
+ "pool.b.disziplin_verspaetung_lage.ehrgeizig": [
+  "Wenn {name} so weitermacht, zieht er die ganze Gruppe nach unten.",
+  "Mit der Einstellung von {name} im Training gewinnen wir nichts."
+ ],
+ "pool.b.disziplin_verspaetung_lage.wechselfreudig": [
+  "{name} wirkt gedanklich schon weg, so wie er zu spät kommt und lustlos trainiert.",
+  "Bei {name} habe ich das Gefühl, dass es ihm egal ist, ob er morgen noch hier ist."
+ ],
+ "pool.b.disziplin_verspaetung_lage.sensibel": [
+  "Ich glaube, {name} hat etwas auf dem Herzen, denn er kommt öfter zu spät und wirkt abwesend.",
+  "{name} ist in letzter Zeit unpünktlich und in sich gekehrt, das macht mir Sorgen."
+ ],
+ "pool.b.social_media_aussage_lage": [
+  "{name} hat einen Beitrag in den sozialen Medien gepostet, der Wellen schlägt.",
+  "Ein Beitrag von {name} im Netz macht gerade die Runde."
+ ],
+ "pool.b.social_media_aussage_lage.hitzig": [
+  "{name} hat im Netz herumgepöbelt, und jetzt kocht es überall!",
+  "{name} hat sich in den sozialen Medien richtig Luft gemacht, das wird ein Nachspiel haben!"
+ ],
+ "pool.b.social_media_aussage_lage.loyal": [
+  "Ich bin enttäuscht, dass {name} sich öffentlich so äußert, zumal es dem Verein schadet.",
+  "{name} hat im Netz etwas gepostet, das dem Verein wehtut, und das tut mir selbst weh."
+ ],
+ "pool.b.social_media_aussage_lage.ehrgeizig": [
+  "{name} lenkt mit seinem Beitrag von den Spielen ab, und das können wir uns nicht leisten.",
+  "Statt über Leistung redet man wegen {name} über sein Gepose in den sozialen Medien."
+ ],
+ "pool.b.social_media_aussage_lage.wechselfreudig": [
+  "{name} hat sich im Netz so geäußert, als hätte er mit dem Verein schon abgeschlossen.",
+  "Der Beitrag von {name} liest sich wie ein Abschied auf Raten."
+ ],
+ "pool.b.social_media_aussage_lage.sensibel": [
+  "{name} hat sich im Netz Luft gemacht, und ich glaube, er hat es nicht böse gemeint.",
+  "Ich mache mir Sorgen um {name}, denn sein Beitrag im Netz klingt nach Frust."
+ ]
+}

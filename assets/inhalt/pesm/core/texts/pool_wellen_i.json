@@ -1,0 +1,478 @@
+{
+ "pool.berater_konkurrenzangebot.e.e1": [
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Das Angebot gilt nur {frist} Tage, danach ist es weg.",
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Der andere Verein verlangt eine Antwort binnen {frist} Tagen."
+ ],
+ "pool.berater_konkurrenzangebot.e.e2": [
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Ich wollte, dass Sie es von mir erfahren und nicht aus der Presse. Die Frist beträgt {frist} Tage.",
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Wie reagiert der Verein? Ich muss in {frist} Tagen antworten."
+ ],
+ "pool.berater_konkurrenzangebot.e.e3": [
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Ich weiß, das kommt zu einem schlechten Zeitpunkt, aber in {frist} Tagen läuft die Frist ab.",
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Die Stimmung ist angespannt, trotzdem müssen wir reden, denn die Frist endet in {frist} Tagen."
+ ],
+ "pool.berater_konkurrenzangebot.e.e4": [
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Entweder Sie legen nach, oder wir sagen binnen {frist} Tagen zu!",
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Sie haben {frist} Tage, danach unterschreibt er dort, und das ist keine Drohung, sondern ein Termin!"
+ ],
+ "pool.berater_konkurrenzangebot.e.e5": [
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Wir lassen uns Zeit, aber nicht unendlich: Die Frist endet in {frist} Tagen.",
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Ich bitte Sie freundlich, sich binnen {frist} Tagen zu äußern, dann entscheiden wir in Ruhe."
+ ],
+ "pool.berater_konkurrenzangebot.e.e6": [
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Das ist ein echter Karriereschritt, und die Frist beträgt {frist} Tage. Was halten Sie dagegen?",
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Bis die Frist in {frist} Tagen endet, wüsste ich gern, womit Sie kontern."
+ ],
+ "pool.berater_konkurrenzangebot.e.e7": [
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Nach Ihrer nicht gehaltenen Zusage vertraue ich nicht mehr blind. Die Frist läuft {frist} Tage.",
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Sie haben schon einmal etwas versprochen. Diesmal brauche ich es binnen {frist} Tagen schriftlich."
+ ],
+ "pool.berater_konkurrenzangebot.a.a1": [
+  "Dann sehen wir uns das Angebot gemeinsam an. Legen Sie die Unterlagen vor, ich prüfe, was wir darauf antworten können.",
+  "Ich gehe das mit Ihnen durch: Schicken Sie mir die Eckdaten, und wir sprechen offen über alle Möglichkeiten."
+ ],
+ "pool.berater_konkurrenzangebot.a.a2": [
+  "Wir legen nach. Sagen Sie dem anderen Verein ab, wir kommen mit einem besseren Angebot.",
+  "Ich überbiete das, und zwar so, dass {name} nicht mehr nachdenken muss."
+ ],
+ "pool.berater_konkurrenzangebot.a.a3": [
+  "Verschaffen Sie mir mehr Zeit. Fragen Sie den anderen Verein, ob die Frist verlängert werden kann.",
+  "Ich brauche ein paar Tage mehr, um intern zu klären, was möglich ist. Können Sie die Frist dehnen?"
+ ],
+ "pool.berater_konkurrenzangebot.a.a4": [
+  "Mit dem Verein verhandeln Sie nicht. Das Thema ist für mich erledigt.",
+  "Ich erlaube keine Gespräche mit dem Konkurrenten, solange der Vertrag läuft."
+ ],
+ "pool.berater_konkurrenzangebot.a.a5": [
+  "Lassen Sie mich mit {name} selbst sprechen. Ich will hören, was er will.",
+  "Ich rede lieber direkt mit ihm, von Mann zu Mann, bevor wir über Angebote sprechen."
+ ],
+ "pool.berater_konkurrenzangebot.a.a6": [
+  "Zeigen Sie mir das Angebot schwarz auf weiß, dann reden wir weiter.",
+  "Ein Angebot ohne Papier ist ein Gerücht. Legen Sie es auf den Tisch."
+ ],
+ "pool.berater_konkurrenzangebot.a.a7": [
+  "Ich halte das für einen Bluff, und ich lasse mich nicht erpressen.",
+  "Dieses Spiel kenne ich. Es gibt kein Angebot, das mich nervös macht."
+ ],
+ "pool.berater_konkurrenzangebot.a.a8": [
+  "Ich gebe Ihnen mein Wort: Binnen {frist} Tagen liegt ein Angebot vor, das sich sehen lassen kann.",
+  "Sie bekommen in {frist} Tagen einen Vorschlag von mir, und er wird ernst gemeint sein."
+ ],
+ "pool.berater_konkurrenzangebot.a.a9": [
+  "Ein besseres Angebot kommt noch, versprochen. Bitte halten Sie den anderen Verein bis dahin hin.",
+  "Seien Sie gelassen, hier wird sich etwas tun, nur nicht heute."
+ ],
+ "pool.berater_konkurrenzangebot.r.r1": [
+  "{b.gut} Damit kann ich arbeiten, ich halte den anderen Verein hin.",
+  "{b.gut} Das klingt nach einem Weg, ich gebe es so an {name} weiter."
+ ],
+ "pool.berater_konkurrenzangebot.r.r2": [
+  "{b.gut} Danke für die klare Linie, so bleibt das Vertrauen erhalten.",
+  "{b.gut} Ich weiß, dass Sie fair mit uns umgehen."
+ ],
+ "pool.berater_konkurrenzangebot.r.r3": [
+  "{b.gut} Mit diesem Signal trete ich dem Konkurrenten ruhiger gegenüber.",
+  "{b.gut} Dann bin ich gespannt, und {name} wird es auch sein."
+ ],
+ "pool.berater_konkurrenzangebot.r.r4": [
+  "{b.neutral} Ich leite es weiter, und wir sehen, wie der andere Verein reagiert.",
+  "{b.neutral} Das lässt alles offen, aber immerhin ist nichts verbaut."
+ ],
+ "pool.berater_konkurrenzangebot.r.r5": [
+  "{b.neutral} Ich bin nicht sicher, wie {name} das aufnimmt.",
+  "{b.neutral} Mal sehen, ob das reicht, da bin ich unsicher."
+ ],
+ "pool.berater_konkurrenzangebot.r.r6": [
+  "{b.neutral} Kein Problem, wir haben Zeit, ein paar Tage jedenfalls.",
+  "{b.neutral} Ich warte ab, was die Gegenseite macht."
+ ],
+ "pool.berater_konkurrenzangebot.r.r7": [
+  "{b.schlecht} Damit kann ich dem Konkurrenten nicht antworten.",
+  "{b.schlecht} Dann bleibt mir nur, das andere Angebot ernster zu nehmen."
+ ],
+ "pool.berater_konkurrenzangebot.r.r8": [
+  "{b.schlecht} So lasse ich nicht mit mir reden, ich rufe den anderen Verein noch heute an!",
+  "{b.schlecht} Dann sage ich dort zu, und Sie lesen es in der Zeitung!"
+ ],
+ "pool.berater_konkurrenzangebot.r.r9": [
+  "{b.schlecht} Dann soll {name} dort unterschreiben, Interessenten gibt es genug.",
+  "{b.schlecht} Wenn hier nichts kommt, kommt es eben von dort."
+ ],
+ "pool.berater_konkurrenzangebot.r.r10": [
+  "{b.schlecht} Ich hatte mehr Entgegenkommen erwartet, nach allem.",
+  "{b.schlecht} Das enttäuscht mich, ich dachte, wir verstehen uns besser."
+ ],
+ "pool.berater_konkurrenzangebot.x.x1": [
+  "Der Berater lenkt ein. {entscheidung} Das Konkurrenzangebot verliert vorerst an Gewicht.",
+  "{entscheidung} Das Gespräch endet versöhnlich, und der andere Verein wird vertröstet."
+ ],
+ "pool.berater_konkurrenzangebot.x.x2": [
+  "Das Gespräch bleibt in der Schwebe. {entscheidung} Die Frist läuft weiter.",
+  "{entscheidung} Der Berater lässt offen, was er dem anderen Verein antwortet."
+ ],
+ "pool.berater_konkurrenzangebot.x.x3": [
+  "Der Berater legt grußlos auf. {entscheidung} Wenig später hört man vom anderen Verein.",
+  "{entscheidung} Noch am selben Tag ruft er den Konkurrenten zurück."
+ ],
+ "pool.berater_konkurrenzangebot.x.x4": [
+  "Sie haben sich festgelegt, und der Berater notiert es. {entscheidung} Er wird Sie an die Frist erinnern.",
+  "{entscheidung} Der Berater hält den anderen Verein hin und wartet auf Ihr Angebot."
+ ],
+ "pool.berater_konkurrenzangebot.x.x5": [
+  "Der Berater bricht das Gespräch ab. {entscheidung} Er will sich erst melden, wenn er mehr in der Hand hat.",
+  "{entscheidung} Er beendet das Telefonat, ohne sich zu verabschieden."
+ ],
+ "pool.berater_provision.e.e1": [
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Ich bitte um eine Zusage, bevor wir den Vertrag finalisieren.",
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Ohne Einigung über die Gebühr kann ich den Abschluss nicht empfehlen."
+ ],
+ "pool.berater_provision.e.e2": [
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Bitte bestätigen Sie mir die Zahlung vorab, dann bringe ich {name} zur Unterschrift.",
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Ich erwarte Ihre Rückmeldung, damit wir den Abschluss nicht gefährden."
+ ],
+ "pool.berater_provision.e.e3": [
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Ich weiß, es ist keine gute Zeit für Geldfragen, aber sie lassen sich nicht aufschieben.",
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Die Stimmung ist schlecht, trotzdem muss die Gebühr geklärt werden, bevor es weitergeht."
+ ],
+ "pool.berater_provision.e.e4": [
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Zahlen Sie, oder ich blockiere den Abschluss, so einfach ist das!",
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Ich habe keine Lust auf Debatten, die Gebühr steht!"
+ ],
+ "pool.berater_provision.e.e5": [
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Wir finden sicher eine Lösung, nur ohne Regelung geht es nicht.",
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Gern besprechen wir den Betrag in Ruhe, aber geklärt sein muss er."
+ ],
+ "pool.berater_provision.e.e6": [
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Bei dem Marktwert von {name} ist das ein bescheidener Satz.",
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Für einen Spieler seiner Qualität ist diese Gebühr üblich."
+ ],
+ "pool.berater_provision.e.e7": [
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Nach Ihrer nicht gehaltenen Zusage verlange ich die Zahlung vorab, schriftlich.",
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Ich habe schon einmal auf ein Versprechen vertraut, diesmal bitte verbindlich."
+ ],
+ "pool.berater_provision.a.a1": [
+  "Einverstanden, die Gebühr wird gezahlt. Dafür erwarte ich einen zügigen Abschluss.",
+  "Wir überweisen die Provision, und Sie bringen {name} zur Unterschrift."
+ ],
+ "pool.berater_provision.a.a2": [
+  "Der Satz ist zu hoch. Ich zahle einen Teil, mehr nicht.",
+  "So viel zahlen wir nicht, kommen Sie mir entgegen."
+ ],
+ "pool.berater_provision.a.a3": [
+  "Der Verein hat feste Regeln für Beraterhonorare, und daran halte ich mich.",
+  "Ich darf nicht über die Richtlinien des Vereins hinausgehen, das gilt für alle Berater."
+ ],
+ "pool.berater_provision.a.a4": [
+  "Ich verhandle direkt mit {name}, Sie hören dann von ihm.",
+  "Ich möchte den Vertrag ohne Umweg mit {name} besprechen."
+ ],
+ "pool.berater_provision.a.a5": [
+  "Wenn Sie auf der Gebühr bestehen, ist das Gespräch beendet.",
+  "Ich breche die Verhandlung ab, wenn Sie das nicht zurücknehmen."
+ ],
+ "pool.berater_provision.a.a6": [
+  "Darüber sprechen wir nach dem Abschluss, versprochen.",
+  "Lassen Sie uns erst den Vertrag klären, die Gebühr kommt später."
+ ],
+ "pool.berater_provision.a.a7": [
+  "Eine Provision für den Spieler zahlt dieser selbst, nicht der Verein.",
+  "Das ist Ihre Sache mit {name}, mit dem Verein hat sie nichts zu tun."
+ ],
+ "pool.berater_provision.a.a8": [
+  "Ich sage Ihnen binnen {frist} Tagen einen Betrag zu, über den wir uns einig werden.",
+  "In {frist} Tagen haben Sie eine feste Zusage von mir, dann ist die Sache klar."
+ ],
+ "pool.berater_provision.r.r1": [
+  "{b.gut} Das ist fair, damit bringe ich {name} gern zur Unterschrift.",
+  "{b.gut} Dann steht dem Abschluss nichts mehr im Weg."
+ ],
+ "pool.berater_provision.r.r2": [
+  "{b.gut} Danke für Ihre Offenheit, so arbeiten wir gern zusammen.",
+  "{b.gut} Ich schätze es, dass wir das so klären können."
+ ],
+ "pool.berater_provision.r.r3": [
+  "{b.gut} Gut investiert, ich sorge für einen starken Abschluss.",
+  "{b.gut} Dann liefere ich auch, das verspreche ich."
+ ],
+ "pool.berater_provision.r.r4": [
+  "{b.neutral} Ich muss das prüfen und melde mich dann.",
+  "{b.neutral} Das ist weder ein Ja noch ein Nein, ich überlege."
+ ],
+ "pool.berater_provision.r.r5": [
+  "{b.neutral} Ich bin nicht sicher, ob das reicht, aber ich höre zu.",
+  "{b.neutral} Das müssen wir noch einmal in Ruhe besprechen."
+ ],
+ "pool.berater_provision.r.r6": [
+  "{b.neutral} Kein Problem, ich warte ab, was kommt.",
+  "{b.neutral} Dann bleibt es vorerst offen, mir soll es recht sein."
+ ],
+ "pool.berater_provision.r.r7": [
+  "{b.schlecht} Damit kann ich nicht leben, so läuft das Geschäft nicht.",
+  "{b.schlecht} Das ist zu wenig, und das wissen Sie."
+ ],
+ "pool.berater_provision.r.r8": [
+  "{b.schlecht} Dann sorge ich dafür, dass {name} nicht unterschreibt!",
+  "{b.schlecht} Das nehme ich nicht hin, ich rufe sofort die Presse an!"
+ ],
+ "pool.berater_provision.r.r9": [
+  "{b.schlecht} Andere Vereine sind da weniger kleinlich, das merke ich mir.",
+  "{b.schlecht} Dann schaue ich, was {name} woanders bekäme."
+ ],
+ "pool.berater_provision.r.r10": [
+  "{b.schlecht} Ich hatte nach allem mehr Verständnis erwartet.",
+  "{b.schlecht} Das trifft mich, ich dachte, wir arbeiteten vertrauensvoll zusammen."
+ ],
+ "pool.berater_provision.x.x1": [
+  "Der Berater ist besänftigt. {entscheidung} Die Unterschrift rückt näher.",
+  "{entscheidung} Er bestätigt per Mail, dass er mit der Regelung leben kann."
+ ],
+ "pool.berater_provision.x.x2": [
+  "Die Gebühr bleibt ein offener Punkt. {entscheidung} Der Berater schweigt vorerst.",
+  "{entscheidung} Der Vertrag liegt weiter auf Eis, bis die Frage geklärt ist."
+ ],
+ "pool.berater_provision.x.x3": [
+  "Der Berater antwortet scharf. {entscheidung} Die Sache wird zu einem Streit um Geld.",
+  "{entscheidung} Er droht, Details an Journalisten weiterzugeben."
+ ],
+ "pool.berater_provision.x.x4": [
+  "Sie haben eine Regelung angekündigt, und der Berater hält es fest. {entscheidung} Er wird nachhaken.",
+  "{entscheidung} Der Berater wartet nun auf Ihre feste Zahl."
+ ],
+ "pool.berater_provision.x.x5": [
+  "Der Berater schreibt nur noch: Dann eben nicht. {entscheidung} Der Kontakt ruht.",
+  "{entscheidung} Es kommt keine weitere Mail, auch keine Absage."
+ ],
+ "pool.verhandlung_spieler_wunsch.e.e1": [
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Mir geht es um faire Bezahlung und eine klare Rolle in der Mannschaft.",
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Ich will wissen, was ich verdiene und wo ich in deinen Plänen stehe."
+ ],
+ "pool.verhandlung_spieler_wunsch.e.e2": [
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Ich will um Titel spielen, und ich muss sehen, dass der Verein das auch will.",
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Titelchancen sind mir wichtiger als jeder Zusatz im Vertrag."
+ ],
+ "pool.verhandlung_spieler_wunsch.e.e3": [
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Es läuft gerade nicht rund, darum ist mir wichtig, dass ich spüre, dass man mich hier will.",
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Die Stimmung ist schwierig, und ich möchte wissen, ob ich noch eine Zukunft habe."
+ ],
+ "pool.verhandlung_spieler_wunsch.e.e4": [
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Ich lasse mich nicht abspeisen: Geld, Rolle, Perspektive, ich will alles auf dem Tisch!",
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Ich verlange eine ordentliche Rolle und eine Bezahlung, die zu meiner Leistung passt!"
+ ],
+ "pool.verhandlung_spieler_wunsch.e.e5": [
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Ich bin nicht kompliziert, aber ein paar Dinge sollten stimmen, bevor ich unterschreibe.",
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Mir ist wichtig, dass ich mich hier weiter wohlfühle, der Rest findet sich."
+ ],
+ "pool.verhandlung_spieler_wunsch.e.e6": [
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Ich möchte eine Hauptrolle spielen und mit dem Verein oben angreifen.",
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Ich will mehr Verantwortung und einen Verein, der mit mir wachsen will."
+ ],
+ "pool.verhandlung_spieler_wunsch.e.e7": [
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Meine Familie ist mir wichtig, und meine Heimat fehlt mir. Ich möchte, dass darauf Rücksicht genommen wird.",
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Für meine Familie muss es passen, und ein wenig Heimat im Vertrag wäre mir viel wert."
+ ],
+ "pool.verhandlung_spieler_wunsch.e.e8": [
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Du hast mir etwas versprochen, und ich möchte, dass es diesmal im Vertrag steht.",
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Nach dem, was war, will ich meine Wünsche schriftlich sehen."
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a1": [
+  "Danke, dass du so offen bist. Ich nehme jeden Punkt ernst und schaue, was davon machbar ist.",
+  "Das hilft mir, dich zu verstehen. Wir gehen deine Wünsche eins nach dem anderen durch."
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a2": [
+  "Was davon ist dir am wichtigsten, und worauf könntest du am ehesten verzichten?",
+  "Wenn du nur eines bekommen könntest, welches wäre es?"
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a3": [
+  "Bei der Rolle kann ich dir etwas versprechen: Binnen {frist} Tagen sprechen wir über deinen festen Platz im Team.",
+  "Du bekommst eine klare Rolle, das verspreche ich dir, und binnen {frist} Tagen reden wir über die Einzelheiten."
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a4": [
+  "Über Geld spreche ich nicht allein, das läuft über die Geschäftsführung und deinen Berater.",
+  "Die Zahlen klärt der Verein mit deinem Berater, ich unterstütze dich dabei."
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a5": [
+  "Du musst auch sehen, wie der Verein rechnet: Es gibt Grenzen, und die gelten für alle.",
+  "Ich erkläre dir, was der Klub leisten kann und was nicht, damit du fair entscheiden kannst."
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a6": [
+  "Das ist zu viel verlangt. So läuft das hier nicht.",
+  "Mit dieser Liste brauchst du gar nicht erst anzufangen."
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a7": [
+  "Zum Start lege ich dir einen Bonus drauf, den Rest erarbeitest du dir, und der Kaffee geht auf mich.",
+  "Ein Handschlagbonus soll zeigen, dass wir es ernst meinen, und dann sehen wir weiter."
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a8": [
+  "Der Vertrag, den ich dir anbiete, ist, was er ist. Ein Wunschkonzert gibt es nicht.",
+  "Ich verhandle, aber ich lasse mir nichts diktieren."
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a9": [
+  "Ich merke mir alles, aber versprechen kann ich heute nichts. Lass uns später darüber sprechen.",
+  "Gib mir Zeit, ich schaue, was möglich ist, und melde mich."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r1": [
+  "{b.gut} Das tut gut zu hören, ich fühle mich ernst genommen.",
+  "{b.gut} Damit kann ich arbeiten, danke dir."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r2": [
+  "{b.gut} Dass du so ehrlich mit mir bist, bedeutet mir viel.",
+  "{b.gut} Dir vertraue ich, also lasse ich mir gern Zeit."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r3": [
+  "{b.gut} Gut so, dann gebe ich auf dem Platz noch mehr.",
+  "{b.gut} Wenn das so kommt, bin ich dabei und liefere."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r4": [
+  "{b.neutral} Ich schaue mir an, was daraus wird.",
+  "{b.neutral} Reden ist schön, im Vertrag zählt am Ende nur, was dort steht."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r5": [
+  "{b.neutral} Ich weiß nicht, ob ich mich freuen oder sorgen soll.",
+  "{b.neutral} Mal sehen, ob es mehr war als ein Gespräch."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r6": [
+  "{b.neutral} Ein klares Ja oder Nein hätte mir besser gefallen, aber gut.",
+  "{b.neutral} Immerhin hast du mir zugehört, das zählt."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r7": [
+  "{b.schlecht} Dann weiß ich, was ich hier wert bin.",
+  "{b.schlecht} Das merke ich mir für die Verhandlung."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r8": [
+  "{b.schlecht} So redest du nicht mit jemandem, der den Laden trägt!",
+  "{b.schlecht} Dann kannst du dir den Vertrag sonst wohin stecken!"
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r9": [
+  "{b.schlecht} Es gibt Vereine, die meine Wünsche ernster nehmen.",
+  "{b.schlecht} Mein Berater wird dazu einiges zu sagen haben."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r10": [
+  "{b.schlecht} Ich hatte gehofft, dass dir meine Wünsche mehr bedeuten.",
+  "{b.schlecht} Dass du meine Wünsche so abtust, tut mehr weh, als ich zeige."
+ ],
+ "pool.verhandlung_spieler_wunsch.x.x1": [
+  "Er geht erleichtert aus dem Gespräch. {entscheidung} Seine Wünsche sind angekommen.",
+  "{entscheidung} Im Training wirkt er am nächsten Tag deutlich lockerer."
+ ],
+ "pool.verhandlung_spieler_wunsch.x.x2": [
+  "Die Wünsche bleiben im Raum stehen. {entscheidung} Er sagt, er warte ab.",
+  "{entscheidung} Nichts ist entschieden, aber auch nichts verbaut."
+ ],
+ "pool.verhandlung_spieler_wunsch.x.x3": [
+  "Er schüttelt den Kopf und geht. {entscheidung} Der Berater meldet sich noch am selben Tag.",
+  "{entscheidung} In der Kabine erzählt er, wie das Gespräch lief."
+ ],
+ "pool.verhandlung_spieler_wunsch.x.x4": [
+  "Du hast ihm eine Rolle in Aussicht gestellt. {entscheidung} Er schreibt sich das Datum auf.",
+  "{entscheidung} Er fragt nach, sobald die Frist verstreicht."
+ ],
+ "pool.verhandlung_spieler_wunsch.x.x5": [
+  "Er steht auf, noch bevor du fertig bist. {entscheidung} Von Vertrag spricht er nicht mehr, von Wechsel dafür schon.",
+  "{entscheidung} Hinter ihm knallt die Tür."
+ ],
+ "pool.berater_konkurrenzangebot.e.e8": [
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Ehrlich gesagt sehe ich bei Ihnen kaum Bewegung, deshalb nehme ich das andere Angebot sehr ernst. Die Frist beträgt {frist} Tage.",
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Sie haben sich bisher kaum bewegt, also muss ich dem anderen Verein ernsthaft antworten, und das binnen {frist} Tagen."
+ ],
+ "pool.berater_konkurrenzangebot.e.e9": [
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Wir sind noch im Gespräch, und das will ich nutzen: Was bewegt sich bei Ihnen, bevor die Frist in {frist} Tagen endet?",
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Noch ist alles offen, aber die Frist von {frist} Tagen drängt, daher mein Anruf."
+ ],
+ "pool.berater_konkurrenzangebot.e.e10": [
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Wir sind uns eigentlich nah, deshalb ist das Angebot nur ein Argument. Ich nenne es Ihnen dennoch, die Frist beträgt {frist} Tage.",
+  "{b.berater_konkurrenzangebot_gruss} {b.berater_konkurrenzangebot_lage} Zwischen uns läuft es gut, doch der andere Verein macht Druck: {frist} Tage Zeit hat er mir gelassen."
+ ],
+ "pool.berater_provision.e.e8": [
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Wenn der Vertrag ohnehin kaum zustande kommt, will ich wenigstens für meine Arbeit entlohnt werden.",
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Der Stand der Gespräche ist schwach, aber meine Arbeit war es nicht, und die gehört vergütet."
+ ],
+ "pool.berater_provision.e.e9": [
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Der Vertrag ist noch nicht entschieden, aber meine Gebühr sollte vor der Entscheidung stehen.",
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Solange alles offen ist, lege ich meine Bedingung auf den Tisch, damit niemand überrascht wird."
+ ],
+ "pool.berater_provision.e.e10": [
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Der Abschluss ist fast sicher, also wird es Zeit, meine Gebühr festzuklopfen.",
+  "{b.berater_provision_gruss} {b.berater_provision_lage} Da wir uns einig sind, ist jetzt der richtige Moment für die Gebühr."
+ ],
+ "pool.verhandlung_spieler_wunsch.e.e9": [
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Ich merke, dass wir weit auseinanderliegen, deshalb sage ich dir, was ich mir trotzdem wünsche.",
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Auch wenn wir uns kaum nähern: Bei diesen Punkten bräuchte ich Bewegung."
+ ],
+ "pool.verhandlung_spieler_wunsch.e.e10": [
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Wir sind uns fast einig, und ich will nur noch ein paar Dinge sicher haben.",
+  "{b.gruss} {b.verhandlung_spieler_wunsch_lage} Es sieht gut aus, deshalb bringe ich die letzten Wünsche gleich mit."
+ ],
+ "pool.berater_konkurrenzangebot.a.a10": [
+  "Über Geld spricht bei uns zuerst der Sportdirektor. Reden Sie mit ihm, ich unterstütze den Vorschlag, wenn er trägt.",
+  "Bitte legen Sie das Angebot der Geschäftsführung vor, ich bleibe an Ihrer Seite."
+ ],
+ "pool.berater_konkurrenzangebot.a.a11": [
+  "Geld ist nicht alles: Ich kann {name} mehr Verantwortung und einen festen Platz in meinen Plänen bieten, das gleicht manches aus.",
+  "Ich komme ihm bei Rolle und Rückhalt entgegen, damit er hier mehr hat als nur ein Gehalt."
+ ],
+ "pool.berater_konkurrenzangebot.a.a12": [
+  "Der Verein hat einen Rahmen, und den halte ich ein. Innerhalb davon bin ich bereit, jeden vernünftigen Punkt zu besprechen.",
+  "Meine Grenze ist der Rahmen des Vereins. Was darin liegt, besprechen wir sofort."
+ ],
+ "pool.berater_provision.a.a9": [
+  "Wofür genau berechnen Sie die Gebühr, und was bekomme ich dafür schriftlich?",
+  "Schlüsseln Sie mir auf, welche Leistungen die Gebühr abdeckt, dann rede ich darüber."
+ ],
+ "pool.berater_provision.a.a10": [
+  "Die Gebührenfrage klärt der Sportdirektor mit Ihnen, ich leite Ihre Nachricht weiter.",
+  "Bitte wenden Sie sich wegen der Provision an die Geschäftsführung, ich gebe Ihnen die Kontaktdaten."
+ ],
+ "pool.berater_provision.a.a11": [
+  "Ich verstehe, dass Ihre Arbeit etwas wert ist. Wir regeln das so, dass beide es tragen können, etwa gestaffelt.",
+  "Lassen Sie uns einen Mittelweg suchen, bei dem Ihre Arbeit gewürdigt wird und der Verein nicht überfordert ist."
+ ],
+ "pool.berater_provision.a.a12": [
+  "Der Verein zahlt keine Pauschalen vorab. Steht der Vertrag, schauen wir uns Ihre Leistung an.",
+  "Eine Gebühr vor der Unterschrift kommt nicht infrage, danach sprechen wir."
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a10": [
+  "Ich sage dir, wo ich Spielraum sehe und wo nicht, dann wissen wir beide, woran wir sind.",
+  "Lass uns ehrlich auf die Liste schauen: Manches geht, manches nicht, und ich sage dir, was."
+ ],
+ "pool.verhandlung_spieler_wunsch.a.a11": [
+  "Wenn beim Geld wenig geht, können wir bei Familie und Heimat helfen, etwa mit flexiblen Reisetagen.",
+  "Ich finde einen Weg für deine Familie, auch wenn die Zahlen eng sind."
+ ],
+ "pool.berater_konkurrenzangebot.r.r11": [
+  "{b.gut} Dann sind wir uns im Grunde einig, ich schicke dem anderen Verein eine freundliche Absage.",
+  "{b.gut} Das reicht mir, das andere Angebot lasse ich verfallen."
+ ],
+ "pool.berater_konkurrenzangebot.r.r12": [
+  "{b.neutral} Es bleibt spannend, ich halte beide Seiten warm.",
+  "{b.neutral} Noch ist nichts entschieden, ich warte Ihre nächste Nachricht ab."
+ ],
+ "pool.berater_konkurrenzangebot.r.r13": [
+  "{b.schlecht} Das war es dann wohl, ich bereite den Wechsel vor.",
+  "{b.schlecht} Mit solchen Antworten brauche ich dem anderen Verein gar nicht erst abzusagen."
+ ],
+ "pool.berater_provision.r.r11": [
+  "{b.gut} Dann steht dem Abschluss nichts mehr im Weg, ich bereite alles vor.",
+  "{b.gut} Da wir fast durch sind, regeln wir den Rest schnell."
+ ],
+ "pool.berater_provision.r.r12": [
+  "{b.neutral} Solange nichts entschieden ist, halte ich mich zurück.",
+  "{b.neutral} Ich prüfe meine Position und melde mich, wenn es konkreter wird."
+ ],
+ "pool.berater_provision.r.r13": [
+  "{b.schlecht} Dann lohnt sich für mich die Arbeit hier nicht mehr.",
+  "{b.schlecht} Bei dieser Haltung überrascht es mich nicht, dass wir nicht vorankommen."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r11": [
+  "{b.gut} Das fühlt sich richtig an, ich sehe uns kurz vor der Unterschrift.",
+  "{b.gut} Wenn es so weitergeht, unterschreibe ich gern."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r12": [
+  "{b.neutral} Ich bin noch nicht sicher, wohin das führt.",
+  "{b.neutral} Es ist alles offen, und ich überlege, was ich davon halte."
+ ],
+ "pool.verhandlung_spieler_wunsch.r.r13": [
+  "{b.schlecht} Ich glaube nicht mehr, dass wir zusammenfinden.",
+  "{b.schlecht} So wird das nichts, ich sehe mich schon woanders."
+ ]
+}

@@ -1,0 +1,307 @@
+{
+ "menu.fans_und_stimmung.titel": "Fans and Mood",
+ "nav.seite.fans_und_stimmung": "Fans and Mood",
+ "fs.hero": "Fans and Mood",
+ "fs.hero.unter": "What the terraces think, how full the stadium is and what tickets cost.",
+ "fs.leer": "No home game yet this season: mood, banners and attendance appear after the first match.",
+ "fs.kz.stimmung": "Fan mood",
+ "fs.kz.zuschauer": "Average attendance",
+ "fs.kz.auslastung": "Occupancy",
+ "fs.kz.mitglieder": "Members",
+ "fs.kz.geschaetzt": "estimate",
+ "fs.kz.heimspiele": "%1 home games",
+ "fs.stimmung.wort.jubel": "ecstatic",
+ "fs.stimmung.wort.gut": "content",
+ "fs.stimmung.wort.geduldig": "waiting",
+ "fs.stimmung.wort.unruhig": "restless",
+ "fs.stimmung.wort.frust": "angry",
+ "fs.preise": "Ticket prices",
+ "fs.preise.hinweis": "Areas, seats, occupancy and prices are an estimate from stadium level, reputation and fan mood, not the game's figures. Matchday income goes into the club account; part of the surplus ends up in the transfer budget.",
+ "fs.preise.speichern": "Save prices",
+ "fs.preise.empfehlungen": "Use all recommendations",
+ "fs.preise.gespeichert": "Prices saved: they apply from the next home game.",
+ "fs.preise.unveraendert": "Nothing to save.",
+ "fs.preise.gesperrt": "The club world is not set up yet: prices can be set after the first day.",
+ "fs.preis.auslastung": "%1 occupancy · %2 seats",
+ "fs.preis.je_spiel": "Matchday result: %1 per home game",
+ "fs.preis.empfohlen": "Recommended",
+ "fs.preis.aktuell": "Current",
+ "fs.preis.stufe.0": "very cheap",
+ "fs.preis.stufe.1": "cheap",
+ "fs.preis.stufe.2": "normal",
+ "fs.preis.stufe.3": "expensive",
+ "fs.preis.stufe.4": "very expensive",
+ "fs.preis.stufe3.0": "cheap",
+ "fs.preis.stufe3.1": "normal",
+ "fs.preis.stufe3.2": "expensive",
+ "fs.preis.stufe4.0": "big discount",
+ "fs.preis.stufe4.1": "discount",
+ "fs.preis.stufe4.2": "small discount",
+ "fs.preis.stufe4.3": "hardly any discount",
+ "fs.bereich.sitz": "Seats",
+ "fs.bereich.steh": "Terraces",
+ "fs.bereich.dauer": "Season tickets",
+ "fs.bereich.gast": "Away end",
+ "fs.bereich.vip": "Boxes and VIP",
+ "fs.bereich.vip.fest": "Price fixed in the VIP package",
+ "fs.empf.halten": "Fine as it is: you would not get more here without upsetting the fans.",
+ "fs.empf.rauf": "Dearer works: more income, and the fans still go along.",
+ "fs.empf.runter": "Cheaper pays off: more fans and a better mood in the stands.",
+ "fs.empf.laune": "Cheaper is better for the mood, even if it costs some money.",
+ "fs.kurve": "Mood through the season",
+ "fs.kurve.unter": "One dot per game; home games filled, away games hollow.",
+ "fs.kurve.leer": "The curve starts with the first competitive game.",
+ "fs.banner": "Banners in the stands",
+ "fs.banner.unter": "What the fans most recently brought to the stands.",
+ "fs.heim": "Home games",
+ "fs.heim.zuschauer": "%1 spectators",
+ "fs.heim.voll": "sold out",
+ "fs.heim.geschaetzt": "Attendance estimated from fan mood, opponent, form and weather.",
+ "fs.heim.warum": "Why?",
+ "fs.naechstes": "Next home game",
+ "fs.naechstes.erwartet": "Expected: %1 spectators (%2 occupancy), estimate",
+ "fs.naechstes.faktor.gegner.hoch": "The opponent draws a crowd",
+ "fs.naechstes.faktor.gegner.tief": "The opponent hardly draws",
+ "fs.naechstes.faktor.form.hoch": "The form attracts",
+ "fs.naechstes.faktor.form.tief": "The form puts people off",
+ "fs.naechstes.faktor.wetter.tief": "Bad weather expected",
+ "fs.naechstes.faktor.wetter.hoch": "Good weather expected",
+ "fs.naechstes.faktor.stimmung.hoch": "The fans are in a good mood",
+ "fs.naechstes.faktor.stimmung.tief": "The fans are out of sorts",
+ "fs.naechstes.faktor.spielart": "Special match",
+ "fs.naechstes.derby": "Derby",
+ "fs.stimmen": "Fan voices",
+ "fs.stimmen.leer": "Quiet for now: fans speak up after games, transfers and table moves.",
+ "fs.zeit.0": "just now",
+ "fs.zeit.1": "5 min ago",
+ "fs.zeit.2": "18 min ago",
+ "fs.zeit.3": "1 h ago",
+ "fs.zeit.4": "3 h ago",
+ "fs.zeit.gestern": "yesterday",
+ "fs.zeit.tage": "%1 days ago",
+ "fs.typ.ultra": "Ultras",
+ "fs.typ.alt": "Old fan",
+ "fs.typ.jung": "Young terrace",
+ "fs.typ.kritisch": "Critical voice",
+ "fs.satz.jubel": [
+  "A tifo across the whole stand",
+  "Singing long after the final whistle",
+  "The terrace celebrates as if there were no tomorrow",
+  "Standing ovations for the team"
+ ],
+ "fs.satz.gut": [
+  "Singing right up to the final whistle",
+  "Loud when it matters",
+  "Happy applause after the final whistle",
+  "The terrace carries the team"
+ ],
+ "fs.satz.geduldig": [
+  "Patient crowd, waiting for a spark",
+  "Polite applause, nothing more",
+  "Quiet stands, a song now and then",
+  "Waiting, but not angry"
+ ],
+ "fs.satz.unruhig": [
+  "Quiet and nervous, boos at half-time",
+  "Some fans left before the end",
+  "Grumbling at every misplaced pass",
+  "The terrace demands more effort"
+ ],
+ "fs.satz.frust": [
+  "Whistles after the final whistle",
+  "Half-empty stands before the end",
+  "The terrace turns its back on the team",
+  "Angry shouts towards the bench"
+ ],
+ "fs.satz.derby.jubel": [
+  "Derby win: the terrace celebrates into the night"
+ ],
+ "fs.satz.derby.gut": [
+  "Derby atmosphere from the first minute"
+ ],
+ "fs.satz.derby.geduldig": [
+  "Tense derby mood"
+ ],
+ "fs.satz.derby.unruhig": [
+  "Derby slipping away, the terrace is fed up"
+ ],
+ "fs.satz.derby.frust": [
+  "Derby disgrace: whistles from all sides"
+ ],
+ "fs.banner.held": [
+  "{name} – our pride",
+  "{name}, we believe in you",
+  "Forever {name}"
+ ],
+ "fs.banner.neuzugang": [
+  "Welcome, {name}",
+  "{name} – one of us now"
+ ],
+ "fs.banner.legende": [
+  "{name} – always one of us",
+  "Thank you, {name}"
+ ],
+ "fs.banner.serie": [
+  "{zahl} wins – don't stop",
+  "Winning run – keep going"
+ ],
+ "fs.banner.derbysieg": [
+  "Derby winners!",
+  "The city is ours"
+ ],
+ "fs.banner.verein": [
+  "Never alone",
+  "{verein} – my life",
+  "Home, away, everywhere",
+  "Love knows no league"
+ ],
+ "fs.banner.absender": [
+  "{verein} Ultras",
+  "South Stand",
+  "Supporters' club {kurz} 1987",
+  "The Terrace",
+  "North Stand",
+  "Block 12"
+ ],
+ "fs.post.sieg.ultra": [
+  "{ergebnis} against {gegner}! The terrace carried you, and you delivered!"
+ ],
+ "fs.post.sieg.alt": [
+  "{ergebnis} against {gegner}. Decades in the stadium and it still feels like the first day."
+ ],
+ "fs.post.sieg.jung": [
+  "{ergebnis}!!! What a game against {gegner} 🔥"
+ ],
+ "fs.post.sieg.kritisch": [
+  "{ergebnis} against {gegner}, nice. But it must go the same against better sides."
+ ],
+ "fs.post.remis.ultra": [
+  "{ergebnis} against {gegner}. We deserved more, full terrace again next week!"
+ ],
+ "fs.post.remis.alt": [
+  "{ergebnis} against {gegner}. Seen worse afternoons."
+ ],
+ "fs.post.remis.jung": [
+  "{ergebnis} vs {gegner} … okay, so-so 😐"
+ ],
+ "fs.post.remis.kritisch": [
+  "{ergebnis} against {gegner}. Not enough for our ambitions."
+ ],
+ "fs.post.niederlage.ultra": [
+  "{ergebnis} against {gegner}. We sing anyway, now it is your turn!"
+ ],
+ "fs.post.niederlage.alt": [
+  "{ergebnis} against {gegner}. Days like this happen, but it is not nice."
+ ],
+ "fs.post.niederlage.jung": [
+  "{ergebnis} against {gegner}?! I'm out for today 😤"
+ ],
+ "fs.post.niederlage.kritisch": [
+  "{ergebnis} against {gegner}. No ideas and no courage."
+ ],
+ "fs.post.neuzugang.ultra": [
+  "Welcome, {name}! Give everything for the badge."
+ ],
+ "fs.post.neuzugang.alt": [
+  "{name} arrives. Let's see if he fights through."
+ ],
+ "fs.post.neuzugang.jung": [
+  "{name} is ours!!! Shirt already ordered 🙌"
+ ],
+ "fs.post.neuzugang.kritisch": [
+  "{name}, and for that much money? He has to show it first."
+ ],
+ "fs.post.abgang.ultra": [
+  "{name} leaves. Thanks for everything."
+ ],
+ "fs.post.abgang.alt": [
+  "{name} is gone. That's modern football."
+ ],
+ "fs.post.abgang.jung": [
+  "No, not {name}! 😢"
+ ],
+ "fs.post.abgang.kritisch": [
+  "{name} gone and no replacement yet. This will be expensive."
+ ],
+ "fs.post.tabelle_oben.ultra": [
+  "Position {platz}! That's where we belong!"
+ ],
+ "fs.post.tabelle_oben.alt": [
+  "Position {platz}. Not this high for a long time."
+ ],
+ "fs.post.tabelle_oben.jung": [
+  "Position {platz} 📈 who stops us?"
+ ],
+ "fs.post.tabelle_oben.kritisch": [
+  "Position {platz}, good. Don't let up now."
+ ],
+ "fs.post.tabelle_mitte.alt": [
+  "Position {platz}, mid-table. We all know more is possible."
+ ],
+ "fs.post.tabelle_mitte.jung": [
+  "Position {platz}, still all to play for!"
+ ],
+ "fs.post.tabelle_mitte.kritisch": [
+  "Position {platz}. Where is this heading?"
+ ],
+ "fs.post.tabelle_unten.ultra": [
+  "Position {platz}. All the more, we won't leave you alone!"
+ ],
+ "fs.post.tabelle_unten.alt": [
+  "Position {platz}. I'm getting scared."
+ ],
+ "fs.post.tabelle_unten.jung": [
+  "Position {platz} … I'm not looking at the table 🙈"
+ ],
+ "fs.post.tabelle_unten.kritisch": [
+  "Position {platz}. Who takes responsibility at last?"
+ ],
+ "fs.post.vertrag.ultra": [
+  "Extend with {name} at last! He is the heart of the team!"
+ ],
+ "fs.post.vertrag.alt": [
+  "{name}'s contract is running out. Players like that you don't let go."
+ ],
+ "fs.post.vertrag.jung": [
+  "{name} PLEASE extend 🙏"
+ ],
+ "fs.post.vertrag.kritisch": [
+  "Why is {name} not extended yet? Late again."
+ ],
+ "fs.post.held.ultra": [
+  "{name} with goal number {tore}! The terrace sings your name!"
+ ],
+ "fs.post.held.alt": [
+  "{name} already on {tore} goals. We haven't had a striker like that in ages."
+ ],
+ "fs.post.held.jung": [
+  "{name} is unreal, {tore} goals 🐐"
+ ],
+ "fs.post.held.kritisch": [
+  "{tore} goals from {name}, but the others must score too."
+ ],
+ "fs.post.naechstes.ultra": [
+  "Against {gegner} we want to see you fight!"
+ ],
+ "fs.post.naechstes.alt": [
+  "On {tag} against {gegner}. Seat for thirty years, I'm back."
+ ],
+ "fs.post.naechstes.jung": [
+  "Countdown: {gegner} on {tag} ⏳"
+ ],
+ "fs.post.naechstes.kritisch": [
+  "{gegner} on {tag}: a reaction must come."
+ ],
+ "fs.post.derby_naechstes.ultra": [
+  "DERBY against {gegner}! The whole city in our colours!"
+ ],
+ "fs.post.derby_naechstes.alt": [
+  "Derby against {gegner}. My favourite fixture every year."
+ ],
+ "fs.post.derby_naechstes.jung": [
+  "DERBY WEEK against {gegner} 🔥🔥🔥"
+ ],
+ "fs.post.derby_naechstes.kritisch": [
+  "Derby against {gegner}: if you don't burn, you don't deserve the shirt."
+ ]
+}

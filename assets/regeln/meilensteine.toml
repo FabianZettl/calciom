@@ -1,0 +1,52 @@
+# Karriere-Meilensteine (PES M, eigene Festlegung nach SPIELGEFUEHL.md Maßnahme 4; die Python-Fassung hatte nur einen leeren Reiter).
+# zaehlt: siege, spiele, serie (längste Serie ohne Niederlage), zu_null, titel, saisons, talente (eigene Spieler bis 19 mit Einsatz), lizenz (0 C … 3 Profi)
+
+[[meilenstein]]
+id = "erster_sieg"
+zaehlt = "siege"
+ziel = 1
+
+[[meilenstein]]
+id = "zehn_siege"
+zaehlt = "siege"
+ziel = 10
+
+[[meilenstein]]
+id = "talent"
+zaehlt = "talente"
+ziel = 1
+
+[[meilenstein]]
+id = "zu_null"
+zaehlt = "zu_null"
+ziel = 10
+
+[[meilenstein]]
+id = "serie"
+zaehlt = "serie"
+ziel = 10
+
+[[meilenstein]]
+id = "erste_saison"
+zaehlt = "saisons"
+ziel = 1
+
+[[meilenstein]]
+id = "hundert_spiele"
+zaehlt = "spiele"
+ziel = 100
+
+[[meilenstein]]
+id = "erster_titel"
+zaehlt = "titel"
+ziel = 1
+
+[[meilenstein]]
+id = "fuenfzig_siege"
+zaehlt = "siege"
+ziel = 50
+
+[[meilenstein]]
+id = "profi_lizenz"
+zaehlt = "lizenz"
+ziel = 3

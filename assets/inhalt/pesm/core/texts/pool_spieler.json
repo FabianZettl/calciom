@@ -1,0 +1,146 @@
+{
+ "pool.spielzeit_stammkraft.e.e1": [
+  "{b.gruss} {b.klage} Ich war lange gesetzt, und jetzt sagt mir niemand, warum.",
+  "{b.gruss} {b.klage} Das hat mich überrascht, ich dachte, ich hätte hier meinen Platz."
+ ],
+ "pool.spielzeit_stammkraft.e.e2": [
+  "{b.gruss} {b.klage} Ich möchte verstehen, was sich geändert hat.",
+  "{b.gruss} {b.klage} Kannst du mir sagen, wo ich stehe?"
+ ],
+ "pool.spielzeit_stammkraft.e.e3": [
+  "{b.gruss} {b.klage} Ehrlich gesagt bin ich ziemlich geladen deswegen.",
+  "{b.gruss} {b.klage} Das nagt an mir, und ich will nicht, dass es schlimmer wird."
+ ],
+ "pool.spielzeit_stammkraft.e.e4": [
+  "{b.gruss} {b.klage} Ich lasse mich nicht länger auf die Bank setzen, ohne dass einer redet!",
+  "{b.gruss} {b.klage} Ich will jetzt eine klare Ansage, sonst weiß ich nicht, was ich tue."
+ ],
+ "pool.spielzeit_stammkraft.e.e5": [
+  "{b.gruss} {b.klage} Ich will nicht meckern, aber ich möchte dem Team helfen und kann es auf der Bank nicht.",
+  "{b.gruss} {b.klage} Ich vertraue dir, nur verstehe ich es gerade nicht."
+ ],
+ "pool.spielzeit_stammkraft.e.e6": [
+  "{b.gruss} {b.klage} Ich habe Ziele, und die erreiche ich nicht von draußen.",
+  "{b.gruss} {b.klage} Wenn das so bleibt, muss ich über meine Zukunft nachdenken."
+ ],
+ "pool.spielzeit_stammkraft.e.e7": [
+  "{b.gruss} {b.klage} Du hattest mir etwas versprochen, und bis jetzt ist nichts passiert.",
+  "{b.gruss} {b.klage} Erinnerst du dich an deine Zusage? Ich warte noch darauf."
+ ],
+ "pool.spielzeit_stammkraft.a.a1": [
+  "Ab nächster Woche stehst du wieder in der Startelf, darauf kannst du dich verlassen. In {frist} Tagen reden wir noch einmal.",
+  "Ich plane dich wieder fest ein und prüfe es nach {frist} Tagen mit dir gemeinsam."
+ ],
+ "pool.spielzeit_stammkraft.a.a2": [
+  "Ich erkläre dir gern, wie ich aufstelle: Wir haben im Moment andere Anforderungen, und du bist nicht aus dem Plan.",
+  "Es liegt nicht an deiner Klasse. Der Gegner und der Spielplan haben meine Entscheidung bestimmt."
+ ],
+ "pool.spielzeit_stammkraft.a.a3": [
+  "Gib mir noch ein paar Spiele, dann sehen wir weiter.",
+  "Ich weiß, dass es nicht leicht ist. Lass uns nach dem nächsten Spiel in Ruhe sprechen."
+ ],
+ "pool.spielzeit_stammkraft.a.a4": [
+  "Die Aufstellung mache ich, und daran ändert sich nichts. Du musst damit leben.",
+  "Nein. Eine Garantie für einen Platz gibt es nicht, auch nicht für dich."
+ ],
+ "pool.spielzeit_stammkraft.a.a5": [
+  "Ich sehe, dass dich das trifft. Ich kann dir etwas bieten, damit es sich lohnt, und wir reden bald über deinen Vertrag.",
+  "Ich möchte dir entgegenkommen: eine Prämie für die Zeit auf der Bank, und du bleibst fester Bestandteil des Kaders."
+ ],
+ "pool.spielzeit_stammkraft.a.a6": [
+  "Was glaubst du selbst, woran es liegt?",
+  "Sag du es mir: Wo siehst du dich im Moment, und was fehlt dir?"
+ ],
+ "pool.spielzeit_stammkraft.a.a7": [
+  "Ich entscheide, wer spielt, und ich bleibe bei meiner Linie.",
+  "Das ist meine Entscheidung. Du bekommst deine Chance, wenn ich sie für richtig halte."
+ ],
+ "pool.spielzeit_stammkraft.a.a8": [
+  "Ich verstehe, wie sich das anfühlt. Du bist wichtig für uns, und ich will nicht, dass du dich zurückgesetzt fühlst.",
+  "Das muss hart sein, ich war selbst lange Ersatz. Du bist uns wichtig."
+ ],
+ "pool.spielzeit_stammkraft.a.a9": [
+  "Sprich bitte mit dem Co-Trainer, er kennt die Zahlen aus dem Training. Danach kommst du zu mir.",
+  "Der Stab hat die Daten der letzten Wochen. Geh mit ihm durch, wo es hakt, und melde dich dann."
+ ],
+ "pool.spielzeit_stammkraft.a.a10": [
+  "Du bekommst deine Rolle zurück, mit Handschlag. Und wenn ich es vergesse, erinnerst du mich in {frist} Tagen.",
+  "Abgemacht: Du bist wieder gesetzt. Nimm mich in {frist} Tagen beim Wort."
+ ],
+ "pool.spielzeit_stammkraft.r.r1": [
+  "{b.gut} Danke, das reicht mir.",
+  "{b.gut} Das klingt nach einem Plan."
+ ],
+ "pool.spielzeit_stammkraft.r.r2": [
+  "{b.gut} Ich weiß, dass ich mich auf dich verlassen kann.",
+  "{b.gut} Danke, dass du dir die Zeit nimmst."
+ ],
+ "pool.spielzeit_stammkraft.r.r3": [
+  "{b.gut} Dann gebe ich im Training alles.",
+  "{b.gut} Das ist die Chance, auf die ich gewartet habe."
+ ],
+ "pool.spielzeit_stammkraft.r.r4": [
+  "{b.neutral} Mal sehen, was daraus wird.",
+  "{b.neutral} Ich nehme es so mit."
+ ],
+ "pool.spielzeit_stammkraft.r.r5": [
+  "{b.neutral} Ich muss darüber nachdenken, ich weiß nicht, wie ich mich dabei fühle.",
+  "{b.neutral} Das beruhigt mich noch nicht, aber ich höre zu."
+ ],
+ "pool.spielzeit_stammkraft.r.r6": [
+  "{b.schlecht} Das hilft mir nicht weiter.",
+  "{b.schlecht} So habe ich mir das Gespräch nicht vorgestellt."
+ ],
+ "pool.spielzeit_stammkraft.r.r7": [
+  "{b.schlecht} Dann sagst du mir also einfach nur, was ich zu schlucken habe?!",
+  "{b.schlecht} Ich habe die Nase voll von dieser Behandlung!"
+ ],
+ "pool.spielzeit_stammkraft.r.r8": [
+  "{b.schlecht} Es gibt andere Vereine, die mich haben wollen, und das weißt du.",
+  "{b.schlecht} Dann muss ich mich wohl nach etwas anderem umsehen."
+ ],
+ "pool.spielzeit_stammkraft.x.x1": [
+  "Das Gespräch endet versöhnlich. {entscheidung}",
+  "{entscheidung} Er geht deutlich entspannter aus der Tür."
+ ],
+ "pool.spielzeit_stammkraft.x.x2": [
+  "Die Sache bleibt offen. {entscheidung} Er wird sich wieder melden, wenn sich nichts ändert.",
+  "{entscheidung} Geklärt ist damit noch nichts."
+ ],
+ "pool.spielzeit_stammkraft.x.x3": [
+  "Er verlässt das Gespräch verärgert. {entscheidung} Das wird sich auf seine Stimmung auswirken.",
+  "{entscheidung} Die Lage spitzt sich zu."
+ ],
+ "pool.spielzeit_stammkraft.x.x4": [
+  "Die Zusage steht. {entscheidung} Beide Seiten wissen, woran sie sind.",
+  "{entscheidung} Er hält dich beim Wort."
+ ],
+ "pool.entscheidung.zusage": [
+  "Du hast ihm eine Zusage gemacht, die in {frist} Tagen geprüft wird."
+ ],
+ "pool.entscheidung.erklaeren": [
+  "Du hast ihm deine Entscheidung erklärt."
+ ],
+ "pool.entscheidung.vertroesten": [
+  "Du hast ihn vertröstet."
+ ],
+ "pool.entscheidung.ablehnen": [
+  "Du hast seine Bitte abgelehnt."
+ ],
+ "pool.entscheidung.ausgleich": [
+  "Du hast ihm einen Ausgleich angeboten."
+ ],
+ "pool.entscheidung.gegenfrage": [
+  "Du hast ihn selbst nach den Gründen gefragt."
+ ],
+ "pool.entscheidung.hart_bleiben": [
+  "Du bist bei deiner Linie geblieben."
+ ],
+ "pool.entscheidung.einfuehlen": [
+  "Du hast Verständnis für seine Lage gezeigt."
+ ],
+ "pool.entscheidung.delegieren": [
+  "Du hast ihn an den Stab verwiesen."
+ ],
+ "pool.spielzeit_stammkraft.r.r9": ["{b.neutral} Ich gebe dem Ganzen noch etwas Zeit.", "{b.neutral} Ich nehme mit, was du gesagt hast."]
+}

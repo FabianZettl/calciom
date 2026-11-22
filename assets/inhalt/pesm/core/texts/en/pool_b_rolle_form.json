@@ -1,0 +1,74 @@
+{
+ "pool.b.reservist_unzufrieden_klage": [
+  "I've hardly been on the pitch in the last {spiele} games.",
+  "For {spiele} games now I've only watched from the bench."
+ ],
+ "pool.b.reservist_unzufrieden_klage.hitzig": [
+  "{spiele} games without a minute, and that's supposed to be normal?",
+  "I've been sitting around for {spiele} games like a parcel nobody collected."
+ ],
+ "pool.b.reservist_unzufrieden_klage.loyal": [
+  "I watched {spiele} games in silence because this club matters to me.",
+  "I wasn't involved in the last {spiele} games, and I never said a word."
+ ],
+ "pool.b.reservist_unzufrieden_klage.ehrgeizig": [
+  "{spiele} games without action, that's not how I get better.",
+  "I don't develop on the bench, and it's been {spiele} games."
+ ],
+ "pool.b.reservist_unzufrieden_klage.wechselfreudig": [
+  "After {spiele} games without a minute I'm starting to look around.",
+  "{spiele} games just watching, I wonder whether this is still my place."
+ ],
+ "pool.b.reservist_unzufrieden_klage.sensibel": [
+  "For {spiele} games now I've felt more and more superfluous on the bench.",
+  "I've watched {spiele} games and I notice it's gnawing at me."
+ ],
+ "pool.b.neuzugang_aussen_vor_lage": [
+  "The new lad isn't settling in with us, not even after {spiele} games.",
+  "Something is off with the new lad, for {spiele} games he's been stuck between the groups."
+ ],
+ "pool.b.neuzugang_aussen_vor_lage.hitzig": [
+  "The new lad just stands around in the dressing room, and {spiele} games later it's still the same!",
+  "I'm sick of watching the new lad go under for {spiele} games."
+ ],
+ "pool.b.neuzugang_aussen_vor_lage.loyal": [
+  "I'm worried about the new lad, after {spiele} games he's still not one of us.",
+  "I don't want to point fingers, but the new lad hasn't found his feet for {spiele} games."
+ ],
+ "pool.b.neuzugang_aussen_vor_lage.ehrgeizig": [
+  "This way we get nothing out of the new lad, for {spiele} games he's stayed below his level.",
+  "The new lad is too good for this role, but after {spiele} games he isn't getting going."
+ ],
+ "pool.b.neuzugang_aussen_vor_lage.wechselfreudig": [
+  "The new lad looks like he's already got one foot out of the door, after {spiele} games.",
+  "After {spiele} games the new lad seems like he doesn't want to stay at all."
+ ],
+ "pool.b.neuzugang_aussen_vor_lage.sensibel": [
+  "After {spiele} games the new lad still seems lost, and it hits me.",
+  "I get the feeling the new lad has suffered from being a stranger for {spiele} games."
+ ],
+ "pool.b.formtief_lage": [
+  "Nothing has come together for me for {spiele} games.",
+  "For {spiele} games now I just can't get anything right."
+ ],
+ "pool.b.formtief_lage.hitzig": [
+  "{spiele} games, and I can't land a pass, it's driving me mad!",
+  "I'm furious, for {spiele} games everything has gone wrong."
+ ],
+ "pool.b.formtief_lage.loyal": [
+  "I feel I haven't helped the team for {spiele} games, and I'm sorry about that.",
+  "I don't want to let you and the squad down, but nothing has worked for {spiele} games."
+ ],
+ "pool.b.formtief_lage.ehrgeizig": [
+  "{spiele} weak games don't fit my standards, I want out of this.",
+  "For {spiele} games I've been below my level and want to know what I can change."
+ ],
+ "pool.b.formtief_lage.wechselfreudig": [
+  "After {spiele} games I wonder whether a different environment might do me good.",
+  "{spiele} games without form, maybe it's down to the surroundings here."
+ ],
+ "pool.b.formtief_lage.sensibel": [
+  "For {spiele} games I've doubted myself, and I hardly dare to ask for the ball.",
+  "After {spiele} games my head is full and I feel my confidence draining."
+ ]
+}

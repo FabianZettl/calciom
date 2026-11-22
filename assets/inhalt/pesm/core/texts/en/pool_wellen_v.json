@@ -1,0 +1,782 @@
+{
+ "pool.presse_siegesserie_demut.e.e1": [
+  "{b.presse_siegesserie_demut_gruss} {b.presse_siegesserie_demut_lage} How do you keep the players grounded after so many wins?"
+ ],
+ "pool.presse_siegesserie_demut.e.e2": [
+  "{b.presse_siegesserie_demut_gruss} {b.presse_siegesserie_demut_lage} Do you say the word title out loud by now, or do you ban it in the dressing room?"
+ ],
+ "pool.presse_siegesserie_demut.e.e3": [
+  "{b.presse_siegesserie_demut_gruss} {b.presse_siegesserie_demut_lage} When does a run end, if not through overconfidence?"
+ ],
+ "pool.presse_siegesserie_demut.e.e4": [
+  "{b.presse_siegesserie_demut_gruss} {b.presse_siegesserie_demut_lage} Have the opponents worked your team out by now?"
+ ],
+ "pool.presse_siegesserie_demut.e.e5": [
+  "{b.presse_siegesserie_demut_gruss} {b.presse_siegesserie_demut_lage} Let me be blunt: do you play down the success because you fear the fall?"
+ ],
+ "pool.presse_siegesserie_demut.e.e6": [
+  "{b.presse_siegesserie_demut_gruss} {b.presse_siegesserie_demut_lage} They say the mood in the squad is exuberant, is that a risk?"
+ ],
+ "pool.presse_siegesserie_demut.a.a1": [
+  "We are surprised ourselves at how well it goes, but training stays strict, and we stick to our work."
+ ],
+ "pool.presse_siegesserie_demut.a.a2": [
+  "I understand that the town dreams, and I grudge the fans no moment of it. The players know it starts from zero again."
+ ],
+ "pool.presse_siegesserie_demut.a.a3": [
+  "Let us tell dreaming and planning apart: dreams belong at home, plans belong on the training pitch."
+ ],
+ "pool.presse_siegesserie_demut.a.a4": [
+  "I will say nothing about titles, I answer questions like that in May and not a day earlier."
+ ],
+ "pool.presse_siegesserie_demut.a.a5": [
+  "Let us hope the run lasts forever, then I never have to answer your question again."
+ ],
+ "pool.presse_siegesserie_demut.a.a6": [
+  "Do you want us to lose so your story gets better? I am only asking."
+ ],
+ "pool.presse_siegesserie_demut.a.a7": [
+  "On staying grounded our players' council can tell you more than I can, talk to the senior players."
+ ],
+ "pool.presse_siegesserie_demut.a.a8": [
+  "We take it game by game like every manager, and there is nothing more to say today."
+ ],
+ "pool.presse_siegesserie_demut.r.r1": [
+  "{b.gut} That sounds grounded, and that attitude is what carries a run."
+ ],
+ "pool.presse_siegesserie_demut.r.r2": [
+  "{b.gut} Thanks, that lets me write a calm piece about the run."
+ ],
+ "pool.presse_siegesserie_demut.r.r3": [
+  "{b.gut} You have your players in hand, you can tell from every sentence."
+ ],
+ "pool.presse_siegesserie_demut.r.r4": [
+  "{b.neutral} That is the standard answer, but it is probably true."
+ ],
+ "pool.presse_siegesserie_demut.r.r5": [
+  "{b.neutral} I will write it up that way and see whether the team delivers."
+ ],
+ "pool.presse_siegesserie_demut.r.r6": [
+  "{b.neutral} Well put, whether it holds, the next game will show."
+ ],
+ "pool.presse_siegesserie_demut.r.r7": [
+  "{b.schlecht} That sounds aloof, and that is exactly how it will read in the paper."
+ ],
+ "pool.presse_siegesserie_demut.r.r8": [
+  "{b.schlecht} With this arrogance the run will end badly."
+ ],
+ "pool.presse_siegesserie_demut.r.r9": [
+  "{b.schlecht} Dodging is not staying grounded, it is running from the question."
+ ],
+ "pool.presse_siegesserie_demut.x.x1": [
+  "The journalist nods in recognition. {entscheidung} The report ends with respect for the calm at the club."
+ ],
+ "pool.presse_siegesserie_demut.x.x2": [
+  "The room is still waiting. {entscheidung} Whether the run holds will be decided on the pitch."
+ ],
+ "pool.presse_siegesserie_demut.x.x3": [
+  "The mood turns audibly. {entscheidung} The success story becomes a story about overconfidence."
+ ],
+ "pool.presse_schuldfrage_niederlage.e.e1": [
+  "{b.presse_schuldfrage_niederlage_gruss} {b.presse_schuldfrage_niederlage_lage} Who is responsible for this game, you or the team?"
+ ],
+ "pool.presse_schuldfrage_niederlage.e.e2": [
+  "{b.presse_schuldfrage_niederlage_gruss} {b.presse_schuldfrage_niederlage_lage} Did one player lose this game, and do you dare to name him?"
+ ],
+ "pool.presse_schuldfrage_niederlage.e.e3": [
+  "{b.presse_schuldfrage_niederlage_gruss} {b.presse_schuldfrage_niederlage_lage} Looking back, would you make any decision differently?"
+ ],
+ "pool.presse_schuldfrage_niederlage.e.e4": [
+  "{b.presse_schuldfrage_niederlage_gruss} {b.presse_schuldfrage_niederlage_lage} Did the team go into this game poorly prepared?"
+ ],
+ "pool.presse_schuldfrage_niederlage.e.e5": [
+  "{b.presse_schuldfrage_niederlage_gruss} {b.presse_schuldfrage_niederlage_lage} To be honest this looks like mistakes in the coaching staff, how do you see it?"
+ ],
+ "pool.presse_schuldfrage_niederlage.e.e6": [
+  "{b.presse_schuldfrage_niederlage_gruss} {b.presse_schuldfrage_niederlage_lage} They say the line-up was disputed in the squad, is that true?"
+ ],
+ "pool.presse_schuldfrage_niederlage.a.a1": [
+  "I carry the responsibility, because I pick the team and set the direction. I discuss mistakes internally."
+ ],
+ "pool.presse_schuldfrage_niederlage.a.a2": [
+  "Nobody in this team wanted to lose, and I will not expose any individual, that would be unfair."
+ ],
+ "pool.presse_schuldfrage_niederlage.a.a3": [
+  "There were many mistakes in many places, mine included, and we will talk about it together and calmly."
+ ],
+ "pool.presse_schuldfrage_niederlage.a.a4": [
+  "I will not answer your blame question, whoever asks like that wants a name, not the facts."
+ ],
+ "pool.presse_schuldfrage_niederlage.a.a5": [
+  "Blame the pitch, the weather and the fixture list, just pick one."
+ ],
+ "pool.presse_schuldfrage_niederlage.a.a6": [
+  "Do you know who is to blame in your newsroom for a botched article? Then we both have the answer."
+ ],
+ "pool.presse_schuldfrage_niederlage.a.a7": [
+  "The match analysis is done by the assistant coach, ask him about the scenes, he has the footage."
+ ],
+ "pool.presse_schuldfrage_niederlage.a.a8": [
+  "We have gone through the game and want to look ahead, there is nothing more to say."
+ ],
+ "pool.presse_schuldfrage_niederlage.r.r1": [
+  "{b.gut} That is honest, and one respects a manager like that even after a defeat."
+ ],
+ "pool.presse_schuldfrage_niederlage.r.r2": [
+  "{b.gut} Thanks for not passing the buck."
+ ],
+ "pool.presse_schuldfrage_niederlage.r.r3": [
+  "{b.gut} I will write it that way, fair and without a hunt for a scapegoat."
+ ],
+ "pool.presse_schuldfrage_niederlage.r.r4": [
+  "{b.neutral} That is understandable, but the questions about the line-up remain."
+ ],
+ "pool.presse_schuldfrage_niederlage.r.r5": [
+  "{b.neutral} I will note it, the club will surely keep discussing."
+ ],
+ "pool.presse_schuldfrage_niederlage.r.r6": [
+  "{b.neutral} That is an attitude, but not yet an explanation."
+ ],
+ "pool.presse_schuldfrage_niederlage.r.r7": [
+  "{b.schlecht} That sounds like an excuse, and the reader will notice at once."
+ ],
+ "pool.presse_schuldfrage_niederlage.r.r8": [
+  "{b.schlecht} Whoever is never to blame cannot improve anything."
+ ],
+ "pool.presse_schuldfrage_niederlage.r.r9": [
+  "{b.schlecht} Then I will simply write that the manager refused to answer."
+ ],
+ "pool.presse_schuldfrage_niederlage.x.x1": [
+  "The journalist lowers his pen. {entscheidung} The paper gives the manager a fair comment the next day."
+ ],
+ "pool.presse_schuldfrage_niederlage.x.x2": [
+  "The question is half answered. {entscheidung} The debate about blame carries on in the forums."
+ ],
+ "pool.presse_schuldfrage_niederlage.x.x3": [
+  "The tone turns cutting. {entscheidung} The next day the blame question is splashed across the front page."
+ ],
+ "pool.presse_verletzungswelle_belastung.e.e1": [
+  "{b.presse_verletzungswelle_belastung_gruss} {b.presse_verletzungswelle_belastung_lage} Do you train your players too hard?"
+ ],
+ "pool.presse_verletzungswelle_belastung.e.e2": [
+  "{b.presse_verletzungswelle_belastung_gruss} {b.presse_verletzungswelle_belastung_lage} How many players are really fit at the moment?"
+ ],
+ "pool.presse_verletzungswelle_belastung.e.e3": [
+  "{b.presse_verletzungswelle_belastung_gruss} {b.presse_verletzungswelle_belastung_lage} Could some absences have been avoided with more rotation?"
+ ],
+ "pool.presse_verletzungswelle_belastung.e.e4": [
+  "{b.presse_verletzungswelle_belastung_gruss} {b.presse_verletzungswelle_belastung_lage} Is there a dispute between coaching staff and medical department over the load?"
+ ],
+ "pool.presse_verletzungswelle_belastung.e.e5": [
+  "{b.presse_verletzungswelle_belastung_gruss} {b.presse_verletzungswelle_belastung_lage} I will ask plainly: are you playing at the expense of health?"
+ ],
+ "pool.presse_verletzungswelle_belastung.e.e6": [
+  "{b.presse_verletzungswelle_belastung_gruss} {b.presse_verletzungswelle_belastung_lage} What part does the fixture list play in the injuries?"
+ ],
+ "pool.presse_verletzungswelle_belastung.a.a1": [
+  "We check the load every week with the medical department, and health comes before any result."
+ ],
+ "pool.presse_verletzungswelle_belastung.a.a2": [
+  "Every absence hurts me personally, and I stand by the players in this hard time."
+ ],
+ "pool.presse_verletzungswelle_belastung.a.a3": [
+  "It is an interplay of bad luck, fixtures and load, and we adjust step by step."
+ ],
+ "pool.presse_verletzungswelle_belastung.a.a4": [
+  "Whoever accuses me of overworking should look at the numbers, not only at headlines."
+ ],
+ "pool.presse_verletzungswelle_belastung.a.a5": [
+  "I have counted the injured already, there are fewer than you just suspect."
+ ],
+ "pool.presse_verletzungswelle_belastung.a.a6": [
+  "Why not ask your own newsroom how many sick notes it had this week."
+ ],
+ "pool.presse_verletzungswelle_belastung.a.a7": [
+  "The medical department will gladly give information, I handle tactics, not diagnoses."
+ ],
+ "pool.presse_verletzungswelle_belastung.a.a8": [
+  "We will watch the situation and react if needed, that is all I can say today."
+ ],
+ "pool.presse_verletzungswelle_belastung.r.r1": [
+  "{b.gut} That reassures me, the care for the players is visible."
+ ],
+ "pool.presse_verletzungswelle_belastung.r.r2": [
+  "{b.gut} Good that medicine and coaching staff work together, I am happy to report that."
+ ],
+ "pool.presse_verletzungswelle_belastung.r.r3": [
+  "{b.gut} That sounds responsible, the kind of manager one wishes for."
+ ],
+ "pool.presse_verletzungswelle_belastung.r.r4": [
+  "{b.neutral} That is where things stand, I will see how the situation develops."
+ ],
+ "pool.presse_verletzungswelle_belastung.r.r5": [
+  "{b.neutral} Your answer sounds plausible, next week will show more."
+ ],
+ "pool.presse_verletzungswelle_belastung.r.r6": [
+  "{b.neutral} I will note it, but open questions remain."
+ ],
+ "pool.presse_verletzungswelle_belastung.r.r7": [
+  "{b.schlecht} It sounds as if you are playing the problem down."
+ ],
+ "pool.presse_verletzungswelle_belastung.r.r8": [
+  "{b.schlecht} If you brush off the players' health like that, I will make it a topic."
+ ],
+ "pool.presse_verletzungswelle_belastung.r.r9": [
+  "{b.schlecht} Players are not machines, and writing that is my duty."
+ ],
+ "pool.presse_verletzungswelle_belastung.x.x1": [
+  "The journalist writes busily. {entscheidung} The article praises the care taken with the players."
+ ],
+ "pool.presse_verletzungswelle_belastung.x.x2": [
+  "The worry hangs in the air. {entscheidung} The injury situation remains a topic in the coverage."
+ ],
+ "pool.presse_verletzungswelle_belastung.x.x3": [
+  "It gets loud in the room. {entscheidung} The paper publicly questions the training."
+ ],
+ "pool.presse_wechselgeruecht_star.e.e1": [
+  "{b.presse_wechselgeruecht_star_gruss} {b.presse_wechselgeruecht_star_lage} Will your best man still be at {verein} next year?"
+ ],
+ "pool.presse_wechselgeruecht_star.e.e2": [
+  "{b.presse_wechselgeruecht_star_gruss} {b.presse_wechselgeruecht_star_lage} Have you spoken to the player about his future?"
+ ],
+ "pool.presse_wechselgeruecht_star.e.e3": [
+  "{b.presse_wechselgeruecht_star_gruss} {b.presse_wechselgeruecht_star_lage} Would you be ready to let him go for the right offer?"
+ ],
+ "pool.presse_wechselgeruecht_star.e.e4": [
+  "{b.presse_wechselgeruecht_star_gruss} {b.presse_wechselgeruecht_star_lage} Is it true an agent is already talking to other clubs?"
+ ],
+ "pool.presse_wechselgeruecht_star.e.e5": [
+  "{b.presse_wechselgeruecht_star_gruss} {b.presse_wechselgeruecht_star_lage} Please tell me whether the rumour deserves a denial or a confirmation."
+ ],
+ "pool.presse_wechselgeruecht_star.e.e6": [
+  "{b.presse_wechselgeruecht_star_gruss} {b.presse_wechselgeruecht_star_lage} How do the rumours affect the mood in the dressing room?"
+ ],
+ "pool.presse_wechselgeruecht_star.a.a1": [
+  "The player is important to us, we speak to him regularly, and nobody is planning a move."
+ ],
+ "pool.presse_wechselgeruecht_star.a.a2": [
+  "Rumours are part of the business, and I take them seriously because a player in this situation needs calm."
+ ],
+ "pool.presse_wechselgeruecht_star.a.a3": [
+  "I discuss such things with the player and the club, not in public, but I say clearly what matters to us."
+ ],
+ "pool.presse_wechselgeruecht_star.a.a4": [
+  "A player we want to keep, we do not sell, and I will not comment on rumours any further."
+ ],
+ "pool.presse_wechselgeruecht_star.a.a5": [
+  "If I wanted to deny every rumour, I would have no time left for training."
+ ],
+ "pool.presse_wechselgeruecht_star.a.a6": [
+  "Who told you that, the agent, a fan or the crystal ball?"
+ ],
+ "pool.presse_wechselgeruecht_star.a.a7": [
+  "Transfers are for the sporting director, please turn to him, I handle the team."
+ ],
+ "pool.presse_wechselgeruecht_star.a.a8": [
+  "We are in talks about transfers, and if there is something to report you will be the first to hear."
+ ],
+ "pool.presse_wechselgeruecht_star.r.r1": [
+  "{b.gut} That is a clear word, with it I can put the rumours in context."
+ ],
+ "pool.presse_wechselgeruecht_star.r.r2": [
+  "{b.gut} Good that the club radiates calm, it soothes the fans as well."
+ ],
+ "pool.presse_wechselgeruecht_star.r.r3": [
+  "{b.gut} It was not this clear before, thanks for the clarity."
+ ],
+ "pool.presse_wechselgeruecht_star.r.r4": [
+  "{b.neutral} That leaves room, I will watch what happens in the coming weeks."
+ ],
+ "pool.presse_wechselgeruecht_star.r.r5": [
+  "{b.neutral} No denial, no confirmation, I will take that with me."
+ ],
+ "pool.presse_wechselgeruecht_star.r.r6": [
+  "{b.neutral} The matter stays open, and I will stay on it."
+ ],
+ "pool.presse_wechselgeruecht_star.r.r7": [
+  "{b.schlecht} Then there seems to be more to the rumour than you admit."
+ ],
+ "pool.presse_wechselgeruecht_star.r.r8": [
+  "{b.schlecht} If you deny nothing, I will write it as a confirmation."
+ ],
+ "pool.presse_wechselgeruecht_star.r.r9": [
+  "{b.schlecht} That sounds like nerves, and the fans will read it that way."
+ ],
+ "pool.presse_wechselgeruecht_star.x.x1": [
+  "The journalist files the rumour away. {entscheidung} The story runs with a clear denial from the manager."
+ ],
+ "pool.presse_wechselgeruecht_star.x.x2": [
+  "The rumour hangs in the room. {entscheidung} The papers keep cheerfully writing about the player's future."
+ ],
+ "pool.presse_wechselgeruecht_star.x.x3": [
+  "The room gets restless. {entscheidung} The next day the move is in the paper as a done deal."
+ ],
+ "pool.presse_vorstand_rueckendeckung.e.e1": [
+  "{b.presse_vorstand_rueckendeckung_gruss} {b.presse_vorstand_rueckendeckung_lage} Has the leadership expressed its full confidence in you?"
+ ],
+ "pool.presse_vorstand_rueckendeckung.e.e2": [
+  "{b.presse_vorstand_rueckendeckung_gruss} {b.presse_vorstand_rueckendeckung_lage} How long do you give yourself to turn it around?"
+ ],
+ "pool.presse_vorstand_rueckendeckung.e.e3": [
+  "{b.presse_vorstand_rueckendeckung_gruss} {b.presse_vorstand_rueckendeckung_lage} Was there a crisis meeting with the board this week?"
+ ],
+ "pool.presse_vorstand_rueckendeckung.e.e4": [
+  "{b.presse_vorstand_rueckendeckung_gruss} {b.presse_vorstand_rueckendeckung_lage} Would you step down voluntarily if it helps the club?"
+ ],
+ "pool.presse_vorstand_rueckendeckung.e.e5": [
+  "{b.presse_vorstand_rueckendeckung_gruss} {b.presse_vorstand_rueckendeckung_lage} I will ask openly: is your chair wobbling, and do you know it yet?"
+ ],
+ "pool.presse_vorstand_rueckendeckung.e.e6": [
+  "{b.presse_vorstand_rueckendeckung_gruss} {b.presse_vorstand_rueckendeckung_lage} Do the players feel that there are doubts about you upstairs?"
+ ],
+ "pool.presse_vorstand_rueckendeckung.a.a1": [
+  "We talk regularly and openly, and what is discussed internally stays confidential, but I feel supported."
+ ],
+ "pool.presse_vorstand_rueckendeckung.a.a2": [
+  "I understand the impatience, because everyone wants success, and I work every day to deliver it."
+ ],
+ "pool.presse_vorstand_rueckendeckung.a.a3": [
+  "Especially in hard phases a club needs calm, and we stand together to improve the situation."
+ ],
+ "pool.presse_vorstand_rueckendeckung.a.a4": [
+  "I do not deal with your chair talk, I have more important things to do."
+ ],
+ "pool.presse_vorstand_rueckendeckung.a.a5": [
+  "My chair is well padded, thanks for asking, I am only just sitting it in."
+ ],
+ "pool.presse_vorstand_rueckendeckung.a.a6": [
+  "And who asks whether your editor still backs you when you ask questions like these?"
+ ],
+ "pool.presse_vorstand_rueckendeckung.a.a7": [
+  "The leadership speaks for itself on this topic, I am responsible for the sport."
+ ],
+ "pool.presse_vorstand_rueckendeckung.a.a8": [
+  "I give no information on personnel questions, that is up to the leadership."
+ ],
+ "pool.presse_vorstand_rueckendeckung.r.r1": [
+  "{b.gut} That is a credible picture, the relationship seems sturdy."
+ ],
+ "pool.presse_vorstand_rueckendeckung.r.r2": [
+  "{b.gut} Thanks for staying so clear, it helps to put things in context."
+ ],
+ "pool.presse_vorstand_rueckendeckung.r.r3": [
+  "{b.gut} With this calm I would reassure the club as well."
+ ],
+ "pool.presse_vorstand_rueckendeckung.r.r4": [
+  "{b.neutral} That is diplomatic, but it is no guarantee."
+ ],
+ "pool.presse_vorstand_rueckendeckung.r.r5": [
+  "{b.neutral} I will watch what the leadership says about it."
+ ],
+ "pool.presse_vorstand_rueckendeckung.r.r6": [
+  "{b.neutral} For now your word stands, the results must back it up."
+ ],
+ "pool.presse_vorstand_rueckendeckung.r.r7": [
+  "{b.schlecht} That sounds like a manager who is not sure of himself."
+ ],
+ "pool.presse_vorstand_rueckendeckung.r.r8": [
+  "{b.schlecht} Whoever does not answer such questions confirms the suspicion."
+ ],
+ "pool.presse_vorstand_rueckendeckung.r.r9": [
+  "{b.schlecht} This is how managers talk before they go, and that is how I will write it."
+ ],
+ "pool.presse_vorstand_rueckendeckung.x.x1": [
+  "The journalist closes his notebook. {entscheidung} The report says the manager is well rooted at the club."
+ ],
+ "pool.presse_vorstand_rueckendeckung.x.x2": [
+  "The question remains unanswered. {entscheidung} The manager's future keeps being discussed."
+ ],
+ "pool.presse_vorstand_rueckendeckung.x.x3": [
+  "The room goes quiet. {entscheidung} The next day the headline reads: the manager wobbles."
+ ],
+ "pool.presse_taktikwechsel_nachfrage.e.e1": [
+  "{b.presse_taktikwechsel_nachfrage_gruss} {b.presse_taktikwechsel_nachfrage_lage} Why did you change the formation?"
+ ],
+ "pool.presse_taktikwechsel_nachfrage.e.e2": [
+  "{b.presse_taktikwechsel_nachfrage_gruss} {b.presse_taktikwechsel_nachfrage_lage} Was that a consequence of recent performances or a long-term idea?"
+ ],
+ "pool.presse_taktikwechsel_nachfrage.e.e3": [
+  "{b.presse_taktikwechsel_nachfrage_gruss} {b.presse_taktikwechsel_nachfrage_lage} Does that mean the old style of play has failed?"
+ ],
+ "pool.presse_taktikwechsel_nachfrage.e.e4": [
+  "{b.presse_taktikwechsel_nachfrage_gruss} {b.presse_taktikwechsel_nachfrage_lage} How did the players react to the change?"
+ ],
+ "pool.presse_taktikwechsel_nachfrage.e.e5": [
+  "{b.presse_taktikwechsel_nachfrage_gruss} {b.presse_taktikwechsel_nachfrage_lage} I will ask honestly: was the change a knee-jerk reaction out of desperation?"
+ ],
+ "pool.presse_taktikwechsel_nachfrage.e.e6": [
+  "{b.presse_taktikwechsel_nachfrage_gruss} {b.presse_taktikwechsel_nachfrage_lage} Does it stay with this shape or will you change again in the next game?"
+ ],
+ "pool.presse_taktikwechsel_nachfrage.a.a1": [
+  "We analysed the opponents and ourselves and saw that this gives us more stability, and it has proved its worth."
+ ],
+ "pool.presse_taktikwechsel_nachfrage.a.a2": [
+  "I know that change unsettles, and I talked to the players at length so that everyone feels included."
+ ],
+ "pool.presse_taktikwechsel_nachfrage.a.a3": [
+  "The old style stays a part of us, the new one complements it, and together they make us more flexible."
+ ],
+ "pool.presse_taktikwechsel_nachfrage.a.a4": [
+  "I do not explain tactics to the press before I explain them to the opponent, you should understand that."
+ ],
+ "pool.presse_taktikwechsel_nachfrage.a.a5": [
+  "I change the formation as often as I change my tie, namely on a whim."
+ ],
+ "pool.presse_taktikwechsel_nachfrage.a.a6": [
+  "Would you change your approach to research if it did not work? There you are."
+ ],
+ "pool.presse_taktikwechsel_nachfrage.a.a7": [
+  "My assistant will gladly explain the tactical details, it is his field."
+ ],
+ "pool.presse_taktikwechsel_nachfrage.a.a8": [
+  "We stay flexible and see from game to game what is needed."
+ ],
+ "pool.presse_taktikwechsel_nachfrage.r.r1": [
+  "{b.gut} That makes sense, so the change is sensible."
+ ],
+ "pool.presse_taktikwechsel_nachfrage.r.r2": [
+  "{b.gut} Thanks, with that I can explain the tactical picture to readers."
+ ],
+ "pool.presse_taktikwechsel_nachfrage.r.r3": [
+  "{b.gut} That shows a manager who learns and adapts, and I like that."
+ ],
+ "pool.presse_taktikwechsel_nachfrage.r.r4": [
+  "{b.neutral} I will take that with me, the next games will show."
+ ],
+ "pool.presse_taktikwechsel_nachfrage.r.r5": [
+  "{b.neutral} Nicely explained, whether it holds remains to be seen."
+ ],
+ "pool.presse_taktikwechsel_nachfrage.r.r6": [
+  "{b.neutral} That is one view, other observers see it differently."
+ ],
+ "pool.presse_taktikwechsel_nachfrage.r.r7": [
+  "{b.schlecht} That does not convince me, the change looks aimless."
+ ],
+ "pool.presse_taktikwechsel_nachfrage.r.r8": [
+  "{b.schlecht} Whoever does not want to explain probably has nothing to explain."
+ ],
+ "pool.presse_taktikwechsel_nachfrage.r.r9": [
+  "{b.schlecht} Readers will take your answer as arrogance."
+ ],
+ "pool.presse_taktikwechsel_nachfrage.x.x1": [
+  "The journalist notes down the sketch. {entscheidung} The comment shows appreciation for the adaptability."
+ ],
+ "pool.presse_taktikwechsel_nachfrage.x.x2": [
+  "The tactics debate goes on. {entscheidung} Fans and press stick to their respective opinions."
+ ],
+ "pool.presse_taktikwechsel_nachfrage.x.x3": [
+  "The exchange turns sharp. {entscheidung} The tactics question becomes a row over the manager's style."
+ ],
+ "pool.presse_spielerstreit_oeffentlich.e.e1": [
+  "{b.presse_spielerstreit_oeffentlich_gruss} {b.presse_spielerstreit_oeffentlich_lage} Is it true that two of your players clashed?"
+ ],
+ "pool.presse_spielerstreit_oeffentlich.e.e2": [
+  "{b.presse_spielerstreit_oeffentlich_gruss} {b.presse_spielerstreit_oeffentlich_lage} Who started the argument, and how did you react?"
+ ],
+ "pool.presse_spielerstreit_oeffentlich.e.e3": [
+  "{b.presse_spielerstreit_oeffentlich_gruss} {b.presse_spielerstreit_oeffentlich_lage} Is the mood in the dressing room really as bad as they say?"
+ ],
+ "pool.presse_spielerstreit_oeffentlich.e.e4": [
+  "{b.presse_spielerstreit_oeffentlich_gruss} {b.presse_spielerstreit_oeffentlich_lage} Will there be punishment for the players involved?"
+ ],
+ "pool.presse_spielerstreit_oeffentlich.e.e5": [
+  "{b.presse_spielerstreit_oeffentlich_gruss} {b.presse_spielerstreit_oeffentlich_lage} I will ask plainly: does the manager still have the dressing room under control?"
+ ],
+ "pool.presse_spielerstreit_oeffentlich.e.e6": [
+  "{b.presse_spielerstreit_oeffentlich_gruss} {b.presse_spielerstreit_oeffentlich_lage} How do you want to prevent internal matters from getting out in future?"
+ ],
+ "pool.presse_spielerstreit_oeffentlich.a.a1": [
+  "There was a disagreement that we settled internally, and those involved have talked it out."
+ ],
+ "pool.presse_spielerstreit_oeffentlich.a.a2": [
+  "It gets loud among players sometimes because everyone wants to win, and I take that as a sign of passion."
+ ],
+ "pool.presse_spielerstreit_oeffentlich.a.a3": [
+  "I heard both sides and talked to the team so that we can carry on with respect."
+ ],
+ "pool.presse_spielerstreit_oeffentlich.a.a4": [
+  "What happens in my dressing room is none of your business, and I answer no questions about it."
+ ],
+ "pool.presse_spielerstreit_oeffentlich.a.a5": [
+  "A row? We had a lively discussion about the best dessert, and I was clearly for pudding."
+ ],
+ "pool.presse_spielerstreit_oeffentlich.a.a6": [
+  "Do you know who told you that? Then let us talk about internal matters, but at your place."
+ ],
+ "pool.presse_spielerstreit_oeffentlich.a.a7": [
+  "The players' council speaks on the dressing room, please ask there, I handle the pitch."
+ ],
+ "pool.presse_spielerstreit_oeffentlich.a.a8": [
+  "We settled that internally, and there is nothing more to say."
+ ],
+ "pool.presse_spielerstreit_oeffentlich.r.r1": [
+  "{b.gut} That sounds composed, this is how to handle conflicts in a team."
+ ],
+ "pool.presse_spielerstreit_oeffentlich.r.r2": [
+  "{b.gut} Thanks for being open, that makes the story smaller."
+ ],
+ "pool.presse_spielerstreit_oeffentlich.r.r3": [
+  "{b.gut} Good that you heard both sides, that speaks for leadership."
+ ],
+ "pool.presse_spielerstreit_oeffentlich.r.r4": [
+  "{b.neutral} That is the official version, I will keep listening around."
+ ],
+ "pool.presse_spielerstreit_oeffentlich.r.r5": [
+  "{b.neutral} The matter seems settled, but I will stay alert."
+ ],
+ "pool.presse_spielerstreit_oeffentlich.r.r6": [
+  "{b.neutral} That answers the question only in part."
+ ],
+ "pool.presse_spielerstreit_oeffentlich.r.r7": [
+  "{b.schlecht} That sounds like a dressing room that is simmering, and I will describe it so."
+ ],
+ "pool.presse_spielerstreit_oeffentlich.r.r8": [
+  "{b.schlecht} Whoever plays it down like that has something to hide."
+ ],
+ "pool.presse_spielerstreit_oeffentlich.r.r9": [
+  "{b.schlecht} Then the players themselves will talk to me, they are surely more forthcoming."
+ ],
+ "pool.presse_spielerstreit_oeffentlich.x.x1": [
+  "The journalist lets the topic rest. {entscheidung} The report presents the row as settled and fairly resolved."
+ ],
+ "pool.presse_spielerstreit_oeffentlich.x.x2": [
+  "The matter is not quite off the table. {entscheidung} A lingering suspicion stays in the coverage."
+ ],
+ "pool.presse_spielerstreit_oeffentlich.x.x3": [
+  "The situation escalates. {entscheidung} The next day the talk is of a dressing room crisis."
+ ],
+ "pool.presse_titelkampf_druck.e.e1": [
+  "{b.presse_titelkampf_druck_gruss} {b.presse_titelkampf_druck_lage} Is {verein} even built for a race at the top?"
+ ],
+ "pool.presse_titelkampf_druck.e.e2": [
+  "{b.presse_titelkampf_druck_gruss} {b.presse_titelkampf_druck_lage} Would you state the title as an official goal?"
+ ],
+ "pool.presse_titelkampf_druck.e.e3": [
+  "{b.presse_titelkampf_druck_gruss} {b.presse_titelkampf_druck_lage} What does the pressure do to young players who have never experienced this?"
+ ],
+ "pool.presse_titelkampf_druck.e.e4": [
+  "{b.presse_titelkampf_druck_gruss} {b.presse_titelkampf_druck_lage} Are squad and depth enough to last the season?"
+ ],
+ "pool.presse_titelkampf_druck.e.e5": [
+  "{b.presse_titelkampf_druck_gruss} {b.presse_titelkampf_druck_lage} I will ask bluntly: do you even want to win the league or are you afraid of it?"
+ ],
+ "pool.presse_titelkampf_druck.e.e6": [
+  "{b.presse_titelkampf_druck_gruss} {b.presse_titelkampf_druck_lage} Has the board raised its expectations of you by now?"
+ ],
+ "pool.presse_titelkampf_druck.a.a1": [
+  "We accept the role without piling on pressure, and we keep working to the rhythm of recent weeks."
+ ],
+ "pool.presse_titelkampf_druck.a.a2": [
+  "I see how much the fans dream, and it gives us strength, even if I shield the players from too much expectation."
+ ],
+ "pool.presse_titelkampf_druck.a.a3": [
+  "We aim to win every game, and what comes of it, the table will decide in May."
+ ],
+ "pool.presse_titelkampf_druck.a.a4": [
+  "I do not talk about a championship, it only brings unrest, and I cannot use that."
+ ],
+ "pool.presse_titelkampf_druck.a.a5": [
+  "Champions? I am glad if we sit on the bus on time tomorrow, we will see about the rest then."
+ ],
+ "pool.presse_titelkampf_druck.a.a6": [
+  "And you, are you already writing the celebratory pieces or is the newsroom still waiting?"
+ ],
+ "pool.presse_titelkampf_druck.a.a7": [
+  "The leadership talks about goals, I only comment on the work on the pitch."
+ ],
+ "pool.presse_titelkampf_druck.a.a8": [
+  "We look from week to week, that keeps the pressure small."
+ ],
+ "pool.presse_titelkampf_druck.r.r1": [
+  "{b.gut} That is ambitious and yet calm, exactly the right mix."
+ ],
+ "pool.presse_titelkampf_druck.r.r2": [
+  "{b.gut} Thanks, with that I can write about ambition without overdoing it."
+ ],
+ "pool.presse_titelkampf_druck.r.r3": [
+  "{b.gut} That sounds like a manager who can handle pressure."
+ ],
+ "pool.presse_titelkampf_druck.r.r4": [
+  "{b.neutral} That is cautious, but it stays open how far it carries."
+ ],
+ "pool.presse_titelkampf_druck.r.r5": [
+  "{b.neutral} I will watch how the team copes with the expectation."
+ ],
+ "pool.presse_titelkampf_druck.r.r6": [
+  "{b.neutral} An answer that keeps all doors open."
+ ],
+ "pool.presse_titelkampf_druck.r.r7": [
+  "{b.schlecht} That sounds timid, and a club in the race needs more courage."
+ ],
+ "pool.presse_titelkampf_druck.r.r8": [
+  "{b.schlecht} With that attitude you do not become champions."
+ ],
+ "pool.presse_titelkampf_druck.r.r9": [
+  "{b.schlecht} Whoever plays it down like that takes the dream from the fans."
+ ],
+ "pool.presse_titelkampf_druck.x.x1": [
+  "The journalist smiles. {entscheidung} The report shows the club as a calm front-runner."
+ ],
+ "pool.presse_titelkampf_druck.x.x2": [
+  "The room stays tense. {entscheidung} The coming weeks will turn the mood."
+ ],
+ "pool.presse_titelkampf_druck.x.x3": [
+  "A murmur runs through the room. {entscheidung} The next day the manager is described as a brake on the dream."
+ ],
+ "pool.presse_schiedsrichter_zorn.e.e1": [
+  "{b.presse_schiedsrichter_zorn_gruss} {b.presse_schiedsrichter_zorn_lage} Did you see the referee's decision, and what do you say about it?"
+ ],
+ "pool.presse_schiedsrichter_zorn.e.e2": [
+  "{b.presse_schiedsrichter_zorn_gruss} {b.presse_schiedsrichter_zorn_lage} Do you feel disadvantaged by the referee?"
+ ],
+ "pool.presse_schiedsrichter_zorn.e.e3": [
+  "{b.presse_schiedsrichter_zorn_gruss} {b.presse_schiedsrichter_zorn_lage} Will you complain to the association?"
+ ],
+ "pool.presse_schiedsrichter_zorn.e.e4": [
+  "{b.presse_schiedsrichter_zorn_gruss} {b.presse_schiedsrichter_zorn_lage} Would the game have ended differently without that moment?"
+ ],
+ "pool.presse_schiedsrichter_zorn.e.e5": [
+  "{b.presse_schiedsrichter_zorn_gruss} {b.presse_schiedsrichter_zorn_lage} I will ask directly: are you not just looking for an excuse for the defeat?"
+ ],
+ "pool.presse_schiedsrichter_zorn.e.e6": [
+  "{b.presse_schiedsrichter_zorn_gruss} {b.presse_schiedsrichter_zorn_lage} Did you speak to the officials at half-time?"
+ ],
+ "pool.presse_schiedsrichter_zorn.a.a1": [
+  "I saw the scene and talked it over, but I do not judge the decision in public."
+ ],
+ "pool.presse_schiedsrichter_zorn.a.a2": [
+  "I understand the anger of the fans and the players, but we have to accept that referees make decisions."
+ ],
+ "pool.presse_schiedsrichter_zorn.a.a3": [
+  "There were moments that could have been judged differently, but we did not lose only because of that, and I say so openly."
+ ],
+ "pool.presse_schiedsrichter_zorn.a.a4": [
+  "I do not comment on referees, and whoever hopes for headlines waits in vain."
+ ],
+ "pool.presse_schiedsrichter_zorn.a.a5": [
+  "The referee had a good day, just not for us, I congratulate him warmly."
+ ],
+ "pool.presse_schiedsrichter_zorn.a.a6": [
+  "And you, would you have called the moment differently? Then I look forward to your debut."
+ ],
+ "pool.presse_schiedsrichter_zorn.a.a7": [
+  "For referee questions there are contacts at the club, please turn to the press office."
+ ],
+ "pool.presse_schiedsrichter_zorn.a.a8": [
+  "It was a game with many moments, and I stick to the result."
+ ],
+ "pool.presse_schiedsrichter_zorn.r.r1": [
+  "{b.gut} That is fair and relaxed, one can carry oneself like that even after a defeat."
+ ],
+ "pool.presse_schiedsrichter_zorn.r.r2": [
+  "{b.gut} Thanks for putting the moment in context without complaining at once."
+ ],
+ "pool.presse_schiedsrichter_zorn.r.r3": [
+  "{b.gut} That is composed, and one can report on the game that way."
+ ],
+ "pool.presse_schiedsrichter_zorn.r.r4": [
+  "{b.neutral} I will note it, the debate about the moment goes on anyway."
+ ],
+ "pool.presse_schiedsrichter_zorn.r.r5": [
+  "{b.neutral} That sounds diplomatic, but I do sense a little anger."
+ ],
+ "pool.presse_schiedsrichter_zorn.r.r6": [
+  "{b.neutral} Noted, I will gather other voices."
+ ],
+ "pool.presse_schiedsrichter_zorn.r.r7": [
+  "{b.schlecht} That sounds like blaming, and readers do not like that."
+ ],
+ "pool.presse_schiedsrichter_zorn.r.r8": [
+  "{b.schlecht} Whoever attacks the referee distracts from his own mistakes."
+ ],
+ "pool.presse_schiedsrichter_zorn.r.r9": [
+  "{b.schlecht} I will write that down, and the association will read it."
+ ],
+ "pool.presse_schiedsrichter_zorn.x.x1": [
+  "The journalist nods in a conciliatory way. {entscheidung} In the report the moment remains a side note."
+ ],
+ "pool.presse_schiedsrichter_zorn.x.x2": [
+  "The moment stays a topic of conversation. {entscheidung} Fans and press keep arguing about the right verdict."
+ ],
+ "pool.presse_schiedsrichter_zorn.x.x3": [
+  "The tone gets loud. {entscheidung} The next day it says the manager attacks the referee."
+ ],
+ "pool.presse_fanprotest_stimmung.e.e1": [
+  "{b.presse_fanprotest_stimmung_gruss} {b.presse_fanprotest_stimmung_lage} What do you say to the fans who whistled at you?"
+ ],
+ "pool.presse_fanprotest_stimmung.e.e2": [
+  "{b.presse_fanprotest_stimmung_gruss} {b.presse_fanprotest_stimmung_lage} Do you understand the protests in the stadium?"
+ ],
+ "pool.presse_fanprotest_stimmung.e.e3": [
+  "{b.presse_fanprotest_stimmung_gruss} {b.presse_fanprotest_stimmung_lage} Are the fans partly to blame when the team does not deliver?"
+ ],
+ "pool.presse_fanprotest_stimmung.e.e4": [
+  "{b.presse_fanprotest_stimmung_gruss} {b.presse_fanprotest_stimmung_lage} Do you want to seek talks with the fan representatives?"
+ ],
+ "pool.presse_fanprotest_stimmung.e.e5": [
+  "{b.presse_fanprotest_stimmung_gruss} {b.presse_fanprotest_stimmung_lage} I will ask openly: has the manager lost touch with the terraces?"
+ ],
+ "pool.presse_fanprotest_stimmung.e.e6": [
+  "{b.presse_fanprotest_stimmung_gruss} {b.presse_fanprotest_stimmung_lage} Does the mood in the stadium unsettle your players?"
+ ],
+ "pool.presse_fanprotest_stimmung.a.a1": [
+  "I understand the disappointment, because the fans suffer with the club, and we have to do better."
+ ],
+ "pool.presse_fanprotest_stimmung.a.a2": [
+  "The supporters have every right to voice their opinion, and I am happy to invite the fan representatives to talk."
+ ],
+ "pool.presse_fanprotest_stimmung.a.a3": [
+  "We need the fans, they need us, and I want to get out of this phase together with them."
+ ],
+ "pool.presse_fanprotest_stimmung.a.a4": [
+  "Whistling helps no team, and whoever is a real fan stands behind the side in hard times too."
+ ],
+ "pool.presse_fanprotest_stimmung.a.a5": [
+  "Whistles? I thought that was a Mexican wave with pursed lips, I was too caught up in the game."
+ ],
+ "pool.presse_fanprotest_stimmung.a.a6": [
+  "And who whistles at you when your article is poor? You never notice."
+ ],
+ "pool.presse_fanprotest_stimmung.a.a7": [
+  "The club's fan liaison officers are there for that and keep in touch, the concerns are in good hands with them."
+ ],
+ "pool.presse_fanprotest_stimmung.a.a8": [
+  "The mood is part of football, and I concentrate on the work with the team."
+ ],
+ "pool.presse_fanprotest_stimmung.r.r1": [
+  "{b.gut} That is an honest tone, and the dialogue with the terraces sounds sensible."
+ ],
+ "pool.presse_fanprotest_stimmung.r.r2": [
+  "{b.gut} Thanks for taking the fans seriously, that will go down well."
+ ],
+ "pool.presse_fanprotest_stimmung.r.r3": [
+  "{b.gut} That is how you win trust back, step by step."
+ ],
+ "pool.presse_fanprotest_stimmung.r.r4": [
+  "{b.neutral} I am curious whether the words are followed by deeds."
+ ],
+ "pool.presse_fanprotest_stimmung.r.r5": [
+  "{b.neutral} That is an answer, but the fans will look for other signs."
+ ],
+ "pool.presse_fanprotest_stimmung.r.r6": [
+  "{b.neutral} I will note it, the mood will be decided by results."
+ ],
+ "pool.presse_fanprotest_stimmung.r.r7": [
+  "{b.schlecht} That sounds as if the fans are the problem, and that is how I will write it."
+ ],
+ "pool.presse_fanprotest_stimmung.r.r8": [
+  "{b.schlecht} Whoever lectures the supporters loses them for good."
+ ],
+ "pool.presse_fanprotest_stimmung.r.r9": [
+  "{b.schlecht} This answer will certainly not calm the terraces."
+ ],
+ "pool.presse_fanprotest_stimmung.x.x1": [
+  "The journalist writes conciliatorily. {entscheidung} The paper reports on a manager who takes the fans seriously."
+ ],
+ "pool.presse_fanprotest_stimmung.x.x2": [
+  "The situation stays tense. {entscheidung} The stadium will simmer until the next home game."
+ ],
+ "pool.presse_fanprotest_stimmung.x.x3": [
+  "Tempers rise. {entscheidung} The next day the paper warns of a row between manager and terraces."
+ ]
+}

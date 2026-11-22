@@ -1,0 +1,86 @@
+{
+ "pool.b.ich_will_spielen_gruss": [
+  "Trainer, hast du kurz Zeit?",
+  "Trainer, ich muss mit dir reden."
+ ],
+ "pool.b.ich_will_spielen_lage": [
+  "Der Arzt will mich aus dem Kader nehmen, aber ich fühle mich gut genug zum Spielen.",
+  "Der Arzt rät zur Pause, und ich sehe das nicht ein."
+ ],
+ "pool.b.ich_will_spielen_lage.hitzig": [
+  "Der Arzt will mich auf die Tribüne setzen, und ich lasse mir das nicht gefallen!",
+  "Jeder redet mir ins Knie, und ich habe es satt, dass man mir das Spielen verbietet!"
+ ],
+ "pool.b.ich_will_spielen_lage.loyal": [
+  "Die Mannschaft braucht mich, und die Pause, die der Arzt empfiehlt, passt mir gar nicht.",
+  "Ich will meine Kollegen nicht im Stich lassen, auch wenn der Arzt zur Schonung rät."
+ ],
+ "pool.b.ich_will_spielen_lage.ehrgeizig": [
+  "Wenn ich pausiere, nimmt mein Konkurrent meinen Platz, egal was der Arzt rät.",
+  "Ich habe zu hart für diesen Platz gearbeitet, um ihn wegen einer Empfehlung herzugeben."
+ ],
+ "pool.b.ich_will_spielen_lage.wechselfreudig": [
+  "Bei einem anderen Klub würde man mich mit so einer Blessur einfach spielen lassen.",
+  "Wenn ich hier wegen jeder Kleinigkeit pausieren soll, überlege ich mir, ob ich am richtigen Ort bin."
+ ],
+ "pool.b.ich_will_spielen_lage.sensibel": [
+  "Der Arzt macht mir Angst mit seinen Warnungen, aber noch mehr Angst habe ich, vergessen zu werden.",
+  "Ich fühle mich schuldig, wenn die anderen kämpfen und ich auf Anweisung zuschaue."
+ ],
+ "pool.b.fitspritze_warnung_gruss": [
+  "Trainer, einen Moment bitte, es geht um {name}.",
+  "Trainer, haben Sie kurz Zeit? Ich muss etwas zu {name} sagen."
+ ],
+ "pool.b.fitspritze_warnung_lage": [
+  "Nach dem Einsatz mit der Spritze muss ich Sie warnen: Das Mittel hat seinen Preis.",
+  "Die Spritze hat {name} über das Spiel gebracht, aber der Körper holt sich das später zurück."
+ ],
+ "pool.b.fitspritze_warnung_lage.hitzig": [
+  "{name} hat nach dem Spiel getobt, dass ich ihm die nächste Spritze gefälligst nicht verweigern soll, und genau das macht mir Sorgen.",
+  "{name} verlangt die Spritze wie ein Recht, und das ist gefährlich."
+ ],
+ "pool.b.fitspritze_warnung_lage.loyal": [
+  "{name} sagt, er spiele für die Mannschaft auch mit Spritze, und genau diese Opferbereitschaft darf man nicht ausnutzen.",
+  "{name} würde sich für den Verein spritzen lassen, bis nichts mehr geht, und davor muss ich ihn schützen."
+ ],
+ "pool.b.fitspritze_warnung_lage.ehrgeizig": [
+  "{name} will unbedingt seinen Platz halten und fragt schon nach der nächsten Spritze, das ist ein schlechtes Zeichen.",
+  "{name} sieht die Spritze als Abkürzung zur Startelf, aber so eine Abkürzung hat eine Rechnung."
+ ],
+ "pool.b.fitspritze_warnung_lage.wechselfreudig": [
+  "{name} spielt mit Spritze, damit er sich für andere Vereine zeigt, und was danach mit seinem Körper wird, ist ihm gleichgültig.",
+  "{name} denkt an den nächsten Vertrag, nicht an seine Gelenke, und ich muss das aussprechen."
+ ],
+ "pool.b.fitspritze_warnung_lage.sensibel": [
+  "{name} wirkt nach dem Einsatz verunsichert und fragt mich, ob die Spritze ihm schadet, und ich möchte ehrlich antworten.",
+  "{name} hat die Spritze nur widerwillig genommen und schämt sich fast dafür, daher möchte ich offen mit Ihnen reden."
+ ],
+ "pool.b.arzt_vertrauen_sinkt_gruss": [
+  "Trainer, ich schreibe Ihnen direkt.",
+  "Trainer, ich muss etwas loswerden."
+ ],
+ "pool.b.arzt_vertrauen_sinkt_lage": [
+  "Ich fühle mich bei den letzten Entscheidungen übergangen, denn mein Rat zu {name} wurde nicht beachtet.",
+  "Ich habe von einem Einsatz von {name} abgeraten, und er fand trotzdem statt."
+ ],
+ "pool.b.arzt_vertrauen_sinkt_lage.hitzig": [
+  "{name} hat mich vor allen als Bremser hingestellt, und Sie haben ihn trotzdem spielen lassen!",
+  "Ich lasse mich nicht länger zum Gespött machen, wenn {name} gegen meinen Rat aufläuft!"
+ ],
+ "pool.b.arzt_vertrauen_sinkt_lage.loyal": [
+  "Ich stand immer hinter dem Trainerstab, aber dass {name} gegen meinen Rat spielte, verletzt mich.",
+  "Ich arbeite gern für diesen Verein, doch mein Rat zu {name} wurde übergangen, und das nagt an mir."
+ ],
+ "pool.b.arzt_vertrauen_sinkt_lage.ehrgeizig": [
+  "{name} hat bemerkt, dass der Trainer über meine Köpfe hinweg entscheidet, und nutzt es für sich.",
+  "Wenn der Spieler seinen Willen bekommt, weil er laut genug ist, wird meine Arbeit zur Formsache."
+ ],
+ "pool.b.arzt_vertrauen_sinkt_lage.wechselfreudig": [
+  "{name} lacht über meine Empfehlungen, weil er weiß, dass er ohnehin spielt, und ich frage mich, wozu ich da bin.",
+  "Wenn mein Rat nichts zählt, kann ich auch gleich zu einem Verein gehen, der ihn ernst nimmt."
+ ],
+ "pool.b.arzt_vertrauen_sinkt_lage.sensibel": [
+  "Ich mache mir Vorwürfe, weil {name} gespielt hat, obwohl ich ihn nicht überzeugen konnte, und ich fühle mich allein damit.",
+  "Dass {name} gegen meinen Rat spielte, nimmt mich mehr mit, als ich zugeben möchte."
+ ]
+}

@@ -1,0 +1,3 @@
+{
+ "ablauf.fehler_verarbeiten": "The save was loaded, but event processing is not complete. Retry processing; confirmed game changes will not be resent."
+}

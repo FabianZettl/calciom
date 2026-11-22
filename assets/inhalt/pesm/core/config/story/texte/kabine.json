@@ -1,0 +1,16 @@
+{
+  "_hinweis": "Texte zum Thema Kabine. egoist_auf_der_bank: Der Kapitän schreibt dem Trainer (Anrede „Trainer“, „Sie“). Platzhalter: {spieler}, {spieler_kurz}.",
+  "egoist_auf_der_bank.betreff": { "standard": ["{spieler_kurz} sorgt für Unruhe in der Kabine"] },
+  "egoist_auf_der_bank.text": {
+    "standard": [
+      "Trainer, {spieler_kurz} sitzt draußen und lässt es alle spüren. Er redet in der Kabine schlecht über die Aufstellung. Noch hört kaum einer hin, aber so sollte das nicht weiterlaufen.",
+      "Trainer, kurz unter uns: {spieler_kurz} kommt mit der Bank nicht klar. Im Training zieht er sein eigenes Ding durch, nach dem Spiel ist er als Erster weg. Die Jungs merken das."
+    ]
+  },
+  "egoist_auf_der_bank.antwort.gespraech":    { "standard": ["Ich rede selbst mit ihm und sage ihm, was er für die Startelf tun muss."] },
+  "egoist_auf_der_bank.antwort.kapitaen":     { "standard": ["Regelt das unter euch. In der Kabine hast du mein Vertrauen."] },
+  "egoist_auf_der_bank.antwort.durchgreifen": { "standard": ["Wer Unruhe stiftet, trainiert vorerst mit der zweiten Gruppe."] },
+  "egoist_auf_der_bank.rueckmeldung.gespraech":    { "standard": ["Gut, Trainer. Wenn er es von Ihnen hört, nimmt er es eher an. Ich halte so lange die Kabine ruhig."] },
+  "egoist_auf_der_bank.rueckmeldung.kapitaen":     { "standard": ["In Ordnung, ich nehme ihn mir vor. Ob er auf mich hört, kann ich Ihnen aber nicht versprechen."] },
+  "egoist_auf_der_bank.rueckmeldung.durchgreifen": { "standard": ["Verstanden. Das ist ein klares Zeichen an alle. Rechnen Sie aber damit, dass er das nicht still hinnimmt."] }
+}

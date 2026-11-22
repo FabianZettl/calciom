@@ -1,0 +1,328 @@
+//! Paket 3j: finances, sponsors, stadium and facilities of the own club (Mechanik-Übergabe §13, vereinswelt.toml).
+//! Other clubs keep the world's money (sim/geld.py: tv, gate, comm per club).
+use crate::game::*;
+use crate::mensch::{arr, zufall};
+use crate::regeln::f;
+use crate::world::*;
+use serde::{Deserialize, Serialize};
+
+pub const ANLAGEN: [&str; 5] = [crate::id("stadion"), crate::id("fanshop"), crate::id("training"), crate::id("jugend"), crate::id("medizin")];
+pub fn anlagen_de_t() -> [&'static str; 5] { [crate::inhalt::t("verein.stadion"), crate::inhalt::t("vw.merch.fanshop"), crate::inhalt::t("ui.wirtschaft.trainingszentrum"), crate::inhalt::t("ui.wirtschaft.jugendzentrum"), crate::inhalt::t("ui.wirtschaft.medizinische_abteilung")] }
+pub const SPONSOR_ARTEN: [&str; 3] = [crate::id("trikot"), crate::id("ausruester"), crate::id("stadion")];
+pub fn sponsor_de_t() -> [&'static str; 3] { [crate::inhalt::t("mk.rolle.trikot"), crate::inhalt::t("mk.rolle.ausruester"), crate::inhalt::t("ui.wirtschaft.stadionname")] }
+/// Invented brand names (own decision: no real brands in the build).
+const MARKEN: [&str; 12] = ["Nordlicht Energie", "Alpenbank", "Rheinwerk Versicherung", "Hafenblick Logistik", "Sternquell Brauerei", "Talwind Mobil", "Kronfeld Technik", "Silberfluss Telekom", "Brückner Bau", "Auenland Molkerei", "Vierlinden Reisen", "Ostwind Airlines"]; // roh
+
+#[derive(Serialize, Deserialize, Clone)]
+pub struct Sponsor { pub art: u8, pub name: String, pub jahr: f64, pub bis: u32, pub bonus: f64, pub frist: u32 }
+
+#[derive(Serialize, Deserialize, Clone, Default)]
+#[serde(default)]
+pub struct Wirtschaft {
+    pub an: bool,
+    /// Facility levels 1…5 (stadium, fan shop, training, youth, medical).
+    pub stufen: [u8; 5],
+    /// Building work: (facility, target level, abs day it is finished).
+    pub bau: Vec<(usize, u8, u32)>,
+    pub vertraege: Vec<Sponsor>,
+    pub angebote: Vec<Sponsor>,
+    pub angebot_monat: u32,
+    /// Economic power, refreshed every month (rank over all clubs is costly to compute every frame).
+    pub kraft: f64,
+    /// Scale of all money values (budget_start.py massstab): the formulas of vereinswelt.toml are made for a small
+    /// club; the scale brings the revenue to wages / quota. Changes at most 25 % per season.
+    pub massstab: f64,
+    /// Operating income booked so far this season (snapshot) and the last three months (for the monthly calibration).
+    pub ein_stand: f64,
+    pub ein_monate: Vec<f64>,
+}
+
+fn v(k: &str) -> f64 { f("vereinswelt", k) as f64 }
+fn b(k: &str) -> f64 { f("budget_start", k) as f64 }
+fn norm(x: f64, a: f64, z: f64) -> f64 { ((x - a) / (z - a)).clamp(0.0, 1.0) }
+
+impl Career {
+    /// Economic power = rank of squad strength among all clubs (0…1) to the power 3 (vereinswelt.toml ruf_potenz).
+    pub fn kraft(&self) -> f64 { if self.wi.an { self.wi.kraft } else { self.kraft_neu() } }
+    fn kraft_neu(&self) -> f64 {
+        let own = crate::mensch::kaderstaerke(&self.world, self.own);
+        let n = self.world.clubs.len().max(2);
+        let unter = (0..n).filter(|&c| crate::mensch::kaderstaerke(&self.world, c) < own).count();
+        ((unter as f64 / (n - 1) as f64).clamp(0.0, 1.0)).powf(v("verein.ruf_potenz"))
+    }
+    /// Money scale (1.0 = the plain values of vereinswelt.toml).
+    pub fn skala(&self) -> f64 { if self.wi.massstab > 0.0 { self.wi.massstab } else { 1.0 } }
+    /// Club size 0…1 (budget_start.py prestige): mean of the best 16 (62…84) 0.45, squad value (2 M…1 bn, log) 0.35, best player (65…92) 0.2.
+    pub fn prestige(&self) -> f64 {
+        let mut o: Vec<f64> = self.world.clubs[self.own].squad.iter().filter(|&&p| self.world.players[p].youth == 0).map(|&p| self.world.players[p].ovr as f64).collect();
+        if o.is_empty() { return 0.0; }
+        o.sort_by(|a, c| c.partial_cmp(a).unwrap());
+        let n = o.len().min(16);
+        let mw: f64 = self.world.clubs[self.own].squad.iter().map(|&p| self.world.players[p].value).sum();
+        let st = norm(o[..n].iter().sum::<f64>() / n as f64, b("prestige.staerke.0"), b("prestige.staerke.1"));
+        let sp = norm(o[0], b("prestige.spitze.0"), b("prestige.spitze.1"));
+        let m = norm(mw.max(1.0).log10(), b("prestige.marktwert.0").log10(), b("prestige.marktwert.1").log10());
+        b("prestige.gewicht.staerke") * st + b("prestige.gewicht.marktwert") * m + b("prestige.gewicht.spitze") * sp
+    }
+    /// Yearly revenue of an average club of this power at scale f (budget_start.py umsatz_formel): match days at
+    /// fan mood 50 and normal prices, 1.7 home games a month, merchandising, TV without place bonus, sponsors.
+    fn umsatz_formel(&self, f: f64) -> f64 {
+        let k = self.kraft();
+        let stufe = 1.0 + (k * 3.0).floor().min(2.0);
+        let kap = (v("verein.kapazitaet_basis") + v("verein.kapazitaet_je_ruf") * k) * (1.0 + v("anlagen.kapazitaet_je_stufe") * (stufe - 1.0));
+        // like Vereinswelt._kalibrieren: the club's real mood and its real number of league home games
+        let aus = (v("einnahmen.auslastung_basis") + v("einnahmen.auslastung_je_fan") * self.fans_eff() as f64 / 100.0).clamp(0.25, 1.0);
+        let preis = (v("einnahmen.ticketpreis") + v("einnahmen.ticketpreis_je_ruf") * k) * f.sqrt();
+        let heim = (self.world.leagues[self.league()].teams.len().max(2) - 1) as f64;
+        let spieltag = kap * aus * preis * heim;
+        let merch = self.fanbasis() * v("einnahmen.merch_je_fan_monat") * f * (1.0 + v("einnahmen.merch_je_fanshopstufe") * (stufe - 1.0)) * (0.7 + 0.6 * self.fans_eff() as f64 / 100.0) * 12.0;
+        let tv = (v("einnahmen.tv_basis") + v("einnahmen.tv_je_ruf") * k) * f;
+        let sp: f64 = SPONSOR_ARTEN.iter().map(|a| v(&format!("sponsor.{a}")) * (1.0 + v("sponsor.je_ruf") * k) * f).sum();
+        spieltag + merch + tv + sp
+    }
+    /// The scale that brings the formula revenue to wages / quota (quota 0.62 → 0.57 by prestige, corridor 0.55…0.62).
+    pub fn massstab_ziel(&self) -> f64 {
+        let gehalt = self.world.wage_bill(self.own);
+        let p = self.prestige();
+        let q = b("quote.mitte.0") + (b("quote.mitte.1") - b("quote.mitte.0")) * p;
+        let ziel = (gehalt / q).clamp(gehalt / b("quote.korridor.1"), gehalt / b("quote.korridor.0"));
+        let (mut lo, mut hi) = (b("budget.faktor_grenzen.0"), b("budget.faktor_grenzen.1"));
+        for _ in 0..40 { let m = (lo * hi).sqrt(); if self.umsatz_formel(m) < ziel { lo = m; } else { hi = m; } }
+        (lo * hi).sqrt()
+    }
+    fn betriebseinnahmen(&self) -> f64 { self.book.iter().filter(|(n, v)| *v > 0.0 && !n.starts_with("Ablösen") && !n.starts_with("Leih")).map(|x| x.1).sum() } // roh
+    /// Monthly, like Vereinswelt._kalibrieren on the real bookings: the income of the last three months, as a year,
+    /// against wages / quota; the scale moves at most 10 % a month (own decision, so the first season is right too).
+    pub fn massstab_monat(&mut self) {
+        let jetzt = self.betriebseinnahmen();
+        let monat = if jetzt >= self.wi.ein_stand { jetzt - self.wi.ein_stand } else { jetzt };
+        self.wi.ein_stand = jetzt;
+        if monat <= 0.0 { return; }
+        // a rolling year of months, each kept at scale 1 (income ÷ the scale it was earned with): lumpy months (sponsor
+        // money, season tickets) and older months at another scale no longer make the calibration swing
+        self.wi.ein_monate.push(monat / self.skala());
+        if self.wi.ein_monate.len() > 12 { self.wi.ein_monate.remove(0); }
+        if self.wi.ein_monate.len() < 2 { return; }
+        let jahr_basis = self.wi.ein_monate.iter().sum::<f64>() / self.wi.ein_monate.len() as f64 * 12.0;
+        let gehalt = self.world.wage_bill(self.own);
+        let q = b("quote.mitte.0") + (b("quote.mitte.1") - b("quote.mitte.0")) * self.prestige();
+        if gehalt <= 0.0 || jahr_basis <= 0.0 { return; }
+        let ziel = gehalt / q / jahr_basis;
+        let s = self.skala();
+        // the first half year may step ±25 %: the start value from the formula can be far off and must not carry a whole season
+        let schritt = if self.wi.ein_monate.len() < 6 { 0.25 } else { 0.1 };
+        self.wi.massstab = ziel.clamp(s * (1.0 - schritt), s * (1.0 + schritt)).clamp(b("budget.faktor_grenzen.0"), b("budget.faktor_grenzen.1"));
+    }
+    /// Season change: the scale follows its target by at most 25 % (budget.jahr_schritt).
+    /// Season change: the book starts anew, so does the income snapshot.
+    pub fn massstab_saison(&mut self) { self.wi.ein_stand = 0.0; self.wi.kraft = self.kraft_neu(); }
+    pub fn wirtschaft_an(&mut self) {
+        if self.wi.an { return; }
+        let k = self.kraft_neu();
+        self.wi.kraft = k;
+        self.wi.an = true;
+        self.wi.massstab = self.massstab_ziel();
+        self.wi.an = false;
+        let s = (1.0 + (k * 3.0).round()).clamp(1.0, 3.0) as u8;
+        self.wi.stufen = [s; 5];
+        // own decision: the club starts with running contracts of the three kinds (middle offer, 2 years)
+        for art in 0..3u8 { let o = self.sponsor_angebot(art, 0, 9999); let mut o = o; o.bis = self.world.season + 1; self.wi.vertraege.push(o); }
+        self.wi.an = true;
+    }
+    fn sponsor_angebot(&self, art: u8, i: usize, monat: u32) -> Sponsor {
+        let z = |x: &str| zufall(&[crate::id("vw"), crate::id("sponsor"), &monat.to_string(), &art.to_string(), &i.to_string(), x]) as f64;
+        let basis = v(&format!("sponsor.{}", SPONSOR_ARTEN[art as usize])) * (1.0 + v("sponsor.je_ruf") * self.kraft()) * self.skala();
+        let lz = arr("vereinswelt", "sponsor.laufzeiten");
+        let jahre = lz[(z(crate::id("l")) * lz.len() as f64) as usize % lz.len()].as_u64().unwrap() as u32;
+        let jahr = round_money(basis * (0.85 + 0.3 * z(crate::id("h"))));
+        Sponsor { art, name: MARKEN[(z(crate::id("n")) * MARKEN.len() as f64) as usize % MARKEN.len()].to_string(), jahr, bis: self.world.season + jahre - 1, bonus: round_money(jahr * v("sponsor.bonus_anteil")), frist: self.abs() + v("sponsor.frist_tage") as u32 }
+    }
+    pub fn kapazitaet(&self) -> f64 { (v("verein.kapazitaet_basis") + v("verein.kapazitaet_je_ruf") * self.kraft()) * (1.0 + v("anlagen.kapazitaet_je_stufe") * (self.wi.stufen[0].max(1) as f64 - 1.0)) }
+    pub fn fanbasis(&self) -> f64 { v("verein.fanbasis") + v("verein.fanbasis_je_ruf") * self.kraft() }
+    pub fn ticket_price(&self) -> f64 { (v("einnahmen.ticketpreis") + v("einnahmen.ticketpreis_je_ruf") * self.kraft()) * self.skala().sqrt() * arr("vereinswelt", "einnahmen.preisstufen")[self.ticket as usize].as_f64().unwrap() }
+    pub fn capacity(&self) -> f64 { self.kapazitaet() }
+    /// Share of seats sold in a league match (vereinswelt.toml einnahmen).
+    pub fn attendance(&self) -> f64 {
+        (v("einnahmen.auslastung_basis") + v("einnahmen.auslastung_je_fan") * self.fans_eff() as f64 / 100.0 + v("einnahmen.auslastung_je_preisstufe") * (self.ticket as f64 - 1.0)).clamp(0.25, 1.0)
+    }
+    /// Gate of one home match; cups and Europe fill the ground more ([spielart]).
+    pub fn gate_per_match(&self) -> f64 {
+        let mut a = self.attendance();
+        if let Some((t, i)) = self.today_match() {
+            let f_ = self.fixture((t, i));
+            let gegner = if f_.h == self.own { f_.a } else { f_.h };
+            match t {
+                Wo::Liga(_) => if self.world.clubs[gegner].rep / 100.0 >= f("vereinswelt", "spielart.topspiel_ab_gegnerruf") { a = a.max(v("spielart.topspiel")); },
+                Wo::Pokal(ci) => {
+                    let cup = &self.world.cups[ci];
+                    let st = cup.fx[i].stage;
+                    a = if st == 34 || cup.fx[i].neutral { v("spielart.finale") } else if (1..=3).contains(&cup.kind) && st >= 30 { v("spielart.europa_ko") } else { a.max(v("spielart.pokal_frueh")) };
+                }
+            }
+        }
+        self.kapazitaet() * a * self.ticket_price()
+    }
+    pub fn merch_month(&self) -> f64 { self.fanbasis() * v("einnahmen.merch_je_fan_monat") * self.skala() * (1.0 + v("einnahmen.merch_je_fanshopstufe") * (self.wi.stufen[1].max(1) as f64 - 1.0)) * (0.7 + 0.6 * self.fans_eff() as f64 / 100.0) }
+    pub fn tv_monat(&self) -> f64 {
+        let table = self.world.table(self.league());
+        let lage = table.iter().position(|r| r.club == self.own).map(|i| 1.0 - i as f64 / (table.len().max(2) - 1) as f64).unwrap_or(0.5);
+        (v("einnahmen.tv_basis") + v("einnahmen.tv_je_ruf") * self.kraft()) * self.skala() / 12.0 * (1.0 + v("einnahmen.tv_platzbonus") * lage)
+    }
+    pub fn betrieb_monat(&self) -> f64 {
+        let k = self.kraft();
+        // upkeep only for the levels above 1 (werte.py unterhalt_monat)
+        let stufen: f64 = self.wi.stufen.iter().map(|&s| (s as f64 - 1.0).max(0.0)).sum();
+        (v("ausgaben.betrieb_monat") + v("ausgaben.betrieb_monat_je_ruf") * k + (v("ausgaben.unterhalt_je_stufe_monat") + v("ausgaben.unterhalt_je_ruf") * k) * stufen) * self.skala()
+    }
+    pub fn sponsoren_jahr(&self) -> f64 { self.wi.vertraege.iter().map(|s| s.jahr).sum() }
+    /// Projected yearly income (for the wage limit and the debt limit).
+    pub fn umsatz_prognose(&self) -> f64 {
+        let heim = (self.world.leagues[self.league()].teams.len().max(2) - 1) as f64;
+        self.tv_monat() * 12.0 + self.merch_month() * 12.0 + self.sponsoren_jahr() + heim * self.kapazitaet() * self.attendance() * self.ticket_price()
+    }
+    /// Can the club take on a new yearly wage? Wages at most 62 % of the projected income; debts beyond 15 % block (vereinswelt.toml [budget]).
+    pub fn rahmen_pruefen(&self, neues_gehalt: f64, altes: f64) -> Result<(), String> {
+        let u = self.umsatz_prognose();
+        if self.club().balance < -v("budget.schuldengrenze_anteil") * u { return Err(crate::inhalt::t("ui.wirtschaft.die_schulden_sind_zu_hoch").into()); }
+        let summe = self.world.wage_bill(self.own) - altes + neues_gehalt;
+        if summe > v("budget.gehaltsquote") * u { return Err(crate::tf!("ui.wirtschaft.das_gehalt_sprengt_den_rahmen", money(v("budget.gehaltsquote") * u))); }
+        Ok(())
+    }
+    /// Monthly bookings of the own club (§13) and sponsor offers, building work.
+    pub fn wirtschaft_monat(&mut self) -> f64 {
+        self.wirtschaft_an();
+        self.wi.kraft = self.kraft_neu();
+        self.massstab_monat();
+        let tv = self.tv_monat();
+        let sp = self.sponsoren_jahr() / 12.0;
+        let m = self.merch_month();
+        let b = self.betrieb_monat();
+        self.book(crate::inhalt::t("vw.mix.medien"), tv);
+        self.book(crate::inhalt::t("menu.marken.reiter.0"), sp);
+        self.book(crate::inhalt::t("ui.pages.merchandising"), m);
+        self.book(crate::inhalt::t("ui.wirtschaft.betrieb_und_anlagen"), -b);
+        // sponsor offers: 2 per kind and month, fixed per month (Random("vw|sponsor|<Monat>")), 45 days to decide
+        let monat = self.abs() / 30;
+        let abs = self.abs();
+        self.wi.angebote.retain(|o| abs < o.frist);
+        if self.wi.angebot_monat != monat {
+            self.wi.angebot_monat = monat;
+            for art in 0..3u8 {
+                let laeuft = self.wi.vertraege.iter().any(|s| s.art == art && s.bis > self.world.season);
+                if laeuft { continue; }
+                for i in 0..f("vereinswelt", "sponsor.angebote_je_art") as usize { let o = self.sponsor_angebot(art, i, monat); self.wi.angebote.push(o); }
+            }
+        }
+        // building work finished
+        let fertig: Vec<(usize, u8, u32)> = self.wi.bau.iter().copied().filter(|b| abs >= b.2).collect();
+        self.wi.bau.retain(|b| abs < b.2);
+        for (a, z, _) in fertig {
+            self.wi.stufen[a] = z;
+            self.msg(3, crate::inhalt::t("ui.wirtschaft.bauabteilung"), &crate::tf!("ui.wirtschaft.fertig", anlagen_de_t()[a]), &crate::tf!("ui.wirtschaft.ist_auf_stufe_ausgebaut", anlagen_de_t()[a], z), Action::None);
+            if a == 0 { self.klima(f("vereinswelt", "wirtschaft.ausbau_stimmung"), 0.0, 0.0, crate::inhalt::t("ui.wirtschaft.der_stadionausbau_ist_fertig")); }
+        }
+        tv + sp + m - b
+    }
+    /// Season end: contracts that ran out end; reaching the season goal pays the bonuses.
+    pub fn sponsoren_saisonende(&mut self, ziel_erreicht: bool) {
+        let season = self.world.season;
+        if ziel_erreicht { let b: f64 = self.wi.vertraege.iter().map(|s| s.bonus).sum(); if b > 0.0 { self.book(crate::inhalt::t("ui.wirtschaft.sponsoren_bonus"), b); } }
+        let aus: Vec<String> = self.wi.vertraege.iter().filter(|s| s.bis <= season).map(|s| format!("{} ({})", s.name, sponsor_de_t()[s.art as usize])).collect();
+        self.wi.vertraege.retain(|s| s.bis > season);
+        if !aus.is_empty() { self.msg(3, crate::inhalt::t("ui.wirtschaft.marketing"), crate::inhalt::t("ui.wirtschaft.sponsorenvertraege_laufen_aus"), &crate::tf!("ui.wirtschaft.ausgelaufen_neue_angebote_kommen_in", aus.join(", ")), Action::None); }
+    }
+    pub fn sponsor_annehmen(&mut self, i: usize) -> Result<(), String> {
+        let Some(o) = self.wi.angebote.get(i).cloned() else { return Err(crate::inhalt::t("ui.wirtschaft.das_angebot_gibt_es_nicht").into()) };
+        if self.wi.vertraege.iter().any(|s| s.art == o.art && s.bis > self.world.season) { return Err(crate::inhalt::t("ui.wirtschaft.fuer_diese_art_laeuft_schon").into()); }
+        self.wi.angebote.retain(|x| x.art != o.art);
+        self.grund(crate::inhalt::t("ui.wirtschaft.marketing"), crate::inhalt::t("vg.rolle.sponsor"), 0.0, &crate::tf!("ui.wirtschaft.im_jahr_bis", o.name, money(o.jahr), crate::date::season_label(o.bis)));
+        self.wi.vertraege.push(o);
+        Ok(())
+    }
+    /// Cost of the next level of a facility: base · level² (stadium +10 % per level built on).
+    pub fn ausbau_kosten(&self, a: usize) -> f64 {
+        let z = self.wi.stufen[a] as f64 + 1.0;
+        let basis = v(&format!("anlagen.kosten.{}", ANLAGEN[a]));
+        basis * self.skala() * z * z * if a == 0 { 1.0 + v("anlagen.kosten_stufe_anstieg") * (z - 1.0) } else { 1.0 }
+    }
+    pub fn ausbauen(&mut self, a: usize) -> Result<(), String> {
+        self.wirtschaft_an();
+        if self.wi.stufen[a] as f32 >= f("vereinswelt", "anlagen.stufen_max") { return Err(crate::inhalt::t("ui.wirtschaft.die_hoechste_stufe_ist_erreicht").into()); }
+        if self.wi.bau.iter().any(|b| b.0 == a) { return Err(crate::inhalt::t("ui.wirtschaft.hier_wird_schon_gebaut").into()); }
+        let k = self.ausbau_kosten(a);
+        if self.club().balance - k < -v("budget.schuldengrenze_anteil") * self.umsatz_prognose() { return Err(crate::inhalt::t("tv.drama.rueckmeldung.budget").into()); }
+        let dauer = (v(&format!("anlagen.dauer.{}", ANLAGEN[a])) * 30.4) as u32;
+        let z = self.wi.stufen[a] + 1;
+        self.book(crate::inhalt::t("vw.art.ausbau"), -k);
+        self.wi.bau.push((a, z, self.abs() + dauer));
+        self.grund(crate::inhalt::t("bereich.verein"), anlagen_de_t()[a], z as f32, &crate::tf!("ui.wirtschaft.ausbau_auf_stufe_begonnen_kosten", z, money(k)));
+        Ok(())
+    }
+    /// Development factor of the training centre (+5 % per level above 1).
+    pub fn training_faktor(&self) -> f32 { 1.0 + f("vereinswelt", "anlagen.training_je_stufe") * (self.wi.stufen[2].max(1) as f32 - 1.0) }
+    /// Injury factor of the medical department (−4 % per level above 1).
+    pub fn medizin_faktor(&self) -> f32 { 1.0 - f("vereinswelt", "anlagen.medizin_je_stufe") * (self.wi.stufen[4].max(1) as f32 - 1.0) }
+    /// Extra strength and potential of youth intakes (+4 per level above 1).
+    pub fn jugend_bonus(&self) -> f32 { f("vereinswelt", "anlagen.jugend_je_stufe") * (self.wi.stufen[3].max(1) as f32 - 1.0) }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    /// Three seasons for a big club, an average club and the weakest club of the same league (stand-in for a promoted one).
+    #[test]
+    fn kasse_drei_saisons() {
+        let w0 = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let l = w0.clubs[0].league;
+        let mut t = w0.leagues[l].teams.clone();
+        t.sort_by(|a, b| crate::mensch::kaderstaerke(&w0, *b).partial_cmp(&crate::mensch::kaderstaerke(&w0, *a)).unwrap());
+        for (art, own) in [("Großverein", t[0]), ("Durchschnitt", t[t.len() / 2]), ("Schwächster", t[t.len() - 1])] {
+            let mut c = Career::new(w0.clone(), own, "Test");
+            c.mensch.vertrag_bis = u32::MAX; // this test is about money, not about the coach's contract
+            let k0 = c.club().balance;
+            let mut vorher = k0;
+            let mut posten: Vec<(String, f64)> = vec![];
+            let mut umsatz = 0.0;
+            for _ in 0..3 * crate::date::SEASON_DAYS {
+                if c.today_match().is_some() { let r = c.prepare_match(None); c.apply_own_match(r); }
+                for i in 0..c.inbox.len() { if !c.inbox[i].done && matches!(c.inbox[i].action, Action::Wahl { .. } | Action::TransferOffer { .. }) { c.answer(i, false, 0); } }
+                c.ultimatum = None;
+                assert!(!c.fired, "{art}: entlassen");
+                // like a person: expiring contracts are renewed, so the wage bill stays what it is
+                let season = c.world.season;
+                for p in c.world.clubs[c.own].squad.clone() { let pl = &mut c.world.players[p]; if pl.youth == 0 { pl.contract_end = pl.contract_end.max(season + 2); } }
+                if c.world.day == crate::date::SEASON_DAYS - 1 {
+                    let jetzt = c.club().balance;
+                    assert!((jetzt - vorher).abs() <= 0.45 * c.umsatz_prognose().max(1.0) * 1.5, "{art} ({}): one season {} → {}; {}", c.club().name, money(vorher), money(jetzt), c.book.iter().map(|(n, v)| format!("{n} {}", money(*v))).collect::<Vec<_>>().join(", "));
+                    vorher = jetzt;
+                    for (n, v) in &c.book { if let Some(x) = posten.iter_mut().find(|x| x.0 == *n) { x.1 += v; } else { posten.push((n.clone(), *v)); } } umsatz += c.umsatz_prognose(); }
+                c.end_day().unwrap();
+            }
+            let k1 = c.club().balance;
+            eprintln!("{art} ({}): Kasse {} → {}, Umsatz/Jahr {}, Posten 3 Jahre: {}", c.club().name, money(k0), money(k1), money(umsatz / 3.0),
+                posten.iter().map(|(n, v)| format!("{n} {}", money(*v))).collect::<Vec<_>>().join(", "));
+            // a reasonable frame: in three seasons neither more than one year's income won nor lost
+            let jahr = umsatz / 3.0;
+            assert!((k1 - k0).abs() <= jahr, "{art}: {} → {} bei {} Umsatz", money(k0), money(k1), money(jahr));
+        }
+    }
+    #[test]
+    fn geld_wie_vorlage() {
+        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let mut c = Career::new(w, 0, "Test");
+        c.wirtschaft_an();
+        let k = c.kraft();
+        assert!((0.0..=1.0).contains(&k));
+        assert!((c.kapazitaet() - (8000.0 + 55000.0 * k) * (1.0 + 0.12 * (c.wi.stufen[0] as f64 - 1.0))).abs() < 1.0);
+        assert_eq!(c.wi.vertraege.len(), 3);
+        let s = c.wi.stufen[2];
+        assert!((c.ausbau_kosten(2) - 800000.0 * c.skala() * ((s + 1) as f64).powi(2)).abs() < 1.0, "cost base·level², in the club's money scale");
+        let vorher = c.club().balance;
+        c.ausbauen(2).ok();
+        assert!(c.club().balance < vorher);
+        for _ in 0..200 { c.world.day += 1; if c.world.day % 30 == 0 { c.wirtschaft_monat(); } }
+        assert_eq!(c.wi.stufen[2], s + 1, "finished after five months");
+        // the same month gives the same offers
+        assert_eq!(c.sponsor_angebot(0, 0, 3).jahr, c.sponsor_angebot(0, 0, 3).jahr);
+    }
+}

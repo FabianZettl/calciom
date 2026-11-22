@@ -1,0 +1,434 @@
+{
+ "pool.vorstand_stadionausbau.e.e1": [
+  "{b.vorstand_stadionausbau_gruss} {b.vorstand_stadionausbau_lage} Der Ausbau soll die Einnahmen steigern, und dafür brauche ich Ihre Unterstützung gegenüber der Mannschaft."
+ ],
+ "pool.vorstand_stadionausbau.e.e2": [
+  "{b.vorstand_stadionausbau_gruss} {b.vorstand_stadionausbau_lage} Die Baukosten würden das Transferbudget spürbar schmälern. Wie stehen Sie dazu?"
+ ],
+ "pool.vorstand_stadionausbau.e.e3": [
+  "{b.vorstand_stadionausbau_gruss} {b.vorstand_stadionausbau_lage} Auch wenn zwischen uns nicht alles glatt läuft, möchte ich Ihre ehrliche Meinung zum Ausbau hören."
+ ],
+ "pool.vorstand_stadionausbau.e.e4": [
+  "{b.vorstand_stadionausbau_gruss} {b.vorstand_stadionausbau_lage} Aber sagen Sie mir nicht, dass es zu teuer ist, denn das habe ich schon von anderen gehört!"
+ ],
+ "pool.vorstand_stadionausbau.e.e5": [
+  "{b.vorstand_stadionausbau_gruss} {b.vorstand_stadionausbau_lage} Es geht nicht um Eile, sondern um Beständigkeit. Wir lassen uns Zeit und entscheiden gemeinsam."
+ ],
+ "pool.vorstand_stadionausbau.e.e6": [
+  "{b.vorstand_stadionausbau_gruss} {b.vorstand_stadionausbau_lage} Ein volleres Haus bringt mehr Geld für Verstärkungen, wenn wir den Vorstoß richtig anfassen."
+ ],
+ "pool.vorstand_stadionausbau.e.e7": [
+  "{b.vorstand_stadionausbau_gruss} {b.vorstand_stadionausbau_lage} Ich möchte, dass Sie der Mannschaft erklären, warum jetzt gebaut wird und warum das uns allen nützt."
+ ],
+ "pool.vorstand_stadionausbau.e.e8": [
+  "{b.vorstand_stadionausbau_gruss} {b.vorstand_stadionausbau_lage} Der Rückhalt im Vorstand für den Ausbau ist groß, und die Kosten sind kaum noch strittig."
+ ],
+ "pool.vorstand_stadionausbau.e.e9": [
+  "{b.vorstand_stadionausbau_gruss} {b.vorstand_stadionausbau_lage} Die Anhänger fordern seit Langem mehr Plätze, und der Ausbau wäre die Antwort darauf."
+ ],
+ "pool.vorstand_stadionausbau.e.e10": [
+  "{b.vorstand_stadionausbau_gruss} {b.vorstand_stadionausbau_lage} Bei diesem Platz in der Tabelle ist der Ausbau ein Zeichen, dass wir an uns glauben."
+ ],
+ "pool.vorstand_stadionausbau.a.a1": [
+  "Ich unterstütze den Ausbau, denn ein starkes Stadion trägt die Mannschaft. Ich erkläre dem Team, warum das wichtig ist."
+ ],
+ "pool.vorstand_stadionausbau.a.a2": [
+  "Der Ausbau ist sinnvoll, wenn wir ihn Stück für Stück zahlen. So bleibt das Transferbudget handlungsfähig."
+ ],
+ "pool.vorstand_stadionausbau.a.a3": [
+  "Wenn die Baustelle läuft, dürfen die Spieler gern die ersten sein, die den Rasen sehen. Das hebt die Laune."
+ ],
+ "pool.vorstand_stadionausbau.a.a4": [
+  "Ich trage den Ausbau mit und plane die Kaderentwicklung so, dass wir im neuen Stadion konkurrenzfähig sind."
+ ],
+ "pool.vorstand_stadionausbau.a.a5": [
+  "Ich würde die Entscheidung gern noch nach der Saison treffen, wenn wir mehr über die Lage wissen."
+ ],
+ "pool.vorstand_stadionausbau.a.a6": [
+  "Wie viel vom Budget soll in den Bau fließen, und was bleibt für den Kader übrig?"
+ ],
+ "pool.vorstand_stadionausbau.a.a7": [
+  "Die Finanzen sollte der Geschäftsführer prüfen, ich beurteile die Wirkung auf den sportlichen Betrieb."
+ ],
+ "pool.vorstand_stadionausbau.a.a8": [
+  "Ich halte den Ausbau jetzt für falsch. Das Geld gehört zuerst in den Kader, dann in den Beton."
+ ],
+ "pool.vorstand_stadionausbau.a.a9": [
+  "Wenn der Bau das Transferbudget frisst, ziehe ich nicht mit. Der Kader kommt vor dem Beton, ohne Ausnahme."
+ ],
+ "pool.vorstand_stadionausbau.a.a10": [
+  "Bauen Sie, was Sie wollen, aber kürzen Sie keinen Euro am Kader, sonst gibt es Streit mit mir!"
+ ],
+ "pool.vorstand_stadionausbau.a.a11": [
+  "Bauen Sie ruhig, ich verspreche schon heute, dass wir im neuen Stadion jeden Gegner schlagen werden."
+ ],
+ "pool.vorstand_stadionausbau.r.r1": [
+  "{b.gut} Sie sehen das Ganze, das schätze ich. So kommen wir als Verein weiter."
+ ],
+ "pool.vorstand_stadionausbau.r.r2": [
+  "{b.gut} Genau diese Haltung habe ich erhofft. Wir sitzen im selben Boot, und das Stadion wird unser gemeinsames Werk."
+ ],
+ "pool.vorstand_stadionausbau.r.r3": [
+  "{b.gut} Dann legen wir Bauabschnitte fest, und Sie bekommen die Mittel, die der Kader braucht."
+ ],
+ "pool.vorstand_stadionausbau.r.r4": [
+  "{b.neutral} Das nehme ich auf. Wir tragen es in die nächste Sitzung und stimmen dort ab."
+ ],
+ "pool.vorstand_stadionausbau.r.r5": [
+  "{b.neutral} Ich bin mir nicht sicher, ob ich Sie richtig verstanden habe, aber ich bin Ihnen nicht böse."
+ ],
+ "pool.vorstand_stadionausbau.r.r6": [
+  "{b.neutral} Gut, dann lassen wir die Pläne ruhen und sehen, was die nächsten Wochen bringen."
+ ],
+ "pool.vorstand_stadionausbau.r.r7": [
+  "{b.schlecht} Das hilft uns nicht weiter, und der Vorstand wird die Absage nicht gern hören."
+ ],
+ "pool.vorstand_stadionausbau.r.r8": [
+  "{b.schlecht} Wie bitte? Sie stellen sich dem Ausbau in den Weg? Das lasse ich nicht auf sich beruhen!"
+ ],
+ "pool.vorstand_stadionausbau.r.r9": [
+  "{b.schlecht} Dann werde ich mich nach jemandem umsehen, der den Weg des Vereins mitträgt."
+ ],
+ "pool.vorstand_stadionausbau.r.r10": [
+  "{b.schlecht} Ich hätte von Ihnen mehr Vertrauen in den Verein erwartet, das enttäuscht mich."
+ ],
+ "pool.vorstand_stadionausbau.x.x1": [
+  "Der Präsident nickt zufrieden. {entscheidung} Die Pläne gehen mit Ihrem Rückhalt in die nächste Runde."
+ ],
+ "pool.vorstand_stadionausbau.x.x2": [
+  "Die Sache bleibt in der Schwebe. {entscheidung} Der Vorstand vertagt den Ausbau auf eine spätere Sitzung."
+ ],
+ "pool.vorstand_stadionausbau.x.x3": [
+  "Der Präsident verlässt gereizt den Raum. {entscheidung} Der Streit um den Ausbau ist damit nicht beigelegt."
+ ],
+ "pool.vorstand_stadionausbau.x.x4": [
+  "Sie haben dem Ausbau zugestimmt, und der Präsident hält es fest. {entscheidung} Die Bauabschnitte werden nun geplant."
+ ],
+ "pool.vorstand_stadionausbau.x.x5": [
+  "Der Präsident bricht das Gespräch ab. {entscheidung} Die Baupläne legt er unbesprochen beiseite."
+ ],
+ "pool.vorstand_sparrunde.e.e1": [
+  "{b.vorstand_sparrunde_gruss} {b.vorstand_sparrunde_lage} Der Vorstand verlangt, dass die Gehälter auf den Prüfstand kommen. Was können Sie dazu beitragen?"
+ ],
+ "pool.vorstand_sparrunde.e.e2": [
+  "{b.vorstand_sparrunde_gruss} {b.vorstand_sparrunde_lage} Der Kader ist größer, als wir ihn uns leisten können. Wir müssen darüber sprechen, wer gehen kann."
+ ],
+ "pool.vorstand_sparrunde.e.e3": [
+  "{b.vorstand_sparrunde_gruss} {b.vorstand_sparrunde_lage} Zwischen uns ist die Stimmung getrübt, doch auch dann muss ich Ihnen die Sparmaßnahmen vorlegen."
+ ],
+ "pool.vorstand_sparrunde.e.e4": [
+  "{b.vorstand_sparrunde_gruss} {b.vorstand_sparrunde_lage} Und kommen Sie mir nicht mit Gegenforderungen, die Kasse ist leer und die Geduld des Vorstands auch!"
+ ],
+ "pool.vorstand_sparrunde.e.e5": [
+  "{b.vorstand_sparrunde_gruss} {b.vorstand_sparrunde_lage} Wir wollen niemanden überfordern, sondern gemeinsam einen verträglichen Weg zum Sparen finden."
+ ],
+ "pool.vorstand_sparrunde.e.e6": [
+  "{b.vorstand_sparrunde_gruss} {b.vorstand_sparrunde_lage} Das Budget für die kommende Runde muss gekürzt werden, und ich möchte, dass Sie die Kürzung mitgestalten."
+ ],
+ "pool.vorstand_sparrunde.e.e7": [
+  "{b.vorstand_sparrunde_gruss} {b.vorstand_sparrunde_lage} Ich brauche Ihr Wort, dass Sie den Kürzungen vor der Mannschaft Rückhalt geben."
+ ],
+ "pool.vorstand_sparrunde.e.e8": [
+  "{b.vorstand_sparrunde_gruss} {b.vorstand_sparrunde_lage} Der Rückhalt im Vorstand für Sie ist gering, deshalb muss ich auf klaren Einsparungen bestehen."
+ ],
+ "pool.vorstand_sparrunde.e.e9": [
+  "{b.vorstand_sparrunde_gruss} {b.vorstand_sparrunde_lage} Selbst die Tribüne ahnt die Lage, und die Fans erwarten, dass wir verantwortungsvoll wirtschaften."
+ ],
+ "pool.vorstand_sparrunde.e.e10": [
+  "{b.vorstand_sparrunde_gruss} {b.vorstand_sparrunde_lage} In dieser Lage der Tabelle können wir uns teure Fehler nicht leisten, und das betrifft auch das Budget."
+ ],
+ "pool.vorstand_sparrunde.a.a1": [
+  "Ich verstehe die Lage und trage die Einsparungen mit. Ich erkläre dem Kader, warum das nötig ist."
+ ],
+ "pool.vorstand_sparrunde.a.a2": [
+  "Lassen Sie uns die Kosten Position für Position durchgehen. So sparen wir dort, wo es am wenigsten schmerzt."
+ ],
+ "pool.vorstand_sparrunde.a.a3": [
+  "Wenn wir schon sparen, dann gemeinsam: Auch der Vorstand könnte auf die Reisekosten verzichten."
+ ],
+ "pool.vorstand_sparrunde.a.a4": [
+  "Ich verpflichte mich, die Kosten zu senken, und wir überprüfen den Fortschritt in der nächsten Sitzung."
+ ],
+ "pool.vorstand_sparrunde.a.a5": [
+  "Ich würde vorschlagen, die Entscheidung bis nach dem Transferfenster zu verschieben, dann sehen wir klarer."
+ ],
+ "pool.vorstand_sparrunde.a.a6": [
+  "Wie hoch soll die Einsparung ausfallen, und wo sehen Sie den größten Spielraum?"
+ ],
+ "pool.vorstand_sparrunde.a.a7": [
+  "Die Gehaltsfragen sollten der Geschäftsführer und die Spielerberater klären, ich bleibe beim Sport."
+ ],
+ "pool.vorstand_sparrunde.a.a8": [
+  "Beim Kader kürze ich nicht, und die Gehälter lasse ich ebenfalls unangetastet. Das Budget bleibt, wie es ist."
+ ],
+ "pool.vorstand_sparrunde.a.a9": [
+  "Wer mir den Kader zusammenstreicht, bekommt keine Mannschaft mehr, die Spiele gewinnt. Daran halte ich fest."
+ ],
+ "pool.vorstand_sparrunde.a.a10": [
+  "Sparen Sie bei sich selbst, nicht bei meinen Spielern, sonst verlieren Sie am Ende mehr als Sie einsparen!"
+ ],
+ "pool.vorstand_sparrunde.a.a11": [
+  "Sparen ist kein Problem, ich verspreche, dass die Mannschaft trotzdem oben mitspielt, ohne einen Cent mehr."
+ ],
+ "pool.vorstand_sparrunde.r.r1": [
+  "{b.gut} Das ist vernünftig, und ich weiß Ihre Haltung zu schätzen. So kommt der Verein wieder ins Lot."
+ ],
+ "pool.vorstand_sparrunde.r.r2": [
+  "{b.gut} Auf Menschen wie Sie kann sich der Verein verlassen. Danke, dass Sie die Last mittragen."
+ ],
+ "pool.vorstand_sparrunde.r.r3": [
+  "{b.gut} Gut, dann halten wir das fest, und im Gegenzug sorge ich dafür, dass der Kader nicht ausblutet."
+ ],
+ "pool.vorstand_sparrunde.r.r4": [
+  "{b.neutral} Ich nehme das zur Kenntnis, und wir besprechen die Einzelheiten in der nächsten Sitzung."
+ ],
+ "pool.vorstand_sparrunde.r.r5": [
+  "{b.neutral} Ich weiß nicht recht, was ich davon halten soll, aber ich höre mir Ihre Gründe noch einmal an."
+ ],
+ "pool.vorstand_sparrunde.r.r6": [
+  "{b.neutral} Meinetwegen, wir haben noch etwas Zeit, solange sich die Zahlen nicht verschlechtern."
+ ],
+ "pool.vorstand_sparrunde.r.r7": [
+  "{b.schlecht} Das genügt dem Vorstand nicht, und ich werde es ihm so berichten müssen."
+ ],
+ "pool.vorstand_sparrunde.r.r8": [
+  "{b.schlecht} Wie bitte? Die Kasse ist leer, und Sie stellen Bedingungen? Das ist unerhört!"
+ ],
+ "pool.vorstand_sparrunde.r.r9": [
+  "{b.schlecht} Dann sehe ich mich nach einem Trainer um, der mit knappen Mitteln umgehen kann."
+ ],
+ "pool.vorstand_sparrunde.r.r10": [
+  "{b.schlecht} Ich hatte mir erhofft, dass wir die Sorgen gemeinsam tragen, und nun fühle ich mich allein."
+ ],
+ "pool.vorstand_sparrunde.x.x1": [
+  "Der Präsident atmet auf. {entscheidung} Der Sparkurs wird gemeinsam getragen, und die Kasse beruhigt sich."
+ ],
+ "pool.vorstand_sparrunde.x.x2": [
+  "Die Frage bleibt unbeantwortet. {entscheidung} Der Vorstand vertagt die Sparrunde und wartet die nächsten Zahlen ab."
+ ],
+ "pool.vorstand_sparrunde.x.x3": [
+  "Der Präsident fährt aus der Haut. {entscheidung} Der Vorstand kündigt an, die Kürzungen ohne Sie zu beschließen."
+ ],
+ "pool.vorstand_sparrunde.x.x4": [
+  "Sie haben Einsparungen zugesagt, und der Präsident notiert es. {entscheidung} Der Vorstand wird den Fortschritt prüfen."
+ ],
+ "pool.vorstand_sparrunde.x.x5": [
+  "Der Präsident bricht die Sitzung ab. {entscheidung} Die Sparpläne gehen unbesprochen zurück in die Schublade."
+ ],
+ "pool.vorstand_sponsor_druck.e.e1": [
+  "{b.vorstand_sponsor_druck_gruss} {b.vorstand_sponsor_druck_lage} Der Sponsor möchte, dass die Mannschaft bei seinen Terminen stärker auftritt. Wie lässt sich das einrichten?"
+ ],
+ "pool.vorstand_sponsor_druck.e.e2": [
+  "{b.vorstand_sponsor_druck_gruss} {b.vorstand_sponsor_druck_lage} Die Ergebnisse müssen besser werden, sonst überdenkt der Geldgeber seine Zusammenarbeit mit uns."
+ ],
+ "pool.vorstand_sponsor_druck.e.e3": [
+  "{b.vorstand_sponsor_druck_gruss} {b.vorstand_sponsor_druck_lage} Wir haben zuletzt aneinander vorbeigeredet, aber diesmal geht es um den Verein, nicht um uns beide."
+ ],
+ "pool.vorstand_sponsor_druck.e.e4": [
+  "{b.vorstand_sponsor_druck_gruss} {b.vorstand_sponsor_druck_lage} Der Geldgeber verlangt Antworten, und ich verlange sie jetzt von Ihnen, ohne Umschweife!"
+ ],
+ "pool.vorstand_sponsor_druck.e.e5": [
+  "{b.vorstand_sponsor_druck_gruss} {b.vorstand_sponsor_druck_lage} Es liegt kein Vorwurf in meinen Worten, ich überbringe nur, was uns gesagt wurde."
+ ],
+ "pool.vorstand_sponsor_druck.e.e6": [
+  "{b.vorstand_sponsor_druck_gruss} {b.vorstand_sponsor_druck_lage} Wenn wir den Sponsor halten, wächst auch unser Spielraum auf dem Markt, und das kann jedem nützen."
+ ],
+ "pool.vorstand_sponsor_druck.e.e7": [
+  "{b.vorstand_sponsor_druck_gruss} {b.vorstand_sponsor_druck_lage} Ich möchte, dass Sie dem Geldgeber erklären, wie Sie die Mannschaft weiterentwickeln wollen."
+ ],
+ "pool.vorstand_sponsor_druck.e.e8": [
+  "{b.vorstand_sponsor_druck_gruss} {b.vorstand_sponsor_druck_lage} Der Rückhalt im Vorstand ist gering, und der Sponsor macht die Lage nicht leichter für Sie."
+ ],
+ "pool.vorstand_sponsor_druck.e.e9": [
+  "{b.vorstand_sponsor_druck_gruss} {b.vorstand_sponsor_druck_lage} Die Medien haben das Thema aufgegriffen, und der Verein steht nicht gut da. Das müssen wir ändern."
+ ],
+ "pool.vorstand_sponsor_druck.e.e10": [
+  "{b.vorstand_sponsor_druck_gruss} {b.vorstand_sponsor_druck_lage} Nach den jüngsten Niederlagen in Folge wird der Geldgeber unruhig, und ich kann ihn nicht ewig vertrösten."
+ ],
+ "pool.vorstand_sponsor_druck.a.a1": [
+  "Ich verstehe den Wunsch des Geldgebers und sorge für mehr Auftritte. Die Mannschaft ist dazu bereit."
+ ],
+ "pool.vorstand_sponsor_druck.a.a2": [
+  "Wir zeigen dem Sponsor Fortschritte, nicht nur Versprechen. Ich lege Ihnen dar, wie die Mannschaft sich entwickelt."
+ ],
+ "pool.vorstand_sponsor_druck.a.a3": [
+  "Ein gemeinsamer Abend mit dem Geldgeber auf Kosten des Vereins würde die Stimmung bestimmt heben."
+ ],
+ "pool.vorstand_sponsor_druck.a.a4": [
+  "Ich sage zu, dass die Mannschaft an den Sponsorenterminen teilnimmt und die Ergebnisse im Blick bleiben."
+ ],
+ "pool.vorstand_sponsor_druck.a.a5": [
+  "Ich würde dem Geldgeber nahelegen, nach der Saison zu urteilen, denn jetzt ist es zu früh."
+ ],
+ "pool.vorstand_sponsor_druck.a.a6": [
+  "Was genau erwartet der Sponsor, und woran misst er den Erfolg, damit ich gezielt arbeiten kann?"
+ ],
+ "pool.vorstand_sponsor_druck.a.a7": [
+  "Die Termine mit dem Geldgeber koordiniert am besten die Geschäftsstelle, ich konzentriere mich auf den Spielbetrieb."
+ ],
+ "pool.vorstand_sponsor_druck.a.a8": [
+  "Sponsorentermine kosten Konzentration, und die brauche ich für die Mannschaft. Ich bitte, sie zu begrenzen."
+ ],
+ "pool.vorstand_sponsor_druck.a.a9": [
+  "Ich mache keine Show für einen Geldgeber. Die Mannschaft spielt Fußball und keine Werbeveranstaltung."
+ ],
+ "pool.vorstand_sponsor_druck.a.a10": [
+  "Wenn der Sponsor unzufrieden ist, soll er sich einen anderen Verein suchen. Ich lasse mich nicht erpressen!"
+ ],
+ "pool.vorstand_sponsor_druck.a.a11": [
+  "Sagen Sie dem Geldgeber, dass die Mannschaft in kürzester Zeit alle Erwartungen übertrifft, das garantiere ich."
+ ],
+ "pool.vorstand_sponsor_druck.r.r1": [
+  "{b.gut} Das beruhigt mich, und es wird auch den Geldgeber beruhigen. Danke für die klare Linie."
+ ],
+ "pool.vorstand_sponsor_druck.r.r2": [
+  "{b.gut} Ihre Verlässlichkeit ist der Grund, weshalb ich Ihnen den Rücken freihalte. Wir bekommen das hin."
+ ],
+ "pool.vorstand_sponsor_druck.r.r3": [
+  "{b.gut} Das klingt nach einem Plan, und ich bin sicher, dass der Sponsor ihn mit Interesse lesen wird."
+ ],
+ "pool.vorstand_sponsor_druck.r.r4": [
+  "{b.neutral} Ich nehme es zur Kenntnis und leite Ihre Sicht an den Geldgeber weiter, ohne sie zu bewerten."
+ ],
+ "pool.vorstand_sponsor_druck.r.r5": [
+  "{b.neutral} Ich bin unsicher, wie der Geldgeber das aufnimmt, doch ich tue, was ich kann."
+ ],
+ "pool.vorstand_sponsor_druck.r.r6": [
+  "{b.neutral} Gut, dann warten wir ab. Der Sponsor wird sich schon melden, wenn es ihm zu lange dauert."
+ ],
+ "pool.vorstand_sponsor_druck.r.r7": [
+  "{b.schlecht} Damit komme ich beim Geldgeber nicht weit, und das wird Folgen haben."
+ ],
+ "pool.vorstand_sponsor_druck.r.r8": [
+  "{b.schlecht} So kann ich nicht vor den Sponsor treten! Sie machen mir die Arbeit unnötig schwer!"
+ ],
+ "pool.vorstand_sponsor_druck.r.r9": [
+  "{b.schlecht} Wenn Sie so reden, frage ich mich, ob ein anderer Trainer den Geldgeber besser halten würde."
+ ],
+ "pool.vorstand_sponsor_druck.r.r10": [
+  "{b.schlecht} Ich habe mich für Sie eingesetzt, und nun fühle ich mich im Stich gelassen."
+ ],
+ "pool.vorstand_sponsor_druck.x.x1": [
+  "Der Präsident ist erleichtert. {entscheidung} Der Geldgeber bekommt, was er sehen wollte, und der Druck lässt nach."
+ ],
+ "pool.vorstand_sponsor_druck.x.x2": [
+  "Die Lage bleibt offen. {entscheidung} Der Vorstand vertröstet den Sponsor und wartet auf das nächste Ergebnis."
+ ],
+ "pool.vorstand_sponsor_druck.x.x3": [
+  "Der Präsident ist außer sich. {entscheidung} Der Sponsor erfährt von dem Gespräch, und das Verhältnis leidet."
+ ],
+ "pool.vorstand_sponsor_druck.x.x4": [
+  "Sie haben dem Sponsor Zusagen gemacht, und der Präsident hält sie fest. {entscheidung} Der Geldgeber wird sie einfordern."
+ ],
+ "pool.vorstand_sponsor_druck.x.x5": [
+  "Der Präsident beendet das Gespräch. {entscheidung} Die Forderungen des Geldgebers bleiben unbeantwortet im Raum."
+ ],
+ "pool.vorstand_fanproteste.e.e1": [
+  "{b.vorstand_fanproteste_gruss} {b.vorstand_fanproteste_lage} Die Anhänger fordern sichtbare Veränderungen. Was haben Sie ihnen zu sagen?"
+ ],
+ "pool.vorstand_fanproteste.e.e2": [
+  "{b.vorstand_fanproteste_gruss} {b.vorstand_fanproteste_lage} Der Protest richtet sich auch gegen Ihre Aufstellung und Ihre Taktik. Wie begründen Sie sie?"
+ ],
+ "pool.vorstand_fanproteste.e.e3": [
+  "{b.vorstand_fanproteste_gruss} {b.vorstand_fanproteste_lage} Zwischen uns ist die Stimmung ohnehin angespannt, und der Protest macht es nicht besser. Wir müssen reden."
+ ],
+ "pool.vorstand_fanproteste.e.e4": [
+  "{b.vorstand_fanproteste_gruss} {b.vorstand_fanproteste_lage} Und sagen Sie jetzt nicht, die Fans hätten keine Ahnung, denn die Fans sind unser Publikum!"
+ ],
+ "pool.vorstand_fanproteste.e.e5": [
+  "{b.vorstand_fanproteste_gruss} {b.vorstand_fanproteste_lage} Niemand wirft Ihnen etwas vor, wir wollen nur gemeinsam einen Weg aus dem Tief finden."
+ ],
+ "pool.vorstand_fanproteste.e.e6": [
+  "{b.vorstand_fanproteste_gruss} {b.vorstand_fanproteste_lage} Mit einer klaren Antwort können wir die Anhänger vielleicht versöhnen und die Stimmung drehen."
+ ],
+ "pool.vorstand_fanproteste.e.e7": [
+  "{b.vorstand_fanproteste_gruss} {b.vorstand_fanproteste_lage} Ich möchte, dass Sie sich öffentlich äußern, am besten bei einem Fantreffen im Stadion."
+ ],
+ "pool.vorstand_fanproteste.e.e8": [
+  "{b.vorstand_fanproteste_gruss} {b.vorstand_fanproteste_lage} Der Vorstand steht derzeit nicht gut da, und die Fans richten ihren Zorn nun auch auf Sie."
+ ],
+ "pool.vorstand_fanproteste.e.e9": [
+  "{b.vorstand_fanproteste_gruss} {b.vorstand_fanproteste_lage} Auch die Presse hat den Protest aufgegriffen, und der Verein muss jetzt Haltung zeigen."
+ ],
+ "pool.vorstand_fanproteste.e.e10": [
+  "{b.vorstand_fanproteste_gruss} {b.vorstand_fanproteste_lage} In dieser Tabellenlage ist der Unmut verständlich, aber wir müssen verhindern, dass er überkocht."
+ ],
+ "pool.vorstand_fanproteste.a.a1": [
+  "Ich nehme den Unmut der Fans ernst und stelle mich ihnen. Ich suche das Gespräch, bevor es lauter wird."
+ ],
+ "pool.vorstand_fanproteste.a.a2": [
+  "Ich erkläre den Anhängern, was wir vorhaben und warum die Ergebnisse noch ausbleiben. Das schulde ich ihnen."
+ ],
+ "pool.vorstand_fanproteste.a.a3": [
+  "Mit einer Runde Freibier nach dem Training bei den Fans wären wir schnell im Gespräch. Das entspannt die Lage."
+ ],
+ "pool.vorstand_fanproteste.a.a4": [
+  "Ich sage zu, dass ich mich beim nächsten Fantreffen persönlich äußere und Rede und Antwort stehe."
+ ],
+ "pool.vorstand_fanproteste.a.a5": [
+  "Lassen Sie uns abwarten, bis die Mannschaft ein paar Spiele gewonnen hat. Dann beruhigt sich der Protest von selbst."
+ ],
+ "pool.vorstand_fanproteste.a.a6": [
+  "Was genau fordern die Fans, und wer spricht für sie? Ich möchte nicht ins Leere reden."
+ ],
+ "pool.vorstand_fanproteste.a.a7": [
+  "Den Dialog mit den Fanvertretern führt am besten die Geschäftsstelle, ich konzentriere mich auf das Training."
+ ],
+ "pool.vorstand_fanproteste.a.a8": [
+  "Ich äußere mich nur zum Sport. Alles Übrige sollen der Vorstand und die Fanbeauftragten klären."
+ ],
+ "pool.vorstand_fanproteste.a.a9": [
+  "Ich lasse mich von Pfiffen nicht leiten. Die Aufstellung bleibt, wie sie ist, und die Fans werden sich gedulden."
+ ],
+ "pool.vorstand_fanproteste.a.a10": [
+  "Wer pfeift, soll erst einmal zeigen, dass er den Verein liebt. Ich werde mich nicht entschuldigen!"
+ ],
+ "pool.vorstand_fanproteste.a.a11": [
+  "Die Fans werden sich noch wundern: Wir drehen das, und bald singen sie wieder meinen Namen, das schwöre ich."
+ ],
+ "pool.vorstand_fanproteste.r.r1": [
+  "{b.gut} Das ist die Antwort, die ich hören wollte. Die Anhänger werden spüren, dass wir sie ernst nehmen."
+ ],
+ "pool.vorstand_fanproteste.r.r2": [
+  "{b.gut} Ihre Haltung zum Verein ist es, die mich beruhigt. Mit ihr bringen wir die Kurve wieder auf unsere Seite."
+ ],
+ "pool.vorstand_fanproteste.r.r3": [
+  "{b.gut} Gut, dann machen wir Nägel mit Köpfen und setzen einen Termin an. Ich bin gespannt auf Ihre Worte."
+ ],
+ "pool.vorstand_fanproteste.r.r4": [
+  "{b.neutral} Ich nehme das zur Kenntnis und gebe es an den Vorstand weiter. Entschieden ist noch nichts."
+ ],
+ "pool.vorstand_fanproteste.r.r5": [
+  "{b.neutral} Ich weiß nicht, ob die Fans das genauso sehen, aber ich bin bereit, es zu versuchen."
+ ],
+ "pool.vorstand_fanproteste.r.r6": [
+  "{b.neutral} Dann warten wir ab und sehen, wie sich die Stimmung entwickelt. Eilig ist es nicht."
+ ],
+ "pool.vorstand_fanproteste.r.r7": [
+  "{b.schlecht} Das wird die Fans nicht beruhigen, und der Vorstand wird sich damit nicht zufriedengeben."
+ ],
+ "pool.vorstand_fanproteste.r.r8": [
+  "{b.schlecht} Wie können Sie so mit den Anhängern umgehen? Das ist unverschämt und schadet dem ganzen Verein!"
+ ],
+ "pool.vorstand_fanproteste.r.r9": [
+  "{b.schlecht} Wenn Sie den Verein so sehen, werde ich mir Gedanken über die Zukunft des Trainerpostens machen."
+ ],
+ "pool.vorstand_fanproteste.r.r10": [
+  "{b.schlecht} Ich hatte auf mehr Verständnis für die Fans gehofft, und nun steht der Verein noch schlechter da."
+ ],
+ "pool.vorstand_fanproteste.x.x1": [
+  "Der Präsident ist zufrieden. {entscheidung} Der Protest klingt ab, und die Fans warten auf Ihr Wort."
+ ],
+ "pool.vorstand_fanproteste.x.x2": [
+  "Die Sache bleibt offen. {entscheidung} Der Vorstand beobachtet die Stimmung auf den Rängen und vertagt die Antwort."
+ ],
+ "pool.vorstand_fanproteste.x.x3": [
+  "Der Präsident verliert die Beherrschung. {entscheidung} Die Fans erfahren von dem Streit, und der Protest wird lauter."
+ ],
+ "pool.vorstand_fanproteste.x.x4": [
+  "Sie haben einen Auftritt vor den Fans zugesagt, und der Präsident hält es fest. {entscheidung} Der Termin wird bekannt gegeben."
+ ],
+ "pool.vorstand_fanproteste.x.x5": [
+  "Der Präsident beendet die Sitzung. {entscheidung} Die Antwort an die Fans bleibt aus, und die Kurve schweigt nicht."
+ ]
+}

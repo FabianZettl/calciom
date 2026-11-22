@@ -1,0 +1,12 @@
+{
+  "_hinweis": "Hinweis auf leeren Story-Seiten: in Spielsprache, was Sache ist. „Noch keine …“, wenn die Seite sich füllen kann; „Bald verfügbar“, wenn die Funktion fehlt. Keine Sätze über Herkunft oder Genauigkeit der Daten. Schlüssel: leer.<Kennung der Ansicht wie im Menü>. Keine Platzhalter. Ein Hinweis nennt nur Absender und Anlässe, die eine aktive Regel wirklich erzeugt (aktive_regeln in zustand.json).",
+  "leer.posteingang": {"standard": ["Noch keine Nachrichten. Co-Trainer, Kapitän, Spieler und Vorstand melden sich, wenn es einen Anlass gibt."]},
+  "leer.presse": {"standard": ["Noch keine Schlagzeilen. Die Presse schreibt nicht über jedes Spiel, sondern bei einem Anlass: einer Serie, einem auffälligen Tabellenplatz oder einem Torjäger im Lauf."]},
+  "leer.fans_und_medien": {"standard": ["Noch keine Stimmen: Fans und Medien reagieren auf Serien und auf deine Tabellenlage."]},
+  "leer.praesidium": {"standard": ["Noch ruhig im Präsidium: Der Vorstand meldet sich, wenn sein Vertrauen in dich steigt oder sinkt."]},
+  "leer.ziele": {"standard": ["Noch kein Saisonziel: Der Vorstand schlägt eines vor, und du kannst es annehmen oder ändern."]},
+  "leer.gespraeche": {"standard": ["Kein Gespräch steht an. Ein Spieler bittet um ein Gespräch, wenn ihn etwas beschäftigt, etwa seine Rolle, seine Form oder sein Vertrag."]},
+  "leer.transfermarkt": {"standard": ["Bald verfügbar: Angebote, Verhandlungen, Leihen und Shortlist."]},
+  "leer.kabine": {"standard": ["Bald verfügbar: Beziehungen zwischen den Spielern. Rangordnung, Stimmung und Zusagen findest du in den anderen Reitern."]},
+  "leer.scouting": {"standard": ["Bald verfügbar: Scouts, Aufträge und Berichte. Die Suche kannst du schon jetzt nutzen."]}
+}

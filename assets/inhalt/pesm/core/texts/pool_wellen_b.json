@@ -1,0 +1,454 @@
+{
+ "pool.altstar_karriereende.e.e1": [
+  "{b.gruss} {b.altstar_karriereende_lage} Nach so vielen Jahren im Geschäft möchte ich wissen, wie du dir meine letzte Zeit vorstellst.",
+  "{b.gruss} {b.altstar_karriereende_lage} Ich komme lieber jetzt zu dir als erst im Frühjahr."
+ ],
+ "pool.altstar_karriereende.e.e2": [
+  "{b.gruss} {b.altstar_karriereende_lage} Die Jungen laufen mir davon, aber im Kopf bin ich noch ganz vorn.",
+  "{b.gruss} {b.altstar_karriereende_lage} Ich bin nicht mehr der Jüngste, das weiß ich selbst am besten."
+ ],
+ "pool.altstar_karriereende.e.e3": [
+  "{b.gruss} {b.altstar_karriereende_lage} Seit Wochen liege ich nachts wach und grübele darüber.",
+  "{b.gruss} {b.altstar_karriereende_lage} Ehrlich, die Unsicherheit nagt an mir, und das merkt man im Training."
+ ],
+ "pool.altstar_karriereende.e.e4": [
+  "{b.gruss} {b.altstar_karriereende_lage} Ich wünsche mir, dass es ordentlich zu Ende geht, ohne Hintertüren und Heimlichkeiten.",
+  "{b.gruss} {b.altstar_karriereende_lage} Ein Abschied im Stillen wäre mir zu wenig, nach allem, was wir hier erlebt haben."
+ ],
+ "pool.altstar_karriereende.e.e5": [
+  "{b.gruss} {b.altstar_karriereende_lage} Ich will nicht ausklingen, ich will bis zum letzten Spieltag zählen.",
+  "{b.gruss} {b.altstar_karriereende_lage} Solange ich liefere, möchte ich nicht als Auslaufmodell behandelt werden."
+ ],
+ "pool.altstar_karriereende.e.e6": [
+  "{b.gruss} {b.altstar_karriereende_lage} Manchmal denke ich, ich stehe der Mannschaft schon im Weg.",
+  "{b.gruss} {b.altstar_karriereende_lage} Ich möchte niemandem den Platz wegnehmen, nur nicht im Dunkeln gelassen werden."
+ ],
+ "pool.altstar_karriereende.e.e7": [
+  "{b.gruss} {b.altstar_karriereende_lage} Mit meiner Erfahrung könnte ich auch abseits des Rasens helfen, falls das ein Thema ist.",
+  "{b.gruss} {b.altstar_karriereende_lage} Vielleicht gibt es ja für einen wie mich eine Aufgabe, wenn die Stiefel an den Nagel kommen."
+ ],
+ "pool.altstar_karriereende.e.e8": [
+  "{b.gruss} {b.altstar_karriereende_lage} Du hattest mir gesagt, wir sprechen rechtzeitig darüber, und bisher kam nichts.",
+  "{b.gruss} {b.altstar_karriereende_lage} Auf das versprochene Gespräch über meine Zukunft warte ich noch."
+ ],
+ "pool.altstar_karriereende.e.e9": [
+  "{b.gruss} {b.altstar_karriereende_lage} Meine Frau meint, ich sollte aufhören, solange es noch gut aussieht.",
+  "{b.gruss} {b.altstar_karriereende_lage} Die Familie fragt mich, ob ich weitermache, und ich habe keine Antwort."
+ ],
+ "pool.altstar_karriereende.a.a1": [
+  "Ich möchte mit dir weitermachen. Wir verlängern um ein Jahr, du bekommst Zeit zum Überlegen.",
+  "Du bist mir noch eine Saison wert. Lass uns die Verlängerung bald festmachen."
+ ],
+ "pool.altstar_karriereende.a.a2": [
+  "Ein letztes Jahr, und danach lassen wir dich mit Applaus gehen, vor vollem Haus.",
+  "Eine Ehrenrunde hast du dir verdient, und die Fans werden sie dir danken."
+ ],
+ "pool.altstar_karriereende.a.a3": [
+  "Ich entscheide nach der Winterpause, abhängig davon, wie du körperlich dastehst. Bis dahin spielst du dein Spiel.",
+  "Wir werten die nächsten Wochen aus: Belastung, Daten, Gefühl. Dann setzen wir uns hin."
+ ],
+ "pool.altstar_karriereende.a.a4": [
+  "Mach dir keinen Kopf, das regelt sich schon, und bis dahin ist noch viel Zeit.",
+  "Konzentrier dich auf die Spiele, an alles andere denken wir später."
+ ],
+ "pool.altstar_karriereende.a.a5": [
+  "Ich plane mit dir nicht über den Vertrag hinaus. Der Verein muss jünger werden.",
+  "Eine Verlängerung wird es nicht geben, ich will den Platz für die Nachrücker freihalten."
+ ],
+ "pool.altstar_karriereende.a.a6": [
+  "Dir gebührt ein eigenes Abschiedsspiel mit allem Drum und Dran, das richte ich dir aus.",
+  "Ich organisiere dir einen würdigen Abschied, mit Spiel, Ehrung und Familie auf dem Rasen."
+ ],
+ "pool.altstar_karriereende.a.a7": [
+  "Was wünschst du dir denn selbst: noch spielen, aufhören oder etwas ganz anderes?",
+  "Wie fühlt sich dein Körper an, und wie lange traust du dir noch Spiele auf diesem Niveau zu?"
+ ],
+ "pool.altstar_karriereende.a.a8": [
+  "Maßgeblich ist die Leistung, nicht die Verdienste. Wer fit ist, spielt, und wer es nicht ist, nicht.",
+  "Dankbarkeit ist keine Aufstellung. Du musst dich jede Woche neu beweisen."
+ ],
+ "pool.altstar_karriereende.a.a9": [
+  "Ich sehe dich später als Mentor für die Jungen, du gibst weiter, was du kannst. Darüber reden wir ernsthaft.",
+  "Deine Erfahrung gehört in die Akademie. Ich sehe dich als Mentor, noch während du spielst."
+ ],
+ "pool.altstar_karriereende.a.a10": [
+  "Ich weiß, wie schwer dir der Gedanke fällt. Du hast diesen Klub geprägt, und ich lasse dich nicht im Regen stehen.",
+  "Danke, dass du so offen bist. Ich nehme dich und deine Sorgen ernst, wir finden einen guten Weg."
+ ],
+ "pool.altstar_karriereende.a.a11": [
+  "Der Sportdirektor kennt die Möglichkeiten nach der Laufbahn besser als ich, ihr beide setzt euch zusammen.",
+  "Sprich mit der Vereinsführung, sie hat die Pläne für die Zeit danach in der Hand."
+ ],
+ "pool.altstar_karriereende.a.a12": [
+  "Du läufst noch wie einer, der es allen zeigen will, ich lasse dich nicht so schnell gehen. Versprechen kann ich aber noch nichts.",
+  "Aufhören? Du schuftest doch wie ein Nachwuchsmann, lass uns in Ruhe abwarten."
+ ],
+ "pool.altstar_karriereende.r.r1": [
+  "{b.gut} Das habe ich mir erhofft, Trainer.",
+  "{b.gut} Damit kann ich die letzte Etappe mit ruhigem Kopf angehen."
+ ],
+ "pool.altstar_karriereende.r.r2": [
+  "{b.gut} Du bist ein Trainer, der an die Alten denkt. Dafür trage ich das Trikot noch ein Stück weiter.",
+  "{b.gut} Ich gebe, solange ich kann, alles für dich und den Verein."
+ ],
+ "pool.altstar_karriereende.r.r3": [
+  "{b.gut} Dann hole ich noch einmal alles heraus, und vielleicht gibt es zum Schluss einen Titel.",
+  "{b.gut} Ein starker Abschluss, genau das hat mir vorgeschwebt."
+ ],
+ "pool.altstar_karriereende.r.r4": [
+  "{b.gut} Dass du dich so um mich sorgst, rührt mich, ehrlich.",
+  "{b.gut} So hat noch kaum einer mit mir gesprochen, danke dafür."
+ ],
+ "pool.altstar_karriereende.r.r5": [
+  "{b.neutral} Wir haben ja noch Zeit, ich hake im Winter nach.",
+  "{b.neutral} Das ist keine Antwort, aber auch keine Absage."
+ ],
+ "pool.altstar_karriereende.r.r6": [
+  "{b.neutral} Ich muss das erst einmal sacken lassen.",
+  "{b.neutral} Es klingt vernünftig, doch richtig leichter ist mir nicht."
+ ],
+ "pool.altstar_karriereende.r.r7": [
+  "{b.neutral} Ich nehme es so zur Kenntnis und mache meine Arbeit.",
+  "{b.neutral} Dann warte ich eben ab, was kommt."
+ ],
+ "pool.altstar_karriereende.r.r8": [
+  "{b.neutral} Nach all den Jahren schockt mich so schnell nichts mehr.",
+  "{b.neutral} Gut, dann ist das so, ich schlafe trotzdem ruhig."
+ ],
+ "pool.altstar_karriereende.r.r9": [
+  "{b.schlecht} Ein verdienter Spieler hätte mehr Klarheit verdient.",
+  "{b.schlecht} So geht man nicht mit jemandem um, der so lange hier ist."
+ ],
+ "pool.altstar_karriereende.r.r10": [
+  "{b.schlecht} Ich war schon hier, als du noch nicht einmal im Land warst! Das lasse ich mir nicht bieten!",
+  "{b.schlecht} Dann sag es mir ins Gesicht: Ich soll weg, oder?"
+ ],
+ "pool.altstar_karriereende.r.r11": [
+  "{b.schlecht} Wenn ich hier nicht mehr gebraucht werde, gibt es andere, die mich schätzen.",
+  "{b.schlecht} Dann sehe ich mich eben anderswo um, so einfach ist das."
+ ],
+ "pool.altstar_karriereende.r.r12": [
+  "{b.schlecht} Nach allem, was ich für diesen Klub getan habe, tut das weh.",
+  "{b.schlecht} Ich hätte mir ein wenig mehr Dankbarkeit gewünscht, Trainer."
+ ],
+ "pool.altstar_karriereende.x.x1": [
+  "Er nickt langsam, und die Last scheint von seinen Schultern zu fallen. {entscheidung} Im Training geht er wieder voran.",
+  "{entscheidung} Der alte Kämpfer wirkt gelöst, fast erleichtert."
+ ],
+ "pool.altstar_karriereende.x.x2": [
+  "Er bleibt nachdenklich. {entscheidung} Die Frage hängt weiter über ihm, bis eine Entscheidung fällt.",
+  "{entscheidung} Wie es für ihn weitergeht, steht in den Sternen."
+ ],
+ "pool.altstar_karriereende.x.x3": [
+  "Sein Gesicht verhärtet sich. {entscheidung} In der Kabine ist man still geworden, und viele haben es mitbekommen.",
+  "{entscheidung} Dass es so endet, hat er sich nicht gewünscht, und er sagt es auch."
+ ],
+ "pool.altstar_karriereende.x.x4": [
+  "Ihr gebt euch die Hand. {entscheidung} Er weiß jetzt, woran er ist, und die Frist läuft.",
+  "{entscheidung} Das Wort steht, und er wird es dir bei Gelegenheit in Erinnerung rufen."
+ ],
+ "pool.altstar_karriereende.x.x5": [
+  "Er steht auf, bevor du fertig bist. {entscheidung} Die Tür bleibt einen Spalt offen, mehr nicht.",
+  "{entscheidung} Wortlos verlässt er das Büro, den Blick auf den Boden gerichtet."
+ ],
+ "pool.egoist_auf_der_bank.e.e1": [
+  "{b.gruss} {b.egoist_auf_der_bank_lage} Ich dachte, du solltest es von mir hören, bevor es schlimmer wird.",
+  "{b.gruss} {b.egoist_auf_der_bank_lage} Als Kapitän ist es meine Pflicht, dir das zu melden."
+ ],
+ "pool.egoist_auf_der_bank.e.e2": [
+  "{b.gruss} {b.egoist_auf_der_bank_lage} Beim Aufwärmen hat er kein Wort mit uns gesprochen.",
+  "{b.gruss} {b.egoist_auf_der_bank_lage} Im Mannschaftsbus sitzt er allein mit Kopfhörern und starrt aus dem Fenster."
+ ],
+ "pool.egoist_auf_der_bank.e.e3": [
+  "{b.gruss} {b.egoist_auf_der_bank_lage} Ehrlich, ich weiß selbst nicht mehr, wie ich noch an ihn herankommen soll.",
+  "{b.gruss} {b.egoist_auf_der_bank_lage} Ich bin mit meinem Latein am Ende, und die Jüngeren fangen an, ihn nachzumachen."
+ ],
+ "pool.egoist_auf_der_bank.e.e4": [
+  "{b.gruss} {b.egoist_auf_der_bank_lage} Wenn du nicht einschreitest, übernehme ich das, und dann wird es laut!",
+  "{b.gruss} {b.egoist_auf_der_bank_lage} Noch einmal so ein Auftritt, und ich nehme ihn mir vor der ganzen Mannschaft vor!"
+ ],
+ "pool.egoist_auf_der_bank.e.e5": [
+  "{b.gruss} {b.egoist_auf_der_bank_lage} Ich komme mit ihm sonst gut klar, aber diesmal erreiche ich ihn nicht.",
+  "{b.gruss} {b.egoist_auf_der_bank_lage} Wir haben eine gute Truppe, und ich möchte nicht, dass einer sie vergiftet."
+ ],
+ "pool.egoist_auf_der_bank.e.e6": [
+  "{b.gruss} {b.egoist_auf_der_bank_lage} Wir wollen was erreichen, und da stört jeder, der nur auf sich schaut.",
+  "{b.gruss} {b.egoist_auf_der_bank_lage} Für den Erfolg muss die Bank hinter der Mannschaft stehen, nicht gegen sie."
+ ],
+ "pool.egoist_auf_der_bank.e.e7": [
+  "{b.gruss} {b.egoist_auf_der_bank_lage} Ich will ihn nicht bloßstellen, nur sehe ich, wie es an den anderen nagt.",
+  "{b.gruss} {b.egoist_auf_der_bank_lage} Die Stimmung kippt langsam, und ich habe Sorge, dass es den Rest mitreißt."
+ ],
+ "pool.egoist_auf_der_bank.e.e8": [
+  "{b.gruss} {b.egoist_auf_der_bank_lage} Du hattest versprochen, dich um ihn zu kümmern, und passiert ist nichts.",
+  "{b.gruss} {b.egoist_auf_der_bank_lage} Das Gespräch mit ihm, das du angekündigt hast, steht noch aus."
+ ],
+ "pool.egoist_auf_der_bank.e.e9": [
+  "{b.gruss} {b.egoist_auf_der_bank_lage} Seit dem Streit um die Sitzordnung reden zwei andere nicht mehr mit ihm.",
+  "{b.gruss} {b.egoist_auf_der_bank_lage} Die Kabine ist schon in Lager zerfallen, die für ihn und die gegen ihn."
+ ],
+ "pool.egoist_auf_der_bank.a.a1": [
+  "Ich beauftrage dich: Nimm ihn unter vier Augen, du kennst die Kabine. Ich habe vollstes Vertrauen in dich.",
+  "Sprich du mit ihm, Kapitän. Als einer von euch kommt es besser an als von mir."
+ ],
+ "pool.egoist_auf_der_bank.a.a2": [
+  "Ich erkläre ihm selbst, warum er draußen sitzt und was er ändern muss, damit sich das ändert.",
+  "Er bekommt von mir eine klare Auskunft über seine Rolle. Danach weiß er, woran er ist."
+ ],
+ "pool.egoist_auf_der_bank.a.a3": [
+  "Ich setze mich mit ihm zusammen und höre mir an, was ihn quält. Vielleicht steckt mehr dahinter.",
+  "Ich suche das Gespräch und lasse ihn ausreden, bevor ich irgendetwas sage."
+ ],
+ "pool.egoist_auf_der_bank.a.a4": [
+  "Er zahlt eine Geldstrafe und sitzt beim nächsten Mal auf der Tribüne, wenn er noch einmal stänkert.",
+  "Für Meckern gegen die Mannschaft gibt es Konsequenzen, und die setze ich durch."
+ ],
+ "pool.egoist_auf_der_bank.a.a5": [
+  "Die Aufstellung ist meine Sache, und er hat sie zu akzeptieren, ob es ihm passt oder nicht.",
+  "Ich ändere nichts an meiner Entscheidung. Wer sich nicht einfügt, bleibt eben draußen."
+ ],
+ "pool.egoist_auf_der_bank.a.a6": [
+  "Ein gemeinsames Essen für die ganze Truppe geht auf mich, damit die Gräben zuwachsen.",
+  "Ich lade die Mannschaft zu einem Grillabend ein, ohne Taktiktafel, dafür mit guter Laune."
+ ],
+ "pool.egoist_auf_der_bank.a.a7": [
+  "Wie hat er sich denn zuletzt verhalten, und wer in der Kabine leidet am meisten darunter?",
+  "Seit wann geht das so, und gab es einen konkreten Auslöser?"
+ ],
+ "pool.egoist_auf_der_bank.a.a8": [
+  "Ich verspreche ihm Einsätze, sobald er sich in die Mannschaft einordnet. Das sage ich ihm ins Gesicht.",
+  "Zeigt er Haltung, bekommt er seine Minuten. Das sichere ich ihm zu."
+ ],
+ "pool.egoist_auf_der_bank.a.a9": [
+  "Jede Kabine hat ihren Dickkopf, bei uns ist es eben er. Er kommt schon wieder zur Besinnung.",
+  "Der Mann hat Feuer, das gehört dazu. Gib ihm ein paar Tage, dann beruhigt er sich."
+ ],
+ "pool.egoist_auf_der_bank.a.a10": [
+  "Ich spreche heute vor der ganzen Mannschaft: Die Bank ist keine Bühne für Beleidigte, jeder arbeitet für den Erfolg.",
+  "Ich mache vor dem Training eine Ansage: Wer auf der Bank sitzt, hilft von dort mit, sonst nirgends."
+ ],
+ "pool.egoist_auf_der_bank.a.a11": [
+  "Wende dich an den Co-Trainer, er betreut die Ersatzspieler und kann sich besser um ihn kümmern.",
+  "Das gehört zum Aufgabenbereich meines Assistenten, ich leite es an ihn weiter."
+ ],
+ "pool.egoist_auf_der_bank.r.r1": [
+  "{b.gut} Gut, dann kann ich der Mannschaft sagen, dass sich etwas tut.",
+  "{b.gut} Das beruhigt mich, Trainer, und die Jungs sind bestimmt auch erleichtert."
+ ],
+ "pool.egoist_auf_der_bank.r.r2": [
+  "{b.gut} Ich übernehme das gern. Für die Truppe tue ich fast alles.",
+  "{b.gut} Wir kriegen das hin, Trainer, verlass dich auf mich."
+ ],
+ "pool.egoist_auf_der_bank.r.r3": [
+  "{b.gut} Das ist ein klarer Weg, damit holen wir den Fokus zurück.",
+  "{b.gut} Dann steht die Mannschaft wieder zusammen, und wir können liefern."
+ ],
+ "pool.egoist_auf_der_bank.r.r4": [
+  "{b.gut} Dass du dir die Zeit für ihn nimmst, wird er zu schätzen wissen.",
+  "{b.gut} So viel Rücksicht hat er nicht verdient, aber gut, dass du sie zeigst."
+ ],
+ "pool.egoist_auf_der_bank.r.r5": [
+  "{b.neutral} Ich bin gespannt, ob das etwas bewirkt.",
+  "{b.neutral} Dann warten wir ab, wie er morgen im Training auftritt."
+ ],
+ "pool.egoist_auf_der_bank.r.r6": [
+  "{b.neutral} Ich weiß nicht, ob die Kabine das so hinnimmt.",
+  "{b.neutral} Es kann gut gehen, es kann auch nach hinten losgehen."
+ ],
+ "pool.egoist_auf_der_bank.r.r7": [
+  "{b.neutral} Dann bleibt es wohl vorerst wie es ist.",
+  "{b.neutral} Verstanden, ich halte die Augen offen und melde mich wieder."
+ ],
+ "pool.egoist_auf_der_bank.r.r8": [
+  "{b.neutral} Mir soll es recht sein, ich habe sowieso schon dicke Haut.",
+  "{b.neutral} Wie du meinst, ich nehme es, wie es kommt."
+ ],
+ "pool.egoist_auf_der_bank.r.r9": [
+  "{b.schlecht} Damit steht die Kabine weiter allein da.",
+  "{b.schlecht} So wird sich an der Stimmung nichts ändern, Trainer."
+ ],
+ "pool.egoist_auf_der_bank.r.r10": [
+  "{b.schlecht} Dann muss ich es eben auf meine Weise regeln, und es wird nicht freundlich!",
+  "{b.schlecht} Wenn du dich raushältst, nehme ich ihn mir selbst vor!"
+ ],
+ "pool.egoist_auf_der_bank.r.r11": [
+  "{b.schlecht} Als Kapitän lasse ich mich nicht abspeisen, ich überlege mir, ob ich die Binde weiter trage.",
+  "{b.schlecht} Wenn ich hier nichts bewirken kann, kann ich auch woanders spielen."
+ ],
+ "pool.egoist_auf_der_bank.r.r12": [
+  "{b.schlecht} Ich hatte gehofft, du nimmst mich als Kapitän ernster.",
+  "{b.schlecht} Das enttäuscht mich, ich dachte, wir ziehen an einem Strang."
+ ],
+ "pool.egoist_auf_der_bank.x.x1": [
+  "Der Kapitän geht mit festem Schritt zurück in die Kabine. {entscheidung} Wenig später wird dort wieder gelacht.",
+  "{entscheidung} Der Eigensinnige hat sich offenbar gefangen, und die Mannschaft atmet auf."
+ ],
+ "pool.egoist_auf_der_bank.x.x2": [
+  "Der Kapitän zuckt die Schultern. {entscheidung} Ob die Bank still bleibt, wird sich zeigen.",
+  "{entscheidung} Es bleibt ein Schwebezustand, und beide Lager beobachten sich weiter."
+ ],
+ "pool.egoist_auf_der_bank.x.x3": [
+  "Der Kapitän presst die Lippen zusammen. {entscheidung} Hinter der Kabinentür wird es bald lauter werden.",
+  "{entscheidung} Die Fronten sind verhärtet, und kaum einer redet noch mit dem Kapitän."
+ ],
+ "pool.egoist_auf_der_bank.x.x4": [
+  "Der Kapitän notiert sich die Frist. {entscheidung} Er wird in der Kabine für dich bürgen.",
+  "{entscheidung} Der Kapitän gibt das Wort an die Mannschaft weiter, nun hängt alles daran."
+ ],
+ "pool.egoist_auf_der_bank.x.x5": [
+  "Der Kapitän winkt ab und geht. {entscheidung} Das Thema nimmt er in die Kabine mit, nicht gelöst.",
+  "{entscheidung} Er verlässt das Zimmer mitten im Satz, ohne dich noch einmal anzusehen."
+ ],
+ "pool.fuehrungsspieler_ausser_form.e.e1": [
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} Ich hätte gern gewusst, ob du noch auf mich zählst.",
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} Kann ich mit dir offen darüber reden, wie du mich siehst?"
+ ],
+ "pool.fuehrungsspieler_ausser_form.e.e2": [
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} Die Jüngeren schauen zu mir auf, und ich kann ihnen kein Vorbild sein, solange ich so spiele.",
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} Als einer, der vorangehen soll, komme ich mir gerade ziemlich klein vor."
+ ],
+ "pool.fuehrungsspieler_ausser_form.e.e3": [
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} Ich bin nervös, jeder Ballkontakt fühlt sich falsch an, und ich weiß nicht mehr weiter.",
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} Mir fehlt gerade jede Sicherheit, und das hat mit dem Fußball nur noch halb zu tun."
+ ],
+ "pool.fuehrungsspieler_ausser_form.e.e4": [
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} Wenn du mir jetzt die Binde wegnehmen willst, sag es gleich!",
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} Kritik nehme ich an, aber hinter meinem Rücken wird nicht über mich geredet!"
+ ],
+ "pool.fuehrungsspieler_ausser_form.e.e5": [
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} Ich hab mit Sorge gesehen, dass einige in der Kabine tuscheln.",
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} Ich gebe dem Team, was ich habe, auch wenn es zurzeit nicht reicht."
+ ],
+ "pool.fuehrungsspieler_ausser_form.e.e6": [
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} Ich will wieder der Unterschied sein, dafür brauche ich einen Plan.",
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} Sag mir, woran ich arbeiten soll, und ich liefere das."
+ ],
+ "pool.fuehrungsspieler_ausser_form.e.e7": [
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} Ich will nicht, dass meine Rolle in der Mannschaft bröckelt, weil ich ein paar Wochen schwach bin.",
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} Es wäre mir unangenehm, wenn andere mir den Rang ablaufen, solange ich angeschlagen bin."
+ ],
+ "pool.fuehrungsspieler_ausser_form.e.e8": [
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} Du hattest mir Rückendeckung zugesagt, und ich habe sie bislang nicht gespürt.",
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} Beim letzten Gespräch hast du mir Unterstützung versprochen, davon sehe ich nichts."
+ ],
+ "pool.fuehrungsspieler_ausser_form.e.e9": [
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} Ich habe mich in der Kabine zurückgezogen, weil ich nicht der sein will, der alle runterzieht.",
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} Ich merke, dass ich leiser geworden bin, und das gehört nicht zu einem Anführer."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a1": [
+  "Du bleibst mein Anführer, daran ändert keine Formkurve etwas. Wir kommen da gemeinsam heraus.",
+  "Ich stehe hinter dir, ganz gleich, was die Tabelle sagt. Die Mannschaft braucht dich weiterhin."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a2": [
+  "Wir sehen uns zusammen die letzten Spiele auf Video an, und ich zeige dir, wo es klemmt und was gut war.",
+  "Setz dich mit mir vor die Aufnahmen, Szene für Szene. Oft ist es nur eine Kleinigkeit."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a3": [
+  "Du bekommst eine Woche Pause, kein Spiel, kein Druck. Danach greifst du frisch an.",
+  "Ich nehme dich für ein, zwei Partien aus dem Kader, damit du den Kopf frei bekommst."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a4": [
+  "Klartext: So wie jetzt kannst du kein Anführer sein. Ändere etwas, oder ich muss es für dich tun.",
+  "Du bist nicht unantastbar. Wer die Binde trägt, muss auch liefern, und das tust du derzeit nicht."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a5": [
+  "Was glaubst du selbst: Gehört die Binde im Moment auf deinen Arm, oder wäre es für alle leichter, wenn ein anderer sie trägt?",
+  "Willst du die Binde behalten, und was bist du bereit, dafür zu tun?"
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a6": [
+  "Die Binde bleibt bei dir bis zum Saisonende, das sage ich dir verbindlich zu.",
+  "Deine Rolle im Team steht, ich garantiere sie dir, bis die Form zurück ist."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a7": [
+  "Auch der beste Stürmer hat mal keinen Lauf, selbst die Uhr geht manchmal nach. Das dreht sich wieder.",
+  "Formkurven sind wie das Wetter, auf Regen folgt Sonne, und du bist ein Sonnentyp."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a8": [
+  "Eine Rolle ist kein Geschenk auf Lebenszeit. Sie verändert sich mit deiner Leistung, so ehrlich muss ich sein.",
+  "Ich verhandle nicht über deine Stellung. Du holst sie dir auf dem Platz zurück."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a9": [
+  "Ich schicke dich zum Athletiktrainer und zum Mentalcoach, die haben bei Formtiefs mehr Erfahrung als ich.",
+  "Der Staff nimmt sich deiner an, Einzelarbeit mit dem Co-Trainer, jeden Morgen."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a10": [
+  "Ein Abend mit der Familie in einem guten Restaurant geht auf den Verein. Kopf frei, und Montag geht es weiter.",
+  "Du und deine Liebsten, ein freies Wochenende an der Küste, auf Kosten des Klubs. Lade die Akkus auf."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a11": [
+  "Mir ist klar, wie dich das belastet. Du musst mir nichts vormachen, hier darfst du sagen, wie es dir wirklich geht.",
+  "Ich sehe, dass es an dir nagt. Lass uns erst einmal über dich reden, nicht über Fußball."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a12": [
+  "Die Kabine soll sehen, dass du an dir arbeitest. Mehr erwarte ich nicht, aber das erwarte ich schon.",
+  "Ich erwarte, dass du die anderen nicht mit hineinziehst. Auf dem Platz reden wir später über Leistung."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r1": [
+  "{b.gut} Das gibt mir Halt, Trainer, mehr wollte ich gar nicht hören.",
+  "{b.gut} Jetzt fühle ich mich wieder wie ein Teil von dem Ganzen."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r2": [
+  "{b.gut} Auf dich kann ich mich verlassen, und du kannst es auf mich.",
+  "{b.gut} Mit so einem Rückhalt trage ich die Verantwortung weiter."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r3": [
+  "{b.gut} Das ist ein Plan, mit dem ich arbeiten kann, danke.",
+  "{b.gut} Gib mir ein paar Wochen, dann bin ich wieder der Alte."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r4": [
+  "{b.gut} Dass du mich als Mensch siehst und nicht nur als Spieler, hilft mir mehr als jede Analyse.",
+  "{b.gut} Das hat gutgetan, ich fühle mich verstanden."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r5": [
+  "{b.neutral} Ich probiere es und sehe, was es bringt.",
+  "{b.neutral} Das klingt nach Arbeit, mal schauen, ob es fruchtet."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r6": [
+  "{b.neutral} Ich weiß nicht, ob mich das aufbaut oder eher verunsichert.",
+  "{b.neutral} Hm, ich muss darüber nachdenken, wie ich das auffassen soll."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r7": [
+  "{b.neutral} Gut, dann werde ich beim nächsten Training nicht lange fragen.",
+  "{b.neutral} Dann ist das eben so, ich konzentriere mich auf das, was ich beeinflussen kann."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r8": [
+  "{b.neutral} Ich habe schon schlimmere Phasen überstanden und werde auch diese überstehen.",
+  "{b.neutral} Kein Problem, ich bleibe ruhig und warte auf meinen Moment."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r9": [
+  "{b.schlecht} Damit fühle ich mich eher noch kleiner als zuvor.",
+  "{b.schlecht} Das war nicht die Unterstützung, die ich mir erhofft hatte."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r10": [
+  "{b.schlecht} Dann gib die Binde doch gleich weiter, wenn ich so wenig wert bin!",
+  "{b.schlecht} Ich habe alles gegeben, und jetzt behandelst du mich wie einen Anfänger!"
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r11": [
+  "{b.schlecht} Wenn ich hier nicht mehr gefragt bin, bin ich es woanders vielleicht.",
+  "{b.schlecht} So viel Misstrauen zeigt mir, dass ich besser neu anfange."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r12": [
+  "{b.schlecht} Von dir hätte ich das nicht erwartet, nach allem, was wir hatten.",
+  "{b.schlecht} Ich habe immer für dich gerackert, und das ist der Dank."
+ ],
+ "pool.fuehrungsspieler_ausser_form.x.x1": [
+  "Er richtet sich auf, und etwas von der alten Härte kehrt in seine Augen zurück. {entscheidung} In der Kabine bleibt sein Wort gültig.",
+  "{entscheidung} Der Führungsspieler geht gestärkt hinaus und wirkt wieder wie jemand, der ein Team trägt."
+ ],
+ "pool.fuehrungsspieler_ausser_form.x.x2": [
+  "Er nickt, doch Zweifel bleiben. {entscheidung} Ob seine Formkrise vorübergeht, entscheiden die nächsten Wochen.",
+  "{entscheidung} Er bleibt im Amt, aber alle wissen, dass seine Zeit nicht unbegrenzt läuft."
+ ],
+ "pool.fuehrungsspieler_ausser_form.x.x3": [
+  "Er knallt die Tür zu. {entscheidung} Die Kabine hat es gehört, und seine Autorität leidet spürbar.",
+  "{entscheidung} Der Anführer wirkt verletzt, und das bleibt nicht ohne Folgen für die Mannschaft."
+ ],
+ "pool.fuehrungsspieler_ausser_form.x.x4": [
+  "Du hast dich festgelegt. {entscheidung} Er weiß, dass er nun liefern muss, und dass du an ihn glaubst.",
+  "{entscheidung} Die Frist läuft, und die ganze Kabine weiß, wem du das Vertrauen geschenkt hast."
+ ],
+ "pool.fuehrungsspieler_ausser_form.x.x5": [
+  "Er schweigt und geht hinaus. {entscheidung} Man sieht ihm an, dass das Gespräch nicht beendet ist.",
+  "{entscheidung} Mitten im Satz steht er auf und verlässt das Zimmer, ohne sich umzudrehen."
+ ]
+}

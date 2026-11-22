@@ -1,0 +1,25 @@
+{
+  "_hinweis": "Texte zum Thema Integration. Der Co-Trainer schreibt dem Trainer (Du). Platzhalter: {spieler}, {spieler_kurz}.",
+  "neuzugang_angekommen.betreff": { "standard": ["{spieler_kurz} ist angekommen"] },
+  "neuzugang_angekommen.text": {
+    "standard": [
+      "{spieler} hat sich eingelebt. Er kennt die Abläufe, redet auf dem Platz mit und sitzt beim Essen nicht mehr allein. Von meiner Seite gibt es da nichts mehr zu tun.",
+      "Kurze Rückmeldung zu {spieler_kurz}: Die Mannschaft hat ihn angenommen. Er spielt regelmäßig, die Abstimmung mit den Nebenleuten passt. Den Wechsel können wir abhaken."
+    ]
+  },
+  "neuzugang_angekommen.antwort.kenntnis": { "standard": ["Gut zu hören."] },
+
+  "neuzugang_aussen_vor.betreff": { "standard": ["{spieler_kurz} findet keinen Anschluss"] },
+  "neuzugang_aussen_vor.text": {
+    "standard": [
+      "{spieler} ist seit dem Wechsel kaum zum Einsatz gekommen. Er trainiert ordentlich, bleibt aber für sich. Wenn wir nichts tun, verlieren wir ihn, bevor er richtig da ist.",
+      "Wir sollten über {spieler_kurz} reden. Er stand seit seiner Ankunft fast nie auf dem Platz und hat in der Kabine noch keinen Anschluss gefunden."
+    ]
+  },
+  "neuzugang_aussen_vor.antwort.einsatz":  { "standard": ["Er bekommt in den nächsten Wochen seine Einsätze. Bereite ihn darauf vor."] },
+  "neuzugang_aussen_vor.antwort.pate":     { "standard": ["Stell ihm einen erfahrenen Spieler zur Seite. Die Einsätze muss er sich selbst verdienen."] },
+  "neuzugang_aussen_vor.antwort.abwarten": { "standard": ["Er muss sich durchbeißen wie jeder andere. Wir ändern nichts."] },
+  "neuzugang_aussen_vor.rueckmeldung.einsatz":  { "standard": ["Mache ich. Ich sage ihm, dass seine Chance kommt. Dann muss sie aber auch kommen."] },
+  "neuzugang_aussen_vor.rueckmeldung.pate":     { "standard": ["Gute Idee, ich frage einen der Älteren. Das hilft ihm in der Kabine, an der Bank ändert es erst einmal nichts."] },
+  "neuzugang_aussen_vor.rueckmeldung.abwarten": { "standard": ["Deine Entscheidung. Ich behalte ihn im Auge und melde mich, wenn es kippt."] }
+}

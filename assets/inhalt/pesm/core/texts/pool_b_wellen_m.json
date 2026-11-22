@@ -1,0 +1,118 @@
+{
+ "pool.b.arzt_rotation_empfohlen_gruss": [
+  "Trainer, vor dem Spieltag noch eine ärztliche Einschätzung.",
+  "Trainer, haben Sie einen Moment? Es geht um die Belastungswerte.",
+  "Trainer, die Wochenauswertung liegt vor, und ich muss etwas anmerken."
+ ],
+ "pool.b.arzt_rotation_empfohlen_haltung": [
+  "{name} behauptet, es gehe ihm gut, doch seine Werte erzählen etwas anderes.",
+  "{name} hat sich nicht beklagt, und gerade das macht mich misstrauisch."
+ ],
+ "pool.b.arzt_rotation_empfohlen_haltung.hitzig": [
+  "{name} hat mir schon angekündigt, dass er sich nicht aus dem Kader nehmen lässt.",
+  "{name} wurde laut, als ich das Wort Pause nur erwähnte."
+ ],
+ "pool.b.arzt_rotation_empfohlen_haltung.loyal": [
+  "{name} würde für Sie auch auf einem Bein spielen, und genau davor muss ich ihn schützen.",
+  "{name} sagt, er mache alles mit, was Sie von ihm verlangen."
+ ],
+ "pool.b.arzt_rotation_empfohlen_haltung.ehrgeizig": [
+  "{name} will keine Minute verpassen und hat mich gebeten, seine Werte milder zu bewerten.",
+  "{name} sieht jede Pause als verlorene Chance auf einen Stammplatz."
+ ],
+ "pool.b.arzt_rotation_empfohlen_haltung.wechselfreudig": [
+  "{name} meinte beiläufig, anderswo ließe man ihn ohne Pause durchspielen.",
+  "{name} hat angedeutet, dass ihm die Schonung hier zu viel Misstrauen bedeutet."
+ ],
+ "pool.b.arzt_rotation_empfohlen_haltung.sensibel": [
+  "{name} wirkt bedrückt und traut sich nicht, selbst um eine Pause zu bitten.",
+  "{name} fürchtet, als schwach zu gelten, wenn er sich schonen lässt."
+ ],
+ "pool.b.arzt_muskelprobleme_gruss": [
+  "Trainer, kurze Nachricht aus der Behandlung.",
+  "Trainer, gerade war {name} bei mir, und ich muss Ihnen etwas sagen.",
+  "Trainer, wir müssen über einen Muskel reden."
+ ],
+ "pool.b.arzt_muskelprobleme_haltung": [
+  "{name} spielt die Sache herunter, nickt aber bei jedem Druckpunkt.",
+  "{name} sagt, es sei nur ein Ziehen, und zuckt trotzdem bei der Untersuchung."
+ ],
+ "pool.b.arzt_muskelprobleme_haltung.hitzig": [
+  "{name} hat mich angefaucht, ich solle nicht so ein Theater machen.",
+  "{name} will davon nichts hören und ist schon halb aus der Tür."
+ ],
+ "pool.b.arzt_muskelprobleme_haltung.loyal": [
+  "{name} sagt, er beiße auf die Zähne, wenn Sie ihn brauchen.",
+  "{name} will Sie nicht im Stich lassen und verschweigt lieber, wie es sich anfühlt."
+ ],
+ "pool.b.arzt_muskelprobleme_haltung.ehrgeizig": [
+  "{name} will unbedingt spielen und fragt mich schon nach Mitteln, die ihn fit machen.",
+  "{name} hat angekündigt, den Platz nicht mehr herzugeben, egal wie es zieht."
+ ],
+ "pool.b.arzt_muskelprobleme_haltung.wechselfreudig": [
+  "{name} schaut ständig aufs Handy und fragt, ob ein Ausfall seinen Marktwert drückt.",
+  "{name} sprach davon, dass er sich keine Pause leisten kann, wenn er weiterkommen will."
+ ],
+ "pool.b.arzt_muskelprobleme_haltung.sensibel": [
+  "{name} wirkt verunsichert und traut seinem Körper gerade nicht mehr.",
+  "{name} spricht leise und fragt, ob er sich das nur einbildet."
+ ],
+ "pool.b.reha_fortschritt_gruss": [
+  "Trainer, ich habe erfreuliche Nachrichten aus der Reha.",
+  "Trainer, kurzer Zwischenstand von {name}, und der ist gut.",
+  "Trainer, die Reha läuft besser als gedacht."
+ ],
+ "pool.b.reha_fortschritt_haltung": [
+  "{name} arbeitet sauber und klagt nicht, das gefällt mir.",
+  "{name} ist bei jeder Einheit pünktlich und konzentriert."
+ ],
+ "pool.b.reha_fortschritt_haltung.hitzig": [
+  "{name} drängt schon jetzt auf einen Einsatz und läuft mir ständig vor.",
+  "{name} stürmt in jede Einheit, als wollte er die Zeit aufholen."
+ ],
+ "pool.b.reha_fortschritt_haltung.loyal": [
+  "{name} sagt, er wolle der Mannschaft so bald wie möglich helfen.",
+  "{name} fragt jeden Tag, ob er Ihnen schon etwas zurückgeben kann."
+ ],
+ "pool.b.reha_fortschritt_haltung.ehrgeizig": [
+  "{name} will wissen, wann er seinen Stammplatz zurückbekommt, und treibt sich bis zum Limit.",
+  "{name} hat sich ein eigenes Reha-Ziel gesetzt und übertrifft es regelmäßig."
+ ],
+ "pool.b.reha_fortschritt_haltung.wechselfreudig": [
+  "{name} fragt auffallend oft, wie seine Aussichten im Kader aussehen.",
+  "{name} will schnell zurück, damit er sich wieder im Schaufenster zeigen kann."
+ ],
+ "pool.b.reha_fortschritt_haltung.sensibel": [
+  "{name} ist erleichtert, aber noch vorsichtig und glaubt den guten Werten nicht ganz.",
+  "{name} freut sich leise und fürchtet insgeheim, dass es zu schön ist, um wahr zu sein."
+ ],
+ "pool.b.reha_rueckschlag_gruss": [
+  "Trainer, haben Sie kurz Zeit? Es gibt keine gute Nachricht.",
+  "Trainer, ich muss Ihnen leider einen Rückschlag melden.",
+  "Trainer, bitte setzen Sie sich, es geht um {name}."
+ ],
+ "pool.b.reha_rueckschlag_haltung": [
+  "{name} sitzt still im Behandlungsraum und starrt auf seinen Fuß.",
+  "{name} hat kaum ein Wort gesagt, seit er es erfahren hat."
+ ],
+ "pool.b.reha_rueckschlag_haltung.hitzig": [
+  "{name} hat vor Wut gegen die Wand getreten und redet sich um Kopf und Kragen.",
+  "{name} gibt dem Stab die Schuld und ist kaum zu beruhigen."
+ ],
+ "pool.b.reha_rueckschlag_haltung.loyal": [
+  "{name} entschuldigt sich bei mir, dass er Sie schon wieder enttäuscht.",
+  "{name} macht sich Vorwürfe, dass er der Mannschaft nicht helfen kann."
+ ],
+ "pool.b.reha_rueckschlag_haltung.ehrgeizig": [
+  "{name} will sofort weitertrainieren und fragt, wie schnell er den Rückstand aufholt.",
+  "{name} sieht seine ganze Saison in Gefahr und wirkt wie versteinert."
+ ],
+ "pool.b.reha_rueckschlag_haltung.wechselfreudig": [
+  "{name} deutete an, dass man ihn in dieser Lage woanders vielleicht besser behandeln würde.",
+  "{name} fragt, wie ein Rückschlag seine Zukunft beeinflusst und ob der Verein noch an ihn glaubt."
+ ],
+ "pool.b.reha_rueckschlag_haltung.sensibel": [
+  "{name} ist am Boden zerstört und kämpft mit den Tränen.",
+  "{name} fragt leise, ob er überhaupt jemals wieder der Alte wird."
+ ]
+}

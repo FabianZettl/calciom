@@ -1,0 +1,480 @@
+{
+ "spieltag_titel": {
+  "teile": [
+   [
+    "Spieltag in der {liga}:",
+    "Die {liga} im Überblick:",
+    "Was war los in der {liga}?",
+    "Rückblick auf den Spieltag in der {liga}:",
+    "Der Spieltag in der {liga} im Schnelldurchlauf:",
+    "Die Woche in der {liga}:",
+    "Die Liga-Woche in der {liga}:",
+    "Ergebnisdienst {liga}:",
+    "Was man vom {liga}-Spieltag wissen muss:"
+   ],
+   [
+    "{top}",
+    "{top} sorgt für Gesprächsstoff",
+    "{top} als Höhepunkt",
+    "{top} im Mittelpunkt",
+    "{top} im Fokus"
+   ]
+  ]
+ },
+ "spieltag_body": {
+  "teile": [
+   [
+    "Das Spiel der Woche war {top}.",
+    "Im Mittelpunkt stand {top}.",
+    "Am meisten sprachen die Fans über {top}.",
+    "Die Szenen des Spieltags lieferte {top}.",
+    "Herausragend aus dem Programm ragte {top}.",
+    "Die Schlagzeile des Wochenendes gehörte {top}."
+   ],
+   [
+    "Insgesamt fielen in {n} Spielen {tore} Tore.",
+    "In den {n} Begegnungen trafen die Teams {tore}-mal.",
+    "{n} Spiele, {tore} Tore: das war die Bilanz der Woche.",
+    "Am Ende standen {tore} Treffer aus {n} Partien zu Buche.",
+    "Die {n} Begegnungen brachten {tore} Tore."
+   ],
+   [
+    "",
+    "",
+    "",
+    "Das Torfestival ging weiter.",
+    "Die Zuschauer kamen auf ihre Kosten.",
+    "Es war eine Woche ohne große Überraschungen.",
+    "Die Spitze rückt weiter zusammen.",
+    "Im Tabellenkeller bleibt es eng."
+   ]
+  ]
+ },
+ "tabelle_titel": {
+  "teile": [
+   [
+    "{lead} führt die {liga} an,",
+    "{lead} thront an der Spitze der {liga},",
+    "Spitzenreiter {lead} in der {liga}:",
+    "In der {liga} steht {lead} ganz oben,",
+    "{lead} gibt in der {liga} den Ton an,",
+    "{lead} setzt sich in der {liga} an die Spitze,",
+    "Spitzenreiter in der {liga} bleibt {lead},"
+   ],
+   [
+    "{last} steckt unten fest",
+    "{last} kämpft am Tabellenende",
+    "am Ende der Tabelle liegt {last}",
+    "{last} bildet das Schlusslicht",
+    "ganz unten rutscht {last} ab"
+   ]
+  ]
+ },
+ "tabelle_body": {
+  "teile": [
+   [
+    "{lead} hat {pts} Punkte aus {p} Spielen,",
+    "Mit {pts} Punkten aus {p} Spielen steht {lead} oben,",
+    "{lead} sammelte {pts} Zähler in {p} Partien,",
+    "{pts} Punkte nach {p} Spielen: {lead} führt die Tabelle an,",
+    "{lead} liegt mit {pts} Punkten nach {p} Spielen vorn,",
+    "Die Tabellenführung gehört {lead}: {pts} Punkte aus {p} Spielen,"
+   ],
+   [
+    "{last} steht mit {lpts} Punkten am Tabellenende.",
+    "{last} hängt mit {lpts} Punkten ganz unten fest.",
+    "während {last} mit {lpts} Punkten Schlusslicht ist.",
+    "am anderen Ende der Tabelle hat {last} erst {lpts} Punkte."
+   ],
+   [
+    "",
+    "",
+    "Der Abstand zwischen Spitze und Keller ist deutlich.",
+    "Der Kampf um Platz und Punkte bleibt spannend.",
+    "In dieser Liga ist noch alles offen."
+   ]
+  ]
+ },
+ "transfer_titel": {
+  "teile": [
+   [
+    "Transfer-Ticker: {text}",
+    "Neues vom Markt: {text}",
+    "Wechselbörse: {text}",
+    "Transfermarkt aktuell: {text}",
+    "Aus der Transferwelt: {text}",
+    "Die Meldung vom Markt: {text}",
+    "Heiße Ware auf dem Markt: {text}",
+    "Neue Bewegung auf dem Transfermarkt: {text}",
+    "Marktgeflüster: {text}"
+   ]
+  ]
+ },
+ "transfer_body": {
+  "teile": [
+   [
+    "{text}",
+    "Meldung vom Transfermarkt: {text}",
+    "Aus der Transferbranche: {text}",
+    "Die Sportnachrichten berichten: {text}",
+    "Neues vom Markt: {text}",
+    "Auf dem Transfermarkt tut sich etwas: {text}",
+    "Zu lesen ist heute: {text}",
+    "Das berichten die Zeitungen: {text}"
+   ]
+  ]
+ },
+ "gr_titel_a": {
+  "teile": [
+   [
+    "{source}: {other} will {name} von {club}",
+    "{source} will wissen: {other} baggert an {name}",
+    "{source}: {other} hat {name} im Visier",
+    "{source} berichtet vom Interesse von {other} an {name}",
+    "Laut {source} steht {name} auf dem Zettel von {other}",
+    "{source} meldet: {other} fühlt bei {name} vor",
+    "Heißer Draht: {source} bringt {name} mit {other} in Verbindung",
+    "{source} berichtet: {name} ist ein Thema bei {other}",
+    "{source} ist sich sicher: {other} wirbt um {name}",
+    "Laut {source} bahnt sich ein Wechsel von {name} zu {other} an",
+    "{source} bringt {name} und {other} zusammen",
+    "{source}: {name} soll {club} Richtung {other} verlassen"
+   ]
+  ]
+ },
+ "gr_titel_b": {
+  "teile": [
+   [
+    "Wechselgerücht: {name} ({club}) im Visier von {other}",
+    "Gerüchteküche: {other} interessiert sich für {name}",
+    "Wechselspekulationen um {name}: {other} soll anfragen",
+    "Kommt es zum Wechsel? {name} wird mit {other} in Verbindung gebracht",
+    "Bahnt sich ein Transfer an? {other} und {name}",
+    "{name} und {other}: Was ist dran?",
+    "Spekulation: {name} vor dem Abschied von {club}?",
+    "{name} und {other}: Die Gerüchteküche brodelt",
+    "Wird {name} bald für {other} spielen?",
+    "Spekulation: {other} schielt auf {name}",
+    "Wechselfieber um {name}: {other} soll interessiert sein",
+    "Hat {other} {name} auf dem Zettel? Die Gerüchte nehmen zu"
+   ]
+  ]
+ },
+ "gr_anlass_liste": {
+  "teile": [
+   [
+    "Er steht auf der Transferliste.",
+    "Der Verein hat ihn auf die Transferliste gesetzt.",
+    "Er ist offiziell zu haben, der Verein hat ihn gelistet.",
+    "Auf der Transferliste taucht sein Name auf."
+   ]
+  ]
+ },
+ "gr_anlass_geld": {
+  "teile": [
+   [
+    "{club} steckt in Geldnot und muss verkaufen.",
+    "Die Kassenlage bei {club} ist angespannt, ein Verkauf käme gelegen.",
+    "{club} braucht Geld, und er ist sein wertvollstes Gut.",
+    "Finanziell steht {club} unter Druck."
+   ]
+  ]
+ },
+ "gr_anlass_unzufrieden": {
+  "teile": [
+   [
+    "Er ist unzufrieden: {warum}.",
+    "Dem Vernehmen nach ist er nicht glücklich: {warum}.",
+    "Hinter den Kulissen brodelt es: {warum}.",
+    "Sein Umfeld ist unzufrieden: {warum}."
+   ]
+  ]
+ },
+ "gr_warum_laune": {
+  "teile": [
+   [
+    "seine Stimmung liegt im Keller",
+    "er wirkt seit Wochen schlecht gelaunt",
+    "im Training fällt seine Unzufriedenheit auf",
+    "die Stimmung bei ihm ist schlecht"
+   ]
+  ]
+ },
+ "gr_warum_spielzeit": {
+  "teile": [
+   [
+    "er kommt kaum zum Einsatz",
+    "er sitzt meist nur auf der Bank",
+    "ihm fehlt die Spielzeit",
+    "er spielt selten und will mehr"
+   ]
+  ]
+ },
+ "gr_interessent": {
+  "teile": [
+   [
+    "Interessent ist {other}: hat das Geld und könnte ihn gut gebrauchen.",
+    "Als Interessent gilt {other}, das Geld ist da und der Bedarf auch.",
+    "{other} könnte ihn gut gebrauchen und hätte die Mittel dazu.",
+    "Gerüchteweise zeigt {other} Interesse: das Geld dafür ist vorhanden.",
+    "Im Gespräch ist {other}, sportlich wie finanziell ein passender Abnehmer.",
+    "Ein möglicher Abnehmer wäre {other}: Mittel und Bedarf sind vorhanden.",
+    "{other} wird als Interessent gehandelt und könnte sich den Wechsel leisten.",
+    "Als Abnehmer kommt {other} in Frage, finanziell wie sportlich."
+   ]
+  ]
+ },
+ "gr_witz": {
+  "teile": [
+   [
+    "(Quelle mit Augenzwinkern zu lesen: Genaues weiß man nicht.)",
+    "(Mit Augenzwinkern zu genießen: Die Quelle ist nicht die seriöseste.)",
+    "(Augenzwinkern erlaubt: Ob da was dran ist, weiß keiner.)",
+    "(Wie immer mit einem Körnchen Salz zu genießen.)",
+    "(Nicht jedes Gerücht stammt aus der besten Quelle.)"
+   ]
+  ]
+ },
+ "gr_reason": {
+  "teile": [
+   [
+    "Gerücht ohne Gewähr. Anlass aus den Daten: {anlass} In drei Wochen steht fest, ob etwas dran war.",
+    "Ohne Gewähr. Der Anlass: {anlass} Nach drei Wochen wird man wissen, was dran war.",
+    "Ein Gerücht, wie es sie jede Woche gibt. Hintergrund: {anlass} Die Auflösung folgt spätestens in drei Wochen.",
+    "Gerücht ohne Gewähr. Warum es aufkommt: {anlass} Ob etwas dran war, zeigt sich in drei Wochen.",
+    "Wie jedes Gerücht ohne Garantie. Der Anlass: {anlass} In drei Wochen weiß man mehr."
+   ]
+  ]
+ },
+ "gr_ok_titel": {
+  "teile": [
+   [
+    "Bestätigt: {name} wechselt zu {other}",
+    "Perfekt: {name} geht zu {other}",
+    "Es ist offiziell: {name} verlässt {club} Richtung {other}",
+    "Das Gerücht stimmte: {name} wechselt zu {other}",
+    "Amtlich: {name} schließt sich {other} an",
+    "Offiziell: {name} verstärkt {other}",
+    "Der Wechsel ist perfekt: {name} unterschreibt bei {other}",
+    "Abschied nach Gerüchten: {name} wechselt zu {other}"
+   ]
+  ]
+ },
+ "gr_ok_body": {
+  "teile": [
+   [
+    "Das Gerücht vom {tag} hat sich bewahrheitet: {name} wechselt von {club} zu {other}.",
+    "Was am {tag} noch Spekulation war, ist jetzt Gewissheit: {name} geht von {club} zu {other}.",
+    "Die Meldung vom {tag} war richtig, {name} verlässt {club} und wechselt zu {other}.",
+    "Es kam, wie das Gerücht vom {tag} es andeutete: {name} verlässt {club} und geht zu {other}.",
+    "Die Spekulationen vom {tag} waren richtig, {name} wechselt von {club} zu {other}."
+   ]
+  ]
+ },
+ "gr_no_titel": {
+  "teile": [
+   [
+    "Dementi: An den Gerüchten um {name} ist nichts dran",
+    "Kein Wechsel: {name} bleibt bei {club}",
+    "Dementi: {name} bleibt, {other} hat sich nicht gemeldet",
+    "Kein Wechsel in Sicht: {name} bleibt {club} erhalten",
+    "Dementi: Das Gerücht um {name} war heiße Luft",
+    "Dementi: {name} bleibt, Gerüchte erledigen sich von selbst",
+    "Kein Wechsel: Die Spekulationen um {name} waren umsonst",
+    "Dementi: Der Spieler bleibt, {other} hat nie angerufen"
+   ]
+  ]
+ },
+ "gr_no_body": {
+  "teile": [
+   [
+    "{name} steht weiter bei {club}, {other} hat sich nicht gemeldet. Das Gerücht vom {tag} war heiße Luft.",
+    "Bei {club} ist von einem Abschied von {name} keine Rede, {other} hat nie angefragt. Das Gerücht vom {tag} war nur Gerede.",
+    "Die Spekulation vom {tag} hat sich nicht bestätigt: {name} bleibt, {other} blieb stumm.",
+    "Von einem Wechsel zu {other} ist nichts zu hören, {name} bleibt bei {club}. Das Gerücht vom {tag} hat sich nicht bewahrheitet.",
+    "{club} hält an {name} fest, {other} hat sich nie gemeldet. Das Gerücht vom {tag} blieb ein Gerücht."
+   ]
+  ]
+ },
+ "gr_anders_body": {
+  "teile": [
+   [
+    "{name} wechselt tatsächlich, aber nicht zu {other}. Das Gerücht vom {tag} war nur halb richtig.",
+    "Der Wechsel von {name} kommt, nur anders als gedacht: {other} war es nicht. Das Gerücht vom {tag} stimmte nur zur Hälfte.",
+    "{name} verlässt {club}, aber nicht in Richtung {other}. Das Gerücht vom {tag} lag knapp daneben.",
+    "{name} verlässt {club}, aber nicht zu {other}: Das Gerücht vom {tag} hat den Kern getroffen und das Ziel verfehlt.",
+    "Das Gerücht vom {tag} war nur teilweise richtig: {name} geht, aber {other} ist es nicht."
+   ]
+  ]
+ },
+ "welt_derby": {
+  "teile": [
+   [
+    "Derby: {w} schlägt Rivale {l}",
+    "Derbysieg: {w} setzt sich gegen {l} durch",
+    "Stadtduell entschieden: {w} gewinnt gegen {l}",
+    "{w} gewinnt das Derby gegen {l}",
+    "Derby-Held {w}: {l} geschlagen",
+    "Derbyheld {w}: Rivale {l} bezwungen",
+    "Stadtduell entschieden: {w} behält gegen {l} die Oberhand",
+    "Derby-Sieg: {w} lässt {l} leer ausgehen",
+    "{w} entscheidet das Derby gegen {l}"
+   ],
+   [
+    "{sc}{wo}",
+    "mit {sc}{wo}",
+    "am Ende {sc}{wo}"
+   ]
+  ]
+ },
+ "welt_derby_remis": {
+  "teile": [
+   [
+    "Derby ohne Sieger: {a} und {b} {sc}",
+    "Punkteteilung im Derby: {a} gegen {b}, {sc}",
+    "{a} und {b} trennen sich im Derby {sc}",
+    "Das Derby zwischen {a} und {b} endet {sc}",
+    "Kein Sieger im Stadtduell: {a} gegen {b} {sc}",
+    "Derby geteilt: {a} und {b} trennen sich {sc}",
+    "Keiner gewinnt das Derby: {a} gegen {b} endet {sc}",
+    "Remis im Derby: {a} und {b} {sc}",
+    "Derby bleibt ohne Sieger: {sc} zwischen {a} und {b}"
+   ]
+  ]
+ },
+ "welt_ueberraschung": {
+  "teile": [
+   [
+    "Überraschung: Außenseiter {w} schlägt {l}",
+    "Sensationserfolg: {w} gewinnt gegen {l}",
+    "{w} ärgert den Favoriten {l}",
+    "Niemand hatte es erwartet: {w} besiegt {l}",
+    "Der Underdog schlägt zu: {w} gegen {l}",
+    "Pokalstimmung in der Liga: {w} gewinnt gegen {l}",
+    "Der Favorit {l} strauchelt gegen {w}",
+    "Überraschung perfekt: {w} schlägt {l}",
+    "{w} wirft {l} aus der Bahn"
+   ],
+   [
+    "{sc}{wo}",
+    "mit {sc}{wo}",
+    "am Ende {sc}{wo}"
+   ]
+  ]
+ },
+ "welt_dreierpack": {
+  "teile": [
+   [
+    "Dreierpack: {name} trifft dreifach, {a} gegen {b} endet {hs}",
+    "Hattrick für {name}: {a} gegen {b} {hs}",
+    "{name} schießt {a} zum Sieg: {hs} gegen {b}",
+    "Drei Tore von {name}: {a} und {b} trennen sich {hs}",
+    "Ein Mann, drei Treffer: {name} bei {a} gegen {b} ({hs})",
+    "Hattrick! {name} führt {a} gegen {b} zum {hs}",
+    "Dreimal trifft {name}: {a} gegen {b} endet {hs}",
+    "{name} dreht auf: Drei Tore beim {hs} von {a} gegen {b}"
+   ]
+  ]
+ },
+ "saison_titel": {
+  "teile": [
+   [
+    "Saisonbilanz: Das Ziel wurde {txt}",
+    "Saisonziel {txt}",
+    "Rückblick der Vereinsführung: Das Ziel wurde {txt}",
+    "Der Vorstand zieht Bilanz: Ziel {txt}",
+    "Die Saison ist vorbei: Das Ziel wurde {txt}",
+    "Saisonbilanz: Das Saisonziel wurde {txt}",
+    "Der Vorstand wertet aus: Ziel {txt}",
+    "Endabrechnung: Das Ziel wurde {txt}"
+   ]
+  ]
+ },
+ "saison_body_gut": {
+  "teile": [
+   [
+    "Der Vorstand zieht Bilanz.",
+    "Zum Saisonende zieht die Vereinsführung Bilanz.",
+    "Im Präsidium wurde die Saison ausgewertet."
+   ],
+   [
+    "Man ist sehr zufrieden.",
+    "Die Stimmung im Präsidium ist ausgezeichnet.",
+    "Der Vorstand lobt die Arbeit ausdrücklich.",
+    "Das Präsidium ist begeistert vom Abschneiden."
+   ]
+  ]
+ },
+ "saison_body_mittel": {
+  "teile": [
+   [
+    "Der Vorstand zieht Bilanz.",
+    "Zum Saisonende zieht die Vereinsführung Bilanz.",
+    "Im Präsidium wurde die Saison ausgewertet."
+   ],
+   [
+    "Man ist zufrieden.",
+    "Die Erwartungen wurden erfüllt.",
+    "Der Vorstand sieht das Ziel als erreicht an."
+   ]
+  ]
+ },
+ "saison_body_schlecht": {
+  "teile": [
+   [
+    "Der Vorstand zieht Bilanz.",
+    "Zum Saisonende zieht die Vereinsführung Bilanz.",
+    "Im Präsidium wurde die Saison ausgewertet."
+   ],
+   [
+    "Es gibt Gesprächsbedarf.",
+    "Die Erwartungen wurden nicht erfüllt, man will reden.",
+    "Der Vorstand ist unzufrieden und fordert Antworten.",
+    "Das Präsidium erwartet eine Erklärung."
+   ]
+  ]
+ },
+ "gr_anlass_vertrag_aus": {
+  "teile": [
+   [
+    "Der Vertrag läuft nach dieser Saison aus.",
+    "Sein Vertrag endet im Sommer, eine Verlängerung gibt es noch nicht.",
+    "Die Vertragslage ist offen: Im Sommer ist Schluss.",
+    "Beim Vertrag ist Bewegung drin, er läuft zum Saisonende aus.",
+    "Sein Kontrakt läuft aus, und eine Einigung ist nicht in Sicht."
+   ]
+  ]
+ },
+ "gr_anlass_vertrag_bald": {
+  "teile": [
+   [
+    "Der Vertrag läuft noch bis Ende nächster Saison.",
+    "Sein Vertrag endet in einem Jahr, die Verlängerung steht aus.",
+    "Die Restlaufzeit ist kurz: noch bis Ende nächster Saison.",
+    "Vertraglich ist er nur noch bis Ende nächster Saison gebunden."
+   ]
+  ]
+ },
+ "saison_grund": {
+  "teile": [
+   [
+    "Vor der Saison lautete das Ziel: {label} (Platz {g}).",
+    "Das Saisonziel war {label}, also Platz {g}.",
+    "Der Vorstand hatte {label} ausgegeben, Platz {g}.",
+    "Erwartet wurde {label} (Platz {g})."
+   ],
+   [
+    "Am Ende steht Platz {i}.",
+    "Geschafft hat die Mannschaft Platz {i}.",
+    "Die Tabelle weist Platz {i} aus.",
+    "Abgeschlossen wird die Saison auf Platz {i}."
+   ],
+   [
+    "{folgen}.",
+    "Die Folgen: {folgen}.",
+    "Das hat Gewicht: {folgen}.",
+    "Im Umfeld heißt es: {folgen}."
+   ]
+  ]
+ }
+}

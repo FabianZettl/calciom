@@ -1,0 +1,558 @@
+{
+ "pool.jugend_befoerderung_vorschlag.e.e1": [
+  "{b.jugend_befoerderung_vorschlag_gruss} {b.jugend_befoerderung_vorschlag_lage} I would like to propose him for the first-team squad. He already trains there and keeps up remarkably well.",
+  "{b.jugend_befoerderung_vorschlag_gruss} {b.jugend_befoerderung_vorschlag_lage} My proposal is to bring him into the first-team squad. Physically and mentally he is ahead of his year."
+ ],
+ "pool.jugend_befoerderung_vorschlag.e.e2": [
+  "{b.jugend_befoerderung_vorschlag_gruss} {b.jugend_befoerderung_vorschlag_lage} I am putting my promotion list in front of you. You decide, I only supply the reasons.",
+  "{b.jugend_befoerderung_vorschlag_gruss} {b.jugend_befoerderung_vorschlag_lage} There is a promotion proposal from the academy. Please look at it calmly, I am curious about your view."
+ ],
+ "pool.jugend_befoerderung_vorschlag.e.e3": [
+  "{b.jugend_befoerderung_vorschlag_gruss} {b.jugend_befoerderung_vorschlag_lage} I know the situation is tense. That is exactly why a fresh face could do the squad good.",
+  "{b.jugend_befoerderung_vorschlag_gruss} {b.jugend_befoerderung_vorschlag_lage} The timing is bad, I know. But the boy will not wait for better times."
+ ],
+ "pool.jugend_befoerderung_vorschlag.e.e4": [
+  "{b.jugend_befoerderung_vorschlag_gruss} {b.jugend_befoerderung_vorschlag_lage} Either you give him a chance now, or I wonder what we keep an academy for!",
+  "{b.jugend_befoerderung_vorschlag_gruss} {b.jugend_befoerderung_vorschlag_lage} I want an answer today on whether he comes up or not. I cannot stand this hesitation!"
+ ],
+ "pool.jugend_befoerderung_vorschlag.e.e5": [
+  "{b.jugend_befoerderung_vorschlag_gruss} {b.jugend_befoerderung_vorschlag_lage} I am not pushing you, but I think he is ripe. Take the time you need, just not too much, please.",
+  "{b.jugend_befoerderung_vorschlag_gruss} {b.jugend_befoerderung_vorschlag_lage} It is not a matter of the hour, but my gut tells me he is ready."
+ ],
+ "pool.jugend_befoerderung_vorschlag.e.e6": [
+  "{b.jugend_befoerderung_vorschlag_gruss} {b.jugend_befoerderung_vorschlag_lage} Give him a year with the professionals and he repays the club with interest. I vouch for that.",
+  "{b.jugend_befoerderung_vorschlag_gruss} {b.jugend_befoerderung_vorschlag_lage} With him we get a talent that other clubs would have to buy at a high price. I would not hesitate."
+ ],
+ "pool.jugend_befoerderung_vorschlag.e.e7": [
+  "{b.jugend_befoerderung_vorschlag_gruss} {b.jugend_befoerderung_vorschlag_lage} If you do not want him, tell me early, because then I must honestly tell him that his path continues elsewhere.",
+  "{b.jugend_befoerderung_vorschlag_gruss} {b.jugend_befoerderung_vorschlag_lage} An agent has already asked about him. I want us to talk to each other first."
+ ],
+ "pool.jugend_befoerderung_vorschlag.e.e8": [
+  "{b.jugend_befoerderung_vorschlag_gruss} {b.jugend_befoerderung_vorschlag_lage} He is a quiet boy and would take a setback badly. That is why the timing matters so much to me.",
+  "{b.jugend_befoerderung_vorschlag_gruss} {b.jugend_befoerderung_vorschlag_lage} He doubts himself even though he is good. A clear decision from you would mean a lot to him."
+ ],
+ "pool.jugend_befoerderung_vorschlag.e.e9": [
+  "{b.jugend_befoerderung_vorschlag_gruss} {b.jugend_befoerderung_vorschlag_lage} I even have more than one candidate, {zahl} to be exact. We have to sort out who is really ready.",
+  "{b.jugend_befoerderung_vorschlag_gruss} {b.jugend_befoerderung_vorschlag_lage} This time there are {zahl} proposals from me. You need not take them all, but none should simply fizzle out."
+ ],
+ "pool.jugend_befoerderung_vorschlag.a.a1": [
+  "Good, we bring him up. He gets a place in the first-team squad, and you prepare him and his family for it.",
+  "Agreed, he comes. I take him into the squad and give him time to settle in before I demand performance."
+ ],
+ "pool.jugend_befoerderung_vorschlag.a.a2": [
+  "Let me speak with the boy first. I want to know how he himself feels about the leap before I decide.",
+  "Send him to me for a talk. I want to hear whether he really wants the step and what frightens him."
+ ],
+ "pool.jugend_befoerderung_vorschlag.a.a3": [
+  "He trains with us for the next weeks, then I see for myself whether he can take the pressure, and I decide afterwards.",
+  "We run a trial training with the first team. If he holds up there, the promotion is merely a formality."
+ ],
+ "pool.jugend_befoerderung_vorschlag.a.a4": [
+  "I suggest a loan. He gets match practice against men, and we bring him back when he is truly ready.",
+  "Let us send him for a season to a club where he plays, rather than gathering dust on our bench."
+ ],
+ "pool.jugend_befoerderung_vorschlag.a.a5": [
+  "Please talk to the assistant coach and have him observed for two weeks. Afterwards I want your joint assessment.",
+  "The assistant coach should take a close look at the boy in training. Bring me a joint report, then I decide."
+ ],
+ "pool.jugend_befoerderung_vorschlag.a.a6": [
+  "Not yet. There is already too much in the squad in his position, and with us he would only sit in the stand.",
+  "Not now. He needs playing time, and I cannot offer him that with the professionals at the moment."
+ ],
+ "pool.jugend_befoerderung_vorschlag.a.a7": [
+  "No. We have enough problems and do not need experiments with children.",
+  "That is out of the question. The academy does its job, I do mine."
+ ],
+ "pool.jugend_befoerderung_vorschlag.a.a8": [
+  "I have already given my answer, and it does not change just because you repeat yourself.",
+  "My word stands. If he is that good, he will prevail without special treatment."
+ ],
+ "pool.jugend_befoerderung_vorschlag.a.a9": [
+  "Since when do you decide who joins my squad? I am still the one who decides that!",
+  "And who carries the responsibility if he fails? You, perhaps?"
+ ],
+ "pool.jugend_befoerderung_vorschlag.a.a10": [
+  "Let the boy eat a few more biscuits, then we talk again. I will not forget him, promise.",
+  "Good things take time, my friend. I keep an eye on him and get back to you as soon as it is time."
+ ],
+ "pool.jugend_befoerderung_vorschlag.a.a11": [
+  "How do you rate his resilience, and what happens if it does not work out after a few months?",
+  "What does the boy himself say, and what do his parents say? I want to know that before I decide anything."
+ ],
+ "pool.jugend_befoerderung_vorschlag.r.r1": [
+  "{b.gut} Thank you, that is more than I could have expected.",
+  "{b.gut} I can work with that, and the boy will be delighted."
+ ],
+ "pool.jugend_befoerderung_vorschlag.r.r2": [
+  "{b.gut} I knew one could talk sensibly with you.",
+  "{b.gut} Calm and clear, just as I had hoped."
+ ],
+ "pool.jugend_befoerderung_vorschlag.r.r3": [
+  "{b.gut} You will see, the boy will repay you for this.",
+  "{b.gut} Give him the chance, and the academy will deliver more like him."
+ ],
+ "pool.jugend_befoerderung_vorschlag.r.r4": [
+  "{b.neutral} I have to sort this out first, then I will tell the boy.",
+  "{b.neutral} That says neither yes nor no, but I will take it as it is."
+ ],
+ "pool.jugend_befoerderung_vorschlag.r.r5": [
+  "{b.neutral} I do not know how to tell him without him feeling dropped.",
+  "{b.neutral} Honestly, I am not sure whether that is enough for the boy."
+ ],
+ "pool.jugend_befoerderung_vorschlag.r.r6": [
+  "{b.neutral} It stays as it is and the world keeps turning. I will wait and see.",
+  "{b.neutral} Fine, then we keep watching and see what time brings."
+ ],
+ "pool.jugend_befoerderung_vorschlag.r.r7": [
+  "{b.schlecht} Then we will probably watch the talent say goodbye on his own.",
+  "{b.schlecht} I lack the words to explain this to the boy."
+ ],
+ "pool.jugend_befoerderung_vorschlag.r.r8": [
+  "{b.schlecht} Then you may as well lock up the academy if talents get no chance with you!",
+  "{b.schlecht} That is no way to treat the work of years!"
+ ],
+ "pool.jugend_befoerderung_vorschlag.r.r9": [
+  "{b.schlecht} Then the boy will not be with us much longer, I tell you that today.",
+  "{b.schlecht} If that is your attitude, I have to think about how long I still see a point in being here."
+ ],
+ "pool.jugend_befoerderung_vorschlag.x.x1": [
+  "The youth coach nods, satisfied. {entscheidung} The next morning the boy stands on the pitch with new confidence.",
+  "{entscheidung} Word spreads quickly in the academy that performance is rewarded there."
+ ],
+ "pool.jugend_befoerderung_vorschlag.x.x2": [
+  "The youth coach closes his folder. {entscheidung} How things go on for the boy will be decided in the coming weeks.",
+  "{entscheidung} The question stays present in the academy, and everyone waits for the coach's next word."
+ ],
+ "pool.jugend_befoerderung_vorschlag.x.x3": [
+  "The youth coach leaves the office shaking his head. {entscheidung} The youth section is already talking about how talents are treated.",
+  "{entscheidung} The same day the academy hears that the coach has passed over the boy."
+ ],
+ "pool.jugend_befoerderung_vorschlag.x.x4": [
+  "The conversation ends abruptly. {entscheidung} The youth coach leaves without going into the boy any further.",
+  "{entscheidung} The youth coach gets up and leaves, folder under his arm, without another word."
+ ],
+ "pool.jugend_befoerderung_vorschlag.x.x5": [
+  "The youth coach notes everything down. {entscheidung} The boy is told today and may prepare for the new chapter.",
+  "{entscheidung} The academy now knows where it stands and plans the next steps with the boy."
+ ],
+ "pool.jugend_ohne_spiele.e.e1": [
+  "{b.jugend_ohne_spiele_gruss} {b.jugend_ohne_spiele_lage} I need match practice for them, and soon. Training alone does not take them further.",
+  "{b.jugend_ohne_spiele_gruss} {b.jugend_ohne_spiele_lage} They urgently need to play, in whatever form. Tell me what you can imagine."
+ ],
+ "pool.jugend_ohne_spiele.e.e2": [
+  "{b.jugend_ohne_spiele_gruss} {b.jugend_ohne_spiele_lage} I have gone through the playing times. The picture is clear, and I do not like it.",
+  "{b.jugend_ohne_spiele_gruss} {b.jugend_ohne_spiele_lage} I have compiled the figures, the gaps in game time are bigger than we thought."
+ ],
+ "pool.jugend_ohne_spiele.e.e3": [
+  "{b.jugend_ohne_spiele_gruss} {b.jugend_ohne_spiele_lage} I know you have plenty else on your mind. But these lads have nobody but us.",
+  "{b.jugend_ohne_spiele_gruss} {b.jugend_ohne_spiele_lage} The moment could hardly be worse, yet the lads cannot wait for better times."
+ ],
+ "pool.jugend_ohne_spiele.e.e4": [
+  "{b.jugend_ohne_spiele_gruss} {b.jugend_ohne_spiele_lage} Either the lads play or I throw in my share of the work, it is that simple!",
+  "{b.jugend_ohne_spiele_gruss} {b.jugend_ohne_spiele_lage} I do not want to hear excuses any more, I want appearances for my people!"
+ ],
+ "pool.jugend_ohne_spiele.e.e5": [
+  "{b.jugend_ohne_spiele_gruss} {b.jugend_ohne_spiele_lage} I do not blame you and know how much you carry. I only ask for a solution for the lads.",
+  "{b.jugend_ohne_spiele_gruss} {b.jugend_ohne_spiele_lage} It is not burning today, but in a few weeks it gets expensive if we do nothing."
+ ],
+ "pool.jugend_ohne_spiele.e.e6": [
+  "{b.jugend_ohne_spiele_gruss} {b.jugend_ohne_spiele_lage} Whoever does not play now is not ripe for the professionals in two years, and then we could have saved ourselves the work.",
+  "{b.jugend_ohne_spiele_gruss} {b.jugend_ohne_spiele_lage} Give me matches and I give you players. That is my simple sum."
+ ],
+ "pool.jugend_ohne_spiele.e.e7": [
+  "{b.jugend_ohne_spiele_gruss} {b.jugend_ohne_spiele_lage} I told the lads they may well look around if nothing happens here. I wanted to tell you that honestly.",
+  "{b.jugend_ohne_spiele_gruss} {b.jugend_ohne_spiele_lage} More than one is already thinking about a move just so he can finally play."
+ ],
+ "pool.jugend_ohne_spiele.e.e8": [
+  "{b.jugend_ohne_spiele_gruss} {b.jugend_ohne_spiele_lage} One of them almost cries after the matches, and I do not know how long I can keep comforting him.",
+  "{b.jugend_ohne_spiele_gruss} {b.jugend_ohne_spiele_lage} The lads are almost ashamed when they may only watch, and hardly dare say anything any more."
+ ],
+ "pool.jugend_ohne_spiele.e.e9": [
+  "{b.jugend_ohne_spiele_gruss} {b.jugend_ohne_spiele_lage} It now affects {zahl} lads, that is no isolated case any more but a real problem.",
+  "{b.jugend_ohne_spiele_gruss} {b.jugend_ohne_spiele_lage} It runs like this for {zahl} youngsters now, it has a pattern."
+ ],
+ "pool.jugend_ohne_spiele.a.a1": [
+  "We register the lads for the reserve team's fixtures. There they get real matches week after week.",
+  "I have a reserve team take the field. You pick the lads, and I pay the costs."
+ ],
+ "pool.jugend_ohne_spiele.a.a2": [
+  "We arrange friendlies against neighbouring clubs. The lads get match practice, and it costs us little.",
+  "I will organise friendlies for the lads. Not ideal, but better than weeks without competition."
+ ],
+ "pool.jugend_ohne_spiele.a.a3": [
+  "I take the lads into first-team training, where they measure themselves against better players. They can play later, when they are ripe.",
+  "More first-team training from next week. Whoever holds his own there soon gets appearances too."
+ ],
+ "pool.jugend_ohne_spiele.a.a4": [
+  "Whoever finds no place here is loaned out. He should play somewhere rather than wither with us.",
+  "I will look into loans for the lads with the biggest gap. They play there, and we bring them back later."
+ ],
+ "pool.jugend_ohne_spiele.a.a5": [
+  "I will talk to the lads myself. They should know that we see them and that I take their situation seriously.",
+  "Please bring them to me, I want to explain to each one how things go on and what I expect of him."
+ ],
+ "pool.jugend_ohne_spiele.a.a6": [
+  "The assistant coach goes through the schedule of the coming weeks with you. If you find gaps, you close them.",
+  "Sit down with the assistant coach and show me a plan of who can play when."
+ ],
+ "pool.jugend_ohne_spiele.a.a7": [
+  "Give me a few more weeks until the situation in the squad has cleared. Then we will see.",
+  "I understand the concern, but right now I cannot promise anything. I will come back to you."
+ ],
+ "pool.jugend_ohne_spiele.a.a8": [
+  "At least the view gets trained on the bench, that never hurts. But you are right, I will take care of it.",
+  "Whoever sits long at least learns patience. I promise soon to stop forgetting the lads."
+ ],
+ "pool.jugend_ohne_spiele.a.a9": [
+  "That is not my problem. Whoever does not play has only himself to blame.",
+  "No, I am not organising extra matches just because a few lads are impatient."
+ ],
+ "pool.jugend_ohne_spiele.a.a10": [
+  "I do not change my line-up to suit the academy's wishes. That was so, and it stays so.",
+  "The decision about appearances is made by the coach alone, and that is how it stays."
+ ],
+ "pool.jugend_ohne_spiele.a.a11": [
+  "Why did you not report this sooner? If it is that bad, you should have acted long ago!",
+  "Am I supposed to do your job as well now? You make sure the lads force themselves forward in training."
+ ],
+ "pool.jugend_ohne_spiele.a.a12": [
+  "I cannot pay for additional matches at the moment. The budget does not allow it, and that is no ill will.",
+  "I lack the money for extra matches. I gladly give you the reasons, but I cannot change it now."
+ ],
+ "pool.jugend_ohne_spiele.r.r1": [
+  "{b.gut} That finally gives the lads something to work for again.",
+  "{b.gut} I can tell you take their situation seriously, thank you for that."
+ ],
+ "pool.jugend_ohne_spiele.r.r2": [
+  "{b.gut} Exactly what I had counted on from you, we pull on the same rope.",
+  "{b.gut} That reassures me, I will tell the lads today."
+ ],
+ "pool.jugend_ohne_spiele.r.r3": [
+  "{b.gut} With competition they will grow, and you will feel that in the table.",
+  "{b.gut} If they play, they play their way into your squad, you will see."
+ ],
+ "pool.jugend_ohne_spiele.r.r4": [
+  "{b.neutral} That helps a little, but the lads will stay impatient all the same.",
+  "{b.neutral} I will pass it on, but I do not know whether it is enough."
+ ],
+ "pool.jugend_ohne_spiele.r.r5": [
+  "{b.neutral} I hope the lads do not see a rebuff in it, they are very sensitive right now.",
+  "{b.neutral} Let us see how they take it, their mood tips quickly."
+ ],
+ "pool.jugend_ohne_spiele.r.r6": [
+  "{b.neutral} We will see how it develops, I need not hurry you.",
+  "{b.neutral} I will stay on it and report when something moves in the playing-time figures."
+ ],
+ "pool.jugend_ohne_spiele.r.r7": [
+  "{b.schlecht} Then the lads will keep only training and never mature.",
+  "{b.schlecht} That means I have to prepare them for a year of standing still."
+ ],
+ "pool.jugend_ohne_spiele.r.r8": [
+  "{b.schlecht} You treat talents like spare parts, and I am supposed to explain it?",
+  "{b.schlecht} That is irresponsible, and I say so openly to your face!"
+ ],
+ "pool.jugend_ohne_spiele.r.r9": [
+  "{b.schlecht} Then let them find a club that lets them play.",
+  "{b.schlecht} With this course the academy will not be able to keep anyone in the long run."
+ ],
+ "pool.jugend_ohne_spiele.x.x1": [
+  "The youth coach exhales audibly. {entscheidung} In the next days the juniors' match reports fill up with familiar names again.",
+  "{entscheidung} At the academy's training ground the mood is noticeably better the next day."
+ ],
+ "pool.jugend_ohne_spiele.x.x2": [
+  "The youth coach notes the points. {entscheidung} Whether the lads play more soon depends on what happens in the coming weeks.",
+  "{entscheidung} The question of playing time stays on the table and will resurface at the next talk."
+ ],
+ "pool.jugend_ohne_spiele.x.x3": [
+  "The youth coach walks out without a greeting. {entscheidung} In the academy the lads are already venting their anger.",
+  "{entscheidung} By the evening at the latest every junior knows how little his playing time counts."
+ ],
+ "pool.jugend_ohne_spiele.x.x4": [
+  "The conversation is over before it truly began. {entscheidung} The youth coach withdraws and stays silent.",
+  "{entscheidung} The youth coach merely shakes his head and leaves the papers on the table."
+ ],
+ "pool.jugend_ohne_spiele.x.x5": [
+  "The youth coach sets to work at once. {entscheidung} The same day a new plan hangs on the academy's board.",
+  "{entscheidung} The lads hear about it at dinner and beam."
+ ],
+ "pool.jugend_eltern_gespraech.e.e1": [
+  "{b.jugend_eltern_gespraech_gruss} {b.jugend_eltern_gespraech_lage} They want to hear from you whether he truly has a future at the club. I can only answer that to a limited extent.",
+  "{b.jugend_eltern_gespraech_gruss} {b.jugend_eltern_gespraech_lage} They want to know where their son is supposed to stand in a few years. For that I need your word."
+ ],
+ "pool.jugend_eltern_gespraech.e.e2": [
+  "{b.jugend_eltern_gespraech_gruss} {b.jugend_eltern_gespraech_lage} School in particular is close to their hearts. They want to be sure his diploma is not sacrificed for football.",
+  "{b.jugend_eltern_gespraech_gruss} {b.jugend_eltern_gespraech_lage} They ask how we reconcile school and training without the boy burning out."
+ ],
+ "pool.jugend_eltern_gespraech.e.e3": [
+  "{b.jugend_eltern_gespraech_gruss} {b.jugend_eltern_gespraech_lage} I know the situation at the club is tense, and the parents feel it too. A clear word would be all the more important.",
+  "{b.jugend_eltern_gespraech_gruss} {b.jugend_eltern_gespraech_lage} It is not the best moment, but the family has waited a long time for an answer."
+ ],
+ "pool.jugend_eltern_gespraech.e.e4": [
+  "{b.jugend_eltern_gespraech_gruss} {b.jugend_eltern_gespraech_lage} They demand an appointment with you, immediately, or they go to the press!",
+  "{b.jugend_eltern_gespraech_gruss} {b.jugend_eltern_gespraech_lage} The parents threaten to forbid the boy the academy unless they get clarity today!"
+ ],
+ "pool.jugend_eltern_gespraech.e.e5": [
+  "{b.jugend_eltern_gespraech_gruss} {b.jugend_eltern_gespraech_lage} They do not push, but I can tell how much they would like a word from you. A short one will do.",
+  "{b.jugend_eltern_gespraech_gruss} {b.jugend_eltern_gespraech_lage} The parents do not want to pressure anyone, they only ask for an honest assessment."
+ ],
+ "pool.jugend_eltern_gespraech.e.e6": [
+  "{b.jugend_eltern_gespraech_gruss} {b.jugend_eltern_gespraech_lage} They want to know when the boy may join the professionals and what pay awaits him then.",
+  "{b.jugend_eltern_gespraech_gruss} {b.jugend_eltern_gespraech_lage} The father asks whether his son is the next to make the leap, and what the club does for it."
+ ],
+ "pool.jugend_eltern_gespraech.e.e7": [
+  "{b.jugend_eltern_gespraech_gruss} {b.jugend_eltern_gespraech_lage} The agent has announced he will check other options if the club does not take a stance soon.",
+  "{b.jugend_eltern_gespraech_gruss} {b.jugend_eltern_gespraech_lage} The family explicitly asks whether the club wants to keep the boy or whether they should look for alternatives."
+ ],
+ "pool.jugend_eltern_gespraech.e.e8": [
+  "{b.jugend_eltern_gespraech_gruss} {b.jugend_eltern_gespraech_lage} The parents are unsure whether their son is happy here. He says little at home.",
+  "{b.jugend_eltern_gespraech_gruss} {b.jugend_eltern_gespraech_lage} The boy has become very quiet at home, and the parents ask whether we have noticed anything."
+ ],
+ "pool.jugend_eltern_gespraech.e.e9": [
+  "{b.jugend_eltern_gespraech_gruss} {b.jugend_eltern_gespraech_lage} Because there are several candidates, they want to know how their son compares with the others.",
+  "{b.jugend_eltern_gespraech_gruss} {b.jugend_eltern_gespraech_lage} The parents have heard of the other proposals and ask whether their son is merely an extra among them."
+ ],
+ "pool.jugend_eltern_gespraech.a.a1": [
+  "Tell the parents honestly what I see: he is a real talent, but the road is long, and I want to walk it step by step.",
+  "Explain to them where their son stands today and what he has to work on. Then they know what they may expect."
+ ],
+ "pool.jugend_eltern_gespraech.a.a2": [
+  "We draw up a development plan for him, with goals, interim steps and regular talks. The parents get it in black and white.",
+  "I will have an individual development plan drawn up, and the family is asked at every step."
+ ],
+ "pool.jugend_eltern_gespraech.a.a3": [
+  "School takes priority over everything else. No training that endangers lessons, as long as I am in charge here.",
+  "Tell the parents that his school time is protected. Whoever does not study does not train either."
+ ],
+ "pool.jugend_eltern_gespraech.a.a4": [
+  "We talk about money when the time comes. Now it would be premature, and I do not want to promise anything I cannot keep.",
+  "We postpone the pay. Tell the parents that I will make them a fair offer in due course."
+ ],
+ "pool.jugend_eltern_gespraech.a.a5": [
+  "Gently make clear to them that not every talent arrives with the professionals. He can make it, but it is no walkover.",
+  "Dampen the expectation a little. I do not want them to hear a promise nobody can give."
+ ],
+ "pool.jugend_eltern_gespraech.a.a6": [
+  "You lead the talk with the parents, you know them better than I do. I stand ready in the background if needed.",
+  "Please talk to them and keep me informed. They trust you more anyway."
+ ],
+ "pool.jugend_eltern_gespraech.a.a7": [
+  "I would like to tell the mother myself that we look after the boy. One does not pass such worries on by messenger.",
+  "Invite the parents, I will take time and listen to them before I promise anything at all."
+ ],
+ "pool.jugend_eltern_gespraech.a.a8": [
+  "What exactly do the parents want to hear from me, and what have they already heard from you?",
+  "Are they dissatisfied on the matter or merely unsure? That changes what I tell them."
+ ],
+ "pool.jugend_eltern_gespraech.a.a9": [
+  "Fob them off. I have no time for parent talks while the season is running.",
+  "Tell them to contact the club. I am not the contact for family stories."
+ ],
+ "pool.jugend_eltern_gespraech.a.a10": [
+  "My position is clear: he is treated like everyone else, and there is no reason for special rights.",
+  "I do not talk about prospects in advance. He trains, I decide, and the parents hear about it in due time."
+ ],
+ "pool.jugend_eltern_gespraech.a.a11": [
+  "Why are the parents constantly running to you? If the boy is any good he will show it without Daddy paving his way.",
+  "Have they nothing better to do than steal my time?"
+ ],
+ "pool.jugend_eltern_gespraech.a.a12": [
+  "Tell them their son eats well and sleeps well, that is half the battle. We settle the rest calmly.",
+  "Calm them with my best regards and tell them I will not put him out on the street, promise."
+ ],
+ "pool.jugend_eltern_gespraech.r.r1": [
+  "{b.gut} I can pass that on to the parents with a clear conscience.",
+  "{b.gut} They will sleep easier with that, and so will I."
+ ],
+ "pool.jugend_eltern_gespraech.r.r2": [
+  "{b.gut} Thank you, the family will appreciate that.",
+  "{b.gut} That is a clear word, and it is all they need."
+ ],
+ "pool.jugend_eltern_gespraech.r.r3": [
+  "{b.gut} With that we have the family on our side, and the boy will feel it.",
+  "{b.gut} If the parents go along, the boy goes along even faster."
+ ],
+ "pool.jugend_eltern_gespraech.r.r4": [
+  "{b.neutral} I will pass it on and tell you how they take it.",
+  "{b.neutral} That is not all they wanted to hear, but it is a start."
+ ],
+ "pool.jugend_eltern_gespraech.r.r5": [
+  "{b.neutral} I do not know whether the mother can take that the way you mean it.",
+  "{b.neutral} I must choose my words carefully, or they will feel fobbed off."
+ ],
+ "pool.jugend_eltern_gespraech.r.r6": [
+  "{b.neutral} Let us see how it develops in the coming weeks, I stay in touch with them.",
+  "{b.neutral} Fine, then we leave it as it is for now."
+ ],
+ "pool.jugend_eltern_gespraech.r.r7": [
+  "{b.schlecht} I cannot face the parents like this without blushing.",
+  "{b.schlecht} That will not calm the parents, quite the opposite."
+ ],
+ "pool.jugend_eltern_gespraech.r.r8": [
+  "{b.schlecht} And I am supposed to tell the family now that we have no word for them?",
+  "{b.schlecht} That falls back on me, and I have not deserved it!"
+ ],
+ "pool.jugend_eltern_gespraech.r.r9": [
+  "{b.schlecht} Then we must not be surprised if the family knocks elsewhere with the boy.",
+  "{b.schlecht} With this answer we lose the parents, and soon the boy."
+ ],
+ "pool.jugend_eltern_gespraech.x.x1": [
+  "The youth coach nods, relieved. {entscheidung} The parents leave the academy in the evening visibly reassured.",
+  "{entscheidung} The father shakes the youth coach's hand in parting and thanks him."
+ ],
+ "pool.jugend_eltern_gespraech.x.x2": [
+  "The youth coach promises to keep an eye on the matter. {entscheidung} The family now waits and watches closely what happens.",
+  "{entscheidung} It remains open whether the parents trust the matter or seek advice elsewhere after all."
+ ],
+ "pool.jugend_eltern_gespraech.x.x3": [
+  "The youth coach leaves the conversation with a tense face. {entscheidung} By the evening the family is already phoning their agent.",
+  "{entscheidung} In the boy's circle the coach's attitude is discussed the very same day."
+ ],
+ "pool.jugend_eltern_gespraech.x.x4": [
+  "The conversation is broken off. {entscheidung} The youth coach says a curt goodbye and leaves the parents without an answer.",
+  "{entscheidung} The youth coach leaves the room, and the parents are left at a loss."
+ ],
+ "pool.jugend_eltern_gespraech.x.x5": [
+  "The youth coach notes what was agreed. {entscheidung} The parents get it in writing soon and can rely on it.",
+  "{entscheidung} The youth coach goes through the plan with the family the very same day."
+ ],
+ "pool.jugend_abwerbung.e.e1": [
+  "{b.jugend_abwerbung_gruss} {b.jugend_abwerbung_lage} {verein} has contacted his family and wants to sign him as quickly as possible.",
+  "{b.jugend_abwerbung_gruss} {b.jugend_abwerbung_lage} The agent told me that {verein} dangles a contract before him before he signs one here."
+ ],
+ "pool.jugend_abwerbung.e.e2": [
+  "{b.jugend_abwerbung_gruss} {b.jugend_abwerbung_lage} The boy has no professional contract with us yet, and the others exploit exactly that. We have to react.",
+  "{b.jugend_abwerbung_gruss} {b.jugend_abwerbung_lage} Because he still has no contract, anyone can approach him. We should think of something quickly."
+ ],
+ "pool.jugend_abwerbung.e.e3": [
+  "{b.jugend_abwerbung_gruss} {b.jugend_abwerbung_lage} I know the situation is difficult anyway, but we must clear up this too before it is too late.",
+  "{b.jugend_abwerbung_gruss} {b.jugend_abwerbung_lage} It comes at a bad time, and yet we must not look away."
+ ],
+ "pool.jugend_abwerbung.e.e4": [
+  "{b.jugend_abwerbung_gruss} {b.jugend_abwerbung_lage} {verein} brazenly phoned the boy without asking us, and I want us to fight back!",
+  "{b.jugend_abwerbung_gruss} {b.jugend_abwerbung_lage} If we do not bang the table now, everyone poaches in our academy as he pleases!"
+ ],
+ "pool.jugend_abwerbung.e.e5": [
+  "{b.jugend_abwerbung_gruss} {b.jugend_abwerbung_lage} I do not think he is gone right away, but we should show him that we want him.",
+  "{b.jugend_abwerbung_gruss} {b.jugend_abwerbung_lage} Nothing is lost yet, but a clear sign from you would do him good."
+ ],
+ "pool.jugend_abwerbung.e.e6": [
+  "{b.jugend_abwerbung_gruss} {b.jugend_abwerbung_lage} A boy like this is not lost, someone like him is kept, even if it costs something.",
+  "{b.jugend_abwerbung_gruss} {b.jugend_abwerbung_lage} A talent like him will be worth a lot of money later. If we let him go now, we make a present of it to a rival."
+ ],
+ "pool.jugend_abwerbung.e.e7": [
+  "{b.jugend_abwerbung_gruss} {b.jugend_abwerbung_lage} He asks me whether he may listen to the offer, and I honestly do not know what to tell him.",
+  "{b.jugend_abwerbung_gruss} {b.jugend_abwerbung_lage} The boy asked whether he may visit {verein}. I did not say no."
+ ],
+ "pool.jugend_abwerbung.e.e8": [
+  "{b.jugend_abwerbung_gruss} {b.jugend_abwerbung_lage} He does not want to hurt us, but he does not want to miss his chance either. It tears him apart.",
+  "{b.jugend_abwerbung_gruss} {b.jugend_abwerbung_lage} He is afraid of disappointing us, and that is exactly why he told me about it at all."
+ ],
+ "pool.jugend_abwerbung.e.e9": [
+  "{b.jugend_abwerbung_gruss} {b.jugend_abwerbung_lage} It is not the only time, by now there are {zahl} enquiries for our lads. Someone is plundering us systematically.",
+  "{b.jugend_abwerbung_gruss} {b.jugend_abwerbung_lage} {zahl} enquiries have already come in at our place, that is no coincidence any more."
+ ],
+ "pool.jugend_abwerbung.a.a1": [
+  "We offer him a contract, and a proper one. He should see that with us he gets more than just promises.",
+  "Make him a contract offer, I will put the money at your disposal. I would rather pay now than watch later as he takes off elsewhere."
+ ],
+ "pool.jugend_abwerbung.a.a2": [
+  "I would like to talk to the boy before he decides. He should know that I believe in him and what we have planned for him.",
+  "Bring the boy to me. I will ask him what he is missing and tell him what he can get with us."
+ ],
+ "pool.jugend_abwerbung.a.a3": [
+  "If {verein} wants him, {verein} should pay for his training. We demand compensation, and a fair one.",
+  "I demand a training compensation from {verein}. The work of years is not free."
+ ],
+ "pool.jugend_abwerbung.a.a4": [
+  "I will call the sporting director at {verein} and ask what this is about. Perhaps it can be solved cleanly.",
+  "I will contact {verein} and make clear that agreements between clubs are kept."
+ ],
+ "pool.jugend_abwerbung.a.a5": [
+  "If he wants to go, we let him go. I want nobody at the club who is not in it wholeheartedly.",
+  "We hold nobody back. We thank him and wish him all the best once he has decided."
+ ],
+ "pool.jugend_abwerbung.a.a6": [
+  "We take the case public. Then everyone sees how {verein} treats youngsters.",
+  "I am going to the press with this. The whole country should know how talents are poached there."
+ ],
+ "pool.jugend_abwerbung.a.a7": [
+  "How could this even happen? You are in charge of the academy, so make sure something like this does not occur!",
+  "Who allowed the contact, and why do I only hear about it now?"
+ ],
+ "pool.jugend_abwerbung.a.a8": [
+  "Then let him go. I run after nobody, not even a talent.",
+  "I do not care whether he goes, the academy will produce the next one."
+ ],
+ "pool.jugend_abwerbung.a.a9": [
+  "The sporting director should take this over, with a lawyer if need be. It is no matter for the coaching staff.",
+  "Please hand the case over to the club, I want to be informed of every step but not negotiate myself."
+ ],
+ "pool.jugend_abwerbung.a.a10": [
+  "No panic, a talent in demand shows we trained him right. We will still talk to him, though.",
+  "If everyone else wants him, that at least proves our work. But the damage should stay within limits."
+ ],
+ "pool.jugend_abwerbung.a.a11": [
+  "How serious is the offer, and what has the boy said about it so far? Without facts I do not lift a finger.",
+  "What exactly was offered to the boy, and has anyone signed anything yet?"
+ ],
+ "pool.jugend_abwerbung.a.a12": [
+  "I promise him a firm place in the first-team squad as soon as he is ready, and good pay to go with it. I will tell him myself.",
+  "He should know that with us his path is laid out: training, professional contract, chance. I give him my word on that."
+ ],
+ "pool.jugend_abwerbung.r.r1": [
+  "{b.gut} That is a sign the boy understands.",
+  "{b.gut} That is how we win him back, and I am glad you take it on."
+ ],
+ "pool.jugend_abwerbung.r.r2": [
+  "{b.gut} I knew you would not give up on the boy.",
+  "{b.gut} Calm but determined, that is how you will convince him too."
+ ],
+ "pool.jugend_abwerbung.r.r3": [
+  "{b.gut} With this offer the club outdoes every rival.",
+  "{b.gut} When he sees how much we believe in him, he will want to stay."
+ ],
+ "pool.jugend_abwerbung.r.r4": [
+  "{b.neutral} I will pass it on to the boy and see how he reacts.",
+  "{b.neutral} It is not decided yet, but at least we have a way."
+ ],
+ "pool.jugend_abwerbung.r.r5": [
+  "{b.neutral} I hope he does not take it as pressure, he is very fragile right now.",
+  "{b.neutral} I do not know how he will take it, he is one way today, another tomorrow."
+ ],
+ "pool.jugend_abwerbung.r.r6": [
+  "{b.neutral} We will see what the next days bring, I stay on the matter.",
+  "{b.neutral} Let us see what {verein} answers, then we can plan further."
+ ],
+ "pool.jugend_abwerbung.r.r7": [
+  "{b.schlecht} With that we lose the boy, and {verein} gets him for nothing.",
+  "{b.schlecht} That way we present a rival with a talent we built up with great effort."
+ ],
+ "pool.jugend_abwerbung.r.r8": [
+  "{b.schlecht} You take every prospect from the boy, I will not gloss that over!",
+  "{b.schlecht} That is a poor show for the club, and you know it!"
+ ],
+ "pool.jugend_abwerbung.r.r9": [
+  "{b.schlecht} Then I will probably have to advise the boy to move, that would be honest.",
+  "{b.schlecht} If it goes like this I begin to wonder myself whether I am in the right place here."
+ ],
+ "pool.jugend_abwerbung.x.x1": [
+  "The youth coach breathes a sigh of relief. {entscheidung} The boy stays, and the academy talks of the club keeping its talents.",
+  "{entscheidung} The rumours of a move subside, and the boy trains again with visible joy."
+ ],
+ "pool.jugend_abwerbung.x.x2": [
+  "The youth coach closes the laptop. {entscheidung} How the boy decides will only show in the coming days.",
+  "{entscheidung} Nothing is decided yet, and everyone in the academy holds their breath."
+ ],
+ "pool.jugend_abwerbung.x.x3": [
+  "The youth coach writes back that same evening, short and cool. {entscheidung} The case reaches the press, and the tone towards {verein} turns rough.",
+  "{entscheidung} There is unrest in the academy, and the boy feels caught between the fronts."
+ ],
+ "pool.jugend_abwerbung.x.x4": [
+  "The youth coach no longer answers. {entscheidung} He leaves the matter to take its course.",
+  "{entscheidung} The youth coach has dropped out and no longer cares about the case."
+ ],
+ "pool.jugend_abwerbung.x.x5": [
+  "The youth coach sets about the implementation without delay. {entscheidung} The boy is informed the very same day.",
+  "{entscheidung} Everything is recorded, and the academy works on the next steps."
+ ]
+}

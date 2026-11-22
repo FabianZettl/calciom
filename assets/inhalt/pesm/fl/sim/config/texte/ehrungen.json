@@ -1,0 +1,763 @@
+{
+ "motm_tore": {
+  "teile": [
+   [
+    "Spieler des Spiels: {name} ({club}):",
+    "Mann des Spiels war {name} ({club}):",
+    "Den Unterschied machte {name} ({club}):"
+   ],
+   [
+    "{tore} gegen {opp},",
+    "gleich {tore} gegen {opp},",
+    "{tore} beim Spiel gegen {opp},"
+   ],
+   [
+    "er war nicht zu halten.",
+    "eine Vorstellung, die in Erinnerung bleibt.",
+    "mehr Unterschied geht kaum."
+   ]
+  ]
+ },
+ "motm_dec": {
+  "teile": [
+   [
+    "Spieler des Spiels: {name} ({club}):",
+    "Mann des Spiels war {name} ({club}):",
+    "Den Unterschied machte {name} ({club}):"
+   ],
+   [
+    "Sein Tor entschied die Partie gegen {opp},",
+    "Der Treffer, der alles entschied, fiel gegen {opp},",
+    "Das goldene Tor gegen {opp}:"
+   ],
+   [
+    "ein enges Spiel, in dem sonst wenig passierte.",
+    "mehr brauchte seine Mannschaft nicht.",
+    "ein Moment, den die Fans nicht vergessen."
+   ]
+  ]
+ },
+ "motm_gk": {
+  "teile": [
+   [
+    "Spieler des Spiels: {name} ({club}):",
+    "Mann des Spiels war {name} ({club}):",
+    "Den Unterschied machte {name} ({club}):"
+   ],
+   [
+    "Der Torhüter hielt gegen {opp} die Null",
+    "Im Tor ein Fels gegen {opp},",
+    "Mit mehreren Paraden stark gegen {opp},"
+   ],
+   [
+    "und gab seiner Abwehr Sicherheit.",
+    "das Tor blieb sauber.",
+    "der Gegner verzweifelte an ihm."
+   ]
+  ]
+ },
+ "motm_def": {
+  "teile": [
+   [
+    "Spieler des Spiels: {name} ({club}):",
+    "Mann des Spiels war {name} ({club}):",
+    "Den Unterschied machte {name} ({club}):"
+   ],
+   [
+    "Er führte die Hintermannschaft gegen {opp}",
+    "Er dirigierte die Abwehr gegen {opp}",
+    "Ständig zur Stelle gegen {opp},"
+   ],
+   [
+    "und ließ keinen Gegentreffer zu.",
+    "kein Gegentor, der Gegner biss sich die Zähne aus.",
+    "alles blieb dicht."
+   ]
+  ]
+ },
+ "motm_plain": {
+  "teile": [
+   [
+    "Spieler des Spiels: {name} ({club}):",
+    "Mann des Spiels war {name} ({club}):",
+    "Den Unterschied machte {name} ({club}):"
+   ],
+   [
+    "Der beste Mann auf dem Platz gegen {opp},",
+    "Ein Auftritt voller Souveränität gegen {opp},",
+    "Unermüdlich und ballsicher gegen {opp},"
+   ],
+   [
+    "er gab die Richtung vor.",
+    "ohne Fehl und Tadel.",
+    "man sah ihm die Freude am Spiel an."
+   ]
+  ]
+ },
+ "motm_final": {
+  "teile": [
+   [
+    "Im Endspiel",
+    "Im großen Finale",
+    "Wenn es drauf ankommt,"
+   ],
+   [
+    "war er der entscheidende Mann:",
+    "zeigte er seine beste Seite:",
+    "lieferte er ab:"
+   ],
+   [
+    "{what}.",
+    "{what}, genau dann, als es zählte.",
+    "{what}, ein Moment für die Ewigkeit."
+   ]
+  ]
+ },
+ "m_spieler": {
+  "teile": [
+   [
+    "Im {m} war er",
+    "Der {m} gehörte ihm:",
+    "Im {m} spielte er"
+   ],
+   [
+    "über mehrere Spiele der beste Mann seiner Mannschaft{g}.",
+    "konstant stark{g}, die anderen zogen mit.",
+    "auf höchstem Niveau{g}, ohne Ausreißer nach unten."
+   ]
+  ]
+ },
+ "m_neuling": {
+  "teile": [
+   [
+    "Der junge Spieler ({age} Jahre) überzeugte im {m}",
+    "Mit {age} Jahren sorgte er im {m} für Furore",
+    "Im {m} drängte sich der {age}-Jährige auf"
+   ],
+   [
+    "mit mutigen, reifen Auftritten.",
+    "und spielte, als hätte er nie etwas anderes getan.",
+    "und ließ die Routiniers alt aussehen."
+   ],
+   [
+    "Der Trainer wird an ihm nicht mehr vorbeikommen.",
+    "Die Fans haben ihn ins Herz geschlossen.",
+    "Ein Talent, das man im Auge behalten muss."
+   ]
+  ]
+ },
+ "m_trainer": {
+  "teile": [
+   [
+    "Im {m} holte {club}",
+    "Der {m} lief für {club} wie am Schnürchen:",
+    "{club} sammelte im {m}"
+   ],
+   [
+    "{pts} Punkte aus {n} Spielen,",
+    "ganze {pts} Zähler in {n} Partien,",
+    "{pts} Punkte bei {n} Einsätzen,"
+   ],
+   [
+    "die beste Ausbeute der Liga.",
+    "keiner machte es besser.",
+    "die Handschrift des Trainers ist erkennbar."
+   ]
+  ]
+ },
+ "m_tor": {
+  "teile": [
+   [
+    "Ein Treffer in der {min}. Minute gegen {opp} (Endstand {score}):",
+    "In der {min}. Minute gegen {opp} (Endstand {score}) fiel das Tor:",
+    "Gegen {opp} (Endstand {score}) traf er in der {min}. Minute:"
+   ],
+   [
+    "{kind}.",
+    "{kind}, das noch lange nachhallt.",
+    "{kind}, genau zur rechten Zeit."
+   ]
+  ]
+ },
+ "s_tk": {
+  "teile": [
+   [
+    "{g} Tore sind die Bilanz,",
+    "Mit {g} Treffern führte er die Liste an,",
+    "{g} Mal klingelte es durch ihn,"
+   ],
+   [
+    "der Zweite kam auf {second}.",
+    "dahinter folgte der Zweite mit {second}.",
+    "mehr als {second} traf sonst keiner."
+   ],
+   [
+    "Bei Gleichstand entschied, wer dafür weniger Spielzeit brauchte.",
+    "Wo er auftauchte, wurde es gefährlich.",
+    "Eine Torjäger-Saison wie aus dem Bilderbuch."
+   ]
+  ]
+ },
+ "s_zn": {
+  "teile": [
+   [
+    "{n} Mal blieb sein Kasten sauber:",
+    "Bei {n} Spielen ohne Gegentor stand er im Tor:",
+    "{n} Spiele ohne Gegentor gehen auf sein Konto:"
+   ],
+   [
+    "mehr als jeder andere Torhüter der Liga.",
+    "kein Schlussmann der Liga hielt häufiger die Null.",
+    "ein Rückhalt, auf den sich seine Abwehr verlassen konnte."
+   ]
+  ]
+ },
+ "s_sp": {
+  "teile": [
+   [
+    "Über die ganze Saison",
+    "Von der ersten bis zur letzten Runde",
+    "Über Monate hinweg"
+   ],
+   [
+    "der beste Mann seiner Mannschaft,",
+    "ein Leistungsträger ohne Schwächephase,",
+    "zuverlässig auf höchstem Niveau,"
+   ],
+   [
+    "{g} Tore bei {n} Einsätzen.",
+    "{n} Einsätze und {g} Tore, so sieht Beständigkeit aus.",
+    "dazu {g} Treffer in {n} Spielen."
+   ]
+  ]
+ },
+ "s_jug": {
+  "teile": [
+   [
+    "Mit {age} Jahren schon Leistungsträger:",
+    "Er ist erst {age} und spielt wie ein Routinier:",
+    "Mit gerade einmal {age} Jahren"
+   ],
+   [
+    "{n} Einsätze,",
+    "in {n} Spielen überzeugt,",
+    "{n} Auftritte auf hohem Niveau,"
+   ],
+   [
+    "eine Saison, die für die Zukunft viel verspricht.",
+    "man spricht schon über die großen Klubs.",
+    "das ist erst der Anfang."
+   ]
+  ]
+ },
+ "s_ent": {
+  "teile": [
+   [
+    "Aus einer unauffälligen Mannschaft kam einer der besten Spieler der Liga.",
+    "Niemand hatte ihn auf dem Zettel.",
+    "Eine echte Überraschung."
+   ],
+   [
+    "Den Etablierten zeigte er, wie es geht.",
+    "Vorher kannte ihn kaum jemand.",
+    "Aus dem Nichts wurde er zum Gesprächsthema."
+   ]
+  ]
+ },
+ "s_auf": {
+  "teile": [
+   [
+    "Als Neuling in die Liga gekommen und gleich auf Platz {pos} gelandet,",
+    "Aufgestiegen und sofort mittendrin: Platz {pos},",
+    "Platz {pos} als Aufsteiger,"
+   ],
+   [
+    "das hatte ihm kaum jemand zugetraut.",
+    "für {club} ein Märchen.",
+    "mehr als der Klassenerhalt."
+   ]
+  ]
+ },
+ "s_tr_titel": {
+  "teile": [
+   [
+    "Er führte {club} zur Meisterschaft,",
+    "Mit {club} holte er den Titel,",
+    "Der Titel für {club} trägt seine Handschrift,"
+   ],
+   [
+    "geschlossen und mit klarem Plan.",
+    "und das mit einer Mannschaft, die immer besser wurde.",
+    "ein verdienter Lohn für harte Arbeit."
+   ]
+  ]
+ },
+ "s_tr_ueber": {
+  "teile": [
+   [
+    "Mit dem {rk} Kader der Liga holte {club} Platz {pos},",
+    "Gemessen an den Möglichkeiten ist Platz {pos} für {club} ein Erfolg,",
+    "{club} landete mit dem {rk} Kader auf Platz {pos},"
+   ],
+   [
+    "mehr, als man ihm zugetraut hatte.",
+    "ein Verdienst des Trainers.",
+    "das hat sich kaum jemand vorstellen können."
+   ]
+  ]
+ },
+ "s_fair": {
+  "teile": [
+   [
+    "{n} Einsätze und dabei kaum eine Karte:",
+    "In {n} Spielen fast ohne Verwarnung:",
+    "Faire Spielweise über {n} Einsätze:"
+   ],
+   [
+    "ein Vorbild im Umgang mit dem Gegner und dem Schiedsrichter.",
+    "hart, aber stets fair.",
+    "das nennt man Sportsgeist."
+   ]
+  ]
+ },
+ "t_sp": {
+  "teile": [
+   [
+    "Über das ganze Turnier der prägende Mann der Siegermannschaft:",
+    "Ohne ihn wäre der Titel nicht gekommen:",
+    "Von der ersten bis zur letzten Runde herausragend:"
+   ],
+   [
+    "ein verdienter Sieger.",
+    "er trug sein Team durch die entscheidenden Spiele.",
+    "der Beste auf seiner Position."
+   ]
+  ]
+ },
+ "t_sp2": {
+  "teile": [
+   [
+    "Über das ganze Turnier der prägende Mann:",
+    "Auch ohne Titel der Beste des Turniers:",
+    "Eine herausragende Turnierleistung:"
+   ],
+   [
+    "leider ohne den Triumph.",
+    "bitter, dass sein Team nicht belohnt wurde.",
+    "das verdiente Lob der Jury."
+   ]
+  ]
+ },
+ "t_gs": {
+  "teile": [
+   [
+    "{g} Tore im Wettbewerb:",
+    "Mit {g} Treffern vorn:",
+    "{g} Mal getroffen:"
+   ],
+   [
+    "kein Spieler traf häufiger.",
+    "niemand war treffsicherer.",
+    "der Beste der Torjägerliste."
+   ]
+  ]
+ },
+ "t_gh": {
+  "teile": [
+   [
+    "{n} Spiele ohne Gegentor im Wettbewerb,",
+    "Gleich {n} Mal die Null gehalten:",
+    "{n} saubere Netze sprechen für sich:"
+   ],
+   [
+    "ein Rückhalt wie aus Stein.",
+    "kein Torhüter war sicherer.",
+    "damit sicherte er sich die Auszeichnung."
+   ]
+  ]
+ },
+ "t_jt": {
+  "teile": [
+   [
+    "Mit {age} Jahren einer der auffälligsten Spieler des Wettbewerbs:",
+    "Erst {age} und schon eine Bereicherung für das Turnier:",
+    "Der {age}-Jährige überzeugte auf großer Bühne:"
+   ],
+   [
+    "er spielte ohne Scheu vor großen Namen.",
+    "mit Mut und Spielwitz.",
+    "er empfahl sich für höhere Aufgaben."
+   ]
+  ]
+ },
+ "b_leistung": {
+  "teile": [
+   [
+    "Die beste Saison weit und breit:",
+    "Seine Zahlen suchten ihresgleichen,",
+    "Er dominierte die Saison:"
+   ],
+   [
+    "Tore und Auftritte, die ihn über die anderen stellten.",
+    "ein Jahr voller starker Spiele ohne Pause.",
+    "kein anderer war so beständig gut."
+   ]
+  ]
+ },
+ "b_titel": {
+  "teile": [
+   [
+    "Titel gewonnen:",
+    "Ein Jahr voller Trophäen:",
+    "Mit dem Titel im Rücken:"
+   ],
+   [
+    "im Finale der Mann, den alle sahen.",
+    "in den großen Spielen der entscheidende Mann.",
+    "mit Auftritten, die im Gedächtnis bleiben."
+   ]
+  ]
+ },
+ "b_beliebt": {
+  "teile": [
+   [
+    "Der Publikumsliebling:",
+    "Ein Spieler zum Gernhaben:",
+    "Die Fans lieben ihn:"
+   ],
+   [
+    "Fans und Kollegen sehen ihn ganz oben.",
+    "die Jury hatte ihn auf dem Zettel.",
+    "mit ihm verbindet man diese Saison."
+   ]
+  ]
+ },
+ "b_story": {
+  "teile": [
+   [
+    "Eine Geschichte, die die Jury überzeugte:",
+    "Dieses Jahr hat eine Erzählung:",
+    "Mehr als Zahlen:"
+   ],
+   [
+    "ein Jahr, über das man noch lange spricht.",
+    "ein Weg, den man nicht vergisst.",
+    "genau die Art von Saison, die Preise gewinnt."
+   ]
+  ]
+ },
+ "b_titel_less": {
+  "teile": [
+   [
+    "Titel gewonnen,",
+    "Auf der Titelseite,",
+    "Mit Pokal in der Hand,"
+   ],
+   [
+    "aber der Konkurrent hatte die besseren Zahlen.",
+    "doch auf dem Platz war ein anderer einen Tick besser.",
+    "aber individuell vorn lag ein anderer."
+   ]
+  ]
+ },
+ "b_leistung_less": {
+  "teile": [
+   [
+    "Die besseren Zahlen,",
+    "Individuell stark,",
+    "Eine hervorragende Saison,"
+   ],
+   [
+    "aber ohne den großen Titel fehlten ihm Stimmen.",
+    "doch ohne Titel reichte es nicht ganz.",
+    "der Pokal fehlte als Krönung."
+   ]
+  ]
+ },
+ "b_gk": {
+  "teile": [
+   [
+    "Der Rückhalt seiner Mannschaft:",
+    "Ein Torhüter wie ein Fels:",
+    "Wenn es brenzlig wurde, war er da:"
+   ],
+   [
+    "{n} Mal blieb sein Kasten sauber.",
+    "{n} Spiele ohne Gegentor sind seine Visitenkarte.",
+    "{n} Mal hielt er die Null."
+   ]
+  ]
+ },
+ "b_young": {
+  "teile": [
+   [
+    "Ein Talent:",
+    "Ein Versprechen für die Zukunft:",
+    "Er ist jung und schon so gut:"
+   ],
+   [
+    "früh Verantwortung übernommen und geglänzt.",
+    "mit ihm muss man in den nächsten Jahren rechnen.",
+    "auf großer Bühne nicht nervös gewirkt."
+   ]
+  ]
+ },
+ "b_coach": {
+  "teile": [
+   [
+    "Erfolge, die man dem Verein nicht zugetraut hätte:",
+    "Eine Handschrift, die man erkennt:",
+    "Mit seinen Mitteln viel herausgeholt:"
+   ],
+   [
+    "ein Trainer, der aus wenig viel macht.",
+    "Titel und Entwicklung zugleich.",
+    "die Spieler laufen für ihn."
+   ]
+  ]
+ },
+ "rede": {
+  "teile": [
+   [
+    "„Ich widme diesen Preis meinen Mitspielern, ohne sie wäre das nichts wert.",
+    "„Das ist ein Traum, ich bin sprachlos und glücklich.",
+    "„Ich danke allen, die an mich geglaubt haben."
+   ],
+   [
+    "Dieser Preis gehört der ganzen Mannschaft.",
+    "Und meiner Familie, die immer hinter mir stand.",
+    "Wir haben es uns gemeinsam erarbeitet."
+   ],
+   [
+    "Jetzt will ich nächstes Jahr nachlegen.“",
+    "Ich verspreche, dass ich weiter hart arbeite.“",
+    "Und jetzt wird gefeiert.“"
+   ]
+  ]
+ },
+ "rede_trainer": {
+  "teile": [
+   [
+    "„Die Mannschaft hat jeden Tag hart gearbeitet.",
+    "„Ein Trainer ist nur so gut wie seine Spieler.",
+    "„Ich nehme das stellvertretend für alle im Verein an."
+   ],
+   [
+    "Das ist ihr Preis.“",
+    "Danke an alle, die mitgezogen haben.“",
+    "Ohne Staff und Jungs wäre das nie möglich gewesen.“"
+   ]
+  ]
+ },
+ "envy_why": {
+  "teile": [
+   [
+    "Er sieht sich auf einer Stufe mit {other} und ging leer aus,",
+    "Auf dem Platz steht er {other} nicht nach,",
+    "Auch er hatte eine starke Saison,"
+   ],
+   [
+    "das nagt, auch wenn er es nicht zeigt.",
+    "er hätte sich ebenfalls Anerkennung gewünscht.",
+    "er schluckt es, aber gut gelaunt ist er nicht."
+   ]
+  ]
+ },
+ "pride_why": {
+  "teile": [
+   [
+    "Auszeichnungen für einen Teamkollegen heben die Stimmung:",
+    "Wenn einer geehrt wird, freut sich die Kabine:",
+    "Die Ehrung für {name} strahlt auf alle ab:"
+   ],
+   [
+    "Alle wollen mehr davon.",
+    "das spornt an.",
+    "der Ehrgeiz im Training wächst."
+   ]
+  ]
+ },
+ "morale_why": {
+  "teile": [
+   [
+    "Die Ehrung beflügelt ihn:",
+    "Ausgezeichnet zu werden gibt Selbstvertrauen:",
+    "Anerkennung tut gut:"
+   ],
+   [
+    "er geht mit breiter Brust ins Training.",
+    "so spielt es sich leichter.",
+    "das wird man auf dem Platz sehen."
+   ]
+  ]
+ },
+ "ms_tor": {
+  "teile": [
+   [
+    "Eine Marke, die nur wenige Spieler erreichen:",
+    "Seit Beginn der Aufzeichnung hat nicht jeder so oft getroffen:",
+    "Ein besonderer Moment für den Torjäger:",
+    "{name} hat jetzt {n} Tore erzielt:",
+    "Das {n}. Tor von {name}:",
+    "{club}-Stürmer {name} erreicht die Marke von {n} Treffern:"
+   ],
+   [
+    "{n} Treffer in seiner Karriere.",
+    "damit steht er jetzt bei {n} Toren.",
+    "{n} Tore, eine Zahl mit Gewicht."
+   ]
+  ]
+ },
+ "ms_spiel": {
+  "teile": [
+   [
+    "{n} Einsätze:",
+    "Das {n}. Spiel:",
+    "Ein Jubiläum mit {n} Einsätzen:",
+    "{name} bringt es auf {n} Einsätze:",
+    "Für {name} ist es das {n}. Spiel:",
+    "{club}-Profi {name} feiert ein Jubiläum mit {n} Einsätzen:",
+    "{n} Spiele für {club}: {name} ist ein Dauerbrenner,"
+   ],
+   [
+    "Beständigkeit, die man in diesem Geschäft selten sieht.",
+    "ein Beleg für Verlässlichkeit über Jahre.",
+    "der Dauerbrenner läuft und läuft.",
+    "so viel Konstanz ist selten geworden.",
+    "das verdient Respekt.",
+    "hinter ihm liegt viel Arbeit."
+   ]
+  ]
+ },
+ "streak": {
+  "teile": [
+   [
+    "Zum {n}. Mal in Folge gewonnen:",
+    "{n} Siege am Stück:",
+    "Die Serie hält,"
+   ],
+   [
+    "die Mannschaft ist im Rausch, ein Ende ist nicht in Sicht.",
+    "alle fragen sich, wer sie stoppen soll.",
+    "das Selbstvertrauen steigt von Spiel zu Spiel."
+   ]
+  ]
+ },
+ "legend": {
+  "teile": [
+   [
+    "{seasons} Jahre im Trikot, {apps} Spiele und viele Erfolge:",
+    "Eine Ära geht zu Ende, {seasons} Jahre und {apps} Spiele für den Verein:",
+    "{apps} Einsätze, {seasons} Jahre Treue:"
+   ],
+   [
+    "Seine Nummer {no} wird nicht mehr vergeben,",
+    "Die Nummer {no} bleibt für immer ihm vorbehalten,",
+    "Niemand trägt künftig die Nummer {no},"
+   ],
+   [
+    "im Stadion gibt es eine Ehrung.",
+    "die Fans verabschieden ihn mit einer Choreo.",
+    "ein Banner erinnert an seine Zeit."
+   ]
+  ]
+ },
+ "dg": {
+  "teile": [
+   [
+    "{name} stand schon {n} Mal unter den Besten eines Spieltags,",
+    "{name} zum {n}. Mal in der Elf der Woche:",
+    "{n} Auftritte in der Elf der Woche für {name}:",
+    "Immer wieder dabei: {name}, jetzt zum {n}. Mal,",
+    "Schon {n} Mal in dieser Saison gehört {name} zu den Besten eines Spieltags,",
+    "{club}-Profi {name} liefert regelmäßig, {n} Mal diese Saison dabei:"
+   ],
+   [
+    "so beständig spielt kaum jemand.",
+    "ein Fixpunkt der Liga.",
+    "so sieht ein Dauerläufer aus.",
+    "eine Konstanz, die Trainer lieben.",
+    "die Konkurrenz kommt an ihm kaum vorbei.",
+    "so wird man zur festen Größe."
+   ]
+  ]
+ },
+ "week_why": {
+  "teile": [
+   [
+    "Die besten Leistungen des Spieltags,",
+    "Nach den Noten des Wochenendes:",
+    "Die auffälligsten Spieler der Runde,",
+    "Wer an diesem Spieltag überzeugte:",
+    "Die Elf der Woche der {lg}:",
+    "Aus der {lg} ausgewählt, was der Spieltag hergab:",
+    "Nach Einsatz und Wirkung in der {lg}:",
+    "Gewählt nach Leistung und Einfluss auf das Ergebnis,"
+   ],
+   [
+    "ausgewogen auf alle Positionen verteilt",
+    "nach Positionen sortiert",
+    "so gewählt, dass jede Position besetzt ist",
+    "ohne Rücksicht auf Namen, nur nach Leistung",
+    "mit Blick auf die Balance zwischen Abwehr, Mittelfeld und Sturm"
+   ],
+   [
+    "(Formation {f}).",
+    "in einem {f}.",
+    "- gespielt wird im {f}.",
+    "; die Grundordnung wäre ein {f}."
+   ]
+  ]
+ },
+ "xi_why": {
+  "teile": [
+   [
+    "Die beständigsten Spieler der Saison,",
+    "Wer über die ganze Spielzeit überzeugte:",
+    "Auswahl nach Leistung über alle Spieltage,",
+    "Die konstantesten Kräfte des Jahres,",
+    "Gewählt nach Noten und Beständigkeit,"
+   ],
+   [
+    "nach Position ausgewogen zusammengestellt",
+    "jede Position besetzt",
+    "ohne Lieblinge, nach Leistung",
+    "so gewählt, dass die Mannschaft Hand und Fuß hat"
+   ],
+   [
+    "(Formation {f}).",
+    "in einem {f}.",
+    "- gespielt wird im {f}."
+   ]
+  ]
+ },
+ "week_news": {
+  "teile": [
+   [
+    "Elf der Woche in der {lg}:",
+    "{lg}: Die Elf der Woche steht,",
+    "Die Auswahl des Spieltags in der {lg}:",
+    "Auszeichnung nach dem Spieltag ({lg}):",
+    "Die Besten der {lg} sind gewählt:"
+   ],
+   [
+    "aus deinem Verein dabei: {names}.",
+    "mit {names} aus deinem Klub.",
+    "deine Spieler in der Auswahl: {names}.",
+    "aus deiner Mannschaft geehrt: {names}.",
+    "dein Klub ist vertreten durch {names}."
+   ]
+  ]
+ },
+ "dg_news": {
+  "teile": [
+   [
+    "{name} gehört schon wieder zur Elf der Woche",
+    "{name}: Stammgast in der Elf der Woche",
+    "{name} bleibt Dauergast der Elf der Woche",
+    "Die Elf der Woche ohne {name}? Kaum noch denkbar",
+    "{name} ist erneut unter den Besten des Spieltags"
+   ]
+  ]
+ }
+}

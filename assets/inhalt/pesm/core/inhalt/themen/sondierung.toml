@@ -1,0 +1,115 @@
+# Inhaltspool: Sondierung eines fremden Spielers (Spielerprofil, „Mit Spieler und Berater sprechen“). Startet nur über `vorgang.sondierung`, nie vom Takt. Texte: pool.<thema>.<e|a|r|x>.<id> in pesm/core/texts/pool_sondierung.json (de) und en/.
+
+[thema.sondierung_erstkontakt]
+kategorie = "sondierung"
+absender = "spieler"
+kanal = "persoenlich"
+dringlichkeit = 2
+sperre_tage = 14
+haeufigkeit = 1.0
+wenn = ["alter>=14"]
+eroeffnung = [{ id = "e1" }, { id = "e2" }, { id = "e3" }]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "beziehung", delta = 8 }] },
+  { id = "a2", strategie = "gegenfrage", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 2 }] },
+  { id = "a3", strategie = "delegieren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = -1 }] },
+  { id = "a4", strategie = "erklaeren", ton = "offen", wirkungen = [{ ziel = "beziehung", delta = 3 }] },
+  { id = "a5", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -9 }], ausgang = "abbruch" },
+]
+reaktion = [{ id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "neutral" }, { id = "r3", gruppe = "schlecht" }]
+ausgang = [{ id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "abbruch" }]
+
+[thema.sondierung_vertragswunsch]
+kategorie = "sondierung"
+absender = "berater"
+kanal = "telefon"
+dringlichkeit = 2
+sperre_tage = 14
+haeufigkeit = 1.0
+wenn = ["alter>=14"]
+eroeffnung = [{ id = "e1" }, { id = "e2" }, { id = "e3" }]
+antwort = [
+  { id = "a1", strategie = "ausgleich", ton = "einfuehlsam", wirkungen = [{ ziel = "beziehung", delta = 8 }] },
+  { id = "a2", strategie = "gegenfrage", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 2 }] },
+  { id = "a3", strategie = "erklaeren", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = 1 }] },
+  { id = "a4", strategie = "delegieren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = -1 }] },
+  { id = "a5", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -9 }], ausgang = "abbruch" },
+]
+reaktion = [{ id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "neutral" }, { id = "r3", gruppe = "schlecht" }]
+ausgang = [{ id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "abbruch" }]
+
+[thema.sondierung_abloese]
+kategorie = "sondierung"
+absender = "berater"
+kanal = "telefon"
+dringlichkeit = 2
+sperre_tage = 14
+haeufigkeit = 1.0
+wenn = ["alter>=14"]
+eroeffnung = [{ id = "e1" }, { id = "e2" }, { id = "e3" }]
+antwort = [
+  { id = "a1", strategie = "ausgleich", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = 8 }] },
+  { id = "a2", strategie = "gegenfrage", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 2 }] },
+  { id = "a3", strategie = "delegieren", ton = "offen", wirkungen = [] },
+  { id = "a4", strategie = "vertroesten", ton = "offen", wirkungen = [{ ziel = "beziehung", delta = -1 }] },
+  { id = "a5", strategie = "hart_bleiben", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -9 }] },
+]
+reaktion = [{ id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "neutral" }, { id = "r3", gruppe = "schlecht" }]
+ausgang = [{ id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "abbruch" }]
+
+[thema.sondierung_wechselwunsch]
+kategorie = "sondierung"
+absender = "spieler"
+kanal = "persoenlich"
+dringlichkeit = 2
+sperre_tage = 14
+haeufigkeit = 1.0
+wenn = ["alter>=14"]
+eroeffnung = [{ id = "e1" }, { id = "e2" }, { id = "e3" }]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "beziehung", delta = 8 }] },
+  { id = "a2", strategie = "gegenfrage", ton = "offen", wirkungen = [{ ziel = "beziehung", delta = 2 }] },
+  { id = "a3", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 3 }] },
+  { id = "a4", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = -8 }] },
+  { id = "a5", strategie = "ablehnen", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = -9 }], ausgang = "abbruch" },
+]
+reaktion = [{ id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "neutral" }, { id = "r3", gruppe = "schlecht" }]
+ausgang = [{ id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "abbruch" }]
+
+[thema.sondierung_vertragsende]
+kategorie = "sondierung"
+absender = "berater"
+kanal = "telefon"
+dringlichkeit = 3
+sperre_tage = 14
+haeufigkeit = 1.0
+wenn = ["rest<=12"]
+eroeffnung = [{ id = "e1" }, { id = "e2" }, { id = "e3" }]
+antwort = [
+  { id = "a1", strategie = "zusage", ton = "einfuehlsam", wirkungen = [{ ziel = "beziehung", delta = 8 }], ausgang = "zusage" },
+  { id = "a2", strategie = "gegenfrage", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 2 }] },
+  { id = "a3", strategie = "vertroesten", ton = "offen", wirkungen = [{ ziel = "beziehung", delta = -1 }] },
+  { id = "a4", strategie = "hart_bleiben", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -9 }] },
+  { id = "a5", strategie = "ablehnen", ton = "sachlich", wirkungen = [], ausgang = "abbruch" },
+]
+reaktion = [{ id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "neutral" }, { id = "r3", gruppe = "schlecht" }]
+ausgang = [{ id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "abbruch" }]
+
+[thema.sondierung_konkurrenz]
+kategorie = "sondierung"
+absender = "berater"
+kanal = "telefon"
+dringlichkeit = 2
+sperre_tage = 14
+haeufigkeit = 1.0
+wenn = ["alter>=14"]
+eroeffnung = [{ id = "e1" }, { id = "e2" }, { id = "e3" }]
+antwort = [
+  { id = "a1", strategie = "ausgleich", ton = "bestimmt", wirkungen = [{ ziel = "beziehung", delta = 8 }] },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = 3 }] },
+  { id = "a3", strategie = "vertroesten", ton = "humorvoll", wirkungen = [] },
+  { id = "a4", strategie = "hart_bleiben", ton = "hart", wirkungen = [{ ziel = "beziehung", delta = -9 }] },
+  { id = "a5", strategie = "ablehnen", ton = "sachlich", wirkungen = [{ ziel = "beziehung", delta = -2 }], ausgang = "abbruch" },
+]
+reaktion = [{ id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "neutral" }, { id = "r3", gruppe = "schlecht" }]
+ausgang = [{ id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "abbruch" }]

@@ -1,0 +1,79 @@
+{
+  "feld": {
+    "Angriff": {
+      "Torschuss": 0.4,
+      "Offensivverhalten": 0.25,
+      "Kopfball": 0.15,
+      "Effet": 0.1,
+      "Schusskraft": 0.1
+    },
+    "Technik": {
+      "Ballkontrolle": 0.3,
+      "Dribbling": 0.25,
+      "Ballsicherung": 0.2,
+      "Kurzpass": 0.15,
+      "Langpass": 0.1
+    },
+    "Passspiel": {
+      "Kurzpass": 0.4,
+      "Langpass": 0.35,
+      "Ballsicherung": 0.15,
+      "Offensivverhalten": 0.1
+    },
+    "Verteidigung": {
+      "Defensivverhalten": 0.35,
+      "Ballgewinn": 0.3,
+      "Aggressivitaet": 0.15,
+      "Koerperkraft": 0.1,
+      "Kopfball": 0.1
+    },
+    "Athletik": {
+      "Geschwindigkeit": 0.25,
+      "Beschleunigung": 0.2,
+      "Koerperkraft": 0.2,
+      "Balance": 0.15,
+      "Ausdauer": 0.1,
+      "Sprungkraft": 0.1
+    },
+    "Mentalitaet": {
+      "Entscheidungsfindung": 0.3,
+      "Konzentration": 0.25,
+      "Teamwork": 0.2,
+      "Fuehrungsqualitaet": 0.15,
+      "Aggressivitaet": 0.1
+    }
+  },
+  "torwart": {
+    "Reflexe": {
+      "TorwartReflexe": 0.7,
+      "Balance": 0.15,
+      "Konzentration": 0.15
+    },
+    "Stellungsspiel": {
+      "TorwartPositionsspiel": 0.6,
+      "Entscheidungsfindung": 0.25,
+      "Konzentration": 0.15
+    },
+    "Fangsicherheit": {
+      "TorwartFangen": 0.7,
+      "Koerperkraft": 0.15,
+      "Balance": 0.15
+    },
+    "Abwehr": {
+      "TorwartAbschlagen": 0.6,
+      "TorwartReichweite": 0.2,
+      "Schusskraft": 0.2
+    },
+    "Reichweite": {
+      "TorwartReichweite": 0.55,
+      "Sprungkraft": 0.25,
+      "Geschwindigkeit": 0.2
+    },
+    "Mentalitaet": {
+      "Entscheidungsfindung": 0.3,
+      "Konzentration": 0.3,
+      "Teamwork": 0.2,
+      "Fuehrungsqualitaet": 0.2
+    }
+  }
+}

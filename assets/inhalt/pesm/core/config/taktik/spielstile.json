@@ -1,0 +1,27 @@
+{
+  "art": "spielbeschreibung",
+  "hinweis": "Positionen, auf denen ein Spielstil laut Spielbeschreibung von PES 2021 wirkt. Nicht an dieser Spielversion gemessen, keine Engine-Maske. Schlüssel = Wert des Felds spielstil; entschieden wird nur bei belegtem Stilnamen. strittig: Quellen widersprechen sich, dort bleibt die Aktivierung unbekannt.",
+  "stile": {
+    "1": {"positionen": [12]},
+    "2": {"positionen": [8, 11, 12]},
+    "3": {"positionen": [12]},
+    "4": {"positionen": [9, 10]},
+    "5": {"positionen": [8, 11]},
+    "6": {"positionen": [5, 6, 7, 8, 11], "strittig": [11]},
+    "7": {"positionen": [4, 5, 6, 7]},
+    "8": {"positionen": [4]},
+    "9": {"positionen": [1, 4, 5]},
+    "10": {"positionen": [1]},
+    "11": {"positionen": [2, 3]},
+    "12": {"positionen": [2, 3]},
+    "13": {"positionen": [12]},
+    "14": {"positionen": [6, 7, 8, 9, 10, 11]},
+    "15": {"positionen": [1]},
+    "16": {"positionen": [0]},
+    "17": {"positionen": [0]},
+    "18": {"positionen": [6, 7, 9, 10]},
+    "19": {"positionen": [6, 7, 9, 10]},
+    "20": {"positionen": [4, 5]},
+    "21": {"positionen": [2, 3]}
+  }
+}

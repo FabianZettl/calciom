@@ -1,0 +1,324 @@
+{
+  "_hinweis": "Texts for the People page (package 3), kept separate from the logic. Keys: topic.option.",
+  "werte": [
+    "Professionalism",
+    "Ambition",
+    "Ego",
+    "Team spirit",
+    "Leadership",
+    "Temperament",
+    "Composure",
+    "Agreeableness",
+    "Loyalty",
+    "Status"
+  ],
+  "typen": {
+    "vorbildprofi": "Model professional",
+    "anfuehrer": "Leader",
+    "kumpel": "Good mate",
+    "stimmungsmacher": "Mood-lifter",
+    "mentor": "Mentor",
+    "egoist": "Egoist",
+    "diva": "Diva",
+    "heisssporn": "Hothead",
+    "soeldner": "Mercenary",
+    "vereinsikone": "Club icon",
+    "einzelgaenger": "Loner",
+    "talent_mit_allueren": "Talent with attitude"
+  },
+  "rollen": [
+    "Captain",
+    "Vice-captain",
+    "Team leader",
+    "Regular starter",
+    "Rotation player",
+    "Prospect",
+    "Fringe player"
+  ],
+  "treiber": {
+    "spielzeit": "Playing time",
+    "erfolg": "Team success",
+    "gehalt": "Wage comparison",
+    "vertrag": "Contract expiring",
+    "zusagen": "Manager's promises",
+    "gespraech": "Talks",
+    "rolle": "Squad role",
+    "geruecht": "Interest from other clubs",
+    "freunde": "Friends in the team",
+    "isoliert": "Isolated",
+    "feinde": "Friction with teammates",
+    "mentor": "Mentor",
+    "training": "Training",
+    "gruppe": "Team spirit",
+    "form": "Form",
+    "verletzt": "Injury",
+    "ueberlastet": "Heavy workload"
+  },
+  "anlass": {
+    "spielzeit": "I'm not playing enough. I want to know where I stand.",
+    "rolle": "I see my role here differently. Can we talk?",
+    "form": "Things aren't going my way right now. I need your opinion.",
+    "lob": "A strong game from him. A word from you would mean a lot to him.",
+    "kritik": "His last performance was poor. Will you have a word with him?",
+    "zukunft": "I've been thinking about my future here."
+  },
+  "optionen": {
+    "spielzeit": [
+      [
+        "verstaendnis",
+        "I understand. Your time will come.",
+        "I can see this is on your mind. Your chance will come.",
+        "I understand your frustration. Stay with it, you're close."
+      ],
+      [
+        "leistung",
+        "Show it in training and you'll play.",
+        "Convince me in the next sessions and you're in.",
+        "The door is open. Make the difference in training."
+      ],
+      [
+        "zusage",
+        "You'll get your minutes, I promise.",
+        "You'll get minutes in the next games, you can count on it.",
+        "I'm planning with you, you have my word."
+      ],
+      [
+        "kampf",
+        "Fight your way in like everyone else.",
+        "Nobody gets anything for free here. Earn your place.",
+        "Competition is healthy. Show you're better."
+      ],
+      [
+        "abwimmeln",
+        "That's my decision, not yours.",
+        "I pick the team. Full stop.",
+        "I'm not discussing that with you."
+      ]
+    ],
+    "rolle": [
+      [
+        "wertschaetzung",
+        "You're important to us, you know that.",
+        "You're an important part of this team, even if you see it differently right now.",
+        "This group doesn't work without people like you."
+      ],
+      [
+        "verantwortung",
+        "You'll get more responsibility, I promise.",
+        "From now on you take on more, I promise.",
+        "I'm giving you a bigger role, you've earned it."
+      ],
+      [
+        "geduld",
+        "Be patient, your path is mapped out.",
+        "We have a plan for you. Give it time.",
+        "Your moment will come, we're building you step by step."
+      ],
+      [
+        "ausweichen",
+        "Let's talk about that another time.",
+        "Let's talk about it calmly after the next game.",
+        "Now isn't the right time for that."
+      ],
+      [
+        "dichtmachen",
+        "Your role is not up for debate.",
+        "The roles are set, nothing changes.",
+        "You play the role I give you."
+      ]
+    ],
+    "form": [
+      [
+        "aufbauen",
+        "Chin up, I believe in you.",
+        "Everyone has a difficult spell. I'm behind you.",
+        "You can do this, I've seen it often enough."
+      ],
+      [
+        "analyse",
+        "Let's go through your games together.",
+        "Sit down with the analysts tomorrow, we'll work it out together.",
+        "We'll go through the last games scene by scene."
+      ],
+      [
+        "anspornen",
+        "I expect more from you.",
+        "I want to see the player I know. From the next game.",
+        "I expect more from you, and you know it."
+      ],
+      [
+        "abkanzeln",
+        "This can't go on.",
+        "I can't pick you like this any more.",
+        "It's not enough, and it hasn't been for weeks."
+      ],
+      [
+        "abwarten",
+        "It'll come back.",
+        "Don't worry, it'll come back on its own.",
+        "Let it run, the form will return."
+      ]
+    ],
+    "lob": [
+      [
+        "ehrlich",
+        "Strong performance, well deserved.",
+        "That was really strong, you earned it.",
+        "Deserved, you don't see a performance like that every week."
+      ],
+      [
+        "herzlich",
+        "I'm delighted for you.",
+        "I'm genuinely delighted for you, brilliant!",
+        "That was your day. Enjoy it!"
+      ],
+      [
+        "knapp",
+        "Well done.",
+        "Strong.",
+        "Good game."
+      ],
+      [
+        "mit_forderung",
+        "Good. Now do it every week.",
+        "Great. And that's what I want to see every week now.",
+        "Very good. Don't let up now."
+      ]
+    ],
+    "kritik": [
+      [
+        "sachlich",
+        "That didn't work. Here's how we do it better.",
+        "That didn't work. We'll work on your runs.",
+        "Let's look at what went wrong and do it better."
+      ],
+      [
+        "klar",
+        "That wasn't enough, and you know it.",
+        "That wasn't your level, and you know it yourself.",
+        "A performance like that isn't enough here."
+      ],
+      [
+        "mit_ruecksicht",
+        "I know it's not easy. Still: more.",
+        "I know it was hard for you. Still, I need more.",
+        "Not easy right now, I know. But I'm counting on you."
+      ],
+      [
+        "laut",
+        "That was unacceptable!",
+        "That was nothing at all!",
+        "I never want to see that again!"
+      ],
+      [
+        "drumherum",
+        "Well, not your best day.",
+        "Forget it, it happens.",
+        "Well, never mind."
+      ]
+    ],
+    "zukunft": [
+      [
+        "bleiben",
+        "We want to extend your contract, I promise.",
+        "We're planning long-term with you and want to extend.",
+        "You're part of our future, we'll make you an offer."
+      ],
+      [
+        "gehalt",
+        "We'll talk about a better wage, I promise.",
+        "We'll sit down and talk about your wage.",
+        "Your performance should show in your pay too, I promise."
+      ],
+      [
+        "freigabe",
+        "If a good offer comes in, we'll let you go.",
+        "If the right club comes, we won't stand in your way.",
+        "If the right offer comes, we'll talk about a move."
+      ],
+      [
+        "offen",
+        "Let's wait and see.",
+        "Let's wait for the next few weeks.",
+        "Nothing is decided yet, let's keep it open."
+      ],
+      [
+        "druck",
+        "You have a contract. You'll honour it.",
+        "You signed. I expect you to honour it.",
+        "A contract is a contract."
+      ]
+    ],
+    "konflikt": [
+      [
+        "schlichten",
+        "I'll mediate myself.",
+        "I'll call both of them into my office.",
+        "I'll handle it personally."
+      ],
+      [
+        "aussprache",
+        "The two of them should talk it out.",
+        "The two of them sit down and sort it out.",
+        "They should clear it up face to face."
+      ],
+      [
+        "kapitaen_bitten",
+        "The captain should deal with it.",
+        "The captain should talk to both.",
+        "That's a matter for the players' council."
+      ],
+      [
+        "strafe",
+        "Both will be punished.",
+        "Both pay into the team kitty.",
+        "Both get a punishment."
+      ],
+      [
+        "laufen_lassen",
+        "They'll sort it out between themselves.",
+        "Grown men, they'll sort it out themselves.",
+        "I'm not getting involved."
+      ]
+    ],
+    "disziplin": [
+      [
+        "nachsicht",
+        "I'll turn a blind eye this once.",
+        "I'll let it go this time.",
+        "Once doesn't count."
+      ],
+      [
+        "ermahnung",
+        "A clear warning.",
+        "A clear talk, nothing more.",
+        "He gets a clear message."
+      ],
+      [
+        "geldstrafe",
+        "A fine.",
+        "It costs him part of a month's wage.",
+        "He pays into the team kitty."
+      ],
+      [
+        "bank",
+        "He sits out the next game.",
+        "He misses the next game.",
+        "He sits out the next match."
+      ]
+    ]
+  },
+  "vorfall": {
+    "verspaetung": "was late for training",
+    "trainingsfehler": "slacked off in training",
+    "oeffentliche_kritik": "complained about the club in public",
+    "streit": "clashed with a teammate in training"
+  },
+  "mimik": [
+    "very happy",
+    "happy",
+    "unmoved",
+    "annoyed",
+    "very annoyed"
+  ]
+}

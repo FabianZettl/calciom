@@ -1,0 +1,21 @@
+{
+  "_hinweis": "Kontext-Look (UX-Nacht, Etappe 3): Die Oberfläche färbt sich nach dem nächsten angesetzten Spiel. Regeln von oben nach unten, die erste passende gilt: 'name' (Teilwörter im Wettbewerbsnamen, klein geschrieben) oder 'art' (liga | pokal). Ein Schema ohne Farben (liga) lässt die Vereinsfarbe stehen. Nur eigene Farben und Muster, keine Logos oder Wortmarken. Farben je Modus (dunkel, hell); das Theme klemmt den Kontrast.",
+  "regeln": [
+    {"name": ["champions", "königsklasse", "koenigsklasse", "meistercup"], "schema": "koenigsklasse"},
+    {"name": ["europa", "conference", "international", "kontinental"], "schema": "kontinental"},
+    {"art": "pokal", "schema": "pokal"},
+    {"art": "liga", "schema": "liga"}
+  ],
+  "schemata": {
+    "liga": {"titel": "Liga", "muster": ""},
+    "koenigsklasse": {"titel": "Königsklasse", "muster": "sterne",
+      "dunkel": {"band": "#0B1A52", "akzent": "#B9CCFF", "grund": "#060A1F"},
+      "hell": {"band": "#C8D4F5", "akzent": "#1E2F86", "grund": "#E6EBFA"}},
+    "kontinental": {"titel": "Kontinentaler Wettbewerb", "muster": "bogen",
+      "dunkel": {"band": "#123A3A", "akzent": "#7FE0E0", "grund": "#061414"},
+      "hell": {"band": "#C6EAEA", "akzent": "#0C5E5E", "grund": "#E5F4F4"}},
+    "pokal": {"titel": "Pokal", "muster": "rauten",
+      "dunkel": {"band": "#4A1024", "akzent": "#F58FB0", "grund": "#14060B"},
+      "hell": {"band": "#F2CCD8", "akzent": "#8E1240", "grund": "#F7E9EE"}}
+  }
+}

@@ -1,0 +1,446 @@
+{
+ "pool.presse_provokation_serie.e.e1": [
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Warum läuft es nicht, und wann dreht sich das?",
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Was sagen Sie den Fans, die nach dieser Serie enttäuscht sind?"
+ ],
+ "pool.presse_provokation_serie.e.e2": [
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Haben Sie die Kontrolle über die Mannschaft überhaupt noch?",
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Glauben Sie selbst noch daran, dass die Wende kommt?"
+ ],
+ "pool.presse_provokation_serie.e.e3": [
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Ich merke, die Lage ist gereizt, aber eine Antwort schulden Sie den Lesern trotzdem.",
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Sie wirken angespannt, doch ich komme um die Frage nicht herum: Was läuft schief?"
+ ],
+ "pool.presse_provokation_serie.e.e4": [
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Antworten Sie, oder soll ich schreiben, dass Sie keine haben?",
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Sagen Sie jetzt etwas Konkretes, Ausweichen zählt nicht!"
+ ],
+ "pool.presse_provokation_serie.e.e5": [
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Geben Sie mir etwas, das ich zu Ihren Gunsten schreiben kann.",
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Wie sehen Sie die Lage ganz in Ruhe?"
+ ],
+ "pool.presse_provokation_serie.e.e6": [
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Treten Sie zurück, wenn sich nichts ändert?",
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Gibt es eine Grenze, ab der Sie Ihren Platz zur Verfügung stellen?"
+ ],
+ "pool.presse_provokation_serie.e.e7": [
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Ich möchte fair berichten, helfen Sie mir dabei.",
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Was brauchen Sie jetzt von Ihrem Umfeld?"
+ ],
+ "pool.presse_provokation_serie.e.e8": [
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} So lange hat {verein} lange nicht mehr verloren, das ist doch ein Alarmsignal.",
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Ein Absturz in dieser Länge ist ein Alarmsignal, oder sehen Sie das anders?"
+ ],
+ "pool.presse_provokation_serie.e.e9": [
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Das Saisonziel ist in Gefahr, und die Fans fordern Ergebnisse, keine Erklärungen.",
+  "{b.presse_provokation_serie_gruss} {b.presse_provokation_serie_lage} Sie liegen hinter dem Ziel und verlieren weiter, wie wollen Sie das drehen?"
+ ],
+ "pool.presse_provokation_serie.a.a1": [
+  "Wir haben die Spiele analysiert: Es fehlt an Kleinigkeiten, nicht an Einstellung. Daran arbeiten wir jeden Tag.",
+  "Die Ergebnisse sind schlecht, das bestreite ich nicht. Die Gründe liegen in wenigen Details, und die gehen wir an."
+ ],
+ "pool.presse_provokation_serie.a.a2": [
+  "Ihre Frage ist berechtigt, die Leute leiden mit, und ich leide auch. Wir schulden ihnen eine Antwort auf dem Platz.",
+  "Ich verstehe die Enttäuschung der Anhänger, mir geht es genauso. Deshalb schaue ich nicht weg."
+ ],
+ "pool.presse_provokation_serie.a.a3": [
+  "Kommen Sie gern zum Training und sehen Sie selbst, wie wir arbeiten. Danach urteilen Sie fairer.",
+  "Ich biete Ihnen ein Gespräch ohne Mikrofon an, damit Sie die Lage besser einordnen können."
+ ],
+ "pool.presse_provokation_serie.a.a4": [
+  "Sie bekommen mein Wort: Wir ziehen die Mannschaft hier heraus, und Sie dürfen mich daran messen.",
+  "Ich verspreche Ihnen, dass wir diese Serie beenden, und zwar mit Arbeit, nicht mit Worten."
+ ],
+ "pool.presse_provokation_serie.a.a5": [
+  "Zu dieser Unterstellung sage ich nichts, und zu Ihren Fragen künftig auch nicht mehr.",
+  "Auf Provokationen antworte ich nicht. Stellen Sie eine ordentliche Frage, oder wir sind fertig."
+ ],
+ "pool.presse_provokation_serie.a.a6": [
+  "Ich bleibe bei meiner Arbeit, und Ihre Schlagzeile ändert daran nichts.",
+  "Es bleibt, wie es ist: Ich entscheide, was für die Mannschaft richtig ist, nicht die Zeitung."
+ ],
+ "pool.presse_provokation_serie.a.a7": [
+  "Keine Sorge, irgendwann gewinnen wir wieder, und dann schreiben Sie das Gegenteil, wie immer.",
+  "Nach so vielen Niederlagen kann es eigentlich nur noch besser werden, oder?"
+ ],
+ "pool.presse_provokation_serie.a.a8": [
+  "Was wollen Sie von mir hören, dass ich aufgebe? Das schreiben Sie ohnehin schon.",
+  "Und was würden Sie an meiner Stelle tun, außer Fragen stellen?"
+ ],
+ "pool.presse_provokation_serie.a.a9": [
+  "Zu den Hintergründen im Verein äußert sich der Sportdirektor, ich spreche für die Mannschaft.",
+  "Die Leitung des Vereins nimmt dazu Stellung, ich konzentriere mich auf das nächste Spiel."
+ ],
+ "pool.presse_provokation_serie.a.a10": [
+  "Wir verlieren Spiele, aber wir spielen keinen schlechten Fußball, und das ist ein Unterschied.",
+  "Die Ergebnisse stimmen nicht, doch die Leistung ist besser als die Tabelle aussieht."
+ ],
+ "pool.presse_provokation_serie.a.a11": [
+  "Geduld, das wird schon. Mehr kann ich dazu im Moment nicht sagen.",
+  "Wir brauchen einfach noch etwas Zeit, dann kommt das von allein."
+ ],
+ "pool.presse_provokation_serie.r.r1": [
+  "{b.gut} Das ist ehrlich, damit kann ich arbeiten und schreibe es so.",
+  "{b.gut} Das ist mehr, als ich erwartet hatte, ich gebe es fair wieder."
+ ],
+ "pool.presse_provokation_serie.r.r2": [
+  "{b.gut} Danke, genau das wollte ich hören, und das ist auch meine Linie.",
+  "{b.gut} Sie bleiben sich treu, und so berichte ich auch über Sie."
+ ],
+ "pool.presse_provokation_serie.r.r3": [
+  "{b.gut} Das ist ein Plan, den ich in der Redaktion verkaufen kann.",
+  "{b.gut} Mit solchen Aussagen gewinnen Sie die Schlagzeile zurück."
+ ],
+ "pool.presse_provokation_serie.r.r4": [
+  "{b.gut} Danke für die Offenheit, das macht die Geschichte menschlicher.",
+  "{b.gut} Das war nicht leicht zu sagen, ich schätze es."
+ ],
+ "pool.presse_provokation_serie.r.r5": [
+  "{b.neutral} Ich notiere es, und wir sehen am Wochenende, ob es trägt.",
+  "{b.neutral} Das ist keine Schlagzeile, aber auch kein Skandal."
+ ],
+ "pool.presse_provokation_serie.r.r6": [
+  "{b.neutral} Ich weiß noch nicht, wie ich das schreibe, ich muss darüber schlafen.",
+  "{b.neutral} Das lässt mich ratlos zurück, mal sehen, was daraus wird."
+ ],
+ "pool.presse_provokation_serie.r.r7": [
+  "{b.neutral} Auch gut, ich warte ab, was Sonntag bringt.",
+  "{b.neutral} Ich habe Zeit, die Serie schreibt ihre eigene Geschichte."
+ ],
+ "pool.presse_provokation_serie.r.r8": [
+  "{b.neutral} Das ist weder Fisch noch Fleisch, ich schaue mich weiter um.",
+  "{b.neutral} Wir werden sehen, ob Sie das auch in zwei Wochen noch sagen."
+ ],
+ "pool.presse_provokation_serie.r.r9": [
+  "{b.schlecht} Damit fülle ich keine Spalte, das ist Ausweichen.",
+  "{b.schlecht} Das wird sich schlecht lesen, und das wissen Sie."
+ ],
+ "pool.presse_provokation_serie.r.r10": [
+  "{b.schlecht} Dann schreibe ich eben, wie Sie mit der Presse umgehen!",
+  "{b.schlecht} So reden Sie mit mir nicht, das steht morgen in der Zeitung!"
+ ],
+ "pool.presse_provokation_serie.r.r11": [
+  "{b.schlecht} Dann suche ich mir andere Quellen, die reden offener.",
+  "{b.schlecht} Wenn Sie nichts sagen, sagt es eben jemand anderes im Verein."
+ ],
+ "pool.presse_provokation_serie.r.r12": [
+  "{b.schlecht} Ich hatte mehr von Ihnen erwartet, das enttäuscht mich.",
+  "{b.schlecht} Nach all den Jahren der fairen Berichte ist das ein schwacher Auftritt."
+ ],
+ "pool.presse_provokation_serie.r.r13": [
+  "{b.schlecht} Das schreibt meine Redaktion als Kapitulation auf, tut mir leid.",
+  "{b.schlecht} Mit diesem Auftritt gewinnen Sie keinen Leser zurück."
+ ],
+ "pool.presse_provokation_serie.x.x1": [
+  "Der Journalist klappt den Block zu. {entscheidung} Am nächsten Morgen fällt der Bericht überraschend fair aus.",
+  "{entscheidung} Die Zeitung schreibt von einem Trainer, der der Serie ins Gesicht sieht."
+ ],
+ "pool.presse_provokation_serie.x.x2": [
+  "Die Pressekonferenz endet ohne Ergebnis. {entscheidung} Wie der Bericht ausfällt, weiß niemand.",
+  "{entscheidung} Der Journalist lässt offen, wie scharf sein Text am Ende wird."
+ ],
+ "pool.presse_provokation_serie.x.x3": [
+  "Der Ton im Saal kippt. {entscheidung} Am nächsten Tag steht der Streit auf der Titelseite.",
+  "{entscheidung} Die Zeitung macht aus dem Wortwechsel die Schlagzeile des Tages."
+ ],
+ "pool.presse_provokation_serie.x.x4": [
+  "Der Journalist steht auf und geht. {entscheidung} Die Frage bleibt unbeantwortet im Raum hängen.",
+  "{entscheidung} Er packt seine Sachen, und die übrigen Reporter schweigen betreten."
+ ],
+ "pool.presse_geruechte_unruhe.e.e1": [
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Was ist an diesen Gerüchten dran?",
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Können Sie bestätigen oder dementieren, dass es Unruhe gibt?"
+ ],
+ "pool.presse_geruechte_unruhe.e.e2": [
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Ich bitte um eine kurze Stellungnahme bis zum Abend.",
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Wie gehen Sie als Trainer mit solchen Berichten um?"
+ ],
+ "pool.presse_geruechte_unruhe.e.e3": [
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Ich weiß, dass Ihnen die Anfrage ungelegen kommt, aber sie lässt sich nicht aufschieben.",
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Die Lage ist angespannt, gerade deshalb brauche ich Ihre Einschätzung."
+ ],
+ "pool.presse_geruechte_unruhe.e.e4": [
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Wenn Sie schweigen, schreibe ich es so, wie meine Quellen es sagen!",
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Reden Sie jetzt mit mir, oder lesen Sie es morgen in der Zeitung!"
+ ],
+ "pool.presse_geruechte_unruhe.e.e5": [
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Es wäre mir lieb, wenn Sie das in Ruhe klarstellen könnten.",
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Schicken Sie mir einfach Ihre Sicht, ich gebe sie unverändert wieder."
+ ],
+ "pool.presse_geruechte_unruhe.e.e6": [
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Wer in der Mannschaft ist der Unruhestifter, und wie lange sehen Sie dem noch zu?",
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Hat der Trainer die Kabine noch im Griff, oder entgleitet sie ihm?"
+ ],
+ "pool.presse_geruechte_unruhe.e.e7": [
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Ich will nur verstehen, was in der Mannschaft los ist, nicht jemanden vorführen.",
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Darf ich Sie fragen, wie Sie die Stimmung im Team selbst erleben?"
+ ],
+ "pool.presse_geruechte_unruhe.e.e8": [
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Nach den jüngsten Niederlagen passt die Unruhe ins Bild, oder täusche ich mich?",
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Seit den Rückschlägen heißt es, die Mannschaft sei gespalten."
+ ],
+ "pool.presse_geruechte_unruhe.e.e9": [
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Weit hinter dem Saisonziel fragt man sich, ob die Mannschaft noch an einem Strang zieht.",
+  "{b.presse_geruechte_unruhe_gruss} {b.presse_geruechte_unruhe_lage} Mit dem Rückstand zum Ziel wächst der Druck, und angeblich auch der Streit."
+ ],
+ "pool.presse_geruechte_unruhe.a.a1": [
+  "In jeder Mannschaft wird diskutiert, das gehört zum Geschäft. Ein Zerwürfnis gibt es nicht, und das kann ich Ihnen klar sagen.",
+  "Es gab Gespräche, wie sie in jeder Kabine vorkommen. Alle ziehen am selben Strang, auch wenn sie nicht immer einer Meinung sind."
+ ],
+ "pool.presse_geruechte_unruhe.a.a2": [
+  "Ich verstehe, dass Sie fragen müssen. Die Spieler stehen unter Druck, und ich schütze sie, aber ich verschweige nichts Wichtiges.",
+  "Danke, dass Sie nachfragen, statt einfach zu drucken. Die Mannschaft hat Sorgen wie jeder, und wir reden offen darüber."
+ ],
+ "pool.presse_geruechte_unruhe.a.a3": [
+  "Ich lade Sie ein, einen Trainingstag zu begleiten, dann sehen Sie die Stimmung mit eigenen Augen.",
+  "Sprechen Sie in Ruhe mit mir, ohne Mitschrift, dann lege ich Ihnen alles offen, was ich weiß."
+ ],
+ "pool.presse_geruechte_unruhe.a.a4": [
+  "Wenn sich in dieser Mannschaft etwas zuspitzt, erfahren Sie es von mir und nicht von Ihren Quellen.",
+  "Ich sage Ihnen zu, dass ich Probleme in der Kabine benenne, sobald es welche gibt."
+ ],
+ "pool.presse_geruechte_unruhe.a.a5": [
+  "Zu Kabinengerüchten sage ich nichts. Wer so recherchiert, dem gebe ich keine Auskunft.",
+  "Das ist erfunden, und ich kommentiere keine Erfindungen. Mehr gibt es nicht."
+ ],
+ "pool.presse_geruechte_unruhe.a.a6": [
+  "Meine Mannschaft ist meine Sache. Ich drucke nichts nach, was Ihnen jemand hinter meinem Rücken zugesteckt hat.",
+  "Ich diskutiere keine Kabine über die Zeitung, auch nicht, wenn Sie nachbohren."
+ ],
+ "pool.presse_geruechte_unruhe.a.a7": [
+  "Unruhe? Bei uns ist es so ruhig wie in einer Bibliothek, nur mit weniger Büchern.",
+  "Wenn ich jedes Gerücht glaubte, hätte ich schon dreimal die Mannschaft ausgetauscht."
+ ],
+ "pool.presse_geruechte_unruhe.a.a8": [
+  "Wer sind Ihre Quellen, und warum sprechen sie mit Ihnen statt mit mir?",
+  "Wollen Sie eine Geschichte erzählen oder eine finden? Das ist ein Unterschied."
+ ],
+ "pool.presse_geruechte_unruhe.a.a9": [
+  "Zu Fragen der Kabine äußert sich der Verein offiziell, bitte wenden Sie sich an die Pressestelle.",
+  "Ich bitte Sie, die Anfrage über die Pressestelle zu stellen, sie koordiniert alle Antworten."
+ ],
+ "pool.presse_geruechte_unruhe.a.a10": [
+  "Es gibt Konkurrenz im Kader, und die ist gewollt. Das mag nach außen wie Unruhe aussehen, ist aber Leistungsdruck.",
+  "Wer nicht spielt, ist nicht glücklich, das ist normal. Das ist noch keine Krise."
+ ],
+ "pool.presse_geruechte_unruhe.a.a11": [
+  "Machen Sie sich keine Gedanken, das legt sich von allein.",
+  "Das ist nichts Besonderes, das gibt sich wieder, wie immer."
+ ],
+ "pool.presse_geruechte_unruhe.r.r1": [
+  "{b.gut} Das klingt glaubwürdig, so bringe ich es, ohne Spekulation.",
+  "{b.gut} Damit kann ich das Gerücht einordnen und lasse es fallen."
+ ],
+ "pool.presse_geruechte_unruhe.r.r2": [
+  "{b.gut} Danke für das Vertrauen, ich werde dem Verein fair gegenüber sein.",
+  "{b.gut} So habe ich mir das gewünscht, ein ruhiges, klares Wort."
+ ],
+ "pool.presse_geruechte_unruhe.r.r3": [
+  "{b.gut} Mit diesem Zugang habe ich eine bessere Geschichte als mit Gerüchten.",
+  "{b.gut} Das ist exklusiver Einblick, und den nehme ich gern mit."
+ ],
+ "pool.presse_geruechte_unruhe.r.r4": [
+  "{b.gut} Ihre Offenheit tut gut, ich werde behutsam damit umgehen.",
+  "{b.gut} Das beruhigt mich, ich wollte niemanden bloßstellen."
+ ],
+ "pool.presse_geruechte_unruhe.r.r5": [
+  "{b.neutral} Ich prüfe das noch einmal bei anderen Quellen.",
+  "{b.neutral} Das reicht für heute, weiterfragen werde ich aber trotzdem."
+ ],
+ "pool.presse_geruechte_unruhe.r.r6": [
+  "{b.neutral} Ich bin mir unsicher, ob ich Ihnen das so glauben soll.",
+  "{b.neutral} Das beruhigt mich nur halb, wir sprechen später wieder."
+ ],
+ "pool.presse_geruechte_unruhe.r.r7": [
+  "{b.neutral} Schon recht, in ein paar Tagen sieht man klarer.",
+  "{b.neutral} Ich lasse es liegen und schaue, ob sich etwas bewegt."
+ ],
+ "pool.presse_geruechte_unruhe.r.r8": [
+  "{b.neutral} Das ändert nichts an dem, was mir zugetragen wurde, ich suche weiter.",
+  "{b.neutral} Mal sehen, ob Ihre Version Bestand hat, ich bleibe dran."
+ ],
+ "pool.presse_geruechte_unruhe.r.r9": [
+  "{b.schlecht} Dann bleibe ich bei dem, was meine Quellen sagen.",
+  "{b.schlecht} Das klingt nach Verschleierung, und so wird es auch gelesen."
+ ],
+ "pool.presse_geruechte_unruhe.r.r10": [
+  "{b.schlecht} Dann drucke ich es, wie ich es habe, und Sie tragen die Verantwortung!",
+  "{b.schlecht} Sie wollen es hart? Morgen steht es auf Seite eins!"
+ ],
+ "pool.presse_geruechte_unruhe.r.r11": [
+  "{b.schlecht} Dann spreche ich eben mit den Spielern selbst, die sind redseliger.",
+  "{b.schlecht} Es findet sich immer jemand in der Mannschaft, der den Mund aufmacht."
+ ],
+ "pool.presse_geruechte_unruhe.r.r12": [
+  "{b.schlecht} Das enttäuscht mich, ich hatte auf mehr Vertrauen gehofft.",
+  "{b.schlecht} Ich wollte Ihnen helfen, und Sie machen die Tür zu."
+ ],
+ "pool.presse_geruechte_unruhe.r.r13": [
+  "{b.schlecht} Ohne Stellungnahme läuft die Geschichte so, wie sie ist, und das wird scharf.",
+  "{b.schlecht} Meine Redaktion wertet das als Schweigen, und das bringt Schlagzeilen."
+ ],
+ "pool.presse_geruechte_unruhe.x.x1": [
+  "Der Journalist legt die Recherche beiseite. {entscheidung} Die Geschichte erscheint nicht, zumindest nicht in dieser Form.",
+  "{entscheidung} Er schreibt nur eine kurze Meldung, in der von Geschlossenheit die Rede ist."
+ ],
+ "pool.presse_geruechte_unruhe.x.x2": [
+  "Die Anfrage bleibt in der Luft. {entscheidung} Der Journalist hält sich alle Wege offen.",
+  "{entscheidung} Ob und wann der Artikel erscheint, ist unklar."
+ ],
+ "pool.presse_geruechte_unruhe.x.x3": [
+  "Am Abend steht der Text online. {entscheidung} Im Verein wird über nichts anderes mehr geredet.",
+  "{entscheidung} Die Gerüchte stehen schwarz auf weiß, und andere Medien ziehen nach."
+ ],
+ "pool.presse_geruechte_unruhe.x.x4": [
+  "Der Journalist antwortet nicht mehr. {entscheidung} Der Briefwechsel endet abrupt.",
+  "{entscheidung} Die Redaktion meldet sich nicht zurück, und die Mail bleibt unbeantwortet."
+ ],
+ "pool.presse_taktikkritik_sieg.e.e1": [
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Warum setzen Sie auf diese vorsichtige Spielweise?",
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Was entgegnen Sie den Fans, die mehr Offensive sehen wollen?"
+ ],
+ "pool.presse_taktikkritik_sieg.e.e2": [
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Würden Sie die Taktik im nächsten Spiel anpassen?",
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Ist das Ihre Idee von Fußball, oder war es heute nur ein Notbehelf?"
+ ],
+ "pool.presse_taktikkritik_sieg.e.e3": [
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Ich merke, Sie sind nach dem Spiel gereizt, aber die Frage muss ich stellen.",
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Sie wirken verärgert, doch die Kritik an der Taktik wird nicht verschwinden."
+ ],
+ "pool.presse_taktikkritik_sieg.e.e4": [
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Beantworten Sie das ordentlich, statt sich hinter dem Ergebnis zu verstecken!",
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Gewinnen allein reicht nicht, erklären Sie mir diesen Fußball!"
+ ],
+ "pool.presse_taktikkritik_sieg.e.e5": [
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Vielleicht erklären Sie uns Ihre Überlegungen dahinter, dann versteht man es besser.",
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Ich frage ohne Hintergedanken: Was war der Plan?"
+ ],
+ "pool.presse_taktikkritik_sieg.e.e6": [
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Glauben Sie, dass Sie mit dieser Spielweise den Verein weiterbringen?",
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Müssten Sie nicht radikal umstellen, um die Ziele zu erreichen?"
+ ],
+ "pool.presse_taktikkritik_sieg.e.e7": [
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Verletzt es Sie, wenn man Ihre Spielidee so zerpflückt?",
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Wie gehen Sie damit um, wenn Sie trotz Siegs kritisiert werden?"
+ ],
+ "pool.presse_taktikkritik_sieg.e.e8": [
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Selbst nach einer Siegesserie gibt es Kritik am Stil, ist das für Sie unfair?",
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Mehrere Siege in Folge, und doch meckern alle über die Spielweise, wie erklären Sie das?"
+ ],
+ "pool.presse_taktikkritik_sieg.e.e9": [
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} Die Anhänger pfeifen trotz des Siegs, das sollte Ihnen zu denken geben.",
+  "{b.presse_taktikkritik_sieg_gruss} {b.presse_taktikkritik_sieg_lage} In den Kurven ist die Stimmung gekippt, auch wenn die Punkte stimmen."
+ ],
+ "pool.presse_taktikkritik_sieg.a.a1": [
+  "Wir spielen so, weil es zur Mannschaft passt, und die Zahlen geben uns recht. Wir wollen mutiger werden, aber Schritt für Schritt.",
+  "Der Plan war, kompakt zu stehen und Räume zu nutzen. Das ist aufgegangen, und dazu stehe ich."
+ ],
+ "pool.presse_taktikkritik_sieg.a.a2": [
+  "Ich verstehe, dass die Zuschauer mehr sehen wollen, und ich will sie auch begeistern. Wir arbeiten daran.",
+  "Die Kritik nehme ich ernst, denn die Fans zahlen für Unterhaltung. Dieser Anspruch ist auch meiner."
+ ],
+ "pool.presse_taktikkritik_sieg.a.a3": [
+  "Kommen Sie zur Spielanalyse, ich zeige Ihnen, was wir vorhatten und wo wir es besser machen können.",
+  "Lassen Sie uns in Ruhe über die Taktik sprechen, ich nehme Ihre Einwände gern auf."
+ ],
+ "pool.presse_taktikkritik_sieg.a.a4": [
+  "Im nächsten Spiel sehen Sie mehr Mut nach vorne, das sage ich Ihnen zu.",
+  "Sie dürfen erwarten, dass wir unser Offensivspiel in den kommenden Wochen sichtbar verbessern."
+ ],
+ "pool.presse_taktikkritik_sieg.a.a5": [
+  "Über meine Taktik diskutiere ich nicht mit Leuten, die nie ein Spiel geleitet haben.",
+  "Ich lasse mir den Sieg nicht schlechtreden, und meine Aufstellung steht nicht zur Debatte."
+ ],
+ "pool.presse_taktikkritik_sieg.a.a6": [
+  "Ich ändere nichts, solange wir gewinnen, und Sie dürfen das gern schlecht finden.",
+  "Ergebnisse geben mir recht, und dabei bleibe ich, egal wie es aussieht."
+ ],
+ "pool.presse_taktikkritik_sieg.a.a7": [
+  "Schönheit ist vergänglich, Tabellenplätze bleiben, das wusste schon meine Großmutter.",
+  "Beim nächsten Mal zaubere ich, versprochen, auch wenn ich dafür einen Hut brauche."
+ ],
+ "pool.presse_taktikkritik_sieg.a.a8": [
+  "Hätten Sie lieber schön verloren? Sagen Sie mir, was Ihre Leser wirklich wollen.",
+  "Und wenn wir so spielen und gewinnen, was genau stört Sie dann?"
+ ],
+ "pool.presse_taktikkritik_sieg.a.a9": [
+  "Die Spielanalyse macht mein Trainerteam, das berichtet Ihnen gern in der Sache.",
+  "Zu den Einzelheiten wenden Sie sich bitte an den Co-Trainer, der hat die Daten."
+ ],
+ "pool.presse_taktikkritik_sieg.a.a10": [
+  "Wir haben die Gegner studiert und ihre Stärken gestoppt. Das sieht nicht immer glanzvoll aus, ist aber Arbeit.",
+  "Heute war Ergebnisfußball gefragt, und den haben wir geliefert, nicht mehr und nicht weniger."
+ ],
+ "pool.presse_taktikkritik_sieg.a.a11": [
+  "Das wird noch, wir sind noch auf der Suche nach unserem Stil.",
+  "Geben Sie uns einfach ein bisschen Zeit, das Auge wird auch noch zufrieden sein."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r1": [
+  "{b.gut} Das leuchtet mir ein, so lässt sich Ihre Linie nachvollziehen.",
+  "{b.gut} Ich sehe jetzt den Plan hinter dem Spiel, danke."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r2": [
+  "{b.gut} Danke, damit kann ich den Lesern den Hintergrund erklären.",
+  "{b.gut} Das ist ein sachlicher Blick, und der gefällt mir."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r3": [
+  "{b.gut} Das klingt nach Ambition, genau das fehlte mir im Bericht.",
+  "{b.gut} Dann bin ich gespannt auf die Entwicklung, das macht eine gute Geschichte."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r4": [
+  "{b.gut} Es freut mich, dass Sie die Kritik so aufnehmen, das war mir wichtig.",
+  "{b.gut} Danke, dass Sie nicht verärgert sind, das macht es leichter."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r5": [
+  "{b.neutral} Das nehme ich zur Kenntnis, am Wochenende sehen wir mehr.",
+  "{b.neutral} Das ist eine Antwort, aber noch keine Antwort auf die Kernfrage."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r6": [
+  "{b.neutral} Ich bin hin- und hergerissen, die Argumente haben beide etwas.",
+  "{b.neutral} Mal klingt es überzeugend, mal weniger, ich lasse es sacken."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r7": [
+  "{b.neutral} Gut, die Zeit wird es zeigen, wer recht hat.",
+  "{b.neutral} Ich bin nicht in Eile, am Ende zählt die Tabelle."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r8": [
+  "{b.neutral} Ich vergleiche das mit anderen Meinungen und urteile später.",
+  "{b.neutral} Das ist eine Sicht, aber nicht die einzige, ich höre mich weiter um."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r9": [
+  "{b.schlecht} Das überzeugt mich nicht, die Kritik bleibt bestehen.",
+  "{b.schlecht} Das wird sich in der Zeitung nach Ausflucht anhören."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r10": [
+  "{b.schlecht} Dann sage ich es deutlich: Mit dieser Haltung wird man den Fans nicht gerecht!",
+  "{b.schlecht} Das ist Arroganz, und genau so schreibe ich es!"
+ ],
+ "pool.presse_taktikkritik_sieg.r.r11": [
+  "{b.schlecht} Dann frage ich eben Ihre Spieler, was sie von der Taktik halten.",
+  "{b.schlecht} Ich hole mir andere Stimmen, die offener sind als Sie."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r12": [
+  "{b.schlecht} Das hätte ich von Ihnen nicht erwartet, es enttäuscht mich.",
+  "{b.schlecht} Ich habe Sie immer verteidigt, und jetzt blocken Sie ab."
+ ],
+ "pool.presse_taktikkritik_sieg.r.r13": [
+  "{b.schlecht} So gewinnt man Spiele, aber keine Herzen, und das schreibe ich auch.",
+  "{b.schlecht} Meine Redaktion hätte mehr Mut erwartet, das wird ein Kommentar."
+ ],
+ "pool.presse_taktikkritik_sieg.x.x1": [
+  "Der Journalist nickt langsam. {entscheidung} Im Kommentar steht am Ende Verständnis für den Weg der Mannschaft.",
+  "{entscheidung} Der Bericht würdigt den Sieg und stellt die Taktik in einen größeren Zusammenhang."
+ ],
+ "pool.presse_taktikkritik_sieg.x.x2": [
+  "Die Frage bleibt im Raum stehen. {entscheidung} Die Debatte um die Spielweise geht weiter.",
+  "{entscheidung} Journalist und Trainer lassen es bei einem unentschiedenen Wortwechsel."
+ ],
+ "pool.presse_taktikkritik_sieg.x.x3": [
+  "Der Wortwechsel wird schärfer. {entscheidung} In der Presse wird daraus ein Streit um den Trainer.",
+  "{entscheidung} Am nächsten Tag lautet die Schlagzeile nicht Sieg, sondern Trainerkrach."
+ ],
+ "pool.presse_taktikkritik_sieg.x.x4": [
+  "Der Journalist schüttelt den Kopf und geht. {entscheidung} Die Pressekonferenz endet vorzeitig.",
+  "{entscheidung} Er verlässt den Saal, und die Frage bleibt unbeantwortet."
+ ]
+}

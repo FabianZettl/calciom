@@ -1,0 +1,86 @@
+{
+ "abschnitte": [
+  "was",
+  "ablauf",
+  "wirkung",
+  "mehr",
+  "tipps"
+ ],
+ "kapitel": [
+  {
+   "id": "erste_schritte",
+   "symbol": "plug-connected",
+   "ziel": "spielstand_und_karriere"
+  },
+  {
+   "id": "inbox",
+   "symbol": "mail",
+   "ziel": "posteingang"
+  },
+  {
+   "id": "transfers",
+   "symbol": "arrows-exchange",
+   "ziel": "transfermarkt"
+  },
+  {
+   "id": "scouting",
+   "symbol": "binoculars",
+   "ziel": "scouting"
+  },
+  {
+   "id": "training",
+   "symbol": "barbell",
+   "ziel": "training"
+  },
+  {
+   "id": "taktik",
+   "symbol": "chess-knight",
+   "ziel": "aufstellung_und_taktik"
+  },
+  {
+   "id": "medizin",
+   "symbol": "first-aid-kit",
+   "ziel": "medizin"
+  },
+  {
+   "id": "manager",
+   "symbol": "briefcase",
+   "ziel": "manager"
+  },
+  {
+   "id": "verein",
+   "symbol": "building-stadium",
+   "ziel": "finanzen"
+  },
+  {
+   "id": "jugend",
+   "symbol": "seedling",
+   "ziel": "nachwuchs"
+  },
+  {
+   "id": "kabine",
+   "symbol": "users",
+   "ziel": "kabine"
+  },
+  {
+   "id": "medien",
+   "symbol": "microphone",
+   "ziel": "presse"
+  },
+  {
+   "id": "zeitung",
+   "symbol": "news",
+   "ziel": "zeitung"
+  },
+  {
+   "id": "saisonende",
+   "symbol": "trophy",
+   "ziel": "tagebuch"
+  },
+  {
+   "id": "einstellungen",
+   "symbol": "adjustments",
+   "ziel": "regeln_und_anpassung"
+  }
+ ]
+}

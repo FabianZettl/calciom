@@ -1,0 +1,642 @@
+{
+ "md.absender.vorstand": "Helene Vogt, Vorstand",
+ "md.absender.berater": "Marc Dietrich, Berater",
+ "md.absender.scout": "Tomasz Weber, Chefscout",
+ "md.absender.physio": "Svenja Arnold, Physiotherapie",
+ "md.absender.trainerstab": "Jens Kraft, Co-Trainer",
+ "md.absender.presse": "Mareike Sander, Pressestelle",
+ "md.absender.spieler": "",
+ "md.absender.liga": "Ralf Hoyer, Ligabüro",
+ "md.anlass.spiel_gewertet.betreff": [
+  "Das Spiel gegen %2 ist ausgewertet",
+  "Spielbericht: %3 gegen %2"
+ ],
+ "md.anlass.spiel_gewertet.text": [
+  "Endstand %3 gegen %2. Der Bericht mit Torschützen und Noten liegt bei der Spielanalyse. Für die Tabelle zählt jeder Punkt, und die Mannschaft schaut jetzt nach vorn auf die nächste Aufgabe.",
+  "Das Spiel gegen %2 endete %3. Die Zahlen sind eingearbeitet. Für die Tabelle zählt jeder Punkt, und die Mannschaft schaut jetzt nach vorn auf die nächste Aufgabe."
+ ],
+ "md.anlass.verletzung.betreff": [
+  "%1 fällt aus",
+  "Verletzungsmeldung: %1"
+ ],
+ "md.anlass.verletzung.text": [
+  "%1 hat sich verletzt und fehlt voraussichtlich %3 Tage. Ich halte dich über den Heilungsverlauf auf dem Laufenden. Ich passe den Belastungsplan an und melde mich, sobald sich der Heilungsverlauf ändert. Für deine Aufstellung heißt das: Du brauchst für diese Zeit eine Alternative auf seiner Position.",
+  "Bei %1 ist die Untersuchung durch. Er ist rund %3 Tage nicht einsatzbereit. Ich passe den Belastungsplan an und melde mich, sobald sich der Heilungsverlauf ändert. Für deine Aufstellung heißt das: Du brauchst für diese Zeit eine Alternative auf seiner Position."
+ ],
+ "md.anlass.genesen.betreff": "%1 ist wieder fit",
+ "md.anlass.genesen.text": "%1 hat die Reha abgeschlossen und steht wieder zur Verfügung. Die Belastung steigern wir langsam. Im Training steigt er behutsam wieder ein. Ob du ihn gleich in die Startelf stellst oder erst von der Bank bringst, entscheidest du.",
+ "md.anlass.vertrag_laeuft_aus.betreff": [
+  "Der Vertrag von %1 läuft aus",
+  "%1: Vertragsende rückt näher"
+ ],
+ "md.anlass.vertrag_laeuft_aus.text": [
+  "Der Vertrag von %1 endet in %3 Tagen. Wenn du ihn halten willst, sollten wir bald sprechen. Ohne Einigung kann er im nächsten Fenster ablösefrei gehen oder zum Spielball der Gerüchte werden. Ein frühes Gespräch zeigt ihm, dass du mit ihm planst.",
+  "Bei %1 läuft die Frist: noch %3 Tage Vertrag. Andere Vereine werden aufmerksam. Ohne Einigung kann er im nächsten Fenster ablösefrei gehen oder zum Spielball der Gerüchte werden. Ein frühes Gespräch zeigt ihm, dass du mit ihm planst."
+ ],
+ "md.anlass.vertrag_verlaengert.betreff": "%1 hat verlängert",
+ "md.anlass.vertrag_verlaengert.text": "%1 bleibt. Die Vertragsverlängerung ist vereinbart. Das gibt dir Planungssicherheit im Kader und beruhigt die Kabine. Den neuen Gehaltsrahmen findest du in den Finanzen.",
+ "md.anlass.angebot_eingegangen.betreff": [
+  "Angebot für %1 von %2",
+  "%2 will %1"
+ ],
+ "md.anlass.angebot_eingegangen.text": [
+  "%2 hat ein Angebot für %1 abgegeben. Die Frist läuft in %3 Tagen ab. Nimmst du an, fehlt er dir auf dem Platz. Lehnst du ab, bleibt die Frage, wie er darauf reagiert. Verhandeln kannst du, solange die Frist läuft.",
+  "Aus %2 liegt ein Angebot für %1 vor. Sieh es dir in der Ruhe an, aber lass es nicht verfallen. Nimmst du an, fehlt er dir auf dem Platz. Lehnst du ab, bleibt die Frage, wie er darauf reagiert. Verhandeln kannst du, solange die Frist läuft."
+ ],
+ "md.anlass.transfer_abgeschlossen.betreff": [
+  "Wechsel um %1 ist durch",
+  "%1: der Transfer ist vollzogen"
+ ],
+ "md.anlass.transfer_abgeschlossen.text": "Der Wechsel von %1 ist über die Bühne. Die Presse wird fragen. Fans und Journalisten wollen jetzt wissen, wie es weitergeht. Eine klare Linie in der nächsten Pressekonferenz hilft dir dabei.",
+ "md.anlass.wechselwunsch.betreff": [
+  "%1 will wechseln",
+  "Wechselwunsch von %1"
+ ],
+ "md.anlass.wechselwunsch.text": "%1 hat mir gesagt, dass er den Verein verlassen möchte. Sprich mit ihm, bevor es die Runde macht. Wenn du jetzt handelst, behältst du die Kontrolle über die Geschichte. Gehst du nicht darauf ein, kann sich die Stimmung in der Kabine drehen.",
+ "md.anlass.spieler_unzufrieden.betreff": [
+  "%1 ist unzufrieden",
+  "Gespräch mit %1"
+ ],
+ "md.anlass.spieler_unzufrieden.text": [
+  "%1 ist mit seiner Lage nicht einverstanden und möchte das ansprechen. Ein offenes Gespräch kostet wenig und verhindert, dass aus Unmut ein Wechselwunsch wird.",
+  "Ich muss kurz mit dir über meine Situation reden, Trainer. Ein offenes Gespräch kostet wenig und verhindert, dass aus Unmut ein Wechselwunsch wird."
+ ],
+ "md.anlass.scouting_bericht.betreff": [
+  "Bericht über %1 liegt vor",
+  "Scoutingbericht: %1"
+ ],
+ "md.anlass.scouting_bericht.text": "Mein Bericht über %1 liegt vor. Er sieht vielversprechend aus, mehr in der Akte. Er könnte auf einer Position helfen, auf der dein Kader dünn besetzt ist. Ob sich ein Angebot lohnt, siehst du in der Akte mit Stärken, Schwächen und Vertragslage.",
+ "md.anlass.budget_geaendert.betreff": "Das Budget wurde angepasst",
+ "md.anlass.budget_geaendert.text": "Der Vorstand hat die Mittel für Transfers und Gehälter neu verteilt. Die Einzelheiten stehen in den Finanzen. Das bestimmt, wie viel Spielraum du bei Verträgen und Verpflichtungen hast. Prüf, ob deine Pläne noch ins Budget passen.",
+ "md.anlass.praesidium_ultimatum.betreff": "Der Vorstand setzt eine Frist",
+ "md.anlass.praesidium_ultimatum.text": "Das Präsidium ist mit der Entwicklung nicht zufrieden und erwartet bis zum genannten Datum eine Besserung. Die nächsten Spiele entscheiden, ob das Vertrauen zurückkehrt. Ein Gespräch mit dem Vorstand und klare Ergebnisse sind jetzt wichtig.",
+ "md.anlass.praesidium_entlassung.betreff": "Das Präsidium berät über deine Zukunft",
+ "md.anlass.praesidium_entlassung.text": "Der Vorstand hat das Vertrauen verloren. Die Entscheidung steht an. Im schlimmsten Fall geht deine Zeit hier zu Ende. Was jetzt noch hilft, sind Ergebnisse und ein ehrliches Gespräch mit dem Präsidium.",
+ "md.anlass.staff_geaendert.betreff": "Änderung im Trainerstab",
+ "md.anlass.staff_geaendert.text": "Im Stab hat sich etwas verändert. Die Zuständigkeiten sind neu verteilt. Das ändert, wer dir bei Training, Medizin und Scouting zuarbeitet. Schau nach, ob sich Aufgaben und Stärken deines Stabs verschoben haben.",
+ "md.anlass.jugend_befoerdert.betreff": "%1 rückt in den Kader",
+ "md.anlass.jugend_befoerdert.text": "%1 aus der Akademie trainiert ab sofort bei den Profis mit. Er soll sich an das Tempo der Profis gewöhnen. Gibst du ihm Spielzeit, wächst sein Selbstvertrauen. Wartest du zu lange, kann seine Geduld schwinden.",
+ "md.anlass.saisonwechsel.betreff": "Eine neue Saison beginnt",
+ "md.anlass.saisonwechsel.text": "Die Spielzeit ist abgeschlossen, die Zählung beginnt von vorn. Termine und Gegner stehen im Kalender. Verträge, Ziele und der Spielplan beginnen von vorn. Nutze die Pause, um Kader und Taktik für die neue Runde zu ordnen.",
+ "md.notiz.verletzung.betreff": "Mitteilung zur Verletzung von %1",
+ "md.notiz.verletzung.text": [
+  "Wir würden die Verletzung von %1 gern veröffentlichen. Soll die Mitteilung raus, soll sie kurz bleiben oder behalten wir es für uns?",
+  "Die Presse fragt nach %1. Wir haben eine Mitteilung vorbereitet."
+ ],
+ "md.notiz.verlaengerung.betreff": "Mitteilung zur Verlängerung von %1",
+ "md.notiz.verlaengerung.text": "Der neue Vertrag von %1 kann heute veröffentlicht werden. Wie soll die Pressestelle es handhaben?",
+ "md.notiz.transfer.betreff": "Mitteilung zum Wechsel von %1",
+ "md.notiz.transfer.text": "Zum Wechsel von %1 ist eine Pressemitteilung vorbereitet. Freigabe?",
+ "md.notiz.freigeben": "Mitteilung freigeben",
+ "md.notiz.kurz_halten": "Kurz halten, keine Einzelheiten",
+ "md.notiz.zurueckhalten": "Vorerst nichts sagen",
+ "md.geruecht.betreff": [
+  "Gerüchte um %1",
+  "%1 vor dem Absprung?"
+ ],
+ "md.geruecht.text": [
+  "Mehrere Zeitungen berichten über die Zukunft von %1. Die Pressestelle bittet um eine Linie, wie wir antworten.",
+  "Das Gerücht um %1 macht die Runde. Wie sollen wir reagieren?"
+ ],
+ "md.geruecht.antwort.dementiert": "Dementieren: Das ist erfunden",
+ "md.geruecht.antwort.kein_kommentar": "Kein Kommentar",
+ "md.geruecht.antwort.bestaetigt": "Bestätigen: Es gibt Gespräche",
+ "md.widerlegt.betreff": "Dementi um %1 überholt",
+ "md.widerlegt.text": "Wir hatten die Gerüchte um %1 dementiert, jetzt ist der Wechsel doch gekommen. Die Presse hält uns das vor.",
+ "md.pk.vor.betreff": [
+  "Pressekonferenz vor dem Spiel gegen %1"
+ ],
+ "md.pk.vor.text": [
+  "Die Journalisten warten. Es geht um das Spiel gegen %1, um die Lage der Mannschaft und was sonst im Verein los ist."
+ ],
+ "md.pk.nach.betreff": [
+  "Pressekonferenz nach dem Spiel gegen %1"
+ ],
+ "md.pk.nach.text": [
+  "Das Spiel gegen %1 ist vorbei, die Presse will deine Einschätzung."
+ ],
+ "md.pk.interview.betreff": "Interviewanfrage zu %1",
+ "md.pk.interview.text": "Ein Sender möchte dich zu %1 sprechen. Es dauert nur ein paar Minuten.",
+ "md.frage.gegner": [
+  "Wie schätzen Sie %2 vor diesem Spiel ein?",
+  "Sie stehen auf Platz %3, %2 will Ihnen etwas entgegensetzen. Worauf kommt es an?",
+  "Was erwartet die Mannschaft gegen %2?"
+ ],
+ "md.frage.star": [
+  "%1 hat zuletzt viel Aufmerksamkeit bekommen. Wie wichtig ist er für Sie?",
+  "Hängt gegen %2 viel von %1 ab?",
+  "Ist %1 gerade der entscheidende Mann bei Ihnen?"
+ ],
+ "md.frage.serie_gut": [
+  "Die Mannschaft ist in Serie. Wie halten Sie die Spannung hoch?",
+  "Das läuft gerade. Wann kommt der Moment, in dem man vorsichtig wird?",
+  "Die Siege häufen sich: Ist das schon ein Titelkandidat?"
+ ],
+ "md.frage.serie_schlecht": [
+  "Die Ergebnisse stimmen nicht. Was läuft schief?",
+  "Wie lange können Sie noch erklären, dass es besser wird?",
+  "Die Fans werden unruhig. Haben Sie noch alle hinter sich?"
+ ],
+ "md.frage.ausfall": [
+  "%1 fehlt. Wie fangen Sie das auf?",
+  "Kann die Mannschaft den Ausfall von %1 verkraften?",
+  "Was bedeutet die Verletzung von %1 für Ihre Planung?"
+ ],
+ "md.frage.ziel": [
+  "Der Verein steht auf Platz %3. Reicht das für Ihre Ziele?",
+  "Das Saisonziel ist klar. Sind Sie auf Kurs?",
+  "Sehen Sie Ihre Mannschaft da, wo sie hingehört?"
+ ],
+ "md.frage.vorstand": [
+  "Wie ist das Verhältnis zum Vorstand? Man hört Unruhe.",
+  "Hat der Vorstand noch Geduld mit Ihnen?",
+  "Sitzen Sie fest im Sattel?"
+ ],
+ "md.frage.geruecht": [
+  "Um %1 gibt es Gerüchte. Was ist dran?",
+  "Verlässt %1 den Verein?",
+  "Stimmt es, dass andere Vereine an %1 interessiert sind?"
+ ],
+ "md.frage.sieg": [
+  "Was hat den Ausschlag zum Sieg gegen %2 gegeben?",
+  "Ein starker Auftritt. Ihre Einschätzung?",
+  "Wie zufrieden sind Sie nach dem Sieg?"
+ ],
+ "md.frage.niederlage": [
+  "Wie erklären Sie sich die Niederlage gegen %2?",
+  "Das war nichts. Was sagen Sie der Mannschaft?",
+  "Wer trägt für diese Niederlage die Verantwortung?"
+ ],
+ "md.frage.remis": [
+  "Ein Unentschieden gegen %2: Punkt gewonnen oder zwei verloren?",
+  "Wie bewerten Sie das Remis?",
+  "Hätte es mehr sein müssen?"
+ ],
+ "md.frage.leistung": [
+  "%1 war heute auffällig. Ihr Eindruck?",
+  "Wie bewerten Sie die Leistung von %1?",
+  "Können Sie mit %1 zufrieden sein?"
+ ],
+ "md.frage.tabelle": [
+  "Wie sehen Sie die Tabellenlage nach diesem Spieltag?",
+  "Der Verein steht auf Platz %3. Was heißt das für die nächsten Wochen?",
+  "Wohin geht die Reise?"
+ ],
+ "md.frage.neuzugang": [
+  "Warum gerade %1, was soll er bringen?",
+  "Was erwarten Sie von %1?",
+  "Wie schnell kann %1 der Mannschaft helfen?"
+ ],
+ "md.antwort.gegner.ehrlich": "Sie sind stark, und wir müssen unser bestes Spiel machen.",
+ "md.antwort.gegner.kaempferisch": "Wir fahren nicht hin, um zu verwalten. Wir wollen gewinnen.",
+ "md.antwort.gegner.ausweichend": "Jedes Spiel ist schwer, mehr gibt es dazu nicht zu sagen.",
+ "md.antwort.gegner.lob": "Ein sehr gut organisiertes Team. Davor habe ich Respekt.",
+ "md.antwort.gegner.kritik": "Sie spielen nicht schön, aber das müssen wir erst einmal verteidigen.",
+ "md.antwort.star.ehrlich": "Er ist wichtig, aber wir sind keine Ein-Mann-Mannschaft.",
+ "md.antwort.star.kaempferisch": "Mit ihm in dieser Form ist alles möglich.",
+ "md.antwort.star.ausweichend": "Für uns spielen alle elf.",
+ "md.antwort.star.lob": "%1 ist gerade überragend und hat das Lob verdient.",
+ "md.antwort.star.kritik": "%1 kann deutlich mehr, das weiß er auch.",
+ "md.antwort.serie_gut.ehrlich": "Wir wissen, dass nicht alles perfekt ist. Wir arbeiten weiter.",
+ "md.antwort.serie_gut.kaempferisch": "Wir wollen die Serie ausbauen, gerade jetzt.",
+ "md.antwort.serie_gut.ausweichend": "Ich schaue nur auf das nächste Spiel.",
+ "md.antwort.serie_gut.lob": "Die Mannschaft hat sich das hart erarbeitet, großes Kompliment.",
+ "md.antwort.serie_gut.kritik": "Wir dürfen uns nicht blenden lassen, hinten wackelt es noch.",
+ "md.antwort.serie_schlecht.ehrlich": "Es ist unbefriedigend. Die Fehler liegen auch bei mir.",
+ "md.antwort.serie_schlecht.kaempferisch": "Wir kommen zurück, und zwar schon im nächsten Spiel.",
+ "md.antwort.serie_schlecht.ausweichend": "Ich möchte das nicht an einzelnen Spielen festmachen.",
+ "md.antwort.serie_schlecht.lob": "Die Jungs geben alles, das darf man ihnen nicht absprechen.",
+ "md.antwort.serie_schlecht.kritik": "Wenn jeder sein Pensum nicht bringt, werden wir keine Punkte holen.",
+ "md.antwort.ausfall.ehrlich": "Das tut weh, aber wir müssen damit leben.",
+ "md.antwort.ausfall.kaempferisch": "Dann ist es die Chance für den Nächsten.",
+ "md.antwort.ausfall.ausweichend": "Zu Personalfragen sage ich vor dem Spiel nichts.",
+ "md.antwort.ausfall.lob": "%1 fehlt uns, doch der Kader hat Qualität.",
+ "md.antwort.ausfall.kritik": "Wir hätten besser auf die Belastung achten müssen.",
+ "md.antwort.ziel.ehrlich": "Wir sind nicht ganz da, wo wir hinwollen.",
+ "md.antwort.ziel.kaempferisch": "Wir greifen an, das Ziel bleibt.",
+ "md.antwort.ziel.ausweichend": "Die Saison ist lang, rechnen wir am Ende.",
+ "md.antwort.ziel.lob": "Die Mannschaft ist auf dem richtigen Weg.",
+ "md.antwort.ziel.kritik": "Für das Ziel brauchen wir mehr Konstanz.",
+ "md.antwort.vorstand.ehrlich": "Es gibt Gespräche, und ich bin dankbar für klare Worte.",
+ "md.antwort.vorstand.kaempferisch": "Ich habe das Vertrauen und werde es bestätigen.",
+ "md.antwort.vorstand.ausweichend": "Interna bleiben im Haus.",
+ "md.antwort.vorstand.lob": "Der Vorstand unterstützt uns sehr, das möchte ich betonen.",
+ "md.antwort.vorstand.kritik": "Ich wünsche mir mehr Rückendeckung von oben.",
+ "md.antwort.geruecht.ehrlich": "Es gibt Interesse, mehr kann ich dazu nicht sagen.",
+ "md.antwort.geruecht.kaempferisch": "%1 bleibt, so viel steht fest.",
+ "md.antwort.geruecht.ausweichend": "Zu Gerüchten gebe ich keinen Kommentar ab.",
+ "md.antwort.geruecht.lob": "Dass andere Vereine auf %1 schauen, zeigt nur seine Klasse.",
+ "md.antwort.geruecht.kritik": "Ich wünsche mir mehr Konzentration auf das Sportliche statt auf Transfers.",
+ "md.antwort.sieg.ehrlich": "Wir haben auch Glück gehabt, aber der Sieg ist verdient.",
+ "md.antwort.sieg.kaempferisch": "Das war erst der Anfang, wir wollen mehr.",
+ "md.antwort.sieg.ausweichend": "Heute zählt der Sieg. Die Analyse kommt morgen.",
+ "md.antwort.sieg.lob": "Die Mannschaft hat das großartig gemacht.",
+ "md.antwort.sieg.kritik": "Das Ergebnis ist gut, die Leistung in der zweiten Hälfte war es nicht.",
+ "md.antwort.niederlage.ehrlich": "Wir waren nicht gut genug. Das nehme ich auf meine Kappe.",
+ "md.antwort.niederlage.kaempferisch": "Wir stehen auf und holen es zurück, versprochen.",
+ "md.antwort.niederlage.ausweichend": "Ich muss das erst sacken lassen, dazu sage ich später mehr.",
+ "md.antwort.niederlage.lob": "Die Jungs haben gekämpft, es hat nicht gereicht.",
+ "md.antwort.niederlage.kritik": "Das war zu wenig, so verliert man zu Recht.",
+ "md.antwort.remis.ehrlich": "Ein Punkt ist zu wenig und doch nicht nichts.",
+ "md.antwort.remis.kaempferisch": "Wir wollten den Sieg, und wir holen ihn das nächste Mal.",
+ "md.antwort.remis.ausweichend": "Es steht unentschieden, was soll ich dazu sagen.",
+ "md.antwort.remis.lob": "Das war ein ordentlicher Auftritt der Mannschaft.",
+ "md.antwort.remis.kritik": "Wir haben es verpasst, den Sack zuzumachen.",
+ "md.antwort.leistung.ehrlich": "Er hat gut gespielt, aber das erwarte ich auch.",
+ "md.antwort.leistung.kaempferisch": "So muss es weitergehen, der Junge hat Hunger.",
+ "md.antwort.leistung.ausweichend": "Ich bewerte keine Einzelleistungen.",
+ "md.antwort.leistung.lob": "%1 hat ein herausragendes Spiel gemacht.",
+ "md.antwort.leistung.kritik": "%1 hätte mehr machen müssen, da ist Luft nach oben.",
+ "md.antwort.tabelle.ehrlich": "Die Tabelle lügt nicht. Wir müssen mehr holen.",
+ "md.antwort.tabelle.kaempferisch": "Wir klettern weiter nach oben.",
+ "md.antwort.tabelle.ausweichend": "Die Tabelle interessiert mich im Moment nicht.",
+ "md.antwort.tabelle.lob": "Die Mannschaft hat sich in der Tabelle nach oben gearbeitet.",
+ "md.antwort.tabelle.kritik": "Wenn wir so weitermachen, rutschen wir ab.",
+ "md.antwort.neuzugang.ehrlich": "Er soll uns besser machen, aber er braucht Zeit.",
+ "md.antwort.neuzugang.kaempferisch": "%1 ist ein Gewinn, er wird sofort helfen.",
+ "md.antwort.neuzugang.ausweichend": "Ich lasse ihn erst einmal ankommen.",
+ "md.antwort.neuzugang.lob": "%1 ist genau der Spieler, den wir gesucht haben.",
+ "md.antwort.neuzugang.kritik": "Er muss sich noch beweisen, Vorschusslorbeeren gibt es nicht.",
+ "md.antwort.ehrlich": "Ich sage es, wie es ist.",
+ "md.antwort.kaempferisch": "Wir geben nicht auf.",
+ "md.antwort.ausweichend": "Dazu möchte ich nichts sagen.",
+ "md.antwort.lob": "Großes Lob an alle Beteiligten.",
+ "md.antwort.kritik": "Das war nicht gut genug.",
+ "md.ui.ton.ehrlich": "Ehrlich",
+ "md.ui.ton.kaempferisch": "Selbstbewusst",
+ "md.ui.ton.ausweichend": "Ausweichend",
+ "md.ui.ton.lob": "Lob",
+ "md.ui.ton.kritik": "Kritik",
+ "md.ui.ton.ferngeblieben": "Nicht erschienen",
+ "md.ui.status.ungelesen": "Neu",
+ "md.ui.status.gelesen": "Gelesen",
+ "md.ui.status.erledigt": "Erledigt",
+ "md.ui.status.verfallen": "Verfallen",
+ "md.ui.kategorie.spiel": "Spiel",
+ "md.ui.kategorie.kader": "Kader",
+ "md.ui.kategorie.transfer": "Transfers",
+ "md.ui.kategorie.vertrag": "Verträge",
+ "md.ui.kategorie.medizin": "Medizin",
+ "md.ui.kategorie.finanzen": "Finanzen",
+ "md.ui.kategorie.verein": "Verein",
+ "md.ui.kategorie.presse": "Presse",
+ "md.ui.kategorie.liga": "Liga",
+ "md.ui.prio.1": "Info",
+ "md.ui.prio.2": "Wichtig",
+ "md.ui.prio.3": "Dringend",
+ "md.ui.leer.posteingang": "Keine Meldungen in dieser Ansicht.",
+ "md.ui.leer.konferenz": "Im Moment steht keine Pressekonferenz an.",
+ "md.ui.leer.schlagzeilen": "Noch keine Schlagzeilen.",
+ "md.ui.leer.journalisten": "Die Journalisten lernen dich erst kennen.",
+ "md.ui.leer.gehalten": "Noch keine Pressekonferenz gehalten.",
+ "md.ui.aktion.lesen": "Gelesen",
+ "md.ui.aktion.erledigen": "Erledigt",
+ "md.ui.posteingang.ungelesen": "Ungelesen",
+ "md.ui.posteingang.gesamt": "Meldungen",
+ "md.ui.posteingang.dringend": "Dringend",
+ "md.ui.presse.frist": "Bis %1",
+ "md.ui.presse.frage": "Frage %1 von %2",
+ "md.ui.presse.antwort": "Deine Antwort: %1",
+ "md.ui.presse.gehalten": "Gehalten",
+ "md.ui.presse.ausgefallen": "Nicht wahrgenommen",
+ "md.ui.presse.wirkung_medien": "Medienbild",
+ "md.ui.presse.wirkung_fans": "Fans",
+ "md.ui.presse.wirkung_vorstand": "Vorstand",
+ "md.ui.presse.wirkung_moral": "Stimmung der Mannschaft",
+ "md.ui.presse.verlauf": "Pressekonferenzen",
+ "md.ui.presse.ton_dominant": "Ton: %1",
+ "md.ui.presse.fragt": "%1, %2",
+ "md.ui.journalist.stil.sachlich": "sachlich",
+ "md.ui.journalist.stil.boulevard": "Boulevard",
+ "md.ui.journalist.stil.wohlwollend": "wohlwollend",
+ "md.ui.journalist.stil.kritisch": "kritisch",
+ "md.ui.journalist.haltung.gut": "Gut auf dich zu sprechen",
+ "md.ui.journalist.haltung.neutral": "Hält Abstand",
+ "md.ui.journalist.haltung.schlecht": "Dir gegenüber skeptisch",
+ "md.ui.bild.ruf": "Ruf bei der Presse",
+ "md.ui.bild.medienbild": "Medienbild",
+ "md.ui.bild.fans": "Fanstimmung",
+ "md.ui.bild.vorstand": "Vertrauen des Vorstands",
+ "md.ui.bild.konferenzen": "Konferenzen gehalten",
+ "md.ui.bild.journalisten": "Journalisten",
+ "md.ui.bild.unter.gut": "Die Presse mag dich.",
+ "md.ui.bild.unter.mittel": "Die Berichterstattung ist ausgewogen.",
+ "md.ui.bild.unter.schlecht": "Die Presse ist kritisch.",
+ "md.ui.fehler.eingabe": "Das hat nicht geklappt.",
+ "md.ui.ok.antwort": "Antwort gegeben.",
+ "md.ui.ok.erledigt": "Erledigt.",
+ "md.ui.ok.frage": "Antwort gegeben.",
+ "md.ui.ok.modus": "Gespeichert.",
+ "md.ui.fehler.antwort_noetig": "Dazu ist eine Antwort nötig.",
+ "md.ui.modus.manuell": "Selbst antworten",
+ "md.ui.modus.automatisch": "Pressesprecher antwortet",
+ "md.ui.modus.aus": "Keine Konferenzen",
+ "md.anlass.beobachtung_veraenderung.betreff": [
+  "Neues zu %1",
+  "%1: Veränderung bei der Beobachtung"
+ ],
+ "md.anlass.beobachtung_veraenderung.text": "Bei %1 hat sich etwas getan. Die Einzelheiten stehen in der Beobachtungsliste. Prüf, ob sich daraus eine Gelegenheit ergibt, etwa weil Form, Preis oder Vertragslage sich verändert haben.",
+ "md.anlass.zusage_gehalten.betreff": [
+  "%1 ist zufrieden",
+  "Zusage gehalten: %1"
+ ],
+ "md.anlass.zusage_gehalten.text": "Du hast dein Wort gehalten. %1 weiß das zu schätzen. Das spricht sich in der Kabine herum und stärkt dein Wort bei künftigen Zusagen.",
+ "md.anlass.zusage_gebrochen.betreff": [
+  "%1 fühlt sich übergangen",
+  "Zusage nicht eingehalten: %1"
+ ],
+ "md.anlass.zusage_gebrochen.text": "Du hattest %1 etwas zugesagt, und es ist nicht eingetreten. Das hat Folgen für die Stimmung in der Kabine. Spieler merken sich Zusagen. Ein erklärendes Gespräch kann den Schaden begrenzen, bevor sich die Enttäuschung festsetzt.",
+ "md.anlass.spieler_diszipliniert.betreff": [
+  "Disziplin: %1",
+  "%1 wurde zur Rechenschaft gezogen"
+ ],
+ "md.anlass.spieler_diszipliniert.text": "Die Maßnahme gegen %1 ist beschlossen. Die Mannschaft hat es mitbekommen. Das zeigt der Mannschaft, wo die Grenzen liegen. Beobachte, wie er in den nächsten Wochen darauf reagiert.",
+ "md.anlass.gespraech_einigung.betreff": [
+  "Einigung mit %1",
+  "Eine Einigung steht: %1"
+ ],
+ "md.anlass.gespraech_einigung.text": "Mit %1 steht eine Einigung. Die Einzelheiten stehen im Gesprächsprotokoll. Damit ist die Sache geklärt, und ihr könnt euch wieder auf den Fußball konzentrieren.",
+ "md.ui.chip.transfer": "Transfer",
+ "md.ui.chip.spiel": "Spiel",
+ "md.ui.chip.personal": "Personal",
+ "md.ui.chip.scouting": "Scouting",
+ "md.ui.chip.medien": "Medien",
+ "md.ui.chip.vorstand": "Vorstand",
+ "md.ui.chip.verletzung": "Verletzung",
+ "md.ui.chip.vertrag": "Vertrag",
+ "md.ui.karte.angebot.kauf": "Kaufangebot",
+ "md.ui.karte.angebot.leihe": "Leihangebot",
+ "md.ui.karte.abloese": "Ablöse",
+ "md.ui.karte.gehalt": "Gehalt",
+ "md.ui.karte.laufzeit": "Laufzeit",
+ "md.ui.karte.jahre": "%1 Jahre",
+ "md.ui.karte.klauseln": "Klauseln",
+ "md.ui.karte.frist": "Frist",
+ "md.ui.karte.nicht_zugestellt": "Im Spiel nicht angekommen: %1. Der Wechsel gilt noch nicht als erledigt; starte die Übergabe noch einmal.",
+ "md.ui.karte.wartet_spiel": "Wartet auf das Spiel: Der Wechsel gilt erst als erledigt, wenn das Spiel ihn ausgeführt hat.",
+ "md.ui.karte.tage": "Tage",
+ "md.ui.karte.wissen": "Kenntnisstand",
+ "md.ui.ok.weitergeleitet": "Weitergeleitet.",
+ "md.ui.mail.titel": "Posteingang",
+ "md.ui.mail.alle": "Alle",
+ "md.ui.mail.transfers": "Transfers",
+ "md.ui.mail.spiel": "Spiel",
+ "md.ui.mail.personal": "Personal",
+ "md.ui.mail.scouting": "Scouting",
+ "md.ui.mail.medien": "Medien",
+ "md.ui.mail.archiv": "Archiv",
+ "md.ui.mail.ungelesen": "Ungelesen",
+ "md.ui.mail.markiert": "Markiert",
+ "md.ui.mail.suche": "Suchen",
+ "md.ui.mail.leer_detail": "Wähle links eine Nachricht.",
+ "md.ui.mail.antworten": "Antworten",
+ "md.ui.mail.weiterleiten": "Weiterleiten",
+ "md.ui.mail.an_berater": "Berater",
+ "md.ui.mail.an_scout": "Scout",
+ "md.ui.mail.an_trainerstab": "Trainerstab",
+ "md.ui.mail.markieren": "Markieren",
+ "md.ui.mail.entmarkieren": "Markierung entfernen",
+ "md.ui.mail.archivieren": "Archivieren",
+ "md.ui.mail.zurueckholen": "Zurückholen",
+ "md.ui.mail.loeschen": "Löschen",
+ "md.ui.mail.zurueck": "Zur Liste",
+ "md.ui.mail.annehmen": "Annehmen",
+ "md.ui.mail.ablehnen": "Ablehnen",
+ "md.ui.mail.verhandeln": "Verhandeln",
+ "md.ui.mail.alter": "%1 Jahre",
+ "md.ui.mail.wert": "Stärke %1",
+ "md.ui.mail.vertrag_bis": "Vertrag bis %1",
+ "md.ui.mail.schuetzen": "Torschützen",
+ "md.ui.mail.noten": "Beste Noten",
+ "md.ui.mail.deine_antwort": "Deine Antwort",
+ "md.ui.mail.beantwortet": "Beantwortet.",
+ "md.ui.vorschau.moral.plus": "Die Stimmung in der Mannschaft verbessert sich.",
+ "md.ui.vorschau.moral.minus": "Die Stimmung in der Mannschaft leidet.",
+ "md.ui.vorschau.moral.spieler.plus": "Der Spieler fühlt sich gewürdigt, seine Stimmung steigt.",
+ "md.ui.vorschau.moral.spieler.minus": "Der Spieler ist verärgert, seine Stimmung sinkt.",
+ "md.ui.vorschau.medienbild.plus": "Das Medienbild verbessert sich.",
+ "md.ui.vorschau.medienbild.minus": "Das Medienbild verschlechtert sich.",
+ "md.ui.vorschau.fanstimmung.plus": "Die Fans sind angetan.",
+ "md.ui.vorschau.fanstimmung.minus": "Die Fans sind verstimmt.",
+ "md.ui.vorschau.vorstandsvertrauen.plus": "Das Vertrauen des Vorstands wächst.",
+ "md.ui.vorschau.vorstandsvertrauen.minus": "Das Vertrauen des Vorstands sinkt.",
+ "md.ui.vorschau.geruecht.plus": "Das Gerücht gewinnt an Gewicht.",
+ "md.ui.vorschau.geruecht.minus": "Das Gerücht verliert an Gewicht.",
+ "md.ui.vorschau.geruecht.dementiert": "Das Medienbild gewinnt, wenn nichts an der Sache ist. Kommt der Wechsel doch, kostet das Glaubwürdigkeit bei Presse, Fans und Vorstand.",
+ "md.ui.vorschau.geruecht.kein_kommentar": "Keine unmittelbare Wirkung. Das Gerücht bleibt im Umlauf.",
+ "md.ui.vorschau.geruecht.bestaetigt": "Stimmt es, gewinnt das Medienbild etwas. Das Gerücht heizt sich auf.",
+ "md.ui.vorschau.angebot.annehmen": "Einigung zum Preis von %1. Der Wechsel wird vorbereitet, die Ablöse fließt erst beim Vollzug.",
+ "md.ui.vorschau.angebot.ablehnen": "Das Angebot verfällt, der Spieler bleibt im Kader.",
+ "md.ui.vorschau.angebot.verhandeln": "Du sprichst mit Spieler und Verein. Verlangst du mehr als %1, hängt die Antwort davon ab, wie wichtig der Spieler ist, und kann einige Tage dauern.",
+ "md.ui.leer.posteingang_neu": "Noch keine Meldungen. Sie entstehen nach dem nächsten Spieltag und mit jedem neu eingelesenen Spielstand.",
+ "md.ui.leer.zuletzt": "Zuletzt eingelesen",
+ "md.ui.leer.noch_nicht": "noch nicht",
+ "md.ui.wirk.fans": "Fans",
+ "md.ui.wirk.vorstand": "Vorstand",
+ "md.ui.wirk.kabine": "Kabine",
+ "md.ui.wirk.presse": "Presse",
+ "md.ui.wirk.keine": "Keine Wirkung",
+ "md.ui.wirk.letzte": "Letzte Konferenz, %1",
+ "md.ui.presse.frage_n": "%1 von %2 beantwortet",
+ "md.ui.zeitung.nach_pk": "Nach der Pressekonferenz",
+ "md.ui.zeitung.pressestelle": "Mitteilungen der Pressestelle",
+ "md.ui.zeitung.ausgaben": "Ausgaben",
+ "md.ui.protest.stufe": "Stimmung auf den Rängen",
+ "md.ui.protest.stufe.ruhig": "Ruhig",
+ "md.ui.protest.stufe.murren": "Gemurre",
+ "md.ui.protest.stufe.pfiffe": "Pfiffe",
+ "md.ui.protest.stufe.transparente": "Transparente",
+ "md.ui.protest.stufe.stadion": "Offener Protest",
+ "md.ui.protest.unter": "Fans %1 · Vorstand %2",
+ "md.ui.protest.serie": "Niederlagen in Folge",
+ "md.ui.protest.serie_unter": "Ab der zweiten Niederlage wird es auf den Rängen rauer.",
+ "md.ui.leer.proteste": "Auf den Rängen ist es ruhig.",
+ "md.pk.eroeffnung.sachlich": "%1 klappt den Block auf: „Drei Fragen, dann ist Feierabend.“",
+ "md.pk.eroeffnung.boulevard": "%1 grinst schon beim Hinsetzen. Die Überschrift steht längst, nur die Antwort fehlt noch.",
+ "md.pk.eroeffnung.wohlwollend": "%1 lächelt freundlich und stellt sein Diktiergerät auf. Heute wird nett gefragt, jedenfalls anfangs.",
+ "md.pk.eroeffnung.kritisch": "%1 hat einen Stapel Zettel dabei. Das sieht nach Hausaufgaben aus.",
+ "md.protest.ruhig.1": "Die Kurve singt, die Bratwurst ist heiß, der Trainer ist unbehelligt. Fast schon langweilig.",
+ "md.protest.ruhig.2": "Selbst der Stadionsprecher findet nichts zu meckern und fragt nach dem Wetter.",
+ "md.protest.ruhig.3": "Ein Fan hält ein Schild hoch: „Weiter so!“ Es ist das einzige Schild.",
+ "md.protest.murren.1": "Auf den Rängen wird gemurrt. Man hört es besonders gut, wenn der Ball ins Aus geht.",
+ "md.protest.murren.2": "Die Stammtische sind sich einig, nur worin, weiß noch keiner genau.",
+ "md.protest.murren.3": "Ein Dauerkartenbesitzer seufzt so laut, dass die Reihe vor ihm sich umdreht.",
+ "md.protest.pfiffe.1": "Nach dem Abpfiff gibt es Pfiffe. Der Schiedsrichter wähnt sich kurz gemeint.",
+ "md.protest.pfiffe.2": "Die Pfiffe sind so laut, dass der Greenkeeper vom Rasen aufschaut.",
+ "md.protest.pfiffe.3": "Aus der Südkurve kommt ein langgezogenes „Uuuh“, kein gutes.",
+ "md.protest.transparente.1": "Ein Transparent hängt am Zaun: „Mehr Leidenschaft oder Pizza für alle.“ Beides wäre gut.",
+ "md.protest.transparente.2": "Die Ultras haben ein Spruchband gemalt. Die Rechtschreibung ist schlecht, die Botschaft klar.",
+ "md.protest.transparente.3": "Vor dem Stadion verteilen Fans Flugblätter. Titel: „Wir müssen reden.“",
+ "md.protest.stadion.1": "Das Stadion ist in Aufruhr: Sprechchöre, Transparente, ein Megafon. Selbst die Maskottchen halten Abstand.",
+ "md.protest.stadion.2": "Der Fanklub fordert ein Gespräch, sofort, in Anwesenheit der Presse und einer Torte.",
+ "md.protest.stadion.3": "Vor der Geschäftsstelle steht eine Menschenkette. Sie singt. Falsch, aber sehr laut.",
+ "md.zeitung.pk.sachlich.ehrlich.titel": "Trainer nennt die Dinge beim Namen: „%1“",
+ "md.zeitung.pk.sachlich.ehrlich.text": "Offene Worte am Vortag. Man kann dem Trainer vieles vorwerfen, aber kein Drumherumreden. Gesagt am Vortag auf dem Podium.",
+ "md.zeitung.pk.sachlich.kaempferisch.titel": "Der Trainer will kämpfen: „%1“",
+ "md.zeitung.pk.sachlich.kaempferisch.text": "Die Ansage war deutlich. Nun muss die Mannschaft liefern, denn Ansagen allein gewinnen keine Spiele. Gesagt am Vortag auf dem Podium.",
+ "md.zeitung.pk.sachlich.ausweichend.titel": "Viele Worte, wenig Inhalt: „%1“",
+ "md.zeitung.pk.sachlich.ausweichend.text": "Die Pressekonferenz dauerte zwölf Minuten. Inhaltlich hätten es vier getan. Gesagt am Vortag auf dem Podium.",
+ "md.zeitung.pk.sachlich.lob.titel": "Der Trainer verteilt Lob: „%1“",
+ "md.zeitung.pk.sachlich.lob.text": "Warme Worte aus der Chefetage der Mannschaft. Die Kabine dürfte es gern gehört haben. Gesagt am Vortag auf dem Podium.",
+ "md.zeitung.pk.sachlich.kritik.titel": "Der Trainer wird deutlich: „%1“",
+ "md.zeitung.pk.sachlich.kritik.text": "Selten war er so direkt. Ob die Kabine die Botschaft ähnlich gelassen aufnimmt, bleibt abzuwarten. Gesagt am Vortag auf dem Podium.",
+ "md.zeitung.pk.boulevard.ehrlich.titel": "„%1“: Der Trainer packt aus!",
+ "md.zeitung.pk.boulevard.ehrlich.text": "So ehrlich war schon lange keiner. Der Chefredakteur hat vor Freude den Kaffee verschüttet. Gesagt am Vortag auf dem Podium.",
+ "md.zeitung.pk.boulevard.kaempferisch.titel": "Kampfansage! „%1“",
+ "md.zeitung.pk.boulevard.kaempferisch.text": "Der Trainer ballt die Fäuste, die Fans klatschen, der Gegner schluckt. Zumindest in unserer Fantasie. Gesagt am Vortag auf dem Podium.",
+ "md.zeitung.pk.boulevard.ausweichend.titel": "Trainer redet und redet: „%1“",
+ "md.zeitung.pk.boulevard.ausweichend.text": "Wir haben genau mitgeschrieben und trotzdem nichts notiert. Das muss man erst mal schaffen. Gesagt am Vortag auf dem Podium.",
+ "md.zeitung.pk.boulevard.lob.titel": "Liebesbrief an die Mannschaft: „%1“",
+ "md.zeitung.pk.boulevard.lob.text": "Fehlte nur noch ein Strauß Blumen. Die Kabine hat sich bereits einen Platz im Herzen des Trainers reserviert. Gesagt am Vortag auf dem Podium.",
+ "md.zeitung.pk.boulevard.kritik.titel": "Wutrede! „%1“",
+ "md.zeitung.pk.boulevard.kritik.text": "Die Kabine wird bis morgen früh knistern. Wir drücken die Daumen für die Schienbeinschoner. Gesagt am Vortag auf dem Podium.",
+ "md.zeitung.pk.wohlwollend.ehrlich.titel": "Aufrichtig und klar: „%1“",
+ "md.zeitung.pk.wohlwollend.ehrlich.text": "Wir mögen es, wenn jemand Klartext spricht, besonders wenn er dabei so sympathisch bleibt. Gesagt am Vortag auf dem Podium.",
+ "md.zeitung.pk.wohlwollend.kaempferisch.titel": "Mit Mut in das nächste Spiel: „%1“",
+ "md.zeitung.pk.wohlwollend.kaempferisch.text": "So klingt Zuversicht. Die Fans werden es zu schätzen wissen und die Bratwurstbuden auch. Gesagt am Vortag auf dem Podium.",
+ "md.zeitung.pk.wohlwollend.ausweichend.titel": "Der Trainer hält sich bedeckt: „%1“",
+ "md.zeitung.pk.wohlwollend.ausweichend.text": "Wir haben Verständnis. Man muss nicht jede Karte auf den Tisch legen, gerade vor dem Spiel. Gesagt am Vortag auf dem Podium.",
+ "md.zeitung.pk.wohlwollend.lob.titel": "Ein Trainer, der lobt: „%1“",
+ "md.zeitung.pk.wohlwollend.lob.text": "So macht man Stimmung. Wer so spricht, bekommt am Samstag bestimmt ein paar zusätzliche Meter. Gesagt am Vortag auf dem Podium.",
+ "md.zeitung.pk.wohlwollend.kritik.titel": "Der Trainer fordert mehr: „%1“",
+ "md.zeitung.pk.wohlwollend.kritik.text": "Klare Worte, aber nie unfair. Genau so entsteht ein Team, das nach vorn schaut. Gesagt am Vortag auf dem Podium.",
+ "md.zeitung.pk.kritisch.ehrlich.titel": "Zum Glück ehrlich: „%1“. Reicht das?",
+ "md.zeitung.pk.kritisch.ehrlich.text": "Das Eingeständnis ist ein Anfang. Auf dem Platz muss jetzt mehr passieren als Einsicht. Gesagt am Vortag auf dem Podium.",
+ "md.zeitung.pk.kritisch.kaempferisch.titel": "Große Töne: „%1“",
+ "md.zeitung.pk.kritisch.kaempferisch.text": "Wir haben das Zitat sicher abgelegt und schauen am Samstag nach, wie viel davon übrig bleibt. Gesagt am Vortag auf dem Podium.",
+ "md.zeitung.pk.kritisch.ausweichend.titel": "Nichts gesagt, alles gemeint: „%1“",
+ "md.zeitung.pk.kritisch.ausweichend.text": "Die Kunst des Nichtssagens beherrscht der Trainer inzwischen perfekt. Es ist die einzige Serie, die hält. Gesagt am Vortag auf dem Podium.",
+ "md.zeitung.pk.kritisch.lob.titel": "Lobhudelei? „%1“",
+ "md.zeitung.pk.kritisch.lob.text": "Schöne Worte kosten nichts. Die Tabelle schreibt allerdings mit, und die kennt keine Gnade. Gesagt am Vortag auf dem Podium.",
+ "md.zeitung.pk.kritisch.kritik.titel": "Der Trainer teilt aus: „%1“",
+ "md.zeitung.pk.kritisch.kritik.text": "Wer andere so kritisiert, sollte selbst liefern. Wir sehen es mit Interesse, und mit Notizblock. Gesagt am Vortag auf dem Podium.",
+ "md.zeitung.spiel.sachlich.s.titel": "%2 gegen %1: ein verdienter Sieg",
+ "md.zeitung.spiel.sachlich.s.text": "Die Mannschaft hat sauber gearbeitet, die Punkte sind eingetütet.",
+ "md.zeitung.spiel.sachlich.u.titel": "%2 gegen %1: ein Punkt, der keinen satt macht",
+ "md.zeitung.spiel.sachlich.u.text": "Ein Unentschieden, mit dem beide Seiten leben können, aber keine wirklich will.",
+ "md.zeitung.spiel.sachlich.n.titel": "%2 gegen %1: eine Niederlage mit Ansage",
+ "md.zeitung.spiel.sachlich.n.text": "Die Fehler waren zahlreich, die Erklärungen werden es auch sein.",
+ "md.zeitung.spiel.boulevard.s.titel": "%2! Gegen %1 fliegen die Hüte",
+ "md.zeitung.spiel.boulevard.s.text": "Wir haben getanzt, gesungen und den Nachbarn geweckt. Dankeschön!",
+ "md.zeitung.spiel.boulevard.u.titel": "%2 gegen %1: Remis, Schulterzucken, Bier",
+ "md.zeitung.spiel.boulevard.u.text": "Keiner hat verloren, keiner hat gewonnen. Das Bier schmeckte trotzdem.",
+ "md.zeitung.spiel.boulevard.n.titel": "%2 gegen %1: Autsch!",
+ "md.zeitung.spiel.boulevard.n.text": "Das tat weh, und zwar nicht nur den Fans. Der Rasen hat auch gelitten.",
+ "md.zeitung.spiel.wohlwollend.s.titel": "Schöner Sieg gegen %1: %2",
+ "md.zeitung.spiel.wohlwollend.s.text": "So darf es weitergehen. Die Mannschaft hat es verdient, heute gelobt zu werden.",
+ "md.zeitung.spiel.wohlwollend.u.titel": "Gegen %1 bleibt es bei %2",
+ "md.zeitung.spiel.wohlwollend.u.text": "Ein Punkt in einem engen Spiel. Es war mehr drin, aber es war auch weniger möglich.",
+ "md.zeitung.spiel.wohlwollend.n.titel": "%2 gegen %1: Kopf hoch",
+ "md.zeitung.spiel.wohlwollend.n.text": "Es war nicht der Tag der Mannschaft. Der nächste kommt bestimmt.",
+ "md.zeitung.spiel.kritisch.s.titel": "%2 gegen %1: Sieg, aber nicht schön",
+ "md.zeitung.spiel.kritisch.s.text": "Drei Punkte sind drei Punkte. Von der Leistung bleibt allerdings wenig im Gedächtnis.",
+ "md.zeitung.spiel.kritisch.u.titel": "%2 gegen %1: ein Remis zum Gähnen",
+ "md.zeitung.spiel.kritisch.u.text": "Wer hier Spannung gesucht hat, hätte besser die Tabelle gelesen.",
+ "md.zeitung.spiel.kritisch.n.titel": "%2 gegen %1: das war zu wenig",
+ "md.zeitung.spiel.kritisch.n.text": "Wir haben uns die Niederlage angesehen und fragen uns, wer den Plan hatte.",
+ "md.ui.fehler.abgeschlossen": "Diese Frage ist beantwortet, daran ändert sich nichts mehr.",
+ "md.ui.fehler.nicht_moeglich": "Das geht gerade nicht.",
+ "md.ui.fehler.konferenz_unbekannt": "Zu dieser Nachricht gibt es keine Pressekonferenz.",
+ "md.ui.fehler.modus_aus": "Pressekonferenzen sind abgeschaltet.",
+ "md.ui.ok.konferenz_gestartet": "Die Pressekonferenz beginnt.",
+ "md.ui.konferenz.status.offen": "Läuft",
+ "md.ui.konferenz.status.gehalten": "Gehalten",
+ "md.ui.konferenz.status.verfallen": "Nicht wahrgenommen",
+ "md.ui.konferenz.folgen_offen": "Noch keine Antwort gegeben.",
+ "md.ui.konferenz.artikel_morgen": "Am Folgetag erscheinen Artikel zu deinen Antworten.",
+ "md.ui.ton.diplomatisch": "Diplomatisch",
+ "md.ui.ton.kontern": "Kontern",
+ "md.antwort.diplomatisch": [
+  "Jeder sieht das ein bisschen anders, und ich verstehe die Sorgen. Wir reden miteinander.",
+  "Da gibt es gute Argumente auf beiden Seiten, und wir suchen den gemeinsamen Weg."
+ ],
+ "md.antwort.kontern": [
+  "Spannende These. Haben Sie dafür auch einen Beleg, oder reicht die Überschrift?",
+  "Wenn ich jede Schlagzeile ernst nähme, hätte ich diese Mannschaft längst aufgelöst."
+ ],
+ "md.nachhaken.ehrlich": [
+  "Das ist offen. Muss man daraus schließen, dass es intern Streit gab?",
+  "Danke für die Offenheit. Wie wollen Sie das in den Griff bekommen?"
+ ],
+ "md.nachhaken.kaempferisch": [
+  "Große Worte. Woran sollen wir festmachen, dass Sie sie halten?",
+  "Das klingt selbstsicher. Und wenn es wieder schiefgeht?"
+ ],
+ "md.nachhaken.ausweichend": [
+  "Das war keine Antwort. Ich frage lieber noch einmal nach.",
+  "Sie weichen aus. Gibt es etwas, das Sie uns nicht sagen wollen?"
+ ],
+ "md.nachhaken.lob": [
+  "Nett gesagt. Aber ist das nicht ein bisschen viel Zuckerguss?",
+  "Sie loben viel. Gibt es auch etwas, das nicht gut lief?"
+ ],
+ "md.nachhaken.kritik": [
+  "Eine deutliche Ansage. Sagen Sie das der Mannschaft auch so ins Gesicht?",
+  "Das wird in der Kabine nicht gut ankommen. Ist Ihnen das egal?"
+ ],
+ "md.nachhaken.diplomatisch": [
+  "Sehr abgewogen. Aber wo stehen Sie persönlich?",
+  "Ein salomonisches Urteil. Und wenn Sie sich entscheiden müssten?"
+ ],
+ "md.nachhaken.kontern": [
+  "Eine Gegenfrage ist auch eine Antwort. Ich frage trotzdem weiter.",
+  "Schlagfertig, das gebe ich zu. Beantworten Sie mir die Frage noch?"
+ ],
+ "md.reaktion.murmeln": [
+  "Auf der Pressebank wird getuschelt, Stifte kratzen über die Blöcke.",
+  "Ein Murmeln geht durch die Reihen, und einige Köpfe senken sich über die Notizen."
+ ],
+ "md.reaktion.applaus": [
+  "Im Raum wird zustimmend genickt, hier und da klopft jemand auf den Tisch.",
+  "Ein paar Journalisten klatschen leise, die Stimmung im Saal hellt sich auf."
+ ],
+ "md.reaktion.blitzlicht": [
+  "Die Kameras klicken, Blitzlicht füllt den Raum.",
+  "Mehrere Fotografen drücken gleichzeitig ab, das Bild ist im Kasten."
+ ],
+ "md.schlagzeile.ehrlich": [
+  "Trainer redet Klartext: „Ich sage es, wie es ist“",
+  "Offene Worte auf dem Podium: Der Trainer legt die Karten auf den Tisch"
+ ],
+ "md.schlagzeile.kaempferisch": [
+  "Trainer kündigt Kampfansage an",
+  "Selbstbewusster Auftritt: „Wir geben nicht auf“"
+ ],
+ "md.schlagzeile.ausweichend": [
+  "Trainer weicht aus: Viele Fragen bleiben offen",
+  "Auf dem Podium nichts Neues: Der Trainer sagt wenig und meint viel"
+ ],
+ "md.schlagzeile.lob": [
+  "Trainer verteilt Lob an die Mannschaft",
+  "Große Geste: Der Trainer stellt sich vor seine Spieler"
+ ],
+ "md.schlagzeile.kritik": [
+  "Trainer rechnet öffentlich ab",
+  "Scharfe Töne: Der Trainer spart nicht mit Kritik"
+ ],
+ "md.schlagzeile.diplomatisch": [
+  "Trainer gibt sich diplomatisch und wägt ab",
+  "Ruhiger Auftritt: Der Trainer sucht den Ausgleich"
+ ],
+ "md.schlagzeile.kontern": [
+  "Trainer kontert und lässt Journalisten abblitzen",
+  "Schlagabtausch im Pressesaal: Der Trainer gibt Contra"
+ ],
+ "md.pk.sprecher.name": "Pressesprecher",
+ "md.pk.sprecher.vor": [
+  "Guten Tag, meine Damen und Herren, wir beginnen. Der Trainer steht vor dem Spiel gegen %1 für Ihre Fragen bereit.",
+  "Bitte nehmen Sie Platz. Wir sprechen heute vor dem Spiel gegen %1, die erste Frage bitte."
+ ],
+ "md.pk.sprecher.nach": [
+  "Guten Abend, wir beginnen die Pressekonferenz nach dem Spiel gegen %1. Bitte die erste Wortmeldung.",
+  "Ich begrüße Sie zur Nachbesprechung des Spiels gegen %1. Der Trainer beantwortet Ihre Fragen."
+ ],
+ "md.pk.sprecher.interview": [
+  "Willkommen, dies ist ein kurzes Gespräch, der Trainer nimmt sich Zeit für Ihre Fragen.",
+  "Wir sind bereit, bitte beginnen Sie mit Ihrer ersten Frage."
+ ],
+ "md.pk.schluss": [
+  "Der Pressesprecher beendet die Konferenz: „Vielen Dank, das war es für heute.“",
+  "„Das war die letzte Frage“, ruft der Pressesprecher, und die Reporter packen ihre Sachen zusammen."
+ ]
+}

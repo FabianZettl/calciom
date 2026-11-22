@@ -1,0 +1,88 @@
+{
+ "gs.angebot.eroeffnung": [
+  "%1 has made an offer for %2: %3. The clock is ticking, we should talk.",
+  "%1 means it, sportingly and financially: %3 for %2."
+ ],
+ "gs.angebot.haltung.unbedingt": [
+  "“%1? That is where I want to go. Please let me leave.”",
+  "“%1 has always been my dream. If it works out, I'm the happiest man alive.”"
+ ],
+ "gs.angebot.haltung.chance": [
+  "“%1, I see this as a great chance for my future.”",
+  "“A step up, %1 is a chance that doesn't come twice.”"
+ ],
+ "gs.angebot.haltung.offen": [
+  "“I'll hear what %1 has to offer, nothing is decided yet.”",
+  "“%1 is interesting. I'll stay open if the terms are right.”"
+ ],
+ "gs.angebot.haltung.zoegernd": [
+  "“I'm torn about %1. Quite a lot would have to be right.”",
+  "“Honestly, I don't know whether I want %1. Let's talk.”"
+ ],
+ "gs.angebot.haltung.bleiben": [
+  "“I don't want to leave, not even for %1. I'm staying.”",
+  "“Thanks for %1, but this is home. Please don't sell me.”"
+ ],
+ "gs.angebot.grund.ehrgeiz.plus": "He wants to achieve more.",
+ "gs.angebot.grund.ehrgeiz.minus": "His ambition is modest.",
+ "gs.angebot.grund.ruf.plus": "%1 is a bigger club.",
+ "gs.angebot.grund.ruf.minus": "%1 is not a step up.",
+ "gs.angebot.grund.loyalitaet.plus": "His bond with the club is not strong.",
+ "gs.angebot.grund.loyalitaet.minus": "He is attached to the club.",
+ "gs.angebot.grund.wechselbereitschaft.plus": "He has already thought about leaving.",
+ "gs.angebot.grund.wechselbereitschaft.minus": "Leaving is far from his mind.",
+ "gs.angebot.grund.rolle.plus": "He is not irreplaceable here.",
+ "gs.angebot.grund.rolle.minus": "He is an important man for the team.",
+ "gs.angebot.grund.spielzeit.plus": "He doesn't play enough.",
+ "gs.angebot.grund.spielzeit.minus": "He plays a lot and wants to keep it that way.",
+ "gs.angebot.grund.moral.plus": "He is unhappy.",
+ "gs.angebot.grund.moral.minus": "He feels at home.",
+ "gs.angebot.grund.vertrag.plus": "His contract runs out soon.",
+ "gs.angebot.grund.vertrag.minus": "His contract runs for a long time yet.",
+ "gs.angebot.grund.gehalt.plus": "He would earn more there.",
+ "gs.angebot.grund.gehalt.minus": "He would earn less there.",
+ "gs.angebot.ohne_zustimmung": "He will not be sold against his will. Talk to him first.",
+ "gs.ui.angebot.wartet": "The club is expected to reply on %1.",
+ "gs.ui.angebot.einig": "Agreement with %1. The move can be completed.",
+ "gs.ui.angebot.vollziehen": "Complete the move",
+ "gs.ui.angebot_spieler": "Hear the player",
+ "gs.ui.angebot_ablehnen": "Reject the offer",
+ "gs.ui.ok.angebot_begonnen": "The talks about the offer begin.",
+ "gs.ui.ok.angebot_spieler": "You talk to the player.",
+ "gs.ui.ok.angebot_abgelehnt": "The offer is rejected. The player stays.",
+ "gs.ui.fehler.spieler_will_bleiben": "He wants to stay and does not agree to the sale. Talk to him first.",
+ "gs.ui.fehler.wartet": "The club has not replied yet.",
+ "gs.ui.fehler.angebot_vorbei": "The offer is no longer valid.",
+ "gs.ui.fehler.kein_angebot": "There are no talks for this offer.",
+ "gs.vorfall.angebot_antwort_annahme.betreff": "Agreement on %1",
+ "gs.vorfall.angebot_antwort_annahme.text": "The sale of %1 is agreed. Complete the move when you are ready.",
+ "gs.vorfall.angebot_antwort_gegen.betreff": "New offer for %1",
+ "gs.vorfall.angebot_antwort_gegen.text": "The club has replied to your proposal and bids again for %1. Take a look.",
+ "gs.vorfall.angebot_antwort_ablehnung.betreff": "The club withdraws: %1",
+ "gs.vorfall.angebot_antwort_ablehnung.text": "The club rejected your proposal for %1 and withdraws the offer.",
+ "gs.vorfall.angebot_antwort_offen.betreff": "Reply to the offer for %1",
+ "gs.vorfall.angebot_antwort_offen.text": "The club has replied, details are in the conversation.",
+ "gs.vorfall.angebot_antwort_spieler_will_bleiben.betreff": "%1 wants to stay",
+ "gs.vorfall.angebot_antwort_spieler_will_bleiben.text": "The player does not agree to the sale. Talk to him.",
+ "dlg.punkt.verkauf_ok": "consent to the move",
+ "dlg.stufe.verkauf_ok.0": "no special promises",
+ "dlg.stufe.verkauf_ok.1": "an open word about your future",
+ "dlg.stufe.verkauf_ok.2": "a transfer bonus",
+ "dlg.stufe.verkauf_ok.3": "a share of the fee",
+ "dlg.anliegen.verkauf_ok": [
+  "For that I expect %3."
+ ],
+ "dlg.einigung.verkauf_ok": [
+  "That settles it: %3."
+ ],
+ "dlg.eroeffnung.angebot": [
+  "%1 has heard about the offer: “There is an offer. What are your plans?”",
+  "%1 says: “I hear a club wants me. Let's talk about it.”"
+ ],
+ "gs.thema.angebot": "Discuss the offer",
+ "gs.frage.angebot.0": [
+  "There is an offer for me. What are your plans?"
+ ],
+ "tf.aktion.besprechen": "Discuss",
+ "tv.aktion.besprechen": "Discuss"
+}

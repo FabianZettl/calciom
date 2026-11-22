@@ -1,0 +1,115 @@
+{
+ "pool.b.gruss": [
+  "Gaffer,",
+  "Boss,",
+  "Got a minute?"
+ ],
+ "pool.b.gruss.hitzig": [
+  "Gaffer, this can't go on!",
+  "Gaffer, that's enough!"
+ ],
+ "pool.b.gruss.loyal": [
+  "Gaffer, I don't like coming to you with this, but:",
+  "Gaffer, I've always played for you, so I'll say it openly:"
+ ],
+ "pool.b.gruss.ehrgeizig": [
+  "Gaffer, I want to play.",
+  "Gaffer, I want more than the bench."
+ ],
+ "pool.b.gruss.sensibel": [
+  "Gaffer, it's not easy for me to bring this up.",
+  "Gaffer, I thought long about whether to come."
+ ],
+ "pool.b.gruss.gelassen": [
+  "Gaffer, a quick word between us.",
+  "Gaffer, calmly put:"
+ ],
+ "pool.b.gruss.wechselfreudig": [
+  "Gaffer, I'll be open:",
+  "Gaffer, let me be honest:"
+ ],
+ "pool.b.gruss.launisch": [
+  "Gaffer… oh, never mind. No, I'll say it.",
+  "Gaffer, I wasn't sure today whether to come."
+ ],
+ "pool.b.klage": [
+  "I've been out for {spiele} games.",
+  "I haven't got a look-in for {spiele} games."
+ ],
+ "pool.b.klage.hitzig": [
+  "I've been on the bench for {spiele} games, it's a disgrace.",
+  "{spiele} games without me, and nobody says a thing."
+ ],
+ "pool.b.klage.loyal": [
+  "I haven't been on the pitch for {spiele} games.",
+  "I watched the last {spiele} games and kept quiet."
+ ],
+ "pool.b.klage.ehrgeizig": [
+  "I've missed {spiele} games and want to know what I need to change.",
+  "{spiele} games without a minute: that doesn't fit my goals."
+ ],
+ "pool.b.gut": [
+  "Good.",
+  "All right."
+ ],
+ "pool.b.gut.loyal": [
+  "Thank you, gaffer.",
+  "That means a lot to me."
+ ],
+ "pool.b.gut.ehrgeizig": [
+  "Then I'll deliver.",
+  "Okay, now I'll get going."
+ ],
+ "pool.b.gut.hitzig": [
+  "There we go.",
+  "At last someone speaks plainly."
+ ],
+ "pool.b.neutral": [
+  "Hm.",
+  "Well."
+ ],
+ "pool.b.neutral.sensibel": [
+  "Hm, I don't know.",
+  "I'm not sure."
+ ],
+ "pool.b.neutral.launisch": [
+  "Up and down.",
+  "Today it's hard to say anything about it."
+ ],
+ "pool.b.schlecht": [
+  "That's not enough.",
+  "No."
+ ],
+ "pool.b.schlecht.hitzig": [
+  "That's a joke!",
+  "Oh, stop it!"
+ ],
+ "pool.b.schlecht.sensibel": [
+  "That hurts.",
+  "I didn't expect that."
+ ],
+ "pool.b.schlecht.wechselfreudig": [
+  "Then that was it, I suppose.",
+  "Good to know."
+ ],
+ "pool.zusageart.spielzeit": "playing time",
+ "pool.zusageart.rolle": "role",
+ "pool.zusageart.vertrag": "contract",
+ "pool.zusageart.gehalt": "wage",
+ "pool.zusageart.freigabe": "release",
+ "pool.frist": ["in %1 days"],
+ "pool.b.gut.sensibel": ["Thanks, that calms me.", "It's good to hear that."],
+ "pool.b.gut.gelassen": ["Fine, I can live with that.", "Works for me."],
+ "pool.b.gut.wechselfreudig": ["All right, then I'll stick around for now.", "Okay, that's a word."],
+ "pool.b.gut.launisch": ["Well, you're really nice today.", "Fine, I'll let myself be convinced today."],
+ "pool.b.neutral.hitzig": ["Let's wait and see, but I'll keep an eye on it.", "Hm, that has to prove itself first."],
+ "pool.b.neutral.loyal": ["I understand you, but I'm not entirely convinced.", "I trust you, even if it's hard."],
+ "pool.b.neutral.ehrgeizig": ["That's not enough for me yet, I want to see action.", "We'll see whether anything comes of it."],
+ "pool.b.neutral.gelassen": ["Can be done.", "We'll see."],
+ "pool.b.neutral.wechselfreudig": ["I'll listen and see what comes up.", "Let's see how long that lasts."],
+ "pool.b.schlecht.loyal": ["That disappoints me, gaffer.", "I didn't expect that from you."],
+ "pool.b.schlecht.ehrgeizig": ["That gets me nowhere.", "That's not how I reach my goals."],
+ "pool.b.schlecht.gelassen": ["I see it differently, but fine.", "A pity, but I'll accept it."],
+ "pool.b.schlecht.launisch": ["You know what, I've had enough today.", "Oh, leave me alone."],
+ "pool.entscheidung.zusage_wort": ["You gave your word."]
+}

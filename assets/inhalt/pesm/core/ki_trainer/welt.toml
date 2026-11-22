@@ -1,0 +1,49 @@
+# KI-Trainer-Welt: Spielidee, Reaktion auf Ergebnisse, Spielwichtigkeit, Entlassung und Einstellung. Eigene Festlegungen von PESM (Startwerte, nicht kalibriert).
+
+# Spielidee: Regler 1 … 10 und Schalter (offensivstil 1 Ballbesitz / 0 Konter; pressing 0 aggressiv / 1 defensiv). passt = Gewichte je Linie der Formation (Abwehr+Sechser, Mitte, Sturm).
+[idee.ballbesitz]
+regler = { abwehrreihe = 7, kompaktheit = 5, unterstuetzungsbereich = 6 }
+schalter = { offensivstil = 1, pressing = 1 }
+passt = { abwehr = -0.3, mitte = 1.0, sturm = 0.0 }
+[idee.pressing]
+regler = { abwehrreihe = 9, kompaktheit = 7, unterstuetzungsbereich = 6 }
+schalter = { offensivstil = 1, pressing = 0 }
+passt = { abwehr = 0.0, mitte = 0.6, sturm = 0.6 }
+[idee.fluegel]
+regler = { abwehrreihe = 6, kompaktheit = 4, unterstuetzungsbereich = 8 }
+schalter = { offensivstil = 1, pressing = 1 }
+passt = { abwehr = 0.2, mitte = 0.2, sturm = 0.5 }
+[idee.konter]
+regler = { abwehrreihe = 4, kompaktheit = 6, unterstuetzungsbereich = 4 }
+schalter = { offensivstil = 0, pressing = 1 }
+passt = { abwehr = 0.5, mitte = 0.0, sturm = 0.4 }
+[idee.tiefer_block]
+regler = { abwehrreihe = 2, kompaktheit = 8, unterstuetzungsbereich = 3 }
+schalter = { offensivstil = 0, pressing = 1 }
+passt = { abwehr = 1.0, mitte = 0.2, sturm = -0.3 }
+
+# Reaktion auf Ergebnisse (letzte `spiele` Spiele). reagiert = false: der Trainer ändert die Regler wegen Ergebnissen nicht (starr, dogmatisch).
+[reaktion]
+spiele = 4
+gegentore_hoch = 2.0        # Schnitt Gegentore je Spiel, ab dem er defensiver wird
+tore_tief = 0.6             # Schnitt Tore je Spiel, darunter wird er offensiver
+schritt = 1                 # Stufen je Anpassung (Abwehrreihe, Kompaktheit, Unterstützung)
+siege_ab = 2                # Siege in Folge: beibehalten, die Linie etwas höher
+siege_schritt = 1
+linie_max = 9
+[reaktion.typ]
+starr = false
+reaktiv = true
+experimentierfreudig = true
+dogmatisch = false
+pragmatisch = true
+
+# Spielwichtigkeit -> Modus der Elf
+[spiel]
+topspiel_platz = 4          # Gegner in den ersten Plätzen (und selbst Spitze)
+gegner_schwach = 8.0        # so viel schwächer (Stärkepunkte): gegen viel Schwächere wird rotiert
+dicht_ab = 3                # Spiele in den nächsten 8 Tagen, ab denen Müde geschont werden
+schonen_kondition = 65
+rotation_max = 4            # Wechsel je Spiel bei Rotation
+rotation_spielraum = 4.0    # Ersatz höchstens so viel schwächer
+jung_bis = 22

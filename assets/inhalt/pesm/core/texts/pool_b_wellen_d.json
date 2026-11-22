@@ -1,0 +1,102 @@
+{
+ "pool.b.talent_wartet_auf_einsatz_lage": [
+  "{name} sitzt Woche für Woche draußen und wartet auf seine Minuten.",
+  "Im Training reißt sich {name} die Beine aus, im Kader findet er trotzdem kaum statt."
+ ],
+ "pool.b.talent_wartet_auf_einsatz_lage.hitzig": [
+  "{name} kocht, weil er immer nur zuschauen darf!",
+  "Bei {name} geht langsam der Deckel hoch, so lange wie er schon wartet!"
+ ],
+ "pool.b.talent_wartet_auf_einsatz_lage.loyal": [
+  "{name} beklagt sich nicht, aber man sieht ihm an, wie sehr er sich einen Einsatz wünscht.",
+  "{name} würde alles für den Verein tun, nur lässt man ihn nicht."
+ ],
+ "pool.b.talent_wartet_auf_einsatz_lage.ehrgeizig": [
+  "{name} will beweisen, was er kann, und bekommt keine Bühne dafür.",
+  "{name} hat den Ehrgeiz für die erste Elf, nur nicht die Minuten."
+ ],
+ "pool.b.talent_wartet_auf_einsatz_lage.wechselfreudig": [
+  "{name} schaut sich schon um, wo er spielen würde.",
+  "Für {name} zählt Spielpraxis, und wenn sie hier ausbleibt, sucht er sie anderswo."
+ ],
+ "pool.b.talent_wartet_auf_einsatz_lage.sensibel": [
+  "{name} wird stiller, je länger er außen vor bleibt.",
+  "Man merkt, dass {name} unter dem Warten leidet, auch wenn er es überspielt."
+ ],
+ "pool.b.mentor_vorschlag_lage": [
+  "{name} wirkt für sein Alter oft auf sich gestellt.",
+  "Bei {name} merke ich, dass ihm im Alltag ein erfahrener Ansprechpartner fehlt."
+ ],
+ "pool.b.mentor_vorschlag_lage.hitzig": [
+  "{name} braucht jemanden, der ihn bremst, bevor er sich wieder in etwas hineinsteigert.",
+  "{name} schießt gern über das Ziel hinaus, und niemand holt ihn zurück."
+ ],
+ "pool.b.mentor_vorschlag_lage.loyal": [
+  "{name} würde für den Klub alles geben, nur weiß er nicht, an wen er sich wenden soll.",
+  "{name} will sich einfügen und traut sich nicht, die Älteren anzusprechen."
+ ],
+ "pool.b.mentor_vorschlag_lage.ehrgeizig": [
+  "{name} will schnell nach oben, ihm fehlt aber jemand, der ihm den Weg zeigt.",
+  "{name} hat Talent und Ehrgeiz, doch ohne Führung verzettelt er sich."
+ ],
+ "pool.b.mentor_vorschlag_lage.wechselfreudig": [
+  "{name} ist noch nicht bei uns angekommen, ein Ansprechpartner könnte ihn halten.",
+  "{name} sieht sich schon woanders, ein Vorbild im Kader würde ihn vielleicht binden."
+ ],
+ "pool.b.mentor_vorschlag_lage.sensibel": [
+  "{name} nimmt sich alles sehr zu Herzen und braucht jemanden zum Reden.",
+  "{name} frisst vieles in sich hinein, ein Mentor könnte ihm das Reden leichter machen."
+ ],
+ "pool.b.verantwortung_gewuenscht_lage": [
+  "Trainer, ich fühle mich hier richtig wohl und habe ein Anliegen.",
+  "Trainer, es läuft für mich gut, und gerade deshalb komme ich zu dir."
+ ],
+ "pool.b.verantwortung_gewuenscht_lage.hitzig": [
+  "Trainer, ich renne hier jede Woche voran, und andere reden mir trotzdem rein!",
+  "Trainer, ich bin bereit für mehr, und ich will nicht länger zögern!"
+ ],
+ "pool.b.verantwortung_gewuenscht_lage.loyal": [
+  "Trainer, ich bin gern hier und will dem Verein mehr zurückgeben.",
+  "Trainer, dieser Klub hat mir viel gegeben, jetzt möchte ich etwas übernehmen."
+ ],
+ "pool.b.verantwortung_gewuenscht_lage.ehrgeizig": [
+  "Trainer, ich habe mir etwas vorgenommen und will den nächsten Schritt gehen.",
+  "Trainer, ein Stammplatz allein reicht mir nicht, ich will diese Mannschaft mitprägen."
+ ],
+ "pool.b.verantwortung_gewuenscht_lage.wechselfreudig": [
+  "Trainer, mir geht es gut hier, aber ich will wissen, was in diesem Klub für mich drin ist.",
+  "Trainer, ich fühle mich wohl, dennoch frage ich mich, wohin das führt."
+ ],
+ "pool.b.verantwortung_gewuenscht_lage.sensibel": [
+  "Trainer, ich war unsicher, ob ich das ansprechen soll, aber es liegt mir am Herzen.",
+  "Trainer, es fällt mir nicht leicht, so etwas zu sagen, aber ich fühle es seit Wochen."
+ ],
+ "pool.b.verlaengern_frueh_gruss": [
+  "Sehr geehrter Trainer,",
+  "Guten Tag, Trainer, ich melde mich mit einem Anliegen."
+ ],
+ "pool.b.verlaengern_frueh_lage": [
+  "Mein Mandant {name} ist zufrieden bei Ihnen, und der Vertrag läuft noch eine Weile.",
+  "{name} fühlt sich im Verein wohl, und ich würde das gern in Ruhe absichern."
+ ],
+ "pool.b.verlaengern_frueh_lage.hitzig": [
+  "{name} ist voller Elan und will klare Verhältnisse, solange es gut läuft.",
+  "{name} hat mich angerufen und verlangt, dass wir jetzt Nägel mit Köpfen machen."
+ ],
+ "pool.b.verlaengern_frueh_lage.loyal": [
+  "{name} hängt an diesem Verein und möchte langfristig bleiben.",
+  "{name} hat mir gesagt, dass er hier alt werden könnte."
+ ],
+ "pool.b.verlaengern_frueh_lage.ehrgeizig": [
+  "{name} ist in Bestform und will, dass sich das in seinem Vertrag niederschlägt.",
+  "{name} sieht sich auf dem Weg nach oben und möchte das vertraglich festhalten."
+ ],
+ "pool.b.verlaengern_frueh_lage.wechselfreudig": [
+  "{name} fühlt sich wohl, hört aber auch, was andere Vereine bieten.",
+  "{name} ist zufrieden, doch Anfragen von außen gibt es bereits."
+ ],
+ "pool.b.verlaengern_frueh_lage.sensibel": [
+  "{name} hätte gern Sicherheit, denn sie gibt ihm Ruhe.",
+  "{name} schläft besser, wenn er weiß, wie es weitergeht."
+ ]
+}

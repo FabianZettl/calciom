@@ -1,0 +1,418 @@
+# Fachliche Pakete der Gesprächsbereiche (Sitzung H3): Themen, Punkte, Anrede und Zwischenereignisse. Der Kern (motor.py) ist für alle gleich.
+# Punkt: stufen = Zahl der Zugeständnisstufen (0 = nichts), nachfrage = Spanne der anfänglichen Forderung des Gegenübers (Stufe),
+#        zusage = Art des Versprechens, das ein Zugeständnis ab `zusage_ab` bindet (leer = keines).
+
+[register]            # Anrede des Trainers und Stil des Gegenübers
+spieler = { anrede = "du", stil = "spieler" }
+trainer = { anrede = "du", stil = "spieler" }
+berater = { anrede = "sie", stil = "formell" }
+verein = { anrede = "sie", stil = "formell" }
+presse = { anrede = "sie", stil = "formell" }
+vorstand = { anrede = "sie", stil = "formell" }
+fans = { anrede = "sie", stil = "spieler" }
+jugend = { anrede = "sie", stil = "spieler" }
+
+[punkt.spielzeit]
+stufen = 3
+nachfrage = [1, 2]
+zusage = "spielzeit"
+zusage_ab = 1
+[punkt.rolle]
+stufen = 3
+nachfrage = [1, 2]
+zusage = "rolle"
+zusage_ab = 1
+[punkt.zukunft]
+stufen = 4
+nachfrage = [1, 3]
+zusage = "vertrag"
+zusage_ab = 2
+[punkt.heimweh]
+stufen = 3
+nachfrage = [1, 2]
+zusage = ""
+zusage_ab = 9
+[punkt.streit]
+stufen = 3
+nachfrage = [1, 2]
+zusage = ""
+zusage_ab = 9
+[punkt.wechselwunsch]
+stufen = 4
+nachfrage = [1, 3]
+zusage = "freigabe"
+zusage_ab = 2
+[punkt.provision]
+stufen = 4
+nachfrage = [1, 3]
+zusage = ""
+zusage_ab = 9
+[punkt.angebote]
+stufen = 3
+nachfrage = [1, 2]
+zusage = ""
+zusage_ab = 9
+[punkt.leihe]
+stufen = 3
+nachfrage = [1, 2]
+zusage = ""
+zusage_ab = 9
+[punkt.klauseln]
+stufen = 3
+nachfrage = [1, 2]
+zusage = ""
+zusage_ab = 9
+[punkt.tausch]
+stufen = 3
+nachfrage = [1, 2]
+zusage = ""
+zusage_ab = 9
+[punkt.interview]
+stufen = 4
+nachfrage = [1, 3]
+zusage = ""
+zusage_ab = 9
+[punkt.dementi]
+stufen = 3
+nachfrage = [1, 2]
+zusage = ""
+zusage_ab = 9
+[punkt.kommentar]
+stufen = 3
+nachfrage = [1, 2]
+zusage = ""
+zusage_ab = 9
+[punkt.training]
+stufen = 3
+nachfrage = [1, 2]
+zusage = ""
+zusage_ab = 9
+[punkt.perspektive]
+stufen = 3
+nachfrage = [1, 2]
+zusage = ""
+zusage_ab = 9
+[punkt.akademie]
+stufen = 3
+nachfrage = [1, 2]
+zusage = ""
+zusage_ab = 9
+[punkt.budget]
+stufen = 4
+nachfrage = [1, 3]
+zusage = ""
+zusage_ab = 9
+[punkt.ziele]
+stufen = 3
+nachfrage = [1, 2]
+zusage = ""
+zusage_ab = 9
+[punkt.preise]
+stufen = 3
+nachfrage = [1, 2]
+zusage = ""
+zusage_ab = 9
+[punkt.protest]
+stufen = 3
+nachfrage = [1, 2]
+zusage = ""
+zusage_ab = 9
+
+# Themen: bereich, punkte (leer = Stimmungsgespräch ohne Verhandlungspunkt), eroeffnung = erste Absicht des Gegenübers,
+#         min_runden / max_runden (die Länge variiert je Gespräch), alt = frühere Kennung in gespraeche.toml
+[thema.spielzeit]
+bereich = "spieler"
+punkte = ["spielzeit"]
+eroeffnung = "fordernd"
+min_runden = 2
+max_runden = 7
+anliegen = "spielzeit"
+[thema.rolle]
+bereich = "spieler"
+punkte = ["rolle"]
+eroeffnung = "frage"
+min_runden = 2
+max_runden = 7
+anliegen = "rolle"
+[thema.form]
+bereich = "spieler"
+punkte = []
+eroeffnung = "verletzt"
+min_runden = 2
+max_runden = 5
+anliegen = "form"
+[thema.lob]
+bereich = "spieler"
+punkte = []
+eroeffnung = "frage"
+min_runden = 1
+max_runden = 3
+[thema.kritik]
+bereich = "spieler"
+punkte = []
+eroeffnung = "misstrauisch"
+min_runden = 2
+max_runden = 5
+[thema.zukunft]
+bereich = "spieler"
+punkte = ["zukunft"]
+eroeffnung = "frage"
+min_runden = 2
+max_runden = 7
+anliegen = "vertrag"
+[thema.heimweh]
+bereich = "spieler"
+punkte = ["heimweh"]
+eroeffnung = "verletzt"
+min_runden = 2
+max_runden = 6
+[thema.streit]
+bereich = "spieler"
+punkte = ["streit"]
+eroeffnung = "fordernd"
+min_runden = 2
+max_runden = 6
+[thema.wechselwunsch]
+bereich = "spieler"
+punkte = ["wechselwunsch"]
+eroeffnung = "fordernd"
+min_runden = 3
+max_runden = 8
+[thema.transferinteresse]       # Sondierung vor einem Angebot: Haltung eines fremden Spielers zu einem Wechsel zu uns (Ergebnis geht an den Transfer-Kern, `sondierung`)
+bereich = "spieler"
+punkte = []
+eroeffnung = "frage"
+min_runden = 2
+max_runden = 5
+[thema.verletzungsangst]
+bereich = "spieler"
+punkte = []
+eroeffnung = "verletzt"
+min_runden = 2
+max_runden = 5
+[thema.kapitaen]
+bereich = "spieler"
+punkte = []
+eroeffnung = "fordernd"
+min_runden = 2
+max_runden = 5
+[thema.belastung]
+bereich = "spieler"
+punkte = []
+eroeffnung = "verletzt"
+min_runden = 2
+max_runden = 5
+[thema.marktlage]
+bereich = "berater"
+punkte = []
+eroeffnung = "frage"
+min_runden = 2
+max_runden = 5
+[thema.provision]
+bereich = "berater"
+punkte = ["provision"]
+eroeffnung = "fordernd"
+min_runden = 2
+max_runden = 7
+[thema.angebote]
+bereich = "berater"
+punkte = ["angebote"]
+eroeffnung = "drohung"
+min_runden = 2
+max_runden = 7
+[thema.austausch]
+bereich = "verein"
+punkte = []
+eroeffnung = "frage"
+min_runden = 2
+max_runden = 5
+[thema.leihe]
+bereich = "verein"
+punkte = ["leihe"]
+eroeffnung = "gegenangebot"
+min_runden = 2
+max_runden = 7
+[thema.klauseln]
+bereich = "verein"
+punkte = ["klauseln"]
+eroeffnung = "fordernd"
+min_runden = 2
+max_runden = 7
+[thema.tauschgeschaeft]
+bereich = "verein"
+punkte = ["tausch"]
+eroeffnung = "gegenangebot"
+min_runden = 2
+max_runden = 7
+[thema.hintergrund]
+bereich = "presse"
+punkte = []
+eroeffnung = "frage"
+min_runden = 2
+max_runden = 5
+[thema.interview]
+bereich = "presse"
+punkte = ["interview"]
+eroeffnung = "frage"
+min_runden = 2
+max_runden = 6
+[thema.dementi]
+bereich = "presse"
+punkte = ["dementi"]
+eroeffnung = "fordernd"
+min_runden = 2
+max_runden = 6
+[thema.kommentar]
+bereich = "presse"
+punkte = ["kommentar"]
+eroeffnung = "frage"
+min_runden = 2
+max_runden = 6
+[thema.einschaetzung]
+bereich = "trainer"
+punkte = []
+eroeffnung = "frage"
+min_runden = 2
+max_runden = 5
+[thema.training]
+bereich = "trainer"
+punkte = ["training"]
+eroeffnung = "frage"
+min_runden = 2
+max_runden = 6
+[thema.eltern]
+bereich = "jugend"
+punkte = ["perspektive"]
+eroeffnung = "misstrauisch"
+min_runden = 2
+max_runden = 7
+[thema.akademie]
+bereich = "jugend"
+punkte = ["akademie"]
+eroeffnung = "frage"
+min_runden = 2
+max_runden = 7
+[thema.vorstand_budget]
+bereich = "vorstand"
+punkte = ["budget"]
+eroeffnung = "fordernd"
+min_runden = 2
+max_runden = 7
+[thema.vorstand_ziele]
+bereich = "vorstand"
+punkte = ["ziele"]
+eroeffnung = "fordernd"
+min_runden = 2
+max_runden = 7
+[thema.vorstand_vertrauen]
+bereich = "vorstand"
+punkte = []
+eroeffnung = "misstrauisch"
+min_runden = 2
+max_runden = 5
+[thema.fans_stimmung]
+bereich = "fans"
+punkte = []
+eroeffnung = "verletzt"
+min_runden = 2
+max_runden = 5
+[thema.fans_preise]
+bereich = "fans"
+punkte = ["preise"]
+eroeffnung = "fordernd"
+min_runden = 2
+max_runden = 6
+[thema.fans_protest]
+bereich = "fans"
+punkte = ["protest"]
+eroeffnung = "drohung"
+min_runden = 2
+max_runden = 6
+[thema.vertrag]
+bereich = "berater"
+punkte = []
+eroeffnung = "frage"
+min_runden = 2
+max_runden = 8
+[thema.transfer]
+bereich = "verein"
+punkte = []
+eroeffnung = "frage"
+min_runden = 2
+max_runden = 8
+
+# Zwischenereignisse: je Gespräch höchstens eines je Kennung, Chance je Runde ab Runde 1.
+# wirkung: nachlass (Gegenüber gibt leichter nach), druck (Forderung steigt), stimmung (Punkte), punkt (neuer Verhandlungspunkt)
+[[ereignis]]
+id = "berater_ruft"
+bereiche = ["spieler"]
+chance = 0.18
+nachlass = -1
+stimmung = -4
+[[ereignis]]
+id = "verein_meldet_sich"
+bereiche = ["spieler", "berater"]
+chance = 0.14
+nachlass = -1
+stimmung = -3
+[[ereignis]]
+id = "presse_wind"
+bereiche = ["spieler", "berater", "verein", "vorstand", "fans"]
+chance = 0.15
+nachlass = 0
+stimmung = -5
+[[ereignis]]
+id = "kollege_vermittelt"
+bereiche = ["spieler", "trainer", "jugend"]
+chance = 0.12
+nachlass = 1
+stimmung = 4
+[[ereignis]]
+id = "angebot_vom_konkurrenten"
+bereiche = ["berater", "verein"]
+chance = 0.16
+nachlass = -1
+stimmung = -2
+[[ereignis]]
+id = "familie_einmischung"
+bereiche = ["jugend", "spieler"]
+chance = 0.12
+nachlass = -1
+stimmung = -2
+[[ereignis]]
+id = "fanmeinung"
+bereiche = ["vorstand", "fans", "presse"]
+chance = 0.15
+nachlass = 0
+stimmung = 3
+[[ereignis]]
+id = "sponsor_hinweis"
+bereiche = ["vorstand", "verein"]
+chance = 0.12
+nachlass = 1
+stimmung = 2
+
+[punkt.verkauf_ok]          # Zustimmung des Spielers zum Verkauf: was er dafür verlangt (Angebotsgespräch)
+stufen = 4
+nachfrage = [1, 3]
+zusage = ""
+zusage_ab = 9
+[thema.angebot]
+bereich = "spieler"
+punkte = ["verkauf_ok"]
+eroeffnung = "frage"
+min_runden = 2
+max_runden = 6
+
+[[ereignis]]
+id = "konkurrenz_bietet"
+bereiche = ["spieler", "berater", "verein"]
+chance = 0.14
+nachlass = -1
+stimmung = -2
+[[ereignis]]
+id = "spieler_wunsch"
+bereiche = ["spieler", "berater"]
+chance = 0.14
+nachlass = 0
+stimmung = 1

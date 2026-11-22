@@ -1,0 +1,55 @@
+# Trainerwelt (Sitzung S): Vertrautheit und Trainerkarussell. Eigene Festlegungen von PESM; die Daten der Trainerbank stehen in config/scouting/trainerbank.json.
+
+[vertraut]
+start_monate = 30.0        # Vertrautheit eines Trainers beim Start = start + je_monat * Monate im Amt (höchstens 95)
+je_monat = 9.0
+interim = 25.0
+neu = 10.0                 # frisch verpflichtet
+wochenrate = 0.12          # Anteil des Rests bis 100, den die Mannschaft je Woche aufholt
+gewicht_max = 0.6          # so viel zählt das Trainerprofil in der Spielweise höchstens gegen die gelesene Taktik
+
+[karussell]
+intervall_tage = 7
+min_spiele = 6             # vorher kein Druck aus der Tabelle
+abweichung_voll = 0.35     # Platz unter Erwartung, Anteil der Tabelle, ab dem der Druck voll ist
+w_tabelle = 0.55
+w_serie = 0.25
+w_pokal = 0.15
+w_vertrag = 0.10
+w_punkte = 0.25            # Punkteschnitt unter dem, den der Kader erwarten lässt
+w_abstieg = 0.15           # Platz in der Abstiegszone
+pps_spitze = 2.2           # erwarteter Punkteschnitt des stärksten Kaders einer Liga
+pps_ende = 0.7             # und des schwächsten
+punkte_defizit_voll = 0.8  # Defizit (Punkte je Spiel), ab dem der Druck voll ist
+abstieg_plaetze = 3        # Plätze vom Ende = Abstiegszone
+liga_anteil = 0.3334       # höchstens dieser Anteil der Vereine einer Liga entlässt je Saison einen Trainer wegen Misserfolgs (ein Drittel)
+melden_max = 4             # Meldungen im Posteingang je Wochenlauf (3–5-Regel der Tagesphasen)
+serie_ab = 2               # Niederlagen in Folge, ab denen der Druck steigt
+serie_voll = 5
+schonfrist_monate = 2      # neu im Amt: mehr Geduld
+geduld_basis = 0.75        # Geduld des Vorstands = basis - ruf_faktor * Ruf des Vereins + bekanntheit_faktor * (Bekanntheit - 3) + Schonfrist
+ruf_faktor = 0.5
+bekanntheit_faktor = 0.05
+schonfrist_bonus = 0.35
+druck_faktor = 0.6         # Wahrscheinlichkeit je Woche = (Druck - Geduld * druck_faktor) * wahrscheinlichkeit, höchstens max_wahrscheinlichkeit
+wahrscheinlichkeit = 0.9
+max_wahrscheinlichkeit = 0.6
+interim_wochen = 3         # Interimstrainer: ab so vielen Wochen im Amt wird gewechselt
+interim_wahrscheinlichkeit = 0.35
+suche_wahrscheinlichkeit = 0.5   # vakanter Posten: Wahrscheinlichkeit je Woche, dass besetzt wird
+sperre_tage = 28           # entlassener Trainer steht erst danach wieder im Pool
+vertrag_verlaengern = 0.7  # Wahrscheinlichkeit, dass ein ausgelaufener Vertrag verlängert wird
+vertrag_jahre_min = 1
+vertrag_jahre_max = 3
+pool_bekanntheit_abstand = 2   # Kandidat darf so weit von der Bekanntheit abweichen, die zum Ruf des Vereins passt
+
+[erfunden]
+vornamen = ["Jonas", "Marco", "Peter", "Luka", "Daniel", "Tomás", "Henrik", "Andre", "Stefan", "Rui", "Mattia", "Olivier", "Dennis", "Pavel", "Sven", "Carlos"]
+nachnamen = ["Brandt", "Veldkamp", "Moreau", "Ferrante", "Lindqvist", "Okonski", "Barros", "Hallgren", "Rossmann", "Delacroix", "Tavares", "Kovacik", "Whitmore", "Aldenhoven", "Serrano", "Falkner"]
+profile = [
+  { idee = "ballbesitz", pressing = "hoch", linie = "hoch", kette = "vier", tags = ["ballbesitz", "taktiker"] },
+  { idee = "konter", pressing = "tief", linie = "tief", kette = "vier", tags = ["konter", "pragmatisch"] },
+  { idee = "pragmatisch", pressing = "hoch", linie = "tief", kette = "drei", tags = ["pragmatisch", "erfahren"] },
+  { idee = "ballbesitz", pressing = "tief", linie = "hoch", kette = "vier", tags = ["ruhig", "ballbesitz"] },
+  { idee = "konter", pressing = "hoch", linie = "hoch", kette = "drei", tags = ["pressing", "umschalten"] },
+]

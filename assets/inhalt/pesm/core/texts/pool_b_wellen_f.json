@@ -1,0 +1,74 @@
+{
+ "pool.b.praemie_verlangt_lage": [
+  "Ich habe in den letzten Wochen geliefert, und auf dem Gehaltszettel sieht man das nicht.",
+  "Die Tore und die Laufwege sprechen für mich, die Abrechnung nicht."
+ ],
+ "pool.b.praemie_verlangt_lage.hitzig": [
+  "Ich reiße mir den Hintern auf, und beim Geld bekomme ich einen Handschlag!",
+  "Andere kassieren für weniger, und ich schaue in die Röhre!"
+ ],
+ "pool.b.praemie_verlangt_lage.loyal": [
+  "Ich frage nicht gern nach Geld, aber meine Leistung verdient ein Zeichen.",
+  "Ich bin gern hier, doch ein Dankeschön auf dem Konto wäre fair."
+ ],
+ "pool.b.praemie_verlangt_lage.ehrgeizig": [
+  "Ich spiele auf Topniveau und möchte, dass mein Vertrag das widerspiegelt.",
+  "Wer vorangeht, will auch vorn bezahlt werden."
+ ],
+ "pool.b.praemie_verlangt_lage.wechselfreudig": [
+  "Wenn meine Form hier nichts wert ist, wird sie es woanders sein.",
+  "Mein Marktwert ist gestiegen, und das weiß ich ziemlich genau."
+ ],
+ "pool.b.praemie_verlangt_lage.sensibel": [
+  "Es fällt mir schwer, das anzusprechen, aber ich fühle mich nicht gesehen.",
+  "Ich möchte nicht unverschämt wirken, doch ich habe das Gefühl, übergangen zu werden."
+ ],
+ "pool.b.trainingskritik_lage": [
+  "Das Training ist für mich in letzter Zeit eher Pflicht als Fortschritt.",
+  "Ich habe das Gefühl, dass die Einheiten an mir vorbeilaufen."
+ ],
+ "pool.b.trainingskritik_lage.hitzig": [
+  "Diese Einheiten sind doch Zeitverschwendung, und wir rennen wie die Hamster im Rad!",
+  "Wer sich das ausgedacht hat, hat noch nie einen Ball getreten!"
+ ],
+ "pool.b.trainingskritik_lage.loyal": [
+  "Ich ziehe im Training immer mit, aber ein paar Dinge gehen mir gegen den Strich.",
+  "Du kennst meinen Einsatz, deshalb sage ich offen, was im Training hakt."
+ ],
+ "pool.b.trainingskritik_lage.ehrgeizig": [
+  "Ich will besser werden, und so wie wir trainieren, stagniere ich.",
+  "Für meine Entwicklung bringt mir das, was wir tun, zu wenig."
+ ],
+ "pool.b.trainingskritik_lage.wechselfreudig": [
+  "Ich habe woanders anders trainiert, und dort hat es mich weiter gebracht.",
+  "Bei anderen Vereinen sieht der Trainingsalltag anders aus, und mir gefällt das."
+ ],
+ "pool.b.trainingskritik_lage.sensibel": [
+  "Ich bin nach den Einheiten oft so fertig, dass es mir peinlich ist, es zu sagen.",
+  "Manchmal komme ich mit Bauchschmerzen zum Platz, und das gehört nicht zum Sport."
+ ],
+ "pool.b.spielerrat_wunsch_lage": [
+  "Ich komme im Namen der Mannschaft, es gibt einen Wunsch, der den Jungs wichtig ist.",
+  "Die Mannschaft hat mich vorgeschickt, es geht um etwas, das uns allen auf der Seele liegt."
+ ],
+ "pool.b.spielerrat_wunsch_lage.hitzig": [
+  "In der Kabine brodelt es, und ich habe keine Lust, das länger zu decken!",
+  "Die Jungs sind sauer, und ich soll es ausbaden!"
+ ],
+ "pool.b.spielerrat_wunsch_lage.loyal": [
+  "Ich stehe hinter dir, aber die Mannschaft braucht ein Zeichen von dir.",
+  "Ich trage deine Linie nach außen mit, doch diesmal muss ich etwas für die Gruppe fordern."
+ ],
+ "pool.b.spielerrat_wunsch_lage.ehrgeizig": [
+  "Wir wollen in dieser Saison etwas erreichen, und dafür muss die Stimmung stimmen.",
+  "Ein Team, das siegen will, muss auch zusammenbleiben, und dafür brauchen wir etwas von dir."
+ ],
+ "pool.b.spielerrat_wunsch_lage.wechselfreudig": [
+  "Einige in der Kabine schauen schon aus dem Fenster, und das möchte ich vermeiden.",
+  "Wenn sich nichts rührt, sucht sich der eine oder andere einen neuen Verein."
+ ],
+ "pool.b.spielerrat_wunsch_lage.sensibel": [
+  "Die Stimmung im Team ist angeknackst, und ich möchte sie gern wieder heilen.",
+  "Ich spüre, wie die Jungs leiser werden, und das macht mir Sorgen."
+ ]
+}

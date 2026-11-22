@@ -1,0 +1,598 @@
+{
+ "pool.belastung_muede.e.e1": [
+  "{b.gruss} {b.belastung_muede_lage} Ich wollte nur sagen, dass es so nicht ewig geht.",
+  "{b.gruss} {b.belastung_muede_lage} Vielleicht sehe ich schwarz, aber ich spüre jede Einheit doppelt."
+ ],
+ "pool.belastung_muede.e.e2": [
+  "{b.gruss} {b.belastung_muede_lage} Im Training komme ich kaum noch in die Gänge.",
+  "{b.gruss} {b.belastung_muede_lage} Nach dem Abpfiff brauche ich inzwischen Tage, bis ich mich wieder frisch fühle."
+ ],
+ "pool.belastung_muede.e.e3": [
+  "{b.gruss} {b.belastung_muede_lage} Ehrlich, ich bin am Limit und weiß nicht, woher ich die Kraft nehmen soll.",
+  "{b.gruss} {b.belastung_muede_lage} Ich habe das Gefühl, nur noch zu funktionieren."
+ ],
+ "pool.belastung_muede.e.e4": [
+  "{b.gruss} {b.belastung_muede_lage} Gib mir endlich eine Pause, sonst hole ich sie mir selbst!",
+  "{b.gruss} {b.belastung_muede_lage} Noch ein Spiel ohne Luft, und ich bedanke mich nicht dafür!"
+ ],
+ "pool.belastung_muede.e.e5": [
+  "{b.gruss} {b.belastung_muede_lage} Ich will niemanden hängen lassen, deshalb sage ich es rechtzeitig.",
+  "{b.gruss} {b.belastung_muede_lage} Wenn du mich brauchst, spiele ich, aber du solltest wissen, wie es mir geht."
+ ],
+ "pool.belastung_muede.e.e6": [
+  "{b.gruss} {b.belastung_muede_lage} Ich will in der entscheidenden Phase auf Topniveau sein, nicht auf Reserve.",
+  "{b.gruss} {b.belastung_muede_lage} Wer oben bleiben will, muss auch regenerieren, und dafür fehlt mir die Zeit."
+ ],
+ "pool.belastung_muede.e.e7": [
+  "{b.gruss} {b.belastung_muede_lage} Ich frage mich, ob man hier überhaupt darauf achtet, wie es den Spielern geht.",
+  "{b.gruss} {b.belastung_muede_lage} Mir fehlt der Raum zum Durchatmen, und das sage ich nicht zum letzten Mal."
+ ],
+ "pool.belastung_muede.e.e8": [
+  "{b.gruss} {b.belastung_muede_lage} Du hattest mir eine Pause versprochen, und ich stehe immer noch auf dem Platz.",
+  "{b.gruss} {b.belastung_muede_lage} Die Entlastung war zugesagt, gemerkt habe ich davon nichts."
+ ],
+ "pool.belastung_muede.e.e9": [
+  "{b.gruss} {b.belastung_muede_lage} Kein Drama, aber meine Kräfte schwinden, das siehst du bestimmt selbst.",
+  "{b.gruss} {b.belastung_muede_lage} Ich nehme es sportlich, doch meine Muskeln sehen das anders."
+ ],
+ "pool.belastung_muede.a.a1": [
+  "Dass du so erschöpft bist, nehme ich ernst. Wir finden gemeinsam heraus, was dir fehlt.",
+  "Das klingt nach mehr als müden Beinen. Erzähl mir, wie die letzten Wochen für dich waren."
+ ],
+ "pool.belastung_muede.a.a2": [
+  "Innerhalb von {frist} Tagen bekommst du ein freies Spiel, das verspreche ich dir.",
+  "In {frist} Tagen sitzt du auf der Bank und ruhst dich aus, darauf hast du mein Wort."
+ ],
+ "pool.belastung_muede.a.a3": [
+  "Ich führe eine Rotation ein: Du spielst gegen die starken Gegner und pausierst, wenn wir es uns leisten können.",
+  "Ich teile die Einsätze neu ein, damit du zwischendurch durchatmen kannst."
+ ],
+ "pool.belastung_muede.a.a4": [
+  "Du bekommst einen Tag im Thermalbad auf Vereinskosten. Nimm einen Kollegen mit, aber kein Wort über Fußball.",
+  "Wellness geht auf mich. Du liegst im Wasser, und ich halte das Telefon fern."
+ ],
+ "pool.belastung_muede.a.a5": [
+  "Der Mannschaftsarzt und der Fitnesstrainer sehen sich deine Werte an. Danach entscheiden wir gemeinsam.",
+  "Ich lasse den Stab deine Belastung auswerten und rede danach noch einmal mit dir."
+ ],
+ "pool.belastung_muede.a.a6": [
+  "Wo spürst du es am stärksten: in den Beinen, im Kopf oder in beidem? Und seit wann?",
+  "Wie schläfst du, und was sagt dein Körper nach einem Spiel?"
+ ],
+ "pool.belastung_muede.a.a7": [
+  "Das gibt sich. Ein paar Wochen noch, dann wird es ruhiger.",
+  "Bald ist der Spielplan lockerer, bis dahin beißen wir uns durch."
+ ],
+ "pool.belastung_muede.a.a8": [
+  "Müde ist hier jeder. Du spielst, weil ich dich brauche, Punkt.",
+  "Erschöpft oder nicht, die Mannschaft kann auf dich nicht verzichten."
+ ],
+ "pool.belastung_muede.a.a9": [
+  "Jetzt heißt es durchhalten. Solange es eng ist, kann ich auf dich nicht verzichten.",
+  "Beiß dich durch, im Frühjahr zählt jeder Einsatz."
+ ],
+ "pool.belastung_muede.a.a10": [
+  "Ich fahre deine Trainingsbelastung herunter. Weniger Sprints, mehr Regeneration, aber im Spiel zählst du weiter.",
+  "Im Training schone ich dich, damit du an Spieltagen frisch bist."
+ ],
+ "pool.belastung_muede.a.a11": [
+  "Zwischen uns: Wie viel Pause brauchst du wirklich? Sag es ehrlich, ich vertraue dir.",
+  "Du kennst deinen Körper am besten. Sag mir, wann du eine Pause brauchst, und ich plane es ein."
+ ],
+ "pool.belastung_muede.r.r1": [
+  "{b.gut} Jetzt habe ich wieder etwas, worauf ich hinarbeiten kann.",
+  "{b.gut} Das nimmt mir Druck von den Schultern."
+ ],
+ "pool.belastung_muede.r.r2": [
+  "{b.gut} Dass du mich siehst, hilft mir mehr als jede Massage.",
+  "{b.gut} Dann halte ich bis dahin gern durch."
+ ],
+ "pool.belastung_muede.r.r3": [
+  "{b.gut} Mit frischen Beinen bin ich in den wichtigen Spielen doppelt so stark.",
+  "{b.gut} Erholt komme ich zurück und liefere."
+ ],
+ "pool.belastung_muede.r.r4": [
+  "{b.gut} Es tut gut, dass ich nicht als Jammerlappen dastehe.",
+  "{b.gut} Ich war nervös, es anzusprechen, aber du hörst wirklich zu."
+ ],
+ "pool.belastung_muede.r.r5": [
+  "{b.neutral} Mal sehen, ob mein Körper das mitmacht.",
+  "{b.neutral} Ich probiere es, aber Wunder erwarte ich keine."
+ ],
+ "pool.belastung_muede.r.r6": [
+  "{b.neutral} Heute fühle ich mich besser, morgen vielleicht wieder nicht.",
+  "{b.neutral} Ich weiß nicht, ob ich erleichtert oder nur müde bin."
+ ],
+ "pool.belastung_muede.r.r7": [
+  "{b.neutral} Du hast dir das angehört, immerhin.",
+  "{b.neutral} Ich gebe dem Plan ein paar Wochen."
+ ],
+ "pool.belastung_muede.r.r8": [
+  "{b.neutral} Der Körper meldet sich schon, wenn es nicht passt.",
+  "{b.neutral} Ich laufe, solange die Beine tragen."
+ ],
+ "pool.belastung_muede.r.r9": [
+  "{b.schlecht} Dann laufe ich eben weiter auf Reserve.",
+  "{b.schlecht} Müde Spieler gewinnen keine Spiele, das weißt du."
+ ],
+ "pool.belastung_muede.r.r10": [
+  "{b.schlecht} Wenn ich mich verletze, bist du schuld!",
+  "{b.schlecht} Dann trete ich eben kürzer, ob es dir passt oder nicht!"
+ ],
+ "pool.belastung_muede.r.r11": [
+  "{b.schlecht} Es gibt Vereine, die ihre Spieler besser schonen.",
+  "{b.schlecht} Wenn hier keiner an meine Gesundheit denkt, tue ich es woanders."
+ ],
+ "pool.belastung_muede.r.r12": [
+  "{b.schlecht} Ich habe immer alles gegeben, und jetzt wird es als selbstverständlich gesehen.",
+  "{b.schlecht} Ich hatte gehofft, du siehst nicht nur die Aufstellung, sondern auch den Menschen."
+ ],
+ "pool.belastung_muede.x.x1": [
+  "Er geht erleichtert aus dem Gespräch. {entscheidung} Die nächsten Einheiten fallen merklich lockerer aus.",
+  "{entscheidung} Im Training wirkt er schon am nächsten Tag frischer."
+ ],
+ "pool.belastung_muede.x.x2": [
+  "Ob die Erschöpfung nachlässt, zeigt erst der Spielplan. {entscheidung} Er bleibt vorsichtig.",
+  "{entscheidung} Seine Beine werden die Antwort geben."
+ ],
+ "pool.belastung_muede.x.x3": [
+  "Er verlässt den Raum mit schweren Schritten. {entscheidung} Im Training lässt er künftig sichtbar Kraft liegen.",
+  "{entscheidung} Er deutet an, sich beim nächsten Zwicken krankzumelden."
+ ],
+ "pool.belastung_muede.x.x4": [
+  "Du hast ihm Entlastung versprochen. {entscheidung} Er wird nachzählen, ob sie kommt.",
+  "{entscheidung} Er sagt es dem Stab weiter, und die Frist läuft."
+ ],
+ "pool.belastung_muede.x.x5": [
+  "Er nimmt seine Tasche und geht, ohne die Antwort abzuwarten. {entscheidung} Die Erschöpfung nimmt er mit.",
+  "{entscheidung} Mitten im Satz steht er auf."
+ ],
+ "pool.verletzungsangst_rueckkehr.e.e1": [
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} Ich wollte es dir sagen, bevor man es auf dem Platz sieht.",
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} Im Training gehe ich jedem harten Kontakt aus dem Weg, das fällt bestimmt schon auf."
+ ],
+ "pool.verletzungsangst_rueckkehr.e.e2": [
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} Beim letzten Zweikampf habe ich den Fuß zurückgezogen, ohne es zu wollen.",
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} Die Ärzte sagen, alles sei in Ordnung. Mein Gefühl sagt etwas anderes."
+ ],
+ "pool.verletzungsangst_rueckkehr.e.e3": [
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} Ehrlich, ich habe Angst vor dem nächsten Einsatz und schlafe kaum.",
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} Ich komme mir wie ein Betrüger vor, wenn ich spiele und innerlich bremse."
+ ],
+ "pool.verletzungsangst_rueckkehr.e.e4": [
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} Wenn mich noch einer fragt, wann ich wieder der Alte bin, platzt mir der Kragen!",
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} Ich lasse mich nicht ins Spiel schubsen, bevor ich bereit bin!"
+ ],
+ "pool.verletzungsangst_rueckkehr.e.e5": [
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} Ich will kein Drama, nur dass du Bescheid weißt.",
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} Ich gebe mir Zeit, aber du sollst wissen, wo ich stehe."
+ ],
+ "pool.verletzungsangst_rueckkehr.e.e6": [
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} Ich will wieder Spitze sein, und dafür muss ich die Angst loswerden.",
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} Mit halber Kraft im Zweikampf komme ich nie zurück an die Spitze."
+ ],
+ "pool.verletzungsangst_rueckkehr.e.e7": [
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} Ich frage mich, ob ich jemals wieder unbeschwert spielen kann.",
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} Manchmal denke ich, ich sollte Abstand nehmen, vom Platz und vielleicht auch von hier."
+ ],
+ "pool.verletzungsangst_rueckkehr.e.e8": [
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} Du hattest mir Zeit für die Rückkehr zugesagt, und jetzt stehe ich doch wieder im Kader.",
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} Es hieß, ich bekomme Schonzeit. Davon spüre ich nichts."
+ ],
+ "pool.verletzungsangst_rueckkehr.e.e9": [
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} Auf dem Papier bin ich gesund, in den Zweikämpfen nicht.",
+  "{b.gruss} {b.verletzungsangst_rueckkehr_lage} Kommt ein Gegner auf mich zu, wird mir kurz kalt, und dann ist der Ball weg."
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a1": [
+  "Diese Angst ist nach einer Verletzung normal, dafür musst du dich nicht schämen. Wir gehen es Schritt für Schritt an.",
+  "Danke, dass du so offen bist. Du bist damit nicht allein."
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a2": [
+  "Ich gebe dir {frist} Tage ohne Druck, du steigst ein, wenn du dich bereit fühlst.",
+  "In den nächsten {frist} Tagen bestimmst du mit, wie viel du spielst, versprochen."
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a3": [
+  "Ich bitte den Mannschaftsarzt und den Sportpsychologen, mit dir zu arbeiten. Das gehört zur Rückkehr dazu.",
+  "Der Stab nimmt sich deiner an, Arzt und Psychologe zusammen. Schäm dich dafür nicht."
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a4": [
+  "Ich dosiere deine Einsätze. Erst Kurzeinsätze, dann längere, und Zweikämpfe zunächst nur dort, wo du dich sicher fühlst.",
+  "Wir steigern langsam: erst ein paar Minuten, dann mehr, und nie gegen deinen Willen."
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a5": [
+  "Wann spürst du es am stärksten: im Training, im Spiel oder schon davor?",
+  "Gibt es einen Moment, in dem die Angst verschwindet?"
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a6": [
+  "Du bekommst eine Extraeinheit mit einem Spezialisten für Rückkehrer, auf Vereinskosten. Und ich verspreche, es gibt keine Zweikampfübung mit mir.",
+  "Ein Spezialist arbeitet mit dir an der Rückkehr, das bezahlt der Verein. Mich als Sparringspartner ersparen wir dir."
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a7": [
+  "Du kennst mich, ich dränge keinen. Sag mir einfach, wann es sich richtig anfühlt.",
+  "Ich vertraue deinem Gefühl. Sag mir Bescheid, wenn du bereit bist."
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a8": [
+  "Das verfliegt, sobald du ein paar Spiele gemacht hast. Du wirst sehen.",
+  "Das ist reine Gewöhnung, nach dem ersten Zweikampf ist es vorbei."
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a9": [
+  "Du bist freigegeben, also spielst du. Im Spiel bleibt keine Zeit zum Zögern.",
+  "Der Arzt hat grünes Licht gegeben, damit ist die Sache für mich erledigt."
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a10": [
+  "Angst ist keine Entschuldigung. Entweder du gehst in die Zweikämpfe, oder ein anderer spielt.",
+  "Wer nicht mit voller Kraft hineingeht, hat auf dem Platz nichts verloren."
+ ],
+ "pool.verletzungsangst_rueckkehr.a.a11": [
+  "Die Werte sind gut, der Körper hält. Der Kopf braucht nur Erfolgserlebnisse, und die organisieren wir dir.",
+  "Der Körper ist bereit. Jetzt bauen wir dir kleine Siege, bis das Vertrauen zurück ist."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r1": [
+  "{b.gut} Das nimmt mir einen Stein vom Herzen.",
+  "{b.gut} So kann ich es angehen, ohne mich zu verstecken."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r2": [
+  "{b.gut} Ich weiß, dass du es gut mit mir meinst.",
+  "{b.gut} Mit etwas Geduld kommt der Rest von allein."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r3": [
+  "{b.gut} Dann baue ich mir Schritt für Schritt meine alte Stärke zurück.",
+  "{b.gut} Mit diesem Plan komme ich wieder dahin, wo ich hingehöre."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r4": [
+  "{b.gut} Zu hören, dass das normal ist, hilft mir mehr als jeder Rat.",
+  "{b.gut} Dass du nicht die Augen verdrehst, bedeutet mir viel."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r5": [
+  "{b.neutral} Ob es hilft, merke ich im ersten harten Zweikampf.",
+  "{b.neutral} Ich probiere es und schaue, wie sich der Kopf anfühlt."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r6": [
+  "{b.neutral} An manchen Tagen traue ich mich, an anderen nicht.",
+  "{b.neutral} Ich bin erleichtert und trotzdem unruhig, das passt nicht zusammen."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r7": [
+  "{b.neutral} Ein Versuch ist es wert.",
+  "{b.neutral} Ich lasse es auf mich zukommen."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r8": [
+  "{b.neutral} Es kommt, wie es kommt, ich bleibe ruhig.",
+  "{b.neutral} Mein Körper war schon schlauer als ich, er wird es wieder sein."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r9": [
+  "{b.schlecht} Damit fühle ich mich nicht ernst genommen.",
+  "{b.schlecht} Das hilft mir im Zweikampf kein Stück."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r10": [
+  "{b.schlecht} Wenn ich wegen deines Drucks wieder ausfalle, trägst du die Verantwortung!",
+  "{b.schlecht} Ich lasse mich nicht in ein Risiko hineintreiben!"
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r11": [
+  "{b.schlecht} Dann suche ich mir einen Verein, der Rücksicht nimmt.",
+  "{b.schlecht} Mit so wenig Verständnis bin ich hier fehl am Platz."
+ ],
+ "pool.verletzungsangst_rueckkehr.r.r12": [
+  "{b.schlecht} Ich habe mich dir anvertraut, und du gehst darüber hinweg.",
+  "{b.schlecht} Dass gerade du so reagierst, trifft mich."
+ ],
+ "pool.verletzungsangst_rueckkehr.x.x1": [
+  "Er atmet hörbar aus. {entscheidung} Im nächsten Training geht er den ersten Zweikampf wieder beherzt an.",
+  "{entscheidung} Ein paar Tage später sieht man ihn wieder mit Biss spielen."
+ ],
+ "pool.verletzungsangst_rueckkehr.x.x2": [
+  "Ob der Kopf nachzieht, wird sich zeigen. {entscheidung} Er bleibt vorsichtig.",
+  "{entscheidung} Die Angst ist nicht weg, nur vertagt."
+ ],
+ "pool.verletzungsangst_rueckkehr.x.x3": [
+  "Er schüttelt den Kopf und geht schweigend hinaus. {entscheidung} Er scheint sich innerlich zurückzuziehen.",
+  "{entscheidung} Im Training bremst er künftig offen ab."
+ ],
+ "pool.verletzungsangst_rueckkehr.x.x4": [
+  "Du hast ihm Zeit versprochen. {entscheidung} Er rechnet damit, dass du dein Wort hältst.",
+  "{entscheidung} Die Schonfrist läuft, und er achtet genau darauf."
+ ],
+ "pool.verletzungsangst_rueckkehr.x.x5": [
+  "Er steht auf, bevor du fertig bist. {entscheidung} Das Thema nimmt er mit nach Hause.",
+  "{entscheidung} Er bricht ab und lässt dich zurück."
+ ],
+ "pool.ehrgeiz_saisonziel.e.e1": [
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Ich wollte mit dir über die Tabelle reden, bevor der Zug abgefahren ist.",
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Ich habe mir die Punkte angeschaut und finde, wir müssen reden."
+ ],
+ "pool.ehrgeiz_saisonziel.e.e2": [
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Ich trainiere hart und will, dass es sich lohnt.",
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Unsere Leistung auf dem Platz passt nicht zu dem, was im Verein versprochen wurde."
+ ],
+ "pool.ehrgeiz_saisonziel.e.e3": [
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Ehrlich, ich verliere gerade die Lust, wenn wir weiter hinterherlaufen.",
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Ich komme schon mit schlechter Laune zum Training, weil ich nicht an das Ziel glaube."
+ ],
+ "pool.ehrgeiz_saisonziel.e.e4": [
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Entweder wir legen jetzt einen Gang zu, oder ich mache meinen Unmut öffentlich!",
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Ich habe keine Lust, mir wieder Ausreden anzuhören!"
+ ],
+ "pool.ehrgeiz_saisonziel.e.e5": [
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Ich bleibe dabei, aber ich will wissen, wie du die Lage siehst.",
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Ich mache mir keine Panik, möchte aber, dass du mir deinen Plan sagst."
+ ],
+ "pool.ehrgeiz_saisonziel.e.e6": [
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Ich brauche Mitspieler und einen Kader, mit dem das Ziel erreichbar ist.",
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Wenn der Verein oben mitspielen will, muss er jetzt handeln."
+ ],
+ "pool.ehrgeiz_saisonziel.e.e7": [
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Ich frage mich, ob ich beim richtigen Verein bin.",
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Manchmal lese ich von Angeboten anderer Klubs und frage mich, ob ich dort besser aufgehoben wäre."
+ ],
+ "pool.ehrgeiz_saisonziel.e.e8": [
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Du hattest mir Verstärkungen für das Saisonziel versprochen, gekommen ist nichts.",
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Beim letzten Gespräch hieß es, der Verein investiert. Gesehen habe ich das nicht."
+ ],
+ "pool.ehrgeiz_saisonziel.e.e9": [
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Der Abstand aufs Ziel wächst, und ich will nicht tatenlos zusehen.",
+  "{b.gruss} {b.ehrgeiz_saisonziel_lage} Wir müssen ehrlich sein: So erreichen wir das Saisonziel nicht."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a1": [
+  "Dann setzen wir uns ein neues Etappenziel, das zu diesem Kader passt, und ich bringe den Vorstand auf dieselbe Linie.",
+  "Wir justieren das Ziel neu, damit es herausfordert und trotzdem erreichbar ist."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a2": [
+  "In {frist} Tagen sprechen wir über Verstärkung, und über deinen Vertrag reden wir dann gleich mit.",
+  "Ich setze mich für Neuzugänge ein und verhandle in {frist} Tagen mit dir über eine neue Laufzeit."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a3": [
+  "Sind wir in {frist} Tagen nicht auf Kurs, sprechen wir offen über deine Zukunft hier.",
+  "Ich gebe dir mein Wort: Liegen wir nach {frist} Tagen immer noch zurück, reden wir über einen Abschied."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a4": [
+  "Dein Frust zeigt, wie viel dir an diesem Verein liegt. Das schätze ich sehr.",
+  "Dass du so mitleidest, spricht für dich. Lass uns die Sorgen gemeinsam anpacken."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a5": [
+  "Was müsste in den nächsten Wochen passieren, damit du wieder daran glaubst?",
+  "Woran machst du fest, dass das Ziel verloren ist?"
+ ],
+ "pool.ehrgeiz_saisonziel.a.a6": [
+  "Ich gehe zum Vorstand und bitte um Geld für den Kader. Du hilfst mir, die Richtigen zu finden, und ich verspreche, dass sie nicht schlechter kochen als du.",
+  "Es gibt Geld für Verstärkung, und du darfst mitreden, wer kommt."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a7": [
+  "Die Saison ist lang, die Tabelle dreht sich schneller, als man denkt.",
+  "Das wird schon, wir haben noch genug Spiele."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a8": [
+  "Das Saisonziel ist meine Sorge, nicht deine. Du kümmerst dich um deine Leistung.",
+  "Spar dir die Tabellenkunde und konzentriere dich aufs Training."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a9": [
+  "An meinen Zielen ändere ich nichts. Wer sie für zu hoch hält, soll mir zeigen, dass er mehr leisten kann.",
+  "Das Ziel bleibt. Ich erwarte von dir, dass du vorangehst, statt zu zweifeln."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a10": [
+  "Sprich mit dem Sportdirektor, der kennt die Pläne für den Kader besser als ich.",
+  "Das gehört in die Runde mit der Vereinsführung, ich bringe es dort ein."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a11": [
+  "Du bist einer der wenigen, die vorangehen. Sag mir offen, was du brauchst, und ich sage dir genauso offen, was möglich ist.",
+  "Ich brauche deinen Ehrgeiz. Lass uns ehrlich besprechen, was wir tun können."
+ ],
+ "pool.ehrgeiz_saisonziel.a.a12": [
+  "Ehrlich gesagt: Das Ziel ist ambitioniert und mit diesem Kader nur mit Glück zu erreichen. Aber wir kämpfen um jeden Platz.",
+  "Ich rede nichts schön. Es wird schwer, aber ich gebe das Ziel nicht verloren."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r1": [
+  "{b.gut} Das gibt mir Hoffnung, dass wir noch etwas reißen.",
+  "{b.gut} Jetzt habe ich wieder ein Ziel vor Augen."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r2": [
+  "{b.gut} Ich bin froh, dass du mich ernst nimmst, und bleibe an Bord.",
+  "{b.gut} Mit dir kann man über alles reden, danke."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r3": [
+  "{b.gut} Wenn der Verein nachlegt, ziehe ich voll mit.",
+  "{b.gut} Das ist ein Plan, hinter dem ich stehen kann."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r4": [
+  "{b.gut} Es tut gut zu hören, dass mein Frust verstanden wird.",
+  "{b.gut} Danke, dass du mich nicht als Nörgler abstempelst."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r5": [
+  "{b.neutral} Ich warte ab, was aus den Worten wird.",
+  "{b.neutral} Das klingt vernünftig, nur Taten zählen."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r6": [
+  "{b.neutral} Ich weiß nicht, ob ich dir glauben soll, aber ich will es.",
+  "{b.neutral} Heute bin ich ruhig, morgen sehe ich es vielleicht anders."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r7": [
+  "{b.neutral} Der Tabellenstand wird zeigen, wer recht hat.",
+  "{b.neutral} Ich lasse mir das durch den Kopf gehen."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r8": [
+  "{b.neutral} Das Jahr ist noch lang, wir haben Zeit.",
+  "{b.neutral} Ich bleibe locker, solange es vorwärtsgeht."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r9": [
+  "{b.schlecht} Damit kommen wir dem Ziel keinen Schritt näher.",
+  "{b.schlecht} Solche Antworten habe ich schon oft gehört."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r10": [
+  "{b.schlecht} Dann sage ich es eben der Presse, wenn du es nicht hören willst!",
+  "{b.schlecht} Wenn der Verein nichts tut, tue ich es selbst!"
+ ],
+ "pool.ehrgeiz_saisonziel.r.r11": [
+  "{b.schlecht} Dann wird es Zeit, dass ich mich nach Alternativen umsehe.",
+  "{b.schlecht} Ein Verein ohne Plan ist nichts für mich."
+ ],
+ "pool.ehrgeiz_saisonziel.r.r12": [
+  "{b.schlecht} Ich habe so viel für den Verein getan, und das ist die Antwort?",
+  "{b.schlecht} Das enttäuscht mich, gerade weil ich so lange an euch geglaubt habe."
+ ],
+ "pool.ehrgeiz_saisonziel.x.x1": [
+  "Seine Stirn glättet sich. {entscheidung} In der Kabine zieht er die anderen wieder mit.",
+  "{entscheidung} Er geht mit neuem Mut zurück in die Einheit."
+ ],
+ "pool.ehrgeiz_saisonziel.x.x2": [
+  "Ob die Worte genügen, zeigt die Tabelle. {entscheidung} Er bleibt skeptisch.",
+  "{entscheidung} Der Zweifel bleibt, bis die Ergebnisse stimmen."
+ ],
+ "pool.ehrgeiz_saisonziel.x.x3": [
+  "Er verlässt das Gespräch verärgert. {entscheidung} In der Kabine hört man bald seinen Unmut.",
+  "{entscheidung} Er deutet an, dass er sich nach einem ehrgeizigeren Verein umsieht."
+ ],
+ "pool.ehrgeiz_saisonziel.x.x4": [
+  "Du hast dich festgelegt. {entscheidung} Er wird beobachten, ob der Verein liefert.",
+  "{entscheidung} Die Frist läuft, und er rechnet mit Taten."
+ ],
+ "pool.ehrgeiz_saisonziel.x.x5": [
+  "Er winkt ab und geht. {entscheidung} Das Thema ist für ihn nicht erledigt.",
+  "{entscheidung} Mitten im Satz dreht er sich um."
+ ],
+ "pool.positionswunsch.e.e1": [
+  "{b.gruss} {b.positionswunsch_lage} Ich habe mir Gedanken über meine Rolle gemacht. Im Mittelfeld hätte ich mehr Zugriff aufs Spiel.",
+  "{b.gruss} {b.positionswunsch_lage} Ich sehe mich im Mittelfeld besser aufgehoben als in der Abwehr."
+ ],
+ "pool.positionswunsch.e.e2": [
+  "{b.gruss} {b.positionswunsch_lage} Außen laufe ich mich fest. Hinter der Spitze hätte ich mehr Räume.",
+  "{b.gruss} {b.positionswunsch_lage} Wenn ich nicht dauernd an der Linie klebe, kann ich mehr Tore vorbereiten, am liebsten hinter der Spitze."
+ ],
+ "pool.positionswunsch.e.e3": [
+  "{b.gruss} {b.positionswunsch_lage} Ehrlich, auf meiner Position habe ich keinen Spaß mehr.",
+  "{b.gruss} {b.positionswunsch_lage} Jedes Spiel dort fühlt sich wie eine Pflichtübung an."
+ ],
+ "pool.positionswunsch.e.e4": [
+  "{b.gruss} {b.positionswunsch_lage} Stell mich dahin, wo ich hingehöre, sonst spiele ich, wie es mir passt!",
+  "{b.gruss} {b.positionswunsch_lage} Ich bin kein Lückenbüßer, und das lasse ich mir nicht länger bieten!"
+ ],
+ "pool.positionswunsch.e.e5": [
+  "{b.gruss} {b.positionswunsch_lage} Ich mache, was du sagst, aber ein Versuch auf einer anderen Position wäre schön.",
+  "{b.gruss} {b.positionswunsch_lage} Nur ein Gedanke: Vielleicht liege ich woanders besser, du entscheidest."
+ ],
+ "pool.positionswunsch.e.e6": [
+  "{b.gruss} {b.positionswunsch_lage} Auf einer anderen Position kann ich der Mannschaft mehr geben, davon bin ich überzeugt.",
+  "{b.gruss} {b.positionswunsch_lage} Ich will Verantwortung im Zentrum, nicht nur an der Seite."
+ ],
+ "pool.positionswunsch.e.e7": [
+  "{b.gruss} {b.positionswunsch_lage} Ich traue mich fast nicht zu fragen, aber ich würde gern etwas Neues probieren.",
+  "{b.gruss} {b.positionswunsch_lage} Wenn ich nicht einmal die Chance bekomme, es zu versuchen, überlege ich mir meine Zukunft."
+ ],
+ "pool.positionswunsch.e.e8": [
+  "{b.gruss} {b.positionswunsch_lage} Du hattest versprochen, mich auf meiner Wunschposition auszuprobieren, bisher blieb es beim Versprechen.",
+  "{b.gruss} {b.positionswunsch_lage} Es hieß, ich bekomme meine Chance auf der anderen Position. Gesehen habe ich sie noch nicht."
+ ],
+ "pool.positionswunsch.e.e9": [
+  "{b.gruss} {b.positionswunsch_lage} In den letzten Trainingsspielen habe ich anders gespielt, und es lief hervorragend.",
+  "{b.gruss} {b.positionswunsch_lage} Die Jungs sagen selbst, dass ich auf einer anderen Position mehr Wirkung hätte."
+ ],
+ "pool.positionswunsch.a.a1": [
+  "Innerhalb von {frist} Tagen bekommst du mindestens ein Spiel auf deiner Wunschposition.",
+  "Du darfst es ausprobieren: In den nächsten {frist} Tagen stelle ich dich dort einmal auf."
+ ],
+ "pool.positionswunsch.a.a2": [
+  "Wir testen es zuerst im Training. Zeigst du dort, dass es funktioniert, reden wir über Einsätze im Spiel.",
+  "Probier es in den Übungsspielen. Überzeugst du mich dort, wird es ernst."
+ ],
+ "pool.positionswunsch.a.a3": [
+  "Ich brauche dich genau da, wo du stehst, weil niemand sonst diese Aufgabe so löst. Das ist keine Kritik, sondern ein Kompliment.",
+  "Für diese Saison bleibst du dort, wo du bist. Der Grund: Mir fehlt der Ersatz für deine jetzige Aufgabe."
+ ],
+ "pool.positionswunsch.a.a4": [
+  "Wir machen es so: Gegen schwächere Gegner probierst du die neue Position, in den wichtigen Spielen bleibst du, wo du bist.",
+  "Ein Kompromiss: Du bekommst Einsätze auf der Wunschposition, wenn die Lage es zulässt, sonst bleibt es beim Alten."
+ ],
+ "pool.positionswunsch.a.a5": [
+  "Ich verstehe, dass du dich woanders wohler fühlst. Erzähl mir, was dir dort liegt.",
+  "Danke, dass du es ansprichst. Ein Spieler, der sich wohlfühlt, spielt besser, also sprechen wir darüber."
+ ],
+ "pool.positionswunsch.a.a6": [
+  "Was kannst du dort, was du jetzt nicht zeigen kannst?",
+  "Wo genau siehst du dich: eher als Ballverteiler oder als Wegbereiter?"
+ ],
+ "pool.positionswunsch.a.a7": [
+  "Irgendwann ergibt sich die Gelegenheit schon, bleib einfach dran.",
+  "Das kommt bestimmt noch, hab Geduld."
+ ],
+ "pool.positionswunsch.a.a8": [
+  "Du spielst dort, wo ich dich aufstelle. Die Aufstellung ist nicht verhandelbar.",
+  "Positionen vergebe ich, nicht die Spieler."
+ ],
+ "pool.positionswunsch.a.a9": [
+  "Sprich mit dem Co-Trainer, der kennt deine Laufwege und sagt dir, ob es passt.",
+  "Der Assistent soll dir einen Plan für das Probetraining geben, danach sehen wir weiter."
+ ],
+ "pool.positionswunsch.a.a10": [
+  "Ich habe einen Plan für diese Saison, und der sieht dich dort vor, wo du stehst. Daran ändere ich nichts.",
+  "Meine Aufstellung steht, und du bist ein wichtiger Teil davon, auf deiner Position."
+ ],
+ "pool.positionswunsch.a.a11": [
+  "Ein Probespiel im Mittelfeld ist drin, wenn du im Training überzeugst. Und verläufst du dich, gibst du eine Runde aus.",
+  "Wenn du im Training zeigst, dass du es kannst, probieren wir es. Wenn nicht, bezahlst du den Kaffee."
+ ],
+ "pool.positionswunsch.r.r1": [
+  "{b.gut} Dann zeige ich dir, dass die Idee funktioniert.",
+  "{b.gut} Endlich werde ich gehört, das motiviert mich."
+ ],
+ "pool.positionswunsch.r.r2": [
+  "{b.gut} Ich bin dir dankbar für die Chance, auch wenn es nichts wird.",
+  "{b.gut} Hauptsache, wir reden darüber, den Rest sehen wir."
+ ],
+ "pool.positionswunsch.r.r3": [
+  "{b.gut} Mit dieser Chance mache ich den Unterschied, du wirst es sehen.",
+  "{b.gut} Jetzt muss ich nur noch abliefern, und das mache ich."
+ ],
+ "pool.positionswunsch.r.r4": [
+  "{b.gut} Dass du es ernst nimmst, bedeutet mir viel.",
+  "{b.gut} Ich war nervös, aber du hast mich nicht ausgelacht."
+ ],
+ "pool.positionswunsch.r.r5": [
+  "{b.neutral} Mal schauen, ob es im Training klappt.",
+  "{b.neutral} Das ist kein Ja, aber auch kein Nein."
+ ],
+ "pool.positionswunsch.r.r6": [
+  "{b.neutral} Ich hoffe, ich enttäusche dich nicht, wenn es so weit ist.",
+  "{b.neutral} Ich freue mich und ärgere mich zugleich, schwer zu erklären."
+ ],
+ "pool.positionswunsch.r.r7": [
+  "{b.neutral} Dann warte ich auf meine Gelegenheit.",
+  "{b.neutral} Ich verstehe deine Sicht, teile sie aber nicht ganz."
+ ],
+ "pool.positionswunsch.r.r8": [
+  "{b.neutral} Ich spiele, wo ich stehe, und sehe weiter.",
+  "{b.neutral} Wenn es nicht klappt, ist die Welt auch nicht untergegangen."
+ ],
+ "pool.positionswunsch.r.r9": [
+  "{b.schlecht} Dann bleibe ich eben unter meinen Möglichkeiten.",
+  "{b.schlecht} Mit dieser Antwort kann ich nichts anfangen."
+ ],
+ "pool.positionswunsch.r.r10": [
+  "{b.schlecht} Dann spiele ich eben nach meinem Kopf, wenn du nicht zuhörst!",
+  "{b.schlecht} Wie ich spiele, entscheide ich dann selbst!"
+ ],
+ "pool.positionswunsch.r.r11": [
+  "{b.schlecht} Bei einem anderen Trainer bekäme ich die Chance, die du mir verwehrst.",
+  "{b.schlecht} Dann suche ich eine Mannschaft, die mir Raum gibt."
+ ],
+ "pool.positionswunsch.r.r12": [
+  "{b.schlecht} Ich hatte gehofft, dass du mir wenigstens eine Chance gibst.",
+  "{b.schlecht} Ich spiele, wo du willst, aber freuen tue ich mich darüber nicht mehr."
+ ],
+ "pool.positionswunsch.x.x1": [
+  "Er geht mit einem Lächeln. {entscheidung} Im Training probiert er die neue Rolle gleich mit sichtbarer Lust.",
+  "{entscheidung} Die Sache ist für ihn erst einmal geklärt."
+ ],
+ "pool.positionswunsch.x.x2": [
+  "Ob die Idee trägt, muss sich erst zeigen. {entscheidung} Er bleibt auf seiner bisherigen Position.",
+  "{entscheidung} Er nimmt es hin, ohne den Wunsch aufzugeben."
+ ],
+ "pool.positionswunsch.x.x3": [
+  "Er geht frustriert und knallt die Tür. {entscheidung} Man munkelt, er laufe künftig nach eigenem Gusto.",
+  "{entscheidung} Der Wunsch wird zur Kabinengeschichte."
+ ],
+ "pool.positionswunsch.x.x4": [
+  "Du hast dich festgelegt. {entscheidung} Er wird die Chance genau einfordern.",
+  "{entscheidung} Die Frist läuft, und er trainiert schon in der neuen Rolle."
+ ],
+ "pool.positionswunsch.x.x5": [
+  "Er winkt ab und verlässt den Raum. {entscheidung} Das Gespräch bleibt unvollendet.",
+  "{entscheidung} Er schaltet ab und geht."
+ ]
+}

@@ -1,0 +1,9 @@
+{
+ "optionen.groesse.titel": "Oberflächengröße",
+ "optionen.groesse.wert": "%1 %",
+ "optionen.groesse.hinweis": "Schrift, Abstände und Symbole der ganzen Oberfläche. Wirkt sofort und wird gemerkt. 100 % ist die Standardgröße für dein Fenster.",
+ "optionen.groesse.vorschau": "Vorschau",
+ "optionen.groesse.vorschau_titel": "Taktik und Aufstellung",
+ "optionen.groesse.vorschau_text": "So groß erscheinen Texte, Zahlen und Knöpfe.",
+ "optionen.groesse.standard": "Auf 100 % zurück"
+}

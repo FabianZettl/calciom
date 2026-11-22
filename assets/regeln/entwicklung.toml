@@ -1,0 +1,216 @@
+# Konfiguration von Entwicklung, Moral, Kabine und Training (Sitzung E). Alles hier ist eine eigene Festlegung von
+# PESM und austauschbar; im Code steht keine dieser Zahlen. Moral, Belastung, Selbstvertrauen: 0–100, neutral 50 bzw. 30.
+
+[entwicklung]
+# Alter -> Fähigkeitszuwachs je Jahr in Gesamtwert-Punkten (linear dazwischen); negativ = Verfall
+alterskurve = [[16, 5.0], [18, 4.2], [20, 3.2], [22, 2.0], [24, 1.0], [26, 0.3], [28, 0.0], [30, -0.6], [32, -1.4], [34, -2.4], [37, -3.5]]
+punkte_je_gesamtwert = 4        # Fähigkeitspunkte (Summe über die 15 Spielstand-Fähigkeiten) je Gesamtwert-Punkt
+potenzial_bis_alter = 26
+potenzial_je_jahr = 1.7         # Zuwachs je Jahr bis `potenzial_bis_alter` (Mittel), dazu fester Streuwert je Spieler
+potenzial_streuung = 3          # ± Punkte, deterministisch aus Satzindex
+potenzial_puffer = 6            # Abstand zum Potenzial, ab dem das Wachstum abflaut
+untergrenze = 40
+obergrenze = 99
+# Faktoren auf Wachstum (Alterskurve positiv)
+intensitaet = { schonend = 0.7, normal = 1.0, hart = 1.25 }
+einzeltraining = 1.2
+spielzeit_gut = 1.2             # spielt regelmäßig (Anteil der letzten Spiele ≥ `spielzeit_anteil`)
+spielzeit_schlecht = 0.85
+spielzeit_anteil = 0.5
+mentor_staerke = 0.25           # Zuschlag bei voller Passung
+mentor_alter_mentor = 26
+mentor_alter_schueler = 24
+mentor_abstand = 4             # Jahre Altersabstand mindestens
+mentor_fuehrung = 0
+mentor_erfahrung_bis = 34      # ab hier volle Erfahrungswertung
+mentor_schueler_bis = 22       # nur junge Spieler brauchen einen Mentor: bis zu diesem Alter immer …
+mentor_schueler_bis_talent = 24   # … bis zu diesem Alter, wenn das Potenzial mindestens `mentor_talent_abstand` über dem Gesamtwert liegt
+mentor_talent_abstand = 8
+moral_niedrig = 35
+moral_hoch = 65
+moral_faktor_niedrig = 0.8
+moral_faktor_hoch = 1.1
+rueckkehr_tage = 21             # nach einer Verletzung: Schonzeit, Wachstum mal `rueckkehr_faktor`
+rueckkehr_faktor = 0.5
+fokus_gewicht = 3.0             # Fähigkeiten im Fokus bekommen so viel mehr vom Tagesfortschritt
+verfall_koerperlich = 2.0       # beim Verfall: körperliche Fähigkeiten verfallen so viel schneller
+verfall_belastung_ab = 70       # Überlastung beschleunigt den Verfall
+verfall_belastung_faktor = 1.3
+koerperlich = ["schnelligkeit", "antritt", "sprungkraft", "ausdauer", "balance"]
+fokusgruppen = { tempo = ["schnelligkeit", "antritt"], physis = ["koerperkontakt", "balance", "sprungkraft", "ausdauer"], technik = ["enge_ballfuehrung", "effet", "freistoss"], schuss = ["schusskraft", "effet", "freistoss"], defensiv = ["aggressivitaet", "koerperkontakt", "klaeren"], torwart = ["fangen", "klaeren", "reflexe", "reichweite"] }
+torwart_faehigkeiten = ["fangen", "klaeren", "reflexe", "reichweite", "sprungkraft", "balance"]
+feld_faehigkeiten = ["freistoss", "effet", "schnelligkeit", "antritt", "schusskraft", "sprungkraft", "koerperkontakt", "balance", "ausdauer", "enge_ballfuehrung", "aggressivitaet"]
+
+[umschulung]
+tage_grundwert = 120
+tage_je_jahr_ueber_21 = 6
+verwandt = [["IV", "LV", "RV", "DM"], ["DM", "ZM", "OM", "LM", "RM"], ["OM", "LA", "RA", "HS"], ["HS", "ST", "LA", "RA"]]
+distanz_faktor = { verwandt = 1.0, fern = 1.8 }
+
+[moral]
+neutral = 50
+rate = 0.12                     # Anteil des Abstands zum Ziel, der je Tag überbrückt wird
+deckel_unten = 5
+deckel_oben = 95
+meldeschwelle = 8               # `moral_geaendert` erst ab dieser Veränderung gegenüber der letzten Meldung
+unzufrieden_unter = 35
+unzufrieden_wieder = 45
+spielzeit_fenster = 5           # letzte Spiele
+spielzeit_faktor = 30           # je Anteilspunkt Abweichung
+spielzeit_min = -15
+spielzeit_max = 8
+erwartet = { kapitaen = 0.9, vizekapitaen = 0.9, fuehrungsspieler = 0.85, stammspieler = 0.8, rotationsspieler = 0.5, perspektivspieler = 0.3, randfigur = 0.15 }
+erfolg_faktor = 5               # je Punkt Abweichung der Punkte je Spiel von 1,5
+erfolg_grenze = 7
+gehalt_faktor = 18              # Gehaltsrang unter Leistungsrang
+gehalt_grenze = 12
+gehalt_schwelle = 0.2
+vertrag_kurz_monate = 6
+vertrag_unsicher = 3
+zusage_gebrochen = 8
+zusage_gebrochen_deckel = 16
+zusage_gehalten = 3
+zusage_gehalten_deckel = 6
+zusage_offen = 2
+gespraech_deckel = 10
+freund_zuschlag = 1.5
+freund_deckel = 4
+feind_abzug = 2.0
+feind_deckel = 5
+isoliert_abzug = 2.0
+mentor_bund = 3.0
+schuetzling_zuschlag = 1.0
+training_faktor = 0.5            # Stimmungswirkung des Trainingsplans (Summe der Einheiten einer Woche, tp-Raster) in Moralpunkte
+training_deckel = 3
+gespraech_halbwertszeit = 21    # Tage
+rolle_ego_ab = 65
+rolle_abzug = 4
+geruecht_zuschlag = 2
+geruecht_deckel = 4
+gruppe_faktor = 0.12
+verletzt_abzug = 3
+form_je_pfeil = 2.0               # Formpfeil 0–4, Mitte 2
+ueberlastung_abzug = 2          # Belastung in der Zone „überlastet“ drückt auf die Stimmung
+
+[selbstvertrauen]
+neutral = 50
+rueckkehr_zur_mitte = 0.03      # je Tag
+note_neutral = 6.0
+note_faktor = 4
+sieg = 2
+niederlage = -2.5
+tor = 1.5
+
+[form]
+bereich = 6
+moral_gewicht = 2.5
+selbstvertrauen_gewicht = 3.0
+kondition_unter = 60
+kondition_abzug = 1.5
+rate = 0.35
+meldeschwelle = 1.5
+
+[wechsel]
+neutral = 10
+rate = 0.1
+moral_hebel = 1.6
+angebot_je = 10
+vertrag_kurz_zuschlag = 10
+loyalitaet_hebel = 10
+wunsch_ab = 70
+wunsch_zurueck_unter = 45
+
+[belastung]
+neutral = 30
+abbau = 0.12                    # Anteil, der je Tag abgebaut wird
+spiel = 10
+einheiten = { frei = 0.0, regeneration = -1.0, leicht = 2.0, normal = 4.0, taktik = 3.0, intensiv = 8.0 }
+intensitaet = { schonend = 0.6, normal = 1.0, hart = 1.4 }
+einzeltraining = 2.0
+zonen = [["niedrig", 15], ["normal", 50], ["hoch", 70], ["ueberlastet", 101]]
+plan_vorgabe = ["normal", "normal", "leicht", "normal", "taktik", "frei", "frei"]   # Montag bis Sonntag
+
+[risiko]
+basis = 0.0015                  # Tagesrisiko eines gesunden, ausgeruhten 25-Jährigen
+belastung_quadrat = 2.0
+alter_ab = 28
+alter_je_jahr = 0.08
+kondition_hebel = 1.0
+rueckkehr_faktor = 1.5
+stufen = [["niedrig", 0.002], ["mittel", 0.004], ["hoch", 1.0]]   # Obergrenze des Tagesrisikos
+ausloesen = false               # true: PESM löst Verletzungen selbst aus (Standard aus: das Spiel kennt sie sonst nicht)
+dauer = [3, 40]
+
+[stab]
+neutral = 50
+training_hebel = 0.12           # Trainerqualität: ±12 % auf die Entwicklung
+medizin_hebel = 0.2             # Arzt und Physio: ±20 % auf das Verletzungsrisiko
+
+[kondition]
+basis = 95
+belastung_hebel = 0.45
+schwelle = 8                    # erst bei so viel Abweichung ein Änderungsvorschlag
+
+[kabine]
+teamgeist_neutral = 50
+moral_gewicht = 0.5
+konflikt_abzug = 6
+kapitaen_gewicht = 0.1
+rate = 0.1
+beziehung_start_nation = 30
+beziehung_start_alter = 10
+beziehung_start_alter_diff = 3
+beziehung_start_konkurrenz = -8
+beziehung_start_streuung = 22
+beziehung_start_aehnlichkeit = 0.7
+beziehung_start_vereinszeit = 8        # beide kamen im selben Jahr
+beziehung_start_hitzig = -15           # beide hitzig
+beziehung_start_hitzig_ab = 60
+beziehung_start_eitel = -12            # beide eitel
+beziehung_start_eitel_ab = 65
+beziehung_start_vertraeglich = 8       # beide verträglich
+beziehung_start_vertraeglich_ab = 60
+konflikt_start_unter = -30             # beim ersten Mal höchstens `konflikt_start_zahl` Spannungen zeigen
+konflikt_start_zahl = 2
+mentor_start_ab = 0.4
+mentor_start_je_mentor = 2
+gruppe_nation_max_anteil = 0.5
+gruppe_jung_bis = 22
+gruppe_erfahren_ab = 30
+beziehung_spiel_sieg = 1.0
+beziehung_spiel_sonst = 0.3
+beziehung_unzufrieden = -0.05
+gruppe_ab = 35
+gruppe_min = 3
+freunde_ab = 35                # Stufe „Vertrauter“ und besser zählt als Freund für die Stimmung
+konflikt_unter = -45
+konflikt_chance = 0.03
+konflikt_ende_tage = 60
+freund_ab = 60
+rivale_unter = -25
+# Beziehungsstufen: erste Stufe, deren Grenze der Wert erreicht
+stufen = [[60, "freund"], [35, "vertrauter"], [-10, "kollege"], [-25, "distanziert"], [-45, "rivale"], [-101, "spannung"]]
+beziehung_start_teamrolle = 4
+beziehung_start_ergaenzung = 5         # sich ergänzende Positionen (z. B. Abwehr und defensives Mittelfeld)
+beziehung_start_vertrag = 3            # ähnlich lange Verträge
+beziehung_zur_mitte = 0.002            # Anteil je Tag, um den jede Beziehung zur Mitte zurückfällt
+beziehung_mentor_je_tag = 0.15
+beziehung_streit_abzug = 8
+fuehrungsspieler_je_gruppe = 2
+gespraech_sperre_tage = 7
+mannschaft_sperre_tage = 5
+mannschaft_faktor = 0.5
+folge_tage = 3                  # Verzögerung der Nachwirkung eines Gesprächs
+folge_anteil = 0.4
+sofort_anteil = 0.3
+zusage_frist_tage = 28
+zusage_wirkung = 4.0
+zusage_themen = ["spielzeit", "vertrag", "rolle"]
+mentor_themen = { spielzeit = 2.0, form = 2.0, geduld = 2.5, vertrag = 1.5 }
+mentor_thema_sperre_tage = 7
+toene = { lob = 5.0, ermutigen = 4.0, sachlich = 1.5, kritik = -3.0, hart = -7.0 }
+selbstvertrauen_je_wirkung = 0.8
+
+[vorschlag]
+haengend_tage = 3                          # Eintrag im Zustand „wartet“ ohne Aktion, älter als so viele Tage: wird mit dem Spielstand abgeglichen und geschlossen
+pfeil_grenzen = [-3.5, -1.2, 1.2, 3.5]   # Form (Overlay) ab der die Stufe 1, 2, 3, 4 gilt; darunter Stufe 0

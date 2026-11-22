@@ -1,0 +1,20 @@
+{
+ "gb.grund.kit_star": "%1 gehört zu den Teuersten im Kader und spielt vor %2.",
+ "gb.grund.kit_neuer_trainer": "Der neue Trainer bringt sein System mit: %1 (Idee: %2).",
+ "gb.grund.kit_gegentore": "Im Schnitt %1 Gegentore: er lässt tiefer und kompakter spielen, mit weniger Risiko.",
+ "gb.grund.kit_keine_tore": "Im Schnitt nur %1 Tore: er rückt die Kette nach vorn und schickt mehr Spieler mit.",
+ "gb.grund.kit_siegesserie_hoeher": "Nach %1 Siegen in Folge bleibt er bei seinem Spiel und lässt etwas höher stehen.",
+ "gb.grund.kit_wichtig_titel": "Es geht um den Titel: er bringt die stärkste Elf.",
+ "gb.grund.kit_wichtig_abstieg": "Es geht gegen den Abstieg: er bringt die stärkste Elf.",
+ "gb.grund.kit_wichtig_europa": "Europa steht auf dem Spiel: er bringt die stärkste Elf.",
+ "gb.grund.kit_wichtig_topspiel": "Gegen den Tabellen-%1. spielt er mit der stärksten Elf.",
+ "gb.grund.kit_rotation_nichts": "Für beide Mannschaften geht es um nichts mehr: er lässt die Jungen spielen.",
+ "gb.grund.kit_rotation_schwacher_gegner": "Der Gegner ist deutlich schwächer: er rotiert und gibt Jungen eine Chance.",
+ "gb.grund.kit_schonen_dicht": "%1 Spiele in kurzer Zeit: er schont die Müden.",
+ "gb.grund.kit_elf_ausfall": "%1 ersetzt den Ausfall %2.",
+ "gb.grund.kit_elf_star": "%1 ist teuer geholt worden und sitzt nicht auf der Bank: er spielt für %2.",
+ "gb.grund.kit_elf_staerkste": "%1 ist stärker als %2 und spielt.",
+ "gb.grund.kit_elf_rotation": "%1 darf für %2 ran.",
+ "gb.grund.kit_elf_schonen": "%2 wird geschont, %1 spielt.",
+ "gb.grund.kit_neuer_trainer_idee": "Der neue Trainer lässt nach seiner Idee spielen (%1) und stellt die Regler darauf ein."
+}

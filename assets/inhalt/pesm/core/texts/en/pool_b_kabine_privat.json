@@ -1,0 +1,74 @@
+{
+ "pool.b.kabinenstreit_lage": [
+  "The dressing room is tense with {gegner}.",
+  "Things haven't been right between {gegner} and me for days."
+ ],
+ "pool.b.kabinenstreit_lage.hitzig": [
+  "{gegner} is looking for a fight, and I won't take it.",
+  "It's about to blow up with {gegner} if nobody steps in."
+ ],
+ "pool.b.kabinenstreit_lage.loyal": [
+  "I don't want to split the dressing room, but it's no longer working with {gegner}.",
+  "For the club's sake I kept quiet for a long time, but it's becoming unbearable with {gegner}."
+ ],
+ "pool.b.kabinenstreit_lage.ehrgeizig": [
+  "{gegner} is holding us back with his attitude, and it costs performance.",
+  "The row with {gegner} distracts from what this should be about."
+ ],
+ "pool.b.kabinenstreit_lage.wechselfreudig": [
+  "I don't want to stay long in a dressing room with {gegner}.",
+  "If it goes on like this with {gegner}, I'll think about where I'm better off."
+ ],
+ "pool.b.kabinenstreit_lage.sensibel": [
+  "I no longer feel comfortable in the dressing room with {gegner}.",
+  "The mood between {gegner} and me is getting to me."
+ ],
+ "pool.b.kapitaensbinde_lage": [
+  "It's about the captain's armband.",
+  "I need to talk to you about the armband."
+ ],
+ "pool.b.kapitaensbinde_lage.hitzig": [
+  "The armband belongs to someone who leads, and that's me, not someone else!",
+  "Not wearing the armband is a slap in the face."
+ ],
+ "pool.b.kapitaensbinde_lage.loyal": [
+  "I've served this club for a long time and would have loved to wear the armband.",
+  "I've always stood up for the club, so the armband matter hurts."
+ ],
+ "pool.b.kapitaensbinde_lage.ehrgeizig": [
+  "I want to take responsibility, and the armband is part of that.",
+  "Whoever wants to play at the top has to lead, and I want to lead."
+ ],
+ "pool.b.kapitaensbinde_lage.wechselfreudig": [
+  "Without the armband I don't see my role here in the long term.",
+  "If I can't lead here, I'll lead somewhere else."
+ ],
+ "pool.b.kapitaensbinde_lage.sensibel": [
+  "Not having the armband bothers me more than I wanted to admit.",
+  "I hesitated for a long time about coming to you over the armband."
+ ],
+ "pool.b.heimweh_lage": [
+  "I miss home quite a lot.",
+  "I can't shake the homesickness."
+ ],
+ "pool.b.heimweh_lage.hitzig": [
+  "I'm sitting here alone in a strange city, and it makes me angry.",
+  "It feels like the whole world has forgotten me, and that annoys me."
+ ],
+ "pool.b.heimweh_lage.loyal": [
+  "I don't want to burden the club, but I miss my family at home.",
+  "I give everything here, I just miss my family terribly."
+ ],
+ "pool.b.heimweh_lage.ehrgeizig": [
+  "I want to achieve something here, but the longing for home holds me back.",
+  "My head is with my family, and it slows me down in training."
+ ],
+ "pool.b.heimweh_lage.wechselfreudig": [
+  "I wonder if I shouldn't play closer to home again.",
+  "Maybe the move here was too early, I miss my home."
+ ],
+ "pool.b.heimweh_lage.sensibel": [
+  "In the evenings I get sad when I think of my family.",
+  "I often feel very alone here and miss my people."
+ ]
+}

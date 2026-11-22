@@ -1,0 +1,352 @@
+# Regeln der Wettbewerbe je Spielwelt (hier: SP Football Life 2026, Datenstand 2026). Eigene Festlegung von PESM, austauschbar.
+# Was der Spielstand trägt, wird beim Einlesen gemessen (WETTBEWERBE.md) und gegen diese Datei abgeglichen; was er nicht trägt, steht hier.
+# sicherheit: "bestaetigt" = am Spielstand oder im Spiel belegt, "vermutet" = Regel der Saison 2025/26 aus dem Fußball, im Spiel nicht belegt.
+# Plätze der Tabelle: oben als [von, bis] (1 = Meister), unten als Zahl vom Tabellenende her (abstieg = die letzten N, relegation = die N Plätze darüber).
+# Ein Platz wird nur gezeigt, wenn es sein Ziel in dieser Spielwelt gibt: Europapokal-Wettbewerbe stehen unter [europa], Auf- und Abstieg nur mit verknüpfter Liga.
+
+[spielwelt]
+kennung = "sp-football-life-2026"
+datenstand = "2026"
+
+[europa]                    # Nummern der Ziel-Wettbewerbe (Stufe 0); 0 = diesen Wettbewerb gibt es in der Spielwelt nicht
+cl = 3                      # Champions League, Gruppenphase
+cl_quali = 2                # Champions League, Qualifikation (Hin- und Rückspiel)
+el = 5                      # Europa League
+ecl = 0                     # Conference League: kein Wettbewerb im Spielstand
+supercup = 7
+
+[[europapokal]]             # Aufbau der Europapokale; die K.-o.-Runden stehen nicht im Spielplan des Spielstands (werden erst im Spiel erzeugt)
+nummer = 3                  # Champions League, Gruppenphase
+gruppen = 8
+weiter_je_gruppe = 2
+dritte_nach = "el"          # Gruppendritte wechseln in die Europa League
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[europapokal]]
+nummer = 4                  # Champions League, K.-o.-Runden
+ko = [["achtelfinale", "hin_rueck"], ["viertelfinale", "hin_rueck"], ["halbfinale", "hin_rueck"], ["finale", "einzel"]]
+verlaengerung = true
+elfmeter = true
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[europapokal]]
+nummer = 5                  # Europa League, Gruppenphase
+gruppen = 12
+weiter_je_gruppe = 2
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[europapokal]]
+nummer = 6                  # Europa League, K.-o.-Runden
+ko = [["sechzehntelfinale", "hin_rueck"], ["achtelfinale", "hin_rueck"], ["viertelfinale", "hin_rueck"], ["halbfinale", "hin_rueck"], ["finale", "einzel"]]
+verlaengerung = true
+elfmeter = true
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[europapokal]]
+nummer = 2                  # Champions League, Qualifikation: Paarungen mit Hin- und Rückspiel, die Sieger kommen in die Gruppenphase
+ziel = 3
+sicherheit = "bestaetigt"
+quelle = "spielstand"
+
+# ---- Ligen (Nummer = Wettbewerb im Spielstand) ----
+[[liga]]
+nummer = 17
+land = "ENG"
+cl = [1, 4]
+el = [5, 5]
+ecl = [6, 6]
+abstieg = 3
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[liga]]
+nummer = 18
+land = "ITA"
+cl = [1, 4]
+el = [5, 5]
+ecl = [6, 6]
+abstieg = 3
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[liga]]
+nummer = 19
+land = "ESP"
+cl = [1, 4]
+el = [5, 6]
+ecl = [7, 7]
+abstieg = 3
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[liga]]
+nummer = 20
+land = "GER"
+cl = [1, 4]
+el = [5, 5]
+ecl = [6, 6]
+relegation = 1
+abstieg = 2
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[liga]]
+nummer = 116
+land = "FRA"
+cl = [1, 2]
+cl_quali = [3, 3]
+el = [4, 4]
+ecl = [5, 5]
+relegation = 1
+abstieg = 2
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[liga]]
+nummer = 21
+land = "NED"
+cl = [1, 1]
+cl_quali = [2, 2]
+el = [3, 3]
+ecl = [4, 4]
+relegation = 2
+abstieg = 1
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[liga]]
+nummer = 22
+land = "POR"
+cl = [1, 1]
+cl_quali = [2, 2]
+el = [3, 3]
+ecl = [4, 4]
+abstieg = 2
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[liga]]
+nummer = 118
+land = "TUR"
+cl_quali = [1, 2]
+el = [3, 3]
+ecl = [4, 4]
+abstieg = 3
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[liga]]
+nummer = 117
+land = "GRE"
+cl_quali = [1, 1]
+el = [2, 2]
+ecl = [3, 3]
+abstieg = 2
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[liga]]
+nummer = 50
+land = "POL"
+cl_quali = [1, 1]
+el = [2, 2]
+ecl = [3, 3]
+abstieg = 3
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[liga]]
+nummer = 134
+land = "SCO"
+cl_quali = [1, 1]
+el = [2, 2]
+ecl = [3, 3]
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[liga]]
+nummer = 147
+land = "DEN"
+cl_quali = [1, 1]
+el = [2, 2]
+ecl = [3, 3]
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[liga]]
+nummer = 155
+land = "BEL"
+cl_quali = [1, 1]
+el = [2, 2]
+ecl = [3, 3]
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[liga]]
+nummer = 30
+land = "ARG"
+sicherheit = "bestaetigt"
+quelle = "spielstand"
+
+# Zweite Ligen: Aufstieg direkt, Aufstiegsspiele (Play-offs) für die Plätze danach
+[[liga]]
+nummer = 79
+land = "ENG"
+aufstieg = [1, 2]
+aufstieg_playoff = [3, 6]
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[liga]]
+nummer = 80
+land = "ESP"
+aufstieg = [1, 2]
+aufstieg_playoff = [3, 6]
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[liga]]
+nummer = 81
+land = "GER"
+aufstieg = [1, 2]
+aufstieg_playoff = [3, 3]
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[liga]]
+nummer = 82
+land = "ITA"
+aufstieg = [1, 2]
+aufstieg_playoff = [3, 8]
+sicherheit = "vermutet"
+quelle = "reglement"
+
+# ---- Pokale: Sieger und sein Ziel; Modus je Runde kommt aus dem Spielplan ----
+[[pokal]]
+nummer = 23
+land = "ENG"
+sieger_ziel = "el"
+verlaengerung = true
+elfmeter = true
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[pokal]]
+nummer = 24
+land = "ITA"
+sieger_ziel = "el"
+verlaengerung = true
+elfmeter = true
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[pokal]]
+nummer = 25
+land = "ESP"
+sieger_ziel = "el"
+verlaengerung = true
+elfmeter = true
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[pokal]]
+nummer = 26
+land = "GER"
+sieger_ziel = "el"
+verlaengerung = true
+elfmeter = true
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[pokal]]
+nummer = 27
+land = "NED"
+sieger_ziel = "el"
+verlaengerung = true
+elfmeter = true
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[pokal]]
+nummer = 28
+land = "POR"
+sieger_ziel = "el"
+verlaengerung = true
+elfmeter = true
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[pokal]]
+nummer = 123
+land = "FRA"
+sieger_ziel = "el"
+verlaengerung = true
+elfmeter = true
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[pokal]]
+nummer = 53
+land = "POL"
+sieger_ziel = "ecl"
+verlaengerung = true
+elfmeter = true
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[pokal]]
+nummer = 59
+land = "ARG"
+verlaengerung = true
+elfmeter = true
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[pokal]]
+nummer = 122
+land = "BEL"
+sieger_ziel = "ecl"
+verlaengerung = true
+elfmeter = true
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[pokal]]
+nummer = 124
+land = "GRE"
+sieger_ziel = "ecl"
+verlaengerung = true
+elfmeter = true
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[pokal]]
+nummer = 125
+land = "TUR"
+sieger_ziel = "ecl"
+verlaengerung = true
+elfmeter = true
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[pokal]]
+nummer = 137
+land = "SCO"
+sieger_ziel = "ecl"
+verlaengerung = true
+elfmeter = true
+sicherheit = "vermutet"
+quelle = "reglement"
+
+[[pokal]]
+nummer = 142
+land = "DEN"
+sieger_ziel = "ecl"
+verlaengerung = true
+elfmeter = true
+sicherheit = "vermutet"
+quelle = "reglement"

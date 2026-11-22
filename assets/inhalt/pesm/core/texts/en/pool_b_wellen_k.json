@@ -1,0 +1,114 @@
+{
+ "pool.b.vorstand_budget_antrag_gruss": [
+  "Good day, your president writing.",
+  "Good day, I am getting back to you as president about your request."
+ ],
+ "pool.b.vorstand_budget_antrag_lage": [
+  "Your request for more transfer budget is on my desk, and the coffers are emptier than we would like.",
+  "You want more money for signings, and I have to weigh that against our finances."
+ ],
+ "pool.b.vorstand_budget_antrag_lage.hitzig": [
+  "Another demand for money! The budget is tight, and you act as if we had a printing press in the cellar!",
+  "Your request comes at the worst time, and I have no patience for wish lists today!"
+ ],
+ "pool.b.vorstand_budget_antrag_lage.loyal": [
+  "I trust your work and therefore take your request seriously, even though the coffers are thin.",
+  "You have the club behind you, I just have to find the money for your request first."
+ ],
+ "pool.b.vorstand_budget_antrag_lage.ehrgeizig": [
+  "I want to take this club upwards, and more budget may make sense for that. Convince me that it pays off.",
+  "If more money takes us a step further, I am open to it. Your request is here, and I want to see results."
+ ],
+ "pool.b.vorstand_budget_antrag_lage.wechselfreudig": [
+  "I am considering redistributing the funds anyway, and your request lands right in the middle of that.",
+  "Plans change quickly here, and so does financial planning. Your request is here, but whether it still fits is open."
+ ],
+ "pool.b.vorstand_budget_antrag_lage.sensibel": [
+  "I thought long about how to answer you, because I do not want to offend you: the budget is tight.",
+  "Your request weighs on me, and I know how much it means to you, but the situation is difficult."
+ ],
+ "pool.b.vorstand_saisonziel_gruss": [
+  "Good day, please take a seat, we have a lot to discuss.",
+  "Welcome to the meeting, I have put the season target on the agenda."
+ ],
+ "pool.b.vorstand_saisonziel_lage": [
+  "The table shows that we are behind the target we agreed on at the start of the season.",
+  "The season target is slipping away, and the board wants to know how things go on."
+ ],
+ "pool.b.vorstand_saisonziel_lage.hitzig": [
+  "We are behind the target, and that is unacceptable! The board has had enough of nice explanations!",
+  "The table does not lie, and neither do I: the season target is in danger, and I want answers!"
+ ],
+ "pool.b.vorstand_saisonziel_lage.loyal": [
+  "I stand by you, but the season target is wobbling, and we have to talk about it openly.",
+  "We have been on this road together for a long time, so I will say it plainly: the target is wobbling."
+ ],
+ "pool.b.vorstand_saisonziel_lage.ehrgeizig": [
+  "I set this club a clear target, and I mean to reach it. Right now it does not look that way.",
+  "Whoever wants to reach the top must not run behind, and that is exactly what we are doing."
+ ],
+ "pool.b.vorstand_saisonziel_lage.wechselfreudig": [
+  "Perhaps the target was wrong from the start, and perhaps so is the coach. We have to clarify that.",
+  "I am ready to rethink target, plan and personnel if this continues."
+ ],
+ "pool.b.vorstand_saisonziel_lage.sensibel": [
+  "It is not easy for me to bring this up, but the season target is out of reach, and it weighs on all of us.",
+  "I do not want to expose anyone, but the situation in the table worries me."
+ ],
+ "pool.b.verkaufsdruck_vorstand_gruss": [
+  "Good day, I am writing to you about an unpleasant matter.",
+  "Good day, the president here, and it is about money."
+ ],
+ "pool.b.verkaufsdruck_vorstand_lage": [
+  "The transfer budget is used up, and the club has to ease the finances. Selling a player would be the quickest way.",
+  "We are in the red, and the books demand action. I expect a player to leave the club."
+ ],
+ "pool.b.verkaufsdruck_vorstand_lage.hitzig": [
+  "The till is empty, and you sit on wages we cannot afford! One player goes, and soon!",
+  "I have had enough of red figures! Sell someone, or I will do it for you!"
+ ],
+ "pool.b.verkaufsdruck_vorstand_lage.loyal": [
+  "I do not want to interfere in your squad planning, but the finances leave me no choice. A sale must be seriously considered.",
+  "You know my attitude towards you. That is precisely why I ask you to help ease the finances."
+ ],
+ "pool.b.verkaufsdruck_vorstand_lage.ehrgeizig": [
+  "We can only grow if the balance sheet holds, and right now it does not. A sale makes room for the next investment.",
+  "A clever sale today is the signing of tomorrow. What decision are you making?"
+ ],
+ "pool.b.verkaufsdruck_vorstand_lage.wechselfreudig": [
+  "Players come and go, that is the business. I see no reason why one should not go this time as well.",
+  "I never planned the squad for eternity anyway. A sale fits our model."
+ ],
+ "pool.b.verkaufsdruck_vorstand_lage.sensibel": [
+  "I know how close you are to your players, and it is hard for me to ask this. But the figures allow nothing else.",
+  "I am uneasy writing this to you, but a sale has become unavoidable."
+ ],
+ "pool.b.vorstand_lob_serie_gruss": [
+  "Good day, I am writing to you with pleasure for once.",
+  "Good day, the president here, and this time with good news."
+ ],
+ "pool.b.vorstand_lob_serie_lage": [
+  "The winning streak is felt throughout the club, and the board is full of praise.",
+  "Several wins in a row, that has done us all good, and I want to tell you so personally."
+ ],
+ "pool.b.vorstand_lob_serie_lage.hitzig": [
+  "That is finally the performance I wanted to see! Keep it up, and do not let up!",
+  "This streak is exactly right, and I expect that it does not break!"
+ ],
+ "pool.b.vorstand_lob_serie_lage.loyal": [
+  "I always believed in you, and the streak proves me right. The club is proud of you.",
+  "I am particularly glad that your work is now bearing fruit, for you have long been loyal to the club."
+ ],
+ "pool.b.vorstand_lob_serie_lage.ehrgeizig": [
+  "That is a base on which we can build something great. Now we only have to dare the next step.",
+  "With this streak we are in the race, and I want to know how far we can go."
+ ],
+ "pool.b.vorstand_lob_serie_lage.wechselfreudig": [
+  "The streak is pleasing, but I know that in football the wind turns quickly. Let us enjoy it while it lasts.",
+  "Success does not last forever, so I am already planning how we can use it before it passes."
+ ],
+ "pool.b.vorstand_lob_serie_lage.sensibel": [
+  "Your work has lifted the entire club, and I wanted you to hear that first hand.",
+  "It moves me to see how the team has developed, and I want to thank you for it."
+ ]
+}

@@ -1,0 +1,226 @@
+# Zahlen des Managers (Werte, Stil, Passung, Lehrgänge, Freizeit, Wohnen). Im Code steht keine dieser Zahlen.
+
+[start]
+werte = { menschenfuehrung = 45, taktikwissen = 45, autoritaet = 45, medienwirkung = 40, nachwuchsarbeit = 40, fitnesswissen = 40, verhandlungsgeschick = 40 }
+zustand = { energie = 70, stress = 30, motivation = 55, treue = 50, ruf_extra = 0 }
+startkasse_monate = 3            # Privatkasse zu Beginn: so viele Monatsnettogehälter
+netto_anteil = 0.6               # Anteil des Jahresgehalts, der privat ankommt
+
+[woche]
+zeitplaetze = 3                  # Freizeitplätze je Woche
+stress = 5                       # Der Beruf kostet jede Woche Nerven und Kraft
+energie = -4
+motivation_zu_mitte = 0.1        # Motivation wandert langsam zur Mitte
+
+[abzug]                          # Erschöpfung drückt alle Fähigkeiten
+stress_ab = 70
+stress_max = 8
+energie_unter = 30
+energie_max = 6
+
+[stil]
+namen = ["hart", "fuersorglich", "diplomatisch", "kumpelhaft"]
+abklingen = 0.97                 # je Woche
+mindest_summe = 3                # darunter hat der Manager noch keinen erkennbaren Stil
+mindest_anteil = 0.35
+
+[verhalten.ton]                  # Gesprächston -> Punkte je Stil
+hart = { hart = 1.0 }
+einfuehlsam = { fuersorglich = 1.0 }
+sachlich = { diplomatisch = 1.0 }
+offen = { diplomatisch = 0.5, kumpelhaft = 0.5 }
+bestimmt = { hart = 0.5, diplomatisch = 0.5 }
+humorvoll = { kumpelhaft = 1.0 }
+[verhalten.strategie]
+hart_bleiben = { hart = 1.0 }
+einfuehlen = { fuersorglich = 1.0 }
+ausgleich = { diplomatisch = 1.0 }
+zusage = { fuersorglich = 0.5, diplomatisch = 0.5 }
+delegieren = { kumpelhaft = 0.5 }
+ablehnen = { hart = 0.5 }
+[verhalten.presse]               # Pressetöne
+angriff = { hart = 1.5 }
+ruhig = { diplomatisch = 1.5 }
+warm = { fuersorglich = 1.5 }
+locker = { kumpelhaft = 1.5 }
+[verhalten.rotation]
+viel = { fuersorglich = 0.5, kumpelhaft = 0.5 }
+starr = { hart = 0.5 }
+[verhalten.taktik]               # Wahl je Spiel: auf den Gegner einstellen oder eigenes Spiel durchziehen
+einstellen = { diplomatisch = 0.5 }
+durchziehen = { hart = 0.5 }
+[taktik]                         # Taktikwissen (Punkte je Spiel): dem Rat des Co-Trainers folgen oder einem sicheren Rat widersprechen
+folgt_rat = 0.3
+gegen_sicheren_rat = -0.2
+sicher_ab = 0.65
+[verhalten.zusage]
+gehalten = { fuersorglich = 0.5, diplomatisch = 0.5 }
+gebrochen = { hart = 1.0 }
+[verhalten_fenster]
+tage = 60                        # so weit zurück zählen gehaltene und gebrochene Zusagen beim Einsammeln
+[presse_ton]                     # Ton der Pressekonferenz (core/medien) -> Pressestil oben
+kaempferisch = "angriff"
+kontern = "angriff"
+kritik = "angriff"
+diplomatisch = "ruhig"
+ausweichend = "ruhig"
+lob = "warm"
+ehrlich = "locker"
+[rotation]                       # Spielzeitverteilung: Wechsel in der Startelf zwischen aufeinanderfolgenden Spielen
+spiele = 5                       # so viele gespielte Spiele zählen
+viel_ab = 3.0                    # im Schnitt so viele neue Gesichter je Spiel: der Manager rotiert viel
+starr_bis = 1.0                  # höchstens so viele: die Elf steht fest
+[einladung]
+abgelehnt_ruf = -0.2             # wer eine Einladung ausschlägt, verliert etwas Ruf im Umfeld (ruf_extra)
+[treue]                          # Zusagen: so viel bewegen sie die Treue (0 bis 100)
+gehalten = 3
+gebrochen = -8
+
+# Passung Managerstil x Spielertyp, -2 (passt gar nicht) bis +2 (passt sehr gut)
+[passung.matrix]
+hart = { hitzig = -2, loyal = -1, ehrgeizig = 1, sensibel = -2, gelassen = 0, wechselfreudig = -1, launisch = -1, neutral = 0 }
+fuersorglich = { hitzig = 0, loyal = 2, ehrgeizig = -1, sensibel = 2, gelassen = 1, wechselfreudig = 0, launisch = 1, neutral = 1 }
+diplomatisch = { hitzig = 0, loyal = 1, ehrgeizig = 1, sensibel = 1, gelassen = 1, wechselfreudig = 1, launisch = -1, neutral = 1 }
+kumpelhaft = { hitzig = 1, loyal = 1, ehrgeizig = -2, sensibel = 0, gelassen = 1, wechselfreudig = 1, launisch = 1, neutral = 0 }
+[passung.wirkung]
+je_stufe = 0.15                  # Anteil, um den eine Gesprächswirkung auf Moral und Beziehung wächst (gut) oder schrumpft (schlecht)
+vertrag_punkte = 4               # Prozentpunkte Vertragsbereitschaft je Stufe
+schwelle = 0.5                   # ab diesem Betrag zählt die Passung als spürbar
+vertrag_max = 8                  # Deckel für den Vertragsbonus in Prozentpunkten (plus und minus)
+beziehung_woche = 0.4            # Beziehungspunkte je Woche und Stufe der Passung (Spieler im Kader)
+beziehung_deckel = 60            # weiter treibt die Passung die Beziehung nicht
+
+# Auswirkungen der Werte auf Gesprächswirkungen: Faktor = 1 + (Wert - 50) / teiler
+[wirkung]
+menschenfuehrung = { ziele = ["moral", "beziehung", "vertrauen"], nur = "plus", teiler = 200 }
+autoritaet = { ziele = ["moral", "beziehung"], nur = "minus", teiler = -250 }
+medienwirkung = { ziele = ["medienbild", "fanstimmung"], nur = "plus", teiler = 200 }
+ruf = { ziele = ["vorstandsvertrauen"], nur = "plus", teiler = 250 }
+verhandlungsgeschick = { ziele = ["nachlass"], nur = "plus", teiler = 100 }
+
+# Lehrgänge: kosten (Euro, privat), tage (Dauer), vorlauf (Tage bis zum Beginn), wirkung (Wert -> Zuwachs), braucht (vorheriger Lehrgang)
+[lehrgang.lizenz_b]
+kosten = 4500
+tage = 28
+vorlauf = 7
+wirkung = { taktikwissen = 6, menschenfuehrung = 3 }
+[lehrgang.lizenz_a]
+kosten = 9500
+tage = 35
+vorlauf = 7
+braucht = "lizenz_b"
+wirkung = { taktikwissen = 8, menschenfuehrung = 4, autoritaet = 3 }
+[lehrgang.lizenz_pro]
+kosten = 18000
+tage = 42
+vorlauf = 14
+braucht = "lizenz_a"
+wirkung = { taktikwissen = 10, menschenfuehrung = 5, autoritaet = 5, verhandlungsgeschick = 3 }
+[lehrgang.taktikseminar]
+kosten = 2800
+tage = 7
+vorlauf = 3
+wirkung = { taktikwissen = 4 }
+[lehrgang.sportpsychologie]
+kosten = 3200
+tage = 14
+vorlauf = 5
+wirkung = { menschenfuehrung = 5, fitnesswissen = 2 }
+[lehrgang.medientraining]
+kosten = 2400
+tage = 7
+vorlauf = 3
+wirkung = { medienwirkung = 6 }
+[lehrgang.jugendarbeit]
+kosten = 3000
+tage = 14
+vorlauf = 5
+wirkung = { nachwuchsarbeit = 6, menschenfuehrung = 1 }
+[lehrgang.verhandlungsseminar]
+kosten = 3600
+tage = 10
+vorlauf = 5
+wirkung = { verhandlungsgeschick = 6 }
+[lehrgang.sportmedizin]
+kosten = 3400
+tage = 14
+vorlauf = 5
+wirkung = { fitnesswissen = 6 }
+[laufend]                        # Zustandsänderung je Woche, solange ein Lehrgang läuft
+energie = -2
+stress = 1
+
+# Freizeit: kosten, zeit (Freizeitplätze der Woche; 0 = ganze Woche), wirkung auf den Zustand, welt (Wirkung auf die Vereinswelt, nur Katalog-Ziele),
+# pause (Tage Ruhe bis zum nächsten Mal), nur_pause (nur in spielfreier Zeit), nur_einladung
+[freizeit.golf]
+kosten = 180
+zeit = 1
+wirkung = { energie = 4, stress = -8, motivation = 2, ruf_extra = 0.2 }
+welt = { vorstandsvertrauen = 1 }
+pause = 5
+[freizeit.tennis]
+kosten = 60
+zeit = 1
+wirkung = { energie = 2, stress = -7, motivation = 3 }
+pause = 3
+[freizeit.urlaub]
+kosten = 2400
+zeit = 0
+wirkung = { energie = 35, stress = -40, motivation = 8 }
+pause = 60
+nur_pause = true
+[freizeit.hobby]
+kosten = 40
+zeit = 1
+wirkung = { stress = -6, motivation = 4 }
+pause = 3
+[freizeit.familie]
+kosten = 0
+zeit = 1
+wirkung = { energie = 3, stress = -9, motivation = 3 }
+pause = 3
+[freizeit.freunde]
+kosten = 50
+zeit = 1
+wirkung = { stress = -6, motivation = 3, energie = 2 }
+pause = 4
+[freizeit.dinner]                # nur auf Einladung (Sponsor)
+kosten = 0
+zeit = 1
+wirkung = { stress = -2, motivation = 2, ruf_extra = 0.2 }
+welt = { medienbild = 1, vorstandsvertrauen = 1 }
+pause = 5
+nur_einladung = true
+[freizeit.golf_einladung]        # nur auf Einladung (Vorstand)
+kosten = 0
+zeit = 1
+wirkung = { energie = 4, stress = -8, motivation = 3, ruf_extra = 0.3 }
+welt = { vorstandsvertrauen = 3 }
+pause = 5
+nur_einladung = true
+
+# Wohnen: miete je Monat, preis (Kauf), nebenkosten je Monat, zufriedenheit 0 bis 100 (wirkt auf den Wochenstress)
+[haus.wohnung]
+art = "mieten"
+miete = 900
+zufriedenheit = 40
+[haus.haus_miete]
+art = "mieten"
+miete = 2400
+zufriedenheit = 62
+[haus.haus_kauf]
+art = "kaufen"
+preis = 450000
+nebenkosten = 600
+zufriedenheit = 76
+[haus.villa]
+art = "kaufen"
+preis = 1200000
+nebenkosten = 1500
+zufriedenheit = 92
+
+[wohnen]
+standard = "wohnung"
+umzug = 3000
+verkauf_anteil = 0.9
+stress_teiler = 25               # Wochenstress minus (Zufriedenheit - 50) / teiler

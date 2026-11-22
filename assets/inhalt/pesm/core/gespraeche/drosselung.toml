@@ -1,0 +1,31 @@
+# Zentrale Drosselung neuer Spieler-Anliegen (Gespräche-Anliegen und Pool-Themen der Spieler). Startwerte, nicht kalibriert.
+# Wichtige Themen kommen immer durch; normale und Rauschen nur, solange Tages- und Wochenkontingent frei sind.
+
+[deckel]
+tag = 1                 # neue normale/Rauschen-Anliegen je Spieltag (alle Quellen zusammen)
+woche = 3               # ... je 7 Tage
+rauschen_woche = 1      # davon höchstens so viele der Stufe Rauschen
+zwischentage = false    # Nachhol-Tage eines Mehrtage-Laufs erzeugen nur Wichtiges; der Zieltag bekommt das normale Kontingent
+
+[vertagt]               # Warteschlange: nicht erzeugte Anliegen warten, älteste zuerst; danach werden sie verworfen
+ablauf_tage = { normal = 10, rauschen = 5 }
+pause_tage = 14         # nach dem Verwerfen frühestens dann wieder
+
+[stufe]                 # nicht genannte Themen sind "normal" (Spielzeit, Rolle, Gehalt, Form ...)
+wichtig = ["wechselgedanken", "wechselwunsch_leistungstraeger", "auslaufend", "vertrag_laeuft_aus", "kabinenstreit", "kabine_kapitaen_zerwuerfnis", "egoist_auf_der_bank",
+           "verletzungsangst", "verletzungsangst_rueckkehr", "fuehrungsspieler_ausser_form", "spielzeit_stammkraft", "disziplin_verspaetung"]
+rauschen = ["familie", "familie_sensibel", "heimweh", "heimweh_familie", "lob", "torjaeger_im_lauf", "verantwortung_gewuenscht", "mentor_vorschlag", "mentor_schuetzling_stagniert",
+            "ehrgeiz", "ehrgeiz_saisonziel", "trainingskritik", "spielerrat_wunsch", "kritik_nach_ausrutscher", "kabine_aussprache_nach_niederlage", "positionswunsch", "praemie_verlangt"]
+
+# Themengruppen: gleiche Sache über alle Quellen (Anliegen, Pool, Gespräch). sperre_tage = Wiederholsperre je Spieler; gleichzeitig = höchstens so viele offene im Kader.
+[gruppe.heimweh]
+themen = ["familie", "familie_sensibel", "heimweh", "heimweh_familie"]
+sperre_tage = 60
+gleichzeitig = 1
+moral_unter = 45        # Bedarf: Moral klar gesunken (Neuzugang/Herkunft liefert die Lage nicht)
+[gruppe.gehalt]
+themen = ["gehalt", "gehalt_unter_schnitt", "praemie_verlangt"]
+sperre_tage = 45
+[gruppe.rolle]
+themen = ["rolle", "spielzeit", "perspektive", "reservist_unzufrieden", "talent_wartet_auf_einsatz", "positionswunsch"]
+sperre_tage = 45

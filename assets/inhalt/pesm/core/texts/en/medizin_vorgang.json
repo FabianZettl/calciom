@@ -1,0 +1,11 @@
+{
+  "med.vg.absender": "Team doctor",
+  "med.vg.titel.rueckkehr": "%1 is returning",
+  "med.vg.titel.ausfall": "%1 is out",
+  "med.vg.titel.belastung": "The squad is tired",
+  "med.vg.text.rueckkehr": "%1 is fit again but still in the return phase: the risk of a relapse is higher.",
+  "med.vg.text.ausfall": "The team doctor reports: %1 is out.",
+  "med.vg.text.belastung": "Several players are worn out. The injury risk rises with the load.",
+  "med.vg.ok": "Done.",
+  "med.vg.fehler": "That did not work."
+}

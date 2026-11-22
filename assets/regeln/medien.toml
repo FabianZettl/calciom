@@ -1,0 +1,252 @@
+# Konfiguration der Medienwelt (Sitzung G). Alles hier ist eine eigene Festlegung von PESM und austauschbar.
+
+[posteingang]
+je_tag_hoechstens = 4          # neue Meldungen aus Anlässen je Tag in voller Priorität; weitere kommen ruhig (Priorität 1), nichts verfällt
+frist_tage = 10                # Antwortfrist, wenn der Anlass keine eigene hat
+bestand_tage = 120             # erledigte und verfallene Meldungen älter als das bleiben nur in der Liste „Alle“
+
+# Anlass je Ereignis: absender, kategorie, prioritaet, sperre (Tage je Bezug), antworten (Schlüssel in [antwort.*]), spieler (Feld mit dem Spieler)
+[anlass.spiel_gewertet]
+absender = "trainerstab"
+kategorie = "spiel"
+prioritaet = 1
+sperre = 0
+[anlass.verletzung]
+absender = "physio"
+kategorie = "medizin"
+prioritaet = 3
+sperre = 3
+notiz = "verletzung"
+[anlass.genesen]
+absender = "physio"
+kategorie = "medizin"
+prioritaet = 1
+sperre = 3
+[anlass.vertrag_laeuft_aus]
+absender = "berater"
+kategorie = "vertrag"
+prioritaet = 2
+sperre = 30
+[anlass.vertrag_verlaengert]
+absender = "presse"
+kategorie = "vertrag"
+prioritaet = 1
+sperre = 3
+notiz = "verlaengerung"
+[anlass.angebot_eingegangen]
+absender = "berater"
+kategorie = "transfer"
+prioritaet = 3
+sperre = 5
+geruecht = true
+[anlass.transfer_abgeschlossen]
+absender = "presse"
+kategorie = "transfer"
+prioritaet = 2
+sperre = 2
+notiz = "transfer"
+[anlass.wechselwunsch]
+absender = "spieler"
+kategorie = "kader"
+prioritaet = 3
+sperre = 14
+geruecht = true
+[anlass.spieler_unzufrieden]
+absender = "spieler"
+kategorie = "kader"
+prioritaet = 2
+sperre = 21
+[anlass.scouting_bericht]
+absender = "scout"
+kategorie = "transfer"
+prioritaet = 1
+sperre = 7
+[anlass.budget_geaendert]
+absender = "vorstand"
+kategorie = "finanzen"
+prioritaet = 2
+sperre = 28
+[anlass.praesidium_ultimatum]
+absender = "vorstand"
+kategorie = "verein"
+prioritaet = 3
+sperre = 30
+[anlass.praesidium_entlassung]
+absender = "vorstand"
+kategorie = "verein"
+prioritaet = 3
+sperre = 30
+[anlass.staff_geaendert]
+absender = "trainerstab"
+kategorie = "verein"
+prioritaet = 1
+sperre = 7
+[anlass.jugend_befoerdert]
+absender = "trainerstab"
+kategorie = "kader"
+prioritaet = 1
+sperre = 7
+[anlass.saisonwechsel]
+absender = "liga"
+kategorie = "liga"
+prioritaet = 2
+sperre = 200
+
+# Pressekonferenzen
+[konferenz]
+vorlauf_tage = 1               # die Konferenz vor dem Spiel steht ab dem Tag vor dem Spiel an
+frist_tage = 2                 # danach gilt sie als nicht wahrgenommen
+fragen = 4
+deckel = 6                     # größte Wirkung je Ziel und Konferenz
+nicht_erschienen = { medienbild = -3, vorstandsvertrauen = -1, fanstimmung = -1 }
+standardton = "ehrlich"
+wiederholung_tage = 21         # ein Thema, das so kürzlich dran war, kommt nur wieder, wenn es sonst nichts gibt
+interview_sperre_tage = 14
+
+# Zusagen in der Pressekonferenz: zu welchen Fragen eine Zusage als zusätzliche Antwort angeboten wird; erinnern_tage = [frühestens, spätestens] nach der Zusage, ab wann Journalisten nachfragen
+[zusage]
+erinnern_tage = [14, 60]
+frage = { nicht_verkaufen = { themen = ["geruecht", "star"], spieler = true, ton = "ehrlich" }, saisonziel = { themen = ["ziel"], spieler = false, ton = "kaempferisch" } }
+
+[ton]                          # Grundwirkung je Ton: Ziel → Änderung
+ehrlich      = { medienbild = 2, vorstandsvertrauen = 1, fanstimmung = 0, moral = 0 }
+kaempferisch = { medienbild = 0, vorstandsvertrauen = 0, fanstimmung = 2, moral = 1 }
+ausweichend  = { medienbild = -2, vorstandsvertrauen = 0, fanstimmung = -1, moral = 0 }
+lob          = { medienbild = 1, vorstandsvertrauen = 0, fanstimmung = 1, moral = 3 }
+kritik       = { medienbild = 1, vorstandsvertrauen = 1, fanstimmung = 0, moral = -3 }
+diplomatisch = { medienbild = 1, vorstandsvertrauen = 1, fanstimmung = 0, moral = 0 }
+kontern      = { medienbild = 1, vorstandsvertrauen = -1, fanstimmung = 2, moral = 0 }
+
+# Gewicht des Themas auf das Ziel (Faktor; fehlt = 1)
+[thema.niederlage]
+ehrlich = { vorstandsvertrauen = 2 }
+kaempferisch = { fanstimmung = 1.5 }
+ausweichend = { medienbild = 1.5, fanstimmung = 1.5 }
+[thema.serie_schlecht]
+ehrlich = { vorstandsvertrauen = 2, medienbild = 1.5 }
+ausweichend = { medienbild = 2 }
+[thema.vorstand]
+ehrlich = { vorstandsvertrauen = 2 }
+kritik = { vorstandsvertrauen = -2 }
+[thema.geruecht]
+ausweichend = { medienbild = 0.5 }
+[thema.ausfall]
+ehrlich = { moral = 1 }
+
+# Journalisten
+[journalist]
+anzahl = 5
+haltung_je_antwort = 4         # Schritt je Antwort; Neigung des Stils entscheidet das Vorzeichen
+neigung = { sachlich = { ehrlich = 1, ausweichend = -1, diplomatisch = 1 }, boulevard = { kaempferisch = 1, kritik = 1, kontern = 1, ausweichend = -1 }, wohlwollend = { lob = 1, ehrlich = 1, diplomatisch = 1, kritik = -1 }, kritisch = { ehrlich = 1, ausweichend = -1, kaempferisch = -1, kontern = -1 } }
+verstaerkung = 0.4             # Wirkung auf das Medienbild ×(1 ± so viel), je nachdem, ob die Antwort dem Journalisten gefällt
+
+# Gerüchte und Dementis
+[geruecht]
+falsch_wahrscheinlichkeit = 0.04     # je Tag ein erfundenes Gerücht über einen Leistungsträger
+falsch_sperre_tage = 21
+dementi_frist_tage = 45
+widerlegt = { medienbild = -6, vorstandsvertrauen = -2, fanstimmung = -1 }
+bestaetigt = { medienbild = 1 }
+dementiert_falsch = { medienbild = 1, fanstimmung = 1 }
+[anlass.beobachtung_veraenderung]
+absender = "scout"
+kategorie = "transfer"
+prioritaet = 1
+sperre = 3
+[anlass.zusage_gehalten]
+absender = "spieler"
+kategorie = "kader"
+prioritaet = 1
+sperre = 14
+[anlass.zusage_gebrochen]
+absender = "spieler"
+kategorie = "kader"
+prioritaet = 3
+sperre = 14
+[anlass.spieler_diszipliniert]
+absender = "trainerstab"
+kategorie = "kader"
+prioritaet = 2
+sperre = 7
+[anlass.entwicklung_sprung]
+absender = "presse"
+kategorie = "kader"
+prioritaet = 2
+sperre = 14
+[anlass.entwicklung_krise]
+absender = "presse"
+kategorie = "kader"
+prioritaet = 2
+sperre = 21
+[anlass.gespraech_einigung]
+absender = "berater"
+kategorie = "vertrag"
+prioritaet = 2
+sperre = 3
+
+# Transferdrama (core/transfers/drama.py)
+[anlass.transfer_hijack]
+absender = "presse"
+kategorie = "transfer"
+prioritaet = 2
+sperre = 5
+[anlass.transfer_geplatzt_spaet]
+absender = "presse"
+kategorie = "transfer"
+prioritaet = 2
+sperre = 5
+[anlass.spieler_streik]
+absender = "presse"
+kategorie = "kader"
+prioritaet = 3
+sperre = 7
+[anlass.vertrags_poker]
+absender = "presse"
+kategorie = "vertrag"
+prioritaet = 2
+sperre = 30
+
+# Töne, die zu einer Frage angeboten werden (drei je Thema; fehlt das Thema, gilt "standard")
+[toene]
+standard = ["ehrlich", "kaempferisch", "diplomatisch", "ausweichend"]
+star = ["ehrlich", "lob", "kritik"]
+leistung = ["ehrlich", "lob", "kritik"]
+neuzugang = ["ehrlich", "lob", "ausweichend"]
+ausfall = ["ehrlich", "kaempferisch", "lob"]
+niederlage = ["ehrlich", "kaempferisch", "kontern", "diplomatisch"]
+remis = ["ehrlich", "kaempferisch", "kritik"]
+sieg = ["ehrlich", "lob", "kritik"]
+serie_gut = ["ehrlich", "lob", "kritik"]
+vorstand = ["ehrlich", "lob", "diplomatisch"]
+geruecht = ["ehrlich", "kontern", "ausweichend"]
+serie_schlecht = ["ehrlich", "kaempferisch", "kontern", "diplomatisch"]
+zusage_spieler = ["ehrlich", "diplomatisch", "kontern", "ausweichend"]
+zusage_ziel = ["ehrlich", "diplomatisch", "kontern", "ausweichend"]
+
+# Zeitungen: der Artikel erscheint am Tag nach der Konferenz bzw. nach dem Spiel
+[zeitung]
+spiel_frist_tage = 2           # ein Spiel, das länger zurückliegt, bekommt keinen Artikel mehr
+je_seite = 30
+
+# Proteste der Fans: Wert = Fanstimmung minus Abzüge; die erste Stufe, deren Schwelle unterschritten ist, gilt
+[proteste]
+abzug_je_niederlage = 4          # je Niederlage in Folge ab der zweiten
+abzug_vertrauen = 8              # wenn der Vorstand dem Trainer kaum noch traut (Vertrauen unter 30)
+stufen = [["stadion", 12], ["transparente", 22], ["pfiffe", 32], ["murren", 42]]
+
+# Medienpool (core/config/story/medienpool.json): Reichweite und Berichterstattung
+[reichweite]
+faktor = { 1 = 0.4, 2 = 0.7, 3 = 1.0, 4 = 1.5, 5 = 2.2 }   # Wirkung einer Meldung nach Größe des Mediums (Klima, Fans, Moral); Weltmarken mehr
+karriere_medien = 24             # so viele Medien bekommt eine Karriere (Seed), dazu die Vereinsmedien
+heimat_gewicht = 3.0             # Medien aus dem Heimatland des Vereins werden dreimal so oft gezogen
+laender_liga = ["DE", "GB", "ES", "IT", "FR", "NL", "PT", "TR", "AT", "CH", "BE"]      # Länder, aus denen der Welt-Seed Vereine und Ligen zuordnet
+
+# Fremde Wechsel: je größer das Gewicht (Euro), desto mehr Medien greifen sie auf; die Artikel verteilen sich über Tage
+[fremd]
+stufen = [[50_000_000, 5], [20_000_000, 4], [8_000_000, 3], [2_000_000, 2]]
+mindestens = 500_000             # darunter schreibt niemand
+verzug_tage = 3                  # spätester Artikel nach dem Ereignis
+passende_toene = ["insider", "geruechte", "boulevard", "taktik", "serioes"]
+gerucht_medien = 2               # Angebote und Wechselwünsche für eigene Spieler: so viele Medien greifen sie höchstens auf
+frage_tage = 7                   # ein fremder Wechsel dieser Größe kann so lange Thema einer Pressekonferenz sein
+frage_gewicht = 8_000_000

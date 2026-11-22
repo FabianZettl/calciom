@@ -1,0 +1,12 @@
+{
+  "_hinweis": "Fan-Feed (UX-Nacht, Etappe 5): fiktive Konten, keine echten Personen. %K = Kürzel des eigenen Vereins. Journalisten kommen aus der Medienwelt (md_journalist). Gewicht = Grundzahl der Reaktionen je Ereignis; die Fanstimmung (Vereinsklima) skaliert sie.",
+  "konten": {
+    "fan": ["@Kurve_%K", "@%K_bis_ins_Grab", "@Auswaertsfahrer", "@Stehplatz_7", "@Tribuenenblick", "@Schal_und_Stimme"],
+    "ultra": ["@Block_%K", "@Ultras_%K_1905", "@Fahnenwand"],
+    "experte": ["@Taktiktafel", "@Doppelsechs", "@Abseitsfalle", "@Fluegelzange", "@Pressingfalle"]
+  },
+  "gewicht": {"sieg": 900, "remis": 350, "niederlage": 700, "welt": 120, "geruecht": 600, "verletzung": 400, "tabelle": 300, "presse": 250},
+  "glaubwuerdigkeit": {"sachlich": 82, "wohlwollend": 66, "kritisch": 58, "boulevard": 34, "markt": 72},
+  "posts_je_ereignis": 3,
+  "ereignisse": 10
+}

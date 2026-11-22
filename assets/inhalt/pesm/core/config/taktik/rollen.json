@@ -1,0 +1,402 @@
+{
+  "modellversion": 1,
+  "art": "heuristik",
+  "bereich": [
+    40,
+    99
+  ],
+  "hinweis": "Eigene unkalibrierte Rollenprofile. Gewichteter Attributwert, keine PES-Gesamtstärke. Skills und Fuß sind qualitative Hinweise ohne Punktebonus.",
+  "rollen": [
+    {
+      "id": "ball_playing_defender",
+      "positionen": [
+        1
+      ],
+      "gewichte": {
+        "defensivgeist": 3,
+        "flachpass": 3,
+        "steilpass": 2,
+        "ballkontrolle": 2
+      },
+      "skills": [
+        12,
+        14
+      ],
+      "fuss": null
+    },
+    {
+      "id": "stopper",
+      "positionen": [
+        1
+      ],
+      "gewichte": {
+        "defensivgeist": 3,
+        "balleroberung": 3,
+        "aggressivitaet": 2,
+        "koerperkontakt": 2,
+        "kopfball": 1
+      },
+      "skills": [
+        22,
+        24
+      ],
+      "fuss": null
+    },
+    {
+      "id": "cover_defender",
+      "positionen": [
+        1
+      ],
+      "gewichte": {
+        "defensivgeist": 4,
+        "schnelligkeit": 3,
+        "antritt": 2,
+        "balleroberung": 2
+      },
+      "skills": [
+        22,
+        24
+      ],
+      "fuss": null
+    },
+    {
+      "id": "defensive_fullback",
+      "positionen": [
+        2,
+        3
+      ],
+      "gewichte": {
+        "defensivgeist": 3,
+        "balleroberung": 3,
+        "ausdauer": 2,
+        "schnelligkeit": 1
+      },
+      "skills": [
+        22
+      ],
+      "fuss": null
+    },
+    {
+      "id": "attacking_fullback",
+      "positionen": [
+        2,
+        3
+      ],
+      "gewichte": {
+        "ausdauer": 3,
+        "schnelligkeit": 2,
+        "steilpass": 3,
+        "dribbling": 2,
+        "defensivgeist": 1
+      },
+      "skills": [
+        14,
+        17
+      ],
+      "fuss": null
+    },
+    {
+      "id": "inverted_fullback",
+      "positionen": [
+        2,
+        3
+      ],
+      "gewichte": {
+        "flachpass": 3,
+        "ballkontrolle": 2,
+        "enge_ballfuehrung": 2,
+        "defensivgeist": 3
+      },
+      "skills": [
+        12,
+        13
+      ],
+      "fuss": null
+    },
+    {
+      "id": "holding_midfielder",
+      "positionen": [
+        4
+      ],
+      "gewichte": {
+        "defensivgeist": 4,
+        "balleroberung": 3,
+        "flachpass": 2,
+        "koerperkontakt": 1
+      },
+      "skills": [
+        22,
+        12
+      ],
+      "fuss": null
+    },
+    {
+      "id": "deep_lying_playmaker",
+      "positionen": [
+        4,
+        5
+      ],
+      "gewichte": {
+        "flachpass": 4,
+        "steilpass": 3,
+        "ballkontrolle": 2,
+        "enge_ballfuehrung": 2,
+        "defensivgeist": 1
+      },
+      "skills": [
+        12,
+        13,
+        14,
+        40
+      ],
+      "fuss": null
+    },
+    {
+      "id": "ball_winning_midfielder",
+      "positionen": [
+        4,
+        5
+      ],
+      "gewichte": {
+        "balleroberung": 4,
+        "aggressivitaet": 2,
+        "defensivgeist": 3,
+        "ausdauer": 3
+      },
+      "skills": [
+        22,
+        27
+      ],
+      "fuss": null
+    },
+    {
+      "id": "box_to_box",
+      "positionen": [
+        5
+      ],
+      "gewichte": {
+        "ausdauer": 4,
+        "schnelligkeit": 2,
+        "antritt": 2,
+        "flachpass": 2,
+        "defensivgeist": 2
+      },
+      "skills": [
+        27,
+        12
+      ],
+      "fuss": null
+    },
+    {
+      "id": "advanced_playmaker",
+      "positionen": [
+        5,
+        8
+      ],
+      "gewichte": {
+        "flachpass": 4,
+        "ballkontrolle": 3,
+        "enge_ballfuehrung": 3,
+        "offensivgeist": 2
+      },
+      "skills": [
+        12,
+        13,
+        40
+      ],
+      "fuss": null
+    },
+    {
+      "id": "shadow_striker",
+      "positionen": [
+        8,
+        11
+      ],
+      "gewichte": {
+        "offensivgeist": 4,
+        "antritt": 3,
+        "abschluss": 3,
+        "ballkontrolle": 2
+      },
+      "skills": [
+        11,
+        40
+      ],
+      "fuss": null
+    },
+    {
+      "id": "traditional_winger",
+      "positionen": [
+        6,
+        7,
+        9,
+        10
+      ],
+      "gewichte": {
+        "schnelligkeit": 3,
+        "dribbling": 3,
+        "steilpass": 3,
+        "effet": 1
+      },
+      "skills": [
+        14,
+        17
+      ],
+      "fuss": "gleich"
+    },
+    {
+      "id": "inverted_winger",
+      "positionen": [
+        6,
+        7,
+        9,
+        10
+      ],
+      "gewichte": {
+        "antritt": 3,
+        "dribbling": 3,
+        "enge_ballfuehrung": 3,
+        "flachpass": 2
+      },
+      "skills": [
+        12,
+        13
+      ],
+      "fuss": "gegen"
+    },
+    {
+      "id": "inside_forward",
+      "positionen": [
+        9,
+        10
+      ],
+      "gewichte": {
+        "antritt": 3,
+        "dribbling": 3,
+        "enge_ballfuehrung": 2,
+        "abschluss": 4,
+        "offensivgeist": 2
+      },
+      "skills": [
+        11,
+        31
+      ],
+      "fuss": "gegen"
+    },
+    {
+      "id": "wide_playmaker",
+      "positionen": [
+        6,
+        7,
+        9,
+        10
+      ],
+      "gewichte": {
+        "flachpass": 4,
+        "steilpass": 2,
+        "ballkontrolle": 3,
+        "enge_ballfuehrung": 3
+      },
+      "skills": [
+        12,
+        13,
+        40
+      ],
+      "fuss": null
+    },
+    {
+      "id": "advanced_forward",
+      "positionen": [
+        11,
+        12
+      ],
+      "gewichte": {
+        "offensivgeist": 4,
+        "abschluss": 4,
+        "antritt": 3,
+        "schnelligkeit": 2
+      },
+      "skills": [
+        11,
+        31
+      ],
+      "fuss": null
+    },
+    {
+      "id": "target_forward",
+      "positionen": [
+        12
+      ],
+      "gewichte": {
+        "koerperkontakt": 4,
+        "kopfball": 4,
+        "ballkontrolle": 2,
+        "abschluss": 2,
+        "sprungkraft": 2
+      },
+      "skills": [
+        6,
+        10
+      ],
+      "fuss": null
+    },
+    {
+      "id": "deep_lying_forward",
+      "positionen": [
+        11,
+        12
+      ],
+      "gewichte": {
+        "ballkontrolle": 3,
+        "flachpass": 3,
+        "enge_ballfuehrung": 2,
+        "koerperkontakt": 2,
+        "offensivgeist": 2
+      },
+      "skills": [
+        10,
+        12,
+        40
+      ],
+      "fuss": null
+    },
+    {
+      "id": "false_nine",
+      "positionen": [
+        11,
+        12
+      ],
+      "gewichte": {
+        "flachpass": 4,
+        "ballkontrolle": 3,
+        "enge_ballfuehrung": 3,
+        "offensivgeist": 2
+      },
+      "skills": [
+        12,
+        13,
+        40
+      ],
+      "fuss": null
+    },
+    {
+      "id": "goalkeeper",
+      "positionen": [
+        0
+      ],
+      "gewichte": {
+        "torwartgefuehl": 4,
+        "fangen": 3,
+        "klaeren": 2,
+        "reflexe": 4,
+        "reichweite": 3
+      },
+      "skills": [
+        18,
+        20,
+        30
+      ],
+      "fuss": null
+    }
+  ]
+}

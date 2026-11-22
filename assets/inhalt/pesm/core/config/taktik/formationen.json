@@ -1,0 +1,738 @@
+{
+ "art": "vorlagen",
+ "hinweis": "Gängige Formationen mit eigener Anordnung. position = Positionscode (0 TW … 12 ST), tiefe 3 bis 43 (zum gegnerischen Tor), quer 10 bis 92 (klein = links). Reihenfolge: Torwart zuerst.",
+ "formationen": [
+  {
+   "id": "f442",
+   "name": "4-4-2",
+   "plaetze": [
+    {
+     "position": 0,
+     "tiefe": 3,
+     "quer": 52
+    },
+    {
+     "position": 2,
+     "tiefe": 13,
+     "quer": 16
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 40
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 64
+    },
+    {
+     "position": 3,
+     "tiefe": 13,
+     "quer": 88
+    },
+    {
+     "position": 6,
+     "tiefe": 27,
+     "quer": 14
+    },
+    {
+     "position": 5,
+     "tiefe": 24,
+     "quer": 40
+    },
+    {
+     "position": 5,
+     "tiefe": 24,
+     "quer": 64
+    },
+    {
+     "position": 7,
+     "tiefe": 27,
+     "quer": 90
+    },
+    {
+     "position": 12,
+     "tiefe": 43,
+     "quer": 42
+    },
+    {
+     "position": 12,
+     "tiefe": 43,
+     "quer": 62
+    }
+   ]
+  },
+  {
+   "id": "f433",
+   "name": "4-3-3",
+   "plaetze": [
+    {
+     "position": 0,
+     "tiefe": 3,
+     "quer": 52
+    },
+    {
+     "position": 2,
+     "tiefe": 13,
+     "quer": 16
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 40
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 64
+    },
+    {
+     "position": 3,
+     "tiefe": 13,
+     "quer": 88
+    },
+    {
+     "position": 4,
+     "tiefe": 19,
+     "quer": 52
+    },
+    {
+     "position": 5,
+     "tiefe": 24,
+     "quer": 36
+    },
+    {
+     "position": 5,
+     "tiefe": 24,
+     "quer": 68
+    },
+    {
+     "position": 9,
+     "tiefe": 38,
+     "quer": 14
+    },
+    {
+     "position": 12,
+     "tiefe": 43,
+     "quer": 52
+    },
+    {
+     "position": 10,
+     "tiefe": 38,
+     "quer": 90
+    }
+   ]
+  },
+  {
+   "id": "f4231",
+   "name": "4-2-3-1",
+   "plaetze": [
+    {
+     "position": 0,
+     "tiefe": 3,
+     "quer": 52
+    },
+    {
+     "position": 2,
+     "tiefe": 13,
+     "quer": 16
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 40
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 64
+    },
+    {
+     "position": 3,
+     "tiefe": 13,
+     "quer": 88
+    },
+    {
+     "position": 4,
+     "tiefe": 19,
+     "quer": 40
+    },
+    {
+     "position": 4,
+     "tiefe": 19,
+     "quer": 64
+    },
+    {
+     "position": 9,
+     "tiefe": 34,
+     "quer": 14
+    },
+    {
+     "position": 8,
+     "tiefe": 33,
+     "quer": 52
+    },
+    {
+     "position": 10,
+     "tiefe": 34,
+     "quer": 90
+    },
+    {
+     "position": 12,
+     "tiefe": 43,
+     "quer": 52
+    }
+   ]
+  },
+  {
+   "id": "f4141",
+   "name": "4-1-4-1",
+   "plaetze": [
+    {
+     "position": 0,
+     "tiefe": 3,
+     "quer": 52
+    },
+    {
+     "position": 2,
+     "tiefe": 13,
+     "quer": 16
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 40
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 64
+    },
+    {
+     "position": 3,
+     "tiefe": 13,
+     "quer": 88
+    },
+    {
+     "position": 4,
+     "tiefe": 19,
+     "quer": 52
+    },
+    {
+     "position": 6,
+     "tiefe": 27,
+     "quer": 14
+    },
+    {
+     "position": 5,
+     "tiefe": 25,
+     "quer": 40
+    },
+    {
+     "position": 5,
+     "tiefe": 25,
+     "quer": 64
+    },
+    {
+     "position": 7,
+     "tiefe": 27,
+     "quer": 90
+    },
+    {
+     "position": 12,
+     "tiefe": 43,
+     "quer": 52
+    }
+   ]
+  },
+  {
+   "id": "f4411",
+   "name": "4-4-1-1",
+   "plaetze": [
+    {
+     "position": 0,
+     "tiefe": 3,
+     "quer": 52
+    },
+    {
+     "position": 2,
+     "tiefe": 13,
+     "quer": 16
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 40
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 64
+    },
+    {
+     "position": 3,
+     "tiefe": 13,
+     "quer": 88
+    },
+    {
+     "position": 6,
+     "tiefe": 27,
+     "quer": 14
+    },
+    {
+     "position": 5,
+     "tiefe": 24,
+     "quer": 40
+    },
+    {
+     "position": 5,
+     "tiefe": 24,
+     "quer": 64
+    },
+    {
+     "position": 7,
+     "tiefe": 27,
+     "quer": 90
+    },
+    {
+     "position": 11,
+     "tiefe": 36,
+     "quer": 52
+    },
+    {
+     "position": 12,
+     "tiefe": 43,
+     "quer": 52
+    }
+   ]
+  },
+  {
+   "id": "f4121_2",
+   "name": "4-4-2 Raute",
+   "plaetze": [
+    {
+     "position": 0,
+     "tiefe": 3,
+     "quer": 52
+    },
+    {
+     "position": 2,
+     "tiefe": 13,
+     "quer": 16
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 40
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 64
+    },
+    {
+     "position": 3,
+     "tiefe": 13,
+     "quer": 88
+    },
+    {
+     "position": 4,
+     "tiefe": 19,
+     "quer": 52
+    },
+    {
+     "position": 5,
+     "tiefe": 25,
+     "quer": 34
+    },
+    {
+     "position": 5,
+     "tiefe": 25,
+     "quer": 70
+    },
+    {
+     "position": 8,
+     "tiefe": 32,
+     "quer": 52
+    },
+    {
+     "position": 12,
+     "tiefe": 43,
+     "quer": 42
+    },
+    {
+     "position": 12,
+     "tiefe": 43,
+     "quer": 62
+    }
+   ]
+  },
+  {
+   "id": "f4321",
+   "name": "4-3-2-1",
+   "plaetze": [
+    {
+     "position": 0,
+     "tiefe": 3,
+     "quer": 52
+    },
+    {
+     "position": 2,
+     "tiefe": 13,
+     "quer": 16
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 40
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 64
+    },
+    {
+     "position": 3,
+     "tiefe": 13,
+     "quer": 88
+    },
+    {
+     "position": 5,
+     "tiefe": 22,
+     "quer": 30
+    },
+    {
+     "position": 5,
+     "tiefe": 22,
+     "quer": 52
+    },
+    {
+     "position": 5,
+     "tiefe": 22,
+     "quer": 74
+    },
+    {
+     "position": 8,
+     "tiefe": 33,
+     "quer": 36
+    },
+    {
+     "position": 8,
+     "tiefe": 33,
+     "quer": 68
+    },
+    {
+     "position": 12,
+     "tiefe": 43,
+     "quer": 52
+    }
+   ]
+  },
+  {
+   "id": "f352",
+   "name": "3-5-2",
+   "plaetze": [
+    {
+     "position": 0,
+     "tiefe": 3,
+     "quer": 52
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 28
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 52
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 76
+    },
+    {
+     "position": 6,
+     "tiefe": 23,
+     "quer": 12
+    },
+    {
+     "position": 4,
+     "tiefe": 19,
+     "quer": 52
+    },
+    {
+     "position": 5,
+     "tiefe": 25,
+     "quer": 36
+    },
+    {
+     "position": 5,
+     "tiefe": 25,
+     "quer": 68
+    },
+    {
+     "position": 7,
+     "tiefe": 23,
+     "quer": 92
+    },
+    {
+     "position": 12,
+     "tiefe": 43,
+     "quer": 42
+    },
+    {
+     "position": 12,
+     "tiefe": 43,
+     "quer": 62
+    }
+   ]
+  },
+  {
+   "id": "f343",
+   "name": "3-4-3",
+   "plaetze": [
+    {
+     "position": 0,
+     "tiefe": 3,
+     "quer": 52
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 28
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 52
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 76
+    },
+    {
+     "position": 6,
+     "tiefe": 24,
+     "quer": 14
+    },
+    {
+     "position": 5,
+     "tiefe": 22,
+     "quer": 40
+    },
+    {
+     "position": 5,
+     "tiefe": 22,
+     "quer": 64
+    },
+    {
+     "position": 7,
+     "tiefe": 24,
+     "quer": 90
+    },
+    {
+     "position": 9,
+     "tiefe": 38,
+     "quer": 16
+    },
+    {
+     "position": 12,
+     "tiefe": 43,
+     "quer": 52
+    },
+    {
+     "position": 10,
+     "tiefe": 38,
+     "quer": 88
+    }
+   ]
+  },
+  {
+   "id": "f3421",
+   "name": "3-4-2-1",
+   "plaetze": [
+    {
+     "position": 0,
+     "tiefe": 3,
+     "quer": 52
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 28
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 52
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 76
+    },
+    {
+     "position": 6,
+     "tiefe": 24,
+     "quer": 14
+    },
+    {
+     "position": 5,
+     "tiefe": 22,
+     "quer": 40
+    },
+    {
+     "position": 5,
+     "tiefe": 22,
+     "quer": 64
+    },
+    {
+     "position": 7,
+     "tiefe": 24,
+     "quer": 90
+    },
+    {
+     "position": 8,
+     "tiefe": 33,
+     "quer": 36
+    },
+    {
+     "position": 8,
+     "tiefe": 33,
+     "quer": 68
+    },
+    {
+     "position": 12,
+     "tiefe": 43,
+     "quer": 52
+    }
+   ]
+  },
+  {
+   "id": "f532",
+   "name": "5-3-2",
+   "plaetze": [
+    {
+     "position": 0,
+     "tiefe": 3,
+     "quer": 52
+    },
+    {
+     "position": 2,
+     "tiefe": 16,
+     "quer": 12
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 32
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 52
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 72
+    },
+    {
+     "position": 3,
+     "tiefe": 16,
+     "quer": 92
+    },
+    {
+     "position": 5,
+     "tiefe": 24,
+     "quer": 32
+    },
+    {
+     "position": 5,
+     "tiefe": 22,
+     "quer": 52
+    },
+    {
+     "position": 5,
+     "tiefe": 24,
+     "quer": 72
+    },
+    {
+     "position": 12,
+     "tiefe": 43,
+     "quer": 42
+    },
+    {
+     "position": 12,
+     "tiefe": 43,
+     "quer": 62
+    }
+   ]
+  },
+  {
+   "id": "f541",
+   "name": "5-4-1",
+   "plaetze": [
+    {
+     "position": 0,
+     "tiefe": 3,
+     "quer": 52
+    },
+    {
+     "position": 2,
+     "tiefe": 16,
+     "quer": 12
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 32
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 52
+    },
+    {
+     "position": 1,
+     "tiefe": 11,
+     "quer": 72
+    },
+    {
+     "position": 3,
+     "tiefe": 16,
+     "quer": 92
+    },
+    {
+     "position": 6,
+     "tiefe": 26,
+     "quer": 18
+    },
+    {
+     "position": 5,
+     "tiefe": 24,
+     "quer": 40
+    },
+    {
+     "position": 5,
+     "tiefe": 24,
+     "quer": 64
+    },
+    {
+     "position": 7,
+     "tiefe": 26,
+     "quer": 86
+    },
+    {
+     "position": 12,
+     "tiefe": 43,
+     "quer": 52
+    }
+   ]
+  }
+ ]
+}

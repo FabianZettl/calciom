@@ -1,0 +1,434 @@
+{
+ "pool.vorstand_stadionausbau.e.e1": [
+  "{b.vorstand_stadionausbau_gruss} {b.vorstand_stadionausbau_lage} The expansion is meant to raise revenue, and for that I need your support towards the squad."
+ ],
+ "pool.vorstand_stadionausbau.e.e2": [
+  "{b.vorstand_stadionausbau_gruss} {b.vorstand_stadionausbau_lage} The building costs would noticeably cut the transfer budget. Where do you stand on that?"
+ ],
+ "pool.vorstand_stadionausbau.e.e3": [
+  "{b.vorstand_stadionausbau_gruss} {b.vorstand_stadionausbau_lage} Even if things are not smooth between us, I would like to hear your honest opinion on the expansion."
+ ],
+ "pool.vorstand_stadionausbau.e.e4": [
+  "{b.vorstand_stadionausbau_gruss} {b.vorstand_stadionausbau_lage} But do not tell me it is too expensive, I have heard that from others already!"
+ ],
+ "pool.vorstand_stadionausbau.e.e5": [
+  "{b.vorstand_stadionausbau_gruss} {b.vorstand_stadionausbau_lage} It is not about haste but about stability. We take our time and decide together."
+ ],
+ "pool.vorstand_stadionausbau.e.e6": [
+  "{b.vorstand_stadionausbau_gruss} {b.vorstand_stadionausbau_lage} A fuller house brings more money for reinforcements if we approach the push properly."
+ ],
+ "pool.vorstand_stadionausbau.e.e7": [
+  "{b.vorstand_stadionausbau_gruss} {b.vorstand_stadionausbau_lage} I want you to explain to the squad why we are building now and why that benefits us all."
+ ],
+ "pool.vorstand_stadionausbau.e.e8": [
+  "{b.vorstand_stadionausbau_gruss} {b.vorstand_stadionausbau_lage} Support in the board for the expansion is strong, and the costs are hardly disputed any more."
+ ],
+ "pool.vorstand_stadionausbau.e.e9": [
+  "{b.vorstand_stadionausbau_gruss} {b.vorstand_stadionausbau_lage} The supporters have long demanded more seats, and the expansion would be the answer."
+ ],
+ "pool.vorstand_stadionausbau.e.e10": [
+  "{b.vorstand_stadionausbau_gruss} {b.vorstand_stadionausbau_lage} With this place in the table the expansion is a sign that we believe in ourselves."
+ ],
+ "pool.vorstand_stadionausbau.a.a1": [
+  "I support the expansion, since a strong stadium carries the team. I will explain to the squad why it matters."
+ ],
+ "pool.vorstand_stadionausbau.a.a2": [
+  "The expansion makes sense if we pay for it bit by bit. That keeps the transfer budget able to act."
+ ],
+ "pool.vorstand_stadionausbau.a.a3": [
+  "While the site is running the players should be the first to see the pitch. That lifts the mood."
+ ],
+ "pool.vorstand_stadionausbau.a.a4": [
+  "I back the expansion and plan the squad so that we are competitive in the new stadium."
+ ],
+ "pool.vorstand_stadionausbau.a.a5": [
+  "I would rather take the decision after the season, when we know more about the situation."
+ ],
+ "pool.vorstand_stadionausbau.a.a6": [
+  "How much of the budget is to go into the building, and what is left for the squad?"
+ ],
+ "pool.vorstand_stadionausbau.a.a7": [
+  "The managing director should check the finances, I assess the effect on the sporting side."
+ ],
+ "pool.vorstand_stadionausbau.a.a8": [
+  "I think the expansion is wrong right now. The money belongs in the squad first, then in the concrete."
+ ],
+ "pool.vorstand_stadionausbau.a.a9": [
+  "If the building eats the transfer budget I will not go along. The squad comes before the concrete, no exception."
+ ],
+ "pool.vorstand_stadionausbau.a.a10": [
+  "Build what you like, but do not cut a cent from the squad, or you will have a fight with me!"
+ ],
+ "pool.vorstand_stadionausbau.a.a11": [
+  "Go ahead and build, I promise today that we will beat every opponent in the new stadium."
+ ],
+ "pool.vorstand_stadionausbau.r.r1": [
+  "{b.gut} You see the whole picture, I appreciate that. This is how we move forward as a club."
+ ],
+ "pool.vorstand_stadionausbau.r.r2": [
+  "{b.gut} Exactly this attitude is what I hoped for. We are in the same boat, and the stadium will be our joint work."
+ ],
+ "pool.vorstand_stadionausbau.r.r3": [
+  "{b.gut} Then we set the building phases, and you will get the funds the squad needs."
+ ],
+ "pool.vorstand_stadionausbau.r.r4": [
+  "{b.neutral} I note that. We will take it to the next meeting and vote there."
+ ],
+ "pool.vorstand_stadionausbau.r.r5": [
+  "{b.neutral} I am not sure I understood you correctly, but I am not angry with you."
+ ],
+ "pool.vorstand_stadionausbau.r.r6": [
+  "{b.neutral} Fine, then we let the plans rest and see what the coming weeks bring."
+ ],
+ "pool.vorstand_stadionausbau.r.r7": [
+  "{b.schlecht} That does not help us, and the board will not be glad to hear the refusal."
+ ],
+ "pool.vorstand_stadionausbau.r.r8": [
+  "{b.schlecht} Excuse me? You stand in the way of the expansion? I will not let that rest!"
+ ],
+ "pool.vorstand_stadionausbau.r.r9": [
+  "{b.schlecht} Then I will look for someone who supports the club's course."
+ ],
+ "pool.vorstand_stadionausbau.r.r10": [
+  "{b.schlecht} I would have expected more trust in the club from you, that disappoints me."
+ ],
+ "pool.vorstand_stadionausbau.x.x1": [
+  "The president nods, satisfied. {entscheidung} The plans go into the next round with your backing."
+ ],
+ "pool.vorstand_stadionausbau.x.x2": [
+  "The matter stays in the balance. {entscheidung} The board postpones the expansion to a later meeting."
+ ],
+ "pool.vorstand_stadionausbau.x.x3": [
+  "The president leaves the room irritated. {entscheidung} The dispute over the expansion is not settled."
+ ],
+ "pool.vorstand_stadionausbau.x.x4": [
+  "You agreed to the expansion, and the president records it. {entscheidung} The building phases will now be planned."
+ ],
+ "pool.vorstand_stadionausbau.x.x5": [
+  "The president ends the conversation. {entscheidung} He puts the building plans aside undiscussed."
+ ],
+ "pool.vorstand_sparrunde.e.e1": [
+  "{b.vorstand_sparrunde_gruss} {b.vorstand_sparrunde_lage} The board demands that wages be put under review. What can you contribute to that?"
+ ],
+ "pool.vorstand_sparrunde.e.e2": [
+  "{b.vorstand_sparrunde_gruss} {b.vorstand_sparrunde_lage} The squad is bigger than we can afford. We must talk about who can go."
+ ],
+ "pool.vorstand_sparrunde.e.e3": [
+  "{b.vorstand_sparrunde_gruss} {b.vorstand_sparrunde_lage} The mood between us is clouded, but even so I must present the savings to you."
+ ],
+ "pool.vorstand_sparrunde.e.e4": [
+  "{b.vorstand_sparrunde_gruss} {b.vorstand_sparrunde_lage} And do not come to me with counter-demands, the coffers are empty and so is the board's patience!"
+ ],
+ "pool.vorstand_sparrunde.e.e5": [
+  "{b.vorstand_sparrunde_gruss} {b.vorstand_sparrunde_lage} We do not want to overburden anyone but find a tolerable way to save together."
+ ],
+ "pool.vorstand_sparrunde.e.e6": [
+  "{b.vorstand_sparrunde_gruss} {b.vorstand_sparrunde_lage} The budget for the coming round must be cut, and I want you to help shape the cut."
+ ],
+ "pool.vorstand_sparrunde.e.e7": [
+  "{b.vorstand_sparrunde_gruss} {b.vorstand_sparrunde_lage} I need your word that you will back the cuts in front of the squad."
+ ],
+ "pool.vorstand_sparrunde.e.e8": [
+  "{b.vorstand_sparrunde_gruss} {b.vorstand_sparrunde_lage} Support in the board for you is low, so I must insist on clear savings."
+ ],
+ "pool.vorstand_sparrunde.e.e9": [
+  "{b.vorstand_sparrunde_gruss} {b.vorstand_sparrunde_lage} Even the stands sense the situation, and the supporters expect us to manage responsibly."
+ ],
+ "pool.vorstand_sparrunde.e.e10": [
+  "{b.vorstand_sparrunde_gruss} {b.vorstand_sparrunde_lage} In this position in the table we cannot afford costly mistakes, and that applies to the budget too."
+ ],
+ "pool.vorstand_sparrunde.a.a1": [
+  "I understand the situation and back the savings. I will explain to the squad why it is necessary."
+ ],
+ "pool.vorstand_sparrunde.a.a2": [
+  "Let us go through the costs position by position. That way we save where it hurts least."
+ ],
+ "pool.vorstand_sparrunde.a.a3": [
+  "If we save, then together: the board could also forgo travel costs."
+ ],
+ "pool.vorstand_sparrunde.a.a4": [
+  "I commit to lowering the costs, and we review the progress in the next meeting."
+ ],
+ "pool.vorstand_sparrunde.a.a5": [
+  "I would suggest postponing the decision until after the transfer window, then we will see more clearly."
+ ],
+ "pool.vorstand_sparrunde.a.a6": [
+  "How large should the saving be, and where do you see the most room?"
+ ],
+ "pool.vorstand_sparrunde.a.a7": [
+  "The wage questions should be settled by the managing director and the player agents, I stay with the sport."
+ ],
+ "pool.vorstand_sparrunde.a.a8": [
+  "I will not cut the squad, and I leave the wages untouched as well. The budget stays as it is."
+ ],
+ "pool.vorstand_sparrunde.a.a9": [
+  "Whoever strips my squad will no longer get a team that wins matches. I hold to that."
+ ],
+ "pool.vorstand_sparrunde.a.a10": [
+  "Save at your own expense, not at my players', or in the end you will lose more than you save!"
+ ],
+ "pool.vorstand_sparrunde.a.a11": [
+  "Saving is no problem, I promise the team will still play at the top, without one cent more."
+ ],
+ "pool.vorstand_sparrunde.r.r1": [
+  "{b.gut} That is sensible, and I appreciate your attitude. This is how the club gets back on track."
+ ],
+ "pool.vorstand_sparrunde.r.r2": [
+  "{b.gut} The club can rely on people like you. Thank you for sharing the burden."
+ ],
+ "pool.vorstand_sparrunde.r.r3": [
+  "{b.gut} Good, then we put that down, and in return I will make sure the squad does not bleed out."
+ ],
+ "pool.vorstand_sparrunde.r.r4": [
+  "{b.neutral} I take note of that, and we discuss the details in the next meeting."
+ ],
+ "pool.vorstand_sparrunde.r.r5": [
+  "{b.neutral} I do not quite know what to make of that, but I will hear your reasons again."
+ ],
+ "pool.vorstand_sparrunde.r.r6": [
+  "{b.neutral} Very well, we still have some time as long as the figures do not worsen."
+ ],
+ "pool.vorstand_sparrunde.r.r7": [
+  "{b.schlecht} That is not enough for the board, and I will have to report it to them that way."
+ ],
+ "pool.vorstand_sparrunde.r.r8": [
+  "{b.schlecht} Pardon? The coffers are empty and you set conditions? That is outrageous!"
+ ],
+ "pool.vorstand_sparrunde.r.r9": [
+  "{b.schlecht} Then I will look for a coach who can deal with tight means."
+ ],
+ "pool.vorstand_sparrunde.r.r10": [
+  "{b.schlecht} I had hoped we would carry the worries together, and now I feel alone."
+ ],
+ "pool.vorstand_sparrunde.x.x1": [
+  "The president breathes a sigh of relief. {entscheidung} The savings course is carried jointly, and the coffers settle."
+ ],
+ "pool.vorstand_sparrunde.x.x2": [
+  "The question remains unanswered. {entscheidung} The board adjourns the savings round and waits for the next figures."
+ ],
+ "pool.vorstand_sparrunde.x.x3": [
+  "The president loses his temper. {entscheidung} The board announces it will decide the cuts without you."
+ ],
+ "pool.vorstand_sparrunde.x.x4": [
+  "You promised savings, and the president notes it. {entscheidung} The board will check the progress."
+ ],
+ "pool.vorstand_sparrunde.x.x5": [
+  "The president ends the meeting. {entscheidung} The savings plans go back into the drawer undiscussed."
+ ],
+ "pool.vorstand_sponsor_druck.e.e1": [
+  "{b.vorstand_sponsor_druck_gruss} {b.vorstand_sponsor_druck_lage} The sponsor wants the team to appear more strongly at his events. How can that be arranged?"
+ ],
+ "pool.vorstand_sponsor_druck.e.e2": [
+  "{b.vorstand_sponsor_druck_gruss} {b.vorstand_sponsor_druck_lage} The results must improve, or the backer will reconsider working with us."
+ ],
+ "pool.vorstand_sponsor_druck.e.e3": [
+  "{b.vorstand_sponsor_druck_gruss} {b.vorstand_sponsor_druck_lage} We have talked past each other lately, but this time it is about the club, not the two of us."
+ ],
+ "pool.vorstand_sponsor_druck.e.e4": [
+  "{b.vorstand_sponsor_druck_gruss} {b.vorstand_sponsor_druck_lage} The backer demands answers, and I demand them from you now, without detours!"
+ ],
+ "pool.vorstand_sponsor_druck.e.e5": [
+  "{b.vorstand_sponsor_druck_gruss} {b.vorstand_sponsor_druck_lage} There is no reproach in my words, I merely convey what we were told."
+ ],
+ "pool.vorstand_sponsor_druck.e.e6": [
+  "{b.vorstand_sponsor_druck_gruss} {b.vorstand_sponsor_druck_lage} If we keep the sponsor our room on the market grows too, and that can benefit everyone."
+ ],
+ "pool.vorstand_sponsor_druck.e.e7": [
+  "{b.vorstand_sponsor_druck_gruss} {b.vorstand_sponsor_druck_lage} I want you to explain to the backer how you intend to develop the squad."
+ ],
+ "pool.vorstand_sponsor_druck.e.e8": [
+  "{b.vorstand_sponsor_druck_gruss} {b.vorstand_sponsor_druck_lage} Support in the board is low, and the sponsor does not make your situation any easier."
+ ],
+ "pool.vorstand_sponsor_druck.e.e9": [
+  "{b.vorstand_sponsor_druck_gruss} {b.vorstand_sponsor_druck_lage} The media have picked up the topic, and the club does not look good. We must change that."
+ ],
+ "pool.vorstand_sponsor_druck.e.e10": [
+  "{b.vorstand_sponsor_druck_gruss} {b.vorstand_sponsor_druck_lage} After the recent run of defeats the backer is getting restless, and I cannot put him off forever."
+ ],
+ "pool.vorstand_sponsor_druck.a.a1": [
+  "I understand the backer's wish and will arrange more appearances. The team is ready for it."
+ ],
+ "pool.vorstand_sponsor_druck.a.a2": [
+  "We show the sponsor progress, not only promises. I will set out how the team develops."
+ ],
+ "pool.vorstand_sponsor_druck.a.a3": [
+  "A joint evening with the backer at the club's expense would certainly lift the mood."
+ ],
+ "pool.vorstand_sponsor_druck.a.a4": [
+  "I promise that the team takes part in the sponsor events and the results stay in focus."
+ ],
+ "pool.vorstand_sponsor_druck.a.a5": [
+  "I would suggest the backer judge after the season, since it is too early now."
+ ],
+ "pool.vorstand_sponsor_druck.a.a6": [
+  "What exactly does the sponsor expect, and by what does he measure success, so that I can work purposefully?"
+ ],
+ "pool.vorstand_sponsor_druck.a.a7": [
+  "The dates with the backer are best coordinated by the office, I focus on the matches."
+ ],
+ "pool.vorstand_sponsor_druck.a.a8": [
+  "Sponsor dates cost concentration, and I need that for the team. I ask that they be limited."
+ ],
+ "pool.vorstand_sponsor_druck.a.a9": [
+  "I do not put on a show for a backer. The team plays football, not an advertising event."
+ ],
+ "pool.vorstand_sponsor_druck.a.a10": [
+  "If the sponsor is unhappy he can look for another club. I will not be blackmailed!"
+ ],
+ "pool.vorstand_sponsor_druck.a.a11": [
+  "Tell the backer that the team will exceed all expectations in no time, I guarantee it."
+ ],
+ "pool.vorstand_sponsor_druck.r.r1": [
+  "{b.gut} That reassures me, and it will reassure the backer too. Thank you for the clear line."
+ ],
+ "pool.vorstand_sponsor_druck.r.r2": [
+  "{b.gut} Your reliability is why I keep your back free. We will manage this."
+ ],
+ "pool.vorstand_sponsor_druck.r.r3": [
+  "{b.gut} That sounds like a plan, and I am sure the sponsor will read it with interest."
+ ],
+ "pool.vorstand_sponsor_druck.r.r4": [
+  "{b.neutral} I note it and pass your view on to the backer without judging it."
+ ],
+ "pool.vorstand_sponsor_druck.r.r5": [
+  "{b.neutral} I am unsure how the backer will take it, but I will do what I can."
+ ],
+ "pool.vorstand_sponsor_druck.r.r6": [
+  "{b.neutral} Fine, then we wait. The sponsor will get in touch if it takes too long."
+ ],
+ "pool.vorstand_sponsor_druck.r.r7": [
+  "{b.schlecht} With that I will not get far with the backer, and that will have consequences."
+ ],
+ "pool.vorstand_sponsor_druck.r.r8": [
+  "{b.schlecht} I cannot face the sponsor like that! You make my work needlessly hard!"
+ ],
+ "pool.vorstand_sponsor_druck.r.r9": [
+  "{b.schlecht} If you talk like that I wonder whether another coach would keep the backer better."
+ ],
+ "pool.vorstand_sponsor_druck.r.r10": [
+  "{b.schlecht} I stood up for you, and now I feel left in the lurch."
+ ],
+ "pool.vorstand_sponsor_druck.x.x1": [
+  "The president is relieved. {entscheidung} The backer gets what he wanted to see, and the pressure eases."
+ ],
+ "pool.vorstand_sponsor_druck.x.x2": [
+  "The situation stays open. {entscheidung} The board puts the sponsor off and waits for the next result."
+ ],
+ "pool.vorstand_sponsor_druck.x.x3": [
+  "The president is beside himself. {entscheidung} The sponsor learns of the conversation, and the relationship suffers."
+ ],
+ "pool.vorstand_sponsor_druck.x.x4": [
+  "You made commitments to the sponsor, and the president records them. {entscheidung} The backer will hold you to them."
+ ],
+ "pool.vorstand_sponsor_druck.x.x5": [
+  "The president ends the conversation. {entscheidung} The backer's demands remain unanswered in the room."
+ ],
+ "pool.vorstand_fanproteste.e.e1": [
+  "{b.vorstand_fanproteste_gruss} {b.vorstand_fanproteste_lage} The supporters demand visible changes. What do you have to say to them?"
+ ],
+ "pool.vorstand_fanproteste.e.e2": [
+  "{b.vorstand_fanproteste_gruss} {b.vorstand_fanproteste_lage} The protest is also aimed at your line-up and tactics. How do you justify them?"
+ ],
+ "pool.vorstand_fanproteste.e.e3": [
+  "{b.vorstand_fanproteste_gruss} {b.vorstand_fanproteste_lage} The mood between us is tense anyway, and the protest does not help. We have to talk."
+ ],
+ "pool.vorstand_fanproteste.e.e4": [
+  "{b.vorstand_fanproteste_gruss} {b.vorstand_fanproteste_lage} And do not tell me now that the fans know nothing, for the fans are our audience!"
+ ],
+ "pool.vorstand_fanproteste.e.e5": [
+  "{b.vorstand_fanproteste_gruss} {b.vorstand_fanproteste_lage} Nobody blames you, we only want to find a way out of the slump together."
+ ],
+ "pool.vorstand_fanproteste.e.e6": [
+  "{b.vorstand_fanproteste_gruss} {b.vorstand_fanproteste_lage} With a clear answer we may be able to reconcile the supporters and turn the mood."
+ ],
+ "pool.vorstand_fanproteste.e.e7": [
+  "{b.vorstand_fanproteste_gruss} {b.vorstand_fanproteste_lage} I want you to speak publicly, best at a fan meeting in the stadium."
+ ],
+ "pool.vorstand_fanproteste.e.e8": [
+  "{b.vorstand_fanproteste_gruss} {b.vorstand_fanproteste_lage} The board is not in a good position at the moment, and the fans now direct their anger at you too."
+ ],
+ "pool.vorstand_fanproteste.e.e9": [
+  "{b.vorstand_fanproteste_gruss} {b.vorstand_fanproteste_lage} The press has also picked up the protest, and the club must now show resolve."
+ ],
+ "pool.vorstand_fanproteste.e.e10": [
+  "{b.vorstand_fanproteste_gruss} {b.vorstand_fanproteste_lage} In this league position the anger is understandable, but we must prevent it from boiling over."
+ ],
+ "pool.vorstand_fanproteste.a.a1": [
+  "I take the fans' anger seriously and will face them. I will seek the conversation before it gets louder."
+ ],
+ "pool.vorstand_fanproteste.a.a2": [
+  "I will explain to the supporters what we plan and why the results are still missing. I owe them that."
+ ],
+ "pool.vorstand_fanproteste.a.a3": [
+  "A round of free beer with the fans after training would get us talking quickly. That eases the situation."
+ ],
+ "pool.vorstand_fanproteste.a.a4": [
+  "I promise that I will speak personally at the next fan meeting and answer questions."
+ ],
+ "pool.vorstand_fanproteste.a.a5": [
+  "Let us wait until the team has won a few matches. Then the protest calms down by itself."
+ ],
+ "pool.vorstand_fanproteste.a.a6": [
+  "What exactly do the fans demand, and who speaks for them? I do not want to talk into the void."
+ ],
+ "pool.vorstand_fanproteste.a.a7": [
+  "The dialogue with fan representatives is best led by the office, I concentrate on training."
+ ],
+ "pool.vorstand_fanproteste.a.a8": [
+  "I speak only about the sport. Everything else the board and the fan officers should settle."
+ ],
+ "pool.vorstand_fanproteste.a.a9": [
+  "I will not be guided by whistles. The line-up stays as it is, and the fans will have to be patient."
+ ],
+ "pool.vorstand_fanproteste.a.a10": [
+  "Whoever whistles should first show that he loves the club. I will not apologize!"
+ ],
+ "pool.vorstand_fanproteste.a.a11": [
+  "The fans will be in for a surprise: we will turn this around, and soon they will sing my name again, I swear."
+ ],
+ "pool.vorstand_fanproteste.r.r1": [
+  "{b.gut} That is the answer I wanted to hear. The supporters will feel that we take them seriously."
+ ],
+ "pool.vorstand_fanproteste.r.r2": [
+  "{b.gut} It is your attitude towards the club that reassures me. With it we bring the terraces back to our side."
+ ],
+ "pool.vorstand_fanproteste.r.r3": [
+  "{b.gut} Good, then we get down to business and set a date. I look forward to your words."
+ ],
+ "pool.vorstand_fanproteste.r.r4": [
+  "{b.neutral} I take note of that and pass it on to the board. Nothing is decided yet."
+ ],
+ "pool.vorstand_fanproteste.r.r5": [
+  "{b.neutral} I do not know whether the fans see it the same way, but I am willing to try."
+ ],
+ "pool.vorstand_fanproteste.r.r6": [
+  "{b.neutral} Then we wait and see how the mood develops. There is no hurry."
+ ],
+ "pool.vorstand_fanproteste.r.r7": [
+  "{b.schlecht} That will not calm the fans, and the board will not be satisfied with it."
+ ],
+ "pool.vorstand_fanproteste.r.r8": [
+  "{b.schlecht} How can you treat the supporters like that? That is outrageous and harms the whole club!"
+ ],
+ "pool.vorstand_fanproteste.r.r9": [
+  "{b.schlecht} If that is how you see the club, I will think about the future of the coaching post."
+ ],
+ "pool.vorstand_fanproteste.r.r10": [
+  "{b.schlecht} I had hoped for more understanding for the fans, and now the club looks even worse."
+ ],
+ "pool.vorstand_fanproteste.x.x1": [
+  "The president is satisfied. {entscheidung} The protest fades, and the fans wait for your word."
+ ],
+ "pool.vorstand_fanproteste.x.x2": [
+  "The matter stays open. {entscheidung} The board watches the mood in the stands and postpones the answer."
+ ],
+ "pool.vorstand_fanproteste.x.x3": [
+  "The president loses his composure. {entscheidung} The fans learn of the quarrel, and the protest grows louder."
+ ],
+ "pool.vorstand_fanproteste.x.x4": [
+  "You promised an appearance before the fans, and the president records it. {entscheidung} The date will be announced."
+ ],
+ "pool.vorstand_fanproteste.x.x5": [
+  "The president ends the meeting. {entscheidung} The answer to the fans does not come, and the terraces do not fall silent."
+ ]
+}

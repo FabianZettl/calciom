@@ -1,0 +1,86 @@
+{
+ "pool.b.sponsor_spielertermine_gruss": [
+  "Good day, this is the club's main sponsor writing.",
+  "Good day, we are contacting you as the main sponsor."
+ ],
+ "pool.b.sponsor_spielertermine_lage": [
+  "Under the contract we are owed {zahl} promotional appearances with players this season, and only a fraction of them has happened so far.",
+  "We have planned {zahl} appearances with players for the coming weeks, as the contract provides."
+ ],
+ "pool.b.sponsor_spielertermine_lage.hitzig": [
+  "We were contractually promised {zahl} promotional appearances and have barely seen one, that is unacceptable!",
+  "Your players are dodging the {zahl} appearances we paid for, and we will not put up with that any longer!"
+ ],
+ "pool.b.sponsor_spielertermine_lage.loyal": [
+  "We are proud to be your partner and would now like to schedule the {zahl} agreed appearances with the squad.",
+  "We have worked well together for years, so we politely ask for the {zahl} appearances that are still outstanding."
+ ],
+ "pool.b.sponsor_spielertermine_lage.ehrgeizig": [
+  "Our brand is meant to grow this season, and for that we need the {zahl} appearances with your best players.",
+  "We want to make it big with your team, and that includes {zahl} appearances with the faces of the squad."
+ ],
+ "pool.b.sponsor_spielertermine_lage.wechselfreudig": [
+  "Other clubs offer us more presence with their players, and with you {zahl} appearances are still missing.",
+  "We are looking at alternatives anyway, and the {zahl} open appearances are an important argument."
+ ],
+ "pool.b.sponsor_spielertermine_lage.sensibel": [
+  "We feel we are not really being noticed when it comes to the {zahl} agreed appearances.",
+  "It hurt us that nobody has had time so far for the {zahl} appearances with the squad."
+ ],
+ "pool.b.sponsor_absturz_gruss": [
+  "Good day, this is the main sponsor's representative speaking.",
+  "Good day, I am calling on behalf of our company, we are your main sponsor."
+ ],
+ "pool.b.sponsor_absturz_lage": [
+  "The team is far behind the season target, and that affects the value of our partnership.",
+  "The league position lags behind expectations, and our management has questions."
+ ],
+ "pool.b.sponsor_absturz_lage.hitzig": [
+  "Your team is plunging, and we are paying for a spectacle that embarrasses us!",
+  "We pay for success and get defeats, that is a scandal!"
+ ],
+ "pool.b.sponsor_absturz_lage.loyal": [
+  "We stand by the club, but the slide down the table does not make it easy for us.",
+  "We have been loyal partners for years, but after this run we must talk honestly."
+ ],
+ "pool.b.sponsor_absturz_lage.ehrgeizig": [
+  "We teamed up with the club for an upswing, and now things are going in the wrong direction.",
+  "We want to advertise winners, not also-rans, and the league position does not fit that."
+ ],
+ "pool.b.sponsor_absturz_lage.wechselfreudig": [
+  "With this league position we have to consider anyway whether our money would be better invested elsewhere.",
+  "Another club has already approached us, and frankly that sounds tempting given this slump."
+ ],
+ "pool.b.sponsor_absturz_lage.sensibel": [
+  "It hurts us to see the team slide like this, we have been rooting for it.",
+  "Our employees ask us daily what is wrong with the team, and we have no answer."
+ ],
+ "pool.b.sponsor_ausruester_aktion_gruss": [
+  "Good day, this is the club's kit supplier writing.",
+  "Good day, we are your team's kit supplier and are getting in touch about a campaign."
+ ],
+ "pool.b.sponsor_ausruester_aktion_lage": [
+  "We are planning a special shirt with a campaign that causes costs of {betrag}, and ask the club for a contribution.",
+  "For our new special shirt we have designed an image campaign costing {betrag}, and would like a contribution from the club."
+ ],
+ "pool.b.sponsor_ausruester_aktion_lage.hitzig": [
+  "You wanted a better shirt, now you get it, but then you pay your share of {betrag}!",
+  "We deliver the best shirt in the league, and for that we demand {betrag}, no discussion!"
+ ],
+ "pool.b.sponsor_ausruester_aktion_lage.loyal": [
+  "We enjoy working with your club, so we propose a special shirt and ask for a contribution of {betrag}.",
+  "Because the partnership is close to our hearts, we want to create something special, with {betrag} from the club."
+ ],
+ "pool.b.sponsor_ausruester_aktion_lage.ehrgeizig": [
+  "With this special shirt we want to conquer the market, and the club should contribute {betrag} to the success.",
+  "For a campaign that is meant to be big we need {betrag} from the club, it pays off for both."
+ ],
+ "pool.b.sponsor_ausruester_aktion_lage.wechselfreudig": [
+  "Other clubs would co-finance this campaign straight away, so we expect {betrag} from you.",
+  "We have several requests for exclusive shirts, your club gets one only with {betrag} contribution."
+ ],
+ "pool.b.sponsor_ausruester_aktion_lage.sensibel": [
+  "We very much hope you like the campaign and would be grateful for a contribution of {betrag}.",
+  "The special shirt means a lot to us, and we would be glad if the club contributed {betrag}."
+ ]
+}

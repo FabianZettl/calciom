@@ -1,0 +1,574 @@
+{
+ "version": 1,
+ "values": [
+  {
+   "name": "season length",
+   "group": "calendar",
+   "value": 365,
+   "source": "pesm/fl/sim/config/sim.json season_days",
+   "unit": "days"
+  },
+  {
+   "name": "league start day",
+   "group": "calendar",
+   "value": 14,
+   "source": "pesm/fl/sim/config/sim.json calendar.league_start_day",
+   "unit": "day"
+  },
+  {
+   "name": "league end day",
+   "group": "calendar",
+   "value": 301,
+   "source": "pesm/fl/sim/config/sim.json calendar.league_end_day",
+   "unit": "day"
+  },
+  {
+   "name": "transfer window summer",
+   "group": "calendar",
+   "value": "days 0-31",
+   "source": "pesm/fl/sim/config/sim.json transfer_windows"
+  },
+  {
+   "name": "transfer window winter",
+   "group": "calendar",
+   "value": "days 153-183",
+   "source": "pesm/fl/sim/config/sim.json transfer_windows"
+  },
+  {
+   "name": "points for a win",
+   "group": "rules",
+   "value": 3,
+   "source": "pesm/fl/sim/comp.py",
+   "unit": "points"
+  },
+  {
+   "name": "promotion and relegation places",
+   "group": "rules",
+   "value": 3,
+   "source": "pesm/fl/sim/config/sim.json pyramid.count",
+   "unit": "teams"
+  },
+  {
+   "name": "home goal base",
+   "group": "match",
+   "value": 1.5,
+   "source": "pesm/fl/sim/config/sim.json match.home_goals",
+   "unit": "goals"
+  },
+  {
+   "name": "away goal base",
+   "group": "match",
+   "value": 1.17,
+   "source": "pesm/fl/sim/config/sim.json match.away_goals",
+   "unit": "goals"
+  },
+  {
+   "name": "strength beta",
+   "group": "match",
+   "value": 0.072,
+   "source": "pesm/fl/sim/config/sim.json match.beta",
+   "unit": "per point"
+  },
+  {
+   "name": "dixon-coles rho",
+   "group": "match",
+   "value": -0.07,
+   "source": "pesm/fl/sim/config/sim.json match.rho"
+  },
+  {
+   "name": "fitness weight",
+   "group": "match",
+   "value": 0.15,
+   "source": "pesm/fl/sim/config/sim.json match.fitness_weight"
+  },
+  {
+   "name": "morale scale",
+   "group": "match",
+   "value": 1.5,
+   "source": "pesm/fl/sim/config/sim.json match.morale_scale",
+   "unit": "points"
+  },
+  {
+   "name": "yellow cards per team",
+   "group": "match",
+   "value": 1.7,
+   "source": "pesm/fl/sim/config/sim.json match.yellow_per_team",
+   "unit": "per match"
+  },
+  {
+   "name": "red card chance per team",
+   "group": "match",
+   "value": 0.06,
+   "source": "pesm/fl/sim/config/sim.json match.red_per_team",
+   "unit": "per match"
+  },
+  {
+   "name": "injury chance per player",
+   "group": "match",
+   "value": 0.02,
+   "source": "pesm/fl/sim/config/sim.json match.injury_per_player",
+   "unit": "per match"
+  },
+  {
+   "name": "own goal share",
+   "group": "match",
+   "value": 0.04,
+   "source": "pesm/fl/sim/match.py _events"
+  },
+  {
+   "name": "fatigue per match",
+   "group": "fitness",
+   "value": 16,
+   "source": "pesm/fl/sim/config/sim.json match.fatigue_per_match",
+   "unit": "points"
+  },
+  {
+   "name": "recovery per day",
+   "group": "fitness",
+   "value": 5,
+   "source": "pesm/fl/sim/config/sim.json match.recovery_per_day",
+   "unit": "points"
+  },
+  {
+   "name": "rating base",
+   "group": "ratings",
+   "value": 6.3,
+   "source": "pesm/fl/sim/match.py _ratings",
+   "unit": "grade"
+  },
+  {
+   "name": "rating per goal",
+   "group": "ratings",
+   "value": 0.9,
+   "source": "pesm/fl/sim/match.py _ratings",
+   "unit": "grade"
+  },
+  {
+   "name": "rating clean sheet",
+   "group": "ratings",
+   "value": 0.5,
+   "source": "pesm/fl/sim/match.py _ratings",
+   "unit": "grade"
+  },
+  {
+   "name": "rating red card",
+   "group": "ratings",
+   "value": -1.4,
+   "source": "pesm/fl/sim/match.py _ratings",
+   "unit": "grade"
+  },
+  {
+   "name": "intensive training fitness cost",
+   "group": "training",
+   "value": 12,
+   "source": "pesm/fl/sim/config/training.json intensity.hart.cost",
+   "unit": "per week"
+  },
+  {
+   "name": "intensive training injury factor",
+   "group": "training",
+   "value": 2.5,
+   "source": "pesm/fl/sim/config/training.json intensity.hart.inj"
+  },
+  {
+   "name": "intensive training development",
+   "group": "training",
+   "value": 1.07,
+   "source": "pesm/fl/sim/config/training.json intensity.hart.dev"
+  },
+  {
+   "name": "tactics training familiarity",
+   "group": "training",
+   "value": 5.0,
+   "source": "pesm/fl/sim/config/training.json focus.Taktik.fam",
+   "unit": "per week"
+  },
+  {
+   "name": "individual programs max",
+   "group": "training",
+   "value": 6,
+   "source": "pesm/fl/sim/config/training.json individual.max_programs",
+   "unit": "players"
+  },
+  {
+   "name": "growth age 18",
+   "group": "development",
+   "value": 2.4,
+   "source": "pesm/fl/sim/config/entwicklung.json growth",
+   "unit": "per year"
+  },
+  {
+   "name": "decline age 32",
+   "group": "development",
+   "value": -1.4,
+   "source": "pesm/fl/sim/config/entwicklung.json decline",
+   "unit": "per year"
+  },
+  {
+   "name": "retirement chance age 35",
+   "group": "development",
+   "value": 0.15,
+   "source": "pesm/fl/sim/config/entwicklung.json retire"
+  },
+  {
+   "name": "value at strength 80 (log10)",
+   "group": "money",
+   "value": 7.619,
+   "source": "pesm/fl/sim/config/transfers.json value.curve",
+   "unit": "log10 EUR"
+  },
+  {
+   "name": "contract factor 1 year left",
+   "group": "money",
+   "value": 0.72,
+   "source": "pesm/fl/sim/config/transfers.json value.contract"
+  },
+  {
+   "name": "minimum wage",
+   "group": "money",
+   "value": 30000,
+   "source": "pesm/fl/sim/config/transfers.json wage.min",
+   "unit": "EUR per year"
+  },
+  {
+   "name": "tv share of revenue",
+   "group": "money",
+   "value": 0.38,
+   "source": "pesm/fl/sim/config/transfers.json club.split.tv"
+  },
+  {
+   "name": "transfer budget share",
+   "group": "money",
+   "value": 0.22,
+   "source": "pesm/core/wirtschaft/budget_start.toml"
+  },
+  {
+   "name": "stadium capacity base",
+   "group": "money",
+   "value": 8000,
+   "source": "pesm/core/vereinswelt/vereinswelt.toml",
+   "unit": "seats"
+  },
+  {
+   "name": "unlisted price markup",
+   "group": "transfers",
+   "value": 1.3,
+   "source": "pesm/fl/sim/config/transfers.json markt.price.unlisted"
+  },
+  {
+   "name": "protected player markup",
+   "group": "transfers",
+   "value": 2.0,
+   "source": "pesm/fl/sim/config/transfers.json markt.price.protected"
+  },
+  {
+   "name": "counter offer threshold",
+   "group": "transfers",
+   "value": 0.8,
+   "source": "pesm/fl/sim/verhandlung.py close_ratio"
+  },
+  {
+   "name": "negotiation rounds",
+   "group": "transfers",
+   "value": 3,
+   "source": "pesm/fl/sim/verhandlung.py rounds",
+   "unit": "rounds"
+  },
+  {
+   "name": "scouting gain per week",
+   "group": "scouting",
+   "value": 0.25,
+   "source": "pesm/fl/sim/config/stab.json scouting.base_know",
+   "unit": "knowledge"
+  },
+  {
+   "name": "scouting gain per quality",
+   "group": "scouting",
+   "value": 0.04,
+   "source": "pesm/fl/sim/config/stab.json scouting.per_q",
+   "unit": "knowledge"
+  },
+  {
+   "name": "strength fuzz",
+   "group": "scouting",
+   "value": 5,
+   "source": "pesm/fl/sim/config/stab.json fuzz.ovr",
+   "unit": "points"
+  },
+  {
+   "name": "potential fuzz",
+   "group": "scouting",
+   "value": 12,
+   "source": "pesm/fl/sim/config/stab.json fuzz.pot",
+   "unit": "points"
+  },
+  {
+   "name": "academy size",
+   "group": "academy",
+   "value": 30,
+   "source": "pesm/fl/sim/config/akademie.json size",
+   "unit": "players"
+  },
+  {
+   "name": "youth goal lambda",
+   "group": "academy",
+   "value": 1.3,
+   "source": "pesm/fl/sim/config/akademie.json lambda",
+   "unit": "goals"
+  },
+  {
+   "name": "patience title goal",
+   "group": "board",
+   "value": 40,
+   "source": "pesm/fl/sim/config/transfers.json manager.patience",
+   "unit": "pressure"
+  },
+  {
+   "name": "pressure per place",
+   "group": "board",
+   "value": 2,
+   "source": "pesm/fl/sim/config/transfers.json manager.press_per_place",
+   "unit": "pressure"
+  },
+  {
+   "name": "ultimatum length",
+   "group": "board",
+   "value": 60,
+   "source": "pesm/core/vorgang/lagen.toml",
+   "unit": "days"
+  },
+  {
+   "name": "press honest media effect",
+   "group": "press",
+   "value": 2,
+   "source": "pesm/core/medien/medien.toml",
+   "unit": "points"
+  },
+  {
+   "name": "assist share of goals",
+   "group": "match",
+   "value": 0.7,
+   "estimated": true
+  },
+  {
+   "name": "assist rating bonus",
+   "group": "ratings",
+   "value": 0.5,
+   "estimated": true,
+   "unit": "grade"
+  },
+  {
+   "name": "shots per expected goal",
+   "group": "match",
+   "value": 7.5,
+   "estimated": true,
+   "unit": "shots"
+  },
+  {
+   "name": "manager salary share of revenue",
+   "group": "career",
+   "value": 0.004,
+   "estimated": true
+  },
+  {
+   "name": "job offer chance per month",
+   "group": "career",
+   "value": 0.15,
+   "estimated": true
+  },
+  {
+   "name": "youth intake per season",
+   "group": "academy",
+   "value": 6,
+   "estimated": true,
+   "unit": "players"
+  },
+  {
+   "name": "own league start knowledge",
+   "group": "scouting",
+   "value": 0.55,
+   "estimated": true,
+   "unit": "knowledge"
+  },
+  {
+   "name": "fl27 direct link",
+   "group": "integration",
+   "value": "manual result entry only",
+   "estimated": true
+  },
+  {
+   "name": "end day",
+   "group": "controls",
+   "value": "Space or Weiter button",
+   "source": "original screenshots (Weiter button top right)"
+  },
+  {
+   "name": "red card ban",
+   "group": "rules",
+   "value": 1,
+   "unit": "matches",
+   "source": "pesm/fl/sim/welt.py _apply line 299"
+  },
+  {
+   "name": "yellow cards per ban",
+   "group": "rules",
+   "value": 5,
+   "unit": "cards",
+   "source": "pesm/fl/sim/welt.py _apply line 303"
+  },
+  {
+   "name": "growth towards potential",
+   "group": "development",
+   "value": "(pot-ovr)*GROW[age]/REM[age]",
+   "source": "pesm/fl/sim/entwicklung.py _base_delta line 179"
+  },
+  {
+   "name": "top soft cap",
+   "group": "development",
+   "value": 88,
+   "unit": "strength",
+   "source": "pesm/fl/sim/config/entwicklung.json top_soft; entwicklung.py _step line 199"
+  },
+  {
+   "name": "performance factor",
+   "group": "development",
+   "value": 0.8,
+   "source": "pesm/fl/sim/config/entwicklung.json perf.k; entwicklung.py _step line 211"
+  },
+  {
+   "name": "minutes for a full season",
+   "group": "development",
+   "value": 2700,
+   "unit": "minutes",
+   "source": "pesm/fl/sim/config/entwicklung.json minutes_full"
+  },
+  {
+   "name": "staff training level",
+   "group": "development",
+   "value": 5,
+   "estimated": true
+  },
+  {
+   "name": "statistics record size",
+   "group": "fl27",
+   "value": 8500,
+   "unit": "bytes (0x2134)",
+   "source": "Modul-Paket FL27-Anbindung 2026-11-20 §1.2"
+  },
+  {
+   "name": "away side offset",
+   "group": "fl27",
+   "value": 366160,
+   "unit": "bytes (0x59650)",
+   "source": "Modul-Paket FL27-Anbindung 2026-11-20 §1.2"
+  },
+  {
+   "name": "reader beat",
+   "group": "fl27",
+   "value": 2,
+   "unit": "s",
+   "source": "Modul-Paket FL27-Anbindung 2026-11-20 §1.4"
+  },
+  {
+   "name": "block search interval",
+   "group": "fl27",
+   "value": 30,
+   "unit": "s",
+   "source": "Modul-Paket FL27-Anbindung 2026-11-20 §1.4"
+  },
+  {
+   "name": "xG penalty",
+   "group": "fl27",
+   "value": 0.76,
+   "source": "Modul-Paket FL27-Anbindung 2026-11-20 §1.4.6"
+  },
+  {
+   "name": "xG on target",
+   "group": "fl27",
+   "value": 0.12,
+   "source": "Modul-Paket FL27-Anbindung 2026-11-20 §1.4.6"
+  },
+  {
+   "name": "xG off target",
+   "group": "fl27",
+   "value": 0.04,
+   "source": "Modul-Paket FL27-Anbindung 2026-11-20 §1.4.6"
+  },
+  {
+   "name": "lutris game id",
+   "group": "fl27",
+   "value": 7,
+   "source": "Modul-Paket FL27-Anbindung 2026-11-20 §0"
+  },
+  {
+   "name": "wait for FL27 start",
+   "group": "fl27",
+   "value": 240,
+   "unit": "s",
+   "source": "Modul-Paket FL27-Anbindung 2026-11-20 §5.9"
+  },
+  {
+   "name": "pesdb backups kept",
+   "group": "fl27",
+   "value": 5,
+   "source": "Modul-Paket FL27-Anbindung 2026-11-20 §2.4"
+  },
+  {
+   "name": "FL27 grade assist bonus",
+   "group": "fl27",
+   "value": 0.5,
+   "estimated": true
+  },
+  {
+   "name": "statistics kinds",
+   "group": "fl27",
+   "value": 177,
+   "source": "FL_2027.exe function 0x1408ca920 (kind < 0xb1)"
+  },
+  {
+   "name": "sections in the game's total",
+   "group": "fl27",
+   "value": 8,
+   "unit": "sections 0..7",
+   "source": "FL_2027.exe function 0x1408ca920 mode 5"
+  },
+  {
+   "name": "value stride per kind",
+   "group": "fl27",
+   "value": 36,
+   "unit": "bytes (0x24)",
+   "source": "FL_2027.exe function 0x1408ca920"
+  },
+  {
+   "name": "kind goals",
+   "group": "fl27",
+   "value": 0,
+   "source": "FL_2027.exe function 0x1406a65d0"
+  },
+  {
+   "name": "kind shots on target",
+   "group": "fl27",
+   "value": 17,
+   "source": "FL_2027.exe function 0x1406a6780"
+  },
+  {
+   "name": "kind saves",
+   "group": "fl27",
+   "value": 133,
+   "source": "FL_2027.exe function 0x1406a6f00"
+  },
+  {
+   "name": "kind red card",
+   "group": "fl27",
+   "value": 58,
+   "source": "FL_2027.exe function 0x1406a6d80"
+  },
+  {
+   "name": "career CPK name length",
+   "group": "fl27",
+   "value": 30,
+   "unit": "characters",
+   "source": "Übergabe Daten und Datenbank §8.1"
+  }
+ ]
+}

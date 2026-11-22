@@ -1,0 +1,81 @@
+# Budget-Herleitung beim Karrierestart und je Saison (`budget_start.py`). Alles hier ist eine eigene Festlegung von PESM.
+# Beträge in Euro. Die Gehaltssumme des Kaders ist der Anker; Prestige (0 bis 1) schiebt die Personalkostenquote innerhalb des Korridors.
+
+[prestige]
+# Gewichte und Spannen: Mittel der besten 16 Gesamtwerte, Marktwert des Kaders (logarithmisch), bester Spieler
+gewicht = { staerke = 0.45, marktwert = 0.35, spitze = 0.20 }
+staerke = [62, 84]
+marktwert = [2_000_000, 1_000_000_000]
+spitze = [65, 92]
+
+[quote]
+# Personalkostenquote = Gehaltssumme / Umsatz (obere Grenze = `budget.gehaltsquote` der Vereinswelt, damit die Obergrenze trägt); großer Klub (Prestige 1) nahe `unten`, kleiner nahe `oben`
+korridor = [0.55, 0.62]
+mitte = [0.62, 0.57]               # Zielquote bei Prestige 0 und 1
+
+[liga.stufe_1]
+umsatz = [12_000_000, 900_000_000] # Umsatz ohne Gehaltsangabe, bei Prestige 0 und 1 (geometrisch dazwischen)
+tv_europa = 0.12                   # Zuschlag auf Fernsehgeld bei Europapokal
+klassen = [2.0, 5.0]               # Lage auf der Klassenleiter (siehe [[klasse]]) bei Prestige 0 und 1
+[liga.stufe_2]
+umsatz = [3_000_000, 120_000_000]
+tv_europa = 0.06
+klassen = [0.6, 2.0]
+[liga.stufe_3]
+umsatz = [1_000_000, 30_000_000]
+tv_europa = 0.0
+klassen = [0.0, 1.0]
+
+[land]
+# Faktor je Liga-Name (Teilwort, klein geschrieben); nicht genannte Ligen: 1.0
+# beispiel = 1.1
+
+[budget]
+gehaltsanteil = 0.62               # Gehaltsbudget (Obergrenze) als Anteil am Umsatz
+transferanteil = 0.22              # Transferbudget als Anteil am Umsatz
+kasse_anteil = 0.30                # Startkasse als Anteil am Umsatz
+reserve = 0.06                     # Puffer über der heutigen Gehaltssumme
+jahr_schritt = 0.25                # größte Änderung des Maßstabs je Saison (Anteil)
+faktor_grenzen = [0.2, 15.0]       # erlaubter Maßstab gegenüber den Grundwerten der Vereinswelt
+referenz_umsatz = 284_600_000      # Liga-Durchschnitt der obersten Liga 2024/25 (FINANZ-REFERENZ-2024-25.md): `umsatz_rel` 1,0; Anker für „Budget nach Vereinsklasse“ (`budget_nach_klasse`)
+
+# ---- Größenklassen (Nutzerrecherche 27.10., Saison 2024/25; ~/pesm-konzepte/FINANZ-REFERENZ-2024-25.md) ----
+# Leiter mit sechs Sprossen x = 0..5; zwischen den Sprossen wird nach Prestige interpoliert (Umsatz geometrisch, Anteile linear).
+# `umsatz_rel` = Jahreseinnahmen im Verhältnis zum Durchschnitt der obersten Liga (= 1,0), also ein Anteil, kein Eurobetrag: PES-Budgets sind oft
+# anders skaliert, der Maßstab des Vereins (`massstab`) legt die Größe fest. Bezug der Recherche: Weltspitze 1161 / große Mannschaft mit Europapokal 389 /
+# Liga-Durchschnitt 285 / kleiner Erstligist 100 / Liga-Durchschnitt zweite Liga 67 / dritte Liga 17 Mio.
+# `mix` = Anteile an den Gesamteinnahmen in Prozent (summieren 100). `transfers` ist ein Bonus (Verkäufe), der nie fest ins Budget geplant wird:
+# das Pflichtbudget rechnet nur mit den übrigen Posten (`mix_pflicht`). Belegt sind Weltspitze (Marke 51 % = Sponsoring 36 + Fanartikel 15, Fernsehen 29,
+# Spieltag 20), Erstliga-Durchschnitt und Zweitliga-Durchschnitt; die übrigen Sprossen sind Festlegungen von PESM zwischen den belegten.
+[[klasse]]
+name = "dritte_liga"
+umsatz_rel = 0.059
+mix = { spieltag = 30.0, sponsoring = 22.0, medien = 20.0, merch = 8.0, transfers = 8.0, sonstiges = 12.0 }
+[[klasse]]
+name = "zweite_liga"
+umsatz_rel = 0.236
+mix = { spieltag = 22.6, sponsoring = 17.9, medien = 23.9, merch = 8.0, transfers = 13.1, sonstiges = 14.5 }
+[[klasse]]
+name = "kleiner_erstligist"
+umsatz_rel = 0.351
+mix = { spieltag = 17.0, sponsoring = 20.0, medien = 28.0, merch = 7.0, transfers = 15.0, sonstiges = 13.0 }
+[[klasse]]
+name = "erste_liga"
+umsatz_rel = 1.0
+mix = { spieltag = 11.7, sponsoring = 22.4, medien = 33.2, merch = 5.6, transfers = 17.0, sonstiges = 10.1 }
+[[klasse]]
+name = "grosse_mannschaft"
+umsatz_rel = 1.367
+mix = { spieltag = 13.0, sponsoring = 25.0, medien = 31.0, merch = 9.0, transfers = 15.0, sonstiges = 7.0 }
+[[klasse]]
+name = "weltspitze"
+umsatz_rel = 4.08
+mix = { spieltag = 20.0, sponsoring = 36.0, medien = 29.0, merch = 15.0, transfers = 0.0, sonstiges = 0.0 }
+
+[personalquote]
+# Personalaufwand der Lizenzspielerabteilung / Gesamterlös inklusive Transfers (DFL 2024/25: erste Liga 33,6 %, zweite Liga 24,6 %), als [x, Quote]-Stützstellen.
+# `gehalt_zu_gesamterloes` ist diese Quote; `gehalt_zu_betriebsumsatz` = Quote / (1 - Transferanteil des Mixes) bezieht dieselben Gehälter auf den Umsatz OHNE Transfers.
+# Die Spielwelt rechnet bewusst höher (Korridor [quote].korridor, 55-62 % der Einnahmen ohne Transfers): Gehaltssumme des Kaders gegen die vier planbaren Posten,
+# ohne Sonstiges und ohne Verkäufe, mit den im Spiel hohen Spielergehältern (Messung 23.10.: Lohn/Umsatz 0,4 bis 0,9). Die Abweichung ist gewollt und wird
+# nicht stillschweigend geändert; `quoten()` liefert beide Werte nebeneinander.
+stuetz = [[1.0, 0.246], [3.0, 0.336]]

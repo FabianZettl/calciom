@@ -1,0 +1,114 @@
+{
+ "pool.b.jugend_befoerderung_vorschlag_gruss": [
+  "Trainer, ich schreibe dir wegen der Akademie, nimm dir bitte Zeit dafür.",
+  "Trainer, hier ein Vorschlag aus der Akademie, der mir sehr wichtig ist."
+ ],
+ "pool.b.jugend_befoerderung_vorschlag_lage": [
+  "Bei den Junioren ist einer so weit, dass ich ihn dort kaum noch weiter fordern kann.",
+  "Einer meiner Jungs ist der Altersklasse entwachsen, und ich sehe niemanden mehr, der ihn dort besser macht."
+ ],
+ "pool.b.jugend_befoerderung_vorschlag_lage.hitzig": [
+  "Der Junge spielt die Gleichaltrigen an die Wand, und ich lasse mir nicht länger erzählen, er sei noch nicht so weit!",
+  "Ich schaue seit Wochen zu, wie er unterfordert ist, und das macht mich wahnsinnig!"
+ ],
+ "pool.b.jugend_befoerderung_vorschlag_lage.loyal": [
+  "Ich arbeite seit Jahren für diese Akademie, und so einen wie ihn hatten wir selten, deshalb liegt er mir am Herzen.",
+  "Ich habe den Jungen von klein auf begleitet und würde ihn nie vorschlagen, wenn ich nicht fest daran glaubte."
+ ],
+ "pool.b.jugend_befoerderung_vorschlag_lage.ehrgeizig": [
+  "Dieser Junge kann ein Aushängeschild des Vereins werden, und ich will, dass wir ihn nicht verschlafen.",
+  "Wenn wir ihn jetzt richtig führen, steht er bald in der Spitze, und genau das will ich für die Akademie."
+ ],
+ "pool.b.jugend_befoerderung_vorschlag_lage.wechselfreudig": [
+  "Ich sage es offen: Andere Vereine beobachten ihn schon, und lange hält ihn hier nichts, wenn wir ihn nicht nach oben holen.",
+  "Der Junge wird nicht ewig warten, und ich fürchte, wir verlieren ihn an einen Konkurrenten, wenn nichts passiert."
+ ],
+ "pool.b.jugend_befoerderung_vorschlag_lage.sensibel": [
+  "Ich habe lange überlegt, ob ich dich damit belaste, aber der Junge verdient eine ehrliche Chance.",
+  "Mir fällt es nicht leicht, das vorzutragen, denn ich weiß, was es für den Jungen bedeutet."
+ ],
+ "pool.b.jugend_ohne_spiele_gruss": [
+  "Hallo Trainer, ich schreibe dir wegen der Einsatzzeiten der Junioren.",
+  "Trainer, ich muss dir etwas zu den Junioren schreiben, das nicht warten kann."
+ ],
+ "pool.b.jugend_ohne_spiele_lage": [
+  "Mehrere Jungs sitzen seit Wochen nur auf der Bank oder der Tribüne und bekommen keine Minute Spielpraxis.",
+  "Bei einigen unserer Junioren schlägt es sich nieder, dass sie kaum noch spielen. Sie trainieren, aber ohne Spiele stagnieren sie."
+ ],
+ "pool.b.jugend_ohne_spiele_lage.hitzig": [
+  "Eine Handvoll Talente rottet auf der Ersatzbank vor sich hin, und ich sehe das nicht länger mit an!",
+  "Wir ruinieren gerade gute Jungs, weil keiner sie spielen lässt, und das ist ein Skandal!"
+ ],
+ "pool.b.jugend_ohne_spiele_lage.loyal": [
+  "Ich stehe hinter dem Kurs des Vereins, aber mehrere Junioren bekommen zu wenig Spielzeit, und das nagt an mir.",
+  "Ich trage vieles mit, doch dass die Jungs kaum spielen dürfen, kann ich nicht stillschweigend hinnehmen."
+ ],
+ "pool.b.jugend_ohne_spiele_lage.ehrgeizig": [
+  "Ohne Wettkampf werden unsere Talente nie die Spitze erreichen, und die ist doch unser Ziel.",
+  "Wir wollen Spieler für die erste Elf ausbilden, und die lernt man nur im Spiel, nicht auf der Bank."
+ ],
+ "pool.b.jugend_ohne_spiele_lage.wechselfreudig": [
+  "Wenn die Jungs hier keine Einsätze bekommen, suchen sie sich andere Vereine, und das kann ich ihnen nicht verdenken.",
+  "Ein paar Berater rufen schon an, weil ihre Schützlinge bei uns nicht spielen. Ich kann sie verstehen."
+ ],
+ "pool.b.jugend_ohne_spiele_lage.sensibel": [
+  "Die Jungs lassen sich nichts anmerken, aber ich sehe, wie sie nach den Spieltagen still werden.",
+  "Man sieht ihnen an, wie sehr es sie belastet, nur zuzuschauen, auch wenn sie nichts sagen."
+ ],
+ "pool.b.jugend_eltern_gespraech_gruss": [
+  "Trainer, hast du kurz Zeit? Die Eltern eines Talents waren bei mir.",
+  "Trainer, darf ich dich unter vier Augen sprechen? Es geht um die Familie eines unserer Jungs."
+ ],
+ "pool.b.jugend_eltern_gespraech_lage": [
+  "Seine Eltern wollen wissen, wie es mit ihrem Sohn weitergeht, und lassen sich nicht mehr mit Floskeln abspeisen.",
+  "Die Familie des Jungen hat mich in die Mangel genommen. Sie wollen Perspektive, Schule und Gehalt klären."
+ ],
+ "pool.b.jugend_eltern_gespraech_lage.hitzig": [
+  "Die Eltern sind aufgebracht und fordern Antworten, und ich kann ihnen keine geben, die ihnen reichen würden!",
+  "Der Vater hat mich heute fast angeschrien, so sehr bedrängen sie mich mit ihren Fragen!"
+ ],
+ "pool.b.jugend_eltern_gespraech_lage.loyal": [
+  "Die Eltern sind anständige Leute und vertrauen dem Verein. Gerade deshalb wollen sie nur ein ehrliches Wort.",
+  "Die Familie hat uns immer unterstützt und fährt den Jungen jeden Tag. Sie verdient eine ehrliche Auskunft."
+ ],
+ "pool.b.jugend_eltern_gespraech_lage.ehrgeizig": [
+  "Die Eltern glauben fest an eine große Karriere ihres Sohnes und wollen wissen, ob wir diesen Weg ebnen.",
+  "Der Vater sieht seinen Sohn schon bei den Profis. Er erwartet von uns einen klaren Plan dafür."
+ ],
+ "pool.b.jugend_eltern_gespraech_lage.wechselfreudig": [
+  "Der Berater der Familie hat angedeutet, dass auch andere Vereine Interesse haben. Das gibt dem Gespräch Druck.",
+  "Die Eltern lassen durchblicken, dass sie sich auch anderswo umsehen würden, wenn wir keine Perspektive bieten."
+ ],
+ "pool.b.jugend_eltern_gespraech_lage.sensibel": [
+  "Die Mutter war den Tränen nahe, weil sie nicht weiß, ob ihr Sohn hier gut aufgehoben ist.",
+  "Die Eltern machen sich Sorgen, ob der Junge dem Druck gewachsen ist, und das hat mich selbst nachdenklich gemacht."
+ ],
+ "pool.b.jugend_abwerbung_gruss": [
+  "Trainer, ich schreibe dir mit schlechten Nachrichten aus der Akademie.",
+  "Trainer, es gibt Ärger, und ich möchte, dass du es als Erster erfährst."
+ ],
+ "pool.b.jugend_abwerbung_lage": [
+  "Ein anderer Verein hat bei einem unserer Talente angeklopft und ihm ein Angebot unterbreitet.",
+  "Ein Konkurrent versucht, einen unserer Jungen aus der Akademie herauszulösen."
+ ],
+ "pool.b.jugend_abwerbung_lage.hitzig": [
+  "Ein anderer Verein wildert in unserer Akademie, und ich will, dass wir uns das nicht bieten lassen!",
+  "Da kommt einer daher und lockt unseren Jungen mit Versprechungen, die er nie halten wird!"
+ ],
+ "pool.b.jugend_abwerbung_lage.loyal": [
+  "Ich hänge an dem Jungen, und es schmerzt mich, dass ein anderer Verein ihm den Kopf verdreht.",
+  "Seit Jahren stecke ich Arbeit in die Akademie, und nun streckt jemand die Hand nach unserem Talent aus."
+ ],
+ "pool.b.jugend_abwerbung_lage.ehrgeizig": [
+  "Der Junge ist eines der besten Talente, die wir haben, und genau deshalb wollen ihn die anderen.",
+  "Wenn wir ihn halten, haben wir einen künftigen Leistungsträger, und das wissen unsere Konkurrenten."
+ ],
+ "pool.b.jugend_abwerbung_lage.wechselfreudig": [
+  "Ehrlich gesagt klingt das Angebot für ihn nicht schlecht, und ich verstehe, dass er neugierig ist.",
+  "Der Junge schielt schon zum anderen Verein, und ich kann ihm schwer verübeln, dass er sich das anhört."
+ ],
+ "pool.b.jugend_abwerbung_lage.sensibel": [
+  "Der Junge ist zerrissen, und ich merke, wie sehr ihn die Sache aufwühlt.",
+  "Er hat die Nacht nicht geschlafen, so sehr beschäftigt ihn das Angebot."
+ ]
+}

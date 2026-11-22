@@ -1,0 +1,38 @@
+{
+  "_hinweis": "Hierarchie im eigenen Kader (eigene Festlegung von PESM, alles änderbar; nur Anzeige, keine Wirkung im Spiel). Hierarchiewert 0–100 = gewichtete Summe der Bestandteile (Gewichte werden auf Summe 1 gebracht). Fehlt eine Eingabe, zählt der Bestandteil neutral und ist als geschätzt gekennzeichnet.",
+  "neutral": 50,
+  "_status": "Der Bestandteil status ist der Rang im Kader: Gesamtwert (Näherung) linear zwischen dem schwächsten (0) und dem stärksten (100) Spieler des eigenen Kaders. Der Charakterwert Status (Perzentil in der Welt) geht nicht in die Hierarchie ein; er bleibt für die Typen.",
+  "gewichte": { "fuehrung": 0.30, "status": 0.15, "loyalitaet": 0.10, "vereinszugehoerigkeit": 0.05, "spielzeit": 0.10, "erfahrung": 0.10, "einfluss": 0.20 },
+  "_einfluss": "Einfluss des Spiels (Byte +341, 0 bis 255; Spezifikation 18) als Anteil Wert / 256 · 100. Er kommt nur mit einer Welt-Datei in die Datenbank. Fehlt er bei einem Spieler, fällt der Bestandteil für ihn weg und die übrigen Gewichte werden auf Summe 1 gebracht (kein neutraler Ersatzwert).",
+  "vereinszugehoerigkeit": {
+    "_hinweis": "Nur neu oder nicht neu: Der Vertragsbeginn im Spielstand ist bei den meisten der Beginn der Karriere, die echte Zugehörigkeit ist unbekannt. Karrierestart = häufigster Vertragsbeginn im Kader. Wer danach kam (Neuzugang), bekommt den Wert neuzugang, alle anderen den Wert bestand.",
+    "bestand": 50,
+    "neuzugang": 0
+  },
+  "erfahrung": {
+    "_hinweis": "Erfahrung aus dem Alter: bis alter_von 0, ab alter_bis 100, dazwischen gleichmäßig. Festlegung von PESM, weil Einsätze der Laufbahn nicht eingelesen sind.",
+    "alter_von": 18,
+    "alter_bis": 32
+  },
+  "rollen": {
+    "_hinweis": "Kapitän und Vizekapitän: die beiden Ranghöchsten unter den Spielern mit dem Charakterwert Führung von mindestens kapitaen_fuehrung_ab. Hat keiner (oder für den Vize kein weiterer) genug Führung, zählt die höchste Führung, bei Gleichstand der höhere Rang. Für vom Anwender festgelegte Kapitäne gilt die Schwelle nicht. Führungsspieler sind bis zu fuehrungsspieler_anzahl Spieler unter den ersten fuehrungsspieler_unter_den_ersten der Rangfolge (Kapitän und Vizekapitän nicht mitgezählt als Führungsspieler), die den Charakterwert Führung von mindestens fuehrungsspieler_fuehrung_ab haben – in Rangfolge, es rücken also Spieler nach. Alle anderen nach Spielzeit (0–100, relativ zum Kader): Stammspieler ab stammspieler_ab, Rotationsspieler ab rotation_ab; darunter Perspektivspieler (Alter höchstens perspektive_alter_bis) oder Randfigur.",
+    "kapitaen_fuehrung_ab": 55,
+    "fuehrungsspieler_anzahl": 3,
+    "fuehrungsspieler_unter_den_ersten": 10,
+    "fuehrungsspieler_fuehrung_ab": 55,
+    "stammspieler_ab": 60,
+    "rotation_ab": 25,
+    "perspektive_alter_bis": 21
+  },
+  "hinweise": {
+    "_hinweis": "Nur Text, keine Wirkung. gewicht = Grundgewicht des Hinweises; angezeigt werden höchstens hoechstens, das Gewichtigste zuerst.",
+    "hoechstens": 5,
+    "kapitaen_unprofessionell":   { "gewicht": 90, "professionalitaet_bis": 40 },
+    "egoist_wenig_spielzeit":     { "gewicht": 80, "status_ab": 60, "spielzeit_bis": 30 },
+    "fuehrungsspieler_ohne_spielzeit": { "gewicht": 70, "spielzeit_bis": 25 },
+    "heisssporn_in_fuehrung":     { "gewicht": 60 },
+    "keine_fuehrung":             { "gewicht": 55, "fuehrung_ab": 60 },
+    "mentor_neben_talent":        { "gewicht": 50, "talent_alter_bis": 21 },
+    "ikone_randfigur":            { "gewicht": 45 }
+  }
+}

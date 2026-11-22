@@ -1,0 +1,74 @@
+{
+ "pool.b.praemie_verlangt_lage": [
+  "I have delivered in recent weeks, and the pay slip does not show it.",
+  "The goals and the work rate speak for me, the payroll does not."
+ ],
+ "pool.b.praemie_verlangt_lage.hitzig": [
+  "I run myself into the ground and all I get is a handshake when it comes to money!",
+  "Others cash in for less, and I am left with nothing!"
+ ],
+ "pool.b.praemie_verlangt_lage.loyal": [
+  "I do not like asking for money, but my performances deserve a sign.",
+  "I am happy here, but a thank-you in my account would be fair."
+ ],
+ "pool.b.praemie_verlangt_lage.ehrgeizig": [
+  "I am playing at top level and want my contract to reflect it.",
+  "Whoever leads from the front wants to be paid at the front."
+ ],
+ "pool.b.praemie_verlangt_lage.wechselfreudig": [
+  "If my form is worth nothing here, it will be worth something elsewhere.",
+  "My market value has risen, and I know that quite precisely."
+ ],
+ "pool.b.praemie_verlangt_lage.sensibel": [
+  "It is hard for me to bring this up, but I do not feel seen.",
+  "I do not want to seem cheeky, but I feel overlooked."
+ ],
+ "pool.b.trainingskritik_lage": [
+  "Training has lately been more of a duty than progress for me.",
+  "I feel the sessions are passing me by."
+ ],
+ "pool.b.trainingskritik_lage.hitzig": [
+  "These sessions are a waste of time, and we run like hamsters in a wheel!",
+  "Whoever thought this up has never kicked a ball!"
+ ],
+ "pool.b.trainingskritik_lage.loyal": [
+  "I always pull my weight in training, but a few things go against the grain.",
+  "You know my commitment, so I say openly what is wrong in training."
+ ],
+ "pool.b.trainingskritik_lage.ehrgeizig": [
+  "I want to get better, and the way we train I am stagnating.",
+  "For my development, what we are doing brings me too little."
+ ],
+ "pool.b.trainingskritik_lage.wechselfreudig": [
+  "I trained differently elsewhere, and it got me further there.",
+  "At other clubs the daily training looks different, and I like that."
+ ],
+ "pool.b.trainingskritik_lage.sensibel": [
+  "After sessions I am often so spent that I am embarrassed to say so.",
+  "Sometimes I arrive at the pitch with a knot in my stomach, and that should not be part of sport."
+ ],
+ "pool.b.spielerrat_wunsch_lage": [
+  "I am here on behalf of the squad, there is a request that matters to the lads.",
+  "The squad has sent me ahead, it is about something that weighs on all of us."
+ ],
+ "pool.b.spielerrat_wunsch_lage.hitzig": [
+  "The dressing room is boiling, and I have no desire to cover for it any longer!",
+  "The lads are angry, and I am supposed to take the flak!"
+ ],
+ "pool.b.spielerrat_wunsch_lage.loyal": [
+  "I stand behind you, but the squad needs a sign from you.",
+  "I carry your line outwards, but this time I have to ask for something for the group."
+ ],
+ "pool.b.spielerrat_wunsch_lage.ehrgeizig": [
+  "We want to achieve something this season, and for that the mood has to be right.",
+  "A team that wants to win has to stay together, and for that we need something from you."
+ ],
+ "pool.b.spielerrat_wunsch_lage.wechselfreudig": [
+  "A few in the dressing room are already looking out of the window, and I would like to avoid that.",
+  "If nothing moves, one or two will look for a new club."
+ ],
+ "pool.b.spielerrat_wunsch_lage.sensibel": [
+  "The mood in the team is cracked, and I would like to heal it.",
+  "I can feel the lads going quiet, and that worries me."
+ ]
+}

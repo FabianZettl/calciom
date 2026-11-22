@@ -1,0 +1,598 @@
+{
+ "pool.talent_wartet_auf_einsatz.e.e1": [
+  "{b.talent_wartet_auf_einsatz_lage} Ich finde, wir sollten ihm eine Perspektive nennen.",
+  "{b.talent_wartet_auf_einsatz_lage} Mir ist nicht wohl dabei, das weiter laufen zu lassen."
+ ],
+ "pool.talent_wartet_auf_einsatz.e.e2": [
+  "{b.talent_wartet_auf_einsatz_lage} Der Junge fragt mich fast täglich, wo er steht.",
+  "{b.talent_wartet_auf_einsatz_lage} Er hat mich gestern gefragt, ob er überhaupt noch eine Rolle spielt."
+ ],
+ "pool.talent_wartet_auf_einsatz.e.e3": [
+  "{b.talent_wartet_auf_einsatz_lage} Ich weiß, dass die Stimmung gerade schlecht ist, aber so ein Talent darf uns nicht durch die Finger rutschen.",
+  "{b.talent_wartet_auf_einsatz_lage} Ausgerechnet jetzt komme ich damit, ich weiß. Es lässt sich trotzdem nicht länger schieben."
+ ],
+ "pool.talent_wartet_auf_einsatz.e.e4": [
+  "{b.talent_wartet_auf_einsatz_lage} Wenn er noch ein paar Wochen so behandelt wird, knallt es!",
+  "{b.talent_wartet_auf_einsatz_lage} Er hat in der Kabine schon laut gesagt, dass er sich verschaukelt vorkommt!"
+ ],
+ "pool.talent_wartet_auf_einsatz.e.e5": [
+  "{b.talent_wartet_auf_einsatz_lage} Er beschwert sich nicht, aber ich möchte seine Geduld nicht überstrapazieren.",
+  "{b.talent_wartet_auf_einsatz_lage} Er trägt es mit Fassung, gerade deshalb will ich es früh ansprechen."
+ ],
+ "pool.talent_wartet_auf_einsatz.e.e6": [
+  "{b.talent_wartet_auf_einsatz_lage} Er will sich mit den Besten messen und fragt, was ihm noch fehlt.",
+  "{b.talent_wartet_auf_einsatz_lage} Er trainiert wie einer, der unbedingt hinein will, und sucht nach dem Weg."
+ ],
+ "pool.talent_wartet_auf_einsatz.e.e7": [
+  "{b.talent_wartet_auf_einsatz_lage} Sein Berater hat schon durchblicken lassen, dass andere Klubs Spielzeit bieten würden.",
+  "{b.talent_wartet_auf_einsatz_lage} Er hat nebenbei erwähnt, dass es woanders leichter wäre, zu spielen."
+ ],
+ "pool.talent_wartet_auf_einsatz.e.e8": [
+  "{b.talent_wartet_auf_einsatz_lage} Er grübelt viel und wirkt zuletzt bedrückt. Ich glaube, er zweifelt an sich.",
+  "{b.talent_wartet_auf_einsatz_lage} Seit Wochen redet er kaum noch beim Training, ich mache mir Sorgen um ihn."
+ ],
+ "pool.talent_wartet_auf_einsatz.e.e9": [
+  "{b.talent_wartet_auf_einsatz_lage} Du hattest ihm Einsätze in Aussicht gestellt, und bis jetzt ist es dabei geblieben.",
+  "{b.talent_wartet_auf_einsatz_lage} Die Zusage von damals hält er mir ständig vor, und ich kann ihm nichts entgegnen."
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a1": [
+  "Er bekommt seine Chance, im Pokal oder in der Liga. Binnen {frist} Tagen steht er im Kader, das sage ich ihm selbst.",
+  "Ich stelle ihn im nächsten passenden Spiel auf. Innerhalb von {frist} Tagen soll er Einsatzminuten gesammelt haben."
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a2": [
+  "Wir leihen ihn an einen Verein aus, bei dem er Woche für Woche spielt, und beteiligen uns am Gehalt.",
+  "Such ihm eine Leihe bei einem Klub, der ihn wirklich braucht. Einen Teil der Kosten tragen wir."
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a3": [
+  "Sag ihm, was er bis zum Frühjahr können muss, dann hat sein Warten einen Plan.",
+  "Wir schreiben ihm einen klaren Entwicklungsplan, mit Zielen, die er selbst überprüfen kann."
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a4": [
+  "Er soll in der Zweiten Spielpraxis sammeln. Sprich mit deren Trainer, damit er dort jede Woche dabei ist.",
+  "Schick ihn zur Zweitmannschaft, aber mit der klaren Ansage, dass er im Blick bleibt."
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a5": [
+  "Wir stellen ihm einen erfahrenen Spieler zur Seite, der selbst einmal geduldig warten musste.",
+  "Such ihm einen Mentor aus dem Kader, der ihm zuhört und das Warten einordnet."
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a6": [
+  "Sag ihm, seine Zeit kommt, er soll sich noch gedulden.",
+  "Er ist jung, es eilt nicht. Das wird schon noch."
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a7": [
+  "Was hat er im Training in den letzten Wochen konkret gezeigt? Und wer steht im Moment vor ihm?",
+  "Weiß er überhaupt, was ihm für die erste Elf noch fehlt?"
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a8": [
+  "Einsätze werden verdient, nicht erbeten. Er soll im Training liefern, dann reden wir.",
+  "Für Bettelei gibt es bei mir keine Minuten. Wer mehr will, holt es sich auf dem Platz."
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a9": [
+  "An meiner Planung ändert sich nichts. Er bleibt, wo er ist.",
+  "Ich lasse mir den Kader von keinem Talent umschreiben, auch nicht von diesem."
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a10": [
+  "Auch die Bank ist ein Platz an der Sonne, wenn man sie richtig anschaut.",
+  "Auf der Ersatzbank haben schon ganz Große angefangen, er ist in bester Gesellschaft."
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a11": [
+  "Ich nehme mir Zeit für ihn und gehe seine Lage Schritt für Schritt mit ihm durch, auch die Rückschläge.",
+  "Wir sprechen offen miteinander, und ich verspreche nichts, was ich nicht halten kann."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r1": [
+  "{b.gut} Dann hat er wieder etwas, wofür sich das Training lohnt.",
+  "{b.gut} Das gibt ihm Rückenwind, ich spüre es schon."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r2": [
+  "{b.gut} Er wird es dir mit Einsatz danken, da bin ich sicher.",
+  "{b.gut} Ich bringe es ihm in aller Ruhe bei, so wie er es mag."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r3": [
+  "{b.gut} Das ist die Gelegenheit, auf die er gewartet hat.",
+  "{b.gut} Jetzt kann er zeigen, was in ihm steckt."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r4": [
+  "{b.gut} Dass du dich so um ihn kümmerst, wird ihm viel bedeuten.",
+  "{b.gut} Er fühlt sich ernst genommen, mehr braucht er gerade nicht."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r5": [
+  "{b.neutral} Ob es genügt, werden wir an seiner Haltung im Training sehen.",
+  "{b.neutral} Ich sage es ihm und beobachte, wie er es aufnimmt."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r6": [
+  "{b.neutral} Bei ihm weiß man nie, ob so etwas aufbaut oder niederdrückt.",
+  "{b.neutral} Er kann es als Chance oder als Abfuhr verstehen, das entscheidet seine Tagesform."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r7": [
+  "{b.neutral} Ich gebe es ihm so weiter und lasse die Dinge ihren Gang gehen.",
+  "{b.neutral} Gut, dann bleibt vorerst alles, wie es ist."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r8": [
+  "{b.neutral} Er nimmt es, wie es kommt, er ist nicht der Typ für Aufstände.",
+  "{b.neutral} Er wartet weiter ab, Geduld hat er genug."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r9": [
+  "{b.schlecht} Damit verlieren wir ein Talent, das uns noch Freude machen könnte.",
+  "{b.schlecht} Ich fürchte, das lässt ihn endgültig die Lust verlieren."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r10": [
+  "{b.schlecht} Dann sag es ihm persönlich, ich halte dafür nicht den Kopf hin!",
+  "{b.schlecht} Wenn er dann explodiert, wunder dich nicht!"
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r11": [
+  "{b.schlecht} Dann sucht sein Berater eben einen Klub, der ihn spielen lässt.",
+  "{b.schlecht} Er wird sich nach einer Tür umsehen, durch die er gehen kann."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r12": [
+  "{b.schlecht} Ich hatte mir mehr Gespür für ihn von dir gewünscht.",
+  "{b.schlecht} Ich habe bei ihm Geduld gepredigt, und jetzt fehlen mir die Argumente."
+ ],
+ "pool.talent_wartet_auf_einsatz.x.x1": [
+  "Dein Co-Trainer nickt erleichtert. {entscheidung} Der junge Spieler hat wieder ein Ziel vor Augen.",
+  "{entscheidung} Im Training sieht man ihm an, dass er wieder Hoffnung hat."
+ ],
+ "pool.talent_wartet_auf_einsatz.x.x2": [
+  "Der Co-Trainer wiegt den Kopf. {entscheidung} Ob die Geduld des Jungen reicht, bleibt abzuwarten.",
+  "{entscheidung} Für den Moment ist nichts gelöst, das Talent wartet weiter."
+ ],
+ "pool.talent_wartet_auf_einsatz.x.x3": [
+  "Dein Co-Trainer verlässt das Büro mit verschlossener Miene. {entscheidung} Der Junge zieht sich zurück, und in der Kabine wird darüber geredet.",
+  "{entscheidung} Der Frust des Talents wird sichtbar, und andere junge Spieler beobachten genau, was daraus folgt."
+ ],
+ "pool.talent_wartet_auf_einsatz.x.x4": [
+  "Du hast dich festgelegt. {entscheidung} Der Junge zählt die Tage bis zu seiner Chance.",
+  "{entscheidung} Die Frist läuft, und im Stab weiß man, dass du Wort halten musst."
+ ],
+ "pool.talent_wartet_auf_einsatz.x.x5": [
+  "Der Co-Trainer bricht das Gespräch ab. {entscheidung} Das Talent bleibt auf der Bank sitzen, und das Thema schwelt weiter.",
+  "{entscheidung} Er geht zurück zum Platz, ohne dass etwas geklärt wäre."
+ ],
+ "pool.mentor_vorschlag.e.e1": [
+  "{b.mentor_vorschlag_lage} Ich würde ihm gern einen erfahrenen Spieler an die Seite stellen.",
+  "{b.mentor_vorschlag_lage} Wie wäre es mit einem Mentor aus dem Kader für ihn?"
+ ],
+ "pool.mentor_vorschlag.e.e2": [
+  "{b.mentor_vorschlag_lage} Bei den Älteren gibt es zwei, die dafür geeignet wären. Soll ich mit ihnen sprechen?",
+  "{b.mentor_vorschlag_lage} Ich hätte schon jemanden im Kopf, der sich um ihn kümmern könnte, wenn du einverstanden bist."
+ ],
+ "pool.mentor_vorschlag.e.e3": [
+  "{b.mentor_vorschlag_lage} Ich weiß, es ist keine gute Zeit für neue Ideen, aber das könnte ihm und uns helfen.",
+  "{b.mentor_vorschlag_lage} Du hast gerade genug um die Ohren, trotzdem möchte ich das kurz vorschlagen."
+ ],
+ "pool.mentor_vorschlag.e.e4": [
+  "{b.mentor_vorschlag_lage} Er rastet ständig aus. Ein Älterer, der ihn auf den Boden holt, wäre Gold wert!",
+  "{b.mentor_vorschlag_lage} Bevor er sich wieder um Kopf und Kragen redet, sollte ihn jemand an die Hand nehmen!"
+ ],
+ "pool.mentor_vorschlag.e.e5": [
+  "{b.mentor_vorschlag_lage} Er würde nie etwas sagen, aber ein Mentor täte ihm gut.",
+  "{b.mentor_vorschlag_lage} Es eilt nicht, doch auf Dauer wäre ein fester Ansprechpartner gut für ihn."
+ ],
+ "pool.mentor_vorschlag.e.e6": [
+  "{b.mentor_vorschlag_lage} Mit dem richtigen Vorbild neben sich käme er viel schneller voran.",
+  "{b.mentor_vorschlag_lage} Ein Routinier könnte ihm die Abkürzungen zeigen, die er sucht."
+ ],
+ "pool.mentor_vorschlag.e.e7": [
+  "{b.mentor_vorschlag_lage} Ein guter Draht zu einem Älteren könnte ihn überzeugen, dass er hier richtig ist.",
+  "{b.mentor_vorschlag_lage} Wenn er niemanden hat, der ihm etwas bedeutet, ist er schneller weg, als uns lieb ist."
+ ],
+ "pool.mentor_vorschlag.e.e8": [
+  "{b.mentor_vorschlag_lage} Ich glaube, er braucht jemanden, dem er sich anvertrauen kann. Mir sagt er zu wenig.",
+  "{b.mentor_vorschlag_lage} Er zieht sich zurück, und ein Mentor könnte die Tür einen Spalt öffnen."
+ ],
+ "pool.mentor_vorschlag.e.e9": [
+  "{b.mentor_vorschlag_lage} Er vertraut kaum noch jemandem im Verein, seit Versprechen nicht gehalten wurden. Ein Mentor könnte das etwas auffangen.",
+  "{b.mentor_vorschlag_lage} Nach der nicht eingehaltenen Zusage glaubt er kaum noch jemandem, vielleicht erreicht ihn ein Mitspieler besser."
+ ],
+ "pool.mentor_vorschlag.a.a1": [
+  "Gute Idee. Binnen {frist} Tagen legen wir fest, wer ihn begleitet, und dann gilt das verbindlich.",
+  "Machen wir. In {frist} Tagen steht der Mentor, und beide bekommen feste Zeiten."
+ ],
+ "pool.mentor_vorschlag.a.a2": [
+  "Ja, aber der Mentor muss selbst gefestigt sein. Nimm keinen, der gerade Ärger macht.",
+  "Einverstanden, wenn es einer ist, den die Kabine respektiert. Mit einem Außenseiter bringt es nichts."
+ ],
+ "pool.mentor_vorschlag.a.a3": [
+  "Beide gehen einmal im Monat auf Kosten des Vereins essen, das lockert die Sache.",
+  "Ich zahle ihnen einen gemeinsamen Ausflug, damit aus dem Pflichttermin ein Kennenlernen wird."
+ ],
+ "pool.mentor_vorschlag.a.a4": [
+  "Frag ihn zuerst, wen er sich wünscht. Es soll sich nicht wie eine Anordnung anfühlen.",
+  "Hör dich bei ihm um, mit wem er sich wohlfühlt, und lass ihn mitentscheiden."
+ ],
+ "pool.mentor_vorschlag.a.a5": [
+  "Ich spreche selbst mit ihm. Das ist Chefsache, und er soll merken, dass es mir wichtig ist.",
+  "Ich nehme mir den Jungen persönlich vor und höre, was ihn bedrückt."
+ ],
+ "pool.mentor_vorschlag.a.a6": [
+  "Wen hast du konkret im Kopf, und wollen die das überhaupt?",
+  "Was genau soll so ein Mentor tun, und wie lange?"
+ ],
+ "pool.mentor_vorschlag.a.a7": [
+  "Lass uns erst mal abwarten, vielleicht regelt sich das von allein.",
+  "Beobachte ihn noch eine Weile, dann sehen wir weiter."
+ ],
+ "pool.mentor_vorschlag.a.a8": [
+  "Mentor klingt fast nach Schule. Mach das mit Fingerspitzengefühl, sonst nennt er ihn bald Herr Lehrer.",
+  "Hauptsache, die beiden müssen nicht Händchen halten. Ein lockerer Draht reicht mir."
+ ],
+ "pool.mentor_vorschlag.a.a9": [
+  "Er ist Profi und soll auf eigenen Beinen stehen. Einen Aufpasser bekommt er nicht.",
+  "Wer hier spielt, kommt allein zurecht. Ich stelle ihm keinen Kindermädchen-Dienst."
+ ],
+ "pool.mentor_vorschlag.a.a10": [
+  "Meine Entscheidung steht: kein Mentor. Das Thema ist erledigt.",
+  "Ich habe dir meine Antwort gegeben, und dabei bleibt es."
+ ],
+ "pool.mentor_vorschlag.a.a11": [
+  "Das ist Sache der Spieler untereinander, nicht des Trainerteams. Ich mische mich da nicht ein.",
+  "Solche Bindungen entstehen von selbst oder gar nicht. Von uns aus organisiere ich nichts."
+ ],
+ "pool.mentor_vorschlag.r.r1": [
+  "{b.gut} Dann machen wir es richtig, und er merkt, dass wir an ihn denken.",
+  "{b.gut} Gut, ich bereite das gleich vor."
+ ],
+ "pool.mentor_vorschlag.r.r2": [
+  "{b.gut} Er wird die Geste schätzen, auch wenn er es nicht groß zeigt.",
+  "{b.gut} Ruhig und Schritt für Schritt, so mag er es."
+ ],
+ "pool.mentor_vorschlag.r.r3": [
+  "{b.gut} Mit einem Routinier an der Seite lernt er schneller, das wird ihm gefallen.",
+  "{b.gut} Das ist genau der Schub, den er sich wünscht."
+ ],
+ "pool.mentor_vorschlag.r.r4": [
+  "{b.gut} Dass er mitreden darf, nimmt ihm die Scheu.",
+  "{b.gut} So fasst er schneller Vertrauen, als wenn wir ihn einfach zuteilen."
+ ],
+ "pool.mentor_vorschlag.r.r5": [
+  "{b.neutral} Ich sehe zu, wie es sich entwickelt.",
+  "{b.neutral} Mal sehen, ob die Chemie stimmt."
+ ],
+ "pool.mentor_vorschlag.r.r6": [
+  "{b.neutral} Ob er sich darauf einlässt, weiß ich nicht, er ist da schwer zu lesen.",
+  "{b.neutral} Es hängt davon ab, in welcher Laune er morgen auf dem Platz steht."
+ ],
+ "pool.mentor_vorschlag.r.r7": [
+  "{b.neutral} In Ordnung, ich warte auf dein Zeichen.",
+  "{b.neutral} Dann belasse ich es vorerst dabei."
+ ],
+ "pool.mentor_vorschlag.r.r8": [
+  "{b.neutral} Ihn bringt so schnell nichts aus der Ruhe, er nimmt es, wie es kommt.",
+  "{b.neutral} Wenn es nicht klappt, geht die Welt auch nicht unter."
+ ],
+ "pool.mentor_vorschlag.r.r9": [
+  "{b.schlecht} Dann bleibt er auf sich gestellt, und ich fürchte, das merkt man bald.",
+  "{b.schlecht} So verpassen wir die Gelegenheit, ihm früh Halt zu geben."
+ ],
+ "pool.mentor_vorschlag.r.r10": [
+  "{b.schlecht} Wenn er wieder Mist baut, weißt du, wo es herkommt!",
+  "{b.schlecht} Bei ihm gibt es dann bald Streit, und du hast es kommen sehen!"
+ ],
+ "pool.mentor_vorschlag.r.r11": [
+  "{b.schlecht} Ohne Anschluss packt er bald die Koffer, so ehrlich muss man sein.",
+  "{b.schlecht} Er fühlt sich ohnehin nicht heimisch, das macht es nicht besser."
+ ],
+ "pool.mentor_vorschlag.r.r12": [
+  "{b.schlecht} Ich dachte, du nimmst den Jungen ernster.",
+  "{b.schlecht} Ich hatte ihm schon halb versprochen, dass sich jemand kümmert."
+ ],
+ "pool.mentor_vorschlag.x.x1": [
+  "Der Co-Trainer wirkt zufrieden. {entscheidung} Der junge Spieler bekommt bald einen, der ihm den Rücken freihält.",
+  "{entscheidung} Zwischen den beiden wächst vorsichtig ein Draht, und die Kabine sieht es mit Wohlwollen."
+ ],
+ "pool.mentor_vorschlag.x.x2": [
+  "Der Co-Trainer nickt langsam. {entscheidung} Ob die Paarung funktioniert, zeigen die kommenden Wochen.",
+  "{entscheidung} Noch ist offen, ob der Ältere ihm wirklich helfen kann."
+ ],
+ "pool.mentor_vorschlag.x.x3": [
+  "Dein Co-Trainer schüttelt den Kopf. {entscheidung} Der junge Spieler fühlt sich übergangen, und die Älteren schauen weg.",
+  "{entscheidung} Die Fronten verhärten sich, und im Training spürt man die Spannung."
+ ],
+ "pool.mentor_vorschlag.x.x4": [
+  "Du hast es zugesagt. {entscheidung} Der Co-Trainer macht sich sofort an die Planung, und die Frist läuft.",
+  "{entscheidung} Der Stab weiß Bescheid, und jetzt muss es auch gelebt werden."
+ ],
+ "pool.mentor_vorschlag.x.x5": [
+  "Der Co-Trainer winkt ab und geht. {entscheidung} Der Gedanke an einen Mentor verschwindet in der Schublade.",
+  "{entscheidung} Er steht auf, ohne den Satz zu beenden, und das Thema bleibt unerledigt."
+ ],
+ "pool.verantwortung_gewuenscht.e.e1": [
+  "{b.verantwortung_gewuenscht_lage} Ich würde gern mehr Verantwortung im Team übernehmen.",
+  "{b.verantwortung_gewuenscht_lage} Mir schwebt vor, dass ich in der Mannschaft mehr Gewicht bekomme."
+ ],
+ "pool.verantwortung_gewuenscht.e.e2": [
+  "{b.verantwortung_gewuenscht_lage} Ich könnte mich um den Spielerrat kümmern, wenn du das willst.",
+  "{b.verantwortung_gewuenscht_lage} Vielleicht kann ich im Spielerrat mitwirken, da sehe ich meine Stärke."
+ ],
+ "pool.verantwortung_gewuenscht.e.e3": [
+  "{b.verantwortung_gewuenscht_lage} Ich weiß, gerade ist die Stimmung nicht gut, aber vielleicht bin ich genau in so einer Phase gefragt.",
+  "{b.verantwortung_gewuenscht_lage} Es läuft nicht rund bei uns, und trotzdem will ich mehr tragen, nicht weniger."
+ ],
+ "pool.verantwortung_gewuenscht.e.e4": [
+  "{b.verantwortung_gewuenscht_lage} Ich will die Binde, und zwar nicht irgendwann!",
+  "{b.verantwortung_gewuenscht_lage} Wenn hier einer vorangehen soll, dann ich, ich lasse mich nicht länger übergehen!"
+ ],
+ "pool.verantwortung_gewuenscht.e.e5": [
+  "{b.verantwortung_gewuenscht_lage} Ich dränge nicht, aber wenn du jemanden für eine Aufgabe suchst, stehe ich bereit.",
+  "{b.verantwortung_gewuenscht_lage} Du musst nichts überstürzen, ich wollte es nur einmal gesagt haben."
+ ],
+ "pool.verantwortung_gewuenscht.e.e6": [
+  "{b.verantwortung_gewuenscht_lage} Ich möchte Standards schießen und die Jungen anleiten, damit wir weiter oben angreifen.",
+  "{b.verantwortung_gewuenscht_lage} Gib mir eine Aufgabe, und ich zeige dir, dass ich sie größer mache, als sie ist."
+ ],
+ "pool.verantwortung_gewuenscht.e.e7": [
+  "{b.verantwortung_gewuenscht_lage} Wenn der Verein mir Verantwortung gibt, bleibe ich lieber hier, als mich umzusehen.",
+  "{b.verantwortung_gewuenscht_lage} Eine größere Rolle würde mir helfen, mich fest für diesen Klub zu entscheiden."
+ ],
+ "pool.verantwortung_gewuenscht.e.e8": [
+  "{b.verantwortung_gewuenscht_lage} Ich möchte gern jüngeren Spielern helfen, so wie mir früher geholfen wurde.",
+  "{b.verantwortung_gewuenscht_lage} Mir liegt viel an einem guten Klima in der Kabine, und ich würde mich gern darum kümmern."
+ ],
+ "pool.verantwortung_gewuenscht.e.e9": [
+  "{b.verantwortung_gewuenscht_lage} Du hattest mir eine größere Rolle in Aussicht gestellt, und ich warte noch darauf.",
+  "{b.verantwortung_gewuenscht_lage} Von der Zusage damals ist nichts übrig, und ich hätte gern endlich Klarheit."
+ ],
+ "pool.verantwortung_gewuenscht.a.a1": [
+  "Du bekommst die Aufgabe. Binnen {frist} Tagen sage ich dir, wofür genau.",
+  "Ich traue dir das zu. In {frist} Tagen legen wir fest, was du übernimmst."
+ ],
+ "pool.verantwortung_gewuenscht.a.a2": [
+  "Gut, aber die Binde trägt nur einer, und den haben wir. Dafür darfst du im Spielerrat mitreden.",
+  "Die Kapitänsbinde ist vergeben. Im Spielerrat dagegen brauche ich dich als Stimme der Mannschaft."
+ ],
+ "pool.verantwortung_gewuenscht.a.a3": [
+  "Ich lasse dir ein Mentoring bezahlen, damit du jüngere Spieler an die Hand nehmen kannst.",
+  "Wir richten dir ein Budget ein, mit dem du die Jungen fördern kannst."
+ ],
+ "pool.verantwortung_gewuenscht.a.a4": [
+  "Dass du so denkst, freut mich, es zeigt, wie sehr du dich mit dem Team identifizierst.",
+  "Das ehrt dich. Wer von sich aus mehr will, ist selten verkehrt."
+ ],
+ "pool.verantwortung_gewuenscht.a.a5": [
+  "Sprich mit dem Kapitän, ihr könnt euch die Verantwortung aufteilen.",
+  "Klär das zuerst mit der Mannschaft, danach reden wir."
+ ],
+ "pool.verantwortung_gewuenscht.a.a6": [
+  "Welche Verantwortung stellst du dir genau vor, und wie sehen das deine Mitspieler?",
+  "Wofür willst du genau geradestehen, wenn es einmal nicht läuft?"
+ ],
+ "pool.verantwortung_gewuenscht.a.a7": [
+  "Wir kommen darauf zurück, wenn die Saison ruhiger ist.",
+  "Lass uns das auf später verschieben, im Moment ist zu viel los."
+ ],
+ "pool.verantwortung_gewuenscht.a.a8": [
+  "Standards übernimmt, wer sie im Training am besten trifft. Zeig es, dann gehören sie dir.",
+  "Wer im Training die Ecken am genauesten schlägt, bekommt sie im Spiel. Das gilt für alle."
+ ],
+ "pool.verantwortung_gewuenscht.a.a9": [
+  "Verantwortung gibt es nicht auf Zuruf. Spiel erst mal weiter so, dann sehen wir.",
+  "Ich verteile Aufgaben nicht, nur weil jemand sie fordert."
+ ],
+ "pool.verantwortung_gewuenscht.a.a10": [
+  "Die Rollen sind verteilt und bleiben es. Darüber diskutiere ich nicht.",
+  "Mit mir gibt es keine Änderung, so wie es ist, bleibt es."
+ ],
+ "pool.verantwortung_gewuenscht.a.a11": [
+  "Verantwortung ist nett, aber du bist mir als Läufer wertvoller denn als Sprecher.",
+  "Konzentrier dich auf dein Spiel, die Reden überlass anderen."
+ ],
+ "pool.verantwortung_gewuenscht.r.r1": [
+  "{b.gut} Danke, das bedeutet mir viel, du wirst es nicht bereuen.",
+  "{b.gut} Damit hast du mich, ich ziehe voll mit."
+ ],
+ "pool.verantwortung_gewuenscht.r.r2": [
+  "{b.gut} Ich weiß dein Vertrauen zu schätzen und werde es still zurückzahlen.",
+  "{b.gut} In Ordnung, ich nehme es mit Ruhe und Verantwortungsgefühl."
+ ],
+ "pool.verantwortung_gewuenscht.r.r3": [
+  "{b.gut} Genau darauf habe ich gewartet, jetzt geht es richtig los.",
+  "{b.gut} Das ist ein Schritt nach vorn, und ich nehme ihn mit Freude."
+ ],
+ "pool.verantwortung_gewuenscht.r.r4": [
+  "{b.gut} Es tut gut, dass du das so siehst, ich hatte Zweifel.",
+  "{b.gut} Danke, dass du mich so ernst nimmst, das macht mir Mut."
+ ],
+ "pool.verantwortung_gewuenscht.r.r5": [
+  "{b.neutral} Gut, dann sehe ich zu, wie ich mich einbringen kann.",
+  "{b.neutral} Dann schaue ich, was sich daraus für mich ergibt."
+ ],
+ "pool.verantwortung_gewuenscht.r.r6": [
+  "{b.neutral} Ich muss darüber nachdenken, ob ich das so will.",
+  "{b.neutral} Heute kann ich dazu nicht mehr sagen, ich brauche Abstand."
+ ],
+ "pool.verantwortung_gewuenscht.r.r7": [
+  "{b.neutral} Verstanden, dann warte ich ab, was daraus wird.",
+  "{b.neutral} Schön, wir sprechen später weiter."
+ ],
+ "pool.verantwortung_gewuenscht.r.r8": [
+  "{b.neutral} Kein Problem, ich spiele einfach weiter wie bisher.",
+  "{b.neutral} Es bleibt, wie es ist, und das ist auch in Ordnung."
+ ],
+ "pool.verantwortung_gewuenscht.r.r9": [
+  "{b.schlecht} So habe ich mir das nicht vorgestellt, ich dachte, ich werde gehört.",
+  "{b.schlecht} Dann hätte ich gar nicht erst gefragt."
+ ],
+ "pool.verantwortung_gewuenscht.r.r10": [
+  "{b.schlecht} Ich renne mir hier die Lunge aus dem Leib, und du speist mich so ab!",
+  "{b.schlecht} Wenn mir keiner etwas zutraut, brauche ich nicht mehr voranzugehen!"
+ ],
+ "pool.verantwortung_gewuenscht.r.r11": [
+  "{b.schlecht} Wenn ich hier nicht wachsen darf, dann vielleicht woanders.",
+  "{b.schlecht} Andere Klubs trauen mir mehr zu, das sollte dir klar sein."
+ ],
+ "pool.verantwortung_gewuenscht.r.r12": [
+  "{b.schlecht} Das hätte ich von dir nicht erwartet, ich war immer für dich da.",
+  "{b.schlecht} Ich habe für den Verein alles gegeben und bekomme nicht einmal ein offenes Ohr."
+ ],
+ "pool.verantwortung_gewuenscht.x.x1": [
+  "Du siehst ihm die Erleichterung an. {entscheidung} Er geht aufrecht aus dem Gespräch, und die Mannschaft spürt den Schwung.",
+  "{entscheidung} In den nächsten Tagen trägt er sichtlich mehr Verantwortung, und die Jüngeren orientieren sich an ihm."
+ ],
+ "pool.verantwortung_gewuenscht.x.x2": [
+  "Er nickt und geht nachdenklich hinaus. {entscheidung} Wie es sich entwickelt, ist noch unklar.",
+  "{entscheidung} Weder er noch du wisst, ob das schon genügt."
+ ],
+ "pool.verantwortung_gewuenscht.x.x3": [
+  "Er schlägt die Tür hinter sich zu. {entscheidung} Im Training bleibt er auffällig reserviert, und die Kabine merkt es.",
+  "{entscheidung} Der Stammspieler hat sich zurückgezogen, und die Stimmung kippt langsam."
+ ],
+ "pool.verantwortung_gewuenscht.x.x4": [
+  "Ihr habt es besiegelt. {entscheidung} Er weiß jetzt, woran er ist, und wird dich beim Wort nehmen.",
+  "{entscheidung} Die Frist läuft, und er zählt mit."
+ ],
+ "pool.verantwortung_gewuenscht.x.x5": [
+  "Er hebt die Hand und verlässt den Raum, bevor ihr fertig seid. {entscheidung} Das Gespräch bleibt unvollendet.",
+  "{entscheidung} Er winkt ab, und die Frage steht ungeklärt im Raum."
+ ],
+ "pool.verlaengern_frueh.e.e1": [
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} Ich rege an, den Vertrag früh zu verlängern, solange alle zufrieden sind.",
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} Wäre es nicht klug, jetzt schon über eine Verlängerung zu sprechen?"
+ ],
+ "pool.verlaengern_frueh.e.e2": [
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} Eine frühe Einigung würde beiden Seiten Planungssicherheit geben.",
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} Wir könnten die Gelegenheit nutzen, bevor das Thema später unnötig Druck erzeugt."
+ ],
+ "pool.verlaengern_frueh.e.e3": [
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} Ich weiß, dass die Lage angespannt ist, aber gerade deshalb wäre ein Zeichen der Zusammenarbeit wertvoll.",
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} Die Stimmung ist nicht die beste, und eine frühe Verlängerung könnte sie heben."
+ ],
+ "pool.verlaengern_frueh.e.e4": [
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} Mein Mandant will nicht warten, bis es dringend wird, und er sagt das deutlich!",
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} Er verlangt eine Antwort und hat keine Lust auf Hinhaltetaktik!"
+ ],
+ "pool.verlaengern_frueh.e.e5": [
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} Es eilt nicht, aber er würde sich über ein frühes Signal freuen.",
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} Wir haben Zeit, und trotzdem wäre ein Gespräch im Herbst eine schöne Geste."
+ ],
+ "pool.verlaengern_frueh.e.e6": [
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} Er hat sportlich viel vor und möchte wissen, ob der Verein seinen Weg mitgeht.",
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} Eine Verlängerung zu besseren Bedingungen wäre die logische Antwort auf seine Entwicklung."
+ ],
+ "pool.verlaengern_frueh.e.e7": [
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} Ich sage ganz offen, dass mich andere Vereine kontaktiert haben, und er will lieber hier bleiben.",
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} Bevor sich jemand anderes ins Spiel bringt, würde ich lieber mit Ihnen verhandeln."
+ ],
+ "pool.verlaengern_frueh.e.e8": [
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} Ein klarer Fahrplan würde ihm Ruhe geben, er macht sich zu viele Gedanken.",
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} Die Ungewissheit über seine Zukunft beschäftigt ihn mehr, als er zugibt."
+ ],
+ "pool.verlaengern_frueh.e.e9": [
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} Da eine frühere Zusage nicht erfüllt wurde, möchte ich dieses Mal Verbindliches festhalten.",
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} Nach den offenen Versprechen von damals bestehe ich auf einem klaren Gespräch, bevor es eng wird."
+ ],
+ "pool.verlaengern_frueh.a.a1": [
+  "Wir verhandeln jetzt. Innerhalb von {frist} Tagen lege ich Ihnen ein Angebot vor.",
+  "Ich möchte ihn halten, deshalb schicke ich Ihnen binnen {frist} Tagen einen Vertragsentwurf."
+ ],
+ "pool.verlaengern_frueh.a.a2": [
+  "Ich möchte nach der Saison sprechen, dann kann ich seine Entwicklung besser beurteilen.",
+  "Lassen Sie uns den Sommer abwarten. Danach setzen wir uns in Ruhe zusammen."
+ ],
+ "pool.verlaengern_frueh.a.a3": [
+  "Ich biete eine Treueprämie als Zeichen, noch bevor wir über Zahlen reden.",
+  "Als Anerkennung für seine Leistungen lege ich eine Prämie drauf, ganz ohne Bedingungen."
+ ],
+ "pool.verlaengern_frueh.a.a4": [
+  "Welchen Gehaltsrahmen hat Ihr Mandant im Kopf, und wie lange soll der Vertrag laufen?",
+  "Was genau schwebt Ihnen vor, in Gehalt und Laufzeit?"
+ ],
+ "pool.verlaengern_frueh.a.a5": [
+  "Mein Rahmen steht: eine leichte Steigerung. Die genauen Zahlen höre ich von Ihnen binnen {frist} Tagen.",
+  "Ich nenne Ihnen meine Obergrenze, und Sie melden sich in {frist} Tagen mit Ihrer Antwort."
+ ],
+ "pool.verlaengern_frueh.a.a6": [
+  "Eine Verlängerung ist möglich, wenn die Rolle klar bleibt: Er spielt, wenn er liefert, nicht aus Gewohnheit.",
+  "Ich verlängere gern, aber an Bedingungen. Seine Spielzeit hängt von seiner Leistung ab, das lasse ich festhalten."
+ ],
+ "pool.verlaengern_frueh.a.a7": [
+  "Richten Sie ihm aus, dass ich ihn schätze und mir seine Zukunft am Herzen liegt.",
+  "Sagen Sie ihm bitte, wie wichtig er mir als Mensch ist, nicht nur als Spieler."
+ ],
+ "pool.verlaengern_frueh.a.a8": [
+  "Der Vertrag läuft noch, wir finden zur rechten Zeit eine Lösung.",
+  "Zerbrechen Sie sich nicht den Kopf, es gibt noch genug Zeit."
+ ],
+ "pool.verlaengern_frueh.a.a9": [
+  "Sprechen Sie mit dem Sportdirektor, der führt solche Gespräche.",
+  "Das ist nicht mein Gebiet, wenden Sie sich bitte an die Vereinsführung."
+ ],
+ "pool.verlaengern_frueh.a.a10": [
+  "Ich verhandle nicht mit einem Berater, der Druck macht. Das Thema ist vom Tisch.",
+  "Wer mir mit Forderungen kommt, bekommt von mir keinen Termin."
+ ],
+ "pool.verlaengern_frueh.a.a11": [
+  "An meiner Entscheidung ändert sich nichts. Vor dem Ende der Saison gibt es keine Gespräche.",
+  "Ich habe meine Linie festgelegt, und die gilt."
+ ],
+ "pool.verlaengern_frueh.a.a12": [
+  "Sie sind früh dran, früher als der Frühling. Schauen Sie noch einmal in den Kalender.",
+  "Ihre Mail kommt so früh, dass sie fast schon von gestern ist."
+ ],
+ "pool.verlaengern_frueh.r.r1": [
+  "{b.gut} Das ist ein guter Anfang, ich gebe es sofort an meinen Mandanten weiter.",
+  "{b.gut} Damit kann ich arbeiten, danke für die klare Haltung."
+ ],
+ "pool.verlaengern_frueh.r.r2": [
+  "{b.gut} Er wird das mit Dankbarkeit aufnehmen und ruhig abwarten.",
+  "{b.gut} In diesem Ton lässt sich eine langfristige Lösung finden."
+ ],
+ "pool.verlaengern_frueh.r.r3": [
+  "{b.gut} Das passt zu seinen Ambitionen, ich denke, wir werden uns einig.",
+  "{b.gut} So geht ein Verein mit einem aufstrebenden Spieler um."
+ ],
+ "pool.verlaengern_frueh.r.r4": [
+  "{b.gut} Diese Wertschätzung wird ihn beruhigen, mehr braucht er gar nicht.",
+  "{b.gut} Es freut mich, dass Sie auch den Menschen sehen."
+ ],
+ "pool.verlaengern_frueh.r.r5": [
+  "{b.neutral} Ich nehme das zur Kenntnis und melde mich bei Gelegenheit.",
+  "{b.neutral} Ich werde mit ihm sprechen und gebe Ihnen Rückmeldung."
+ ],
+ "pool.verlaengern_frueh.r.r6": [
+  "{b.neutral} Wie er es aufnimmt, kann ich im Voraus nicht sagen, er reagiert sehr unterschiedlich.",
+  "{b.neutral} Es kommt auf seine Stimmung an, ob er das als Zeichen oder als Vertröstung wertet."
+ ],
+ "pool.verlaengern_frueh.r.r7": [
+  "{b.neutral} Verstanden, wir lassen es zunächst dabei.",
+  "{b.neutral} Gut, dann warte ich ab, wie sich die Dinge entwickeln."
+ ],
+ "pool.verlaengern_frueh.r.r8": [
+  "{b.neutral} Er sieht es entspannt, wir haben ja genug Zeit.",
+  "{b.neutral} Es eilt nicht, ich werde es ihm so ausrichten."
+ ],
+ "pool.verlaengern_frueh.r.r9": [
+  "{b.schlecht} Damit tun Sie sich keinen Gefallen, die Gespräche werden später schwerer.",
+  "{b.schlecht} Das ist eine verpasste Gelegenheit, und ich sage das ungern."
+ ],
+ "pool.verlaengern_frueh.r.r10": [
+  "{b.schlecht} So lasse ich mit meinem Mandanten nicht umgehen, das wird Folgen haben!",
+  "{b.schlecht} Ich werde ihm raten, sich nicht länger hinhalten zu lassen!"
+ ],
+ "pool.verlaengern_frueh.r.r11": [
+  "{b.schlecht} Dann sehe ich mich nach Alternativen um, das ist mein gutes Recht.",
+  "{b.schlecht} Andere Klubs werden bereitwilliger sein, das sollten Sie wissen."
+ ],
+ "pool.verlaengern_frueh.r.r12": [
+  "{b.schlecht} Ich hatte auf mehr Verständnis gehofft, und mein Mandant ebenso.",
+  "{b.schlecht} Das enttäuscht uns beide, nach allem, was er für den Verein geleistet hat."
+ ],
+ "pool.verlaengern_frueh.x.x1": [
+  "Der Berater antwortet kurz und zufrieden. {entscheidung} Die Zukunft des Spielers ist früh geregelt, und er kann sich auf den Fußball konzentrieren.",
+  "{entscheidung} Die Mail des Beraters liest sich freundlich, und die Gespräche beginnen in guter Stimmung."
+ ],
+ "pool.verlaengern_frueh.x.x2": [
+  "Der Berater schreibt, er werde sich melden. {entscheidung} Der Vertrag bleibt in der Schwebe.",
+  "{entscheidung} Weder zu- noch abgesagt, das Thema liegt auf Wiedervorlage."
+ ],
+ "pool.verlaengern_frueh.x.x3": [
+  "Die Antwort des Beraters fällt eisig aus. {entscheidung} Er deutet an, dass sein Mandant sich andere Wege offenhält.",
+  "{entscheidung} Im Verein spricht sich herum, dass die Verhandlungen vergiftet sind."
+ ],
+ "pool.verlaengern_frueh.x.x4": [
+  "Der Berater bestätigt den Termin per Mail. {entscheidung} Die Frist läuft, und beide Seiten halten sich daran fest.",
+  "{entscheidung} Du hast dich festgelegt, und der Berater hält es schriftlich fest."
+ ],
+ "pool.verlaengern_frueh.x.x5": [
+  "Der Berater beendet den Mailwechsel mit einer knappen Zeile. {entscheidung} Es bleibt, wie es ist, und niemand weiß, was das heißt.",
+  "{entscheidung} Das Gespräch verläuft im Sand, bevor es richtig begonnen hat."
+ ]
+}

@@ -1,0 +1,598 @@
+{
+ "pool.talent_wartet_auf_einsatz.e.e1": [
+  "{b.talent_wartet_auf_einsatz_lage} I think we should give him a perspective.",
+  "{b.talent_wartet_auf_einsatz_lage} I am not comfortable letting this run on any longer."
+ ],
+ "pool.talent_wartet_auf_einsatz.e.e2": [
+  "{b.talent_wartet_auf_einsatz_lage} The lad asks me almost daily where he stands.",
+  "{b.talent_wartet_auf_einsatz_lage} Yesterday he asked me whether he still has any part to play."
+ ],
+ "pool.talent_wartet_auf_einsatz.e.e3": [
+  "{b.talent_wartet_auf_einsatz_lage} I know the mood is bad right now, but a talent like this must not slip through our fingers.",
+  "{b.talent_wartet_auf_einsatz_lage} Of all times, I come to you with this now, I know. It cannot be put off any longer."
+ ],
+ "pool.talent_wartet_auf_einsatz.e.e4": [
+  "{b.talent_wartet_auf_einsatz_lage} If he is treated like this for a few more weeks, it will blow up!",
+  "{b.talent_wartet_auf_einsatz_lage} He has already said loudly in the dressing room that he feels taken for a ride!"
+ ],
+ "pool.talent_wartet_auf_einsatz.e.e5": [
+  "{b.talent_wartet_auf_einsatz_lage} He does not complain, but I do not want to overstretch his patience.",
+  "{b.talent_wartet_auf_einsatz_lage} He takes it calmly, which is exactly why I want to raise it early."
+ ],
+ "pool.talent_wartet_auf_einsatz.e.e6": [
+  "{b.talent_wartet_auf_einsatz_lage} He wants to measure himself against the best and asks what he still lacks.",
+  "{b.talent_wartet_auf_einsatz_lage} He trains like someone who is desperate to get in and is looking for the way."
+ ],
+ "pool.talent_wartet_auf_einsatz.e.e7": [
+  "{b.talent_wartet_auf_einsatz_lage} His agent has already hinted that other clubs would offer playing time.",
+  "{b.talent_wartet_auf_einsatz_lage} He mentioned in passing that it would be easier to play elsewhere."
+ ],
+ "pool.talent_wartet_auf_einsatz.e.e8": [
+  "{b.talent_wartet_auf_einsatz_lage} He broods a lot and has seemed down lately. I think he doubts himself.",
+  "{b.talent_wartet_auf_einsatz_lage} For weeks he has hardly said a word in training, and I am worried about him."
+ ],
+ "pool.talent_wartet_auf_einsatz.e.e9": [
+  "{b.talent_wartet_auf_einsatz_lage} You had held out the prospect of games to him, and so far it has stayed at that.",
+  "{b.talent_wartet_auf_einsatz_lage} He keeps throwing that old promise at me, and I have no answer for him."
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a1": [
+  "He gets his chance, in the cup or in the league. Within {frist} days he will be in the squad, and I will tell him myself.",
+  "I will play him in the next suitable match. Within {frist} days he should have collected some minutes."
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a2": [
+  "We loan him to a club where he plays every week and chip in on his wages.",
+  "Find him a loan at a club that really needs him. We will carry part of the cost."
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a3": [
+  "Tell him what he has to be able to do by spring, then his waiting has a plan.",
+  "We write him a clear development plan with goals he can check for himself."
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a4": [
+  "He should gather match practice with the reserves. Talk to their coach so he is involved there every week.",
+  "Send him to the second team, but with a clear message that we keep him in view."
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a5": [
+  "We put an experienced player at his side who once had to wait patiently himself.",
+  "Find him a mentor in the squad who listens to him and puts the waiting in perspective."
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a6": [
+  "Tell him his time will come, he should be patient a little longer.",
+  "He is young, there is no rush. It will happen."
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a7": [
+  "What has he shown in training over the last weeks, specifically? And who is ahead of him right now?",
+  "Does he even know what he still lacks for the first eleven?"
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a8": [
+  "Games are earned, not requested. He should deliver in training, then we talk.",
+  "I do not hand out minutes for begging. Whoever wants more takes it on the pitch."
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a9": [
+  "Nothing changes in my planning. He stays where he is.",
+  "I will not let any talent rewrite my squad, not even this one."
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a10": [
+  "Even the bench is a place in the sun if you look at it the right way.",
+  "Plenty of greats started on the substitutes' bench, so he is in good company."
+ ],
+ "pool.talent_wartet_auf_einsatz.a.a11": [
+  "I will take time for him and go through his situation step by step, setbacks included.",
+  "We talk openly with each other, and I promise nothing I cannot keep."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r1": [
+  "{b.gut} Then he has something again to make training worthwhile.",
+  "{b.gut} That gives him a tailwind, I can already feel it."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r2": [
+  "{b.gut} He will thank you with effort, I am sure of it.",
+  "{b.gut} I will explain it to him calmly, the way he likes it."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r3": [
+  "{b.gut} This is the opportunity he has been waiting for.",
+  "{b.gut} Now he can show what he is made of."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r4": [
+  "{b.gut} That you care for him like this will mean a lot to him.",
+  "{b.gut} He feels taken seriously, and that is all he needs right now."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r5": [
+  "{b.neutral} Whether it is enough, we will see from his attitude in training.",
+  "{b.neutral} I will tell him and watch how he takes it."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r6": [
+  "{b.neutral} With him you never know whether something like this lifts him or weighs him down.",
+  "{b.neutral} He may take it as a chance or as a snub, and his form of the day decides that."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r7": [
+  "{b.neutral} I will pass it on as it is and let things take their course.",
+  "{b.neutral} Fine, then everything stays as it is for now."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r8": [
+  "{b.neutral} He takes it as it comes, he is not the type for uprisings.",
+  "{b.neutral} He keeps waiting, he has patience enough."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r9": [
+  "{b.schlecht} That way we lose a talent who could still bring us joy.",
+  "{b.schlecht} I fear this will make him lose all desire for good."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r10": [
+  "{b.schlecht} Then tell him yourself, I will not take the blame for that!",
+  "{b.schlecht} If he explodes then, do not act surprised!"
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r11": [
+  "{b.schlecht} Then his agent will simply find a club that lets him play.",
+  "{b.schlecht} He will look for a door he can walk through."
+ ],
+ "pool.talent_wartet_auf_einsatz.r.r12": [
+  "{b.schlecht} I had hoped for more feeling for him from you.",
+  "{b.schlecht} I preached patience to him, and now I am out of arguments."
+ ],
+ "pool.talent_wartet_auf_einsatz.x.x1": [
+  "Your assistant coach nods in relief. {entscheidung} The young player has a goal in sight again.",
+  "{entscheidung} In training you can see that he has hope again."
+ ],
+ "pool.talent_wartet_auf_einsatz.x.x2": [
+  "The assistant coach tilts his head. {entscheidung} Whether the lad's patience will last remains to be seen.",
+  "{entscheidung} For the moment nothing is solved, and the talent keeps waiting."
+ ],
+ "pool.talent_wartet_auf_einsatz.x.x3": [
+  "Your assistant coach leaves the office with a closed face. {entscheidung} The lad withdraws, and the dressing room is talking about it.",
+  "{entscheidung} The talent's frustration becomes visible, and other young players watch closely what follows."
+ ],
+ "pool.talent_wartet_auf_einsatz.x.x4": [
+  "You have committed yourself. {entscheidung} The lad counts the days until his chance.",
+  "{entscheidung} The deadline is running, and the staff knows you have to keep your word."
+ ],
+ "pool.talent_wartet_auf_einsatz.x.x5": [
+  "The assistant coach cuts the conversation short. {entscheidung} The talent stays on the bench, and the matter keeps smouldering.",
+  "{entscheidung} He goes back to the pitch with nothing settled."
+ ],
+ "pool.mentor_vorschlag.e.e1": [
+  "{b.mentor_vorschlag_lage} I would like to put an experienced player at his side.",
+  "{b.mentor_vorschlag_lage} How about a mentor from the squad for him?"
+ ],
+ "pool.mentor_vorschlag.e.e2": [
+  "{b.mentor_vorschlag_lage} Among the older players there are two who would suit. Shall I talk to them?",
+  "{b.mentor_vorschlag_lage} I already have someone in mind who could look after him, if you agree."
+ ],
+ "pool.mentor_vorschlag.e.e3": [
+  "{b.mentor_vorschlag_lage} I know it is not a good time for new ideas, but this could help him and us.",
+  "{b.mentor_vorschlag_lage} You have enough on your plate, yet I would like to suggest this briefly."
+ ],
+ "pool.mentor_vorschlag.e.e4": [
+  "{b.mentor_vorschlag_lage} He keeps flipping out. An older player who brings him back down would be worth his weight in gold!",
+  "{b.mentor_vorschlag_lage} Before he talks himself into trouble again, someone should take him by the hand!"
+ ],
+ "pool.mentor_vorschlag.e.e5": [
+  "{b.mentor_vorschlag_lage} He would never say anything, but a mentor would do him good.",
+  "{b.mentor_vorschlag_lage} There is no rush, but in the long run a fixed contact person would be good for him."
+ ],
+ "pool.mentor_vorschlag.e.e6": [
+  "{b.mentor_vorschlag_lage} With the right role model beside him he would progress much faster.",
+  "{b.mentor_vorschlag_lage} A veteran could show him the shortcuts he is looking for."
+ ],
+ "pool.mentor_vorschlag.e.e7": [
+  "{b.mentor_vorschlag_lage} A good bond with an older player could convince him he belongs here.",
+  "{b.mentor_vorschlag_lage} If he has nobody who means something to him, he will be gone sooner than we like."
+ ],
+ "pool.mentor_vorschlag.e.e8": [
+  "{b.mentor_vorschlag_lage} I think he needs someone he can confide in. He tells me too little.",
+  "{b.mentor_vorschlag_lage} He is withdrawing, and a mentor could open the door a crack."
+ ],
+ "pool.mentor_vorschlag.e.e9": [
+  "{b.mentor_vorschlag_lage} He hardly trusts anyone at the club since promises were not kept. A mentor could cushion that somewhat.",
+  "{b.mentor_vorschlag_lage} After the broken promise he hardly believes anyone, so perhaps a teammate can reach him better."
+ ],
+ "pool.mentor_vorschlag.a.a1": [
+  "Good idea. Within {frist} days we decide who accompanies him, and then it is binding.",
+  "Let us do it. In {frist} days the mentor is in place, and both get fixed times."
+ ],
+ "pool.mentor_vorschlag.a.a2": [
+  "Yes, but the mentor must be steady himself. Do not pick someone who is causing trouble right now.",
+  "Agreed, as long as it is someone the dressing room respects. An outsider would be pointless."
+ ],
+ "pool.mentor_vorschlag.a.a3": [
+  "The two go out for a meal at the club's expense once a month, that loosens things up.",
+  "I will pay for a joint outing so that the duty appointment becomes a getting to know each other."
+ ],
+ "pool.mentor_vorschlag.a.a4": [
+  "Ask him first whom he would like. It should not feel like an order.",
+  "Find out whom he feels comfortable with, and let him have a say."
+ ],
+ "pool.mentor_vorschlag.a.a5": [
+  "I will speak to him myself. It is for the boss, and he should see it matters to me.",
+  "I will take the lad aside personally and hear what weighs on him."
+ ],
+ "pool.mentor_vorschlag.a.a6": [
+  "Whom do you have in mind, specifically, and do they even want to?",
+  "What exactly should such a mentor do, and for how long?"
+ ],
+ "pool.mentor_vorschlag.a.a7": [
+  "Let us wait first, maybe it sorts itself out.",
+  "Keep an eye on him a while longer, then we will see."
+ ],
+ "pool.mentor_vorschlag.a.a8": [
+  "Mentor sounds almost like school. Handle it delicately, or he will soon call him teacher.",
+  "As long as the two do not have to hold hands. A relaxed bond is enough for me."
+ ],
+ "pool.mentor_vorschlag.a.a9": [
+  "He is a professional and should stand on his own two feet. He is not getting a minder.",
+  "Whoever plays here copes alone. I will not provide him a babysitting service."
+ ],
+ "pool.mentor_vorschlag.a.a10": [
+  "My decision stands: no mentor. The matter is closed.",
+  "I have given you my answer, and that is that."
+ ],
+ "pool.mentor_vorschlag.a.a11": [
+  "That is a matter for the players among themselves, not the coaching staff. I will not interfere.",
+  "Such bonds arise by themselves or not at all. I will not organise anything from our side."
+ ],
+ "pool.mentor_vorschlag.r.r1": [
+  "{b.gut} Then we do it properly, and he will see that we think of him.",
+  "{b.gut} Good, I will prepare it right away."
+ ],
+ "pool.mentor_vorschlag.r.r2": [
+  "{b.gut} He will appreciate the gesture, even if he does not show it much.",
+  "{b.gut} Calmly and step by step, that is how he likes it."
+ ],
+ "pool.mentor_vorschlag.r.r3": [
+  "{b.gut} With a veteran at his side he learns faster, and he will like that.",
+  "{b.gut} That is exactly the boost he wants."
+ ],
+ "pool.mentor_vorschlag.r.r4": [
+  "{b.gut} Being allowed to have a say takes away his shyness.",
+  "{b.gut} He will trust faster this way than if we simply assign someone."
+ ],
+ "pool.mentor_vorschlag.r.r5": [
+  "{b.neutral} I will see how it develops.",
+  "{b.neutral} Let us see whether the chemistry is right."
+ ],
+ "pool.mentor_vorschlag.r.r6": [
+  "{b.neutral} Whether he will engage, I do not know, he is hard to read there.",
+  "{b.neutral} It depends on the mood he is in on the pitch tomorrow."
+ ],
+ "pool.mentor_vorschlag.r.r7": [
+  "{b.neutral} All right, I will wait for your signal.",
+  "{b.neutral} Then I will leave it at that for now."
+ ],
+ "pool.mentor_vorschlag.r.r8": [
+  "{b.neutral} Nothing rattles him quickly, he takes it as it comes.",
+  "{b.neutral} If it does not work out, the world will not end."
+ ],
+ "pool.mentor_vorschlag.r.r9": [
+  "{b.schlecht} Then he stays on his own, and I fear we will notice soon.",
+  "{b.schlecht} That way we miss the chance to give him support early on."
+ ],
+ "pool.mentor_vorschlag.r.r10": [
+  "{b.schlecht} If he messes up again, you know where it comes from!",
+  "{b.schlecht} He will soon be in a row, and you saw it coming!"
+ ],
+ "pool.mentor_vorschlag.r.r11": [
+  "{b.schlecht} Without a connection he will soon pack his bags, to be honest.",
+  "{b.schlecht} He does not feel at home anyway, and this does not help."
+ ],
+ "pool.mentor_vorschlag.r.r12": [
+  "{b.schlecht} I thought you took the lad more seriously.",
+  "{b.schlecht} I had half promised him that someone would look after him."
+ ],
+ "pool.mentor_vorschlag.x.x1": [
+  "The assistant coach looks pleased. {entscheidung} The young player will soon have someone who has his back.",
+  "{entscheidung} A bond grows cautiously between the two, and the dressing room watches with goodwill."
+ ],
+ "pool.mentor_vorschlag.x.x2": [
+  "The assistant coach nods slowly. {entscheidung} Whether the pairing works will show in the coming weeks.",
+  "{entscheidung} It is still open whether the older player can really help him."
+ ],
+ "pool.mentor_vorschlag.x.x3": [
+  "Your assistant coach shakes his head. {entscheidung} The young player feels passed over, and the older ones look away.",
+  "{entscheidung} The fronts harden, and you can feel the tension in training."
+ ],
+ "pool.mentor_vorschlag.x.x4": [
+  "You have promised it. {entscheidung} The assistant coach starts planning at once, and the deadline runs.",
+  "{entscheidung} The staff knows, and now it has to be lived as well."
+ ],
+ "pool.mentor_vorschlag.x.x5": [
+  "The assistant coach waves it off and leaves. {entscheidung} The idea of a mentor disappears into a drawer.",
+  "{entscheidung} He gets up without finishing his sentence, and the matter stays undone."
+ ],
+ "pool.verantwortung_gewuenscht.e.e1": [
+  "{b.verantwortung_gewuenscht_lage} I would like to take on more responsibility in the team.",
+  "{b.verantwortung_gewuenscht_lage} I imagine having more weight within the squad."
+ ],
+ "pool.verantwortung_gewuenscht.e.e2": [
+  "{b.verantwortung_gewuenscht_lage} I could take care of the players' council, if you want that.",
+  "{b.verantwortung_gewuenscht_lage} Maybe I can contribute to the players' council, I see my strength there."
+ ],
+ "pool.verantwortung_gewuenscht.e.e3": [
+  "{b.verantwortung_gewuenscht_lage} I know the mood is not good right now, but maybe a phase like this is exactly when I am needed.",
+  "{b.verantwortung_gewuenscht_lage} Things are not going smoothly for us, and still I want to carry more, not less."
+ ],
+ "pool.verantwortung_gewuenscht.e.e4": [
+  "{b.verantwortung_gewuenscht_lage} I want the armband, and not at some point later!",
+  "{b.verantwortung_gewuenscht_lage} If someone should lead here, it is me, and I will not be passed over any longer!"
+ ],
+ "pool.verantwortung_gewuenscht.e.e5": [
+  "{b.verantwortung_gewuenscht_lage} I am not pushing, but if you are looking for someone for a task, I am ready.",
+  "{b.verantwortung_gewuenscht_lage} You do not have to rush anything, I just wanted to have said it once."
+ ],
+ "pool.verantwortung_gewuenscht.e.e6": [
+  "{b.verantwortung_gewuenscht_lage} I would like to take set pieces and guide the youngsters so we can attack higher up the table.",
+  "{b.verantwortung_gewuenscht_lage} Give me a task, and I will show you that I make it bigger than it is."
+ ],
+ "pool.verantwortung_gewuenscht.e.e7": [
+  "{b.verantwortung_gewuenscht_lage} If the club gives me responsibility, I would rather stay here than look around.",
+  "{b.verantwortung_gewuenscht_lage} A bigger role would help me commit firmly to this club."
+ ],
+ "pool.verantwortung_gewuenscht.e.e8": [
+  "{b.verantwortung_gewuenscht_lage} I would like to help younger players, the way I was helped back then.",
+  "{b.verantwortung_gewuenscht_lage} A good atmosphere in the dressing room matters a lot to me, and I would gladly look after it."
+ ],
+ "pool.verantwortung_gewuenscht.e.e9": [
+  "{b.verantwortung_gewuenscht_lage} You had held out a bigger role to me, and I am still waiting for it.",
+  "{b.verantwortung_gewuenscht_lage} Nothing is left of that old promise, and I would finally like some clarity."
+ ],
+ "pool.verantwortung_gewuenscht.a.a1": [
+  "You get the task. Within {frist} days I will tell you exactly what for.",
+  "I trust you with it. In {frist} days we settle what you take on."
+ ],
+ "pool.verantwortung_gewuenscht.a.a2": [
+  "Good, but only one person wears the armband, and we have him. In return you may have a voice in the players' council.",
+  "The captain's armband is taken. In the players' council, however, I need you as a voice of the team."
+ ],
+ "pool.verantwortung_gewuenscht.a.a3": [
+  "I will pay for a mentoring programme so that you can take younger players under your wing.",
+  "We set up a budget for you with which you can support the youngsters."
+ ],
+ "pool.verantwortung_gewuenscht.a.a4": [
+  "I am glad you think that way, it shows how much you identify with the team.",
+  "That does you credit. Someone who wants more of his own accord is rarely wrong."
+ ],
+ "pool.verantwortung_gewuenscht.a.a5": [
+  "Talk to the captain, you two can share the responsibility.",
+  "Settle it with the team first, then we talk."
+ ],
+ "pool.verantwortung_gewuenscht.a.a6": [
+  "What kind of responsibility do you imagine exactly, and how do your teammates see it?",
+  "What exactly do you want to answer for when things do not go well?"
+ ],
+ "pool.verantwortung_gewuenscht.a.a7": [
+  "We will come back to it when the season is calmer.",
+  "Let us postpone this, there is too much going on right now."
+ ],
+ "pool.verantwortung_gewuenscht.a.a8": [
+  "Set pieces go to whoever hits them best in training. Show it, and they are yours.",
+  "Whoever delivers the corners most accurately in training gets them in matches. That applies to everyone."
+ ],
+ "pool.verantwortung_gewuenscht.a.a9": [
+  "Responsibility is not handed out on request. Keep playing like this for now, then we will see.",
+  "I do not hand out tasks just because someone demands them."
+ ],
+ "pool.verantwortung_gewuenscht.a.a10": [
+  "The roles are assigned and stay that way. I do not discuss that.",
+  "There will be no change with me, as it is, it stays."
+ ],
+ "pool.verantwortung_gewuenscht.a.a11": [
+  "Responsibility is nice, but you are worth more to me as a runner than as a spokesman.",
+  "Concentrate on your game and leave the speeches to others."
+ ],
+ "pool.verantwortung_gewuenscht.r.r1": [
+  "{b.gut} Thanks, that means a lot to me, you will not regret it.",
+  "{b.gut} You have me there, I will pull my weight fully."
+ ],
+ "pool.verantwortung_gewuenscht.r.r2": [
+  "{b.gut} I appreciate your trust and will repay it quietly.",
+  "{b.gut} All right, I will take it on with calm and a sense of duty."
+ ],
+ "pool.verantwortung_gewuenscht.r.r3": [
+  "{b.gut} That is exactly what I was waiting for, now it really begins.",
+  "{b.gut} That is a step forward, and I take it gladly."
+ ],
+ "pool.verantwortung_gewuenscht.r.r4": [
+  "{b.gut} It is good that you see it this way, I had doubts.",
+  "{b.gut} Thank you for taking me so seriously, that gives me courage."
+ ],
+ "pool.verantwortung_gewuenscht.r.r5": [
+  "{b.neutral} Good, then I will see how I can contribute.",
+  "{b.neutral} Then I will see what comes out of it for me."
+ ],
+ "pool.verantwortung_gewuenscht.r.r6": [
+  "{b.neutral} I need to think about whether I want it that way.",
+  "{b.neutral} I cannot say more about it today, I need some distance."
+ ],
+ "pool.verantwortung_gewuenscht.r.r7": [
+  "{b.neutral} Understood, then I will wait and see what comes of it.",
+  "{b.neutral} Fine, we will talk further later."
+ ],
+ "pool.verantwortung_gewuenscht.r.r8": [
+  "{b.neutral} No problem, I will simply keep playing as before.",
+  "{b.neutral} It stays as it is, and that is fine too."
+ ],
+ "pool.verantwortung_gewuenscht.r.r9": [
+  "{b.schlecht} That is not what I imagined, I thought I would be heard.",
+  "{b.schlecht} Then I should not have asked at all."
+ ],
+ "pool.verantwortung_gewuenscht.r.r10": [
+  "{b.schlecht} I run my lungs out here, and you brush me off like this!",
+  "{b.schlecht} If nobody trusts me with anything, I do not need to lead the way any more!"
+ ],
+ "pool.verantwortung_gewuenscht.r.r11": [
+  "{b.schlecht} If I cannot grow here, then maybe somewhere else.",
+  "{b.schlecht} Other clubs trust me with more, you should be clear about that."
+ ],
+ "pool.verantwortung_gewuenscht.r.r12": [
+  "{b.schlecht} I did not expect that from you, I was always there for you.",
+  "{b.schlecht} I gave everything for the club and do not even get a listening ear."
+ ],
+ "pool.verantwortung_gewuenscht.x.x1": [
+  "You can see his relief. {entscheidung} He leaves the conversation upright, and the team feels the momentum.",
+  "{entscheidung} In the coming days he visibly carries more responsibility, and the younger ones look up to him."
+ ],
+ "pool.verantwortung_gewuenscht.x.x2": [
+  "He nods and walks out thoughtfully. {entscheidung} How it develops is still unclear.",
+  "{entscheidung} Neither he nor you know whether that is enough yet."
+ ],
+ "pool.verantwortung_gewuenscht.x.x3": [
+  "He slams the door behind him. {entscheidung} In training he stays conspicuously reserved, and the dressing room notices.",
+  "{entscheidung} The regular has withdrawn, and the mood slowly tips."
+ ],
+ "pool.verantwortung_gewuenscht.x.x4": [
+  "You have sealed it. {entscheidung} He knows where he stands now and will hold you to your word.",
+  "{entscheidung} The deadline runs, and he is counting along."
+ ],
+ "pool.verantwortung_gewuenscht.x.x5": [
+  "He raises a hand and leaves the room before you are done. {entscheidung} The conversation stays unfinished.",
+  "{entscheidung} He waves it off, and the question hangs unanswered in the room."
+ ],
+ "pool.verlaengern_frueh.e.e1": [
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} I suggest extending the contract early while everyone is happy.",
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} Would it not be wise to talk about an extension already?"
+ ],
+ "pool.verlaengern_frueh.e.e2": [
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} An early agreement would give both sides planning security.",
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} We could use the opportunity before the matter creates needless pressure later."
+ ],
+ "pool.verlaengern_frueh.e.e3": [
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} I know the situation is tense, but that is precisely why a sign of cooperation would be valuable.",
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} The mood is not the best, and an early extension could lift it."
+ ],
+ "pool.verlaengern_frueh.e.e4": [
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} My client does not want to wait until it becomes urgent, and he says so clearly!",
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} He demands an answer and has no appetite for stalling tactics!"
+ ],
+ "pool.verlaengern_frueh.e.e5": [
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} There is no hurry, but he would be pleased with an early signal.",
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} We have time, and still a conversation this autumn would be a nice gesture."
+ ],
+ "pool.verlaengern_frueh.e.e6": [
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} He has big plans in sporting terms and wants to know whether the club goes his way.",
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} An extension on better terms would be the logical answer to his development."
+ ],
+ "pool.verlaengern_frueh.e.e7": [
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} I will say quite openly that other clubs have contacted me, and he would rather stay here.",
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} Before someone else gets involved, I would rather negotiate with you."
+ ],
+ "pool.verlaengern_frueh.e.e8": [
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} A clear schedule would calm him, he worries too much.",
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} The uncertainty about his future occupies him more than he admits."
+ ],
+ "pool.verlaengern_frueh.e.e9": [
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} Since an earlier promise was not fulfilled, I want to put something binding on record this time.",
+  "{b.verlaengern_frueh_gruss} {b.verlaengern_frueh_lage} After the open promises of back then, I insist on a clear talk before time gets tight."
+ ],
+ "pool.verlaengern_frueh.a.a1": [
+  "We negotiate now. Within {frist} days I will present you with an offer.",
+  "I want to keep him, so I will send you a draft contract within {frist} days."
+ ],
+ "pool.verlaengern_frueh.a.a2": [
+  "I would like to talk after the season, when I can judge his development better.",
+  "Let us wait for the summer. After that we will sit down together calmly."
+ ],
+ "pool.verlaengern_frueh.a.a3": [
+  "I offer a loyalty bonus as a sign, before we even talk numbers.",
+  "In recognition of his performances I add a bonus, with no strings attached."
+ ],
+ "pool.verlaengern_frueh.a.a4": [
+  "What salary range does your client have in mind, and how long should the contract run?",
+  "What exactly do you have in mind, in terms of pay and duration?"
+ ],
+ "pool.verlaengern_frueh.a.a5": [
+  "My range is set: a slight increase. I will hear the exact figures from you within {frist} days.",
+  "I will give you my upper limit, and you get back to me within {frist} days with your answer."
+ ],
+ "pool.verlaengern_frueh.a.a6": [
+  "An extension is possible if the role stays clear: he plays when he delivers, not out of habit.",
+  "I am glad to extend, but on conditions. His playing time depends on his performance, and I want that recorded."
+ ],
+ "pool.verlaengern_frueh.a.a7": [
+  "Tell him that I value him and that his future matters to me.",
+  "Please tell him how important he is to me as a person, not just as a player."
+ ],
+ "pool.verlaengern_frueh.a.a8": [
+  "The contract is still running, we will find a solution in good time.",
+  "Do not worry, there is still plenty of time."
+ ],
+ "pool.verlaengern_frueh.a.a9": [
+  "Talk to the sporting director, he conducts such talks.",
+  "That is not my area, please turn to the club management."
+ ],
+ "pool.verlaengern_frueh.a.a10": [
+  "I do not negotiate with an agent who applies pressure. The matter is off the table.",
+  "Whoever comes to me with demands gets no appointment from me."
+ ],
+ "pool.verlaengern_frueh.a.a11": [
+  "Nothing changes in my decision. There will be no talks before the season ends.",
+  "I have set my line, and it stands."
+ ],
+ "pool.verlaengern_frueh.a.a12": [
+  "You are early, earlier than spring. Take another look at the calendar.",
+  "Your mail comes so early that it is almost from yesterday."
+ ],
+ "pool.verlaengern_frueh.r.r1": [
+  "{b.gut} That is a good start, I will pass it to my client at once.",
+  "{b.gut} I can work with that, thank you for the clear stance."
+ ],
+ "pool.verlaengern_frueh.r.r2": [
+  "{b.gut} He will accept that with gratitude and wait calmly.",
+  "{b.gut} In this tone a long-term solution can be found."
+ ],
+ "pool.verlaengern_frueh.r.r3": [
+  "{b.gut} That fits his ambitions, I think we will come to an agreement.",
+  "{b.gut} That is how a club treats a rising player."
+ ],
+ "pool.verlaengern_frueh.r.r4": [
+  "{b.gut} This appreciation will calm him, he needs nothing more.",
+  "{b.gut} I am glad that you see the person as well."
+ ],
+ "pool.verlaengern_frueh.r.r5": [
+  "{b.neutral} I take note of that and will get in touch when the occasion arises.",
+  "{b.neutral} I will talk to him and give you feedback."
+ ],
+ "pool.verlaengern_frueh.r.r6": [
+  "{b.neutral} How he takes it I cannot say in advance, his reactions vary greatly.",
+  "{b.neutral} It depends on his mood whether he reads that as a sign or as a stall."
+ ],
+ "pool.verlaengern_frueh.r.r7": [
+  "{b.neutral} Understood, we leave it at that for now.",
+  "{b.neutral} Good, then I will wait to see how things develop."
+ ],
+ "pool.verlaengern_frueh.r.r8": [
+  "{b.neutral} He sees it relaxed, we have enough time after all.",
+  "{b.neutral} There is no hurry, I will tell him so."
+ ],
+ "pool.verlaengern_frueh.r.r9": [
+  "{b.schlecht} You are doing yourself no favour, the talks will be harder later.",
+  "{b.schlecht} That is a missed opportunity, and I say it reluctantly."
+ ],
+ "pool.verlaengern_frueh.r.r10": [
+  "{b.schlecht} I will not let my client be treated like this, there will be consequences!",
+  "{b.schlecht} I will advise him not to be strung along any longer!"
+ ],
+ "pool.verlaengern_frueh.r.r11": [
+  "{b.schlecht} Then I will look for alternatives, that is my good right.",
+  "{b.schlecht} Other clubs will be more willing, you should know that."
+ ],
+ "pool.verlaengern_frueh.r.r12": [
+  "{b.schlecht} I had hoped for more understanding, and so had my client.",
+  "{b.schlecht} That disappoints us both, after all he has done for the club."
+ ],
+ "pool.verlaengern_frueh.x.x1": [
+  "The agent replies briefly and contentedly. {entscheidung} The player's future is settled early, and he can concentrate on football.",
+  "{entscheidung} The agent's mail reads friendly, and the talks begin in a good mood."
+ ],
+ "pool.verlaengern_frueh.x.x2": [
+  "The agent writes that he will be in touch. {entscheidung} The contract stays in limbo.",
+  "{entscheidung} Neither accepted nor declined, the matter goes on the resubmission pile."
+ ],
+ "pool.verlaengern_frueh.x.x3": [
+  "The agent's answer is icy. {entscheidung} He hints that his client is keeping other paths open.",
+  "{entscheidung} Word gets around the club that the negotiations are poisoned."
+ ],
+ "pool.verlaengern_frueh.x.x4": [
+  "The agent confirms the appointment by mail. {entscheidung} The deadline runs, and both sides hold on to it.",
+  "{entscheidung} You have committed yourself, and the agent puts it in writing."
+ ],
+ "pool.verlaengern_frueh.x.x5": [
+  "The agent ends the mail exchange with a curt line. {entscheidung} It stays as it is, and nobody knows what that means.",
+  "{entscheidung} The conversation fizzles out before it has properly begun."
+ ]
+}

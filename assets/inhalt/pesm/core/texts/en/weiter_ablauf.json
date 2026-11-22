@@ -1,0 +1,10 @@
+{
+ "wa.titel.schreibt": "The changes are going into the game",
+ "wa.titel.ende": "Everything written",
+ "wa.titel.quittung": "The game is not answering",
+ "wa.knopf.fertig": "Done",
+ "wa.fortschritt": "%1 of %2 entries in the game",
+ "wa.ende.titel": "Save in the game for a moment and keep playing.",
+ "wa.ende.alles": "Everything is written: save in the game for a moment and keep playing.",
+ "wa.quittung.text": "For over a minute the confirmation for %1 entries has been missing. Check the game: is it open and fully loaded? Then open the game window below."
+}

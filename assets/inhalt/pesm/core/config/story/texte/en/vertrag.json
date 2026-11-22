@@ -1,0 +1,105 @@
+{
+  "_hinweis": "Texts on the topic of contracts. vertrag_laeuft_aus: the agent writes (busy, formal), {tage} = days until the contract ends. altstar_karriereende: the player speaks in the conversation (“Gaffer”, formal); the manager replies informally. Placeholders: {spieler}, {spieler_kurz}, {tage}, {berater}.",
+  "vertrag_laeuft_aus.betreff": {
+    "standard": [
+      "{spieler_kurz}'s contract: {tage} days left"
+    ]
+  },
+  "vertrag_laeuft_aus.text": {
+    "standard": [
+      "Good day, {berater} here. {spieler}'s contract runs out in {tage} days. My client would like to know what the club's plans are. There is interest, but we're still waiting to hear from you.",
+      "{berater}, {spieler}'s agent. {tage} days left on the contract and no talks so far. We'd like to extend, but we need a signal from you soon."
+    ]
+  },
+  "vertrag_laeuft_aus.antwort.verlaengern": {
+    "standard": [
+      "We want to extend. I'll sit down with you in the next few days."
+    ]
+  },
+  "vertrag_laeuft_aus.antwort.abwarten": {
+    "standard": [
+      "We'll decide after the next few games. Until then there's no offer."
+    ]
+  },
+  "vertrag_laeuft_aus.antwort.absage": {
+    "standard": [
+      "We're planning without him. The contract runs out."
+    ]
+  },
+  "vertrag_laeuft_aus.rueckmeldung.verlaengern": {
+    "standard": [
+      "Very good. I'll hold the other enquiries back for now and await your proposed date."
+    ]
+  },
+  "vertrag_laeuft_aus.rueckmeldung.abwarten": {
+    "standard": [
+      "I'll pass that on. You'll understand that in the meantime we'll also be talking to others."
+    ]
+  },
+  "vertrag_laeuft_aus.rueckmeldung.absage": {
+    "standard": [
+      "A shame, but understood. My client will see out his contract and look for a new start."
+    ]
+  },
+  "altstar_karriereende.betreff": {
+    "standard": [
+      "{spieler_kurz} asks what comes next"
+    ]
+  },
+  "altstar_karriereende.text": {
+    "standard": [
+      "Gaffer, my contract is running out soon and I'm not getting any younger. I'd like to know whether you're still planning with me for another season.",
+      "Gaffer, I feel the years, I'll admit that. Still, I feel good enough for another year. How do you see it?"
+    ],
+    "typ": {
+      "egoist": [
+        "Gaffer, I've shown enough over my career. I expect to be made an offer in good time and not left waiting until the last day."
+      ],
+      "kumpel": [
+        "Gaffer, the dressing room is my second home. I'd like to add another year, even with fewer appearances. Does that work for you?"
+      ],
+      "heisssporn": [
+        "Gaffer, everyone is already talking about my farewell, only nobody talks to me. I'm not finished yet. Tell me whether you see it that way too."
+      ],
+      "vorbildprofi": [
+        "Gaffer, I don't want to be a burden on the club. If you still need me, I'm happy to stay. If not, I'll stop cleanly and help the youngsters until the last day."
+      ],
+      "diva": [
+        "Gaffer, a farewell through the back door is out of the question for me. If it goes on, then with a role that suits my name."
+      ],
+      "anfuehrer": [
+        "Gaffer, the youngsters listen to me, and I'd like to use that for another year. Tell me openly whether you see me in the squad for that."
+      ]
+    }
+  },
+  "altstar_karriereende.antwort.verlaengern": {
+    "standard": [
+      "I want you around for another year. We'll talk about a new contract."
+    ]
+  },
+  "altstar_karriereende.antwort.rolle": {
+    "standard": [
+      "There'll be less on the pitch. But in the dressing room I need you, for the youngsters."
+    ]
+  },
+  "altstar_karriereende.antwort.abschied": {
+    "standard": [
+      "The season is your last. We'll give you a proper send-off."
+    ]
+  },
+  "altstar_karriereende.rueckmeldung.verlaengern": {
+    "standard": [
+      "That's what I wanted to hear. Thanks, gaffer. You won't regret it."
+    ]
+  },
+  "altstar_karriereende.rueckmeldung.rolle": {
+    "standard": [
+      "I need to think about that. I can't quite imagine it without games yet."
+    ]
+  },
+  "altstar_karriereende.rueckmeldung.abschied": {
+    "standard": [
+      "That stings. But fine, now I know and can plan."
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "r.ad.vereinssuche.name_gleich": "Name gleich",
+  "r.ad.vereinssuche.kurzname_gleich": "Kurzname gleich",
+  "r.ad.vereinssuche.mehrere_vereine_mit_diesem": "mehrere Vereine mit diesem Namen",
+  "r.ad.vereinssuche.teiluebereinstimmung": "Teilübereinstimmung",
+  "r.ad.datenbank.keine_pesm_datenbank_erst": "Noch kein Archiv %1: erst den Spielstand einlesen",
+  "r.ad.datenbank.schema_version_fehlt_tabelle": "Schema-Version fehlt (Tabelle meta nicht lesbar)",
+  "r.ad.datenbank.schema_version_fehlt_datei": "Schema-Version fehlt (Datei vor Einführung der Version oder nie vollständig eingelesen)",
+  "r.ad.datenbank.schema_version_unlesbar": "Schema-Version unlesbar (%1)",
+  "r.ad.datenbank.schema_version_ist_aelter": "Schema-Version %1 ist älter als %2",
+  "r.ad.datenbank.schema_version_ist_neuer": "Schema-Version %1 ist neuer als diese PESM-Fassung (%2)",
+  "r.ad.datenbank.keine_pesm_datenbank": "Noch kein Archiv %1",
+  "r.ad.datenbank.datei_nicht_lesbar": "Datei nicht lesbar (%1)",
+  "r.ad.datenbank.bestaetigter_alias": "bestätigter Alias",
+  "r.ad.datenbank.name_gleich_liga_passt": "Name gleich, Liga passt",
+  "r.ad.datenbank.automatischer_alias": "automatischer Alias",
+  "r.ad.taktikkraft.spieler": "Spieler %1"
+}

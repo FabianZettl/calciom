@@ -1,0 +1,5945 @@
+# PES M – Ligaregeln aller Länder (Saison 2025/26)
+# Maschinenlesbar (TOML). Fabian darf alles ändern und ergänzen.
+# Zuordnung: zuerst [[land]] über pes_land (= country=… in fl26world.txt), dann [[land.liga]] über stufe (= tier=…).
+# Für Grundligen ohne league-Zeile (z. B. Premier League, LaLiga) zusätzlich über schluessel (Competition.bin, z. B. ENGLAND_D1_LEAGUE).
+# sicher = false heißt: Wert ist geschätzt (aus Wissen, nicht Satz für Satz an einer Quelle geprüft).
+# Plätze: Zahl = Tabellenplatz, "pokal" = nationaler Pokalsieger, "ligapokal" = Ligapokalsieger.
+
+[meta]
+version = 1
+saison = "2025/26"
+stand = "2026-11-21"
+hinweis_kalenderjahr = "Ligen mit Kalenderjahr-Saison (Südamerika, Skandinavien, Asien teilweise) nutzen die Regeln der Saison, die in 2025/26 läuft (meist 2025 oder 2026)."
+quellen = ["https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Champions_League#Association_team_allocation", "https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Europa_League", "https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Conference_League", "Wikipedia-Saisonartikel je Liga (siehe quelle = … an der Liga)", "FL-Welten _FL26-27-Def, _FL26Megapack, _FL26MyWorld (fl26world.txt: league, poff, split) für Ligagrößen und Länder-Nummern"]
+
+# Gilt für jede Liga ohne eigenen Eintrag und für fehlende Felder.
+[standard]
+absteiger_nach_vereinen = [{ ab_vereine = 18, absteiger = 3 }, { ab_vereine = 14, absteiger = 2 }, { ab_vereine = 0, absteiger = 1 }]
+aufsteiger_gleich_absteiger_darueber = true
+unterste_stufe_absteiger = 0
+runden = 2
+punkte_sieg = 3
+punkte_remis = 1
+tabelle_reihenfolge = ["punkte", "tordifferenz", "tore", "direkter_vergleich"]
+kontinental_meister = true
+kontinental_pokalsieger = true
+hinweis = "Ohne Eintrag: Absteiger nach Ligagröße, gleich viele Aufsteiger aus der Liga darunter, Doppelrunde, keine Play-offs. Meister spielt im Kontinentalwettbewerb seines Verbands, Pokalsieger im zweiten Wettbewerb."
+
+# Zweite Mannschaften (B-Teams, U21/U23, Jong …). Diese Regeln gelten IMMER, auch wenn das Land unten mehr erlaubt.
+[standard.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 3
+nie_gleiche_liga_wie_erste = true
+nie_hoeher_als_erste = true
+bei_verbotenem_aufstieg = "naechster_rueckt_nach"
+bei_abstieg_der_ersten = "zweite_steigt_mit_ab_falls_gleiche_liga"
+kontinental_erlaubt = false
+pokal_erlaubt = false
+erkennung = ["II", " B", "U21", "U23", "Jong ", "Castilla", "Atlètic", "Next Gen", "Futuro", "Amateure", "Reserves", "Liefering"]
+hinweis = "Eine zweite Mannschaft darf nie in die Liga der ersten Mannschaft (oder höher) aufsteigen; der Nächstplatzierte rückt nach. Erkennung über Namensteile oder über eine Liste in der Karriere."
+
+# Kontinentale Wettbewerbe: Kürzel, die unten unter europa/kontinental benutzt werden.
+[wettbewerbe]
+cl = "UEFA Champions League"
+el = "UEFA Europa League"
+uecl = "UEFA Conference League"
+libertadores = "CONMEBOL Libertadores"
+sudamericana = "CONMEBOL Sudamericana"
+concacaf_champions_cup = "CONCACAF Champions Cup"
+concacaf_central_american_cup = "Copa Centroamericana (Weg in den Champions Cup)"
+concacaf_caribbean_cup = "CONCACAF Caribbean Cup (Weg in den Champions Cup)"
+concacaf_caribbean_shield = "CFU Caribbean Shield"
+afc_champions_league_elite = "AFC Champions League Elite"
+afc_champions_league_two = "AFC Champions League Two"
+afc_challenge_league = "AFC Challenge League"
+caf_champions_league = "CAF Champions League"
+caf_confederation_cup = "CAF Confederation Cup"
+ofc_champions_league = "OFC Champions League"
+
+[uefa]
+rangliste = "UEFA-Verbandskoeffizient 2024 (gilt für 2025/26)"
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Champions_League#Association_team_allocation"
+leistungsplaetze_eps = 2
+eps_hinweis = "Die zwei Verbände mit dem besten Koeffizienten der Vorsaison bekommen je einen zusätzlichen CL-Platz (nächster Ligaplatz). 2025/26: England und Spanien. PES M soll das ab der 2. Saison selbst aus den simulierten Europapokal-Ergebnissen berechnen."
+weitergabe = "Hat sich der Pokalsieger schon über die Liga qualifiziert, geht sein Platz an den nächsten Ligaplatz, der noch nicht qualifiziert ist."
+titelverteidiger = "Sieger von CL und EL sind für die CL-Ligaphase gesetzt; der UECL-Sieger für die EL-Ligaphase. Ist er schon qualifiziert, rückt ein Platz im Zugangsschema nach."
+genauigkeit = "Welche Plätze in welchen Wettbewerb gehen, folgt dem UEFA-Zugangsschema 2025/26. Die Einstiegsrunde (phase) ist für Ränge ab 8 teilweise geschätzt."
+phasen = ["ligaphase", "playoff", "quali_3", "quali_2", "quali_1"]
+
+# =================================================================== UEFA
+[[land]]
+code = "ENG"
+name = "England"
+pes_land = 204
+verband = "UEFA"
+uefa_rang = 1
+teilnehmer_2025_26_tatsaechlich = { cl = 6, el = 2, uecl = 1 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Reserve- und U21-Teams spielen nicht im Ligasystem (nur Premier League 2 und EFL Trophy)."
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [2], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [3], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [4], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [5], phase = "ligaphase" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "ligaphase" }, { wettbewerb = "el", plaetze = [6], phase = "ligaphase" }, { wettbewerb = "uecl", plaetze = ["ligapokal"], phase = "playoff" }]
+hinweis = "Ligapokalsieger (EFL Cup) bekommt den Conference-League-Platz statt des 6. der Liga. 2025/26 zusätzlich ein Leistungsplatz (EPS) für den 5. der Premier League."
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Premier League"
+schluessel = "ENGLAND_D1_LEAGUE"
+vereine = 20
+aufsteiger_direkt = 0
+absteiger_direkt = 3
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Premier_League"
+[[land.liga]]
+stufe = 2
+name = "EFL Championship"
+schluessel = "ENGLAND_D2_LEAGUE"
+vereine = 24
+aufsteiger_direkt = 2
+absteiger_direkt = 3
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_EFL_Championship"
+[land.liga.playoffs]
+plaetze = [3, 4, 5, 6]
+aufsteiger = 1
+format = "halbfinale_hin_rueck_finale_wembley"
+[[land.liga]]
+stufe = 3
+name = "EFL League One"
+vereine = 24
+aufsteiger_direkt = 2
+absteiger_direkt = 4
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_EFL_League_One"
+[land.liga.playoffs]
+plaetze = [3, 4, 5, 6]
+aufsteiger = 1
+format = "halbfinale_hin_rueck_finale_wembley"
+[[land.liga]]
+stufe = 4
+name = "EFL League Two"
+vereine = 24
+aufsteiger_direkt = 3
+absteiger_direkt = 2
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_EFL_League_Two"
+[land.liga.playoffs]
+plaetze = [4, 5, 6, 7]
+aufsteiger = 1
+format = "halbfinale_hin_rueck_finale_wembley"
+[[land.liga]]
+stufe = 5
+name = "National League"
+vereine = 24
+aufsteiger_direkt = 1
+absteiger_direkt = 4
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_National_League"
+[land.liga.playoffs]
+plaetze = [2, 3, 4, 5, 6, 7]
+aufsteiger = 1
+format = "viertelfinale_4_bis_7_halbfinale_mit_2_und_3_finale_einzel"
+[[land.liga]]
+stufe = 6
+name = "National League North/South"
+vereine = 24
+staffeln = 2
+aufsteiger_direkt = 1
+absteiger_direkt = 3
+sicher = true
+hinweis = "Je Staffel 1 direkter Aufsteiger + 1 über Play-offs."
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_National_League"
+[land.liga.playoffs]
+plaetze = [2, 3, 4, 5, 6, 7]
+aufsteiger = 1
+format = "wie_national_league_je_staffel"
+
+[[land]]
+code = "ITA"
+name = "Italien"
+pes_land = 215
+verband = "UEFA"
+uefa_rang = 2
+teilnehmer_2025_26_tatsaechlich = { cl = 4, el = 2, uecl = 1 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 3
+hinweis = "Nur 'Under 23'-Teams (z. B. Juventus Next Gen, Atalanta U23, Inter U23) in der Serie C. Nie in derselben Liga wie die erste Mannschaft; ein Aufstieg in die Serie B wäre erlaubt, solange die erste Mannschaft in der Serie A spielt."
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [2], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [3], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [4], phase = "ligaphase" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "ligaphase" }, { wettbewerb = "el", plaetze = [5], phase = "ligaphase" }, { wettbewerb = "uecl", plaetze = [6], phase = "playoff" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Serie A"
+schluessel = "ITALY_D1_LEAGUE"
+vereine = 20
+aufsteiger_direkt = 0
+absteiger_direkt = 3
+sicher = true
+hinweis = "Bei Punktgleichheit auf Platz 17/18 entscheidet ein Entscheidungsspiel (Spareggio)."
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Serie_A"
+[[land.liga]]
+stufe = 2
+name = "Serie B"
+schluessel = "ITALY_D2_LEAGUE"
+vereine = 20
+aufsteiger_direkt = 2
+absteiger_direkt = 3
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Serie_B"
+[land.liga.playoffs]
+plaetze = [3, 4, 5, 6, 7, 8]
+aufsteiger = 1
+format = "vorrunde_5_bis_8_einzel_halbfinale_hin_rueck_finale_hin_rueck"
+hinweis = "Kein Play-off, wenn der 3. mindestens 15 Punkte vor dem 4. liegt (dann steigt der 3. direkt auf)."
+[land.liga.playout]
+plaetze = [16, 17]
+absteiger = 1
+format = "hin_rueck"
+hinweis = "Kein Playout bei mehr als 4 Punkten Abstand; dann steigt der 17. direkt ab."
+[[land.liga]]
+stufe = 3
+name = "Serie C"
+vereine = 20
+staffeln = 3
+aufsteiger_direkt = 1
+absteiger_direkt = 1
+sicher = true
+hinweis = "Je Staffel 1 direkter Absteiger + 2 über Playout."
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Serie_C"
+[land.liga.playoffs]
+plaetze = [2, 3, 4, 5, 6, 7, 8, 9, 10]
+aufsteiger = 1
+format = "28_teams_ueber_alle_staffeln"
+hinweis = "Gesamt 4 Aufsteiger: 3 Staffelsieger + 1 Play-off-Sieger aus allen drei Staffeln (Plätze 2–10 + Pokalsieger)."
+[land.liga.playout]
+plaetze = [16, 17, 18, 19]
+absteiger = 2
+format = "16_gegen_19_und_17_gegen_18_hin_rueck"
+
+[[land]]
+code = "ESP"
+name = "Spanien"
+pes_land = 236
+verband = "UEFA"
+uefa_rang = 3
+teilnehmer_2025_26_tatsaechlich = { cl = 5, el = 2, uecl = 1 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 2
+hinweis = "Filialteams (z. B. Real Madrid Castilla, Barcelona Atlètic) dürfen bis LaLiga 2 spielen, aber nie in derselben Liga wie die erste Mannschaft. Ist die erste Mannschaft in LaLiga 2, darf das B-Team höchstens in die 3. Liga."
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [2], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [3], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [4], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [5], phase = "ligaphase" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "ligaphase" }, { wettbewerb = "el", plaetze = [6], phase = "ligaphase" }, { wettbewerb = "uecl", plaetze = [7], phase = "playoff" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "LaLiga"
+schluessel = "SPAIN_D1_LEAGUE"
+vereine = 20
+aufsteiger_direkt = 0
+absteiger_direkt = 3
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_La_Liga"
+[[land.liga]]
+stufe = 2
+name = "LaLiga 2 (Segunda División)"
+schluessel = "SPAIN_D2_LEAGUE"
+vereine = 22
+aufsteiger_direkt = 2
+absteiger_direkt = 4
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Segunda_Divisi%C3%B3n"
+[land.liga.playoffs]
+plaetze = [3, 4, 5, 6]
+aufsteiger = 1
+format = "halbfinale_hin_rueck_finale_hin_rueck"
+[[land.liga]]
+stufe = 3
+name = "Primera Federación"
+vereine = 20
+staffeln = 2
+aufsteiger_direkt = 1
+absteiger_direkt = 5
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Primera_Federaci%C3%B3n"
+[land.liga.playoffs]
+plaetze = [2, 3, 4, 5]
+aufsteiger = 1
+format = "je_staffel_2_gegen_5_3_gegen_4_dann_finale_hin_rueck"
+hinweis = "Gesamt 4 Aufsteiger: 2 Staffelsieger + 2 Play-off-Sieger."
+
+[[land]]
+code = "GER"
+name = "Deutschland"
+pes_land = 210
+verband = "UEFA"
+uefa_rang = 4
+teilnehmer_2025_26_tatsaechlich = { cl = 4, el = 2, uecl = 1 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 3
+hinweis = "Zweite Mannschaften (U23/II) dürfen bis zur 3. Liga spielen. Aufstieg in die 2. Bundesliga ist verboten; nie in derselben Liga wie die erste Mannschaft (steigt die erste ab, muss die zweite runter)."
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [2], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [3], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [4], phase = "ligaphase" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "ligaphase" }, { wettbewerb = "el", plaetze = [5], phase = "ligaphase" }, { wettbewerb = "uecl", plaetze = [6], phase = "playoff" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Bundesliga"
+schluessel = "GERMANY_D1_LEAGUE"
+vereine = 18
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Bundesliga"
+[land.liga.relegation]
+platz = 16
+gegen = "3. der 2. Bundesliga"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 2
+name = "2. Bundesliga"
+vereine = 18
+aufsteiger_direkt = 2
+absteiger_direkt = 2
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_2._Bundesliga"
+[land.liga.relegation]
+platz = 16
+gegen = "3. der 3. Liga"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 3
+name = "3. Liga"
+vereine = 20
+aufsteiger_direkt = 2
+absteiger_direkt = 4
+sicher = true
+hinweis = "Der 3. spielt die Relegation gegen den 16. der 2. Bundesliga."
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_3._Liga"
+[[land.liga]]
+stufe = 4
+name = "Regionalliga"
+vereine = 18
+staffeln = 5
+aufsteiger_direkt = 1
+absteiger_direkt = 3
+sicher = false
+hinweis = "5 Staffeln, 4 Aufstiegsplätze. 2025/26: Meister West, Südwest und Nordost steigen direkt auf; Meister Nord und Bayern spielen ein Aufstiegsspiel (hin und rück). Die direkt aufsteigenden Staffeln wechseln jedes Jahr. Absteiger je Staffel unterschiedlich (meist 3–4)."
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Regionalliga"
+
+[[land]]
+code = "FRA"
+name = "Frankreich"
+pes_land = 208
+verband = "UEFA"
+uefa_rang = 5
+teilnehmer_2025_26_tatsaechlich = { cl = 4, el = 3, uecl = 1 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 4
+hinweis = "Reserveteams (B-Teams) dürfen bis National 2 (4. Liga) spielen, nicht höher."
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [2], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [3], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [4], phase = "quali_3" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "ligaphase" }, { wettbewerb = "el", plaetze = [5], phase = "ligaphase" }, { wettbewerb = "uecl", plaetze = [6], phase = "playoff" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Ligue 1"
+schluessel = "FRANCE_D1_LEAGUE"
+vereine = 18
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Ligue_1"
+[land.liga.relegation]
+platz = 16
+gegen = "Sieger Ligue-2-Play-off"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 2
+name = "Ligue 2"
+schluessel = "FRANCE_D2_LEAGUE"
+vereine = 18
+aufsteiger_direkt = 2
+absteiger_direkt = 2
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Ligue_2"
+[land.liga.playoffs]
+plaetze = [3, 4, 5]
+aufsteiger = 0
+format = "5_gegen_4_dann_gegen_3_einzel_sieger_spielt_gegen_16_ligue_1"
+[land.liga.relegation]
+platz = 16
+gegen = "3. des National"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 3
+name = "National (ab 2026/27 'Ligue 3')"
+vereine = 17
+aufsteiger_direkt = 2
+absteiger_direkt = 4
+sicher = false
+hinweis = "Der 3. spielt die Relegation gegen den 16. der Ligue 2. 2025/26 mit 17 Vereinen; FL-Welt nutzt 18."
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Championnat_National"
+[[land.liga]]
+stufe = 4
+name = "National 2"
+vereine = 16
+staffeln = 3
+aufsteiger_direkt = 1
+absteiger_direkt = 3
+sicher = false
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Championnat_National_2"
+
+[[land]]
+code = "NED"
+name = "Niederlande"
+pes_land = 224
+verband = "UEFA"
+uefa_rang = 6
+teilnehmer_2025_26_tatsaechlich = { cl = 3, el = 3, uecl = 1 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 2
+hinweis = "Jong-Teams (Jong Ajax, Jong PSV, Jong AZ, Jong Utrecht) spielen in der Eerste Divisie, dürfen aber nicht aufsteigen und nicht an den Aufstiegs-Play-offs teilnehmen; der nächste Verein rückt nach."
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [2], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [3], phase = "quali_3" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "ligaphase" }, { wettbewerb = "el", plaetze = [4], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [5], phase = "quali_2" }]
+hinweis = "Plätze 5–8 der Eredivisie spielen Europa-Play-offs um einen Conference-League-Platz."
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Eredivisie"
+vereine = 18
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Eredivisie"
+[land.liga.playoffs]
+plaetze = [5, 6, 7, 8]
+aufsteiger = 0
+format = "europa_playoff_halbfinale_finale_einzel"
+ziel = "uecl"
+[land.liga.relegation]
+platz = 16
+gegen = "Play-offs mit Eerste-Divisie-Vereinen"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 2
+name = "Eerste Divisie"
+vereine = 20
+aufsteiger_direkt = 2
+absteiger_direkt = 0
+sicher = true
+hinweis = "Kein Abstieg (geschlossene Liga, Abstieg in Tweede Divisie nur selten bei Lizenzproblemen)."
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Eerste_Divisie"
+[land.liga.playoffs]
+plaetze = [3, 4, 5, 6, 7, 8]
+aufsteiger = 1
+format = "mehrstufig_mit_16_der_eredivisie"
+hinweis = "Periodensieger und beste Vereine (3–8, ohne Jong-Teams) + 16. Eredivisie."
+[[land.liga]]
+stufe = 3
+name = "Tweede Divisie"
+vereine = 18
+aufsteiger_direkt = 0
+absteiger_direkt = 3
+sicher = false
+hinweis = "Aufstieg in die Eerste Divisie nur auf Antrag (2025/26 kein fester Aufsteiger)."
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Tweede_Divisie"
+
+[[land]]
+code = "POR"
+name = "Portugal"
+pes_land = 228
+verband = "UEFA"
+uefa_rang = 7
+teilnehmer_2025_26_tatsaechlich = { cl = 2, el = 2, uecl = 1 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 2
+hinweis = "B-Teams (z. B. Benfica B, Porto B) dürfen bis Liga Portugal 2, nicht in die Liga Portugal."
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [2], phase = "quali_3" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "ligaphase" }, { wettbewerb = "el", plaetze = [3], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [4], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Liga Portugal"
+vereine = 18
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Primeira_Liga"
+[land.liga.relegation]
+platz = 16
+gegen = "3. der Liga Portugal 2"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 2
+name = "Liga Portugal 2"
+vereine = 18
+aufsteiger_direkt = 2
+absteiger_direkt = 2
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Liga_Portugal_2"
+[land.liga.relegation]
+platz = 16
+gegen = "Play-off-Sieger Liga 3"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 3
+name = "Liga 3"
+vereine = 20
+staffeln = 2
+aufsteiger_direkt = 2
+absteiger_direkt = 4
+sicher = false
+hinweis = "Zwei Staffeln, danach Aufstiegsrunde."
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Liga_3"
+
+[[land]]
+code = "BEL"
+name = "Belgien"
+pes_land = 197
+verband = "UEFA"
+uefa_rang = 8
+teilnehmer_2025_26_tatsaechlich = { cl = 2, el = 2, uecl = 2 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 2
+hinweis = "U23-Teams (z. B. Club NXT, RSCA Futures, Jong Genk) spielen in der Challenger Pro League, dürfen aber nicht aufsteigen."
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [2], phase = "quali_3" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "playoff" }, { wettbewerb = "el", plaetze = [3], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [4], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [5], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Jupiler Pro League"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+hinweis = "Sieger Europe Play-offs spielt gegen den 4./5. der Meisterrunde um einen Conference-League-Platz."
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Belgian_Pro_League"
+[land.liga.relegation]
+platz = 15
+gegen = "Sieger Aufstiegs-Play-off der Challenger Pro League"
+format = "hin_rueck"
+[land.liga.split]
+nach_spieltagen = 30
+gruppen = [{ name = "Champions' Play-offs", plaetze = [1, 6] }, { name = "Europe Play-offs", plaetze = [7, 12] }, { name = "Relegation Play-offs", plaetze = [13, 16] }]
+punkte = "halbiert_aufgerundet"
+[[land.liga]]
+stufe = 2
+name = "Challenger Pro League"
+vereine = 16
+aufsteiger_direkt = 1
+absteiger_direkt = 2
+sicher = false
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Challenger_Pro_League"
+[land.liga.playoffs]
+plaetze = [2, 3, 4, 5]
+aufsteiger = 1
+format = "halbfinale_finale"
+[[land.liga]]
+stufe = 3
+name = "Nationale 1 (VV / ACFF)"
+vereine = 16
+staffeln = 2
+aufsteiger_direkt = 1
+absteiger_direkt = 3
+sicher = false
+
+[[land]]
+code = "TUR"
+name = "Türkei"
+pes_land = 190
+verband = "UEFA"
+uefa_rang = 9
+teilnehmer_2025_26_tatsaechlich = { cl = 2, el = 3, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [2], phase = "quali_3" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "playoff" }, { wettbewerb = "el", plaetze = [3], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [4], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [5], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Süper Lig"
+vereine = 18
+aufsteiger_direkt = 0
+absteiger_direkt = 3
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_S%C3%BCper_Lig"
+[[land.liga]]
+stufe = 2
+name = "TFF 1. Lig"
+vereine = 20
+aufsteiger_direkt = 2
+absteiger_direkt = 4
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_TFF_1._Lig"
+[land.liga.playoffs]
+plaetze = [3, 4, 5, 6]
+aufsteiger = 1
+format = "halbfinale_einzel_finale_neutral"
+[[land.liga]]
+stufe = 3
+name = "TFF 2. Lig"
+vereine = 19
+staffeln = 2
+aufsteiger_direkt = 2
+absteiger_direkt = 3
+sicher = false
+[land.liga.playoffs]
+plaetze = [2, 3, 4, 5]
+aufsteiger = 1
+format = "je_staffel"
+[[land.liga]]
+stufe = 4
+name = "TFF 3. Lig"
+vereine = 18
+staffeln = 4
+aufsteiger_direkt = 1
+absteiger_direkt = 2
+sicher = false
+[land.liga.playoffs]
+plaetze = [2, 3, 4, 5]
+aufsteiger = 1
+format = "je_staffel"
+
+[[land]]
+code = "CZE"
+name = "Tschechien"
+pes_land = 202
+verband = "UEFA"
+uefa_rang = 10
+teilnehmer_2025_26_tatsaechlich = { cl = 2, el = 3, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 2
+hinweis = "B-Teams (z. B. Sparta B, Slavia B) dürfen bis zur 2. Liga (ČNFL), nicht in die Chance Liga."
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "ligaphase" }, { wettbewerb = "cl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "playoff" }, { wettbewerb = "el", plaetze = [3], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [4], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [5], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Chance Liga"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Czech_First_League"
+[land.liga.relegation]
+platz = 14
+gegen = "2./3. der ČNFL"
+format = "hin_rueck"
+hinweis = "Plätze 14 und 15 spielen Relegation gegen 2. und 3. der ČNFL."
+[land.liga.split]
+nach_spieltagen = 30
+gruppen = [{ name = "Meisterrunde", plaetze = [1, 6] }, { name = "Mittelrunde", plaetze = [7, 10] }, { name = "Abstiegsrunde", plaetze = [11, 16] }]
+punkte = "behalten"
+[[land.liga]]
+stufe = 2
+name = "Czech National Football League (ČNFL)"
+vereine = 16
+aufsteiger_direkt = 1
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "SCO"
+name = "Schottland"
+pes_land = 232
+verband = "UEFA"
+uefa_rang = 11
+teilnehmer_2025_26_tatsaechlich = { cl = 2, el = 4, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 5
+hinweis = "B-Teams von Celtic und Rangers spielen in der Lowland League (5. Stufe), dürfen nicht in die SPFL aufsteigen."
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "playoff" }, { wettbewerb = "cl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "playoff" }, { wettbewerb = "el", plaetze = [3], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [4], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [5], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Scottish Premiership"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Scottish_Premiership"
+[land.liga.relegation]
+platz = 11
+gegen = "Sieger Championship-Play-off (2.–4.)"
+format = "hin_rueck"
+[land.liga.split]
+nach_spieltagen = 33
+gruppen = [{ name = "Meisterrunde", plaetze = [1, 6] }, { name = "Abstiegsrunde", plaetze = [7, 12] }]
+punkte = "behalten"
+[[land.liga]]
+stufe = 2
+name = "Scottish Championship"
+vereine = 10
+aufsteiger_direkt = 1
+absteiger_direkt = 1
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Scottish_Championship"
+[land.liga.playoffs]
+plaetze = [2, 3, 4]
+aufsteiger = 0
+format = "3_gegen_4_dann_gegen_2_dann_gegen_11_premiership"
+[land.liga.relegation]
+platz = 9
+gegen = "2.–4. der League One"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 3
+name = "Scottish League One"
+vereine = 10
+aufsteiger_direkt = 1
+absteiger_direkt = 1
+sicher = true
+[land.liga.relegation]
+platz = 9
+gegen = "2.–4. der League Two"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 4
+name = "Scottish League Two"
+vereine = 10
+aufsteiger_direkt = 1
+absteiger_direkt = 0
+sicher = true
+[land.liga.relegation]
+platz = 10
+gegen = "Sieger Highland/Lowland-Play-off"
+format = "hin_rueck"
+
+[[land]]
+code = "SUI"
+name = "Schweiz"
+pes_land = 238
+verband = "UEFA"
+uefa_rang = 12
+teilnehmer_2025_26_tatsaechlich = { cl = 2, el = 4, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 3
+hinweis = "U21-Teams (z. B. Basel U21, YB U21) spielen höchstens in der Promotion League und dürfen nicht in die Challenge League aufsteigen."
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "playoff" }, { wettbewerb = "cl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "playoff" }, { wettbewerb = "el", plaetze = [3], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [4], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [5], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Super League"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Swiss_Super_League"
+[land.liga.relegation]
+platz = 11
+gegen = "2. der Challenge League"
+format = "hin_rueck"
+[land.liga.split]
+nach_spieltagen = 33
+gruppen = [{ name = "Meisterrunde", plaetze = [1, 6] }, { name = "Abstiegsrunde", plaetze = [7, 12] }]
+punkte = "behalten"
+[[land.liga]]
+stufe = 2
+name = "Challenge League"
+vereine = 10
+aufsteiger_direkt = 1
+absteiger_direkt = 1
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Swiss_Challenge_League"
+[[land.liga]]
+stufe = 3
+name = "Promotion League"
+vereine = 18
+aufsteiger_direkt = 1
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "AUT"
+name = "Österreich"
+pes_land = 194
+verband = "UEFA"
+uefa_rang = 13
+teilnehmer_2025_26_tatsaechlich = { cl = 2, el = 3, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 2
+hinweis = "Zweite Mannschaften (z. B. FC Liefering, Rapid II, Sturm II, Austria Young Violets) dürfen bis zur 2. Liga, nicht in die Bundesliga."
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "playoff" }, { wettbewerb = "cl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "quali_3" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [4], phase = "quali_2" }]
+hinweis = "Sieger der Qualifikationsgruppe spielt gegen den 4./5. der Meistergruppe um einen Conference-League-Platz."
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Bundesliga"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Austrian_Football_Bundesliga"
+[land.liga.split]
+nach_spieltagen = 22
+gruppen = [{ name = "Meistergruppe", plaetze = [1, 6] }, { name = "Qualifikationsgruppe", plaetze = [7, 12] }]
+punkte = "halbiert_abgerundet"
+[[land.liga]]
+stufe = 2
+name = "2. Liga"
+vereine = 16
+aufsteiger_direkt = 1
+absteiger_direkt = 2
+sicher = true
+hinweis = "Nur Vereine mit Bundesliga-Lizenz dürfen aufsteigen."
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Austrian_Football_Second_League"
+[[land.liga]]
+stufe = 3
+name = "Regionalliga (Ost/Mitte/West)"
+vereine = 16
+staffeln = 3
+aufsteiger_direkt = 1
+absteiger_direkt = 2
+sicher = false
+hinweis = "Aufstieg je nach Staffel direkt oder über Aufstiegsspiel."
+
+[[land]]
+code = "NOR"
+name = "Norwegen"
+pes_land = 226
+verband = "UEFA"
+uefa_rang = 14
+teilnehmer_2025_26_tatsaechlich = { cl = 2, el = 2, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 3
+hinweis = "Zweite Mannschaften dürfen bis zur 2. divisjon spielen, nicht höher."
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "playoff" }, { wettbewerb = "cl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "quali_3" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [4], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Eliteserien"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025_Eliteserien"
+[land.liga.relegation]
+platz = 14
+gegen = "Sieger 1.-divisjon-Play-off (3.–6.)"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 2
+name = "1. divisjon (OBOS-ligaen)"
+vereine = 16
+aufsteiger_direkt = 2
+absteiger_direkt = 2
+sicher = true
+[land.liga.playoffs]
+plaetze = [3, 4, 5, 6]
+aufsteiger = 0
+format = "einzel_dann_gegen_14_eliteserien"
+[land.liga.relegation]
+platz = 14
+gegen = "2.-divisjon-Play-off"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 3
+name = "2. divisjon"
+vereine = 14
+staffeln = 2
+aufsteiger_direkt = 1
+absteiger_direkt = 3
+sicher = false
+
+[[land]]
+code = "GRE"
+name = "Griechenland"
+pes_land = 211
+verband = "UEFA"
+uefa_rang = 15
+teilnehmer_2025_26_tatsaechlich = { cl = 2, el = 2, uecl = 2 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 2
+hinweis = "B-Teams (Olympiacos B, PAOK B, Panathinaikos B, AEK B) spielen in der Super League 2, dürfen nicht aufsteigen."
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_2" }, { wettbewerb = "cl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "quali_3" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [4], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Super League"
+vereine = 14
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Super_League_Greece"
+[land.liga.split]
+nach_spieltagen = 26
+gruppen = [{ name = "Meister-Play-offs", plaetze = [1, 4] }, { name = "Platzierungsrunde", plaetze = [5, 8] }, { name = "Abstiegsrunde", plaetze = [9, 14] }]
+punkte = "behalten"
+[[land.liga]]
+stufe = 2
+name = "Super League 2"
+vereine = 16
+staffeln = 2
+aufsteiger_direkt = 2
+absteiger_direkt = 4
+sicher = false
+hinweis = "Zwei Staffeln, Staffelsieger steigen auf."
+
+[[land]]
+code = "DEN"
+name = "Dänemark"
+pes_land = 203
+verband = "UEFA"
+uefa_rang = 16
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 2 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Reserveteams spielen in eigener Reserveliga."
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_2" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Superliga"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = true
+hinweis = "Sieger der Abstiegsrunde spielt um einen Conference-League-Platz."
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Danish_Superliga"
+[land.liga.split]
+nach_spieltagen = 22
+gruppen = [{ name = "Meisterrunde", plaetze = [1, 6] }, { name = "Abstiegsrunde", plaetze = [7, 12] }]
+punkte = "behalten"
+[[land.liga]]
+stufe = 2
+name = "1. division"
+vereine = 12
+aufsteiger_direkt = 2
+absteiger_direkt = 2
+sicher = true
+[land.liga.split]
+nach_spieltagen = 22
+gruppen = [{ name = "Aufstiegsrunde", plaetze = [1, 6] }, { name = "Abstiegsrunde", plaetze = [7, 12] }]
+punkte = "behalten"
+[[land.liga]]
+stufe = 3
+name = "2. division"
+vereine = 12
+aufsteiger_direkt = 2
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "ISR"
+name = "Israel"
+pes_land = 189
+verband = "UEFA"
+uefa_rang = 17
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = ""
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_2" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Ligat ha'Al"
+vereine = 14
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Israeli_Premier_League"
+[land.liga.split]
+nach_spieltagen = 26
+gruppen = [{ name = "Meisterrunde", plaetze = [1, 6] }, { name = "Abstiegsrunde", plaetze = [7, 14] }]
+punkte = "behalten"
+[[land.liga]]
+stufe = 2
+name = "Liga Leumit"
+vereine = 16
+aufsteiger_direkt = 2
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "UKR"
+name = "Ukraine"
+pes_land = 239
+verband = "UEFA"
+uefa_rang = 18
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 4 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 3
+hinweis = "Zweite Mannschaften nur ab der Druha Liha."
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_2" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Premier Liha"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Ukrainian_Premier_League"
+[land.liga.relegation]
+platz = 13
+gegen = "3./4. der Persha Liha"
+format = "hin_rueck"
+hinweis = "Plätze 13 und 14 spielen Relegation."
+[[land.liga]]
+stufe = 2
+name = "Persha Liha"
+vereine = 16
+aufsteiger_direkt = 2
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "SRB"
+name = "Serbien"
+pes_land = 303
+verband = "UEFA"
+uefa_rang = 19
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine B-Teams in den oberen Ligen."
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_2" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "SuperLiga Srbije"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Serbian_SuperLiga"
+[land.liga.split]
+nach_spieltagen = 30
+gruppen = [{ name = "Meisterrunde", plaetze = [1, 8] }, { name = "Abstiegsrunde", plaetze = [9, 16] }]
+punkte = "behalten"
+[[land.liga]]
+stufe = 2
+name = "Prva liga Srbije"
+vereine = 16
+aufsteiger_direkt = 2
+absteiger_direkt = 4
+sicher = false
+[[land.liga]]
+stufe = 3
+name = "Srpska liga"
+vereine = 16
+staffeln = 4
+aufsteiger_direkt = 1
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "CRO"
+name = "Kroatien"
+pes_land = 200
+verband = "UEFA"
+uefa_rang = 20
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 2
+hinweis = "Zweite Mannschaften (z. B. Hajduk II) dürfen bis zur Prva NL."
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_2" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "SuperSport HNL"
+vereine = 10
+runden = 4
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Croatian_Football_League"
+[land.liga.relegation]
+platz = 9
+gegen = "2. der Prva NL"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 2
+name = "Prva NL"
+vereine = 16
+aufsteiger_direkt = 1
+absteiger_direkt = 2
+sicher = false
+[[land.liga]]
+stufe = 3
+name = "Druga NL"
+vereine = 16
+aufsteiger_direkt = 2
+absteiger_direkt = 3
+sicher = false
+[[land.liga]]
+stufe = 4
+name = "3. NL"
+vereine = 16
+staffeln = 5
+aufsteiger_direkt = 1
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "POL"
+name = "Polen"
+pes_land = 227
+verband = "UEFA"
+uefa_rang = 21
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 4 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 3
+hinweis = "Zweite Mannschaften dürfen bis zur II liga (3. Stufe)."
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_2" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Ekstraklasa"
+vereine = 18
+aufsteiger_direkt = 0
+absteiger_direkt = 3
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Ekstraklasa"
+[[land.liga]]
+stufe = 2
+name = "I liga"
+vereine = 18
+aufsteiger_direkt = 2
+absteiger_direkt = 3
+sicher = true
+[land.liga.playoffs]
+plaetze = [3, 4, 5, 6]
+aufsteiger = 1
+format = "halbfinale_einzel_finale_einzel"
+[[land.liga]]
+stufe = 3
+name = "II liga"
+vereine = 18
+aufsteiger_direkt = 2
+absteiger_direkt = 4
+sicher = true
+[land.liga.playoffs]
+plaetze = [3, 4, 5, 6]
+aufsteiger = 1
+format = "halbfinale_einzel_finale_einzel"
+
+[[land]]
+code = "RUS"
+name = "Russland"
+pes_land = 230
+verband = "UEFA"
+uefa_rang = 22
+teilnehmer_2025_26_tatsaechlich = { cl = 0, el = 0, uecl = 0 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 3
+hinweis = "Zweite Mannschaften bis zur Vtoraya Liga."
+sicher = true
+[land.europa]
+plaetze = []
+hinweis = "Russische Vereine sind 2025/26 von UEFA-Wettbewerben ausgeschlossen."
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Premier Liga"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Russian_Premier_League"
+[land.liga.relegation]
+platz = 13
+gegen = "3./4. der Perwaja Liga"
+format = "hin_rueck"
+hinweis = "Plätze 13 und 14 spielen Relegation."
+[[land.liga]]
+stufe = 2
+name = "Perwaja Liga"
+vereine = 18
+aufsteiger_direkt = 2
+absteiger_direkt = 3
+sicher = true
+[land.liga.playoffs]
+plaetze = [3, 4]
+aufsteiger = 0
+format = "gegen_13_und_14_premier_liga"
+
+[[land]]
+code = "CYP"
+name = "Zypern"
+pes_land = 201
+verband = "UEFA"
+uefa_rang = 23
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = ""
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_2" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Cypriot First Division"
+vereine = 14
+aufsteiger_direkt = 0
+absteiger_direkt = 3
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Cypriot_First_Division"
+[land.liga.split]
+nach_spieltagen = 26
+gruppen = [{ name = "Meisterrunde", plaetze = [1, 6] }, { name = "Abstiegsrunde", plaetze = [7, 14] }]
+punkte = "behalten"
+[[land.liga]]
+stufe = 2
+name = "Cypriot Second Division"
+vereine = 16
+aufsteiger_direkt = 3
+absteiger_direkt = 3
+sicher = false
+
+[[land]]
+code = "HUN"
+name = "Ungarn"
+pes_land = 212
+verband = "UEFA"
+uefa_rang = 24
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 3
+hinweis = "Zweite Mannschaften (z. B. Ferencváros II) bis NB III, nicht in die NB II."
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_2" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "NB I"
+vereine = 12
+runden = 3
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Nemzeti_Bajnoks%C3%A1g_I"
+[[land.liga]]
+stufe = 2
+name = "NB II"
+vereine = 16
+aufsteiger_direkt = 2
+absteiger_direkt = 3
+sicher = false
+[[land.liga]]
+stufe = 3
+name = "NB III"
+vereine = 16
+staffeln = 4
+aufsteiger_direkt = 1
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "SWE"
+name = "Schweden"
+pes_land = 237
+verband = "UEFA"
+uefa_rang = 25
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Zweite Mannschaften sind praktisch nicht im oberen Ligasystem."
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Allsvenskan"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025_Allsvenskan"
+[land.liga.relegation]
+platz = 14
+gegen = "3. der Superettan"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 2
+name = "Superettan"
+vereine = 16
+aufsteiger_direkt = 2
+absteiger_direkt = 2
+sicher = true
+[land.liga.relegation]
+platz = 14
+gegen = "2. der Ettan-Staffeln"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 3
+name = "Ettan"
+vereine = 16
+staffeln = 2
+aufsteiger_direkt = 2
+absteiger_direkt = 3
+sicher = false
+
+[[land]]
+code = "ROU"
+name = "Rumänien"
+pes_land = 229
+verband = "UEFA"
+uefa_rang = 26
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 3
+hinweis = "Zweite Mannschaften bis zur Liga 3."
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "SuperLiga"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Liga_I"
+[land.liga.relegation]
+platz = 13
+gegen = "3./4. der Liga 2"
+format = "hin_rueck"
+hinweis = "Plätze 13 und 14 der Abstiegsrunde spielen Relegation."
+[land.liga.split]
+nach_spieltagen = 30
+gruppen = [{ name = "Meisterrunde", plaetze = [1, 6] }, { name = "Abstiegsrunde", plaetze = [7, 16] }]
+punkte = "halbiert_aufgerundet"
+[[land.liga]]
+stufe = 2
+name = "Liga 2"
+vereine = 22
+aufsteiger_direkt = 2
+absteiger_direkt = 4
+sicher = false
+
+[[land]]
+code = "BUL"
+name = "Bulgarien"
+pes_land = 199
+verband = "UEFA"
+uefa_rang = 27
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 2
+hinweis = "Zweite Mannschaften (z. B. Ludogorets II, CSKA II) bis zur Vtora Liga."
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Parva Liga"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_First_Professional_Football_League_(Bulgaria)"
+[land.liga.relegation]
+platz = 14
+gegen = "2./3. der Vtora Liga"
+format = "hin_rueck"
+hinweis = "Plätze 14 und 15 spielen Relegation."
+[land.liga.split]
+nach_spieltagen = 30
+gruppen = [{ name = "Meisterrunde", plaetze = [1, 4] }, { name = "Conference-Runde", plaetze = [5, 8] }, { name = "Abstiegsrunde", plaetze = [9, 16] }]
+punkte = "behalten"
+[[land.liga]]
+stufe = 2
+name = "Vtora Liga"
+vereine = 18
+aufsteiger_direkt = 2
+absteiger_direkt = 4
+sicher = false
+
+[[land]]
+code = "AZE"
+name = "Aserbaidschan"
+pes_land = 195
+verband = "UEFA"
+uefa_rang = 28
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = ""
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_2" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Premyer Liqa"
+vereine = 12
+runden = 3
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+[land.liga.relegation]
+platz = 11
+gegen = "2. der Birinci Divizion"
+format = "hin_rueck"
+
+[[land]]
+code = "SVK"
+name = "Slowakei"
+pes_land = 234
+verband = "UEFA"
+uefa_rang = 29
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 4 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 2
+hinweis = "B-Teams bis zur 2. liga."
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_2" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Niké liga"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Slovak_First_Football_League"
+[land.liga.relegation]
+platz = 11
+gegen = "2. der 2. liga"
+format = "hin_rueck"
+[land.liga.split]
+nach_spieltagen = 22
+gruppen = [{ name = "Meisterrunde", plaetze = [1, 6] }, { name = "Abstiegsrunde", plaetze = [7, 12] }]
+punkte = "behalten"
+[[land.liga]]
+stufe = 2
+name = "2. liga"
+vereine = 16
+aufsteiger_direkt = 1
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "SVN"
+name = "Slowenien"
+pes_land = 235
+verband = "UEFA"
+uefa_rang = 30
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 4 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 2
+hinweis = "B-Teams bis zur 2. SNL."
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_2" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "PrvaLiga"
+vereine = 10
+runden = 4
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = true
+[land.liga.relegation]
+platz = 9
+gegen = "2. der 2. SNL"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 2
+name = "2. SNL"
+vereine = 16
+aufsteiger_direkt = 1
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "MDA"
+name = "Moldau"
+pes_land = 223
+verband = "UEFA"
+uefa_rang = 31
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 4 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = ""
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Super Liga"
+vereine = 8
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+[land.liga.split]
+nach_spieltagen = 14
+gruppen = [{ name = "Meisterrunde", plaetze = [1, 6] }, { name = "Abstiegsrunde", plaetze = [7, 8] }]
+punkte = "behalten"
+
+[[land]]
+code = "KOS"
+name = "Kosovo"
+pes_land = 311
+verband = "UEFA"
+uefa_rang = 32
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 4 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = ""
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Superliga e Kosovës"
+vereine = 10
+runden = 4
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+[land.liga.relegation]
+platz = 8
+gegen = "3. der Liga e Parë"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 2
+name = "Liga e Parë"
+vereine = 18
+aufsteiger_direkt = 2
+absteiger_direkt = 3
+sicher = false
+
+[[land]]
+code = "KAZ"
+name = "Kasachstan"
+pes_land = 216
+verband = "UEFA"
+uefa_rang = 33
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 2
+hinweis = "Zweite Mannschaften bis zur First League."
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Premier League"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025_Kazakhstan_Premier_League"
+[[land.liga]]
+stufe = 2
+name = "First League"
+vereine = 14
+aufsteiger_direkt = 2
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "FIN"
+name = "Finnland"
+pes_land = 207
+verband = "UEFA"
+uefa_rang = 34
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 5 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 3
+hinweis = "Zweite Mannschaften bis Kakkonen."
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "el", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Veikkausliiga"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025_Veikkausliiga"
+[land.liga.relegation]
+platz = 11
+gegen = "2. der Ykkösliiga"
+format = "hin_rueck"
+[land.liga.split]
+nach_spieltagen = 22
+gruppen = [{ name = "Meisterrunde", plaetze = [1, 6] }, { name = "Abstiegsrunde", plaetze = [7, 12] }]
+punkte = "behalten"
+
+[[land]]
+code = "IRL"
+name = "Irland"
+pes_land = 214
+verband = "UEFA"
+uefa_rang = 35
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = ""
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = ["pokal"], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Premier Division"
+vereine = 10
+runden = 4
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025_League_of_Ireland_Premier_Division"
+[land.liga.relegation]
+platz = 9
+gegen = "Sieger First-Division-Play-off (2.–5.)"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 2
+name = "First Division"
+vereine = 10
+runden = 3
+aufsteiger_direkt = 1
+absteiger_direkt = 0
+sicher = true
+[land.liga.playoffs]
+plaetze = [2, 3, 4, 5]
+aufsteiger = 0
+format = "halbfinale_hin_rueck_finale_dann_gegen_9_premier"
+
+[[land]]
+code = "ARM"
+name = "Armenien"
+pes_land = 193
+verband = "UEFA"
+uefa_rang = 36
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 4 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 2
+hinweis = "Zweite Mannschaften in der First League (nicht aufstiegsberechtigt)."
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = ["pokal"], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Premier League"
+vereine = 10
+runden = 4
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+[[land.liga]]
+stufe = 2
+name = "First League"
+vereine = 12
+aufsteiger_direkt = 1
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "LVA"
+name = "Lettland"
+pes_land = 217
+verband = "UEFA"
+uefa_rang = 37
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 4 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = ""
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = ["pokal"], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Virslīga"
+vereine = 10
+runden = 4
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+[land.liga.relegation]
+platz = 9
+gegen = "2. der 1. līga"
+format = "hin_rueck"
+
+[[land]]
+code = "FRO"
+name = "Färöer"
+pes_land = 206
+verband = "UEFA"
+uefa_rang = 38
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 4 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 2
+hinweis = "Zweite Mannschaften spielen in den unteren Ligen."
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = ["pokal"], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Betri deildin"
+vereine = 10
+runden = 3
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "BIH"
+name = "Bosnien und Herzegowina"
+pes_land = 198
+verband = "UEFA"
+uefa_rang = 39
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 4 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = ""
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = ["pokal"], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Premijer liga"
+vereine = 10
+runden = 4
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+hinweis = "Die beiden Sieger der zweiten Ligen (FBiH und RS) steigen auf."
+[[land.liga]]
+stufe = 2
+name = "Prva liga FBiH / Prva liga RS"
+vereine = 16
+staffeln = 2
+aufsteiger_direkt = 1
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "LIE"
+name = "Liechtenstein"
+pes_land = 0
+verband = "UEFA"
+uefa_rang = 40
+teilnehmer_2025_26_tatsaechlich = { cl = 0, el = 0, uecl = 1 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# keine eigene Liga in den FL-Welten
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = ""
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "uecl", plaetze = ["pokal"], phase = "quali_2" }]
+hinweis = "Liechtenstein hat keine eigene Liga (Vereine spielen in der Schweiz); nur der Pokalsieger spielt in der Conference League."
+sicher = true
+
+[[land]]
+code = "ISL"
+name = "Island"
+pes_land = 213
+verband = "UEFA"
+uefa_rang = 41
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 4 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = ""
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = ["pokal"], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Besta deild karla"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025_Besta_deild_karla"
+[land.liga.split]
+nach_spieltagen = 22
+gruppen = [{ name = "Meisterrunde", plaetze = [1, 6] }, { name = "Abstiegsrunde", plaetze = [7, 12] }]
+punkte = "behalten"
+[[land.liga]]
+stufe = 2
+name = "Lengjudeild karla"
+vereine = 12
+aufsteiger_direkt = 1
+absteiger_direkt = 2
+sicher = true
+[land.liga.playoffs]
+plaetze = [2, 3, 4, 5]
+aufsteiger = 1
+format = "halbfinale_hin_rueck_finale"
+
+[[land]]
+code = "NIR"
+name = "Nordirland"
+pes_land = 225
+verband = "UEFA"
+uefa_rang = 42
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 4 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = ""
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = ["pokal"], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "NIFL Premiership"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = true
+hinweis = "Plätze 4–7 spielen Play-offs um einen Conference-League-Platz."
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_NIFL_Premiership"
+[land.liga.relegation]
+platz = 11
+gegen = "2. der Championship"
+format = "hin_rueck"
+[land.liga.split]
+nach_spieltagen = 33
+gruppen = [{ name = "Obere Hälfte", plaetze = [1, 6] }, { name = "Untere Hälfte", plaetze = [7, 12] }]
+punkte = "behalten"
+[[land.liga]]
+stufe = 2
+name = "NIFL Championship"
+vereine = 12
+aufsteiger_direkt = 1
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "LUX"
+name = "Luxemburg"
+pes_land = 220
+verband = "UEFA"
+uefa_rang = 43
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 4 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = ""
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = ["pokal"], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "BGL Ligue (Nationaldivision)"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+[land.liga.relegation]
+platz = 14
+gegen = "3. der Ehrenpromotion"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 2
+name = "Ehrenpromotion"
+vereine = 16
+aufsteiger_direkt = 2
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "LTU"
+name = "Litauen"
+pes_land = 219
+verband = "UEFA"
+uefa_rang = 44
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 4 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 2
+hinweis = "B-Teams in der I Lyga (nicht aufstiegsberechtigt)."
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = ["pokal"], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "A Lyga (TOPLYGA)"
+vereine = 10
+runden = 4
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+[land.liga.relegation]
+platz = 9
+gegen = "2. der I Lyga"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 2
+name = "I Lyga"
+vereine = 16
+aufsteiger_direkt = 1
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "MLT"
+name = "Malta"
+pes_land = 222
+verband = "UEFA"
+uefa_rang = 45
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 4 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = ""
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = ["pokal"], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Maltese Premier League"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+[land.liga.split]
+nach_spieltagen = 22
+gruppen = [{ name = "Meisterrunde", plaetze = [1, 6] }, { name = "Abstiegsrunde", plaetze = [7, 12] }]
+punkte = "behalten"
+[[land.liga]]
+stufe = 2
+name = "Challenge League"
+vereine = 16
+aufsteiger_direkt = 2
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "GEO"
+name = "Georgien"
+pes_land = 209
+verband = "UEFA"
+uefa_rang = 46
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 4 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 2
+hinweis = "Zweite Mannschaften in der Erovnuli Liga 2 möglich."
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = ["pokal"], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Erovnuli Liga"
+vereine = 10
+runden = 4
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+[land.liga.relegation]
+platz = 8
+gegen = "2./3. der Liga 2"
+format = "hin_rueck"
+hinweis = "Plätze 8 und 9 spielen Relegation."
+
+[[land]]
+code = "ALB"
+name = "Albanien"
+pes_land = 191
+verband = "UEFA"
+uefa_rang = 47
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 4 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = ""
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = ["pokal"], phase = "quali_2" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Kategoria Superiore"
+vereine = 10
+runden = 4
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+hinweis = "Nach 36 Spieltagen Final Four der besten 4 um den Titel."
+[land.liga.relegation]
+platz = 8
+gegen = "Sieger Play-off der Kategoria e Parë"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 2
+name = "Kategoria e Parë"
+vereine = 12
+aufsteiger_direkt = 2
+absteiger_direkt = 2
+sicher = false
+[land.liga.playoffs]
+plaetze = [3, 4, 5, 6]
+aufsteiger = 0
+format = "dann_gegen_8_superiore"
+
+[[land]]
+code = "EST"
+name = "Estland"
+pes_land = 205
+verband = "UEFA"
+uefa_rang = 48
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 4 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 2
+hinweis = "Zweite Mannschaften (U21) in der Esiliiga, nicht aufstiegsberechtigt."
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Meistriliiga"
+vereine = 10
+runden = 4
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+[land.liga.relegation]
+platz = 9
+gegen = "2. der Esiliiga"
+format = "hin_rueck"
+
+[[land]]
+code = "BLR"
+name = "Belarus"
+pes_land = 196
+verband = "UEFA"
+uefa_rang = 49
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 4 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 2
+hinweis = "Zweite Mannschaften in der Pershaya Liga möglich."
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Vysheyshaya Liga"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+[land.liga.relegation]
+platz = 14
+gegen = "3. der Pershaya Liga"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 2
+name = "Pershaya Liga"
+vereine = 18
+aufsteiger_direkt = 2
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "MKD"
+name = "Nordmazedonien"
+pes_land = 221
+verband = "UEFA"
+uefa_rang = 50
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 4 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = ""
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Prva Makedonska Liga"
+vereine = 10
+runden = 4
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+[land.liga.relegation]
+platz = 8
+gegen = "3./4. der Vtora Liga"
+format = "hin_rueck"
+hinweis = "Plätze 8 und 9 spielen Relegation."
+
+[[land]]
+code = "AND"
+name = "Andorra"
+pes_land = 192
+verband = "UEFA"
+uefa_rang = 51
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 2
+hinweis = "B-Teams in der Segona Divisió."
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Primera Divisió"
+vereine = 10
+runden = 3
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+hinweis = "Nach der Grundrunde Meister- und Abstiegsrunde."
+
+[[land]]
+code = "WAL"
+name = "Wales"
+pes_land = 241
+verband = "UEFA"
+uefa_rang = 52
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = ""
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Cymru Premier"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+hinweis = "Plätze 3–7 (je nach Pokalsieger) spielen Play-offs um einen Conference-League-Platz. FL-Welt hat 16 Vereine (Modstand)."
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Cymru_Premier"
+[land.liga.split]
+nach_spieltagen = 22
+gruppen = [{ name = "Obere Hälfte", plaetze = [1, 6] }, { name = "Untere Hälfte", plaetze = [7, 12] }]
+punkte = "behalten"
+[[land.liga]]
+stufe = 2
+name = "Cymru North / Cymru South"
+vereine = 16
+staffeln = 2
+aufsteiger_direkt = 1
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "MNE"
+name = "Montenegro"
+pes_land = 304
+verband = "UEFA"
+uefa_rang = 53
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = ""
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Prva crnogorska liga"
+vereine = 10
+runden = 4
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+[land.liga.relegation]
+platz = 8
+gegen = "2./3. der Druga liga"
+format = "hin_rueck"
+hinweis = "Plätze 8 und 9 spielen Relegation."
+
+[[land]]
+code = "GIB"
+name = "Gibraltar"
+pes_land = 245
+verband = "UEFA"
+uefa_rang = 54
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = ""
+sicher = false
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Gibraltar Football League"
+vereine = 11
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+hinweis = "Kein Abstieg; nach der Grundrunde Meister- und Platzierungsrunde."
+
+[[land]]
+code = "SMR"
+name = "San Marino"
+pes_land = 231
+verband = "UEFA"
+uefa_rang = 55
+teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 3 }
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = ""
+sicher = true
+[land.europa]
+plaetze = [{ wettbewerb = "cl", plaetze = [1], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = ["pokal"], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [2], phase = "quali_1" }, { wettbewerb = "uecl", plaetze = [3], phase = "quali_1" }]
+hinweis = ""
+sicher = true
+[[land.liga]]
+stufe = 1
+name = "Campionato Sammarinese"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+hinweis = "Kein Abstieg (einzige Liga). Zwei Gruppen, danach K.-o.-Runde um den Titel."
+
+# =================================================================== CONMEBOL
+[[land]]
+code = "BRA"
+name = "Brasilien"
+pes_land = 146
+verband = "CONMEBOL"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "B-Teams spielen nur in Staatsmeisterschaften, nicht in den nationalen Serien."
+sicher = true
+[land.kontinental]
+plaetze = [{ wettbewerb = "libertadores", plaetze = [1, 2, 3, 4, "pokal"], phase = "gruppe" }, { wettbewerb = "libertadores", plaetze = [5, 6], phase = "quali" }, { wettbewerb = "sudamericana", plaetze = [7, 8, 9, 10, 11, 12], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Brasileirão Série A"
+vereine = 20
+aufsteiger_direkt = 0
+absteiger_direkt = 4
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2026_Campeonato_Brasileiro_S%C3%A9rie_A"
+[[land.liga]]
+stufe = 2
+name = "Brasileirão Série B"
+vereine = 20
+aufsteiger_direkt = 4
+absteiger_direkt = 4
+sicher = true
+[[land.liga]]
+stufe = 3
+name = "Brasileirão Série C"
+vereine = 20
+aufsteiger_direkt = 4
+absteiger_direkt = 2
+sicher = false
+hinweis = "1. Phase einfache Runde (19 Spiele), dann Plätze 1–8 in zwei 4er-Gruppen; die zwei Besten jeder Gruppe steigen auf."
+[[land.liga]]
+stufe = 4
+name = "Brasileirão Série D"
+vereine = 64
+aufsteiger_direkt = 4
+absteiger_direkt = 0
+sicher = false
+hinweis = "64 Vereine in Regionalgruppen, danach K.-o.; Halbfinalisten steigen auf. FL-Welt nutzt 20."
+
+[[land]]
+code = "ARG"
+name = "Argentinien"
+pes_land = 144
+verband = "CONMEBOL"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "libertadores", plaetze = [1, 2, 3, "pokal"], phase = "gruppe" }, { wettbewerb = "libertadores", plaetze = [4, 5], phase = "quali" }, { wettbewerb = "sudamericana", plaetze = [6, 7, 8, 9, 10, 11], phase = "gruppe" }]
+hinweis = "Libertadores: Meister Apertura, Meister Clausura, Pokalsieger (Copa Argentina) und die Besten der Jahrestabelle. Sudamericana: nächste 6 der Jahrestabelle. geschätzt."
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Liga Profesional"
+vereine = 30
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = true
+hinweis = "Abstieg: Letzter der Jahrestabelle + schlechtester Punkteschnitt (Promedio, 3 Jahre)."
+quelle = "https://en.wikipedia.org/wiki/2026_Argentine_Primera_Divisi%C3%B3n"
+[land.liga.split]
+nach_spieltagen = 16
+gruppen = [{ name = "Apertura/Clausura-Endrunde", plaetze = [1, 8] }]
+punkte = "neu"
+hinweis = "Zwei Zonen à 15, Apertura und Clausura; je Turnier die besten 8 jeder Zone ins K.-o.-Turnier."
+[[land.liga]]
+stufe = 2
+name = "Primera Nacional"
+vereine = 36
+staffeln = 2
+aufsteiger_direkt = 1
+absteiger_direkt = 4
+sicher = false
+hinweis = "Zwei Zonen à 18; Finale der Zonensieger = 1. Aufsteiger, 2. Aufsteiger über das Reducido."
+[land.liga.playoffs]
+plaetze = [2, 3, 4, 5, 6, 7, 8]
+aufsteiger = 1
+format = "reducido_k_o"
+[[land.liga]]
+stufe = 3
+name = "Primera B Metropolitana"
+vereine = 22
+aufsteiger_direkt = 1
+absteiger_direkt = 1
+sicher = false
+[land.liga.playoffs]
+plaetze = [2, 3, 4, 5, 6, 7, 8]
+aufsteiger = 1
+format = "reducido"
+
+[[land]]
+code = "CHI"
+name = "Chile"
+pes_land = 147
+verband = "CONMEBOL"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "libertadores", plaetze = [1, 2, "pokal"], phase = "gruppe" }, { wettbewerb = "libertadores", plaetze = [3], phase = "quali" }, { wettbewerb = "sudamericana", plaetze = [4, 5, 6, 7], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Liga de Primera"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2026_Chilean_Primera_Divisi%C3%B3n"
+[[land.liga]]
+stufe = 2
+name = "Primera B"
+vereine = 16
+aufsteiger_direkt = 1
+absteiger_direkt = 1
+sicher = false
+[land.liga.playoffs]
+plaetze = [2, 3, 4, 5, 6, 7, 8]
+aufsteiger = 1
+format = "liguilla"
+[[land.liga]]
+stufe = 3
+name = "Segunda División Profesional"
+vereine = 14
+aufsteiger_direkt = 1
+absteiger_direkt = 2
+sicher = false
+[[land.liga]]
+stufe = 4
+name = "Tercera División A"
+vereine = 14
+aufsteiger_direkt = 2
+absteiger_direkt = 2
+sicher = false
+[[land.liga]]
+stufe = 5
+name = "Tercera División B"
+vereine = 28
+aufsteiger_direkt = 2
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "COL"
+name = "Kolumbien"
+pes_land = 148
+verband = "CONMEBOL"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "libertadores", plaetze = [1, 2, "pokal"], phase = "gruppe" }, { wettbewerb = "libertadores", plaetze = [3, 4], phase = "quali" }, { wettbewerb = "sudamericana", plaetze = [5, 6, 7, 8], phase = "gruppe" }]
+hinweis = "Meister Apertura und Clausura + Pokalsieger + Beste der Jahrestabelle."
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Liga BetPlay DIMAYOR"
+vereine = 20
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = true
+hinweis = "Abstieg nach Punkteschnitt (Promedio, 3 Jahre)."
+quelle = "https://en.wikipedia.org/wiki/2026_Categor%C3%ADa_Primera_A_season"
+[land.liga.split]
+nach_spieltagen = 19
+gruppen = [{ name = "Cuadrangulares (2×4)", plaetze = [1, 8] }]
+punkte = "neu"
+hinweis = "Apertura und Clausura; je Turnier die besten 8 in zwei Vierergruppen, Gruppensieger spielen Finale."
+[[land.liga]]
+stufe = 2
+name = "Torneo BetPlay (Primera B)"
+vereine = 16
+aufsteiger_direkt = 2
+absteiger_direkt = 0
+sicher = false
+hinweis = "Sieger Apertura und Clausura steigen auf (ggf. Finale)."
+
+[[land]]
+code = "URU"
+name = "Uruguay"
+pes_land = 152
+verband = "CONMEBOL"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "libertadores", plaetze = [1, 2], phase = "gruppe" }, { wettbewerb = "libertadores", plaetze = [3, 4], phase = "quali" }, { wettbewerb = "sudamericana", plaetze = [5, 6, 7, 8], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Liga AUF Uruguaya"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 3
+sicher = false
+hinweis = "Apertura, Intermedio, Clausura; Jahrestabelle. Abstieg nach Punkteschnitt (2 Jahre)."
+[[land.liga]]
+stufe = 2
+name = "Segunda División"
+vereine = 14
+aufsteiger_direkt = 2
+absteiger_direkt = 0
+sicher = false
+[land.liga.playoffs]
+plaetze = [3, 4, 5, 6, 7, 8]
+aufsteiger = 1
+format = "k_o"
+
+[[land]]
+code = "PAR"
+name = "Paraguay"
+pes_land = 150
+verband = "CONMEBOL"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "libertadores", plaetze = [1, 2], phase = "gruppe" }, { wettbewerb = "libertadores", plaetze = [3, 4], phase = "quali" }, { wettbewerb = "sudamericana", plaetze = [5, 6, 7, 8], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Primera División"
+vereine = 12
+runden = 4
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+hinweis = "Apertura und Clausura (je Doppelrunde). Abstieg nach Punkteschnitt (3 Jahre)."
+[[land.liga]]
+stufe = 2
+name = "División Intermedia"
+vereine = 16
+aufsteiger_direkt = 2
+absteiger_direkt = 2
+sicher = false
+[[land.liga]]
+stufe = 3
+name = "Primera B"
+vereine = 17
+aufsteiger_direkt = 2
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "ECU"
+name = "Ecuador"
+pes_land = 149
+verband = "CONMEBOL"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "libertadores", plaetze = [1, 2, "pokal"], phase = "gruppe" }, { wettbewerb = "libertadores", plaetze = [3], phase = "quali" }, { wettbewerb = "sudamericana", plaetze = [4, 5, 6, 7], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "LigaPro Serie A"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+hinweis = "Grundrunde (30 Spiele), danach Meister- und Abstiegsrunde."
+[[land.liga]]
+stufe = 2
+name = "LigaPro Serie B"
+vereine = 10
+aufsteiger_direkt = 2
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "PER"
+name = "Peru"
+pes_land = 151
+verband = "CONMEBOL"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "libertadores", plaetze = [1, 2], phase = "gruppe" }, { wettbewerb = "libertadores", plaetze = [3, 4], phase = "quali" }, { wettbewerb = "sudamericana", plaetze = [5, 6, 7, 8], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Liga 1"
+vereine = 18
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+hinweis = "Apertura und Clausura, Gesamttabelle; Play-offs um den Titel."
+[[land.liga]]
+stufe = 2
+name = "Liga 2"
+vereine = 15
+aufsteiger_direkt = 1
+absteiger_direkt = 2
+sicher = false
+[land.liga.playoffs]
+plaetze = [2, 3, 4, 5]
+aufsteiger = 1
+format = "k_o"
+
+[[land]]
+code = "BOL"
+name = "Bolivien"
+pes_land = 145
+verband = "CONMEBOL"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "libertadores", plaetze = [1, 2], phase = "gruppe" }, { wettbewerb = "libertadores", plaetze = [3, 4], phase = "quali" }, { wettbewerb = "sudamericana", plaetze = [5, 6, 7, 8], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "División Profesional"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+[land.liga.relegation]
+platz = 15
+gegen = "2. der Copa Simón Bolívar"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 2
+name = "Copa Simón Bolívar"
+vereine = 16
+aufsteiger_direkt = 1
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "VEN"
+name = "Venezuela"
+pes_land = 153
+verband = "CONMEBOL"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "libertadores", plaetze = [1, 2], phase = "gruppe" }, { wettbewerb = "libertadores", plaetze = [3, 4], phase = "quali" }, { wettbewerb = "sudamericana", plaetze = [5, 6, 7, 8], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Liga FUTVE"
+vereine = 14
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+[[land.liga]]
+stufe = 2
+name = "Liga FUTVE 2"
+vereine = 16
+aufsteiger_direkt = 1
+absteiger_direkt = 0
+sicher = false
+
+# =================================================================== CONCACAF
+[[land]]
+code = "USA"
+name = "USA"
+pes_land = 135
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 3
+hinweis = "Zweite Mannschaften der MLS-Vereine spielen in der MLS Next Pro (3. Stufe). Es gibt kein Auf- und Abstieg."
+sicher = true
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_champions_cup", plaetze = [1, 2, 3, 4, 5, "pokal"], phase = "k_o" }]
+hinweis = "MLS: Meister, Supporters'-Shield-Sieger, beste Vereine je Conference + US-Open-Cup-Sieger; weitere über den Leagues Cup. geschätzt."
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Major League Soccer"
+vereine = 30
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = true
+hinweis = "Kein Abstieg. Zwei Conferences à 15; die besten 9 je Conference spielen die Play-offs (8 gegen 9 als Wildcard)."
+quelle = "https://en.wikipedia.org/wiki/2026_Major_League_Soccer_season"
+[[land.liga]]
+stufe = 2
+name = "USL Championship"
+vereine = 25
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+hinweis = "Kein Auf-/Abstieg (geplant ab 2028). Play-offs um den Titel."
+
+[[land]]
+code = "CAN"
+name = "Kanada"
+pes_land = 110
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_champions_cup", plaetze = [1, "pokal"], phase = "k_o" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Canadian Premier League"
+vereine = 8
+runden = 4
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+hinweis = "Kein Abstieg. Die besten 5 spielen die Play-offs."
+
+[[land]]
+code = "MEX"
+name = "Mexiko"
+pes_land = 124
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften in Liga de Expansión."
+sicher = true
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_champions_cup", plaetze = [1, 2, 3, 4, 5], phase = "k_o" }]
+hinweis = "Meister und Vizemeister von Apertura und Clausura + bester Verein der Jahrestabelle. geschätzt."
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Liga MX"
+vereine = 18
+runden = 1
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = true
+hinweis = "Abstieg ausgesetzt (seit 2020)."
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Liga_MX_season"
+[land.liga.split]
+nach_spieltagen = 17
+gruppen = [{ name = "Liguilla", plaetze = [1, 8] }]
+punkte = "neu"
+hinweis = "Apertura und Clausura je 17 Spiele; Plätze 1–6 direkt ins Viertelfinale, 7–10 Play-in um zwei Plätze."
+[[land.liga]]
+stufe = 2
+name = "Liga de Expansión MX"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+hinweis = "Kein Aufstieg in die Liga MX (ausgesetzt)."
+[[land.liga]]
+stufe = 3
+name = "Liga Premier"
+vereine = 18
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "CRC"
+name = "Costa Rica"
+pes_land = 112
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_central_american_cup", plaetze = [1, 2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Liga FPD"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+[land.liga.split]
+nach_spieltagen = 22
+gruppen = [{ name = "Endrunde Apertura/Clausura", plaetze = [1, 4] }]
+punkte = "neu"
+
+[[land]]
+code = "HON"
+name = "Honduras"
+pes_land = 121
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_central_american_cup", plaetze = [1, 2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Liga Nacional"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+[land.liga.split]
+nach_spieltagen = 18
+gruppen = [{ name = "Liguilla", plaetze = [1, 6] }]
+punkte = "neu"
+
+[[land]]
+code = "GUA"
+name = "Guatemala"
+pes_land = 119
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_central_american_cup", plaetze = [1, 2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Liga Nacional"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+[land.liga.split]
+nach_spieltagen = 22
+gruppen = [{ name = "Liguilla", plaetze = [1, 8] }]
+punkte = "neu"
+
+[[land]]
+code = "SLV"
+name = "El Salvador"
+pes_land = 116
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_central_american_cup", plaetze = [1, 2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Primera División"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+[land.liga.split]
+nach_spieltagen = 22
+gruppen = [{ name = "Liguilla", plaetze = [1, 8] }]
+punkte = "neu"
+
+[[land]]
+code = "PAN"
+name = "Panama"
+pes_land = 128
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_central_american_cup", plaetze = [1, 2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Liga Panameña de Fútbol"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "NCA"
+name = "Nicaragua"
+pes_land = 127
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_central_american_cup", plaetze = [1, 2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Liga Primera"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+[land.liga.split]
+nach_spieltagen = 18
+gruppen = [{ name = "Endrunde", plaetze = [1, 4] }]
+punkte = "neu"
+
+[[land]]
+code = "BLZ"
+name = "Belize"
+pes_land = 108
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_central_american_cup", plaetze = [1, 2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Premier League of Belize"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "JAM"
+name = "Jamaika"
+pes_land = 122
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_caribbean_cup", plaetze = [1, 2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Jamaica Premier League"
+vereine = 14
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+[[land.liga]]
+stufe = 2
+name = "JFF Championship"
+vereine = 18
+aufsteiger_direkt = 2
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "TRI"
+name = "Trinidad und Tobago"
+pes_land = 133
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_caribbean_cup", plaetze = [1, 2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "TT Premier League"
+vereine = 11
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "HAI"
+name = "Haiti"
+pes_land = 120
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_caribbean_cup", plaetze = [1, 2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Ligue Haïtienne"
+vereine = 14
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "DOM"
+name = "Dominikanische Republik"
+pes_land = 115
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_caribbean_cup", plaetze = [1, 2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Liga Dominicana de Fútbol"
+vereine = 11
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "PUR"
+name = "Puerto Rico"
+pes_land = 129
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_caribbean_cup", plaetze = [1, 2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Liga Puerto Rico"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "SUR"
+name = "Suriname"
+pes_land = 139
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_caribbean_cup", plaetze = [1, 2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Suriname Major League"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "CUW"
+name = "Curaçao"
+pes_land = 140
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_caribbean_cup", plaetze = [1, 2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Promé Divishon"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "GUY"
+name = "Guyana"
+pes_land = 159
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_caribbean_cup", plaetze = [1, 2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "GFF Elite League"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "AIA"
+name = "Anguilla"
+pes_land = 103
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_caribbean_shield", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "AFA Senior Male League"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "ATG"
+name = "Antigua und Barbuda"
+pes_land = 104
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_caribbean_shield", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Premier Division"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "ARU"
+name = "Aruba"
+pes_land = 105
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_caribbean_shield", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Division di Honor"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "BRB"
+name = "Barbados"
+pes_land = 107
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_caribbean_shield", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Barbados Premier League"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "DMA"
+name = "Dominica"
+pes_land = 114
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_caribbean_shield", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Dominica Premier League"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "GRN"
+name = "Grenada"
+pes_land = 117
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_caribbean_shield", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "GFA Premier Division"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "SKN"
+name = "St. Kitts und Nevis"
+pes_land = 130
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_caribbean_shield", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "SKNFA Premier League"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "LCA"
+name = "St. Lucia"
+pes_land = 131
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_caribbean_shield", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "SLFA First Division"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "VIN"
+name = "St. Vincent und die Grenadinen"
+pes_land = 132
+verband = "CONCACAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "concacaf_caribbean_shield", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "SVGFF Premier Division"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+
+# =================================================================== AFC
+[[land]]
+code = "JPN"
+name = "Japan"
+pes_land = 13
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften (Ausnahme früher: U23-Teams in J3, abgeschafft)."
+sicher = true
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_elite", plaetze = [1, 2, "pokal"], phase = "liga" }, { wettbewerb = "afc_champions_league_two", plaetze = [3], phase = "gruppe" }]
+hinweis = "Japan stellt 2026/27 auf Herbst-Frühjahr-Saison um; Feb–Jun 2026 läuft eine Sonderrunde ohne Abstieg."
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "J1 League"
+vereine = 20
+aufsteiger_direkt = 0
+absteiger_direkt = 3
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025_J1_League"
+[[land.liga]]
+stufe = 2
+name = "J2 League"
+vereine = 20
+aufsteiger_direkt = 2
+absteiger_direkt = 3
+sicher = true
+[land.liga.playoffs]
+plaetze = [3, 4, 5, 6]
+aufsteiger = 1
+format = "halbfinale_einzel_heim_besserer_finale"
+[[land.liga]]
+stufe = 3
+name = "J3 League"
+vereine = 20
+aufsteiger_direkt = 2
+absteiger_direkt = 2
+sicher = false
+hinweis = "Abstieg in die JFL nur, wenn dort ein Verein mit J-Lizenz aufsteigt."
+[land.liga.playoffs]
+plaetze = [3, 4, 5, 6]
+aufsteiger = 1
+format = "halbfinale_einzel_finale"
+
+[[land]]
+code = "KOR"
+name = "Südkorea"
+pes_land = 16
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_elite", plaetze = [1, 2, "pokal"], phase = "liga" }, { wettbewerb = "afc_champions_league_two", plaetze = [3], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "K League 1"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025_K_League_1"
+[land.liga.relegation]
+platz = 10
+gegen = "Sieger K-League-2-Play-off"
+format = "hin_rueck"
+hinweis = "11. spielt gegen den 2. der K League 2, 10. gegen den Play-off-Sieger (3.–5.)."
+[land.liga.split]
+nach_spieltagen = 33
+gruppen = [{ name = "Final A", plaetze = [1, 6] }, { name = "Final B", plaetze = [7, 12] }]
+punkte = "behalten"
+[[land.liga]]
+stufe = 2
+name = "K League 2"
+vereine = 17
+aufsteiger_direkt = 1
+absteiger_direkt = 0
+sicher = false
+[land.liga.playoffs]
+plaetze = [2, 3, 4, 5]
+aufsteiger = 0
+format = "gegen_10_und_11_k_league_1"
+
+[[land]]
+code = "CHN"
+name = "China"
+pes_land = 7
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_elite", plaetze = [1, 2, "pokal"], phase = "liga" }, { wettbewerb = "afc_champions_league_two", plaetze = [3], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Chinese Super League"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2026_Chinese_Super_League"
+[[land.liga]]
+stufe = 2
+name = "China League One"
+vereine = 16
+aufsteiger_direkt = 2
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "KSA"
+name = "Saudi-Arabien"
+pes_land = 31
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_elite", plaetze = [1, 2, "pokal"], phase = "liga" }, { wettbewerb = "afc_champions_league_two", plaetze = [3], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Saudi Pro League"
+vereine = 18
+aufsteiger_direkt = 0
+absteiger_direkt = 3
+sicher = true
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Saudi_Pro_League"
+[[land.liga]]
+stufe = 2
+name = "Saudi First Division League"
+vereine = 18
+aufsteiger_direkt = 2
+absteiger_direkt = 3
+sicher = true
+[land.liga.playoffs]
+plaetze = [3, 4, 5, 6]
+aufsteiger = 1
+format = "halbfinale_finale"
+[[land.liga]]
+stufe = 3
+name = "Saudi Second Division"
+vereine = 32
+staffeln = 2
+aufsteiger_direkt = 2
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "UAE"
+name = "Vereinigte Arabische Emirate"
+pes_land = 37
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_elite", plaetze = [1, 2], phase = "liga" }, { wettbewerb = "afc_champions_league_two", plaetze = [3], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "UAE Pro League"
+vereine = 14
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = true
+[[land.liga]]
+stufe = 2
+name = "UAE First Division"
+vereine = 15
+aufsteiger_direkt = 2
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "QAT"
+name = "Katar"
+pes_land = 30
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_elite", plaetze = [1, 2], phase = "liga" }, { wettbewerb = "afc_champions_league_two", plaetze = [3], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Qatar Stars League"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = true
+[land.liga.relegation]
+platz = 11
+gegen = "2. der Second Division"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 2
+name = "Qatari Second Division"
+vereine = 11
+aufsteiger_direkt = 1
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "IRN"
+name = "Iran"
+pes_land = 11
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_elite", plaetze = [1, "pokal"], phase = "liga" }, { wettbewerb = "afc_champions_league_two", plaetze = [2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Persian Gulf Pro League"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+[[land.liga]]
+stufe = 2
+name = "Azadegan League"
+vereine = 18
+aufsteiger_direkt = 2
+absteiger_direkt = 3
+sicher = false
+
+[[land]]
+code = "AUS"
+name = "Australien"
+pes_land = 162
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 0
+hinweis = "Jugendteams nur in den Staatsligen; kein Auf-/Abstieg in die A-League."
+sicher = true
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_elite", plaetze = [1], phase = "liga" }, { wettbewerb = "afc_champions_league_two", plaetze = [2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "A-League Men"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = true
+hinweis = "Kein Abstieg. Die besten 6 spielen die Finals um die Meisterschaft; Kontinentalplätze an Premiers (Hauptrunde) und Meister."
+quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_A-League_Men"
+[land.liga.playoffs]
+plaetze = [1, 2, 3, 4, 5, 6]
+aufsteiger = 0
+format = "finals_serie_titel"
+
+[[land]]
+code = "UZB"
+name = "Usbekistan"
+pes_land = 240
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_elite", plaetze = [1], phase = "liga" }, { wettbewerb = "afc_champions_league_two", plaetze = [2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Super League"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+[[land.liga]]
+stufe = 2
+name = "Pro League"
+vereine = 14
+aufsteiger_direkt = 2
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "IRQ"
+name = "Irak"
+pes_land = 12
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_elite", plaetze = [1], phase = "liga" }, { wettbewerb = "afc_champions_league_two", plaetze = [2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Iraq Stars League"
+vereine = 20
+aufsteiger_direkt = 0
+absteiger_direkt = 3
+sicher = false
+[[land.liga]]
+stufe = 2
+name = "Iraqi Premier Division"
+vereine = 20
+aufsteiger_direkt = 2
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "THA"
+name = "Thailand"
+pes_land = 36
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_elite", plaetze = [1], phase = "liga" }, { wettbewerb = "afc_champions_league_two", plaetze = [2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Thai League 1"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 3
+sicher = false
+[[land.liga]]
+stufe = 2
+name = "Thai League 2"
+vereine = 18
+aufsteiger_direkt = 2
+absteiger_direkt = 3
+sicher = false
+[land.liga.playoffs]
+plaetze = [3, 4, 5, 6]
+aufsteiger = 1
+format = "halbfinale_finale_hin_rueck"
+
+[[land]]
+code = "JOR"
+name = "Jordanien"
+pes_land = 14
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_two", plaetze = [1], phase = "gruppe" }, { wettbewerb = "afc_challenge_league", plaetze = [2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Jordanian Pro League"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "IND"
+name = "Indien"
+pes_land = 9
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 3
+hinweis = "Reserveteams in unteren Ligen."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_two", plaetze = [1], phase = "gruppe" }, { wettbewerb = "afc_challenge_league", plaetze = [2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Indian Super League"
+vereine = 14
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+hinweis = "Kein fester Abstieg; Sieger der I-League kann aufsteigen."
+[land.liga.playoffs]
+plaetze = [1, 2, 3, 4, 5, 6]
+aufsteiger = 0
+format = "titel_playoffs"
+[[land.liga]]
+stufe = 2
+name = "I-League"
+vereine = 11
+aufsteiger_direkt = 1
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "IDN"
+name = "Indonesien"
+pes_land = 10
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_two", plaetze = [1], phase = "gruppe" }, { wettbewerb = "afc_challenge_league", plaetze = [2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Super League"
+vereine = 18
+aufsteiger_direkt = 0
+absteiger_direkt = 3
+sicher = false
+[[land.liga]]
+stufe = 2
+name = "Championship"
+vereine = 20
+staffeln = 2
+aufsteiger_direkt = 3
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "MAS"
+name = "Malaysia"
+pes_land = 21
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = true
+hoechste_stufe = 2
+hinweis = "Zweite Mannschaften (z. B. JDT II) in der zweiten Liga."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_two", plaetze = [1], phase = "gruppe" }, { wettbewerb = "afc_challenge_league", plaetze = [2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Malaysia Super League"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+[[land.liga]]
+stufe = 2
+name = "Malaysia A1 Semi-Pro League"
+vereine = 10
+aufsteiger_direkt = 1
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "VIE"
+name = "Vietnam"
+pes_land = 38
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_two", plaetze = [1], phase = "gruppe" }, { wettbewerb = "afc_challenge_league", plaetze = [2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "V.League 1"
+vereine = 14
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = true
+[land.liga.relegation]
+platz = 13
+gegen = "2. der V.League 2"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 2
+name = "V.League 2"
+vereine = 15
+aufsteiger_direkt = 1
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "SIN"
+name = "Singapur"
+pes_land = 32
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_two", plaetze = [1], phase = "gruppe" }, { wettbewerb = "afc_challenge_league", plaetze = [2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Singapore Premier League"
+vereine = 8
+runden = 3
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "HKG"
+name = "Hongkong"
+pes_land = 8
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_challenge_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Hong Kong Premier League"
+vereine = 11
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "BHR"
+name = "Bahrain"
+pes_land = 2
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_two", plaetze = [1], phase = "gruppe" }, { wettbewerb = "afc_challenge_league", plaetze = [2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Bahraini Premier League"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "KUW"
+name = "Kuwait"
+pes_land = 17
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_two", plaetze = [1], phase = "gruppe" }, { wettbewerb = "afc_challenge_league", plaetze = [2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Kuwaiti Premier League"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "OMA"
+name = "Oman"
+pes_land = 26
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_two", plaetze = [1], phase = "gruppe" }, { wettbewerb = "afc_challenge_league", plaetze = [2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Oman Professional League"
+vereine = 14
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "SYR"
+name = "Syrien"
+pes_land = 34
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_two", plaetze = [1], phase = "gruppe" }, { wettbewerb = "afc_challenge_league", plaetze = [2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Syrian Premier League"
+vereine = 14
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "LIB"
+name = "Libanon"
+pes_land = 19
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_challenge_league", plaetze = [1, 2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Lebanese Premier League"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+[land.liga.split]
+nach_spieltagen = 11
+gruppen = [{ name = "Meisterrunde", plaetze = [1, 6] }, { name = "Abstiegsrunde", plaetze = [7, 12] }]
+punkte = "behalten"
+[[land.liga]]
+stufe = 2
+name = "Lebanese Second Division"
+vereine = 12
+aufsteiger_direkt = 2
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "TJK"
+name = "Tadschikistan"
+pes_land = 41
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_two", plaetze = [1], phase = "gruppe" }, { wettbewerb = "afc_challenge_league", plaetze = [2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Tajikistan Higher League"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "KGZ"
+name = "Kirgisistan"
+pes_land = 40
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_challenge_league", plaetze = [1, 2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Kyrgyz Premier League"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "TKM"
+name = "Turkmenistan"
+pes_land = 42
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_champions_league_two", plaetze = [1], phase = "gruppe" }, { wettbewerb = "afc_challenge_league", plaetze = [2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Ýokary Liga"
+vereine = 8
+runden = 4
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "BAN"
+name = "Bangladesch"
+pes_land = 3
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_challenge_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Bangladesh Premier League"
+vereine = 13
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "BHU"
+name = "Bhutan"
+pes_land = 4
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_challenge_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Bhutan Premier League"
+vereine = 11
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "BRU"
+name = "Brunei"
+pes_land = 5
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_challenge_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Brunei Super League"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "CAM"
+name = "Kambodscha"
+pes_land = 6
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_challenge_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Cambodian Premier League"
+vereine = 11
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "PRK"
+name = "Nordkorea"
+pes_land = 15
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_challenge_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "DPR Korea Premier Football League"
+vereine = 11
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "LAO"
+name = "Laos"
+pes_land = 18
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_challenge_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Lao League 1"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "MAC"
+name = "Macau"
+pes_land = 20
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_challenge_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Liga de Elite"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "MDV"
+name = "Malediven"
+pes_land = 22
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_challenge_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Dhivehi Premier League"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "MNG"
+name = "Mongolei"
+pes_land = 23
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_challenge_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Mongolian Premier League"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "MYA"
+name = "Myanmar"
+pes_land = 24
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_challenge_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Myanmar National League"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "NEP"
+name = "Nepal"
+pes_land = 25
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_challenge_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Nepal National League"
+vereine = 17
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "PAK"
+name = "Pakistan"
+pes_land = 27
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_challenge_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Pakistan Premier League"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "PLE"
+name = "Palästina"
+pes_land = 28
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_challenge_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "West Bank Premier League"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "PHI"
+name = "Philippinen"
+pes_land = 29
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_challenge_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Philippines Football League"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "YEM"
+name = "Jemen"
+pes_land = 39
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_challenge_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Yemeni League"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "TLS"
+name = "Osttimor"
+pes_land = 43
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_challenge_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Liga Futebol Timor-Leste"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "TPE"
+name = "Taiwan"
+pes_land = 298
+verband = "AFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "afc_challenge_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Taiwan Football Premier League"
+vereine = 8
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+# =================================================================== CAF
+[[land]]
+code = "EGY"
+name = "Ägypten"
+pes_land = 58
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1, 2], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal", 3], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Egyptian Premier League"
+vereine = 21
+aufsteiger_direkt = 0
+absteiger_direkt = 4
+sicher = false
+hinweis = "2025/26: erste Phase einfache Runde, danach Meister- und Abstiegsgruppe. FL-Welt nutzt 20 Vereine."
+[land.liga.split]
+nach_spieltagen = 20
+gruppen = [{ name = "Meisterrunde", plaetze = [1, 7] }, { name = "Abstiegsrunde", plaetze = [8, 21] }]
+punkte = "behalten"
+[[land.liga]]
+stufe = 2
+name = "Egyptian Second Division A"
+vereine = 20
+aufsteiger_direkt = 3
+absteiger_direkt = 4
+sicher = false
+
+[[land]]
+code = "MAR"
+name = "Marokko"
+pes_land = 76
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1, 2], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal", 3], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Botola Pro"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = true
+[land.liga.relegation]
+platz = 14
+gegen = "3. der Botola Pro 2"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 2
+name = "Botola Pro 2"
+vereine = 16
+aufsteiger_direkt = 2
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "TUN"
+name = "Tunesien"
+pes_land = 92
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1, 2], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal", 3], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Ligue Professionnelle 1"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+[[land.liga]]
+stufe = 2
+name = "Ligue Professionnelle 2"
+vereine = 16
+aufsteiger_direkt = 2
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "ALG"
+name = "Algerien"
+pes_land = 44
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1, 2], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal", 3], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Ligue Professionnelle 1"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 3
+sicher = false
+
+[[land]]
+code = "RSA"
+name = "Südafrika"
+pes_land = 87
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1, 2], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal", 3], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Betway Premiership"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = true
+[land.liga.relegation]
+platz = 15
+gegen = "Sieger Play-off der Motsepe Foundation Championship (2./3.)"
+format = "hin_rueck"
+[[land.liga]]
+stufe = 2
+name = "Motsepe Foundation Championship"
+vereine = 16
+aufsteiger_direkt = 1
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "NGA"
+name = "Nigeria"
+pes_land = 80
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1, 2], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal", 3], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Nigeria Premier Football League"
+vereine = 20
+aufsteiger_direkt = 0
+absteiger_direkt = 4
+sicher = true
+[[land.liga]]
+stufe = 2
+name = "Nigeria National League"
+vereine = 16
+staffeln = 2
+aufsteiger_direkt = 4
+absteiger_direkt = 0
+sicher = false
+
+[[land]]
+code = "ANG"
+name = "Angola"
+pes_land = 45
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1, 2], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal", 3], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Girabola"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 3
+sicher = false
+
+[[land]]
+code = "LBY"
+name = "Libyen"
+pes_land = 70
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1, 2], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal", 3], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Libyan Premier League"
+vereine = 18
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+hinweis = "Mehrere Gruppen, dann Finalrunde."
+
+[[land]]
+code = "SDN"
+name = "Sudan"
+pes_land = 88
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1, 2], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal", 3], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Sudan Premier League"
+vereine = 17
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "CIV"
+name = "Elfenbeinküste"
+pes_land = 56
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1, 2], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal", 3], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Ligue 1"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "TAN"
+name = "Tansania"
+pes_land = 90
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1, 2], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal", 3], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Tanzanian Premier League"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "COD"
+name = "DR Kongo"
+pes_land = 55
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1, 2], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal", 3], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Linafoot"
+vereine = 14
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "BEN"
+name = "Benin"
+pes_land = 46
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Ligue 1"
+vereine = 17
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "BOT"
+name = "Botswana"
+pes_land = 47
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Botswana Premier League"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "BFA"
+name = "Burkina Faso"
+pes_land = 48
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Premier League"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "BDI"
+name = "Burundi"
+pes_land = 49
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Primus Ligue"
+vereine = 15
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "CMR"
+name = "Kamerun"
+pes_land = 50
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Elite One"
+vereine = 14
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "CPV"
+name = "Kap Verde"
+pes_land = 51
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Campeonato Nacional"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "CTA"
+name = "Zentralafrikanische Republik"
+pes_land = 52
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Ligue 1"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "CHA"
+name = "Tschad"
+pes_land = 53
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Championnat National"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "COM"
+name = "Komoren"
+pes_land = 54
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Championnat National"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "EQG"
+name = "Äquatorialguinea"
+pes_land = 59
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Liga Nacional"
+vereine = 17
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "ETH"
+name = "Äthiopien"
+pes_land = 61
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Ethiopian Premier League"
+vereine = 18
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "GAB"
+name = "Gabun"
+pes_land = 62
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "National Foot 1"
+vereine = 13
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "GAM"
+name = "Gambia"
+pes_land = 63
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "GFA League First Division"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "GHA"
+name = "Ghana"
+pes_land = 64
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Ghana Premier League"
+vereine = 18
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "GUI"
+name = "Guinea"
+pes_land = 65
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Ligue 1 Pro"
+vereine = 14
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "GNB"
+name = "Guinea-Bissau"
+pes_land = 66
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Campeonato Nacional"
+vereine = 13
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "KEN"
+name = "Kenia"
+pes_land = 67
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Kenyan Premier League"
+vereine = 18
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "LES"
+name = "Lesotho"
+pes_land = 68
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Lesotho Premier League"
+vereine = 13
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "LBR"
+name = "Liberia"
+pes_land = 69
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "First Division"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "MAD"
+name = "Madagaskar"
+pes_land = 71
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Pro League"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "MWI"
+name = "Malawi"
+pes_land = 72
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Super League"
+vereine = 15
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "MLI"
+name = "Mali"
+pes_land = 73
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Ligue 1"
+vereine = 13
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "MTN"
+name = "Mauretanien"
+pes_land = 74
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Super D1"
+vereine = 13
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "MRI"
+name = "Mauritius"
+pes_land = 75
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Mauritian Premier League"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "MOZ"
+name = "Mosambik"
+pes_land = 77
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Moçambola"
+vereine = 14
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "NAM"
+name = "Namibia"
+pes_land = 78
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Namibia Premiership"
+vereine = 13
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "NIG"
+name = "Niger"
+pes_land = 79
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Super Ligue"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "RWA"
+name = "Ruanda"
+pes_land = 81
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Rwanda Premier League"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "STP"
+name = "São Tomé und Príncipe"
+pes_land = 82
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Campeonato Nacional"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "SEN"
+name = "Senegal"
+pes_land = 83
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Ligue 1"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "SEY"
+name = "Seychellen"
+pes_land = 84
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Seychelles Premier League"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "SLE"
+name = "Sierra Leone"
+pes_land = 85
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Sierra Leone Premier League"
+vereine = 14
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "SOM"
+name = "Somalia"
+pes_land = 86
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Somali National League"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "SWZ"
+name = "Eswatini"
+pes_land = 89
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Premier League of Eswatini"
+vereine = 15
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "TOG"
+name = "Togo"
+pes_land = 91
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Championnat National"
+vereine = 14
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "UGA"
+name = "Uganda"
+pes_land = 93
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Uganda Premier League"
+vereine = 16
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "ZAM"
+name = "Sambia"
+pes_land = 94
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Zambia Super League"
+vereine = 18
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "ZIM"
+name = "Simbabwe"
+pes_land = 95
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Premier Soccer League"
+vereine = 18
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "CGO"
+name = "Kongo"
+pes_land = 98
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Ligue 1"
+vereine = 14
+aufsteiger_direkt = 0
+absteiger_direkt = 2
+sicher = false
+
+[[land]]
+code = "SSD"
+name = "Südsudan"
+pes_land = 312
+verband = "CAF"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "caf_champions_league", plaetze = [1], phase = "quali" }, { wettbewerb = "caf_confederation_cup", plaetze = ["pokal"], phase = "quali" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "South Sudan Premier League"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+# =================================================================== OFC
+[[land]]
+code = "NZL"
+name = "Neuseeland"
+pes_land = 166
+verband = "OFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "ofc_champions_league", plaetze = [1, 2], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "National League (Northern/Central/Southern League)"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 0
+sicher = false
+hinweis = "Regionalligen, die Besten spielen die National League um den Titel; kein Abstieg in die Regionalligen."
+
+[[land]]
+code = "FIJ"
+name = "Fidschi"
+pes_land = 164
+verband = "OFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "ofc_champions_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Fiji Premier League"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "NCL"
+name = "Neukaledonien"
+pes_land = 165
+verband = "OFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "ofc_champions_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Super Ligue"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "TAH"
+name = "Tahiti"
+pes_land = 170
+verband = "OFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "ofc_champions_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Ligue 1"
+vereine = 12
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "SOL"
+name = "Salomonen"
+pes_land = 169
+verband = "OFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "ofc_champions_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "S-League"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "VAN"
+name = "Vanuatu"
+pes_land = 172
+verband = "OFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "ofc_champions_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "National Super League"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "SAM"
+name = "Samoa"
+pes_land = 168
+verband = "OFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "ofc_champions_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "Samoa National League"
+vereine = 10
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false
+
+[[land]]
+code = "ASA"
+name = "Amerikanisch-Samoa"
+pes_land = 161
+verband = "OFC"
+[land.zweite_mannschaften]
+erlaubt = false
+hoechste_stufe = 0
+hinweis = "Keine zweiten Mannschaften im Ligasystem."
+sicher = false
+[land.kontinental]
+plaetze = [{ wettbewerb = "ofc_champions_league", plaetze = [1], phase = "gruppe" }]
+hinweis = ""
+sicher = false
+[[land.liga]]
+stufe = 1
+name = "FFAS Senior League"
+vereine = 11
+aufsteiger_direkt = 0
+absteiger_direkt = 1
+sicher = false

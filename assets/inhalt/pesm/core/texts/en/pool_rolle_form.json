@@ -1,0 +1,462 @@
+{
+ "pool.reservist_unzufrieden.e.e1": [
+  "{b.gruss} {b.reservist_unzufrieden_klage} I don't expect miracles, but I'd like to know where I stand.",
+  "{b.gruss} {b.reservist_unzufrieden_klage} I know others are ahead of me. Nobody just says it to my face."
+ ],
+ "pool.reservist_unzufrieden.e.e2": [
+  "{b.gruss} {b.reservist_unzufrieden_klage} Is there still a role planned for me, or am I just squad filler?",
+  "{b.gruss} {b.reservist_unzufrieden_klage} Tell me honestly whether I still have a chance."
+ ],
+ "pool.reservist_unzufrieden.e.e3": [
+  "{b.gruss} {b.reservist_unzufrieden_klage} Honestly I'm pretty low, and it follows me home as well.",
+  "{b.gruss} {b.reservist_unzufrieden_klage} It drags me down, and I don't want it to hold me back in training."
+ ],
+ "pool.reservist_unzufrieden.e.e4": [
+  "{b.gruss} {b.reservist_unzufrieden_klage} If I'm not needed, say so instead of leaving me in the dark!",
+  "{b.gruss} {b.reservist_unzufrieden_klage} I won't be treated as a stopgap any longer."
+ ],
+ "pool.reservist_unzufrieden.e.e5": [
+  "{b.gruss} {b.reservist_unzufrieden_klage} I don't like complaining, I'm sure you have your reasons.",
+  "{b.gruss} {b.reservist_unzufrieden_klage} I stand behind the team, but a clear word would help me."
+ ],
+ "pool.reservist_unzufrieden.e.e6": [
+  "{b.gruss} {b.reservist_unzufrieden_klage} At my age I still want to achieve something and not just watch.",
+  "{b.gruss} {b.reservist_unzufrieden_klage} I need games, otherwise I miss my best years."
+ ],
+ "pool.reservist_unzufrieden.e.e7": [
+  "{b.gruss} {b.reservist_unzufrieden_klage} There are clubs where I would play, I want you to know that.",
+  "{b.gruss} {b.reservist_unzufrieden_klage} I'm wondering whether a loan wouldn't be better for me."
+ ],
+ "pool.reservist_unzufrieden.e.e8": [
+  "{b.gruss} {b.reservist_unzufrieden_klage} I'm afraid I'll be forgotten here.",
+  "{b.gruss} {b.reservist_unzufrieden_klage} Sometimes I think nobody notices whether I'm there or not."
+ ],
+ "pool.reservist_unzufrieden.e.e9": [
+  "{b.gruss} {b.reservist_unzufrieden_klage} You held out playing time to me, and little has happened.",
+  "{b.gruss} {b.reservist_unzufrieden_klage} I'm still waiting on your word from back then, an answer would be fair."
+ ],
+ "pool.neuzugang_aussen_vor.e.e1": [
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} He eats alone, trains alone and goes home alone.",
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} I wanted to tell you before it sets in."
+ ],
+ "pool.neuzugang_aussen_vor.e.e2": [
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} On the pitch hardly anybody passes to him, and in the dressing room he stays quiet.",
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} The squad seems polite, but not open towards him."
+ ],
+ "pool.neuzugang_aussen_vor.e.e3": [
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} His mood is bad, and it's rubbing off on the group.",
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} If we don't do something soon, it'll tip over."
+ ],
+ "pool.neuzugang_aussen_vor.e.e4": [
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} This has to stop now, we're burning good money and good time!",
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} Either we step in, or I do it my way."
+ ],
+ "pool.neuzugang_aussen_vor.e.e5": [
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} I feel a bit responsible myself, and the lads are decent really.",
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} I offered him help, but he needs more than me."
+ ],
+ "pool.neuzugang_aussen_vor.e.e6": [
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} He has the quality, we waste his potential if we do nothing.",
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} For what he cost, he has to arrive faster."
+ ],
+ "pool.neuzugang_aussen_vor.e.e7": [
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} He has already hinted that he's looking back at old contacts.",
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} I'm worried he already regrets the move."
+ ],
+ "pool.neuzugang_aussen_vor.e.e8": [
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} It nearly breaks my heart how he stands there alone every day.",
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} He says nothing, but you can see how hard it is for him."
+ ],
+ "pool.neuzugang_aussen_vor.e.e9": [
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} I raised this with you before, and nothing has happened since.",
+  "{b.gruss} {b.neuzugang_aussen_vor_lage} You wanted to take care of this, but nothing has happened yet."
+ ],
+ "pool.formtief.e.e1": [
+  "{b.gruss} {b.formtief_lage} I no longer know what to do differently.",
+  "{b.gruss} {b.formtief_lage} I wanted to talk to you before it gets worse."
+ ],
+ "pool.formtief.e.e2": [
+  "{b.gruss} {b.formtief_lage} Every ball feels heavy, and I think too much.",
+  "{b.gruss} {b.formtief_lage} I know it's down to me, I just don't know where to start."
+ ],
+ "pool.formtief.e.e3": [
+  "{b.gruss} {b.formtief_lage} Honestly, my nerves are pretty shot.",
+  "{b.gruss} {b.formtief_lage} I sleep badly and go to training with a bad feeling."
+ ],
+ "pool.formtief.e.e4": [
+  "{b.gruss} {b.formtief_lage} And then I read how I'm torn apart in the paper!",
+  "{b.gruss} {b.formtief_lage} The fans' whistles don't make it one bit better!"
+ ],
+ "pool.formtief.e.e5": [
+  "{b.gruss} {b.formtief_lage} You've always believed in me, and I don't want to disappoint you.",
+  "{b.gruss} {b.formtief_lage} I know what I owe you, and I want to show it again."
+ ],
+ "pool.formtief.e.e6": [
+  "{b.gruss} {b.formtief_lage} I want to get back to my form, and fast. What do I need for that?",
+  "{b.gruss} {b.formtief_lage} Give me a plan, I'll put in extra work every day."
+ ],
+ "pool.formtief.e.e7": [
+  "{b.gruss} {b.formtief_lage} Maybe a fresh start somewhere else would be best.",
+  "{b.gruss} {b.formtief_lage} I don't know whether I can find myself again here."
+ ],
+ "pool.formtief.e.e8": [
+  "{b.gruss} {b.formtief_lage} I feel as if I've forgotten how to play football.",
+  "{b.gruss} {b.formtief_lage} Sometimes I think I'm not good enough at all."
+ ],
+ "pool.formtief.e.e9": [
+  "{b.gruss} {b.formtief_lage} You wanted to help me, and so far I haven't noticed any of it.",
+  "{b.gruss} {b.formtief_lage} Your promise from recently is still hanging in the air."
+ ],
+ "pool.reservist_unzufrieden.a.a1": [
+  "I'll plan you in for the next games, mainly in the league. We'll talk again in {frist} days.",
+  "You'll get game time, I promise that. After {frist} days we'll check together how it went."
+ ],
+ "pool.reservist_unzufrieden.a.a2": [
+  "Honestly: two players are ahead of you in your position. That's no criticism of you, but I won't pretend otherwise.",
+  "You matter for the depth of the squad, and still you only play when someone drops out. You need to know that."
+ ],
+ "pool.reservist_unzufrieden.a.a3": [
+  "It stays like this for a while, but hang in there, your time will come.",
+  "I understand. Give me a little time, something always comes up during the season."
+ ],
+ "pool.reservist_unzufrieden.a.a4": [
+  "I pick the one who trains best this week. That wasn't you.",
+  "No. You have no claim to games, and I won't promise you any."
+ ],
+ "pool.reservist_unzufrieden.a.a5": [
+  "I see this weighs on you. You'll get a bonus for your work in training, and I'll plan you firmly into the rotation.",
+  "I'll pay you something extra for your attitude. That applies regardless of games."
+ ],
+ "pool.reservist_unzufrieden.a.a6": [
+  "What would you do in my position?",
+  "Tell me what exactly you have in mind, and we'll see what is possible."
+ ],
+ "pool.reservist_unzufrieden.a.a7": [
+  "You stay what you are: the alternative. Whoever wants games should perform, end of story.",
+  "I won't change my plan because you're unhappy. You'll have to live with that."
+ ],
+ "pool.reservist_unzufrieden.a.a8": [
+  "I can understand that. I see that you work every day anyway, and I appreciate it.",
+  "With you, more counts for me than minutes on the pitch. I notice how much you do for the group."
+ ],
+ "pool.reservist_unzufrieden.a.a9": [
+  "Please talk to the assistant coach, he has a good overview of the selection plans.",
+  "Clear that with the staff first. After that I'm happy to come back to it."
+ ],
+ "pool.reservist_unzufrieden.a.a10": [
+  "Well, you're sure of a seat on the bus. I'll give you games in the cup and when we rotate, and I'll keep to it.",
+  "I'll take you as a fixed part of the rotation, with a handshake. We'll see in {frist} days how it goes."
+ ],
+ "pool.reservist_unzufrieden.a.a11": [
+  "If you want to play more, I'll look into a loan. I'll release you if a suitable club turns up.",
+  "I'll give you the chance to go on loan. Within {frist} days we'll look at what's out there."
+ ],
+ "pool.reservist_unzufrieden.a.a12": [
+  "If you don't like the bench, find something else. Discipline matters more to me than how you feel.",
+  "Don't complain, push your way in with performance. Nothing else interests me."
+ ],
+ "pool.neuzugang_aussen_vor.a.a1": [
+  "He'll start the next matches, then he'll feel we want him. In {frist} days we'll see.",
+  "Give him game time, I'll plan him in firmly. We'll review after {frist} days."
+ ],
+ "pool.neuzugang_aussen_vor.a.a2": [
+  "Bring in the staff: mental coach, physio and carers should look after him and report back to me.",
+  "Ask the staff for a plan for his settling in. I want someone to pick him up every day."
+ ],
+ "pool.neuzugang_aussen_vor.a.a3": [
+  "We'll put a mentor at his side, ideally a calm one from the leadership group. Ask who would take it on.",
+  "Give him a buddy in the team who shows him the club, the city and the routines."
+ ],
+ "pool.neuzugang_aussen_vor.a.a4": [
+  "I'll talk to him myself, one to one. I want to hear how he feels.",
+  "Let me have a talk with him, without pressure. He should feel we're behind him."
+ ],
+ "pool.neuzugang_aussen_vor.a.a5": [
+  "Let's give him a little more time, everyone needs a few weeks to arrive.",
+  "I know it's pressing on you. Let's wait a few games, then I'll decide."
+ ],
+ "pool.neuzugang_aussen_vor.a.a6": [
+  "He's a professional, not a child. He has to fight his way through.",
+  "Whoever arrives has to prove himself. No help, only games."
+ ],
+ "pool.neuzugang_aussen_vor.a.a7": [
+  "What do you base this on, and what exactly do you observe in training?",
+  "Tell me how you notice it in everyday life. Then I'll think about what to do."
+ ],
+ "pool.neuzugang_aussen_vor.a.a8": [
+  "I deliberately haven't played him yet, new routines take time. That has nothing to do with him.",
+  "We haven't defined his role yet, and that's my mistake. I'll sort it out calmly."
+ ],
+ "pool.neuzugang_aussen_vor.a.a9": [
+  "There's no special route. Whoever wants to play here adapts.",
+  "I won't change anything because of one individual. The group comes first."
+ ],
+ "pool.neuzugang_aussen_vor.a.a10": [
+  "Then send him for a coffee with the captain, it helped you yourself. Tell me afterwards what happened.",
+  "Maybe he just lacks a reason to laugh. We can make training more relaxed."
+ ],
+ "pool.neuzugang_aussen_vor.a.a11": [
+  "That's not my job but yours. Take care of it and leave me out of it.",
+  "I'm the coach, not a nanny. Solve it yourself."
+ ],
+ "pool.neuzugang_aussen_vor.a.a12": [
+  "We'll organise a team night at the club's expense. It loosens things up and brings the new lad together with the others.",
+  "I'll pay for a night out for the whole group, table and food included. He should be in the middle of it."
+ ],
+ "pool.neuzugang_aussen_vor.a.a13": [
+  "I'll give him a clear task in games and in the team so he knows what he's here for. Until then I'm making you a firm promise.",
+  "He gets a fixed role with responsibility. In {frist} days I'll check whether it suits him."
+ ],
+ "pool.formtief.a.a1": [
+  "I trust you, you keep playing. We'll do this together, and in {frist} days we'll talk again.",
+  "You stay in the team, that's decided. Don't worry, it'll come back."
+ ],
+ "pool.formtief.a.a2": [
+  "I see how much this occupies you, and that's fine. You are more than the last few games, and I stand behind you.",
+  "You're allowed to have a bad spell. What matters is that you know I believe in you."
+ ],
+ "pool.formtief.a.a3": [
+  "A dip in form is normal. Your running numbers and chances are right, you just lack luck at the moment.",
+  "Let's look at it soberly: the numbers are better than it feels. That will turn."
+ ],
+ "pool.formtief.a.a4": [
+  "It passes, it's happened to everyone. Don't drive yourself mad.",
+  "Give it a few weeks, and until then you don't need to brood."
+ ],
+ "pool.formtief.a.a5": [
+  "Then play better. Complaining won't change anything.",
+  "Your form curve is your business. I pick the one who delivers."
+ ],
+ "pool.formtief.a.a6": [
+  "What goes through your head in a match when the ball comes to you?",
+  "When did it start? Tell me what has changed for you since."
+ ],
+ "pool.formtief.a.a7": [
+  "Whoever doesn't deliver sits on the bench. It's that simple.",
+  "I show no consideration for feelings as long as the performance is missing."
+ ],
+ "pool.formtief.a.a8": [
+  "Talk to the mental coach and the fitness coach, they'll look at your load.",
+  "I'll ask the staff to take care of you. After that we'll talk about what they found."
+ ],
+ "pool.formtief.a.a9": [
+  "You get a day off, and we'll book you a specialist for a few sessions. A laugh in training doesn't hurt either.",
+  "I'll treat you to one-to-one sessions with a specialist. That's an investment in you."
+ ],
+ "pool.formtief.a.a10": [
+  "Well, it's not that bad. You play the next games all the way through, that's my word, and in training you're welcome to score again.",
+  "With a handshake: you start for the next weeks, no matter how it goes. Deadline: {frist} days."
+ ],
+ "pool.formtief.a.a11": [
+  "Pull yourself together. A dip in form is no excuse.",
+  "I don't want to see self-pity, I want effort. There's nothing more to say."
+ ],
+ "pool.formtief.a.a12": [
+  "I'll take you out for a game or two so you can clear your head. It's not a punishment.",
+  "A little distance sometimes helps. You watch from outside and come back stronger."
+ ],
+ "pool.reservist_unzufrieden.r.r1": [
+  "{b.gut} That's more than I expected.",
+  "{b.gut} Thanks for being so open with me."
+ ],
+ "pool.reservist_unzufrieden.r.r2": [
+  "{b.gut} I'll keep working for the team, as before.",
+  "{b.gut} That's fair, I can live with that."
+ ],
+ "pool.reservist_unzufrieden.r.r3": [
+  "{b.gut} Then I'll stay ready when you need me.",
+  "{b.gut} That's the chance I need."
+ ],
+ "pool.reservist_unzufrieden.r.r4": [
+  "{b.gut} That gives me the feeling that I count.",
+  "{b.gut} That helps me more than you think."
+ ],
+ "pool.reservist_unzufrieden.r.r5": [
+  "{b.neutral} We'll see how much of it really happens.",
+  "{b.neutral} I'll take it with me and think about it."
+ ],
+ "pool.reservist_unzufrieden.r.r6": [
+  "{b.neutral} I don't know whether I should be satisfied with that.",
+  "{b.neutral} I'm not sure what to make of it."
+ ],
+ "pool.reservist_unzufrieden.r.r7": [
+  "{b.neutral} I need to see how this feels in training.",
+  "{b.neutral} Fine, then I'll wait."
+ ],
+ "pool.reservist_unzufrieden.r.r8": [
+  "{b.neutral} I'll stay relaxed and see what comes.",
+  "{b.neutral} No problem, I'll just carry on."
+ ],
+ "pool.reservist_unzufrieden.r.r9": [
+  "{b.schlecht} That changes nothing for me.",
+  "{b.schlecht} That's no way to treat a player."
+ ],
+ "pool.reservist_unzufrieden.r.r10": [
+  "{b.schlecht} I won't put up with this, I've had enough!",
+  "{b.schlecht} Then I'll stay the spectator, thanks for nothing!"
+ ],
+ "pool.reservist_unzufrieden.r.r11": [
+  "{b.schlecht} Then I'll have my agent show me offers.",
+  "{b.schlecht} I know where I can play, and it isn't here."
+ ],
+ "pool.reservist_unzufrieden.r.r12": [
+  "{b.schlecht} After all these years I'd have expected more respect.",
+  "{b.schlecht} I always kept quiet, and this is the thanks."
+ ],
+ "pool.neuzugang_aussen_vor.r.r1": [
+  "{b.gut} Good, that holds up, I'll get on it right away.",
+  "{b.gut} Thanks, I can work with that."
+ ],
+ "pool.neuzugang_aussen_vor.r.r2": [
+  "{b.gut} I'll stay on him, and the lads will surely join in.",
+  "{b.gut} We'll manage it together, I'm sure."
+ ],
+ "pool.neuzugang_aussen_vor.r.r3": [
+  "{b.gut} Then I'll get the best out of him, promised.",
+  "{b.gut} That's exactly the lever I needed."
+ ],
+ "pool.neuzugang_aussen_vor.r.r4": [
+  "{b.gut} That reassures me a lot, I wasn't sure you took it seriously.",
+  "{b.gut} Thanks for taking the time for this."
+ ],
+ "pool.neuzugang_aussen_vor.r.r5": [
+  "{b.neutral} We'll try it and see what the next weeks bring.",
+  "{b.neutral} Okay, I'll implement it that way and give you feedback."
+ ],
+ "pool.neuzugang_aussen_vor.r.r6": [
+  "{b.neutral} I still don't feel it's enough, but I'll try.",
+  "{b.neutral} I'm not convinced, but I'll follow you."
+ ],
+ "pool.neuzugang_aussen_vor.r.r7": [
+  "{b.neutral} We'll see in the dressing room whether it works.",
+  "{b.neutral} I'll keep watching and get back to you."
+ ],
+ "pool.neuzugang_aussen_vor.r.r8": [
+  "{b.neutral} I'll do it as you say without making a fuss.",
+  "{b.neutral} Fine, then we'll do it that way and watch."
+ ],
+ "pool.neuzugang_aussen_vor.r.r9": [
+  "{b.schlecht} That doesn't help us, and the lad will break over it.",
+  "{b.schlecht} That won't get us anywhere, and you know it."
+ ],
+ "pool.neuzugang_aussen_vor.r.r10": [
+  "{b.schlecht} Then I'll do it alone, but you carry the consequences!",
+  "{b.schlecht} I can't believe you're brushing it off like that!"
+ ],
+ "pool.neuzugang_aussen_vor.r.r11": [
+  "{b.schlecht} I see this topic doesn't count with you, then I'll find other ways.",
+  "{b.schlecht} If that's how it is, I have to think about where I belong here."
+ ],
+ "pool.neuzugang_aussen_vor.r.r12": [
+  "{b.schlecht} That disappoints me, I expected more backing from you.",
+  "{b.schlecht} That you act like this hurts me, after everything we've achieved."
+ ],
+ "pool.formtief.r.r1": [
+  "{b.gut} That helps me, I already feel lighter.",
+  "{b.gut} Thanks for not letting me fall."
+ ],
+ "pool.formtief.r.r2": [
+  "{b.gut} I know I can rely on you, and that's enough for me.",
+  "{b.gut} Thanks, that's how I'll make it."
+ ],
+ "pool.formtief.r.r3": [
+  "{b.gut} Then I'll deliver in training and in the next match.",
+  "{b.gut} That's the push I needed."
+ ],
+ "pool.formtief.r.r4": [
+  "{b.gut} Good to know that someone believes in me, it does me good.",
+  "{b.gut} That takes a weight off my chest."
+ ],
+ "pool.formtief.r.r5": [
+  "{b.neutral} I'll try it and see whether it helps.",
+  "{b.neutral} We'll see whether it gets through to my head."
+ ],
+ "pool.formtief.r.r6": [
+  "{b.neutral} I'm not sure yet whether I can, but I'm listening.",
+  "{b.neutral} That calms me only a little, I don't know what I feel."
+ ],
+ "pool.formtief.r.r7": [
+  "{b.neutral} We'll see what the next match brings.",
+  "{b.neutral} Fine, then I'll see how it goes."
+ ],
+ "pool.formtief.r.r8": [
+  "{b.neutral} I'll stay calm and wait, rushing doesn't help anyway.",
+  "{b.neutral} That works, I'll put it into practice."
+ ],
+ "pool.formtief.r.r9": [
+  "{b.schlecht} That doesn't make it better, quite the opposite.",
+  "{b.schlecht} I had hoped for more support."
+ ],
+ "pool.formtief.r.r10": [
+  "{b.schlecht} You have no idea how I feel and act as if it were nothing!",
+  "{b.schlecht} Then tear me apart as well, like the others!"
+ ],
+ "pool.formtief.r.r11": [
+  "{b.schlecht} Then I'm obviously no longer wanted here, and I'll remember that.",
+  "{b.schlecht} There are places where I'd be understood better."
+ ],
+ "pool.formtief.r.r12": [
+  "{b.schlecht} That was a blow, I'd hoped for a sympathetic ear.",
+  "{b.schlecht} After that I feel even smaller than I already did."
+ ],
+ "pool.reservist_unzufrieden.x.x1": [
+  "The talk ends calmly and honestly. {entscheidung} He goes back to training with a clear head.",
+  "{entscheidung} He nods, the relief is visible."
+ ],
+ "pool.reservist_unzufrieden.x.x2": [
+  "The matter hangs in the balance. {entscheidung} He'll get in touch if nothing moves.",
+  "{entscheidung} Nothing has really been settled by that."
+ ],
+ "pool.reservist_unzufrieden.x.x3": [
+  "He leaves embittered and slams the door. {entscheidung} Soon it'll be the talk of the dressing room.",
+  "{entscheidung} The situation escalates, and he won't stay quiet."
+ ],
+ "pool.reservist_unzufrieden.x.x4": [
+  "He breaks off the talk and leaves. {entscheidung} His agent will probably call today.",
+  "{entscheidung} He doesn't want to talk about it any more, at least not with you."
+ ],
+ "pool.reservist_unzufrieden.x.x5": [
+  "You shake hands on it. {entscheidung} He knows where he stands, and so do you.",
+  "{entscheidung} He'll hold you to your word."
+ ],
+ "pool.neuzugang_aussen_vor.x.x1": [
+  "Your assistant leaves the office relieved. {entscheidung} The mood in the staff room is better.",
+  "{entscheidung} He gets to work straight away."
+ ],
+ "pool.neuzugang_aussen_vor.x.x2": [
+  "Your assistant nods, but he isn't convinced. {entscheidung} The matter stays open.",
+  "{entscheidung} He'll come back in a few days if nothing changes."
+ ],
+ "pool.neuzugang_aussen_vor.x.x3": [
+  "Your assistant leaves the office visibly annoyed. {entscheidung} The new lad stays where he is, and everyone feels it.",
+  "{entscheidung} Hardly a word is said in the staff room afterwards."
+ ],
+ "pool.neuzugang_aussen_vor.x.x4": [
+  "Your assistant has had enough and ends the conversation. {entscheidung} A report to the board is to be expected.",
+  "{entscheidung} He leaves without turning round."
+ ],
+ "pool.neuzugang_aussen_vor.x.x5": [
+  "You agree on a path. {entscheidung} Both of you know what to do next.",
+  "{entscheidung} Your assistant keeps you posted on every step."
+ ],
+ "pool.formtief.x.x1": [
+  "He breathes out audibly. {entscheidung} You can see part of the burden fall away.",
+  "{entscheidung} He walks out of the room taller than he came in."
+ ],
+ "pool.formtief.x.x2": [
+  "He stays behind lost in thought. {entscheidung} Whether it helps will only show in the next games.",
+  "{entscheidung} That doesn't finish the subject."
+ ],
+ "pool.formtief.x.x3": [
+  "He leaves hurt and with drooping shoulders. {entscheidung} It won't be easier to build him up again.",
+  "{entscheidung} He withdraws noticeably, in the dressing room too."
+ ],
+ "pool.formtief.x.x4": [
+  "He breaks off the talk and leaves the room. {entscheidung} Contact is broken off for now.",
+  "{entscheidung} He says nothing more and leaves."
+ ],
+ "pool.formtief.x.x5": [
+  "The promise stands. {entscheidung} He knows you'll lead him through the slump.",
+  "{entscheidung} He holds you to your word, and he'll want to pay it back."
+ ]
+}

@@ -1,0 +1,137 @@
+# Katalog des Inhaltspools: was Bedingungen lesen dürfen, welche Wirkungen es gibt, welche Strategien, Töne und Persönlichkeitstypen.
+# Wirkungen: nur diese Ziele (Startwerte, bis E docs/intern/WIRKUNGEN.md und B die schreibbaren Werte nennen). gewicht = Beitrag zur Bewertung „löst / verschlimmert“.
+
+listen = ["sorge", "merkmal", "rolle", "position", "kanal", "typ", "haken", "stufe", "haltung", "ampel", "reha_phase"]      # Listenfelder (Bedingung mit „:“)
+strategien = ["zusage", "erklaeren", "vertroesten", "ablehnen", "ausgleich", "gegenfrage", "hart_bleiben", "einfuehlen", "delegieren"]
+toene = ["offen", "sachlich", "bestimmt", "einfuehlsam", "hart", "humorvoll"]
+typen = ["hitzig", "loyal", "ehrgeizig", "sensibel", "gelassen", "wechselfreudig", "launisch", "neutral"]
+gruppen = ["gut", "neutral", "schlecht"]
+ausgang_arten = ["geloest", "offen", "eskalation", "abbruch", "zusage"]
+kanaele = ["mail", "chat", "persoenlich", "telefon", "pressekonferenz", "sitzung", "verhandlungstisch"]
+
+[grenzen]
+text_min = 6
+text_max = 300
+eroeffnungen = [6, 12]        # je Thema
+antworten = [8, 14]
+reaktionen = [3, 6]
+ausgaenge = [3, 5]
+optionen_je_runde = [4, 6]
+[grenzen_kategorie.drama]        # kurze Themen: Streik und Vertragspoker (drei Eröffnungen, vier bis sechs Antworten, je Gruppe eine Reaktion)
+eroeffnungen = [3, 12]
+antworten = [4, 6]
+reaktionen = [1, 6]
+[grenzen_kategorie.sondierung]   # kurze Themen: Sondierung eines fremden Spielers (drei Eröffnungen, vier bis sechs Antworten, je Gruppe eine Reaktion)
+eroeffnungen = [3, 12]
+antworten = [4, 6]
+reaktionen = [1, 6]
+
+
+# Datenfelder, die Bedingungen lesen dürfen (Quelle in Klammern); Zahlen in der Einheit des Felds
+[felder]
+moral = [0, 100]                  # Entwicklung
+form = [-6, 6]                    # Entwicklung (Overlay)
+rest = [0, 120]                   # Vertragsrestmonate
+alter = [14, 45]
+einsatz = [0, 1]                  # Einsatzanteil
+wechsel = [0, 100]                # Wechselbereitschaft
+vorstand = [0, 100]               # Story-Zustand
+fans = [0, 100]
+medien = [0, 100]
+fuehrung = [0, 1]                 # Charakterwerte 0…1
+ehrgeiz = [0, 1]
+ego = [0, 1]
+loyalitaet = [0, 1]
+temperament = [0, 1]
+budget = [-100000000, 1000000000]
+abstand_ziel = [-20, 20]          # Tabellenplatz minus Zielplatz (erst ab Mindestspielen, config/tabellensperre.toml)
+ziel_verfehlt = [0, 1]            # 1: Saison vorbei oder Ziel rechnerisch nicht mehr erreichbar
+potenzial_luecke = [-20, 40]
+belastet = [0, 30]
+stimmung = [0, 100]               # Stimmung im laufenden Gespräch
+beziehung = [-100, 100]           # Beziehung zum Trainer
+chance = [0, 100]                 # Verhandlung: Gesamtchance in Prozent (T, core/transfers/chance.py)
+chance_verein = [0, 100]
+chance_spieler = [0, 100]
+# Medizin und Fähigkeiten (Konzept ~/pesm-konzepte/MEDIZIN-KONZEPT.md): Quelle E; bis E den Kontext liefert, lösen Themen mit diesen Feldern nicht von selbst aus (nur mit erzwingen)
+ausfalltage = [0, 365]
+rueckfallrisiko = [0, 100]
+spritzen = [0, 20]                # Fitspritzen dieser Saison
+hat_mentor = [0, 1]
+neue_faehigkeit = [0, 1]
+faehigkeit_verloren = [0, 1]
+# Transferdrama (core/transfers/drama.py): Stufe des Streiks (1 Unruhe, 2 Trainingsboykott, 3 Einsatzverweigerung), Vertragspoker um einen Star
+streik = [0, 3]
+vertragsdrama = [0, 1]
+# Jugend (Akademie, Anlässe der Jugend aus dem Backend)
+vorschlaege = [0, 40]             # Beförderungsvorschläge der Akademie
+ohne_spiele = [0, 40]             # Jugendspieler ohne Einsatz
+abwerbung = [0, 20]               # Abwerbeversuche anderer Vereine
+niederlagen = [0, 30]             # Niederlagen in Folge
+siege = [0, 30]                   # Siege in Folge
+tabellenplatz = [1, 30]
+# Manager als Person (backend/manager.py, Kontext der Gremien-Themen)
+energie = [0, 100]                # Kraft des Managers
+stress = [0, 100]                 # Anspannung des Managers
+managerruf = [0, 100]             # Ruf des Managers (Laufbahn plus Privatleben)
+privat_tage = [0, 365]            # Tage seit der letzten Freizeit
+urlaub_nah = [0, 1]               # Urlaub in den letzten zwei Wochen
+haus = [0, 3]                     # Wohnstufe: Wohnung, Miethaus, Haus, Villa
+lehrgang = [0, 1]                 # ein Lehrgang ist gebucht oder läuft
+# Listenfelder (Bedingung mit „:“): ampel = gruen | gelb | rot, reha_phase = behandlung | aufbau | mannschaftstraining | einsatzbereit, sorge, merkmal, rolle, position, kanal, haken; Verhandlung: stufe = chancenlos | unwahrscheinlich | offen | wahrscheinlich | sicher, haltung = unbedingt | chance | offen | zoegernd | bleiben (nur Verkauf)
+
+[wirkung.moral]
+bereich = [-7, 6]                 # E (62): so viel kann ein normales Gespräch höchstens; Pool-Gespräche wirken mit Faktor 0,5
+gewicht = 1.0
+[wirkung.beziehung]
+bereich = [-15, 15]
+gewicht = 1.0
+[wirkung.vertrauen]
+bereich = [-10, 10]
+gewicht = 1.0
+[wirkung.vorstandsvertrauen]
+bereich = [-10, 10]
+gewicht = 0.5
+[wirkung.fanstimmung]
+bereich = [-10, 10]
+gewicht = 0.5
+[wirkung.medienbild]
+bereich = [-10, 10]
+gewicht = 0.5
+[wirkung.wechselwunsch]
+bereich = [-15, 15]
+gewicht = -1.0                    # steigt der Wunsch zu gehen, ist das schlecht
+[wirkung.zusage]
+arten = ["spielzeit", "rolle", "vertrag", "gehalt", "freigabe"]
+frist = [7, 120]
+gewicht = 2.0                     # eine Zusage entschärft jetzt (und bindet später)
+[wirkung.nachlass]                # Verhandlung (T): Anteil der Forderung, den die Gegenseite nachlässt (0,01–0,04 je Gespräch, Deckel 0,10); hebt die Chance, senkt sie nie
+bereich = [0.0, 0.05]
+gewicht = 1.0
+
+[wirkung.kosten]
+bereich = [10000, 100000000]
+gewicht = -1.0
+[wirkung.rolle]
+rollen = ["stammspieler", "rotationsspieler", "perspektivspieler", "fuehrungsspieler", "kapitaen"]
+gewicht = 0.0
+
+# Nicht im Katalog (kein Schreibweg, siehe docs/intern/WIRKUNGEN.md): vertrauen (folgt nur aus gehaltenen/gebrochenen Zusagen), rolle (nur als Zusage).
+
+# Welche Wirkungsziele ein Thema je Kategorie haben darf (spieler, kabine, vertrag: alle). Gremien (Vorstand, Fans, Presse) und Vereine haben keine Spielerwerte.
+[kategorie_ziele]
+vorstand = ["vorstandsvertrauen", "fanstimmung", "medienbild", "kosten", "beziehung"]
+fans = ["vorstandsvertrauen", "fanstimmung", "medienbild", "kosten", "beziehung"]
+presse = ["vorstandsvertrauen", "fanstimmung", "medienbild", "beziehung"]
+verein = ["beziehung", "kosten", "nachlass", "medienbild", "fanstimmung", "vorstandsvertrauen"]
+
+jugend = ["beziehung", "kosten", "medienbild", "vorstandsvertrauen", "fanstimmung"]      # Jugendtrainer, Eltern, Akademie: ohne Spielerwerte
+staff = ["beziehung", "kosten", "medienbild", "vorstandsvertrauen", "fanstimmung"]          # Co-Trainer, Torwart- und Fitnesstrainer, Scouts: Gremium-Weg ohne Spielerwerte
+sponsor = ["beziehung", "kosten", "medienbild", "vorstandsvertrauen", "fanstimmung"]
+drama = ["moral", "beziehung", "kosten", "zusage", "wechselwunsch", "medienbild", "vorstandsvertrauen", "fanstimmung"]      # Streik und Vertragspoker: Spielerbezug wie spieler, dazu Vorstand, Fans, Medien
+sondierung = ["beziehung"]             # fremder Spieler und sein Berater: nur das Verhältnis; nichts am eigenen Kader
+medizin = ["moral", "beziehung", "kosten", "zusage", "wechselwunsch", "medienbild"]      # Arzt und Fähigkeiten: Spielerbezug wie spieler
+
+[bewertung]
+loesend = 2.0                     # Summe der gewichteten Wirkungen ab hier: löst
+verschlimmernd = -2.0             # bis hier: verschlimmert

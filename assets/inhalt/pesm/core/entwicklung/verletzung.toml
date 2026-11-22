@@ -1,0 +1,89 @@
+# Verletzungsszenario (Nutzer-Ja 22.10.2026): PESM würfelt deterministisch Ausfälle und schreibt `ausfalltage`. Startwerte aus der Fachliteratur gerundet, nicht kalibriert
+# (Kalibriert 30.10.2026 an einem Kader von 30 mit Faktor 2,0: etwa 1,4 Ausfälle je Spieler und Saison, davon ~60 % leicht und ~10 % schwer, gleichzeitig im Schnitt 2 Ausfälle, selten über 5;
+# dazu etwa 0,6 Fälle „angeschlagen“ je Spieler und Saison, die nicht zählen). Das Tagesrisiko aus `entwicklung.toml [risiko]` (Belastung, Alter, Kondition,
+# Rückkehrphase, Medizin) bleibt der gemeinsame Faktor; hier kommen Anfälligkeit, Vorgeschichte, Spielzeit und die Arten dazu.
+
+[allgemein]
+an = true
+basis_training = 0.0015         # Tagesrisiko im Alltag eines neutralen Spielers (mal Faktor aus [risiko], Belastung 30 etwa 1,7)
+basis_spiel = 0.0100             # zusätzliches Risiko an einem Spieltag für jeden, der gespielt hat
+spielzeit_hebel = 0.5           # mal (1 + Hebel × Einsatzanteil der letzten Spiele)
+vorgeschichte_je_ausfall = 0.10 # je Ausfall in den letzten 365 Tagen, höchstens fünf
+vorgeschichte_tage = 365
+nachwirkung_tage = 30           # nach einem Ausfall ist die Rückkehrphase (Faktor aus [risiko]) in dieser Länge wirksam
+gleichzeitig_hoechstens = 5     # Obergrenze gleichzeitig Verletzter (Schutz gegen unglückliche Würfel)
+
+[anfaelligkeit]
+# Robuste und anfällige Spieler: dauerhaft je Spieler (aus der Spielernummer, ohne Zufall im Lauf).
+robust_anteil = 0.20
+robust_faktor = 0.6
+anfaellig_anteil = 0.25
+anfaellig_faktor = 1.5
+normal_von = 0.9                # alle anderen: zwischen diesen Faktoren, je Spieler fest
+normal_bis = 1.1
+
+# Arten: Schweregrad (angeschlagen | leicht | mittel | schwer), Dauer in Tagen (von, bis), `spiel` und `training` sind die Gewichte je Ursache.
+# angeschlagen: kein Ausfall, der Spieler bleibt einsetzbar; PESM senkt nur seine Kondition um `abzug` Punkte (Erkältung, leichtes Zwicken). Leicht 1 bis 7 Tage, mittel 1 bis 4 Wochen,
+# schwer 1 bis 6 Monate (Richtwert: im Profifußball sind etwa 60 % der Ausfälle leicht, etwa 10 % schwer).
+
+[[art]]
+id = "erkaeltung"
+schwere = "angeschlagen"
+abzug = 14
+tage = [2, 5]
+spiel = 0.0
+training = 0.3
+
+[[art]]
+id = "zwicken"
+schwere = "angeschlagen"
+abzug = 8
+tage = [2, 4]
+spiel = 0.15
+training = 0.2
+
+[[art]]
+id = "zerrung"
+schwere = "leicht"
+tage = [2, 7]
+spiel = 0.26
+training = 0.23
+
+[[art]]
+id = "prellung"
+schwere = "leicht"
+tage = [3, 7]
+spiel = 0.3
+training = 0.09
+
+[[art]]
+id = "knoechel"
+schwere = "mittel"
+tage = [7, 21]
+spiel = 0.17
+training = 0.08
+
+[[art]]
+id = "muskelfaserriss"
+schwere = "mittel"
+tage = [10, 28]
+spiel = 0.115
+training = 0.09
+
+[[art]]
+id = "baender_knie"
+schwere = "schwer"
+tage = [30, 90]
+spiel = 0.05
+training = 0.03
+
+[[art]]
+id = "bruch"
+schwere = "schwer"
+tage = [60, 180]
+spiel = 0.015
+training = 0.008
+
+[bereinigung]
+# Ein Ausfall im Spiel, dessen von PESM beschlossene Dauer um mehr als diese Tage überschritten ist, gilt als Altlast und wird beim nächsten Tag über den normalen Weg auf 0 gesetzt.
+karenz_tage = 3

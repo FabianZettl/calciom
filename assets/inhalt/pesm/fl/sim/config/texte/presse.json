@@ -1,0 +1,118 @@
+{
+ "echo_pos": {
+  "teile": [
+   [
+    "Die Journalisten nicken anerkennend.",
+    "Im Saal ist leises Raunen zu hören.",
+    "Die Reporter schreiben eifrig mit.",
+    "Das kommt bei den Medienvertretern gut an.",
+    "Ein zustimmendes Murmeln geht durch die Reihen."
+   ],
+   [
+    "Der Trainer wirkt souverän.",
+    "Das war eine klare Aussage.",
+    "Das klang überzeugend.",
+    "Das hatte Haltung."
+   ]
+  ]
+ },
+ "echo_neu": {
+  "teile": [
+   [
+    "Die Journalisten notieren sich das.",
+    "Eine nüchterne Antwort.",
+    "Im Saal bleibt es ruhig.",
+    "Niemand hakt nach.",
+    "Die Runde nimmt es zur Kenntnis."
+   ],
+   [
+    "Daraus macht niemand eine Schlagzeile.",
+    "Viel Stoff für die Zeitung ist das nicht.",
+    "Nichts, worüber morgen gestritten wird.",
+    "Damit kann jeder leben."
+   ]
+  ]
+ },
+ "echo_neg": {
+  "teile": [
+   [
+    "Im Saal wird die Stirn gerunzelt.",
+    "Die Reporter heben die Augenbrauen.",
+    "Das Echo im Raum ist spürbar kühl.",
+    "Ein Raunen geht durch die Reihen.",
+    "Einige Journalisten tauschen Blicke."
+   ],
+   [
+    "Das gibt morgen eine Schlagzeile.",
+    "Das wird nachgefragt werden.",
+    "Das war nicht die glücklichste Formulierung.",
+    "Das dürfte für Diskussionen sorgen."
+   ]
+  ]
+ },
+ "fazit_fans_hoch": {
+  "teile": [
+   [
+    "Die Anhänger dürften das gern gehört haben.",
+    "Bei den Fans kommt die Linie gut an.",
+    "In der Kurve wird man zufrieden sein.",
+    "Auf den Fanforen ist die Stimmung nach dem Auftritt besser."
+   ]
+  ]
+ },
+ "fazit_fans_tief": {
+  "teile": [
+   [
+    "Bei den Fans dürfte das nicht gut ankommen.",
+    "Auf den Fanforen wird es morgen Gesprächsstoff geben.",
+    "In der Kurve wird man mit den Worten wenig anfangen können.",
+    "Die Anhänger hätten sich einen anderen Ton gewünscht."
+   ]
+  ]
+ },
+ "fazit_board_hoch": {
+  "teile": [
+   [
+    "Im Vorstand wird man den Auftritt wohlwollend registrieren.",
+    "Die Vereinsführung dürfte mit dem Auftritt zufrieden sein.",
+    "Der Präsident wird die Worte gern hören."
+   ]
+  ]
+ },
+ "fazit_board_tief": {
+  "teile": [
+   [
+    "In der Vereinsführung wird man die Aussagen kritisch sehen.",
+    "Der Vorstand dürfte über den Auftritt nicht erfreut sein.",
+    "Im Präsidium wird man sich diese Worte merken."
+   ]
+  ]
+ },
+ "fazit_team_hoch": {
+  "teile": [
+   [
+    "In der Kabine kommt das gut an.",
+    "Die Mannschaft fühlt sich vom Trainer gestützt.",
+    "Die Spieler dürften sich bestärkt fühlen."
+   ]
+  ]
+ },
+ "fazit_team_tief": {
+  "teile": [
+   [
+    "In der Kabine wird das nicht unbemerkt bleiben.",
+    "Die Spieler werden sich die Worte merken.",
+    "Manche in der Mannschaft dürften sich vor den Kopf gestoßen fühlen."
+   ]
+  ]
+ },
+ "fazit_ruhig": {
+  "teile": [
+   [
+    "Eine Pressekonferenz ohne große Wellen.",
+    "Es bleibt bei einem ruhigen Auftritt vor den Medien.",
+    "Der Termin verläuft ohne Aufreger."
+   ]
+  ]
+ }
+}

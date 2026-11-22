@@ -1,0 +1,86 @@
+{
+ "pool.b.vorstand_vertrauenskrise_gruss": [
+  "Herr Trainer, danke, dass Sie gekommen sind.",
+  "Herr Trainer, setzen Sie sich bitte, wir haben etwas zu besprechen."
+ ],
+ "pool.b.vorstand_vertrauenskrise_lage": [
+  "Die Niederlagenserie macht dem Präsidium Sorgen, und im Gremium wird bereits gefragt, ob Sie noch der Richtige sind.",
+  "Nach so vielen Niederlagen in Folge zweifelt das Präsidium, ob die Mannschaft noch auf dem richtigen Weg ist."
+ ],
+ "pool.b.vorstand_vertrauenskrise_lage.hitzig": [
+  "So geht das nicht weiter: Niederlage um Niederlage, und im Präsidium reißt mir der Geduldsfaden!",
+  "Eine Niederlage nach der anderen, und Sie sehen zu! Das Präsidium ist am Ende seiner Geduld!"
+ ],
+ "pool.b.vorstand_vertrauenskrise_lage.loyal": [
+  "Ich stehe zu Ihnen, das wissen Sie, doch die Niederlagenserie bringt auch mich in Erklärungsnot.",
+  "Ich habe Sie geholt und halte Sie für den Richtigen, aber die Serie von Niederlagen setzt uns alle unter Druck."
+ ],
+ "pool.b.vorstand_vertrauenskrise_lage.ehrgeizig": [
+  "Wir wollen mehr als das hier: Die Niederlagenserie wirft uns hinter unsere Ziele zurück.",
+  "Dieser Verein hat Ansprüche, und die Niederlagenserie wird ihnen nicht gerecht."
+ ],
+ "pool.b.vorstand_vertrauenskrise_lage.wechselfreudig": [
+  "Ich schaue nicht ewig zu: Bleiben die Ergebnisse so, sehen wir uns nach einem anderen Trainer um.",
+  "Das Präsidium prüft schon Alternativen, denn Niederlagen dürfen nicht zur Gewohnheit werden."
+ ],
+ "pool.b.vorstand_vertrauenskrise_lage.sensibel": [
+  "Mir fällt dieses Gespräch nicht leicht, doch die Niederlagenserie nagt am ganzen Verein.",
+  "Ich sage es ungern, aber die vielen Niederlagen belasten das Präsidium, und mich persönlich auch."
+ ],
+ "pool.b.vorstand_ultimatum_gruss": [
+  "Herr Trainer, ich komme direkt zur Sache.",
+  "Herr Trainer, das Präsidium hat beschlossen."
+ ],
+ "pool.b.vorstand_ultimatum_lage": [
+  "Wir stellen Ihnen ein Ultimatum: Sie haben {frist} Spiele, um Siege und den Anschluss an unser Saisonziel zu liefern.",
+  "Das Präsidium gibt Ihnen {frist} Spiele. Wir erwarten Siege und Punkte, die uns zurück ins Ziel bringen."
+ ],
+ "pool.b.vorstand_ultimatum_lage.hitzig": [
+  "Schluss mit der Serie! Sie haben {frist} Spiele, danach wollen wir Siege sehen, sonst ist es vorbei!",
+  "Es reicht! {frist} Spiele bekommen Sie noch, und es müssen Siege dabei sein!"
+ ],
+ "pool.b.vorstand_ultimatum_lage.loyal": [
+  "Es fällt mir schwer, doch das Präsidium besteht darauf: {frist} Spiele, in denen wir Siege und den Anschluss ans Ziel sehen müssen.",
+  "Ich habe mich lange für Sie eingesetzt, nun bleiben {frist} Spiele, um Siege zu holen und das Ziel wieder zu erreichen."
+ ],
+ "pool.b.vorstand_ultimatum_lage.ehrgeizig": [
+  "Wir sind nicht hier, um Mittelmaß zu verwalten: {frist} Spiele, Siege und der Anschluss ans Saisonziel.",
+  "Der Verein will nach oben. Sie haben {frist} Spiele, um zu zeigen, dass Sie dabei helfen."
+ ],
+ "pool.b.vorstand_ultimatum_lage.wechselfreudig": [
+  "Sie haben {frist} Spiele. Danach stelle ich ohne Zögern einen anderen Trainer vor, falls die Siege ausbleiben.",
+  "Das Präsidium hat die Nachfolge bereits besprochen: Nach {frist} Spielen ohne Siege ziehen wir die Konsequenz."
+ ],
+ "pool.b.vorstand_ultimatum_lage.sensibel": [
+  "Ich sage das nicht gern: {frist} Spiele, dann müssen Siege da sein und der Abstand zum Ziel kleiner werden.",
+  "Dieses Ultimatum fällt auch mir schwer, doch nach {frist} Spielen brauchen wir Siege und Anschluss."
+ ],
+ "pool.b.fans_protest_kurve_gruss": [
+  "Guten Tag, ich schreibe Ihnen als Sprecher der Kurve.",
+  "Guten Tag, hier schreibt der Fanvertreter der Kurve."
+ ],
+ "pool.b.fans_protest_kurve_lage": [
+  "Viele von uns sind unzufrieden: Die Leistungen, die Ticketpreise und die Transferpolitik gefallen uns nicht.",
+  "In der Kurve wächst der Unmut über die Leistungen, die hohen Eintrittspreise und die Transfers."
+ ],
+ "pool.b.fans_protest_kurve_lage.hitzig": [
+  "Uns reicht es! Die Spiele sind eine Zumutung, die Eintrittskarten zu teuer, und für wen kauft der Verein eigentlich ein?",
+  "Es kocht in der Kurve! Schwache Leistungen, überteuerte Karten, und bei den Transfers werden wir nicht gefragt!"
+ ],
+ "pool.b.fans_protest_kurve_lage.loyal": [
+  "Wir stehen seit Jahren hinter diesem Verein, aber die Leistungen, die Ticketpreise und die Transfers tun weh.",
+  "Wir lieben den Klub und kommen immer, doch mit den Leistungen, den Preisen und der Transferpolitik fühlen wir uns allein gelassen."
+ ],
+ "pool.b.fans_protest_kurve_lage.ehrgeizig": [
+  "Wir erwarten Erfolg und Mut: Die Leistungen bleiben dahinter zurück, die Preise sind hoch und die Transfers ohne Ehrgeiz.",
+  "Unser Anspruch ist höher, doch die Leistungen, die Eintrittspreise und die Transferpolitik werden ihm nicht gerecht."
+ ],
+ "pool.b.fans_protest_kurve_lage.wechselfreudig": [
+  "Manche in der Kurve überlegen schon, ob sie überhaupt noch kommen: Leistungen, Preise und Transfers überzeugen nicht.",
+  "Wenn es so weitergeht, bleiben viele Plätze leer, denn Leistungen, Eintrittspreise und Transfers passen nicht zusammen."
+ ],
+ "pool.b.fans_protest_kurve_lage.sensibel": [
+  "Wir schreiben nicht gern so, aber es verletzt uns, was wir erleben: schwache Leistungen, teure Karten und Transfers ohne Gespür für uns.",
+  "Es fällt mir schwer, das auszusprechen, doch viele fühlen sich von Leistungen, Preisen und Transfers nicht mehr gesehen."
+ ]
+}

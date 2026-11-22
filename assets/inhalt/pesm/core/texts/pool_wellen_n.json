@@ -1,0 +1,442 @@
+{
+ "pool.ich_will_spielen.e.e1": [
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Ich spiele am Wochenende, ganz gleich, was der Doktor sagt.",
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Nimm mich bitte in den Kader, den Rest regle ich selbst."
+ ],
+ "pool.ich_will_spielen.e.e2": [
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Ein bisschen Schmerz gehört dazu, das halte ich aus.",
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Ich verstehe die Vorsicht nicht, es zwickt doch nur ein wenig."
+ ],
+ "pool.ich_will_spielen.e.e3": [
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Mir ist heute nicht nach Gesprächen, ich will einfach nur spielen dürfen.",
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Ich bin schon genervt genug, also bitte keine Vorträge über Vorsicht."
+ ],
+ "pool.ich_will_spielen.e.e4": [
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Entweder ich stehe auf dem Platz, oder ich zeige dem Arzt, was ich von seinem Rat halte!",
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Wenn nötig, laufe ich mit Schmerzen, mir ist das egal!"
+ ],
+ "pool.ich_will_spielen.e.e5": [
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Ich vertraue dir als Trainer, deshalb frage ich ruhig: Lass mich bitte spielen.",
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Du entscheidest, aber ich bitte dich, meine Sicht anzuhören."
+ ],
+ "pool.ich_will_spielen.e.e6": [
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Ein Spiel verpasst, und ich muss mich zurückkämpfen, das kann ich mir nicht leisten.",
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Ich will in diesem Spiel zeigen, dass auf mich Verlass ist, auch angeschlagen."
+ ],
+ "pool.ich_will_spielen.e.e7": [
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Wer spielt, wird gesehen, und ich will gesehen werden.",
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Eine Pause jetzt schadet meinem Marktwert mehr als eine Blessur."
+ ],
+ "pool.ich_will_spielen.e.e8": [
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Bitte glaub mir, dass ich es kann, und sag mir nicht, ich sei zerbrechlich.",
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Wenn du mich nicht aufstellst, denke ich, du traust mir nichts mehr zu."
+ ],
+ "pool.ich_will_spielen.e.e9": [
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Die Ampel steht auf Warnung, aber Ampeln sind für Autofahrer, nicht für mich.",
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Der Arzt hat auf Vorsicht gestellt, und ich bitte dich, darüber hinwegzusehen."
+ ],
+ "pool.ich_will_spielen.e.e10": [
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Mit einer Spritze habe ich schon einmal gespielt, das klappt wieder.",
+  "{b.ich_will_spielen_gruss} {b.ich_will_spielen_lage} Lass den Arzt mir einfach eine Spritze geben, dann bin ich auf dem Platz."
+ ],
+ "pool.ich_will_spielen.a.a1": [
+  "Ich verstehe dich, aber du pausierst. Mit einer Blessur hilfst du weder dir noch der Mannschaft.",
+  "Der Arzt hat die Lage gesehen, ich nicht, und ich überstimme ihn nicht. Du setzt diese Woche aus."
+ ],
+ "pool.ich_will_spielen.a.a2": [
+  "Wir finden einen Mittelweg: ein Kurzeinsatz zum Schluss, wenn das Spiel es zulässt, und du gehst bei der ersten Warnung raus.",
+  "Ich gebe dir ein paar Minuten, nicht mehr. Wenn du etwas spürst, hebst du die Hand und ich wechsle dich aus."
+ ],
+ "pool.ich_will_spielen.a.a3": [
+  "Setz dich mit dem Arzt zusammen und lass dir die Gründe zeigen. Danach reden wir noch einmal.",
+  "Ich hole den Arzt dazu, und du hörst ihn dir an, bevor du entscheidest, ob du recht hast."
+ ],
+ "pool.ich_will_spielen.a.a4": [
+  "Diese Woche nicht, aber du hast mein Wort: Wenn der Arzt grünes Licht gibt, spielst du innerhalb von {frist} Tagen.",
+  "Du kommst nächste Woche zurück, wenn du die Tests schaffst. Das gilt für die nächsten {frist} Tage."
+ ],
+ "pool.ich_will_spielen.a.a5": [
+  "Ich weiß, wie sehr du brennst. Gerade deshalb will ich dich ganz gesund und nicht halb kaputt auf dem Platz.",
+  "Du willst helfen, das ehrt dich. Aber dem Team hilfst du am meisten, wenn du wiederkommst und bleibst."
+ ],
+ "pool.ich_will_spielen.a.a6": [
+  "Du spielst nicht, und das war mein letztes Wort. Noch eine Debatte darüber, und du trainierst allein.",
+  "Ich diskutiere nicht mit Spielern über ihre Verletzungen. Du bleibst draußen."
+ ],
+ "pool.ich_will_spielen.a.a7": [
+  "Was du fühlst, interessiert mich nicht, der Arzt entscheidet. Du hast hier nichts zu fordern.",
+  "Ich habe deine Forderung gehört und sie ist abgelehnt. Geh dich behandeln lassen."
+ ],
+ "pool.ich_will_spielen.a.a8": [
+  "Held des Tages kannst du auch auf der Bank werden, da sitzt es sich weicher als im Krankenhaus.",
+  "Lass das Heldentum mal stecken. Die Tribüne hat auch ihre Vorzüge, der Kaffee ist heiß."
+ ],
+ "pool.ich_will_spielen.a.a9": [
+  "Na gut, du spielst. Aber ich nehme dich raus, sobald ich merke, dass du dich schonst.",
+  "Ich lasse mich überreden: Du stehst im Kader. Die Verantwortung trage ich, und den Ärger mit dem Arzt auch."
+ ],
+ "pool.ich_will_spielen.a.a10": [
+  "Ich lasse mir vom Arzt erklären, was eine Spritze bedeuten würde. Danach entscheide ich, ob das Risiko tragbar ist.",
+  "Eine Spritze ist keine Selbstverständlichkeit. Ich prüfe sie, aber nur, wenn der Arzt sie überhaupt vertreten kann."
+ ],
+ "pool.ich_will_spielen.a.a11": [
+  "Angenommen, dein Nebenmann käme angeschlagen ins Spiel: Würdest du dich darauf verlassen, dass er hält?",
+  "Was bringt es der Mannschaft, wenn du nach zwanzig Minuten humpelst und wir einen Wechsel verbrauchen?"
+ ],
+ "pool.ich_will_spielen.a.a12": [
+  "Zwischen uns stimmt es, deshalb sage ich es offen: Ein Spieler, der nicht frei laufen kann, nützt der Mannschaft nichts.",
+  "Du bist mir wichtig, und ich will ehrlich sein: Mit dieser Verletzung gefährdest du uns beide."
+ ],
+ "pool.ich_will_spielen.r.r1": [
+  "{b.gut} Danke, dass du mir zuhörst. Ich lasse mich darauf ein.",
+  "{b.gut} So kann ich leben, du nimmst mich ernst."
+ ],
+ "pool.ich_will_spielen.r.r2": [
+  "{b.gut} Wenn du es für das Beste hältst, folge ich dir.",
+  "{b.gut} Ich vertraue dir, und der Arzt wird schon wissen, was er sagt."
+ ],
+ "pool.ich_will_spielen.r.r3": [
+  "{b.gut} Dann bin ich in der Zwischenzeit doppelt fleißig, damit der Termin hält.",
+  "{b.gut} Ein klarer Plan ist mir lieber als ein Streit, danke."
+ ],
+ "pool.ich_will_spielen.r.r4": [
+  "{b.neutral} Ich muss darüber nachdenken, ob ich das gut finde.",
+  "{b.neutral} Mir passt es nicht ganz, aber ich werde nicht streiten."
+ ],
+ "pool.ich_will_spielen.r.r5": [
+  "{b.neutral} Heute nehme ich es hin, aber frag mich morgen nicht, wie ich es finde.",
+  "{b.neutral} Ich weiß nicht, ob ich dir glauben soll, und ich weiß nicht, ob ich böse sein soll."
+ ],
+ "pool.ich_will_spielen.r.r6": [
+  "{b.neutral} Gut, dann sitze ich eben noch eine Woche, davon geht die Welt nicht unter.",
+  "{b.neutral} Ich hake das ab und warte, was der Arzt sagt."
+ ],
+ "pool.ich_will_spielen.r.r7": [
+  "{b.schlecht} Ich spüre meinen Körper selbst, und du tust, als wüsste ich nichts.",
+  "{b.schlecht} So bringst du mich nicht dazu, still zu sein."
+ ],
+ "pool.ich_will_spielen.r.r8": [
+  "{b.schlecht} Dann lauf ich eben auf eigene Verantwortung auf, ihr könnt mich nicht festbinden!",
+  "{b.schlecht} Behalte deinen Arzt und deine Bank, ich gehe trainieren!"
+ ],
+ "pool.ich_will_spielen.r.r9": [
+  "{b.schlecht} Wenn ich nicht spielen darf, suche ich mir einen Klub, der mich lässt.",
+  "{b.schlecht} Dein Misstrauen merke ich mir, es spielt bei meiner Zukunft eine Rolle."
+ ],
+ "pool.ich_will_spielen.r.r10": [
+  "{b.schlecht} Ich schiebe jede Schicht für diesen Klub und bekomme dafür Misstrauen.",
+  "{b.schlecht} Dass du mir das nach allem sagst, trifft mich hart."
+ ],
+ "pool.ich_will_spielen.x.x1": [
+  "Er sieht ein, dass die Pause kein Misstrauen ist. {entscheidung} Der Arzt berichtet von ordentlicher Mitarbeit.",
+  "{entscheidung} Der Spieler schluckt seinen Ärger herunter und geht zur Behandlung."
+ ],
+ "pool.ich_will_spielen.x.x2": [
+  "Er nickt, bleibt aber unruhig. {entscheidung} Ob er sich daran hält, zeigt das nächste Training.",
+  "{entscheidung} Im Kopf spielt er schon am Wochenende, und der Arzt bleibt wachsam."
+ ],
+ "pool.ich_will_spielen.x.x3": [
+  "{entscheidung} Er verlässt grußlos den Raum, und der Arzt meldet, dass er heimlich zusätzlich trainiert.",
+  "Der Streit wird laut, und die Kabine hört mit. {entscheidung} Der Arzt verlangt eine Aussprache zu dritt."
+ ],
+ "pool.ich_will_spielen.x.x4": [
+  "Ihr schlagt ein auf einen klaren Rückkehrtermin. {entscheidung} Der Arzt trägt den Plan mit.",
+  "{entscheidung} Der Spieler hat ein Ziel vor Augen und nimmt die Behandlung ernst."
+ ],
+ "pool.ich_will_spielen.x.x5": [
+  "Er beendet das Gespräch mitten im Satz. {entscheidung} Der Arzt wird informiert.",
+  "{entscheidung} Der Spieler schweigt, und das Thema bleibt unausgesprochen im Raum."
+ ],
+ "pool.fitspritze_warnung.e.e1": [
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Bei Häufung steigt die Gefahr, dass etwas bleibt.",
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Ich bitte Sie, das nicht zur Gewohnheit zu machen."
+ ],
+ "pool.fitspritze_warnung.e.e2": [
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Schmerzfrei heißt nicht gesund, das muss uns beiden klar sein.",
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Ich habe das Mittel gesetzt, aber ich will nicht, dass es zur Regel wird."
+ ],
+ "pool.fitspritze_warnung.e.e3": [
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Ich bin nicht in bester Laune, denn ich habe das Gefühl, dass man meine Warnungen überhört.",
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Mir reicht es, dass ich erst gefragt werde, wenn es brennt."
+ ],
+ "pool.fitspritze_warnung.e.e4": [
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Er fordert die Spritze lautstark, und ich lasse mich nicht anbrüllen.",
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Er wechselt zwischen Dankbarkeit und Drohung, das macht eine saubere Behandlung unmöglich."
+ ],
+ "pool.fitspritze_warnung.e.e5": [
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Er hat keine Klage geäußert, und gerade das beunruhigt mich.",
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Er nimmt alles klaglos hin, deshalb muss einer von uns auf ihn achten."
+ ],
+ "pool.fitspritze_warnung.e.e6": [
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Er wird dieses Werkzeug immer wieder verlangen, wenn Sie ihm den Weg nicht verstellen.",
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Ehrgeiz ist gut, doch bei ihm überlagert er jedes Körpersignal."
+ ],
+ "pool.fitspritze_warnung.e.e7": [
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Er plant längst weiter und trägt das Risiko auf Kosten unseres Vereins.",
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Wenn er geht, bleiben uns seine Beschwerden, und das möchte ich vermeiden."
+ ],
+ "pool.fitspritze_warnung.e.e8": [
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Er braucht ein offenes Gespräch von Ihnen, kein Schulterklopfen.",
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Er traut sich nicht, Nein zu sagen, und das hat mit seiner Angst zu tun."
+ ],
+ "pool.fitspritze_warnung.e.e9": [
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Es waren schon mehrere in dieser Saison, und bei dieser Häufung drohen Dauerschäden.",
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Wir sind an dem Punkt, an dem jede weitere Spritze mehr kostet, als sie bringt."
+ ],
+ "pool.fitspritze_warnung.e.e10": [
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Die Untersuchung zeigt, dass die Stelle gereizt bleibt, ein Rückfall liegt nah.",
+  "{b.fitspritze_warnung_gruss} {b.fitspritze_warnung_lage} Die Stelle ist noch nicht stabil, und eine neue Belastung kann sie wieder aufreißen."
+ ],
+ "pool.fitspritze_warnung.a.a1": [
+  "Ich nehme Ihre Warnung ernst. Sagen Sie mir genau, worauf ich bei ihm in den nächsten Tagen achten muss.",
+  "Danke, dass Sie das sagen. Ich plane die nächsten Einsätze mit Rücksicht auf Ihre Einschätzung."
+ ],
+ "pool.fitspritze_warnung.a.a2": [
+  "Wir setzen eine Grenze: Mehr Spritzen gibt es nur nach Ihrer ausdrücklichen Zustimmung, und ich halte mich daran.",
+  "Legen wir gemeinsam eine Obergrenze für diese Saison fest. Wird sie erreicht, ist Schluss, egal wie wichtig das Spiel ist."
+ ],
+ "pool.fitspritze_warnung.a.a3": [
+  "Eine Spritze kommt nur noch im Notfall in Frage, ich verspreche es Ihnen. Das gilt für die ganze Saison.",
+  "Nur im äußersten Fall und nur mit Ihrem Segen, das ist ab heute meine Linie."
+ ],
+ "pool.fitspritze_warnung.a.a4": [
+  "Die Entscheidung habe ich getroffen, nicht Sie, und ich übernehme die Verantwortung dafür. Ich höre Sie trotzdem.",
+  "Sie haben mich vorher gefragt, und ich habe mich trotzdem für das Risiko entschieden. Das lasse ich nicht auf Ihnen sitzen."
+ ],
+ "pool.fitspritze_warnung.a.a5": [
+  "Sie haben die Spritze doch gesetzt. Wenn sie so gefährlich ist, warum haben Sie sie nicht verweigert?",
+  "Das fällt Ihnen jetzt ein? Dann hätten Sie vorher Nein sagen müssen."
+ ],
+ "pool.fitspritze_warnung.a.a6": [
+  "Reden Sie mit dem Spieler selbst und erklären Sie ihm die Risiken. Er soll wissen, worauf er sich einlässt.",
+  "Ich möchte, dass er beim nächsten Mal mitentscheidet. Besprechen Sie es mit ihm, und dann sprechen wir zu dritt."
+ ],
+ "pool.fitspritze_warnung.a.a7": [
+  "Ich entscheide, wer spielt, und Sie behandeln. Wenn ich wieder eine Spritze brauche, bekommt er sie.",
+  "Das ist meine Mannschaft und meine Verantwortung. Ihre Warnung ist notiert, an meiner Linie ändert sie nichts."
+ ],
+ "pool.fitspritze_warnung.a.a8": [
+  "Ich will davon nichts hören. Wenn es um die Titelchance geht, wird gespielt, so oder so.",
+  "Ihre Sorgen in Ehren, aber ich lasse mir nicht vorschreiben, wie ich meine Spieler einsetze."
+ ],
+ "pool.fitspritze_warnung.a.a9": [
+  "Ach, so ein Piks hat noch keinem Fußballer geschadet. Seien Sie nicht päpstlicher als der Spieler.",
+  "Der Junge ist aus Eisen, der hält das aus. Sie sehen zu schwarz, Doktor."
+ ],
+ "pool.fitspritze_warnung.a.a10": [
+  "Was wäre die Alternative gewesen, und wie hätte sie ausgesehen? Ich brauche die ganze Abwägung.",
+  "Welche Anzeichen sagen mir, dass es kippt? Das möchte ich wissen, bevor ich etwas entscheide."
+ ],
+ "pool.fitspritze_warnung.a.a11": [
+  "Ich bezahle ihm zusätzliche Behandlungen, damit der Körper sich erholen kann. Sagen Sie mir, was nötig ist.",
+  "Der Verein übernimmt die Kosten für eine längere Nachsorge. Das ist das Mindeste, was wir ihm schulden."
+ ],
+ "pool.fitspritze_warnung.a.a12": [
+  "Wir arbeiten gut zusammen, deshalb sage ich Ihnen, dass ich im Moment keine andere Lösung sah. Das soll aber nicht die Regel sein.",
+  "Ich habe die Spritze in Kauf genommen, weil das Spiel es verlangte. Beim nächsten Mal gehe ich vorsichtiger vor."
+ ],
+ "pool.fitspritze_warnung.r.r1": [
+  "{b.gut} Das beruhigt mich, so lässt sich gut zusammenarbeiten.",
+  "{b.gut} Mit dieser Linie kann ich die Verantwortung tragen."
+ ],
+ "pool.fitspritze_warnung.r.r2": [
+  "{b.gut} Ich bin froh, dass wir uns hier einig sind, es geht schließlich um den Menschen.",
+  "{b.gut} Dann kann ich ihn ruhigen Gewissens weiterbehandeln."
+ ],
+ "pool.fitspritze_warnung.r.r3": [
+  "{b.gut} Eine klare Regel hilft mir, wenn er wieder drängt, danke.",
+  "{b.gut} Mit einer Grenze habe ich etwas in der Hand, wenn er fordert."
+ ],
+ "pool.fitspritze_warnung.r.r4": [
+  "{b.neutral} Ich notiere das und beobachte die nächsten Spiele.",
+  "{b.neutral} Das beantwortet nicht alles, aber wir reden weiter."
+ ],
+ "pool.fitspritze_warnung.r.r5": [
+  "{b.neutral} Ich hoffe, der Spieler erfährt davon in einem ruhigen Ton.",
+  "{b.neutral} Ich lasse es gelten, aber ich sehe das mit gemischten Gefühlen."
+ ],
+ "pool.fitspritze_warnung.r.r6": [
+  "{b.neutral} Es ist Ihre Mannschaft, ich sage meine Meinung und arbeite weiter.",
+  "{b.neutral} Gut, dann legen wir es zu den Akten und schauen nach vorn."
+ ],
+ "pool.fitspritze_warnung.r.r7": [
+  "{b.schlecht} Dann trage ich das nicht länger mit, ohne dass es schriftlich festgehalten wird.",
+  "{b.schlecht} So kann ich meine Arbeit nicht verantworten."
+ ],
+ "pool.fitspritze_warnung.r.r8": [
+  "{b.schlecht} Wenn Sie so reden, soll er es gleich bei Ihnen abholen, die Spritze, meine ich!",
+  "{b.schlecht} Dann machen Sie es doch allein, ich lasse mich nicht anschreien!"
+ ],
+ "pool.fitspritze_warnung.r.r9": [
+  "{b.schlecht} Dann wird er sich einen anderen Arzt suchen, der ihm ohne Fragen hilft.",
+  "{b.schlecht} Wenn Sie so weitermachen, verlieren Sie sein Vertrauen und meins."
+ ],
+ "pool.fitspritze_warnung.r.r10": [
+  "{b.schlecht} Von Ihnen hätte ich mehr Fürsorge für den Spieler erwartet.",
+  "{b.schlecht} Das enttäuscht mich, ich habe immer hinter Ihren Entscheidungen gestanden."
+ ],
+ "pool.fitspritze_warnung.x.x1": [
+  "Der Arzt nickt zufrieden. {entscheidung} Er wird die Belastung des Spielers künftig enger begleiten.",
+  "{entscheidung} Die Spannung zwischen Trainer und Arzt legt sich merklich."
+ ],
+ "pool.fitspritze_warnung.x.x2": [
+  "{entscheidung} Der Arzt bleibt skeptisch und kündigt an, jeden weiteren Fall schriftlich festzuhalten.",
+  "Er schweigt einen Augenblick. {entscheidung} Ob die Linie hält, wird der nächste Spieltag zeigen."
+ ],
+ "pool.fitspritze_warnung.x.x3": [
+  "{entscheidung} Der Arzt wendet sich an die Vereinsleitung, weil er seine Warnung übergangen sieht.",
+  "Der Ton im Behandlungsraum wird eisig. {entscheidung} Die Spieler bemerken den Streit."
+ ],
+ "pool.fitspritze_warnung.x.x4": [
+  "Ihr haltet die Regel gemeinsam fest. {entscheidung} Der Arzt notiert sie in der Krankenakte.",
+  "{entscheidung} Mit einer festen Vereinbarung geht der Arzt erleichtert aus dem Gespräch."
+ ],
+ "pool.fitspritze_warnung.x.x5": [
+  "Der Arzt nimmt seine Unterlagen und geht. {entscheidung} Das Thema ist damit nicht erledigt.",
+  "{entscheidung} Er sagt nichts mehr und wendet sich ab."
+ ],
+ "pool.arzt_vertrauen_sinkt.e.e1": [
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} Ich möchte wissen, wie viel meine Einschätzung noch zählt.",
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} Wenn ich nur noch dekorativ bin, sollten wir darüber sprechen."
+ ],
+ "pool.arzt_vertrauen_sinkt.e.e2": [
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} Ich trage die medizinische Verantwortung, ohne dass man mir folgt.",
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} Ich kann nur raten, entscheiden dürfen andere, aber dann bitte mit offenen Karten."
+ ],
+ "pool.arzt_vertrauen_sinkt.e.e3": [
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} Ich bin ärgerlich, deshalb schreibe ich lieber knapp und klar.",
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} Heute fehlt mir die Geduld für Höflichkeiten."
+ ],
+ "pool.arzt_vertrauen_sinkt.e.e4": [
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} Der Spieler lärmt in der Kabine über mich, und Sie schauen zu!",
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} Er stellt meine Diagnose infrage, sobald es ihm passt, und Sie geben ihm recht."
+ ],
+ "pool.arzt_vertrauen_sinkt.e.e5": [
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} Der Spieler selbst hat nichts Böses im Sinn, es geht mir um das Verfahren.",
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} Er wollte nur helfen, doch der Weg dorthin ging an mir vorbei."
+ ],
+ "pool.arzt_vertrauen_sinkt.e.e6": [
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} Der Spieler weiß jetzt, dass Druck wirkt, und er wird ihn wieder ausüben.",
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} Er setzt künftig bei Ihnen an statt bei mir, das untergräbt meine Rolle."
+ ],
+ "pool.arzt_vertrauen_sinkt.e.e7": [
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} Ich habe Angebote, bei denen medizinische Entscheidungen respektiert werden.",
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} Ich bin nicht auf diesen Posten angewiesen, das sage ich nur, damit es klar ist."
+ ],
+ "pool.arzt_vertrauen_sinkt.e.e8": [
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} Ich hätte mir gewünscht, dass Sie zuerst mit mir reden, bevor so etwas entschieden wird.",
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} Es ist das Gefühl, nicht gehört zu werden, das mich so belastet."
+ ],
+ "pool.arzt_vertrauen_sinkt.e.e9": [
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} Der Einsatz hat die Stelle weiter belastet, und das Risiko für einen Rückfall ist gewachsen.",
+  "{b.arzt_vertrauen_sinkt_gruss} {b.arzt_vertrauen_sinkt_lage} Meine Befürchtung hat sich leider bestätigt, die Stelle macht wieder Probleme."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a1": [
+  "Sie haben recht, das hätte ich anders machen müssen. Es tut mir leid, und ich frage Sie künftig vorher.",
+  "Ich entschuldige mich bei Ihnen. Ihr Rat verdiente mehr Gewicht, als ich ihm gegeben habe."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a2": [
+  "Ich stehe zu meiner Entscheidung, aber ich lege Ihnen gern dar, warum es an diesem Tag nicht anders ging.",
+  "Der Einsatz war meine Entscheidung, und ich vertrete sie nach außen. Ihre Bedenken bleiben festgehalten."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a3": [
+  "Sie bekommen ein festes Mitspracherecht vor jeder Aufstellung, das verspreche ich Ihnen.",
+  "Künftig hören Sie vor dem Spieltag Ihr Wort, ich plane nichts gegen Ihr ausdrückliches Nein."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a4": [
+  "Ihre fachliche Kompetenz steht nicht infrage, und ich sage das vor dem ganzen Stab. Ich brauche Ihre Einschätzung.",
+  "Niemand hier kennt die Körper unserer Spieler so gut wie Sie. Das erkenne ich ausdrücklich an."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a5": [
+  "Ich stärke Ihre Abteilung mit zusätzlicher Ausstattung und Personal. Nennen Sie mir, was Sie brauchen.",
+  "Ihr Bereich bekommt mehr Mittel, damit Sie Ihre Arbeit unabhängiger machen können."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a6": [
+  "Dann tragen wir das vor dem Vorstand aus. Ich lasse mir von Ihnen nicht vorschreiben, wen ich aufstelle.",
+  "Wenn Sie es auf einen Streit anlegen, bekommen Sie ihn. Die Aufstellung ist meine Sache, nicht Ihre."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a7": [
+  "Das gibt sich wieder, in ein paar Wochen redet keiner mehr davon.",
+  "Warten wir erst die nächsten Spiele ab, dann sieht die Welt anders aus."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a8": [
+  "Ich muss mich vor Ihnen nicht rechtfertigen. Machen Sie Ihre Arbeit, und ich mache meine.",
+  "Eine Mitsprache bei der Aufstellung gibt es nicht, und das bleibt so."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a9": [
+  "Was genau hat Sie am meisten gestört, die Entscheidung selbst oder die Art, wie sie zustande kam?",
+  "Welche Stelle im Ablauf wünschen Sie sich geändert, damit so etwas nicht wieder vorkommt?"
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a10": [
+  "Besprechen Sie das bitte mit dem Sportdirektor, damit wir den Ablauf für medizinische Einwände klar festlegen.",
+  "Ich bitte Sie, mit dem Co-Trainer eine feste Abstimmung vor dem Spieltag zu vereinbaren."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a11": [
+  "Sehen Sie es so: Bei jeder Niederlage sind Sie der Erste, der es schon vorher wusste, das hat auch seinen Reiz.",
+  "Doktor, wenn ich immer auf Sie hörte, würde keiner mehr spielen, und dann wäre ich arbeitslos."
+ ],
+ "pool.arzt_vertrauen_sinkt.a.a12": [
+  "Der Trainer entscheidet, der Arzt berät, so ist die Aufgabenteilung. Daran ändere ich nichts, aber ich höre Sie an.",
+  "Das letzte Wort muss bei mir liegen, sonst ist keine Mannschaft führbar. Ihr Rat zählt dennoch."
+ ],
+ "pool.arzt_vertrauen_sinkt.r.r1": [
+  "{b.gut} Das weiß ich zu schätzen, damit ist für mich vieles geklärt.",
+  "{b.gut} So gehen wir wieder miteinander um, wie es sein soll."
+ ],
+ "pool.arzt_vertrauen_sinkt.r.r2": [
+  "{b.gut} Ich arbeite gern mit Ihnen, und jetzt weiß ich auch wieder, warum.",
+  "{b.gut} Damit ist der Ärger vergessen, ich mache weiter wie bisher."
+ ],
+ "pool.arzt_vertrauen_sinkt.r.r3": [
+  "{b.gut} Mit dieser Zusage kann ich die Abteilung ausbauen, das nehme ich ernst.",
+  "{b.gut} Dann habe ich endlich das Gewicht, das meine Arbeit braucht."
+ ],
+ "pool.arzt_vertrauen_sinkt.r.r4": [
+  "{b.neutral} Ich nehme das zur Kenntnis und beobachte, was folgt.",
+  "{b.neutral} Es ist ein Anfang, aber noch nicht die Lösung."
+ ],
+ "pool.arzt_vertrauen_sinkt.r.r5": [
+  "{b.neutral} Ich bin noch unsicher, ob ich es glauben soll, aber ich bleibe im Gespräch.",
+  "{b.neutral} Ich brauche etwas Zeit, bevor ich dazu etwas sagen kann."
+ ],
+ "pool.arzt_vertrauen_sinkt.r.r6": [
+  "{b.neutral} Es ist, wie es ist, ich mache meine Arbeit weiter.",
+  "{b.neutral} Streit bringt nichts, also lasse ich es auf sich beruhen."
+ ],
+ "pool.arzt_vertrauen_sinkt.r.r7": [
+  "{b.schlecht} Dann weiß ich, woran ich bin, und werde mich entsprechend verhalten.",
+  "{b.schlecht} So wird meine Arbeit nur noch zur Absicherung für andere."
+ ],
+ "pool.arzt_vertrauen_sinkt.r.r8": [
+  "{b.schlecht} Das lasse ich mir nicht bieten, und die Leitung des Vereins erfährt davon!",
+  "{b.schlecht} Dann entscheiden Sie eben allein, aber fragen Sie mich nie wieder um Hilfe!"
+ ],
+ "pool.arzt_vertrauen_sinkt.r.r9": [
+  "{b.schlecht} Gut zu wissen, dann orientiere ich mich anderswo.",
+  "{b.schlecht} Mein Entschluss wächst gerade, diese Stelle bald zu verlassen."
+ ],
+ "pool.arzt_vertrauen_sinkt.r.r10": [
+  "{b.schlecht} Für meine Dienstjahre hier finde ich diese Behandlung nicht angemessen.",
+  "{b.schlecht} Dass Sie so mit mir reden, hat mich getroffen, auch wenn ich es nicht zeige."
+ ],
+ "pool.arzt_vertrauen_sinkt.x.x1": [
+  "Der Arzt entspannt sich sichtbar. {entscheidung} Im Betreuerstab merkt man, dass die Luft wieder klarer ist.",
+  "{entscheidung} Er arbeitet wieder mit dem alten Eifer, und die Zusammenarbeit läuft rund."
+ ],
+ "pool.arzt_vertrauen_sinkt.x.x2": [
+  "{entscheidung} Der Arzt gibt sich nicht ganz zufrieden, bleibt aber im Amt und im Gespräch.",
+  "Er antwortet knapp. {entscheidung} Wie belastbar das Verhältnis ist, zeigt der nächste Konflikt."
+ ],
+ "pool.arzt_vertrauen_sinkt.x.x3": [
+  "{entscheidung} Der Arzt meldet den Vorgang der Vereinsleitung, und die Presse hört davon.",
+  "Der Streit dringt aus dem Behandlungsraum nach außen. {entscheidung} Im Stab bilden sich Lager."
+ ],
+ "pool.arzt_vertrauen_sinkt.x.x4": [
+  "Ihr einigt euch auf eine feste Abstimmung vor jedem Spieltag. {entscheidung} Der Arzt hält die Absprache schriftlich fest.",
+  "{entscheidung} Mit einem festen Mitspracherecht fühlt er sich wieder ernst genommen."
+ ],
+ "pool.arzt_vertrauen_sinkt.x.x5": [
+  "Der Arzt beendet den Chat ohne Gruß. {entscheidung} Der Vorfall bleibt ungeklärt.",
+  "{entscheidung} Er antwortet nicht mehr, und im Stab wird darüber getuschelt."
+ ]
+}

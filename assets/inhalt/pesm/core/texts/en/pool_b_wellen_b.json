@@ -1,0 +1,74 @@
+{
+ "pool.b.altstar_karriereende_lage": [
+  "My contract has {monate} months left, and I wonder what comes after.",
+  "There are {monate} months left on my deal, and I want to know where I stand then."
+ ],
+ "pool.b.altstar_karriereende_lage.hitzig": [
+  "My deal ends in {monate} months and nobody tells me what is going on.",
+  "{monate} months to go, and I want clarity instead of hints."
+ ],
+ "pool.b.altstar_karriereende_lage.loyal": [
+  "I have given this club many years, and my contract ends in {monate} months.",
+  "The club is my home, yet my contract runs out in {monate} months."
+ ],
+ "pool.b.altstar_karriereende_lage.ehrgeizig": [
+  "I feel there is still something left, and my contract ends in {monate} months.",
+  "My body still plays along, but the contract ends in {monate} months."
+ ],
+ "pool.b.altstar_karriereende_lage.wechselfreudig": [
+  "My contract ends in {monate} months and other clubs have already asked.",
+  "I am free in {monate} months, and I will listen to what else is out there."
+ ],
+ "pool.b.altstar_karriereende_lage.sensibel": [
+  "Lately I think a lot about stopping, the contract ends in {monate} months after all.",
+  "With the contract ending in {monate} months comes the question of how long I may carry on."
+ ],
+ "pool.b.egoist_auf_der_bank_lage": [
+  "It is about {gegner}, who has sat on the bench for {spiele} games and lets everyone feel it.",
+  "{gegner} has been out for {spiele} games, and the mood in the dressing room suffers."
+ ],
+ "pool.b.egoist_auf_der_bank_lage.hitzig": [
+  "{gegner} has grumbled on the bench for {spiele} games and yesterday he kicked the door.",
+  "For {spiele} games {gegner} has simmered in reserve and takes it out on everyone."
+ ],
+ "pool.b.egoist_auf_der_bank_lage.loyal": [
+  "I do not like saying it about a teammate, but {gegner} has dragged us down for {spiele} games.",
+  "I do not want to blame anyone, yet {gegner} spoils the mood after {spiele} games on the bench."
+ ],
+ "pool.b.egoist_auf_der_bank_lage.ehrgeizig": [
+  "We want to compete at the top, but {gegner} disturbs the rhythm with his sulking for {spiele} games.",
+  "{gegner} thinks only of himself since he has watched {spiele} games, and that costs us sharpness."
+ ],
+ "pool.b.egoist_auf_der_bank_lage.wechselfreudig": [
+  "{gegner} talks openly about leaving since he has missed {spiele} games.",
+  "For {spiele} games {gegner} has made clear he would be better off elsewhere, even in front of the others."
+ ],
+ "pool.b.egoist_auf_der_bank_lage.sensibel": [
+  "It hurts me how {gegner} has suffered for {spiele} games and pulls everyone in.",
+  "For {spiele} games {gegner} has been bitter, and the mood in the dressing room pains me."
+ ],
+ "pool.b.fuehrungsspieler_ausser_form_lage": [
+  "I know myself that things are not working for me right now, and it occupies me.",
+  "My performances are poor, and I feel the dressing room watching closely."
+ ],
+ "pool.b.fuehrungsspieler_ausser_form_lage.hitzig": [
+  "Yes, I am playing badly, but I will not let them saw off my chair for it!",
+  "It is not going well, and everyone acts as if I were already written off."
+ ],
+ "pool.b.fuehrungsspieler_ausser_form_lage.loyal": [
+  "I stand for this club, so it hurts all the more that I am not delivering.",
+  "I am aware that I am not helping the team right now, and it gnaws at me."
+ ],
+ "pool.b.fuehrungsspieler_ausser_form_lage.ehrgeizig": [
+  "A phase like this does not suit me, I want out of it as fast as possible.",
+  "I know my own standards, and right now I am not meeting them."
+ ],
+ "pool.b.fuehrungsspieler_ausser_form_lage.wechselfreudig": [
+  "In this form my market value is in the cellar, and that makes me nervous.",
+  "If it goes on like this, I wonder whether a fresh start elsewhere would not be wiser."
+ ],
+ "pool.b.fuehrungsspieler_ausser_form_lage.sensibel": [
+  "I feel the others look at me differently since it stopped going well.",
+  "Every mistake on the pitch digs deep into me, and I sleep poorly."
+ ]
+}

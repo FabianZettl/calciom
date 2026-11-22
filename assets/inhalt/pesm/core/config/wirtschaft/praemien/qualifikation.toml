@@ -1,0 +1,6 @@
+# Qualifikationsrunden zum Europapokal (Nutzerrecherche 27.10.): 0,175 Mio je Runde plus 0,15-0,75 Mio Bonus je nach Ausscheiden. Bezug wie champions_league.toml.
+wettbewerb = "cl_quali"            # Schlüssel in wettbewerbe.toml [europa]
+bezug_mio = 284.6
+je_runde = 0.175
+bonus_ausscheiden = [0.15, 0.75]   # kleinster und größter Bonus je nach Runde des Ausscheidens (linear über die Runden)
+runden = 3

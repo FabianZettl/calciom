@@ -1,0 +1,454 @@
+{
+ "pool.altstar_karriereende.e.e1": [
+  "{b.gruss} {b.altstar_karriereende_lage} After so many years in the game I would like to know how you picture my final stretch.",
+  "{b.gruss} {b.altstar_karriereende_lage} I would rather come to you now than in the spring."
+ ],
+ "pool.altstar_karriereende.e.e2": [
+  "{b.gruss} {b.altstar_karriereende_lage} The youngsters run away from me, yet in my head I am still right up front.",
+  "{b.gruss} {b.altstar_karriereende_lage} I am no spring chicken anymore, and I know that better than anyone."
+ ],
+ "pool.altstar_karriereende.e.e3": [
+  "{b.gruss} {b.altstar_karriereende_lage} For weeks I have lain awake brooding over this.",
+  "{b.gruss} {b.altstar_karriereende_lage} Honestly, the uncertainty eats at me, and it shows in training."
+ ],
+ "pool.altstar_karriereende.e.e4": [
+  "{b.gruss} {b.altstar_karriereende_lage} I wish it to end properly, without back doors or secrecy.",
+  "{b.gruss} {b.altstar_karriereende_lage} A quiet farewell would not be enough for me, after all we have been through here."
+ ],
+ "pool.altstar_karriereende.e.e5": [
+  "{b.gruss} {b.altstar_karriereende_lage} I do not want to fade out, I want to count until the last matchday.",
+  "{b.gruss} {b.altstar_karriereende_lage} As long as I deliver, I do not want to be treated like a phase-out model."
+ ],
+ "pool.altstar_karriereende.e.e6": [
+  "{b.gruss} {b.altstar_karriereende_lage} Sometimes I think I am already in the squad's way.",
+  "{b.gruss} {b.altstar_karriereende_lage} I do not want to take anyone's place, just not be left in the dark."
+ ],
+ "pool.altstar_karriereende.e.e7": [
+  "{b.gruss} {b.altstar_karriereende_lage} With my experience I could also help off the pitch, if that is a topic.",
+  "{b.gruss} {b.altstar_karriereende_lage} Maybe there is a job for someone like me once the boots are hung up."
+ ],
+ "pool.altstar_karriereende.e.e8": [
+  "{b.gruss} {b.altstar_karriereende_lage} You told me we would talk in good time, and so far nothing has come.",
+  "{b.gruss} {b.altstar_karriereende_lage} I am still waiting for the promised talk about my future."
+ ],
+ "pool.altstar_karriereende.e.e9": [
+  "{b.gruss} {b.altstar_karriereende_lage} My wife says I should quit while it still looks good.",
+  "{b.gruss} {b.altstar_karriereende_lage} My family asks whether I carry on, and I have no answer."
+ ],
+ "pool.altstar_karriereende.a.a1": [
+  "I want to carry on with you. We extend by a year, and you get time to think.",
+  "You are worth another season to me. Let us settle the extension soon."
+ ],
+ "pool.altstar_karriereende.a.a2": [
+  "One last year, and then we let you go with applause, in front of a full house.",
+  "You have earned a lap of honour, and the fans will thank you for it."
+ ],
+ "pool.altstar_karriereende.a.a3": [
+  "I decide after the winter break, depending on your physical state. Until then you play your game.",
+  "We review the coming weeks: load, data, feel. Then we sit down."
+ ],
+ "pool.altstar_karriereende.a.a4": [
+  "Do not worry, it will sort itself out, and there is plenty of time until then.",
+  "Focus on the games, we will think about everything else later."
+ ],
+ "pool.altstar_karriereende.a.a5": [
+  "I am not planning beyond your contract with you. The club has to get younger.",
+  "There will be no extension, I want to keep the room free for those coming up."
+ ],
+ "pool.altstar_karriereende.a.a6": [
+  "You deserve a testimonial match with all the trimmings, and I will arrange it.",
+  "I will organise a worthy farewell for you, with a match, a tribute and your family on the pitch."
+ ],
+ "pool.altstar_karriereende.a.a7": [
+  "What do you wish for yourself: keep playing, stop, or something entirely different?",
+  "How does your body feel, and how long do you trust yourself to play at this level?"
+ ],
+ "pool.altstar_karriereende.a.a8": [
+  "Performance counts, not past merit. Whoever is fit plays, whoever is not, does not.",
+  "Gratitude is not a line-up. You have to prove yourself anew every week."
+ ],
+ "pool.altstar_karriereende.a.a9": [
+  "I see you later as a mentor for the youngsters, passing on what you know. We will talk about that seriously.",
+  "Your experience belongs in the academy. I see you as a mentor while you are still playing."
+ ],
+ "pool.altstar_karriereende.a.a10": [
+  "I know how hard this thought is for you. You shaped this club, and I will not leave you out in the rain.",
+  "Thank you for being so open. I take you and your worries seriously, and we will find a good way."
+ ],
+ "pool.altstar_karriereende.a.a11": [
+  "The sporting director knows the options after a career better than I do, the two of you sit down together.",
+  "Talk to the club leadership, it has the plans for the time afterwards in hand."
+ ],
+ "pool.altstar_karriereende.a.a12": [
+  "You still run like someone out to show everybody, I will not let you go so fast. But I cannot promise anything yet.",
+  "Quit? You toil like a youth player, let us calmly wait."
+ ],
+ "pool.altstar_karriereende.r.r1": [
+  "{b.gut} That is what I hoped for, coach.",
+  "{b.gut} With that I can take the last stretch with a calm head."
+ ],
+ "pool.altstar_karriereende.r.r2": [
+  "{b.gut} You are a coach who thinks of the old ones. For that I will wear the shirt a little longer.",
+  "{b.gut} As long as I can, I give everything for you and the club."
+ ],
+ "pool.altstar_karriereende.r.r3": [
+  "{b.gut} Then I will get everything out once more, and maybe a title at the end.",
+  "{b.gut} A strong finish, exactly what I had in mind."
+ ],
+ "pool.altstar_karriereende.r.r4": [
+  "{b.gut} That you care for me like this touches me, honestly.",
+  "{b.gut} Hardly anyone has spoken to me like that, thank you."
+ ],
+ "pool.altstar_karriereende.r.r5": [
+  "{b.neutral} We still have time, I will ask again in winter.",
+  "{b.neutral} That is no answer, but no refusal either."
+ ],
+ "pool.altstar_karriereende.r.r6": [
+  "{b.neutral} I have to let that sink in first.",
+  "{b.neutral} It sounds sensible, yet I do not feel much lighter."
+ ],
+ "pool.altstar_karriereende.r.r7": [
+  "{b.neutral} I take note of it and do my job.",
+  "{b.neutral} Then I will simply wait and see what comes."
+ ],
+ "pool.altstar_karriereende.r.r8": [
+  "{b.neutral} After all these years little shocks me anymore.",
+  "{b.neutral} Fine, so it is, I still sleep soundly."
+ ],
+ "pool.altstar_karriereende.r.r9": [
+  "{b.schlecht} A deserving player would deserve more clarity.",
+  "{b.schlecht} That is no way to treat someone who has been here this long."
+ ],
+ "pool.altstar_karriereende.r.r10": [
+  "{b.schlecht} I was here before you were even in the country! I will not accept that!",
+  "{b.schlecht} Then say it to my face: I am supposed to go, right?"
+ ],
+ "pool.altstar_karriereende.r.r11": [
+  "{b.schlecht} If I am no longer needed here, there are others who value me.",
+  "{b.schlecht} Then I will look elsewhere, it is that simple."
+ ],
+ "pool.altstar_karriereende.r.r12": [
+  "{b.schlecht} After everything I have done for this club, that hurts.",
+  "{b.schlecht} I would have wished for a little more gratitude, coach."
+ ],
+ "pool.altstar_karriereende.x.x1": [
+  "He nods slowly, and the weight seems to fall from his shoulders. {entscheidung} In training he leads the way again.",
+  "{entscheidung} The old warrior seems relieved, almost lighter."
+ ],
+ "pool.altstar_karriereende.x.x2": [
+  "He remains thoughtful. {entscheidung} The question keeps hanging over him until a decision falls.",
+  "{entscheidung} How it goes on for him is written in the stars."
+ ],
+ "pool.altstar_karriereende.x.x3": [
+  "His face hardens. {entscheidung} The dressing room has gone quiet, and many noticed.",
+  "{entscheidung} He did not want it to end like this, and he says so."
+ ],
+ "pool.altstar_karriereende.x.x4": [
+  "You shake hands. {entscheidung} He now knows where he stands, and the deadline runs.",
+  "{entscheidung} The word is given, and he will remind you of it when the time comes."
+ ],
+ "pool.altstar_karriereende.x.x5": [
+  "He gets up before you finish. {entscheidung} The door stays ajar, nothing more.",
+  "{entscheidung} Without a word he leaves the office, eyes on the floor."
+ ],
+ "pool.egoist_auf_der_bank.e.e1": [
+  "{b.gruss} {b.egoist_auf_der_bank_lage} I thought you should hear it from me before it gets worse.",
+  "{b.gruss} {b.egoist_auf_der_bank_lage} As captain it is my duty to report this to you."
+ ],
+ "pool.egoist_auf_der_bank.e.e2": [
+  "{b.gruss} {b.egoist_auf_der_bank_lage} During the warm-up he did not say a word to us.",
+  "{b.gruss} {b.egoist_auf_der_bank_lage} On the team bus he sits alone with headphones and stares out of the window."
+ ],
+ "pool.egoist_auf_der_bank.e.e3": [
+  "{b.gruss} {b.egoist_auf_der_bank_lage} Honestly, I no longer know how to reach him.",
+  "{b.gruss} {b.egoist_auf_der_bank_lage} I am at my wits' end, and the younger ones are starting to copy him."
+ ],
+ "pool.egoist_auf_der_bank.e.e4": [
+  "{b.gruss} {b.egoist_auf_der_bank_lage} If you do not step in, I will, and then it gets loud!",
+  "{b.gruss} {b.egoist_auf_der_bank_lage} One more scene like that, and I take him on in front of the whole squad!"
+ ],
+ "pool.egoist_auf_der_bank.e.e5": [
+  "{b.gruss} {b.egoist_auf_der_bank_lage} Otherwise I get along with him fine, but this time I cannot reach him.",
+  "{b.gruss} {b.egoist_auf_der_bank_lage} We have a good bunch, and I do not want one person poisoning it."
+ ],
+ "pool.egoist_auf_der_bank.e.e6": [
+  "{b.gruss} {b.egoist_auf_der_bank_lage} We want to achieve something, and anyone who only looks out for himself gets in the way.",
+  "{b.gruss} {b.egoist_auf_der_bank_lage} For success the bench has to stand behind the team, not against it."
+ ],
+ "pool.egoist_auf_der_bank.e.e7": [
+  "{b.gruss} {b.egoist_auf_der_bank_lage} I do not want to expose him, but I see how it gnaws at the others.",
+  "{b.gruss} {b.egoist_auf_der_bank_lage} The mood is slowly turning, and I fear it will drag the rest along."
+ ],
+ "pool.egoist_auf_der_bank.e.e8": [
+  "{b.gruss} {b.egoist_auf_der_bank_lage} You promised to take care of him, and nothing has happened.",
+  "{b.gruss} {b.egoist_auf_der_bank_lage} The talk with him that you announced is still outstanding."
+ ],
+ "pool.egoist_auf_der_bank.e.e9": [
+  "{b.gruss} {b.egoist_auf_der_bank_lage} Since the row over seating, two others no longer talk to him.",
+  "{b.gruss} {b.egoist_auf_der_bank_lage} The dressing room has already split into camps, for him and against him."
+ ],
+ "pool.egoist_auf_der_bank.a.a1": [
+  "I am charging you with it: take him aside, you know the dressing room. I have full faith in you.",
+  "You talk to him, captain. Coming from one of you, it lands better than from me."
+ ],
+ "pool.egoist_auf_der_bank.a.a2": [
+  "I will explain to him myself why he is out and what he must change.",
+  "He gets a clear account of his role from me. Then he knows where he stands."
+ ],
+ "pool.egoist_auf_der_bank.a.a3": [
+  "I will sit down with him and hear out what torments him. Maybe there is more behind it.",
+  "I will seek the talk and let him finish before I say anything."
+ ],
+ "pool.egoist_auf_der_bank.a.a4": [
+  "He pays a fine and sits in the stands next time if he stirs things up again.",
+  "Moaning against the team has consequences, and I will enforce them."
+ ],
+ "pool.egoist_auf_der_bank.a.a5": [
+  "The line-up is my business, and he has to accept it whether he likes it or not.",
+  "I am not changing my decision. Whoever does not fit in stays out."
+ ],
+ "pool.egoist_auf_der_bank.a.a6": [
+  "A shared dinner for the whole squad is on me, so the trenches can close up.",
+  "I invite the team to a barbecue, no tactics board, just good cheer."
+ ],
+ "pool.egoist_auf_der_bank.a.a7": [
+  "How exactly has he behaved lately, and who in the dressing room suffers most?",
+  "Since when has this gone on, and was there a concrete trigger?"
+ ],
+ "pool.egoist_auf_der_bank.a.a8": [
+  "I promise him minutes as soon as he fits in with the team. I will tell him to his face.",
+  "If he shows the right attitude, he gets his minutes. I assure him of that."
+ ],
+ "pool.egoist_auf_der_bank.a.a9": [
+  "Every dressing room has its stubborn one, here it is him. He will come round.",
+  "The man has fire, that comes with it. Give him a few days and he will calm down."
+ ],
+ "pool.egoist_auf_der_bank.a.a10": [
+  "Today I speak to the whole squad: the bench is no stage for the offended, everyone works for success.",
+  "Before training I make an announcement: whoever sits on the bench helps from there, or not at all."
+ ],
+ "pool.egoist_auf_der_bank.a.a11": [
+  "Turn to the assistant coach, he looks after the substitutes and can handle him better.",
+  "That falls under my assistant's remit, I will pass it on to him."
+ ],
+ "pool.egoist_auf_der_bank.r.r1": [
+  "{b.gut} Good, then I can tell the team that something is happening.",
+  "{b.gut} That reassures me, coach, and the lads will certainly be relieved."
+ ],
+ "pool.egoist_auf_der_bank.r.r2": [
+  "{b.gut} I will gladly take that on. For the group I do almost anything.",
+  "{b.gut} We will manage, coach, count on me."
+ ],
+ "pool.egoist_auf_der_bank.r.r3": [
+  "{b.gut} That is a clear path, with it we regain our focus.",
+  "{b.gut} Then the team stands together again, and we can deliver."
+ ],
+ "pool.egoist_auf_der_bank.r.r4": [
+  "{b.gut} He will appreciate you taking the time for him.",
+  "{b.gut} He has not earned that much consideration, but good that you show it."
+ ],
+ "pool.egoist_auf_der_bank.r.r5": [
+  "{b.neutral} I am curious whether that achieves anything.",
+  "{b.neutral} Then we wait and see how he turns up in training tomorrow."
+ ],
+ "pool.egoist_auf_der_bank.r.r6": [
+  "{b.neutral} I do not know whether the dressing room takes it that way.",
+  "{b.neutral} It can go well, it can also backfire."
+ ],
+ "pool.egoist_auf_der_bank.r.r7": [
+  "{b.neutral} Then it stays as it is for now.",
+  "{b.neutral} Understood, I will keep my eyes open and report again."
+ ],
+ "pool.egoist_auf_der_bank.r.r8": [
+  "{b.neutral} Fine by me, I have thick skin anyway.",
+  "{b.neutral} As you say, I take it as it comes."
+ ],
+ "pool.egoist_auf_der_bank.r.r9": [
+  "{b.schlecht} That leaves the dressing room on its own.",
+  "{b.schlecht} That will change nothing about the mood, coach."
+ ],
+ "pool.egoist_auf_der_bank.r.r10": [
+  "{b.schlecht} Then I will have to settle it my way, and it will not be friendly!",
+  "{b.schlecht} If you stay out, I will take him on myself!"
+ ],
+ "pool.egoist_auf_der_bank.r.r11": [
+  "{b.schlecht} As captain I will not be fobbed off, I am wondering whether to keep the armband.",
+  "{b.schlecht} If I cannot achieve anything here, I can play somewhere else."
+ ],
+ "pool.egoist_auf_der_bank.r.r12": [
+  "{b.schlecht} I had hoped you would take me more seriously as captain.",
+  "{b.schlecht} That disappoints me, I thought we pulled on the same rope."
+ ],
+ "pool.egoist_auf_der_bank.x.x1": [
+  "The captain walks back to the dressing room with a firm step. {entscheidung} Soon after, there is laughter again.",
+  "{entscheidung} The stubborn one seems to have pulled himself together, and the squad breathes out."
+ ],
+ "pool.egoist_auf_der_bank.x.x2": [
+  "The captain shrugs. {entscheidung} Whether the bench stays quiet remains to be seen.",
+  "{entscheidung} It stays in limbo, and both camps keep watching each other."
+ ],
+ "pool.egoist_auf_der_bank.x.x3": [
+  "The captain presses his lips together. {entscheidung} It will soon get louder behind the dressing room door.",
+  "{entscheidung} The fronts have hardened, and hardly anyone talks to the captain anymore."
+ ],
+ "pool.egoist_auf_der_bank.x.x4": [
+  "The captain notes the deadline. {entscheidung} He will vouch for you in the dressing room.",
+  "{entscheidung} The captain passes the word on to the squad, and now everything depends on it."
+ ],
+ "pool.egoist_auf_der_bank.x.x5": [
+  "The captain waves it off and leaves. {entscheidung} He takes the matter into the dressing room, unsolved.",
+  "{entscheidung} He leaves the room mid-sentence without looking at you again."
+ ],
+ "pool.fuehrungsspieler_ausser_form.e.e1": [
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} I would like to know whether you still count on me.",
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} Can I talk openly with you about how you see me?"
+ ],
+ "pool.fuehrungsspieler_ausser_form.e.e2": [
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} The younger ones look up to me, and I cannot be a role model while I play like this.",
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} As someone who is supposed to lead, I feel rather small right now."
+ ],
+ "pool.fuehrungsspieler_ausser_form.e.e3": [
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} I am on edge, every touch feels wrong, and I no longer know what to do.",
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} I lack all confidence right now, and it has only half to do with football anymore."
+ ],
+ "pool.fuehrungsspieler_ausser_form.e.e4": [
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} If you want to take the armband from me now, say so right away!",
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} I accept criticism, but nobody talks about me behind my back!"
+ ],
+ "pool.fuehrungsspieler_ausser_form.e.e5": [
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} I noticed with concern that some in the dressing room whisper.",
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} I give the team what I have, even if it is not enough at the moment."
+ ],
+ "pool.fuehrungsspieler_ausser_form.e.e6": [
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} I want to be the difference again, and for that I need a plan.",
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} Tell me what to work on, and I will deliver it."
+ ],
+ "pool.fuehrungsspieler_ausser_form.e.e7": [
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} I do not want my place in the squad to crumble because I am weak for a few weeks.",
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} It would be awkward if others overtake me in rank while I am struggling."
+ ],
+ "pool.fuehrungsspieler_ausser_form.e.e8": [
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} You promised me backing, and so far I have not felt it.",
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} In our last talk you promised me support, and I see none of it."
+ ],
+ "pool.fuehrungsspieler_ausser_form.e.e9": [
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} I have withdrawn in the dressing room because I do not want to be the one who drags everyone down.",
+  "{b.gruss} {b.fuehrungsspieler_ausser_form_lage} I notice that I have grown quieter, and that does not belong to a leader."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a1": [
+  "You remain my leader, no form curve changes that. We will get out of this together.",
+  "I stand behind you, whatever the table says. The team still needs you."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a2": [
+  "We watch the last games on video together, and I show you where it sticks and what was good.",
+  "Sit down with me in front of the footage, scene by scene. Often it is only a detail."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a3": [
+  "You get a week off, no game, no pressure. Afterwards you attack fresh.",
+  "I take you out of the squad for a game or two so you can clear your head."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a4": [
+  "Plain words: like this you cannot be a leader. Change something, or I will have to do it for you.",
+  "You are not untouchable. Whoever wears the armband must deliver, and right now you do not."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a5": [
+  "What do you yourself think: does the armband belong on your arm right now, or would it be easier for all if someone else wore it?",
+  "Do you want to keep the armband, and what are you willing to do for it?"
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a6": [
+  "The armband stays with you until the end of the season, I tell you that for certain.",
+  "Your role in the team stands, I guarantee it until your form is back."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a7": [
+  "Even the best striker goes through a drought, even the clock sometimes runs slow. It will turn again.",
+  "Form curves are like the weather, rain is followed by sun, and you are a sunny type."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a8": [
+  "A role is no gift for life. It changes with your performance, I have to be that honest.",
+  "I do not negotiate about your standing. You win it back on the pitch."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a9": [
+  "I send you to the fitness coach and the mental coach, they have more experience with slumps than I do.",
+  "The staff takes care of you, one-on-one work with the assistant coach every morning."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a10": [
+  "An evening with your family in a good restaurant is on the club. Clear your head, and on Monday we go on.",
+  "You and your loved ones, a free weekend by the coast, at the club's expense. Recharge."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a11": [
+  "I see how it weighs on you. You need not pretend, here you can say how you really feel.",
+  "I see it gnaws at you. Let us talk about you first, not about football."
+ ],
+ "pool.fuehrungsspieler_ausser_form.a.a12": [
+  "The dressing room should see that you are working on yourself. I expect no more, but I do expect that.",
+  "I expect you not to pull the others in. On the pitch we talk about performance later."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r1": [
+  "{b.gut} That gives me support, coach, I wanted to hear nothing more.",
+  "{b.gut} Now I feel like part of the whole again."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r2": [
+  "{b.gut} I can rely on you, and you on me.",
+  "{b.gut} With such backing I carry the responsibility on."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r3": [
+  "{b.gut} That is a plan I can work with, thanks.",
+  "{b.gut} Give me a few weeks and I will be my old self again."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r4": [
+  "{b.gut} That you see me as a person and not only as a player helps me more than any analysis.",
+  "{b.gut} That did me good, I feel understood."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r5": [
+  "{b.neutral} I will try it and see what it brings.",
+  "{b.neutral} That sounds like work, let us see whether it bears fruit."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r6": [
+  "{b.neutral} I do not know whether that builds me up or rather unsettles me.",
+  "{b.neutral} Hm, I have to think about how to take that."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r7": [
+  "{b.neutral} Fine, then I will not ask long at the next training.",
+  "{b.neutral} Then so it is, I concentrate on what I can influence."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r8": [
+  "{b.neutral} I have survived worse phases and will survive this one too.",
+  "{b.neutral} No problem, I stay calm and wait for my moment."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r9": [
+  "{b.schlecht} That makes me feel even smaller than before.",
+  "{b.schlecht} That was not the support I had hoped for."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r10": [
+  "{b.schlecht} Then just pass the armband on, if I am worth so little!",
+  "{b.schlecht} I gave everything, and now you treat me like a beginner!"
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r11": [
+  "{b.schlecht} If I am no longer wanted here, perhaps I am elsewhere.",
+  "{b.schlecht} So much distrust tells me I had better start anew."
+ ],
+ "pool.fuehrungsspieler_ausser_form.r.r12": [
+  "{b.schlecht} I would not have expected that from you, after all we had.",
+  "{b.schlecht} I always slogged for you, and this is the thanks."
+ ],
+ "pool.fuehrungsspieler_ausser_form.x.x1": [
+  "He straightens up, and some of the old toughness returns to his eyes. {entscheidung} In the dressing room his word still counts.",
+  "{entscheidung} The leader walks out strengthened and looks once more like someone who carries a team."
+ ],
+ "pool.fuehrungsspieler_ausser_form.x.x2": [
+  "He nods, yet doubts remain. {entscheidung} Whether his slump passes will be decided in the coming weeks.",
+  "{entscheidung} He stays in office, but everyone knows his time is not unlimited."
+ ],
+ "pool.fuehrungsspieler_ausser_form.x.x3": [
+  "He slams the door. {entscheidung} The dressing room heard it, and his authority noticeably suffers.",
+  "{entscheidung} The leader looks hurt, and that will not go without consequences for the team."
+ ],
+ "pool.fuehrungsspieler_ausser_form.x.x4": [
+  "You have committed yourself. {entscheidung} He knows he must now deliver, and that you believe in him.",
+  "{entscheidung} The deadline runs, and the whole dressing room knows whom you trusted."
+ ],
+ "pool.fuehrungsspieler_ausser_form.x.x5": [
+  "He falls silent and goes out. {entscheidung} You can tell the conversation is not over.",
+  "{entscheidung} In mid-sentence he stands up and leaves the room without turning round."
+ ]
+}

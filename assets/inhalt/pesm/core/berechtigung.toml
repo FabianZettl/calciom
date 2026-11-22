@@ -1,0 +1,64 @@
+# Berechtigung von Anliegen: ein Spieler meldet sich nur, wenn die Beschwerde realistisch ist (core/berechtigung.py).
+# Alle Zahlen sind Startwerte und gehören zur Kalibrierung.
+
+[positionen]            # Positionscode → Gruppe; Plätze = wie viele Spieler der Gruppe in der Regel von Beginn an spielen
+gruppen = { TW = "TW", IV = "IV", LV = "AV", RV = "AV", LAV = "AV", RAV = "AV", DM = "DM", ZM = "ZM", OM = "OM", LM = "FL", RM = "FL", LA = "FL", RA = "FL", LF = "FL", RF = "FL", ST = "ST", HS = "ST", SS = "ST", MS = "ST" }
+plaetze = { TW = 1, IV = 2, AV = 2, DM = 1, ZM = 2, OM = 1, FL = 2, ST = 2 }
+
+[spielzeit]
+abstand = 5.0                 # so viele Gesamtwert-Punkte darf er hinter dem schwächsten Stammspieler seiner Position liegen
+ohne_einsatz_spiele = 3       # so viele Spiele in Folge ohne Einsatz (etwa drei Wochen); fehlt die Zählung, gilt der Einsatzanteil
+einsatz_anteil_unter = 0.35
+persoenlichkeit_min = 0.45    # Mittel aus Ehrgeiz und Ego (0…1)
+persoenlichkeit_vertrag = 0.1 # läuft der Vertrag bald aus, genügt etwas weniger Ehrgeiz
+vertrag_monate = 6
+jung_alter = 21
+jung_potenzial_vorsprung = 8  # junge Spieler mit so viel Potenzial über dem Gesamtwert sind geduldig
+alt_alter = 31                # ältere Spieler hinter dem Stammspieler sehen es ein
+rolle_akzeptiert = ["randfigur", "perspektivspieler"]
+rolle_stamm = ["stammspieler", "star", "fuehrungsspieler", "kapitaen", "vizekapitaen"]   # wer als Stammkraft geführt wird, darf mehr Abstand haben (doppelt)
+merkmale_geduldig = ["geduldig", "gelassen", "bescheiden", "teamplayer", "vorbild_profi", "ruhig"]
+merkmale_fordernd = ["ehrgeizig", "selbstbewusst", "lautsprecher", "hitzkopf", "provokateur"]
+merkmal_wirkung = 0.2
+
+[relevanz]                    # für Form, Wechsel und Vertrag: nur Spieler, die für den Kader etwas bedeuten
+rang_zusatz_form = 1          # Formtief meldet, wer höchstens so viele Plätze hinter den Stammplätzen liegt …
+einsatz_form = 0.4            # … oder regelmäßig spielt
+rang_zusatz_wechsel = 1
+rang_zusatz_vertrag = 2
+jung_potenzial_vertrag = 6
+
+[gehalt]                      # Gehaltsbeschwerde: nur Leistungsträger, deren Gehalt deutlich unter dem Schnitt ihrer Rolle liegt
+unter_schnitt = 0.9           # Gehalt höchstens so viel Anteil des Rollen-Schnitts
+rang_zusatz = 1
+mindestens_gleiche_rolle = 3  # so viele Spieler braucht der Vergleich
+
+[belastung]
+einsatz_ab = 0.5              # nur wer regelmäßig spielt, klagt über Belastung
+
+[gruppe]
+ab = 3                        # ab so vielen berechtigten Spielzeit-Anliegen gibt es eine Gruppen-Nachricht
+einzel_max = 2                # Einzelgespräche nur für die Wichtigsten
+
+# ---- Rhythmus, Eskalation, Verfall (Gespräche): Startwerte, nicht kalibriert – Erfahrungswerte aus dem Vergleich mit Football Manager, keine Spezifikation ----
+[rhythmus]
+neu_je_woche = 2              # neue Anliegen je Spielwoche für den ganzen Kader
+max_offen = 4                 # gleichzeitig offen im Kader (höchstens eines je Spieler)
+spitze_serie = 2.0            # Faktor auf neu_je_woche nach einer Niederlagenserie
+serie_ab = 3                  # so viele Niederlagen in Folge
+spitze_fenster = 1.5          # Faktor in den ersten Tagen eines Transferfensters
+fenster_tage = 14
+ausnahmen = ["wechselgedanken", "verletzungsangst"]   # zählen nicht gegen die Grenzen: dringend
+ausnahme_vertrag_monate = 3   # auslaufender Vertrag unter so vielen Monaten ist dringend
+
+[prioritaet]
+hoch = ["spielzeit", "rolle", "vertrag", "gehalt", "wechselgedanken", "kabinenstreit", "verletzungsangst", "formtief", "belastung"]
+verfall_tage_niedrig = 14     # niedrige Anliegen verfallen ohne Folge, wenn der Nutzer nichts tut
+
+[eskalation]
+sehr_unzufrieden_tage = 14    # offen seit so vielen Tagen: „sehr unzufrieden“
+wechselwunsch_tage = 35       # offen seit so vielen Tagen: Wechselwunsch (Vertragsthemen: Verweigerung der Verlängerung)
+moral_sehr_unzufrieden = -3.0 # Wirkung auf die Moral (E, Gesprächswirkung)
+moral_wechselwunsch = -6.0
+wechselbereitschaft = 80      # E: wunsch_ab liegt bei 70 (entwicklung.toml)
+beziehung_verweigert = -10

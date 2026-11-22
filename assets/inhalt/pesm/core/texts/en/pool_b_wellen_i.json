@@ -1,0 +1,82 @@
+{
+ "pool.b.berater_konkurrenzangebot_gruss": [
+  "Hello, this is the agent of {name} speaking.",
+  "Hello, I'm calling about {name}."
+ ],
+ "pool.b.berater_konkurrenzangebot_lage": [
+  "Another club has put an offer on the table for {name}: {betrag}.",
+  "There is a written offer from another club for {name}, and it reads {betrag}."
+ ],
+ "pool.b.berater_konkurrenzangebot_lage.hitzig": [
+  "{name} wants to accept a rival's offer, and right now: {betrag}!",
+  "A rival offers {name} {betrag}, and my client is fuming because nothing is happening here!"
+ ],
+ "pool.b.berater_konkurrenzangebot_lage.loyal": [
+  "{name} would have liked to stay, but another club offers him {betrag}, and I cannot ignore that.",
+  "He is attached to your club, yet a rival puts {betrag} on the table."
+ ],
+ "pool.b.berater_konkurrenzangebot_lage.ehrgeizig": [
+  "A more ambitious club offers {name} {betrag} and a bigger stage.",
+  "There is a step up for {name}, along with {betrag}."
+ ],
+ "pool.b.berater_konkurrenzangebot_lage.wechselfreudig": [
+  "{name} is looking around anyway, and now a club offers him {betrag}.",
+  "A rival lures {name} with {betrag}, and he is glad to listen."
+ ],
+ "pool.b.berater_konkurrenzangebot_lage.sensibel": [
+  "{name} does not feel seen here, and the other club offers {betrag} and recognition.",
+  "My client hesitated to tell me: A rival offers {betrag}."
+ ],
+ "pool.b.berater_provision_gruss": [
+  "Hello, I am writing to you about the contract of {name}.",
+  "Hello, here is my message regarding {name}."
+ ],
+ "pool.b.berater_provision_lage": [
+  "For a deal with {name} I will charge an advisory fee of {betrag}.",
+  "My work on the contract of {name} was considerable, and it comes with a commission of {betrag}."
+ ],
+ "pool.b.berater_provision_lage.hitzig": [
+  "I put weeks into this contract, and without {betrag} commission nothing gets signed here!",
+  "Without my fee of {betrag} nothing happens with {name}, I say that quite openly!"
+ ],
+ "pool.b.berater_provision_lage.loyal": [
+  "I like working with you, but for the sake of order I must name my fee of {betrag}.",
+  "It is awkward for me, but for the deal with {name} I am owed a commission of {betrag}."
+ ],
+ "pool.b.berater_provision_lage.ehrgeizig": [
+  "A good deal for {name} has its price, and for my advice it is {betrag}.",
+  "My fee is {betrag}, and it is well spent if {name} takes the next step."
+ ],
+ "pool.b.berater_provision_lage.wechselfreudig": [
+  "When {name} signs I want to see {betrag}, other clubs pay this without grumbling.",
+  "My commission is {betrag}, and elsewhere it would have been paid long ago."
+ ],
+ "pool.b.berater_provision_lage.sensibel": [
+  "I struggle to bring it up, but my fee of {betrag} belongs to the deal with {name}.",
+  "Please do not misunderstand: For my work on the contract of {name}, {betrag} is on the table."
+ ],
+ "pool.b.verhandlung_spieler_wunsch_lage": [
+  "It is about my contract.",
+  "I have been thinking about my new contract."
+ ],
+ "pool.b.verhandlung_spieler_wunsch_lage.hitzig": [
+  "It is about my contract, and this time I want to be heard!",
+  "I will not be steamrolled over the contract!"
+ ],
+ "pool.b.verhandlung_spieler_wunsch_lage.loyal": [
+  "I am happy here, so I would like to speak openly about my contract.",
+  "I want to stay, but a few things are close to my heart."
+ ],
+ "pool.b.verhandlung_spieler_wunsch_lage.ehrgeizig": [
+  "For me my contract is about the next step.",
+  "I want my contract to fit my goals."
+ ],
+ "pool.b.verhandlung_spieler_wunsch_lage.wechselfreudig": [
+  "Before I sign, I want to state my conditions.",
+  "I have options, so I am telling you what I need."
+ ],
+ "pool.b.verhandlung_spieler_wunsch_lage.sensibel": [
+  "It is not easy for me to talk about my contract, but it matters.",
+  "I want you to understand me before we talk about the contract."
+ ]
+}

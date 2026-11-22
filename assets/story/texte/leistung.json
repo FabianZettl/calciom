@@ -1,0 +1,32 @@
+{
+  "_hinweis": "Texte zum Thema Leistung. torjaeger_im_lauf: Schlagzeile der Presse, {zahl} = Tore der Saison. fuehrungsspieler_ausser_form: Der Spieler spricht im Gespräch („Trainer“, „Sie“); der Trainer antwortet mit Du. Platzhalter: {spieler}, {spieler_kurz}, {verein}, {zahl}, {reporter}, {medium}.",
+  "torjaeger_im_lauf.schlagzeile": { "standard": ["{spieler_kurz} trifft und trifft", "{zahl} Saisontore: {spieler_kurz} in Topform"] },
+  "torjaeger_im_lauf.kurztext": {
+    "standard": [
+      "{spieler} steht bei {zahl} Saisontoren für {verein}. {reporter} ({medium}): „Im Moment geht bei ihm fast jeder Ball rein. Die Frage ist nur, wie lange das anhält.“",
+      "{zahl} Tore in dieser Saison: An {spieler} hängt bei {verein} gerade viel. {reporter} ({medium}) fragt, wer trifft, wenn er einmal ausfällt."
+    ]
+  },
+
+  "fuehrungsspieler_ausser_form.betreff": { "standard": ["{spieler_kurz} steckt im Formtief"] },
+  "fuehrungsspieler_ausser_form.text": {
+    "standard": [
+      "Trainer, ich weiß selbst, dass es gerade nicht läuft. Die einfachen Dinge gelingen mir nicht. Ich wollte es ansprechen, bevor Sie es tun.",
+      "Trainer, ich bin mit meinen letzten Spielen nicht zufrieden. Die Mannschaft schaut auf mich, und im Moment gebe ich ihr zu wenig."
+    ],
+    "typ": {
+      "egoist":       ["Trainer, ich höre, was geredet wird. Ein paar schwächere Spiele, und schon wird alles infrage gestellt. Ich komme da raus, aber dafür brauche ich Ihre Rückendeckung."],
+      "kumpel":       ["Trainer, mich ärgert am meisten, dass ich die Jungs hängen lasse. Wenn ein anderer der Mannschaft gerade mehr hilft, dann sagen Sie es. Ich verstehe das."],
+      "heisssporn":   ["Trainer, ich könnte gerade aus der Haut fahren. Nichts klappt, und je mehr ich will, desto schlimmer wird es. Was soll ich machen?"],
+      "vorbildprofi": ["Trainer, ich habe mir meine letzten Spiele noch einmal angesehen. Es fehlt an Frische und an Tempo. Ich würde gern zusätzlich arbeiten, wenn Sie einverstanden sind."],
+      "diva":         ["Trainer, ein paar Spiele ohne Glanz, und sofort wird gemäkelt. Ich weiß, was ich kann. Sorgen Sie bitte dafür, dass in dieser Phase Ruhe um mich herrscht."],
+      "anfuehrer":    ["Trainer, ich gehe voran, auch wenn es bei mir nicht läuft. Aber ich will der Mannschaft nicht schaden. Wenn Sie mich rausnehmen müssen, trage ich das mit."]
+    }
+  },
+  "fuehrungsspieler_ausser_form.antwort.vertrauen": { "standard": ["Du spielst weiter. Ich weiß, was du kannst, und das kommt wieder."] },
+  "fuehrungsspieler_ausser_form.antwort.pause":     { "standard": ["Du setzt ein, zwei Spiele aus und holst dir die Frische zurück. Danach greifst du wieder an."] },
+  "fuehrungsspieler_ausser_form.antwort.druck":     { "standard": ["Von dir muss mehr kommen. Sonst spielt am Wochenende ein anderer."] },
+  "fuehrungsspieler_ausser_form.rueckmeldung.vertrauen": { "standard": ["Danke, Trainer. Das Vertrauen zahle ich zurück."] },
+  "fuehrungsspieler_ausser_form.rueckmeldung.pause":     { "standard": ["Leicht fällt mir das nicht, aber wahrscheinlich haben Sie recht."] },
+  "fuehrungsspieler_ausser_form.rueckmeldung.druck":     { "standard": ["Angekommen. In dieser Phase hätte ich mir etwas anderes gewünscht."] }
+}

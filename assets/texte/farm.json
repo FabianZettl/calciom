@@ -1,0 +1,31 @@
+{
+ "_hinweis": "Texte für zweite Mannschaften und Farmteams, getrennt von der Logik. %1, %2 werden ersetzt.",
+ "luecke": {
+  "tor": "Wir brauchen einen jungen Torwart, der bei uns spielen kann.",
+  "abwehr": "Uns fehlen Innenverteidiger, und wir haben Platz im Kader.",
+  "aussen": "Wir brauchen junge Außenverteidiger und haben Platz im Kader.",
+  "mitte": "Im Mittelfeld sind wir dünn besetzt, junge Leute würden sofort spielen.",
+  "fluegel": "Uns fehlt Tempo auf den Flügeln, da wäre Platz für eure Talente.",
+  "sturm": "Wir suchen junge Stürmer, die bei uns Tore schießen wollen."
+ },
+ "grund": {
+  "klamm": "Das Geld würde uns helfen, die Saison sicher durchzuziehen.",
+  "abstand": "Mit einem großen Partner kommen wir an Spieler, die wir uns sonst nie leisten könnten.",
+  "trainer": "Unser Trainer arbeitet gern mit jungen Spielern.",
+  "naehe": "Kurze Wege, gleiche Sprache: das passt einfach."
+ },
+ "leihgrund": {
+  "jung": "Soll in %1 Spielpraxis sammeln.",
+  "verletzt": "Soll in %1 nach der Verletzung wieder Rhythmus finden.",
+  "bank": "Kommt bei uns kaum zum Zug und soll sich in %1 zeigen.",
+  "sonst": "Soll sich in %1 für höhere Aufgaben empfehlen."
+ },
+ "kuendigung": {
+  "zurueck": "%1 beendet die Zusammenarbeit: „Ihr habt uns zugesagt, dass die Jungs die Saison bei uns spielen, und dann holt ihr sie zurück. So können wir nicht planen.“",
+  "wenig": "%1 beendet die Zusammenarbeit: „Versprochen waren %2 Leihspieler, gekommen sind %3. Dafür brauchen wir keinen großen Partner.“",
+  "zahlung": "%1 beendet die Zusammenarbeit: „Das Geld kommt nicht. Wir müssen unsere Rechnungen auch bezahlen.“",
+  "ablauf": "Die Zusammenarbeit mit %1 ist ausgelaufen."
+ },
+ "anfrage_titel": "%1 möchte unser Farmteam werden",
+ "bewerbung_titel": "Bewerbung als Partnerverein: %1"
+}

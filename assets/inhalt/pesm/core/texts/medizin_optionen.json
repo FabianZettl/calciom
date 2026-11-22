@@ -1,0 +1,20 @@
+{
+  "med.akt.behutsam": "%1 behutsam zurückkehren lassen",
+  "med.akt.einzel_aus": "Einzeltraining von %1 beenden",
+  "med.akt.team_schonen": "Teamtraining schonen",
+  "med.akt.ruhetag": "Morgen Ruhetag einlegen",
+  "med.akt.weiter": "Weiter wie bisher",
+  "med.stufe.niedrig": "niedrig",
+  "med.stufe.mittel": "mittel",
+  "med.stufe.hoch": "hoch",
+  "med.hinweis.dauer_spiel": "Die Dauer des Ausfalls (%1 Tage) bestimmt das Spiel; PESM kann sie nicht verkürzen.",
+  "med.hinweis.risiko": "Verletzungsrisiko in %4 Tagen: %1 statt %2 (%3 %)",
+  "med.hinweis.risiko_gleich": "Verletzungsrisiko bleibt %1",
+  "med.hinweis.entwicklung": "Entwicklung %1 % im Training",
+  "med.hinweis.rueckkehr": "Noch %1 Tage Rückkehrphase mit Risiko ×%2",
+  "med.hinweis.team_risiko": "Verletzungsrisiko der %2 müden Spieler in %3 Tagen %1 %",
+  "med.hinweis.team_gleich": "Verletzungsrisiko der %1 müden Spieler bleibt, wie es ist",
+ "med.hinweis.ersatz": "Als Ersatz bietet sich %1 an (Stärke %2).",
+ "med.hinweis.naechstes_fehlt": "Zum nächsten Spiel (in %1 Tagen) ist er noch nicht zurück. Plane die Aufstellung ohne ihn.",
+ "med.hinweis.naechstes_da": "Bis zum nächsten Spiel (in %1 Tagen) ist er wieder einsatzbereit."
+}
