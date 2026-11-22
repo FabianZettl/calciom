@@ -3,3 +3,4 @@ shots/
 *.orig
 tools/geo_roh/
 __pycache__/
+.export/
