@@ -3290,7 +3290,7 @@ fn spieltag(ui: &mut Ui, v: &mut View, c: &mut Career) {
             } else {
                 for l in c.fl27_ansage() { y = ui.paragraph(&format!("• {l}"), r2.x + 14.0, y + 14.0, 15.0, r2.w - 28.0, Theme::text()) - 8.0; }
                 // §5.9: FL27 must be running within 240 s
-                if v.fl27_status == "FL27 läuft nicht." && get_time() as f32 - v.fl27_t0 > 240.0 { v.fl27_status = crate::inhalt::t("ui.pages.fl27_ist_nach_240_s").into(); } // roh
+                if !v.fl27_laeuft && get_time() as f32 - v.fl27_t0 > 240.0 { v.fl27_status = crate::inhalt::t("ui.pages.fl27_ist_nach_240_s").into(); } // roh
                 let live = v.fl27_live.map(|(h, a)| crate::tf!("ui.pages.stand", h, a)).unwrap_or_default();
                 ui.text_semi(&format!("{}{live}", v.fl27_status), r2.x + 14.0, y + 26.0, 15.0, Theme::akzent());
                 if ui.button(Rect::new(r2.x + r2.w - 170.0, y + 8.0, 156.0, 28.0), crate::inhalt::t("ui.pages.mitlesen_beenden"), false) { v.fl27 = None; }

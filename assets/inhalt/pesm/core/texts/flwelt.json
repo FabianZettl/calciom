@@ -100,5 +100,8 @@
  "flw.start.seite.heim": "Heim",
  "flw.start.seite.gast": "Auswärts",
  "flw.start.anleitung.stadion": "Stadion: %1 (setzt PES M, im Menü nichts ändern).",
- "flw.start.anleitung.anstoss": "Starte das Spiel mit dem Anstoß. Danach kommt das Ergebnis von selbst zurück."
+ "flw.start.anleitung.anstoss": "Starte das Spiel mit dem Anstoß. Danach kommt das Ergebnis von selbst zurück.",
+ "flw.status.kein": "FL27 läuft nicht.",
+ "flw.status.anstoss": "FL27 läuft, warte auf den Anstoß …",
+ "flw.status.mit": "Partie läuft, PES M liest mit."
 }

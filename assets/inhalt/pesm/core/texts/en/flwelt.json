@@ -100,5 +100,8 @@
  "flw.start.seite.heim": "Home",
  "flw.start.seite.gast": "Away",
  "flw.start.anleitung.stadion": "Stadium: %1 (set by PES M, leave the menu as it is).",
- "flw.start.anleitung.anstoss": "Start the game with the kick-off. The result comes back by itself afterwards."
+ "flw.start.anleitung.anstoss": "Start the game with the kick-off. The result comes back by itself afterwards.",
+ "flw.status.kein": "FL27 is not running.",
+ "flw.status.anstoss": "FL27 is running, waiting for kick-off …",
+ "flw.status.mit": "Match running, PES M is reading along."
 }

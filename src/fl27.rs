@@ -1379,7 +1379,7 @@ pub fn beobachten(team_fn: Box<dyn Fn(&[u32]) -> u32 + Send>) -> Beobachter {
         let mut last = String::new();
         while !s2.load(std::sync::atomic::Ordering::Relaxed) {
             let doc = ml.takt(t0.elapsed().as_secs_f64());
-            let status = if let Some(e) = &ml.fehler { e.clone() } else if ml.m.is_none() { "FL27 läuft nicht.".into() } else if ml.basis.is_none() { "FL27 läuft, warte auf den Anstoß …".into() } else { "Partie läuft, PES M liest mit.".into() };
+            let status = if let Some(e) = &ml.fehler { e.clone() } else if ml.m.is_none() { crate::inhalt::t("flw.status.kein").into() } else if ml.basis.is_none() { crate::inhalt::t("flw.status.anstoss").into() } else { crate::inhalt::t("flw.status.mit").into() };
             if status != last { let _ = tx.send(Meldung::Status(status.clone())); last = status; }
             if let Some((h, a)) = ml.live() { let _ = tx.send(Meldung::Live(h, a)); }
             if let Some(a) = ml.ansicht() { let _ = tx.send(Meldung::Ansicht(Box::new(a))); }
