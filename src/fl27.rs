@@ -512,9 +512,17 @@ pub fn original_pruefen(karriere: &Path) -> Result<(), String> {
     let dest = karriere.join("original");
     let txt = std::fs::read_to_string(dest.join("inhalt.json")).map_err(|_| "Sicherung der Original-Welt fehlt".to_string())?;
     let list: serde_json::Map<String, serde_json::Value> = serde_json::from_str(&txt).map_err(|e| e.to_string())?;
-    for (f, h) in list {
-        if sha_file(&dest.join(&f)).ok().as_deref() != h.as_str() { return Err(format!("Sicherung beschädigt: {f}")); }
+    // The full SHA-256 pass runs once per manifest (worlds can hold tens of thousands of files – hashing them on
+    // every match start froze the match start for minutes). Afterwards each start only checks that the files exist.
+    let stempel = dest.join("geprueft.stamp");
+    let frisch = std::fs::read_to_string(&stempel).map(|s| s.trim() == sha256_hex(txt.as_bytes())).unwrap_or(false);
+    for (f, h) in &list {
+        let p = dest.join(f);
+        if if frisch { !p.exists() } else { sha_file(&p).ok().as_deref() != h.as_str() } {
+            return Err(format!("Sicherung beschädigt: {f}"));
+        }
     }
+    if !frisch { let _ = atomic_write(&stempel, sha256_hex(txt.as_bytes()).as_bytes()); }
     Ok(())
 }
 pub fn karriere_pesdb(karriere: &Path) -> PathBuf { karriere.join("pesdb") }
@@ -904,11 +912,22 @@ pub fn lutris_starten() -> Result<(), String> {
     #[cfg(windows)]
     {
         let s = spielordner();
-        let exe = [s.join(crate::id("SiderAddons")).join("sider.exe"), s.join("FL 2027 start.exe"), s.join(EXE)].into_iter().find(|p| p.exists());
-        let Some(exe) = exe else { return Err(format!("Kein Starter in {} (sider.exe / FL 2027 start.exe / {EXE})", s.display())); };
-        return std::process::Command::new(&exe).current_dir(exe.parent().unwrap_or(&s))
-            .stdin(std::process::Stdio::null()).stdout(std::process::Stdio::null()).stderr(std::process::Stdio::null())
-            .spawn().map(|_| ()).map_err(|e| format!("{} lässt sich nicht starten: {e}", exe.display()));
+        let spawn = |p: &Path, dir: &Path| std::process::Command::new(p).current_dir(dir)
+            .stdin(std::process::Stdio::null()).stdout(std::process::Stdio::null()).stderr(std::process::Stdio::null()).spawn();
+        // The pack launcher brings up sider and the game together – the normal way to play.
+        let launcher = s.join("FL 2027 start.exe");
+        if launcher.exists() {
+            return spawn(&launcher, &s).map(|_| ()).map_err(|e| format!("{} lässt sich nicht starten: {e}", launcher.display()));
+        }
+        // sider.exe alone does not start the game (sider.ini has no start.game): sider first, then the game,
+        // so sider can attach before the exe name it watches appears.
+        let sider_exe = s.join(crate::id("SiderAddons")).join("sider.exe");
+        let game = s.join(EXE);
+        if sider_exe.exists() {
+            spawn(&sider_exe, sider_exe.parent().unwrap_or(&s)).map_err(|e| format!("{} lässt sich nicht starten: {e}", sider_exe.display()))?;
+            std::thread::sleep(std::time::Duration::from_millis(1500));
+        }
+        return spawn(&game, &s).map(|_| ()).map_err(|e| format!("{} lässt sich nicht starten: {e}", game.display()));
     }
     #[cfg(unix)]
     std::process::Command::new("setsid").args(["lutris", &format!("lutris:rungameid/{LUTRIS_ID}")]).current_dir(spielordner())
