@@ -18,7 +18,30 @@ pub const EXE: &str = "FL_2027.exe";
 
 /// Game folder G (PESM_FL27_SPIEL overrides it, for tests).
 pub fn spielordner() -> PathBuf {
-    std::env::var("PESM_FL27_SPIEL").map(PathBuf::from).unwrap_or_else(|_| PathBuf::from(PREFIX).join(crate::inhalt::t("ui.fl27.drive_c_games_sp_football")))
+    if let Ok(p) = std::env::var("PESM_FL27_SPIEL") { return PathBuf::from(p); }
+    // Started without the launcher (plain pesm.exe, no env var): find the install instead of the Linux Lutris path.
+    #[cfg(windows)]
+    {
+        static GEFUNDEN: std::sync::OnceLock<Option<PathBuf>> = std::sync::OnceLock::new();
+        if let Some(p) = GEFUNDEN.get_or_init(spielordner_suchen) { return p.clone(); }
+    }
+    PathBuf::from(PREFIX).join(crate::inhalt::t("ui.fl27.drive_c_games_sp_football"))
+}
+/// Locates the FL27 install: next to the PES M folder first (e.g. D:\JEUX\PESM -> D:\JEUX\SP Football Life 2027),
+/// then the usual spots on every drive. A folder only counts when FL_2027.exe is really inside.
+#[cfg(windows)]
+fn spielordner_suchen() -> Option<PathBuf> {
+    let such = |dir: &Path| ["SP Football Life 2027", "SP Football Life 2026"].iter().map(|n| dir.join(n)).find(|c| c.join(EXE).exists());
+    if let Some(neben) = std::env::current_exe().ok().and_then(|e| e.parent().and_then(|p| p.parent()).map(|g| g.to_path_buf())) {
+        if let Some(p) = such(&neben) { return Some(p); }
+    }
+    for d in b'C'..=b'Z' {
+        let root = PathBuf::from(format!("{}:\\", d as char));
+        for sub in ["", "JEUX", "Games", "Jeux", "Spiele", "Program Files"] {
+            if let Some(p) = such(&root.join(sub)) { return Some(p); }
+        }
+    }
+    None
 }
 pub fn sider() -> PathBuf { spielordner().join(crate::id("SiderAddons")) }
 pub fn welt_ordner(s: &Path) -> PathBuf { s.join(crate::id("livecpk")).join(WELT_ROOT) }
