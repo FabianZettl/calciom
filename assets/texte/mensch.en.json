@@ -308,12 +308,6 @@
       ]
     ]
   },
-  "vorfall": {
-    "verspaetung": "was late for training",
-    "trainingsfehler": "slacked off in training",
-    "oeffentliche_kritik": "complained about the club in public",
-    "streit": "clashed with a teammate in training"
-  },
   "mimik": [
     "very happy",
     "happy",

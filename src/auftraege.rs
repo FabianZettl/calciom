@@ -60,7 +60,7 @@ impl Career {
         let pl = &self.world.players[p];
         let rand = if knapp { 1.0 + a("knapp_drueber") as f64 } else { 1.0 };
         if pl.team >= 0 && self.ask_price(p) * (1.0 + self.preis_spanne(p) as f64) > self.transfer_frei() * rand { return Some("ui.auftrag.grund.budget"); }
-        let wunsch = crate::verhandlung::wunschgehalt(pl.value, 2, pl.age);
+        let wunsch = crate::verhandlung::wunschgehalt(pl, self.world.leagues[self.league()].level, 2);
         if wunsch > self.gehalt_frei() * rand { return Some("ui.auftrag.grund.gehalt"); }
         // would he come? our reputation against his (players' reputation like the base knowledge)
         let ruf = pl.ovr * f("scouting", "grundwissen.ruf_ovr") + if pl.team >= 0 { self.world.clubs[pl.team as usize].rep * (1.0 - f("scouting", "grundwissen.ruf_ovr")) } else { 0.0 };
@@ -310,6 +310,39 @@ impl Career {
         let n = self.scouts[s].name.clone();
         self.analyst_liste = zehn.iter().map(|x| x.0).collect();
         self.msg(6, &n, crate::inhalt::t("ui.analyst.titel"), &format!("{}\n{}", crate::inhalt::t("ui.analyst.einleitung"), zeilen.join(crate::id("\n"))), Action::Report { pid: zehn[0].0 });
+    }
+}
+
+impl Career {
+    /// Konzept 4.4 "Kaderlücke": per position group 0 green (well covered), 1 yellow (thin, old or contract ending),
+    /// 2 red (empty or clearly weaker than the league's regulars).
+    pub fn kaderluecke(&self, gr: &str) -> u8 {
+        let sq: Vec<usize> = self.squad().into_iter().filter(|&p| crate::scoutbericht::gruppe(&self.world.players[p].pos) == gr).collect();
+        let Some(&beste) = sq.iter().max_by(|a, b| self.rollen_staerke(**a, gr).partial_cmp(&self.rollen_staerke(**b, gr)).unwrap()) else { return 2 };
+        let mass = self.massstab(gr);
+        let liga = if mass.len() == 25 { (0..25).map(|i| mass[i] * if crate::scoutbericht::wichtig(gr, i) >= 2 { 1.0 } else { 0.0 }).sum::<f32>() / (0..25).filter(|&i| crate::scoutbericht::wichtig(gr, i) >= 2).count().max(1) as f32 } else { 70.0 };
+        let st = self.rollen_staerke(beste, gr);
+        if st < liga - a("luecke_rot") { return 2; }
+        let bl = &self.world.players[beste];
+        let braucht = match gr { "iv" | "av" | "zm" | "fl" => 3, _ => 2 };
+        if sq.len() < braucht || bl.age >= 31 || bl.contract_end <= self.world.season { 1 } else { 0 }
+    }
+    /// Konzept 5.4: once a week the shortlist's state — transfer list, contract ending, other clubs after him.
+    pub fn merkliste_woche(&mut self) {
+        let mut zeilen = vec![];
+        for &p in &self.merkliste {
+            let pl = &self.world.players[p];
+            if pl.team == self.own as i32 { continue; }
+            let mut was = vec![];
+            if pl.listed { was.push(crate::inhalt::t("ui.merk.transferliste")); }
+            if pl.team >= 0 && pl.contract_end <= self.world.season { was.push(crate::inhalt::t("ui.merk.vertrag")); }
+            if self.anbahnung.iter().any(|x| x.p == p) { was.push(crate::inhalt::t("ui.merk.konkurrenz")); }
+            if pl.inj > 0 { was.push(crate::inhalt::t("ui.merk.verletzt")); }
+            if !was.is_empty() { zeilen.push(format!("{}: {}", pl.name, was.join(", "))); }
+        }
+        if zeilen.is_empty() { return; }
+        let p = self.merkliste[0];
+        self.msg(6, crate::inhalt::t("ui.merk.absender"), crate::inhalt::t("ui.merk.titel"), &zeilen.join(crate::id("\n")), Action::Report { pid: p });
     }
 }
 

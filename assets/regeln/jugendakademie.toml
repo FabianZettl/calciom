@@ -142,3 +142,18 @@ kosten_je_stufe = 9000
 gut_chance = 0.15              # Anteil wirklich guter Talente
 gw = 40.0
 pot = 55.0
+
+# Konzept 3.2: Probetraining
+[probe]
+hoechstens = 3
+kosten = 3500
+tage = 5
+wissen = 30                     # so viel Wissen bringt ein Probetraining
+gut_ab = 72                     # Potenzial-Schätzung, ab der es „gut lief“
+
+# Konzept 4.3: Schule (leicht gehalten)
+[schule]
+internat_ab = 3                 # Akademie-Anlagenstufe mit Internat
+wackeln = 0.25                  # je Monat mit Reisen
+abbruch = 0.20                  # je Monat, wenn er wackelt und weiter reist
+erholen = 0.40                  # je Monat ohne Reisen

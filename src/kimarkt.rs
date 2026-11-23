@@ -271,7 +271,8 @@ impl Career {
             if s < 45.0 || dringend < 30.0 { continue; }
             let von = self.world.players[p].team as usize;
             // a deal takes a few days, with rumours on the way (on deadline day it is done within the hour)
-            let tage = if dl { 0 } else { 2 + (zufall(&["anbahnung", &p.to_string(), &tag]) * 5.0) as u32 }; // roh
+            // big deals take longer: up to three weeks of talks for the expensive ones (rumours over weeks, Konzept 1.4)
+            let tage = if dl { 0 } else { 2 + (zufall(&["anbahnung", &p.to_string(), &tag]) * 5.0) as u32 + ((preis / 1e7) as u32 * 3).min(14) }; // roh
             self.anbahnung_starten(p, von, c, preis, bedarf_grund, abs + tage);
             wechsel += 1;
             break; // one signing per look; the next need comes at the next look (domino stays calm)
@@ -292,12 +293,15 @@ impl Career {
     }
 
     /// A deal between two AI clubs begins: talks, a rumour in the papers when it concerns us, done on `fertig`.
-    fn anbahnung_starten(&mut self, p: usize, von: usize, nach: usize, preis: f64, grund: &str, fertig: u32) {
-        self.anbahnung.push(crate::game::Anbahnung { p, von, nach, preis, grund: grund.into(), fertig });
-        // only rumours worth printing: a big club, big money or the own league (Fabian 23.11.: no flood of small moves)
+    /// Only rumours worth printing: a big club, big money or the own league (Fabian 23.11.: no flood of small moves).
+    fn geruecht_wert(&self, von: usize, nach: usize, preis: f64) -> bool {
         let gross = crate::regeln::f("medien", "relevanz.grosser_verein_ab");
         let liga = self.league();
-        let wert = self.world.clubs[von].level >= gross || self.world.clubs[nach].level >= gross || preis >= crate::regeln::f("medien", "relevanz.geruecht_ab_mio") as f64 * 1e6 || self.world.clubs[von].league == liga || self.world.clubs[nach].league == liga;
+        self.world.clubs[von].level >= gross || self.world.clubs[nach].level >= gross || preis >= crate::regeln::f("medien", "relevanz.geruecht_ab_mio") as f64 * 1e6 || self.world.clubs[von].league == liga || self.world.clubs[nach].league == liga
+    }
+    fn anbahnung_starten(&mut self, p: usize, von: usize, nach: usize, preis: f64, grund: &str, fertig: u32) {
+        self.anbahnung.push(crate::game::Anbahnung { p, von, nach, preis, grund: grund.into(), fertig, stufe: 0 });
+        let wert = self.geruecht_wert(von, nach, preis);
         if fertig > self.abs() && wert {
             let (nm, vn, bn) = (self.world.players[p].name.clone(), self.world.clubs[von].name.clone(), self.world.clubs[nach].name.clone());
             let v = (zufall(&["geruecht_text", &p.to_string()]) * 5.0) as usize % 5; // roh
@@ -307,6 +311,17 @@ impl Career {
     /// Deals whose day has come: done when the player is still there and the buyer can still pay; now and then one falls through.
     fn anbahnungen_abschliessen(&mut self) {
         let abs = self.abs();
+        // the rumour grows over the days: talks get concrete, then the medical (Konzept 1.4, Fabian: rumours over weeks)
+        for i in 0..self.anbahnung.len() {
+            let a = self.anbahnung[i].clone();
+            if a.fertig <= abs || !self.geruecht_wert(a.von, a.nach, a.preis) { continue; }
+            let rest = a.fertig - abs;
+            let neu = if rest == 1 && a.stufe < 2 { 2 } else if rest <= 4 && a.stufe < 1 { 1 } else { continue };
+            self.anbahnung[i].stufe = neu;
+            let (nm, vn, bn) = (self.world.players[a.p].name.clone(), self.world.clubs[a.von].name.clone(), self.world.clubs[a.nach].name.clone());
+            let v = (zufall(&["geruecht_stufe", &a.p.to_string(), &neu.to_string()]) * 3.0) as usize % 3; // roh
+            self.news(&crate::tf!(&format!("ui.km.stufe{neu}.{v}"), nm.clone(), bn.clone(), vn.clone()), &crate::tf!("ui.km.stufe_text", nm, vn, bn, money(a.preis)));
+        }
         let offen = self.in_window().is_some();
         let (faellig, rest): (Vec<_>, Vec<_>) = std::mem::take(&mut self.anbahnung).into_iter().partition(|a| a.fertig <= abs || !offen);
         self.anbahnung = rest;
@@ -462,6 +477,18 @@ impl Career {
         pl.joined = abs;
         pl.listed = false;
         self.marktstatus.retain(|x| x.p != p);
+        // consequences in the buying squad (Konzept 1.5 "neuer Konkurrent"): who drops out of the plan for his group goes
+        // on the transfer list, a young one on the loan list
+        let g = gruppe(&self.world.players[p].pos);
+        let reihe = self.gruppen(nach)[g].clone();
+        let plan = SOLL[g].0 + SOLL[g].1;
+        if let Some(&raus) = reihe.get(plan) {
+            if raus != p && !self.marktstatus.iter().any(|x| x.p == raus) {
+                let jung = self.world.players[raus].age <= 23;
+                self.marktstatus.push(MarktStatus { p: raus, status: if jung { Status::Leihliste } else { Status::Transferliste }, grund: crate::id("verdraengt").into() });
+                if !jung { self.world.players[raus].listed = true; }
+            }
+        }
         let (nm, bn, sn, pos) = (self.world.players[p].name.clone(), self.world.clubs[nach].name.clone(), self.world.clubs[von].name.clone(), pos_de(&self.world.players[p].pos).to_string());
         let mut warum = crate::inhalt::t(&format!("ui.km.bedarf.{bedarf_grund}")).to_string();
         if !status_grund.is_empty() { warum = format!("{warum} {}", crate::tf!(&format!("ui.km.grund.{status_grund}"), nm, sn)); }
@@ -517,6 +544,19 @@ impl Career {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn neuzugang_verdraengt_einen() {
+        let mut c = karriere();
+        let nach = (0..c.world.clubs.len()).find(|&k| k != c.own && c.gruppen(k)[1].len() >= SOLL[1].0 + SOLL[1].1).unwrap();
+        let von = (0..c.world.clubs.len()).find(|&k| k != c.own && k != nach && !c.gruppen(k)[1].is_empty()).unwrap();
+        let p = c.gruppen(von)[1][0];
+        c.world.players[p].ovr = 99.0;
+        c.ki_wechsel(p, von, nach, 1e6, "qualitaet");
+        let reihe = c.gruppen(nach)[1].clone();
+        let raus = reihe[SOLL[1].0 + SOLL[1].1];
+        assert!(c.marktstatus.iter().any(|x| x.p == raus && x.grund == "verdraengt"), "the one who drops out of the plan is listed");
+    }
 
     fn karriere() -> Career {
         let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);

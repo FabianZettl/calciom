@@ -11,6 +11,40 @@ fn mittel(c: &Career, ps: &[usize], i: usize) -> f32 {
 }
 
 impl Career {
+    /// Konzept Taktik 5.3: did the tactic work? Intention → measured value → verdict, from the match statistics.
+    pub fn taktik_bilanz(&self, res: &crate::world::MatchResult) -> Vec<(String, bool)> {
+        use crate::statistik::*;
+        if res.stat.is_empty() { return vec![]; }
+        let side = if res.h == self.own { 0 } else if res.a == self.own { 1 } else { return vec![] };
+        let t = &self.tactic;
+        let b = |k: &str| crate::regeln::f("taktikwirkung", &format!("bilanz.{k}"));
+        let mut v = vec![];
+        if t.angriff == 1 {
+            let bb = if side == 0 { res.possession } else { 100 - res.possession } as f32;
+            v.push((crate::tf!("ui.tb.ballbesitz", format!("{bb:.0}"), b(crate::id("ballbesitz"))), bb >= b(crate::id("ballbesitz"))));
+        } else {
+            let x = res.summe(side, PROG_LAEUFE) as f32;
+            v.push((crate::tf!("ui.tb.konter", x, b(crate::id("konter"))), x >= b(crate::id("konter"))));
+        }
+        if t.breite == 0 { let x = res.summe(side, FLANKEN) as f32; v.push((crate::tf!("ui.tb.fluegel", x, b(crate::id("flanken"))), x >= b(crate::id("flanken")))); }
+        if t.pressing == 0 { let x = (res.summe(side, TACKL) + res.summe(side, ABGEF)) as f32; v.push((crate::tf!("ui.tb.pressing", x, b(crate::id("pressing"))), x >= b(crate::id("pressing")))); }
+        if t.haltung == 0 { let x = res.summe(1 - side, AUFS_TOR) as f32; v.push((crate::tf!("ui.tb.sicher", x, b("gegen_aufs_tor")), x <= b("gegen_aufs_tor"))); }
+        v
+    }
+    /// Konzept Taktik 5.1: the note for FL27 — what to set in the game's tactics before kick-off (at most 6 lines).
+    pub fn taktikzettel(&self) -> Vec<String> {
+        let t = &self.tactic;
+        let w = |k: &str| crate::inhalt::t(k).to_string();
+        let mut z = vec![crate::tf!("ui.tz.formation", crate::world::FORMATIONS[self.formation])];
+        z.push(crate::tf!("ui.tz.stil", w(if t.angriff == 0 { "ui.tz.konter" } else { "ui.tz.ballbesitz" }), w(if t.pressing == 0 { "ui.tz.pressing_vorne" } else { "ui.tz.pressing_ruhig" }), t.linie, t.kompakt));
+        z.push(w(if t.breite == 0 { "ui.tz.breit" } else { "ui.tz.eng" }));
+        let name = |p: Option<usize>| p.map(|p| self.world.players[p].name.clone()).unwrap_or_else(|| "–".into());
+        z.push(crate::tf!("ui.tz.rollen", name(self.kapitaen()), name(self.schuetze(0))));
+        if self.plan_b.an { z.push(w("ui.tz.planb")); }
+        z.truncate(6);
+        z
+    }
+
     /// (own goals factor, opponent goals factor, sentences of the counter rules) for today's own match against `gegner`.
     pub fn taktik_wirkung(&self, gegner: usize) -> (f32, f32, Vec<String>) {
         let t = &self.tactic;

@@ -1,12 +1,12 @@
 // ---------------------------------------------------------------- second team and farm teams (farm.rs)
 /// Two lists side by side: first team and second team, a button moves a player across (no fee, at any time).
 fn zweite_mannschaft_tab(ui: &mut Ui, v: &mut View, c: &mut Career) {
-    let Some(z) = c.zweite_mannschaft() else { ui.empty(Rect::new(X0 + 4.0, Y0, cbreite(), 200.0), crate::inhalt::t("ui.seiten_farm.dein_verein_hat_keine_zweite")); return };
+    let Some(z) = c.zweite_mannschaft() else { ui.empty(Rect::new(x0() + 4.0, Y0, cbreite(), 200.0), crate::inhalt::t("ui.seiten_farm.dein_verein_hat_keine_zweite")); return };
     let w2 = (cbreite() - 12.0) / 2.0;
     let (ueber, hoechstens) = c.world.altersregel(z);
     let mut wechsel: Option<usize> = None;
     for (k, club) in [c.own, z].into_iter().enumerate() {
-        let r = Rect::new(X0 + 4.0 + k as f32 * (w2 + 12.0), Y0, w2, hoehe() - Y0 - 16.0);
+        let r = Rect::new(x0() + 4.0 + k as f32 * (w2 + 12.0), Y0, w2, hoehe() - Y0 - 16.0);
         let lg = c.world.leagues[c.world.clubs[club].league].name.clone();
         let mut sq: Vec<usize> = c.world.clubs[club].squad.iter().copied().filter(|&p| c.world.players[p].youth == 0).collect();
         sq.sort_by(|a, b| c.world.players[*b].ovr.partial_cmp(&c.world.players[*a].ovr).unwrap());
@@ -36,7 +36,7 @@ fn zweite_mannschaft_tab(ui: &mut Ui, v: &mut View, c: &mut Career) {
 /// The page "Kooperationen" (Verein): the farm teams with contract, loans and buttons, the search and the applications.
 fn kooperationen(ui: &mut Ui, v: &mut View, c: &mut Career) {
     let wl = cbreite() * 0.5 - 6.0;
-    let l = Rect::new(X0 + 4.0, Y0 - 40.0, wl, hoehe() - Y0 + 24.0);
+    let l = Rect::new(x0() + 4.0, Y0 - 40.0, wl, hoehe() - Y0 + 24.0);
     let hoechstens = crate::regeln::f("farm", "koop.hoechstens") as usize;
     let eigene: Vec<usize> = (0..c.world.koops.len()).filter(|&i| c.world.koops[i].haupt == c.own).collect();
     ui.card_titled(l, &crate::tf!("ui.seiten_farm.unsere_farmteams_von", eigene.len(), hoechstens), Theme::akzent());
@@ -72,7 +72,7 @@ fn kooperationen(ui: &mut Ui, v: &mut View, c: &mut Career) {
     if let Some(p) = rueck { match c.leihe_zurueckrufen(p) { Ok(t) => v.toast(&t, true), Err(e) => v.toast(&e, false) } }
 
     // right: search and applications
-    let r = Rect::new(X0 + cbreite() * 0.5 + 10.0, Y0 - 40.0, wl, hoehe() - Y0 + 24.0);
+    let r = Rect::new(x0() + cbreite() * 0.5 + 10.0, Y0 - 40.0, wl, hoehe() - Y0 + 24.0);
     ui.card_titled(r, crate::inhalt::t("ui.seiten_farm.partnerverein_suchen"), Theme::gold());
     let mut y = r.y + 56.0;
     if let Some(s) = c.koop_suche.clone() {

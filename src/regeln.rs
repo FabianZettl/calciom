@@ -17,6 +17,8 @@ const DATEIEN: &[(&str, &str)] = &[
     (crate::id("jugendakademie"), include_str!("../assets/regeln/jugendakademie.toml")),
     (crate::id("positionsrollen"), include_str!("../assets/regeln/positionsrollen.toml")),
     (crate::id("statistik"), include_str!("../assets/regeln/statistik.toml")),
+    (crate::id("nationaltrainer"), include_str!("../assets/regeln/nationaltrainer.toml")),
+    (crate::id("nationalwettbewerbe"), include_str!("../assets/regeln/nationalwettbewerbe.toml")),
     (crate::id("praesidium"), include_str!("../assets/regeln/praesidium.toml")),
     (crate::id("handy"), include_str!("../assets/regeln/handy.toml")),
     (crate::id("taktikwirkung"), include_str!("../assets/regeln/taktikwirkung.toml")),

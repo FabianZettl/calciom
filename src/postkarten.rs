@@ -266,7 +266,7 @@ pub fn bausteine(c: &Career, m: &Msg) -> Vec<B> {
                     }
                 }
                 // costs and who else is after him (Konzept 4.1 Block 8, 4.6), and how often this scout was right
-                let gehalt = crate::verhandlung::wunschgehalt(pl.value, 2, pl.age);
+                let gehalt = crate::verhandlung::wunschgehalt(pl, c.world.leagues[c.league()].level, 2);
                 let machbar = c.machbar(p, false).map(|k| crate::inhalt::t(k).to_string()).unwrap_or_else(|| t("machbar"));
                 v.push(B::Reihe(vec![B::Zahl { titel: t("wunschgehalt"), wert: money(gehalt) }, B::Zahl { titel: t("machbarkeit"), wert: machbar }]));
                 let konkurrenz = if c.anbahnung.iter().any(|a| a.p == p) { t("konkurrenz.angebot") } else if c.grundwissen(p) >= 0.40 { t("konkurrenz.bekannt") } else { t("konkurrenz.niemand") };
@@ -318,7 +318,7 @@ pub fn bausteine(c: &Career, m: &Msg) -> Vec<B> {
                 }
                 Action::Expiring { pid } => {
                     let pl = &c.world.players[*pid];
-                    let wunsch = crate::verhandlung::wunschgehalt(pl.value, c.world.players[*pid].ps.rolle, pl.age);
+                    let wunsch = crate::verhandlung::wunschgehalt(pl, c.world.leagues[c.league()].level, pl.ps.rolle);
                     v.push(B::Reihe(vec![B::Foto { pid: *pid, r: 36.0 }, B::Titel(pl.name.clone())]));
                     v.push(B::Reihe(vec![B::Zahl { titel: t("gehalt"), wert: money(pl.wage) }, B::Zahl { titel: t("wunsch"), wert: money(wunsch) }, B::Zahl { titel: t("laufzeit"), wert: crate::tf!("ui.post.jahre", crate::verhandlung::wunschlaufzeit(pl.age)) }]));
                     v.push(B::Balken { titel: t("wunsch_gegen_gehalt"), anteil: (pl.wage / wunsch.max(1.0)).min(1.0) as f32, text: format!("{:.0} %", pl.wage / wunsch.max(1.0) * 100.0), farbe: 3 });

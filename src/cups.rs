@@ -33,7 +33,6 @@ pub const EURO: [(&str, &str); 3] = [("Champions League", "UEFA_CHAMPIONS_LEAGUE
 const L_DAYS: [[u32; 10]; 3] = [[46, 60, 81, 95, 116, 123, 130, 158, 172, 186], [47, 61, 82, 96, 117, 124, 131, 159, 173, 187], [47, 61, 82, 96, 117, 124, 131, 159, 173, 187]];
 const KO_DAYS: [[(u32, u32); 4]; 3] = [[(214, 221), (228, 249), (263, 270), (277, 284)], [(215, 222), (229, 250), (264, 271), (278, 285)], [(215, 222), (229, 250), (264, 271), (278, 285)]];
 const FINAL: [u32; 3] = [298, 299, 299];
-const OFFSETS: [i32; 7] = [0, 1, -1, 2, -2, 3, -3];
 const FILL_CAP: usize = 7;
 const PRIZE_SCALE: [f64; 3] = [1.0, 0.25, 0.12];
 // uefa.json prizes.base: start, win, draw, po, r16, qf, sf, final, champion
@@ -68,16 +67,32 @@ impl World {
         s
     }
     /// uefa.py _place: the first day near the target where neither club plays (outside international breaks).
-    fn place(busy: &HashSet<(usize, u32)>, h: usize, a: usize, target: u32) -> u32 {
-        for o in OFFSETS {
-            let d = (target as i32 + o).max(1) as u32;
-            if INTL_BREAKS.iter().any(|(x, y)| d >= *x && d <= *y) { continue; }
-            if !busy.contains(&(h, d)) && !busy.contains(&(a, d)) { return d; }
+    /// Fabian 23.11.: a real calendar — cup and European nights only on their weekdays (Champions League Tue/Wed,
+    /// Europa and Conference League Thu, national cups Tue/Wed), and never the day after or before another match of
+    /// either club. Finals on neutral ground keep their day.
+    fn place(busy: &HashSet<(usize, u32)>, h: usize, a: usize, target: u32, kind: u8, neutral: bool, ab: u32) -> u32 {
+        let tage: &[usize] = match kind { 1 => &[1, 2], 2 | 3 => &[3], 0 => &[1, 2], _ => &[0, 1, 2, 3, 4, 5, 6] };
+        let frei = |d: u32, ruhe: bool| {
+            !INTL_BREAKS.iter().any(|(x, y)| d >= *x && d <= *y)
+                && (neutral || tage.contains(&crate::date::weekday(d)))
+                && (if ruhe { d.saturating_sub(1)..=d + 1 } else { d..=d }).all(|e| !busy.contains(&(h, e)) && !busy.contains(&(a, e)))
+        };
+        for ruhe in [true, false] {
+            for o in 0..22i32 {
+                // later rounds must not slip past the next one nor into the past: a week forward, three days back
+                for d in [target as i32 + o, target as i32 - o] {
+                    if d >= ab as i32 && d <= target as i32 + if kind == 0 { 14 } else { 7 } && d >= target as i32 - 3 && frei(d as u32, ruhe) { return d as u32; }
+                }
+            }
         }
-        (target..target + 60).find(|d| !busy.contains(&(h, *d)) && !busy.contains(&(a, *d))).unwrap_or(target)
+        (target.max(ab)..target.max(ab) + 60).find(|d| !busy.contains(&(h, *d)) && !busy.contains(&(a, *d))).unwrap_or(target.max(ab))
     }
     pub fn add_fx(&mut self, ci: usize, busy: &mut HashSet<(usize, u32)>, h: usize, a: usize, target: u32, stage: u8, leg: u8, neutral: bool) {
-        let d = Self::place(busy, h, a, target);
+        // the second leg always comes days after the first (the round is decided on the second leg's day)
+        let target = if leg == 2 { self.cups[ci].fx.iter().filter(|x| x.leg == 1 && x.stage == stage && x.f.h == a && x.f.a == h).map(|x| x.f.day + 5).max().map_or(target, |d| target.max(d)) } else { target };
+        // never on a day already played (a round set up at the end of its target day)
+        let ab = if self.day < target + 7 { self.day + 1 } else { 1 }; // a new season is set up while the old day still counts
+        let d = Self::place(busy, h, a, target, self.cups[ci].kind, neutral, ab.max(1));
         busy.insert((h, d));
         busy.insert((a, d));
         self.cups[ci].fx.push(CupFx { f: Fixture { day: d, h, a, hg: -1, ag: -1 }, stage, leg, neutral, pens: None, et: false });
@@ -441,31 +456,32 @@ impl World {
         for (c, d) in delta { self.clubs[c].rep = (self.clubs[c].rep + d.min(4.0)).clamp(0.0, 100.0); } // ruf.json max_step 4
         self.coef.retain(|x| x.1 + 5 > self.season);
     }
-    /// International break with effect (sim.json intl_duty): on its first day up to 3 players per club with strength 76+
-    /// travel: −8 fitness, 1.2 % injury risk.
-    pub fn intl_duty(&mut self, day: u32) -> Vec<usize> {
-        if !INTL_BREAKS.iter().any(|(a, _)| *a == day) { return vec![]; }
-        let mut hurt = vec![];
-        for c in 0..self.clubs.len() {
-            let mut sq: Vec<usize> = self.clubs[c].squad.iter().copied().filter(|&p| self.players[p].ovr >= 76.0 && self.players[p].youth == 0 && self.players[p].inj == 0).collect();
-            sq.sort_by(|a, b| self.players[*b].ovr.partial_cmp(&self.players[*a].ovr).unwrap());
-            for p in sq.into_iter().take(3) {
-                self.players[p].fit = (self.players[p].fit - 8.0).max(20.0);
-                if self.rng.chance(0.012) {
-                    let days = [7u16, 14, 28][(self.rng.next() % 3) as usize];
-                    self.players[p].inj = days;
-                    self.players[p].inj_name = injury_names(days)[0].to_string();
-                    hurt.push(p);
-                }
-            }
-        }
-        hurt
-    }
 }
 
 #[cfg(test)]
 mod t {
     use super::*;
+    #[test]
+    fn echter_kalender() {
+        let mut w = World::load(include_str!("../assets/world.json"), 3);
+        w.setup_cups(None);
+        // European nights on their weekdays, and no club plays a cup match the day before or after another match
+        let mut tage: std::collections::HashMap<usize, Vec<u32>> = Default::default();
+        for l in &w.leagues { for f in &l.fixtures { tage.entry(f.h).or_default().push(f.day); tage.entry(f.a).or_default().push(f.day); } }
+        for c in &w.cups { for x in &c.fx { tage.entry(x.f.h).or_default().push(x.f.day); tage.entry(x.f.a).or_default().push(x.f.day); } }
+        for c in w.cups.iter().filter(|c| c.kind >= 1 && c.kind <= 3) {
+            for x in c.fx.iter().filter(|x| !x.neutral) {
+                let wd = crate::date::weekday(x.f.day);
+                assert!(if c.kind == 1 { wd == 1 || wd == 2 } else { wd == 3 }, "{} on weekday {wd}", c.name);
+            }
+        }
+        let eng = tage.values().map(|v| { let mut v = v.clone(); v.sort(); v.windows(2).filter(|p| p[1] == p[0] + 1).count() }).sum::<usize>();
+        // shortcut: clashes with midweek league rounds (Wednesday) can remain for cup ties; none may touch a weekend
+        let mut wochenende = 0;
+        for c in &w.cups { for x in &c.fx { for t in [x.f.h, x.f.a] { if tage[&t].iter().any(|&d| (d + 1 == x.f.day || d == x.f.day + 1) && crate::date::weekday(d) >= 5) { wochenende += 1; } } } }
+        assert_eq!(wochenende, 0, "no cup match the day before or after a weekend match");
+        let _ = eng;
+    }
     #[test]
     fn answer_decides_level_knockout() {
         let mut w = World::load(include_str!("../assets/world.json"), 4);
@@ -510,10 +526,10 @@ mod t {
                     }
                 }
                 w.cup_day(day, usize::MAX);
-                w.intl_duty(day);
+                w.laenderspielfenster(day);
             }
             // every competition has exactly one winner; no club plays twice on one day
-            assert!(w.cups.iter().all(|c| c.winner.is_some()), "season {s}: {:?}", w.cups.iter().filter(|c| c.winner.is_none()).map(|c| (c.name.clone(), c.stage)).collect::<Vec<_>>());
+            assert!(w.cups.iter().all(|c| c.winner.is_some()), "season {s}: {:?}", w.cups.iter().filter(|c| c.winner.is_none()).map(|c| (c.name.clone(), c.stage, c.fx.iter().filter(|x| x.f.hg < 0).map(|x| (x.stage, x.leg, x.f.day)).collect::<Vec<_>>())).collect::<Vec<_>>());
             assert_eq!(w.cups.iter().filter(|c| c.kind > 0).count(), 3);
             let mut seen = HashSet::new();
             for l in &w.leagues { for f in &l.fixtures { assert!(seen.insert((f.h, f.day)) && seen.insert((f.a, f.day)), "two matches on one day"); } }

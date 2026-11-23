@@ -33,6 +33,16 @@ pub struct Medien {
     pub fan_aktion: f32,
     pub aktion_sperre: Vec<(String, u32)>,
     pub protest_stufe: u8,
+    /// TV shows and podcasts (Konzept 6b): an open invitation (name, 0 TV / 1 podcast), an accepted appearance (name,
+    /// kind, abs day), the one running now (name, effect factor) and the last invitation per kind.
+    #[serde(default)]
+    pub sendung_angebot: Option<(String, u8)>,
+    #[serde(default)]
+    pub sendung: Option<(String, u8, u32)>,
+    #[serde(default)]
+    pub sendung_aktiv: Option<(String, f32)>,
+    #[serde(default)]
+    pub sendung_zuletzt: [u32; 2],
 }
 
 impl Career {
@@ -121,7 +131,17 @@ impl Career {
         if !self.me.journalisten.is_empty() { self.blaetter_an(); return; }
         let seed = self.club().id.to_string();
         let n = f("medien", "journalist.anzahl") as usize;
-        for i in 0..n {
+        // Konzept 1.4 (Fabian 23.11.): the real reporters of the own country first (medienpool.json), the rest invented;
+        // their tone sets their style (rumours → boulevard, tactics → serious)
+        let land = land_kuerzel(&self.world.leagues[self.league()].land);
+        if f("medien", "journalist.echte_personen") > 0.0 {
+            for (name, _, typ, ton) in pool_eintraege().iter().filter(|e| e.1 == land && e.2 == "reporter").take(n / 2) {
+                let _ = typ;
+                let stil = match ton.as_str() { "geruechte" | "boulevard" => 1, "fankultur" | "insider" => 2, "investigativ" => 3, _ => 0 };
+                self.me.journalisten.push((name.clone(), stil, 0.0));
+            }
+        }
+        for i in self.me.journalisten.len()..n {
             let k = (zufall(&["2026", crate::id("journalist"), &seed, &i.to_string()]) * JOURNALISTEN.len() as f32) as usize % JOURNALISTEN.len();
             let name = JOURNALISTEN[(k + i) % JOURNALISTEN.len()].to_string();
             self.me.journalisten.push((name, (i % 4) as u8, 0.0));
@@ -244,9 +264,17 @@ impl Career {
             self.press = Some(next);
             return;
         }
-        let cap = f("medien", "konferenz.deckel");
-        let s = pq.summe.map(|x| x.clamp(-cap, cap));
+        // a TV show or podcast reaches more people: its factor on the effects, a wider cap (Konzept 6b.5)
+        let sendung = self.me.sendung_aktiv.take();
+        let (faktor, cap) = match &sendung { Some((_, f_)) => (*f_, f("medien", "sendung.deckel")), None => (1.0, f("medien", "konferenz.deckel")) };
+        let s = pq.summe.map(|x| (x * faktor).clamp(-cap, cap));
         let g = crate::inhalt::t("ui.medien.auftritt_auf_der_pressekonferenz");
+        if let Some((name, _)) = &sendung {
+            self.klima(s[2], s[0], s[1], &crate::tf!("ui.sendung.auftritt", name.clone()));
+            let coach = self.coach.clone();
+            self.news(&crate::tf!("ui.sendung.nachlese_titel", coach.clone(), name.clone()), &crate::tf!("ui.sendung.nachlese_text", coach, name.clone(), quote));
+            return;
+        }
         self.klima(s[2], s[0], s[1], g);
         if s[3] != 0.0 { for p in self.squad() { self.moral_wirkung(p, s[3], 0, g); } }
         let coach = self.coach.clone();
@@ -358,6 +386,10 @@ impl Career {
     }
     pub fn geruecht_mit(&mut self, p: usize, echt: bool, club: Option<usize>) {
         let abs = self.abs();
+        // Fabian 23.11.: a denied rumour does not come back the next day — none while the denial runs, and no new one
+        // for the same player within the quiet time after the last
+        let ruhe = |g: &(usize, u32, bool, bool)| g.1 + if g.3 { f("medien", "geruecht.dementi_frist_tage") as u32 } else { f("medien", "geruecht.ruhe_tage") as u32 };
+        if self.me.geruechte.iter().any(|g| g.0 == p && abs < ruhe(g)) { return; }
         self.me.geruechte.push((p, abs, echt, false));
         let n = self.world.players[p].name.clone();
         // the rumour comes from a tabloid journalist of the own country's press (medienpool), else any outlet
@@ -375,6 +407,55 @@ impl Career {
         let klub = club.map(|c| self.world.clubs[c].name.clone()).unwrap_or_else(|| crate::inhalt::t("ui.medien.ein_verein").to_string());
         self.msg(4, crate::inhalt::t("ui.medien.pressestelle"), &crate::tf!(&format!("ui.medien.geruecht_titel.{vt}"), n.clone()), &crate::tf!(&format!("ui.medien.geruecht_body.{vb}"), n.clone(), klub, paper.to_string()), Action::Wahl { art: crate::id("geruecht").into(), bezug: vec![p], optionen: opts });
     }
+    // ------------------------------------------------------------ TV shows and podcasts (Konzept 6b)
+    /// Once a week: an invitation when there is a reason (success, crisis, else the club's standing), at most one TV
+    /// show and one podcast a month; shows and podcasts of the own country from medienpool.json.
+    pub fn sendungen_woche(&mut self) {
+        if self.me.sendung_angebot.is_some() || self.me.sendung.is_some() { return; }
+        let abs = self.abs();
+        let res: Vec<char> = self.results.iter().map(|r| r.chars().next().unwrap_or('U')).collect();
+        let gespielt = self.world.table(self.league()).iter().find(|r| r.club == self.own).map_or(0, |r| r.p);
+        let erfolg = (gespielt >= 5 && self.world.rank_of(self.own) <= 3) || res.iter().rev().take_while(|&&x| x == 'S').count() >= 3;
+        let krise = res.len() >= 4 && res.iter().rev().take(4).all(|&x| x != 'S');
+        let g = |k: &str| f("medien", &format!("sendung.{k}"));
+        let chance = if erfolg { g("chance_erfolg") } else if krise { g("chance_krise") } else { g("chance_grund") } * (0.4 + 0.6 * self.club().rep / 100.0);
+        if zufall(&["sendung", &self.club().id.to_string(), &(abs / 7).to_string()]) >= chance { return; } // roh
+        let land = land_kuerzel(&self.world.leagues[self.league()].land);
+        let frei = |art: usize| abs >= self.me.sendung_zuletzt[art] + 28 || self.me.sendung_zuletzt[art] == 0;
+        let art: u8 = if frei(0) && (krise || erfolg || !frei(1)) { 0 } else if frei(1) { 1 } else { return };
+        let typen: &[&str] = if art == 0 { &["tv_radio"] } else { &[crate::id("podcast"), crate::id("youtube")] };
+        let kand: Vec<&(String, String, String, String)> = pool_eintraege().iter().filter(|e| e.1 == land && typen.contains(&e.2.as_str())).collect();
+        let Some(e) = kand.get((zufall(&["sendung_wahl", &abs.to_string()]) * kand.len() as f32) as usize % kand.len().max(1)) else { return }; // roh
+        self.me.sendung_zuletzt[art as usize] = abs;
+        self.me.sendung_angebot = Some((e.0.clone(), art));
+        let anlass = crate::inhalt::t(if erfolg { "ui.sendung.anlass.erfolg" } else if krise { "ui.sendung.anlass.krise" } else { "ui.sendung.anlass.ruf" });
+        let opts = vec![(crate::id("zusage").to_string(), crate::inhalt::t("ui.sendung.zusage").to_string()), (crate::id("absage").to_string(), crate::inhalt::t("ui.sendung.absage").to_string())];
+        self.msg(4, &e.0.clone(), &crate::tf!("ui.sendung.einladung_titel", e.0.clone()), &crate::tf!(if art == 0 { "ui.sendung.einladung_tv" } else { "ui.sendung.einladung_podcast" }, e.0.clone(), anlass), Action::Wahl { art: crate::id("sendung").into(), bezug: vec![], optionen: opts });
+    }
+    pub fn sendung_antwort(&mut self, key: &str) -> String {
+        let Some((name, art)) = self.me.sendung_angebot.take() else { return crate::inhalt::t("ui.akademie.notiert").into() };
+        if key != crate::id("zusage") { return crate::tf!("ui.sendung.abgesagt", name); }
+        let tag = self.abs() + f("medien", "sendung.tage_bis") as u32;
+        self.me.sendung = Some((name.clone(), art, tag));
+        crate::tf!("ui.sendung.zugesagt", name)
+    }
+    /// Daily: on the day of an accepted appearance the show starts as a longer press scene with its factor.
+    pub fn sendung_tag(&mut self) {
+        let Some((name, art, tag)) = self.me.sendung.clone() else { return };
+        if self.abs() < tag || self.press.is_some() || self.today_match().is_some() { return; }
+        self.me.sendung = None;
+        let mut q = self.press_question(false);
+        let zweite = self.press_question(true);
+        let mut rest = std::mem::take(&mut q.rest);
+        let mut extra = vec![zweite.clone()];
+        extra.extend(zweite.rest.clone());
+        for mut x in extra { if !rest.iter().any(|r| r.thema == x.thema) && x.thema != q.thema { x.rest.clear(); rest.push(x); } }
+        q.rest = rest;
+        q.q = format!("{name}: {}", q.q);
+        let faktor = if art == 0 { f("medien", "sendung.faktor_tv") } else { f("medien", "sendung.faktor_podcast") };
+        self.me.sendung_aktiv = Some((name, faktor));
+        self.press = Some(q);
+    }
     pub fn geruecht_antwort(&mut self, p: usize, key: &str) -> String {
         if key != crate::id("dementieren") { return crate::inhalt::t("ui.medien.wir_schweigen").into(); }
         if let Some(g) = self.me.geruechte.iter_mut().rev().find(|g| g.0 == p && !g.3) { g.3 = true; g.1 = self.world.season * crate::date::SEASON_DAYS + self.world.day; }
@@ -389,6 +470,34 @@ impl Career {
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn sendung_einladung_und_auftritt() {
+        let w = crate::world::World::load(include_str!("../assets/world.json"), 7);
+        let mut c = crate::game::Career::new(w, 0, "Test");
+        c.me.sendung_angebot = Some(("Rasenfunk".into(), 1));
+        c.sendung_antwort("zusage");
+        assert!(c.me.sendung.is_some());
+        c.world.day += 3;
+        if c.today_match().is_some() { c.world.day += 1; }
+        c.sendung_tag();
+        let q = c.press.clone().expect("the show starts as a press scene");
+        assert!(q.q.starts_with("Rasenfunk") && !q.rest.is_empty());
+        let f0 = c.fans;
+        while c.press.is_some() { c.answer_press(Some(0)); }
+        assert!(c.me.sendung_aktiv.is_none() && (c.fans - f0).abs() <= 8.0 + 1e-3);
+    }
+    #[test]
+    fn dementiertes_geruecht_kommt_nicht_wieder() {
+        let w = crate::world::World::load(include_str!("../assets/world.json"), 7);
+        let mut c = crate::game::Career::new(w, 0, "Test");
+        let p = c.squad()[0];
+        c.geruecht(p, true);
+        let n = c.me.geruechte.len();
+        c.geruecht_antwort(p, "dementieren");
+        c.world.day += 1;
+        c.geruecht(p, true);
+        assert_eq!(c.me.geruechte.len(), n, "no new rumour the day after a denial");
+    }
     #[test]
     fn varianten_wiederholen_sich_nicht() {
         let w = crate::world::World::load(include_str!("../assets/world.json"), 7);
@@ -439,6 +548,14 @@ mod tests {
 }
 
 /// The press pool (pesm/core/config/story/medienpool.json): (name, country code, tone) of 175 outlets.
+/// Every entry of medienpool.json with its kind: (name, country, typ, tone).
+pub fn pool_eintraege() -> &'static Vec<(String, String, String, String)> {
+    static P: std::sync::OnceLock<Vec<(String, String, String, String)>> = std::sync::OnceLock::new();
+    P.get_or_init(|| {
+        let v: serde_json::Value = serde_json::from_str(include_str!("../assets/inhalt/pesm/core/config/story/medienpool.json")).expect("medienpool.json");
+        v["medien"].as_array().map(|a| a.iter().map(|m| (m["name"].as_str().unwrap_or("").to_string(), m["land"].as_str().unwrap_or("").to_string(), m["typ"].as_str().unwrap_or("").to_string(), m["ton"].as_str().unwrap_or("").to_string())).filter(|m| !m.0.is_empty()).collect()).unwrap_or_default()
+    })
+}
 pub fn medienpool() -> &'static Vec<(String, String, String)> {
     static P: std::sync::OnceLock<Vec<(String, String, String)>> = std::sync::OnceLock::new();
     P.get_or_init(|| {

@@ -201,6 +201,11 @@ pub struct Profil {
     #[serde(default)]
     pub ligen: Vec<LigaStat>,
     /// This season's statistics from detailed matches (all competitions) and last season's (statistik.rs).
+    /// Caps and goals for his national team (nationalteams.rs).
+    #[serde(default)]
+    pub laenderspiele: u16,
+    #[serde(default)]
+    pub nat_tore: u16,
     #[serde(default)]
     pub saison: crate::statistik::Stat,
     #[serde(default)]
@@ -418,6 +423,16 @@ pub struct World {
     pub titles: Vec<crate::cups::Title>,
     #[serde(default)]
     pub coef: Vec<(String, u32, f32)>,
+    /// The nations' A-teams with their squads (nationalteams.rs).
+    #[serde(default)]
+    pub nationalteams: Vec<crate::nationalteams::Nationalteam>,
+    /// FIFA-style points per nationality, the finished tournaments, goals of the running tournament (nationalteams.rs).
+    #[serde(default)]
+    pub nat_punkte: std::collections::HashMap<u16, f32>,
+    #[serde(default)]
+    pub turniere: Vec<crate::nationalteams::Turnier>,
+    #[serde(skip)]
+    pub turnier_tore: std::collections::HashMap<usize, u16>,
     #[serde(default)]
     pub cup_money: Vec<(usize, f64)>,
     /// The next match is on neutral ground (a final): no home advantage. Set by the caller right before play().
@@ -773,7 +788,7 @@ impl World {
             name, key, teams, fixtures: vec![], level: 68.0, deduct: vec![],
         }).collect();
         let next_id = players.iter().map(|p| p.id).max().unwrap_or(0) + 1;
-        let mut w = World { profil_cache: vec![], eigen: Default::default(), taktik_faktor: None, noten_woche: vec![], noten_monat: vec![], leagues, clubs, players, season: 0, day: 0, rng, source, next_id, cups: vec![], titles: vec![], coef: vec![], cup_money: vec![], neutral: false, entscheid: vec![], planen: None, db_cups: vec![], db_euro: None, ko_vorgabe: None, cids: Default::default(), zweite: vec![], koops: vec![], farm_an: false, trainer_an: false, trainer_pool: vec![], ligaregeln: crate::ligaregeln::eingebaut(), teamgeist_eigen: None };
+        let mut w = World { profil_cache: vec![], eigen: Default::default(), taktik_faktor: None, noten_woche: vec![], noten_monat: vec![], leagues, clubs, players, season: 0, day: 0, rng, source, next_id, cups: vec![], titles: vec![], coef: vec![], cup_money: vec![], neutral: false, entscheid: vec![], planen: None, db_cups: vec![], db_euro: None, ko_vorgabe: None, cids: Default::default(), zweite: vec![], koops: vec![], farm_an: false, trainer_an: false, trainer_pool: vec![], ligaregeln: crate::ligaregeln::eingebaut(), teamgeist_eigen: None, nationalteams: vec![], nat_punkte: Default::default(), turniere: vec![], turnier_tore: Default::default() };
         w.ueber_ergaenzen();
         w.init_economy();
         w.kuerzel_eindeutig();
@@ -986,7 +1001,9 @@ impl World {
     /// match.py lineup(): the user's choice first, then a natural player unless someone is clearly better (tol 8), then the rest by worth.
     pub fn lineup(&self, c: usize, formation: usize, pref: &[usize]) -> (Vec<(String, usize, f32)>, Vec<usize>) { self.lineup_slots(c, formation_slots(formation), pref) }
     /// The line-up for given slot roles (the own team with freely moved players, game.rs eigene_slots).
-    pub fn lineup_slots(&self, c: usize, slots: [&'static str; 11], pref: &[usize]) -> (Vec<(String, usize, f32)>, Vec<usize>) {
+    pub fn lineup_slots(&self, c: usize, slots: [&'static str; 11], pref: &[usize]) -> (Vec<(String, usize, f32)>, Vec<usize>) { self.lineup_slots_mit(c, slots, pref, &|_| 0.0) }
+    /// lineup_slots with a bonus per player on top of his strength for the slot (the co-trainer's criteria).
+    pub fn lineup_slots_mit(&self, c: usize, slots: [&'static str; 11], pref: &[usize], bonus: &dyn Fn(usize) -> f32) -> (Vec<(String, usize, f32)>, Vec<usize>) {
         let squad: Vec<usize> = self.clubs[c].squad.iter().copied().filter(|&p| self.players[p].youth == 0 && self.spielberechtigt(p, c)).collect();
         let mut pool: Vec<usize> = squad.iter().copied().filter(|&p| self.players[p].available()).collect();
         let mut forced = vec![];
@@ -1003,7 +1020,7 @@ impl World {
         let (rk, rs) = (crate::regeln::f("ki_trainer", "startelf.rotation_kondition"), crate::regeln::f("ki_trainer", "startelf.rotation_spielraum"));
         // a loan player with a play-time promise plays more often at the partner (farm.toml koop.spielzeit_bonus)
         let sb = crate::regeln::f("farm", "koop.spielzeit_bonus");
-        let eff = |p: usize, slot: &str| self.eff(p, slot) - if rotiert && self.players[p].fit < rk { rs } else { 0.0 } + if pref.is_empty() && self.players[p].leihe.as_ref().is_some_and(|l| l.spielzeit) { sb } else { 0.0 };
+        let eff = |p: usize, slot: &str| self.eff(p, slot) + bonus(p) - if rotiert && self.players[p].fit < rk { rs } else { 0.0 } + if pref.is_empty() && self.players[p].leihe.as_ref().is_some_and(|l| l.spielzeit) { sb } else { 0.0 };
         let mut got: Vec<Option<usize>> = vec![None; 11];
         let mut used: Vec<usize> = vec![];
         for i in 0..11 {

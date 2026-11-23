@@ -1,0 +1,1489 @@
+# PES M – Nationaltrainer (Startdaten), Stand 23.11.2026
+# Fabian darf alles ändern und ergänzen. Zuordnung über code (= ligaregeln.toml [[land]] code).
+# sicher = true  : vor und nach der WM 2026 bestätigt (mehrere Quellen bzw. lange im Amt, kein gemeldeter Wechsel)
+# sicher = false : nur eine Presse-Quelle (Juli/Aug 2026) oder Stand vor der WM ohne Bestätigung danach -> bitte prüfen
+# Philosophie-Regler 0–100: treue, form_blick, spielzeit_pflicht, jugendmut, systemtreue, liga_anspruch, disziplin, experimentierlust
+# spielidee = Name aus taktik/vorlagen.toml: gegenpressing, ballbesitz, konter, mauern_kontern, fluegelspiel, direktes_spiel, kontrollierte_offensive, tiki_taka
+# Länder ohne Eintrag: Trainer wird erzeugt (Name aus Coach.bin oder Namensvorrat, erfunden = true), Philosophie aus nationen.toml (Kultur) ± Zufall.
+# Quellen Wechsel nach der WM 2026: thenationalnews.com (13.7.2026), beinsports.com (25.7. und 26.8.2026).
+
+[meta]
+version = 1
+stand = "2026-11-23"
+weltmeister_2026 = "ESP"   # 1:0 gegen Argentinien, 19.7.2026
+
+# ------------------------------------------------------------------ A-Teams
+[[trainer]]
+code = "ESP"
+team = "A"
+name = "Luis de la Fuente"
+seit = 2022
+vertrag_bis = 2028
+sicher = true
+spielidee = "ballbesitz"
+formation = "4-3-3"
+ausweich = "4-2-3-1"
+treue = 60
+form_blick = 65
+spielzeit_pflicht = 55
+jugendmut = 80
+systemtreue = 85
+liga_anspruch = 55
+disziplin = 70
+experimentierlust = 55
+handschrift = ["kennt die Jahrgänge aus der U21", "Gruppe vor Einzelnen", "ruhig, sachlich"]
+
+[[trainer]]
+code = "FRA"
+team = "A"
+name = "Zinédine Zidane"
+seit = 2026
+vertrag_bis = 2030
+sicher = true
+spielidee = "kontrollierte_offensive"
+formation = "4-3-3"
+ausweich = "4-4-2 Raute"
+treue = 60
+form_blick = 60
+spielzeit_pflicht = 50
+jugendmut = 55
+systemtreue = 50
+liga_anspruch = 80
+disziplin = 60
+experimentierlust = 50
+handschrift = ["spricht wenig, entscheidet klar", "vertraut großen Persönlichkeiten", "Gefühl für die Kabine"]
+
+[[trainer]]
+code = "GER"
+team = "A"
+name = "Jürgen Klopp"
+seit = 2026
+vertrag_bis = 2028
+sicher = false
+spielidee = "gegenpressing"
+formation = "4-3-3"
+ausweich = "4-2-3-1"
+treue = 55
+form_blick = 70
+spielzeit_pflicht = 65
+jugendmut = 70
+systemtreue = 75
+liga_anspruch = 50
+disziplin = 75
+experimentierlust = 55
+handschrift = ["Mentalität und Teamgeist zuerst", "emotional, viele Bilder", "Pressing als Spielmacher"]
+
+[[trainer]]
+code = "ENG"
+team = "A"
+name = "Thomas Tuchel"
+seit = 2025
+vertrag_bis = 2026
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "4-2-3-1"
+ausweich = "3-4-2-1"
+treue = 35
+form_blick = 80
+spielzeit_pflicht = 70
+jugendmut = 50
+systemtreue = 80
+liga_anspruch = 70
+disziplin = 65
+experimentierlust = 45
+handschrift = ["Rollen statt Namen", "detailverliebt", "offen über harte Entscheidungen"]
+hinweis = "Vertrag lief laut Vorab-Stand bis nach der WM 2026; Verbleib prüfen."
+
+[[trainer]]
+code = "ARG"
+team = "A"
+name = "Lionel Scaloni"
+seit = 2018
+vertrag_bis = 2026
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "4-4-2"
+ausweich = "4-3-3"
+treue = 80
+form_blick = 55
+spielzeit_pflicht = 50
+jugendmut = 55
+systemtreue = 60
+liga_anspruch = 70
+disziplin = 60
+experimentierlust = 40
+handschrift = ["Weltmeister-Kern", "Arbeit gegen den Ball", "Zukunft nach der WM 2026 offen (Presse 25.7.)"]
+
+[[trainer]]
+code = "BRA"
+team = "A"
+name = "Carlo Ancelotti"
+seit = 2025
+vertrag_bis = 2030
+sicher = true
+spielidee = "kontrollierte_offensive"
+formation = "4-2-3-1"
+ausweich = "4-4-2"
+treue = 70
+form_blick = 55
+spielzeit_pflicht = 50
+jugendmut = 45
+systemtreue = 45
+liga_anspruch = 85
+disziplin = 50
+experimentierlust = 40
+handschrift = ["gelassen", "lässt Stars Freiheit", "Balance vor System"]
+
+[[trainer]]
+code = "POR"
+team = "A"
+name = "Jorge Jesus"
+seit = 2026
+vertrag_bis = 2030
+sicher = false
+spielidee = "gegenpressing"
+formation = "4-4-2"
+ausweich = "4-2-3-1"
+treue = 45
+form_blick = 75
+spielzeit_pflicht = 60
+jugendmut = 50
+systemtreue = 70
+liga_anspruch = 40
+disziplin = 70
+experimentierlust = 50
+handschrift = ["fordert hohes Tempo", "laut an der Linie", "kennt die heimische Liga genau"]
+
+[[trainer]]
+code = "NED"
+team = "A"
+name = "Xavi Hernández"
+seit = 2026
+vertrag_bis = 2028
+sicher = false
+spielidee = "tiki_taka"
+formation = "4-3-3"
+ausweich = "3-4-3"
+treue = 45
+form_blick = 60
+spielzeit_pflicht = 55
+jugendmut = 70
+systemtreue = 90
+liga_anspruch = 55
+disziplin = 60
+experimentierlust = 60
+handschrift = ["Positionsspiel", "Ballbesitz als Schutz", "junge Techniker"]
+
+[[trainer]]
+code = "ITA"
+team = "A"
+name = "Roberto Mancini"
+seit = 2026
+vertrag_bis = 2028
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "4-3-3"
+ausweich = "3-5-2"
+treue = 55
+form_blick = 65
+spielzeit_pflicht = 55
+jugendmut = 65
+systemtreue = 65
+liga_anspruch = 45
+disziplin = 65
+experimentierlust = 60
+handschrift = ["zweite Amtszeit", "traut Jungen ohne Stammplatz", "Ballbesitz mit Mut"]
+
+[[trainer]]
+code = "BEL"
+team = "A"
+name = "Mark van Bommel"
+seit = 2026
+vertrag_bis = 2028
+sicher = false
+spielidee = "gegenpressing"
+formation = "4-2-3-1"
+ausweich = "4-3-3"
+treue = 45
+form_blick = 70
+spielzeit_pflicht = 60
+jugendmut = 60
+systemtreue = 70
+liga_anspruch = 60
+disziplin = 75
+experimentierlust = 50
+handschrift = ["Härte im Zweikampf", "Generationswechsel", "klare Ansagen"]
+
+[[trainer]]
+code = "CRO"
+team = "A"
+name = "Slaven Bilić"
+seit = 2026
+vertrag_bis = 2028
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "4-2-3-1"
+ausweich = "4-3-3"
+treue = 65
+form_blick = 55
+spielzeit_pflicht = 45
+jugendmut = 55
+systemtreue = 50
+liga_anspruch = 55
+disziplin = 55
+experimentierlust = 50
+handschrift = ["zweite Amtszeit", "Emotion und Stolz", "Übergang nach der Modrić-Zeit"]
+
+[[trainer]]
+code = "URU"
+team = "A"
+name = "Diego Forlán"
+seit = 2026
+vertrag_bis = 2030
+sicher = false
+spielidee = "gegenpressing"
+formation = "4-3-3"
+ausweich = "4-4-2"
+treue = 50
+form_blick = 65
+spielzeit_pflicht = 55
+jugendmut = 75
+systemtreue = 60
+liga_anspruch = 55
+disziplin = 60
+experimentierlust = 60
+handschrift = ["betreut auch die U20", "setzt auf Jugend", "Mut im Angriff"]
+
+[[trainer]]
+code = "MEX"
+team = "A"
+name = "Rafael Márquez"
+seit = 2026
+vertrag_bis = 2030
+sicher = false
+spielidee = "ballbesitz"
+formation = "4-3-3"
+ausweich = "3-4-3"
+treue = 50
+form_blick = 65
+spielzeit_pflicht = 60
+jugendmut = 65
+systemtreue = 70
+liga_anspruch = 35
+disziplin = 65
+experimentierlust = 55
+handschrift = ["Aufbau von hinten", "viele Spieler aus der Liga MX", "ruhiger Ton"]
+
+[[trainer]]
+code = "SCO"
+team = "A"
+name = "Sébastien Pocognoli"
+seit = 2026
+vertrag_bis = 2028
+sicher = false
+spielidee = "gegenpressing"
+formation = "3-4-2-1"
+ausweich = "4-2-3-1"
+treue = 45
+form_blick = 70
+spielzeit_pflicht = 65
+jugendmut = 60
+systemtreue = 75
+liga_anspruch = 50
+disziplin = 65
+experimentierlust = 55
+handschrift = ["junger Trainer, neue Ideen", "aktive Abwehr", "erklärt viel"]
+
+[[trainer]]
+code = "SEN"
+team = "A"
+name = "Patrick Vieira"
+seit = 2026
+vertrag_bis = 2028
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "4-3-3"
+ausweich = "4-2-3-1"
+treue = 55
+form_blick = 60
+spielzeit_pflicht = 55
+jugendmut = 55
+systemtreue = 60
+liga_anspruch = 70
+disziplin = 75
+experimentierlust = 45
+handschrift = ["Körperlichkeit im Zentrum", "Doppelpass-Spieler aus Frankreich im Blick", "Disziplin"]
+
+[[trainer]]
+code = "CIV"
+team = "A"
+name = "Hervé Renard"
+seit = 2026
+vertrag_bis = 2028
+sicher = false
+spielidee = "konter"
+formation = "4-3-3"
+ausweich = "4-4-2"
+treue = 65
+form_blick = 60
+spielzeit_pflicht = 45
+jugendmut = 45
+systemtreue = 60
+liga_anspruch = 60
+disziplin = 70
+experimentierlust = 40
+handschrift = ["zweite Amtszeit", "Turniererfahrung in Afrika", "Mentalität"]
+
+[[trainer]]
+code = "TUN"
+team = "A"
+name = "Mouine Chaabani"
+seit = 2026
+vertrag_bis = 2028
+sicher = false
+spielidee = "konter"
+formation = "4-3-3"
+ausweich = "4-2-3-1"
+treue = 55
+form_blick = 60
+spielzeit_pflicht = 45
+jugendmut = 55
+systemtreue = 60
+liga_anspruch = 40
+disziplin = 65
+experimentierlust = 50
+handschrift = ["kennt die Heimliga", "kompakt", "pragmatisch"]
+
+[[trainer]]
+code = "UAE"
+team = "A"
+name = "Zlatko Dalić"
+seit = 2026
+vertrag_bis = 2030
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "4-3-3"
+ausweich = "4-2-3-1"
+treue = 75
+form_blick = 50
+spielzeit_pflicht = 40
+jugendmut = 40
+systemtreue = 55
+liga_anspruch = 30
+disziplin = 60
+experimentierlust = 40
+handschrift = ["Vater der Mannschaft", "Treue zu Führungsspielern", "ruhig"]
+
+# Stand vor der WM 2026, kein Wechsel gemeldet -> bitte prüfen
+[[trainer]]
+code = "USA"
+team = "A"
+name = "Mauricio Pochettino"
+seit = 2024
+vertrag_bis = 2026
+sicher = false
+spielidee = "gegenpressing"
+formation = "4-2-3-1"
+ausweich = "3-4-2-1"
+treue = 50
+form_blick = 70
+spielzeit_pflicht = 75
+jugendmut = 60
+systemtreue = 70
+liga_anspruch = 60
+disziplin = 70
+experimentierlust = 55
+handschrift = ["Intensität", "wer nicht spielt, hat es schwer", "Familie-Gefühl im Kader"]
+hinweis = "Presse meldete einen Wechsel zu einem Premier-League-Verein; Nachfolger unbekannt."
+
+[[trainer]]
+code = "MAR"
+team = "A"
+name = "Walid Regragui"
+seit = 2022
+vertrag_bis = 2027
+sicher = false
+spielidee = "konter"
+formation = "4-3-3"
+ausweich = "4-1-4-1"
+treue = 75
+form_blick = 55
+spielzeit_pflicht = 50
+jugendmut = 55
+systemtreue = 80
+liga_anspruch = 65
+disziplin = 70
+experimentierlust = 40
+handschrift = ["Abwehr als Fundament", "wirbt Doppelpass-Spieler aktiv", "Gemeinschaft"]
+
+[[trainer]]
+code = "JPN"
+team = "A"
+name = "Hajime Moriyasu"
+seit = 2018
+vertrag_bis = 2026
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "3-4-2-1"
+ausweich = "4-2-3-1"
+treue = 55
+form_blick = 70
+spielzeit_pflicht = 70
+jugendmut = 55
+systemtreue = 70
+liga_anspruch = 70
+disziplin = 70
+experimentierlust = 55
+handschrift = ["viele Europa-Legionäre", "geduldig", "flexibel zwischen Dreier- und Viererkette"]
+
+[[trainer]]
+code = "SUI"
+team = "A"
+name = "Murat Yakin"
+seit = 2021
+vertrag_bis = 2026
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "3-4-2-1"
+ausweich = "4-2-3-1"
+treue = 65
+form_blick = 60
+spielzeit_pflicht = 60
+jugendmut = 50
+systemtreue = 60
+liga_anspruch = 55
+disziplin = 60
+experimentierlust = 45
+handschrift = ["taktisch flexibel", "Erfahrung zählt", "gelassen"]
+
+[[trainer]]
+code = "AUT"
+team = "A"
+name = "Ralf Rangnick"
+seit = 2022
+vertrag_bis = 2026
+sicher = false
+spielidee = "gegenpressing"
+formation = "4-2-2-2"
+ausweich = "4-2-3-1"
+treue = 55
+form_blick = 70
+spielzeit_pflicht = 75
+jugendmut = 65
+systemtreue = 90
+liga_anspruch = 45
+disziplin = 70
+experimentierlust = 50
+handschrift = ["Pressing und Umschalten", "Spielidee vor Namen", "deutliche Worte"]
+
+[[trainer]]
+code = "DEN"
+team = "A"
+name = "Brian Riemer"
+seit = 2024
+vertrag_bis = 2026
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "3-4-3"
+ausweich = "4-3-3"
+treue = 55
+form_blick = 65
+spielzeit_pflicht = 65
+jugendmut = 60
+systemtreue = 70
+liga_anspruch = 55
+disziplin = 60
+experimentierlust = 55
+handschrift = ["Standards wichtig", "modern", "Datenblick"]
+
+[[trainer]]
+code = "NOR"
+team = "A"
+name = "Ståle Solbakken"
+seit = 2020
+vertrag_bis = 2026
+sicher = false
+spielidee = "direktes_spiel"
+formation = "4-3-3"
+ausweich = "4-4-2"
+treue = 65
+form_blick = 55
+spielzeit_pflicht = 55
+jugendmut = 50
+systemtreue = 60
+liga_anspruch = 50
+disziplin = 60
+experimentierlust = 40
+handschrift = ["Stärken der Stars nutzen", "ruhig", "pragmatisch"]
+
+[[trainer]]
+code = "SWE"
+team = "A"
+name = "Graham Potter"
+seit = 2025
+vertrag_bis = 2026
+sicher = false
+spielidee = "ballbesitz"
+formation = "3-4-2-1"
+ausweich = "4-2-3-1"
+treue = 45
+form_blick = 70
+spielzeit_pflicht = 60
+jugendmut = 60
+systemtreue = 75
+liga_anspruch = 55
+disziplin = 60
+experimentierlust = 55
+handschrift = ["flexible Systeme", "erklärt geduldig", "baut auf Struktur"]
+
+[[trainer]]
+code = "POL"
+team = "A"
+name = "Jan Urban"
+seit = 2025
+vertrag_bis = 2026
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "4-4-2"
+ausweich = "3-5-2"
+treue = 60
+form_blick = 60
+spielzeit_pflicht = 55
+jugendmut = 45
+systemtreue = 55
+liga_anspruch = 50
+disziplin = 60
+experimentierlust = 45
+handschrift = ["ruhige Hand", "Erfahrung", "Balance"]
+
+[[trainer]]
+code = "TUR"
+team = "A"
+name = "Vincenzo Montella"
+seit = 2023
+vertrag_bis = 2026
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "4-2-3-1"
+ausweich = "3-4-2-1"
+treue = 55
+form_blick = 65
+spielzeit_pflicht = 55
+jugendmut = 75
+systemtreue = 60
+liga_anspruch = 50
+disziplin = 60
+experimentierlust = 55
+handschrift = ["junge Techniker", "mutiger Angriff", "Leidenschaft"]
+
+[[trainer]]
+code = "WAL"
+team = "A"
+name = "Craig Bellamy"
+seit = 2024
+vertrag_bis = 2028
+sicher = false
+spielidee = "ballbesitz"
+formation = "4-2-3-1"
+ausweich = "4-3-3"
+treue = 50
+form_blick = 65
+spielzeit_pflicht = 60
+jugendmut = 65
+systemtreue = 75
+liga_anspruch = 45
+disziplin = 75
+experimentierlust = 55
+handschrift = ["mutiger Ballbesitz", "fordernd", "Spieler aus der Championship willkommen"]
+
+[[trainer]]
+code = "IRL"
+team = "A"
+name = "Heimir Hallgrímsson"
+seit = 2024
+vertrag_bis = 2026
+sicher = false
+spielidee = "konter"
+formation = "3-5-2"
+ausweich = "4-4-2"
+treue = 60
+form_blick = 60
+spielzeit_pflicht = 60
+jugendmut = 55
+systemtreue = 65
+liga_anspruch = 40
+disziplin = 65
+experimentierlust = 45
+handschrift = ["Ordnung", "Standards", "Gemeinschaft"]
+
+[[trainer]]
+code = "NIR"
+team = "A"
+name = "Michael O'Neill"
+seit = 2024
+vertrag_bis = 2028
+sicher = false
+spielidee = "konter"
+formation = "3-4-3"
+ausweich = "5-3-2"
+treue = 55
+form_blick = 60
+spielzeit_pflicht = 55
+jugendmut = 75
+systemtreue = 70
+liga_anspruch = 30
+disziplin = 65
+experimentierlust = 55
+handschrift = ["junge Mannschaft", "kompakt", "Mut zur Lücke"]
+
+[[trainer]]
+code = "HUN"
+team = "A"
+name = "Marco Rossi"
+seit = 2018
+vertrag_bis = 2026
+sicher = false
+spielidee = "konter"
+formation = "3-4-2-1"
+ausweich = "5-3-2"
+treue = 75
+form_blick = 55
+spielzeit_pflicht = 50
+jugendmut = 50
+systemtreue = 75
+liga_anspruch = 35
+disziplin = 65
+experimentierlust = 40
+handschrift = ["Dreierkette", "Treue zum Kern", "ruhig"]
+
+[[trainer]]
+code = "SRB"
+team = "A"
+name = "Veljko Paunović"
+seit = 2025
+vertrag_bis = 2026
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "3-4-1-2"
+ausweich = "4-2-3-1"
+treue = 50
+form_blick = 65
+spielzeit_pflicht = 55
+jugendmut = 60
+systemtreue = 60
+liga_anspruch = 50
+disziplin = 65
+experimentierlust = 50
+handschrift = ["Neuanfang", "Disziplin", "offensiv"]
+
+[[trainer]]
+code = "UKR"
+team = "A"
+name = "Serhiy Rebrov"
+seit = 2023
+vertrag_bis = 2026
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "4-3-3"
+ausweich = "4-2-3-1"
+treue = 60
+form_blick = 60
+spielzeit_pflicht = 55
+jugendmut = 55
+systemtreue = 60
+liga_anspruch = 50
+disziplin = 60
+experimentierlust = 45
+handschrift = ["Zusammenhalt", "Ballbesitz", "ruhig"]
+
+[[trainer]]
+code = "GRE"
+team = "A"
+name = "Ivan Jovanović"
+seit = 2024
+vertrag_bis = 2026
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "4-2-3-1"
+ausweich = "4-3-3"
+treue = 55
+form_blick = 65
+spielzeit_pflicht = 55
+jugendmut = 70
+systemtreue = 65
+liga_anspruch = 40
+disziplin = 65
+experimentierlust = 55
+handschrift = ["junge Griechen aus Europa", "Struktur", "Mut"]
+
+[[trainer]]
+code = "SVK"
+team = "A"
+name = "Francesco Calzona"
+seit = 2022
+vertrag_bis = 2026
+sicher = false
+spielidee = "ballbesitz"
+formation = "4-3-3"
+ausweich = "4-2-3-1"
+treue = 65
+form_blick = 55
+spielzeit_pflicht = 55
+jugendmut = 50
+systemtreue = 75
+liga_anspruch = 45
+disziplin = 60
+experimentierlust = 40
+handschrift = ["Spielidee aus Neapel", "Ballbesitz", "Ordnung"]
+
+[[trainer]]
+code = "SVN"
+team = "A"
+name = "Matjaž Kek"
+seit = 2018
+vertrag_bis = 2026
+sicher = false
+spielidee = "mauern_kontern"
+formation = "4-4-2"
+ausweich = "5-3-2"
+treue = 80
+form_blick = 50
+spielzeit_pflicht = 45
+jugendmut = 45
+systemtreue = 70
+liga_anspruch = 35
+disziplin = 65
+experimentierlust = 35
+handschrift = ["kompakt", "Treue", "Konter über die Stürmer"]
+
+[[trainer]]
+code = "GEO"
+team = "A"
+name = "Willy Sagnol"
+seit = 2021
+vertrag_bis = 2026
+sicher = false
+spielidee = "konter"
+formation = "5-3-2"
+ausweich = "3-4-3"
+treue = 75
+form_blick = 55
+spielzeit_pflicht = 50
+jugendmut = 55
+systemtreue = 70
+liga_anspruch = 40
+disziplin = 60
+experimentierlust = 40
+handschrift = ["Fünferkette", "Konter über die Stars", "Stolz"]
+
+[[trainer]]
+code = "ALB"
+team = "A"
+name = "Sylvinho"
+seit = 2023
+vertrag_bis = 2026
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "4-3-3"
+ausweich = "4-2-3-1"
+treue = 65
+form_blick = 60
+spielzeit_pflicht = 55
+jugendmut = 55
+systemtreue = 60
+liga_anspruch = 40
+disziplin = 60
+experimentierlust = 50
+handschrift = ["Doppelpass-Spieler aus der Diaspora", "Zusammenhalt", "geordnet"]
+
+[[trainer]]
+code = "BIH"
+team = "A"
+name = "Sergej Barbarez"
+seit = 2024
+vertrag_bis = 2026
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "4-2-3-1"
+ausweich = "4-4-2"
+treue = 55
+form_blick = 65
+spielzeit_pflicht = 55
+jugendmut = 65
+systemtreue = 55
+liga_anspruch = 45
+disziplin = 65
+experimentierlust = 55
+handschrift = ["Neuaufbau", "Diaspora im Blick", "direkte Worte"]
+
+[[trainer]]
+code = "ISL"
+team = "A"
+name = "Arnar Gunnlaugsson"
+seit = 2025
+vertrag_bis = 2026
+sicher = false
+spielidee = "ballbesitz"
+formation = "4-3-3"
+ausweich = "3-4-3"
+treue = 50
+form_blick = 65
+spielzeit_pflicht = 60
+jugendmut = 65
+systemtreue = 70
+liga_anspruch = 35
+disziplin = 60
+experimentierlust = 55
+handschrift = ["mutiger Ballbesitz", "junge Spieler", "neuer Weg"]
+
+[[trainer]]
+code = "FIN"
+team = "A"
+name = "Jacob Friis"
+seit = 2025
+vertrag_bis = 2026
+sicher = false
+spielidee = "gegenpressing"
+formation = "4-3-3"
+ausweich = "3-4-3"
+treue = 50
+form_blick = 65
+spielzeit_pflicht = 60
+jugendmut = 60
+systemtreue = 70
+liga_anspruch = 35
+disziplin = 60
+experimentierlust = 55
+handschrift = ["Pressing", "Struktur", "dänische Schule"]
+
+[[trainer]]
+code = "COL"
+team = "A"
+name = "Néstor Lorenzo"
+seit = 2022
+vertrag_bis = 2026
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "4-2-3-1"
+ausweich = "4-3-3"
+treue = 75
+form_blick = 55
+spielzeit_pflicht = 50
+jugendmut = 45
+systemtreue = 60
+liga_anspruch = 55
+disziplin = 60
+experimentierlust = 40
+handschrift = ["Treue zum Kern", "Technik und Umschalten", "ruhig"]
+
+[[trainer]]
+code = "PAR"
+team = "A"
+name = "Gustavo Alfaro"
+seit = 2024
+vertrag_bis = 2026
+sicher = false
+spielidee = "mauern_kontern"
+formation = "4-4-2"
+ausweich = "5-3-2"
+treue = 60
+form_blick = 60
+spielzeit_pflicht = 55
+jugendmut = 45
+systemtreue = 75
+liga_anspruch = 40
+disziplin = 75
+experimentierlust = 40
+handschrift = ["Ordnung über alles", "Kampf", "Gemeinschaft"]
+
+[[trainer]]
+code = "CAN"
+team = "A"
+name = "Jesse Marsch"
+seit = 2024
+vertrag_bis = 2026
+sicher = false
+spielidee = "gegenpressing"
+formation = "4-4-2"
+ausweich = "4-2-2-2"
+treue = 55
+form_blick = 65
+spielzeit_pflicht = 65
+jugendmut = 65
+systemtreue = 85
+liga_anspruch = 45
+disziplin = 65
+experimentierlust = 50
+handschrift = ["Pressing und Tempo", "Energie", "klare Rollen"]
+
+[[trainer]]
+code = "KOR"
+team = "A"
+name = "offen"
+seit = 2026
+vertrag_bis = 2026
+sicher = false
+vakant = true
+spielidee = "kontrollierte_offensive"
+formation = "4-2-3-1"
+ausweich = "3-4-3"
+treue = 55
+form_blick = 60
+spielzeit_pflicht = 60
+jugendmut = 55
+systemtreue = 60
+liga_anspruch = 55
+disziplin = 65
+experimentierlust = 50
+handschrift = []
+hinweis = "Hong Myung-bo nach der WM zurückgetreten; Nachfolger in PES M per Nachfolger-Regel (Konzept 2.5) wählen lassen."
+
+[[trainer]]
+code = "CZE"
+team = "A"
+name = "offen"
+seit = 2026
+vertrag_bis = 2026
+sicher = false
+vakant = true
+spielidee = "direktes_spiel"
+formation = "3-4-1-2"
+ausweich = "4-2-3-1"
+treue = 55
+form_blick = 60
+spielzeit_pflicht = 55
+jugendmut = 50
+systemtreue = 60
+liga_anspruch = 40
+disziplin = 60
+experimentierlust = 45
+handschrift = []
+hinweis = "Miroslav Koubek zurückgetreten; Nachfolger offen."
+
+[[trainer]]
+code = "ECU"
+team = "A"
+name = "offen"
+seit = 2026
+vertrag_bis = 2026
+sicher = false
+vakant = true
+spielidee = "gegenpressing"
+formation = "4-3-3"
+ausweich = "4-4-2"
+treue = 55
+form_blick = 60
+spielzeit_pflicht = 55
+jugendmut = 60
+systemtreue = 65
+liga_anspruch = 55
+disziplin = 60
+experimentierlust = 50
+handschrift = []
+hinweis = "Sebastián Beccacece zurückgetreten; Nachfolger offen."
+
+[[trainer]]
+code = "JOR"
+team = "A"
+name = "offen"
+seit = 2026
+vertrag_bis = 2026
+sicher = false
+vakant = true
+spielidee = "konter"
+formation = "3-4-3"
+ausweich = "4-4-2"
+treue = 60
+form_blick = 55
+spielzeit_pflicht = 50
+jugendmut = 50
+systemtreue = 65
+liga_anspruch = 30
+disziplin = 60
+experimentierlust = 45
+handschrift = []
+hinweis = "Trennung von Jamal Sellami; Nachfolger offen."
+
+[[trainer]]
+code = "KSA"
+team = "A"
+name = "Hervé Renard"
+seit = 2024
+vertrag_bis = 2026
+sicher = false
+spielidee = "konter"
+formation = "4-2-3-1"
+ausweich = "4-4-2"
+treue = 60
+form_blick = 60
+spielzeit_pflicht = 45
+jugendmut = 45
+systemtreue = 60
+liga_anspruch = 20
+disziplin = 70
+experimentierlust = 40
+handschrift = ["Mentalität"]
+hinweis = "Renard ist laut Presse inzwischen Trainer der Elfenbeinküste. Saudi-Arabien deshalb vermutlich vakant – prüfen."
+
+[[trainer]]
+code = "AUS"
+team = "A"
+name = "Tony Popovic"
+seit = 2024
+vertrag_bis = 2026
+sicher = false
+spielidee = "konter"
+formation = "3-4-2-1"
+ausweich = "4-2-3-1"
+treue = 60
+form_blick = 60
+spielzeit_pflicht = 60
+jugendmut = 55
+systemtreue = 70
+liga_anspruch = 40
+disziplin = 75
+experimentierlust = 45
+handschrift = ["Disziplin", "kompakte Abwehr", "Arbeit"]
+
+[[trainer]]
+code = "IRN"
+team = "A"
+name = "Amir Ghalenoei"
+seit = 2023
+vertrag_bis = 2026
+sicher = false
+spielidee = "konter"
+formation = "4-1-4-1"
+ausweich = "4-4-2"
+treue = 70
+form_blick = 55
+spielzeit_pflicht = 45
+jugendmut = 40
+systemtreue = 60
+liga_anspruch = 30
+disziplin = 65
+experimentierlust = 35
+handschrift = ["erfahrener Kern", "kompakt", "Heimliga"]
+
+[[trainer]]
+code = "QAT"
+team = "A"
+name = "Julen Lopetegui"
+seit = 2025
+vertrag_bis = 2026
+sicher = false
+spielidee = "ballbesitz"
+formation = "4-3-3"
+ausweich = "4-2-3-1"
+treue = 55
+form_blick = 60
+spielzeit_pflicht = 50
+jugendmut = 50
+systemtreue = 75
+liga_anspruch = 10
+disziplin = 60
+experimentierlust = 45
+handschrift = ["Ballbesitz", "Ordnung"]
+
+[[trainer]]
+code = "UZB"
+team = "A"
+name = "Fabio Cannavaro"
+seit = 2025
+vertrag_bis = 2026
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "3-5-2"
+ausweich = "4-3-3"
+treue = 55
+form_blick = 65
+spielzeit_pflicht = 55
+jugendmut = 55
+systemtreue = 65
+liga_anspruch = 30
+disziplin = 70
+experimentierlust = 45
+handschrift = ["Abwehr zuerst", "Stolz", "erste WM des Landes"]
+
+[[trainer]]
+code = "EGY"
+team = "A"
+name = "Hossam Hassan"
+seit = 2024
+vertrag_bis = 2026
+sicher = false
+spielidee = "konter"
+formation = "4-3-3"
+ausweich = "4-2-3-1"
+treue = 70
+form_blick = 55
+spielzeit_pflicht = 45
+jugendmut = 45
+systemtreue = 55
+liga_anspruch = 25
+disziplin = 70
+experimentierlust = 40
+handschrift = ["Leidenschaft", "Heimliga stark vertreten", "um den Star herum"]
+
+[[trainer]]
+code = "NGA"
+team = "A"
+name = "Éric Chelle"
+seit = 2025
+vertrag_bis = 2026
+sicher = false
+spielidee = "konter"
+formation = "4-3-3"
+ausweich = "3-4-3"
+treue = 55
+form_blick = 65
+spielzeit_pflicht = 60
+jugendmut = 55
+systemtreue = 65
+liga_anspruch = 60
+disziplin = 70
+experimentierlust = 50
+handschrift = ["Ordnung", "Tempo vorne", "Disziplin"]
+
+[[trainer]]
+code = "GHA"
+team = "A"
+name = "Otto Addo"
+seit = 2024
+vertrag_bis = 2026
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "4-2-3-1"
+ausweich = "3-4-3"
+treue = 55
+form_blick = 65
+spielzeit_pflicht = 60
+jugendmut = 65
+systemtreue = 60
+liga_anspruch = 60
+disziplin = 65
+experimentierlust = 55
+handschrift = ["Talententwickler", "Doppelpass-Spieler aus Europa", "ruhig"]
+
+[[trainer]]
+code = "ALG"
+team = "A"
+name = "Vladimir Petković"
+seit = 2024
+vertrag_bis = 2026
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "4-3-3"
+ausweich = "4-2-3-1"
+treue = 60
+form_blick = 60
+spielzeit_pflicht = 55
+jugendmut = 50
+systemtreue = 60
+liga_anspruch = 60
+disziplin = 65
+experimentierlust = 45
+handschrift = ["Ballbesitz", "Erfahrung", "Diaspora aus Frankreich"]
+
+[[trainer]]
+code = "RSA"
+team = "A"
+name = "Hugo Broos"
+seit = 2021
+vertrag_bis = 2026
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "4-3-3"
+ausweich = "4-2-3-1"
+treue = 65
+form_blick = 60
+spielzeit_pflicht = 55
+jugendmut = 55
+systemtreue = 60
+liga_anspruch = 20
+disziplin = 75
+experimentierlust = 45
+handschrift = ["Heimliga als Rückgrat", "streng", "offen in der Presse"]
+
+[[trainer]]
+code = "NZL"
+team = "A"
+name = "Darren Bazeley"
+seit = 2023
+vertrag_bis = 2026
+sicher = false
+spielidee = "direktes_spiel"
+formation = "4-4-2"
+ausweich = "3-4-3"
+treue = 65
+form_blick = 55
+spielzeit_pflicht = 55
+jugendmut = 55
+systemtreue = 60
+liga_anspruch = 40
+disziplin = 60
+experimentierlust = 45
+handschrift = ["um den Zielstürmer", "Gemeinschaft"]
+
+[[trainer]]
+code = "PAN"
+team = "A"
+name = "Thomas Christiansen"
+seit = 2020
+vertrag_bis = 2026
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "3-4-3"
+ausweich = "4-4-2"
+treue = 75
+form_blick = 55
+spielzeit_pflicht = 50
+jugendmut = 45
+systemtreue = 65
+liga_anspruch = 30
+disziplin = 60
+experimentierlust = 40
+handschrift = ["Treue", "Struktur"]
+
+[[trainer]]
+code = "CPV"
+team = "A"
+name = "Bubista"
+seit = 2020
+vertrag_bis = 2026
+sicher = false
+spielidee = "konter"
+formation = "4-3-3"
+ausweich = "4-4-2"
+treue = 75
+form_blick = 55
+spielzeit_pflicht = 50
+jugendmut = 50
+systemtreue = 60
+liga_anspruch = 30
+disziplin = 60
+experimentierlust = 45
+handschrift = ["Diaspora aus Portugal und den Niederlanden", "Gemeinschaft"]
+
+# ------------------------------------------------------------------ U21
+# Weniger sicher als die A-Teams. Fehlt ein Land, wird ein Trainer erzeugt.
+[[trainer]]
+code = "GER"
+team = "U21"
+name = "Antonio Di Salvo"
+seit = 2023
+sicher = false
+spielidee = "gegenpressing"
+formation = "4-2-3-1"
+ausweich = "4-3-3"
+treue = 50
+form_blick = 65
+spielzeit_pflicht = 70
+jugendmut = 90
+systemtreue = 65
+liga_anspruch = 50
+disziplin = 65
+experimentierlust = 60
+handschrift = ["Spielzeit in der Bundesliga zählt"]
+
+[[trainer]]
+code = "ENG"
+team = "U21"
+name = "Lee Carsley"
+seit = 2021
+sicher = false
+spielidee = "ballbesitz"
+formation = "4-2-3-1"
+ausweich = "4-3-3"
+treue = 50
+form_blick = 65
+spielzeit_pflicht = 70
+jugendmut = 90
+systemtreue = 70
+liga_anspruch = 45
+disziplin = 65
+experimentierlust = 55
+handschrift = ["U21-Europameister 2023 und 2025", "Leihspieler im Blick"]
+
+[[trainer]]
+code = "ESP"
+team = "U21"
+name = "Santi Denia"
+seit = 2022
+sicher = false
+spielidee = "ballbesitz"
+formation = "4-3-3"
+ausweich = "4-2-3-1"
+treue = 50
+form_blick = 60
+spielzeit_pflicht = 60
+jugendmut = 90
+systemtreue = 85
+liga_anspruch = 50
+disziplin = 65
+experimentierlust = 55
+handschrift = ["Olympiasieger 2024", "Positionsspiel"]
+
+[[trainer]]
+code = "FRA"
+team = "U21"
+name = "Gérald Baticle"
+seit = 2023
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "4-3-3"
+ausweich = "4-2-3-1"
+treue = 50
+form_blick = 65
+spielzeit_pflicht = 65
+jugendmut = 90
+systemtreue = 55
+liga_anspruch = 55
+disziplin = 65
+experimentierlust = 55
+handschrift = ["großer Pool", "viel Wettbewerb"]
+
+[[trainer]]
+code = "ITA"
+team = "U21"
+name = "Silvio Baldini"
+seit = 2025
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "4-3-3"
+ausweich = "3-5-2"
+treue = 50
+form_blick = 65
+spielzeit_pflicht = 65
+jugendmut = 90
+systemtreue = 60
+liga_anspruch = 40
+disziplin = 70
+experimentierlust = 55
+handschrift = ["Charakter zählt"]
+
+[[trainer]]
+code = "NED"
+team = "U21"
+name = "Michael Reiziger"
+seit = 2022
+sicher = false
+spielidee = "ballbesitz"
+formation = "4-3-3"
+ausweich = "4-2-3-1"
+treue = 50
+form_blick = 65
+spielzeit_pflicht = 65
+jugendmut = 90
+systemtreue = 75
+liga_anspruch = 45
+disziplin = 60
+experimentierlust = 55
+handschrift = ["Jong-Teams als Quelle"]
+
+[[trainer]]
+code = "POR"
+team = "U21"
+name = "Rui Jorge"
+seit = 2010
+sicher = false
+spielidee = "kontrollierte_offensive"
+formation = "4-3-3"
+ausweich = "4-4-2 Raute"
+treue = 55
+form_blick = 60
+spielzeit_pflicht = 60
+jugendmut = 90
+systemtreue = 65
+liga_anspruch = 40
+disziplin = 65
+experimentierlust = 50
+handschrift = ["sehr lange im Amt", "Technik"]
+
+# ------------------------------------------------------------------ Nachfolge-Kandidaten
+# Werden bei Trainerwechsel zusätzlich zur Regel im Konzept 2.5 geprüft (nur wenn frei).
+[kandidaten]
+GER = ["Antonio Di Salvo"]
+ENG = ["Lee Carsley"]
+ESP = ["Santi Denia"]
+ARG = []
+KOR = []
+
+# PES M: Regeln der Nominierung und der Länderspiele (Kern)
+[pes_m]
+pool_mindestens = 15          # so viele Spieler braucht eine Nation, um ein Team zu stellen
+verletzt_bis = 5              # länger verletzt: nicht im Pool
+fitness_je_spiel = 6.0
+wert_je_spiel = 0.01          # Marktwert +1 % je Länderspiel (die ersten zehn)
+verletzung_je_spiel = 0.006
+zettel_abstand = 3.0
+elo_fenster = 20.0            # FIFA-Punkte: Gewicht eines Freundschaftsspiels
+elo_turnier = 50.0            # … eines Turnierspiels
+turnier_starttag = 10         # Turniere beginnen am 10. ihres ersten Monats
+turnier_schub = [1.03, 1.06, 1.10, 1.15, 1.20, 1.30]   # Marktwert nach Turnier: Gruppe, Achtel-, Viertel-, Halbfinale, Finale, Sieg
+wissen_nach_turnier = 45      # wer bei einem Turnier war, ist danach bekannt          # „Auf dem Zettel“: höchstens so weit unter dem schwächsten Nominierten seiner Mannschaftsteils
+
+# PES M: Kürzel → Ländername wie in nationen.json (Zuordnung zur Nationalität aus Player.bin)
+[codes]
+ALB = "Albanien"
+ALG = "Algerien"
+ARG = "Argentinien"
+AUS = "Australien"
+AUT = "Österreich"
+BEL = "Belgien"
+BIH = "Bosnien-Herzegowina"
+BRA = "Brasilien"
+CAN = "Kanada"
+CIV = "Elfenbeinküste"
+COL = "Kolumbien"
+CPV = "Kap Verde"
+CRO = "Kroatien"
+CZE = "Tschechien"
+DEN = "Dänemark"
+ECU = "Ecuador"
+EGY = "Ägypten"
+ENG = "England"
+ESP = "Spanien"
+FIN = "Finnland"
+FRA = "Frankreich"
+GEO = "Georgien"
+GER = "Deutschland"
+GHA = "Ghana"
+GRE = "Griechenland"
+HUN = "Ungarn"
+IRL = "Irland"
+IRN = "Iran"
+ISL = "Island"
+ITA = "Italien"
+JOR = "Jordanien"
+JPN = "Japan"
+KOR = "Südkorea"
+KSA = "Saudi-Arabien"
+MAR = "Marokko"
+MEX = "Mexiko"
+NED = "Niederlande"
+NGA = "Nigeria"
+NIR = "Nordirland"
+NOR = "Norwegen"
+NZL = "Neuseeland"
+PAN = "Panama"
+PAR = "Paraguay"
+POL = "Polen"
+POR = "Portugal"
+QAT = "Katar"
+RSA = "Südafrika"
+SCO = "Schottland"
+SEN = "Senegal"
+SRB = "Serbien"
+SUI = "Schweiz"
+SVK = "Slowakei"
+SVN = "Slowenien"
+SWE = "Schweden"
+TUN = "Tunesien"
+TUR = "Türkei"
+UAE = "Vereinigte Arabische Emirate"
+UKR = "Ukraine"
+URU = "Uruguay"
+USA = "USA"
+UZB = "Usbekistan"
+WAL = "Wales"

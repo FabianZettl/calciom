@@ -709,6 +709,46 @@ impl Ui {
         t
     }
     /// The one building block for player photos everywhere: the photo in a circle, else the initials placeholder (no message).
+/// Konzept Animationen Stufe A: a little footballer in his club's kit with his shirt number, built from simple
+    /// shapes (skin, hair and build fixed by his id), breathing gently. `fuss`: where his feet stand; `h`: his height.
+    pub fn kicker(&self, cx: f32, fuss: f32, h: f32, id: u32, trikot: Color, hose: Color, nr: u8, gross: f32) {
+        let z = |k: u32| ((id.wrapping_mul(2654435761).wrapping_add(k.wrapping_mul(40503))) >> 8) % 1000;
+        let u = h / 10.0;
+        let haut = hex([0xf2d3b8, 0xe0b48c, 0xc68e62, 0x9c6a43, 0x6b4428][(z(1) % 5) as usize]);
+        let haar = hex([0x2b1d14, 0x5a3a22, 0x8a5a2b, 0xc9a86b, 0x1b1b1b][(z(2) % 5) as usize]);
+        let breit = 1.0 + (gross - 0.5) * 0.25;
+        let atem = (get_time() as f32 * 2.2 + (id % 7) as f32).sin() * 0.12 * u;
+        let schuh = hex(0x111111);
+        // legs with socks in the shirt colour, shoes
+        for s in [-1.0f32, 1.0] {
+            let x = cx + s * 0.55 * u * breit;
+            draw_rectangle(x - 0.3 * u, fuss - 2.6 * u, 0.6 * u, 1.3 * u, haut);
+            draw_rectangle(x - 0.32 * u, fuss - 1.4 * u, 0.64 * u, 1.2 * u, trikot);
+            draw_ellipse(x + s * 0.1 * u, fuss - 0.15 * u, 0.5 * u, 0.22 * u, 0.0, schuh);
+        }
+        // shorts, shirt with sleeves and arms
+        let top = fuss - 7.4 * u + atem;
+        draw_rectangle(cx - 1.25 * u * breit, fuss - 3.7 * u, 2.5 * u * breit, 1.3 * u, hose);
+        draw_rectangle(cx - 1.3 * u * breit, top + 1.6 * u, 2.6 * u * breit, 2.6 * u, trikot);
+        for s in [-1.0f32, 1.0] {
+            let x = cx + s * 1.45 * u * breit;
+            draw_rectangle(x - 0.35 * u, top + 1.7 * u, 0.7 * u, 0.9 * u, trikot);
+            draw_rectangle(x - 0.25 * u, top + 2.6 * u, 0.5 * u, 1.3 * u, haut);
+        }
+        if nr > 0 { self.text_center(&nr.to_string(), cx, top + 3.4 * u, 1.5 * u, on(trikot)); }
+        // head and hair
+        draw_rectangle(cx - 0.3 * u, top + 1.2 * u, 0.6 * u, 0.5 * u, haut);
+        draw_circle(cx, top + 0.6 * u, 1.0 * u, haut);
+        match z(3) % 4 {
+            0 => draw_circle(cx, top + 0.2 * u, 0.95 * u, haar),
+            1 => draw_rectangle(cx - 1.0 * u, top - 0.4 * u, 2.0 * u, 0.7 * u, haar),
+            2 => { draw_circle(cx - 0.5 * u, top - 0.1 * u, 0.6 * u, haar); draw_circle(cx + 0.5 * u, top - 0.1 * u, 0.6 * u, haar); }
+            _ => {}
+        }
+        draw_circle(cx, top + 0.85 * u, 0.75 * u, haut);
+        draw_circle(cx - 0.32 * u, top + 0.7 * u, 0.1 * u, hex(0x1b1b1b));
+        draw_circle(cx + 0.32 * u, top + 0.7 * u, 0.1 * u, hex(0x1b1b1b));
+    }
     pub fn player_photo(&self, cx: f32, cy: f32, r: f32, id: u32, name: &str) {
         self.foto_orte.borrow_mut().push((id, vec2(cx, cy), r));
         let Some(t) = self.foto_tex(id) else { self.figur(cx, cy, r, name, Rolle::Spieler); return };
@@ -772,11 +812,19 @@ impl Ui {
         }
     }
     /// Text input field; edits `s` while focused. Returns true on Enter.
-    pub fn input(&mut self, r: Rect, s: &mut String, focused: bool, placeholder: &str) -> bool {
+    pub fn input(&mut self, r: Rect, s: &mut String, focused: bool, placeholder: &str) -> bool { self.input_max(r, s, focused, placeholder, 40) }
+    /// A text field of at most `max` characters; Ctrl+V pastes (beta 23.11.: folder paths could not be pasted).
+    pub fn input_max(&mut self, r: Rect, s: &mut String, focused: bool, placeholder: &str, max: usize) -> bool {
         rrect(r.x, r.y, r.w, r.h, r.h / 2.0, if focused { Theme::akzent() } else { Theme::linie() });
         rrect(r.x + 1.5, r.y + 1.5, r.w - 3.0, r.h - 3.0, r.h / 2.0 - 1.5, Theme::flaeche());
         if focused {
-            for c in self.typed.iter() { if s.chars().count() < 40 { s.push(*c); } }
+            let strg = is_key_down(KeyCode::LeftControl) || is_key_down(KeyCode::RightControl) || is_key_down(KeyCode::LeftSuper);
+            if strg && is_key_pressed(KeyCode::V) {
+                let neu = macroquad::miniquad::window::clipboard_get().unwrap_or_default();
+                for c in neu.trim().trim_matches('"').chars().filter(|c| !c.is_control()) { if s.chars().count() < max { s.push(c); } }
+            } else {
+                for c in self.typed.iter() { if s.chars().count() < max && !(strg && c.eq_ignore_ascii_case(&'v')) { s.push(*c); } }
+            }
             if self.key_back { s.pop(); }
         }
         let size = 20.0;

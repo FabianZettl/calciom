@@ -45,6 +45,20 @@ impl Career {
         }
         let uhr = crate::fl27::uhrzeit();
         if !dateien.is_empty() { self.db_zuletzt = crate::tf!("ui.live.zuletzt_geschrieben_spieler_geaendert", uhr, n); }
+        // LivePatch (livepatch.rs): the changes as patch files for the running game, F7 in the Sider overlay takes them in
+        if !dateien.is_empty() && !self.fl27_cpk.is_empty() {
+            let live = crate::fl27::sider().join(crate::id("livecpk")).join(&self.fl27_cpk).join("common/etc/pesdb");
+            let (attr, teams, neustart) = std::mem::take(&mut self.live_aenderung);
+            let n_spieler = crate::pesdb::PlayerBin::load(&live.join("Player.bin")).map(|pb| pb.n()).unwrap_or(0);
+            let mut gepatcht = false;
+            if n_spieler > 0 { gepatcht |= matches!(crate::livepatch::add_players(&live, &attr, n_spieler)?, Some(k) if k > 0); }
+            for t in teams { gepatcht |= crate::livepatch::add_team(&live, t).unwrap_or(false); }
+            if neustart { crate::livepatch::neustart_merken(&live)?; }
+            if crate::fl27::fl27_pid().is_some() {
+                if neustart { return Ok(crate::inhalt::t("ui.live.neustart_noetig").into()); }
+                if gepatcht && !self.db_hinweis { self.db_hinweis = true; return Ok(crate::inhalt::t("ui.live.livepatch_bereit").into()); }
+            }
+        }
         // FL27 reads its database at start: say so once while it runs
         if !dateien.is_empty() && crate::fl27::fl27_pid().is_some() && !self.db_hinweis {
             self.db_hinweis = true;

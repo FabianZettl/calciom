@@ -181,6 +181,22 @@ impl Career {
 mod tests {
     use super::*;
     #[test]
+    fn aufstellung_nach_kriterien() {
+        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let mut c = Career::new(w, 0, "Test");
+        c.auto_lineup();
+        let alter = |c: &Career| c.xi.iter().map(|&p| c.world.players[p].age as f32).sum::<f32>() / 11.0;
+        let a0 = alter(&c);
+        c.aufstellung_kriterien = 1 | 1 << 6;
+        c.auto_lineup();
+        assert!(alter(&c) <= a0, "young players criterion makes the eleven younger");
+        c.aufstellung_kriterien = 1 << 2;
+        let p = c.xi[3];
+        c.world.players[p].fit = 30.0;
+        c.auto_lineup();
+        assert!(!c.xi.contains(&p), "fitness alone leaves the exhausted out");
+    }
+    #[test]
     fn soll_uebernimmt_der_co_trainer() {
         let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
         let mut c = Career::new(w, 0, "Test");

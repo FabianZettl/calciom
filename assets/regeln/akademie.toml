@@ -77,3 +77,8 @@ spiele_je_tag = 1
 # Leihe an einen Verein der Vereinswelt (PESM-seitig): Rückmeldung des Stabs alle paar Wochen, Rückholung erst nach einer Frist
 rueckmeldung_wochen = 4
 rueckhol_nach_wochen = 4
+
+# Konzept Akademie 4.2: Heimweh in den ersten Monaten (Talente aus dem Ausland)
+[heimweh]
+tage = 182
+je_woche = 1.5                  # Moral je Woche; Landsmann in der Akademie oder Mentor: halb

@@ -146,12 +146,15 @@ pub fn forderung(basis: f64, ego: f32, moral: f32, loyal: f32, beziehung: f32, v
     let f = 1.0 + (ego / 100.0 - 0.5) * 0.3 + (50.0 - moral) / 100.0 * 0.3 - (loyal / 100.0 - 0.5) * 0.15 - beziehung / 100.0 * 0.1 + (50.0 - vertrauen).max(0.0) / 100.0 * 0.2 + (gier - 40.0) / 100.0 * 0.15;
     basis * f.clamp(0.7, 1.6) as f64
 }
-/// Wish wage from the market value (transfers/werte.py:93): value · 0.12 · role, ≤ 21 × 0.7, ≥ 30 × 1.15, at least 20 000 €.
-pub fn wunschgehalt(marktwert: f64, rolle: u8, alter: u8) -> f64 {
-    let r = match rolle { 0..=2 => 1.25, 3 => 1.0, 4 => 0.85, _ => 0.7 };
-    let a = if alter <= 21 { 0.7 } else if alter >= 30 { 1.15 } else { 1.0 };
-    (marktwert * 0.12 * r * a).max(20000.0)
+/// Wish wage. Fabian 23.11.: the old value · 0.12 (werte.py:93) was half of what stars already earn, so the wish now
+/// comes from the same wage curve as all wages (fair_wage in the target league) times the role, and never sinks far
+/// below the current wage: who earns 16 M does not ask for 8 M.
+pub fn wunschgehalt(pl: &crate::world::Player, liga: f32, rolle: u8) -> f64 {
+    let r = match rolle { 0..=2 => 1.15, 3 => 1.0, 4 => 0.9, _ => 0.8 };
+    (crate::world::fair_wage(pl, liga) * r).max(pl.wage * aufschlag(pl.age)).max(20000.0)
 }
+/// What a player wants over his current wage: young ones more, from 30 a little less, from 33 clearly less.
+pub fn aufschlag(alter: u8) -> f64 { if alter <= 25 { 1.15 } else if alter <= 29 { 1.08 } else if alter <= 32 { 0.95 } else { 0.8 } }
 /// Wish length (werte.py): from 0 years 3, from 24 5, from 29 3, from 32 1.
 pub fn wunschlaufzeit(alter: u8) -> u32 { if alter >= 32 { 1 } else if alter >= 29 { 3 } else if alter >= 24 { 5 } else { 3 } }
 /// Verdict on a renewal offer (werte.py:169): ratio ≥ 1 accept, ≥ 0.88 counter, ≥ 0.65 refuse, below insulted; veto at morale < 25 and ratio < 1.15.
@@ -290,5 +293,22 @@ mod tests {
         assert_eq!(bewertung(0.7, 50.0), "ablehnung");
         assert_eq!(bewertung(0.5, 50.0), "beleidigt");
         assert_eq!(bewertung(1.1, 20.0), "veto");
+    }
+}
+#[cfg(test)]
+mod forderung_tests {
+    /// Fabian 23.11.: who earns 16.2 M must not ask for 8.4 M; the demand follows the current wage.
+    #[test]
+    fn forderung_am_gehalt() {
+        let w = crate::world::World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let mut c = crate::game::Career::new(w, 1, "Test");
+        let mut v: Vec<usize> = (0..c.world.players.len()).filter(|&p| c.world.players[p].team >= 0).collect();
+        v.sort_by(|&a, &b| c.world.players[b].wage.total_cmp(&c.world.players[a].wage));
+        let mut sq = c.squad();
+        sq.extend(v.into_iter().step_by(500).take(40));
+        for p in sq {
+            let (f, pl) = (c.forderung(p), &c.world.players[p]);
+            assert!(f >= pl.wage * 0.7 && f <= pl.wage.max(50000.0) * 2.5, "{} earns {} and asks {f}", pl.name, pl.wage);
+        }
     }
 }

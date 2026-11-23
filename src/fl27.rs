@@ -17,9 +17,43 @@ pub const DIRECT_ROOT: &str = "PESM_DirectMatch";
 pub const LUTRIS_ID: u32 = 7;
 pub const EXE: &str = "FL_2027.exe";
 
+/// PES M's own data folder (log, chosen game folder): Windows %APPDATA%\pesm, else ~/.local/share/pesm-rust;
+/// tests and previews use their PESM_KARRIEREN folder.
+pub fn datenordner() -> PathBuf {
+    std::env::var("PESM_KARRIEREN").map(PathBuf::from).or_else(|_| std::env::var("APPDATA").map(|a| PathBuf::from(a).join(crate::id("pesm"))))
+        .unwrap_or_else(|_| PathBuf::from(std::env::var("HOME").unwrap_or_else(|_| ".".into())).join(".local/share/pesm-rust"))
+}
+static GEWAEHLT: std::sync::Mutex<Option<Option<PathBuf>>> = std::sync::Mutex::new(None);
+/// The game folder the person chose (beta 23.11.: the search did not find every install), kept in spielordner.txt.
+fn gewaehlt() -> Option<PathBuf> {
+    GEWAEHLT.lock().unwrap().get_or_insert_with(|| std::fs::read_to_string(datenordner().join("spielordner.txt")).ok().map(|s| PathBuf::from(s.trim())).filter(|p| p.join("SiderAddons").is_dir())).clone() // roh
+}
+pub fn spielordner_setzen(p: &Path) {
+    let _ = std::fs::create_dir_all(datenordner());
+    let _ = std::fs::write(datenordner().join("spielordner.txt"), p.display().to_string()); // roh
+    *GEWAEHLT.lock().unwrap() = Some(Some(p.to_path_buf()));
+}
+/// From any path the person pastes or picks (game folder, SiderAddons, livecpk or a world): the game folder.
+pub fn spielordner_aus(p: &Path) -> Option<PathBuf> {
+    p.ancestors().find(|a| a.join("SiderAddons").join("livecpk").is_dir()).map(Path::to_path_buf) // roh
+}
+/// The system's folder dialog in the background (Windows: PowerShell, Linux: zenity or kdialog); None when cancelled.
+pub fn ordner_dialog() -> std::sync::mpsc::Receiver<Option<PathBuf>> {
+    let (tx, rx) = std::sync::mpsc::channel();
+    std::thread::spawn(move || {
+        #[cfg(windows)]
+        let aus = std::process::Command::new("powershell").args(["-NoProfile", "-STA", "-Command", "Add-Type -AssemblyName System.Windows.Forms; $f = New-Object System.Windows.Forms.FolderBrowserDialog; $f.Description = 'SP Football Life 2027'; if ($f.ShowDialog() -eq 'OK') { $f.SelectedPath }"]).output(); // roh
+        #[cfg(not(windows))]
+        let aus = std::process::Command::new("zenity").args(["--file-selection", "--directory"]).output().or_else(|_| std::process::Command::new("kdialog").arg("--getexistingdirectory").output()); // roh
+        let p = aus.ok().map(|o| String::from_utf8_lossy(&o.stdout).trim().to_string()).filter(|s| !s.is_empty()).map(PathBuf::from);
+        let _ = tx.send(p);
+    });
+    rx
+}
 /// Game folder G (PESM_FL27_SPIEL overrides it, for tests).
 pub fn spielordner() -> PathBuf {
     if let Ok(p) = std::env::var("PESM_FL27_SPIEL") { return PathBuf::from(p); }
+    if let Some(p) = gewaehlt() { return p; }
     #[cfg(windows)]
     { static ORT: std::sync::OnceLock<PathBuf> = std::sync::OnceLock::new(); return ORT.get_or_init(spielordner_suchen).clone(); }
     #[allow(unreachable_code)]
@@ -88,6 +122,25 @@ pub fn atomic_write(p: &Path, b: &[u8]) -> Result<(), String> {
     match std::fs::read(p) { Ok(back) if back == b => Ok(()), _ => Err(format!("{}: nach dem Schreiben nicht gleich", p.display())) }
 }
 
+/// Progress of the long career-start steps for the loading bar (beta 23.11.: Windows showed "Not Responding" while
+/// ~46 000 Megapack files were copied and hashed in the foreground): phase (0 counting, 1 copying, 2 checking,
+/// 3 career database), files done, files in all.
+pub static FORT_PHASE: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
+pub static FORT_FERTIG: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
+pub static FORT_GESAMT: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
+fn fort(phase: usize, gesamt: usize) {
+    use std::sync::atomic::Ordering::Relaxed;
+    FORT_PHASE.store(phase, Relaxed); FORT_FERTIG.store(0, Relaxed); FORT_GESAMT.store(gesamt, Relaxed);
+}
+fn dateien_zaehlen(d: &Path) -> usize {
+    std::fs::read_dir(d).map(|r| r.flatten().map(|e| match e.file_type() { Ok(t) if t.is_dir() => dateien_zaehlen(&e.path()), Ok(t) if t.is_file() => 1, _ => 0 }).sum()).unwrap_or(0)
+}
+/// One line into the log file users can send along (Windows %APPDATA%\pesm\pesm.log, else next to the careers).
+pub fn log(zeile: &str) {
+    let datei = datenordner().join("pesm.log");
+    let _ = std::fs::create_dir_all(datei.parent().unwrap_or(Path::new(".")));
+    if let Ok(mut f) = std::fs::OpenOptions::new().create(true).append(true).open(&datei) { let _ = writeln!(f, "{} {zeile}", zeit()); }
+}
 fn copy_dir(from: &Path, to: &Path, files: &mut Vec<PathBuf>, rel: &Path) -> Result<(), String> {
     wache(to);
     std::fs::create_dir_all(to.join(rel)).map_err(|e| e.to_string())?;
@@ -105,6 +158,7 @@ fn copy_dir(from: &Path, to: &Path, files: &mut Vec<PathBuf>, rel: &Path) -> Res
                 continue;
             }
             files.push(r);
+            FORT_FERTIG.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
         }
     }
     Ok(())
@@ -522,12 +576,22 @@ pub fn original_sichern(karriere: &Path, s: &Path, welt: &Path) -> Result<(), St
     let dest = karriere.join("original");
     if dest.join("inhalt.json").exists() { return original_pruefen(karriere); }
     let mut files = vec![];
+    fort(0, 0);
+    let n = dateien_zaehlen(welt);
+    log(&format!("Sicherung der Welt {} beginnt: {n} Dateien", welt.display()));
+    fort(1, n);
     copy_dir(welt, &dest.join(&wn), &mut files, Path::new(""))?;
     std::fs::copy(s.join("sider.ini"), dest.join("sider.ini")).map_err(|e| format!("sider.ini: {e}"))?;
+    fort(2, files.len());
     let mut list = serde_json::Map::new();
-    for f in &files { let r = Path::new(&wn).join(f); list.insert(r.display().to_string(), sha_file(&dest.join(&r))?.into()); }
+    for f in &files { let r = Path::new(&wn).join(f); list.insert(r.display().to_string(), sha_file(&dest.join(&r))?.into()); FORT_FERTIG.fetch_add(1, std::sync::atomic::Ordering::Relaxed); }
     list.insert("sider.ini".into(), sha_file(&dest.join("sider.ini"))?.into());
-    atomic_write(&dest.join("inhalt.json"), serde_json::to_string_pretty(&list).unwrap().as_bytes())
+    let txt = serde_json::to_string_pretty(&list).unwrap();
+    atomic_write(&dest.join("inhalt.json"), txt.as_bytes())?;
+    // the sums were just made from the copy: checking them again at the next start would read every file a second time
+    atomic_write(&dest.join("geprueft.stamp"), sha256_hex(txt.as_bytes()).as_bytes())?;
+    log(&format!("Sicherung fertig: {} Dateien", files.len()));
+    Ok(())
 }
 pub fn original_pruefen(karriere: &Path) -> Result<(), String> {
     let dest = karriere.join("original");
@@ -540,7 +604,9 @@ pub fn original_pruefen(karriere: &Path) -> Result<(), String> {
     if std::fs::read_to_string(&stempel).ok().as_deref() == Some(marke.as_str()) {
         return match list.keys().find(|f| !dest.join(f).is_file()) { Some(f) => Err(format!("Sicherung beschädigt: {f} fehlt")), None => Ok(()) };
     }
+    fort(2, list.len());
     for (f, h) in &list {
+        FORT_FERTIG.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
         if sha_file(&dest.join(f)).ok().as_deref() != h.as_str() { return Err(format!("Sicherung beschädigt: {f}")); }
     }
     atomic_write(&stempel, marke.as_bytes())
@@ -550,6 +616,7 @@ pub fn karriere_pesdb(karriere: &Path) -> PathBuf { karriere.join("pesdb") }
 pub fn karriere_pesdb_anlegen(karriere: &Path, welt: &Path) -> Result<(), String> {
     let to = karriere_pesdb(karriere);
     if to.join("PlayerAssignment.bin").exists() { return Ok(()); }
+    fort(3, 0);
     let mut files = vec![];
     copy_dir(&karriere.join("original").join(welt_name(welt)).join("common/etc/pesdb"), &to, &mut files, Path::new(""))
 }
@@ -804,14 +871,52 @@ pub fn module_pruefen(s: &Path, assets: &Path, karriere: &Path, reparieren: bool
         let Ok(b) = std::fs::read(&p) else { out.push(format!("{rel} fehlt")); continue };
         if String::from_utf8_lossy(&b).contains("PES M") { continue; }
         let orig = std::fs::read_to_string(assets.join(format!("module/{name}.lua.orig.sha256"))).unwrap_or_default();
-        if sha256_hex(&b) != orig.trim() { out.push(format!("{rel}: Ergänzung fehlt und die Datei wurde geändert, bitte von Hand prüfen")); continue; }
+        // beta 23.11.: other packs ship a different stadiums.lua; the addition then goes in at its anchors
+        let angepasst = if sha256_hex(&b) != orig.trim() { (name == "stadiums").then(|| stadion_einsetzen(&String::from_utf8_lossy(&b))).flatten() } else { None }; // roh
+        if sha256_hex(&b) != orig.trim() && angepasst.is_none() { out.push(format!("{rel}: Ergänzung fehlt und die Datei weicht ab; die Partie startet normal, nur ohne PES-M-Vorgabe")); continue; }
         if !reparieren { out.push(format!("{rel}: Ergänzung fehlt")); continue; }
         let sich = karriere.join("sicherungen").join(format!("{name}.lua.{}", stamp()));
+        let neu = match angepasst { Some(t) => Ok(t.into_bytes()), None => std::fs::read(assets.join(format!("module/{name}.lua"))).map_err(|e| e.to_string()) };
         let ok = std::fs::create_dir_all(sich.parent().unwrap()).and_then(|_| std::fs::write(&sich, &b)).is_ok()
-            && std::fs::read(assets.join(format!("module/{name}.lua"))).map_err(|e| e.to_string()).and_then(|n| atomic_write(&p, &n)).is_ok();
+            && neu.and_then(|n| atomic_write(&p, &n)).is_ok();
         out.push(if ok { format!("{rel}: Ergänzung wieder eingesetzt") } else { format!("{rel}: Ergänzung konnte nicht eingesetzt werden") });
     }
     out
+}
+/// The PES M stadium preset put into any stadiums.lua at its anchors: the function before get_new_stadium_path and
+/// the exhibition branch (tid 65535) in both places that pick the stadium. None when an anchor is missing.
+pub fn stadion_einsetzen(t: &str) -> Option<String> {
+    let nl = if t.contains("\r\n") { "\r\n" } else { "\n" };
+    let funk = ["-- PES M: Stadion-Vorgabe fuer Freundschaftsspiele aus flw\\stadion.txt.", "local function pesm_stadion(ctx)", "    local f = io.open((ctx.sider_dir or \"\") .. \"flw\\\\stadion.txt\", \"r\")", "    if not f then return nil end",
+        "    local t = trim(f:read(\"*l\") or \"\")", "    f:close()", "    if t == \"\" then return nil end", "    local s = string.lower(t)", "    for i, row in ipairs(all_stadiums_map) do",
+        "        if string.lower(row[2] or \"\") == s or string.lower(row[3] or \"\") == s then", "            return i", "        end", "    end", "    log(\"PES M: Stadion-Vorgabe nicht gefunden: \" .. t)", "    return nil", "end", "", ""].join(nl); // roh
+    let anker = "local function get_new_stadium_path(ctx)"; // roh
+    if t.matches(anker).count() != 1 || !t.contains("trim(") { return None; } // roh
+    // the two places: "if tid == 65535 then" followed by the manual-selection line
+    let zeilen: Vec<&str> = t.split(nl).collect();
+    let orte: Vec<usize> = (0..zeilen.len().saturating_sub(1)).filter(|&i| zeilen[i].trim() == "if tid == 65535 then" && zeilen[i + 1].trim().starts_with("if manual_selection_status == \"On\" and manual_stad_idx then")).collect(); // roh
+    if orte.len() != 2 { return None; }
+    let mut out: Vec<String> = vec![];
+    for (i, z) in zeilen.iter().enumerate() {
+        let e = &z[..z.len() - z.trim_start().len()];
+        if *z == anker { out.extend(funk.split(nl).map(str::to_string).take(funk.split(nl).count() - 1)); }
+        if i == orte[0] {
+            let e2 = &zeilen[i + 1][..zeilen[i + 1].len() - zeilen[i + 1].trim_start().len()];
+            out.push(z.to_string());
+            for x in ["local pesm_idx = pesm_stadion(ctx)", "if pesm_idx then"] { out.push(format!("{e2}{x}")); } // roh
+            for x in ["stadium_path = all_stadiums_map[pesm_idx][3]", "custom_name = all_stadiums_map[pesm_idx][2]", "custom_st_id = all_stadiums_map[pesm_idx][1]"] { out.push(format!("{e2}\t{x}")); } // roh
+            continue;
+        }
+        if i == orte[0] + 1 { out.push(z.replacen("if manual_selection_status", "elseif manual_selection_status", 1)); continue; } // roh
+        if i == orte[1] {
+            out.push(format!("{e}if tid == 65535 and pesm_stadion(ctx) then")); // roh
+            for x in ["local pesm_idx = pesm_stadion(ctx)", "custom_st_id = all_stadiums_map[pesm_idx][1]", "custom_name = all_stadiums_map[pesm_idx][2]", "custom_path = all_stadiums_map[pesm_idx][3]", "stadium_switched = true", "log(\"Switching to stadium with ID \" .. custom_st_id .. \" (exhibition mode, PES M Vorgabe)\")"] { out.push(format!("{e}\t{x}")); } // roh
+            out.push(format!("{e}elseif tid == 65535 then")); // roh
+            continue;
+        }
+        out.push(z.to_string());
+    }
+    Some(out.join(nl))
 }
 /// Direktstart stage 1: replacement flow files and the 2-KB intro placeholder in S/livecpk/PESM_DirectMatch.
 /// Without the templates (they are not in the public repository) the step is skipped: false.
@@ -944,10 +1049,26 @@ pub fn spiel_starten() -> Result<&'static str, String> {
     #[cfg(windows)]
     {
         let g = spielordner();
-        let los = |p: PathBuf| still(std::process::Command::new(&p).current_dir(p.parent().unwrap_or(&g))).spawn().map(|_| ()).map_err(|e| format!("{}: {e}", p.display()));
-        // the launcher brings up sider and the game together
+        // beta 23.11.: the pack's launcher asks for admin rights (error 740, CreateProcess cannot elevate); then the
+        // start goes through Windows' own elevation (UAC prompt) with PowerShell Start-Process -Verb RunAs
+        let los = |p: PathBuf| {
+            let dir = p.parent().unwrap_or(&g).to_path_buf();
+            match still(std::process::Command::new(&p).current_dir(&dir)).spawn() {
+                Ok(_) => Ok(()),
+                Err(e) if e.raw_os_error() == Some(740) => {
+                    log(&format!("{} braucht Administratorrechte, Start mit Erhöhung", p.display()));
+                    let q = |x: &Path| x.display().to_string().replace('\'', "''");
+                    let st = still(std::process::Command::new("powershell").args(["-NoProfile", "-Command", &format!("Start-Process -FilePath '{}' -WorkingDirectory '{}' -Verb RunAs", q(&p), q(&dir))])).status(); // roh
+                    if st.map(|s| s.success()).unwrap_or(false) { Ok(()) } else { Err(format!("{}: {e}", p.display())) }
+                }
+                Err(e) => Err(format!("{}: {e}", p.display())),
+            }
+        };
+        // the launcher brings up sider and the game together; if it fails, sider and the game directly
         let start = g.join("FL 2027 start.exe");
-        if start.is_file() { los(start)?; return Ok("FL27 startet über FL 2027 start.exe …"); }
+        if start.is_file() {
+            match los(start) { Ok(()) => return Ok("FL27 startet über FL 2027 start.exe …"), Err(e) => log(&format!("Startprogramm: {e}, versuche sider.exe")) }
+        }
         // else sider first, the game shortly after (sider.ini has no start.game, so sider alone would end without the game)
         let sider_exe = [sider().join("sider.exe"), g.join("sider.exe")].into_iter().find(|p| p.is_file()).ok_or("sider.exe nicht gefunden")?;
         los(sider_exe)?;
@@ -978,12 +1099,23 @@ pub trait Ablauf {
     fn konfiguration(&mut self) -> Result<(), String>;
     fn vorgaben(&mut self) -> Result<(), String>;
     fn start(&mut self) -> Result<(), String>;
+    /// FL27 is open: can it take the career's changes without a restart (LivePatch module on, this career active, no new players)?
+    fn live_bereit(&mut self) -> Result<(), String>;
+    /// FL27 is open: the match teams as patch files, the person presses F7 and starts the match in the game.
+    fn live_patch(&mut self) -> Result<(), String>;
 }
 pub fn match_starten(a: &mut dyn Ablauf) -> Result<(), String> {
     if !a.erlaubt() { return Err("Der Spielstart ist ausgeschaltet (Einstellungen › Spielstart erlaubt).".into()); }
     if !a.bestaetigt() { return Err("Bitte zuerst bestätigen, dass die Karriere in den Spielordner geladen wird.".into()); }
     a.speichern()?;
-    if a.spiel_laeuft() { return Err("Bitte FL27 erst beenden.".into()); }
+    // FL27 stays open between matches (Fabian 23.11.): database and patches for the running game, no restart
+    if a.spiel_laeuft() {
+        a.live_bereit()?;
+        a.vorbereiten()?;
+        a.laden()?;
+        a.vorgaben()?;
+        return a.live_patch();
+    }
     a.sicherung()?;
     a.vorbereiten()?;
     a.laden()?;
@@ -1442,6 +1574,38 @@ mod t {
     }
 
     use super::*;
+    /// Beta 23.11.: another pack's stadiums.lua (here: ours without the addition, with other comments) gets the preset
+    /// at its anchors, and the result is valid Lua (luac -p, when installed).
+    #[test]
+    fn stadion_vorgabe_in_fremde_datei() {
+        // the module files are not in the public repository
+        let Ok(a) = std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/fl27/module/stadiums.lua")) else { return };
+        let nl = "\r\n";
+        let z: Vec<&str> = a.split(nl).collect();
+        let von = z.iter().position(|l| l.starts_with("-- PES M: Stadion-Vorgabe")).unwrap();
+        let bis = z.iter().position(|l| l.starts_with("local function get_new_stadium_path")).unwrap();
+        let mut o: Vec<String> = z[..von].iter().chain(z[bis..].iter()).map(|s| s.to_string()).collect();
+        let k = o.iter().position(|l| l.trim() == "local pesm_idx = pesm_stadion(ctx)").unwrap();
+        o.drain(k..k + 6);
+        o[k] = o[k].replacen("elseif manual_selection_status", "if manual_selection_status", 1);
+        let k = o.iter().position(|l| l.trim() == "if tid == 65535 and pesm_stadion(ctx) then").unwrap();
+        o.drain(k..k + 8);
+        o.insert(k, "\t\tif tid == 65535 then".into());
+        o.insert(1, "-- another pack's comment".into());
+        let fremd = o.join(nl);
+        assert!(!fremd.contains("pesm_stadion"));
+        let neu = stadion_einsetzen(&fremd).expect("anchors found");
+        assert_eq!(neu.matches("pesm_stadion(ctx)").count(), 4);
+        if std::process::Command::new("luac5.1").arg("-v").output().is_ok() {
+            let d = std::env::temp_dir().join(format!("pesm-stadion-{}.lua", std::process::id()));
+            std::fs::write(&d, &neu).unwrap();
+            let ok = std::process::Command::new("luac5.1").args(["-p"]).arg(&d).status().unwrap().success();
+            let _ = std::fs::remove_file(&d);
+            assert!(ok, "invalid Lua");
+        }
+        assert!(stadion_einsetzen("print(1)").is_none(), "no anchors: leave it");
+    }
+
 
     struct Fake { base: u64, data: Vec<u8>, alive: bool }
     impl Mem for Fake {
@@ -1715,7 +1879,7 @@ mod t {
 
     #[test]
     fn start_order() {
-        struct F { log: Vec<&'static str>, ok: bool, laeuft: bool }
+        struct F { log: Vec<&'static str>, ok: bool, laeuft: bool, neustart: bool }
         impl Ablauf for F {
             fn erlaubt(&self) -> bool { self.ok }
             fn bestaetigt(&self) -> bool { true }
@@ -1727,14 +1891,19 @@ mod t {
             fn konfiguration(&mut self) -> Result<(), String> { self.log.push("konfiguration"); Ok(()) }
             fn vorgaben(&mut self) -> Result<(), String> { self.log.push("vorgaben"); Ok(()) }
             fn start(&mut self) -> Result<(), String> { self.log.push("start"); Ok(()) }
+            fn live_bereit(&mut self) -> Result<(), String> { self.log.push("live_bereit"); if self.neustart { Err("Bitte FL27 neu starten.".into()) } else { Ok(()) } }
+            fn live_patch(&mut self) -> Result<(), String> { self.log.push("live_patch"); Ok(()) }
         }
-        let mut f = F { log: vec![], ok: true, laeuft: false };
+        let mut f = F { log: vec![], ok: true, laeuft: false, neustart: false };
         match_starten(&mut f).unwrap();
         assert_eq!(f.log, ["speichern", "sicherung", "vorbereiten", "laden", "konfiguration", "vorgaben", "start"]);
-        let mut f = F { log: vec![], ok: false, laeuft: false };
+        let mut f = F { log: vec![], ok: false, laeuft: false, neustart: false };
         assert!(match_starten(&mut f).is_err() && f.log.is_empty());
-        let mut f = F { log: vec![], ok: true, laeuft: true };
-        assert!(match_starten(&mut f).unwrap_err().contains("beenden") && f.log == ["speichern"]);
+        let mut f = F { log: vec![], ok: true, laeuft: true, neustart: false };
+        match_starten(&mut f).unwrap();
+        assert_eq!(f.log, ["speichern", "live_bereit", "vorbereiten", "laden", "vorgaben", "live_patch"]);
+        let mut f = F { log: vec![], ok: true, laeuft: true, neustart: true };
+        assert!(match_starten(&mut f).unwrap_err().contains("neu starten") && f.log == ["speichern", "live_bereit"]);
     }
 }
 

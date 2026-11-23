@@ -218,6 +218,7 @@ impl Career {
     pub fn scouting_week(&mut self) {
         let abs = self.abs();
         self.analyst_woche();
+        self.merkliste_woche();
         if abs % 28 < 7 { self.wissen_monat(); }
         let je_tag = f("scouting", "wissen.je_tag");
         let own_league = self.league();

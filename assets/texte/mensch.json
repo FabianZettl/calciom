@@ -308,12 +308,6 @@
       ]
     ]
   },
-  "vorfall": {
-    "verspaetung": "kam zu spät zum Training",
-    "trainingsfehler": "hat das Training schleifen lassen",
-    "oeffentliche_kritik": "hat sich öffentlich über den Verein beschwert",
-    "streit": "ist im Training mit einem Mitspieler aneinandergeraten"
-  },
   "mimik": [
     "sehr zufrieden",
     "zufrieden",

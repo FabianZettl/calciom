@@ -536,6 +536,7 @@ impl Career {
         self.themen_tag();
         self.pool_tag();
         self.zeitung_woche();
+        self.sendungen_woche();
         self.verlauf_tag();
         self.ehrungen_woche();
         self.ehrungen_monat();
@@ -829,6 +830,9 @@ impl Career {
         // own decision: incidents share the throttle of normal concerns (drosselung.toml: 1 per day, 3 per week)
         self.mensch.anliegen.retain(|&x| abs < x + 7);
         if self.mensch.anliegen.iter().any(|&x| x == abs) || self.mensch.anliegen.len() >= 3 { return; }
+        // Fabian 23.11.: far too many — at most one incident in the whole squad within the club quiet time
+        let (letzt, letzte_art) = self.vorfall_zuletzt.clone();
+        if letzt > 0 && abs < letzt + d("verein_ruhe_tage") as u32 { return; }
         for p in self.squad() {
             let pl = &self.world.players[p];
             if pl.youth > 0 || (pl.ps.vorfall > 0 && abs < pl.ps.vorfall + d("vorfall_sperre_tage") as u32) { continue; }
@@ -836,14 +840,19 @@ impl Career {
             let chance = d("vorfall_je_tag") * (1.5 - pr * 1.5).max(0.0) * (1.0 + (50.0 - pl.morale) / 100.0) * (1.0 + te - 0.5);
             let id = pl.id.to_string();
             if zufall(&["2026", crate::id("vorfall"), &id, &abs.to_string()]) >= chance { continue; }
-            let arten: Vec<&str> = arr("gespraeche", "disziplin.arten").iter().map(|a| a.as_str().unwrap()).filter(|&a| (a != "oeffentliche_kritik" || cw(pl, EGO) >= 55.0) && (a != "streit" || cw(pl, TEMPERAMENT) >= 55.0)).collect();
+            // the kind fits the person, and never the same kind twice in a row
+            let arten: Vec<&str> = arr("gespraeche", "disziplin.arten").iter().map(|a| a.as_str().unwrap())
+                .filter(|&a| (a != "oeffentliche_kritik" || cw(pl, EGO) >= 55.0) && (a != "streit" || cw(pl, TEMPERAMENT) >= 55.0) && (a != "nachtleben" || pl.age <= 27) && (a != "uebergewicht" || pl.age >= 24) && a != letzte_art).collect();
+            if arten.is_empty() { continue; }
             let art = arten[(zufall(&["2026", "vorfall_art", &id, &abs.to_string()]) * arten.len() as f32) as usize % arten.len()];
+            let variante = (zufall(&["vorfall_text", &id, &abs.to_string()]) * 3.0) as usize % 3; // roh
+            self.vorfall_zuletzt = (abs, art.to_string());
             let n = pl.name.clone();
             self.world.players[p].ps.vorfall = abs;
             self.mensch.anliegen.push(abs);
             let opts = self.optionen_fuer(crate::id("disziplin"), &format!("{id}:{abs}"));
             let co = self.co_name.clone();
-            self.msg(1, &co, &crate::tf!("ui.mensch.vorfall", n), &crate::tf!("ui.mensch.wie_reagierst_du", n, t(&format!("vorfall.{art}"))), Action::Wahl { art: format!("disziplin:{art}"), bezug: vec![p], optionen: opts });
+            self.msg(1, &co, &crate::tf!("ui.mensch.vorfall", n), &crate::tf!("ui.mensch.wie_reagierst_du", n, crate::inhalt::t(&format!("ui.vorfall.{art}.{variante}"))), Action::Wahl { art: format!("disziplin:{art}"), bezug: vec![p], optionen: opts });
             break; // vorfall_max_je_tag 1
         }
     }
@@ -920,6 +929,7 @@ impl Career {
             "disziplin" => { self.strafe(bezug[0], sub, key); crate::inhalt::t("ui.mensch.entschieden").into() }
             "medizin" | "nachforderung" | "hijack" => self.drama_antwort(kind, bezug[0], key),
             "geruecht" => self.geruecht_antwort(bezug[0], key),
+            "sendung" => self.sendung_antwort(key),
             "rat" => self.rat_antwort(sub, bezug, key),
             "story" => self.story_antwort(sub, bezug, key),
             "befoerderung" | "eltern" => self.akademie_antwort(kind, bezug[0], key),
@@ -1155,6 +1165,26 @@ mod tests {
         c.history = vec!["a".into(); 3];
         c.lizenz_pruefen();
         if c.lizenz() != "c" { assert_eq!(c.inbox.len(), vorher + 1); c.lizenz_pruefen(); assert_eq!(c.inbox.len(), vorher + 1); }
+    }
+
+    #[test]
+    fn vorfaelle_selten_und_abwechslungsreich() {
+        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let mut c = Career::new(w, 1, "Test");
+        c.psyche_an();
+        for p in c.squad() { c.world.players[p].ps.ch[PROF] = 10.0; } // worst case: a squad of slackers
+        let mut arten = vec![];
+        for _ in 0..365 {
+            c.world.day += 1;
+            c.mensch.anliegen.clear();
+            let vorher = c.vorfall_zuletzt.0;
+            c.disziplin_tag();
+            if c.vorfall_zuletzt.0 != vorher { arten.push(c.vorfall_zuletzt.1.clone()); }
+        }
+        let ruhe = f("gespraeche", "disziplin.verein_ruhe_tage") as usize;
+        assert!(arten.len() <= 365 / ruhe + 1, "{} incidents in a year", arten.len());
+        assert!(arten.len() >= 3, "slackers still cause incidents");
+        assert!(arten.windows(2).all(|w| w[0] != w[1]), "same kind twice in a row: {arten:?}");
     }
 
     #[test]

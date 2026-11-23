@@ -26,6 +26,18 @@ impl Career {
         let ohne_wochen = Self::a("ohne_perspektive.wochen_mindestens") as u32;
         // at most one parents' question a week; the others wait for the next week (Fabian 22.11.: too many at once)
         let mut eltern_gefragt = false;
+        // Konzept Akademie 4.2: homesickness in the first six months for talents from abroad; a countryman in the
+        // academy or a mentor halves it
+        let land = self.world.land_nat(self.league());
+        let abs = self.abs();
+        for p in self.world.clubs[self.own].squad.clone() {
+            let pl = &self.world.players[p];
+            if pl.youth == 0 || pl.nat == 0 || pl.nat == land || abs.saturating_sub(pl.joined) > Self::a("heimweh.tage") as u32 { continue; }
+            let landsmann = self.world.clubs[self.own].squad.iter().any(|&q| q != p && self.world.players[q].nat == pl.nat);
+            let halb = landsmann || pl.ps.mentor.is_some();
+            let m = &mut self.world.players[p].morale;
+            *m = (*m - Self::a("heimweh.je_woche") * if halb { 0.5 } else { 1.0 }).max(10.0);
+        }
         for p in self.world.clubs[self.own].squad.clone() {
             let pl = &self.world.players[p];
             if pl.youth == 0 { continue; }

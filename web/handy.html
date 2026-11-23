@@ -109,6 +109,8 @@ async function laden() {
   else if (seite === 'mehr') h += mehr(s);
   else if (seite === 'markt') h += markt(s);
   else if (seite === 'training') h += training(s);
+  else if (seite === 'scouting') h += scouting(s);
+  else if (seite === 'verhandlungen') h += verhandlungen(s);
   else if (seite === 'spiel') h += spiel();
   $('inhalt').innerHTML = h;
 }
@@ -146,7 +148,7 @@ function taktik(s) {
 function zeileT(p, platz) { return `<div class="zeile ${auswahl === p.p ? 'gewaehlt' : ''}" onclick="tippen(${p.p})"><div><span class="pos">${esc(platz)}</span>${esc(p.name)}${p.verletzt ? ' ✚' : ''}<div class="klein">${esc(p.pos)} · Fitness ${p.fitness}</div></div><span class="pill">${p.staerke}</span></div>`; }
 function tippen(p) { if (auswahl === null) { auswahl = p; laden(); } else if (auswahl === p) { auswahl = null; laden(); } else { const a = auswahl; auswahl = null; befehl({ befehl: 'tauschen', a, b: p }); } }
 function mehr(s) {
-  return `<div class="karte"><h2>Mehr</h2><div class="knoepfe"><button onclick="zeige('markt')">Transfermarkt</button><button onclick="zeige('training')">Training</button></div></div>
+  return `<div class="karte"><h2>Mehr</h2><div class="knoepfe"><button onclick="zeige('markt')">Transfermarkt</button><button onclick="zeige('scouting')">Scouting</button><button onclick="zeige('verhandlungen')">Verhandlungen</button><button onclick="zeige('training')">Training</button></div></div>
     <div class="karte"><h2>Aktionen</h2><div class="knoepfe">
     <button onclick="befehl({befehl:'bis_ereignis'},this)">Bis zum nächsten Ereignis</button>
     <button ${kopf.rueckgaengig ? '' : 'disabled'} onclick="befehl({befehl:'rueckgaengig'},this)">Rückgängig</button>
@@ -156,12 +158,21 @@ function mehr(s) {
 function spielerZeile(p) {
   return `<div class="zeile"><img class="foto" loading="lazy" src="/img/spieler/${p.fid}" onerror="this.style.visibility='hidden'"><div style="flex:1"><span class="pos">${esc(p.pos)}</span>${esc(p.name)}
     <div class="klein">${p.alter} J. · ${esc(p.verein)} · ${esc(p.preis)}${p.urteil ? ' · <b>' + esc(p.urteil) + '</b>' : ''}</div></div>
-    <span class="pill">${esc(p.staerke)}</span><button style="margin-left:8px" onclick="befehl({befehl:'merken',p:${p.p}},this)">${p.gemerkt ? '★' : '☆'}</button></div>`;
+    <span class="pill">${esc(p.staerke)}</span><button style="margin-left:8px" onclick="befehl({befehl:'merken',p:${p.p}},this)">${p.gemerkt ? '★' : '☆'}</button><button style="margin-left:6px" onclick="befehl({befehl:'scouten',p:${p.p}},this)">Scout</button></div>`;
 }
 function markt(s) {
   return `<div class="karte"><h2>Transfermarkt</h2><div class="klein">Budget ${esc(s.budget)} · ${s.fenster ? 'Fenster offen' : 'Fenster zu'} · Verhandeln geht bisher nur am PC.</div></div>
     <div class="karte"><h2>Berichte der Scouts</h2>${s.berichte.map(spielerZeile).join('') || '<div class="klein">Noch keine Berichte.</div>'}</div>
     <div class="karte"><h2>Merkliste</h2>${s.merkliste.map(spielerZeile).join('') || '<div class="klein">Die Merkliste ist leer.</div>'}</div>`;
+}
+function scouting(s) {
+  const farbe = ['var(--gut)', 'var(--achtung)', 'var(--problem)'];
+  return `<div class="karte"><h2>Neue Spielersuche</h2><div class="klein">${s.laufend} von ${s.max} Aufträgen laufen. Die Farbe zeigt die Kaderlücke, eine Suche läuft 14 Tage in deiner Liga.</div>
+    <div class="knoepfe">${s.gruppen.map((g) => `<button style="border-bottom:3px solid ${farbe[g.luecke]}" onclick="befehl({befehl:'auftrag',gruppe:'${g.id}'},this)">${esc(g.name)}</button>`).join('')}</div></div>
+    ${s.auftraege.map((a) => `<div class="karte"><h2>${esc(a.titel)}</h2><div class="klein">${esc(a.scout)} · ${a.fertig ? 'abgeschlossen' : 'noch ' + a.tage + ' Tage'}</div>${a.vorschlaege.map(spielerZeile).join('') || '<div class="klein">Noch keine Vorschläge.</div>'}</div>`).join('')}`;
+}
+function verhandlungen(s) {
+  return `<div class="karte"><h2>Verhandlungen</h2><div class="klein">Bieten geht bisher am PC.</div>${s.liste.map((n) => `<div class="zeile" style="display:block"><b>${esc(n.name)}</b> <span class="klein">${esc(n.art)} · ${esc(n.verein)} · Runde ${n.runde}</span><div class="klein">${esc(n.text)}</div></div>`).join('') || '<div class="klein">Keine laufenden Verhandlungen.</div>'}</div>`;
 }
 function training(s) {
   return `<div class="karte"><h2>Trainingswoche</h2>${s.tage.map((d) => `<div class="zeile"><div><b>${esc(d.tag)}</b> <span class="klein">${esc(d.typ)}</span><div class="klein">${d.einheiten.map(esc).join(' · ')}</div></div></div>`).join('')}</div>

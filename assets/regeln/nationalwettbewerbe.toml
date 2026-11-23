@@ -1,0 +1,347 @@
+# PES M – Länderspielfenster und Nationalteam-Wettbewerbe (Startdaten), Stand 23.11.2026
+# Stil wie ligaregeln.toml. Fabian darf alles ändern. sicher = false heißt: geschätzt, bitte prüfen.
+# Wettbewerbe wiederholen sich über "rhythmus" (alle n Jahre ab "erstes_jahr"), damit lange Karrieren funktionieren.
+# Formate (Baukasten): gruppen_ko, liga, liga_stufen (Nations League), quali_gruppen, ko
+# Verbände: UEFA, CONMEBOL, CONCACAF, AFC, CAF, OFC
+
+[meta]
+version = 1
+stand = "2026-11-23"
+quellen = ["FIFA International Match Calendar 2025–2030", "UEFA-Wettbewerbsseiten", "Wikipedia-Artikel je Turnier"]
+
+# ------------------------------------------------------------------ Fenster
+[[fenster]]
+name = "Herbst"
+beginn = "09-21"
+tage = 16
+spiele = 4
+sicher = false
+hinweis = "Ab 2026 sind September- und Oktoberfenster zusammengelegt."
+
+[[fenster]]
+name = "November"
+beginn = "11-09"
+tage = 9
+spiele = 2
+sicher = true
+
+[[fenster]]
+name = "März"
+beginn = "03-22"
+tage = 9
+spiele = 2
+sicher = true
+
+[[fenster]]
+name = "Juni"
+beginn = "06-01"
+tage = 10
+spiele = 2
+nur_ohne_turnier = true
+sicher = true
+hinweis = "In Turnierjahren nur für Nationen ohne Turnier."
+
+[ligapause]
+pause_in_fenster_bis_stufe = 2
+hinweis = "Je Land in ligaregeln.toml überschreibbar. Tiefere Ligen spielen in Fenstern weiter."
+
+[abstellung]
+pflicht = ["fenster", "wm", "em", "copa_america", "afrika_cup", "asien_cup", "gold_cup", "ofc_nations_cup", "nations_league", "u21_em"]
+freiwillig = ["olympia"]
+turnier_abreise_tage_vorher = 14
+urlaub_nach_turnier_tage = 21
+geld_je_tag_eur = { wm = 10000, em = 6000, andere = 2000 }
+fifa_schutz_ab_tag = 28
+fifa_schutz_hoechstens_eur = 7500000
+sicher = false
+
+# ------------------------------------------------------------------ Weltmeisterschaft
+[[wettbewerb]]
+kuerzel = "wm"
+name = "FIFA-Weltmeisterschaft"
+team = "A"
+verband = "FIFA"
+rhythmus = 4
+erstes_jahr = 2030
+monate = ["06", "07"]
+format = "gruppen_ko"
+teams = 48
+gruppen = 12
+gruppe_groesse = 4
+weiter = { gruppensieger = true, zweite = true, beste_dritte = 8 }
+ko_ab = "sechzehntelfinale"
+startplaetze = { UEFA = 16, CAF = 9, AFC = 8, CONMEBOL = 6, CONCACAF = 6, OFC = 1, interkontinental = 2 }
+gastgeber = { 2030 = ["ESP", "POR", "MAR"], 2034 = ["KSA"] }
+sicher = true
+hinweis = "2030: zusätzlich drei Jubiläumsspiele in Uruguay, Argentinien und Paraguay (nur Ortsangabe)."
+
+[[wettbewerb]]
+kuerzel = "wm_quali_uefa"
+name = "WM-Qualifikation Europa"
+team = "A"
+verband = "UEFA"
+fuer = "wm"
+jahre_vorher = [1]
+monate_fenster = ["Herbst", "November", "März"]
+format = "quali_gruppen"
+gruppe_groesse = [4, 5]
+direkt = "gruppensieger"
+playoff = "gruppenzweite + 4 beste Nations-League-Gruppensieger ohne Platz, Halbfinale und Finale im März"
+sicher = false
+
+[[wettbewerb]]
+kuerzel = "wm_quali_conmebol"
+name = "WM-Qualifikation Südamerika"
+team = "A"
+verband = "CONMEBOL"
+fuer = "wm"
+jahre_vorher = [3, 2, 1]
+format = "liga"
+runden = 2
+teams = 10
+direkt = 6
+interkontinental = 1
+sicher = true
+
+[[wettbewerb]]
+kuerzel = "wm_quali_andere"
+name = "WM-Qualifikation AFC/CAF/CONCACAF/OFC"
+team = "A"
+verband = "AFC CAF CONCACAF OFC"
+fuer = "wm"
+jahre_vorher = [2, 1]
+format = "quali_gruppen"
+hinweis = "Vereinfacht: Gruppen nach FIFA-Rang, Gruppensieger direkt, beste Zweite in Play-offs bzw. Interkontinental-Play-off. Echte Mehrrunden-Formate später."
+sicher = false
+
+# ------------------------------------------------------------------ Europa
+[[wettbewerb]]
+kuerzel = "em"
+name = "UEFA-Europameisterschaft"
+team = "A"
+verband = "UEFA"
+rhythmus = 4
+erstes_jahr = 2028
+monate = ["06", "07"]
+format = "gruppen_ko"
+teams = 24
+gruppen = 6
+gruppe_groesse = 4
+weiter = { gruppensieger = true, zweite = true, beste_dritte = 4 }
+ko_ab = "achtelfinale"
+gastgeber = { 2028 = ["ENG", "SCO", "WAL", "IRL"], 2032 = ["ITA", "TUR"] }
+sicher = true
+hinweis = "2028: Gastgeber spielen trotzdem die Quali, höchstens 2 Gastgeber-Plätze garantiert."
+
+[[wettbewerb]]
+kuerzel = "em_quali"
+name = "EM-Qualifikation"
+team = "A"
+verband = "UEFA"
+fuer = "em"
+jahre_vorher = [1]
+monate_fenster = ["März", "Juni", "Herbst", "November"]
+format = "quali_gruppen"
+gruppe_groesse = [4, 5]
+direkt = "erste und zweite jeder Gruppe"
+playoff = "über Nations League, im März des Turnierjahres"
+sicher = false
+
+[[wettbewerb]]
+kuerzel = "nations_league"
+name = "UEFA Nations League"
+team = "A"
+verband = "UEFA"
+rhythmus = 2
+erstes_jahr = 2026
+monate_fenster = ["Herbst", "November"]
+format = "liga_stufen"
+stufen = { A = 16, B = 16, C = 16, D = 6 }
+gruppe_groesse = 4
+runden = 2
+aufstieg = "Gruppensieger B–D steigen auf, Gruppenletzte A–C steigen ab, Dritte A gegen Zweite B im März"
+viertelfinale_a = { monat = "März", hin_rueck = true }
+endrunde = { monat = "Juni", teams = 4, ort = "ein Gastgeber unter den vier" }
+sicher = false
+hinweis = "Läuft beim Karrierestart (Ausgabe 2026/27). Ab 2028/29 ggf. neues Format – dann hier anpassen."
+
+[[wettbewerb]]
+kuerzel = "u21_em"
+name = "U21-Europameisterschaft"
+team = "U21"
+verband = "UEFA"
+rhythmus = 2
+erstes_jahr = 2027
+monate = ["06"]
+format = "gruppen_ko"
+teams = 16
+gruppen = 4
+gruppe_groesse = 4
+weiter = { gruppensieger = true, zweite = true, beste_dritte = 0 }
+ko_ab = "viertelfinale"
+gastgeber = { 2027 = ["ALB", "SRB"] }
+quali = { jahre = 2, format = "quali_gruppen", gruppe_groesse = [5, 6], direkt = "gruppensieger und bester zweiter", playoff = "übrige Zweite im November" }
+letzter_sieger = "ENG"
+sicher = false
+
+# ------------------------------------------------------------------ Andere Kontinente
+[[wettbewerb]]
+kuerzel = "copa_america"
+name = "Copa América"
+team = "A"
+verband = "CONMEBOL"
+rhythmus = 4
+erstes_jahr = 2028
+monate = ["06", "07"]
+format = "gruppen_ko"
+teams = 16
+gruppen = 4
+gruppe_groesse = 4
+weiter = { gruppensieger = true, zweite = true, beste_dritte = 0 }
+ko_ab = "viertelfinale"
+gaeste = 6
+sicher = false
+hinweis = "Gäste aus CONCACAF/AFC nach FIFA-Rang."
+
+[[wettbewerb]]
+kuerzel = "afrika_cup"
+name = "Afrika-Cup"
+team = "A"
+verband = "CAF"
+rhythmus = 2
+erstes_jahr = 2027
+monate = ["06", "07"]
+format = "gruppen_ko"
+teams = 24
+gruppen = 6
+gruppe_groesse = 4
+weiter = { gruppensieger = true, zweite = true, beste_dritte = 4 }
+ko_ab = "achtelfinale"
+gastgeber = { 2027 = ["KEN", "TAN", "UGA"] }
+sicher = false
+hinweis = "Austragungsmonat schwankt (Winter oder Sommer). Liegt er im Januar, fehlen Spieler mitten in der Saison ohne Ligapause. CAF plant später einen 4-Jahres-Rhythmus – dann rhythmus = 4."
+
+[[wettbewerb]]
+kuerzel = "asien_cup"
+name = "AFC-Asien-Cup"
+team = "A"
+verband = "AFC"
+rhythmus = 4
+erstes_jahr = 2027
+monate = ["01", "02"]
+format = "gruppen_ko"
+teams = 24
+gruppen = 6
+gruppe_groesse = 4
+weiter = { gruppensieger = true, zweite = true, beste_dritte = 4 }
+ko_ab = "achtelfinale"
+gastgeber = { 2027 = ["KSA"] }
+mitten_in_der_saison = true
+sicher = true
+
+[[wettbewerb]]
+kuerzel = "gold_cup"
+name = "CONCACAF Gold Cup"
+team = "A"
+verband = "CONCACAF"
+rhythmus = 2
+erstes_jahr = 2027
+monate = ["06", "07"]
+format = "gruppen_ko"
+teams = 16
+gruppen = 4
+gruppe_groesse = 4
+weiter = { gruppensieger = true, zweite = true, beste_dritte = 0 }
+ko_ab = "viertelfinale"
+nicht_im_wm_jahr = true
+sicher = false
+
+[[wettbewerb]]
+kuerzel = "concacaf_nations_league"
+name = "CONCACAF Nations League"
+team = "A"
+verband = "CONCACAF"
+rhythmus = 2
+erstes_jahr = 2026
+monate_fenster = ["Herbst", "November"]
+format = "liga_stufen"
+stufen = { A = 12, B = 16, C = 13 }
+endrunde = { monat = "März", teams = 4 }
+sicher = false
+
+[[wettbewerb]]
+kuerzel = "ofc_nations_cup"
+name = "OFC Nations Cup"
+team = "A"
+verband = "OFC"
+rhythmus = 4
+erstes_jahr = 2028
+monate = ["06"]
+format = "gruppen_ko"
+teams = 8
+gruppen = 2
+gruppe_groesse = 4
+weiter = { gruppensieger = true, zweite = true, beste_dritte = 0 }
+ko_ab = "halbfinale"
+sicher = false
+
+[[wettbewerb]]
+kuerzel = "u23_asien"
+name = "AFC-U23-Asienmeisterschaft"
+team = "U21"
+verband = "AFC"
+rhythmus = 2
+erstes_jahr = 2028
+monate = ["01"]
+format = "gruppen_ko"
+teams = 16
+gruppen = 4
+gruppe_groesse = 4
+weiter = { gruppensieger = true, zweite = true, beste_dritte = 0 }
+ko_ab = "viertelfinale"
+altersgrenze = 23
+sicher = false
+hinweis = "Für AFC/CAF/CONMEBOL/CONCACAF spielt die U21 in PES M die U23-Turniere ihres Verbands (Altersgrenze aus diesem Feld)."
+
+[[wettbewerb]]
+kuerzel = "olympia"
+name = "Olympisches Fußballturnier"
+team = "U21"
+verband = "FIFA"
+rhythmus = 4
+erstes_jahr = 2028
+monate = ["07", "08"]
+format = "gruppen_ko"
+teams = 16
+gruppen = 4
+gruppe_groesse = 4
+weiter = { gruppensieger = true, zweite = true, beste_dritte = 0 }
+ko_ab = "viertelfinale"
+altersgrenze = 23
+aeltere_spieler = 3
+abstellung_pflicht = false
+gastgeber = { 2028 = ["USA"] }
+startplaetze = { UEFA = 3, CAF = 3, AFC = 3, CONMEBOL = 2, CONCACAF = 2, OFC = 1, gastgeber = 1, playoff = 1 }
+sicher = false
+hinweis = "UEFA-Plätze über die U21-EM des Vorjahres."
+
+# ------------------------------------------------------------------ Freundschaftsspiele
+[freundschaftsspiele]
+gegner_rang_abstand_hoechstens = 25
+gleicher_verband_anteil = 0.6
+heim_anteil = 0.5
+vor_turnier = { anzahl = 2, im_juni = true }
+sicher = true
+
+# ------------------------------------------------------------------ Geschichte (Anzeige, Trophäen)
+[geschichte]
+wm = { 2026 = "ESP", 2022 = "ARG", 2018 = "FRA", 2014 = "GER", 2010 = "ESP" }
+em = { 2024 = "ESP", 2020 = "ITA", 2016 = "POR", 2012 = "ESP" }
+nations_league = { 2025 = "POR", 2023 = "ESP", 2021 = "FRA", 2019 = "POR" }
+copa_america = { 2024 = "ARG", 2021 = "ARG", 2019 = "BRA" }
+u21_em = { 2025 = "ENG", 2023 = "ENG", 2021 = "GER" }
+olympia = { 2024 = "ESP", 2021 = "BRA" }
+asien_cup = { 2023 = "QAT", 2019 = "QAT" }
+gold_cup = { 2025 = "MEX", 2023 = "MEX" }
+sicher = false
+hinweis = "Afrika-Cup 2025 (Marokko, Dez. 2025 bis Jan. 2026) bitte nachtragen."

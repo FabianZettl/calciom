@@ -233,11 +233,12 @@ ablehnung_stimmung = -5
 
 # ---- Disziplin ----
 [disziplin]
-vorfall_je_tag = 0.012           # Fabian 22.11.: zu viele Vorfälle, vorher 0,035; Grundwahrscheinlichkeit je Spieler-Tag bei unterdurchschnittlicher Professionalität (skaliert)
+vorfall_je_tag = 0.006           # Fabian 23.11.: immer noch zu oft (vorher 0,012, davor 0,035); Grundwahrscheinlichkeit je Spieler-Tag bei unterdurchschnittlicher Professionalität (skaliert)
+verein_ruhe_tage = 12            # nach einem Vorfall im Kader so lange keiner
 vorfall_max_je_tag = 1
 vorfall_sperre_tage = 21         # je Spieler
 frist_tage = 6
-arten = ["verspaetung", "trainingsfehler", "oeffentliche_kritik", "streit"]
+arten = ["verspaetung", "trainingsfehler", "oeffentliche_kritik", "streit", "nachtleben", "handy", "uebergewicht", "teamsitzung"]
 strafen = ["nachsicht", "ermahnung", "geldstrafe", "bank"]
 geldstrafe_stufen = [0.05, 0.1, 0.25]    # Anteil Wochengehalt × 4 → Anteil Monatsgehalt
 gleichbehandlung_tage = 60

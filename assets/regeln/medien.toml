@@ -136,6 +136,7 @@ ehrlich = { moral = 1 }
 # Journalisten
 [journalist]
 anzahl = 5
+echte_personen = 1               # echte Reporter aus medienpool.json (0: nur erfundene)
 haltung_je_antwort = 4         # Schritt je Antwort; Neigung des Stils entscheidet das Vorzeichen
 neigung = { sachlich = { ehrlich = 1, ausweichend = -1, diplomatisch = 1 }, boulevard = { kaempferisch = 1, kritik = 1, kontern = 1, ausweichend = -1 }, wohlwollend = { lob = 1, ehrlich = 1, diplomatisch = 1, kritik = -1 }, kritisch = { ehrlich = 1, ausweichend = -1, kaempferisch = -1, kontern = -1 } }
 verstaerkung = 0.4             # Wirkung auf das Medienbild ×(1 ± so viel), je nachdem, ob die Antwort dem Journalisten gefällt
@@ -145,6 +146,7 @@ verstaerkung = 0.4             # Wirkung auf das Medienbild ×(1 ± so viel), je
 falsch_wahrscheinlichkeit = 0.04     # je Tag ein erfundenes Gerücht über einen Leistungsträger
 falsch_sperre_tage = 21
 dementi_frist_tage = 45
+ruhe_tage = 30                  # kein neues Gerücht zum selben Spieler innerhalb dieser Tage nach dem letzten
 widerlegt = { medienbild = -6, vorstandsvertrauen = -2, fanstimmung = -1 }
 bestaetigt = { medienbild = 1 }
 dementiert_falsch = { medienbild = 1, fanstimmung = 1 }
@@ -302,3 +304,13 @@ stammspieler = 0.35
 grosser_verein = 0.25
 grosse_summe = 0.2
 sperre_tage = 21
+
+# Konzept 6b: TV-Shows und Podcasts
+[sendung]
+chance_erfolg = 0.40            # je Woche bei Erfolg (Spitze, Serie)
+chance_krise = 0.30
+chance_grund = 0.05
+tage_bis = 2                    # Auftritt so viele Tage nach der Zusage
+faktor_tv = 1.5                 # Wirkung gegenüber einer PK
+faktor_podcast = 0.8
+deckel = 8.0                    # höchstens ±8 je Ziel (PK ±6)

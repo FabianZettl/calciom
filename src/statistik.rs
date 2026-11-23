@@ -440,6 +440,29 @@ pub fn saison_von(w: &World, p: usize) -> (Stat, bool) {
     (if l < w.leagues.len() { pl.in_liga(l).st } else { pl.profil.saison.clone() }, false)
 }
 
+/// Konzept 7.3 "Finde einen wie …": the players whose key numbers (per 90, scaled by the spread of all candidates) lie
+/// closest to the model's, with similarity 0–100. Only candidates with the same position group and at least 450 minutes.
+pub fn aehnliche(w: &World, vorbild: usize, kandidaten: &[usize], n: usize) -> Vec<(usize, f32)> {
+    let gr = crate::scoutbericht::gruppe(&w.players[vorbild].pos);
+    let kern = kernzahlen(gr);
+    let vek = |p: usize| -> Option<Vec<f32>> {
+        let (st, _) = saison_von(w, p);
+        if get(&st, MIN) < 450 { return None; }
+        kern.iter().map(|k| k.1(&st)).collect()
+    };
+    let Some(v0) = vek(vorbild) else { return vec![] };
+    let alle: Vec<(usize, Vec<f32>)> = kandidaten.iter().copied().filter(|&q| q != vorbild && crate::scoutbericht::gruppe(&w.players[q].pos) == gr).filter_map(|q| vek(q).map(|v| (q, v))).collect();
+    if alle.len() < 3 { return vec![]; }
+    let sd: Vec<f32> = (0..v0.len()).map(|i| { let m = alle.iter().map(|x| x.1[i]).sum::<f32>() / alle.len() as f32; (alle.iter().map(|x| (x.1[i] - m).powi(2)).sum::<f32>() / alle.len() as f32).sqrt().max(1e-3) }).collect();
+    let mut r: Vec<(usize, f32)> = alle.iter().map(|(q, v)| {
+        let d = (0..v.len()).map(|i| ((v[i] - v0[i]) / sd[i]).powi(2) * if i == 0 { 2.0 } else { 1.0 }).sum::<f32>().sqrt();
+        (*q, (100.0 * (-d / 3.0).exp()).clamp(0.0, 100.0))
+    }).collect();
+    r.sort_by(|a, b| b.1.partial_cmp(&a.1).unwrap());
+    r.truncate(n);
+    r
+}
+
 /// A league's strength: the mean level of its clubs (Konzept 6.3 uses the regulars' role strength; the club level is its
 /// cheap stand-in). shortcut: club level instead of regulars' role strength, switch once a weekly league figure exists.
 pub fn liga_staerke(w: &World, l: usize) -> f32 {
@@ -462,6 +485,15 @@ pub fn umrechnen(w: &World, wert: f32, von: usize, nach: usize, art: u8) -> f32 
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn aehnlichkeit() {
+        let mut w = World::load(include_str!("../assets/world.json"), 11);
+        for k in 0..120 { let (h, a) = (k % 18, (k * 5 + 1) % 18); if h != a { let r = w.play(h, a, 0, None, None); w.apply_stats(&r); for (p, st) in &r.stat { let l = w.clubs[w.players[*p].team.max(0) as usize].league as u16; let x = &mut w.players[*p].profil.ligen; if x.is_empty() { x.push(crate::world::LigaStat { l, ..Default::default() }); } add(&mut x[0].st, st); } } }
+        let alle: Vec<usize> = (0..w.players.len()).collect();
+        let st = alle.iter().copied().find(|&p| w.players[p].pos == "CF" && get(&saison_von(&w, p).0, MIN) >= 450).unwrap();
+        let r = aehnliche(&w, st, &alle, 10);
+        assert!(!r.is_empty() && r.iter().all(|&(q, s)| crate::scoutbericht::gruppe(&w.players[q].pos) == "st" && (0.0..=100.0).contains(&s)), "a striker's look-alikes are strikers");
+    }
     #[test]
     fn hochrechnung_ist_fest() {
         let w = World::load(include_str!("../assets/world.json"), 3);

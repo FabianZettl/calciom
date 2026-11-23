@@ -521,7 +521,7 @@ mod tests {
         let p = *c.world.clubs[porto].squad.iter().filter(|&&p| c.world.players[p].age <= 22 && c.world.players[p].youth == 0).last().expect("young player");
         let known: std::collections::HashSet<u32> = crate::pesdb::PlayerBin::load(&pesdb.join("Player.bin")).unwrap().index.keys().copied().collect();
         let (_, mut a) = fl27::asg_laden(&pesdb).unwrap();
-        asg_abgleichen(&c.world, &mut a, &known).unwrap();
+        asg_abgleichen(&c.world, &mut a, &known, &[]).unwrap();
         let id = c.world.players[p].id;
         let team_von = |a: &Vec<fl27::Asg>| a.iter().filter(|x| x.pid == id).map(|x| x.team).collect::<Vec<_>>();
         let summe = c.world.wage_bill(porto);
@@ -529,11 +529,20 @@ mod tests {
         assert_eq!(c.world.players[p].team, b as i32);
         assert!((c.world.wage_bill(porto) - summe).abs() < 1.0 && c.world.wage_bill(b) == 0.0, "no budget of its own: a player costs the same up and down");
         assert!(c.gehoert_uns(p), "the second team is ours");
-        assert!(asg_abgleichen(&c.world, &mut a, &known).unwrap() >= 1);
+        assert!(asg_abgleichen(&c.world, &mut a, &known, &[]).unwrap() >= 1);
         assert_eq!(team_von(&a), vec![c.world.clubs[b].id], "down: one entry at the second team");
         c.mannschaft_wechseln(p).unwrap();
-        asg_abgleichen(&c.world, &mut a, &known).unwrap();
+        asg_abgleichen(&c.world, &mut a, &known, &[]).unwrap();
         assert_eq!(team_von(&a), vec![c.world.clubs[porto].id], "and back up");
+        // injured before a match: out of the FL27 squad, fit again: back with his shirt number (Fabian 23.11.)
+        let nr = a.iter().find(|x| x.pid == id).unwrap().nummer();
+        c.world.players[p].inj = 5;
+        asg_abgleichen(&c.world, &mut a, &known, &[porto]).unwrap();
+        assert!(team_von(&a).is_empty(), "injured: not in the squad");
+        c.world.players[p].inj = 0;
+        asg_abgleichen(&c.world, &mut a, &known, &[porto]).unwrap();
+        assert_eq!(team_von(&a), vec![c.world.clubs[porto].id]);
+        assert_eq!(a.iter().find(|x| x.pid == id).unwrap().nummer(), nr, "same shirt number");
         // who played up this weekend may not play below
         c.world.players[p].profil.oben = c.world.heute() + 1;
         assert!(!c.world.spielberechtigt(p, b) && c.world.spielberechtigt(p, porto));

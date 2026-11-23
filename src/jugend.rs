@@ -68,22 +68,50 @@ impl Career {
         i
     }
     /// First and last names of real players of a nation (for new players of that country); empty without any.
-    fn namen_von(&self, nat: u16) -> (Vec<String>, Vec<String>) {
-        let mut v = (vec![], vec![]);
-        for p in self.world.players.iter().filter(|p| p.db && p.nat == nat).take(400) {
-            let mut t = p.name.split_whitespace();
-            if let (Some(a), Some(b)) = (t.next(), p.name.split_whitespace().last()) { if a != b { v.0.push(a.to_string()); v.1.push(b.to_string()); } }
-        }
-        v
+    /// First and last names to combine (Fabian 23.11.: realistic, a large pool): every player of the nationality, else
+    /// every player of the own league's clubs, else a built-in list. Duplicates removed.
+    pub(crate) fn namen_von(&self, nat: u16) -> (Vec<String>, Vec<String>) {
+        let teilen = |it: &mut dyn Iterator<Item = &crate::world::Player>| -> (Vec<String>, Vec<String>) {
+            let (mut a, mut b): (Vec<String>, Vec<String>) = (vec![], vec![]);
+            for p in it {
+                let t: Vec<&str> = p.name.split_whitespace().collect();
+                if t.len() >= 2 && t[0].chars().count() > 2 && !t[0].ends_with('.') { a.push(t[0].to_string()); b.push(t[t.len() - 1].to_string()); }
+            }
+            a.sort(); a.dedup(); b.sort(); b.dedup();
+            (a, b)
+        };
+        let v = teilen(&mut self.world.players.iter().filter(|p| nat > 0 && p.nat == nat));
+        if v.0.len() >= 25 && v.1.len() >= 25 { return v; }
+        let liga: std::collections::HashSet<usize> = self.world.leagues[self.league()].teams.iter().copied().collect();
+        teilen(&mut self.world.players.iter().filter(|p| p.team >= 0 && liga.contains(&(p.team as usize))))
     }
-    fn name_aus(&self, namen: &(Vec<String>, Vec<String>), schluessel: &str) -> String {
+    /// A name nobody in the world has yet (up to 40 tries with a fresh draw), remembered so it does not come again.
+    pub(crate) fn name_aus(&self, namen: &(Vec<String>, Vec<String>), schluessel: &str) -> String {
+        thread_local! { static VERGEBEN: std::cell::RefCell<(usize, std::collections::HashSet<String>)> = Default::default(); }
         let (a, b) = namen;
-        if a.is_empty() {
-            let vor = ["Luca", "Noah", "Jonas", "Leon", "Elias", "Finn", "Milan", "Emil", "Mats", "Malik", "Theo", "Arda"]; // roh
-            let nach = ["Becker", "Kramer", "Hoffmann", "Keller", "Brandt", "Vogel", "Novak", "Lindner", "Arslan", "Roth", "Seidel", "Kuhn"]; // roh
-            return format!("{} {}", vor[(zufall(&[schluessel, "v"]) * 12.0) as usize % 12], nach[(zufall(&[schluessel, "n"]) * 12.0) as usize % 12]); // roh
-        }
-        format!("{} {}", a[(zufall(&[schluessel, "v"]) * a.len() as f32) as usize % a.len()], b[(zufall(&[schluessel, "n"]) * b.len() as f32) as usize % b.len()]) // roh
+        let vor = ["Luca", "Noah", "Jonas", "Leon", "Elias", "Finn", "Milan", "Emil", "Mats", "Malik", "Theo", "Arda", "Ben", "Paul", "Felix", "Jakob", "Lukas", "Max", "Julian", "Tim", "Niklas", "Moritz", "David", "Samuel", "Tom", "Jan", "Nils", "Leo", "Henri", "Mika"]; // roh
+        let nach = ["Becker", "Kramer", "Hoffmann", "Keller", "Brandt", "Vogel", "Novak", "Lindner", "Arslan", "Roth", "Seidel", "Kuhn", "Schulz", "Wagner", "Bauer", "Richter", "Klein", "Wolf", "Neumann", "Schwarz", "Zimmermann", "Braun", "Krüger", "Hartmann", "Lange", "Werner", "Krause", "Lehmann", "Köhler", "Maier"]; // roh
+        VERGEBEN.with(|v| {
+            let mut v = v.borrow_mut();
+            // only the players added since the last look (a new career starts from scratch)
+            let n = self.world.players.len();
+            if v.0 > n { *v = Default::default(); }
+            let neu: Vec<String> = self.world.players[v.0..].iter().map(|p| p.name.clone()).collect();
+            v.1.extend(neu);
+            v.0 = n;
+            let mut name = String::new();
+            for k in 0..40 {
+                let salz = format!("{schluessel}:{k}");
+                name = if a.is_empty() || b.is_empty() {
+                    format!("{} {}", vor[(zufall(&[&salz, "v"]) * vor.len() as f32) as usize % vor.len()], nach[(zufall(&[&salz, "n"]) * nach.len() as f32) as usize % nach.len()]) // roh
+                } else {
+                    format!("{} {}", a[(zufall(&[&salz, "v"]) * a.len() as f32) as usize % a.len()], b[(zufall(&[&salz, "n"]) * b.len() as f32) as usize % b.len()]) // roh
+                };
+                if !v.1.contains(&name) { break; }
+            }
+            v.1.insert(name.clone());
+            name
+        })
     }
 
     /// The Talenttag (Konzept 3.1): the new U17 year group in July, size and quality from the youth strength, now and then a
@@ -222,12 +250,15 @@ impl Career {
         talente.sort_by(|a, b| self.world.players[*b].pot.partial_cmp(&self.world.players[*a].pot).unwrap());
         let zeilen: Vec<String> = talente.iter().map(|&p| { let pl = &self.world.players[p]; let (pa, pb) = self.pot_range(p); format!("{}, {}, {} – {} ({pa:.0}–{pb:.0})", pl.name, pl.age, crate::world::pos_de(&pl.pos), stufe_wort((pa + pb) / 2.0)) }).collect();
         let mut opts: Vec<(String, String)> = talente.iter().take(3).map(|&p| (format!("{p}"), crate::tf!("ui.jugend.sichtung.nehmen", self.world.players[p].name.clone()))).collect();
+        // Konzept 3.2: a trial first — a few days with us, then the estimate is much sharper
+        opts.extend(talente.iter().take(3).map(|&p| (format!("probe:{p}"), crate::tf!("ui.jugend.probe.knopf", self.world.players[p].name.clone()))));
         opts.push((crate::id("keinen").into(), crate::inhalt::t("ui.jugend.sichtung.keinen").into()));
         let text = format!("{}\n\n{}", crate::tf!("ui.jugend.sichtung.text", n, money_txt(kosten)), zeilen.join(crate::id("\n")));
         self.msg(1, crate::inhalt::t("meldung.absender.jugendleiter"), crate::inhalt::t("ui.jugend.sichtung.titel"), &text, Action::Wahl { art: crate::id("sichtung").into(), bezug: talente.iter().take(3).copied().collect(), optionen: opts });
         Ok(crate::tf!("ui.jugend.sichtung.ok", n))
     }
     pub fn sichtung_antwort(&mut self, key: &str) -> String {
+        if let Some(p) = key.strip_prefix(crate::id("probe:")).and_then(|x| x.parse::<usize>().ok()) { return self.probetraining(p).unwrap_or_else(|e| e); }
         let Ok(p) = key.parse::<usize>() else { return crate::inhalt::t("ui.akademie.notiert").into() };
         if p >= self.world.players.len() || self.world.players[p].team != -1 { return crate::inhalt::t("ui.jugend.sichtung.weg").into(); }
         let pl = &mut self.world.players[p];
@@ -235,6 +266,64 @@ impl Career {
         self.world.clubs[self.own].squad.push(p);
         self.world.eigen.insert(self.world.players[p].id, self.club().id);
         crate::tf!("ui.jugend.sichtung.aufgenommen", self.world.players[p].name.clone())
+    }
+
+    // ------------------------------------------------------------ trial training (Konzept 3.2)
+    /// Invites a talent for a trial of a few days (cost, at most 3 at once); its end sharpens the estimate.
+    pub fn probetraining(&mut self, p: usize) -> Result<String, String> {
+        if p >= self.world.players.len() || self.world.players[p].team != -1 { return Err(crate::inhalt::t("ui.jugend.sichtung.weg").into()); }
+        if self.probetrainings.len() >= k("probe.hoechstens") as usize { return Err(crate::inhalt::t("ui.jugend.probe.voll").into()); }
+        if self.probetrainings.iter().any(|x| x.0 == p) { return Err(crate::inhalt::t("ui.jugend.probe.schon").into()); }
+        let kosten = k("probe.kosten") as f64;
+        self.book(crate::inhalt::t("ui.jugend.probe.buchung"), -kosten);
+        let bis = self.abs() + k("probe.tage") as u32;
+        self.probetrainings.push((p, bis));
+        Ok(crate::tf!("ui.jugend.probe.ok", self.world.players[p].name.clone(), k("probe.tage")))
+    }
+    /// Daily: finished trials report back — knowledge +30, family warmer when it went well, and the choice to take him.
+    pub fn probetraining_tag(&mut self) {
+        let abs = self.abs();
+        let (fertig, rest): (Vec<_>, Vec<_>) = std::mem::take(&mut self.probetrainings).into_iter().partition(|x| x.1 <= abs);
+        self.probetrainings = rest;
+        for (p, _) in fertig {
+            if self.world.players[p].team != -1 { continue; }
+            let k2 = (self.world.players[p].know + k("probe.wissen") / 100.0).min(0.97);
+            self.world.players[p].know = k2;
+            let (pa, pb) = self.pot_range(p);
+            let gut = (pa + pb) / 2.0 >= k("probe.gut_ab");
+            let n = self.world.players[p].name.clone();
+            let text = crate::tf!(if gut { "ui.jugend.probe.gut" } else { "ui.jugend.probe.mittel" }, n.clone(), pa, pb, stufe_wort((pa + pb) / 2.0));
+            let opts = vec![(format!("{p}"), crate::tf!("ui.jugend.sichtung.nehmen", n.clone())), (crate::id("keinen").into(), crate::inhalt::t("ui.jugend.probe.nein").into())];
+            self.msg(1, crate::inhalt::t("meldung.absender.jugendleiter"), &crate::tf!("ui.jugend.probe.titel", n), &text, Action::Wahl { art: crate::id("sichtung").into(), bezug: vec![p], optionen: opts });
+        }
+    }
+
+    // ------------------------------------------------------------ school (Konzept 4.3, kept light)
+    /// Once a month for the own players up to 18: travelling (first-team trips, national youth) lets school wobble,
+    /// a boarding school (academy level 3+) keeps it steady; a wobbling one recovers or breaks off.
+    pub fn schule_monat(&mut self) {
+        let heute = self.world.heute();
+        let internat = self.wi.stufen[3] >= k("schule.internat_ab") as u8;
+        for p in self.world.clubs[self.own].squad.clone() {
+            let pl = &self.world.players[p];
+            if pl.age > 18 { continue; }
+            let id = pl.id;
+            let reist = pl.profil.oben + 30 > heute + 1 && pl.profil.oben > 0 || pl.profil.laenderspiele > 0;
+            let st = self.schule.get(&id).copied().unwrap_or(0);
+            let z = zufall(&["schule", &id.to_string(), &(self.abs() / 28).to_string()]); // roh
+            let neu = match st {
+                0 if reist && z < k("schule.wackeln") * if internat { 0.2 } else { 1.0 } => 1,
+                1 if reist && z < k("schule.abbruch") => 2,
+                1 if !reist && z < k("schule.erholen") => 0,
+                x => x,
+            };
+            if neu == st { continue; }
+            self.schule.insert(id, neu);
+            let n = self.world.players[p].name.clone();
+            let titel = crate::tf!(&format!("ui.jugend.schule.{neu}"), n.clone());
+            if neu == 2 && cw(&self.world.players[p], PROF) < 60.0 { self.world.players[p].morale = (self.world.players[p].morale - 3.0).max(5.0); }
+            self.msg(6, crate::inhalt::t("meldung.absender.jugendleiter"), &titel, &crate::tf!(&format!("ui.jugend.schule.{neu}.text"), n), Action::None);
+        }
     }
 
     // ------------------------------------------------------------ mentors (Konzept 5.3)
@@ -338,6 +427,15 @@ impl Career {
         for p in self.world.clubs[self.own].squad.clone() {
             let pl = &mut self.world.players[p];
             if pl.youth == 17 && pl.age >= 17 { pl.youth = 19; }
+            // Konzept 4.3: at 18 the school is done — a small note and morale for a good finish
+            if pl.age == 18 && self.schule.get(&pl.id).copied().unwrap_or(0) == 0 && pl.youth > 0 {
+                pl.morale = (pl.morale + 2.0).min(95.0);
+                let n = pl.name.clone();
+                self.schule.insert(self.world.players[p].id, 3);
+                self.msg(6, leiter, &crate::tf!("ui.jugend.schule.abschluss", n.clone()), &crate::tf!("ui.jugend.schule.abschluss.text", n), Action::None);
+                continue;
+            }
+            let pl = &mut self.world.players[p];
             if pl.ps.mentor.is_some() && pl.age as f32 > k("mentor.schuetzling_bis") {
                 pl.ps.mentor = None;
                 let n = pl.name.clone();
@@ -365,6 +463,7 @@ impl Career {
 
     /// The monthly academy report (Konzept 8.2): winners, worries, table places, who is ready for the first team.
     pub fn akademie_bericht(&mut self) {
+        self.schule_monat();
         let jung: Vec<usize> = self.world.clubs[self.own].squad.iter().copied().filter(|&p| self.world.players[p].youth > 0).collect();
         if jung.is_empty() { return; }
         let summe = |p: usize| self.world.players[p].ent.verlauf.iter().rev().take(4).map(|w| w.gruppen.iter().sum::<f32>()).sum::<f32>();
@@ -390,6 +489,27 @@ impl Career {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn jugend_hat_streuung() {
+        let w = World::load(include_str!("../assets/world.json"), 7);
+        let c = Career::new(w, 0, "Test");
+        let v: Vec<f32> = c.world.clubs[c.own].squad.iter().copied().filter(|&p| c.world.players[p].youth > 0).map(|p| c.world.players[p].ovr).collect();
+        if v.len() >= 5 {
+            let m = v.iter().sum::<f32>() / v.len() as f32;
+            let sd = (v.iter().map(|x| (x - m).powi(2)).sum::<f32>() / v.len() as f32).sqrt();
+            assert!(sd > 2.0, "youth ratings spread: {v:?}");
+        }
+    }
+    #[test]
+    fn jugendnamen_wiederholen_sich_nicht() {
+        let w = World::load(include_str!("../assets/world.json"), 7);
+        let c = Career::new(w, 0, "Test");
+        let namen = c.namen_von(c.world.land_nat(c.league()));
+        let v: Vec<String> = (0..200).map(|i| c.name_aus(&namen, &format!("t{i}"))).collect();
+        let mut u = v.clone(); u.sort(); u.dedup();
+        assert_eq!(u.len(), v.len(), "no name twice");
+        assert!(v.iter().all(|n| !c.world.players.iter().any(|p| &p.name == n)), "nobody in the world has it already");
+    }
     #[test]
     fn jugendstaerke_talenttag_absolventen_mentor() {
         let w = World::load(include_str!("../assets/world.json"), 7);

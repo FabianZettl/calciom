@@ -36,8 +36,9 @@ pub enum Sprache { De, En }
 static ENGLISCH: AtomicBool = AtomicBool::new(false);
 pub fn sprache() -> Sprache { if ENGLISCH.load(Relaxed) { Sprache::En } else { Sprache::De } }
 pub fn sprache_setzen(s: Sprache) { ENGLISCH.store(s == Sprache::En, Relaxed) }
-/// "en" → English, anything else → German (stored in sprache.txt and in PESM_SPRACHE).
-pub fn sprache_aus(s: &str) -> Sprache { if s.trim() == "en" { Sprache::En } else { Sprache::De } }
+/// "de" → German, anything else → English (Fabian 23.11.: English first, also the default without a choice; stored in
+/// sprache.txt and in PESM_SPRACHE).
+pub fn sprache_aus(s: &str) -> Sprache { if s.trim() == "de" { Sprache::De } else { Sprache::En } }
 
 type Texte = HashMap<String, String>;
 /// Texts of a file as dotted key paths (list entries by index); only texts, no numbers.

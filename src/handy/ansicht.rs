@@ -25,6 +25,8 @@ pub fn seite(c: &mut Career, name: &str, stand: u64) -> Value {
         "tabelle" => tabelle(c),
         "markt" => markt(c),
         "training" => training(c),
+        "scouting" => scouting(c),
+        "verhandlungen" => verhandlungen(c),
         _ => json!({"nur_pc": true}),
     };
     json!({"kopf": kopf, "seite": inhalt})
@@ -112,6 +114,23 @@ fn markt(c: &Career) -> Value {
     json!({"berichte": berichte.into_iter().take(15).map(zeile).collect::<Vec<_>>(), "merkliste": c.merkliste.iter().map(|&p| zeile(p)).collect::<Vec<_>>(), "budget": money(c.transfer_budget), "fenster": c.in_window().is_some()})
 }
 
+/// Stufe 2 (Konzept 3): the running scouting assignments with their proposals, and a new search per position group.
+fn scouting(c: &Career) -> Value {
+    let auftraege: Vec<Value> = c.auftraege.iter().rev().take(8).map(|x| {
+        let titel = format!("{} · {}", t(&format!("ui.auftrag.art.{}", crate::auftraege::ARTEN[x.art as usize])), if x.gruppe.is_empty() { x.spieler.map(|p| c.world.players[p].name.clone()).unwrap_or_default() } else { t(&format!("ui.auftrag.gruppe.{}", x.gruppe)).to_string() });
+        let vorschlaege: Vec<Value> = x.vorschlaege.iter().map(|&(p, _)| { let pl = &c.world.players[p]; let (lo, hi) = c.ovr_range(p);
+            json!({"p": p, "fid": pl.id, "name": pl.name, "pos": pos_de(&pl.pos), "alter": pl.age, "verein": if pl.team >= 0 { c.world.clubs[pl.team as usize].name.clone() } else { String::new() }, "staerke": format!("{lo:.0}–{hi:.0}"), "preis": money(c.ask_price(p)), "urteil": t(&format!("ui.sb.urteil.{}", c.scout_urteil(p).urteil)), "gemerkt": c.merkliste.contains(&p)}) }).collect();
+        json!({"titel": titel, "scout": x.scout, "fertig": x.fertig, "tage": x.ende.saturating_sub(c.abs()), "vorschlaege": vorschlaege})
+    }).collect();
+    let gruppen: Vec<Value> = ["tw", "iv", "av", "dm", "zm", "om", "fl", "hs", "st"].iter().map(|g| json!({"id": g, "name": t(&format!("ui.auftrag.gruppe.{g}")), "luecke": c.kaderluecke(g)})).collect();
+    json!({"auftraege": auftraege, "gruppen": gruppen, "laufend": c.auftraege_laufend(), "max": c.auftraege_max()})
+}
+/// Stufe 2: the running negotiations to read (bidding stays at the PC for now).
+fn verhandlungen(c: &Career) -> Value {
+    let liste: Vec<Value> = c.negs.iter().map(|n| { let pl = &c.world.players[n.pid];
+        json!({"name": pl.name, "verein": if pl.team >= 0 { c.world.clubs[pl.team as usize].name.clone() } else { String::new() }, "art": if n.renew { t("ui.handy.verlaengerung") } else { t("ui.handy.transfer") }, "runde": n.round, "text": n.text}) }).collect();
+    json!({"liste": liste})
+}
 /// The training week to read, and the ready-made weeks to pick.
 fn training(c: &mut Career) -> Value {
     c.wochenplan_an();
@@ -149,6 +168,19 @@ pub fn befehl(c: &mut Career, b: &Value) -> Value {
         }
         "formation" => { let f = b["nr"].as_u64().unwrap_or(0) as usize; if f < FORMATIONS.len() { c.formation = f; ok(FORMATIONS[f]) } else { fehler("") } }
         "co_aufstellen" => { c.auto_lineup(); ok(t("ui.handy.co_aufgestellt")) }
+        // Stufe 2: a player search with a free scout in the own league, or a scout sent to one player
+        "auftrag" | "scouten" => {
+            let belegt: Vec<String> = c.auftraege.iter().filter(|x| !x.fertig).map(|x| x.scout.clone()).collect();
+            let Some(scout) = c.scouts.iter().find(|s| !belegt.contains(&s.name)).map(|s| s.name.clone()) else { return fehler(t("ui.pages.alle_scouts_haben_schon_einen")) };
+            let x = if was == "auftrag" {
+                crate::auftraege::Auftrag { art: crate::auftraege::SUCHE, scout, gruppe: b["gruppe"].as_str().unwrap_or("st").to_string(), alter_min: 17, alter_max: 30, liga: Some(c.league()), ..Default::default() }
+            } else {
+                let p = b["p"].as_u64().unwrap_or(u64::MAX) as usize;
+                if p >= c.world.players.len() { return fehler(""); }
+                crate::auftraege::Auftrag { art: crate::auftraege::BEOBACHTEN, scout, spieler: Some(p), ..Default::default() }
+            };
+            match c.auftrag_anlegen(x, if was == "auftrag" { 14 } else { 21 }) { Ok(m) => json!({"ok": true, "meldung": m}), Err(e) => fehler(&e) }
+        }
         "merken" => {
             let p = b["p"].as_u64().unwrap_or(u64::MAX) as usize;
             if p >= c.world.players.len() { return fehler(""); }
@@ -187,5 +219,21 @@ pub fn befehl(c: &mut Career, b: &Value) -> Value {
                     "hfarbe": farbe(c.world.clubs[r.h].c1), "afarbe": farbe(c.world.clubs[r.a].c1), "hg": r.hg, "ag": r.ag, "ereignisse": ereignisse}})
         }
         _ => fehler(t("ui.handy.nur_pc")),
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn stufe_zwei_scouting() {
+        let w = crate::world::World::load(include_str!("../../assets/world.json"), 7);
+        let mut c = Career::new(w, 0, "Test");
+        let s = seite(&mut c, "scouting", 0);
+        assert_eq!(s["seite"]["gruppen"].as_array().unwrap().len(), 9);
+        let r = befehl(&mut c, &json!({"befehl": "auftrag", "gruppe": "av"}));
+        assert_eq!(r["ok"], true, "{r}");
+        assert_eq!(seite(&mut c, "scouting", 0)["seite"]["auftraege"].as_array().unwrap().len(), 1);
+        assert!(seite(&mut c, "verhandlungen", 0)["seite"]["liste"].is_array());
     }
 }
