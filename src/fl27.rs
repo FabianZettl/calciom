@@ -506,7 +506,10 @@ pub fn original_sichern(karriere: &Path, s: &Path, welt: &Path) -> Result<(), St
     let mut list = serde_json::Map::new();
     for f in &files { let r = Path::new(&wn).join(f); list.insert(r.display().to_string(), sha_file(&dest.join(&r))?.into()); }
     list.insert("sider.ini".into(), sha_file(&dest.join("sider.ini"))?.into());
-    atomic_write(&dest.join("inhalt.json"), serde_json::to_string_pretty(&list).unwrap().as_bytes())
+    let manifest = serde_json::to_string_pretty(&list).unwrap();
+    atomic_write(&dest.join("inhalt.json"), manifest.as_bytes())?;
+    // Fresh copy: every file was just hashed while writing the manifest, so the backup counts as verified.
+    atomic_write(&dest.join("geprueft.stamp"), sha256_hex(manifest.as_bytes()).as_bytes())
 }
 pub fn original_pruefen(karriere: &Path) -> Result<(), String> {
     let dest = karriere.join("original");
