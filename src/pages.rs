@@ -3120,7 +3120,7 @@ fn optionen(ui: &mut Ui, v: &mut View, c: &mut Career) {
     let lines = [
         crate::tf!("ui.pages.spielordner_und_welt_datenbank", ok(welt)),
         crate::tf!("ui.pages.karriere_zeile_in_sider_ini", if zeile { crate::inhalt::t("ui.wort.aktiv") } else { crate::inhalt::t("ui.pages.noch_nicht_eingerichtet") }, module),
-        crate::tf!("ui.pages.speicher_helfer", if crate::fl27::helfer_pfad().exists() { crate::inhalt::t("ui.wort.gebaut") } else { crate::inhalt::t("ui.wort.fehlt") }, crate::fl27::freischalten_hinweis()),
+        if cfg!(windows) { crate::inhalt::t("ui.pages.speicher_helfer_windows").to_string() } else { crate::tf!("ui.pages.speicher_helfer", if crate::fl27::helfer_pfad().exists() { crate::inhalt::t("ui.wort.gebaut") } else { crate::inhalt::t("ui.wort.fehlt") }, crate::fl27::freischalten_hinweis()) },
         crate::tf!("ui.pages.original_sicherung", if c.karriere_dir().join("original/inhalt.json").exists() { crate::inhalt::t("ui.wort.vorhanden") } else { crate::inhalt::t("ui.pages.wird_beim_ersten_start_angelegt") }),
         if c.db_zuletzt.is_empty() { crate::inhalt::t("ui.pages.zuletzt_geschrieben_noch_nicht").to_string() } else { c.db_zuletzt.clone() },
     ];

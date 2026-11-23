@@ -1256,7 +1256,7 @@ impl Mitlauf {
 /// Talks to the small helper binary (pesm-speicher, `setcap cap_sys_ptrace+ep`) over JSON lines: it can only
 /// search blocks and read bytes, never write. PES M itself stays unprivileged.
 pub struct DienstMem { pid: u32, child: std::process::Child, inp: std::process::ChildStdin, out: BufReader<std::process::ChildStdout> }
-pub fn helfer_pfad() -> PathBuf { std::env::current_exe().ok().and_then(|p| p.parent().map(|d| d.join("pesm-speicher"))).unwrap_or_else(|| PathBuf::from("pesm-speicher")) }
+pub fn helfer_pfad() -> PathBuf { let n = format!("pesm-speicher{}", std::env::consts::EXE_SUFFIX); std::env::current_exe().ok().and_then(|p| p.parent().map(|d| d.join(&n))).unwrap_or_else(|| PathBuf::from(n)) }
 impl DienstMem {
     pub fn start(pid: u32) -> Result<DienstMem, String> {
         let p = helfer_pfad();
@@ -1292,7 +1292,10 @@ impl Mem for DienstMem {
     }
 }
 /// What the person runs once so the helper may read FL27's memory.
-pub fn freischalten_hinweis() -> String { format!("Einmal im Terminal ausführen: sudo setcap cap_sys_ptrace+ep \"{}\"", helfer_pfad().display()) }
+pub fn freischalten_hinweis() -> String {
+    if cfg!(windows) { return "Unter Windows liest PES M den Speicher direkt (dasselbe Benutzerkonto wie das Spiel oder Administrator).".into(); }
+    format!("Einmal im Terminal ausführen: sudo setcap cap_sys_ptrace+ep \"{}\"", helfer_pfad().display())
+}
 /// Windows memory access through the Coaching Zone's own reader (OpenProcess + ReadProcessMemory).
 #[cfg(windows)]
 struct CzProc(cz::process::GameProcess);

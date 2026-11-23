@@ -43,7 +43,11 @@ impl Career {
         if !dateien.is_empty() && !self.fl27_cpk.is_empty() {
             crate::fl27::spiegeln(&self.karriere_dir(), &crate::fl27::sider(), &self.fl27_cpk, &dateien)?;
         }
-        let uhr = std::process::Command::new(crate::id("date")).arg("+%H:%M").output().ok().map(|o| String::from_utf8_lossy(&o.stdout).trim().to_string()).unwrap_or_default();
+        let uhr = if cfg!(windows) {
+            std::process::Command::new("cmd").args(["/C", "time /t"]).output().ok().map(|o| String::from_utf8_lossy(&o.stdout).trim().to_string()).unwrap_or_default()
+        } else {
+            std::process::Command::new(crate::id("date")).arg("+%H:%M").output().ok().map(|o| String::from_utf8_lossy(&o.stdout).trim().to_string()).unwrap_or_default()
+        };
         if !dateien.is_empty() { self.db_zuletzt = crate::tf!("ui.live.zuletzt_geschrieben_spieler_geaendert", uhr, n); }
         // FL27 reads its database at start: say so once while it runs
         if !dateien.is_empty() && crate::fl27::fl27_pid().is_some() && !self.db_hinweis {

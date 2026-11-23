@@ -771,6 +771,7 @@
  "ui.pages.sommer": "Sommer",
  "ui.pages.sonntag_hell": "Sonntag (hell)",
  "ui.pages.speicher_helfer": "Speicher-Helfer: %1 · %2",
+ "ui.pages.speicher_helfer_windows": "Speicher-Helfer: unter Windows nicht nötig (direkter Speicherzugriff)",
  "ui.pages.spiele_tore_in_dieser_saison": "%1 Spiele, %2 Tore in dieser Saison.",
  "ui.pages.spiele_tore_vorlagen_note": "%1 Spiele · %2 Tore · %3 Vorlagen · Ø Note %4",
  "ui.pages.spielen_fl27": "Spielen (FL27)",
