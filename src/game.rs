@@ -2471,7 +2471,8 @@ impl fl27::Ablauf for Fl27Start<'_> {
     }
     fn konfiguration(&mut self) -> Result<(), String> {
         let s = fl27::sider();
-        fl27::direktstart_einrichten(&s, &self.assets)?;
+        let direkt = self.assets.join(crate::id("direktstart")).is_dir();
+        if direkt { fl27::direktstart_einrichten(&s, &self.assets)?; } else { self.log.push("Direktstart-Dateien fehlen (assets/fl27/direktstart): FL27 startet in die normalen Menüs.".into()); }
         let k = self.c.karriere_dir();
         let (cpk, mut andere) = (self.c.fl27_cpk(), self.c.fl27_andere());
         let wn = fl27::welt_name(&self.c.welt());
@@ -2483,7 +2484,7 @@ impl fl27::Ablauf for Fl27Start<'_> {
                 if n != cpk && n != wn && n != fl27::DIRECT_ROOT && e.path().join("common/etc/pesdb").is_dir() && !andere.contains(&n) { andere.push(n); }
             }
         }
-        if fl27::sider_ini_anwenden(&k, &s, |t| fl27::sider_ini_einrichten(t, &cpk, &wn, &andere, true))? { self.log.push(format!("sider.ini: {cpk} eingerichtet (Sicherung daneben)")); }
+        if fl27::sider_ini_anwenden(&k, &s, |t| fl27::sider_ini_einrichten(t, &cpk, &wn, &andere, direkt))? { self.log.push(format!("sider.ini: {cpk} eingerichtet (Sicherung daneben)")); }
         self.log.extend(fl27::module_pruefen(&s, &self.assets, &k, true));
         Ok(())
     }
@@ -2493,7 +2494,7 @@ impl fl27::Ablauf for Fl27Start<'_> {
         self.log.push(t);
         Ok(())
     }
-    fn start(&mut self) -> Result<(), String> { fl27::lutris_starten()?; self.log.push("FL27 startet über Lutris …".into()); Ok(()) }
+    fn start(&mut self) -> Result<(), String> { fl27::lutris_starten()?; self.log.push(if cfg!(windows) { "FL27 startet …".into() } else { "FL27 startet über Lutris …".into() }); Ok(()) }
 }
 /// Where the FL27 templates (module copies, Direktstart files) are.
 pub fn fl27_assets() -> std::path::PathBuf {

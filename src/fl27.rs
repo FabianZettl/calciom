@@ -797,6 +797,7 @@ pub fn direktstart_einrichten(s: &Path, assets: &Path) -> Result<(), String> {
 
 // ---------------------------------------------------------------- process and start (§5)
 /// FL_2027.exe by its command line; with several, the one with the most memory (statm field 2).
+#[cfg(unix)]
 pub fn fl27_pid() -> Option<u32> {
     if testmodus() { return ersatz_pid(); }
     let mut best: Option<(u64, u32)> = None;
@@ -809,6 +810,14 @@ pub fn fl27_pid() -> Option<u32> {
         if best.map(|b| mem > b.0).unwrap_or(true) { best = Some((mem, pid)); }
     }
     best.map(|b| b.1)
+}
+/// Windows: FL_2027.exe in the task list ("FL_2027.exe","1234",… in CSV); the highest pid with several.
+#[cfg(windows)]
+pub fn fl27_pid() -> Option<u32> {
+    if testmodus() { return ersatz_pid(); }
+    let out = std::process::Command::new("tasklist").args(["/FI", &format!("IMAGENAME eq {EXE}"), "/FO", "CSV", "/NH"])
+        .stdin(std::process::Stdio::null()).stderr(std::process::Stdio::null()).output().ok()?;
+    String::from_utf8_lossy(&out.stdout).lines().filter_map(|l| l.split(',').nth(1)?.trim_matches('"').parse::<u32>().ok()).max()
 }
 /// Test mode: only the substitute process named in PESM_FL27_ERSATZ_PID; a real FL_2027.exe there aborts.
 fn ersatz_pid() -> Option<u32> {
@@ -858,6 +867,16 @@ pub fn im_prefix(environ: &[u8], prefix: &Path) -> bool {
 /// End FL27: only FL_2027.exe (command line) in the game's prefix. SIGTERM, up to 10 s; else SIGKILL and
 /// `wineserver -k` in that prefix so no Wine remains hang. Lutris and other programs stay open; nothing is written.
 pub fn fl27_beenden() -> Result<String, String> {
+    #[cfg(windows)]
+    {
+        let pid = fl27_pid().ok_or("FL27 läuft nicht.")?;
+        let ok = std::process::Command::new("taskkill").args(["/PID", &pid.to_string(), "/T", "/F"])
+            .stdin(std::process::Stdio::null()).stdout(std::process::Stdio::null()).stderr(std::process::Stdio::null())
+            .status().map(|s| s.success()).unwrap_or(false);
+        return if ok { Ok("FL27 beendet.".into()) } else { Err(format!("taskkill /PID {pid} fehlgeschlagen.")) };
+    }
+    #[cfg(unix)]
+    {
     // test mode: only the substitute process, no prefix and no wineserver
     let lu = if testmodus() { None } else { Some(lutris_spiel()?) };
     let pid = fl27_pid().ok_or("FL27 läuft nicht.")?;
@@ -878,9 +897,20 @@ pub fn fl27_beenden() -> Result<String, String> {
     };
     let _ = std::process::Command::new(ws).arg("-k").env("WINEPREFIX", &lu.prefix).status();
     Ok("FL27 beendet (hart, Wine-Reste im Prefix aufgeräumt).".into())
+    }
 }
 pub fn lutris_starten() -> Result<(), String> {
     if testmodus() { return Err("Testmodus: FL27 wird nicht gestartet.".into()); }
+    #[cfg(windows)]
+    {
+        let s = spielordner();
+        let exe = [s.join(crate::id("SiderAddons")).join("sider.exe"), s.join("FL 2027 start.exe"), s.join(EXE)].into_iter().find(|p| p.exists());
+        let Some(exe) = exe else { return Err(format!("Kein Starter in {} (sider.exe / FL 2027 start.exe / {EXE})", s.display())); };
+        return std::process::Command::new(&exe).current_dir(exe.parent().unwrap_or(&s))
+            .stdin(std::process::Stdio::null()).stdout(std::process::Stdio::null()).stderr(std::process::Stdio::null())
+            .spawn().map(|_| ()).map_err(|e| format!("{} lässt sich nicht starten: {e}", exe.display()));
+    }
+    #[cfg(unix)]
     std::process::Command::new("setsid").args(["lutris", &format!("lutris:rungameid/{LUTRIS_ID}")]).current_dir(spielordner())
         .stdin(std::process::Stdio::null()).stdout(std::process::Stdio::null()).stderr(std::process::Stdio::null())
         .spawn().map(|_| ()).map_err(|e| format!("Lutris lässt sich nicht starten: {e}"))
@@ -1263,14 +1293,28 @@ impl Mem for DienstMem {
 }
 /// What the person runs once so the helper may read FL27's memory.
 pub fn freischalten_hinweis() -> String { format!("Einmal im Terminal ausführen: sudo setcap cap_sys_ptrace+ep \"{}\"", helfer_pfad().display()) }
+/// Windows memory access through the Coaching Zone's own reader (OpenProcess + ReadProcessMemory).
+#[cfg(windows)]
+struct CzProc(cz::process::GameProcess);
+#[cfg(windows)]
+impl Mem for CzProc {
+    fn regions(&mut self) -> Vec<(u64, u64)> { cz::process::Memory::regions(&self.0).into_iter().map(|r| (r.start, r.start + r.len)).collect() }
+    fn read(&mut self, adr: u64, n: usize) -> Option<Vec<u8>> { cz::process::Memory::read(&self.0, adr, n) }
+    fn alive(&mut self) -> bool { cz::process::is_alive(&self.0) }
+}
 /// The real finder: the game's process, read directly if allowed, else through the helper; without rights a clear message.
 pub fn finder() -> Result<Option<Box<dyn Mem>>, String> {
+    #[cfg(windows)]
+    { return cz::process::GameProcess::find().map(|p| p.map(|p| Box::new(CzProc(p)) as Box<dyn Mem>)).map_err(|e| e.to_string()); }
+    #[cfg(unix)]
+    {
     let Some(pid) = fl27_pid() else { return Ok(None) };
     if let Ok(mut m) = ProcMem::open(pid) {
         if let Some(&(lo, _)) = m.regions().first() { if m.read(lo, 4).is_some() { return Ok(Some(Box::new(m))); } }
     }
     DienstMem::start(pid).map(|d| Some(Box::new(d) as Box<dyn Mem>))
         .map_err(|e| format!("Speicherzugriff nicht freigeschaltet: {e}. {}", freischalten_hinweis()))
+    }
 }
 
 /// Runs a Mitlauf in its own thread (beat 2 s) and reports to the interface.
