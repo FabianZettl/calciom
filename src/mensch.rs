@@ -55,10 +55,16 @@ pub struct Psyche {
     pub gespr: Vec<(u32, f32)>,
     pub treiber: Vec<(String, f32)>,
     pub rolle: u8,
+    /// Shift of his stance on an offer by talking to him (haltung.rs: ±10 per talk, at most ±30).
+    pub schub: f32,
+    /// The wage he asked in return for a condition he has met (vertragsanfrage.rs), on top of his demand until he signs.
+    pub anfrage_plus: f32,
     pub hier: f32,
     /// Offers of other clubs (abs day), they count 60 days.
     pub angebote: Vec<u32>,
     pub mentor: Option<u32>,
+    /// Youth player training with the first team (Akademie-Konzept 5.4: Trainingsgast).
+    pub gast: bool,
     /// Topic → abs day until the same topic may come again.
     pub sperre: Vec<(String, u32)>,
     pub vorfall: u32,
@@ -881,6 +887,7 @@ impl Career {
             "koop" => return self.koop_antwort(sub.parse().unwrap_or(0), key, None),
             "testanfrage" => return self.testanfrage_antwort(sub, key),
             "lager" => return self.lager_antwort(sub, key),
+            "wv" => return self.wv_antwort(sub, key),
             "vorkauf" => {
                 let Ok(p) = sub.parse::<usize>() else { return crate::inhalt::t("ui.akademie.notiert").into() };
                 if key != crate::id("kaufen") { for x in self.vorkauf.iter_mut().filter(|x| x.0 == p) { x.1 = 0; } return crate::inhalt::t("ui.mensch.er_geht_an_einen_anderen").into(); }
@@ -925,9 +932,15 @@ impl Career {
             "rat" => self.rat_antwort(sub, bezug, key),
             "story" => self.story_antwort(sub, bezug, key),
             "befoerderung" | "eltern" => self.akademie_antwort(kind, bezug[0], key),
+            "mentor" => self.mentor_antwort(bezug[0], bezug[1], key),
+            "dl" => self.dl_antwort(bezug[0], key),
+            "abschluss" => self.abschluss_antwort(bezug[0], key),
             "halbzeit" => self.halbzeit_antwort(sub, key),
             "mind" => self.mind_antwort(sub, key),
             "bewerbung" => self.bewerbung_antwort(key),
+            "jobverh" => self.job_antwort(key),
+            "mv" => self.versammlung_antwort(sub, key),
+            "krise" => self.krise_antwort(key),
             _ => String::new(),
         }
     }
@@ -1000,6 +1013,7 @@ impl Career {
             self.msg(5, crate::inhalt::t("meldung.absender.praesident"), "Ultimatum", &crate::tf!("ui.mensch.das_praesidium_stellt_dir_ein", tage, format!("{:.0}", ab)), Action::None); // roh
             let cn = self.club().name.clone();
             self.news(&crate::tf!("ui.mensch.eilmeldung_ultimatum_fuer_den_trainer", cn), crate::inhalt::t("ui.mensch.das_praesidium_setzt_dem_trainer"));
+            self.nachfolger_geruechte();
         }
     }
     /// Share of the monthly surplus that goes into the transfer budget (vereinswelt.toml [budget]).
@@ -1023,12 +1037,12 @@ impl Career {
         let quote = if row.p > 0 { row.pts as f32 / row.p as f32 / 3.0 } else { 0.5 };
         let lage = if table.len() > 1 { 1.0 - pos as f32 / (table.len() - 1) as f32 } else { 0.5 };
         let halb = if (row.p as f32) < r("min_spiele") { 0.5 } else { 1.0 };
-        let monate = (self.abs().saturating_sub(self.mgr_since)) as f32 / 30.4 + self.history.len() as f32 * 12.0;
+        let monate = (self.abs().saturating_sub(self.mgr_since)) as f32 / 30.4 + self.history.len() as f32 * 12.0 + self.trainerprofil.monate();
         (r(crate::id("basis")) + halb * (r("je_punktequote") * quote + r("je_platz") * lage) + r("je_titel") * self.mensch.titel.min(4) as f32
-            + (r("je_erfahrung_monat") * monate).min(r("max_erfahrung")) + r("je_vereinsruf") * self.club().rep / 100.0).clamp(0.0, 100.0)
+            + (r("je_erfahrung_monat") * monate).min(r("max_erfahrung")) + r("je_vereinsruf") * self.club().rep / 100.0 + self.trainerprofil.ruf()).clamp(0.0, 100.0)
     }
     /// Months of coaching experience: this post plus a year for every earlier station (as in trainerruf).
-    pub fn erfahrung_monate(&self) -> f32 { (self.abs().saturating_sub(self.mgr_since)) as f32 / 30.4 + self.history.len() as f32 * 12.0 }
+    pub fn erfahrung_monate(&self) -> f32 { (self.abs().saturating_sub(self.mgr_since)) as f32 / 30.4 + self.history.len() as f32 * 12.0 + self.trainerprofil.monate() }
     /// laufbahn werte.py lizenz(): the highest level whose minimum reputation and experience are reached.
     pub fn lizenz(&self) -> &'static str {
         let (ruf, monate) = (self.trainerruf(), self.erfahrung_monate());
@@ -1084,7 +1098,7 @@ impl Career {
         let erfolg = self.vereins_ppg().unwrap_or(1.3) / 3.0;
         let vertrag_ende = (self.mensch.vertrag_bis.saturating_sub(abs) as f32 / 30.4) <= i("vertrag_ende_monate");
         let own_rep = self.club().rep;
-        let mut kand: Vec<(usize, f32)> = (0..self.world.clubs.len()).filter(|&c| c != self.own && !self.mensch.job_sperre.iter().any(|x| x.0 == c)).map(|c| {
+        let mut kand: Vec<(usize, f32)> = (0..self.world.clubs.len()).filter(|&c| c != self.own && self.angebot_erlaubt(c) && !self.mensch.job_sperre.iter().any(|x| x.0 == c)).map(|c| {
             let cl = &self.world.clubs[c];
             let rc = cl.rep / 100.0;
             let ruf = if rc <= rt + i("ruf_luft") { (1.0 - (rt - rc).max(0.0) * 2.0).max(0.0) } else { 0.0 };

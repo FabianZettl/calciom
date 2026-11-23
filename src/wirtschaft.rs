@@ -14,7 +14,7 @@ pub fn sponsor_de_t() -> [&'static str; 3] { [crate::inhalt::t("mk.rolle.trikot"
 const MARKEN: [&str; 12] = ["Nordlicht Energie", "Alpenbank", "Rheinwerk Versicherung", "Hafenblick Logistik", "Sternquell Brauerei", "Talwind Mobil", "Kronfeld Technik", "Silberfluss Telekom", "Brückner Bau", "Auenland Molkerei", "Vierlinden Reisen", "Ostwind Airlines"]; // roh
 
 #[derive(Serialize, Deserialize, Clone)]
-pub struct Sponsor { pub art: u8, pub name: String, pub jahr: f64, pub bis: u32, pub bonus: f64, pub frist: u32 }
+pub struct Sponsor { pub art: u8, pub name: String, pub jahr: f64, pub bis: u32, pub bonus: f64, pub frist: u32, #[serde(default)] pub versucht: bool }
 
 #[derive(Serialize, Deserialize, Clone, Default)]
 #[serde(default)]
@@ -35,6 +35,14 @@ pub struct Wirtschaft {
     /// Operating income booked so far this season (snapshot) and the last three months (for the monthly calibration).
     pub ein_stand: f64,
     pub ein_monate: Vec<f64>,
+    /// Levels of the stadium settings (stadionbetrieb.rs POSTEN; u8::MAX or missing = standard, the seat price is `ticket`).
+    pub einst: Vec<u8>,
+    /// The last home matches: (abs day, spectators, filling, net result).
+    pub heimspiele: Vec<(u32, u32, f32, f64)>,
+    /// Economy cases already opened (wirtschaftsvorgaenge.rs keys), planned bookings (month = abs/30, amount), last month's result.
+    pub wv: Vec<String>,
+    pub wv_plan: Vec<(u32, f64)>,
+    pub wv_vormonat: Option<f64>,
 }
 
 fn v(k: &str) -> f64 { f("vereinswelt", k) as f64 }
@@ -135,33 +143,14 @@ impl Career {
         let lz = arr("vereinswelt", "sponsor.laufzeiten");
         let jahre = lz[(z(crate::id("l")) * lz.len() as f64) as usize % lz.len()].as_u64().unwrap() as u32;
         let jahr = round_money(basis * (0.85 + 0.3 * z(crate::id("h"))));
-        Sponsor { art, name: MARKEN[(z(crate::id("n")) * MARKEN.len() as f64) as usize % MARKEN.len()].to_string(), jahr, bis: self.world.season + jahre - 1, bonus: round_money(jahr * v("sponsor.bonus_anteil")), frist: self.abs() + v("sponsor.frist_tage") as u32 }
+        Sponsor { art, name: MARKEN[(z(crate::id("n")) * MARKEN.len() as f64) as usize % MARKEN.len()].to_string(), jahr, bis: self.world.season + jahre - 1, bonus: round_money(jahr * v("sponsor.bonus_anteil")), frist: self.abs() + v("sponsor.frist_tage") as u32, versucht: false }
     }
-    pub fn kapazitaet(&self) -> f64 { (v("verein.kapazitaet_basis") + v("verein.kapazitaet_je_ruf") * self.kraft()) * (1.0 + v("anlagen.kapazitaet_je_stufe") * (self.wi.stufen[0].max(1) as f64 - 1.0)) }
+    pub fn kapazitaet(&self) -> f64 { (v("verein.kapazitaet_basis") + v("verein.kapazitaet_je_ruf") * self.kraft()) * (1.0 + v("anlagen.kapazitaet_je_stufe") * (self.wi.stufen[0].max(1) as f64 - 1.0)) * self.neubau_faktor() }
     pub fn fanbasis(&self) -> f64 { v("verein.fanbasis") + v("verein.fanbasis_je_ruf") * self.kraft() }
     pub fn ticket_price(&self) -> f64 { (v("einnahmen.ticketpreis") + v("einnahmen.ticketpreis_je_ruf") * self.kraft()) * self.skala().sqrt() * arr("vereinswelt", "einnahmen.preisstufen")[self.ticket as usize].as_f64().unwrap() }
     pub fn capacity(&self) -> f64 { self.kapazitaet() }
     /// Share of seats sold in a league match (vereinswelt.toml einnahmen).
-    pub fn attendance(&self) -> f64 {
-        (v("einnahmen.auslastung_basis") + v("einnahmen.auslastung_je_fan") * self.fans_eff() as f64 / 100.0 + v("einnahmen.auslastung_je_preisstufe") * (self.ticket as f64 - 1.0)).clamp(0.25, 1.0)
-    }
-    /// Gate of one home match; cups and Europe fill the ground more ([spielart]).
-    pub fn gate_per_match(&self) -> f64 {
-        let mut a = self.attendance();
-        if let Some((t, i)) = self.today_match() {
-            let f_ = self.fixture((t, i));
-            let gegner = if f_.h == self.own { f_.a } else { f_.h };
-            match t {
-                Wo::Liga(_) => if self.world.clubs[gegner].rep / 100.0 >= f("vereinswelt", "spielart.topspiel_ab_gegnerruf") { a = a.max(v("spielart.topspiel")); },
-                Wo::Pokal(ci) => {
-                    let cup = &self.world.cups[ci];
-                    let st = cup.fx[i].stage;
-                    a = if st == 34 || cup.fx[i].neutral { v("spielart.finale") } else if (1..=3).contains(&cup.kind) && st >= 30 { v("spielart.europa_ko") } else { a.max(v("spielart.pokal_frueh")) };
-                }
-            }
-        }
-        self.kapazitaet() * a * self.ticket_price()
-    }
+    pub fn attendance(&self) -> f64 { self.spiel_neutral().auslastung }
     pub fn merch_month(&self) -> f64 { self.fanbasis() * v("einnahmen.merch_je_fan_monat") * self.skala() * (1.0 + v("einnahmen.merch_je_fanshopstufe") * (self.wi.stufen[1].max(1) as f64 - 1.0)) * (0.7 + 0.6 * self.fans_eff() as f64 / 100.0) }
     pub fn tv_monat(&self) -> f64 {
         let table = self.world.table(self.league());
@@ -178,7 +167,7 @@ impl Career {
     /// Projected yearly income (for the wage limit and the debt limit).
     pub fn umsatz_prognose(&self) -> f64 {
         let heim = (self.world.leagues[self.league()].teams.len().max(2) - 1) as f64;
-        self.tv_monat() * 12.0 + self.merch_month() * 12.0 + self.sponsoren_jahr() + heim * self.kapazitaet() * self.attendance() * self.ticket_price()
+        self.tv_monat() * 12.0 + self.merch_posten().0 * 12.0 + self.sponsoren_jahr() + heim * self.spiel_neutral().ein.iter().sum::<f64>()
     }
     /// Can the club take on a new yearly wage? Wages at most 62 % of the projected income; debts beyond 15 % block (vereinswelt.toml [budget]).
     pub fn rahmen_pruefen(&self, neues_gehalt: f64, altes: f64) -> Result<(), String> {
@@ -195,11 +184,16 @@ impl Career {
         self.massstab_monat();
         let tv = self.tv_monat();
         let sp = self.sponsoren_jahr() / 12.0;
-        let m = self.merch_month();
+        let (m, mk) = self.merch_posten();
+        let vb = self.vip_betrieb();
         let b = self.betrieb_monat();
         self.book(crate::inhalt::t("vw.mix.medien"), tv);
         self.book(crate::inhalt::t("menu.marken.reiter.0"), sp);
         self.book(crate::inhalt::t("ui.pages.merchandising"), m);
+        let beitrag = self.beitraege_monat();
+        self.book(crate::inhalt::t("mv.beitraege"), beitrag);
+        if mk > 0.0 { self.book(crate::inhalt::t("vw.art.merchandising_kosten"), -mk); }
+        if vb > 0.0 { self.book(crate::inhalt::t("vw.art.vip_betrieb"), -vb); }
         self.book(crate::inhalt::t("ui.wirtschaft.betrieb_und_anlagen"), -b);
         // sponsor offers: 2 per kind and month, fixed per month (Random("vw|sponsor|<Monat>")), 45 days to decide
         let monat = self.abs() / 30;
@@ -221,7 +215,7 @@ impl Career {
             self.msg(3, crate::inhalt::t("ui.wirtschaft.bauabteilung"), &crate::tf!("ui.wirtschaft.fertig", anlagen_de_t()[a]), &crate::tf!("ui.wirtschaft.ist_auf_stufe_ausgebaut", anlagen_de_t()[a], z), Action::None);
             if a == 0 { self.klima(f("vereinswelt", "wirtschaft.ausbau_stimmung"), 0.0, 0.0, crate::inhalt::t("ui.wirtschaft.der_stadionausbau_ist_fertig")); }
         }
-        tv + sp + m - b
+        tv + sp + m + beitrag - mk - vb - b
     }
     /// Season end: contracts that ran out end; reaching the season goal pays the bonuses.
     pub fn sponsoren_saisonende(&mut self, ziel_erreicht: bool) {
@@ -293,7 +287,8 @@ mod tests {
                 for p in c.world.clubs[c.own].squad.clone() { let pl = &mut c.world.players[p]; if pl.youth == 0 { pl.contract_end = pl.contract_end.max(season + 2); } }
                 if c.world.day == crate::date::SEASON_DAYS - 1 {
                     let jetzt = c.club().balance;
-                    assert!((jetzt - vorher).abs() <= 0.45 * c.umsatz_prognose().max(1.0) * 1.5, "{art} ({}): one season {} → {}; {}", c.club().name, money(vorher), money(jetzt), c.book.iter().map(|(n, v)| format!("{n} {}", money(*v))).collect::<Vec<_>>().join(", "));
+                    // promotion bonus or relegation parachute (praemien.rs) come on top of a normal season
+                    assert!((jetzt - vorher).abs() <= 0.45 * c.umsatz_prognose().max(1.0) * 1.5 + 0.12 * c.praemie_referenz(), "{art} ({}): one season {} → {}; {}", c.club().name, money(vorher), money(jetzt), c.book.iter().map(|(n, v)| format!("{n} {}", money(*v))).collect::<Vec<_>>().join(", "));
                     vorher = jetzt;
                     for (n, v) in &c.book { if let Some(x) = posten.iter_mut().find(|x| x.0 == *n) { x.1 += v; } else { posten.push((n.clone(), *v)); } } umsatz += c.umsatz_prognose(); }
                 c.end_day().unwrap();
@@ -303,7 +298,8 @@ mod tests {
                 posten.iter().map(|(n, v)| format!("{n} {}", money(*v))).collect::<Vec<_>>().join(", "));
             // a reasonable frame: in three seasons neither more than one year's income won nor lost
             let jahr = umsatz / 3.0;
-            assert!((k1 - k0).abs() <= jahr, "{art}: {} → {} bei {} Umsatz", money(k0), money(k1), money(jahr));
+            // plus what promotion bonus and relegation parachute (praemien.rs) may bring on top
+            assert!((k1 - k0).abs() <= jahr + 0.16 * c.praemie_referenz(), "{art}: {} → {} bei {} Umsatz", money(k0), money(k1), money(jahr));
         }
     }
     #[test]

@@ -14,6 +14,8 @@ const DATEIEN: &[(&str, &str)] = &[
     (crate::id("assistent"), include_str!("../assets/regeln/regeln.toml")),
     (crate::id("akademie"), include_str!("../assets/regeln/akademie.toml")),
     (crate::id("jugend"), include_str!("../assets/regeln/jugend.toml")),
+    (crate::id("jugendakademie"), include_str!("../assets/regeln/jugendakademie.toml")),
+    (crate::id("positionsrollen"), include_str!("../assets/regeln/positionsrollen.toml")),
     ("ki_trainer", include_str!("../assets/regeln/ki_trainer.toml")),
     (crate::id("einheiten"), include_str!("../assets/regeln/einheiten.toml")),
     (crate::id("kabine"), include_str!("../assets/regeln/kabine.toml")),
@@ -22,6 +24,10 @@ const DATEIEN: &[(&str, &str)] = &[
     (crate::id("gegner"), include_str!("../assets/regeln/gegner.toml")),
     ("budget_start", include_str!("../assets/regeln/budget_start.toml")),
     (crate::id("farm"), include_str!("../assets/regeln/farm.toml")),
+    (crate::id("medizin"), include_str!("../assets/regeln/medizin.toml")),
+    (crate::id("praemien"), include_str!("../assets/regeln/praemien.toml")),
+    (crate::id("spieltag"), include_str!("../assets/regeln/spieltag.toml")),
+    (crate::id("ligaprofile"), include_str!("../assets/regeln/ligaprofile.toml")),
     (crate::id("namen"), include_str!("../assets/regeln/namen.toml")),
     (crate::id("entwicklung2"), include_str!("../assets/regeln/entwicklung2.toml")),
     (crate::id("entwicklung3"), include_str!("../assets/regeln/entwicklung3.toml")),
@@ -37,6 +43,7 @@ const DATEIEN: &[(&str, &str)] = &[
     (crate::id("turniere"), include_str!("../assets/regeln/turniere.toml")),
     (crate::id("berater"), include_str!("../assets/regeln/berater.toml")),
     (crate::id("trainingslager"), include_str!("../assets/regeln/trainingslager.toml")),
+    (crate::id("wettbewerbslook"), include_str!("../assets/regeln/wettbewerbslook.toml")),
 ];
 const JSON: &[(&str, &str)] = &[
     (crate::id("persoenlichkeit"), include_str!("../assets/regeln/persoenlichkeit.json")),

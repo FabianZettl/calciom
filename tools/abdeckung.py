@@ -96,7 +96,17 @@ def main():
             "**Bereich** = die Rust-Datei des Bereichs gibt es, die Datei selbst ist dort nicht genannt (prüfen); **entfällt** = Web-Backend, "
             "Oberfläche der Python-Fassung, Speicher-Beobachter (Rust zeichnet selbst, liest über die Coaching Zone); **offen** = keine Rust-Stelle.\n\n"
             "| Datei | Aufgabe | Rust | Status |\n|---|---|---|---|\n")
-    fuss = "\n**Zahlen:** " + ", ".join(f"{k} {v}" for k, v in sorted(zahl.items())) + f", zusammen {sum(zahl.values())}.\n"
+    luecken = """
+## Gefundene Lücken (Prüfung 23.11., Python-Datei → was in Rust fehlt)
+- `core/entwicklung/medizin_gruende.py`: Gründe einer Verletzung (Belastung, Müdigkeit, Alter, Anfälligkeit, Vorgeschichte, Pech), Dauerschätzung, Arztentscheidungen in der Meldung.
+- `fl/sim/termine.py`: Terminplan der Zukunft: Vorvertrag, ablösefreier Wechsel zum 1.7., Kaufpflicht, vereinbarter Wechsel zum Stichtag.
+- `core/scouting/suchprofil.py`: Suchprofile mit Kriterien (sofort oder als Scout-Auftrag).
+- `core/transfers/wechselbezug.py` / `weltrelevanz.py`: Warum ein fremder Wechsel dich angeht (Rivale, Gegner, eigener Ex-Spieler) als Grund für eine Meldung.
+- `core/gespraeche/haltung.py`: Haltung eines Spielers zu einem Angebot für ihn (will nicht weg / will weg), Verkauf nicht gegen seinen Willen.
+- `adapters/bilder/thesportsdb.py`: Bilder aus dem Netz. Bewusst nicht übernommen (PES M nutzt nur Bilder aus dem Spiel, kein Netz zur Laufzeit).
+Stand der Prüfung: 177 von 236 „Bereich“-Zeilen haben mindestens 40 % ihrer Funktions- und Dateinamen in Rust; von den übrigen 59 sind die 22 schwächsten nach ihrer Beschreibung einzeln gesichtet, daraus die Lücken oben. Die restlichen 37 sind noch nicht einzeln gesichtet.
+"""
+    fuss = luecken + "\n**Zahlen:** " + ", ".join(f"{k} {v}" for k, v in sorted(zahl.items())) + f", zusammen {sum(zahl.values())}.\n"
     open(os.path.join(APP, "ABDECKUNG.md"), "w", encoding="utf-8").write(kopf + "\n".join(zeilen) + "\n" + fuss)
     print(fuss.strip())
 

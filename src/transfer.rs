@@ -101,7 +101,8 @@ impl Career {
             let (nm, cn) = (self.world.players[p].name.clone(), self.world.clubs[c].name.clone());
             let ampel = if fee >= value * 1.1 { crate::inhalt::t("ui.transfer.der_preis_ist_gut") } else if fee >= value * 0.95 { crate::inhalt::t("ui.transfer.der_preis_ist_fair") } else { crate::inhalt::t("ui.transfer.das_ist_unter_wert") };
             let wort = if wunsch { crate::inhalt::t("ui.transfer.er_selbst_will_wechseln") } else { "" };
-            self.msg(2, &cn, &crate::tf!("fenster.angebot.titel", nm), &crate::tf!("ui.transfer.bietet_fuer_sein_marktwert_liegt", cn, money(fee), nm, money(value), ampel, wort), Action::TransferOffer { pid: p, club: c, fee });
+            let body = format!("{}\n\n{}", crate::tf!("ui.transfer.bietet_fuer_sein_marktwert_liegt", cn, money(fee), nm, money(value), ampel, wort), self.haltung_text(p, c));
+            self.msg(2, &cn, &crate::tf!("fenster.angebot.titel", nm), &body, Action::TransferOffer { pid: p, club: c, fee });
             self.world.players[p].ps.angebote.push(abs);
             // medien.toml [fremd]: from 2 Mio. the papers pick it up as a rumour
             if fee >= 2_000_000.0 { self.geruecht(p, true); }
@@ -110,7 +111,7 @@ impl Career {
     }
 
     // ------------------------------------------------------------ drama during talks (drama.py)
-    fn deadline(&self) -> bool { self.in_window().map_or(false, |(_, b)| self.world.day + 1 >= b) }
+    pub fn deadline(&self) -> bool { self.in_window().map_or(false, |(_, b)| self.world.day + 1 >= b) }
     pub fn drama_tag(&mut self) {
         let abs = self.abs();
         let fak = if self.deadline() { DEADLINE_FAKTOR } else { 1.0 };

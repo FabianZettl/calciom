@@ -33,6 +33,12 @@ pub struct Trainer {
     /// Pool only: free from this absolute day on.
     #[serde(default)]
     pub frei_ab: u32,
+    /// His favourite formation and the one he switches to now and then, (code, depth, width) × 11 (Fabian 22.11.); he
+    /// takes them along to a new club.
+    #[serde(default)]
+    pub formation: Vec<(u8, u8, u8)>,
+    #[serde(default)]
+    pub ausweich: Vec<(u8, u8, u8)>,
 }
 
 impl Trainer {
@@ -58,7 +64,7 @@ fn bank() -> &'static Bank {
                 name: s(&e["name"]), nat: s(&e["nat"]), land: s(&e["land"]), stil: s(&e["style"]), persona: s(&e["persona"]),
                 tags: e["tags_id"].as_array().map(|a| a.iter().filter_map(|x| x.as_str().map(String::from)).collect()).unwrap_or_default(),
                 idee: s(&e["profil"]["idee"]), pressing: s(&e["profil"]["pressing"]), fame: e["fame"].as_u64().unwrap_or(1).clamp(1, 5) as u8,
-                seit: s(&e["since"]), echt: true, frei_ab: 0,
+                seit: s(&e["since"]), echt: true, frei_ab: 0, formation: vec![], ausweich: vec![],
             };
             (s(&e["club"]), t, e["status"].as_str() == Some(crate::id("gesucht")))
         }).collect()).unwrap_or_default();
@@ -228,8 +234,88 @@ impl World {
     }
 }
 
+impl World {
+    /// Every coach gets his two formations once: a coach at a club those of the club's records in the world (they are the
+    /// club's real formations), a coach in the pool a formation of his playing idea from the world's formations; when both
+    /// records are the same, the fallback is the formation of another club whose coach has the same idea.
+    pub fn trainer_formationen(&mut self, pesdb: &std::path::Path) {
+        if !self.clubs.iter().filter_map(|c| c.trainer.as_ref()).chain(self.trainer_pool.iter()).any(|t| t.formation.is_empty()) { return; }
+        let alle = crate::fl27::alle_formationen(pesdb);
+        if alle.is_empty() { return; }
+        let idee_von = |c: usize, w: &World| w.clubs[c].trainer.as_ref().map(|t| t.idee.clone()).unwrap_or_default();
+        // formations by playing idea: (idea, formation) of every club with a coach
+        let mut nach_idee: Vec<(String, Vec<(u8, u8, u8)>)> = vec![];
+        for c in 0..self.clubs.len() { if let Some(f) = alle.get(&self.clubs[c].id).and_then(|v| v.first()) { nach_idee.push((idee_von(c, self), f.clone())); } }
+        let wahl = |idee: &str, nicht: &[(u8, u8, u8)], samen: &str| -> Vec<(u8, u8, u8)> {
+            let name_nicht = crate::fl27::formation_name(nicht);
+            let k: Vec<&Vec<(u8, u8, u8)>> = nach_idee.iter().filter(|x| x.0 == idee && crate::fl27::formation_name(&x.1) != name_nicht).map(|x| &x.1).collect();
+            let k = if k.is_empty() { nach_idee.iter().filter(|x| crate::fl27::formation_name(&x.1) != name_nicht).map(|x| &x.1).collect() } else { k };
+            if k.is_empty() { return nicht.to_vec(); }
+            k[(crate::mensch::zufall(&[crate::id("formation"), samen]) * k.len() as f32) as usize % k.len()].clone()
+        };
+        for c in 0..self.clubs.len() {
+            let id = self.clubs[c].id;
+            let Some(t) = self.clubs[c].trainer.as_ref() else { continue };
+            if !t.formation.is_empty() { continue; }
+            let (name, idee) = (t.name.clone(), t.idee.clone());
+            let v = alle.get(&id).cloned().unwrap_or_default();
+            // a club without a record in the world: a formation of his idea, so nobody stays without one
+            let fav = v.first().cloned().unwrap_or_else(|| wahl(&idee, &[], &format!("{name}|1")));
+            let aus = v.get(1).filter(|f| crate::fl27::formation_name(f) != crate::fl27::formation_name(&fav)).cloned().unwrap_or_else(|| wahl(&idee, &fav, &name));
+            let t = self.clubs[c].trainer.as_mut().unwrap();
+            t.formation = fav;
+            t.ausweich = aus;
+        }
+        for i in 0..self.trainer_pool.len() {
+            if !self.trainer_pool[i].formation.is_empty() { continue; }
+            let (name, idee) = (self.trainer_pool[i].name.clone(), self.trainer_pool[i].idee.clone());
+            let fav = wahl(&idee, &[], &format!("{name}|1"));
+            let aus = wahl(&idee, &fav, &format!("{name}|2"));
+            self.trainer_pool[i].formation = fav;
+            self.trainer_pool[i].ausweich = aus;
+        }
+    }
+    /// The formation a club's coach chooses for a match: his favourite, against a clearly stronger opponent often the
+    /// more defensive fallback, otherwise now and then the fallback too. None without a coach or formations.
+    pub fn formation_wahl(&self, c: usize, gegner: usize, tag: u32) -> Option<Vec<(u8, u8, u8)>> {
+        let t = self.clubs[c].trainer.as_ref()?;
+        if t.formation.len() != 11 { return None; }
+        if t.ausweich.len() != 11 { return Some(t.formation.clone()); }
+        let abwehr = |f: &[(u8, u8, u8)]| f.iter().filter(|x| (1..=3).contains(&x.0)).count() as f32 + f.iter().filter(|x| x.0 != 0).map(|x| 47.0 - x.1 as f32).sum::<f32>() / 400.0;
+        let defensiver = abwehr(&t.ausweich) > abwehr(&t.formation);
+        let unterschied = crate::mensch::kaderstaerke(self, gegner) - crate::mensch::kaderstaerke(self, c);
+        let chance = if defensiver && unterschied > 4.0 { 0.6 } else if !defensiver && unterschied < -4.0 { 0.4 } else { 0.15 };
+        let z = crate::mensch::zufall(&[crate::id("formationswahl"), &self.clubs[c].id.to_string(), &tag.to_string()]);
+        Some(if z < chance { t.ausweich.clone() } else { t.formation.clone() })
+    }
+}
+
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn trainer_haben_zwei_formationen_und_nehmen_sie_mit() {
+        let d = crate::fl27::sider().join("livecpk/_FL26-27-Def/common/etc/pesdb");
+        if !crate::fl27::echte_welt(&d) { return; }
+        let mut w = crate::world::World::from_pesdb(&d, 7).unwrap();
+        w.trainer_ausstatten(None);
+        w.trainer_formationen(&d);
+        let mit: Vec<usize> = (0..w.clubs.len()).filter(|&c| w.clubs[c].trainer.as_ref().map_or(false, |t| t.formation.len() == 11)).collect();
+        assert!(mit.len() > 100, "{} Vereine mit Trainerformation", mit.len());
+        let c = mit[0];
+        let t = w.clubs[c].trainer.clone().unwrap();
+        assert_eq!(t.ausweich.len(), 11);
+        assert!(crate::fl27::formation_name(&t.formation).split('-').map(|x| x.parse::<usize>().unwrap()).sum::<usize>() == 10, "{}", crate::fl27::formation_name(&t.formation));
+        // he chooses between the two, over many matches both come up
+        let namen: std::collections::HashSet<String> = (0..200).filter_map(|tag| w.formation_wahl(c, mit[1], tag)).map(|f| crate::fl27::formation_name(&f)).collect();
+        assert!(!namen.is_empty() && namen.len() <= 2);
+        // fired and hired elsewhere: the formations go along
+        w.trainer_entlassen(c, 0);
+        let i = w.trainer_pool.iter().position(|x| x.name == t.name).unwrap();
+        let ziel = mit[2];
+        w.trainer_verpflichten(ziel, i, 0);
+        assert_eq!(w.clubs[ziel].trainer.as_ref().unwrap().formation, t.formation);
+    }
+
     use super::*;
 
     #[test]

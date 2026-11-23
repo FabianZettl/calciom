@@ -124,6 +124,9 @@ impl Career {
                         else if rang >= SOLL[i].0 + SOLL[i].1 && pl.age >= 24 { (Status::Transferliste, crate::id("kein_platz"), 3.0) }
                         else if pl.age >= 31 && pl.contract_end <= season { (Status::Transferliste, crate::id("alter_vertrag"), 2.0) }
                         else if gehalt.iter().position(|&x| x == p).unwrap_or(99) + 8 < stark.iter().position(|&x| x == p).unwrap_or(0) { (Status::Transferliste, crate::id("zu_teuer"), 1.5) }
+                        // a club in debt sells a good player who is not one of its best three
+                        else if self.world.clubs[c].balance < 0.0 && !top && rang < SOLL[i].0 + 1 && pl.value > 1e6 { (Status::Transferliste, crate::id("geldnot"), 2.5) }
+                        else if rang >= SOLL[i].0 && pl.age <= 23 && pl.apps < 3 && self.world.day > 30 { (Status::Leihliste, crate::id("praxis"), 1.0) }
                         else { (Status::Abgebbar, "", 0.0) };
                     liste.push((p, status, grund, gewicht));
                 }
@@ -188,6 +191,18 @@ impl Career {
             st.sort_by(|a, b| self.world.players[*b].ovr.partial_cmp(&self.world.players[*a].ovr).unwrap());
             if st.iter().take(5).any(|&x| x == p) { return None; }
         }
+        // realistic moves (Fabian 23.11.: nobody goes from Barça to Real because there is a gap):
+        // no deals between rivals, no starter leaves a clearly bigger club for a smaller one, starters only rarely at all
+        let r = |k: &str| crate::regeln::f("transfers", &format!("realismus.{k}"));
+        let (cv, cn) = (&self.world.clubs[von], &self.world.clubs[c]);
+        let gelistet = matches!(st, Some(Status::Transferliste));
+        if !gelistet && crate::game::is_derby(&cv.name, &cn.name).is_some() { return None; }
+        if !gelistet && cv.league == cn.league && cv.rep >= r("spitze_ab") && cn.rep >= r("spitze_ab") { return None; }
+        let mut elf = cv.squad.clone();
+        elf.sort_by(|a, b| self.world.players[*b].ovr.partial_cmp(&self.world.players[*a].ovr).unwrap());
+        let stamm = elf.iter().take(11).any(|&x| x == p);
+        if stamm && !gelistet && pl.age < 30 && cv.rep > cn.rep + r("abstieg_ruf") { return None; }
+        if stamm && !gelistet && zufall(&["stammwechsel", &pl.id.to_string(), &(self.abs() / 7).to_string()]) > r("stamm_chance") { return None; } // roh
         let staerke = ((pl.ovr - (ziel - 5.0)) / 10.0).clamp(0.0, 1.0);
         let philo = match ph {
             "starkaeufer" => if (24..=29).contains(&pl.age) { 1.0 } else { 0.4 },
@@ -212,9 +227,11 @@ impl Career {
     /// One day of the AI market in the window: every detailed AI club with a need looks at its best candidate (only
     /// in its field of view; unknown players of small leagues often stay hidden) and buys when seller and player agree.
     pub fn ki_markt_tag(&mut self) {
-        if self.in_window().is_none() { return; }
         let abs = self.abs();
+        // the clubs review their squads all year (lists are never empty), they only buy in a window (Fabian 23.11.)
         if self.marktstatus.is_empty() || (abs % 7 == 0) { self.marktstatus_pruefen(); }
+        self.anbahnungen_abschliessen();
+        if self.in_window().is_none() { return; }
         let tag = abs.to_string();
         let status: std::collections::HashMap<usize, Status> = self.marktstatus.iter().map(|m| (m.p, m.status)).collect();
         // the players per position group, strongest first (one sort a day instead of a full scan per look)
@@ -223,9 +240,15 @@ impl Career {
         for v in nach_gruppe.iter_mut() { v.sort_by(|a, b| self.world.players[*b].ovr.partial_cmp(&self.world.players[*a].ovr).unwrap()); }
         let kaeufer: Vec<usize> = (0..self.world.clubs.len()).filter(|&c| c != self.own && self.detailliert(c)).collect();
         let mut wechsel = 0;
+        // deadline day: everyone still in need looks once more (ki_regeln.py: the plan's last share bunches on the last day)
+        let dl = self.deadline();
+        let vorher = self.welt_tag.len();
+        if !dl { self.welt_tag.clear(); }
         for c in kaeufer {
             // not every club acts every day: spread over the window (a look every three days or so)
-            if zufall(&["2026", crate::id("marktblick"), &c.to_string(), &tag]) > 0.35 { continue; }
+            // deadline day in hours (Fabian 23.11.): each club gets its hour, then looks harder than on a normal day
+            if dl && self.dl_stunde > 0 && c % 12 != (self.dl_stunde - 1) as usize { continue; }
+            if zufall(&["2026", crate::id("marktblick"), &c.to_string(), &tag]) > if dl && self.dl_stunde > 0 { 0.85 } else if dl { 0.5 } else { 0.35 } { continue; }
             for (gr, dringend, bedarf_grund) in self.bedarf(c) {
             let budget = (self.world.clubs[c].balance * 0.5 + self.world.revenue(c) * 0.1).max(0.0);
             let g = self.gruppen(c);
@@ -235,6 +258,7 @@ impl Career {
             for &p in &nach_gruppe[gr] {
                 let pl = &self.world.players[p];
                 if pl.ovr < ziel - 8.0 { break; } // sorted strongest first
+                if self.anbahnung.iter().any(|a| a.p == p) { continue; }
                 if pl.team < 0 { continue; }
                 let von = pl.team as usize;
                 // field of view: what a club does not know it does not see (except the transfer list of the world)
@@ -246,14 +270,105 @@ impl Career {
             let Some((s, p, preis)) = best else { continue };
             if s < 45.0 || dringend < 30.0 { continue; }
             let von = self.world.players[p].team as usize;
-            self.ki_wechsel(p, von, c, preis, bedarf_grund);
+            // a deal takes a few days, with rumours on the way (on deadline day it is done within the hour)
+            let tage = if dl { 0 } else { 2 + (zufall(&["anbahnung", &p.to_string(), &tag]) * 5.0) as u32 }; // roh
+            self.anbahnung_starten(p, von, c, preis, bedarf_grund, abs + tage);
             wechsel += 1;
             break; // one signing per look; the next need comes at the next look (domino stays calm)
             }
             if wechsel >= 400 { break; }
         }
-        self.ki_leihen_tag(abs);
-        if abs % 7 == 3 { self.ki_anwerben(abs); }
+        if self.dl_stunde <= 1 { self.ki_leihen_tag(abs); if abs % 7 == 3 { self.ki_anwerben(abs); } }
+        // the deadline-day ticker: the biggest moves of the day in one message (transfers.toml ticker_zeilen)
+        if dl && self.welt_tag.len() > vorher {
+            let mut l: Vec<(usize, usize, usize, f64)> = self.welt_tag[vorher..].to_vec();
+            l.sort_by(|a, b| b.3.partial_cmp(&a.3).unwrap());
+            let n = crate::regeln::f("transfers", "ki_welt.relevanz.ticker_zeilen") as usize;
+            let mut zeilen: Vec<String> = l.iter().take(n).map(|&(p, von, nach, fee)| crate::tf!("iq.wechsel.zeile", self.world.players[p].name.clone(), self.world.clubs[von].name.clone(), self.world.clubs[nach].name.clone(), money(fee))).collect();
+            if l.len() > n { zeilen.push(crate::tf!("iq.wechsel.mehr", l.len() - n)); }
+            let titel = if self.dl_stunde > 0 { crate::tf!("ui.dl.stunde_titel", 8 + self.dl_stunde as u32, l.len()) } else { crate::tf!("km.deadline_titel", l.len()) };
+            self.msg(3, crate::inhalt::t("ui.game.transferabteilung"), &titel, &zeilen.join(crate::id("\n")), Action::None);
+        }
+    }
+
+    /// A deal between two AI clubs begins: talks, a rumour in the papers when it concerns us, done on `fertig`.
+    fn anbahnung_starten(&mut self, p: usize, von: usize, nach: usize, preis: f64, grund: &str, fertig: u32) {
+        self.anbahnung.push(crate::game::Anbahnung { p, von, nach, preis, grund: grund.into(), fertig });
+        if fertig > self.abs() {
+            let (nm, vn, bn) = (self.world.players[p].name.clone(), self.world.clubs[von].name.clone(), self.world.clubs[nach].name.clone());
+            let v = (zufall(&["geruecht_text", &p.to_string()]) * 5.0) as usize % 5; // roh
+            self.news(&crate::tf!(&format!("ui.km.geruecht.{v}"), bn, nm, vn), &crate::tf!("ui.km.geruecht_text", nm, vn, bn, money(preis)));
+        }
+    }
+    /// Deals whose day has come: done when the player is still there and the buyer can still pay; now and then one falls through.
+    fn anbahnungen_abschliessen(&mut self) {
+        let abs = self.abs();
+        let offen = self.in_window().is_some();
+        let (faellig, rest): (Vec<_>, Vec<_>) = std::mem::take(&mut self.anbahnung).into_iter().partition(|a| a.fertig <= abs || !offen);
+        self.anbahnung = rest;
+        for a in faellig {
+            let pl = &self.world.players[a.p];
+            let geht = pl.team == a.von as i32 && self.world.clubs[a.nach].balance + self.world.revenue(a.nach) * 0.1 >= a.preis;
+            let platzt = zufall(&["platzt", &a.p.to_string(), &a.fertig.to_string()]) < crate::regeln::f("transfers", "realismus.platzt"); // roh
+            if geht && !platzt { self.ki_wechsel(a.p, a.von, a.nach, a.preis, &a.grund); }
+            else if geht && platzt && a.fertig > abs.saturating_sub(1) {
+                let (nm, bn) = (self.world.players[a.p].name.clone(), self.world.clubs[a.nach].name.clone());
+                self.news(&crate::tf!("ui.km.geplatzt", nm, bn), crate::inhalt::t("ui.km.geplatzt_text"));
+            }
+        }
+    }
+
+    /// One hour of deadline day (Fabian 23.11.: twelve hours instead of one jump, more offers, hot transfers, last-minute
+    /// requests): the AI market of this hour, now and then a late bid for one of ours or a loan request at the last minute.
+    pub fn deadline_stunde(&mut self) {
+        self.dl_stunde += 1;
+        let h = self.dl_stunde;
+        let s = format!("dl:{}:{h}", self.abs());
+        self.ki_markt_tag();
+        let k = |x: &str| crate::regeln::f("transfers", &format!("deadline.{x}"));
+        // a late bid: clubs that missed out pay more
+        if zufall(&[&s, crate::id("gebot")]) < k("gebot_chance") {
+            let kand: Vec<usize> = self.squad().into_iter().filter(|&p| { let pl = &self.world.players[p]; pl.ovr >= 55.0 && pl.leihe.is_none() && !self.inbox.iter().any(|m| !m.done && matches!(m.action, Action::TransferOffer { pid, .. } if pid == p)) }).collect();
+            if !kand.is_empty() {
+                let p = kand[(zufall(&[&s, crate::id("wer")]) * kand.len() as f32) as usize % kand.len()];
+                let (ovr, value) = (self.world.players[p].ovr, self.world.players[p].value);
+                let cands: Vec<usize> = (0..self.world.clubs.len()).filter(|&c| c != self.own && self.world.erste_von(c).is_none() && (self.world.clubs[c].level - ovr).abs() <= 5.0 && self.world.clubs[c].balance > value).collect();
+                if !cands.is_empty() {
+                    let c = cands[(zufall(&[&s, crate::id("verein")]) * cands.len() as f32) as usize % cands.len()];
+                    let fee = crate::world::round_money(value * (k("gebot_von") + (k("gebot_bis") - k("gebot_von")) * zufall(&[&s, crate::id("hoehe")])) as f64);
+                    let (nm, cn) = (self.world.players[p].name.clone(), self.world.clubs[c].name.clone());
+                    let body = format!("{}\n\n{}", crate::tf!("ui.dl.gebot_text", cn, money(fee), nm, money(value), 8 + h as u32), self.haltung_text(p, c));
+                    self.msg(2, &cn, &crate::tf!("ui.dl.gebot_titel", nm), &body, Action::TransferOffer { pid: p, club: c, fee });
+                    let abs = self.abs(); self.world.players[p].ps.angebote.push(abs);
+                }
+            }
+        }
+        // a loan request at the last minute for a player who hardly plays
+        if zufall(&[&s, crate::id("leihe")]) < k("leihe_chance") {
+            let kand: Vec<usize> = self.squad().into_iter().filter(|&p| !self.xi.contains(&p) && self.world.players[p].leihe.is_none() && self.world.players[p].age <= 26).collect();
+            if !kand.is_empty() {
+                let p = kand[(zufall(&[&s, crate::id("lwer")]) * kand.len() as f32) as usize % kand.len()];
+                let lv = self.world.clubs[self.own].level;
+                let cands: Vec<usize> = (0..self.world.clubs.len()).filter(|&c| c != self.own && self.world.clubs[c].level < lv && self.world.clubs[c].level > lv - 10.0).collect();
+                if !cands.is_empty() {
+                    let c = cands[(zufall(&[&s, crate::id("lverein")]) * cands.len() as f32) as usize % cands.len()];
+                    let (nm, cn) = (self.world.players[p].name.clone(), self.world.clubs[c].name.clone());
+                    let opts = vec![(crate::id("ja").to_string(), crate::inhalt::t("ui.dl.leihe_ja").to_string()), (crate::id("nein").to_string(), crate::inhalt::t("ui.dl.leihe_nein").to_string())];
+                    self.msg(2, &cn, &crate::tf!("ui.dl.leihe_titel", nm), &crate::tf!("ui.dl.leihe_text", cn, nm, 8 + h as u32), Action::Wahl { art: format!("dl:{c}"), bezug: vec![p], optionen: opts });
+                }
+            }
+        }
+        if h >= 12 { self.msg(3, crate::inhalt::t("ui.game.transferabteilung"), crate::inhalt::t("ui.dl.ende_titel"), crate::inhalt::t("ui.dl.ende_text"), Action::None); }
+    }
+    pub fn dl_antwort(&mut self, p: usize, key: &str) -> String {
+        if key != "ja" { return crate::inhalt::t("ui.dl.leihe_abgelehnt").into(); }
+        if !self.deadline() { return crate::inhalt::t("ui.dl.zu_spaet").into(); }
+        match self.leihe_abgeben(p) { Ok(()) => crate::inhalt::t("ui.akademie.er_wird_verliehen").into(), Err(e) => e }
+    }
+    /// The button: during deadline day the next hour, else the next day.
+    pub fn weiter(&mut self) -> Result<(), String> {
+        if self.deadline() && self.dl_stunde < 12 && !self.fired && self.today_match().is_none() { self.deadline_stunde(); return Ok(()); }
+        self.end_day()
     }
 
     /// Fabian 22.11.: AI clubs may also court the user's players directly (konzept 2, question 2). Once a week in the
@@ -345,8 +460,50 @@ impl Career {
         let (nm, bn, sn, pos) = (self.world.players[p].name.clone(), self.world.clubs[nach].name.clone(), self.world.clubs[von].name.clone(), pos_de(&self.world.players[p].pos).to_string());
         let mut warum = crate::inhalt::t(&format!("ui.km.bedarf.{bedarf_grund}")).to_string();
         if !status_grund.is_empty() { warum = format!("{warum} {}", crate::tf!(&format!("ui.km.grund.{status_grund}"), nm, sn)); }
+        // voices around the deal: the buying coach, and the fans of the selling club when a regular leaves
+        let trainer = self.world.clubs[nach].manager.clone();
+        let v = (zufall(&["stimme", &p.to_string()]) * 3.0) as usize % 3; // roh
+        if !trainer.is_empty() { warum = format!("{warum} {}", crate::tf!(&format!("ui.km.stimme.trainer.{v}"), trainer, nm.clone())); }
+        let mut elf = self.world.clubs[von].squad.clone();
+        elf.sort_by(|a, b| self.world.players[*b].ovr.partial_cmp(&self.world.players[*a].ovr).unwrap());
+        if elf.iter().take(11).any(|&x| x == p) || self.world.players[p].ovr >= self.world.clubs[von].level + 2.0 { warum = format!("{warum} {}", crate::tf!("ui.km.stimme.fans_ab", sn.clone(), nm.clone())); }
         self.news(&crate::tf!("ui.km.wechsel", bn, pos, nm, sn, money(fee)), &warum);
+        self.welt_tag.push((p, von, nach, fee));
+        // into the inbox only when it concerns us, with the reason (weltrelevanz.py)
+        if let Some(g) = self.welt_bezug(p, von, nach, fee) {
+            let abs = self.abs();
+            if self.welt_post.0 != abs { self.welt_post = (abs, 0); }
+            if (self.welt_post.1 as f32) < crate::regeln::f("transfers", "ki_welt.relevanz.je_tag") {
+                self.welt_post.1 += 1;
+                let body = format!("{} {warum}\n\n{}", crate::tf!("ui.km.wechsel", bn.clone(), pos, nm.clone(), sn.clone(), money(fee)), crate::inhalt::t(&format!("lg.welt.grund.{g}"))); // roh
+                self.msg(3, crate::inhalt::t("ui.game.transferabteilung"), &crate::tf!("lg.welt.wechsel", nm, sn, bn), &body, Action::None);
+            }
+        }
         self.world.refresh_levels();
+    }
+    /// Why a transfer between two other clubs concerns us (weltrelevanz.py welt_bezug), in rank order; None: not for the inbox.
+    pub fn welt_bezug(&self, p: usize, von: usize, nach: usize, fee: f64) -> Option<&'static str> {
+        if von == self.own || nach == self.own { return None; }
+        if self.negs.iter().any(|n| n.pid == p) { return Some(crate::id("verhandlung")); }
+        if self.merkliste.contains(&p) { return Some(crate::id("beobachtet")); }
+        let r = |k: &str| crate::regeln::f("transfers", &format!("ki_welt.relevanz.{k}")) as f64; // roh
+        let pl = &self.world.players[p];
+        let liga = self.league();
+        let konk = |c: usize| -> bool {
+            if self.world.clubs[c].league != liga { return false; }
+            let tab = self.world.table(liga);
+            let mein = tab.iter().position(|x| x.club == self.own);
+            let sein = tab.iter().position(|x| x.club == c);
+            match (mein, sein, tab.iter().find(|x| x.club == self.own).map(|x| x.p).unwrap_or(0) >= 5) {
+                (Some(m), Some(s), true) => s < r("konkurrent_top") as usize || (s as i32 - m as i32).abs() <= r("konkurrent_nachbarn") as i32,
+                _ => (self.world.clubs[c].level - self.club().level).abs() as f64 <= r("klasse_abstand"),
+            }
+        };
+        let top = |c: usize| { let mut v: Vec<usize> = self.world.clubs[c].squad.clone(); v.sort_by(|a, b| self.world.players[*b].value.partial_cmp(&self.world.players[*a].value).unwrap()); v.into_iter().take(r("band_top") as usize).any(|x| x == p) };
+        let band = pl.value >= r("band_ab") || top(von) || top(nach);
+        if band && (konk(von) || konk(nach)) { return Some(crate::id("konkurrent")); }
+        if pl.value >= r("weltstar_ab") && fee >= r("weltstar_summe_ab") { return Some(crate::id("weltstar")); }
+        None
     }
 }
 
@@ -358,6 +515,20 @@ mod tests {
         let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
         let own = w.clubs.iter().position(|c| c.name.contains("Sunderland")).unwrap_or(0);
         Career::new(w, own, "Test")
+    }
+
+    #[test]
+    fn deadline_day_in_stunden() {
+        let mut c = karriere();
+        let (_, b) = crate::world::WINDOWS[0];
+        c.world.day = b - 1;
+        while c.today_match().is_some() { c.world.day -= 1; }
+        if !c.deadline() { return; }
+        let tag = c.world.day;
+        for h in 1..=12 { c.weiter().unwrap(); assert_eq!((c.world.day, c.dl_stunde), (tag, h), "Stunde {h}"); }
+        assert!(c.inbox.iter().any(|m| m.title == crate::inhalt::t("ui.dl.ende_titel")));
+        c.weiter().unwrap();
+        assert_eq!((c.world.day, c.dl_stunde), (tag + 1, 0), "nach zwölf Stunden kommt der nächste Tag");
     }
 
     #[test]
@@ -415,6 +586,21 @@ mod tests {
         assert!(bewegt > 0, "im Sommerfenster wechselt jemand");
         assert!(c.world.players.iter().enumerate().all(|(i, p)| !(vorher[i] == c.own as i32 && p.team != c.own as i32)), "KI kauft nie direkt beim Nutzer");
         assert!(c.feed.iter().any(|n| !n.text.is_empty()), "jede Meldung hat einen Grund");
+    }
+    #[test]
+    fn fremder_wechsel_nur_mit_bezug() {
+        let mut c = karriere();
+        let andere: Vec<usize> = (0..c.world.clubs.len()).filter(|&x| x != c.own && !c.world.clubs[x].squad.is_empty()).take(2).collect();
+        let (von, nach) = (andere[0], andere[1]);
+        let p = *c.world.clubs[von].squad.iter().min_by(|a, b| c.world.players[**a].value.partial_cmp(&c.world.players[**b].value).unwrap()).unwrap();
+        let n0 = c.inbox.len();
+        c.ki_wechsel(p, von, nach, 1000.0, crate::id("breite"));
+        let ohne = c.inbox.len() - n0;
+        let q = *c.world.clubs[von].squad.iter().min_by(|a, b| c.world.players[**a].value.partial_cmp(&c.world.players[**b].value).unwrap()).unwrap();
+        c.merkliste.push(q);
+        c.ki_wechsel(q, von, nach, 1000.0, crate::id("breite"));
+        assert!(c.inbox.len() - n0 > ohne, "a watched player's move reaches the inbox");
+        assert_eq!(c.welt_bezug(q, nach, von, 0.0), Some("beobachtet"));
     }
 }
 

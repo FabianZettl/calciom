@@ -1,0 +1,34 @@
+# Prämien (core/config/wirtschaft/praemien: pokal.toml, auf_abstieg.toml, liga_tv.toml), unverändert übernommen
+[pokal]
+# Nationaler Pokal (Nutzerrecherche, DFB-Pokal 2023/24): Basisprämie der ersten Runde 215.600 EUR, danach Verdopplung je Runde
+# (431.200 / 862.400 / 1.724.800 / 3.449.600; Finale in der Recherche nicht genannt, hier weiter verdoppelt). TV-Gelder je Runde und Heimspiel-Eintritt sind nicht beziffert.
+# Bezug wie champions_league.toml: Betrag im Spiel = basis_mio / bezug_mio * Referenzumsatz.
+bezug_mio = 284.6
+basis_mio = 0.2156                 # erste Runde
+faktor_je_runde = 2.0
+runden_max = 6                     # darüber hinaus keine weitere Verdopplung
+
+# Auf- und Abstieg als große Geldereignisse (Festlegung von PESM, nicht recherchiert; Anteile am Referenzumsatz des NEUEN Maßstabs, siehe champions_league.toml).
+# Aufstieg: einmalige Aufstiegsprämie; der Fernsehgeld-Sprung kommt über den Maßstab der neuen Liga (budget_start jahresschritt).
+# Abstieg: Fallschirmzahlung als Anteil am Referenzumsatz der abgebrochenen Liga, über `jahre` Jahre verteilt gebucht (hier: Einmalbuchung der ersten Rate).
+[aufstieg]
+aktiv = true
+anteil = 0.06
+[abstieg]
+aktiv = true
+fallschirm_anteil = 0.10
+jahre = 1
+
+[liga_tv]
+# Fernsehgeld der Liga nach Tabellenplatz (Nutzerrecherche 27.10.). `spreizung` = Verhältnis Erster zu Letztem; die Gewichte fallen linear mit dem Platz und haben den Mittelwert 1.
+# Deutschland: Erster 83,4 / Letzter 31,4 Mio (2,7 : 1). England: gleicher Sockel für alle plus Platzierungsgeld je Platz (1,6 : 1). Nicht genannte Ligen: [standard].
+# Zum Monatsgeld der Vereinswelt (vereinswelt.toml tv_platzbonus) kommt am Saisonende ein Zuschlag, wenn der Platz mehr wert ist als der monatliche Platzbonus:
+# Zuschlag = Jahresbasis * zuschlag_faktor * (Gewicht(Platz) - 1), nie negativ (kein Rückzahlen). Eigene Festlegung von PESM.
+zuschlag_faktor = 0.5
+[liga_tv.standard]
+spreizung = 2.0
+[liga_tv.liga.deutschland]
+spreizung = 2.7
+[liga_tv.liga.england]
+spreizung = 1.6
+# Wörter für die Anzeige: bis `bis` (Spreizung) gilt der Text-Schlüssel; Texte stehen in vereinswelt.json (vw.tv.*)

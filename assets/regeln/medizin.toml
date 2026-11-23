@@ -1,0 +1,56 @@
+# Medizinische Abteilung (Nutzerkonzept 22.10.2026), Stufe v1: Belastungsampel, Prognose, Reha in Phasen. Startwerte, nicht kalibriert.
+
+[ampel]
+# Punktzahl 0…1 je Spieler aus vier Größen; Farben nach den Schwellen.
+gewichte = { muedigkeit = 0.35, minuten = 0.25, dichte = 0.20, anfaellig = 0.20 }
+gelb_ab = 0.45
+rot_ab = 0.70
+minuten_voll = 360              # Einsatzminuten in 14 Tagen (4 Spiele zu 90), die als voll gelten; Minuten selbst kennt der Spielstand nicht: Startelf-Einsätze × 90
+dichte_voll = 5                 # Spiele der Mannschaft in 14 Tagen, die als voll gelten
+fenster_tage = 14
+rotation_ab_tage = 1            # Rotationsempfehlung am Spieltag und am Tag davor
+
+[prognose]
+# Die Spanne ist ± `streuung` der wahren Dauer (aus der Abteilung: schwach 0,5, gut 0,15); die Diagnostik verengt sie je Stufe.
+verschiebung = 1.2              # wie weit die Spanne neben der wahren Dauer liegen darf (Anteil von ± streuung); über 1 = die Schätzung kann danebenliegen
+diagnostik_je_stufe = 0.13
+
+[reha]
+# Phasen als Anteile der Gesamtdauer; Mindestlänge in Tagen je Phase.
+phasen = [
+  { id = "behandlung", anteil = 0.30, mindest = 2 },
+  { id = "aufbau", anteil = 0.30, mindest = 2 },
+  { id = "mannschaftstraining", anteil = 0.25, mindest = 1 },
+  { id = "einsatzbereit", anteil = 0.15, mindest = 1 },
+]
+# Rückfallrisiko beim Einsetzen vor dem Ende der Phase: Faktor auf das Tagesrisiko in `rueckfall_tage` Tagen danach.
+rueckfall = { behandlung = 3.0, aufbau = 2.2, mannschaftstraining = 1.5, einsatzbereit = 1.0 }
+reha_stufe_kuerzer = 0.05      # Stufe des Reha-Zentrums: Ausfalldauer je Stufe um so viel kürzer
+rueckfall_tage = 14
+rueckfall_verlaengerung = 0.5   # ein Rückfall dauert so viel länger als die ursprüngliche Verletzung (Anteil)
+rueckfall_basis = 0.006         # Tagesrisiko eines Rückfalls beim Faktor 1 (zusätzlich zum normalen Verletzungsrisiko); ×3 über 14 Tage ≈ 22 %, Fitspritze ×3 über 21 Tage ≈ 31 %
+
+[reha_programm]
+# Reha-Programm (Nutzer-Ja 22.10.): verkürzt einen laufenden Ausfall einmal je Verletzung; kostet Geld aus der Vereinskasse (Buchung einmalig je Verletzung).
+mindest_ausfall_tage = 14       # erst ab dieser verbleibenden Dauer
+verkuerzung_anteil = 0.25
+verkuerzung_hoechstens_tage = 10
+verkuerzung_je_stufe_reha = 0.05   # Reha-Zentrum: Anteil je Stufe mehr
+kosten_je_woche = 40000
+kosten_wochen_hoechstens = 4
+rueckfall_faktor = 1.3          # Faktor auf das Rückfallrisiko in `rueckfall_tage` Tagen nach der Rückkehr
+rueckfall_tage = 14
+
+[fitspritze]
+# Fitspritze (Nutzer-Ja 22.10.): sofort wieder verfügbar, dafür Rückfallrisiko, schwächere Leistung und bei Häufung Dauerschaden. Nur für kürzere Ausfälle, Limit je Spieler und Saison.
+nur_bis_tage = 28
+limit_saison = 3
+rueckfall_faktor = 3.0
+rueckfall_tage = 21
+leistung_tage = 21              # so lange sind Kondition und Form gedrückt
+kondition_abzug = 15
+form_abzug = 1.5
+dauerschaden_je_nutzung = 0.15  # ab der zweiten Nutzung in der Saison: (n − 1) × so viel Wahrscheinlichkeit
+dauerschaden_punkte = 1
+dauerschaden_felder = ["schnelligkeit", "sprungkraft", "antritt", "ausdauer"]
+saison_beginn_monat = 7

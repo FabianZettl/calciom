@@ -87,7 +87,16 @@ pub fn lage(w: &World, club: usize) -> Option<(f32, f32, bool)> {
 }
 
 /// The country of a league from Wikidata: the country most of its clubs that have an entry are listed in.
-fn liga_land_wikidata(w: &World, l: usize) -> String {
+/// The same, but only when it is clear: at least three clubs and half of the league agree (for naming a country).
+pub fn liga_land_sicher(w: &World, l: usize) -> Option<String> {
+    let mut z: HashMap<String, usize> = HashMap::new();
+    for &k in &w.leagues[l].teams {
+        if let Some(v) = daten().vereine.get(&crate::trainerbank::norm(&w.clubs[k].name)) { if let Some(x) = v.iter().find(|x| !x.2.is_empty()) { *z.entry(x.2.clone()).or_default() += 1; } }
+    }
+    let (land, n) = z.into_iter().max_by_key(|x| x.1)?;
+    (n >= 3 && n * 2 >= w.leagues[l].teams.len()).then_some(land)
+}
+pub fn liga_land_wikidata(w: &World, l: usize) -> String {
     let mut z: HashMap<String, usize> = HashMap::new();
     for &k in &w.leagues[l].teams {
         if let Some(v) = daten().vereine.get(&crate::trainerbank::norm(&w.clubs[k].name)) { for x in v { if !x.2.is_empty() { *z.entry(x.2.clone()).or_default() += 1; } } }

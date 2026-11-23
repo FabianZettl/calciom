@@ -15,44 +15,7 @@ impl Career {
     }
     /// The yearly intake in July: 3–6 players aged 16–17, strength 34–52, potential 55–90 (+4 per youth level),
     /// 60 000 € a year for 3 years (vereinswelt.toml [jugend], akademie.toml [aufnahme]).
-    pub fn akademie_jahrgang(&mut self) {
-        let j = |k: &str| crate::mensch::arr("vereinswelt", &format!("jugend.{k}"));
-        let (g0, g1) = (j("jahrgang_groesse")[0].as_f64().unwrap(), j("jahrgang_groesse")[1].as_f64().unwrap());
-        let s = self.world.season.to_string();
-        let z = |k: &str| zufall(&["2026", crate::id("jahrgang"), &s, k]) as f64;
-        let mut n = (g0 + (z(crate::id("n")) * (g1 - g0 + 1.0)).floor()) as usize;
-        let jung = self.world.clubs[self.own].squad.clone().iter().filter(|&&p| self.world.players[p].youth > 0).count();
-        let (ak, u23) = self.akademie_plaetze();
-        n = n.min((ak + u23).min(Self::a("kader.hoechstens") as usize).saturating_sub(jung));
-        let bonus = self.jugend_bonus();
-        let pos = crate::mensch::arr("vereinswelt", "jugend.positionen");
-        let map = |p: &str| match p { "TW" => "GK", "IV" => "CB", "LV" => "LB", "RV" => "RB", "DM" => "DMF", "ZM" => "CMF", "LM" => "LMF", "RM" => "RMF", "OM" => "AMF", "LA" => "LWF", "RA" => "RWF", _ => crate::id("CF") };
-        for i in 0..n {
-            let zi = |k: &str| zufall(&["2026", crate::id("jahrgang"), &s, &i.to_string(), k]);
-            let alter = j("zugang_alter")[(zi(crate::id("alter")) * 2.0) as usize % 2].as_u64().unwrap() as u8;
-            let st = j("staerke");
-            let ovr = st[0].as_f64().unwrap() as f32 + zi(crate::id("st")) * (st[1].as_f64().unwrap() - st[0].as_f64().unwrap()) as f32 + bonus;
-            let pa = j("potenzial");
-            let pot = (pa[0].as_f64().unwrap() as f32 + zi(crate::id("pa")) * (pa[1].as_f64().unwrap() - pa[0].as_f64().unwrap()) as f32 + bonus).max(ovr + 2.0).min(95.0);
-            let ps = map(pos[(zi(crate::id("pos")) * pos.len() as f32) as usize % pos.len()].as_str().unwrap()).to_string();
-            let (attrs, pp) = self.world.template_attrs(&ps, ovr);
-            let id = self.world.new_id();
-            let first = ["Luca", "Noah", "Jonas", "Leon", "Elias", "Finn", "Milan", "Emil", "Mats", "Malik", "Theo", "Arda"]; // roh
-            let last = ["Becker", "Kramer", "Hoffmann", "Keller", "Brandt", "Vogel", "Novak", "Lindner", "Arslan", "Roth", "Seidel", "Kuhn"]; // roh
-            let name = format!("{} {}", first[(zi(crate::id("v")) * 12.0) as usize % 12], last[(zi(crate::id("n")) * 12.0) as usize % 12]);
-            let season = self.world.season;
-            let p = Player { nat: self.world.land_nat(self.world.clubs[self.own].league),
-                id, name, pos: ps, age: alter, ovr, pot, talent: 1.0, no: 0, team: self.own as i32, youth: 17, form: 0.0, fit: 100.0, gf: 0.0, morale: 60.0, inj: 0, inj_name: String::new(), susp: 0,
-                wage: Self::a("aufnahme.gehalt") as f64, contract_end: season + Self::a("aufnahme.jahre") as u32, value: 0.0, apps: 0, goals: 0, assists: 0, rsum: 0.0, rn: 0, yellow: 0, last: vec![], know: 1.0,
-                listed: false, persona: (zi(crate::id("p")) * 5.0) as u8 % 5, unhappy_days: 0, benched: 0, promise: 0, program: 0, joined: 0, talk_day: 0, ps: Default::default(), leihe: None, ent: Default::default(),
-                attrs, pp, style: 0, skills: 0, db: false, profil: Default::default(),
-            };
-            let idx = self.world.players.len();
-            self.world.players.push(p);
-            self.world.clubs[self.own].squad.push(idx);
-        }
-        if n > 0 { self.msg(1, crate::inhalt::t("meldung.absender.jugendleiter"), crate::inhalt::t("vw.nachricht.jahrgang.betreff"), &crate::tf!("ui.akademie.talente_beginnen_in_der_akademie", n), Action::None); }
-    }
+    pub fn akademie_jahrgang(&mut self) { self.talenttag(); }
     /// The week of the own youth: play share and grade of the U23 and academy for the development per ability
     /// (entwicklung.rs, which runs right after), the parents' question after weeks without matches.
     pub fn akademie_woche(&mut self) {

@@ -47,6 +47,12 @@ sehr = 0.08
 unpassend = 0.05
 unpassend_geduld = 8.0
 egal_geduld = 4.0
+frage_geduld = 5.0       # „Was ist ihm am wichtigsten?“ kostet so viel Geduld (einmal je Gespräch)
+
+# Honorar gegen Gehalt (Konzept 2.7): das Angebot zählt um so viel der Forderung mehr, das Honorar wird um den Faktor größer
+[tausch]
+wert = 0.08
+honorar = 1.6
 
 # Die Berater der Welt (erfunden). Jeder betreut viele Spieler; das Gedächtnis hängt am Namen.
 [[berater]]

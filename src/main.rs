@@ -20,6 +20,7 @@ mod meilensteine;
 mod kimarkt;
 mod berater;
 mod altimport;
+mod taktikprobe;
 mod nationen;
 mod geo;
 mod date;
@@ -36,6 +37,28 @@ mod personal;
 mod vorgang;
 mod medien;
 mod wirtschaft;
+mod stadionbetrieb;
+mod wirtschaftsvorgaenge;
+mod medizin;
+mod haltung;
+mod suchprofil;
+mod termine;
+mod praemien;
+mod sondierung;
+mod jobverhandlung;
+mod prematch;
+mod vertragsanfrage;
+mod geschichten;
+mod kredit;
+mod mitglieder;
+mod krise;
+mod trainingsplan;
+mod jugend;
+mod scoutbericht;
+mod neubau;
+mod prognose;
+mod trainerprofil;
+mod vereinsbudget;
 mod scouting;
 mod transfer;
 mod verhandlung;
@@ -206,6 +229,13 @@ struct StartState {
     /// Second teams found in the chosen world (shown in step 1) and the unclear cases ("bitte prüfen").
     paare: Vec<String>,
     unklar: Vec<String>,
+    /// The coach being created (trainerprofil.rs), a start without a club and where its offers may come from
+    /// (0 whole database, 1 the own country's leagues, 2 up to three chosen leagues).
+    profil: crate::trainerprofil::Trainerprofil,
+    ohne: bool,
+    angebot_modus: usize,
+    ligen: Vec<usize>,
+    ligen_scroll: usize,
 }
 
 struct SelfTest {
@@ -257,7 +287,7 @@ impl App {
         let default_db = fl27::welt_ordner(&fl27::sider()).display().to_string();
         App {
             ui, v: View::new(), screen: Screen::Start,
-            start: StartState { step: 0, db_path: default_db, db_focus: false, league: 0, team: None, coach: String::new(), coach_focus: false, saves: game::list_saves(), loeschen: None, offen: None, error: String::new(), scroll: 0, welt: None, welt_info: String::new(), such: String::new(), such_focus: false, f_land: None, f_liga: None, index: None, treffer: 0, paare: vec![], unklar: vec![], karte_zoom: 1.0, karte_off: (0.0, 0.0) },
+            start: StartState { step: 0, db_path: default_db, db_focus: false, league: 0, team: None, coach: String::new(), coach_focus: false, saves: game::list_saves(), loeschen: None, offen: None, error: String::new(), scroll: 0, welt: None, welt_info: String::new(), such: String::new(), such_focus: false, f_land: None, f_liga: None, index: None, treffer: 0, paare: vec![], unklar: vec![], karte_zoom: 1.0, karte_off: (0.0, 0.0), profil: Default::default(), ohne: false, angebot_modus: 0, ligen: vec![], ligen_scroll: 0 },
             template: None, career: None, fast: false, last_inbox: 0, selftest: None, starttest: None,
         }
     }
@@ -518,42 +548,119 @@ impl App {
                     }
                     if ts.len() > rows * cols { ui.text(&crate::tf!("ui.main.weitere_vereine_ueber_die_suche", ts.len() - rows * cols), rr.x + lw + 30.0, rr.y + rr.h - 70.0, 14.0, Theme::gedaempft()); }
                 }
-                if s.team.is_some() && ui.button_gold(Rect::new(ganz.x + ganz.w - 220.0, ganz.y + ganz.h - 56.0, 200.0, 44.0), crate::inhalt::t("ui.wort.gross_weiter")) { s.step = 2; s.coach_focus = true; s.such_focus = false; }
+                if s.team.is_some() && ui.button_gold(Rect::new(ganz.x + ganz.w - 220.0, ganz.y + ganz.h - 56.0, 200.0, 44.0), crate::inhalt::t("ui.wort.gross_weiter")) { s.step = 2; s.ohne = false; s.coach_focus = true; s.such_focus = false; }
+                // or no club at all: offers come (Fabian 23.11.)
+                if ui.button(Rect::new(ganz.x + ganz.w - 600.0, ganz.y + ganz.h - 56.0, 250.0, 44.0), crate::inhalt::t("tp.ohne_knopf"), false) { s.team = None; s.ohne = true; s.step = 2; s.coach_focus = true; s.such_focus = false; }
                 if ui.button(Rect::new(ganz.x + ganz.w - 340.0, ganz.y + ganz.h - 56.0, 110.0, 44.0), crate::inhalt::t("karrieren.zurueck"), false) { s.step = 0; }
             }
             2 => {
+                // the coach is created here (Fabian 23.11., like FM): name, birth date, nationality, knowledge, own career, style
                 let w = self.template.as_ref().unwrap();
-                let t = s.team.unwrap();
-                let cl = &w.clubs[t];
-                ui.club_crest(rr.x + 80.0, rr.y + 120.0, 50.0, cl.id, hex(cl.c1), &cl.short);
-                ui.title(&cl.name, rr.x + 150.0, rr.y + 110.0, 36.0, Theme::text());
-                ui.text(&crate::tf!("ui.main.ziel_platz", w.leagues[cl.league].name, cl.goal_kind, cl.goal_pos), rr.x + 150.0, rr.y + 140.0, 18.0, Theme::text2());
-                ui.text_semi(crate::inhalt::t("ui.main.dein_name_als_trainer"), rr.x + 20.0, rr.y + 220.0, 18.0, Theme::text());
-                let ir = Rect::new(rr.x + 20.0, rr.y + 234.0, 400.0, 42.0);
+                let t_ = crate::inhalt::t;
+                if let Some(t) = s.team {
+                    let cl = &w.clubs[t];
+                    ui.club_crest(rr.x + 48.0, rr.y + 70.0, 26.0, cl.id, hex(cl.c1), &cl.short);
+                    ui.title(&ui.fit(&cl.name, 26.0, rr.w - 120.0), rr.x + 86.0, rr.y + 76.0, 26.0, Theme::text());
+                } else { ui.title(t_("tp.ohne_knopf"), rr.x + 20.0, rr.y + 76.0, 26.0, Theme::text()); }
+                let mut y = rr.y + 104.0;
+                ui.text_semi(crate::inhalt::t("ui.main.dein_name_als_trainer"), rr.x + 20.0, y + 22.0, 15.0, Theme::text());
+                let ir = Rect::new(rr.x + 220.0, y, 360.0, 34.0);
                 if ui.hit(ir) { s.coach_focus = true; }
                 let f = s.coach_focus;
-                let enter = ui.input(ir, &mut s.coach, f, crate::inhalt::t("ui.main.z_b_max_mustermann"));
-                if (ui.button_gold(Rect::new(rr.x + 20.0, rr.y + 340.0, 300.0, 50.0), crate::inhalt::t("ui.wort.gross_weiter")) || enter) && !s.coach.trim().is_empty() { s.step = 3; }
-                if ui.button(Rect::new(rr.x + 340.0, rr.y + 340.0, 110.0, 50.0), crate::inhalt::t("karrieren.zurueck"), false) { s.step = 1; }
+                ui.input(ir, &mut s.coach, f, crate::inhalt::t("ui.main.z_b_max_mustermann"));
+                y += 46.0;
+                // birth date with steppers
+                ui.text_semi(t_("tp.geburt"), rr.x + 20.0, y + 20.0, 15.0, Theme::text());
+                let p = &mut s.profil;
+                for (k, (wert, lo, hi)) in [(p.tag as i32, 1, 31), (p.monat as i32, 1, 12), (p.jahr as i32, 1950, 2004)].into_iter().enumerate() {
+                    let x = rr.x + 220.0 + k as f32 * 130.0;
+                    if ui.button(Rect::new(x, y, 32.0, 30.0), "-", false) { let n = (wert - 1).max(lo); match k { 0 => p.tag = n as u8, 1 => p.monat = n as u8, _ => p.jahr = n as u16 } } // roh
+                    ui.text_center(&wert.to_string(), x + 56.0, y + 21.0, 16.0, Theme::text());
+                    if ui.button(Rect::new(x + 80.0, y, 32.0, 30.0), "+", false) { let n = (wert + 1).min(hi); match k { 0 => p.tag = n as u8, 1 => p.monat = n as u8, _ => p.jahr = n as u16 } } // roh
+                }
+                ui.text(&crate::tf!("tp.alter", p.alter()), rr.x + 620.0, y + 20.0, 14.0, Theme::text2());
+                y += 44.0;
+                // nationality: the countries of the world, stepped through
+                let mut laender: Vec<String> = w.leagues.iter().map(|l| l.land.clone()).filter(|l| !l.is_empty()).collect();
+                laender.sort();
+                laender.dedup();
+                if p.nation.is_empty() { p.nation = laender.iter().find(|l| l.as_str() == crate::id("Deutschland")).or(laender.first()).cloned().unwrap_or_default(); }
+                ui.text_semi(t_("tp.nation"), rr.x + 20.0, y + 20.0, 15.0, Theme::text());
+                let ni = laender.iter().position(|l| *l == p.nation).unwrap_or(0);
+                if ui.button(Rect::new(rr.x + 220.0, y, 32.0, 30.0), "<", false) && !laender.is_empty() { p.nation = laender[(ni + laender.len() - 1) % laender.len()].clone(); } // roh
+                ui.text_center(&p.nation, rr.x + 386.0, y + 21.0, 16.0, Theme::text());
+                if ui.button(Rect::new(rr.x + 520.0, y, 32.0, 30.0), ">", false) && !laender.is_empty() { p.nation = laender[(ni + 1) % laender.len()].clone(); } // roh
+                y += 44.0;
+                let reihen: [(&str, &str, u8); 3] = [("tp.vorwissen", "tp.vw", p.vorwissen), ("tp.karriere", "tp.ka", p.karriere), ("tp.stil", "tp.st", p.stil)]; // roh
+                let mut neu = [p.vorwissen, p.karriere, p.stil];
+                for (k, (titel, pre, sel)) in reihen.iter().enumerate() {
+                    ui.text_semi(t_(titel), rr.x + 20.0, y + 12.0, 15.0, Theme::text());
+                    let opts: Vec<&str> = (0..5).map(|i| crate::inhalt::t(&format!("{pre}.{i}"))).collect(); // roh
+                    if let Some(x) = ui.segment(Rect::new(rr.x + 20.0, y + 22.0, rr.w - 40.0, 32.0), &opts, *sel as usize) { neu[k] = x as u8; }
+                    y += 66.0;
+                }
+                p.vorwissen = neu[0]; p.karriere = neu[1]; p.stil = neu[2];
+                let liz = p.start_lizenz();
+                ui.text_semi(&crate::tf!("tp.lizenz", crate::inhalt::t(&format!("lb.lizenz.{liz}"))), rr.x + 20.0, y + 16.0, 17.0, Theme::gold()); // roh
+                if (ui.button_gold(Rect::new(rr.x + rr.w - 220.0, rr.y + rr.h - 60.0, 200.0, 46.0), crate::inhalt::t("ui.wort.gross_weiter"))) && !s.coach.trim().is_empty() { s.step = 3; }
+                if ui.button(Rect::new(rr.x + rr.w - 340.0, rr.y + rr.h - 60.0, 110.0, 46.0), crate::inhalt::t("karrieren.zurueck"), false) { s.step = 1; }
             }
             _ => {
                 // Schritt 4: Start (Original sichern, Datenbank in den Karriere-Ordner kopieren)
                 let w = self.template.as_ref().unwrap();
-                let cl = &w.clubs[s.team.unwrap()];
                 ui.title(crate::inhalt::t("ui.main.bereit_fuer_den_anstoss"), rr.x + 20.0, rr.y + 80.0, 34.0, Theme::text());
                 let welt = s.welt.as_ref().map(|p| fl27::welt_name(p)).unwrap_or_else(|| crate::inhalt::t("ui.main.eingebaute_probewelt_2").into());
-                let farm = { let t = s.team.unwrap(); let mut v = vec![]; if let Some(z) = w.zweite_von(t) { v.push(crate::tf!("ui.main.zweite_mannschaft", w.clubs[z].name)); } for p in w.partner_von(t) { v.push(crate::tf!("ui.main.farmteam", w.clubs[p].name)); } if v.is_empty() { crate::inhalt::t("ui.main.keine_zweite_mannschaft_kein_farmteam").to_string() } else { v.join(", ") } };
-                let lines = [crate::tf!("training.trainer_ist", s.coach.trim()), crate::tf!("ui.main.verein", cl.name, w.leagues[cl.league].name, farm), crate::tf!("ui.main.welt", welt),
+                let verein = match s.team {
+                    Some(t) => { let cl = &w.clubs[t]; let farm = { let mut v = vec![]; if let Some(z) = w.zweite_von(t) { v.push(crate::tf!("ui.main.zweite_mannschaft", w.clubs[z].name)); } for p in w.partner_von(t) { v.push(crate::tf!("ui.main.farmteam", w.clubs[p].name)); } if v.is_empty() { crate::inhalt::t("ui.main.keine_zweite_mannschaft_kein_farmteam").to_string() } else { v.join(", ") } }; crate::tf!("ui.main.verein", cl.name, w.leagues[cl.league].name, farm) }
+                    None => crate::inhalt::t("tp.ohne_zeile").to_string(),
+                };
+                if s.profil.nation.is_empty() { s.profil.nation = w.leagues.iter().map(|l| l.land.clone()).find(|l| l.as_str() == crate::id("Deutschland")).or_else(|| w.leagues.first().map(|l| l.land.clone())).unwrap_or_default(); }
+                let liz = crate::inhalt::t(&format!("lb.lizenz.{}", s.profil.start_lizenz())); // roh
+                let lines = [crate::tf!("training.trainer_ist", s.coach.trim()), crate::tf!("tp.zusammenfassung", s.profil.nation.clone(), s.profil.alter(), liz), verein, crate::tf!("ui.main.welt", welt),
                     if s.welt.is_some() { crate::inhalt::t("ui.main.beim_start_sichert_pes_m").into() } else { crate::inhalt::t("ui.main.die_probewelt_hat_keine_faehigkeiten").into() }];
                 let mut y = rr.y + 120.0;
-                for l in lines { y = ui.paragraph(&l, rr.x + 20.0, y, 18.0, rr.w - 40.0, Theme::text()) + 8.0; }
+                for l in lines { y = ui.paragraph(&l, rr.x + 20.0, y, 17.0, rr.w - 40.0, Theme::text()) + 6.0; }
+                // without a club: where the offers may come from
+                if s.ohne {
+                    ui.text_semi(crate::inhalt::t("tp.angebote_aus"), rr.x + 20.0, y + 16.0, 15.0, Theme::akzent());
+                    let modi = [crate::inhalt::t("tp.modus.0"), crate::inhalt::t("tp.modus.1"), crate::inhalt::t("tp.modus.2")];
+                    if let Some(k) = ui.segment(Rect::new(rr.x + 20.0, y + 26.0, rr.w - 40.0, 30.0), &modi, s.angebot_modus) { s.angebot_modus = k; }
+                    y += 66.0;
+                    if s.angebot_modus == 2 {
+                        // up to three leagues, top divisions first
+                        let mut ls: Vec<usize> = (0..w.leagues.len()).collect();
+                        let st = |l: usize| if w.leagues[l].stufe == 0 { 99 } else { w.leagues[l].stufe };
+                        ls.sort_by(|a, b| (st(*a), &w.leagues[*a].land, &w.leagues[*a].name).cmp(&(st(*b), &w.leagues[*b].land, &w.leagues[*b].name)));
+                        let liste = Rect::new(rr.x + 20.0, y, rr.w - 40.0, rr.y + rr.h - 80.0 - y);
+                        if liste.contains(ui.mouse) && ui.wheel != 0.0 { s.ligen_scroll = (s.ligen_scroll as i32 - ui.wheel.signum() as i32 * 3).clamp(0, ls.len().saturating_sub(3) as i32) as usize; }
+                        let sp = 3usize;
+                        let zw = liste.w / sp as f32;
+                        let zeilen = ((liste.h / 30.0) as usize).max(1);
+                        for (k, &l) in ls.iter().skip(s.ligen_scroll).take(zeilen * sp).enumerate() {
+                            let r = Rect::new(liste.x + (k % sp) as f32 * zw, liste.y + (k / sp) as f32 * 30.0, zw - 6.0, 26.0);
+                            let an = s.ligen.contains(&l);
+                            rrect(r.x, r.y, r.w, r.h, 13.0, if an { Theme::akzent() } else if ui.hover(r) { Theme::ueberlagerung() } else { Theme::erhoehung() });
+                            let lg = &w.leagues[l];
+                            let nm = if lg.land.is_empty() || lg.name.contains(&lg.land) { lg.name.clone() } else { format!("{} · {}", lg.land, lg.name) };
+                            ui.text(&ui.fit(&nm, 13.0, r.w - 16.0), r.x + 10.0, r.y + 18.0, 13.0, if an { Theme::auf_akzent() } else { Theme::text() });
+                            if ui.hit(r) { if an { s.ligen.retain(|&x| x != l); } else if s.ligen.len() < 3 { s.ligen.push(l); } }
+                        }
+                    }
+                }
                 if ui.button_gold(Rect::new(rr.x + 20.0, rr.y + rr.h - 70.0, 300.0, 50.0), crate::inhalt::t("ui.main.karriere_starten")) { start_new = true; }
                 if ui.button(Rect::new(rr.x + 340.0, rr.y + rr.h - 70.0, 110.0, 50.0), crate::inhalt::t("karrieren.zurueck"), false) { s.step = 2; }
             }
         }
         if start_new {
             let w = self.template.take().unwrap();
-            let mut c = Career::new(w, s.team.unwrap(), s.coach.trim());
+            // without a club the career is held by the smallest club of the world until an offer is taken
+            let platz = s.team.unwrap_or_else(|| (0..w.clubs.len()).min_by(|a, b| w.clubs[*a].rep.partial_cmp(&w.clubs[*b].rep).unwrap()).unwrap_or(0));
+            let mut c = Career::new(w, platz, s.coach.trim());
+            c.trainer_uebernehmen(s.profil.clone());
+            if s.ohne {
+                c.angebot_ligen = match s.angebot_modus { 1 => (0..c.world.leagues.len()).filter(|&l| c.world.leagues[l].land == s.profil.nation).collect(), 2 => s.ligen.clone(), _ => vec![] };
+                c.ohne_verein_starten();
+            }
             if let Some(welt) = s.welt.clone() {
                 c.fl27_welt = welt.display().to_string();
                 let s2 = welt.parent().and_then(|p| p.parent()).map(|p| p.to_path_buf()).unwrap_or_else(fl27::sider);
@@ -581,7 +688,8 @@ impl App {
         if c.today_match().is_some() { self.v.go(Page::Spieltag); self.fast = false; return false; }
         let decisions = c.open_decisions();
         let t0 = std::time::Instant::now();
-        let r = c.end_day();
+        c.undo_merken();
+        let r = c.weiter();
         if let Ok(mut t) = pages::TAGESZEIT.lock() { t.push(t0.elapsed().as_secs_f32() * 1000.0); if t.len() > 200 { t.remove(0); } }
         match r {
             Ok(()) => {
@@ -608,7 +716,9 @@ impl App {
         } else { None };
         // with the crest accent the banners (club colour) and the blue card heads follow it too (Fabian 22.11.: still blue)
         let bereich = match (akzent, area_color(v.page)) { (Some(a), 0x38bdf8) => a, (_, b) => b };
-        Theme::set(v.dark, akzent.unwrap_or(c.club().c1), bereich);
+        // the tables and rankings wear the colour of the chosen competition
+        let kopf = if matches!(v.page, Page::Tabellen | Page::Ranglisten) { pages::liga_farbe(v, c) } else { akzent.unwrap_or(c.club().c1) };
+        Theme::set(v.dark, kopf, bereich);
         Theme::set_akzent(akzent.unwrap_or(0x38bdf8));
         clear_background(Theme::grund());
         let (over, title, question) = stage_text(v);
@@ -690,7 +800,13 @@ impl App {
             draw_rectangle_lines(x, y, w, 28.0, 1.0, Theme::akzent());
             ui.text(&t, x + 10.0, y + 19.0, 15.0, Theme::text());
         }
-        let key_weiter = !v.market_focus && v.modal == Modal::None && (is_key_pressed(KeyCode::Space));
+        let key_weiter = !v.market_focus && v.auswahl.is_none() && v.modal == Modal::None && (is_key_pressed(KeyCode::Space));
+        // Ctrl+Z: the last day step or own match undone, exactly as it was
+        if v.modal == Modal::None && is_key_pressed(KeyCode::Z) && (is_key_down(KeyCode::LeftControl) || is_key_down(KeyCode::RightControl)) {
+            if let Some(c) = self.career.as_mut() {
+                if c.rueckgaengig() { self.v.mv = None; self.last_inbox = c.inbox.len(); self.v.toast(crate::inhalt::t("undo.ok"), true); } else { self.v.toast(crate::inhalt::t("undo.nichts"), false); }
+            }
+        }
         if weiter == 1 || key_weiter { if self.advance() { self.ui.play(crate::id("tagesabschluss")); } }
         if weiter == 2 { self.fast = true; }
     }
@@ -744,7 +860,15 @@ impl App {
         // something that can't wait (Was jetzt?, Spielgefühl Teil 4): „Weiter“ leads there instead of the next day
         // once there, „Weiter“ starts the next day as usual: the person may leave it on purpose (a skipped press conference counts)
         let zuerst = Some(c.was_jetzt()).filter(|w| w.vorrang && !c.fired && !match_today && w.ziel != Some(v.page));
-        let label = if c.fired { crate::inhalt::t("ui.main.angebote_ansehen") } else if match_today { crate::inhalt::t("ui.main.zum_spiel") } else if zuerst.is_some() { crate::inhalt::t("ui.main.zuerst") } else { crate::inhalt::t("ui.main.naechster_tag") };
+        let label = if c.fired { crate::inhalt::t("ui.main.angebote_ansehen") } else if match_today { crate::inhalt::t("ui.main.zum_spiel") } else if zuerst.is_some() { crate::inhalt::t("ui.main.zuerst") } else if c.deadline() && c.dl_stunde < 12 { crate::inhalt::t("ui.dl.naechste_stunde") } else { crate::inhalt::t("ui.main.naechster_tag") };
+        // deadline day: the clock beside the button, red, ticking up hour by hour
+        if c.deadline() && !c.fired {
+            let uhr = crate::tf!("ui.dl.uhr", 9 + c.dl_stunde.min(12) as u32);
+            let dr = Rect::new(1130.0, 52.0, 256.0, 24.0);
+            let puls = 0.75 + 0.25 * (ui.time * 3.0).sin().abs();
+            rrect(dr.x, dr.y, dr.w, dr.h, 12.0, alpha(Theme::problem(), puls));
+            ui.text_center(&uhr, dr.x + dr.w / 2.0, dr.y + 17.0, 14.0, hex(0xffffff));
+        }
         v.hud_seen.push("Weiter".into()); // roh
         let wr = Rect::new(1130.0, 6.0, 216.0, 42.0);
         let h = ui.hover(wr);
@@ -756,7 +880,7 @@ impl App {
         let fr = Rect::new(wr.x + wr.w, wr.y, 40.0, 42.0);
         draw_triangle(vec2(fr.x + 13.0, fr.y + 17.0), vec2(fr.x + 27.0, fr.y + 17.0), vec2(fr.x + 20.0, fr.y + 25.0), Theme::auf_akzent());
         if ui.hit(wr) {
-            if c.fired { v.go(Page::Posteingang); } else if match_today { v.go(Page::Spieltag); }
+            if c.fired { if !c.inbox.iter().any(|m| !m.done && matches!(m.action, game::Action::JobOffer { .. })) { c.angebote_ohne_verein(); } v.go(Page::Posteingang); } else if match_today { v.go(Page::Spieltag); }
             else if let Some(z) = &zuerst { if let Some(p) = z.ziel { v.go(p); } if z.msg.is_some() { v.sel_msg = z.msg; } }
             else { out = 1; }
         }
@@ -857,7 +981,7 @@ impl App {
                 if !ok { ende = true; } else { self.ui.inject_click = Some(vec2(rx + rw - 120.0, ry + rh - 34.0)); st.stage = 4; }
             }
             4 => {
-                if s.step == 2 { s.coach = "Test Trainer".into(); self.ui.inject_click = Some(vec2(rx + 170.0, ry + 365.0)); st.stage = 5; } // roh
+                if s.step == 2 { s.coach = "Test Trainer".into(); self.ui.inject_click = Some(vec2(rx + rw - 120.0, ry + rh - 37.0)); st.stage = 5; } // roh
             }
             5 => {
                 if s.step == 3 { st.steps.push((crate::id("trainer").into(), true, crate::inhalt::t("ui.main.trainername_uebernommen").into())); self.ui.inject_click = Some(vec2(rx + 170.0, ry + rh - 45.0)); st.stage = 6; }
@@ -936,6 +1060,12 @@ async fn main() {
     let args: Vec<String> = std::env::args().collect();
     let arg = |k: &str| args.iter().position(|a| a == k).and_then(|i| args.get(i + 1)).cloned();
     let shot = arg(crate::id("--screenshot"));
+    if let Some(i) = args.iter().position(|a| a == crate::id("--neue-karriere")) {
+        let g = |k: usize| args.get(i + k).cloned().unwrap_or_default();
+        match altimport::neue_karriere(&g(1), &g(2), &g(3)) { Ok(t) => { println!("{t}"); std::process::exit(0) } Err(e) => { eprintln!("{e}"); std::process::exit(1) } }
+    }
+    // pesm --taktik-zeigen / --taktik-setzen / --formation-kopieren: probe tool for the in-game test (taktikprobe.rs)
+    if let Some(r) = taktikprobe::kommando(&args) { match r { Ok(t) => { println!("{t}"); std::process::exit(0) } Err(e) => { eprintln!("{e}"); std::process::exit(1) } } }
     // pesm --import-alt <json> <alte-karriere> <welt>: a career of the Python version as a new career (altimport.rs)
     if let Some(i) = args.iter().position(|a| a == crate::id("--import-alt")) {
         let (j, alt, welt) = (args.get(i + 1).cloned().unwrap_or_default(), args.get(i + 2).cloned().unwrap_or_default(), args.get(i + 3).cloned().unwrap_or_default());
@@ -974,6 +1104,8 @@ async fn main() {
         app.template = Some(welt.as_ref().and_then(|w| World::from_pesdb(&w.join("common/etc/pesdb"), 7).ok()).unwrap_or_else(App::builtin_world));
         app.start.welt = welt;
         app.start.step = 1; app.start.such = q; app.start.such_focus = true;
+        // PESM_SCHRITT=2|3: the coach step or the summary of a start without a club
+        if let Ok(n) = std::env::var("PESM_SCHRITT") { app.start.step = n.parse().unwrap_or(2); app.start.ohne = true; app.start.coach = crate::id("Max Muster").into(); app.start.angebot_modus = 2; }
     }
     // preview aid: PESM_WELT=<Weltordner> plays the preview on a real world (own club: the strongest of its first league)
     if let (Some(_), Ok(wp), true) = (&shot, std::env::var("PESM_WELT"), std::env::var("PESM_PAGE").as_deref() != Ok(crate::id("start"))) {
@@ -989,7 +1121,7 @@ async fn main() {
         }
     }
     // preview aid for checks: PESM_PAGE=kader|aufstellung|... opens that page, PESM_DAYS=n advances days first
-    if let (Ok(pg), Some(_)) = (std::env::var("PESM_PAGE"), &shot) {
+    if let (Ok(pg), Some(_), true) = (std::env::var("PESM_PAGE"), &shot, app.career.is_some()) {
         if let Ok(n) = std::env::var("PESM_DAYS").unwrap_or_default().parse::<u32>() {
             let c = app.career.as_mut().unwrap();
             for _ in 0..n { if c.today_match().is_some() { let r = c.prepare_match(None); c.apply_own_match(r); c.answer_press(Some(0)); } let _ = c.end_day(); }
@@ -998,7 +1130,7 @@ async fn main() {
         app.v.go(p);
         if p == Page::Tabellen { app.v.table_league = app.career.as_ref().unwrap().world.cups.iter().position(|c| c.kind == 1).map(|i| 1000 + i); }
         // PESM_LIGA=eigene|<Liganame>: that league's table instead of the Champions League
-        if let (true, Ok(n)) = (p == Page::Tabellen, std::env::var("PESM_LIGA")) { let c = app.career.as_ref().unwrap(); app.v.table_league = if n == crate::id("eigene") { Some(c.league()) } else { c.world.leagues.iter().position(|l| l.name == n) }; }
+        if let (true, Ok(n)) = (p == Page::Tabellen, std::env::var("PESM_LIGA")) { let c = app.career.as_ref().unwrap(); app.v.table_league = if n == crate::id("eigene") { Some(c.league()) } else { c.world.leagues.iter().position(|l| l.name == n).or_else(|| c.world.cups.iter().position(|x| x.name == n).map(|i| 1000 + i)) }; }
         if p == Page::Transfermarkt { app.v.sel_player = app.career.as_ref().unwrap().world.players.iter().position(|x| x.name.contains("Wirtz")); } // roh
         // PESM_SPIELER=<Name>: that player; PESM_REITER=<n>: that tab
         if let Ok(n) = std::env::var("PESM_SPIELER") { app.v.sel_player = app.career.as_ref().unwrap().world.players.iter().position(|x| x.name.contains(&n)); }
@@ -1011,6 +1143,10 @@ async fn main() {
         // PESM_KLUB=<Name>: that club on the clubs page
         if let Ok(n) = std::env::var("PESM_KLUB") { app.v.sel_club = app.career.as_ref().unwrap().world.clubs.iter().position(|x| x.name == n); }
         if let Ok(t) = std::env::var("PESM_REITER") { app.v.tab = t.parse().unwrap_or(0); }
+        // PESM_TP=<ready-made week>[:day,slot]: that training week, with a session chosen (preview of the plan)
+        if let Ok(t) = std::env::var("PESM_TP") { let mut it = t.split(':'); let n = it.next().unwrap_or(""); if let Some(w) = crate::trainingsplan::werk().into_iter().find(|w| w.0 == n) { if let Some(c) = app.career.as_mut() { c.wochenplan = w.1; c.plan_uebernehmen(); } } if let Some((d, s)) = it.next().and_then(|x| x.split_once(',')) { app.v.tp_zelle = Some((d.parse().unwrap_or(0), s.parse().unwrap_or(0))); } }
+        // PESM_SORT=<list>:<column>[:auf]: a sorted list (preview of the clickable header)
+        if let Ok(s) = std::env::var("PESM_SORT") { let t: Vec<&str> = s.split(':').collect(); if let (Some(l), Some(k)) = (t.first().and_then(|x| x.parse().ok()), t.get(1).and_then(|x| x.parse().ok())) { app.v.sortierung.insert(l, (k, t.get(2) == Some(&crate::id("auf")))); } }
         // PESM_FOKUS=1: the three youngest own players get an individual programme with different focus groups (training preview)
         if std::env::var("PESM_FOKUS").is_ok() {
             let c = app.career.as_mut().unwrap();
@@ -1026,7 +1162,12 @@ async fn main() {
             let p = c.squad()[0];
             if c.pool_starten(p, &th) { app.v.sel_msg = Some(0); app.v.go(Page::Posteingang); }
         }
-        if let Ok(m) = std::env::var("PESM_MELDUNG") { app.v.sel_msg = m.parse().ok(); }
+        if let Ok(m) = std::env::var("PESM_MELDUNG") { app.v.sel_msg = m.parse().ok().or_else(|| app.career.as_ref().and_then(|c| c.inbox.iter().position(|x| x.title.contains(&m) || x.karte == m))); }
+        // PESM_VERLETZT=<n>: n squad players injured (5, 12, 25, 40 … days), for the medical page
+        if let Ok(n) = std::env::var("PESM_VERLETZT") {
+            let c = app.career.as_mut().unwrap();
+            for (k, p) in c.squad().into_iter().take(n.parse().unwrap_or(3)).enumerate() { let d = [5u16, 12, 25, 40, 18][k % 5]; c.world.players[p].inj = d; c.world.players[p].inj_name = crate::world::injury_names(d)[0].to_string(); c.world.players[p].ent.inj_gesamt = d + 6 * k as u16; }
+        }
         // PESM_LAGER=1: the Vorbereitung page shows the training camps
         if std::env::var("PESM_LAGER").is_ok() { app.v.lager_reiter = 1; }
         // PESM_KONTEXT=<name>: the right-click menu of that player over the page
@@ -1051,6 +1192,19 @@ async fn main() {
                     Some(c.verkauf_verhandeln(p, kaeufer, c.world.players[p].value))
                 } else { c.world.players[p].contract_end = c.world.season; c.open_neg(p).ok() };
                 if let Some(k) = k { app.v.modal = pages::Modal::Neg(k); if let Some(ng) = c.negs.get_mut(k) { ng.kl.ausstieg = 1; ng.kl.tor = 1; ng.kl.weiterverkauf = 2; } }
+            }
+        }
+        // PESM_TICKER=<minute|ende>: the simulated match on the ticker at that minute, or after the final whistle
+        if let Ok(t) = std::env::var("PESM_TICKER") {
+            let c = app.career.as_mut().unwrap();
+            for _ in 0..21 { if c.today_match().is_some() { break; } let _ = c.end_day(); }
+            if c.today_match().is_some() {
+                let res = c.prepare_match(None);
+                let ende = t == crate::id("ende");
+                let mut mv = pages::MatchView { res: res.clone(), minute: t.parse().unwrap_or(90.0), speed: if ende { 1.0 } else { 0.0 }, phase: if ende { 2 } else { 1 }, ended_at: 0.0, manual: (0, 0), manual_open: false, halbzeit: 2, wirkung: vec![], nach_gesagt: false, angesprochen: vec![], eingriff: Default::default() };
+                if ende { c.apply_own_match(res); c.press = None; if let Some(r) = c.last_result.clone() { mv.res = r; } }
+                app.v.mv = Some(mv);
+                app.v.go(Page::Spieltag);
             }
         }
         // PESM_LIVE=1: the live view of a match in FL27 with made-up numbers (the next match day, minute 67)

@@ -49,9 +49,8 @@ impl Career {
     pub fn fans_monat(&mut self) {
         self.me.fan_transfer *= f("vereinswelt", "fans.abklingen");
         self.me.fan_aktion *= f("vereinswelt", "fans.abklingen");
-        let pf = arr("vereinswelt", "einnahmen.preisstufen")[self.ticket as usize].as_f64().unwrap() as f32;
-        // own decision: the price level sets the target of the economy mood (cheap +4, normal 0, dear −5)
-        let ziel = ((1.0 - pf) * 20.0).clamp(-f("vereinswelt", "wirtschaft.stimmung_grenze"), f("vereinswelt", "wirtschaft.stimmung_grenze"));
+        // prices, atmosphere, catering and advertising set the target of the economy mood (wirtschaft.py monatsabschluss)
+        let ziel = self.spiel_neutral().stimmung_ziel as f32;
         let alt = self.me.fan_wirtschaft;
         self.me.fan_wirtschaft += f("vereinswelt", "wirtschaft.stimmung_glaettung") * (ziel - alt);
         if (self.me.fan_wirtschaft - alt).abs() > 0.05 { let d = self.me.fan_wirtschaft - alt; self.grund("Fans", crate::inhalt::t("ui.medien.wirtschaftsstimmung"), d, crate::inhalt::t("vw.preis.titel")); } // roh

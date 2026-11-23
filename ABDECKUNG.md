@@ -500,4 +500,10 @@ Erzeugt von `tools/abdeckung.py` (neu erzeugen nach jedem größeren Bau). Eine 
 | `tools/probleme.py` | Problemliste von FL-World am Terminal (für Anwender und eine mitlesende Claude-Sitzung, docs/intern/WAECHTER.md). | tools/ | Bereich |
 | `ui/__init__.py` |  | — (Paketdatei) | entfällt |
 
+## Gefundene Lücken (Prüfung 23.11., Python-Datei → was in Rust fehlt)
+Gebaut in der Nacht zum 23.11.: `core/entwicklung/medizin_gruende.py` + `medizin.py` (medizin.rs), `fl/sim/termine.py` Vorvertrag (termine.rs), `core/scouting/suchprofil.py` (suchprofil.rs), `core/transfers/wechselbezug.py`/`weltrelevanz.py` (kimarkt.rs welt_bezug), `core/gespraeche/haltung.py` (haltung.rs), `core/vereinswelt/wirtschaft.py` (stadionbetrieb.rs), `core/wirtschaft/vorgaenge.py` (wirtschaftsvorgaenge.rs), `core/wirtschaft/praemien.py` (praemien.rs), `core/transfers/sondierung.py` (sondierung.rs), `core/laufbahn/gespraech.py` Vertragsverhandlung (jobverhandlung.rs), `core/spieltag/prematch.py` + Teamgespräch aus `werte.py` (prematch.rs), `core/transfers/ki_regeln.py` Deadline Day (kimarkt.rs), `core/gespraeche/anfrage.py` (vertragsanfrage.rs), `fl/sim/geschichten.py` (geschichten.rs).
+Eigene Ergänzungen ohne Vorlage: Bankkredite (kredit.rs), Mitglieder und Jahreshauptversammlung (mitglieder.rs).
+Noch offen: `adapters/bilder/thesportsdb.py` bewusst nicht (kein Netz zur Laufzeit); `core/gespraeche/druck.py` steckt als Handlung „Druck“ in verhandlung.rs, das Gesprächsklima der Vorlage ist nicht einzeln nachgebaut; `fl/sim/gneg.py` (Gaffer-Oberfläche) entfällt.
+Stand der Prüfung: 177 von 236 „Bereich“-Zeilen haben mindestens 40 % ihrer Funktions- und Dateinamen in Rust; von den übrigen 59 sind die 22 schwächsten nach ihrer Beschreibung einzeln gesichtet, daraus die Lücken oben. Die restlichen 37 sind noch nicht einzeln gesichtet.
+
 **Zahlen:** Bereich 236, entfällt 165, gebaut 94, zusammen 495.

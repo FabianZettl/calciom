@@ -25,6 +25,9 @@ pub struct Person {
     /// Running assignment: until abs day, max age of the search profile.
     pub auftrag_bis: u32,
     pub alter_max: u8,
+    /// The search profile of the running assignment (suchprofil.rs).
+    #[serde(default)]
+    pub profil: Option<crate::suchprofil::Suchprofil>,
     /// Reports to check after 8 weeks: (player, estimate, abs day).
     pub pruefen: Vec<(usize, f32, u32)>,
 }
@@ -40,12 +43,12 @@ pub fn sterne(v: f32) -> f32 { (((v - f("scouting", "sterne.von")) / (f("scoutin
 pub fn sterne_text(s: f32) -> String { let g = s.floor() as usize; let h = if s - g as f32 >= 0.5 { "½" } else { "" }; let n = if g == 0 { h.to_string() } else { format!("{g}{h}") }; format!("{n} {}", if g <= 1 && h.is_empty() { crate::inhalt::t("ui.scouting.stern") } else { crate::inhalt::t("ui.scouting.sterne") }) }
 
 impl Career {
-    fn person(&mut self, s: usize) -> &mut Person {
+    pub fn person(&mut self, s: usize) -> &mut Person {
         if self.scouts[s].p.is_none() {
             let q = self.scouts[s].q as f32;
             let fs = [40.0 + q * 4.0, 38.0 + q * 4.0, 45.0 + q * 2.0, 40.0 + q * 3.0];
             let abs = self.abs();
-            self.scouts[s].p = Some(Person { f: fs, spezial: (s % 5) as u8, typ: 2, gehalt: gehalt(&fs), bis: abs + 2 * crate::date::SEASON_DAYS, vertrauen: f("scouting", "vertrauen.start"), auftrag_bis: 0, alter_max: 99, pruefen: vec![] });
+            self.scouts[s].p = Some(Person { f: fs, spezial: (s % 5) as u8, typ: 2, gehalt: gehalt(&fs), bis: abs + 2 * crate::date::SEASON_DAYS, vertrauen: f("scouting", "vertrauen.start"), auftrag_bis: 0, alter_max: 99, profil: None, pruefen: vec![] });
         }
         self.scouts[s].p.as_mut().unwrap()
     }
@@ -62,7 +65,7 @@ impl Career {
             let basis = 35.0 + rep * 0.35;
             let fs = [0, 1, 2, 3].map(|k| (basis + z(&format!("f{k}")) * 30.0).clamp(20.0, 95.0).round());
             let name = format!("{} {}", vn[(z(crate::id("v")) * vn.len() as f32) as usize % vn.len()], nn[(z(crate::id("n")) * nn.len() as f32) as usize % nn.len()]);
-            (name, Person { f: fs, spezial: (z(crate::id("s")) * 5.0) as u8 % 5, typ: (z(crate::id("t")) * 4.0) as u8 % 4, gehalt: gehalt(&fs), bis: 0, vertrauen: f("scouting", "vertrauen.start"), auftrag_bis: 0, alter_max: 99, pruefen: vec![] })
+            (name, Person { f: fs, spezial: (z(crate::id("s")) * 5.0) as u8 % 5, typ: (z(crate::id("t")) * 4.0) as u8 % 4, gehalt: gehalt(&fs), bis: 0, vertrauen: f("scouting", "vertrauen.start"), auftrag_bis: 0, alter_max: 99, profil: None, pruefen: vec![] })
         }).collect()
     }
     pub fn scout_einstellen(&mut self, i: usize) -> Result<(), String> {
@@ -85,6 +88,8 @@ impl Career {
         self.grund(&n, crate::inhalt::t("ui.pages.scout_entlassen"), 0.0, crate::inhalt::t("ui.scouting.vertrag_aufgeloest_halbe_restsumme_als"));
     }
     /// Start an assignment: region (league), position group, duration, max age; costs per week by knowledge of the region.
+    /// Can we pay him? His club's asking price within the transfer budget (a free agent always).
+    pub fn bezahlbar(&self, p: usize) -> bool { self.world.players[p].team < 0 || self.ask_price(p) <= self.transfer_budget.max(0.0) }
     pub fn auftrag(&mut self, s: usize, dauer: u32, alter_max: u8) -> Result<(), String> {
         let abs = self.abs();
         let laufend = self.scouts.iter().filter(|x| x.p.as_ref().map_or(false, |p| p.auftrag_bis > abs)).count();
@@ -189,7 +194,7 @@ impl Career {
                 if t == self.own { continue; }
                 for &p in &self.world.clubs[t].squad {
                     let pl = &self.world.players[p];
-                    let ok = match pos { 1 => pl.pos == "GK", 2 => part_of(&pl.pos) == 1, 3 => part_of(&pl.pos) == 2, 4 => part_of(&pl.pos) == 3, _ => true } && pl.age <= pe.alter_max;
+                    let ok = match pos { 1 => pl.pos == "GK", 2 => part_of(&pl.pos) == 1, 3 => part_of(&pl.pos) == 2, 4 => part_of(&pl.pos) == 3, _ => true } && pl.age <= pe.alter_max && (!aktiv || pe.profil.as_ref().map_or(true, |k| self.profil_passt(p, k, false)));
                     if ok && pl.know < 0.95 { cands.push(p); }
                 }
             }
@@ -207,12 +212,13 @@ impl Career {
             }
             if aktiv && pe.auftrag_bis <= abs + 7 {
                 // assignment ends this week: the best hits as reports (bericht.treffer_hoechstens)
-                let mut best: Vec<(usize, f32)> = gesehen.iter().chain(cands.iter()).copied().filter(|&p| self.world.players[p].know >= f("scouting", "wissen.bericht_ab") / 100.0)
+                // only players the transfer budget can pay (Fabian 23.11.)
+                let mut best: Vec<(usize, f32)> = gesehen.iter().chain(cands.iter()).copied().filter(|&p| self.world.players[p].know >= f("scouting", "wissen.bericht_ab") / 100.0 && self.bezahlbar(p))
                     .map(|p| { let pl = &self.world.players[p]; (p, pl.ovr - self.club().level + self.moneyball(p) * 0.5 + if pl.age <= 21 { (pl.pot - pl.ovr) * 0.3 } else { 0.0 }) }).collect();
                 best.sort_by(|a, b| b.1.partial_cmp(&a.1).unwrap());
                 best.dedup_by_key(|x| x.0);
                 for (p, _) in best.into_iter().take(3) { self.scout_bericht(s, p, crate::inhalt::t("ui.scouting.auftrag_erledigt")); }
-            } else if let Some(&p) = gesehen.iter().filter(|&&p| self.world.players[p].know >= f("scouting", "wissen.eindruck_ab") / 100.0).max_by(|&&a, &&b| (self.world.players[a].ovr + self.moneyball(a) * 0.5).partial_cmp(&(self.world.players[b].ovr + self.moneyball(b) * 0.5)).unwrap()) {
+            } else if let Some(&p) = gesehen.iter().filter(|&&p| self.world.players[p].know >= f("scouting", "wissen.eindruck_ab") / 100.0 && self.bezahlbar(p)).max_by(|&&a, &&b| (self.world.players[a].ovr + self.moneyball(a) * 0.5).partial_cmp(&(self.world.players[b].ovr + self.moneyball(b) * 0.5)).unwrap()) {
                 if self.world.players[p].ovr + self.moneyball(p) * 0.5 > self.club().level - 4.0 { self.scout_bericht(s, p, if self.moneyball(p) >= 4.0 { crate::inhalt::t("ui.scouting.geheimtipp") } else { crate::inhalt::t("ui.scouting.bericht") }); }
             }
             // trust: checked after 8 weeks, hit (within 3 points) +3, miss −4 ([vertrauen])
@@ -236,7 +242,8 @@ impl Career {
         }
     }
     fn scout_bericht(&mut self, s: usize, p: usize, art: &str) {
-        let body = self.report_text(p);
+        // the verdict of the scouting concept (scoutbericht.rs) under the short estimate
+        let body = format!("{}\n\n{}", self.report_text(p), self.urteil_text(p));
         let (lo, hi) = self.ovr_range(p);
         let abs = self.abs();
         self.person(s).pruefen.push((p, (lo + hi) / 2.0, abs));
@@ -265,7 +272,7 @@ mod tests {
         assert!(b - a > y - x, "more knowledge, narrower range");
         assert!(c.bewerber().len() == 5);
         // colour of the scout: euphorisch +3, at most 40 % of the half span (scoutperson.py:26)
-        let pe = Person { f: [99.0, 50.0, 50.0, 50.0], spezial: 0, typ: 1, gehalt: 1.0, bis: 0, vertrauen: 50.0, auftrag_bis: 0, alter_max: 99, pruefen: vec![] };
+        let pe = Person { f: [99.0, 50.0, 50.0, 50.0], spezial: 0, typ: 1, gehalt: 1.0, bis: 0, vertrauen: 50.0, auftrag_bis: 0, alter_max: 99, profil: None, pruefen: vec![] };
         c.scouts.push(Scout { name: "E".into(), q: 9, league: None, pos: 0, watch: None, seen: 0, p: Some(pe) });
         assert_eq!(c.scout_bias(10.0), 3.0);
         assert_eq!(c.scout_bias(5.0), 2.0);

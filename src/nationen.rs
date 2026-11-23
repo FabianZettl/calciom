@@ -18,6 +18,23 @@ pub fn name(w: &World, n: u16) -> String {
 }
 
 impl World {
+    /// Leagues whose country the world file does not name („Land der A-League Men“) get the name of the nationality most
+    /// of their players have, when it is known (nationen.json); cups of that country follow.
+    pub fn laender_benennen(&mut self) {
+        let vorsilbe = crate::inhalt::t("ui.pesdb.land_der").split("%1").next().unwrap_or("").to_string();
+        if vorsilbe.trim().is_empty() { return; }
+        for l in 0..self.leagues.len() {
+            let alt = self.leagues[l].land.clone();
+            if !alt.starts_with(&vorsilbe) { continue; }
+            let n = self.land_nat(l);
+            // the nationality's name, else the country most of its clubs are listed in at Wikidata (assets/geo)
+            let liste = crate::regeln::wert_oder("kaderregeln", "liga_land").and_then(|m| m.get(&self.leagues[l].name)).and_then(|v| v.as_str()).map(|x| x.to_string());
+            let neu = liste.unwrap_or_else(|| { let x = name(self, n); if x.is_empty() || x.starts_with(&vorsilbe) { crate::geo::liga_land_sicher(self, l).unwrap_or_default() } else { x } });
+            if neu.is_empty() || neu.starts_with(&vorsilbe) { continue; }
+            for k in 0..self.leagues.len() { if self.leagues[k].land == alt { self.leagues[k].land = neu.clone(); } }
+            for cu in self.cups.iter_mut() { if cu.country == alt { cu.country = neu.clone(); } }
+        }
+    }
     /// The nationality most players of a league have: the league's country.
     pub fn land_nat(&self, l: usize) -> u16 {
         let mut z: std::collections::HashMap<u16, usize> = Default::default();
@@ -49,6 +66,18 @@ impl Career {
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn laender_ohne_namen_bekommen_einen() {
+        let d = crate::fl27::sider().join("livecpk/_FL26-27-Def/common/etc/pesdb");
+        if !crate::fl27::echte_welt(&d) { return; }
+        let w = crate::world::World::from_pesdb(&d, 7).unwrap();
+        let vorsilbe = crate::inhalt::t("ui.pesdb.land_der").split("%1").next().unwrap().to_string();
+        let rest: Vec<String> = w.leagues.iter().filter(|l| l.land.starts_with(&vorsilbe)).map(|l| l.land.clone()).collect();
+        let alle = w.leagues.len();
+        eprintln!("ohne Namen: {} von {}: {:?}", rest.len(), alle, rest);
+        assert!(w.leagues.iter().any(|l| l.land == "Österreich" || l.land == "Schweden" || l.land == "Australien"), "bekannte Länder benannt");
+    }
+
     use super::*;
 
     #[test]

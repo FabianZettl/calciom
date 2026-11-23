@@ -29,3 +29,17 @@ auslaender_max = 10
 
 [land.VAE]
 auslaender_max = 6
+
+# Länder von Ligen, die die Welt-Datei nicht benennt („Land der …“) und die weder über die Nationalität noch über
+# Wikidata sicher erkannt werden: Name der Liga (wie in der Welt) = Land. Nur sichere Zuordnungen.
+[liga_land]
+"Liga de la División Profesional" = "Bolivien"
+"Liga Nacional de Fútbol de Guatemala" = "Guatemala"
+"Jamaica Premier League" = "Jamaika"
+"Primera División (UNAFUT)" = "Costa Rica"
+"Liga Primera" = "Nicaragua"
+"Betway Premiership" = "Südafrika"
+"Libyan Premier League" = "Libyen"
+"Ethiopian Premier League" = "Äthiopien"
+"Tajikistan Higher League" = "Tadschikistan"
+"Malaysia Super League" = "Malaysia"

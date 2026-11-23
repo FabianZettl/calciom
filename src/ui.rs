@@ -68,7 +68,7 @@ pub fn hauptfarbe(rgba: &[u8]) -> Option<u32> {
     Some((k(e.0) << 16) | (k(e.1) << 8) | k(e.2))
 }
 /// Same hue with another lightness. shortcut: HSL instead of OKLCH, close enough for flat colours.
-fn with_light(c: Color, l: f32, sat: f32) -> Color {
+pub fn with_light(c: Color, l: f32, sat: f32) -> Color {
     let (r, g, b) = (c.r, c.g, c.b);
     let mx = r.max(g).max(b); let mn = r.min(g).min(b);
     let d = mx - mn;

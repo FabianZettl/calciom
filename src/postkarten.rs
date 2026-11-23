@@ -81,6 +81,8 @@ pub enum B {
     Phasen(Vec<(String, bool)>),
     Titel(String),
     Text(String),
+    /// Player tiles: photo, name, a big number (change or grade), its colour by sign, a line under it.
+    Kacheln(Vec<(usize, String, Color, String)>),
     Reihe(Vec<B>),
 }
 impl B {
@@ -92,7 +94,7 @@ impl B {
     /// Shows a number or a graphic.
     fn zahl(&self) -> bool {
         match self { B::Zahl { .. } | B::Balken { .. } | B::Sterne { .. } | B::Ring { .. } | B::Diagramm { .. } | B::Radar { .. } | B::Anzeige { .. } | B::Ergebnisse(_) | B::Tabelle(_)
-            | B::Pillen(_) | B::Transfer { .. } | B::Phasen(_) => true, B::Reihe(v) => v.iter().any(|x| x.zahl()), _ => false }
+            | B::Pillen(_) | B::Kacheln(_) | B::Transfer { .. } | B::Phasen(_) => true, B::Reihe(v) => v.iter().any(|x| x.zahl()), _ => false }
     }
 }
 pub fn hat_bild(bs: &[B]) -> bool { bs.iter().any(|b| b.bild()) }
@@ -144,6 +146,21 @@ pub fn bausteine(c: &Career, m: &Msg) -> Vec<B> {
     let t = |k: &str| crate::inhalt::t(&format!("ui.post.{k}")).to_string();
     let wer = beteiligte(c, m);
     let erst = wer.first().copied();
+    // picture cards (Fabian 23.11.: no bare lists): players as tiles with their number
+    if !m.karte.is_empty() && !m.spieler.is_empty() {
+        let kacheln: Vec<(usize, String, Color, String)> = m.spieler.iter().zip(m.werte.iter().chain(std::iter::repeat(&0.0))).filter(|(p, _)| **p < c.world.players.len()).take(9).map(|(&p, &w)| {
+            let pl = &c.world.players[p];
+            match m.karte.as_str() {
+                "ehrung" => (p, format!("{w:.1}"), Theme::gold(), crate::tf!("ui.post.karte_ehrung", pos_de(&pl.pos), pl.goals)),
+                _ => (p, format!("{:+.0}", w).replace('-', "−"), if w >= 0.0 { Theme::gut() } else { Theme::problem() }, crate::tf!("ui.post.karte_staerke", format!("{:.0}", pl.ovr), pos_de(&pl.pos))),
+            }
+        }).collect();
+        let mut v = vec![];
+        if m.karte == "ehrung" { v.push(B::Siegel { titel: m.title.clone() }); }
+        v.push(B::Kacheln(kacheln));
+        v.push(B::Text(m.body.clone()));
+        return v;
+    }
     match art_von(m) {
         Art::Scout => {
             let Some(p) = erst else { return vec![B::Text(m.body.clone())] };
@@ -389,6 +406,7 @@ fn b_hoehe(ui: &Ui, b: &B, w: f32) -> f32 {
         B::Siegel { .. } => 110.0,
         B::Phasen(_) => 40.0,
         B::Titel(_) => 30.0,
+        B::Kacheln(v) => 124.0 * ((v.len() as f32) / 3.0).ceil(),
         B::Text(s) => ui.wrap(s, 16.0, w).len().min(10) as f32 * 21.0 + 6.0,
         B::Reihe(v) => v.iter().map(|x| b_hoehe(ui, x, w / v.len().max(1) as f32 - 10.0)).fold(0.0, f32::max),
     }
@@ -509,6 +527,19 @@ fn b_eins(ui: &Ui, c: &Career, r: Rect, b: &B) {
             ui.text(&ui.fit(&crate::tf!("ui.post.nach_wert", c.world.clubs[*nach].short, money(*wert)), 13.0, r.w - 100.0), r.x + 54.0, r.y + 44.0, 13.0, Theme::text2());
             wappen(*nach, r.x + r.w - 30.0, r.y + 30.0, 13.0);
         }
+        B::Kacheln(v) => {
+            let kw = (r.w - 16.0) / 3.0;
+            for (k, (p, gross, farbe, unter)) in v.iter().enumerate() {
+                let (x, y) = (r.x + (k % 3) as f32 * (kw + 8.0), r.y + (k / 3) as f32 * 124.0);
+                rrect(x, y, kw, 116.0, 12.0, Theme::erhoehung());
+                draw_rectangle(x, y + 10.0, 4.0, 96.0, *farbe);
+                let pl = &c.world.players[*p];
+                ui.player_photo(x + 40.0, y + 44.0, 28.0, pl.id, &pl.name);
+                ui.title(gross, x + kw - 14.0 - ui.measure_title(gross, 34.0), y + 52.0, 34.0, *farbe);
+                ui.text_semi(&ui.fit(&pl.name, 15.0, kw - 20.0), x + 14.0, y + 92.0, 15.0, Theme::text());
+                ui.text(&ui.fit(unter, 13.0, kw - 20.0), x + 14.0, y + 109.0, 13.0, Theme::text2());
+            }
+        }
         B::Pillen(v) => {
             let sw = r.w / 4.0;
             for (k, (p, note)) in v.iter().enumerate() {
@@ -564,10 +595,10 @@ pub fn antworten(m: &Msg) -> Vec<(String, u8, bool, u8)> {
         Action::Wahl { optionen, .. } => optionen.iter().take(6).enumerate().map(|(k, o)| (o.1.clone(), k as u8, true, ton(&o.0))).collect(),
         Action::Complaint { .. } => [crate::inhalt::t("ui.pages.1_du_bekommst_deine_einsaetze"), crate::inhalt::t("ui.pages.2_zeig_es_im_training"), crate::inhalt::t("ui.pages.3_dann_suchen_wir_dir")]
             .iter().enumerate().map(|(k, s)| (s.to_string(), k as u8, true, [0u8, 1, 2][k])).collect(),
-        Action::TransferOffer { .. } => vec![(crate::inhalt::t("kue.menu.verkauf").into(), 0, true, 2), (crate::inhalt::t("ui.post.ablehnen").into(), 0, false, 0)],
-        Action::JobOffer { .. } => vec![(crate::inhalt::t("aktion.angebot_annehmen").into(), 0, true, 1), (crate::inhalt::t("ui.post.ablehnen").into(), 0, false, 0)],
+        Action::TransferOffer { .. } => vec![(crate::inhalt::t("kue.menu.verkauf").into(), 0, true, 2), (crate::inhalt::t("gs.ui.nahelegen").into(), 1, true, 1), (crate::inhalt::t("gs.ui.zum_bleiben").into(), 2, true, 0), (crate::inhalt::t("ui.post.ablehnen").into(), 0, false, 0)],
+        Action::JobOffer { .. } => vec![(crate::inhalt::t("aktion.angebot_annehmen").into(), 0, true, 1), (crate::inhalt::t("lb.aktion.gespraech").into(), 1, true, 1), (crate::inhalt::t("ui.post.ablehnen").into(), 0, false, 0)],
         Action::Graduate { .. } => vec![(crate::inhalt::t("ui.pages.zu_den_profis").into(), 0, true, 0), (crate::inhalt::t("ui.pages.verein_verlassen").into(), 0, false, 2)],
-        Action::Expiring { .. } => vec![(crate::inhalt::t("aktion.vertragsgespraech").into(), 0, true, 0), (crate::inhalt::t("ui.pages.gehen_lassen").into(), 0, false, 2)],
+        Action::Expiring { .. } => vec![(crate::inhalt::t("gs.anfrage.opt.verhandeln").into(), 0, true, 0), (crate::inhalt::t("gs.anfrage.opt.bedingung").into(), 1, true, 1), (crate::inhalt::t("gs.anfrage.opt.spaeter").into(), 2, true, 1), (crate::inhalt::t("ui.pages.gehen_lassen").into(), 0, false, 2)],
         _ => vec![],
     }
 }
@@ -672,6 +703,8 @@ fn meldung_zeichnen(ui: &mut Ui, v: &mut View, c: &mut Career, rd: Rect, i: usiz
             if ui.hit(r) || (v.modal == Modal::None && !v.market_focus && is_key_pressed([KeyCode::Key1, KeyCode::Key2, KeyCode::Key3, KeyCode::Key4, KeyCode::Key5, KeyCode::Key6][k])) { geklickt = Some((*opt, *ja)); }
         }
         if let Some((opt, ja)) = geklickt { c.answer(i, ja, opt); v.post_folgen = None; v.toast(crate::inhalt::t("vg.ausgang.kurz.abgeschlossen"), true); return; }
+        // delegate: the assistant answers it (Fabian 23.11.)
+        if !m.done && ui.button(Rect::new(haupt.x + haupt.w - 220.0, ky - 6.0, 220.0, 28.0), crate::inhalt::t("pk.delegieren"), false) { c.delegieren(i); v.post_folgen = None; v.toast(crate::inhalt::t("ui.vorgang.vom_co_trainer_beantwortet"), true); return; }
     }
     // the buttons of a scout report and an offer
     let by = haupt.y + haupt.h - 44.0;
@@ -735,6 +768,10 @@ fn meldung_zeile(ui: &mut Ui, c: &Career, r: Rect, m: &Msg, sel: bool) {
 
 impl Career {
     /// Marks the newest message with its kind and the players it is about.
+    /// The newest message gets a picture card: tiles of players with a number each (development, awards).
+    pub fn meldung_karte(&mut self, art: Art, karte: &str, spieler: Vec<(usize, f32)>) {
+        if let Some(m) = self.inbox.first_mut() { m.art = art.id().into(); m.karte = karte.into(); m.spieler = spieler.iter().map(|x| x.0).collect(); m.werte = spieler.iter().map(|x| x.1).collect(); }
+    }
     pub fn meldung_art(&mut self, art: Art, spieler: Vec<usize>) {
         if let Some(m) = self.inbox.first_mut() { m.art = art.id().into(); m.spieler = spieler; }
     }

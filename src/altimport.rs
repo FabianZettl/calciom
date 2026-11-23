@@ -193,3 +193,24 @@ mod tests {
         }
     }
 }
+
+/// `pesm --neue-karriere <welt> <team-id> <trainer>`: a fresh career for tests (e.g. the tactics probe), with its own
+/// database copy and CPK name; existing careers stay untouched.
+pub fn neue_karriere(welt: &str, team: &str, trainer: &str) -> Result<String, String> {
+    let welt = Path::new(welt);
+    let w = World::from_pesdb(&welt.join("common/etc/pesdb"), 7).map_err(|e| format!("pesdb: {e}"))?;
+    let id: u32 = team.parse().map_err(|_| "Team-ID fehlt".to_string())?; // roh
+    let own = w.clubs.iter().position(|c| c.id == id).ok_or("Verein nicht in der Welt")?; // roh
+    let mut c = Career::new(w, own, trainer);
+    let name = crate::fl27::cpk_name(&c.club().name.clone(), &crate::fl27::sider().join(crate::id("livecpk")));
+    if crate::game::save_dir().join(&name).exists() { return Err(format!("{name} gibt es schon")); } // roh
+    c.save_name = name;
+    c.fl27_welt = welt.display().to_string();
+    let s2 = welt.parent().and_then(|p| p.parent()).map(|p| p.to_path_buf()).unwrap_or_else(crate::fl27::sider);
+    crate::fl27::original_sichern(&c.karriere_dir(), &s2, welt)?;
+    crate::fl27::karriere_pesdb_anlegen(&c.karriere_dir(), welt)?;
+    let _ = c.fl27_cpk();
+    c.save()?;
+    let gegner = c.next_match().map(|f| { let g = if f.h == c.own { f.a } else { f.h }; format!("{} ({})", c.world.clubs[g].name, c.world.clubs[g].id) }).unwrap_or_default();
+    Ok(format!("{} angelegt: {}, nächster Gegner {gegner}", c.save_name, c.club().name)) // roh
+}

@@ -65,6 +65,19 @@ pub struct Ent {
     /// Days out with the current injury, day the rehab factor ends.
     pub ausfall: u16,
     pub rueckkehr_bis: u32,
+    /// Abs days of the injuries of the last two years (medizin.rs: history as a reason).
+    #[serde(default)]
+    pub ausfaelle: Vec<u32>,
+    /// Medical department (medizin.rs): total and start of the current injury, relapse risk (until, factor, days of the
+    /// injury), the rehab programme (start of the injury + 1 it was used for), injections (season, count) and their after-effect.
+    #[serde(default)] pub inj_gesamt: u16,
+    #[serde(default)] pub inj_beginn: u32,
+    #[serde(default)] pub rueck_bis: u32,
+    #[serde(default)] pub rueck_faktor: f32,
+    #[serde(default)] pub rueck_tage: u16,
+    #[serde(default)] pub reha_bei: u32,
+    #[serde(default)] pub fits: (u32, u8),
+    #[serde(default)] pub fitm_bis: u32,
     /// Progress paths: (id, hits 0…3, abs day reached), and since when a reached path has no need in the position.
     pub wege: Vec<(String, u8, u32)>,
     pub ohne_bedarf: Vec<(String, u32)>,
@@ -93,6 +106,8 @@ pub struct Lage {
     pub moral_vorher: f32,
     pub rolle: String,
     pub fokus: Vec<usize>,
+    /// Growth factor per ability from the week's training plan (trainingsplan.rs); empty = 1.
+    pub einheiten: Vec<f32>,
     /// Intensity factor of the plan (0,8 / 1,0 / 1,2) times its repetition factor.
     pub training: f32,
     pub einzel: bool,
@@ -116,7 +131,7 @@ impl Lage {
     /// A plain week: no matches, neutral mood, no focus (tests and previews start from here).
     pub fn neutral(alter: u8, pos: usize, pot: f32, gw: f32) -> Lage {
         Lage { alter, pos, pot, gw, merkmale: vec![], quote: None, noten: vec![], serie_siege: 0, serie_niederlagen: 0, moral: 50.0, moral_vorher: 50.0, rolle: "stammspieler".into(),
-            fokus: vec![], training: 1.0, einzel: false, mentor: 0.0, mentor_werte: None, beziehung: 50.0, stab: None, belastung: 30.0, gespraeche: 0.0, vertrag: 0.0, teamgeist: None,
+            fokus: vec![], einheiten: vec![], training: 1.0, einzel: false, mentor: 0.0, mentor_werte: None, beziehung: 50.0, stab: None, belastung: 30.0, gespraeche: 0.0, vertrag: 0.0, teamgeist: None,
             rueckkehr: false, anlagen: 1.0, rate: 1.0, seed: "x".into(), heute: 0 }
     }
 }
@@ -305,7 +320,7 @@ pub fn wochenpunkte(l: &Lage, ph: &Neu, werte: &[f32], abzug: &mut [f32], peak: 
             let fokf = if l.fokus.is_empty() { 1.0 } else if l.fokus.contains(&i) { ei("fokus_plus") } else { ei("fokus_andere") };
             let cap = obergrenze(i);
             let cf = if werte[i] <= cap - k3("talent.cap_abstand") { 1.0 } else { klemme((cap - werte[i]) / k3("talent.cap_abstand"), 0.0, 1.0) };
-            pt = rate * tal * verdichten(gunst * wachstum * pf * fokf) * cf;
+            pt = rate * tal * verdichten(gunst * wachstum * pf * fokf * l.einheiten.get(i).copied().unwrap_or(1.0)) * cf;
         } else if rate < 0.0 {
             pt = rate * altern * alt_m;
         }
@@ -537,7 +552,7 @@ impl Career {
             let akademie = pl.youth == 17 || q <= 0.0;
             l.quote = Some(if akademie { a("akademie_quote") } else { q });
             if !akademie { l.noten = vec![n; 4]; }
-            l.rate = a("rate_faktor") * if akademie { a("akademie_faktor") } else { 1.0 };
+            l.rate = a("rate_faktor") * if akademie { a("akademie_faktor") } else { 1.0 } * self.akademie_faktor(p);
         } else if !pl.ps.einsatz.is_empty() {
             let e: Vec<f32> = pl.ps.einsatz.iter().rev().take(fenster).copied().collect();
             l.quote = Some(e.iter().filter(|x| **x >= 0.5).count() as f32 / e.len() as f32);
@@ -553,6 +568,7 @@ impl Career {
         if !fk.is_empty() { l.fokus = fokusgruppen().into_iter().find(|x| x.0 == fk).map(|x| x.1).unwrap_or_default(); }
         l.einzel = pl.program == 2;
         l.training = self.plan_faktor();
+        if self.wochenplan.tage.len() == 7 { l.einheiten = crate::trainingsplan::faktoren(&self.wochenplan); }
         if let Some(m) = pl.ps.mentor.and_then(|m| self.pid(m)) {
             l.mentor = self.mentor_passung(m, p);
             if self.world.players[m].attrs.len() == 25 { l.mentor_werte = Some(self.world.players[m].attrs.clone()); }
@@ -571,13 +587,16 @@ impl Career {
     /// Once a week for the own squad and academy: phases, points per ability, leaps, mentor, paths, history, messages.
     pub fn entwicklung_woche(&mut self) {
         let abs = self.abs();
+        self.tr_gewinn.clear();
         // the week of the whole squad for one collected report: (player, overall before, steps, lines)
         let mut woche: Vec<(usize, f32, i32, Vec<String>)> = vec![];
         for p in self.world.clubs[self.own].squad.clone() {
             if self.world.players[p].attrs.len() != 25 { continue; }
             if !self.world.players[p].ent.an {
-                let m = merkmale_schaetzen(&self.world.players[p]);
+                let mut m = merkmale_schaetzen(&self.world.players[p]);
                 let pl = &mut self.world.players[p];
+                // traits given at the talent day (late developer, early developer) stay
+                for x in &pl.ent.merkmale { if !m.contains(x) { m.push(x.clone()); } }
                 for a in pl.attrs.iter_mut() { *a = a.round().clamp(40.0, 99.0); }
                 pl.ent.an = true;
                 pl.ent.merkmale = m;
@@ -589,6 +608,9 @@ impl Career {
             let mut e = std::mem::take(&mut pl.ent);
             let mut werte = std::mem::take(&mut pl.attrs);
             let b = schritt(&l, &mut e, &mut werte);
+            // the training report: what the trained abilities (factor above 1) gained this week
+            let gewinn: f32 = (0..25).filter(|&i| l.einheiten.get(i).map_or(false, |x| *x > 1.0)).map(|i| b.punkte[i].max(0.0)).sum();
+            self.tr_gewinn.push((p, gewinn));
             let ovr_vorher = pl.ovr;
             let pos = crate::pesdb::pos_index(&pl.pos);
             pl.ovr = crate::pesdb::ovr(&werte, pos).clamp(30.0, 99.0);
@@ -617,7 +639,7 @@ impl Career {
         if !gelernt.is_empty() { woche.push((usize::MAX, 0.0, 0, gelernt)); }
         self.ent_wochenbericht(&woche);
         if (abs / 7) % 4 == 0 { self.ent_monatsbericht(); }
-        if (abs / 7) % 4 == 0 { self.mentor_spezial(); }
+        if (abs / 7) % 4 == 0 { self.mentor_spezial(); self.mentor_vorschlaege(); self.akademie_bericht(); }
     }
     /// What a player's week says: a crisis comes as its own message (it needs a talk); a slump, the way back and a
     /// leap become lines of the weekly report.
@@ -662,9 +684,9 @@ impl Career {
         if !auf.is_empty() { body.push(crate::tf!("ui.ent.woche.auf", liste(&auf))); }
         if !ab.is_empty() { body.push(crate::tf!("ui.ent.woche.ab", liste(&ab))); }
         body.extend(zeilen.into_iter().cloned());
-        let spieler: Vec<usize> = auf.iter().chain(ab.iter()).map(|x| x.0).take(6).collect();
+        let spieler: Vec<(usize, f32)> = auf.iter().take(6).chain(ab.iter().take(3)).copied().collect();
         self.msg(1, crate::inhalt::t("en3.absender"), crate::inhalt::t("ui.ent.woche.titel"), &body.join(crate::id("\n")), Action::None);
-        self.meldung_art(crate::pages::Art::Allgemein, spieler);
+        self.meldung_karte(crate::pages::Art::Talent, crate::id("entwicklung"), spieler);
     }
     /// Every fourth week: the month of the squad from the history (winners, losers, phases, leaps).
     fn ent_monatsbericht(&mut self) {
@@ -682,9 +704,9 @@ impl Career {
         if !gewinner.is_empty() { body.push(crate::tf!("ui.ent.monat.gewinner", gewinner)); }
         if !verlierer.is_empty() { body.push(crate::tf!("ui.ent.monat.verlierer", verlierer)); }
         body.push(crate::tf!("ui.ent.monat.phasen", phase(1), phase(2), phase(3), spruenge));
-        let spieler: Vec<usize> = v.iter().take(3).map(|x| x.0).collect();
+        let spieler: Vec<(usize, f32)> = v.iter().filter(|x| x.1 > 0.0).take(3).chain(v.iter().rev().filter(|x| x.1 < 0.0).take(3)).copied().collect();
         self.msg(1, crate::inhalt::t("en3.absender"), crate::inhalt::t("ui.ent.monat.titel"), &body.join(crate::id("\n")), Action::None);
-        self.meldung_art(crate::pages::Art::Allgemein, spieler);
+        self.meldung_karte(crate::pages::Art::Talent, crate::id("entwicklung"), spieler);
     }
     /// Expected change of the overall per season from this week's model (training and academy arrows); nothing is changed.
     pub fn ent_erwartung(&self, p: usize) -> f32 {
@@ -1017,6 +1039,7 @@ mod tests {
         let titel = |k: &str| c.inbox.iter().filter(|m| m.title == crate::inhalt::t(k)).count();
         assert!((1..=8).contains(&titel("ui.ent.woche.titel")), "eine Sammelmeldung je Woche, {}", titel("ui.ent.woche.titel"));
         assert!(titel("ui.ent.monat.titel") >= 1, "Monatsbericht");
+        assert!((1..=8).contains(&titel("ui.tp.bericht.titel")), "ein Trainingsbericht je Woche, {}", titel("ui.tp.bericht.titel"));
         assert_eq!(titel("en3.betreff.sprung") + titel("en3.betreff.formtief") + titel("en3.betreff.genesung"), 0, "keine Einzelmeldungen mehr");
     }
     #[test]

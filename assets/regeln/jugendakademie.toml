@@ -1,0 +1,136 @@
+# Akademie-Konzept (23.11.2026): Jugendstärke aller Vereine, Talenttag, Absolventen der KI-Vereine, Mentoren, Trainingsgäste,
+# Abschlussrunde und Akademie-Faktoren der Entwicklung. Alle Zahlen sind Startwerte (Konzept konzepte/akademie.md).
+
+[staerke]
+anlagen = 0.35                 # Jugendstärke = 0,35·Anlagen + 0,25·Stab + 0,20·Region + 0,20·Tradition (alle 1–10)
+stab = 0.25
+region = 0.20
+tradition = 0.20
+ki_anlagen = [2.0, 0.08]       # KI-Vereine ohne eigene Anlagenstufe: Grundwert + je Ruf-Punkt (Ruf 0–100)
+ki_stab = [3.0, 0.05]
+tradition_basis = [3.0, 0.04]  # Grundwert + je Ruf-Punkt, dazu je Eigengewächs im Kader
+tradition_je_eigengewaechs = 0.6
+region_standard = 5
+bekannt_gewicht = 0.7          # Anteil des Startwerts aus [bekannt] an der Jugendstärke
+
+# Talentdichte des Landes (1–10).
+[region]
+"Brasilien" = 10
+"Argentinien" = 10
+"Frankreich" = 10
+"Niederlande" = 9
+"Spanien" = 9
+"Portugal" = 9
+"Belgien" = 8
+"England" = 8
+"Deutschland" = 8
+"Kroatien" = 8
+"Serbien" = 8
+"Uruguay" = 8
+"Italien" = 7
+"Dänemark" = 7
+"Kolumbien" = 7
+"Nigeria" = 7
+"Elfenbeinküste" = 7
+"Senegal" = 7
+"Ghana" = 7
+"Österreich" = 6
+"Schweiz" = 6
+"Norwegen" = 6
+"Schweden" = 6
+"Türkei" = 6
+"Polen" = 6
+"Tschechien" = 6
+"Ukraine" = 6
+"Japan" = 6
+"Mexiko" = 6
+"USA" = 5
+"Schottland" = 5
+"Griechenland" = 5
+"Südkorea" = 5
+"Island" = 3
+
+# Bekannte Akademien: Startwert der Jugendstärke (Teil des Vereinsnamens genügt). Fabian kann die Liste pflegen.
+[bekannt]
+"Ajax" = 10
+"Benfica" = 10
+"Barcelona" = 10
+"Sporting" = 9
+"Dinamo Zagreb" = 9
+"Athletic" = 9
+"Lyon" = 9
+"River Plate" = 10
+"Boca Juniors" = 9
+"Santos" = 9
+"Flamengo" = 9
+"São Paulo" = 9
+"Real Madrid" = 8
+"Freiburg" = 8
+"Rennes" = 8
+"Southampton" = 8
+"PSV" = 8
+"Feyenoord" = 8
+"Partizan" = 8
+"Manchester United" = 8
+"Bayern" = 8
+"Dortmund" = 8
+"Schalke" = 8
+"Stuttgart" = 8
+"Hertha" = 7
+"Chelsea" = 8
+"Porto" = 8
+"Real Sociedad" = 8
+"Villarreal" = 7
+"Atalanta" = 8
+"Salzburg" = 8
+"Genk" = 8
+"Anderlecht" = 8
+
+[jahrgang]
+groesse_basis = 6              # 6 + Anlagenstufe + Zufall(−1 … +2)
+zufall = [-1, 2]
+alter_15_anteil = 0.67
+gw = [42.0, 1.5, 5.0, 35.0, 62.0]   # Mittel, je Jugendstärke, Streuung, untere und obere Grenze
+pot = [58.0, 2.2, 7.0, 50.0, 90.0]
+juwel = [0.02, 0.008]          # Chance je Spieler: Grund + je Jugendstärke
+juwel_pot = [84.0, 3.0, 94.0]  # Mittel, Streuung, höchstens
+torhueter = [1, 2]
+spaetzuender = 0.12
+fruehentwickler = 0.12
+gehalt = 6000                  # Fördervertrag im Jahr
+jahre = 3
+
+[absolventen]
+anzahl_teiler = 4.0            # Anzahl = Zufall(0 … 1) + Jugendstärke/4, gerundet
+gw = [48.0, 1.5, 5.0]          # Mittel, je Jugendstärke, Streuung (+ Ligastufen-Bonus)
+pot = [60.0, 2.2, 7.0]
+liga_bonus = [4.0, 2.0]        # oberste, zweite Ligastufe
+kader_hoechstens = 30
+alter_bis = 19
+
+[mentor]
+schuetzling_bis = 21
+mentor_ab = 26
+abstand = 6
+fuehrung_ab = 50
+prof_ab = 55
+ego_bis = 75                   # darüber Diva oder Egoist: kein Mentor
+schuetzlinge = 2
+vorschlaege = 2
+passung_ab = 0.35
+ja_basis = 0.6
+ja_fuehrung = 0.4
+moral_nein = 35
+
+[hochziehen]
+gast_hoechstens = 4
+gast_faktor = 1.15
+gast_moral = 3.0
+abschluss_alter = 19
+
+[faktoren]
+trainer_hebel = 0.15           # × (1 + 0,15·(Trainerwert − 50)/50)
+anlagen = [0.92, 0.04]         # × (0,92 + 0,04·Anlagenstufe)
+niveau_abstand = 8.0
+unterfordert = 0.8
+ueberfordert = 0.85

@@ -1,0 +1,53 @@
+# Ergebnisprofile der Ligen (eigene Festlegung von PES M nach langjährigen Mittelwerten der echten Ligen, gerundet;
+# nicht aus einer einzelnen Saison): Tore je Spiel der Heim- und der Gastmannschaft bei gleich starken Teams und der
+# Anteil der Unentschieden. Unbekannte Länder: [standard]; zweite und tiefere Ligen: [unterklasse].
+[standard]
+heim = 1.50
+gast = 1.17
+remis = 0.25
+
+[unterklasse]
+heim = 1.42
+gast = 1.12
+remis = 0.28
+
+[land.deutschland]
+heim = 1.70
+gast = 1.35
+remis = 0.24
+[land.england]
+heim = 1.55
+gast = 1.27
+remis = 0.23
+[land.spanien]
+heim = 1.47
+gast = 1.12
+remis = 0.26
+[land.italien]
+heim = 1.50
+gast = 1.22
+remis = 0.25
+[land.frankreich]
+heim = 1.47
+gast = 1.17
+remis = 0.26
+[land.niederlande]
+heim = 1.75
+gast = 1.33
+remis = 0.22
+[land.portugal]
+heim = 1.42
+gast = 1.12
+remis = 0.26
+[land."türkei"]
+heim = 1.52
+gast = 1.25
+remis = 0.25
+[land.belgien]
+heim = 1.62
+gast = 1.25
+remis = 0.24
+[land.schottland]
+heim = 1.45
+gast = 1.30
+remis = 0.23

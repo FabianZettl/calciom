@@ -1,0 +1,132 @@
+# Look der Wettbewerbe in PES M (Wettbewerbsseiten): Farben wie die echten Ligen, Muster (sterne, streifen, keins).
+# Schlüssel = Wettbewerbsschlüssel der Welt (z. B. ENGLAND_D1_LEAGUE) oder Art (cl, el, uecl). Ohne Eintrag: die Farben des Landes.
+# farbe1 = Grund des Banners, farbe2 = zweite Farbe (Verlauf, Kanten), akzent = Linien und Zonen. Diese Datei darfst du ändern.
+
+[art.cl]
+farbe1 = "0b1b4d"
+farbe2 = "1e3a8a"
+akzent = "c0c8d8"
+muster = "sterne"
+[art.el]
+farbe1 = "1a1a1a"
+farbe2 = "f26522"
+akzent = "f26522"
+muster = "streifen"
+[art.uecl]
+farbe1 = "0b2a1c"
+farbe2 = "00be46"
+akzent = "00be46"
+muster = "streifen"
+
+[liga.ENGLAND_D1_LEAGUE]
+farbe1 = "37003c"
+farbe2 = "5b0b63"
+akzent = "00ff85"
+muster = "streifen"
+[liga.ENGLAND_D2_LEAGUE]
+farbe1 = "0f2b4c"
+farbe2 = "1d4a7a"
+akzent = "e3b23c"
+muster = "keins"
+[liga.GERMANY_D1_LEAGUE]
+farbe1 = "d20515"
+farbe2 = "8f0010"
+akzent = "ffffff"
+muster = "streifen"
+[liga.FL_011_LEAGUE]
+farbe1 = "c8102e"
+farbe2 = "1a1a1a"
+akzent = "ffffff"
+muster = "keins"
+[liga.SPAIN_D1_LEAGUE]
+farbe1 = "ff4b44"
+farbe2 = "b3261e"
+akzent = "ffffff"
+muster = "streifen"
+[liga.SPAIN_D2_LEAGUE]
+farbe1 = "1d3557"
+farbe2 = "ff4b44"
+akzent = "ffffff"
+muster = "keins"
+[liga.ITALY_D1_LEAGUE]
+farbe1 = "024494"
+farbe2 = "0a1f44"
+akzent = "21c3f3"
+muster = "streifen"
+[liga.ITALY_D2_LEAGUE]
+farbe1 = "0a1f44"
+farbe2 = "024494"
+akzent = "e30613"
+muster = "keins"
+[liga.FRANCE_D1_LEAGUE]
+farbe1 = "091c3e"
+farbe2 = "1b2f5e"
+akzent = "dae025"
+muster = "streifen"
+[liga.FRANCE_D2_LEAGUE]
+farbe1 = "091c3e"
+farbe2 = "e4312b"
+akzent = "ffffff"
+muster = "keins"
+[liga.NETHERLANDS_D1_LEAGUE]
+farbe1 = "ff6200"
+farbe2 = "b33f00"
+akzent = "ffffff"
+muster = "streifen"
+[liga.PORTUGAL_D1_LEAGUE]
+farbe1 = "001e50"
+farbe2 = "00a19a"
+akzent = "00e0c0"
+muster = "streifen"
+[liga.SCOTLAND_D1_LEAGUE]
+farbe1 = "2b1a5c"
+farbe2 = "6b2fbf"
+akzent = "f5c518"
+muster = "keins"
+[liga.TURKEY_D1_LEAGUE]
+farbe1 = "e30a17"
+farbe2 = "7a0008"
+akzent = "ffffff"
+muster = "keins"
+[liga.BELGIUM_D1_LEAGUE]
+farbe1 = "1a1a1a"
+farbe2 = "e1001a"
+akzent = "f6d51f"
+muster = "keins"
+[liga.BRAZIL_D1_LEAGUE]
+farbe1 = "00843d"
+farbe2 = "0b3d91"
+akzent = "ffcc00"
+muster = "keins"
+[liga.US_D1_LEAGUE]
+farbe1 = "0a1e3c"
+farbe2 = "c8102e"
+akzent = "ffffff"
+muster = "keins"
+[liga.KSA_D1_LEAGUE]
+farbe1 = "0b3d2c"
+farbe2 = "006c35"
+akzent = "c9a227"
+muster = "keins"
+
+# Länderfarben (Fahne) für alles ohne eigenen Eintrag: Name des Landes wie in der Welt
+[land]
+"England" = ["cf081f", "ffffff"]
+"Deutschland" = ["1a1a1a", "dd0000"]
+"Spanien" = ["c60b1e", "ffc400"]
+"Italien" = ["008c45", "cd212a"]
+"Frankreich" = ["002395", "ed2939"]
+"Niederlande" = ["ae1c28", "21468b"]
+"Portugal" = ["006600", "ff0000"]
+"Schottland" = ["005eb8", "ffffff"]
+"Belgien" = ["1a1a1a", "fdda24"]
+"Türkei" = ["e30a17", "ffffff"]
+"Brasilien" = ["009c3b", "ffdf00"]
+"Argentinien" = ["74acdf", "ffffff"]
+"USA" = ["3c3b6e", "b22234"]
+"Japan" = ["bc002d", "ffffff"]
+"Österreich" = ["ed2939", "ffffff"]
+"Schweiz" = ["d52b1e", "ffffff"]
+"Griechenland" = ["0d5eaf", "ffffff"]
+"Dänemark" = ["c60c30", "ffffff"]
+"Russland" = ["0039a6", "d52b1e"]

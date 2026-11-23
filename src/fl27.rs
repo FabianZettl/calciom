@@ -172,7 +172,12 @@ pub fn transfer(a: &mut Vec<Asg>, pid: u32, from: u32, to: u32, wish: u32) -> Re
         if let Some(i) = old { a.remove(i); }
         return Ok(());
     }
-    if a.iter().any(|x| x.pid == pid && x.team == to) { return Err(format!("Spieler {pid} ist schon beim Verein {to}")); }
+    // already listed at the new club (a second record in the world, e.g. on loan or doubled in the data): keep that
+    // one and drop the old record, so the squads stay as the career says (live writing failed here, 22.11.)
+    if a.iter().any(|x| x.pid == pid && x.team == to) {
+        if let Some(i) = old { a.remove(i); }
+        return Ok(());
+    }
     let used: HashSet<u32> = a.iter().filter(|x| x.team == to).map(|x| x.nummer()).collect();
     let no = if (1..=128).contains(&wish) && !used.contains(&wish) { wish } else { (1..=128).find(|n| !used.contains(n)).ok_or("keine Rückennummer frei")? };
     let platz = a.iter().filter(|x| x.team == to).map(|x| x.platz() + 1).max().unwrap_or(0).min(63);
@@ -592,6 +597,133 @@ pub fn asg_schreiben(karriere: &Path, head: [u8; 8], a: &[Asg]) -> Result<(), St
 }
 /// Puts the career's pesdb into S/livecpk/PESM_Karriere (copy of all pesdb files plus character0 of the world),
 /// checks every copied file by SHA-256 and rolls back on a difference. The game must be closed.
+// ---------------------------------------------------------------- formation (TacticsFormation.bin, docs/FORSCHUNG-TAKTIK.md)
+fn le32(d: &[u8], o: usize) -> u32 { u32::from_le_bytes([d[o], d[o + 1], d[o + 2], d[o + 3]]) }
+/// The formation id the game uses for a team: the first of its two Tactics.bin records (confirmed in game 22.11.).
+fn formation_kennung(pesdb: &Path, team: u32) -> Result<u32, String> {
+    let (_, t) = unpack(&std::fs::read(pesdb.join("Tactics.bin")).map_err(|e| format!("Tactics.bin: {e}"))?)?;
+    (0..t.len() / 12).map(|i| i * 12).find(|&o| le32(&t, o + 4) == team).map(|o| le32(&t, o)).ok_or_else(|| format!("Team {team} nicht in Tactics.bin")) // roh
+}
+/// Position codes (0 GK … 12 CF) of the formation the game uses for a team, in the order of its places 0..10.
+pub fn formation_codes(pesdb: &Path, team: u32) -> Result<Vec<u8>, String> {
+    let k = formation_kennung(pesdb, team)?;
+    let (_, f) = unpack(&std::fs::read(pesdb.join("TacticsFormation.bin")).map_err(|e| format!("TacticsFormation.bin: {e}"))?)?;
+    let mut v: Vec<(u16, u8)> = (0..f.len() / 12).map(|i| i * 12).filter(|&o| le32(&f, o) == k).map(|o| (u16::from_le_bytes([f[o + 10], f[o + 11]]), le32(&f, o + 4) as u8)).filter(|x| x.0 >> 4 == 0).collect();
+    v.sort();
+    Ok(v.into_iter().map(|x| x.1).collect())
+}
+/// Writes a formation for a team: place i gets (position code, depth 0..47, width 0..104) in all three sets, so the
+/// game shows it whatever set it starts with. Returns whether the file changed.
+pub fn formation_schreiben(pesdb: &Path, team: u32, plaetze: &[(u8, u8, u8)]) -> Result<bool, String> {
+    if plaetze.len() != 11 || plaetze.iter().any(|p| p.0 > 12 || p.1 > 47 || p.2 > 104) { return Err("Formation ungültig".into()); } // roh
+    let k = formation_kennung(pesdb, team)?;
+    let p = pesdb.join("TacticsFormation.bin");
+    let (kopf, mut f) = unpack(&std::fs::read(&p).map_err(|e| format!("TacticsFormation.bin: {e}"))?)?;
+    let orte: Vec<usize> = (0..f.len() / 12).map(|i| i * 12).filter(|&o| le32(&f, o) == k).collect();
+    let alt = f.clone();
+    for o in orte {
+        let platz = (u16::from_le_bytes([f[o + 10], f[o + 11]]) & 15) as usize;
+        if platz >= 11 { continue; }
+        let (c, t, q) = plaetze[platz];
+        f[o + 4..o + 8].copy_from_slice(&(c as u32).to_le_bytes());
+        f[o + 8] = t;
+        f[o + 9] = q;
+    }
+    if f == alt { return Ok(false); }
+    atomic_write(&p, &pack(kopf, &f))?;
+    Ok(true)
+}
+/// Sliders of a team in the game (Tactics.bin, first record; confirmed in game 22.11.: shown value = half-byte + 1):
+/// compactness (half-byte 0), support range (1) and defensive line (2), each 1..10; None leaves a value as it is.
+pub fn regler_schreiben(pesdb: &Path, team: u32, kompakt: Option<u8>, unterstuetzung: Option<u8>, linie: Option<u8>) -> Result<bool, String> {
+    let p = pesdb.join("Tactics.bin");
+    let (kopf, mut t) = unpack(&std::fs::read(&p).map_err(|e| format!("Tactics.bin: {e}"))?)?;
+    let o = (0..t.len() / 12).map(|i| i * 12).find(|&o| le32(&t, o + 4) == team).ok_or_else(|| format!("Team {team} nicht in Tactics.bin"))?; // roh
+    let alt = le32(&t, o + 8);
+    let mut v = alt;
+    for (sh, w) in [(0u32, kompakt), (4, unterstuetzung), (8, linie)] {
+        if let Some(w) = w { v = (v & !(15 << sh)) | (((w.clamp(1, 10) - 1) as u32) << sh); }
+    }
+    if v == alt { return Ok(false); }
+    t[o + 8..o + 12].copy_from_slice(&v.to_le_bytes());
+    atomic_write(&p, &pack(kopf, &t))?;
+    Ok(true)
+}
+/// Set 0 of a team's formation record `rec` (0 the one the game uses, 1 the second record): (code, depth, width) × 11.
+pub fn formation_satz(pesdb: &Path, team: u32, rec: usize) -> Option<Vec<(u8, u8, u8)>> {
+    let (_, t) = unpack(&std::fs::read(pesdb.join("Tactics.bin")).ok()?).ok()?;
+    let k = (0..t.len() / 12).map(|i| i * 12).filter(|&o| le32(&t, o + 4) == team).nth(rec).map(|o| le32(&t, o))?;
+    let (_, f) = unpack(&std::fs::read(pesdb.join("TacticsFormation.bin")).ok()?).ok()?;
+    formation_aus(&f, k)
+}
+fn formation_aus(f: &[u8], k: u32) -> Option<Vec<(u8, u8, u8)>> {
+    let mut v: Vec<(u16, (u8, u8, u8))> = (0..f.len() / 12).map(|i| i * 12).filter(|&o| le32(f, o) == k).map(|o| (u16::from_le_bytes([f[o + 10], f[o + 11]]), (le32(f, o + 4) as u8, f[o + 8], f[o + 9]))).filter(|x| x.0 >> 4 == 0).collect();
+    v.sort_by_key(|x| x.0);
+    (v.len() == 11).then(|| v.into_iter().map(|x| x.1).collect())
+}
+/// Every team's formation (both records) of a world: team id → [record 0, record 1].
+pub fn alle_formationen(pesdb: &Path) -> std::collections::HashMap<u32, Vec<Vec<(u8, u8, u8)>>> {
+    let mut out: std::collections::HashMap<u32, Vec<Vec<(u8, u8, u8)>>> = Default::default();
+    let (Some(t), Some(f)) = (std::fs::read(pesdb.join("Tactics.bin")).ok().and_then(|b| unpack(&b).ok()), std::fs::read(pesdb.join("TacticsFormation.bin")).ok().and_then(|b| unpack(&b).ok())) else { return out };
+    for o in (0..t.1.len() / 12).map(|i| i * 12) {
+        if let Some(x) = formation_aus(&f.1, le32(&t.1, o)) { out.entry(le32(&t.1, o + 4)).or_default().push(x); }
+    }
+    out
+}
+/// The name of a formation as the game shows it („4-2-1-3“): the defenders, the midfield in rows by depth (gap of 4
+/// or more), a second striker as a row of his own, the wingers and the centre forward together in front.
+pub fn formation_name(p: &[(u8, u8, u8)]) -> String {
+    let abwehr = p.iter().filter(|x| (1..=3).contains(&x.0)).count();
+    let mut mitte: Vec<u8> = p.iter().filter(|x| (4..=8).contains(&x.0)).map(|x| x.1).collect();
+    mitte.sort();
+    let mut reihen: Vec<usize> = vec![abwehr];
+    let mut vorher: Option<u8> = None;
+    for d in mitte { if vorher.map_or(true, |v| d >= v + 4) { reihen.push(1); } else { *reihen.last_mut().unwrap() += 1; } vorher = Some(d); }
+    let hs = p.iter().filter(|x| x.0 == 11).count();
+    if hs > 0 { reihen.push(hs); }
+    let vorn = p.iter().filter(|x| matches!(x.0, 9 | 10 | 12)).count();
+    if vorn > 0 { reihen.push(vorn); }
+    reihen.iter().filter(|&&n| n > 0).map(|n| n.to_string()).collect::<Vec<_>>().join("-")
+}
+/// The places in the order the world's data use: keeper, centre-backs, right back, left back, defensive, central, right,
+/// left midfield, attacking midfield, right, left wing, second striker, centre forward; on the same role right before left.
+pub fn formation_ordnen<T>(p: &mut [(u8, u8, u8, T)]) {
+    let rang = |c: u8| [0u8, 1, 3, 2, 4, 5, 7, 6, 8, 10, 9, 11, 12].iter().position(|&x| x == c).unwrap_or(13);
+    p.sort_by_key(|x| (rang(x.0), std::cmp::Reverse(x.2)));
+}
+/// The eleven in the order of the game's formation: each place takes the player whose PES M slot (or position) fits
+/// its code best, so nobody ends up on the wrong place when the formation itself is the world's (opponents).
+pub fn nach_formation(codes: &[u8], elf: &[(u8, u32)]) -> Vec<u32> {
+    let gruppe = |c: u8| match c { 0 => 0, 1..=3 => 1, 4..=8 => 2, _ => 3 };
+    let seite = |c: u8| -> i32 { match c { 2 | 6 | 9 => -1, 3 | 7 | 10 => 1, _ => 0 } };
+    let mut frei: Vec<(u8, u32)> = elf.to_vec();
+    let mut out = vec![0u32; codes.len()];
+    let mut offen: Vec<usize> = vec![];
+    for (i, &c) in codes.iter().enumerate() {
+        if let Some(j) = frei.iter().position(|x| x.0 == c) { out[i] = frei.remove(j).1; } else { offen.push(i); }
+    }
+    for i in offen {
+        let c = codes[i];
+        let j = (0..frei.len()).min_by_key(|&j| { let x = frei[j].0; ((gruppe(x) as i32 - gruppe(c) as i32).abs() * 10 + (seite(x) - seite(c)).abs(), j) });
+        if let Some(j) = j { out[i] = frei.remove(j).1; }
+    }
+    out
+}
+/// Every file of the career's pesdb that differs in the game's copy is written again (the live writing keeps only
+/// Player.bin and PlayerAssignment.bin current; formation and tactics changes would otherwise never reach the game).
+/// Returns the names of the files written.
+pub fn karriere_abgleichen(karriere: &Path, s: &Path, cpk: &str) -> Result<Vec<String>, String> {
+    let dst = s.join("livecpk").join(cpk).join("common/etc/pesdb");
+    wache(&dst);
+    let mut out = vec![];
+    for e in std::fs::read_dir(karriere_pesdb(karriere)).map_err(|e| e.to_string())?.flatten() {
+        if !e.path().is_file() { continue; }
+        let b = std::fs::read(e.path()).map_err(|x| format!("{}: {x}", e.path().display()))?;
+        let ziel = dst.join(e.file_name());
+        if std::fs::read(&ziel).ok().as_deref() != Some(&b[..]) { atomic_write(&ziel, &b)?; out.push(e.file_name().to_string_lossy().to_string()); }
+    }
+    Ok(out)
+}
 pub fn karriere_laden(karriere: &Path, s: &Path, welt: &Path, cpk: &str) -> Result<(), String> {
     if fl27_pid().is_some() { return Err("Bitte FL27 erst beenden.".into()); }
     let root = s.join("livecpk").join(cpk);
@@ -1371,6 +1503,51 @@ mod t {
         assert!(aktiv[0].contains("PESM_DirectMatch") && aktiv[1].contains("PESMSunderlandAFC01") && aktiv[2].contains("_FL26Megapack"), "{neu}");
         assert!(!aktiv.iter().any(|l| l.contains("PESMBayernMunchen01")), "andere Karriere aus: {neu}");
         assert_eq!(sider_ini_einrichten(&neu, "PESMSunderlandAFC01", "_FL26Megapack", &[], true).unwrap(), neu, "bleibt gleich");
+    }
+    #[test]
+    fn formation_schreiben_und_elf_einsortieren() {
+        // the eleven onto the places of a 4-2-1-3 by their positions
+        let codes = [0u8, 1, 1, 3, 2, 4, 4, 8, 10, 9, 12];
+        let elf = [(12u8, 11), (0, 1), (2, 5), (3, 4), (1, 2), (1, 3), (4, 6), (5, 7), (8, 8), (9, 10), (10, 9)];
+        let o = nach_formation(&codes, &elf);
+        assert_eq!(formation_name(&[(0, 3, 52), (1, 10, 63), (1, 10, 41), (3, 12, 89), (2, 12, 15), (4, 18, 64), (4, 18, 40), (8, 28, 53), (10, 37, 88), (9, 37, 16), (12, 43, 52)]), "4-2-1-3", "wie im Spiel");
+        assert_eq!(o[0], 1, "Torwart auf Platz 0");
+        assert_eq!(o[10], 11, "Mittelstürmer vorn");
+        assert_eq!(o[4], 5, "Linksverteidiger links");
+        assert!(o[5] == 6 || o[6] == 6 || o[6] == 7 || o[5] == 7, "Sechser im Mittelfeld");
+        // own places in the order of the world's data: RB after the centre-backs, RM after the central midfield
+        let mut f442 = vec![(0u8, 3u8, 52u8, 1u32), (3, 12, 88, 2), (1, 10, 64, 3), (1, 10, 40, 4), (2, 12, 16, 5), (7, 28, 88, 6), (5, 26, 64, 7), (5, 26, 40, 8), (6, 28, 16, 9), (12, 43, 64, 10), (12, 43, 40, 11)];
+        formation_ordnen(&mut f442);
+        assert_eq!(f442.iter().map(|x| x.3).collect::<Vec<_>>(), vec![1, 3, 4, 2, 5, 7, 8, 6, 9, 10, 11]);
+        // a formation written into a copy of the world reads back the same
+        let welt = sider().join("livecpk/_FL26MyWorld/common/etc/pesdb");
+        if !welt.join("TacticsFormation.bin").exists() { return; }
+        let d = std::env::temp_dir().join(format!("pesm-formation-{}", std::process::id()));
+        std::fs::create_dir_all(&d).unwrap();
+        for n in ["Tactics.bin", "TacticsFormation.bin"] { std::fs::copy(welt.join(n), d.join(n)).unwrap(); }
+        let p442: Vec<(u8, u8, u8)> = vec![(0, 3, 52), (3, 12, 89), (1, 10, 63), (1, 10, 41), (2, 12, 15), (7, 30, 87), (5, 20, 64), (5, 20, 40), (6, 30, 18), (12, 43, 66), (12, 43, 38)];
+        assert!(formation_schreiben(&d, 102, &p442).unwrap());
+        assert_eq!(formation_codes(&d, 102).unwrap(), p442.iter().map(|x| x.0).collect::<Vec<_>>());
+        assert!(!formation_schreiben(&d, 102, &p442).unwrap(), "zweites Mal unverändert");
+        // sliders: compactness 2 and line 8 in the game = half-bytes 1 and 7
+        assert!(regler_schreiben(&d, 102, Some(2), None, Some(8)).unwrap());
+        let (_, t) = unpack(&std::fs::read(d.join("Tactics.bin")).unwrap()).unwrap();
+        let o = (0..t.len() / 12).map(|i| i * 12).find(|&o| le32(&t, o + 4) == 102).unwrap();
+        let v = le32(&t, o + 8);
+        assert_eq!((v & 15, (v >> 8) & 15), (1, 7));
+        let _ = std::fs::remove_dir_all(&d);
+    }
+
+    #[test]
+    fn fremde_welt_wird_abgeschaltet() {
+        // a career on MyWorld while the Megapack line is active above it: the Megapack line goes out, MyWorld comes in below
+        let ini = "[sider]\r\n\tcpk.root = \".\\livecpk\\_FL26Megapack\"\r\n\tcpk.root = \".\\livecpk\\PESM_DirectMatch\"\r\n\tcpk.root = \".\\livecpk\\PESMChelseaFC01\"\r\n\t#cpk.root = \".\\livecpk\\_FL26MyWorld\"\r\n";
+        let neu = sider_ini_einrichten(ini, "PESMChelseaFC01", "_FL26MyWorld", &["_FL26Megapack".into()], true).unwrap();
+        let aktiv: Vec<&str> = neu.split("\r\n").filter(|l| l.trim_start().starts_with("cpk.root")).collect();
+        assert!(!aktiv.iter().any(|l| l.contains("_FL26Megapack")), "{neu}");
+        let c = aktiv.iter().position(|l| l.contains("PESMChelseaFC01")).unwrap();
+        let w = aktiv.iter().position(|l| l.contains("_FL26MyWorld")).unwrap();
+        assert!(c < w, "{neu}");
     }
 
     #[test]

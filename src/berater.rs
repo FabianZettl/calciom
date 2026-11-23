@@ -122,6 +122,25 @@ impl Career {
         let (b, kosten) = match schluessel { "sehr" => (k("sehr"), 0.0), "passt" => (k("passt"), 0.0), "egal" => (0.0, k("egal_geduld")), _ => (-k(crate::id("unpassend")), k("unpassend_geduld")) };
         (b, kosten, crate::inhalt::t(&format!("ui.argument.antwort.{schluessel}")).to_string())
     }
+    /// „What matters most to him?“ (Konzept 2.6): the counterpart answers with his strongest priority, honestly or a little
+    /// coloured by a sly agent; it costs patience and can be asked once per talk.
+    pub fn neg_frage(&mut self, i: usize) -> Result<String, String> {
+        let n = self.negs[i].clone();
+        if n.gefragt { return Err(crate::inhalt::t("ui.argument.schon_gefragt").into()); }
+        let p = n.pid;
+        let w = prioritaeten(&self.world.players[p]);
+        let mut ix: Vec<usize> = (0..6).collect();
+        ix.sort_by(|a, b| w[*b].partial_cmp(&w[*a]).unwrap());
+        // the sly agent names money first, whatever it is
+        let erste = if TYPEN[typ(&self.world.players[p])] == "schlitzohr" { 0 } else { ix[0] };
+        let kosten = f("argument.frage_geduld");
+        let nn = &mut self.negs[i];
+        nn.gefragt = true;
+        if let Some(ph) = nn.ph.as_mut() { ph.geduld = (ph.geduld - kosten).max(0.0); }
+        let text = crate::tf!("ui.argument.frage_antwort", crate::inhalt::t(&format!("ui.berater.prio.{}", PRIO[erste])));
+        nn.text = text.clone();
+        Ok(text)
+    }
     /// One line for the talk: who sits at the table for the player.
     pub fn berater_zeile(&self, p: usize) -> String {
         let pl = &self.world.players[p];
@@ -169,5 +188,13 @@ mod tests {
         let sq = c.squad();
         let schwach = *sq.iter().min_by(|a, b| c.world.players[**a].ovr.partial_cmp(&c.world.players[**b].ovr).unwrap()).unwrap();
         assert!(c.argument_wirkung(schwach, 1, &[]).0 < 0.0, "Stammplatz unglaubwürdig");
+        // the question once per talk, it costs patience
+        let q = c.squad()[3];
+        c.world.players[q].contract_end = c.world.season;
+        let i = c.open_neg(q).unwrap();
+        let g0 = c.negs[i].ph.as_ref().unwrap().geduld;
+        assert!(c.neg_frage(i).is_ok());
+        assert!(c.negs[i].ph.as_ref().unwrap().geduld < g0);
+        assert!(c.neg_frage(i).is_err());
     }
 }

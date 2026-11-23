@@ -2,6 +2,11 @@
 
 **A football manager that uses Football Life 2027 as its match engine.**
 
+> [!WARNING]
+> **Work in progress.** PES M is under heavy development and this repository gets several pushes a day. Things change fast and can break.
+> There are **no ready-made downloads yet**: build it yourself (see [Build](#build)).
+> PES M never touches your original FL27 database: it always works on **its own copy of the database in a separate LiveCPK folder** per career.
+
 <p align="center">
   <img src="docs/screenshots/zentrale.png" width="49%" alt="Hub: today's task, the season so far, every part of the club">
   <img src="docs/screenshots/aufstellung.png" width="49%" alt="Tactics: formation, starting eleven on the pitch, bench and assistant's advice">

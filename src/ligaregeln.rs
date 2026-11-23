@@ -199,6 +199,7 @@ impl World {
     }
     /// The season's fixtures: `runden` round robins (home and away alternate per round robin), or up to the split.
     pub fn make_fixtures(&mut self, l: usize) {
+        self.profil_cache.clear();
         self.leagues[l].basis.clear(); // an imported table base belongs to its season only
         let mut ts = self.leagues[l].teams.clone();
         let mut r = crate::world::Rng(self.rng.next());

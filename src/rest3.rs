@@ -30,6 +30,8 @@ pub struct Manager {
     pub anwerbung: Vec<(String, u32)>,
     /// Application: (club, step 0…3, summed answer effects).
     pub bewerbung: Option<(usize, u8, f32)>,
+    /// Running talks about the coach's own contract with a new club (jobverhandlung.rs).
+    pub verh: Option<crate::jobverhandlung::JobVerh>,
 }
 
 /// A fictive U17 talent of a region (jugend.toml): visible from network 20, fixed per country and month.
@@ -125,12 +127,41 @@ impl Career {
             summe += crate::mensch::ton_aenderung(ton, &chs, 50.0, self.vertrauen(p)) * self.mgr_faktor(0) + pass;
         }
         let mittel = if sq.is_empty() { 0.0 } else { summe / sq.len() as f32 };
+        self.hz_wirkung = mittel;
         for &p in &sq { self.moral_wirkung(p, mittel / 2.0, 0, &crate::tf!("ui.rest3.halbzeitansprache", ton)); }
         let tendenz = f("kabine", "ansprache.form_schwelle");
         if mittel >= tendenz { for &p in &sq { self.world.players[p].form += 0.5; } }
         if mittel <= -tendenz { for &p in &sq { self.world.players[p].form -= 0.5; } }
         self.stil_punkte(crate::id("ton"), match ton { "warm" => "einfuehlsam", "sachlich" => "sachlich", "hart" => "hart", "bestimmt" => "bestimmt", _ => crate::id("offen") });
-        if mittel >= 2.0 { crate::inhalt::t("ui.rest3.die_ansprache_kam_an").into() } else if mittel <= -2.0 { crate::inhalt::t("ui.rest3.die_ansprache_ging_daneben").into() } else { crate::inhalt::t("ui.rest3.die_ansprache_verpuffte").into() }
+        let urteil = if mittel >= 2.0 { crate::inhalt::t("ui.rest3.die_ansprache_kam_an") } else if mittel <= -2.0 { crate::inhalt::t("ui.rest3.die_ansprache_ging_daneben") } else { crate::inhalt::t("ui.rest3.die_ansprache_verpuffte") };
+        // what it brought, in numbers (Fabian 23.11.): the team's morale, the form, and a push for the one it reached most
+        let mut s = format!("{urteil} {}", crate::tf!("ans.wirkung", format!("{:+.1}", mittel / 2.0).replace('.', ",")));
+        if mittel >= tendenz { s = format!("{s} {}", crate::inhalt::t("ans.form_plus")); } else if mittel <= -tendenz { s = format!("{s} {}", crate::inhalt::t("ans.form_minus")); }
+        if mittel >= 2.0 {
+            if let Some(&p) = sq.iter().max_by(|a, b| crate::mensch::cw(&self.world.players[**a], crate::mensch::EHRGEIZ).partial_cmp(&crate::mensch::cw(&self.world.players[**b], crate::mensch::EHRGEIZ)).unwrap()) {
+                self.world.players[p].form += 1.0;
+                s = format!("{s} {}", crate::tf!("ans.push", self.world.players[p].name.clone()));
+            }
+        }
+        s
+    }
+    /// One player addressed after the match: praise or criticism, judged against his grade (spieltag.toml note_*).
+    pub fn spieler_ansprechen(&mut self, p: usize, lob: bool, note: f32) -> String {
+        let k = |x: &str| f("spieltag", &format!("teamgespraech.{x}"));
+        let stark = note >= f("spieltag", "bericht.note_spieler_des_spiels");
+        let schwach = note <= f("spieltag", "bericht.note_schwach_spieler");
+        let d = match (lob, stark, schwach) {
+            (true, true, _) => 3.0 + k("note_verdient"),
+            (true, _, true) => k("note_hohl"),
+            (true, _, _) => 1.5,
+            (false, true, _) => k("note_unfair"),
+            (false, _, true) => k("note_verdient") + 0.5,
+            (false, _, _) => -1.5,
+        };
+        let n = self.world.players[p].name.clone();
+        self.moral_wirkung(p, d, 0, crate::inhalt::t(if lob { "ans.lob" } else { "ans.kritik" }));
+        self.beziehung(p, d / 2.0, crate::inhalt::t(if lob { "ans.lob" } else { "ans.kritik" }));
+        crate::tf!("ans.einzeln", n, format!("{d:+.0}"))
     }
     /// Mind games the day before a match: statement × balance of strength (favourite, open, underdog) → morale and media.
     pub fn mind_games_frage(&mut self) {
@@ -265,10 +296,36 @@ impl Career {
         v.truncate(f("laufbahn", "motor.vakanzen_hoechstens") as usize);
         v
     }
+    /// The coach market (Fabian 23.11.): every vacant post and every coach on a hot seat, with whether we may apply
+    /// (reputation and licence) and why not: (club, vacant, reachable, reason key).
+    pub fn trainermarkt(&self) -> Vec<(usize, bool, bool, &'static str)> {
+        let rt = self.mgr_rep / 100.0;
+        let luft = f("laufbahn", "interesse.ruf_luft");
+        let mut v: Vec<(usize, bool, bool, &'static str)> = (0..self.world.clubs.len()).filter(|&c| c != self.own && self.world.erste_von(c).is_none() && self.world.leagues[self.world.clubs[c].league].detail <= 1).filter_map(|c| {
+            let cl = &self.world.clubs[c];
+            let frei = cl.manager == "Interimstrainer"; // roh
+            // a hot seat: far below the goal after a few matches, or the board's patience nearly used up
+            let gespielt = self.world.table(cl.league).iter().find(|r| r.club == c).map(|r| r.p).unwrap_or(0);
+            let wackelt = !frei && ((gespielt >= 6 && self.world.rank_of(c) as i32 - cl.goal_pos as i32 >= 4) || (cl.pressure > 0.0 && cl.pressure >= 0.7 * cl.patience));
+            if !frei && !wackelt { return None; }
+            let r = cl.rep / 100.0;
+            let (ok, grund) = if r > self.lizenz_grenze() { (false, crate::id("lizenz")) } else if r > rt + luft { (false, crate::id("ruf")) } else if !frei { (false, crate::id("besetzt")) } else { (true, "") };
+            Some((c, frei, ok, grund))
+        }).collect();
+        v.sort_by(|a, b| (b.1, b.2).cmp(&(a.1, a.2)).then(self.world.clubs[b.0].rep.partial_cmp(&self.world.clubs[a.0].rep).unwrap()));
+        v.truncate(40);
+        v
+    }
     pub fn persona_von(&self, c: usize) -> &'static str { PERSONA[(zufall(&["2026", crate::id("persona"), &self.world.clubs[c].id.to_string()]) * 4.0) as usize % 4] }
     /// Start an application: four steps (project, playing style, question, reaction) as questions in the inbox.
     pub fn bewerben(&mut self, c: usize) -> Result<(), String> {
         if self.mgr.bewerbung.is_some() { return Err(crate::inhalt::t("ui.rest3.es_laeuft_schon_eine_bewerbung").into()); }
+        // applying while in a job gets out: the own board takes it badly, the papers write about it
+        if !self.fired {
+            let (cn, zn) = (self.club().name.clone(), self.world.clubs[c].name.clone());
+            self.klima(-2.0, -1.0, -5.0, crate::inhalt::t("tm.bewerbung_grund"));
+            self.news(&crate::tf!("tm.bewerbung_news", self.coach.clone(), zn), &crate::tf!("tm.bewerbung_news_text", cn));
+        }
         self.mgr.bewerbung = Some((c, 0, 0.0));
         self.bewerbung_schritt();
         Ok(())

@@ -79,3 +79,28 @@ mix = { spieltag = 20.0, sponsoring = 36.0, medien = 29.0, merch = 15.0, transfe
 # ohne Sonstiges und ohne Verkäufe, mit den im Spiel hohen Spielergehältern (Messung 23.10.: Lohn/Umsatz 0,4 bis 0,9). Die Abweichung ist gewollt und wird
 # nicht stillschweigend geändert; `quoten()` liefert beide Werte nebeneinander.
 stuetz = [[1.0, 0.246], [3.0, 0.336]]
+
+# Umsatz großer Vereine (Mio. €, Saison 2023/24, gerundet nach der Deloitte Football Money League 2025; eigene Übernahme
+# von PES M aus dem Gedächtnis, nicht aus der Quelle geprüft – bitte bei Bedarf berichtigen). Wer hier steht, bekommt
+# diesen Umsatz statt der Schätzung über die Vereinsklasse.
+[umsatz_echt]
+"Real Madrid" = 1046
+"Manchester City" = 838
+"Paris Saint-Germain" = 806
+"Manchester United" = 771
+"Bayern München" = 765
+"Barcelona" = 760
+"Arsenal" = 717
+"Liverpool" = 715
+"Tottenham" = 615
+"Chelsea" = 545
+"Borussia Dortmund" = 513
+"Juventus" = 432
+"Atlético Madrid" = 410
+"Milan" = 410
+"Inter" = 392
+"Newcastle" = 372
+"Aston Villa" = 337
+"West Ham" = 316
+"Eintracht Frankfurt" = 293
+"Benfica" = 230

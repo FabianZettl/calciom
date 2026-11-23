@@ -121,3 +121,61 @@ tage = [
  { typ = "spieltag", slots = ["", "", "", ""] },
  { typ = "regeneration", slots = ["regeneration", "", "", ""] },
 ]
+
+# Eigene Ergänzung (Rust-Neubau, Fabian 23.11.): weitere Gruppeneinheiten mit klarem Schwerpunkt.
+[einheit.stellungsspiel]
+gruppe = "defensive"
+art = "gruppe"
+haupt = ["defensivgeist", "balleroberung"]
+neben = ["aggressivitaet", "antritt"]
+last = 3.0
+moral = 0.0
+basis = 0.10
+fokus = "defensiv"
+[einheit.offensivspiel]
+gruppe = "taktik"
+art = "gruppe"
+haupt = ["offensivgeist", "steilpass", "abschluss"]
+neben = ["dribbling", "antritt"]
+last = 4.0
+moral = 1.0
+basis = 0.09
+fokus = "technik"
+[einheit.spielform]
+gruppe = "taktik"
+art = "gruppe"
+haupt = ["ballkontrolle", "flachpass"]
+neben = ["offensivgeist", "defensivgeist", "ausdauer"]
+last = 4.0
+moral = 1.5
+basis = 0.07
+fokus = ""
+[einheit.kraftraum]
+gruppe = "athletik"
+art = "gruppe"
+haupt = ["koerperkontakt", "schusskraft"]
+neben = ["sprungkraft", "balance"]
+last = 5.0
+moral = -0.5
+basis = 0.10
+fokus = "physis"
+[einheit.videoanalyse]
+gruppe = "taktik"
+art = "gruppe"
+haupt = ["defensivgeist", "offensivgeist"]
+neben = []
+last = 0.5
+moral = 0.0
+basis = 0.05
+fokus = ""
+
+# Eigene Ergänzung: wie stark die Woche die Entwicklung je Fähigkeit lenkt. Ein Wert, den die Woche nicht übt, wächst mit `ungeuebt`,
+# einer mit `voll_ab` Planpunkten oder mehr mit `geuebt` (dazwischen linear). Torhüter üben ihre Torwartwerte nur im Torwarttraining.
+[wirkung]
+ungeuebt = 0.8
+geuebt = 1.3
+voll_ab = 0.3
+
+# Eigene Ergänzung: der Co-Trainer plant lockerer, wenn die mittlere Fitness des Kaders darunter liegt.
+[co]
+muede_unter = 78

@@ -44,6 +44,8 @@ impl Career {
         if eigen {
             if let Some(p) = pid { if moral > 0.0 { self.moral_wirkung(p, moral, 0, &titel_); } }
             self.msg(0, crate::inhalt::t("zentrale.kennzahl.liga"), &titel_, &grund, Action::None);
+            // the winner as a picture card with his average grade
+            if let Some(p) = pid { let pl = &self.world.players[p]; let n = if pl.rn > 0 { pl.rsum / pl.rn as f32 } else { 0.0 }; self.meldung_karte(crate::pages::Art::Meilenstein, crate::id("ehrung"), vec![(p, n)]); }
         } else { self.news(&titel_, &grund); }
     }
     /// Monday: team and player of the week from the grades of the own league's matches of the last seven days.

@@ -395,23 +395,59 @@ fn zeitung(ui: &mut Ui, v: &mut View, c: &mut Career) {
 /// A number with two decimals as the language writes it (German with a comma).
 fn dez2(x: f32) -> String { let z = format!("{x:.2}"); if crate::inhalt::sprache() == crate::inhalt::Sprache::De { z.replace('.', ",") } else { z } }
 
-fn ranglisten(ui: &mut Ui, _v: &mut View, c: &mut Career) {
+fn ranglisten(ui: &mut Ui, v: &mut View, c: &mut Career) {
     use crate::inhalt::t;
-    let l = c.league();
+    // every league has its rankings (Fabian 22.11.): country and league chosen in the banner like on the table page
+    let gruppen: Vec<(String, Vec<usize>)> = crate::pages::wettbewerb_gruppen(c).into_iter().map(|(n, v)| (n, v.into_iter().filter(|&i| i < 1000).collect::<Vec<_>>())).filter(|g| !g.1.is_empty()).collect();
+    let l = v.table_league.filter(|&x| x < 1000).unwrap_or(c.league());
+    let felder = crate::pages::wettbewerb_felder(c, &gruppen, l, Rect::new(X0 + 4.0 + cbreite() - 480.0, Y0 - 40.0, 470.0, 36.0));
+    if let Some((f, i)) = crate::pages::auswahl_vorher(ui, v, &felder) { v.table_league = Some(crate::pages::wahl_umsetzen(&gruppen, l, f, i)); }
+    let l = v.table_league.filter(|&x| x < 1000).unwrap_or(c.league());
+    let lgk = c.world.leagues[l].key.clone();
+    let lk = crate::pages::wettbewerb_look(c, &lgk, 9, &c.world.leagues[l].land.clone());
+    let _ = crate::pages::wettbewerb_banner(ui, Rect::new(X0 + 4.0, Y0 - 44.0, cbreite(), 46.0), &lk, c.world.cids.get(&lgk).copied(), &c.world.leagues[l].name.clone());
     let teams = c.world.leagues[l].teams.clone();
     let alle: Vec<usize> = teams.iter().flat_map(|&t| c.world.clubs[t].squad.clone()).collect();
-    let (w3, h2) = ((cbreite() - 24.0) / 3.0, (hoehe() - Y0 - 28.0) / 2.0);
-    let feld = |k: usize| Rect::new(X0 + 4.0 + (k % 3) as f32 * (w3 + 12.0), Y0 + (k / 3) as f32 * (h2 + 12.0), w3, h2);
+    let (w3, h2) = ((cbreite() - 24.0) / 3.0, (hoehe() - Y0 - 36.0) / 2.0);
+    let feld = |k: usize| Rect::new(X0 + 4.0 + (k % 3) as f32 * (w3 + 12.0), Y0 + 8.0 + (k / 3) as f32 * (h2 + 12.0), w3, h2);
     let kurz = |p: usize| c.world.clubs[c.world.players[p].team.max(0) as usize].short.clone();
-    let liste = |ui: &mut Ui, k: usize, titel: &str, farbe: Color, z: Vec<(String, String)>, satz: String| {
+    // a ranking card (Fabian 22.11.: more spectacular): the top three as podium cards with photo (players) or crest
+    // (clubs), gold/silver/bronze edge and the big value, then the rest as rows with crest
+    let liste = |ui: &mut Ui, k: usize, titel: &str, farbe: Color, z: Vec<(Option<usize>, usize, String, String)>, satz: String| {
         let r = feld(k);
         ui.card_titled(r, titel, farbe);
-        ui.text(&ui.fit(&satz, 14.0, r.w - 28.0), r.x + 14.0, r.y + 58.0, 14.0, Theme::text());
-        let platz = ((r.h - 84.0) / 24.0).max(1.0) as usize;
-        for (j, (a, b)) in z.iter().take(platz).enumerate() {
-            let y = r.y + 86.0 + j as f32 * 24.0;
-            ui.text(&format!("{}.", j + 1), r.x + 14.0, y, 14.0, Theme::gedaempft());
-            ui.text(&ui.fit(a, 14.0, r.w - 100.0), r.x + 40.0, y, 14.0, Theme::text());
+        ui.text(&ui.fit(&satz, 14.0, r.w - 28.0), r.x + 14.0, r.y + 56.0, 14.0, Theme::text2());
+        let medaille = [hex(0xD4AF37), hex(0xB8C0CC), hex(0xCD7F32)];
+        let bw = (r.w - 28.0 - 16.0) / 3.0;
+        let bh = 132.0;
+        for (j, (sp, club, name, wert)) in z.iter().take(3).enumerate() {
+            // the first in the middle and a little higher, like a podium
+            let pos = [1usize, 0, 2][j];
+            let hx = r.x + 14.0 + pos as f32 * (bw + 8.0);
+            let hy = r.y + 68.0 + if j == 0 { 0.0 } else { 14.0 };
+            let hh = bh - if j == 0 { 0.0 } else { 14.0 };
+            rrect(hx, hy, bw, hh, 10.0, alpha(medaille[j], 0.16));
+            rrect_line(hx, hy, bw, hh, 10.0, medaille[j]);
+            let cl = &c.world.clubs[*club];
+            let mx = hx + bw / 2.0;
+            match sp {
+                Some(p) => { ui.player_photo(mx, hy + 36.0, 26.0, c.world.players[*p].id, &c.world.players[*p].name); ui.club_crest(mx + 22.0, hy + 54.0, 9.0, cl.id, hex(cl.c1), &cl.short); }
+                None => { ui.club_crest(mx, hy + 36.0, 26.0, cl.id, hex(cl.c1), &cl.short); }
+            }
+            draw_circle(hx + 16.0, hy + 16.0, 11.0, medaille[j]);
+            ui.text_center(&format!("{}", j + 1), hx + 16.0, hy + 21.0, 14.0, hex(0x10141c));
+            let kurzname = name.split(" (").next().unwrap_or(name);
+            ui.text_center(&ui.fit(kurzname, 13.0, bw - 10.0), mx, hy + hh - 30.0, 13.0, Theme::text());
+            ui.title(wert, mx - ui.measure_title(wert, 20.0) / 2.0, hy + hh - 8.0, 20.0, medaille[j]);
+        }
+        let start_y = r.y + 68.0 + bh + 18.0;
+        let platz = ((r.y + r.h - start_y) / 24.0).max(0.0) as usize;
+        for (j, (_, club, a, b)) in z.iter().skip(3).take(platz).enumerate() {
+            let y = start_y + j as f32 * 24.0;
+            ui.text(&format!("{}.", j + 4), r.x + 14.0, y, 14.0, Theme::gedaempft());
+            let cl = &c.world.clubs[*club];
+            ui.club_crest(r.x + 48.0, y - 5.0, 8.0, cl.id, hex(cl.c1), &cl.short);
+            ui.text(&ui.fit(a, 14.0, r.w - 120.0), r.x + 62.0, y, 14.0, Theme::text());
             ui.text_right(b, r.x + r.w - 14.0, y, 14.0, Theme::text2());
         }
     };
@@ -420,27 +456,27 @@ fn ranglisten(ui: &mut Ui, _v: &mut View, c: &mut Career) {
     let mut tore = alle.clone();
     tore.sort_by_key(|&p| std::cmp::Reverse(c.world.players[p].goals));
     let satz = tore.first().filter(|&&p| c.world.players[p].goals > 0).map(|&p| crate::tf!("ui.liga.torjaeger_satz", c.world.players[p].name, c.world.players[p].goals)).unwrap_or_else(leer);
-    liste(ui, 0, t("ui.seiten.torjaeger_der_liga"), Theme::gold(), tore.iter().map(|&p| (format!("{} ({})", c.world.players[p].name, kurz(p)), c.world.players[p].goals.to_string())).collect(), satz);
+    liste(ui, 0, t("ui.seiten.torjaeger_der_liga"), Theme::gold(), tore.iter().map(|&p| (Some(p), c.world.players[p].team.max(0) as usize, format!("{} ({})", c.world.players[p].name, kurz(p)), c.world.players[p].goals.to_string())).collect(), satz);
     let mut vorl = alle.clone();
     vorl.sort_by_key(|&p| std::cmp::Reverse(c.world.players[p].assists));
     let satz = vorl.first().filter(|&&p| c.world.players[p].assists > 0).map(|&p| crate::tf!("ui.liga.vorlagen_satz", c.world.players[p].name, c.world.players[p].assists)).unwrap_or_else(leer);
-    liste(ui, 1, t("ui.liga.vorlagen"), Theme::akzent(), vorl.iter().map(|&p| (format!("{} ({})", c.world.players[p].name, kurz(p)), c.world.players[p].assists.to_string())).collect(), satz);
+    liste(ui, 1, t("ui.liga.vorlagen"), Theme::akzent(), vorl.iter().map(|&p| (Some(p), c.world.players[p].team.max(0) as usize, format!("{} ({})", c.world.players[p].name, kurz(p)), c.world.players[p].assists.to_string())).collect(), satz);
     // grades (at least five)
     let mut noten: Vec<usize> = alle.iter().copied().filter(|&p| c.world.players[p].rn >= 5).collect();
     noten.sort_by(|a, b| c.world.players[*b].avg_rating().partial_cmp(&c.world.players[*a].avg_rating()).unwrap());
     let satz = noten.first().map(|&p| crate::tf!("ui.liga.noten_satz", c.world.players[p].name, dez2(c.world.players[p].avg_rating()))).unwrap_or_else(|| t("ui.liga.noten_leer").to_string());
-    liste(ui, 2, t("ui.seiten.beste_noten_der_liga"), hex(0xa78bfa), noten.iter().map(|&p| (format!("{} ({})", c.world.players[p].name, kurz(p)), dez2(c.world.players[p].avg_rating()))).collect(), satz);
+    liste(ui, 2, t("ui.seiten.beste_noten_der_liga"), hex(0xa78bfa), noten.iter().map(|&p| (Some(p), c.world.players[p].team.max(0) as usize, format!("{} ({})", c.world.players[p].name, kurz(p)), dez2(c.world.players[p].avg_rating()))).collect(), satz);
     // clean sheets per club (played league matches without a goal against)
     let fx = &c.world.leagues[l].fixtures;
     let mut null: Vec<(usize, usize)> = teams.iter().map(|&t| (t, fx.iter().filter(|f| f.hg >= 0 && ((f.h == t && f.ag == 0) || (f.a == t && f.hg == 0))).count())).collect();
     null.sort_by_key(|x| std::cmp::Reverse(x.1));
     let satz = null.first().filter(|x| x.1 > 0).map(|x| crate::tf!("ui.liga.zu_null_satz", c.world.clubs[x.0].name, x.1)).unwrap_or_else(leer);
-    liste(ui, 3, t("ui.liga.zu_null"), Theme::gut(), null.iter().map(|x| (c.world.clubs[x.0].name.clone(), x.1.to_string())).collect(), satz);
+    liste(ui, 3, t("ui.liga.zu_null"), Theme::gut(), null.iter().map(|x| (None, x.0, c.world.clubs[x.0].name.clone(), x.1.to_string())).collect(), satz);
     // fair play: fewest yellow cards of the squad (red cards are counted in suspensions, not kept per player)
     let mut fair: Vec<(usize, u32)> = teams.iter().map(|&t| (t, c.world.clubs[t].squad.iter().map(|&p| c.world.players[p].yellow as u32).sum())).collect();
     fair.sort_by_key(|x| x.1);
     let satz = fair.first().map(|x| crate::tf!("ui.liga.fair_satz", c.world.clubs[x.0].name, x.1)).unwrap_or_else(leer);
-    liste(ui, 4, t("ui.liga.fairness"), hex(0xf5d90a), fair.iter().map(|x| (c.world.clubs[x.0].name.clone(), x.1.to_string())).collect(), satz);
+    liste(ui, 4, t("ui.liga.fairness"), hex(0xf5d90a), fair.iter().map(|x| (None, x.0, c.world.clubs[x.0].name.clone(), x.1.to_string())).collect(), satz);
     // the own club among them: places in every table
     let r = feld(5);
     ui.card_titled(r, &crate::tf!("ui.liga.wir", c.club().name), Theme::verein());
@@ -457,73 +493,146 @@ fn ranglisten(ui: &mut Ui, _v: &mut View, c: &mut Career) {
         ui.text(a, r.x + 14.0, y, 15.0, Theme::text2());
         ui.text_right(&ui.fit(b, 15.0, r.w * 0.55), r.x + r.w - 14.0, y, 15.0, Theme::text());
     }
+    crate::pages::auswahl_zeichnen(ui, v, &felder);
 }
 
 fn vereine(ui: &mut Ui, v: &mut View, c: &mut Career) {
-    let (l, r) = links_rechts();
-    ui.card_titled(l, &c.world.leagues[c.league()].name.clone(), Theme::akzent());
-    let ts = c.world.leagues[c.league()].teams.clone();
-    // the map of the league below the list (geo.rs): click a dot to select the club
-    let kh = (l.h * 0.45).max(240.0);
+    // left a third: the league's clubs with crest and strength, the map below; right the club's profile (Fabian 22.11.:
+    // more spectacular): a hero in the club's colours over its stadium, facts, coach and history, the squad by lines
+    let h = hoehe() - Y0 - 16.0;
+    let lw = (cbreite() * 0.34).max(300.0);
+    let l = Rect::new(X0 + 4.0, Y0, lw, h);
+    let r = Rect::new(X0 + lw + 16.0, Y0, cbreite() - lw - 12.0, h);
+    // country and league to search in (Fabian 22.11.: not only the own league)
+    let gruppen: Vec<(String, Vec<usize>)> = crate::pages::wettbewerb_gruppen(c).into_iter().map(|(n, v)| (n, v.into_iter().filter(|&i| i < 1000).collect::<Vec<_>>())).filter(|g| !g.1.is_empty()).collect();
+    let liga = v.vereine_liga.unwrap_or(c.league());
+    let felder = crate::pages::wettbewerb_felder(c, &gruppen, liga, Rect::new(l.x + 10.0, l.y + 10.0, l.w - 20.0, 36.0));
+    if let Some((f, i)) = crate::pages::auswahl_vorher(ui, v, &felder) { let neu = crate::pages::wahl_umsetzen(&gruppen, liga, f, i); v.vereine_liga = Some(neu); v.sel_club = c.world.leagues[neu].teams.first().copied(); v.karte_off = (0.0, 0.0); v.karte_zoom = 1.0; }
+    let liga = v.vereine_liga.unwrap_or(c.league());
+    ui.card(l);
+    let ts = c.world.leagues[liga].teams.clone();
+    let kh = (l.h * 0.4).max(220.0);
     let kr = Rect::new(l.x + 8.0, l.y + l.h - kh - 8.0, l.w - 16.0, kh);
     let (mut zoom, mut off) = (v.karte_zoom, v.karte_off);
     if let Some(k) = crate::geo::karte(ui, kr, &c.world, &ts, Some(v.sel_club.unwrap_or(c.own)), &mut zoom, &mut off) { v.sel_club = Some(k); }
     v.karte_zoom = zoom; v.karte_off = off;
-    for (k, &t) in ts.iter().enumerate() {
-        let yy = l.y + 56.0 + k as f32 * 26.0;
-        if yy > kr.y - 6.0 { break; }
-        let rr = Rect::new(l.x + 6.0, yy - 18.0, l.w - 12.0, 24.0);
-        if v.sel_club == Some(t) { rrect(rr.x, rr.y, rr.w, rr.h, 4.0, alpha(Theme::akzent(), 0.15)); }
-        ui.text(&c.world.clubs[t].name, l.x + 14.0, yy, 15.0, Theme::text());
-        ui.text_right(&format!("{} · {}", stufe_wort(crate::mensch::kaderstaerke(&c.world, t)), c.world.clubs[t].manager), l.x + l.w - 14.0, yy, 14.0, Theme::text2());
+    // the list scrolls with the wheel when the league has more clubs than fit above the map
+    let platz = ((kr.y - 4.0 - (l.y + 56.0)) / 28.0).max(1.0) as usize;
+    let liste_r = Rect::new(l.x, l.y + 50.0, l.w, kr.y - l.y - 54.0);
+    if liste_r.contains(ui.mouse) && ui.wheel != 0.0 { v.league_scroll = (v.league_scroll as i32 - ui.wheel.signum() as i32).clamp(0, ts.len().saturating_sub(platz) as i32) as usize; }
+    v.league_scroll = v.league_scroll.min(ts.len().saturating_sub(platz));
+    for (k, &t) in ts.iter().enumerate().skip(v.league_scroll) {
+        let k = k - v.league_scroll;
+        let yy = l.y + 56.0 + k as f32 * 28.0;
+        if yy + 26.0 > kr.y - 4.0 { break; }
+        let rr = Rect::new(l.x + 6.0, yy, l.w - 12.0, 26.0);
+        if v.sel_club.unwrap_or(c.own) == t { rrect(rr.x, rr.y, rr.w, rr.h, 6.0, alpha(Theme::akzent(), 0.16)); } else if ui.hover(rr) { rrect(rr.x, rr.y, rr.w, rr.h, 6.0, Theme::erhoehung()); }
+        let cl = &c.world.clubs[t];
+        ui.club_crest(rr.x + 14.0, rr.y + 13.0, 10.0, cl.id, hex(cl.c1), &cl.short);
+        ui.text(&ui.fit(&cl.name, 15.0, rr.w * 0.55), rr.x + 30.0, rr.y + 18.0, 15.0, Theme::text());
+        ui.text_right(&ui.fit(&cl.manager, 13.0, rr.w * 0.3), rr.x + rr.w - 44.0, rr.y + 18.0, 13.0, Theme::text2());
+        ui.pill(rr.x + rr.w - 20.0, rr.y + 13.0, crate::mensch::kaderstaerke(&c.world, t), 30.0);
         if ui.hit(rr) { v.sel_club = Some(t); }
     }
     let t = v.sel_club.unwrap_or(c.own);
-    ui.card_titled(r, &crate::tf!("ui.seiten.kader", c.world.clubs[t].name), Theme::gold());
-    let mut oben = if ui.stadion_bild(Rect::new(r.x + 8.0, r.y + 44.0, r.w - 16.0, 120.0), c.world.clubs[t].id) { 132.0 } else { 0.0 };
-    // the coach from the coach bank: name, nationality, since when, tags and the bank's description of his style
-    if let Some(tr) = c.world.clubs[t].trainer.clone() {
-        let y0 = r.y + 56.0 + oben;
+    let cl = c.world.clubs[t].clone();
+    // the club colour for the hero: the first colour, the second when the first is too light for white text, else darkened
+    let farbe = { let (a, b) = (ui.wappen_farbe(cl.id).map(hex).unwrap_or(hex(cl.c1)), hex(cl.c1)); if crate::ui::kontrast(a, WHITE) >= 3.0 { a } else if crate::ui::kontrast(b, WHITE) >= 3.0 { b } else { crate::ui::with_light(a, 0.25, 0.8) } };
+    ui.card(r);
+    // the hero: stadium, gradient in the club colour, big crest, name and the line with league, strength and coach
+    let hero = Rect::new(r.x, r.y, r.w, 200.0);
+    let bild = ui.stadion_bild(hero, cl.id);
+    gradient_h(hero.x, hero.y, hero.w, hero.h, alpha(farbe, if bild { 0.96 } else { 1.0 }), alpha(farbe, if bild { 0.25 } else { 0.75 }));
+    draw_rectangle(hero.x, hero.y + hero.h - 5.0, hero.w, 5.0, hex(cl.c2));
+    draw_circle(hero.x + 86.0, hero.y + 96.0, 62.0, alpha(WHITE, 0.92));
+    ui.club_crest(hero.x + 86.0, hero.y + 96.0, 52.0, cl.id, hex(cl.c1), &cl.short);
+    let weiss = hex(0xffffff);
+    let nm = ui.fit(&cl.name, 36.0, hero.w - 200.0);
+    ui.title(&nm, hero.x + 168.0, hero.y + 78.0, 36.0, weiss);
+    let lg = &c.world.leagues[cl.league];
+    let zeile = format!("{} · {} · {}", lg.name, stufe_wort(crate::mensch::kaderstaerke(&c.world, t)), cl.manager);
+    ui.text(&ui.fit(&zeile, 17.0, hero.w - 200.0), hero.x + 168.0, hero.y + 106.0, 17.0, alpha(weiss, 0.9));
+    // fact chips: founded, stadium, champion titles, place in the table, the coach's formation
+    let rd = crate::realdaten::verein(&cl.name);
+    let mut chips: Vec<String> = vec![];
+    if let Some(rd) = rd { if let Some(g) = rd.gruendung { chips.push(crate::tf!("ui.verein.chip_gegruendet", g)); } if !rd.stadion.is_empty() { chips.push(rd.stadion.clone()); } if rd.meister > 0 { chips.push(crate::tf!("ui.real.meister", rd.meister)); } }
+    chips.push(crate::tf!("ui.verein.chip_platz", c.world.rank_of(t)));
+    if let Some(tr) = cl.trainer.as_ref().filter(|x| x.formation.len() == 11) { chips.push(crate::fl27::formation_name(&tr.formation)); }
+    let mut cx = hero.x + 168.0;
+    for ch in chips {
+        let w = ui.measure(&ch, 14.0) + 20.0;
+        if cx + w > hero.x + hero.w - 12.0 { break; }
+        rrect(cx, hero.y + 128.0, w, 26.0, 13.0, alpha(BLACK, 0.35));
+        ui.text(&ch, cx + 10.0, hero.y + 146.0, 14.0, weiss);
+        cx += w + 8.0;
+    }
+    // below: left the coach and the history, right the squad by lines
+    let sp = r.w * 0.44;
+    let links = Rect::new(r.x + 16.0, hero.y + hero.h + 14.0, sp - 24.0, r.h - hero.h - 24.0);
+    let rechts = Rect::new(r.x + sp + 8.0, hero.y + hero.h + 14.0, r.w - sp - 22.0, r.h - hero.h - 24.0);
+    let mut y = links.y + 4.0;
+    let ueberschrift = |ui: &Ui, t: &str, y: f32| { ui.text_semi(&t.to_uppercase(), links.x, y + 12.0, 13.0, farbe_lesbar(farbe)); draw_rectangle(links.x, y + 18.0, links.w, 2.0, alpha(farbe_lesbar(farbe), 0.5)); y + 30.0 };
+    if let Some(tr) = cl.trainer.clone() {
+        y = ueberschrift(ui, crate::inhalt::t("ui.verein.trainer"), y);
         let seit = match tr.seit.strip_prefix('S') { Some(s) => date::season_label(s.parse().unwrap_or(0)), None => tr.seit.clone() };
-        ui.text_semi(&crate::tf!("ui.trainer.zeile", tr.name, tr.nat, crate::tf!("tb.seit", seit)), r.x + 14.0, y0, 15.0, Theme::text());
+        ui.text_semi(&crate::tf!("ui.trainer.zeile", tr.name, tr.nat, crate::tf!("tb.seit", seit)), links.x, y + 12.0, 15.0, Theme::text());
         let tags: Vec<&str> = tr.tags.iter().take(5).map(|x| crate::inhalt::t(&format!("tb.tag.{x}"))).filter(|s| !s.is_empty()).collect();
-        ui.text(&tags.join(" · "), r.x + 14.0, y0 + 20.0, 13.0, Theme::akzent());
-        let unten = if tr.stil.is_empty() { y0 + 28.0 } else { ui.paragraph(&tr.stil, r.x + 14.0, y0 + 40.0, 13.0, r.w - 28.0, Theme::text2()) };
-        oben += unten - y0 + 16.0;
+        let zeile = if tr.formation.len() == 11 { format!("{} · {}", tags.join(" · "), crate::tf!("ui.trainer.formation", crate::fl27::formation_name(&tr.formation), crate::fl27::formation_name(&tr.ausweich))) } else { tags.join(" · ") };
+        ui.text(&ui.fit(&zeile, 13.0, links.w), links.x, y + 32.0, 13.0, farbe_lesbar(farbe));
+        y = if tr.stil.is_empty() { y + 44.0 } else { ui.paragraph(&tr.stil, links.x, y + 52.0, 13.0, links.w, Theme::text2()) + 8.0 };
     }
-    // the club's real history up to summer 2026 (realdaten): founding, stadium, titles, record players, rivals, legends
-    if let Some(rd) = crate::realdaten::verein(&c.world.clubs[t].name) {
-        let mut zeilen_rd: Vec<String> = vec![];
-        let mut kopf = vec![];
-        if let Some(g) = rd.gruendung { kopf.push(crate::tf!("ui.real.gruendung", g, rd.ort)); }
-        if !rd.stadion.is_empty() { kopf.push(rd.stadion.clone()); }
-        if rd.meister > 0 { kopf.push(crate::tf!("ui.real.meister", rd.meister)); }
-        if !kopf.is_empty() { zeilen_rd.push(kopf.join(" · ")); }
-        let mut rek = vec![];
-        if let Some((n, s)) = &rd.rekordspieler { rek.push(crate::tf!("ui.real.rekordspieler", n, s)); }
-        if let Some((n, s)) = &rd.rekordtorschuetze { rek.push(crate::tf!("ui.real.rekordtorschuetze", n, s)); }
-        if !rek.is_empty() { zeilen_rd.push(rek.join(" · ")); }
-        if !rd.rivalen.is_empty() { zeilen_rd.push(crate::tf!("ui.real.rivalen", rd.rivalen.iter().map(|(cl, l)| format!("{cl} ({l})")).collect::<Vec<_>>().join(", "))); }
-        if !rd.europa_frueher.is_empty() { zeilen_rd.push(rd.europa_frueher.clone()); }
-        if !rd.legenden.is_empty() { zeilen_rd.push(crate::tf!("ui.real.legenden", rd.legenden.iter().take(6).map(|l| l.0.clone()).collect::<Vec<_>>().join(", "))); }
-        let mut y = r.y + 56.0 + oben;
-        ui.text_semi(&crate::inhalt::t("ui.real.titel"), r.x + 14.0, y, 13.0, Theme::gedaempft());
-        y += 18.0;
-        for z in zeilen_rd { y = ui.paragraph(&z, r.x + 14.0, y, 13.0, r.w - 28.0, Theme::text2()) + 2.0; }
-        oben = y - r.y - 56.0 + 14.0;
+    if let Some(rd) = rd {
+        y = ueberschrift(ui, crate::inhalt::t("ui.real.titel"), y);
+        let mut zeilen: Vec<String> = vec![];
+        if let Some(g) = rd.gruendung { zeilen.push(crate::tf!("ui.real.gruendung", g, rd.ort)); }
+        if let Some((n, s)) = &rd.rekordspieler { zeilen.push(crate::tf!("ui.real.rekordspieler", n, s)); }
+        if let Some((n, s)) = &rd.rekordtorschuetze { zeilen.push(crate::tf!("ui.real.rekordtorschuetze", n, s)); }
+        if !rd.europa_frueher.is_empty() { zeilen.push(rd.europa_frueher.clone()); }
+        if !rd.legenden.is_empty() { zeilen.push(crate::tf!("ui.real.legenden", rd.legenden.iter().take(6).map(|l| l.0.clone()).collect::<Vec<_>>().join(", "))); }
+        for z in zeilen { if y > links.y + links.h - 40.0 { break; } y = ui.paragraph(&z, links.x, y + 12.0, 13.0, links.w, Theme::text2()) + 2.0; }
+        // rivals with their crests when they are in this world
+        if !rd.rivalen.is_empty() && y < links.y + links.h - 60.0 {
+            y = ueberschrift(ui, crate::inhalt::t("ui.verein.rivalen"), y + 6.0);
+            for (name, duell) in rd.rivalen.iter().take(4) {
+                if y > links.y + links.h - 26.0 { break; }
+                if let Some(k) = c.world.clubs.iter().position(|x| crate::trainerbank::norm(&x.name) == crate::trainerbank::norm(name)) { let rc = &c.world.clubs[k]; ui.club_crest(links.x + 10.0, y + 8.0, 9.0, rc.id, hex(rc.c1), &rc.short); }
+                ui.text(&ui.fit(&format!("{name} · {duell}"), 14.0, links.w - 26.0), links.x + 26.0, y + 13.0, 14.0, Theme::text());
+                y += 24.0;
+            }
+        }
     }
-    let mut sq = c.world.clubs[t].squad.clone();
+    // the squad by lines: keeper, defence, midfield, attack; photo, number, name, age, strength
+    let mut sq = cl.squad.clone();
+    sq.retain(|&p| c.world.players[p].youth == 0);
     sq.sort_by(|a, b| c.world.players[*b].ovr.partial_cmp(&c.world.players[*a].ovr).unwrap());
-    for (k, &p) in sq.iter().enumerate() {
-        let yy = r.y + 56.0 + oben + k as f32 * 26.0;
-        if yy > r.y + r.h - 10.0 { break; }
-        let rr = Rect::new(r.x + 6.0, yy - 18.0, r.w - 12.0, 24.0);
-        ui.player_photo(r.x + 24.0, yy - 5.0, 10.0, c.world.players[p].id, &c.world.players[p].name);
-        ui.text(&format!("{} {}", pos_de(&c.world.players[p].pos), c.world.players[p].name), r.x + 40.0, yy, 15.0, Theme::text());
-        ui.text_right(&crate::tf!("as.ent.talent", c.world.players[p].age, money(c.world.players[p].value)), r.x + r.w - 14.0, yy, 14.0, Theme::text2());
-        if ui.hit(rr) { v.modal = Modal::Player(p); }
+    let teile = [(crate::inhalt::t("aka.pos.tw"), 0usize), (crate::inhalt::t("achse.Abwehr"), 1), (crate::inhalt::t("gb2.vgl.mittel"), 2), (crate::inhalt::t("bericht.achse.angriff"), 3)];
+    let mut y = rechts.y + 4.0;
+    for (titel, g) in teile {
+        let in_teil: Vec<usize> = sq.iter().copied().filter(|&p| part_of(&c.world.players[p].pos) == g).collect();
+        if in_teil.is_empty() || y > rechts.y + rechts.h - 40.0 { continue; }
+        ui.text_semi(&titel.to_uppercase(), rechts.x, y + 12.0, 13.0, farbe_lesbar(farbe));
+        draw_rectangle(rechts.x, y + 18.0, rechts.w, 2.0, alpha(farbe_lesbar(farbe), 0.5));
+        y += 26.0;
+        for p in in_teil {
+            if y + 24.0 > rechts.y + rechts.h { break; }
+            let pl = &c.world.players[p];
+            let rr = Rect::new(rechts.x - 4.0, y, rechts.w + 8.0, 24.0);
+            if ui.hover(rr) { rrect(rr.x, rr.y, rr.w, rr.h, 4.0, Theme::erhoehung()); }
+            ui.player_photo(rechts.x + 10.0, y + 12.0, 10.0, pl.id, &pl.name);
+            ui.text_semi(&format!("{}", pl.no), rechts.x + 26.0, y + 17.0, 13.0, Theme::gedaempft());
+            ui.text(&ui.fit(&format!("{} {}", pos_de(&pl.pos), pl.name), 14.0, rechts.w - 170.0), rechts.x + 50.0, y + 17.0, 14.0, Theme::text());
+            ui.text_right(&crate::tf!("as.ent.talent", pl.age, money(pl.value)), rechts.x + rechts.w - 40.0, y + 17.0, 13.0, Theme::text2());
+            ui.pill(rechts.x + rechts.w - 16.0, y + 12.0, pl.ovr, 30.0);
+            if ui.hit(rr) { v.modal = Modal::Player(p); }
+            y += 25.0;
+        }
+        y += 6.0;
     }
+    crate::pages::auswahl_zeichnen(ui, v, &felder);
 }
+
+/// The club colour, readable as text and lines on the current background.
+fn farbe_lesbar(f: Color) -> Color { crate::ui::lesbar(f, Theme::flaeche(), 3.0) }
 
 fn vereinswelt(ui: &mut Ui, _v: &mut View, c: &mut Career) {
     let (l, r) = links_rechts();
@@ -802,8 +911,10 @@ fn spielerprofil(ui: &mut Ui, v: &mut View, c: &mut Career) {
     ui.text_semi(&cn, rx + 170.0, hr.y + 28.0, 16.0, fg);
     ui.text_right(&tx("spp.vertrag_bis").replace("%1", &(date::START_YEAR as u32 + pl.contract_end + 1).to_string()), hr.x + hr.w - 16.0, hr.y + 28.0, 16.0, fg);
     // buttons (own: club, watch, talk, transfer list; foreign: club, watch, scout, offer)
-    let bw = (hr.w - 656.0 - 16.0) / 3.0;
-    let bt = |i: usize| Rect::new(rx + (i % 3) as f32 * (bw + 8.0), hr.y + 42.0 + (i / 3) as f32 * 34.0, bw, 30.0);
+    // a foreign player has four buttons a row (sounding out: ask, talk, interest)
+    let spalten = if pl.team >= 0 && pl.team != c.own as i32 { 4 } else { 3 };
+    let bw = (hr.w - 656.0 - 8.0 * (spalten as f32 - 1.0) - 8.0) / spalten as f32;
+    let bt = |i: usize| Rect::new(rx + (i % spalten) as f32 * (bw + 8.0), hr.y + 42.0 + (i / spalten) as f32 * 34.0, bw, 30.0);
     if pl.team >= 0 && ui.button(bt(0), tx("spp.k.zum_verein"), false) { v.sel_club = Some(pl.team as usize); v.go(Page::Vereine); return; }
     let gemerkt = c.merkliste.contains(&p);
     if ui.button(bt(1), tx(if gemerkt { "spp.k.beobachtet" } else { "spp.k.beobachten" }), gemerkt) { if gemerkt { c.merkliste.retain(|&x| x != p); } else { c.merkliste.push(p); v.toast(crate::inhalt::t("ui.seiten.auf_die_merkliste_gesetzt"), true); } }
@@ -829,6 +940,15 @@ fn spielerprofil(ui: &mut Ui, v: &mut View, c: &mut Career) {
             if let Some(s) = c.scouts.iter_mut().find(|s| s.watch.is_none()) { s.watch = Some(p); let n = s.name.clone(); v.toast(&crate::tf!("ui.pages.beobachtet_ihn_ab_jetzt", n), true); } else { v.toast(crate::inhalt::t("ui.pages.alle_scouts_haben_schon_einen"), false); }
         }
         if ui.button(bt(3), tx("spp.k.angebot"), false) { match c.open_neg(p) { Ok(i) => { v.modal = Modal::Neg(i); return; } Err(e) => v.toast(&e, false) } }
+        // sounding out before the offer (sondierung.rs); what is known so far under the buttons
+        if pl.team >= 0 {
+            let mut r = None;
+            for (k, key) in ["sd.anfragen", "sd.sprechen", "sd.interesse"].iter().enumerate() { // roh
+                if ui.button(bt(4 + k), crate::inhalt::t(key), false) { r = Some(match k { 0 => c.sondierung_verein(p), 1 => c.sondierung_spieler(p), _ => c.sondierung_interesse(p) }); }
+            }
+            if let Some(r) = r { match r { Ok(m) => v.toast(&m, true), Err(e) => v.toast(&e, false) } }
+            if let Some(st) = c.sond_status(p) { ui.text_passend(&st, bt(7).x, bt(7).y + 20.0, 13.0, bt(7).w, 1, fg); }
+        }
     }
 
     // ---- boxes: strength, playing style, squad status, market value, wage

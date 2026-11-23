@@ -268,6 +268,31 @@ impl Career {
             let co = self.co_name.clone();
             self.msg(1, &co, &crate::tf!("ui.lager.medien_titel", name), t("ui.lager.medien_text"), Action::Wahl { art: crate::id("lager:medien").into(), bezug: vec![], optionen: opts });
         }
+        // further camp stories (Konzept 4.4), each at most once per camp and only when its occasion is there
+        let schon = |b: &[String], k: &str| b.iter().any(|x| x == &format!("#{k}"));
+        let co = self.co_name.clone();
+        let opt = |a: &str, b: &str| vec![(a.split('|').next().unwrap().to_string(), t(a.split('|').nth(1).unwrap()).to_string()), (b.split('|').next().unwrap().to_string(), t(b.split('|').nth(1).unwrap()).to_string())];
+        let sq = self.squad();
+        let mittel_fit = sq.iter().map(|&p| self.world.players[p].fit).sum::<f32>() / sq.len().max(1) as f32;
+        if k > reise && k + 2 < tm.tage && mittel_fit < 82.0 && self.kapitaen().is_some() && !schon(&self.termine[i].bericht, crate::id("frei")) {
+            self.termine[i].bericht.push(crate::id("#frei").into());
+            self.msg(1, &co, &crate::tf!("ui.lager.frei_titel", name), t("ui.lager.frei_text"), Action::Wahl { art: crate::id("lager:frei").into(), bezug: vec![], optionen: opt("ja|ui.lager.frei_ja", "nein|ui.lager.frei_nein") });
+        }
+        if k > reise && !schon(&self.termine[i].bericht, crate::id("weh")) {
+            if let Some(p) = sq.iter().copied().filter(|&p| self.world.players[p].fit < 62.0 && self.world.players[p].inj == 0).min_by(|a, b| self.world.players[*a].fit.partial_cmp(&self.world.players[*b].fit).unwrap()) {
+                self.termine[i].bericht.push(crate::id("#weh").into());
+                let n = self.world.players[p].name.clone();
+                self.msg(1, &co, &crate::tf!("ui.lager.weh_titel", n), &crate::tf!("ui.lager.weh_text", n), Action::Wahl { art: crate::id("lager:weh").into(), bezug: vec![p], optionen: opt("schonen|ui.lager.weh_schonen", "durch|ui.lager.weh_durch") });
+            }
+        }
+        if k > reise && crate::date::weekday(d) >= 5 && zahl(o, crate::id("ruhe")) <= 4.0 && !schon(&self.termine[i].bericht, crate::id("fans")) {
+            self.termine[i].bericht.push(crate::id("#fans").into());
+            self.msg(1, &co, &crate::tf!("ui.lager.fans_titel", name), t("ui.lager.fans_text"), Action::Wahl { art: crate::id("lager:fans").into(), bezug: vec![], optionen: opt("auto|ui.lager.fans_auto", "zu|ui.lager.fans_zu") });
+        }
+        if k + 2 == tm.tage && tm.tage >= 4 && !schon(&self.termine[i].bericht, crate::id("abend")) {
+            self.termine[i].bericht.push(crate::id("#abend").into());
+            self.msg(1, &co, &crate::tf!("ui.lager.abend_titel", name), t("ui.lager.abend_text"), Action::Wahl { art: crate::id("lager:abend").into(), bezug: vec![], optionen: opt("ja|ui.lager.abend_ja", "nein|ui.lager.abend_nein") });
+        }
         // one curfew story at most: the least professional player, now and then
         if k > reise && !tm.bericht.iter().any(|b| b.starts_with('!')) {
             let s = format!("{}:{}", self.world.season, tm.tag);
@@ -290,13 +315,27 @@ impl Career {
                 self.klima(lg("marketing_fans") * m as f32, lg("marketing_fans") * m as f32, 0.0, &name);
                 self.termine[i].bericht.push(crate::tf!("ui.lager.b_marketing", money(geld)));
             }
-            let zeilen: Vec<String> = self.termine[i].bericht.iter().map(|b| b.trim_start_matches('!').to_string()).collect();
+            let zeilen: Vec<String> = self.termine[i].bericht.iter().filter(|b| !b.starts_with('#')).map(|b| b.trim_start_matches('!').to_string()).collect();
             let text = crate::tf!("ui.lager.bericht_text", name, tm.tage, format!("{:.0}", self.club().fam), zeilen.join(crate::id("\n")));
             self.termine[i].ergebnis = Some((1, tm.tage as u8));
             self.termine[i].text = crate::tf!("ui.lager.vorbei", name);
             let co = self.co_name.clone();
             self.msg(1, &co, &crate::tf!("ui.lager.bericht_titel", name), &text, Action::None);
         }
+    }
+    /// The camp still running today, if any (index into termine).
+    pub fn lager_laeuft(&self) -> Option<usize> { let d = self.world.day; self.termine.iter().position(|t| t.art == 2 && t.ergebnis.is_none() && d >= t.tag && d < t.tag + t.tage) }
+    /// „Bis Lagerende vorspulen“ (Konzept 4.3): the days pass, the assistant answers every camp question with his
+    /// standard line (the first answer); stops at a match day or when something else needs the coach.
+    pub fn lager_vorspulen(&mut self) -> Result<String, String> {
+        let Some(i) = self.lager_laeuft() else { return Err(t("ui.lager.keins").into()) };
+        let ende = self.termine[i].tag + self.termine[i].tage;
+        while self.world.day < ende {
+            for k in 0..self.inbox.len() { if !self.inbox[k].done && matches!(&self.inbox[k].action, Action::Wahl { art, .. } if art.starts_with("lager:")) { self.answer(k, true, 0); } }
+            if self.today_match().is_some() { break; }
+            self.end_day()?;
+        }
+        Ok(t("ui.lager.vorgespult").into())
     }
     /// The answer to a camp question (rooms, media day).
     pub fn lager_antwort(&mut self, sub: &str, key: &str) -> String {
@@ -307,6 +346,18 @@ impl Career {
             ("zimmer", "los") => { let g = if zufall(&[crate::id("los"), &self.abs().to_string()]) < 0.5 { 1.0 } else { -0.5 }; self.event_summand_dazu(g); t(if g > 0.0 { "ui.lager.a_los_gut" } else { "ui.lager.a_los_schlecht" }).into() }
             ("zimmer", _) => t("ui.lager.a_nationen").into(),
             ("medien", "offen") => { self.klima(0.0, 2.0, 0.0, t("ui.lager.medien_grund")); t("ui.lager.a_offen").into() }
+            ("frei", "ja") => { for &p in &sq { self.moral_wirkung(p, 2.0, 0, t("ui.lager.frei_grund")); } self.world.clubs[self.own].fam = (self.world.clubs[self.own].fam - 0.5).max(0.0); t("ui.lager.a_frei_ja").into() }
+            ("frei", _) => { if let Some(k) = self.kapitaen() { self.beziehung(k, -3.0, t("ui.lager.frei_grund")); } t("ui.lager.a_frei_nein").into() }
+            ("weh", "schonen") => { if let Some(&p) = sq.iter().min_by(|a, b| self.world.players[**a].fit.partial_cmp(&self.world.players[**b].fit).unwrap()) { self.world.players[p].fit = (self.world.players[p].fit + 10.0).min(100.0); } t("ui.lager.a_weh_schonen").into() }
+            ("weh", _) => {
+                let p = sq.iter().copied().min_by(|a, b| self.world.players[*a].fit.partial_cmp(&self.world.players[*b].fit).unwrap());
+                if let Some(p) = p.filter(|&p| zufall(&[crate::id("weh"), &self.world.players[p].id.to_string(), &self.abs().to_string()]) < 0.15) { self.world.players[p].inj = 5; self.world.players[p].inj_name = t("ui.lager.weh_verletzung").into(); return t("ui.lager.a_weh_verletzt").into(); }
+                t("ui.lager.a_weh_gut").into()
+            }
+            ("fans", "auto") => { self.klima(1.0, 0.5, 0.0, t("ui.lager.fans_grund")); t("ui.lager.a_fans_auto").into() }
+            ("fans", _) => { self.klima(-1.0, 0.0, 0.0, t("ui.lager.fans_grund")); t("ui.lager.a_fans_zu").into() }
+            ("abend", "ja") => { let k = events().iter().find(|x| x["id"] == "mannschaftsabend").and_then(|x| x["kosten"].as_f64()).unwrap_or(25000.0) / 2.0; self.book(t("ui.vorb.buchung_event"), -k); self.event_summand_dazu(2.0); t("ui.lager.a_abend_ja").into() }
+            ("abend", _) => t("ui.lager.a_abend_nein").into(),
             _ => t("ui.lager.a_knapp").into(),
         }
     }
@@ -418,6 +469,14 @@ impl Career {
     /// overweight (more fitness lost, a little morale).
     pub fn urlaub_rueckkehr(&mut self) {
         self.gf_an();
+        // the summer break: familiarity falls to 60 % (Konzept 3.3); the AI clubs do a simple pre-season of their own
+        // (Konzept 2.7), which gives familiarity back by the coach's thoroughness
+        let s = self.world.season.to_string();
+        for c in 0..self.world.clubs.len() {
+            let alt = self.world.clubs[c].fam;
+            let neu = if c == self.own { alt * 0.6 } else { alt * 0.6 + 14.0 + 12.0 * zufall(&[crate::id("ki_vorbereitung"), &self.world.clubs[c].id.to_string(), &s]) };
+            self.world.clubs[c].fam = neu.clamp(20.0, 95.0);
+        }
         let s = self.world.season.to_string();
         for p in self.squad() {
             let prof = cw(&self.world.players[p], PROF) / 100.0;
@@ -467,6 +526,15 @@ mod tests {
         let d2 = c.freie_tage(1, 10)[0];
         assert!(c.lager_buchen("alpen", d2, 10).is_err());
         assert!(c.lager_antwort("zimmer", "los").len() > 5);
+        // fast-forward: a second camp runs to its end, the assistant answers its questions
+        let mut c = karriere();
+        let d = c.freie_tage(1, 5)[0];
+        c.lager_buchen("sportschule", d, 5).unwrap();
+        while c.world.day < d { c.ultimatum = None; c.end_day().unwrap(); }
+        assert!(c.lager_laeuft().is_some());
+        c.lager_vorspulen().unwrap();
+        assert!(c.lager_laeuft().is_none() && c.termine.iter().any(|t| t.art == 2 && t.ergebnis.is_some()));
+        assert!(!c.inbox.iter().any(|m| !m.done && matches!(&m.action, Action::Wahl { art, .. } if art.starts_with("lager:") && m.day < c.world.day)), "Fragen beantwortet");
     }
 
     #[test]

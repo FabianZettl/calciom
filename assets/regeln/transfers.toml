@@ -156,3 +156,22 @@ ticker_zeilen = 5               # Ticker insgesamt höchstens so viele Zeilen
 
 [drama]
 aktiv = true          # Medizincheck, Ereignisse im letzten Moment, Streik, Vertragspoker (core/transfers/drama.py); aus = wie bisher
+
+# Deadline Day in Stunden (Fabian 23.11.): zwölf Schritte zu einer Stunde, je Stunde ein Teil der KI-Vereine,
+# dazu späte Gebote für eigene Spieler (mit Aufschlag) und Leih-Anfragen in letzter Minute.
+[deadline]
+gebot_chance = 0.3
+gebot_von = 0.95
+gebot_bis = 1.45
+leihe_chance = 0.2
+
+# Realistische Wechsel zwischen KI-Vereinen (Fabian 23.11.)
+[realismus]
+spitze_ab = 70          # zwei Spitzenvereine (Ruf) derselben Liga verkaufen einander keine Spieler, außer von der Transferliste
+abstieg_ruf = 15        # ein Stammspieler unter 30 geht nicht zu einem Verein mit so viel weniger Ruf
+stamm_chance = 0.15     # je Woche: so selten wird ein Stammspieler überhaupt abgegeben (ohne Transferliste)
+platzt = 0.12           # Anteil der angebahnten Wechsel, die noch platzen
+
+# Echo auf einen eigenen Neuzugang (Fabian 23.11.)
+[echo]
+fans_gross = 3.0        # Fanstimmung bei einem großen Transfer

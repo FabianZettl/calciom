@@ -49,12 +49,21 @@ impl Career {
             };
             if weg { m.done = true; m.read = true; m.body += crate::inhalt::t("ui.vorgang.ueberholt_er_ist_nicht_mehr"); }
         }
-        let faellig: Vec<usize> = (0..self.inbox.len()).filter(|&i| { let m = &self.inbox[i]; !m.done && m.pflicht == 1 && m.frist > 0 && abs >= m.frist }).collect();
-        for i in faellig { self.cotrainer_uebernimmt(i); }
+        // Fabian 23.11.: nothing stays open for ever. A case left unanswered runs out at its deadline (a week for those
+        // without one); the assistant answers it. A must-case first escalates and gets three more days.
+        let faellig: Vec<usize> = (0..self.inbox.len()).filter(|&i| {
+            let m = &self.inbox[i];
+            let offen = !m.done && m.action != Action::None && !matches!(m.action, Action::Report { .. });
+            let frist = if m.frist > 0 { m.frist } else { abs_day(m.season, m.day) + 7 } + if m.pflicht == 2 { 3 } else { 0 };
+            offen && abs >= frist
+        }).collect();
         for m in self.inbox.iter_mut() { if !m.done && m.pflicht == 2 && m.frist > 0 && abs >= m.frist && m.stufe < 3 { m.stufe = 3; m.title = crate::tf!("ui.vorgang.eskaliert", m.title); } }
+        for i in faellig { self.cotrainer_uebernimmt(i); }
     }
     /// The assistant answers a Soll case with his standard line: calm and neutral (cotrainer.py); conversations cost
     /// −1 relation to the player, at most −3 per player in 30 days.
+    /// The person hands a case to the assistant (delegate): he answers it at once, in his calm way.
+    pub fn delegieren(&mut self, i: usize) { if i < self.inbox.len() && !self.inbox[i].done { self.cotrainer_uebernimmt(i); } }
     fn cotrainer_uebernimmt(&mut self, i: usize) {
         let a = self.inbox[i].action.clone();
         match a {
@@ -72,6 +81,18 @@ impl Career {
                 self.inbox[i].body += crate::inhalt::t("ui.vorgang.vom_co_trainer_beantwortet");
             }
             Action::TransferOffer { .. } => { self.answer(i, false, 0); self.inbox[i].body += crate::inhalt::t("ui.vorgang.ohne_antwort_abgelaufen"); }
+            // a job offer runs out, an expiring contract is put off, a complaint gets the matter-of-fact answer, a graduate is kept
+            Action::JobOffer { .. } => { self.answer(i, false, 0); self.inbox[i].body += crate::inhalt::t("ui.vorgang.ohne_antwort_abgelaufen"); }
+            Action::Expiring { .. } => { self.answer(i, true, 2); self.inbox[i].body += crate::inhalt::t("ui.vorgang.vom_co_trainer_beantwortet"); }
+            Action::Complaint { .. } => { self.answer(i, true, 1); self.inbox[i].body += crate::inhalt::t("ui.vorgang.vom_co_trainer_beantwortet"); }
+            Action::Graduate { .. } => { self.answer(i, true, 0); self.inbox[i].body += crate::inhalt::t("ui.vorgang.vom_co_trainer_beantwortet"); }
+            Action::Wahl { .. } => {
+                // the calm answer: the first matter-of-fact option, else the first friendly one, else the first
+                let antw = crate::pages::antworten(&self.inbox[i]);
+                let k = antw.iter().find(|a| a.3 == 1).or_else(|| antw.iter().find(|a| a.3 == 0)).map(|a| a.1).unwrap_or(0);
+                self.answer(i, true, k);
+                self.inbox[i].body += crate::inhalt::t("ui.vorgang.vom_co_trainer_beantwortet");
+            }
             _ => { self.inbox[i].done = true; self.inbox[i].body += crate::inhalt::t("ui.vorgang.erledigt_durch_den_co_trainer"); }
         }
     }
@@ -151,7 +172,7 @@ impl Career {
     pub fn auto_lineup_fill(&mut self) {
         if self.xi.len() >= 11 { return; }
         let keep = self.xi.clone();
-        let (xi, _) = self.world.lineup(self.own, self.formation, &keep);
+        let (xi, _) = self.world.lineup_slots(self.own, self.eigene_slots(), &keep);
         self.xi = xi.iter().map(|x| x.1).collect();
     }
 }

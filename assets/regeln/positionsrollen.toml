@@ -1,0 +1,79 @@
+# Scouting-Konzept 2.2 (23.11.2026): Wichtigkeit jedes FL27-Werts je Positionsgruppe. kern = entscheidet über die Position,
+# rolle = zählt je nach Rolle, plus = Stärke, nie Schwäche, egal = wird nie genannt. Nicht genannte Werte zählen als plus.
+# Namen wie entwicklung.rs NAMEN (flachpass = Low Pass, steilpass = Lofted Pass).
+[gewicht]
+kern = 3.0
+rolle = 2.0
+plus = 0.5
+egal = 0.0
+gelernt = -4.0       # Position nur gelernt (Positionsstufe 1)
+fremd = -12.0        # Position gar nicht
+
+[schwelle]
+staerke = 6.0
+gross = 12.0
+staerken_hoechstens = 4
+schwaechen_hoechstens = 3
+
+[gruppe.tw]
+pos = ["GK"]
+kern = ["torwartgefuehl", "fangen", "reflexe", "reichweite"]
+rolle = ["klaeren", "flachpass", "steilpass", "schnelligkeit"]
+plus = ["sprungkraft", "schusskraft"]
+egal = ["offensivgeist", "ballkontrolle", "dribbling", "enge_ballfuehrung", "abschluss", "kopfball", "freistoss", "effet", "antritt", "koerperkontakt", "balance", "ausdauer", "defensivgeist", "balleroberung", "aggressivitaet"]
+[gruppe.iv]
+pos = ["CB"]
+kern = ["defensivgeist", "balleroberung", "koerperkontakt", "kopfball", "sprungkraft"]
+rolle = ["schnelligkeit", "antritt", "flachpass", "steilpass", "aggressivitaet"]
+plus = ["ballkontrolle", "ausdauer"]
+egal = ["abschluss", "effet", "freistoss", "dribbling", "enge_ballfuehrung", "torwartgefuehl", "fangen", "klaeren", "reflexe", "reichweite"]
+[gruppe.av]
+pos = ["LB", "RB"]
+kern = ["defensivgeist", "schnelligkeit", "ausdauer", "balleroberung"]
+rolle = ["steilpass", "dribbling", "offensivgeist", "antritt"]
+plus = ["flachpass", "ballkontrolle"]
+egal = ["abschluss", "kopfball", "sprungkraft", "freistoss", "torwartgefuehl", "fangen", "klaeren", "reflexe", "reichweite"]
+[gruppe.dm]
+pos = ["DMF"]
+kern = ["defensivgeist", "balleroberung", "flachpass", "ausdauer"]
+rolle = ["koerperkontakt", "aggressivitaet", "steilpass", "ballkontrolle"]
+plus = ["kopfball", "schusskraft"]
+egal = ["abschluss", "effet", "dribbling", "torwartgefuehl", "fangen", "klaeren", "reflexe", "reichweite"]
+[gruppe.zm]
+pos = ["CMF"]
+kern = ["flachpass", "ballkontrolle", "ausdauer", "offensivgeist"]
+rolle = ["steilpass", "defensivgeist", "balleroberung", "enge_ballfuehrung"]
+plus = ["schusskraft", "abschluss"]
+egal = ["kopfball", "sprungkraft", "torwartgefuehl", "fangen", "klaeren", "reflexe", "reichweite"]
+[gruppe.om]
+pos = ["AMF"]
+kern = ["offensivgeist", "ballkontrolle", "flachpass", "dribbling"]
+rolle = ["enge_ballfuehrung", "abschluss", "steilpass", "effet"]
+plus = ["schusskraft", "freistoss", "antritt"]
+egal = ["defensivgeist", "balleroberung", "kopfball", "sprungkraft", "torwartgefuehl", "fangen", "klaeren", "reflexe", "reichweite"]
+[gruppe.fl]
+pos = ["LMF", "RMF", "LWF", "RWF"]
+kern = ["schnelligkeit", "antritt", "dribbling", "ballkontrolle"]
+rolle = ["steilpass", "abschluss", "ausdauer", "offensivgeist"]
+plus = ["effet", "enge_ballfuehrung"]
+egal = ["kopfball", "sprungkraft", "koerperkontakt", "torwartgefuehl", "fangen", "klaeren", "reflexe", "reichweite"]
+[gruppe.hs]
+pos = ["SS"]
+kern = ["offensivgeist", "ballkontrolle", "abschluss", "dribbling"]
+rolle = ["flachpass", "antritt", "enge_ballfuehrung"]
+plus = ["effet", "schusskraft"]
+egal = ["defensivgeist", "kopfball", "torwartgefuehl", "fangen", "klaeren", "reflexe", "reichweite"]
+[gruppe.st]
+pos = ["CF"]
+kern = ["abschluss", "offensivgeist", "ballkontrolle"]
+rolle = ["kopfball", "sprungkraft", "koerperkontakt", "schnelligkeit", "antritt", "flachpass"]
+plus = ["schusskraft", "balance"]
+egal = ["defensivgeist", "balleroberung", "steilpass", "torwartgefuehl", "fangen", "klaeren", "reflexe", "reichweite"]
+
+# Teilwerte des Urteils (Konzept 4.2) und die Empfehlungen (4.3)
+[urteil]
+gewichte = [0.35, 0.20, 0.20, 0.15, 0.10]   # Kader besser, System, Preis-Leistung, Zukunft, Risiko (abgezogen)
+sofort = 80
+holen = 68
+preis = 58
+ergaenzung = 50

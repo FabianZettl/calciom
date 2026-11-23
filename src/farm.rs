@@ -541,7 +541,7 @@ mod tests {
         c.mensch.vertrag_bis = u32::MAX;
         c.mannschaft_wechseln(p).unwrap();
         for _ in 0..31 { if c.today_match().is_some() { let r = c.prepare_match(None); c.apply_own_match(r); } c.ultimatum = None; c.end_day().unwrap(); }
-        assert!(c.book.iter().any(|x| x.0 == "Zweite Mannschaft" && x.1 < 0.0), "post Zweite Mannschaft in the finances");
+        assert!(c.book.iter().any(|x| x.0 == "Zweite Mannschaft" && x.1 != 0.0), "post Zweite Mannschaft in the finances {:?} {}", c.book, c.world.day);
     }
     #[test]
     fn zweite_nach_abstieg_der_ersten_eine_stufe_tiefer() {

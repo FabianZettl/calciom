@@ -1,0 +1,29 @@
+{
+ "wochentag": 3,
+ "max_arcs": 3,
+ "verlauf_tage": 21,
+ "talent": {"max_alter": 21, "min_einsaetze": 6, "min_note": 7.0},
+ "maerchen": {"min_anteil": 0.2, "spitze_anteil": 0.3},
+ "titel": {"min_anteil": 0.3, "max_abstand": 4},
+ "abstieg": {"min_anteil": 0.35, "zone": 3},
+ "druck": {"board_max": 32, "platz_ueber_ziel": 2, "befreit_board": 50},
+ "rivale": {"tage_vorher": 21, "min_diff": 2},
+ "ruf": {"verfall": 0.8, "aktiv": 1.5, "jugend_min": 3, "tore_pro_spiel": 3.3, "gegentore_pro_spiel": 0.9,
+         "fans": {"ausbildung": 1.0, "spektakel": 1.5, "bollwerk": 0.5, "stehaufmaennchen": 1.5, "titelsammler": 1.0, "fahrstuhl": -0.5},
+         "namen": {"ausbildung": "Ausbildungsverein", "spektakel": "Spektakel-Klub", "bollwerk": "Bollwerk", "stehaufmaennchen": "Stehaufmännchen", "titelsammler": "Titelsammler", "fahrstuhl": "Fahrstuhlverein"}},
+ "gedaechtnis": {"abstand_tage": 30, "jahre": [1, 2, 3, 5], "wiedersehen_tage": 60},
+ "zahlen": ["null", "ein", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun", "zehn", "elf", "zwölf"],
+ "szenarien": [
+  {"id": "frei", "label": "Freies Spiel", "text": "Keine Vorgabe: Du übernimmst den Verein, wie er ist.", "rang": null},
+  {"id": "abstieg", "label": "Abstiegskampf", "text": "Ein Klub aus dem unteren Tabellendrittel. Das Ziel heißt Klassenerhalt, der Vorstand ist ungeduldig, die Fans sind besorgt.",
+   "rang": [0.66, 1.0], "ziel": {"label": "der Klassenerhalt, koste es, was es wolle", "kind": "Klassenerhalt", "frac": 0.82}, "board": 40, "fans": 42, "geld": 0.0},
+  {"id": "aufstieg", "label": "Aufstiegsprojekt", "text": "Ein Zweitligist mit Ambitionen: Der Vorstand will rauf und gibt dafür etwas mehr Geld.",
+   "ebene": 2, "rang": [0.0, 0.4], "ziel": {"label": "der Aufstieg", "kind": "Meisterschaft", "frac": 0.1}, "board": 55, "fans": 58, "geld": 0.25},
+  {"id": "krise", "label": "Traditionsklub in der Krise", "text": "Ein großer Name im Mittelfeld, die Fans sind unzufrieden, der Vorstand will Europa, nicht Mittelmaß.",
+   "rang": [0.2, 0.45], "ziel": {"label": "ein Platz im Europapokal", "kind": "Europapokal", "frac": 0.2}, "board": 36, "fans": 36, "geld": 0.0},
+  {"id": "reich", "label": "Reicher Neuling", "text": "Ein Klub aus der unteren Hälfte, hinter dem ein Investor steht: viel Geld im Rücken, aber noch keine Spieler, die es wert sind.",
+   "rang": [0.5, 0.9], "ziel": {"label": "gesichertes Mittelfeld", "kind": "Mittelfeld", "frac": 0.5}, "board": 60, "fans": 55, "geld": 0.8},
+  {"id": "jugend", "label": "Jugendprojekt", "text": "Ein Verein, der auf junge Spieler setzt. Der Vorstand gibt dir Zeit, die Fans erwarten Entwicklung statt Titel.",
+   "rang": [0.35, 0.8], "ziel": {"label": "ein ruhiger Klassenerhalt", "kind": "Klassenerhalt", "frac": 0.7}, "board": 66, "fans": 55, "geld": 0.0, "ruf": {"ausbildung": 1.2}}
+ ]
+}

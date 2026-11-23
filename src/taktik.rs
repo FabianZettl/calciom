@@ -206,7 +206,7 @@ impl Career {
         self.std.vorlagen.push((n, self.formation, self.tactic.clone()));
         Ok(())
     }
-    pub fn vorlage_laden(&mut self, i: usize) { if let Some((_, f_, t)) = self.std.vorlagen.get(i).cloned() { self.formation = f_; self.tactic = t; self.auto_lineup(); } }
+    pub fn vorlage_laden(&mut self, i: usize) { if let Some((_, f_, t)) = self.std.vorlagen.get(i).cloned() { self.formation = f_; self.frei.clear(); self.tactic = t; self.auto_lineup(); } }
     /// Change a shirt number (1…99, unique in the squad); FL27 gets it with the squad (PlayerAssignment).
     pub fn rueckennummer(&mut self, p: usize, d: i32) {
         let belegt: Vec<u8> = self.world.clubs[self.own].squad.iter().filter(|&&q| q != p).map(|&q| self.world.players[q].no).collect();
