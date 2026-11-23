@@ -5,7 +5,10 @@
 #![allow(dead_code)]
 use std::collections::{HashMap, HashSet};
 use std::io::{BufRead, BufReader, Read, Write};
+#[cfg(unix)]
 use std::os::unix::fs::FileExt;
+#[cfg(windows)]
+use std::os::windows::fs::FileExt;
 use std::path::{Path, PathBuf};
 use pesm_coaching_zone as cz;
 
@@ -1031,7 +1034,10 @@ impl Mem for ProcMem {
     }
     fn read(&mut self, adr: u64, n: usize) -> Option<Vec<u8>> {
         let mut b = vec![0u8; n];
-        self.file.read_exact_at(&mut b, adr).ok().map(|_| b)
+        #[cfg(unix)]
+        { self.file.read_exact_at(&mut b, adr).ok().map(|_| b) }
+        #[cfg(windows)]
+        { self.file.seek_read(&mut b, adr).ok().filter(|&r| r == n).map(|_| b) }
     }
     fn alive(&mut self) -> bool { Path::new(&format!("/proc/{}", self.pid)).exists() }
 }
