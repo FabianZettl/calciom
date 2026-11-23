@@ -28,6 +28,14 @@ pub struct Person {
     /// The search profile of the running assignment (suchprofil.rs).
     #[serde(default)]
     pub profil: Option<crate::suchprofil::Suchprofil>,
+    /// His task in the staff (Konzept 3.1): 0 regional scout, 2 data analyst.
+    #[serde(default)]
+    pub aufgabe: u8,
+    /// How often his estimates held after 8 weeks (Konzept 4.3 "Trefferquote").
+    #[serde(default)]
+    pub treffer: u16,
+    #[serde(default)]
+    pub fehler: u16,
     /// Reports to check after 8 weeks: (player, estimate, abs day).
     pub pruefen: Vec<(usize, f32, u32)>,
 }
@@ -48,7 +56,7 @@ impl Career {
             let q = self.scouts[s].q as f32;
             let fs = [40.0 + q * 4.0, 38.0 + q * 4.0, 45.0 + q * 2.0, 40.0 + q * 3.0];
             let abs = self.abs();
-            self.scouts[s].p = Some(Person { f: fs, spezial: (s % 5) as u8, typ: 2, gehalt: gehalt(&fs), bis: abs + 2 * crate::date::SEASON_DAYS, vertrauen: f("scouting", "vertrauen.start"), auftrag_bis: 0, alter_max: 99, profil: None, pruefen: vec![] });
+            self.scouts[s].p = Some(Person { f: fs, spezial: (s % 5) as u8, typ: 2, gehalt: gehalt(&fs), bis: abs + 2 * crate::date::SEASON_DAYS, vertrauen: f("scouting", "vertrauen.start"), auftrag_bis: 0, alter_max: 99, profil: None, pruefen: vec![], treffer: 0, fehler: 0, aufgabe: 0 });
         }
         self.scouts[s].p.as_mut().unwrap()
     }
@@ -65,7 +73,7 @@ impl Career {
             let basis = 35.0 + rep * 0.35;
             let fs = [0, 1, 2, 3].map(|k| (basis + z(&format!("f{k}")) * 30.0).clamp(20.0, 95.0).round());
             let name = format!("{} {}", vn[(z(crate::id("v")) * vn.len() as f32) as usize % vn.len()], nn[(z(crate::id("n")) * nn.len() as f32) as usize % nn.len()]);
-            (name, Person { f: fs, spezial: (z(crate::id("s")) * 5.0) as u8 % 5, typ: (z(crate::id("t")) * 4.0) as u8 % 4, gehalt: gehalt(&fs), bis: 0, vertrauen: f("scouting", "vertrauen.start"), auftrag_bis: 0, alter_max: 99, profil: None, pruefen: vec![] })
+            (name, Person { f: fs, spezial: (z(crate::id("s")) * 5.0) as u8 % 5, typ: (z(crate::id("t")) * 4.0) as u8 % 4, gehalt: gehalt(&fs), bis: 0, vertrauen: f("scouting", "vertrauen.start"), auftrag_bis: 0, alter_max: 99, profil: None, pruefen: vec![], treffer: 0, fehler: 0, aufgabe: 0 })
         }).collect()
     }
     pub fn scout_einstellen(&mut self, i: usize) -> Result<(), String> {
@@ -99,6 +107,50 @@ impl Career {
         p.alter_max = alter_max;
         self.erste_woche_schritt(3);
         Ok(())
+    }
+    /// Konzept 1.1: what PES M knows about a player without any scouting — the most of reputation (star players are
+    /// known), league (own league, same country, top-5) and own club. scouting.toml [grundwissen].
+    pub fn grundwissen(&self, p: usize) -> f32 {
+        let pl = &self.world.players[p];
+        if pl.team < 0 { return 0.0; }
+        let g = |k: &str| f("scouting", &format!("grundwissen.{k}"));
+        let cl = &self.world.clubs[pl.team as usize];
+        let ruf = pl.ovr * g("ruf_ovr") + cl.rep * (1.0 - g("ruf_ovr"));
+        let ruf_w = crate::mensch::arr("scouting", "grundwissen.ruf_ab").iter().zip(crate::mensch::arr("scouting", "grundwissen.ruf_wissen").iter())
+            .find(|(ab, _)| ruf >= ab.as_f64().unwrap() as f32).map_or(0.0, |(_, w)| w.as_f64().unwrap() as f32);
+        let stamm = pl.ovr >= cl.level - g("stamm_unter_niveau");
+        let l = cl.league;
+        let liga_w = if l == self.league() { if stamm { g("eigene_liga_stamm") } else { g("eigene_liga_ersatz") } }
+            else if l < self.world.leagues.len() && (self.world.leagues[l].land == self.world.leagues[self.league()].land || ["ENGLAND_D1_LEAGUE", "SPAIN_D1_LEAGUE", "GERMANY_D1_LEAGUE", "ITALY_D1_LEAGUE", "FRANCE_D1_LEAGUE"].contains(&self.world.leagues[l].key.as_str())) {
+                if stamm { g("nah_stamm") } else { g("nah_ersatz") }
+            } else { 0.0 };
+        ruf_w.max(liga_w) / 100.0
+    }
+    /// Konzept 1.1, once a month: the base knowledge follows transfers and form, and knowledge above it fades by 2 a
+    /// month once nobody has watched the player for 6 months — never below the base, never below 40 once it reached 75.
+    pub fn wissen_monat(&mut self) {
+        let abs = self.abs();
+        let g = |k: &str| f("scouting", &format!("verfall.{k}"));
+        for p in 0..self.world.players.len() {
+            if self.world.players[p].team < 0 || self.gehoert_uns(p) { continue; }
+            let grund = self.grundwissen(p);
+            let id = self.world.players[p].id;
+            let (zuletzt, hoch) = self.wissen_info.get(&id).copied().unwrap_or((0, false));
+            let k = self.world.players[p].know;
+            let mut neu = k.max(grund);
+            if k > grund && abs.saturating_sub(zuletzt) >= g("nach_tagen") as u32 {
+                let boden = grund.max(if hoch { g("boden_nach_genau") / 100.0 } else { 0.0 });
+                neu = (k - g("je_monat") / 100.0).max(boden).max(grund);
+            }
+            self.world.players[p].know = neu;
+        }
+    }
+    /// A scout looked at the player: remember when, and whether he was ever known exactly.
+    pub fn wissen_gesehen(&mut self, p: usize) {
+        let (id, k, abs) = (self.world.players[p].id, self.world.players[p].know, self.abs());
+        let e = self.wissen_info.entry(id).or_insert((0, false));
+        e.0 = abs;
+        e.1 |= k >= f("scouting", "verfall.genau_ab") / 100.0;
     }
     /// Half span of the rating estimate (scouting.toml [bericht]): 12 at knowledge 0 down to 1, × judgement and personality.
     pub fn spanne(&self, p: usize) -> f32 {
@@ -165,6 +217,8 @@ impl Career {
     /// assignment results, salaries and expenses, trust checks after 8 weeks.
     pub fn scouting_week(&mut self) {
         let abs = self.abs();
+        self.analyst_woche();
+        if abs % 28 < 7 { self.wissen_monat(); }
         let je_tag = f("scouting", "wissen.je_tag");
         let own_league = self.league();
         for s in 0..self.scouts.len() {
@@ -175,9 +229,10 @@ impl Career {
             if let Some(w) = watch {
                 let pl = &self.world.players[w];
                 let gain = je_tag * 7.0 * pe.f[0] / 100.0 * spez(pl) / 100.0 + if pl.apps > 0 { f("scouting", "wissen.live_gewinn") / 100.0 } else { 0.0 };
-                let k = &mut self.world.players[w].know;
-                *k = (*k + gain).min(1.0);
-                if *k >= f("scouting", "wissen.genau_ab") / 100.0 {
+                let k = (self.world.players[w].know + gain).min(1.0);
+                self.world.players[w].know = k;
+                self.wissen_gesehen(w);
+                if k >= f("scouting", "wissen.genau_ab") / 100.0 {
                     self.scouts[s].watch = None;
                     self.scout_bericht(s, w, crate::inhalt::t("ui.scouting.bericht"));
                 }
@@ -208,6 +263,7 @@ impl Career {
                 let gain = je_tag * 7.0 * pe.f[0] / 100.0 * heimat * f("scouting", "wissen.video_faktor") * spez(pl) / 100.0 * (1.0 + pe.f[3] / 200.0);
                 self.world.players[p].know = (self.world.players[p].know + gain).min(1.0);
                 self.scouts[s].seen += 1;
+                self.wissen_gesehen(p);
                 gesehen.push(p);
             }
             if aktiv && pe.auftrag_bis <= abs + 7 {
@@ -227,7 +283,9 @@ impl Career {
             let mut rest = vec![];
             for (p, est, d) in pr {
                 if abs < d + 56 { rest.push((p, est, d)); continue; }
-                v = (v + if (self.world.players[p].ovr - est).abs() <= 3.0 { 3.0 } else { -4.0 }).clamp(0.0, 100.0);
+                let ok = (self.world.players[p].ovr - est).abs() <= 3.0;
+                v = (v + if ok { 3.0 } else { -4.0 }).clamp(0.0, 100.0);
+                if ok { self.person(s).treffer += 1; } else { self.person(s).fehler += 1; }
             }
             let pe = self.person(s);
             pe.pruefen = rest;
@@ -256,6 +314,21 @@ impl Career {
 mod tests {
     use super::*;
     #[test]
+    fn grundwissen_und_verfall() {
+        let w = World::load(include_str!("../assets/world.json"), 7);
+        let mut c = Career::new(w, 0, "Test");
+        // the own league is known, a star more than a bench player of the same club
+        let eigene: Vec<usize> = c.world.leagues[c.league()].teams.iter().filter(|&&t| t != c.own).flat_map(|&t| c.world.clubs[t].squad.clone()).collect();
+        assert!(eigene.iter().all(|&p| c.grundwissen(p) >= 0.35));
+        let p = eigene[0];
+        c.world.players[p].know = 0.9;
+        c.wissen_gesehen(p);
+        c.world.day += 200;
+        c.wissen_monat();
+        let k = c.world.players[p].know;
+        assert!(k < 0.9 && k >= 0.40f32.max(c.grundwissen(p)), "fades, but not below 40 once known exactly: {k}");
+    }
+    #[test]
     fn sterne_und_spanne() {
         assert_eq!(sterne(55.0), 0.0);
         assert_eq!(sterne(90.0), 5.0);
@@ -272,7 +345,7 @@ mod tests {
         assert!(b - a > y - x, "more knowledge, narrower range");
         assert!(c.bewerber().len() == 5);
         // colour of the scout: euphorisch +3, at most 40 % of the half span (scoutperson.py:26)
-        let pe = Person { f: [99.0, 50.0, 50.0, 50.0], spezial: 0, typ: 1, gehalt: 1.0, bis: 0, vertrauen: 50.0, auftrag_bis: 0, alter_max: 99, profil: None, pruefen: vec![] };
+        let pe = Person { f: [99.0, 50.0, 50.0, 50.0], spezial: 0, typ: 1, gehalt: 1.0, bis: 0, vertrauen: 50.0, auftrag_bis: 0, alter_max: 99, profil: None, pruefen: vec![], treffer: 0, fehler: 0, aufgabe: 0 };
         c.scouts.push(Scout { name: "E".into(), q: 9, league: None, pos: 0, watch: None, seen: 0, p: Some(pe) });
         assert_eq!(c.scout_bias(10.0), 3.0);
         assert_eq!(c.scout_bias(5.0), 2.0);

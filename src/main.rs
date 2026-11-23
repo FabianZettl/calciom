@@ -55,6 +55,11 @@ mod krise;
 mod trainingsplan;
 mod jugend;
 mod scoutbericht;
+mod statistik;
+mod auftraege;
+mod praesidium;
+mod handy;
+mod taktikwirkung;
 mod neubau;
 mod prognose;
 mod trainerprofil;
@@ -236,6 +241,8 @@ struct StartState {
     angebot_modus: usize,
     ligen: Vec<usize>,
     ligen_scroll: usize,
+    /// League list of the new career: 0 by strength, 1 grouped by country (Fabian 23.11.).
+    liga_sort: u8,
 }
 
 struct SelfTest {
@@ -261,6 +268,9 @@ struct App {
     fast: bool,
     last_inbox: usize,
     selftest: Option<SelfTest>,
+    /// The phone server (handy/), when "Handy-Zugang" is on; the time of the last phone command that changed something.
+    handy: Option<handy::Handy>,
+    handy_geaendert: Option<f64>,
 }
 
 impl App {
@@ -287,8 +297,8 @@ impl App {
         let default_db = fl27::welt_ordner(&fl27::sider()).display().to_string();
         App {
             ui, v: View::new(), screen: Screen::Start,
-            start: StartState { step: 0, db_path: default_db, db_focus: false, league: 0, team: None, coach: String::new(), coach_focus: false, saves: game::list_saves(), loeschen: None, offen: None, error: String::new(), scroll: 0, welt: None, welt_info: String::new(), such: String::new(), such_focus: false, f_land: None, f_liga: None, index: None, treffer: 0, paare: vec![], unklar: vec![], karte_zoom: 1.0, karte_off: (0.0, 0.0), profil: Default::default(), ohne: false, angebot_modus: 0, ligen: vec![], ligen_scroll: 0 },
-            template: None, career: None, fast: false, last_inbox: 0, selftest: None, starttest: None,
+            start: StartState { step: 0, db_path: default_db, db_focus: false, league: 0, team: None, coach: String::new(), coach_focus: false, saves: game::list_saves(), loeschen: None, offen: None, error: String::new(), scroll: 0, welt: None, welt_info: String::new(), such: String::new(), such_focus: false, f_land: None, f_liga: None, index: None, treffer: 0, paare: vec![], unklar: vec![], karte_zoom: 1.0, karte_off: (0.0, 0.0), profil: Default::default(), ohne: false, angebot_modus: 0, ligen: vec![], ligen_scroll: 0, liga_sort: 0 },
+            template: None, career: None, fast: false, last_inbox: 0, selftest: None, starttest: None, handy: None, handy_geaendert: None,
         }
     }
 
@@ -312,11 +322,58 @@ impl App {
         // the career's world (the built-in demo world uses the FL world folder of the game for its pictures)
         let welt = match (&self.screen, &self.career) { (Screen::Game, Some(c)) => Some(c.welt()).filter(|w| w.is_dir()), _ => self.start.welt.clone() };
         self.ui.bilder_fuer_welt(welt);
+        self.handy_bearbeiten();
         match self.screen {
             Screen::Start => self.start_screen(),
             Screen::Game => self.game_screen(),
         }
         self.ui.flush_sounds();
+    }
+
+    /// The phone's requests of this frame: pages and commands through the same functions as the PC (handy/ansicht.rs);
+    /// "Tag weiter" and "Bis zum nächsten Ereignis" go through advance() and the fast run like the PC button.
+    fn handy_bearbeiten(&mut self) {
+        // switched on in the settings (file handy.txt), started once; a taken port leaves it off with a note
+        let an = handy::an();
+        if an && self.handy.is_none() && !handy::start_fehlgeschlagen() { match handy::starten() { Ok(h) => self.handy = Some(h), Err(e) => { handy::merke_fehler(); self.v.toast(&crate::tf!("ui.handy.start_fehler", e), false); } } }
+        if !an { self.handy = None; handy::info_setzen(None); return; }
+        let Some(h) = self.handy.as_ref() else { return };
+        handy::info_setzen(Some((h.adresse.clone(), h.code(), h.verbunden())));
+        let mut auftraege = vec![];
+        while let Ok(b) = h.rx.try_recv() { auftraege.push(b); }
+        for b in auftraege {
+            let stand = self.handy.as_ref().map(|h| h.stand.load(std::sync::atomic::Ordering::Relaxed)).unwrap_or(0);
+            let antwort = match (&b.auftrag, self.career.is_some() && matches!(self.screen, Screen::Game)) {
+                // crests and photos from the loaders PES M already has; DDS turned into PNG for the browser
+                (handy::Auftrag::Bild(art, id), _) => {
+                    let q = match art.as_str() { "verein" => self.ui.bilder.verein.get(id), _ => self.ui.bilder.spieler.get(id) }; // roh
+                    handy::Antwort::Png(q.and_then(|q| q.lesen()).map(|b| if b.starts_with(b"\x89PNG") { b } else { image::load_from_memory(&b).ok().map(|i| { let mut out = std::io::Cursor::new(vec![]); let _ = i.write_to(&mut out, image::ImageFormat::Png); out.into_inner() }).unwrap_or_default() }).unwrap_or_default())
+                }
+                (_, false) => handy::Antwort::Json(serde_json::json!({"fehler": crate::inhalt::t("ui.handy.keine_karriere")})), // roh
+                (handy::Auftrag::Seite(n), true) => handy::Antwort::Json(handy::ansicht::seite(self.career.as_mut().unwrap(), n, stand)),
+                (handy::Auftrag::Befehl(v), true) => {
+                    let was = v["befehl"].as_str().unwrap_or("").to_string(); // roh
+                    let a = match was.as_str() {
+                        "tag_weiter" => { let ok = self.advance(); serde_json::json!({"ok": ok, "meldung": ""}) } // roh
+                        "bis_ereignis" => { self.fast = true; serde_json::json!({"ok": true, "meldung": crate::inhalt::t("ui.main.bis_zum_naechsten_termin")}) } // roh
+                        _ => handy::ansicht::befehl(self.career.as_mut().unwrap(), v),
+                    };
+                    self.handy_geaendert = Some(get_time());
+                    if let Some(h) = self.handy.as_ref() { h.stand.fetch_add(1, std::sync::atomic::Ordering::Relaxed); }
+                    handy::Antwort::Json(a)
+                }
+            };
+            let _ = b.antwort.send(antwort);
+        }
+        // the PC moved on by itself (day, match, a decision): the phone hears it through the state number
+        if let (Some(h), Some(c)) = (self.handy.as_ref(), self.career.as_ref()) {
+            let fp = (c.world.day as u64) << 32 | (c.inbox.len() as u64) << 8 | (c.unread() as u64 & 0xff);
+            if handy::fingerabdruck_neu(fp) { h.stand.fetch_add(1, std::sync::atomic::Ordering::Relaxed); }
+        }
+        // saved two minutes after the last phone command (mobile-ansicht.md 2.8)
+        if let (Some(t), Some(c)) = (self.handy_geaendert, self.career.as_ref()) {
+            if get_time() - t > crate::regeln::f("handy", "speichern.nach_befehl_s") as f64 { let _ = c.save_mit_sicherung(); self.handy_geaendert = None; }
+        }
     }
 
     fn start_screen(&mut self) {
@@ -514,16 +571,34 @@ impl App {
                         ui.text(&crate::tf!("ui.main.treffer_pfeiltasten_und_enter_waehlen", t.len()), rr.x + 20.0, rr.y + rr.h - 70.0, 14.0, Theme::gedaempft());
                     }
                 } else {
-                    let lw = 220.0;
-                    let vis = (hoehe / 32.0) as usize;
-                    let la = Rect::new(rr.x + 14.0, top, lw, hoehe);
-                    if la.contains(ui.mouse) && ui.wheel != 0.0 { s.scroll = (s.scroll as i32 - ui.wheel.signum() as i32 * 2).clamp(0, ligen.len().saturating_sub(vis) as i32) as usize; }
-                    s.scroll = s.scroll.min(ligen.len().saturating_sub(vis));
-                    for (k, &i) in ligen.iter().skip(s.scroll).take(vis).enumerate() {
+                    // the leagues with their overall value (mean strength of the clubs), by strength or grouped by country
+                    let lw = 290.0;
+                    if let Some(k) = ui.segment(Rect::new(rr.x + 14.0, top, lw, 28.0), &[crate::inhalt::t("ui.start.nach_staerke"), crate::inhalt::t("ui.start.nach_land")], s.liga_sort as usize) { s.liga_sort = k as u8; s.scroll = 0; }
+                    let wert = |l: usize| { let t = &w.leagues[l].teams; if t.is_empty() { 0.0 } else { t.iter().map(|&c| w.clubs[c].level).sum::<f32>() / t.len() as f32 } };
+                    let mut sortiert = ligen.clone();
+                    if s.liga_sort == 0 { sortiert.sort_by(|a, b| wert(*b).partial_cmp(&wert(*a)).unwrap()); } else { sortiert.sort_by(|a, b| (w.leagues[*a].land.as_str(), w.leagues[*a].stufe, -(wert(*a) as i32)).cmp(&(w.leagues[*b].land.as_str(), w.leagues[*b].stufe, -(wert(*b) as i32)))); }
+                    // rows: a country head before its leagues when grouped
+                    let mut zeilen: Vec<Option<usize>> = vec![];
+                    for (k, &l) in sortiert.iter().enumerate() { if s.liga_sort == 1 && (k == 0 || w.leagues[sortiert[k - 1]].land != w.leagues[l].land) { zeilen.push(None); } zeilen.push(Some(l)); }
+                    let laender_kopf: Vec<String> = { let mut v = vec![]; for (k, &l) in sortiert.iter().enumerate() { if s.liga_sort == 1 && (k == 0 || w.leagues[sortiert[k - 1]].land != w.leagues[l].land) { v.push(w.leagues[l].land.clone()); } } v };
+                    let top_l = top + 36.0;
+                    let vis = ((hoehe - 36.0) / 32.0) as usize;
+                    let la = Rect::new(rr.x + 14.0, top_l, lw, hoehe - 36.0);
+                    if la.contains(ui.mouse) && ui.wheel != 0.0 { s.scroll = (s.scroll as i32 - ui.wheel.signum() as i32 * 2).clamp(0, zeilen.len().saturating_sub(vis) as i32) as usize; }
+                    s.scroll = s.scroll.min(zeilen.len().saturating_sub(vis));
+                    let mut kopf_i = zeilen.iter().take(s.scroll).filter(|z| z.is_none()).count();
+                    for (k, z) in zeilen.iter().skip(s.scroll).take(vis).enumerate() {
                         let r = Rect::new(la.x, la.y + k as f32 * 32.0, lw, 30.0);
+                        let Some(i) = *z else {
+                            ui.text_semi(&laender_kopf.get(kopf_i).cloned().unwrap_or_default().to_uppercase(), r.x + 6.0, r.y + 22.0, 13.0, Theme::gedaempft());
+                            kopf_i += 1;
+                            continue;
+                        };
                         if i == s.league { rrect(r.x, r.y, r.w, r.h, 4.0, alpha(Theme::akzent(), 0.18)); } else if ui.hover(r) { rrect(r.x, r.y, r.w, r.h, 4.0, Theme::erhoehung()); }
-                        let nm = ui.fit(&w.leagues[i].name, 17.0, lw - 16.0);
-                        ui.text(&nm, r.x + 10.0, r.y + 21.0, 17.0, if i == s.league { Theme::akzent() } else { Theme::text() });
+                        let zusatz = if s.liga_sort == 0 { format!("  {}", w.leagues[i].land) } else { String::new() };
+                        let nm = ui.fit(&format!("{}{zusatz}", w.leagues[i].name), 16.0, lw - 60.0);
+                        ui.text(&nm, r.x + 10.0, r.y + 21.0, 16.0, if i == s.league { Theme::akzent() } else { Theme::text() });
+                        ui.pill(r.x + r.w - 22.0, r.y + 15.0, wert(i), 34.0);
                         if ui.hit(r) { s.league = i; s.team = None; }
                     }
                     let mut ts: Vec<usize> = w.leagues[s.league].teams.clone();
@@ -841,7 +916,9 @@ impl App {
         // FL27 running: end it from anywhere (the result is saved first)
         if v.fl27_laeuft && v.fl27_ende.is_none() && ui.button(Rect::new(664.0, 13.0, 146.0, 28.0), crate::inhalt::t("ui.main.fl27_beenden"), false) { pages::fl27_beenden_klick(v); }
         // date card
-        let dr = Rect::new(820.0, 6.0, 260.0, 42.0);
+        // the right part of the bar follows the layout's right edge (wider windows)
+        let dx = breite() - crate::ui::W_BASIS;
+        let dr = Rect::new(820.0 + dx, 6.0, 260.0, 42.0);
         ui.card(dr);
         let dl = date::long(c.world.season, c.world.day);
         ui.text_center(&dl, dr.x + dr.w / 2.0, dr.y + 19.0, 18.0, Theme::text());
@@ -851,7 +928,7 @@ impl App {
             None => crate::inhalt::t("ui.main.saisonende").into(),
         };
         ui.text_center(&sub, dr.x + dr.w / 2.0, dr.y + 36.0, 13.0, Theme::text2());
-        let gr = Rect::new(1090.0, 13.0, 28.0, 28.0);
+        let gr = Rect::new(1090.0 + dx, 13.0, 28.0, 28.0);
         draw_circle_lines(gr.x + 14.0, gr.y + 14.0, 9.0, 2.0, if ui.hover(gr) { Theme::akzent() } else { Theme::text2() });
         draw_circle(gr.x + 14.0, gr.y + 14.0, 3.0, Theme::text2());
         if ui.hit(gr) { v.go(Page::Optionen); }
@@ -864,13 +941,13 @@ impl App {
         // deadline day: the clock beside the button, red, ticking up hour by hour
         if c.deadline() && !c.fired {
             let uhr = crate::tf!("ui.dl.uhr", 9 + c.dl_stunde.min(12) as u32);
-            let dr = Rect::new(1130.0, 52.0, 256.0, 24.0);
+            let dr = Rect::new(1130.0 + dx, 52.0, 256.0, 24.0);
             let puls = 0.75 + 0.25 * (ui.time * 3.0).sin().abs();
             rrect(dr.x, dr.y, dr.w, dr.h, 12.0, alpha(Theme::problem(), puls));
             ui.text_center(&uhr, dr.x + dr.w / 2.0, dr.y + 17.0, 14.0, hex(0xffffff));
         }
         v.hud_seen.push("Weiter".into()); // roh
-        let wr = Rect::new(1130.0, 6.0, 216.0, 42.0);
+        let wr = Rect::new(1130.0 + dx, 6.0, 216.0, 42.0);
         let h = ui.hover(wr);
         rrect(wr.x, wr.y + 4.0, wr.w + 40.0, wr.h, 10.0, alpha(Theme::akzent(), 0.3));
         rrect(wr.x, wr.y, wr.w + 40.0, wr.h, 10.0, if h { hex(0x6fd0fa) } else { Theme::akzent() });
@@ -1060,6 +1137,8 @@ async fn main() {
     let args: Vec<String> = std::env::args().collect();
     let arg = |k: &str| args.iter().position(|a| a == k).and_then(|i| args.get(i + 1)).cloned();
     let shot = arg(crate::id("--screenshot"));
+    // --vorschau: the preview career of PESM_WELT / PESM_VEREIN / PESM_PAGE, but the program keeps running (phone test)
+    let vorschau = shot.clone().or(args.iter().any(|a| a == "--vorschau").then(String::new)); // roh
     if let Some(i) = args.iter().position(|a| a == crate::id("--neue-karriere")) {
         let g = |k: usize| args.get(i + k).cloned().unwrap_or_default();
         match altimport::neue_karriere(&g(1), &g(2), &g(3)) { Ok(t) => { println!("{t}"); std::process::exit(0) } Err(e) => { eprintln!("{e}"); std::process::exit(1) } }
@@ -1108,7 +1187,7 @@ async fn main() {
         if let Ok(n) = std::env::var("PESM_SCHRITT") { app.start.step = n.parse().unwrap_or(2); app.start.ohne = true; app.start.coach = crate::id("Max Muster").into(); app.start.angebot_modus = 2; }
     }
     // preview aid: PESM_WELT=<Weltordner> plays the preview on a real world (own club: the strongest of its first league)
-    if let (Some(_), Ok(wp), true) = (&shot, std::env::var("PESM_WELT"), std::env::var("PESM_PAGE").as_deref() != Ok(crate::id("start"))) {
+    if let (Some(_), Ok(wp), true) = (&vorschau, std::env::var("PESM_WELT"), std::env::var("PESM_PAGE").as_deref() != Ok(crate::id("start"))) {
         if let Ok(w) = World::from_pesdb(&std::path::Path::new(&wp).join("common/etc/pesdb"), 7) {
             // PESM_VEREIN=<Name>: that club (else the strongest of the first league)
             let own = std::env::var("PESM_VEREIN").ok().and_then(|n| w.clubs.iter().position(|c| c.name == n))
@@ -1118,10 +1197,16 @@ async fn main() {
             // PESM_KOOP_SUCHE=1: a farm-team search runs (applications come during PESM_DAYS)
             if std::env::var("PESM_KOOP_SUCHE").is_ok() { let _ = c.koop_suche_starten(crate::farm::KoopSuche { bis: 0, nur_land: true, stufe_von: 1, stufe_bis: 2, plaetze: 3, max_betrag: c.koop_rahmen() }); }
             app.career = Some(c);
+            app.screen = Screen::Game;
         }
     }
     // preview aid for checks: PESM_PAGE=kader|aufstellung|... opens that page, PESM_DAYS=n advances days first
-    if let (Ok(pg), Some(_), true) = (std::env::var("PESM_PAGE"), &shot, app.career.is_some()) {
+    if let (Ok(pg), Some(_), true) = (std::env::var("PESM_PAGE"), &vorschau, app.career.is_some()) {
+        // PESM_AUFTRAG=<group>: a player search of the first scout in the own league starts first (preview of assignments)
+        if let (Ok(g), Some(c)) = (std::env::var("PESM_AUFTRAG"), app.career.as_mut()) {
+            let x = crate::auftraege::Auftrag { art: crate::auftraege::SUCHE, scout: c.scouts[0].name.clone(), gruppe: g, alter_min: 17, alter_max: 30, liga: Some(c.league()), ..Default::default() };
+            let _ = c.auftrag_anlegen(x, 14);
+        }
         if let Ok(n) = std::env::var("PESM_DAYS").unwrap_or_default().parse::<u32>() {
             let c = app.career.as_mut().unwrap();
             for _ in 0..n { if c.today_match().is_some() { let r = c.prepare_match(None); c.apply_own_match(r); c.answer_press(Some(0)); } let _ = c.end_day(); }
@@ -1191,7 +1276,13 @@ async fn main() {
                     let kaeufer = (0..c.world.clubs.len()).find(|&k| k != c.own && c.world.erste_von(k).is_none()).unwrap_or(0);
                     Some(c.verkauf_verhandeln(p, kaeufer, c.world.players[p].value))
                 } else { c.world.players[p].contract_end = c.world.season; c.open_neg(p).ok() };
-                if let Some(k) = k { app.v.modal = pages::Modal::Neg(k); if let Some(ng) = c.negs.get_mut(k) { ng.kl.ausstieg = 1; ng.kl.tor = 1; ng.kl.weiterverkauf = 2; } }
+                if let Some(k) = k {
+                    app.v.modal = pages::Modal::Neg(k);
+                    if let Some(ng) = c.negs.get_mut(k) { ng.kl.ausstieg = 1; ng.kl.tor = 1; ng.kl.weiterverkauf = 2; }
+                    // PESM_RUNDEN=n: that many offers sent already, each a bit lower than asked (chat preview)
+                    let runden: usize = std::env::var("PESM_RUNDEN").ok().and_then(|x| x.parse().ok()).unwrap_or(0);
+                    for r in 0..runden { if c.negs[k].state != game::NegState::Counter { break; } c.negs[k].wage = (c.negs[k].need * (0.7 + 0.08 * r as f64) / 5000.0).round() * 5000.0; c.negs[k].argument = (r % 6 + 1) as u8; c.submit_neg(k); }
+                }
             }
         }
         // PESM_TICKER=<minute|ende>: the simulated match on the ticker at that minute, or after the final whistle
@@ -1201,7 +1292,8 @@ async fn main() {
             if c.today_match().is_some() {
                 let res = c.prepare_match(None);
                 let ende = t == crate::id("ende");
-                let mut mv = pages::MatchView { res: res.clone(), minute: t.parse().unwrap_or(90.0), speed: if ende { 1.0 } else { 0.0 }, phase: if ende { 2 } else { 1 }, ended_at: 0.0, manual: (0, 0), manual_open: false, halbzeit: 2, wirkung: vec![], nach_gesagt: false, angesprochen: vec![], eingriff: Default::default() };
+                let mut mv = pages::MatchView { res: res.clone(), minute: t.parse().unwrap_or(90.0), speed: if ende { 1.0 } else { 0.0 }, phase: if ende { 2 } else { 1 }, ended_at: 0.0, manual: (0, 0), manual_open: false, halbzeit: 2, wirkung: vec![], nach_gesagt: false, angesprochen: vec![], eingriff: Default::default(), vor_pause: 1.0 };
+
                 if ende { c.apply_own_match(res); c.press = None; if let Some(r) = c.last_result.clone() { mv.res = r; } }
                 app.v.mv = Some(mv);
                 app.v.go(Page::Spieltag);
@@ -1221,6 +1313,8 @@ async fn main() {
     }
     if let Some(p) = selftest { app.selftest = Some(SelfTest { path: p, frame: 0, day0: 0, steps: vec![], stage: 0 }); }
     if let Some(p) = arg(crate::id("--start-test")) { app.starttest = Some(StartTest { path: p, welt: arg(crate::id("--welt")), frame: 0, stage: 0, steps: vec![], team: String::new() }); }
+    // the UI scale of the settings (skala.txt); PESM_SKALA for previews
+    if let Some(s) = std::env::var("PESM_SKALA").ok().or_else(|| std::fs::read_to_string(pages::skala_file()).ok()).and_then(|x| x.trim().parse::<f32>().ok()) { crate::ui::ui_skala_setzen(s); }
     let mut frames = 0;
     loop {
         hoehe_setzen(screen_width(), screen_height());

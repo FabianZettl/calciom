@@ -175,3 +175,14 @@ platzt = 0.12           # Anteil der angebahnten Wechsel, die noch platzen
 # Echo auf einen eigenen Neuzugang (Fabian 23.11.)
 [echo]
 fans_gross = 3.0        # Fanstimmung bei einem großen Transfer
+
+# Leihliste (Fabian 23.11.): Leihangebote für eigene Spieler, je reizvoller der Spieler, desto mehr Interesse
+[leihe]
+chance_basis = 0.12          # je Prüfung (alle drei Tage im Fenster) und Spieler
+chance_reiz = 0.45           # dazu bei vollem Reiz (Stärke, Luft nach oben, Alter)
+offen_hoechstens = 3         # so viele offene Angebote je Spieler
+frist_tage = 7
+anteil_von = 0.5             # Gehaltsanteil, den der Leihverein übernimmt
+anteil_bis = 1.0
+gebuehr_von = 0.0            # Leihgebühr als Anteil am Marktwert
+gebuehr_bis = 0.2

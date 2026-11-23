@@ -250,3 +250,55 @@ passende_toene = ["insider", "geruechte", "boulevard", "taktik", "serioes"]
 gerucht_medien = 2               # Angebote und Wechselwünsche für eigene Spieler: so viele Medien greifen sie höchstens auf
 frage_tage = 7                   # ein fremder Wechsel dieser Größe kann so lange Thema einer Pressekonferenz sein
 frage_gewicht = 8_000_000
+
+# Relevanz der Schlagzeilen (Fabian 23.11.): eigene Liga und Nachbarligen, Top-5-Ligen, dazu große Vereine überall ab dieser Spielstärke
+[relevanz]
+grosser_verein_ab = 79.5
+geruecht_ab_mio = 15.0          # Gerüchte über fremde Wechsel nur ab dieser Summe (oder großer Verein, eigene Liga)
+
+# Medien als Webblog (Fabian 23.11.): jedes Medium mit eigenem Stil. typ bestimmt das Layout der Karte.
+# Farben als Hex: grund, schrift, akzent. Keine Logos, nur Schriftzug.
+[[webblog]]
+id = "transfermarkt"
+name = "transfermarkt"
+typ = "datenportal"
+farben = [0x1a3151, 0xffffff, 0x5cc1e8]
+[[webblog]]
+id = "kicker"
+name = "kicker"
+typ = "fachmagazin"
+farben = [0xffffff, 0x111111, 0xd0021b]
+[[webblog]]
+id = "bild"
+name = "BILD"
+typ = "boulevard"
+farben = [0xe30613, 0xffffff, 0xffe600]
+[[webblog]]
+id = "athletic"
+name = "The Athletic"
+typ = "analyse"
+farben = [0xfaf7f0, 0x121212, 0xe8622c]
+[[webblog]]
+id = "sun"
+name = "The Sun"
+typ = "tabloid_en"
+farben = [0xe4021b, 0xffffff, 0x111111]
+[[webblog]]
+id = "guardian"
+name = "The Guardian"
+typ = "serioes_en"
+farben = [0x052962, 0xffffff, 0xffe500]
+
+[webblog_regeln]
+transfer_woerter = ["wechselt", "holt", "Gerücht", "baggert", "verhandelt", "Spur", "Wechsel", "Transfer", "Ablöse", "Neuzugang", "verpflichtet"]
+geruecht_woerter = ["Gerücht", "baggert", "Spur", "verhandelt", "vor Wechsel", "macht Ernst"]
+boulevard_ab_mio = 30.0
+analyse_jede = 3          # jede so vielte Liga-Meldung schreibt das Analyse-Medium
+
+# Wann ein Angebot für einen eigenen Spieler zum Gerücht in der Zeitung wird (Fabian 23.11.: nur wenn es eine Geschichte ist)
+[geruecht_angebot]
+basis = 0.15
+stammspieler = 0.35
+grosser_verein = 0.25
+grosse_summe = 0.2
+sperre_tage = 21

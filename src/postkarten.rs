@@ -83,6 +83,12 @@ pub enum B {
     Text(String),
     /// Player tiles: photo, name, a big number (change or grade), its colour by sign, a line under it.
     Kacheln(Vec<(usize, String, Color, String)>),
+    /// The scout's verdict as a banner: level 0–5 (Sofort holen … Nicht holen), the sentence, the certainty.
+    Urteil { stufe: usize, satz: String, sicher: String },
+    /// The own players of his position with the candidate among them: (player, role strength, is the candidate, note).
+    Rang(Vec<(usize, f32, bool, String)>),
+    /// A team of the week on a pitch: (player, grade) in the order keeper, four defenders, three midfielders, three forwards.
+    Elf(Vec<(usize, f32)>),
     Reihe(Vec<B>),
 }
 impl B {
@@ -94,7 +100,7 @@ impl B {
     /// Shows a number or a graphic.
     fn zahl(&self) -> bool {
         match self { B::Zahl { .. } | B::Balken { .. } | B::Sterne { .. } | B::Ring { .. } | B::Diagramm { .. } | B::Radar { .. } | B::Anzeige { .. } | B::Ergebnisse(_) | B::Tabelle(_)
-            | B::Pillen(_) | B::Kacheln(_) | B::Transfer { .. } | B::Phasen(_) => true, B::Reihe(v) => v.iter().any(|x| x.zahl()), _ => false }
+            | B::Pillen(_) | B::Kacheln(_) | B::Elf(_) | B::Transfer { .. } | B::Phasen(_) => true, B::Reihe(v) => v.iter().any(|x| x.zahl()), _ => false }
     }
 }
 pub fn hat_bild(bs: &[B]) -> bool { bs.iter().any(|b| b.bild()) }
@@ -118,7 +124,7 @@ pub fn beteiligte(c: &Career, m: &Msg) -> Vec<usize> {
 }
 /// The clubs a message is about.
 pub fn vereine_von(c: &Career, m: &Msg) -> Vec<usize> {
-    let mut v = vec![];
+    let mut v = m.vereine.clone();
     match &m.action { Action::TransferOffer { club, .. } | Action::JobOffer { club, .. } => v.push(*club), _ => {} }
     for p in beteiligte(c, m) { if let Some(k) = verein_von(c, p) { v.push(k); } }
     v.dedup();
@@ -147,6 +153,23 @@ pub fn bausteine(c: &Career, m: &Msg) -> Vec<B> {
     let wer = beteiligte(c, m);
     let erst = wer.first().copied();
     // picture cards (Fabian 23.11.: no bare lists): players as tiles with their number
+    // a transfer between two clubs: the move as a card, the player's figures and his last grades, then the text
+    if m.vereine.len() == 2 && m.karte.is_empty() {
+        if let Some(&p) = m.spieler.first().filter(|&&p| p < c.world.players.len()) {
+            let pl = &c.world.players[p];
+            let mut v = vec![B::Transfer { pid: p, nach: m.vereine[1], wert: m.werte.first().copied().unwrap_or(0.0) as f64 }];
+            let (lo, hi) = c.ovr_range(p);
+            v.push(B::Reihe(vec![B::Zahl { titel: t("staerke"), wert: if hi - lo <= 1.0 { format!("{:.0}", (lo + hi) / 2.0) } else { format!("{lo:.0}–{hi:.0}") } }, B::Zahl { titel: t("alter"), wert: pl.age.to_string() },
+                B::Zahl { titel: t("position"), wert: pos_de(&pl.pos).to_string() }, B::Zahl { titel: t("marktwert"), wert: money(pl.value) }]));
+            if pl.last.len() >= 2 { v.push(B::Diagramm { titel: t("letzte_noten"), werte: pl.last.iter().map(|n| n * 10.0).collect() }); }
+            v.push(B::Text(m.body.clone()));
+            return v;
+        }
+    }
+    if m.karte == "elf" && m.spieler.len() == 11 {
+        let elf: Vec<(usize, f32)> = m.spieler.iter().copied().zip(m.werte.iter().copied().chain(std::iter::repeat(0.0))).filter(|x| x.0 < c.world.players.len()).collect();
+        return vec![B::Elf(elf), B::Text(m.body.clone())];
+    }
     if !m.karte.is_empty() && !m.spieler.is_empty() {
         let kacheln: Vec<(usize, String, Color, String)> = m.spieler.iter().zip(m.werte.iter().chain(std::iter::repeat(&0.0))).filter(|(p, _)| **p < c.world.players.len()).take(9).map(|(&p, &w)| {
             let pl = &c.world.players[p];
@@ -187,9 +210,72 @@ pub fn bausteine(c: &Career, m: &Msg) -> Vec<B> {
                 B::Reihe(vec![B::Zahl { titel: t("marktwert"), wert: money(pl.value) }, B::Zahl { titel: t("gehalt"), wert: money(pl.wage) }, B::Balken { titel: t("passung"), anteil: passung.min(1.2) / 1.2, text: crate::inhalt::t(pk).into(), farbe: if passung >= 0.93 { 1 } else { 3 } }]),
                 B::Reihe(vec![B::Sterne { titel: t("staerke"), von: profil_sterne(pl.ovr - sp), bis: profil_sterne(pl.ovr + sp) }, B::Sterne { titel: t("potenzial"), von: profil_sterne(pl.pot - sp), bis: profil_sterne(pl.pot + sp) }]),
             ];
+            // the verdict and the squad effect of the scouting concept (scoutbericht.rs), right under the head
+            let b = c.scout_urteil(p);
+            let sicher = if c.gehoert_uns(p) { 0 } else { let s = c.spanne(p); if s <= 2.0 { 0 } else if s <= 4.0 { 1 } else { 2 } };
+            let satz = if let Some(k) = b.ko { format!("{} {}", crate::inhalt::t(&format!("ui.sb.satz.{}", b.urteil)), crate::inhalt::t(k)) } else { crate::inhalt::t(&format!("ui.sb.satz.{}", b.urteil)).to_string() };
+            v.insert(1, B::Urteil { stufe: b.urteil, satz, sicher: crate::inhalt::t(&format!("ui.sb.sicher.{sicher}")).to_string() });
+            v.push(B::Titel(t("bei_uns")));
+            let mut rang: Vec<(usize, f32, bool, String)> = b.rang.iter().take(4).map(|&(q, s)| (q, s, false, String::new())).collect();
+            rang.insert(b.platz.min(rang.len()), (p, b.staerke, true, String::new()));
+            for (k, x) in rang.iter_mut().enumerate() {
+                x.3 = if x.2 { crate::inhalt::t(match k { 0 => "ui.sb.rolle.stamm", 1 => "ui.sb.rolle.rotation", _ => "ui.sb.rolle.ersatz" }).to_string() }
+                    else if b.verlierer.contains(&x.0) { crate::inhalt::t("ui.post.verliert_platz").to_string() }
+                    else if k > b.platz && k <= 2 { crate::inhalt::t("ui.post.rutscht_ab").to_string() } else { String::new() };
+            }
+            v.push(B::Rang(rang));
+            v.push(B::Reihe(vec![B::Zahl { titel: t("startelf"), wert: format!("{:.1} → {:.1}", b.startelf.0, b.startelf.1) }, B::Zahl { titel: t("rollen_staerke"), wert: format!("{:.0}", b.staerke) },
+                B::Zahl { titel: t("preis"), wert: crate::tf!("ui.post.von_bis", money(preis * (1.0 - ps)), money(preis * (1.0 + ps))) }]));
+            let teile = [crate::id("kader"), crate::id("system"), "preis_leistung", crate::id("zukunft"), crate::id("risiko")];
+            v.push(B::Reihe(teile.iter().take(3).enumerate().map(|(k, n)| B::Balken { titel: t(&format!("teil_{n}")), anteil: b.teil[k] / 100.0, text: format!("{:.0}", b.teil[k]), farbe: if b.teil[k] >= 60.0 { 1 } else if b.teil[k] >= 40.0 { 2 } else { 3 } }).collect()));
+            v.push(B::Reihe(teile.iter().enumerate().skip(3).map(|(k, n)| B::Balken { titel: t(&format!("teil_{n}")), anteil: b.teil[k] / 100.0, text: format!("{:.0}", b.teil[k]), farbe: if (k == 4) == (b.teil[k] >= 50.0) { 3 } else { 1 } }).collect()));
+            // strengths and weaknesses only from what counts for his position, against our league's regulars
+            let wort = |m: &crate::scoutbericht::Merkmal, art: &str| format!("{}{}", if m.wohl { crate::inhalt::t("ui.sb.wohl") } else { "" }, crate::inhalt::t(&format!("ui.sb.{art}.{}", crate::entwicklung::NAMEN[m.i])));
+            let gut2: Vec<String> = b.staerken.iter().map(|m| wort(m, crate::id("plus"))).collect();
+            let schlecht2: Vec<String> = b.schwaechen.iter().map(|m| wort(m, crate::id("minus"))).collect();
+            let _ = (&gut, &schlecht);
+            if !gut2.is_empty() || !schlecht2.is_empty() { v.push(B::Titel(t("staerken_schwaechen_rolle"))); v.push(B::Chips { gut: gut2, schlecht: schlecht2 }); }
+            // the season in numbers (Konzept Spielerstatistiken 8.2): six numbers for his group, per 90 and converted to our
+            // league, with the percentile in his league; below 40 knowledge only the basics
+            {
+                use crate::statistik as sx;
+                let (st, hoch) = sx::saison_von(&c.world, p);
+                let liga = verein_von(c, p).map(|k| c.world.clubs[k].league).unwrap_or(usize::MAX);
+                if sx::get(&st, sx::MIN) >= 90 {
+                    v.push(B::Titel(if hoch { t("zahlen_saison_hoch") } else { t("zahlen_saison") }));
+                    if c.know_of(p) >= crate::regeln::f("scouting", "wissen.bericht_ab") / 100.0 {
+                        let gr = crate::scoutbericht::gruppe(&pl.pos);
+                        let vergleich = sx::liga_vergleich(&c.world, liga, gr);
+                        let art = |k: &str, q: bool| -> u8 { if q { 4 } else if gr == "tw" { 3 } else { match k { "prog_paesse" | "prog_laeufe" | "dribblings" | "flanken" | "paesse" => 1, "tacklings" | "abgefangen" | "klaerungen" => 2, _ => 0 } } };
+                        let zahlen: Vec<B> = sx::kernzahlen(gr).into_iter().filter_map(|(k, f, q)| {
+                            let w = f(&st)?;
+                            let um = if liga < c.world.leagues.len() { sx::umrechnen(&c.world, w, liga, c.league(), art(k, q)) } else { w };
+                            let pz = sx::perzentil(&vergleich, f, w, false).map(|x| format!(" · {x:.0}.")).unwrap_or_default();
+                            Some(B::Zahl { titel: crate::inhalt::t(&format!("ui.stat.{k}")).to_string(), wert: if q { format!("{um:.0} %{pz}") } else { format!("{um:.2}{pz}") } })
+                        }).collect();
+                        let mut it = zahlen.into_iter();
+                        loop { let r: Vec<B> = it.by_ref().take(3).collect(); if r.is_empty() { break; } v.push(B::Reihe(r)); }
+                        // the scout puts numbers and values together (Konzept 8.2): luck, bad luck, the numbers confirm him
+                        let (tore, xg) = (sx::get(&st, sx::TORE) as f32, sx::get(&st, sx::XG) as f32 / 1000.0);
+                        let fin = if pl.attrs.len() == 25 { pl.attrs[6] } else { pl.ovr };
+                        let anlass = if tore - xg >= 3.0 && fin < 80.0 { crate::id("glueck") } else if xg - tore >= 2.5 { crate::id("pech") } else { crate::id("passt") };
+                        let n = (crate::mensch::zufall(&["scoutsatz", &pl.id.to_string(), anlass]) * 5.0) as usize % 5; // roh
+                        v.push(B::Text(crate::tf!(&format!("ui.post.zahlsatz.{anlass}.{n}"), format!("{tore:.0}"), format!("{xg:.1}"))));
+                    } else {
+                        v.push(B::Reihe(vec![B::Zahl { titel: crate::inhalt::t("ui.stat.tore").into(), wert: sx::get(&st, sx::TORE).to_string() }, B::Zahl { titel: crate::inhalt::t("ui.stat.vorlagen").into(), wert: sx::get(&st, sx::VORLAGEN).to_string() }, B::Zahl { titel: t("minuten"), wert: sx::get(&st, sx::MIN).to_string() }]));
+                    }
+                }
+                // costs and who else is after him (Konzept 4.1 Block 8, 4.6), and how often this scout was right
+                let gehalt = crate::verhandlung::wunschgehalt(pl.value, 2, pl.age);
+                let machbar = c.machbar(p, false).map(|k| crate::inhalt::t(k).to_string()).unwrap_or_else(|| t("machbar"));
+                v.push(B::Reihe(vec![B::Zahl { titel: t("wunschgehalt"), wert: money(gehalt) }, B::Zahl { titel: t("machbarkeit"), wert: machbar }]));
+                let konkurrenz = if c.anbahnung.iter().any(|a| a.p == p) { t("konkurrenz.angebot") } else if c.grundwissen(p) >= 0.40 { t("konkurrenz.bekannt") } else { t("konkurrenz.niemand") };
+                v.push(B::Text(konkurrenz));
+                if let Some(pe) = c.scouts.iter().find(|s| s.name == m.from).and_then(|s| s.p.as_ref()) {
+                    if pe.treffer + pe.fehler > 0 { v.push(B::Text(crate::tf!("ui.post.trefferquote", m.from.clone(), pe.treffer, pe.treffer + pe.fehler))); }
+                }
+            }
             if werte.iter().any(|&w| w > 0.0) { v.push(B::Radar { namen, werte }); }
-            if !gut.is_empty() { v.push(B::Chips { gut, schlecht }); }
-            v.push(B::Zahl { titel: t("preis"), wert: crate::tf!("ui.post.von_bis", money(preis * (1.0 - ps)), money(preis * (1.0 + ps))) });
             v.push(B::Zitat { pid: None, name: sprecher(c, &m.from), text: m.body.clone() });
             v
         }
@@ -407,12 +493,42 @@ fn b_hoehe(ui: &Ui, b: &B, w: f32) -> f32 {
         B::Phasen(_) => 40.0,
         B::Titel(_) => 30.0,
         B::Kacheln(v) => 124.0 * ((v.len() as f32) / 3.0).ceil(),
+        B::Elf(_) => 300.0,
+        B::Urteil { .. } => 86.0,
+        B::Rang(v) => 10.0 + v.len() as f32 * 36.0,
         B::Text(s) => ui.wrap(s, 16.0, w).len().min(10) as f32 * 21.0 + 6.0,
         B::Reihe(v) => v.iter().map(|x| b_hoehe(ui, x, w / v.len().max(1) as f32 - 10.0)).fold(0.0, f32::max),
     }
 }
 fn farbe_von(f: u8) -> Color { match f { 1 => Theme::gut(), 2 => Theme::problem(), 3 => Theme::achtung(), _ => Theme::akzent() } }
 /// Draws the blocks top down into `r`; when they do not all fit, the area scrolls block by block (wheel or bar).
+/// Something a name in a message text leads to (Fabian 23.11.: clubs and players clickable).
+#[derive(Clone, Copy, PartialEq)]
+pub enum Ziel { Spieler(usize), Verein(usize) }
+thread_local! {
+    /// The names of the message being drawn with their targets, and the one clicked in this frame.
+    static LINKS: std::cell::RefCell<Vec<(String, Ziel)>> = const { std::cell::RefCell::new(Vec::new()) };
+    static KLICK: std::cell::Cell<Option<Ziel>> = const { std::cell::Cell::new(None) };
+}
+/// Underlines the known names in one drawn line and notes a click on one.
+fn links_zeichnen(ui: &Ui, zeile: &str, x: f32, y: f32) {
+    LINKS.with(|l| {
+        for (name, ziel) in l.borrow().iter() {
+            let mut ab = 0;
+            while let Some(i) = zeile[ab..].find(name.as_str()) {
+                let start = ab + i;
+                let x0 = x + ui.measure(&zeile[..start], 16.0);
+                let w = ui.measure(name, 16.0);
+                let feld = Rect::new(x0, y - 15.0, w, 20.0);
+                let col = if feld.contains(ui.mouse) { Theme::akzent() } else { alpha(Theme::akzent(), 0.75) };
+                ui.text(name, x0, y, 16.0, col);
+                draw_rectangle(x0, y + 3.0, w, 1.5, col);
+                if ui.clicked && feld.contains(ui.mouse) { KLICK.with(|k| k.set(Some(*ziel))); }
+                ab = start + name.len();
+            }
+        }
+    });
+}
 fn b_bereich(ui: &Ui, v: &mut View, c: &Career, r: Rect, bs: &[B]) {
     let w = r.w - 18.0;
     let hs: Vec<f32> = bs.iter().map(|b| b_hoehe(ui, b, w) + 8.0).collect();
@@ -527,6 +643,53 @@ fn b_eins(ui: &Ui, c: &Career, r: Rect, b: &B) {
             ui.text(&ui.fit(&crate::tf!("ui.post.nach_wert", c.world.clubs[*nach].short, money(*wert)), 13.0, r.w - 100.0), r.x + 54.0, r.y + 44.0, 13.0, Theme::text2());
             wappen(*nach, r.x + r.w - 30.0, r.y + 30.0, 13.0);
         }
+        B::Urteil { stufe, satz, sicher } => {
+            let farbe = [hex(0x1E9E5A), Theme::gut(), hex(0x8BC34A), Theme::achtung(), Theme::akzent(), Theme::problem()][(*stufe).min(5)];
+            rrect(r.x, r.y, r.w - 6.0, r.h, 10.0, alpha(farbe, 0.16));
+            draw_rectangle(r.x, r.y + 8.0, 6.0, r.h - 16.0, farbe);
+            if *stufe == 0 { draw_poly(r.x + 28.0, r.y + 30.0, 5, 11.0, -90.0, Theme::gold()); }
+            ui.title(crate::inhalt::t(&format!("ui.sb.urteil.{stufe}")), r.x + if *stufe == 0 { 46.0 } else { 18.0 }, r.y + 36.0, 26.0, farbe);
+            ui.text_passend(satz, r.x + 18.0, r.y + 58.0, 15.0, r.w - 40.0, 1, Theme::text());
+            ui.text(sicher, r.x + 18.0, r.y + 78.0, 13.0, Theme::text2());
+        }
+        B::Rang(v) => {
+            for (k, (q, s, kandidat, hinweis)) in v.iter().enumerate() {
+                let pl = &c.world.players[*q];
+                let y = r.y + 4.0 + k as f32 * 36.0;
+                if *kandidat { rrect(r.x, y, r.w - 6.0, 32.0, 6.0, alpha(Theme::akzent(), 0.16)); }
+                ui.title(&format!("{}", k + 1), r.x + 10.0, y + 24.0, 20.0, Theme::text2());
+                ui.player_photo(r.x + 50.0, y + 16.0, 13.0, pl.id, &pl.name);
+                ui.text_semi(&ui.fit(&pl.name, 15.0, r.w * 0.4), r.x + 70.0, y + 21.0, 15.0, if *kandidat { Theme::akzent() } else { Theme::text() });
+                ui.text(&format!("{} J.", pl.age), r.x + r.w * 0.5, y + 21.0, 14.0, Theme::text2()); // roh
+                ui.pill(r.x + r.w * 0.62, y + 15.0, *s, 34.0);
+                ui.text(&ui.fit(hinweis, 13.0, r.w * 0.3), r.x + r.w * 0.68, y + 21.0, 13.0, if *kandidat { Theme::akzent() } else { Theme::achtung() });
+            }
+        }
+        B::Elf(elf) => {
+            // the pitch, then the four lines from the keeper up; each with photo, grade, name and crest
+            rrect(r.x, r.y, r.w, r.h, 10.0, hex(0x2E7D32));
+            for k in 0..6 { if k % 2 == 0 { draw_rectangle(r.x, r.y + k as f32 * r.h / 6.0, r.w, r.h / 6.0, alpha(hex(0xffffff), 0.05)); } }
+            let lc = alpha(hex(0xffffff), 0.55);
+            draw_rectangle_lines(r.x + 6.0, r.y + 6.0, r.w - 12.0, r.h - 12.0, 1.5, lc);
+            draw_line(r.x + 6.0, r.y + r.h / 2.0, r.x + r.w - 6.0, r.y + r.h / 2.0, 1.5, lc);
+            draw_circle_lines(r.x + r.w / 2.0, r.y + r.h / 2.0, 40.0, 1.5, lc);
+            draw_rectangle_lines(r.x + r.w * 0.3, r.y + r.h - 50.0, r.w * 0.4, 44.0, 1.5, lc);
+            let reihen: [(usize, usize, f32); 4] = [(0, 1, 0.86), (1, 4, 0.63), (5, 3, 0.39), (8, 3, 0.15)];
+            for (ab, n, fy) in reihen {
+                for j in 0..n {
+                    let Some(&(p, note)) = elf.get(ab + j) else { continue };
+                    let pl = &c.world.players[p];
+                    let (cx, cy) = (r.x + r.w * (j as f32 + 1.0) / (n as f32 + 1.0), r.y + r.h * fy);
+                    ui.player_photo(cx, cy - 10.0, 17.0, pl.id, &pl.name);
+                    if note > 0.0 { ui.note_pill(cx + 30.0, cy - 18.0, note); }
+                    let nach = pl.name.split_whitespace().last().unwrap_or(&pl.name).to_string();
+                    let nw = ui.measure_semi(&nach, 14.0);
+                    rrect(cx - nw / 2.0 - 6.0, cy + 9.0, nw + 12.0, 20.0, 6.0, alpha(hex(0x0b0f17), if pl.team == c.own as i32 { 0.9 } else { 0.65 }));
+                    ui.text_semi(&nach, cx - nw / 2.0, cy + 24.0, 14.0, if pl.team == c.own as i32 { Theme::gold() } else { hex(0xffffff) });
+                    if pl.team >= 0 { let k = pl.team as usize; let (c1, _) = club_color(c, k); ui.club_crest(cx - 22.0, cy - 24.0, 8.0, c.world.clubs[k].id, c1, &c.world.clubs[k].short); }
+                }
+            }
+        }
         B::Kacheln(v) => {
             let kw = (r.w - 16.0) / 3.0;
             for (k, (p, gross, farbe, unter)) in v.iter().enumerate() {
@@ -575,7 +738,7 @@ fn b_eins(ui: &Ui, c: &Career, r: Rect, b: &B) {
             }
         }
         B::Titel(s) => ui.title(&ui.fit(s, 20.0, r.w - 6.0), r.x, r.y + 22.0, 20.0, Theme::text()),
-        B::Text(s) => { for (k, l) in ui.wrap(s, 16.0, r.w).iter().take(10).enumerate() { ui.text(l, r.x, r.y + 16.0 + k as f32 * 21.0, 16.0, Theme::text()); } }
+        B::Text(s) => { for (k, l) in ui.wrap(s, 16.0, r.w).iter().take(10).enumerate() { let y = r.y + 16.0 + k as f32 * 21.0; ui.text(l, r.x, y, 16.0, Theme::text()); links_zeichnen(ui, l, r.x, y); } }
         B::Reihe(v) => {
             let w = r.w / v.len().max(1) as f32;
             for (k, x) in v.iter().enumerate() { b_eins(ui, c, Rect::new(r.x + k as f32 * w, r.y, w - 10.0, r.h), x); }
@@ -676,7 +839,20 @@ fn meldung_zeichnen(ui: &mut Ui, v: &mut View, c: &mut Career, rd: Rect, i: usiz
     b_bezug(&bloecke, &mut wer, &mut vs);
     if vs.is_empty() { vs.push(c.own); }
     for l in [&mut wer, &mut vs] { let mut seen = std::collections::HashSet::new(); l.retain(|x| seen.insert(*x)); }
+    // names in the text become links: the players and clubs of the message, and any club the text names
+    let mut links: Vec<(String, Ziel)> = wer.iter().map(|&p| (c.world.players[p].name.clone(), Ziel::Spieler(p))).collect();
+    let text: String = bloecke.iter().filter_map(|b| if let B::Text(t) = b { Some(t.as_str()) } else { None }).collect::<Vec<_>>().join(" ");
+    for k in 0..c.world.clubs.len() { let n = &c.world.clubs[k].name; if n.len() > 3 && text.contains(n.as_str()) && !links.iter().any(|x| &x.0 == n) { links.push((n.clone(), Ziel::Verein(k))); if !vs.contains(&k) { vs.push(k); } } }
+    links.sort_by_key(|x| std::cmp::Reverse(x.0.len()));
+    LINKS.with(|l| *l.borrow_mut() = links);
+    KLICK.with(|k| k.set(None));
     b_bereich(ui, v, c, Rect::new(haupt.x, y, haupt.w, haupt.y + haupt.h - y - karten_h - knopf_h - 8.0), &bloecke);
+    LINKS.with(|l| l.borrow_mut().clear());
+    match KLICK.with(|k| k.take()) {
+        Some(Ziel::Spieler(p)) => { v.modal = Modal::Player(p); ui.clicked = false; }
+        Some(Ziel::Verein(k)) => { v.sel_club = Some(k); v.go(Page::Vereine); ui.clicked = false; return; }
+        None => {}
+    }
     if m.done { ui.text(crate::inhalt::t("md.ui.ok.erledigt"), haupt.x, haupt.y + haupt.h - 6.0, 16.0, Theme::gut()); }
     let ky = haupt.y + haupt.h - karten_h - knopf_h;
     if !antw.is_empty() {
@@ -740,7 +916,16 @@ fn meldung_zeichnen(ui: &mut Ui, v: &mut View, c: &mut Career, rd: Rect, i: usiz
         ky2 += 44.0;
     }
     if wer.is_empty() { ui.text(crate::inhalt::t("ui.post.niemand"), kr.x + 12.0, ky2 + 8.0, 13.0, Theme::text2()); ky2 += 24.0; }
-    for (k, &club) in vs.iter().take(4).enumerate() { let (c1, _) = club_color(c, club); ui.club_crest(kr.x + 30.0 + k as f32 * 50.0, ky2 + 30.0, 20.0, c.world.clubs[club].id, c1, &c.world.clubs[club].short); }
+    // the clubs with crest and name, a click opens the club
+    for &club in vs.iter().take(4) {
+        let r = Rect::new(kr.x + 6.0, ky2, kr.w - 12.0, 40.0);
+        if ui.hover(r) { rrect(r.x, r.y, r.w, r.h, 6.0, Theme::erhoehung()); }
+        let (c1, _) = club_color(c, club);
+        ui.club_crest(r.x + 20.0, r.y + 20.0, 15.0, c.world.clubs[club].id, c1, &c.world.clubs[club].short);
+        ui.text(&ui.fit(&c.world.clubs[club].name, 14.0, r.w - 50.0), r.x + 42.0, r.y + 25.0, 14.0, Theme::text());
+        if ui.hit(r) { v.sel_club = Some(club); v.go(Page::Vereine); return; }
+        ky2 += 44.0;
+    }
 }
 
 /// One row of the inbox list: kind colour and symbol, photo or crest, subject (bold with a dot when unread), a preview

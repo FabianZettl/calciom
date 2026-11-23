@@ -71,7 +71,7 @@ impl Career {
             ("befoerderung", "befoerdern") => { self.promote(p); crate::inhalt::t("ui.akademie.er_gehoert_jetzt_zum_profikader").into() }
             ("eltern", "spielzeit") => { self.world.players[p].ps.u23_stamm = true; self.moral_wirkung(p, 3.0, 0, crate::inhalt::t("ui.akademie.zusage_an_die_eltern_er")); crate::inhalt::t("ui.akademie.die_eltern_sind_beruhigt").into() }
             ("eltern", "geduld") => { self.moral_wirkung(p, -2.0, 0, crate::inhalt::t("ui.akademie.die_eltern_sind_enttaeuscht")); self.beziehung(p, -2.0, crate::inhalt::t("ui.akademie.die_eltern_sind_enttaeuscht")); crate::inhalt::t("ui.akademie.die_eltern_sind_enttaeuscht_2").into() }
-            ("eltern", "leihe") => match self.leihe_abgeben(p) { Ok(()) => crate::inhalt::t("ui.akademie.er_wird_verliehen").into(), Err(e) => e },
+            ("eltern", "leihe") => match self.leihe_abgeben(p) { Ok(()) => crate::inhalt::t("ui.leihe.auf_liste").into(), Err(e) => e },
             _ => crate::inhalt::t("ui.akademie.notiert").into(),
         }
     }

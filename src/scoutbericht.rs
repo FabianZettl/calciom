@@ -17,6 +17,19 @@ pub fn wichtig(gr: &str, i: usize) -> u8 {
     let hat = |k: &str| v[k].as_array().map_or(false, |a| a.iter().any(|x| x == n));
     if hat(crate::id("kern")) { 3 } else if hat(crate::id("rolle")) { 2 } else if hat(crate::id("egal")) { 0 } else { 1 }
 }
+/// Konzept 4.3: the six verdicts from the points and part scores; weaker than the own second choice never "Holen".
+fn stufe(punkte: f32, kader: f32, preis: f32, zukunft: f32, unsicher: f32, ko: bool, unter_zweitem: bool) -> usize {
+    let u = |k: &str| g(&format!("urteil.{k}"));
+    let mut urteil = if ko { 5 }
+        else if punkte >= u(crate::id("sofort")) && kader >= 80.0 { 0 }
+        else if punkte >= u(crate::id("holen")) { 1 }
+        else if punkte >= u(crate::id("preis")) && preis < 55.0 { 2 }
+        else if punkte >= u(crate::id("ergaenzung")) && kader >= 30.0 { 3 }
+        else if unsicher >= 4.0 || zukunft >= 70.0 { 4 }
+        else { 5 };
+    if urteil <= 2 && unter_zweitem { urteil = 3; }
+    urteil
+}
 fn gewicht(w: u8) -> f32 { [g("gewicht.egal"), g("gewicht.plus"), g("gewicht.rolle"), g("gewicht.kern")][w as usize] }
 
 /// One strength or weakness: ability, distance to the yardstick, big, only "probably" (the knowledge is too thin).
@@ -117,16 +130,7 @@ impl Career {
         let punkte = gw[0] * kader + gw[1] * system + gw[2] * preis + gw[3] * zukunft - gw[4] * risiko + gw[4] * 50.0;
         // knock-out reasons: a core value far under the league's regulars
         let ko = if pl.attrs.len() == 25 && (0..25).any(|i| wichtig(gr, i) == 3 && pl.attrs[i] < mass[i] - 10.0) { Some("ui.sb.ko.kern") } else { None };
-        let u = |k: &str| g(&format!("urteil.{k}"));
-        let mut urteil = if ko.is_some() { 5 }
-            else if punkte >= u(crate::id("sofort")) && kader >= 80.0 { 0 }
-            else if punkte >= u(crate::id("holen")) { 1 }
-            else if punkte >= u(crate::id("preis")) && preis < 55.0 { 2 }
-            else if punkte >= u(crate::id("ergaenzung")) && kader >= 30.0 { 3 }
-            else if unsicher >= 4.0 || zukunft >= 70.0 { 4 }
-            else { 5 };
-        // weaker than the own second choice: never "Holen" (Konzept Teil 9, Punkt 3)
-        if urteil <= 2 && rang.get(1).map_or(false, |x| staerke < x.1) { urteil = 3; }
+        let urteil = stufe(punkte, kader, preis, zukunft, unsicher, ko.is_some(), rang.get(1).map_or(false, |x| staerke < x.1));
         // first eleven before and after: the candidate takes the place of the weakest of his group in it
         let elf: Vec<f32> = self.xi.iter().map(|&q| self.rollen_staerke(q, gruppe(&self.world.players[q].pos))).collect();
         let vor = elf.iter().sum::<f32>() / elf.len().max(1) as f32;
@@ -136,6 +140,11 @@ impl Career {
             if staerke > elf[k] { nach = vor + (staerke - elf[k]) / elf.len().max(1) as f32; verlierer.push(q); }
         }
         Bericht { gruppe: gr, staerke, teil, punkte, urteil, ko, rang, platz, startelf: (vor, nach), verlierer, staerken, schwaechen }
+    }
+    /// The verdict for the same report seen by another scout whose personality moves the points by `bonus`.
+    pub fn urteil_stufe(&self, b: &Bericht, bonus: f32) -> usize {
+        let unsicher = if b.teil[4] > 0.0 { 4.0 } else { 0.0 };
+        stufe(b.punkte + bonus, b.teil[0], b.teil[2], b.teil[3], unsicher, b.ko.is_some(), b.rang.get(1).map_or(false, |x| b.staerke < x.1))
     }
     /// The report as text for the inbox: verdict, at our club, strengths and weaknesses, certainty.
     pub fn urteil_text(&self, p: usize) -> String {

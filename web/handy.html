@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PES M unterwegs</title>
+<style>
+@font-face { font-family: Kopf; src: url(/schrift/kopf.ttf); }
+@font-face { font-family: Text; src: url(/schrift/text.ttf); }
+@font-face { font-family: Halb; src: url(/schrift/halb.ttf); }
+:root { --grund: #f6f3ee; --flaeche: #ffffff; --text: #141821; --text2: #5c6370; --linie: #e4dfd6; --akzent: #0a6ecb; --gut: #2eb872; --achtung: #f2a33a; --problem: #e5484d; --verein: #0a6ecb; --verein2: #ffffff; }
+@media (prefers-color-scheme: dark) { :root { --grund: #0f1218; --flaeche: #1a1f29; --text: #eef1f6; --text2: #9aa3b2; --linie: #2a313d; } }
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body { margin: 0; background: var(--grund); color: var(--text); font-family: Text, system-ui, sans-serif; font-size: 16px; padding-bottom: 150px; }
+h1, h2, .kopfschrift { font-family: Kopf, system-ui, sans-serif; font-style: italic; text-transform: uppercase; margin: 0; }
+header { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: var(--verein); color: var(--verein2); }
+.wappen img, .foto { width: 100%; height: 100%; object-fit: contain; }
+.foto { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; background: var(--linie); margin-right: 10px; flex: none; }
+.gwappen { width: 56px; height: 56px; object-fit: contain; float: right; }
+.wappen { overflow: hidden; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--verein2); color: var(--verein); font-family: Kopf; font-style: italic; font-size: 15px; flex: none; }
+header .titel { flex: 1; min-width: 0; }
+header h1 { font-size: 22px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+header .datum { font-size: 13px; opacity: .85; }
+.punkt { width: 12px; height: 12px; border-radius: 50%; background: var(--gut); flex: none; }
+.punkt.weg { background: var(--problem); }
+main { padding: 12px 16px; }
+.karte { background: var(--flaeche); border-radius: 14px; padding: 14px 16px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+.karte h2 { font-size: 18px; margin-bottom: 8px; color: var(--akzent); }
+.zeile { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--linie); min-height: 44px; }
+.zeile:last-child { border-bottom: 0; }
+.klein { font-size: 13px; color: var(--text2); }
+.gross { font-family: Kopf; font-style: italic; font-size: 34px; }
+.pos { font-family: Halb; font-size: 12px; padding: 2px 6px; border-radius: 6px; background: var(--linie); margin-right: 8px; }
+.pill { font-family: Halb; font-size: 14px; padding: 4px 10px; border-radius: 12px; color: #fff; background: var(--akzent); }
+button { font-family: Halb; font-size: 16px; min-height: 44px; border: 0; border-radius: 12px; padding: 10px 16px; background: var(--linie); color: var(--text); }
+button.haupt { background: var(--akzent); color: #fff; }
+button.laeuft { opacity: .55; }
+.knoepfe { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+nav { position: fixed; bottom: 0; left: 0; right: 0; display: grid; grid-template-columns: repeat(5, 1fr); background: var(--flaeche); border-top: 1px solid var(--linie); padding-bottom: env(safe-area-inset-bottom); z-index: 6; }
+nav button { background: none; border-radius: 0; font-size: 13px; padding: 12px 4px; color: var(--text2); }
+nav button.an { color: var(--akzent); font-weight: bold; }
+#weiter { position: fixed; right: 16px; bottom: 70px; z-index: 7; font-family: Kopf; font-style: italic; text-transform: uppercase; font-size: 20px; padding: 14px 22px; border-radius: 30px; background: var(--akzent); color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,.25); }
+#meldung { position: fixed; left: 16px; right: 16px; bottom: 136px; z-index: 8; background: #141821; color: #fff; padding: 12px 16px; border-radius: 12px; display: none; }
+.post { cursor: pointer; }
+.post.neu .titel { font-family: Halb; }
+.post .text { white-space: pre-wrap; margin-top: 8px; display: none; }
+.post.offen .text { display: block; }
+.balken { height: 8px; border-radius: 4px; background: var(--linie); overflow: hidden; margin-top: 4px; }
+.balken i { display: block; height: 100%; background: var(--gut); }
+.gewaehlt { outline: 3px solid var(--akzent); border-radius: 10px; }
+input { font-size: 22px; padding: 12px; border-radius: 12px; border: 1px solid var(--linie); width: 100%; background: var(--flaeche); color: var(--text); letter-spacing: 6px; text-align: center; }
+.eigen { background: rgba(10,110,203,.12); border-radius: 8px; }
+</style>
+</head>
+<body>
+<header><div class="wappen" id="wappen">PES</div><div class="titel"><h1 id="verein">PES M</h1><div class="datum" id="datum"></div></div><div class="punkt" id="punkt"></div></header>
+<main id="inhalt"></main>
+<div id="meldung"></div>
+<button id="weiter" onclick="weiter(this)">Weiter</button>
+<nav>
+  <button data-s="zentrale" onclick="zeige('zentrale')">Zentrale</button>
+  <button data-s="post" onclick="zeige('post')">Post</button>
+  <button data-s="kader" onclick="zeige('kader')">Kader</button>
+  <button data-s="taktik" onclick="zeige('taktik')">Taktik</button>
+  <button data-s="mehr" onclick="zeige('mehr')">Mehr</button>
+</nav>
+<script>
+let seite = 'zentrale', kopf = null, auswahl = null, offen = {};
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+function melde(t) { if (!t) return; const m = $('meldung'); m.textContent = t; m.style.display = 'block'; clearTimeout(melde.z); melde.z = setTimeout(() => m.style.display = 'none', 3200); }
+async function holen(name) {
+  const r = await fetch('/api/seite/' + (name === 'mehr' ? 'tabelle' : name), { credentials: 'same-origin' });
+  if (r.status === 401) { koppelnZeigen(); return null; }
+  if (!r.ok) { $('punkt').classList.add('weg'); return null; }
+  $('punkt').classList.remove('weg');
+  return r.json();
+}
+async function befehl(b, knopf) {
+  if (knopf) { if (knopf.classList.contains('laeuft')) return; knopf.classList.add('laeuft'); knopf.dataset.t = knopf.textContent; knopf.textContent = 'läuft …'; }
+  try {
+    const r = await fetch('/api/befehl', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(b) });
+    const a = await r.json();
+    if (a.ergebnis) { if (knopf) { knopf.classList.remove('laeuft'); knopf.textContent = knopf.dataset.t; } ablauf(a.ergebnis); return; }
+    melde(a.meldung || a.fehler);
+  } catch (e) { $('punkt').classList.add('weg'); melde('PC nicht erreichbar'); }
+  if (knopf) { knopf.classList.remove('laeuft'); knopf.textContent = knopf.dataset.t; }
+  laden();
+}
+function weiter(k) { if (kopf && kopf.spiel_heute) { zeige('spiel'); return; } befehl({ befehl: 'tag_weiter' }, k); }
+function zeige(s) { seite = s; auswahl = null; laden(); window.scrollTo(0, 0); }
+async function laden() {
+  if (seite === 'ablauf') return;
+  const d = await holen(seite === 'spiel' ? 'zentrale' : seite);
+  if (!d) return;
+  kopf = d.kopf;
+  $('verein').textContent = kopf.verein; $('datum').textContent = kopf.datum + (kopf.deadline ? ' · DEADLINE DAY' : '');
+  document.documentElement.style.setProperty('--verein', kopf.farbe); document.documentElement.style.setProperty('--verein2', kopf.farbe2);
+  if ($('wappen').dataset.vid != kopf.vid) { $('wappen').dataset.vid = kopf.vid; $('wappen').innerHTML = `<img src="/img/verein/${kopf.vid}" onerror="this.parentNode.textContent='${esc(kopf.kurz)}'">`; }
+  $('weiter').textContent = kopf.weiter;
+  document.querySelectorAll('nav button').forEach((b) => b.classList.toggle('an', b.dataset.s === seite));
+  const s = d.seite; let h = '';
+  if (kopf.presse) h += presse(kopf.presse);
+  if (s && s.nur_pc) h += '<div class="karte">Diese Seite gibt es bisher nur am PC.</div>';
+  else if (seite === 'zentrale') h += zentrale(s);
+  else if (seite === 'post') h += post(s);
+  else if (seite === 'kader') h += kader(s);
+  else if (seite === 'taktik') h += taktik(s);
+  else if (seite === 'mehr') h += mehr(s);
+  else if (seite === 'markt') h += markt(s);
+  else if (seite === 'training') h += training(s);
+  else if (seite === 'spiel') h += spiel();
+  $('inhalt').innerHTML = h;
+}
+function presse(p) {
+  return `<div class="karte"><h2>Pressekonferenz</h2><p>${esc(p.frage)}</p>${p.antworten.map((a, i) => `<button style="width:100%;text-align:left;margin-top:6px" onclick="befehl({befehl:'presse',wahl:${i}},this)">${esc(a)}</button>`).join('')}</div>`;
+}
+function zentrale(s) {
+  let h = '';
+  if (s.naechstes) h += `<div class="karte"><h2>Nächstes Spiel</h2><div class="zeile"><div><img class="gwappen" src="/img/verein/${s.naechstes.gid}" onerror="this.remove()"><div class="gross">${s.naechstes.heim ? 'vs' : '@'} ${esc(s.naechstes.gegner)}</div><div class="klein">${esc(s.naechstes.datum)} · in ${s.naechstes.tage} Tagen</div></div></div></div>`;
+  h += `<div class="karte"><h2>${esc(s.liga)}</h2><div class="zeile"><div class="gross">Platz ${s.platz}</div><div class="klein">Ziel: ${esc(s.ziel_wort)} (Platz ${s.ziel})</div></div>
+    <div class="zeile"><span>Präsidium</span><span>${s.vertrauen}</span></div><div class="balken"><i style="width:${s.vertrauen}%"></i></div>
+    <div class="zeile"><span>Fans</span><span>${s.fans}</span></div><div class="zeile"><span>Kasse</span><span>${esc(s.kasse)}</span></div><div class="zeile"><span>Transferbudget</span><span>${esc(s.budget)}</span></div></div>`;
+  if (s.letzte.length) h += `<div class="karte"><h2>Letzte Spiele</h2>${s.letzte.map((x) => `<div class="zeile"><span>${x.heim ? 'vs' : '@'} ${esc(x.gegner)}</span><span class="pill" style="background:${x.tore > x.gegentore ? 'var(--gut)' : x.tore < x.gegentore ? 'var(--problem)' : 'var(--achtung)'}">${x.tore}:${x.gegentore}</span></div>`).join('')}</div>`;
+  if (s.wichtig.length) h += `<div class="karte"><h2>Wartet auf dich</h2>${s.wichtig.map((m) => `<div class="zeile" onclick="offen[${m.id}]=1;zeige('post')"><span>${esc(m.titel)}</span><span class="klein">${esc(m.von)}</span></div>`).join('')}</div>`;
+  return h;
+}
+function post(s) {
+  return `<div class="karte"><h2>Posteingang</h2>${s.liste.map((m) => `<div class="post zeile ${m.gelesen ? '' : 'neu'} ${offen[m.id] ? 'offen' : ''}" style="display:block" onclick="aufklappen(${m.id}, ${m.gelesen})">
+    <div style="display:flex;justify-content:space-between;gap:8px"><span class="titel">${m.gelesen ? '' : '● '}${esc(m.titel)}</span><span class="klein">${esc(m.datum)}</span></div>
+    <div class="klein">${esc(m.von)} · ${esc(m.bereich)}</div><div class="text">${esc(m.text)}</div>
+    ${m.optionen.length && offen[m.id] ? `<div class="knoepfe">${m.optionen.map((o) => `<button class="haupt" onclick="event.stopPropagation();befehl({befehl:'post_entscheiden',id:${m.id},wahl:${o.wahl},ja:${o.ja !== false}},this)">${esc(o.text)}</button>`).join('')}</div>` : ''}</div>`).join('')}</div>`;
+}
+function aufklappen(id, gelesen) { offen[id] = !offen[id]; if (!gelesen) befehl({ befehl: 'post_gelesen', id }); else laden(); }
+function kader(s) {
+  return `<div class="karte"><h2>Kader</h2>${s.liste.map((p) => `<div class="zeile"><img class="foto" loading="lazy" src="/img/spieler/${p.fid}" onerror="this.style.visibility='hidden'"><div style="flex:1"><span class="pos">${esc(p.pos)}</span>${esc(p.name)}${p.elf ? ' ⚽' : ''}${p.verletzt ? ' <span style="color:var(--problem)">+' + p.verletzt + 'T</span>' : ''}
+    <div class="klein">${p.alter} J. · Fitness ${p.fitness} · Moral ${p.moral} · ${p.spiele} Sp. ${p.tore} T.${p.note ? ' · Note ' + p.note : ''}</div></div><span class="pill">${p.staerke}</span></div>`).join('')}</div>`;
+}
+function taktik(s) {
+  let h = `<div class="karte"><h2>Formation</h2><div class="knoepfe">${s.formationen.map((f, i) => `<button class="${i === s.formation ? 'haupt' : ''}" onclick="befehl({befehl:'formation',nr:${i}},this)">${f}</button>`).join('')}</div>
+    <div class="knoepfe"><button onclick="befehl({befehl:'co_aufstellen'},this)">Co-Trainer stellt auf</button></div></div>`;
+  h += `<div class="karte"><h2>Startelf</h2><div class="klein">Antippen, dann den Spieler antippen, mit dem er tauschen soll.</div>${s.elf.map((p) => zeileT(p, p.platz)).join('')}</div>`;
+  h += `<div class="karte"><h2>Bank und Kader</h2>${s.bank.map((p) => zeileT(p, p.pos)).join('')}</div>`;
+  return h;
+}
+function zeileT(p, platz) { return `<div class="zeile ${auswahl === p.p ? 'gewaehlt' : ''}" onclick="tippen(${p.p})"><div><span class="pos">${esc(platz)}</span>${esc(p.name)}${p.verletzt ? ' ✚' : ''}<div class="klein">${esc(p.pos)} · Fitness ${p.fitness}</div></div><span class="pill">${p.staerke}</span></div>`; }
+function tippen(p) { if (auswahl === null) { auswahl = p; laden(); } else if (auswahl === p) { auswahl = null; laden(); } else { const a = auswahl; auswahl = null; befehl({ befehl: 'tauschen', a, b: p }); } }
+function mehr(s) {
+  return `<div class="karte"><h2>Mehr</h2><div class="knoepfe"><button onclick="zeige('markt')">Transfermarkt</button><button onclick="zeige('training')">Training</button></div></div>
+    <div class="karte"><h2>Aktionen</h2><div class="knoepfe">
+    <button onclick="befehl({befehl:'bis_ereignis'},this)">Bis zum nächsten Ereignis</button>
+    <button ${kopf.rueckgaengig ? '' : 'disabled'} onclick="befehl({befehl:'rueckgaengig'},this)">Rückgängig</button>
+    <button onclick="befehl({befehl:'speichern'},this)">Speichern</button></div></div>
+    <div class="karte"><h2>${esc(s.liga)}</h2>${s.zeilen.map((z) => `<div class="zeile ${z.eigen ? 'eigen' : ''}"><span>${z.platz}. ${esc(z.verein)}</span><span class="klein">${z.sp} · ${esc(z.tore)} · <b>${z.pkt}</b></span></div>`).join('')}</div>`;
+}
+function spielerZeile(p) {
+  return `<div class="zeile"><img class="foto" loading="lazy" src="/img/spieler/${p.fid}" onerror="this.style.visibility='hidden'"><div style="flex:1"><span class="pos">${esc(p.pos)}</span>${esc(p.name)}
+    <div class="klein">${p.alter} J. · ${esc(p.verein)} · ${esc(p.preis)}${p.urteil ? ' · <b>' + esc(p.urteil) + '</b>' : ''}</div></div>
+    <span class="pill">${esc(p.staerke)}</span><button style="margin-left:8px" onclick="befehl({befehl:'merken',p:${p.p}},this)">${p.gemerkt ? '★' : '☆'}</button></div>`;
+}
+function markt(s) {
+  return `<div class="karte"><h2>Transfermarkt</h2><div class="klein">Budget ${esc(s.budget)} · ${s.fenster ? 'Fenster offen' : 'Fenster zu'} · Verhandeln geht bisher nur am PC.</div></div>
+    <div class="karte"><h2>Berichte der Scouts</h2>${s.berichte.map(spielerZeile).join('') || '<div class="klein">Noch keine Berichte.</div>'}</div>
+    <div class="karte"><h2>Merkliste</h2>${s.merkliste.map(spielerZeile).join('') || '<div class="klein">Die Merkliste ist leer.</div>'}</div>`;
+}
+function training(s) {
+  return `<div class="karte"><h2>Trainingswoche</h2>${s.tage.map((d) => `<div class="zeile"><div><b>${esc(d.tag)}</b> <span class="klein">${esc(d.typ)}</span><div class="klein">${d.einheiten.map(esc).join(' · ')}</div></div></div>`).join('')}</div>
+    ${s.co ? '<div class="karte">Der Co-Trainer plant die Woche.</div>' : `<div class="karte"><h2>Vorlage wählen</h2><div class="knoepfe">${s.vorlagen.map((v) => `<button onclick="befehl({befehl:'trainingswoche',id:'${v.id}'},this)">${esc(v.name)}</button>`).join('')}</div></div>`}`;
+}
+function spiel() {
+  return `<div class="karte"><h2>Heute ist Spieltag</h2><p>Simulieren geht sofort hier. Selbst spielen in FL27: starte am PC, die Live-Ansicht kommt dann hier.</p>
+    <div class="knoepfe"><button class="haupt" onclick="befehl({befehl:'simulieren'},this)">Simulieren</button><button onclick="zeige('taktik')">Aufstellung prüfen</button></div></div>`;
+}
+// the simulated match replayed minute by minute: scoreboard, ticker, a big card and a buzz for each goal
+let lauf = null;
+function ablauf(r) {
+  clearInterval(lauf); seite = 'ablauf';
+  let m = 0;
+  const arten = { 0: '⚽ Tor', 1: '⚽ Eigentor', 2: '🟨 Gelb', 3: '🟥 Rot', 4: '✚ Verletzt', 5: '⇄ Wechsel', 6: 'Chance' };
+  const male = () => {
+    const bis = r.ereignisse.filter((e) => e.min <= m);
+    const tore = (s) => bis.filter((e) => e.seite === s && e.art <= 1).length;
+    const letztes = bis.filter((e) => e.art <= 1).slice(-1)[0];
+    const frisch = letztes && m - letztes.min < 3;
+    $('inhalt').innerHTML = `<div class="karte" style="text-align:center">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <img class="gwappen" style="float:none" src="/img/verein/${r.hid}" onerror="this.remove()"><div class="gross" style="font-size:52px">${tore(0)}:${tore(1)}</div><img class="gwappen" style="float:none" src="/img/verein/${r.aid}" onerror="this.remove()"></div>
+      <div style="display:flex;justify-content:space-between" class="klein"><span>${esc(r.heim)}</span><span>${esc(r.gast)}</span></div>
+      <div class="pill" style="display:inline-block;margin-top:8px">${m >= 90 ? 'Abpfiff' : m + "'"}</div></div>
+      ${frisch ? `<div class="karte" style="background:${letztes.seite === 0 ? r.hfarbe : r.afarbe};color:#fff;text-align:center"><div class="gross">Tor!</div><div>${esc(letztes.name)}${letztes.zweiter ? ' · Vorlage ' + esc(letztes.zweiter) : ''}</div></div>` : ''}
+      <div class="karte"><h2>Ticker</h2>${bis.slice().reverse().map((e) => `<div class="zeile"><span><b>${e.min}'</b> ${arten[e.art] || ''} ${esc(e.name)}${e.art === 5 && e.zweiter ? ' für ' + esc(e.zweiter) : ''}</span><span class="klein">${e.seite === 0 ? esc(r.heim) : esc(r.gast)}</span></div>`).join('') || '<div class="klein">Anpfiff!</div>'}</div>
+      ${m >= 90 ? `<div class="karte"><p>${esc(r.bericht)}</p><button class="haupt" onclick="zeige('zentrale')">Weiter</button></div>` : `<div class="knoepfe"><button onclick="m90()">Zum Abpfiff</button></div>`}`;
+  };
+  window.m90 = () => { m = 90; clearInterval(lauf); male(); };
+  male();
+  lauf = setInterval(() => {
+    m++;
+    if (r.ereignisse.some((e) => e.min === m && e.art <= 1) && navigator.vibrate) navigator.vibrate([200, 80, 200]);
+    male();
+    if (m >= 90) clearInterval(lauf);
+  }, 400);
+}
+function koppelnZeigen() {
+  $('inhalt').innerHTML = `<div class="karte"><h2>Mit PES M verbinden</h2><p>Am PC: Einstellungen → Handy-Zugang. Dort steht ein 6-stelliger Code.</p>
+    <input id="code" inputmode="numeric" maxlength="6" placeholder="000000"><p></p><input id="name" style="letter-spacing:0;font-size:16px" placeholder="Name dieses Handys (z. B. Fabians Handy)">
+    <div class="knoepfe"><button class="haupt" onclick="koppeln(this)">Verbinden</button></div></div>`;
+  const c = new URLSearchParams(location.search).get('c'); if (c) $('code').value = c;
+}
+async function koppeln(k) {
+  const r = await fetch('/koppeln', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ code: $('code').value, name: $('name').value }) });
+  const a = await r.json().catch(() => ({}));
+  if (r.ok) { history.replaceState(null, '', '/'); laden(); verbinden(); } else melde(a.fehler || 'Das hat nicht geklappt.');
+}
+function verbinden() {
+  try {
+    const w = new WebSocket((location.protocol === 'https:' ? 'wss://' : 'ws://') + location.host + '/api/ws');
+    let alt = null;
+    w.onmessage = (e) => { const d = JSON.parse(e.data); if (alt !== null && d.stand !== alt) laden(); alt = d.stand; $('punkt').classList.remove('weg'); };
+    w.onclose = () => { $('punkt').classList.add('weg'); setTimeout(verbinden, 3000); };
+  } catch (e) { setTimeout(verbinden, 3000); }
+}
+laden(); verbinden();
+</script>
+</body>
+</html>

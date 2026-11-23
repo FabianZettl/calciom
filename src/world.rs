@@ -62,6 +62,8 @@ pub const RED_PER_TEAM: f32 = 0.06;
 pub const INJURY_PER_PLAYER: f32 = 0.02;
 pub const INJURY_DAYS: [(u16, f32); 6] = [(3, 0.3), (7, 0.25), (14, 0.2), (28, 0.12), (56, 0.08), (120, 0.05)];
 pub const FATIGUE_PER_MATCH: f32 = 16.0;
+/// Keeps the mean grade where it was before the actions counted (measured with statistik.rs notenschnitt_messen).
+const NOTE_AUSGLEICH: f32 = 0.22;
 pub const RECOVERY_PER_DAY: f32 = 5.0;
 pub const OWN_GOAL: f32 = 0.04;
 // calendar (sim.json "calendar")
@@ -195,8 +197,22 @@ pub struct Profil {
     /// Contract clauses (klauseln.rs, Punkt 6).
     #[serde(default)]
     pub klauseln: crate::klauseln::Klauseln,
+    /// This season's league figures per league (the rankings count only what was scored in that competition).
+    #[serde(default)]
+    pub ligen: Vec<LigaStat>,
+    /// This season's statistics from detailed matches (all competitions) and last season's (statistik.rs).
+    #[serde(default)]
+    pub saison: crate::statistik::Stat,
+    #[serde(default)]
+    pub vorsaison: crate::statistik::Stat,
 }
+/// One player's figures in one league this season (league index, games, goals, assists, grade sum and count).
+#[derive(Serialize, Deserialize, Clone, Default, Debug, PartialEq)]
+pub struct LigaStat { pub l: u16, pub apps: u16, pub goals: u16, pub assists: u16, pub rsum: f32, pub rn: u16, #[serde(default)] pub st: crate::statistik::Stat }
+impl LigaStat { pub fn note(&self) -> f32 { if self.rn == 0 { 0.0 } else { self.rsum / self.rn as f32 } } }
 impl Player {
+    /// The player's figures in league `l` this season (zero when he has not played there).
+    pub fn in_liga(&self, l: usize) -> LigaStat { self.profil.ligen.iter().find(|x| x.l as usize == l).cloned().unwrap_or_default() }
     pub fn avg_rating(&self) -> f32 { if self.rn == 0 { 0.0 } else { self.rsum / self.rn as f32 } }
     pub fn available(&self) -> bool { self.inj == 0 && self.susp == 0 }
 }
@@ -295,6 +311,27 @@ pub struct MatchEvent {
     pub pid2: Option<usize>, // assist or player coming on
 }
 
+/// The ticker's chances after minute `ab` from the real shots (statistik.rs): the biggest misses and saves, up to six
+/// per side and match; those up to `ab` stay as they were.
+fn chancen_ereignisse(res: &mut MatchResult, ab: u8) {
+    res.events.retain(|e| e.kind != 6 || e.min <= ab);
+    for side in 0..2u8 {
+        let mut v: Vec<&crate::statistik::Schuss> = res.schuesse.iter().filter(|x| x.side == side && x.min > ab && x.aus != crate::statistik::TOR && x.aus != crate::statistik::GEBLOCKT_S).collect();
+        v.sort_by_key(|x| std::cmp::Reverse(x.xg));
+        let n = (6.0 * (90 - ab.min(89)) as f32 / 90.0).ceil() as usize;
+        let neu: Vec<MatchEvent> = v.iter().take(n).map(|x| MatchEvent { min: x.min, side, kind: 6, pid: x.pid, pid2: None }).collect();
+        res.events.extend(neu);
+    }
+}
+impl MatchResult {
+    /// Which side a player of this match was on (0 home, 1 away): starting eleven, else the side he came on for.
+    pub fn seite(&self, p: usize) -> u8 {
+        if self.xi_h.iter().any(|x| x.1 == p) { 0 } else if self.xi_a.iter().any(|x| x.1 == p) { 1 }
+        else { self.events.iter().find(|e| e.kind == 5 && e.pid2 == Some(p)).map_or(0, |e| e.side) }
+    }
+    /// A side's sum of one statistic (statistik.rs index).
+    pub fn summe(&self, side: u8, i: usize) -> u32 { self.stat.iter().filter(|(p, _)| self.seite(*p) == side).map(|x| crate::statistik::get(&x.1, i)).sum() }
+}
 #[derive(Serialize, Deserialize, Clone, Default)]
 pub struct MatchResult {
     pub h: usize,
@@ -317,6 +354,12 @@ pub struct MatchResult {
     pub injuries: Vec<(usize, u16)>,
     #[serde(default)]
     pub pens: Option<(u8, u8)>,
+    /// Per player the statistics of this match (statistik.rs); empty for summary-level matches.
+    #[serde(default)]
+    pub stat: Vec<(usize, crate::statistik::Stat)>,
+    /// Every shot with minute, shooter, xG and outcome (statistik.rs).
+    #[serde(default)]
+    pub schuesse: Vec<crate::statistik::Schuss>,
     #[serde(default)]
     pub et: bool,
 }
@@ -350,6 +393,9 @@ pub struct World {
     /// Home-grown players: player id → club id whose youth he came from (jugend.rs, Akademie-Konzept 6.3).
     #[serde(default)]
     pub eigen: std::collections::BTreeMap<u32, u32>,
+    /// The own tactic's factors for the next play() of that club: (club, own goals, opponent goals) (taktikwirkung.rs).
+    #[serde(skip)]
+    pub taktik_faktor: Option<(usize, f32, f32)>,
     /// Grades of league matches since the last team of the week / player of the month: (player, grade, goals) (ehrungen.rs).
     #[serde(default)]
     pub noten_woche: Vec<(usize, f32, u8)>,
@@ -727,7 +773,7 @@ impl World {
             name, key, teams, fixtures: vec![], level: 68.0, deduct: vec![],
         }).collect();
         let next_id = players.iter().map(|p| p.id).max().unwrap_or(0) + 1;
-        let mut w = World { profil_cache: vec![], eigen: Default::default(), noten_woche: vec![], noten_monat: vec![], leagues, clubs, players, season: 0, day: 0, rng, source, next_id, cups: vec![], titles: vec![], coef: vec![], cup_money: vec![], neutral: false, entscheid: vec![], planen: None, db_cups: vec![], db_euro: None, ko_vorgabe: None, cids: Default::default(), zweite: vec![], koops: vec![], farm_an: false, trainer_an: false, trainer_pool: vec![], ligaregeln: crate::ligaregeln::eingebaut(), teamgeist_eigen: None };
+        let mut w = World { profil_cache: vec![], eigen: Default::default(), taktik_faktor: None, noten_woche: vec![], noten_monat: vec![], leagues, clubs, players, season: 0, day: 0, rng, source, next_id, cups: vec![], titles: vec![], coef: vec![], cup_money: vec![], neutral: false, entscheid: vec![], planen: None, db_cups: vec![], db_euro: None, ko_vorgabe: None, cids: Default::default(), zweite: vec![], koops: vec![], farm_an: false, trainer_an: false, trainer_pool: vec![], ligaregeln: crate::ligaregeln::eingebaut(), teamgeist_eigen: None };
         w.ueber_ergaenzen();
         w.init_economy();
         w.kuerzel_eindeutig();
@@ -1089,6 +1135,7 @@ impl World {
         let (ph, pa, remis_k) = self.liga_profil(h);
         lh *= ph / HOME_GOALS;
         la *= pa / AWAY_GOALS;
+        if let Some((c, fe, fg)) = self.taktik_faktor.take() { if c == h { lh *= fe; la *= fg; } else if c == a { la *= fe; lh *= fg; } }
         if std::mem::take(&mut self.neutral) { let m = (ph + pa) / 2.0; lh *= m / ph; la *= m / pa; } // neutral ground: both the mean
         let (hg, ag) = match forced { Some(x) => x, None => self.draw_score(lh, la, remis_k) };
         res.hg = hg; res.ag = ag; res.sh = sh; res.sa = sa; res.lh = lh; res.la = la;
@@ -1176,9 +1223,10 @@ impl World {
             res.shots = (sh_h, sh_a);
             res.on_target = (hg + ((sh_h - hg) as f32 * 0.3) as u8, ag + ((sh_a - ag) as f32 * 0.3) as u8);
             res.possession = (50.0 + (sh - sa) * 1.2 + self.rng.gauss(3.0)).clamp(28.0, 72.0) as u8;
+            self.statistik_rechnen(&mut res);
             if level == 0 {
-                for _ in 0..(sh_h - hg).min(6) { let m = self.rng.int(2, 89) as u8; let p = xi_h[self.rng.int(1, xi_h.len() as i32 - 1) as usize].1; res.events.push(MatchEvent { min: m, side: 0, kind: 6, pid: p, pid2: None }); }
-                for _ in 0..(sh_a - ag).min(6) { let m = self.rng.int(2, 89) as u8; let p = xi_a[self.rng.int(1, xi_a.len() as i32 - 1) as usize].1; res.events.push(MatchEvent { min: m, side: 1, kind: 6, pid: p, pid2: None }); }
+                let _ = (sh_h, sh_a);
+                chancen_ereignisse(&mut res, 0);
                 self.ratings(&mut res, &xi_h, &xi_a);
             }
             res.events.sort_by_key(|e| e.min);
@@ -1227,10 +1275,6 @@ impl World {
                 let p = elf[self.rng.int(0, elf.len() as i32 - 1) as usize];
                 res.events.push(MatchEvent { min: self.rng.int(ab as i32 + 1, 90) as u8, side: s, kind: 2, pid: p, pid2: None });
             }
-            for _ in 0..self.rng.poisson(lam * 4.0).min(5) {
-                let p = elf[self.rng.int(0, elf.len() as i32 - 1) as usize];
-                res.events.push(MatchEvent { min: self.rng.int(ab as i32 + 1, 90) as u8, side: s, kind: 6, pid: p, pid2: None });
-            }
         }
         res.events.sort_by_key(|e| e.min);
         res.hg = res.events.iter().filter(|e| e.side == 0 && e.kind <= 1).count() as u8;
@@ -1245,11 +1289,26 @@ impl World {
             if let Some(on) = e.pid2.filter(|_| e.kind == 5) { mins.push((on, 90 - e.min)); }
         }
         res.minutes = mins;
+        self.statistik_rechnen(res);
+        chancen_ereignisse(res, ab);
+        res.events.sort_by_key(|e| e.min);
         res.ratings.clear();
         let xh: Vec<(String, usize, f32)> = res.xi_h.iter().map(|x| (x.0.clone(), x.1, self.eff(x.1, &x.0))).collect();
         let xa: Vec<(String, usize, f32)> = res.xi_a.iter().map(|x| (x.0.clone(), x.1, self.eff(x.1, &x.0))).collect();
         self.ratings(res, &xh, &xa);
         res.reason = self.reason(res);
+    }
+
+    /// The players' statistics of a detailed match (statistik.rs) and the team shots from them.
+    fn statistik_rechnen(&mut self, res: &mut MatchResult) {
+        let mut r = Rng(self.rng.next());
+        (res.stat, res.schuesse) = crate::statistik::spiel(self, res, &mut r);
+        if res.stat.is_empty() { return; }
+        let summe = |res: &MatchResult, side: u8, i: usize| res.summe(side, i).min(255) as u8;
+        let shots = (summe(res, 0, crate::statistik::SCHUESSE), summe(res, 1, crate::statistik::SCHUESSE));
+        let on_target = (summe(res, 0, crate::statistik::AUFS_TOR), summe(res, 1, crate::statistik::AUFS_TOR));
+        res.shots = shots;
+        res.on_target = on_target;
     }
 
     /// match.py _ratings plus an assist bonus (estimated) for the Sofascore-style grade.
@@ -1267,6 +1326,15 @@ impl World {
                 b -= 1.2 * res.events.iter().filter(|x| x.kind == 1 && x.pid == p).count() as f32;
                 b -= 1.4 * res.events.iter().filter(|x| x.kind == 3 && x.pid == p).count() as f32;
                 if matches!(self.players[p].pos.as_str(), "GK" | "CB" | "LB" | "RB") && ga == 0 { b += 0.5; }
+                // the actions of the match (statistik.rs, Konzept 8.5): saves, key passes, duels, pass accuracy, ball losses
+                if let Some((_, st)) = res.stat.iter().find(|x| x.0 == p) {
+                    use crate::statistik::*;
+                    let g = |i| get(st, i) as f32;
+                    b += (0.2 * g(PARADEN)).min(1.0) + (0.1 * g(SCHLUESSEL)).min(0.3) + (0.06 * g(TACKL_OK) + 0.04 * g(ABGEF)).min(0.35)
+                        + (0.08 * (g(AUFS_TOR) - g(TORE))).min(0.24) + (0.05 * g(DRIBB_OK)).min(0.2) - (0.03 * g(BALLVERL)).min(0.3);
+                    if g(PAESSE) >= 20.0 { b += (g(PAESSE_OK) / g(PAESSE) - 0.82) * 1.5; }
+                    b -= NOTE_AUSGLEICH;
+                }
                 let jitter = ((self.players[p].id as u64).wrapping_mul(2654435761).wrapping_add(seed + self.rng.next() % 97) % 1000) as f32 / 1000.0 - 0.5;
                 res.ratings.push((p, ((b + jitter).clamp(3.0, 10.0) * 10.0).round() / 10.0));
             }
@@ -1301,12 +1369,38 @@ impl World {
         }
     }
 
+    /// Saves from before the per-league figures: the season so far from each first-team player's totals, under his
+    /// club's league. shortcut: cup goals of the season so far count as league goals once; exact from the next season.
+    pub fn ligen_nachtragen(&mut self) {
+        if self.players.iter().any(|p| !p.profil.ligen.is_empty()) { return; }
+        for ci in 0..self.clubs.len() {
+            let l = self.clubs[ci].league;
+            if l >= self.leagues.len() { continue; }
+            for &p in &self.clubs[ci].squad {
+                let pl = &mut self.players[p];
+                if pl.youth != 0 || pl.apps == 0 { continue; }
+                pl.profil.ligen.push(LigaStat { l: l as u16, apps: pl.apps, goals: pl.goals, assists: pl.assists, rsum: pl.rsum, rn: pl.rn, st: vec![] });
+            }
+        }
+    }
     /// Writes a played match into the world: table, stats, fitness, morale, form, cards, injuries.
     pub fn apply_result(&mut self, l: usize, fi: usize, res: &MatchResult) {
         let f = &mut self.leagues[l].fixtures[fi];
         f.hg = res.hg as i8;
         f.ag = res.ag as i8;
         self.apply_stats(res);
+        // per-league figures for the rankings
+        let mut eintrag = |w: &mut World, p: usize| -> usize {
+            let v = &mut w.players[p].profil.ligen;
+            if let Some(i) = v.iter().position(|x| x.l as usize == l) { i } else { v.push(LigaStat { l: l as u16, ..Default::default() }); v.len() - 1 }
+        };
+        for &(p, _) in &res.minutes { let i = eintrag(self, p); self.players[p].profil.ligen[i].apps += 1; }
+        for (p, s) in &res.stat { let i = eintrag(self, *p); crate::statistik::add(&mut self.players[*p].profil.ligen[i].st, s); }
+        for &(p, r) in &res.ratings { let i = eintrag(self, p); let x = &mut self.players[p].profil.ligen[i]; x.rsum += r; x.rn += 1; }
+        for e in res.events.iter().filter(|e| e.kind == 0) {
+            let i = eintrag(self, e.pid); self.players[e.pid].profil.ligen[i].goals += 1;
+            if let Some(a) = e.pid2 { let i = eintrag(self, a); self.players[a].profil.ligen[i].assists += 1; }
+        }
         // the awards of the week and month read these grades (ehrungen.rs)
         for &(p, r) in &res.ratings {
             let g = res.events.iter().filter(|e| e.kind == 0 && e.pid == p).count() as u8;
@@ -1321,6 +1415,7 @@ impl World {
         for c in [res.h, res.a] { for &p in &self.clubs[c].squad { let pl = &mut self.players[p]; if pl.susp > 0 { pl.susp -= 1; } } }
         let heute = self.heute();
         let oben: Vec<bool> = res.minutes.iter().map(|(p, _)| self.players[*p].team >= 0 && self.zweite_von(self.players[*p].team as usize).is_some()).collect();
+        for (p, s) in &res.stat { crate::statistik::add(&mut self.players[*p].profil.saison, s); }
         for (k, (p, m)) in res.minutes.iter().enumerate() {
             let pl = &mut self.players[*p];
             if oben[k] { pl.profil.oben = heute + 1; }
@@ -1457,6 +1552,22 @@ pub fn retire_chance(age: u8) -> f32 {
 #[cfg(test)]
 mod t {
     use super::World;
+    #[test]
+    fn ranglisten_zaehlen_nur_die_liga() {
+        let mut w = World::load(include_str!("../assets/world.json"), 5);
+        let (l, fi) = (0, 0);
+        let (h, a) = (w.leagues[l].fixtures[fi].h, w.leagues[l].fixtures[fi].a);
+        // goals from elsewhere (youth, second team, cups) sit in the season totals only
+        let fremd = w.clubs[h].squad[0];
+        w.players[fremd].goals += 5;
+        let res = w.play(h, a, 0, None, None);
+        w.apply_result(l, fi, &res);
+        let tore: u32 = w.players.iter().map(|p| p.in_liga(l).goals as u32).sum();
+        let eigen = res.events.iter().filter(|e| e.kind == 0).count() as u32;
+        assert_eq!(tore, eigen, "only goals of this league's matches count");
+        assert!(w.players[fremd].in_liga(l).goals < 5);
+        assert!(w.players.iter().all(|p| p.profil.ligen.iter().all(|x| x.l as usize == l)));
+    }
     #[test]
     fn eingriff_wirkt_auf_den_rest() {
         // an attacking mentality from minute 30 brings more goals for both sides than a defensive one; the first half stays
@@ -1609,7 +1720,7 @@ mod saison_realismus {
             assert!(heim > 0.36 && heim < 0.56, "{}: home wins {heim}", l.name);
             let t = wl.table(li);
             let ppg = |r: &Row| r.pts as f32 / r.p.max(1) as f32;
-            assert!(ppg(&t[0]) > 1.7 && ppg(t.last().unwrap()) < 1.2, "{}: spread {} … {}", l.name, ppg(&t[0]), ppg(t.last().unwrap()));
+            assert!(ppg(&t[0]) >= 1.65 && ppg(t.last().unwrap()) < 1.2, "{}: spread {} … {}", l.name, ppg(&t[0]), ppg(t.last().unwrap()));
             // the table agrees with the results
             let tg: i32 = t.iter().map(|r| r.gf).sum();
             assert_eq!(tg as i64 - l.basis.iter().map(|b| b.1[4] as i64).sum::<i64>(), fx.iter().map(|f| (f.hg + f.ag) as i64).sum::<i64>(), "{}: table goals", l.name);

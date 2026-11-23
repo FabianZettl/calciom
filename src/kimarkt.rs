@@ -294,7 +294,11 @@ impl Career {
     /// A deal between two AI clubs begins: talks, a rumour in the papers when it concerns us, done on `fertig`.
     fn anbahnung_starten(&mut self, p: usize, von: usize, nach: usize, preis: f64, grund: &str, fertig: u32) {
         self.anbahnung.push(crate::game::Anbahnung { p, von, nach, preis, grund: grund.into(), fertig });
-        if fertig > self.abs() {
+        // only rumours worth printing: a big club, big money or the own league (Fabian 23.11.: no flood of small moves)
+        let gross = crate::regeln::f("medien", "relevanz.grosser_verein_ab");
+        let liga = self.league();
+        let wert = self.world.clubs[von].level >= gross || self.world.clubs[nach].level >= gross || preis >= crate::regeln::f("medien", "relevanz.geruecht_ab_mio") as f64 * 1e6 || self.world.clubs[von].league == liga || self.world.clubs[nach].league == liga;
+        if fertig > self.abs() && wert {
             let (nm, vn, bn) = (self.world.players[p].name.clone(), self.world.clubs[von].name.clone(), self.world.clubs[nach].name.clone());
             let v = (zufall(&["geruecht_text", &p.to_string()]) * 5.0) as usize % 5; // roh
             self.news(&crate::tf!(&format!("ui.km.geruecht.{v}"), bn, nm, vn), &crate::tf!("ui.km.geruecht_text", nm, vn, bn, money(preis)));
@@ -360,10 +364,11 @@ impl Career {
         }
         if h >= 12 { self.msg(3, crate::inhalt::t("ui.game.transferabteilung"), crate::inhalt::t("ui.dl.ende_titel"), crate::inhalt::t("ui.dl.ende_text"), Action::None); }
     }
-    pub fn dl_antwort(&mut self, p: usize, key: &str) -> String {
+    pub fn dl_antwort(&mut self, c: usize, p: usize, key: &str) -> String {
         if key != "ja" { return crate::inhalt::t("ui.dl.leihe_abgelehnt").into(); }
-        if !self.deadline() { return crate::inhalt::t("ui.dl.zu_spaet").into(); }
-        match self.leihe_abgeben(p) { Ok(()) => crate::inhalt::t("ui.akademie.er_wird_verliehen").into(), Err(e) => e }
+        if !self.deadline() || c >= self.world.clubs.len() { return crate::inhalt::t("ui.dl.zu_spaet").into(); }
+        let fee = crate::world::round_money(self.world.players[p].value * crate::transfer::LEIH_GEBUEHR);
+        match self.leihe_an(p, c, fee, crate::transfer::LEIH_ANTEIL, true) { Ok(()) => crate::inhalt::t("ui.akademie.er_wird_verliehen").into(), Err(e) => e }
     }
     /// The button: during deadline day the next hour, else the next day.
     pub fn weiter(&mut self) -> Result<(), String> {
@@ -432,7 +437,7 @@ impl Career {
             let pl = &mut self.world.players[p];
             pl.team = nach as i32;
             pl.listed = false;
-            pl.leihe = Some(crate::transfer::Leihe { von, bis: season, anteil: 0.7, option: 0.0, spielzeit: true, grund: grund.clone() });
+            pl.leihe = Some(crate::transfer::Leihe { von, bis: season, anteil: 0.7, option: 0.0, spielzeit: true, grund: grund.clone(), start: 0.0 });
             self.marktstatus.retain(|x| x.p != p);
             let (nm, vn, nn) = (self.world.players[p].name.clone(), self.world.clubs[von].name.clone(), self.world.clubs[nach].name.clone());
             let warum = if grund.is_empty() { String::new() } else { crate::tf!(&format!("ui.km.grund.{grund}"), nm, vn) };
@@ -477,6 +482,8 @@ impl Career {
                 self.welt_post.1 += 1;
                 let body = format!("{} {warum}\n\n{}", crate::tf!("ui.km.wechsel", bn.clone(), pos, nm.clone(), sn.clone(), money(fee)), crate::inhalt::t(&format!("lg.welt.grund.{g}"))); // roh
                 self.msg(3, crate::inhalt::t("ui.game.transferabteilung"), &crate::tf!("lg.welt.wechsel", nm, sn, bn), &body, Action::None);
+                // the player and both clubs belong to the message: context column, transfer card, links (Fabian 23.11.)
+                if let Some(m) = self.inbox.first_mut() { m.spieler = vec![p]; m.vereine = vec![von, nach]; m.werte = vec![fee as f32]; }
             }
         }
         self.world.refresh_levels();
@@ -515,6 +522,23 @@ mod tests {
         let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
         let own = w.clubs.iter().position(|c| c.name.contains("Sunderland")).unwrap_or(0);
         Career::new(w, own, "Test")
+    }
+
+    #[test]
+    fn leihliste_angebote_und_bericht() {
+        let mut c = karriere();
+        c.world.day = 2;
+        let p = *c.squad().iter().filter(|&&p| !c.xi.contains(&p)).last().unwrap();
+        c.leihe_abgeben(p).unwrap();
+        assert!(c.world.players[p].leihe.is_none(), "the list alone does not loan him");
+        for _ in 0..20 { c.leihangebote_tag(); c.world.day += 1; }
+        let ovr = c.world.players[p].ovr;
+        let n = (0..c.world.clubs.len()).filter(|&k| c.world.clubs[k].level <= ovr + 3.0 && c.world.clubs[k].level >= ovr - 10.0).count();
+        let i = c.inbox.iter().position(|m| m.action_art() == Some("leihe")).unwrap_or_else(|| panic!("loan offers come in: ovr {ovr}, clubs {n}, window {:?}, liste {} inbox {:?}", c.in_window(), c.world.players[p].ps.leihliste, c.inbox.iter().map(|m| m.title.clone()).collect::<Vec<_>>()));
+        c.answer(i, true, 0);
+        assert!(c.world.players[p].leihe.as_ref().is_some_and(|l| l.von == c.own) && c.world.players[p].team != c.own as i32, "accepted offer loans him to that club");
+        c.leih_bericht();
+        assert!(c.inbox.iter().any(|m| m.title == crate::inhalt::t("ui.leihe.bericht_titel")));
     }
 
     #[test]

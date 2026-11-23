@@ -1,0 +1,45 @@
+# Builds Linux and Windows packages when a tag v* is pushed and attaches them to a draft pre-release.
+name: release
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-22.04
+            name: linux-x86_64
+          - os: windows-latest
+            name: windows-x86_64
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libx11-dev libxi-dev libgl1-mesa-dev libasound2-dev
+      - run: cargo build --release --locked
+      - name: Package
+        shell: bash
+        run: |
+          P=pesm-${GITHUB_REF_NAME}-${{ matrix.name }}
+          mkdir $P
+          cp -r assets README.md LICENSE CREDITS.md $P/
+          if [ "$RUNNER_OS" = Windows ]; then
+            cp target/release/pesm.exe $P/
+            7z a $P.zip $P
+          else
+            cp target/release/pesm target/release/pesm-speicher $P/
+            printf '#!/bin/sh\ncd "$(dirname "$0")" && exec ./pesm "$@"\n' > $P/pesm.sh
+            chmod +x $P/pesm.sh
+            tar czf $P.tar.gz $P
+          fi
+      - uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          prerelease: true
+          files: |
+            pesm-*.zip
+            pesm-*.tar.gz

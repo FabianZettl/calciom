@@ -8,6 +8,7 @@ use crate::regeln::{f, wert};
 use crate::world::*;
 
 fn k(p: &str) -> f32 { f("jugendakademie", p) }
+fn money_txt(v: f64) -> String { crate::world::money(v) }
 fn reihe(p: &str) -> Vec<f32> { wert("jugendakademie", p).as_array().map(|a| a.iter().map(|x| x.as_f64().unwrap_or(0.0) as f32).collect()).unwrap_or_default() }
 /// A normal draw from two keyed uniform draws (Box-Muller), so a year group stays the same on reload.
 fn normal(schluessel: &str, m: f32, sd: f32) -> f32 {
@@ -188,6 +189,54 @@ impl Career {
         }
     }
 
+    // ------------------------------------------------------------ scouting tournament (Konzept 3.2)
+    /// Once a season the club holds a scouting tournament: 4–10 youngsters of the region show themselves, 0–2 of them really
+    /// good; the best three can be taken into the U17 straight away, the others stay unattached (the pool).
+    pub fn sichtungsturnier(&mut self) -> Result<String, String> {
+        let season = self.world.season;
+        if self.sichtung_saison == season + 1 { return Err(crate::inhalt::t("ui.jugend.sichtung.schon").into()); }
+        let stufe = self.wi.stufen[3].max(1) as f32;
+        let kosten = (k("sichtung.kosten_basis") + k("sichtung.kosten_je_stufe") * stufe) as f64;
+        if self.club().balance < kosten { return Err(crate::inhalt::t("ui.jugend.sichtung.geld").into()); }
+        self.sichtung_saison = season + 1;
+        self.book(crate::inhalt::t("ui.jugend.sichtung.titel"), -kosten);
+        let js = self.jugendstaerke(self.own).wert;
+        let s = format!("sichtung:{}:{season}", self.club().id);
+        let n = 4 + (zufall(&[&s, "n"]) * 7.0) as usize; // roh
+        let nat = self.world.land_nat(self.league());
+        let namen = self.namen_von(nat);
+        let mut talente = vec![];
+        for i in 0..n {
+            let sk = format!("{s}:{i}");
+            let gut = zufall(&[&sk, "gut"]) < k("sichtung.gut_chance"); // roh
+            let ovr = normal(&format!("{sk}:gw"), k("sichtung.gw") + 1.2 * js + if gut { 6.0 } else { 0.0 }, 5.0).clamp(35.0, 64.0);
+            let pot = normal(&format!("{sk}:pot"), k("sichtung.pot") + 2.0 * js + if gut { 12.0 } else { 0.0 }, 7.0).clamp(ovr + 2.0, 92.0);
+            let pos = ["GK", "CB", "LB", "RB", "DMF", "CMF", "AMF", "LWF", "RWF", "CF"][(zufall(&[&sk, "pos"]) * 10.0) as usize % 10]; // roh
+            let alter = 15 + (zufall(&[&sk, "alter"]) * 2.0) as u8 % 2; // roh
+            let name = self.name_aus(&namen, &sk);
+            let p = self.nachwuchs_anlegen(self.own, name, pos, alter, ovr, pot, nat, 17);
+            self.release(p);
+            self.world.players[p].know = 0.6;
+            talente.push(p);
+        }
+        talente.sort_by(|a, b| self.world.players[*b].pot.partial_cmp(&self.world.players[*a].pot).unwrap());
+        let zeilen: Vec<String> = talente.iter().map(|&p| { let pl = &self.world.players[p]; let (pa, pb) = self.pot_range(p); format!("{}, {}, {} – {} ({pa:.0}–{pb:.0})", pl.name, pl.age, crate::world::pos_de(&pl.pos), stufe_wort((pa + pb) / 2.0)) }).collect();
+        let mut opts: Vec<(String, String)> = talente.iter().take(3).map(|&p| (format!("{p}"), crate::tf!("ui.jugend.sichtung.nehmen", self.world.players[p].name.clone()))).collect();
+        opts.push((crate::id("keinen").into(), crate::inhalt::t("ui.jugend.sichtung.keinen").into()));
+        let text = format!("{}\n\n{}", crate::tf!("ui.jugend.sichtung.text", n, money_txt(kosten)), zeilen.join(crate::id("\n")));
+        self.msg(1, crate::inhalt::t("meldung.absender.jugendleiter"), crate::inhalt::t("ui.jugend.sichtung.titel"), &text, Action::Wahl { art: crate::id("sichtung").into(), bezug: talente.iter().take(3).copied().collect(), optionen: opts });
+        Ok(crate::tf!("ui.jugend.sichtung.ok", n))
+    }
+    pub fn sichtung_antwort(&mut self, key: &str) -> String {
+        let Ok(p) = key.parse::<usize>() else { return crate::inhalt::t("ui.akademie.notiert").into() };
+        if p >= self.world.players.len() || self.world.players[p].team != -1 { return crate::inhalt::t("ui.jugend.sichtung.weg").into(); }
+        let pl = &mut self.world.players[p];
+        pl.team = self.own as i32; pl.youth = 17; pl.know = 1.0; pl.contract_end = self.world.season + k("jahrgang.jahre") as u32; pl.wage = k("jahrgang.gehalt") as f64;
+        self.world.clubs[self.own].squad.push(p);
+        self.world.eigen.insert(self.world.players[p].id, self.club().id);
+        crate::tf!("ui.jugend.sichtung.aufgenommen", self.world.players[p].name.clone())
+    }
+
     // ------------------------------------------------------------ mentors (Konzept 5.3)
     fn darf_mentor(&self, m: usize) -> bool {
         let pl = &self.world.players[m];
@@ -223,6 +272,8 @@ impl Career {
         for &s in sq.iter().filter(|&&s| self.darf_schuetzling(s)) {
             for &m in sq.iter().filter(|&&m| m != s && self.darf_mentor(m)) {
                 if (self.world.players[m].age as f32) < self.world.players[s].age as f32 + k("mentor.abstand") { continue; }
+                // a mentor must be better than his pupil, or there is nothing to pass on
+                if self.world.players[m].ovr < self.world.players[s].ovr + k("mentor.staerker_um") { continue; }
                 let (p, _) = self.mentor_paar(m, s);
                 if p >= k("mentor.passung_ab") { paare.push((p, m, s)); }
             }
@@ -307,7 +358,7 @@ impl Career {
         if self.world.players[p].team != self.own as i32 { return crate::inhalt::t("ui.mensch.er_ist_nicht_mehr_bei").into(); }
         match key {
             "profi" => { self.promote(p); crate::inhalt::t("ui.akademie.er_gehoert_jetzt_zum_profikader").into() }
-            "leihe" => match self.leihe_abgeben(p) { Ok(()) => crate::inhalt::t("ui.akademie.er_wird_verliehen").into(), Err(e) => e },
+            "leihe" => match self.leihe_abgeben(p) { Ok(()) => crate::inhalt::t("ui.leihe.auf_liste").into(), Err(e) => e },
             _ => { self.release(p); crate::inhalt::t("ui.jugend.abschluss.frei_ok").into() }
         }
     }
@@ -376,6 +427,21 @@ mod tests {
         let (p, _) = c.mentor_paar(alt, jung);
         assert!((0.0..=1.0).contains(&p));
         c.mentor_vorschlaege();
+        // proposals only for the young, and the mentor is always the better player
+        for m in c.inbox.iter().filter_map(|m| match &m.action { Action::Wahl { art, bezug, .. } if art == "mentor" => Some(bezug.clone()), _ => None }) {
+            let (s, mt) = (&c.world.players[m[0]], &c.world.players[m[1]]);
+            assert!(s.age <= 21 && mt.ovr > s.ovr, "{} ({}, {}) as pupil of {} ({})", s.name, s.age, s.ovr, mt.name, mt.ovr);
+        }
+        // the scouting tournament: once a season, talents in the pool, one taken into the U17
+        c.world.clubs[c.own].balance = 1e9;
+        let n_vor = c.world.players.len();
+        assert!(c.sichtungsturnier().is_ok());
+        assert!(c.sichtungsturnier().is_err(), "only once a season");
+        let neu: Vec<usize> = (n_vor..c.world.players.len()).collect();
+        assert!((4..=10).contains(&neu.len()) && neu.iter().all(|&p| c.world.players[p].team == -1));
+        let wahl = neu.iter().copied().max_by(|a, b| c.world.players[*a].pot.partial_cmp(&c.world.players[*b].pot).unwrap()).unwrap();
+        c.sichtung_antwort(&wahl.to_string());
+        assert!(c.world.players[wahl].team == c.own as i32 && c.world.players[wahl].youth == 17);
         // the academy factor stays in a sensible band
         for &p in &neu { let f = c.akademie_faktor(p); assert!((0.6..=1.5).contains(&f), "{f}"); }
     }

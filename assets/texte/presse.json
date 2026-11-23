@@ -13,46 +13,98 @@
   "standard": [
    "Morgen geht es gegen {gegner}. Was erwarten Sie?",
    "Platz {platz} vor dem Spiel gegen {gegner}: wie ist die Stimmung?",
-   "{gegner} gilt als unangenehmer Gegner. Ihre Taktik?"
+   "{gegner} gilt als unangenehmer Gegner. Ihre Taktik?",
+   "Wie fit ist Ihre Mannschaft vor dem Duell mit {gegner}?",
+   "Was hat {gegner} in den letzten Wochen so stark gemacht?",
+   "Gibt es personelle Überraschungen gegen {gegner}?",
+   "Was muss heute besser laufen als zuletzt?"
   ],
   "sieg": [
    "Ein Sieg gegen {gegner}. Was war der Schlüssel?",
-   "Ihre Mannschaft wirkte heute sehr stabil. Zufrieden?"
+   "Ihre Mannschaft wirkte heute sehr stabil. Zufrieden?",
+   "Wer war für Sie der Mann des Spiels gegen {gegner}?",
+   "Der Sieg war nicht immer souverän. Wo hat es gehakt?",
+   "Was bedeutet dieser Sieg für die Tabelle?",
+   "Haben Sie mit so einem Spiel gegen {gegner} gerechnet?"
   ],
   "niederlage": [
    "Die Niederlage gegen {gegner} tut weh. Wo lagen die Probleme?",
-   "Die Fans pfiffen am Ende. Können Sie das verstehen?"
+   "Die Fans pfiffen am Ende. Können Sie das verstehen?",
+   "Hat Ihre Mannschaft heute alles gegeben?",
+   "Was sagen Sie der Kabine nach dieser Niederlage gegen {gegner}?",
+   "War das eine Frage der Taktik oder der Einstellung?",
+   "Wie schnell können Sie diese Niederlage abhaken?"
   ],
   "remis": [
    "Ein Unentschieden gegen {gegner}. Gewonnener oder verlorener Punkt?",
-   "Reicht so ein Punkt für Ihre Ziele?"
+   "Reicht so ein Punkt für Ihre Ziele?",
+   "Am Ende ein Punkt gegen {gegner}. Ärgert Sie das Ergebnis?",
+   "Hätten Sie früher wechseln müssen?",
+   "Was nehmen Sie aus diesem Unentschieden mit?",
+   "Fehlt Ihrer Mannschaft im Moment der letzte Punch?"
   ],
   "serie_gut": [
-   "Die Serie hält. Wie weit kann es gehen?"
+   "Die Serie hält. Wie weit kann es gehen?",
+   "Mehrere Siege am Stück: Was ist anders als vor ein paar Wochen?",
+   "Muss man Ihre Mannschaft jetzt weiter oben erwarten?",
+   "Wie halten Sie die Spannung hoch, wenn es so gut läuft?",
+   "Haben Sie Angst, dass die Serie irgendwann reißt?"
   ],
   "serie_schlecht": [
-   "Seit Wochen kein Sieg. Wackelt Ihr Stuhl?"
+   "Seit Wochen kein Sieg. Wackelt Ihr Stuhl?",
+   "Was läuft gerade schief bei Ihrer Mannschaft?",
+   "Haben Sie die Kabine noch hinter sich?",
+   "Wie wollen Sie die Wende schaffen?",
+   "Fühlen Sie sich unter Druck gesetzt?"
   ],
   "star": [
-   "{spieler} war heute überragend. Ihr Wort dazu?"
+   "{spieler} war heute überragend. Ihr Wort dazu?",
+   "Ist {spieler} gerade der beste Spieler der Liga?",
+   "Wie wichtig ist {spieler} für Ihr Spiel?",
+   "Was haben Sie {spieler} nach dem Spiel gesagt?",
+   "Wie lange können Sie {spieler} noch halten?"
   ],
   "vorstand": [
-   "Im Präsidium soll es Unruhe geben. Wie ist Ihr Verhältnis zum Vorstand?"
+   "Im Präsidium soll es Unruhe geben. Wie ist Ihr Verhältnis zum Vorstand?",
+   "Haben Sie noch das volle Vertrauen des Präsidiums?",
+   "Wie oft sprechen Sie im Moment mit dem Vorstand?",
+   "Gibt es eine Frist vom Präsidium?",
+   "Spüren Sie Rückendeckung von oben?"
   ],
   "geruecht": [
-   "Man hört, {spieler} könnte den Verein verlassen. Was ist dran?"
+   "Man hört, {spieler} könnte den Verein verlassen. Was ist dran?",
+   "Gibt es ein Angebot für {spieler}?",
+   "Wie geht {spieler} mit den Gerüchten um?",
+   "Würden Sie {spieler} für die richtige Summe abgeben?",
+   "Hat {spieler} einen Wechselwunsch geäußert?"
   ],
   "ausfall": [
-   "{spieler} fällt aus. Wie wollen Sie das auffangen?"
+   "{spieler} fällt aus. Wie wollen Sie das auffangen?",
+   "Wer ersetzt {spieler}?",
+   "Wie lange müssen Sie auf {spieler} verzichten?",
+   "Ist der Ausfall von {spieler} ein Grund, noch einmal auf den Markt zu gehen?",
+   "Wie hat die Mannschaft auf die Verletzung von {spieler} reagiert?"
   ],
   "neuzugang": [
-   "{spieler} ist neu im Team. Wie schnell hilft er?"
+   "{spieler} ist neu im Team. Wie schnell hilft er?",
+   "Was hat Sie an {spieler} überzeugt?",
+   "Wie hat sich {spieler} in der Kabine eingefunden?",
+   "Ist {spieler} schon ein Kandidat für die Startelf?",
+   "Welche Rolle haben Sie für {spieler} vorgesehen?"
   ],
   "zusage_ziel": [
-   "Ihr Saisonziel ist Platz {ziel}. Versprechen Sie das den Fans?"
+   "Ihr Saisonziel ist Platz {ziel}. Versprechen Sie das den Fans?",
+   "Ist Platz {ziel} realistisch?",
+   "Was passiert, wenn Sie Platz {ziel} verfehlen?",
+   "Können Sie den Fans Platz {ziel} versprechen?",
+   "Ist Platz {ziel} das Minimum oder ein Traum?"
   ],
   "zusage_spieler": [
-   "Garantieren Sie, dass {spieler} bleibt?"
+   "Garantieren Sie, dass {spieler} bleibt?",
+   "Ist {spieler} unverkäuflich?",
+   "Bleibt {spieler} auch im nächsten Jahr bei Ihnen?",
+   "Können Sie einen Wechsel von {spieler} ausschließen?",
+   "Planen Sie langfristig mit {spieler}?"
   ]
  },
  "antworten": {
@@ -120,203 +172,247 @@
   "standard": {
    "ehrlich": [
     "{gegner} ist gut drauf, das wird kein Selbstläufer. Wir wissen aber, was wir können.",
-    "Ehrlich gesagt erwarte ich ein enges Spiel gegen {gegner}. Platz {platz} ist eine Momentaufnahme."
+    "Ehrlich gesagt erwarte ich ein enges Spiel gegen {gegner}. Platz {platz} ist eine Momentaufnahme.",
+    "Wir haben gut trainiert, aber gegen {gegner} entscheidet die Tagesform."
    ],
    "kaempferisch": [
     "Wir fahren nicht zu {gegner}, um zuzuschauen. Wir wollen die drei Punkte.",
-    "Egal wie stark {gegner} ist, wir gehen mit breiter Brust ins Spiel."
+    "Egal wie stark {gegner} ist, wir gehen mit breiter Brust ins Spiel.",
+    "Wir wollen von der ersten Minute an zeigen, wer auf dem Platz das Sagen hat."
    ],
    "diplomatisch": [
     "{gegner} hat meinen Respekt. Wir bereiten uns in Ruhe vor und schauen auf uns.",
-    "Jedes Spiel hat seine eigene Geschichte. Gegen {gegner} zählt nur die Leistung am Tag."
+    "Jedes Spiel hat seine eigene Geschichte. Gegen {gegner} zählt nur die Leistung am Tag.",
+    "Ich schaue nicht auf die Tabelle, sondern auf die nächsten 90 Minuten."
    ],
    "ausweichend": [
     "Zur Taktik gegen {gegner} sage ich vor dem Spiel nichts.",
-    "Fragen Sie mich das morgen nach dem Abpfiff noch einmal."
+    "Fragen Sie mich das morgen nach dem Abpfiff noch einmal.",
+    "Lassen Sie uns das Spiel abwarten."
    ]
   },
   "sieg": {
    "ehrlich": [
     "Der Sieg gegen {gegner} war verdient, aber nicht alles hat geklappt.",
-    "Wir haben gewonnen, weil wir in den entscheidenden Momenten wacher waren."
+    "Wir haben gewonnen, weil wir in den entscheidenden Momenten wacher waren.",
+    "Wir hatten auch Glück, das gehört dazu. Aber die Jungs haben es sich verdient."
    ],
    "lob": [
     "Die Jungs haben gegen {gegner} alles umgesetzt, was wir besprochen haben. Ich bin stolz.",
-    "Das war eine reife Leistung von der ganzen Mannschaft."
+    "Das war eine reife Leistung von der ganzen Mannschaft.",
+    "Ein großes Kompliment an die ganze Mannschaft, heute hat jeder für jeden gearbeitet."
    ],
    "kritik": [
     "Wir haben gewonnen, aber die zweite Halbzeit gefällt mir nicht. Darüber reden wir.",
-    "Drei Punkte gegen {gegner}, schön. Trotzdem waren wir zu oft nachlässig."
+    "Drei Punkte gegen {gegner}, schön. Trotzdem waren wir zu oft nachlässig.",
+    "Gewonnen ist gewonnen, aber mit der zweiten Halbzeit bin ich nicht zufrieden."
    ]
   },
   "niederlage": {
    "ehrlich": [
     "{gegner} war heute besser, das muss man anerkennen.",
-    "Wir haben zu viele einfache Fehler gemacht und dafür bezahlt."
+    "Wir haben zu viele einfache Fehler gemacht und dafür bezahlt.",
+    "{gegner} war heute einfach besser. Das müssen wir anerkennen."
    ],
    "kaempferisch": [
     "Diese Niederlage gegen {gegner} wird uns nicht umwerfen. Wir schlagen zurück.",
-    "Mund abwischen, weitermachen. Nächste Woche zeigen wir ein anderes Gesicht."
+    "Mund abwischen, weitermachen. Nächste Woche zeigen wir ein anderes Gesicht.",
+    "Wir stehen wieder auf. Diese Mannschaft hat Charakter."
    ],
    "kontern": [
     "Den Pfiff vor dem 0:1 sollten Sie sich einmal genau anschauen.",
-    "Wer jetzt von Krise spricht, hat die letzten Wochen nicht gesehen."
+    "Wer jetzt von Krise spricht, hat die letzten Wochen nicht gesehen.",
+    "Über manche Entscheidungen des Schiedsrichters spreche ich lieber nicht."
    ],
    "diplomatisch": [
     "Glückwunsch an {gegner}. Wir analysieren das in Ruhe.",
-    "Solche Tage gibt es. Wir lernen daraus."
+    "Solche Tage gibt es. Wir lernen daraus.",
+    "Wir analysieren das in Ruhe und ziehen die richtigen Schlüsse."
    ]
   },
   "remis": {
    "ehrlich": [
     "Mit dem Punkt gegen {gegner} kann ich leben, mehr war heute nicht drin.",
-    "Ein gerechtes Unentschieden, beide Seiten hatten ihre Chancen."
+    "Ein gerechtes Unentschieden, beide Seiten hatten ihre Chancen.",
+    "Mit dem Punkt können wir leben, mehr war heute nicht drin."
    ],
    "kaempferisch": [
     "Ein Punkt ist uns zu wenig. Wir wollten gegen {gegner} gewinnen.",
-    "Wir hätten das Spiel ziehen müssen. Nächstes Mal holen wir drei."
+    "Wir hätten das Spiel ziehen müssen. Nächstes Mal holen wir drei.",
+    "Nächste Woche holen wir die drei Punkte."
    ],
    "kritik": [
     "Wir haben zwei Punkte verschenkt. Das ärgert mich.",
-    "Vorne fehlte heute die Konsequenz, das sage ich auch der Mannschaft."
+    "Vorne fehlte heute die Konsequenz, das sage ich auch der Mannschaft.",
+    "Wir haben zu viele Chancen liegen lassen, das muss besser werden."
    ]
   },
   "serie_gut": {
    "ehrlich": [
     "Die Serie ist schön, aber sie spielt am Wochenende nicht mit.",
-    "Wir genießen das, bleiben aber auf dem Boden."
+    "Wir genießen das, bleiben aber auf dem Boden.",
+    "Es läuft, aber wir wissen, wie schnell sich das dreht."
    ],
    "lob": [
     "Die Mannschaft arbeitet seit Wochen hervorragend. Die Serie hat sie sich verdient.",
-    "Ich habe selten eine Gruppe erlebt, die so füreinander läuft."
+    "Ich habe selten eine Gruppe erlebt, die so füreinander läuft.",
+    "Die Jungs ziehen voll mit, das macht richtig Spaß gerade."
    ],
    "kritik": [
     "Gerade jetzt dürfen wir nicht nachlassen. Ich sehe schon erste Anzeichen.",
-    "Die Serie verdeckt ein paar Schwächen. Daran arbeiten wir."
+    "Die Serie verdeckt ein paar Schwächen. Daran arbeiten wir.",
+    "Gerade jetzt dürfen wir nicht nachlassen."
    ]
   },
   "serie_schlecht": {
    "ehrlich": [
     "Die Ergebnisse sind nicht gut genug, das weiß jeder hier.",
-    "Wir stecken in einer schwierigen Phase. Ich nehme das auf meine Kappe."
+    "Wir stecken in einer schwierigen Phase. Ich nehme das auf meine Kappe.",
+    "Wir sind in einer schwierigen Phase, das ist nicht zu beschönigen."
    ],
    "kaempferisch": [
     "Ich renne vor dieser Phase nicht weg. Wir kommen da gemeinsam raus.",
-    "Abgerechnet wird am Ende. Wir drehen das."
+    "Abgerechnet wird am Ende. Wir drehen das.",
+    "Ich laufe vor dieser Situation nicht weg, wir kämpfen uns da raus."
    ],
    "kontern": [
     "Mein Stuhl ist nicht das Thema. Fragen Sie lieber nach dem Spiel.",
-    "Solche Fragen schreiben Sie schon seit Wochen. Wir arbeiten weiter."
+    "Solche Fragen schreiben Sie schon seit Wochen. Wir arbeiten weiter.",
+    "Vor ein paar Wochen haben alle noch von einer tollen Mannschaft geschrieben."
    ],
    "diplomatisch": [
     "Ich spreche regelmäßig mit dem Vorstand, wir sind uns einig im Weg.",
-    "Wir bleiben ruhig. Hektik hat noch keiner Mannschaft geholfen."
+    "Wir bleiben ruhig. Hektik hat noch keiner Mannschaft geholfen.",
+    "Wir bleiben ruhig und arbeiten weiter an unserem Plan."
    ]
   },
   "star": {
    "ehrlich": [
     "{spieler} hat heute ein sehr gutes Spiel gemacht, mehr nicht und nicht weniger.",
-    "{spieler} war stark, aber er weiß selbst, dass er noch zulegen kann."
+    "{spieler} war stark, aber er weiß selbst, dass er noch zulegen kann.",
+    "{spieler} hat heute vieles richtig gemacht, aber es war eine Mannschaftsleistung."
    ],
    "lob": [
     "{spieler} war heute überragend. Solche Spieler gewinnen Spiele.",
-    "Was {spieler} heute gezeigt hat, war Extraklasse."
+    "Was {spieler} heute gezeigt hat, war Extraklasse.",
+    "So einen Spieler wie {spieler} hat man nicht oft im Kader."
    ],
    "kritik": [
     "{spieler} war gut, aber wir gewinnen als Mannschaft, nicht wegen eines Einzelnen.",
-    "Ich will {spieler} nicht zu hoch hängen. Konstanz ist das, was zählt."
+    "Ich will {spieler} nicht zu hoch hängen. Konstanz ist das, was zählt.",
+    "{spieler} weiß, dass er auch nach hinten mehr arbeiten muss."
    ]
   },
   "vorstand": {
    "ehrlich": [
     "Das Verhältnis ist sachlich. Es gibt unterschiedliche Meinungen, das ist normal.",
-    "Natürlich erwartet der Vorstand mehr. Das tue ich auch."
+    "Natürlich erwartet der Vorstand mehr. Das tue ich auch.",
+    "Wir sprechen offen miteinander, das gehört dazu."
    ],
    "lob": [
     "Ich spüre den Rückhalt des Präsidiums jeden Tag.",
-    "Der Vorstand arbeitet hervorragend mit uns zusammen."
+    "Der Vorstand arbeitet hervorragend mit uns zusammen.",
+    "Das Präsidium leistet gute Arbeit, wir ziehen an einem Strang."
    ],
    "diplomatisch": [
     "Was intern besprochen wird, bleibt intern.",
-    "Wir ziehen alle an einem Strang, auch wenn es Gesprächsbedarf gibt."
+    "Wir ziehen alle an einem Strang, auch wenn es Gesprächsbedarf gibt.",
+    "Die Gespräche bleiben intern, so wie es sich gehört."
    ]
   },
   "geruecht": {
    "ehrlich": [
     "Es gibt Interesse an {spieler}, das ist bei guten Spielern so. Entschieden ist nichts.",
-    "{spieler} hat Vertrag bei uns. Alles andere besprechen wir intern."
+    "{spieler} hat Vertrag bei uns. Alles andere besprechen wir intern.",
+    "Wenn ein Verein anfragt, hören wir zu. Mehr ist es im Moment nicht."
    ],
    "kontern": [
     "Wer schreibt eigentlich diese Gerüchte über {spieler}? Nichts davon stimmt.",
-    "Ich kommentiere keine Geschichten, die sich jemand ausgedacht hat."
+    "Ich kommentiere keine Geschichten, die sich jemand ausgedacht hat.",
+    "Nächste Woche lese ich dann, dass ich selbst wechsle."
    ],
    "ausweichend": [
     "Zu {spieler} sage ich heute nichts.",
-    "Transfers sind kein Thema für eine Pressekonferenz."
+    "Transfers sind kein Thema für eine Pressekonferenz.",
+    "Dazu gibt es von mir heute keinen Kommentar."
    ]
   },
   "ausfall": {
    "ehrlich": [
     "Der Ausfall von {spieler} tut weh, das kann man nicht schönreden.",
-    "{spieler} wird uns fehlen. Andere müssen jetzt Verantwortung übernehmen."
+    "{spieler} wird uns fehlen. Andere müssen jetzt Verantwortung übernehmen.",
+    "Der Ausfall tut weh, da gibt es nichts zu beschönigen."
    ],
    "kaempferisch": [
     "Wir haben einen breiten Kader. Wer reinkommt, wird alles geben.",
-    "Ausreden gibt es nicht. Wir fangen das gemeinsam auf."
+    "Ausreden gibt es nicht. Wir fangen das gemeinsam auf.",
+    "Jetzt schlägt die Stunde der anderen. Ich vertraue dem Kader."
    ],
    "lob": [
     "Ich vertraue den Jungs, die jetzt für {spieler} spielen.",
-    "Unser Kader ist stark genug, das habe ich im Training gesehen."
+    "Unser Kader ist stark genug, das habe ich im Training gesehen.",
+    "Die Jungs, die jetzt reinkommen, brennen darauf."
    ]
   },
   "neuzugang": {
    "ehrlich": [
     "{spieler} braucht noch ein paar Wochen, bis er alle Abläufe kennt.",
-    "Wir geben {spieler} Zeit, er soll ankommen."
+    "Wir geben {spieler} Zeit, er soll ankommen.",
+    "{spieler} braucht noch ein paar Wochen, das ist normal."
    ],
    "lob": [
     "{spieler} hat im Training schon gezeigt, warum wir ihn geholt haben.",
-    "Mit {spieler} haben wir genau den Spieler bekommen, den wir wollten."
+    "Mit {spieler} haben wir genau den Spieler bekommen, den wir wollten.",
+    "{spieler} hat im Training sofort gezeigt, warum wir ihn geholt haben."
    ],
    "ausweichend": [
     "Über einzelne Spieler rede ich lieber nach ein paar Spielen.",
-    "Warten wir ab, was der Platz sagt."
+    "Warten wir ab, was der Platz sagt.",
+    "Über einzelne Spieler rede ich heute nicht."
    ]
   },
   "zusage_ziel": {
    "ehrlich": [
     "Platz {ziel} ist realistisch, aber versprechen kann man im Fußball nichts.",
-    "Wir arbeiten für Platz {ziel}, eine Garantie gibt es nicht."
+    "Wir arbeiten für Platz {ziel}, eine Garantie gibt es nicht.",
+    "Platz {ziel} ist machbar, aber nicht geschenkt."
    ],
    "diplomatisch": [
     "Das Ziel steht, und alle im Verein tragen es mit.",
-    "Wir schauen von Spiel zu Spiel, das Ziel kennt jeder."
+    "Wir schauen von Spiel zu Spiel, das Ziel kennt jeder.",
+    "Wir messen uns am Saisonende, nicht im Herbst."
    ],
    "kontern": [
     "Versprechen gebe ich am Ende der Saison, nicht im Herbst.",
-    "Sie wollen eine Schlagzeile, ich will Punkte."
+    "Sie wollen eine Schlagzeile, ich will Punkte.",
+    "Ziele formuliert das Präsidium, ich liefere die Arbeit."
    ],
    "ausweichend": [
     "Abgerechnet wird im Mai.",
-    "Dazu habe ich alles gesagt."
+    "Dazu habe ich alles gesagt.",
+    "Zahlen nenne ich heute nicht."
    ]
   },
   "zusage_spieler": {
    "ehrlich": [
     "Ich will {spieler} halten, aber im Fußball ist alles möglich.",
-    "{spieler} ist wichtig für uns. Ob er bleibt, hängt nicht nur von mir ab."
+    "{spieler} ist wichtig für uns. Ob er bleibt, hängt nicht nur von mir ab.",
+    "{spieler} fühlt sich wohl bei uns, und wir planen mit ihm."
    ],
    "diplomatisch": [
     "Wir sprechen mit {spieler} und seinem Umfeld, in Ruhe.",
-    "{spieler} fühlt sich wohl hier, das zählt für mich."
+    "{spieler} fühlt sich wohl hier, das zählt für mich.",
+    "Im Fußball ist vieles möglich, aber wir haben keine Pläne, ihn abzugeben."
    ],
    "kontern": [
     "Garantien gibt es nur auf Kühlschränke.",
-    "Fragen Sie {spieler} selbst, er wird Ihnen dasselbe sagen."
+    "Fragen Sie {spieler} selbst, er wird Ihnen dasselbe sagen.",
+    "Fragen Sie mich das in zwei Jahren noch einmal."
    ],
    "ausweichend": [
     "Zu Vertragsfragen äußere ich mich nicht öffentlich.",
-    "Darüber reden wir intern."
+    "Darüber reden wir intern.",
+    "Personalien kommentiere ich nicht."
    ]
   }
  }

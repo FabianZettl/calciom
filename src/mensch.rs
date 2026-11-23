@@ -63,6 +63,8 @@ pub struct Psyche {
     /// Offers of other clubs (abs day), they count 60 days.
     pub angebote: Vec<u32>,
     pub mentor: Option<u32>,
+    /// On the own loan list: clubs make loan offers (transfer.rs leihangebote_tag).
+    pub leihliste: bool,
     /// Youth player training with the first team (Akademie-Konzept 5.4: Trainingsgast).
     pub gast: bool,
     /// Topic → abs day until the same topic may come again.
@@ -357,23 +359,11 @@ impl Career {
         self.mentoren();
     }
     pub fn kapitaen(&self) -> Option<usize> { self.squad().into_iter().find(|&p| self.world.players[p].ps.an && self.world.players[p].ps.rolle == 0) }
-    /// Mentor pairs (regeln.py:67): mentor type, ≥ 26 years; pupil ≤ 24 (full effect ≤ 21), ≥ 4 years apart, same part
-    /// of the team; at most mentor_start_je_mentor pupils each.
+    /// Mentor pairs come only from the co-trainer's proposals (jugend.rs mentor_vorschlaege); here a pair ends when the
+    /// mentor has left the club.
     fn mentoren(&mut self) {
-        let sq = self.squad();
-        let je = f("entwicklung", "kabine.mentor_start_je_mentor") as usize;
-        let mentors: Vec<usize> = sq.iter().copied().filter(|&p| { let pl = &self.world.players[p]; pl.age >= 26 && typen(pl).contains(&crate::id("mentor")) }).collect();
-        for &p in &sq {
-            let pl = &self.world.players[p];
-            if let Some(m) = pl.ps.mentor { if self.pid(m).is_some() { continue; } }
-            let mine = pl.ps.mentor;
-            let (age, part) = (pl.age, part_of(&pl.pos));
-            let wahl = mentors.iter().copied().find(|&m| {
-                let mp = &self.world.players[m];
-                mp.age >= age + 4 && age <= 24 && part_of(&mp.pos) == part && sq.iter().filter(|&&q| self.world.players[q].ps.mentor == Some(mp.id)).count() < je
-            });
-            let id = wahl.map(|m| self.world.players[m].id);
-            if id != mine { self.world.players[p].ps.mentor = id; }
+        for p in self.squad() {
+            if self.world.players[p].ps.mentor.map_or(false, |m| self.pid(m).map_or(true, |q| self.world.players[q].team != self.own as i32)) { self.world.players[p].ps.mentor = None; }
         }
     }
 
@@ -492,6 +482,7 @@ impl Career {
         self.psyche_an();
         self.world.teamgeist_eigen = Some((self.own, self.mensch.teamgeist));
         if self.world.day % 7 == 0 { self.hierarchie(); }
+        self.nummern_vergeben();
         self.beziehungen_an();
         self.kabine_tag();
         let sq = self.squad();
@@ -933,8 +924,10 @@ impl Career {
             "story" => self.story_antwort(sub, bezug, key),
             "befoerderung" | "eltern" => self.akademie_antwort(kind, bezug[0], key),
             "mentor" => self.mentor_antwort(bezug[0], bezug[1], key),
-            "dl" => self.dl_antwort(bezug[0], key),
+            "dl" => self.dl_antwort(sub.parse().unwrap_or(usize::MAX), bezug[0], key),
+            "leihe" => self.leihe_antwort(sub, bezug[0], key),
             "abschluss" => self.abschluss_antwort(bezug[0], key),
+            "sichtung" => self.sichtung_antwort(key),
             "halbzeit" => self.halbzeit_antwort(sub, key),
             "mind" => self.mind_antwort(sub, key),
             "bewerbung" => self.bewerbung_antwort(key),
@@ -1006,7 +999,7 @@ impl Career {
     // ------------------------------------------------------------ board, career, dismissal (§12)
     fn ultimatum_pruefen(&mut self) {
         if self.ultimatum.is_some() || self.fired || self.abs() < self.mgr_since + 60 { return; }
-        if self.mensch.vorstand < self.vision_ultimatum() {
+        if self.mensch.vorstand < self.ultimatum_schwelle() {
             let tage = f("vereinswelt", "praesidium.ultimatum_tage") as u32;
             self.ultimatum = Some(self.abs() + tage);
             let ab = f("vereinswelt", "praesidium.ultimatum_erfuellt_ab");

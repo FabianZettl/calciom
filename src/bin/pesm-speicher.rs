@@ -10,8 +10,13 @@ mod cpk;
 #[path = "../inhalt.rs"]
 #[allow(dead_code)]
 mod inhalt;
+#[cfg(unix)]
 use std::io::{BufRead, Write};
 
+/// Windows reads FL27 directly from PES M; the helper is only needed on Linux.
+#[cfg(windows)]
+fn main() {}
+#[cfg(unix)]
 fn main() {
     let stdin = std::io::stdin();
     let mut out = std::io::stdout();

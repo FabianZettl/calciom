@@ -1,0 +1,29 @@
+# Taktik-Konzept 3.3/3.4: Wirkung der eigenen Einstellungen auf die Tor-Erwartung (Anteile), Gegenspiel-Regeln.
+cap = 0.15                       # alle Taktik-Faktoren zusammen höchstens ±15 %
+
+[ballbesitz]
+eigen = 0.02                     # weniger Angriffe, sichere Ballkontrolle
+gegner = 0.04                    # der Gegner hat den Ball seltener
+
+[lang]
+zielspieler_ab = 75              # Kopfball des Mittelstürmers
+mit_zielspieler = 0.05
+ohne = 0.0
+gegner = 0.02                    # Ballverluste
+
+[pressing]
+eigen = 0.04                     # Ballgewinne vorne
+konter = 0.04                    # Räume hinten
+
+[linie]
+je_stufe = 0.012                 # je Stufe über der Mitte: mehr Steilpässe gegen sich
+
+[regel]
+tempo_abstand = 5                # schnellster Gegner-Stürmer gegen langsamsten eigenen IV
+raum_hinter_kette = 0.10
+aufbau_abstand = 8
+pressing_gegen_schwach = 0.06
+pressing_gegen_stark = 0.06
+muede_unter = 72                 # mittlere Fitness der Elf
+muede_eigen = 0.03
+muede_gegner = 0.05

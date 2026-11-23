@@ -112,6 +112,7 @@ alter_bis = 19
 schuetzling_bis = 21
 mentor_ab = 26
 abstand = 6
+staerker_um = 3               # der Mentor muss mindestens so viel stärker sein
 fuehrung_ab = 50
 prof_ab = 55
 ego_bis = 75                   # darüber Diva oder Egoist: kein Mentor
@@ -134,3 +135,10 @@ anlagen = [0.92, 0.04]         # × (0,92 + 0,04·Anlagenstufe)
 niveau_abstand = 8.0
 unterfordert = 0.8
 ueberfordert = 0.85
+
+[sichtung]
+kosten_basis = 15000           # Sichtungsturnier: Grundkosten + je Jugend-Anlagenstufe
+kosten_je_stufe = 9000
+gut_chance = 0.15              # Anteil wirklich guter Talente
+gw = 40.0
+pot = 55.0

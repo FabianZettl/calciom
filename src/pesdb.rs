@@ -409,7 +409,7 @@ mod t {
         c.world.clubs[ziel].squad.push(leih);
         c.world.players[leih].team = ziel as i32;
         c.world.players[leih].know = 0.0;
-        c.world.players[leih].leihe = Some(crate::transfer::Leihe { von: c.own, bis: c.world.season, anteil: 0.5, option: 0.0, spielzeit: false, grund: String::new() });
+        c.world.players[leih].leihe = Some(crate::transfer::Leihe { von: c.own, bis: c.world.season, anteil: 0.5, option: 0.0, spielzeit: false, grund: String::new(), start: 0.0 });
         c.world.players[aka].youth = 19;
         for q in [leih, aka] {
             assert!(c.gehoert_uns(q) && c.know_of(q) >= 1.0, "ours");

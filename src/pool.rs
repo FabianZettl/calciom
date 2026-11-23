@@ -273,7 +273,11 @@ impl Career {
         let pl = &self.world.players[p];
         let ch: Vec<f32> = (0..10).map(|i| cw(pl, i) / 100.0).collect();
         let merkmale = crate::entwicklung::merkmale_schaetzen(pl);
-        let einsatz = if pl.ps.einsatz.is_empty() { 0.0 } else { pl.ps.einsatz.iter().sum::<f32>() / pl.ps.einsatz.len() as f32 };
+        // play time only counts once the season has a few matches and he was there for them (Fabian 23.11.: no
+        // "too little play time" before the first matchday); until then it reads as full
+        let mindest = crate::regeln::f("gespraeche", "motor.einsatz_ab_spielen") as usize;
+        // and only when he really sat out several matches in a row (the texts say "{spiele} Spiele ohne Einsatz")
+        let einsatz = if pl.ps.einsatz.len() < mindest || self.results.len() < mindest || (pl.benched as f32) < crate::regeln::f("gespraeche", "motor.bank_ab_spielen") { 1.0 } else { pl.ps.einsatz.iter().sum::<f32>() / pl.ps.einsatz.len() as f32 };
         let g = |k: &str| crate::regeln::f("gespraeche", &format!("motor.{k}"));
         let stimmung = (g("stimmung_start") + (pl.morale - 50.0) * g("moral_einfluss") + pl.ps.bez * g("beziehung_einfluss")).clamp(5.0, 95.0);
         let haken: Vec<String> = self.mensch.versprechen.iter().filter(|v| v.pid == p).rev().take(6)
@@ -451,6 +455,13 @@ impl Career {
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn keine_spielzeitklage_vor_dem_ersten_spieltag() {
+        let w = crate::world::World::load(include_str!("../assets/world.json"), 7);
+        let c = crate::game::Career::new(w, 0, "Test");
+        for p in c.squad() { assert_eq!(c.pool_kontext(p).0["einsatz"].as_f64(), Some(1.0), "before matches play time counts as full"); }
+    }
+
     use super::*;
     #[test]
     fn themen_katalog_und_komposition() {

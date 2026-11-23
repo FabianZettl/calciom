@@ -522,7 +522,9 @@ pub fn rundenplan(ts: &[usize], runden: usize) -> Vec<(usize, usize, usize)> {
     let mut arr = ts.to_vec();
     let mut paare: Vec<Vec<(usize, usize)>> = vec![];
     for round in 0..half {
-        paare.push((0..n / 2).map(|i| { let (a, b) = (arr[i], arr[n - 1 - i]); if (round + i) % 2 == 0 { (a, b) } else { (b, a) } }).collect());
+        // home and away swap every round for each slot: a club moving along one side then alternates (with (round + i) it
+        // kept the same side round after round, Fabian 23.11.: six away matches in a row)
+        paare.push((0..n / 2).map(|i| { let (a, b) = (arr[i], arr[n - 1 - i]); if round % 2 == 0 { (a, b) } else { (b, a) } }).collect());
         let last = arr.pop().unwrap();
         arr.insert(1, last);
     }
@@ -552,6 +554,22 @@ impl Career {
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn heim_und_auswaerts_wechseln_sich_ab() {
+        // no club plays more than two home or two away matches in a row in a double round robin
+        for n in [10usize, 18, 20] {
+            let ts: Vec<usize> = (0..n).collect();
+            let plan = super::rundenplan(&ts, 2 * (n - 1));
+            for t in 0..n {
+                let folge: Vec<bool> = (0..2 * (n - 1)).filter_map(|rd| plan.iter().find(|x| x.0 == rd && (x.1 == t || x.2 == t)).map(|x| x.1 == t)).collect();
+                let mut serie = 1; let mut max = 1;
+                for k in 1..folge.len() { if folge[k] == folge[k - 1] { serie += 1; max = max.max(serie); } else { serie = 1; } }
+                assert!(max <= 2, "{n} clubs, club {t}: {max} in a row {folge:?}");
+                assert_eq!(folge.iter().filter(|x| **x).count(), n - 1, "half at home");
+            }
+        }
+    }
+
     use super::*;
     fn welt() -> World { let mut w = World::load(include_str!("../assets/world.json"), 5); w.zweite.clear(); w }
     fn liga(w: &World, k: &str) -> usize { w.leagues.iter().position(|l| l.key == k).unwrap() }

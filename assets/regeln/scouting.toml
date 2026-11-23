@@ -185,3 +185,40 @@ junge_perspektive = 21
 # Datenmodell-Haken (noch ohne Verbraucher): ein angestellter Scout, der die Verhandlung führt, hebt die Erfolgschance um bis zu `max_bonus` (Anteil, 0,12 = 12 Prozentpunkte);
 # der Bonus wächst mit Stärke und Vertrauen des Trainers in ihn. Startwert, nicht kalibriert.
 max_bonus = 0.12
+
+# Konzept 1.1: Grundwissen ohne Scouting (Wissen 0–100)
+[grundwissen]
+ruf_ovr = 0.75                  # Spieler-Ruf = Gesamtwert · 0,75 + Vereinsruf · 0,25
+ruf_ab = [90, 80, 70, 60]
+ruf_wissen = [95, 80, 60, 40]
+stamm_unter_niveau = 1.0        # Stammspieler: Gesamtwert ≥ Vereinsniveau − 1
+eigene_liga_stamm = 55
+eigene_liga_ersatz = 35
+nah_stamm = 35                  # gleiches Land oder Top-5-Liga
+nah_ersatz = 20
+
+# Konzept 1.1: Verfall ohne Beobachtung
+[verfall]
+nach_tagen = 182
+je_monat = 2
+boden_nach_genau = 40
+genau_ab = 75
+
+# Konzept 3: Aufträge
+[auftrag]
+je_tag = 9.0                    # Wissen je Tag für einen Spieler im Blick (Fähigkeit 70, Heimatregion); erste Vorschläge nach 3–5 Tagen
+fremd_faktor = 0.75             # außerhalb der Heimatregion des Scouts
+im_blick = 6                    # so viele Spieler sieht ein Scout je Auftrag gleichzeitig an
+zweite_tage = 7
+gebiet_plus = 15                # Wissen für die Stammspieler der Liga nach „Gebiet erkunden“
+nachfolger_abstand = 3.0        # Nachfolger: Rollen-Stärke mindestens die eigene − 3
+knapp_drueber = 0.15
+gehaltsquote = 0.65             # Gehaltsrahmen = erwarteter Umsatz · 0,65
+prestige_luecke = 20.0          # würde kommen, wenn Vereinsruf ≥ Spieler-Ruf − 20
+frisch_gewechselt = 150
+verletzt_ab = 28
+analyst_ab_stufe = 3            # Vereinsruf-Stufe (1–5)
+analyst_min = 600               # Minuten mindestens
+analyst_mittel = 0.12           # Einfluss/90, auf den bei wenig Minuten geschrumpft wird
+analyst_preisgewicht = 0.08     # je Zehnerpotenz Marktwert über 1 Mio. weniger
+analyst_wissen = 15             # ein Treffer hebt das Wissen auf „Gehört“

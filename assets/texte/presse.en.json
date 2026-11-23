@@ -13,46 +13,98 @@
   "standard": [
    "Tomorrow it's {gegner}. What do you expect?",
    "Position {platz} before facing {gegner}: how's the mood?",
-   "{gegner} are known as awkward opponents. Your tactics?"
+   "{gegner} are known as awkward opponents. Your tactics?",
+   "How fit is your squad before the {gegner} game?",
+   "What has made {gegner} so strong lately?",
+   "Any surprises in your line-up against {gegner}?",
+   "What has to go better than last time?"
   ],
   "sieg": [
    "A win against {gegner}. What was the key?",
-   "Your team looked very solid today. Happy?"
+   "Your team looked very solid today. Happy?",
+   "Who was your man of the match against {gegner}?",
+   "The win wasn't always comfortable. Where did it stutter?",
+   "What does this win mean for the table?",
+   "Did you expect a game like that against {gegner}?"
   ],
   "niederlage": [
    "The defeat to {gegner} hurts. Where did it go wrong?",
-   "The fans booed at the end. Can you understand that?"
+   "The fans booed at the end. Can you understand that?",
+   "Did your team give everything today?",
+   "What do you tell the dressing room after this defeat to {gegner}?",
+   "Was it tactics or attitude?",
+   "How quickly can you put this defeat behind you?"
   ],
   "remis": [
    "A draw against {gegner}. A point gained or two dropped?",
-   "Is a point like that enough for your goals?"
+   "Is a point like that enough for your goals?",
+   "A point against {gegner} in the end. Does the result annoy you?",
+   "Should you have made changes earlier?",
+   "What do you take from this draw?",
+   "Is your team missing that final punch right now?"
   ],
   "serie_gut": [
-   "The run goes on. How far can it go?"
+   "The run goes on. How far can it go?",
+   "Several wins in a row: what is different from a few weeks ago?",
+   "Should we expect your team higher up the table now?",
+   "How do you keep the tension when things go this well?",
+   "Are you worried the run will end at some point?"
   ],
   "serie_schlecht": [
-   "No win in weeks. Is your job on the line?"
+   "No win in weeks. Is your job on the line?",
+   "What is going wrong for your team right now?",
+   "Do you still have the dressing room behind you?",
+   "How do you want to turn it around?",
+   "Do you feel under pressure?"
   ],
   "star": [
-   "{spieler} was outstanding today. Your thoughts?"
+   "{spieler} was outstanding today. Your thoughts?",
+   "Is {spieler} the best player in the league right now?",
+   "How important is {spieler} to your game?",
+   "What did you tell {spieler} after the match?",
+   "How long can you keep hold of {spieler}?"
   ],
   "vorstand": [
-   "There are reports of unrest on the board. How are things between you and the board?"
+   "There are reports of unrest on the board. How are things between you and the board?",
+   "Do you still have the full backing of the board?",
+   "How often are you talking to the board at the moment?",
+   "Has the board given you a deadline?",
+   "Do you feel supported from above?"
   ],
   "geruecht": [
-   "Word is {spieler} could leave the club. Is there any truth in it?"
+   "Word is {spieler} could leave the club. Is there any truth in it?",
+   "Is there an offer for {spieler}?",
+   "How is {spieler} handling the rumours?",
+   "Would you let {spieler} go for the right fee?",
+   "Has {spieler} asked to leave?"
   ],
   "ausfall": [
-   "{spieler} is out. How will you cope without him?"
+   "{spieler} is out. How will you cope without him?",
+   "Who replaces {spieler}?",
+   "How long will you be without {spieler}?",
+   "Is losing {spieler} a reason to go back into the market?",
+   "How did the team react to the injury of {spieler}?"
   ],
   "neuzugang": [
-   "{spieler} is new to the team. How soon will he make an impact?"
+   "{spieler} is new to the team. How soon will he make an impact?",
+   "What convinced you about {spieler}?",
+   "How has {spieler} settled into the dressing room?",
+   "Is {spieler} already a candidate for the starting eleven?",
+   "What role do you have in mind for {spieler}?"
   ],
   "zusage_ziel": [
-   "Your season target is position {ziel}. Will you promise that to the fans?"
+   "Your season target is position {ziel}. Will you promise that to the fans?",
+   "Is position {ziel} realistic?",
+   "What happens if you miss position {ziel}?",
+   "Can you promise the fans position {ziel}?",
+   "Is position {ziel} the minimum or a dream?"
   ],
   "zusage_spieler": [
-   "Can you guarantee that {spieler} stays?"
+   "Can you guarantee that {spieler} stays?",
+   "Is {spieler} not for sale?",
+   "Will {spieler} still be with you next season?",
+   "Can you rule out a move for {spieler}?",
+   "Are you planning long-term with {spieler}?"
   ]
  },
  "antworten": {
@@ -120,203 +172,247 @@
   "standard": {
    "ehrlich": [
     "{gegner} are in good shape, it won't be easy. But we know what we can do.",
-    "Honestly, I expect a tight game against {gegner}. Position {platz} is just a snapshot."
+    "Honestly, I expect a tight game against {gegner}. Position {platz} is just a snapshot.",
+    "We trained well, but against {gegner} it comes down to the day."
    ],
    "kaempferisch": [
     "We are not going to {gegner} to watch. We want the three points.",
-    "However strong {gegner} are, we go into the game with confidence."
+    "However strong {gegner} are, we go into the game with confidence.",
+    "We want to show from the first minute who is in charge out there."
    ],
    "diplomatisch": [
     "{gegner} have my respect. We prepare calmly and focus on ourselves.",
-    "Every game has its own story. Against {gegner} only the performance on the day counts."
+    "Every game has its own story. Against {gegner} only the performance on the day counts.",
+    "I don't look at the table, only at the next 90 minutes."
    ],
    "ausweichend": [
     "I won't say anything about our tactics against {gegner} before the game.",
-    "Ask me again tomorrow after the final whistle."
+    "Ask me again tomorrow after the final whistle.",
+    "Let's wait for the game."
    ]
   },
   "sieg": {
    "ehrlich": [
     "The win against {gegner} was deserved, but not everything worked.",
-    "We won because we were sharper in the decisive moments."
+    "We won because we were sharper in the decisive moments.",
+    "We had some luck too, that's football. But the lads earned it."
    ],
    "lob": [
     "The lads did everything we talked about against {gegner}. I'm proud.",
-    "That was a mature performance from the whole team."
+    "That was a mature performance from the whole team.",
+    "Huge credit to the whole team, today everyone worked for each other."
    ],
    "kritik": [
     "We won, but I didn't like the second half. We will talk about it.",
-    "Three points against {gegner}, fine. Still, we were careless too often."
+    "Three points against {gegner}, fine. Still, we were careless too often.",
+    "A win is a win, but I'm not happy with the second half."
    ]
   },
   "niederlage": {
    "ehrlich": [
     "{gegner} were better today, you have to accept that.",
-    "We made too many simple mistakes and paid for them."
+    "We made too many simple mistakes and paid for them.",
+    "{gegner} were simply better today. We have to accept that."
    ],
    "kaempferisch": [
     "This defeat against {gegner} won't knock us down. We will hit back.",
-    "Wipe our mouths and carry on. Next week we show a different face."
+    "Wipe our mouths and carry on. Next week we show a different face.",
+    "We'll get back up. This team has character."
    ],
    "kontern": [
     "You should take a close look at the decision before their opener.",
-    "Anyone talking about a crisis hasn't watched the last few weeks."
+    "Anyone talking about a crisis hasn't watched the last few weeks.",
+    "I'd rather not talk about some of the referee's decisions."
    ],
    "diplomatisch": [
     "Congratulations to {gegner}. We will analyse it calmly.",
-    "Days like this happen. We learn from them."
+    "Days like this happen. We learn from them.",
+    "We'll analyse it calmly and draw the right conclusions."
    ]
   },
   "remis": {
    "ehrlich": [
     "I can live with the point against {gegner}, there wasn't more in it today.",
-    "A fair draw, both sides had their chances."
+    "A fair draw, both sides had their chances.",
+    "We can live with the point, there wasn't more in it today."
    ],
    "kaempferisch": [
     "One point is too little for us. We wanted to beat {gegner}.",
-    "We should have won it. Next time we take three."
+    "We should have won it. Next time we take three.",
+    "Next week we take the three points."
    ],
    "kritik": [
     "We gave away two points. That annoys me.",
-    "We lacked ruthlessness up front, and I will tell the team that too."
+    "We lacked ruthlessness up front, and I will tell the team that too.",
+    "We left too many chances out there, that has to improve."
    ]
   },
   "serie_gut": {
    "ehrlich": [
     "The run is nice, but it won't play for us at the weekend.",
-    "We enjoy it, but we stay grounded."
+    "We enjoy it, but we stay grounded.",
+    "Things are going well, but we know how quickly that can turn."
    ],
    "lob": [
     "The team has been working superbly for weeks. They have earned this run.",
-    "I have rarely seen a group that runs for each other like this."
+    "I have rarely seen a group that runs for each other like this.",
+    "The lads are fully on board, it's real fun at the moment."
    ],
    "kritik": [
     "Right now we must not let up. I already see the first signs.",
-    "The run hides a few weaknesses. We are working on them."
+    "The run hides a few weaknesses. We are working on them.",
+    "Right now is exactly when we can't ease off."
    ]
   },
   "serie_schlecht": {
    "ehrlich": [
     "The results are not good enough, everyone here knows that.",
-    "We are in a difficult spell. I take responsibility."
+    "We are in a difficult spell. I take responsibility.",
+    "We're in a difficult spell, there's no sugar-coating it."
    ],
    "kaempferisch": [
     "I won't run away from this. We will get out of it together.",
-    "The table is decided at the end. We will turn this around."
+    "The table is decided at the end. We will turn this around.",
+    "I'm not running away from this, we'll fight our way out."
    ],
    "kontern": [
     "My job is not the issue. Ask about the game instead.",
-    "You have been writing these questions for weeks. We keep working."
+    "You have been writing these questions for weeks. We keep working.",
+    "A few weeks ago everyone was still writing about a great team."
    ],
    "diplomatisch": [
     "I speak to the board regularly, we agree on the way forward.",
-    "We stay calm. Panic has never helped any team."
+    "We stay calm. Panic has never helped any team.",
+    "We stay calm and keep working on our plan."
    ]
   },
   "star": {
    "ehrlich": [
     "{spieler} played a very good game today, no more and no less.",
-    "{spieler} was strong, but he knows himself he can still improve."
+    "{spieler} was strong, but he knows himself he can still improve.",
+    "{spieler} did a lot right today, but it was a team performance."
    ],
    "lob": [
     "{spieler} was outstanding today. Players like him win games.",
-    "What {spieler} showed today was top class."
+    "What {spieler} showed today was top class.",
+    "You don't often have a player like {spieler} in your squad."
    ],
    "kritik": [
     "{spieler} was good, but we win as a team, not because of one player.",
-    "I don't want to hype {spieler}. Consistency is what counts."
+    "I don't want to hype {spieler}. Consistency is what counts.",
+    "{spieler} knows he has to do more work defensively too."
    ]
   },
   "vorstand": {
    "ehrlich": [
     "The relationship is professional. There are different opinions, that is normal.",
-    "Of course the board expects more. So do I."
+    "Of course the board expects more. So do I.",
+    "We talk openly with each other, that's part of it."
    ],
    "lob": [
     "I feel the backing of the board every day.",
-    "The board works superbly with us."
+    "The board works superbly with us.",
+    "The board is doing good work, we're pulling in the same direction."
    ],
    "diplomatisch": [
     "What is discussed internally stays internal.",
-    "We all pull in the same direction, even if there is a need to talk."
+    "We all pull in the same direction, even if there is a need to talk.",
+    "Those talks stay internal, as they should."
    ]
   },
   "geruecht": {
    "ehrlich": [
     "There is interest in {spieler}, that is normal for good players. Nothing is decided.",
-    "{spieler} is under contract with us. Everything else we discuss internally."
+    "{spieler} is under contract with us. Everything else we discuss internally.",
+    "If a club asks, we listen. That's all it is right now."
    ],
    "kontern": [
     "Who writes these rumours about {spieler}? None of it is true.",
-    "I don't comment on stories someone made up."
+    "I don't comment on stories someone made up.",
+    "Next week I'll read that I'm moving myself."
    ],
    "ausweichend": [
     "I won't say anything about {spieler} today.",
-    "Transfers are not a topic for a press conference."
+    "Transfers are not a topic for a press conference.",
+    "No comment from me on that today."
    ]
   },
   "ausfall": {
    "ehrlich": [
     "Losing {spieler} hurts, there is no sugar-coating it.",
-    "We will miss {spieler}. Others must take responsibility now."
+    "We will miss {spieler}. Others must take responsibility now.",
+    "Losing him hurts, there's no hiding that."
    ],
    "kaempferisch": [
     "We have a deep squad. Whoever comes in will give everything.",
-    "There are no excuses. We will cope together."
+    "There are no excuses. We will cope together.",
+    "Now it's the others' turn. I trust the squad."
    ],
    "lob": [
     "I trust the lads who now play instead of {spieler}.",
-    "Our squad is strong enough, I have seen it in training."
+    "Our squad is strong enough, I have seen it in training.",
+    "The lads coming in now are dying to play."
    ]
   },
   "neuzugang": {
    "ehrlich": [
     "{spieler} needs a few more weeks to know all the routines.",
-    "We give {spieler} time, he should settle in."
+    "We give {spieler} time, he should settle in.",
+    "{spieler} needs a few more weeks, that's normal."
    ],
    "lob": [
     "{spieler} has already shown in training why we signed him.",
-    "With {spieler} we got exactly the player we wanted."
+    "With {spieler} we got exactly the player we wanted.",
+    "{spieler} showed straight away in training why we signed him."
    ],
    "ausweichend": [
     "I'd rather talk about individual players after a few games.",
-    "Let's wait and see what the pitch says."
+    "Let's wait and see what the pitch says.",
+    "I'm not talking about individual players today."
    ]
   },
   "zusage_ziel": {
    "ehrlich": [
     "Position {ziel} is realistic, but in football you can't promise anything.",
-    "We work for position {ziel}, there is no guarantee."
+    "We work for position {ziel}, there is no guarantee.",
+    "Position {ziel} is achievable, but nobody hands it to you."
    ],
    "diplomatisch": [
     "The target is set, and everyone at the club supports it.",
-    "We go game by game, everyone knows the target."
+    "We go game by game, everyone knows the target.",
+    "We'll be judged at the end of the season, not in autumn."
    ],
    "kontern": [
     "I make promises at the end of the season, not in autumn.",
-    "You want a headline, I want points."
+    "You want a headline, I want points.",
+    "The board sets the targets, I deliver the work."
    ],
    "ausweichend": [
     "The reckoning comes in May.",
-    "I have said everything about that."
+    "I have said everything about that.",
+    "I'm not giving any numbers today."
    ]
   },
   "zusage_spieler": {
    "ehrlich": [
     "I want to keep {spieler}, but anything is possible in football.",
-    "{spieler} is important to us. Whether he stays doesn't depend on me alone."
+    "{spieler} is important to us. Whether he stays doesn't depend on me alone.",
+    "{spieler} is happy here, and we're planning with him."
    ],
    "diplomatisch": [
     "We are talking calmly with {spieler} and his people.",
-    "{spieler} feels at home here, that's what counts for me."
+    "{spieler} feels at home here, that's what counts for me.",
+    "Anything is possible in football, but we have no plans to let him go."
    ],
    "kontern": [
     "The only guarantees come with fridges.",
-    "Ask {spieler} himself, he will tell you the same."
+    "Ask {spieler} himself, he will tell you the same.",
+    "Ask me that again in two years."
    ],
    "ausweichend": [
     "I won't comment on contract matters in public.",
-    "We discuss that internally."
+    "We discuss that internally.",
+    "I don't comment on personnel matters."
    ]
   }
  }

@@ -1,6 +1,8 @@
 # Konfiguration der Gesprächswelt (Sitzung H). Alles hier ist eine eigene Festlegung von PESM und austauschbar.
 
 [motor]
+einsatz_ab_spielen = 4         # die Einsatzquote zählt erst ab so vielen Pflichtspielen der Saison (vorher gilt sie als voll)
+bank_ab_spielen = 3            # und erst, wenn er so viele Spiele in Folge nicht zum Einsatz kam
 stimmung_start = 50
 geduld = 4                       # Antworten, die ein Gespräch übersteht, bevor der Partner abbricht (wird durch schlechte Antworten verkürzt)
 frist_tage = 7                   # offenes Gespräch verfällt danach

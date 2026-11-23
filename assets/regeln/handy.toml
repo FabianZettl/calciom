@@ -1,0 +1,19 @@
+# Handy-Ansicht (konzepte/mobile-ansicht.md): Port, Kopplung, Geräte, Protokoll.
+[server]
+port = 8320
+
+[kopplung]
+gueltig_s = 300          # so lange gilt ein Code
+fehler_sperre = 5        # nach so vielen falschen Codes eine Sperre
+sperre_s = 60
+fehler_aus = 20          # danach ist die Kopplung aus, bis sie am PC wieder eingeschaltet wird
+
+[geraete]
+hoechstens = 3
+abmelden_tage = 60
+
+[log]
+zeilen = 1000
+
+[speichern]
+nach_befehl_s = 120      # so lange nach dem letzten Handy-Befehl wird gespeichert, wenn sich etwas geändert hat

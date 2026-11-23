@@ -93,9 +93,11 @@ impl Career {
         let (wn, wc) = (self.world.players[wer].name.clone(), self.world.players[wer].team.max(0) as usize);
         let cn = self.world.clubs[wc].name.clone();
         self.letzte_elf = elf.iter().map(|&p| self.world.players[p].id).collect();
-        if !meine.is_empty() {
-            self.msg(0, crate::inhalt::t("zentrale.kennzahl.liga"), &crate::tf!("ui.ehrung.elf_titel", lg), &format!("{} {}", titel("week_news", &[(crate::id("lg"), lg.clone()), (crate::id("n"), meine.len().to_string()), (crate::id("names"), meine.join(", "))]), titel("week_reason", &[(crate::id("f"), "4-3-3".into())])), Action::None);
-        }
+        let noten: Vec<f32> = elf.iter().map(|&p| beste.iter().find(|x| x.0 == p).map_or(0.0, |x| x.1)).collect();
+        // every week as a real eleven on a pitch (Fabian 23.11.): photos, grades, clubs; own players named in the text
+        let text = if meine.is_empty() { titel("week_reason", &[(crate::id("f"), "4-3-3".into())]) } else { format!("{} {}", titel("week_news", &[(crate::id("lg"), lg.clone()), (crate::id("n"), meine.len().to_string()), (crate::id("names"), meine.join(", "))]), titel("week_reason", &[(crate::id("f"), "4-3-3".into())])) };
+        self.msg(0, crate::inhalt::t("zentrale.kennzahl.liga"), &crate::tf!("ui.ehrung.elf_titel", lg), &text, Action::None);
+        if let Some(m) = self.inbox.first_mut() { m.karte = crate::id("elf").into(); m.spieler = elf.clone(); m.werte = noten; }
         self.ehrungen.push(Ehrung { season: self.world.season, art: "woche".into(), pid: Some(self.world.players[wer].id), club: Some(wc), titel: crate::tf!("ui.ehrung.spieler_der_woche", wn, cn) });
     }
     /// First day of a month: player and coach of the month in the own league (from the month's grades and table).

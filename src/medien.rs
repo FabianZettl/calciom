@@ -20,6 +20,8 @@ pub struct Medien {
     pub blaetter: Vec<String>,
     /// Topic → abs day it was last asked.
     pub themen: Vec<(String, u32)>,
+    /// The variants used last (key → index), so a question, an answer or a rumour does not come twice in a row.
+    pub zuletzt: Vec<(String, usize)>,
     /// Public promises: (kind nicht_verkaufen | saisonziel, player, since, deadline, state 0 open 1 kept 2 broken).
     pub zusagen: Vec<(String, Option<usize>, u32, u32, u8)>,
     /// Rumours: (player, abs day, real?, denied?).
@@ -151,9 +153,20 @@ impl Career {
         t.sort_by_key(|x| self.me.themen.iter().any(|y| y.0 == x.0 && abs < y.1 + wh) as u8);
         t
     }
-    fn frage_text(&self, thema: &str, p: Option<usize>, k: usize) -> String {
+    /// A variant out of `n` by chance, never the one used last time for this key (Fabian 23.11.: not always the same).
+    pub fn variante(&mut self, schluessel: &str, n: usize, salz: &str) -> usize {
+        if n <= 1 { return 0; }
+        let alt = self.me.zuletzt.iter().find(|x| x.0 == schluessel).map(|x| x.1);
+        let mut i = (zufall(&["variante", schluessel, salz, &self.abs().to_string()]) * n as f32) as usize % n; // roh
+        if Some(i) == alt { i = (i + 1 + (zufall(&["variante2", schluessel, salz]) * (n - 1) as f32) as usize % (n - 1)) % n; } // roh
+        self.me.zuletzt.retain(|x| x.0 != schluessel);
+        self.me.zuletzt.push((schluessel.to_string(), i));
+        i
+    }
+    fn frage_text(&mut self, thema: &str, p: Option<usize>, salz: &str) -> String {
         let fr = presse()["fragen"][thema].as_array().cloned().unwrap_or_default();
-        let s = fr.get(k % fr.len().max(1)).and_then(|x| x.as_str()).unwrap_or(crate::inhalt::t("ui.medien.ihre_meinung"));
+        let i = self.variante(&format!("frage:{thema}"), fr.len(), salz);
+        let s = fr.get(i).and_then(|x| x.as_str()).unwrap_or(crate::inhalt::t("ui.medien.ihre_meinung"));
         self.platzhalter(s, thema, p)
     }
     /// {gegner}, {spieler}, {platz}, {ziel} in a question or an answer of the press conference.
@@ -174,17 +187,19 @@ impl Career {
         for (k, (thema, p)) in themen.into_iter().take(n).enumerate() {
             let toene = crate::regeln::wert("medien", &format!("toene.{}", if thema.starts_with(crate::id("zusage")) { &thema } else { &thema })).as_array().cloned().unwrap_or_default();
             // the answer fits the question (Fabian 22.11.): text per topic and tone, a variant by day, the generic one only as a fallback
-            let mut answers: Vec<(String, u8)> = toene.iter().filter_map(|t| t.as_str()).map(|t| {
+            let mut answers: Vec<(String, u8)> = vec![];
+            for t in toene.iter().filter_map(|t| t.as_str()) {
                 let v = presse()["antworten_thema"][&thema][t].as_array().cloned().unwrap_or_default();
-                let roh = v.get((abs as usize + k) % v.len().max(1)).and_then(|x| x.as_str()).or(presse()["antworten"][t].as_str()).unwrap_or("");
-                (self.platzhalter(roh, &thema, p), TOENE.iter().position(|x| *x == t).unwrap_or(0) as u8)
-            }).collect();
+                let i = self.variante(&format!("antwort:{thema}:{t}"), v.len(), &k.to_string());
+                let roh = v.get(i).and_then(|x| x.as_str()).or(presse()["antworten"][t].as_str()).unwrap_or("");
+                answers.push((self.platzhalter(roh, &thema, p), TOENE.iter().position(|x| *x == t).unwrap_or(0) as u8));
+            }
             if thema.starts_with(crate::id("zusage")) {
                 let z = presse()["zusage_antwort"][&thema].as_str().unwrap_or("").replace("{spieler}", &p.map(|p| self.world.players[p].name.clone()).unwrap_or_default());
                 let ton = if thema == "zusage_ziel" { 1 } else { 0 };
                 answers.insert(0, (z, ton + 10)); // + 10 marks the answer that gives the public promise
             }
-            let q = self.frage_text(&thema, p, (abs as usize + k) % 3);
+            let q = self.frage_text(&thema, p, &k.to_string());
             let j = (zufall(&["2026", crate::id("frage"), &abs.to_string(), &k.to_string()]) * self.me.journalisten.len() as f32) as u8;
             self.me.themen.retain(|x| x.0 != thema);
             self.me.themen.push((thema.clone(), abs));
@@ -326,10 +341,22 @@ impl Career {
         self.me.geruechte.retain(|g| g.1 != u32::MAX && abs < g.1 + 90);
         let key = self.squad().into_iter().filter(|&p| self.world.players[p].ps.rolle <= 3).max_by(|&a, &b| self.world.players[a].ovr.partial_cmp(&self.world.players[b].ovr).unwrap());
         let gesperrt = self.me.geruechte.iter().any(|g| !g.2 && abs < g.1 + f("medien", "geruecht.falsch_sperre_tage") as u32);
-        if let Some(p) = key { if !gesperrt && zufall(&["2026", crate::id("falschgeruecht"), &abs.to_string()]) < f("medien", "geruecht.falsch_wahrscheinlichkeit") { self.geruecht(p, false); } }
+        // a rumour needs a core (Medien-Konzept 5.1/5.2): only a club that needs his position, can pay and is at least as big
+        if let Some(p) = key { if !gesperrt && zufall(&["2026", crate::id("falschgeruecht"), &abs.to_string()]) < f("medien", "geruecht.falsch_wahrscheinlichkeit") {
+            if let Some(c) = self.plausibler_interessent(p) { self.geruecht_mit(p, false, Some(c)); }
+        } }
     }
     /// A rumour about an own player (real after an offer, or made up): the person may deny it.
-    pub fn geruecht(&mut self, p: usize, echt: bool) {
+    pub fn geruecht(&mut self, p: usize, echt: bool) { self.geruecht_mit(p, echt, None) }
+    /// A club that could really want him: needs his position group, has the money, at least the own club's reputation.
+    pub fn plausibler_interessent(&self, p: usize) -> Option<usize> {
+        let pl = &self.world.players[p];
+        let gr = crate::kimarkt::gruppe(&pl.pos);
+        let own_rep = self.club().rep;
+        (0..self.world.clubs.len()).filter(|&c| c != self.own && self.world.clubs[c].rep >= own_rep - 5.0 && self.world.clubs[c].balance * 0.5 + self.world.revenue(c) * 0.1 >= pl.value && crate::game::is_derby(&self.world.clubs[c].name, &self.club().name).is_none())
+            .filter(|&c| self.bedarf(c).iter().any(|b| b.0 == gr)).max_by(|a, b| self.world.clubs[*a].rep.partial_cmp(&self.world.clubs[*b].rep).unwrap())
+    }
+    pub fn geruecht_mit(&mut self, p: usize, echt: bool, club: Option<usize>) {
         let abs = self.abs();
         self.me.geruechte.push((p, abs, echt, false));
         let n = self.world.players[p].name.clone();
@@ -338,9 +365,15 @@ impl Career {
         let j = self.me.journalisten.iter().position(|x| x.1 == 1).unwrap_or(abs as usize % self.me.journalisten.len().max(1));
         let paper_s = { let b = self.blatt(j); if b.is_empty() { PAPERS[(abs as usize) % PAPERS.len()].to_string() } else { b } };
         let paper = paper_s.as_str();
-        self.news(&crate::tf!("ui.medien.geruecht_vor_dem_absprung", n), &crate::tf!("ui.medien.laut_gibt_es_interesse_anderer", paper));
-        let opts = vec![(crate::id("dementieren").to_string(), crate::inhalt::t("ui.medien.das_ist_unsinn_er_bleibt").to_string()), (crate::id("schweigen").to_string(), crate::inhalt::t("ui.medien.kein_kommentar").to_string())];
-        self.msg(4, crate::inhalt::t("ui.medien.pressestelle"), &crate::tf!("ui.medien.geruecht_um", n), &crate::tf!("ui.medien.die_zeitungen_schreiben_ueber_einen", n), Action::Wahl { art: crate::id("geruecht").into(), bezug: vec![p], optionen: opts });
+        let v = self.variante("geruecht_text", 5, &n);
+        let text = match club { Some(c) => crate::tf!(&format!("ui.medien.geruecht_verein.{v}"), paper, self.world.clubs[c].name.clone(), n.clone()), None => crate::tf!("ui.medien.laut_gibt_es_interesse_anderer", paper) };
+        let vk = self.variante("geruecht_kopf", 5, &n);
+        self.news(&crate::tf!(&format!("ui.medien.geruecht_kopf.{vk}"), n.clone(), club.map(|c| self.world.clubs[c].name.clone()).unwrap_or_default()), &text);
+        // the press office's note and its answers in a variant (Fabian 23.11.: not always the same words)
+        let (vd, vs, vt, vb) = (self.variante("geruecht_dementi", 4, &n), self.variante("geruecht_schweigen", 4, &n), self.variante("geruecht_titel", 4, &n), self.variante("geruecht_body", 4, &n));
+        let opts = vec![(crate::id("dementieren").to_string(), crate::inhalt::t(&format!("ui.medien.geruecht_dementi.{vd}")).to_string()), (crate::id("schweigen").to_string(), crate::inhalt::t(&format!("ui.medien.geruecht_schweigen.{vs}")).to_string())];
+        let klub = club.map(|c| self.world.clubs[c].name.clone()).unwrap_or_else(|| crate::inhalt::t("ui.medien.ein_verein").to_string());
+        self.msg(4, crate::inhalt::t("ui.medien.pressestelle"), &crate::tf!(&format!("ui.medien.geruecht_titel.{vt}"), n.clone()), &crate::tf!(&format!("ui.medien.geruecht_body.{vb}"), n.clone(), klub, paper.to_string()), Action::Wahl { art: crate::id("geruecht").into(), bezug: vec![p], optionen: opts });
     }
     pub fn geruecht_antwort(&mut self, p: usize, key: &str) -> String {
         if key != crate::id("dementieren") { return crate::inhalt::t("ui.medien.wir_schweigen").into(); }
@@ -356,6 +389,17 @@ impl Career {
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn varianten_wiederholen_sich_nicht() {
+        let w = crate::world::World::load(include_str!("../assets/world.json"), 7);
+        let mut c = crate::game::Career::new(w, 0, "Test");
+        let mut alt = usize::MAX;
+        for k in 0..30 { let i = c.variante("probe", 5, &k.to_string()); assert!(i < 5 && i != alt, "{i} twice"); alt = i; c.world.day += 1; }
+        // press conferences in a row do not open with the same question
+        let a = c.press_question(false).q;
+        let b = c.press_question(false).q;
+        assert_ne!(a, b);
+    }
     use super::*;
     use crate::world::World;
     #[test]
@@ -401,6 +445,35 @@ pub fn medienpool() -> &'static Vec<(String, String, String)> {
         let v: serde_json::Value = serde_json::from_str(include_str!("../assets/inhalt/pesm/core/config/story/medienpool.json")).expect("medienpool.json");
         v["medien"].as_array().map(|a| a.iter().map(|m| (m["name"].as_str().unwrap_or("").to_string(), m["land"].as_str().unwrap_or("").to_string(), m["ton"].as_str().unwrap_or("").to_string())).filter(|m| !m.0.is_empty()).collect()).unwrap_or_default()
     })
+}
+/// The press pool with the layout of the web blog: (name, country code, layout). Reporters are people, not outlets.
+pub fn medienpool_voll() -> &'static Vec<(String, String, String)> {
+    static P: std::sync::OnceLock<Vec<(String, String, String)>> = std::sync::OnceLock::new();
+    P.get_or_init(|| {
+        let v: serde_json::Value = serde_json::from_str(include_str!("../assets/inhalt/pesm/core/config/story/medienpool.json")).expect("medienpool.json");
+        v["medien"].as_array().map(|a| a.iter().filter_map(|m| {
+            let (typ, ton, land) = (m["typ"].as_str()?, m["ton"].as_str().unwrap_or(""), m["land"].as_str().unwrap_or(""));
+            let layout = match (typ, ton) {
+                ("reporter", _) => return None,
+                ("daten_app", _) => "datenportal",
+                ("zeitung", "boulevard") => if land == "GB" { "tabloid_en" } else { "boulevard" },
+                ("tv_radio", _) => "tv",
+                ("podcast" | "youtube", _) => "podcast",
+                ("vereinsmedium", _) => "verein",
+                ("portal" | "magazin", "taktik" | "investigativ") | ("portal", "insider") => "analyse",
+                ("magazin", _) => "fachmagazin",
+                ("zeitung", "fankultur") => if land == "GB" { "serioes" } else { "lokal" },
+                _ => "serioes",
+            };
+            Some((m["name"].as_str()?.to_string(), land.to_string(), layout.to_string()))
+        }).collect()).unwrap_or_default()
+    })
+}
+/// The core of a club name for a local paper ("Hertha BSC" → "Hertha", "FC Bayern München" → "Bayern München").
+pub fn kern_name(n: &str) -> String {
+    let weg = ["FC", "SC", "SV", "VfB", "VfL", "TSG", "1.", "BSC", "AFC", "CF", "SSC", "AS", "AC", "SL", "CD", "RCD", "UD", "SD", "FK", "SK", "BV", "Borussia", "Eintracht", "Hertha"];
+    let teile: Vec<&str> = n.split_whitespace().filter(|t| !weg.contains(t) || *t == "Hertha" || *t == "Borussia" || *t == "Eintracht").collect(); // roh
+    if teile.is_empty() { n.to_string() } else { teile.join(" ") }
 }
 /// Country code of the press pool for a league country (display name, German or English).
 pub fn land_kuerzel(land: &str) -> &'static str {

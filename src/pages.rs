@@ -70,9 +70,11 @@ pub struct MatchView {
     pub angesprochen: Vec<usize>,
     /// Interventions in the running match (Fabian 23.11.): mentality −1/0/1, the minute of the last shout, the own player chosen to come off.
     pub eingriff: Eingriff,
+    /// The speed before a pause, to go on with it.
+    pub vor_pause: f32,
 }
 #[derive(Clone, Default)]
-pub struct Eingriff { pub mentalitaet: i8, pub zuruf_min: f32, pub raus: Option<usize> }
+pub struct Eingriff { pub mentalitaet: i8, pub zuruf_min: f32, pub raus: Option<usize>, pub intro: f32, pub tor_gesehen: usize, pub tor_t: f32 }
 
 pub struct View {
     /// World map: zoom and offset (geo.rs).
@@ -109,6 +111,8 @@ pub struct View {
     pub market_pos: usize,
     pub market_age: i32,
     pub market_price: i32,
+    /// Free search (Konzept Scouting 5.1): a statistic to filter and sort by (0 none, else MARKT_ZAHLEN index + 1).
+    pub market_stat: usize,
     pub market_scope: usize,
     pub market_text: String,
     pub market_focus: bool,
@@ -131,6 +135,10 @@ pub struct View {
     pub market_cache: Vec<usize>,
     /// Sorted lists: per list, the column clicked and whether the order is flipped.
     pub sortierung: std::collections::HashMap<u8, (usize, bool)>,
+    /// When the last offer went out (the other side "types" for a moment).
+    pub neg_tipp: f64,
+    /// Media blog: 0 all, 1 transfers, 2 own club, 3 own league.
+    pub blog_filter: u8,
     /// Training plan: the session (day, slot) being filled.
     pub tp_zelle: Option<(usize, usize)>,
     pub market_key: String,
@@ -186,11 +194,12 @@ pub fn klang_lesen() -> f32 { klang_wert(std::fs::read_to_string(klang_file()).u
 fn klang_wert(s: &str) -> f32 { match s { "aus" => 0.0, "normal" => 0.6, _ => 0.3 } }
 fn theme_file() -> std::path::PathBuf { save_dir().join(crate::id("../thema.txt")) }
 /// Einstellungen → Sprache: "de" or "en", beside thema.txt (read at start in main.rs).
+pub fn skala_file() -> std::path::PathBuf { save_dir().join("../skala.txt") } // roh
 pub fn sprache_file() -> std::path::PathBuf { save_dir().join(crate::id("../sprache.txt")) }
 impl View {
     pub fn new() -> View {
         View { karte_zoom: 1.0, karte_off: (0.0, 0.0), feier_ton: false, page: Page::Uebersicht, back: vec![], fwd: vec![], modal: Modal::None, tab: 0, scroll: 0.0, scrolls: Default::default(), ziehen: None, tafel_zug: None, auswahl: None, auswahl_scroll: 0, vereine_liga: None, post_folgen: None, sel_msg: None, msg_filter: 0, lager_reiter: 0, lager_tage: 7, halbzeit_fl27: None, sel_player: None,
-            market_pos: 0, market_age: 40, market_price: 200, market_scope: 0, market_text: String::new(), market_focus: false, sp_edit: Default::default(), sp_treffer: (Default::default(), u32::MAX, vec![]), pm_wahl: (u32::MAX, [0; 3]), kr: (50, 2), auswahl_suche: String::new(), suche_text: String::new(), vorb_tag: 0, vorb_tore: (0, 0), suche_treffer: vec![], suche_fuer: String::new(), market_cache: vec![], market_key: String::new(), sortierung: Default::default(), tp_zelle: None,
+            market_pos: 0, market_age: 40, market_price: 200, market_stat: 0, market_scope: 0, market_text: String::new(), market_focus: false, sp_edit: Default::default(), sp_treffer: (Default::default(), u32::MAX, vec![]), pm_wahl: (u32::MAX, [0; 3]), kr: (50, 2), auswahl_suche: String::new(), suche_text: String::new(), vorb_tag: 0, vorb_tore: (0, 0), suche_treffer: vec![], suche_fuer: String::new(), market_cache: vec![], market_key: String::new(), sortierung: Default::default(), neg_tipp: 0.0, blog_filter: 0, tp_zelle: None,
             table_league: None, cal_month: -1, pick: None, toast: None, mv: None, sel_neg: None, changed_at: 0.0, hud_seen: vec![], league_scroll: 0, sel_club: None, kontext: None,
             fl27: None, fl27_status: String::new(), fl27_live: None, fl27_log: vec![], fl27_t0: 0.0, fl27_ko: None, fl27_ko_apply: None, koop_form: (true, 1, 2, 0.0, 3), fl27_laeuft: false, fl27_ansicht: None, fl27_reiter: 0, fl27_seq: None, fl27_einblendung: None, fl27_vorschau: false, fl27_pruef_t: -10.0, fl27_gesehen: false, fl27_erster_blick: false, fl27_ende: None, fl27_ende_wunsch: false, fl27_auto_t: None, fl27_uebernommen: None, db_blick_t: 0.0, reiter_merk: Default::default(),
             dark: std::env::var("PESM_THEME").map(|t| t == crate::id("flutlicht")).unwrap_or_else(|_| std::fs::read_to_string(theme_file()).map(|t| t.trim() == crate::id("flutlicht")).unwrap_or(false)) }
@@ -245,7 +254,7 @@ fn tabs(ui: &mut Ui, v: &mut View, items: &[&str]) {
         let h = ui.hover(r);
         if i == v.tab { rrect(r.x, r.y, r.w, r.h, 12.0, Theme::verein()); rrect(r.x + 2.0, r.y + 2.0, r.w - 4.0, r.h - 4.0, 10.0, if Theme::dark() { Theme::verein_tief() } else { Theme::verein_weich() }); } else if h { rrect(r.x, r.y, r.w, r.h, 12.0, Theme::erhoehung()); }
         ui.text_semi(t, x + 10.0, Y0 - 20.0, 19.0, if i == v.tab || h { Theme::text() } else { Theme::text2() });
-        if ui.hit(r) && v.tab != i { v.tab = i; v.scroll = 0.0; v.scrolls.clear(); ui.play(crate::id("klick")); }
+        if ui.hit(r) && v.tab != i { v.tab = i; v.scroll = 0.0; v.scrolls.clear(); v.changed_at = get_time() as f32; ui.play(crate::id("klick")); }
         x += w + 8.0;
     }
 }
@@ -1341,6 +1350,17 @@ fn standards_seite(ui: &mut Ui, v: &mut View, c: &mut Career) {
     ui.paragraph(crate::inhalt::t("ui.pages.ohne_eigene_wahl_uebernimmt_der"), r.x + 14.0, r.y + 320.0, 15.0, r.w - 28.0, Theme::gedaempft());
     let r2 = Rect::new(X0 + cbreite() * 0.5 + 10.0, Y0, cbreite() * 0.5 - 6.0, hoehe() - Y0 - 16.0);
     ui.card_titled(r2, crate::inhalt::t("ui.wort.taktik_vorlagen"), Theme::gold());
+    // Plan B (Taktik-Konzept 1.7): from a minute on, when the score says so, the mentality changes by itself
+    let (r, py) = (r2, r2.y + 112.0 + c.std.vorlagen.len() as f32 * 46.0);
+    {
+        ui.text_semi(crate::inhalt::t("ui.planb.titel"), r.x + 14.0, py, 18.0, Theme::akzent());
+        let an = c.plan_b.an;
+        if ui.button(Rect::new(r.x + r.w - 140.0, py - 20.0, 126.0, 30.0), crate::inhalt::t(if an { "ui.planb.an" } else { "ui.planb.aus" }), an) { c.plan_b.an = !an; }
+        if let Some(s) = ui.segment(Rect::new(r.x + 14.0, py + 14.0, r.w - 28.0, 28.0), &[crate::inhalt::t("ui.planb.wenn.0"), crate::inhalt::t("ui.planb.wenn.1"), crate::inhalt::t("ui.planb.wenn.2")], c.plan_b.wenn as usize) { c.plan_b.wenn = s as u8; }
+        if let Some(s) = ui.segment(Rect::new(r.x + 14.0, py + 50.0, r.w - 28.0, 28.0), &[crate::inhalt::t("ui.live.ment.0"), crate::inhalt::t("ui.live.ment.1"), crate::inhalt::t("ui.live.ment.2")], (c.plan_b.mentalitaet + 1) as usize) { c.plan_b.mentalitaet = s as i8 - 1; }
+        ui.text(&crate::tf!("ui.planb.ab", c.plan_b.minute), r.x + 14.0, py + 104.0, 15.0, Theme::text());
+        if let Some(m) = ui.slider(Rect::new(r.x + 140.0, py + 92.0, r.w - 170.0, 16.0), c.plan_b.minute as i32, 46, 85) { c.plan_b.minute = m as u8; }
+    }
     if ui.button(Rect::new(r2.x + 14.0, r2.y + 50.0, 260.0, 32.0), crate::inhalt::t("ui.pages.aktuelle_taktik_ablegen"), false) { match c.vorlage_speichern() { Ok(()) => v.toast(crate::inhalt::t("ui.pages.abgelegt"), true), Err(e) => v.toast(&e, false) } }
     let mut del = None;
     for (i, (n, _, _)) in c.std.vorlagen.clone().iter().enumerate() {
@@ -1350,7 +1370,7 @@ fn standards_seite(ui: &mut Ui, v: &mut View, c: &mut Career) {
         if ui.button(Rect::new(r2.x + r2.w - 130.0, yy - 20.0, 116.0, 30.0), crate::inhalt::t("md.ui.mail.loeschen"), false) { del = Some(i); }
     }
     if let Some(i) = del { c.std.vorlagen.remove(i); }
-    let yy = r2.y + 360.0;
+    let yy = (r2.y + 360.0).max(r2.y + 112.0 + c.std.vorlagen.len() as f32 * 46.0 + 130.0);
     ui.text_semi(crate::inhalt::t("ui.pages.urteil_des_co_trainers"), r2.x + 14.0, yy, 16.0, Theme::akzent());
     for (k, l) in c.taktikurteil().iter().enumerate().take(4) { ui.paragraph(l, r2.x + 14.0, yy + 26.0 + k as f32 * 44.0, 15.0, r2.w - 28.0, Theme::text2()); }
 }
@@ -1463,7 +1483,36 @@ fn praesidium(ui: &mut Ui, _v: &mut View, c: &mut Career) {
         let n: Vec<&str> = c.geschichten.tags.iter().map(|k| crate::inhalt::t(&format!("gw.ruf.{k}"))).collect(); // roh
         ui.text(&crate::tf!("gw.ruf_zeile", n.join(" · ")), r3.x + 14.0, r3.y + r3.h - 8.0, 15.0, Theme::gold());
     }
-    let r4 = Rect::new(X0 + 4.0, y + 344.0, cbreite(), (hoehe() - y - 360.0).max(120.0));
+    // the three people of the board, the club type and the stage, and the season's side goals (praesidium.rs)
+    c.praesidium_an();
+    let pw = (cbreite() * 0.62 - 24.0) / 3.0;
+    let stufe = c.eskalation();
+    for (k, p) in c.praesidium.clone().iter().enumerate() {
+        let r = Rect::new(X0 + 4.0 + k as f32 * (pw + 12.0), y + 344.0, pw, 140.0);
+        ui.card(r);
+        ui.text_semi(crate::inhalt::t(&format!("ui.pr.rolle.{}", p.rolle)), r.x + 14.0, r.y + 24.0, 13.0, Theme::gedaempft());
+        ui.text_semi(&ui.fit(&p.name, 18.0, r.w - 28.0), r.x + 14.0, r.y + 50.0, 18.0, Theme::text());
+        ui.text(crate::inhalt::t(&format!("ui.pr.haltung.{}", p.haltung)), r.x + 14.0, r.y + 72.0, 14.0, Theme::text2());
+        let m = c.person_stimmung(p);
+        let col = if m >= 60.0 { Theme::gut() } else if m >= 40.0 { Theme::achtung() } else { Theme::problem() };
+        ui.bar(r.x + 14.0, r.y + 96.0, r.w - 70.0, 10.0, m / 100.0, col);
+        ui.text_right(&format!("{m:.0}"), r.x + r.w - 14.0, r.y + 106.0, 16.0, col);
+        ui.text(crate::inhalt::t(&format!("ui.pr.stimmung.{}", if m >= 60.0 { 0 } else if m >= 40.0 { 1 } else { 2 })), r.x + 14.0, r.y + 130.0, 13.0, Theme::text2());
+    }
+    let rz = Rect::new(X0 + 4.0 + 3.0 * (pw + 12.0), y + 344.0, cbreite() - 3.0 * (pw + 12.0), 140.0);
+    ui.card(rz);
+    ui.text_semi(&crate::tf!("ui.pr.typ_zeile", crate::inhalt::t(&format!("ui.pr.typ.{}", c.vereinstyp())), crate::inhalt::t(&format!("ui.pr.stufe.{stufe}"))), rz.x + 14.0, rz.y + 24.0, 14.0, [Theme::gut(), Theme::text(), Theme::achtung(), Theme::problem(), Theme::problem()][stufe]);
+    ui.text_semi(crate::inhalt::t("ui.pr.nebenziele"), rz.x + 14.0, rz.y + 52.0, 13.0, Theme::gedaempft());
+    let season = c.world.season;
+    let ziele: Vec<String> = c.nebenziele.iter().filter(|z| z.season == season).map(|z| z.key.clone()).collect();
+    for (k, z) in ziele.iter().enumerate() {
+        let (ok, zeile) = c.nebenziel_stand(z);
+        let yy = rz.y + 76.0 + k as f32 * 28.0;
+        draw_circle(rz.x + 22.0, yy - 5.0, 6.0, if ok { Theme::gut() } else { Theme::achtung() });
+        ui.text_semi(crate::inhalt::t(&format!("ui.pr.ziel.{z}.name")), rz.x + 36.0, yy, 15.0, Theme::text());
+        ui.text_right(&ui.fit(&zeile, 13.0, rz.w * 0.55), rz.x + rz.w - 14.0, yy, 13.0, Theme::text2());
+    }
+    let r4 = Rect::new(X0 + 4.0, y + 496.0, cbreite(), (hoehe() - y - 512.0).max(100.0));
     ui.card_titled(r4, crate::inhalt::t("ui.pages.so_denkt_das_praesidium"), Theme::akzent());
     let gr: Vec<_> = c.mensch.gruende.iter().rev().filter(|g| g.bezug == "Präsidium").take(((r4.h - 70.0) / 26.0).max(1.0) as usize).cloned().collect(); // roh
     if gr.is_empty() {
@@ -1940,6 +1989,22 @@ fn suchprofile_seite(ui: &mut Ui, v: &mut View, c: &mut Career) {
     }
 }
 
+/// The numbers the free search can sort by (per 90 or a quote).
+const MARKT_ZAHLEN: [(&str, fn(&crate::statistik::Stat) -> Option<f32>); 8] = [
+    (crate::id("einfluss"), crate::statistik::einfluss90),
+    (crate::id("xg"), |s| crate::statistik::pro90(s, crate::statistik::XG)), (crate::id("xa"), |s| crate::statistik::pro90(s, crate::statistik::XA)),
+    (crate::id("schluesselpaesse"), |s| crate::statistik::pro90(s, crate::statistik::SCHLUESSEL)), ("prog_paesse", |s| crate::statistik::pro90(s, crate::statistik::PROG_PAESSE)),
+    (crate::id("dribblings"), |s| crate::statistik::pro90(s, crate::statistik::DRIBB)), (crate::id("tacklings"), |s| crate::statistik::pro90(s, crate::statistik::TACKL)),
+    (crate::id("abgefangen"), |s| crate::statistik::pro90(s, crate::statistik::ABGEF)),
+];
+/// Whose extended numbers we see (Konzept Spielerstatistiken 8.1): own league, detailed leagues, players known from 40.
+pub fn markt_erweitert(c: &Career, p: usize) -> bool {
+    let pl = &c.world.players[p];
+    if pl.team < 0 { return false; }
+    let l = c.world.clubs[pl.team as usize].league;
+    l == c.league() || c.know_of(p) >= 0.40 || c.analyst_ligen().contains(&l)
+}
+
 fn transfermarkt(ui: &mut Ui, v: &mut View, c: &mut Career) {
     tabs(ui, v, &[crate::inhalt::t("menu.transfermarkt.reiter.0"), crate::inhalt::t("gl.chip.transferliste"), crate::inhalt::t("gl.chip.vertragslos"), crate::inhalt::t("sup.meine")]);
     if v.tab == 3 { suchprofile_seite(ui, v, c); return; }
@@ -1964,7 +2029,13 @@ fn transfermarkt(ui: &mut Ui, v: &mut View, c: &mut Career) {
     if let Some(a) = ui.slider(Rect::new(X0 + 890.0, y + 20.0, 120.0, 14.0), v.market_age, 16, 40) { v.market_age = a; v.scroll = 0.0; v.scrolls.clear(); }
     ui.text(&crate::tf!("ui.pages.wert_bis_mio", money(v.market_price as f64 * 1e6)), X0 + 1030.0, y + 14.0, 14.0, Theme::text2());
     if let Some(a) = ui.slider(Rect::new(X0 + 1030.0, y + 20.0, 120.0, 14.0), v.market_price, 1, 200) { v.market_price = a; v.scroll = 0.0; v.scrolls.clear(); }
-    let key = format!("{}|{}|{}|{}|{}|{}|{}|{}", v.tab, v.market_pos, v.market_scope, v.market_age, v.market_price, v.market_text.to_lowercase(), c.abs(), c.world.players.len());
+    // a statistic to sort by: only players whose extended numbers we see, at least 900 minutes (Konzept 5.1, Statistik 8.1/8.4)
+    {
+        let zr = Rect::new(X0 + 1166.0, y, (cbreite() - 1166.0 + X0 - 4.0).max(180.0), 36.0);
+        let name = if v.market_stat == 0 { crate::inhalt::t("ui.markt.zahl_keine").to_string() } else { crate::tf!("ui.markt.zahl", crate::inhalt::t(&format!("ui.stat.{}", MARKT_ZAHLEN[v.market_stat - 1].0))) };
+        if ui.button(zr, &ui.fit(&name, 14.0, zr.w - 12.0), v.market_stat > 0) { v.market_stat = (v.market_stat + 1) % (MARKT_ZAHLEN.len() + 1); v.scroll = 0.0; v.scrolls.clear(); }
+    }
+    let key = format!("{}|{}|{}|{}|{}|{}|{}|{}|{}", v.tab, v.market_pos, v.market_scope, v.market_age, v.market_price, v.market_text.to_lowercase(), c.abs(), c.world.players.len(), v.market_stat);
     if key != v.market_key {
         v.market_key = key;
         let q = v.market_text.to_lowercase();
@@ -1982,7 +2053,14 @@ fn transfermarkt(ui: &mut Ui, v: &mut View, c: &mut Career) {
             if !q.is_empty() && !p.name.to_lowercase().contains(&q) && !(p.team >= 0 && c.world.clubs[p.team as usize].name.to_lowercase().contains(&q)) { return false; }
             true
         }).collect();
-        list.sort_by(|a, b| { let (x, y) = (c.ovr_range(*a), c.ovr_range(*b)); (y.0 + y.1).partial_cmp(&(x.0 + x.1)).unwrap() });
+        if v.market_stat > 0 {
+            let f = MARKT_ZAHLEN[v.market_stat - 1].1;
+            let mut mit: Vec<(usize, f32)> = list.into_iter().filter(|&p| markt_erweitert(c, p)).filter_map(|p| { let (st, _) = crate::statistik::saison_von(&c.world, p); (crate::statistik::get(&st, crate::statistik::MIN) >= 900).then_some(())?; f(&st).map(|x| (p, x)) }).collect();
+            mit.sort_by(|a, b| b.1.partial_cmp(&a.1).unwrap());
+            list = mit.into_iter().map(|x| x.0).collect();
+        } else {
+            list.sort_by(|a, b| { let (x, y) = (c.ovr_range(*a), c.ovr_range(*b)); (y.0 + y.1).partial_cmp(&(x.0 + x.1)).unwrap() });
+        }
         list.truncate(2000);
         v.market_cache = list;
     }
@@ -2022,8 +2100,18 @@ fn transfermarkt(ui: &mut Ui, v: &mut View, c: &mut Career) {
         ui.pos_tag(r.x + 526.0, cy - 5.0, pos_de(&pl.pos));
         strength_cell(ui, c, p, r.x + 612.0, cy - 6.0);
         ui.text(&money(pl.value), r.x + 680.0, cy, 16.0, Theme::text());
-        let mb = c.moneyball(p);
-        ui.text(&format!("{:+.0}", mb), r.x + 820.0, cy, 16.0, if mb >= 3.0 { Theme::gut() } else if mb <= -3.0 { Theme::problem() } else { Theme::text2() });
+        if v.market_stat > 0 {
+            let (st, hoch) = crate::statistik::saison_von(&c.world, p);
+            if let Some(x) = MARKT_ZAHLEN[v.market_stat - 1].1(&st) { ui.text(&format!("{x:.2}{}", if hoch { " ~" } else { "" }), r.x + 820.0, cy, 16.0, Theme::akzent()); }
+        } else {
+            let mb = c.moneyball(p);
+            ui.text(&format!("{:+.0}", mb), r.x + 820.0, cy, 16.0, if mb >= 3.0 { Theme::gut() } else if mb <= -3.0 { Theme::problem() } else { Theme::text2() });
+        }
+        // labels (Konzept 5.1): over budget, would not come, on the shortlist, report there
+        let schild = if c.merkliste.contains(&p) { Some((crate::inhalt::t("ui.markt.schild.merkliste"), Theme::akzent())) }
+            else if let Some(k) = c.machbar(p, false) { Some((crate::inhalt::t(k), Theme::problem())) }
+            else if c.know_of(p) >= crate::regeln::f("scouting", "wissen.bericht_ab") / 100.0 { Some((crate::inhalt::t("ui.markt.schild.bericht"), Theme::gut())) } else { None };
+        if let Some((txt, col)) = schild { ui.text_right(&ui.fit(txt, 13.0, r.w - 900.0), r.x + r.w - 10.0, cy, 13.0, col); }
         if ui.hit(r) { v.sel_player = Some(p); }
     }
     // detail panel
@@ -2088,11 +2176,186 @@ fn transfermarkt(ui: &mut Ui, v: &mut View, c: &mut Career) {
     if ui.button_gold(Rect::new(dr.x + 10.0, dr.y + unten, dr.w - 20.0, 42.0), if vv { crate::inhalt::t("vv.knopf") } else { crate::inhalt::t("ui.wort.gross_verhandeln") }) {
         match if vv { c.vorvertrag_oeffnen(p) } else { c.open_neg(p) } { Ok(i) => { v.modal = Modal::Neg(i); ui.play(crate::id("angebot")); } Err(e) => { v.toast(&e, false); ui.play(crate::id("fehler")); } }
     }
-    let watched = c.scouts.iter().any(|s| s.watch == Some(p));
-    if ui.button(Rect::new(dr.x + 10.0, dr.y + unten + 48.0, (dr.w - 28.0) / 2.0, 32.0), if watched { crate::inhalt::t("pille.beobachtet") } else { crate::inhalt::t("aktion.beobachten") }, false) && !watched {
-        if let Some(s) = c.scouts.iter_mut().find(|s| s.watch.is_none()) { s.watch = Some(p); let n = s.name.clone(); v.toast(&crate::tf!("ui.pages.beobachtet_ihn_ab_jetzt", n), true); } else { v.toast(crate::inhalt::t("ui.pages.alle_scouts_haben_schon_einen"), false); }
+    // a watch assignment with a free scout (auftraege.rs)
+    let watched = c.auftraege.iter().any(|x| !x.fertig && x.spieler == Some(p));
+    if ui.button(Rect::new(dr.x + 10.0, dr.y + unten + 48.0, (dr.w - 28.0) / 2.0, 32.0), if watched { crate::inhalt::t("ui.scout.laeuft") } else { crate::inhalt::t("ui.scout.schicken") }, false) && !watched {
+        let belegt: Vec<String> = c.auftraege.iter().filter(|x| !x.fertig).map(|x| x.scout.clone()).collect();
+        match c.scouts.iter().find(|s| !belegt.contains(&s.name)).map(|s| s.name.clone()) {
+            Some(scout) => { let x = crate::auftraege::Auftrag { art: crate::auftraege::BEOBACHTEN, scout, spieler: Some(p), ..Default::default() }; match c.auftrag_anlegen(x, 21) { Ok(m) => v.toast(&m, true), Err(e) => v.toast(&e, false) } }
+            None => v.toast(crate::inhalt::t("ui.pages.alle_scouts_haben_schon_einen"), false),
+        }
     }
     if ui.button(Rect::new(dr.x + 18.0 + (dr.w - 28.0) / 2.0, dr.y + unten + 48.0, (dr.w - 28.0) / 2.0, 32.0), crate::inhalt::t("aktion.profil"), false) { v.modal = Modal::Player(p); }
+}
+
+/// Konzept Scouting 5.2 / Teil 7 "Auffällige Zahlen": the analyst's list of the week, each with "send a scout".
+fn analyst_seite(ui: &mut Ui, v: &mut View, c: &mut Career) {
+    let t = crate::inhalt::t;
+    let r = Rect::new(X0 + 4.0, Y0, cbreite(), hoehe() - Y0 - 16.0);
+    ui.card_titled(r, t("ui.analyst.titel"), Theme::akzent());
+    let Some(s) = c.analyst() else {
+        ui.paragraph(t(if c.analyst_erlaubt() { "ui.analyst.keiner" } else { "ui.analyst.zu_klein" }), r.x + 14.0, r.y + 60.0, 15.0, r.w - 28.0, Theme::text2());
+        return;
+    };
+    let ligen = c.analyst_ligen().len();
+    ui.text(&crate::tf!("ui.analyst.kopf", c.scouts[s].name.clone(), ligen), r.x + 14.0, r.y + 58.0, 14.0, Theme::text2());
+    if c.analyst_liste.is_empty() { ui.paragraph(t("ui.analyst.leer"), r.x + 14.0, r.y + 90.0, 15.0, r.w - 28.0, Theme::text2()); return; }
+    player_row_head(ui, r.x, r.y + 86.0, &[(t("ui.wort.gross_name"), 14.0), (t("ui.wort.gross_verein"), r.w * 0.30), (t("ui.stat.einfluss"), r.w * 0.55), (t("ui.markt.wert"), r.w * 0.70)]);
+    let mut y = r.y + 116.0;
+    let mut klick = None;
+    let belegt: Vec<String> = c.auftraege.iter().filter(|x| !x.fertig).map(|x| x.scout.clone()).collect();
+    for &p in c.analyst_liste.clone().iter() {
+        let pl = c.world.players[p].clone();
+        let rr = Rect::new(r.x + 8.0, y - 20.0, r.w * 0.80, 30.0);
+        if ui.hover(rr) { rrect(rr.x, rr.y, rr.w, rr.h, 4.0, Theme::ueberlagerung()); }
+        ui.player_photo(r.x + 26.0, y - 5.0, 11.0, pl.id, &pl.name);
+        ui.text(&ui.fit(&format!("{} · {} · {}", pl.name, pos_de(&pl.pos), pl.age), 15.0, r.w * 0.27 - 30.0), r.x + 44.0, y, 15.0, Theme::text());
+        let (club, liga) = if pl.team >= 0 { let k = pl.team as usize; (c.world.clubs[k].name.clone(), c.world.clubs[k].league) } else { (String::new(), usize::MAX) };
+        ui.text(&ui.fit(&club, 14.0, r.w * 0.24), r.x + r.w * 0.30, y, 14.0, Theme::text2());
+        let (st, _) = crate::statistik::saison_von(&c.world, p);
+        if let Some(e) = crate::statistik::einfluss90(&st) {
+            let um = if liga < c.world.leagues.len() { crate::statistik::umrechnen(&c.world, e, liga, c.league(), 0) } else { e };
+            ui.text(&crate::tf!("ui.analyst.wert", format!("{e:.2}"), format!("{um:.2}")), r.x + r.w * 0.55, y, 14.0, Theme::akzent());
+        }
+        ui.text(&money(pl.value), r.x + r.w * 0.70, y, 14.0, Theme::text());
+        if ui.hit(rr) { klick = Some(p); }
+        let laeuft = c.auftraege.iter().any(|x| !x.fertig && x.spieler == Some(p));
+        if ui.button(Rect::new(r.x + r.w - 190.0, y - 20.0, 176.0, 28.0), t(if laeuft { "ui.scout.laeuft" } else { "ui.scout.schicken" }), false) && !laeuft {
+            match c.scouts.iter().enumerate().find(|(i, x)| *i != s && !belegt.contains(&x.name)).map(|(_, x)| x.name.clone()) {
+                Some(scout) => { let x = crate::auftraege::Auftrag { art: crate::auftraege::BEOBACHTEN, scout, spieler: Some(p), ..Default::default() }; match c.auftrag_anlegen(x, 21) { Ok(m) => v.toast(&m, true), Err(e) => v.toast(&e, false) } }
+                None => v.toast(t("ui.pages.alle_scouts_haben_schon_einen"), false),
+            }
+        }
+        y += 36.0;
+    }
+    if let Some(p) = klick { v.modal = Modal::Player(p); }
+}
+
+/// The colour of a scout's verdict (Konzept 4.3): sign now … do not sign.
+pub fn urteil_farbe(u: usize) -> Color { [hex(0x1E9E5A), Theme::gut(), hex(0x8BC34A), Theme::achtung(), Theme::akzent(), Theme::problem()][u.min(5)] }
+
+/// The form for a new assignment (kept between frames).
+#[derive(Clone)]
+struct AuftragForm { art: usize, gruppe: usize, alter: (u8, u8), liga: usize, scout: usize, knapp: bool, lang: bool, spieler: usize }
+thread_local! { static FORM: std::cell::RefCell<AuftragForm> = std::cell::RefCell::new(AuftragForm { art: 0, gruppe: 2, alter: (17, 28), liga: 0, scout: 0, knapp: false, lang: false, spieler: 0 }); }
+const GRUPPEN: [&str; 9] = [crate::id("tw"), crate::id("iv"), crate::id("av"), crate::id("dm"), crate::id("zm"), crate::id("om"), crate::id("fl"), crate::id("hs"), crate::id("st")];
+
+/// Scouting assignments (konzepte/scouting.md Teil 3 and 7): a new one on the left, the running ones with their proposals
+/// on the right. Watching one player and a second opinion start from the player profile and the report.
+fn auftraege_seite(ui: &mut Ui, v: &mut View, c: &mut Career) {
+    let t = crate::inhalt::t;
+    let mut fm = FORM.with(|f| f.borrow().clone());
+    let l = Rect::new(X0 + 4.0, Y0, cbreite() * 0.38, hoehe() - Y0 - 16.0);
+    ui.card_titled(l, t("ui.auftrag.neu_titel"), Theme::akzent());
+    let mut y = l.y + 52.0;
+    let arten = [t("ui.auftrag.art.suche"), t("ui.auftrag.art.gebiet"), t("ui.auftrag.art.nachfolger")];
+    if let Some(i) = ui.segment(Rect::new(l.x + 14.0, y, l.w - 28.0, 32.0), &arten, fm.art) { fm.art = i; }
+    y += 46.0;
+    // the scout: free ones only
+    let frei: Vec<usize> = (0..c.scouts.len()).filter(|&s| !c.auftraege.iter().any(|x| !x.fertig && x.scout == c.scouts[s].name)).collect();
+    let zeile = |ui: &mut Ui, y: f32, label: &str, wert: &str| -> (bool, bool) {
+        ui.text_semi(label, l.x + 14.0, y + 20.0, 14.0, Theme::text2());
+        let links = ui.button(Rect::new(l.x + l.w * 0.38, y, 32.0, 30.0), "<", false);
+        ui.text_center(&ui.fit(wert, 14.0, l.w * 0.62 - 90.0), l.x + l.w * 0.38 + (l.w * 0.62 - 14.0) / 2.0, y + 20.0, 14.0, Theme::text());
+        let rechts = ui.button(Rect::new(l.x + l.w - 46.0, y, 32.0, 30.0), ">", false);
+        (links, rechts)
+    };
+    let scout_name = frei.get(fm.scout % frei.len().max(1)).map(|&s| c.scouts[s].name.clone()).unwrap_or_else(|| t("ui.auftrag.kein_freier").to_string());
+    let (a, b) = zeile(ui, y, t("ui.auftrag.scout"), &scout_name);
+    if a { fm.scout = (fm.scout + frei.len().max(1) - 1) % frei.len().max(1); }
+    if b { fm.scout = (fm.scout + 1) % frei.len().max(1); }
+    y += 40.0;
+    // where: the own league first, then the leagues the scout may work in, strongest first
+    let s_idx = frei.get(fm.scout % frei.len().max(1)).copied();
+    let mut ligen: Vec<usize> = vec![c.league()];
+    if let Some(s) = s_idx {
+        let mut andere: Vec<usize> = (0..c.world.leagues.len()).filter(|&k| k != c.league() && c.world.leagues[k].teams.len() >= 8 && c.gebiet_erlaubt(s, Some(k))).collect();
+        andere.sort_by(|a, b| crate::statistik::liga_staerke(&c.world, *b).partial_cmp(&crate::statistik::liga_staerke(&c.world, *a)).unwrap());
+        ligen.extend(andere);
+    }
+    let lg = ligen[fm.liga % ligen.len()];
+    let (a, b) = zeile(ui, y, t("ui.auftrag.gebiet"), &c.world.leagues[lg].name.clone());
+    if a { fm.liga = (fm.liga + ligen.len() - 1) % ligen.len(); }
+    if b { fm.liga = (fm.liga + 1) % ligen.len(); }
+    y += 40.0;
+    let sq = c.squad();
+    match fm.art {
+        0 => {
+            ui.text_semi(t("ui.auftrag.position"), l.x + 14.0, y + 20.0, 14.0, Theme::text2());
+            y += 28.0;
+            let namen: Vec<&str> = GRUPPEN.iter().map(|g| t(&format!("ui.auftrag.gruppe.{g}"))).collect();
+            if let Some(i) = ui.segment(Rect::new(l.x + 14.0, y, l.w - 28.0, 30.0), &namen, fm.gruppe) { fm.gruppe = i; }
+            y += 42.0;
+            let (a, b) = zeile(ui, y, t("ui.auftrag.alter_von"), &fm.alter.0.to_string());
+            if a { fm.alter.0 = fm.alter.0.saturating_sub(1).max(16); } if b { fm.alter.0 = (fm.alter.0 + 1).min(fm.alter.1); }
+            y += 38.0;
+            let (a, b) = zeile(ui, y, t("ui.auftrag.alter_bis"), &fm.alter.1.to_string());
+            if a { fm.alter.1 = fm.alter.1.saturating_sub(1).max(fm.alter.0); } if b { fm.alter.1 = (fm.alter.1 + 1).min(38); }
+            y += 42.0;
+            if ui.button(Rect::new(l.x + 14.0, y, l.w - 28.0, 30.0), t("ui.auftrag.knapp"), fm.knapp) { fm.knapp = !fm.knapp; }
+            y += 40.0;
+        }
+        2 => {
+            let p = sq.get(fm.spieler % sq.len().max(1)).copied();
+            let n = p.map(|p| format!("{} ({})", c.world.players[p].name, pos_de(&c.world.players[p].pos))).unwrap_or_default();
+            let (a, b) = zeile(ui, y, t("ui.auftrag.fuer"), &n);
+            if a { fm.spieler = (fm.spieler + sq.len().max(1) - 1) % sq.len().max(1); } if b { fm.spieler = (fm.spieler + 1) % sq.len().max(1); }
+            y += 42.0;
+        }
+        _ => {}
+    }
+    if let Some(i) = ui.segment(Rect::new(l.x + 14.0, y, l.w - 28.0, 30.0), &[t("ui.auftrag.tage14"), t("ui.auftrag.tage28")], fm.lang as usize) { fm.lang = i == 1; }
+    y += 44.0;
+    y = ui.paragraph(&crate::tf!("ui.auftrag.budget_hinweis", money(c.transfer_frei()), money(c.gehalt_frei())), l.x + 14.0, y, 13.0, l.w - 28.0, Theme::gedaempft()) + 10.0;
+    if ui.button_gold(Rect::new(l.x + 14.0, y, l.w - 28.0, 44.0), t("ui.auftrag.starten")) {
+        let art = [crate::auftraege::SUCHE, crate::auftraege::GEBIET, crate::auftraege::NACHFOLGER][fm.art];
+        let x = crate::auftraege::Auftrag { art, scout: scout_name.clone(), gruppe: if fm.art == 0 { GRUPPEN[fm.gruppe].to_string() } else { String::new() }, alter_min: fm.alter.0, alter_max: fm.alter.1,
+            liga: Some(lg), spieler: if fm.art == 2 { sq.get(fm.spieler % sq.len().max(1)).copied() } else { None }, knapp: fm.knapp, ..Default::default() };
+        let tage = if fm.lang || art == crate::auftraege::GEBIET { 28 } else { 14 };
+        match c.auftrag_anlegen(x, tage) { Ok(m) => v.toast(&m, true), Err(e) => v.toast(&e, false) }
+    }
+    FORM.with(|f| *f.borrow_mut() = fm);
+    // right: the assignments, newest first
+    let r = Rect::new(l.x + l.w + 12.0, Y0, cbreite() - l.w - 12.0, hoehe() - Y0 - 16.0);
+    ui.card_titled(r, &crate::tf!("ui.auftrag.liste", c.auftraege_laufend(), c.auftraege_max()), Theme::verein());
+    if c.auftraege.is_empty() { ui.paragraph(t("ui.auftrag.leer"), r.x + 14.0, r.y + 60.0, 15.0, r.w - 28.0, Theme::text2()); return; }
+    let abs = c.abs();
+    let mut y = r.y + 52.0;
+    let mut klick = None;
+    for x in c.auftraege.iter().rev() {
+        if y > r.y + r.h - 60.0 { break; }
+        let titel = match x.art {
+            crate::auftraege::SUCHE => format!("{} · {}", t(&format!("ui.auftrag.gruppe.{}", if x.gruppe.is_empty() { crate::id("st") } else { &x.gruppe })), x.liga.map(|l| c.world.leagues[l].name.clone()).unwrap_or_default()),
+            crate::auftraege::GEBIET => x.liga.map(|l| c.world.leagues[l].name.clone()).unwrap_or_default(),
+            _ => x.spieler.map(|p| c.world.players[p].name.clone()).unwrap_or_default(),
+        };
+        rrect(r.x + 10.0, y, r.w - 20.0, 30.0, 6.0, Theme::erhoehung());
+        ui.text_semi(&format!("{} · {}", t(&format!("ui.auftrag.art.{}", crate::auftraege::ARTEN[x.art as usize])), titel), r.x + 20.0, y + 20.0, 14.0, Theme::text());
+        let stand = if x.fertig { t("ui.auftrag.fertig").to_string() } else { crate::tf!("ui.auftrag.noch_tage", x.ende.saturating_sub(abs), x.scout.clone()) };
+        ui.text_right(&stand, r.x + r.w - 20.0, y + 20.0, 13.0, Theme::text2());
+        if !x.fertig { ui.bar(r.x + 10.0, y + 28.0, r.w - 20.0, 3.0, (abs.saturating_sub(x.start)) as f32 / (x.ende - x.start).max(1) as f32, Theme::akzent()); }
+        y += 40.0;
+        let mut vs = x.vorschlaege.clone();
+        vs.sort_by(|a, b| b.1.partial_cmp(&a.1).unwrap());
+        for &(p, _) in vs.iter() {
+            if y > r.y + r.h - 30.0 { break; }
+            let b = c.scout_urteil(p);
+            let pl = &c.world.players[p];
+            let rr = Rect::new(r.x + 14.0, y - 4.0, r.w - 28.0, 26.0);
+            if ui.hover(rr) { rrect(rr.x, rr.y, rr.w, rr.h, 4.0, Theme::ueberlagerung()); }
+            draw_circle(r.x + 26.0, y + 9.0, 6.0, urteil_farbe(b.urteil));
+            let club = if pl.team >= 0 { c.world.clubs[pl.team as usize].short.clone() } else { String::new() };
+            ui.text(&ui.fit(&format!("{} · {} · {} {}", pl.name, pos_de(&pl.pos), pl.age, club), 14.0, r.w * 0.5), r.x + 40.0, y + 14.0, 14.0, Theme::text());
+            ui.text(t(&format!("ui.sb.urteil.{}", b.urteil)), r.x + r.w * 0.56, y + 14.0, 13.0, urteil_farbe(b.urteil));
+            let (lo, hi) = c.ovr_range(p);
+            ui.text_right(&format!("{lo:.0}–{hi:.0} · {}", money(c.ask_price(p))), r.x + r.w - 20.0, y + 14.0, 13.0, Theme::text2());
+            if ui.hit(rr) { klick = Some(p); }
+            y += 26.0;
+        }
+        if vs.is_empty() && !x.fertig && matches!(x.art, crate::auftraege::SUCHE | crate::auftraege::NACHFOLGER) { ui.text(&crate::tf!("ui.auftrag.im_blick", x.im_blick.len()), r.x + 20.0, y + 10.0, 13.0, Theme::gedaempft()); y += 24.0; }
+        y += 8.0;
+    }
+    if let Some(p) = klick { v.modal = Modal::Player(p); }
 }
 
 // ================================================================ Verhandlungen
@@ -2122,8 +2385,12 @@ fn verhandlungen(ui: &mut Ui, v: &mut View, c: &mut Career) {
 
 pub fn neg_modal(ui: &mut Ui, v: &mut View, c: &mut Career, i: usize) {
     if i >= c.negs.len() { v.modal = Modal::None; return; }
-    let r = Rect::new(breite() / 2.0 - 330.0, 60.0, 660.0, 724.0);
-    rrect(r.x, r.y, r.w, r.h, 10.0, Theme::ueberlagerung());
+    // the talk as a chat on the left (Fabian 23.11.), the offer on the right
+    c.neg_verlauf_pflegen(i);
+    let ganz = Rect::new(breite() / 2.0 - 570.0, 60.0, 1140.0, 724.0);
+    rrect(ganz.x, ganz.y, ganz.w, ganz.h, 10.0, Theme::ueberlagerung());
+    neg_chat(ui, v, c, i, Rect::new(ganz.x + 12.0, ganz.y + 12.0, 456.0, ganz.h - 24.0));
+    let r = Rect::new(ganz.x + 480.0, ganz.y, 660.0, ganz.h);
     let n = c.negs[i].clone();
     let pl = c.world.players[n.pid].clone();
     ui.title(&crate::tf!("vhd.titel.buy", pl.name), r.x + 24.0, r.y + 44.0, 28.0, Theme::text());
@@ -2206,7 +2473,9 @@ pub fn neg_modal(ui: &mut Ui, v: &mut View, c: &mut Career, i: usize) {
             ui.text(t("ui.argument.titel"), r.x + 24.0, ky + 128.0, 14.0, Theme::text2());
             let namen: Vec<&str> = (0..7).map(|k| t(&format!("ui.argument.{k}"))).collect();
             if let Some(k) = ui.segment(Rect::new(r.x + 150.0, ky + 108.0, 486.0, 28.0), &namen, n.argument as usize) { c.negs[i].argument = k as u8; }
-            if !n.gefragt && ui.button(Rect::new(r.x + 24.0, ky + 142.0, 260.0, 26.0), t("ui.argument.frage"), false) { match c.neg_frage(i) { Ok(x) => v.toast(&x, true), Err(e) => v.toast(&e, false) } }
+            if !n.gefragt && ui.button(Rect::new(r.x + 24.0, ky + 142.0, 260.0, 26.0), t("ui.argument.frage"), false) {
+                match c.neg_frage(i) { Ok(x) => { c.negs[i].verlauf.push((0, t("ui.chat.frage").to_string())); c.negs[i].verlauf.push((1, x)); v.neg_tipp = get_time(); } Err(e) => v.toast(&e, false) }
+            }
             if !n.renew && ui.button(Rect::new(r.x + 296.0, ky + 142.0, 340.0, 26.0), t(if n.tausch { "ui.argument.tausch_an" } else { "ui.argument.tausch" }), n.tausch) { c.negs[i].tausch = !n.tausch; }
         } else if n.verkauf {
             let mut w = n.kl;
@@ -2225,9 +2494,48 @@ pub fn neg_modal(ui: &mut Ui, v: &mut View, c: &mut Career, i: usize) {
         }
     }
     let by = r.y + r.h - 64.0;
-    if editable && ui.button_gold(Rect::new(r.x + 24.0, by, 280.0, 44.0), crate::inhalt::t("ui.pages.angebot_abschicken")) { c.submit_neg(i); ui.play(crate::id("bestaetigt")); v.toast(crate::inhalt::t("ui.pages.angebot_abgeschickt"), true); }
+    let tippt = get_time() - v.neg_tipp < NEG_TIPP_S;
+    if editable && !tippt && ui.button_gold(Rect::new(r.x + 24.0, by, 280.0, 44.0), crate::inhalt::t("ui.pages.angebot_abschicken")) { c.submit_neg(i); v.neg_tipp = get_time(); ui.play(crate::id("bestaetigt")); }
     if n.stage < 2 && ui.button(Rect::new(r.x + 316.0, by, 150.0, 44.0), crate::inhalt::t("fenster.pk.unterbrechen"), false) { c.negs[i].stage = 2; c.negs[i].state = NegState::Rejected; c.negs[i].text = crate::inhalt::t("ui.pages.du_hast_die_gespraeche_beendet").into(); }
     if ui.button(Rect::new(r.x + r.w - 160.0, by, 136.0, 44.0), crate::inhalt::t("aktion.schliessen"), false) || is_key_pressed(KeyCode::Escape) { v.modal = Modal::None; }
+}
+
+/// How long the other side "types" before its answer shows (seconds).
+const NEG_TIPP_S: f64 = 1.6;
+/// The chat of a negotiation: our offers on the right in the club colour, the other side on the left with its face,
+/// the newest at the bottom; while they "type", three dots instead of their answer.
+fn neg_chat(ui: &mut Ui, v: &mut View, c: &Career, i: usize, r: Rect) {
+    let n = &c.negs[i];
+    rrect(r.x, r.y, r.w, r.h, 10.0, Theme::flaeche());
+    let pl = &c.world.players[n.pid];
+    let gegen = if n.verkauf { c.world.clubs[n.kaeufer].name.clone() } else if n.stage == 0 && pl.team >= 0 { c.world.clubs[pl.team as usize].name.clone() } else { c.berater_name(n.pid) };
+    ui.text_semi(&ui.fit(&gegen, 18.0, r.w - 80.0), r.x + 58.0, r.y + 30.0, 18.0, Theme::text());
+    ui.player_photo(r.x + 30.0, r.y + 24.0, 16.0, pl.id, &pl.name);
+    let tippt = get_time() - v.neg_tipp < NEG_TIPP_S;
+    ui.text(if tippt { crate::inhalt::t("ui.chat.tippt") } else { crate::inhalt::t("ui.chat.online") }, r.x + 58.0, r.y + 48.0, 13.0, if tippt { Theme::akzent() } else { Theme::gut() });
+    draw_rectangle(r.x + 10.0, r.y + 60.0, r.w - 20.0, 1.0, Theme::kontur());
+    // lay out from the bottom: the newest above the input line
+    let mut zeilen: Vec<(u8, String)> = n.verlauf.clone();
+    if tippt { if let Some(pos) = zeilen.iter().rposition(|x| x.0 == 1) { if pos + 1 == zeilen.len() { zeilen.pop(); } } }
+    let bw = r.w * 0.78;
+    let mut y = r.y + r.h - 16.0;
+    if tippt {
+        let br = Rect::new(r.x + 14.0, y - 40.0, 70.0, 34.0);
+        rrect(br.x, br.y, br.w, br.h, 14.0, Theme::erhoehung());
+        for k in 0..3 { let hop = ((get_time() * 6.0 - k as f64).sin().max(0.0) * 4.0) as f32; draw_circle(br.x + 20.0 + k as f32 * 15.0, br.y + 18.0 - hop, 4.0, Theme::text2()); }
+        y -= 48.0;
+    }
+    for (wer, txt) in zeilen.iter().rev() {
+        let z = ui.wrap(txt, 15.0, bw - 24.0);
+        let h = 16.0 + z.len() as f32 * 20.0;
+        if y - h < r.y + 66.0 { break; }
+        let x = if *wer == 0 { r.x + r.w - 14.0 - bw } else { r.x + 14.0 };
+        let (bg, fg) = match wer { 0 => (Theme::verein(), Theme::verein_auf()), 1 => (Theme::erhoehung(), Theme::text()), _ => (alpha(Theme::gold(), 0.2), Theme::text()) };
+        rrect(x, y - h, bw, h, 14.0, bg);
+        let mut ty = y - h + 22.0;
+        for l in &z { ui.text(l, x + 12.0, ty, 15.0, fg); ty += 20.0; }
+        y -= h + 10.0;
+    }
 }
 
 // ================================================================ Verträge
@@ -2271,7 +2579,9 @@ fn vertraege(ui: &mut Ui, v: &mut View, c: &mut Career) {
 
 // ================================================================ Scouting
 fn scouting(ui: &mut Ui, v: &mut View, c: &mut Career) {
-    tabs(ui, v, &[crate::inhalt::t("ui.pages.scouts_und_auftraege"), crate::inhalt::t("menu.scout_verwaltung.reiter.1"), crate::inhalt::t("as.reiter.berichte")]);
+    tabs(ui, v, &[crate::inhalt::t("ui.pages.scouts_und_auftraege"), crate::inhalt::t("menu.scout_verwaltung.reiter.1"), crate::inhalt::t("as.reiter.berichte"), crate::inhalt::t("ui.auftrag.reiter"), crate::inhalt::t("ui.analyst.reiter")]);
+    if v.tab == 3 { auftraege_seite(ui, v, c); return; }
+    if v.tab == 4 { analyst_seite(ui, v, c); return; }
     if v.tab == 0 {
         let mut y = Y0;
         let abs = c.abs();
@@ -2306,6 +2616,15 @@ fn scouting(ui: &mut Ui, v: &mut View, c: &mut Career) {
             let w = sc.watch.map(|p| crate::tf!("ui.pages.beobachtet", c.world.players[p].name, format!("{:.0}", c.world.players[p].know * 100.0))).unwrap_or(crate::inhalt::t("ui.pages.beobachtet_niemanden_im_transfermarkt_wa").into());
             ui.text(&ui.fit(&w, 15.0, 300.0), r.x + r.w - 330.0, r.y + 58.0, 15.0, Theme::text2());
             if ui.button(Rect::new(r.x + r.w - 140.0, r.y + 102.0, 124.0, 32.0), crate::inhalt::t("aka.entlassen.ja"), false) { c.scout_entlassen(s); v.toast(crate::inhalt::t("ui.pages.scout_entlassen"), true); break; }
+            // Konzept Scouting 3.1/5.2: one scout can work as data analyst (from club level 3), he travels no more
+            if c.analyst_erlaubt() {
+                let ist = c.scouts[s].p.as_ref().map_or(false, |p| p.aufgabe == 2);
+                let frei = c.analyst().map_or(true, |a| a == s);
+                if frei && ui.button(Rect::new(r.x + r.w - 330.0, r.y + 102.0, 180.0, 32.0), crate::inhalt::t(if ist { "ui.analyst.ist" } else { "ui.analyst.machen" }), ist) {
+                    c.person(s).aufgabe = if ist { 0 } else { 2 };
+                    v.toast(crate::inhalt::t(if ist { "ui.analyst.zurueck" } else { "ui.analyst.ok" }), true);
+                }
+            }
             y += 160.0;
             if y > hoehe() - 170.0 { break; }
         }
@@ -2417,6 +2736,11 @@ fn akademie_uebersicht(ui: &mut Ui, v: &mut View, c: &mut Career) {
         y += 34.0;
     }
     if let Some(b) = j.bekannt { ui.text(&crate::tf!("ui.jugend.bekannt", b), l.x + 16.0, y + 6.0, 13.0, Theme::gedaempft()); }
+    // the scouting tournament, once a season
+    let schon = c.sichtung_saison == c.world.season + 1;
+    if ui.button(Rect::new(l.x + l.w - 250.0, l.y + 12.0, 234.0, 32.0), crate::inhalt::t(if schon { "ui.jugend.sichtung.erledigt" } else { "ui.jugend.sichtung.knopf" }), !schon) && !schon {
+        match c.sichtungsturnier() { Ok(t) => v.toast(&t, true), Err(e) => v.toast(&e, false) }
+    }
     // right: training guests and who is ready for the first team
     let r = Rect::new(X0 + lw + 16.0, Y0, cbreite() - lw - 12.0, hoehe() - Y0 - 16.0);
     ui.card(r);
@@ -2508,6 +2832,35 @@ fn zone_farbe(z: u8) -> Color {
     match z { 0 => hex(0x1E6BFF), 1 => hex(0xF28C28), 2 => hex(0x2EB872), 3 => hex(0x18A058), 4 => hex(0x7C5CFF), 5 => Theme::achtung(), _ => Theme::problem() }
 }
 
+const INTRO_DAUER: f32 = 2.6;
+/// The cut-scene before kick-off: stadium in the dark, both crests slide in, "VS", the competition, then "Anpfiff!".
+fn match_intro(ui: &mut Ui, c: &Career, mv: &MatchView, r: Rect, t: f32) {
+    let aus = if t > INTRO_DAUER - 0.4 { (INTRO_DAUER - t) / 0.4 } else { 1.0 };
+    draw_rectangle(r.x, r.y, r.w, r.h, alpha(hex(0x0b0f17), 0.94 * aus));
+    let (h, a) = (mv.res.h, mv.res.a);
+    let ein = |d: f32| { let x = ((t - d) / 0.5).clamp(0.0, 1.0); 1.0 - (1.0 - x).powi(3) };
+    let (ch, _) = club_color(c, h);
+    let (ca, _) = club_color(c, a);
+    let my = r.y + r.h * 0.42;
+    let lx = r.x + r.w * 0.27 - (1.0 - ein(0.1)) * r.w * 0.4;
+    let rx = r.x + r.w * 0.73 + (1.0 - ein(0.25)) * r.w * 0.4;
+    draw_circle(lx, my, 86.0, alpha(ch, 0.35 * aus));
+    draw_circle(rx, my, 86.0, alpha(ca, 0.35 * aus));
+    ui.club_crest(lx, my, 64.0, c.world.clubs[h].id, ch, &c.world.clubs[h].short);
+    ui.club_crest(rx, my, 64.0, c.world.clubs[a].id, ca, &c.world.clubs[a].short);
+    let wcol = alpha(hex(0xffffff), aus);
+    for (n, x) in [(&c.world.clubs[h].name, lx), (&c.world.clubs[a].name, rx)] { ui.text_center(n, x, my + 110.0, 24.0, alpha(hex(0xffffff), aus * ein(0.5))); }
+    let vs = crate::id("VS");
+    let g = 60.0 * ein(0.6);
+    if g > 1.0 { ui.title(vs, r.x + r.w / 2.0 - ui.measure_title(vs, g) / 2.0, my + g * 0.35, g, wcol); }
+    if t > 1.5 {
+        let k = ((t - 1.5) / 0.3).clamp(0.0, 1.0);
+        let anpfiff = crate::inhalt::t("gl.anpfiff");
+        let gr = 30.0 + 20.0 * k;
+        ui.title(anpfiff, r.x + r.w / 2.0 - ui.measure_title(anpfiff, gr) / 2.0, r.y + r.h * 0.82, gr, alpha(Theme::gold(), aus * k));
+    }
+}
+
 /// The own eleven on the pitch at the shown minute: starting eleven, substitutions done, red cards gone.
 fn aktuelle_elf(mv: &MatchView, side: u8) -> Vec<usize> {
     let mut elf: Vec<usize> = (if side == 0 { &mv.res.xi_h } else { &mv.res.xi_a }).iter().map(|x| x.1).collect();
@@ -2579,6 +2932,21 @@ fn live_board(ui: &mut Ui, c: &Career, mv: &MatchView, r: Rect) {
 }
 
 /// Interventions: mentality, a shout, a substitution; each draws the rest of the match again from this minute (world.rs rest_neu).
+/// A player's grade as it stands at `minute`: the events so far count at once, the rest of the final grade grows with the
+/// clock, so at the final whistle it is the match grade.
+pub fn live_note(res: &MatchResult, p: usize, minute: f32) -> f32 {
+    let Some(&(_, ende)) = res.ratings.iter().find(|x| x.0 == p) else { return 6.0 };
+    let wert = |e: &MatchEvent| -> f32 { match e.kind { 0 if e.pid == p => 0.9, 0 if e.pid2 == Some(p) => 0.5, 1 if e.pid == p => -1.2, 2 if e.pid == p => -0.2, 3 if e.pid == p => -1.4, _ => 0.0 } };
+    let bisher: f32 = res.events.iter().filter(|e| e.min as f32 <= minute).map(wert).sum();
+    let alle: f32 = res.events.iter().map(wert).sum();
+    let anteil = (minute / 90.0).clamp(0.0, 1.0);
+    (6.3 + bisher + (ende - 6.3 - alle) * anteil).clamp(3.0, 10.0)
+}
+/// Stamina in the match: fitness at kick-off minus what his minutes on the pitch so far have cost.
+pub fn live_kraft(res: &MatchResult, side: u8, p: usize, minute: f32, fit: f32) -> f32 {
+    let rein = res.events.iter().find(|e| e.side == side && e.kind == 5 && e.pid2 == Some(p) && e.min as f32 <= minute).map_or(0.0, |e| e.min as f32);
+    (fit - crate::world::FATIGUE_PER_MATCH * 1.4 * (minute.min(90.0) - rein).max(0.0) / 90.0).clamp(0.0, 100.0)
+}
 fn eingriffe(ui: &mut Ui, v: &mut View, c: &mut Career, mv: &mut MatchView, r: Rect) {
     let side = if mv.res.h == c.own { 0u8 } else if mv.res.a == c.own { 1 } else { return };
     let m = mv.minute.floor() as u8;
@@ -2620,7 +2988,12 @@ fn eingriffe(ui: &mut Ui, v: &mut View, c: &mut Career, mv: &mut MatchView, r: R
         let sel = mv.eingriff.raus == Some(p);
         if sel { rrect(rr.x, rr.y, rr.w, rr.h, 4.0, alpha(Theme::problem(), 0.2)); } else if ui.hover(rr) { rrect(rr.x, rr.y, rr.w, rr.h, 4.0, Theme::ueberlagerung()); }
         let pl = &c.world.players[p];
-        ui.text(&ui.fit(&format!("{} {}", pos_de(&pl.pos), pl.name), 12.0, spw - 8.0), rr.x + 4.0, rr.y + zh * 0.7, 12.0, Theme::text());
+        // live grade and stamina so a substitution can be judged (Fabian 23.11.)
+        let (note, kraft) = (live_note(&mv.res, p, mv.minute), live_kraft(&mv.res, side, p, mv.minute, pl.fit));
+        let rechts = 64.0;
+        ui.text(&ui.fit(&format!("{} {}", pos_de(&pl.pos), pl.name), 12.0, spw - rechts - 8.0), rr.x + 4.0, rr.y + zh * 0.7, 12.0, Theme::text());
+        ui.text_right(&format!("{note:.1}"), rr.x + spw - 36.0, rr.y + zh * 0.7, 12.0, Theme::note(note));
+        ui.text_right(&format!("{kraft:.0}%"), rr.x + spw - 4.0, rr.y + zh * 0.7, 11.0, if kraft < 60.0 { Theme::problem() } else if kraft < 75.0 { Theme::achtung() } else { Theme::text2() });
         if ui.hit(rr) { mv.eingriff.raus = if sel { None } else { Some(p) }; }
     }
     let mut bank_s = bank.clone();
@@ -2630,7 +3003,8 @@ fn eingriffe(ui: &mut Ui, v: &mut View, c: &mut Career, mv: &mut MatchView, r: R
         let aktiv = mv.eingriff.raus.is_some() && wechsel < 5;
         if aktiv && ui.hover(rr) { rrect(rr.x, rr.y, rr.w, rr.h, 4.0, alpha(Theme::gut(), 0.2)); }
         let pl = &c.world.players[p];
-        ui.text(&ui.fit(&format!("{} {} {:.0}", pos_de(&pl.pos), pl.name, pl.ovr), 12.0, spw - 8.0), rr.x + 4.0, rr.y + zh * 0.7, 12.0, if aktiv { Theme::text() } else { Theme::text2() });
+        ui.text(&ui.fit(&format!("{} {}", pos_de(&pl.pos), pl.name), 12.0, spw - 72.0), rr.x + 4.0, rr.y + zh * 0.7, 12.0, if aktiv { Theme::text() } else { Theme::text2() });
+        ui.text_right(&format!("{:.0} · {:.0}%", pl.ovr, pl.fit), rr.x + spw - 4.0, rr.y + zh * 0.7, 11.0, Theme::text2());
         if aktiv && ui.hit(rr) {
             let raus = mv.eingriff.raus.take().unwrap();
             mv.res.events.push(MatchEvent { min: m.max(1), side, kind: 5, pid: raus, pid2: Some(p) });
@@ -2734,14 +3108,15 @@ fn tabellen(ui: &mut Ui, v: &mut View, c: &mut Career) {
     let rx = x + tw * 0.64 + 12.0;
     let rw = tw * 0.36 - 12.0;
     let hoch = hoehe() - Y0 - 22.0;
-    let spieler: Vec<usize> = lg.teams.iter().flat_map(|&t| c.world.clubs[t].squad.iter().copied()).filter(|&p| c.world.players[p].youth == 0).collect();
+    // only goals and assists of this league (Fabian 23.11.)
+    let spieler: Vec<usize> = (0..c.world.players.len()).filter(|&p| c.world.players[p].profil.ligen.iter().any(|x| x.l as usize == l)).collect();
     let r1 = Rect::new(rx, Y0 + 6.0, rw, hoch * 0.42);
     ui.card_titled(r1, crate::inhalt::t("statistik.torjaeger_hinweis"), lk.c1);
     let halb = (r1.w - 36.0) / 2.0;
     for (seite, titel) in [crate::inhalt::t("ui.liga.tore"), crate::inhalt::t("ui.liga.scorer")].iter().enumerate() {
         let sx = r1.x + 14.0 + seite as f32 * (halb + 8.0);
         ui.text_semi(&titel.to_uppercase(), sx, r1.y + 56.0, 12.0, Theme::gedaempft());
-        let wert = |p: usize| { let pl = &c.world.players[p]; if seite == 0 { pl.goals as u32 } else { (pl.goals + pl.assists) as u32 } };
+        let wert = |p: usize| { let x = c.world.players[p].in_liga(l); if seite == 0 { x.goals as u32 } else { (x.goals + x.assists) as u32 } };
         let mut l2: Vec<usize> = spieler.iter().copied().filter(|&p| wert(p) > 0).collect();
         l2.sort_by_key(|&p| std::cmp::Reverse(wert(p)));
         if l2.is_empty() { ui.text(crate::inhalt::t("statistik.keine_tore"), sx, r1.y + 80.0, 13.0, Theme::text2()); }
@@ -2974,23 +3349,135 @@ fn presse(ui: &mut Ui, v: &mut View, c: &mut Career) {
         if ui.button(Rect::new(r.x + r.w - 200.0, r.y + 12.0, 184.0, 36.0), crate::inhalt::t("ui.pages.zur_konferenz"), true) { v.tab = 1; ui.play(crate::id("pressefrage")); }
     }
     let y0 = if c.press.is_some() { Y0 + 72.0 } else { Y0 };
-    let cols = 3;
-    let cw = (cbreite() - 24.0) / 3.0;
-    let ch = 170.0;
-    let rows = ((hoehe() - y0 - 16.0) / (ch + 12.0)) as usize;
-    let area = Rect::new(X0, y0, cbreite(), hoehe() - y0);
-    let start = scroll_rows(ui, v, area, (c.feed.len() + cols - 1) / cols, rows) * cols;
-    if c.feed.is_empty() { ui.text(crate::inhalt::t("md.ui.leer.schlagzeilen"), X0 + 10.0, y0 + 30.0, 18.0, Theme::text2()); }
-    for (k, n) in c.feed.iter().skip(start).take(rows * cols).enumerate() {
-        let r = Rect::new(X0 + 4.0 + (k % cols) as f32 * (cw + 12.0), y0 + (k / cols) as f32 * (ch + 12.0), cw, ch);
-        rrect(r.x, r.y, r.w, r.h, 6.0, hex(0xE9E4D8));
-        ui.title(&n.paper.to_uppercase(), r.x + 14.0, r.y + 26.0, 18.0, hex(0x1A1A1A));
-        ui.text_right(&date::short(n.season, n.day), r.x + r.w - 12.0, r.y + 24.0, 13.0, hex(0x555555));
-        draw_rectangle(r.x + 12.0, r.y + 34.0, r.w - 24.0, 2.0, hex(0x1A1A1A));
-        let mut y = r.y + 60.0;
-        for l in ui.wrap(&n.head, 20.0, r.w - 28.0).into_iter().take(2) { ui.text_semi(&l, r.x + 14.0, y, 20.0, hex(0x111111)); y += 22.0; }
-        for l in ui.wrap(&n.text, 14.0, r.w - 28.0).into_iter().take(4) { ui.text(&l, r.x + 14.0, y + 4.0, 14.0, hex(0x333333)); y += 18.0; }
+    webblog(ui, v, c, y0);
+}
+
+/// One outlet of the blog: (name, layout type, background, text, accent). `id` is "layout|name" (media pool) or an
+/// old id of medien.toml [[webblog]]; each name gets its own house colour within the layout's palette.
+fn medium_stil(id: &str) -> (String, String, Color, Color, Color) {
+    if let Some((layout, name)) = id.split_once('|') {
+        let h = name.bytes().fold(7u32, |a, b| a.wrapping_mul(31).wrapping_add(b as u32));
+        let wahl = |v: &[u32]| hex(v[h as usize % v.len()]);
+        let (g, f, a) = match layout {
+            "datenportal" => (wahl(&[0x1a3151, 0x0b3d2e, 0x2b2d42, 0x14213d]), hex(0xffffff), wahl(&[0x5cc1e8, 0x3ddc97, 0xffb703])),
+            "boulevard" => (wahl(&[0xe30613, 0xc1121f, 0xd00000]), hex(0xffffff), hex(0xffe600)),
+            "tabloid_en" => (wahl(&[0xe4021b, 0x1d3557, 0xb5179e]), hex(0xffffff), hex(0x111111)),
+            "tv" => (hex(0x111318), hex(0xffffff), wahl(&[0xe63946, 0x00b4d8, 0xffb703, 0x7bd389])),
+            "podcast" => (wahl(&[0x5b2a86, 0x264653, 0x6a040f, 0x3a0ca3]), hex(0xffffff), hex(0xffd166)),
+            "lokal" => (hex(0xf4efe3), hex(0x2b2118), wahl(&[0x8a5a2b, 0x2f5d50, 0x7a2e2e])),
+            "verein" => (Theme::verein(), Theme::verein_auf(), Theme::gold()),
+            "analyse" => (hex(0xfaf7f0), hex(0x121212), wahl(&[0xe8622c, 0x2a9d8f, 0x6d597a])),
+            "serioes" | "serioes_en" => (wahl(&[0x052962, 0x1b263b, 0x283618, 0x3d405b]), hex(0xffffff), wahl(&[0xffe500, 0xe9c46a, 0xa8dadc])),
+            _ => (hex(0xffffff), hex(0x111111), wahl(&[0xd0021b, 0x0077b6, 0x2a9d8f])),
+        };
+        let layout = if layout == "serioes" { "serioes_en" } else { layout };
+        return (name.to_string(), layout.to_string(), g, f, a);
     }
+    let m = crate::regeln::wert("medien", "webblog").as_array().and_then(|a| a.iter().find(|m| m["id"] == id)).cloned().unwrap_or_default();
+    let f = |i: usize| hex(m["farben"].get(i).and_then(|x| x.as_u64()).unwrap_or(0x888888) as u32);
+    (m["name"].as_str().unwrap_or(id).to_string(), m["typ"].as_str().unwrap_or(crate::id("fachmagazin")).to_string(), f(0), f(1), f(2))
+}
+
+/// One article card in the style of its outlet: data portal, sports magazine, tabloid, long read, English papers.
+fn artikel_karte(ui: &mut Ui, r: Rect, n: &News, medium: &str, gross: bool) {
+    let (name, typ, grund, schrift, akzent) = medium_stil(medium);
+    let kopf = if gross { 34.0 } else { 24.0 };
+    let hs = if gross { 30.0 } else { 19.0 };
+    let datum = date::short(n.season, n.day);
+    let (bg, fg, sub) = match typ.as_str() { "boulevard" | "tv" | "podcast" | "verein" => (grund, schrift, alpha(schrift, 0.8)), "datenportal" => (hex(0xf3f5f8), hex(0x1a1f2b), hex(0x55607a)), "analyse" | "lokal" => (grund, schrift, alpha(schrift, 0.7)), _ => (hex(0xffffff), hex(0x141414), hex(0x555555)) };
+    rrect(r.x, r.y, r.w, r.h, 8.0, bg);
+    if ui.hover(r) { rrect_line(r.x, r.y, r.w, r.h, 8.0, akzent); }
+    let mut y = r.y;
+    match typ.as_str() {
+        // a data portal: a navy bar with the wordmark, the facts first
+        "datenportal" => { rrect(r.x, r.y, r.w, kopf, 8.0, grund); draw_rectangle(r.x, r.y + kopf - 8.0, r.w, 8.0, grund); ui.text_semi(&name, r.x + 12.0, r.y + kopf * 0.68, kopf * 0.55, schrift); draw_rectangle(r.x, r.y + kopf, r.w, 3.0, akzent); y += kopf + 8.0; }
+        // the tabloid: the wordmark in a box, the headline shouts in capitals
+        "boulevard" => { let w = ui.measure_title(&name, kopf * 0.8) + 16.0; draw_rectangle(r.x + 12.0, r.y + 10.0, w, kopf, schrift); ui.title(&name, r.x + 20.0, r.y + 10.0 + kopf * 0.82, kopf * 0.8, grund); y += kopf + 16.0; }
+        // the English tabloid: a red masthead
+        "tabloid_en" => { rrect(r.x, r.y, r.w, kopf, 8.0, grund); draw_rectangle(r.x, r.y + kopf - 8.0, r.w, 8.0, grund); ui.title(&name, r.x + 12.0, r.y + kopf * 0.8, kopf * 0.75, schrift); y += kopf + 8.0; }
+        // the serious English paper: navy head, yellow line
+        "serioes_en" => { rrect(r.x, r.y, r.w, kopf, 8.0, grund); draw_rectangle(r.x, r.y + kopf - 8.0, r.w, 8.0, grund); ui.text_semi(&name, r.x + 12.0, r.y + kopf * 0.7, kopf * 0.6, schrift); draw_rectangle(r.x, r.y + kopf, r.w, 3.0, akzent); y += kopf + 8.0; }
+        // TV: dark, a red live dot before the channel
+        "tv" => { let puls = 0.6 + 0.4 * (get_time() as f32 * 3.0).sin().abs(); draw_circle(r.x + 20.0, r.y + 20.0, 6.0, alpha(akzent, puls)); ui.text_semi(&name, r.x + 34.0, r.y + 26.0, 16.0, schrift); ui.text_semi(crate::inhalt::t("ui.blog.tv"), r.x + r.w - 14.0 - ui.measure_semi(crate::inhalt::t("ui.blog.tv"), 12.0), r.y + 25.0, 12.0, akzent); y += 40.0; }
+        // podcast and fan blog: a round "mic" badge
+        "podcast" => { draw_circle(r.x + 24.0, r.y + 24.0, 12.0, akzent); draw_rectangle(r.x + 21.0, r.y + 16.0, 6.0, 11.0, grund); draw_rectangle(r.x + 23.0, r.y + 27.0, 2.0, 5.0, grund); ui.text_semi(&name, r.x + 44.0, r.y + 30.0, 16.0, schrift); y += 44.0; }
+        // the local paper: old-fashioned masthead with a rule
+        "lokal" => { ui.title(&name, r.x + 14.0, r.y + 30.0, 20.0, akzent); ui.text(crate::inhalt::t("ui.blog.lokales"), r.x + r.w - 14.0 - ui.measure(crate::inhalt::t("ui.blog.lokales"), 12.0), r.y + 26.0, 12.0, akzent); draw_rectangle(r.x + 14.0, r.y + 36.0, r.w - 28.0, 2.0, akzent); y += 44.0; }
+        // the club's own channel: club colours
+        "verein" => { ui.title(&name, r.x + 14.0, r.y + 30.0, 20.0, akzent); y += 40.0; }
+        // the long read: quiet, a small orange "Analyse"
+        "analyse" => { ui.text_semi(&name, r.x + 14.0, r.y + 24.0, 16.0, schrift); ui.text_semi(crate::inhalt::t("ui.blog.analyse"), r.x + r.w - 14.0 - ui.measure_semi(crate::inhalt::t("ui.blog.analyse"), 12.0), r.y + 22.0, 12.0, akzent); draw_rectangle(r.x + 14.0, r.y + 32.0, r.w - 28.0, 1.0, hex(0xcccccc)); y += 40.0; }
+        // the sports magazine: a red line on top, the wordmark in red
+        _ => { draw_rectangle(r.x + 6.0, r.y, r.w - 12.0, 4.0, akzent); ui.title(&name, r.x + 14.0, r.y + 30.0, 22.0, akzent); y += 38.0; }
+    }
+    let kopfzeile = if typ == "boulevard" || typ == "tabloid_en" { n.head.to_uppercase() } else { n.head.clone() };
+    let hfarbe = if typ == "tabloid_en" { hex(0x111111) } else { fg };
+    if typ == "tabloid_en" { draw_rectangle(r.x, y - 4.0, r.w, r.h - (y - 4.0 - r.y), hex(0xffffff)); }
+    let max_z = if gross { 3 } else { 2 };
+    for l in ui.wrap(&kopfzeile, hs, r.w - 28.0).into_iter().take(max_z) {
+        if typ == "boulevard" { draw_rectangle(r.x + 12.0, y + hs + 2.0, ui.measure_title(&l, hs) + 6.0, 3.0, akzent); }
+        if typ == "boulevard" || typ == "tabloid_en" || typ == "fachmagazin" { ui.title(&l, r.x + 14.0, y + hs, hs, hfarbe); } else { ui.text_semi(&l, r.x + 14.0, y + hs, hs, hfarbe); }
+        y += hs + 6.0;
+    }
+    let tz = if gross { 4 } else { 2 };
+    let tfarbe = if typ == "tabloid_en" { hex(0x333333) } else { sub };
+    for l in ui.wrap(&n.text, 14.0, r.w - 28.0).into_iter().take(tz) { ui.text(&l, r.x + 14.0, y + 16.0, 14.0, tfarbe); y += 19.0; }
+    ui.text(&datum, r.x + 14.0, r.y + r.h - 10.0, 12.0, tfarbe);
+}
+
+/// The media page as a web blog (Fabian 23.11.): filters, a lead story, the cards of the outlets, and a sidebar with
+/// the most read, the rumour mill and the next press conference. Only what concerns us (nachricht_relevant).
+fn webblog(ui: &mut Ui, v: &mut View, c: &mut Career, y0: f32) {
+    let alle = c.feed.clone();
+    let mut liste: Vec<(News, String)> = vec![];
+    for n in alle { if c.nachricht_relevant(&n.head) { let m = if n.medium.is_empty() { c.medium_fuer(&n.head, &n.text).to_string() } else { n.medium.clone() }; liste.push((n, m)); } }
+    let filter = [crate::id("alle"), crate::id("transfer"), crate::id("eigen"), crate::id("liga")];
+    let fl: Vec<&str> = filter.iter().map(|f| crate::inhalt::t(&format!("ui.blog.filter.{f}"))).collect();
+    if let Some(k) = ui.segment(Rect::new(X0 + 4.0, y0, 520.0, 32.0), &fl, v.blog_filter as usize) { v.blog_filter = k as u8; v.scrolls.clear(); }
+    let own = c.club().name.clone();
+    let liga: Vec<String> = c.world.leagues[c.league()].teams.iter().map(|&t| c.world.clubs[t].name.clone()).collect();
+    liste.retain(|(n, m)| match v.blog_filter { 1 => matches!(m.as_str(), "transfermarkt" | "bild" | "sun") || m.starts_with("datenportal|") || m.starts_with("boulevard|") || m.starts_with("tabloid_en|") || n.head.contains("Gerücht"), 2 => n.head.contains(&own) || n.text.contains(&own), 3 => liga.iter().any(|l| n.head.contains(l.as_str())), _ => true });
+    let y = y0 + 44.0;
+    let hw = cbreite() * 0.66;
+    let sw = cbreite() - hw - 14.0;
+    if liste.is_empty() { ui.text(crate::inhalt::t("md.ui.leer.schlagzeilen"), X0 + 10.0, y + 30.0, 18.0, Theme::text2()); }
+    // the lead story, then two columns of cards
+    let mut yy = y;
+    let area = Rect::new(X0 + 4.0, y, hw, hoehe() - y - 16.0);
+    let zeilen = ((area.h - 250.0) / 186.0).max(1.0) as usize;
+    let start = scroll_rows(ui, v, area, liste.len().saturating_sub(1).div_ceil(2), zeilen) * 2;
+    if let Some((n, m)) = liste.first() { if start == 0 { artikel_karte(ui, Rect::new(X0 + 4.0, yy, hw, 236.0), n, m, true); yy += 250.0; } }
+    let kw = (hw - 12.0) / 2.0;
+    for (k, (n, m)) in liste.iter().skip(1 + start).take(zeilen * 2).enumerate() {
+        artikel_karte(ui, Rect::new(X0 + 4.0 + (k % 2) as f32 * (kw + 12.0), yy + (k / 2) as f32 * 186.0, kw, 174.0), n, m, false);
+    }
+    // sidebar
+    let sx = X0 + 4.0 + hw + 14.0;
+    let r1 = Rect::new(sx, y, sw, 230.0);
+    ui.card_titled(r1, crate::inhalt::t("ui.blog.meistgelesen"), Theme::akzent());
+    let mut top: Vec<&(News, String)> = liste.iter().collect();
+    top.sort_by_key(|(n, _)| std::cmp::Reverse((n.head.contains(&own) as u8, n.day)));
+    for (k, (n, m)) in top.iter().take(5).enumerate() {
+        let ty = r1.y + 62.0 + k as f32 * 33.0;
+        ui.title(&format!("{}", k + 1), r1.x + 14.0, ty + 4.0, 22.0, Theme::akzent());
+        ui.text(&ui.fit(&n.head, 14.0, r1.w - 60.0), r1.x + 40.0, ty - 2.0, 14.0, Theme::text());
+        ui.text(&medium_stil(m).0, r1.x + 40.0, ty + 14.0, 11.0, Theme::gedaempft());
+    }
+    let r2 = Rect::new(sx, r1.y + r1.h + 12.0, sw, 220.0);
+    ui.card_titled(r2, crate::inhalt::t("ui.blog.geruechte"), Theme::gold());
+    let gw = |n: &News| ["Gerücht", "baggert", "Spur", "verhandelt", "macht Ernst"].iter().any(|w| n.head.contains(w)); // roh
+    let ger: Vec<&(News, String)> = liste.iter().filter(|(n, _)| gw(n)).take(5).collect();
+    if ger.is_empty() { ui.text(crate::inhalt::t("ui.blog.keine_geruechte"), r2.x + 14.0, r2.y + 62.0, 14.0, Theme::text2()); }
+    for (k, (n, _)) in ger.iter().enumerate() {
+        let ty = r2.y + 62.0 + k as f32 * 30.0;
+        let heiss = (n.head.len() + n.day as usize) % 5;
+        for f in 0..5 { draw_circle(r2.x + 18.0 + f as f32 * 9.0, ty - 5.0, 3.5, if f <= heiss { Theme::problem() } else { Theme::ueberlagerung() }); }
+        ui.text(&ui.fit(&n.head, 13.0, r2.w - 80.0), r2.x + 66.0, ty, 13.0, Theme::text());
+    }
+    let r3 = Rect::new(sx, r2.y + r2.h + 12.0, sw, (hoehe() - r2.y - r2.h - 40.0).max(80.0));
+    ui.card_titled(r3, crate::inhalt::t("ui.blog.pk"), Theme::akzent());
+    let pk = if c.press.is_some() { crate::inhalt::t("ui.pages.die_presse_wartet_auf_dich").to_string() } else { c.next_match().map(|f| crate::tf!("ui.blog.pk_vor", date::short(c.world.season, f.day.saturating_sub(1)))).unwrap_or_default() };
+    ui.paragraph(&pk, r3.x + 14.0, r3.y + 62.0, 14.0, r3.w - 28.0, Theme::text());
 }
 
 pub fn press_card(ui: &mut Ui, _v: &mut View, c: &mut Career, r: Rect) {
@@ -3020,8 +3507,17 @@ pub fn press_card(ui: &mut Ui, _v: &mut View, c: &mut Career, r: Rect) {
         ui.bar(zx + 110.0, y - 9.0, r.w * 0.42 - 170.0, 8.0, (*w / 100.0).clamp(0.0, 1.0), Theme::skala(40.0 + *w * 0.59));
         ui.text_right(&format!("{w:.0}"), r.x + r.w - 16.0, y, 13.0, Theme::text());
     }
+    // the press seats (Medien-Konzept 6.8): the journalists in a row, the one asking raised and ringed
+    let reihe: Vec<(String, u8, f32)> = c.me.journalisten.iter().take(7).cloned().collect();
+    for (k, (n, _, hal)) in reihe.iter().enumerate() {
+        let fragt = k == j;
+        let (sx, sy) = (r.x + 40.0 + k as f32 * 52.0, r.y + 176.0 - if fragt { 6.0 + 3.0 * (ui.time * 4.0).sin().abs() } else { 0.0 });
+        if fragt { draw_circle(sx, sy, 22.0, alpha(Theme::akzent(), 0.35)); }
+        ui.figur(sx, sy, if fragt { 18.0 } else { 15.0 }, n, crate::ui::Rolle::Presse);
+        draw_circle(sx + 12.0, sy + 12.0, 4.0, if *hal > 15.0 { Theme::gut() } else if *hal < -15.0 { Theme::problem() } else { Theme::gedaempft() });
+    }
     // the question as a speech bubble from the journalist
-    let qy = r.y + 156.0;
+    let qy = r.y + 206.0;
     let zeilen = ui.wrap(&pq.q, 19.0, r.w - 64.0);
     let qh = 22.0 + zeilen.len() as f32 * 25.0;
     rrect(r.x + 16.0, qy, r.w - 32.0, qh, 12.0, Theme::erhoehung());
@@ -3081,6 +3577,17 @@ fn optionen(ui: &mut Ui, v: &mut View, c: &mut Career) {
         let _ = std::fs::write(klang_file(), stufen[k]);
         ui.play(crate::id("bestaetigt"));
     }
+    // the UI scale (75–150 %), saved for every start
+    ui.text_semi(crate::inhalt::t("ui.skala.titel"), r.x + 340.0, r.y + 266.0, 17.0, Theme::text());
+    let stufen = [0.75f32, 0.9, 1.0, 1.15, 1.3, 1.5];
+    let namen: Vec<String> = stufen.iter().map(|s| format!("{:.0} %", s * 100.0)).collect();
+    let nr: Vec<&str> = namen.iter().map(|s| s.as_str()).collect();
+    let jetzt = stufen.iter().position(|s| (s - crate::ui::ui_skala()).abs() < 0.01).unwrap_or(2);
+    if let Some(k) = ui.segment(Rect::new(r.x + 340.0, r.y + 280.0, 400.0, 34.0), &nr, jetzt) {
+        crate::ui::ui_skala_setzen(stufen[k]);
+        let _ = std::fs::create_dir_all(save_dir());
+        let _ = std::fs::write(skala_file(), format!("{}", stufen[k]));
+    }
     ui.text_semi(crate::inhalt::t("ui.kaderregel.titel"), r.x + 16.0, r.y + 266.0, 17.0, Theme::text());
     if let Some(k) = ui.segment(Rect::new(r.x + 16.0, r.y + 280.0, 300.0, 34.0), &[crate::inhalt::t("ui.kaderregel.an"), crate::inhalt::t("ui.kaderregel.aus")], (!c.kaderregeln) as usize) { c.kaderregeln = k == 0; }
     ui.text_semi(crate::inhalt::t("ui.akzent.titel"), r.x + 760.0, r.y + 210.0, 17.0, Theme::text());
@@ -3092,6 +3599,31 @@ fn optionen(ui: &mut Ui, v: &mut View, c: &mut Career) {
             match i { 0 => c.co_lineup = !on, 1 => c.co_training = !on, _ => c.co_press = !on }
         }
         x += 232.0;
+    }
+    // phone access (konzepte/mobile-ansicht.md): switch, address, pairing code with QR, paired phones
+    {
+        let hr = Rect::new(r.x + r.w - 380.0, r.y + 266.0, 364.0, 60.0);
+        let an = crate::handy::an();
+        if ui.button(Rect::new(hr.x, hr.y + 14.0, 170.0, 34.0), crate::inhalt::t(if an { "ui.handy.an" } else { "ui.handy.aus" }), an) { crate::handy::setzen(!an); }
+        if let Some((adr, code, verbunden)) = crate::handy::info() {
+            ui.text_semi(&code, hr.x + 184.0, hr.y + 40.0, 26.0, Theme::akzent());
+            if verbunden { ui.text(crate::inhalt::t("ui.handy.verbunden"), hr.x + 290.0, hr.y + 38.0, 13.0, Theme::gut()); }
+            let url = format!("{adr}?c={code}");
+            ui.text(&crate::tf!("ui.handy.hinweis", adr.clone()), r.x + 760.0, r.y + 296.0, 12.0, Theme::text2());
+            if let Ok(q) = qrcode::QrCode::new(url.as_bytes()) {
+                let farben = q.to_colors();
+                let n = q.width();
+                let px = 3.0;
+                let (qx, qy) = (r.x + r.w - 380.0 - n as f32 * px - 30.0, r.y + 230.0);
+                draw_rectangle(qx - 6.0, qy - 6.0, n as f32 * px + 12.0, n as f32 * px + 12.0, hex(0xffffff));
+                for (i, f) in farben.iter().enumerate() { if *f == qrcode::Color::Dark { draw_rectangle(qx + (i % n) as f32 * px, qy + (i / n) as f32 * px, px, px, hex(0x000000)); } }
+            }
+        }
+        let g = crate::handy::geraete();
+        if !g.is_empty() {
+            ui.text(&crate::tf!("ui.handy.geraete", g.iter().map(|x| x.name.clone()).collect::<Vec<_>>().join(", ")), hr.x, hr.y + 4.0, 12.0, Theme::text2());
+            if ui.button(Rect::new(hr.x + 184.0 + 0.0, hr.y - 30.0, 180.0, 26.0), crate::inhalt::t("ui.handy.entfernen"), false) { crate::handy::geraete_speichern(&[]); }
+        }
     }
     let r2 = Rect::new(X0 + 4.0, Y0 + 314.0, cbreite(), hoehe() - Y0 - 330.0);
     ui.card_titled(r2, crate::inhalt::t("ui.pages.football_life_2027"), Theme::gold());
@@ -3120,7 +3652,7 @@ fn optionen(ui: &mut Ui, v: &mut View, c: &mut Career) {
     let lines = [
         crate::tf!("ui.pages.spielordner_und_welt_datenbank", ok(welt)),
         crate::tf!("ui.pages.karriere_zeile_in_sider_ini", if zeile { crate::inhalt::t("ui.wort.aktiv") } else { crate::inhalt::t("ui.pages.noch_nicht_eingerichtet") }, module),
-        crate::tf!("ui.pages.speicher_helfer", if crate::fl27::helfer_pfad().exists() { crate::inhalt::t("ui.wort.gebaut") } else { crate::inhalt::t("ui.wort.fehlt") }, crate::fl27::freischalten_hinweis()),
+        if cfg!(windows) { crate::tf!("ui.pages.speicher_direkt", crate::fl27::freischalten_hinweis()) } else { crate::tf!("ui.pages.speicher_helfer", if crate::fl27::helfer_pfad().exists() { crate::inhalt::t("ui.wort.gebaut") } else { crate::inhalt::t("ui.wort.fehlt") }, crate::fl27::freischalten_hinweis()) },
         crate::tf!("ui.pages.original_sicherung", if c.karriere_dir().join("original/inhalt.json").exists() { crate::inhalt::t("ui.wort.vorhanden") } else { crate::inhalt::t("ui.pages.wird_beim_ersten_start_angelegt") }),
         if c.db_zuletzt.is_empty() { crate::inhalt::t("ui.pages.zuletzt_geschrieben_noch_nicht").to_string() } else { c.db_zuletzt.clone() },
     ];
@@ -3171,7 +3703,7 @@ fn spieltag(ui: &mut Ui, v: &mut View, c: &mut Career) {
             return;
         };
         let f = c.fixture(fi);
-        v.mv = Some(MatchView { res: MatchResult { h: f.h, a: f.a, ..Default::default() }, minute: 0.0, speed: 1.0, phase: 0, ended_at: 0.0, manual: (0, 0), manual_open: false, halbzeit: 0, wirkung: vec![], nach_gesagt: false, angesprochen: vec![], eingriff: Default::default() });
+        v.mv = Some(MatchView { res: MatchResult { h: f.h, a: f.a, ..Default::default() }, minute: 0.0, speed: 1.0, phase: 0, ended_at: 0.0, manual: (0, 0), manual_open: false, halbzeit: 0, wirkung: vec![], nach_gesagt: false, angesprochen: vec![], eingriff: Default::default(), vor_pause: 1.0 });
     }
     let mut mv = v.mv.take().unwrap();
     let (h, a) = (mv.res.h, mv.res.a);
@@ -3196,6 +3728,13 @@ fn spieltag(ui: &mut Ui, v: &mut View, c: &mut Career) {
     ui.title(&score, sb.x + sb.w / 2.0 - sw / 2.0, sb.y + 72.0, 56.0, Theme::text());
     let clock = match mv.phase { 0 => crate::inhalt::t("vorbereitung.checkliste").to_string(), 1 => format!("{}'", mv.minute.min(90.0) as u32), _ => crate::inhalt::t("ui.pages.abpfiff").to_string() };
     ui.text_center(&clock, sb.x + sb.w / 2.0, sb.y + 104.0, 18.0, Theme::akzent());
+    // live: expected goals and shots so far, from the match's real shots (statistik.rs)
+    if mv.phase >= 1 && !mv.res.schuesse.is_empty() {
+        let bis = |side: u8| mv.res.schuesse.iter().filter(|x| x.side == side && (x.min as f32) <= mv.minute).fold((0.0f32, 0u32), |a, x| (a.0 + x.xg as f32 / 1000.0, a.1 + 1));
+        let (h0, a0) = (bis(0), bis(1));
+        let t = crate::tf!("ui.stat.live_xg", format!("{:.2}", h0.0), format!("{:.2}", a0.0), h0.1, a0.1);
+        ui.text(&t, sb.x + sb.w / 2.0 + 44.0, sb.y + 104.0, 14.0, Theme::text2());
+    }
     // derby: a ribbon with the duel's name (real rivals first) and the own record against this opponent
     if let Some(derby) = crate::game::is_derby(&c.world.clubs[h].name, &c.world.clubs[a].name) {
         let geg = if h == c.own { a } else { h };
@@ -3259,6 +3798,7 @@ fn spieltag(ui: &mut Ui, v: &mut View, c: &mut Career) {
                 c.press = None;
                 mv.res = c.prepare_match(None);
                 mv.phase = 1;
+                mv.eingriff.intro = get_time() as f32;
                 ui.play(crate::id("anpfiff"));
             }
             if !mv.manual_open && !live_an { teamgespraech_karte(ui, v, c, Rect::new(r2.x + 14.0, r2.y + 210.0, r2.w - 28.0, r2.h - 224.0), opp); }
@@ -3378,7 +3918,10 @@ fn spieltag(ui: &mut Ui, v: &mut View, c: &mut Career) {
         1 => {
             let before = mv.minute;
             // the clock stands at the break until the half-time talk is given (Fabian 22.11.: on the ticker, not in the inbox)
-            if mv.halbzeit != 1 { mv.minute += get_frame_time() * 7.5 * mv.speed; }
+            // PESM_INTRO=<seconds> holds the cut-scene at that moment (preview)
+            let t_intro = std::env::var("PESM_INTRO").ok().and_then(|x| x.parse::<f32>().ok()).unwrap_or(get_time() as f32 - mv.eingriff.intro);
+            let im_intro = (mv.eingriff.intro > 0.0 || std::env::var("PESM_INTRO").is_ok()) && t_intro < INTRO_DAUER;
+            if mv.halbzeit != 1 && !im_intro { mv.minute += get_frame_time() * 7.5 * mv.speed; }
             if mv.halbzeit == 0 && before < 45.0 && mv.minute >= 45.0 { mv.minute = 45.0; mv.halbzeit = 1; }
             for e in mv.res.events.iter().filter(|e| (e.min as f32) > before && (e.min as f32) <= mv.minute) { match e.kind { 0 | 1 => ui.play(crate::id("tor")), 2 | 3 => ui.play(crate::id("karte")), 4 => ui.play(crate::id("verletzung")), _ => {} } }
             let r = Rect::new(body.x, body.y, body.w * 0.62, body.h);
@@ -3426,9 +3969,12 @@ fn spieltag(ui: &mut Ui, v: &mut View, c: &mut Career) {
             }
             let r2 = Rect::new(body.x + body.w * 0.62 + 12.0, body.y, body.w * 0.38 - 12.0, body.h);
             ui.card_titled(r2, crate::inhalt::t("bericht.achse.tempo"), Theme::akzent());
-            let sp = [1.0, 2.0, 4.0];
-            let sel = sp.iter().position(|s| *s == mv.speed).unwrap_or(0);
-            if let Some(s) = ui.segment(Rect::new(r2.x + 14.0, r2.y + 44.0, r2.w - 28.0, 34.0), &[crate::inhalt::t("programm.intensitaet.normal"), crate::inhalt::t("ui.pages.schnell"), crate::inhalt::t("ui.pages.sehr_schnell")], sel) { mv.speed = sp[s]; }
+            // pause (Fabian 23.11.): the clock stands, grades and interventions stay usable; P toggles it too
+            let sp = [0.0, 1.0, 2.0, 4.0];
+            if is_key_pressed(KeyCode::P) && mv.minute < 90.0 { if mv.speed == 0.0 { mv.speed = mv.vor_pause.max(1.0); } else { mv.vor_pause = mv.speed; mv.speed = 0.0; } }
+            let sel = sp.iter().position(|s| *s == mv.speed).unwrap_or(1);
+            if let Some(s) = ui.segment(Rect::new(r2.x + 14.0, r2.y + 44.0, r2.w - 28.0, 34.0), &[crate::inhalt::t("ui.live.pause"), crate::inhalt::t("programm.intensitaet.normal"), crate::inhalt::t("ui.pages.schnell"), crate::inhalt::t("ui.pages.sehr_schnell")], sel) { if sp[s] == 0.0 { mv.vor_pause = mv.speed; } mv.speed = sp[s]; }
+            if mv.speed == 0.0 && mv.minute < 90.0 { ui.text_right(crate::inhalt::t("ui.live.pausiert"), r.x + r.w - 16.0, r.y + 30.0, 14.0, hex(0xffffff)); }
             if mv.halbzeit == 1 {
                 let (gf, ga) = c.halbzeit_tore(&mv.res);
                 if let Some(wahl) = halbzeit_karte(ui, Rect::new(r.x + 16.0, r.y + 52.0, r.w - 32.0, 300.0), gf, ga) {
@@ -3451,6 +3997,28 @@ fn spieltag(ui: &mut Ui, v: &mut View, c: &mut Career) {
             let bh = ((r2.w - 28.0) * 0.62).min(260.0).min((r2.h - 180.0) * 0.3);
             live_board(ui, c, &mv, Rect::new(r2.x + 14.0, r2.y + 156.0, r2.w - 28.0, bh));
             if mv.minute < 90.0 { eingriffe(ui, v, c, &mut mv, Rect::new(r2.x + 14.0, r2.y + 166.0 + bh, r2.w - 28.0, r2.h - 180.0 - bh)); }
+            // a goal: a big flash over the ticker in the scoring club's colour (Fabian 23.11.: more animation)
+            let tore = mv.res.events.iter().filter(|e| e.kind <= 1 && (e.min as f32) <= mv.minute).count();
+            if tore > mv.eingriff.tor_gesehen { mv.eingriff.tor_gesehen = tore; mv.eingriff.tor_t = get_time() as f32; }
+            let seit = get_time() as f32 - mv.eingriff.tor_t;
+            if mv.eingriff.tor_t > 0.0 && seit < 1.6 {
+                if let Some(e) = mv.res.events.iter().rev().find(|e| e.kind <= 1 && (e.min as f32) <= mv.minute) {
+                    let team = if e.side == 0 { h } else { a };
+                    let (tc, _) = club_color(c, team);
+                    let k = (seit / 0.25).min(1.0);
+                    let aus = if seit > 1.2 { (1.6 - seit) / 0.4 } else { 1.0 };
+                    let hgt = 150.0 * k;
+                    let fr = Rect::new(body.x, body.y + body.h * 0.35 - hgt / 2.0, body.w * 0.62, hgt);
+                    draw_rectangle(fr.x, fr.y, fr.w, fr.h, alpha(tc, 0.92 * aus));
+                    let txt = crate::inhalt::t("tk.tor");
+                    let gr = 40.0 + 50.0 * k;
+                    ui.title(txt, fr.x + fr.w / 2.0 - ui.measure_title(txt, gr) / 2.0, fr.y + fr.h / 2.0 + gr * 0.2, gr, alpha(hex(0xffffff), aus));
+                    let pn = c.world.players[e.pid].name.clone();
+                    ui.text_center(&pn, fr.x + fr.w / 2.0, fr.y + fr.h / 2.0 + gr * 0.2 + 34.0, 22.0, alpha(hex(0xffffff), aus * k));
+                }
+            }
+            // the walk-out: both crests come in from the sides, the competition between them, then kick-off
+            if im_intro { match_intro(ui, c, &mv, body, t_intro); }
             if mv.minute >= 91.0 {
                 mv.phase = 2;
                 mv.ended_at = get_time() as f32;
@@ -3530,6 +4098,34 @@ fn match_report(ui: &mut Ui, c: &Career, res: &MatchResult, r: Rect) {
     ui.card_titled(r, crate::inhalt::t("bericht.titel"), Theme::akzent());
     let mut y = r.y + 54.0;
     if res.et { ui.text_center(&crate::tf!("ui.pages.nach_verlaengerung", res.pens.map(|p| crate::tf!("ui.pages.komma_ie", crate::cups::pens_score(p))).unwrap_or_default()), r.x + r.w / 2.0, r.y + 22.0, 15.0, Theme::gold()); }
+    // expected goals from the players' shots (statistik.rs), when the match has statistics
+    if !res.stat.is_empty() {
+        let (xh, xa) = (res.summe(0, crate::statistik::XG) as f32 / 1000.0, res.summe(1, crate::statistik::XG) as f32 / 1000.0);
+        ui.text_center(crate::inhalt::t("ui.stat.xg"), r.x + r.w / 2.0, y, 15.0, Theme::text2());
+        ui.text(&format!("{xh:.2}"), r.x + 16.0, y, 17.0, Theme::text());
+        ui.text_right(&format!("{xa:.2}"), r.x + r.w - 16.0, y, 17.0, Theme::text());
+        let bw = r.w / 2.0 - 90.0;
+        let tot = (xh + xa).max(0.01);
+        rrect(r.x + r.w / 2.0 - 70.0 - bw * xh / tot, y + 6.0, bw * xh / tot, 6.0, 3.0, Theme::akzent());
+        rrect(r.x + r.w / 2.0 + 70.0, y + 6.0, bw * xa / tot, 6.0, 3.0, Theme::problem());
+        y += 22.0;
+        // the xG over the match in 18 sections of five minutes, both sides cumulated, goals as dots
+        let (gx, gw, gh) = (r.x + 16.0, r.w - 32.0, 46.0);
+        let kum = |side: u8| -> Vec<f32> { let mut a = 0.0; (0..=18).map(|k| { if k > 0 { a += res.schuesse.iter().filter(|x| x.side == side && ((x.min as usize).saturating_sub(1) / 5).min(17) == k - 1).map(|x| x.xg as f32 / 1000.0).sum::<f32>(); } a }).collect() };
+        let (kh, ka) = (kum(0), kum(1));
+        let top = kh.last().copied().unwrap_or(0.0).max(ka.last().copied().unwrap_or(0.0)).max(1.0);
+        draw_line(gx, y + gh, gx + gw, y + gh, 1.0, alpha(Theme::text(), 0.15));
+        draw_line(gx + gw / 2.0, y, gx + gw / 2.0, y + gh, 1.0, alpha(Theme::text(), 0.1));
+        for (v, col) in [(&kh, Theme::akzent()), (&ka, Theme::problem())] {
+            for k in 0..18 { draw_line(gx + gw * k as f32 / 18.0, y + gh - gh * v[k] / top, gx + gw * (k + 1) as f32 / 18.0, y + gh - gh * v[k + 1] / top, 2.0, col); }
+        }
+        for x in res.schuesse.iter().filter(|x| x.aus == crate::statistik::TOR) {
+            let v = if x.side == 0 { &kh } else { &ka };
+            let k = ((x.min as usize).saturating_sub(1) / 5).min(17) + 1;
+            draw_circle(gx + gw * k as f32 / 18.0, y + gh - gh * v[k] / top, 4.0, if x.side == 0 { Theme::akzent() } else { Theme::problem() });
+        }
+        y += gh + 18.0;
+    }
     for (label, hv, av) in [(crate::inhalt::t("beob.stat.schuesse"), res.shots.0 as f32, res.shots.1 as f32), (crate::inhalt::t("ui.pages.aufs_tor"), res.on_target.0 as f32, res.on_target.1 as f32), (crate::inhalt::t("ui.pages.ballbesitz"), res.possession as f32, 100.0 - res.possession as f32)] {
         ui.text_center(label, r.x + r.w / 2.0, y, 15.0, Theme::text2());
         ui.text(&format!("{hv:.0}"), r.x + 16.0, y, 17.0, Theme::text());
@@ -3653,11 +4249,13 @@ pub fn player_modal(ui: &mut Ui, v: &mut View, c: &mut Career, p: usize) {
         if ui.button(Rect::new(r.x + 24.0, by, 180.0, 40.0), crate::inhalt::t("aktion.verlaengern"), false) { match c.open_neg(p) { Ok(i) => { v.modal = Modal::Neg(i); return; } Err(e) => v.toast(&e, false) } }
         if ui.button(Rect::new(r.x + 216.0, by, 180.0, 40.0), if pl.listed { crate::inhalt::t("kue.btn.liste_aus") } else { crate::inhalt::t("ui.pages.auf_transferliste") }, pl.listed) { c.world.players[p].listed = !pl.listed; }
         ui.text(&crate::tf!("liga.nummer", pl.no), r.x + 610.0, by - 26.0, 15.0, Theme::text2());
-        if ui.button(Rect::new(r.x + 660.0, by - 44.0, 26.0, 26.0), "−", false) { c.rueckennummer(p, -1); }
-        if ui.button(Rect::new(r.x + 690.0, by - 44.0, 26.0, 26.0), "+", false) { c.rueckennummer(p, 1); }
+        if ui.button(Rect::new(r.x + 660.0, by - 44.0, 26.0, 26.0), "−", false) { if let Err(e) = c.rueckennummer(p, -1) { v.toast(&e, false); } }
+        if ui.button(Rect::new(r.x + 690.0, by - 44.0, 26.0, 26.0), "+", false) { if let Err(e) = c.rueckennummer(p, 1) { v.toast(&e, false); } }
         if pl.leihe.as_ref().map_or(false, |l| l.von != c.own && l.option > 0.0) {
             if ui.button_gold(Rect::new(r.x + 24.0, by - 50.0, 260.0, 40.0), &crate::tf!("ui.pages.kaufoption", money(pl.leihe.as_ref().unwrap().option))) { match c.kaufoption(p) { Ok(()) => v.toast(crate::inhalt::t("ui.pages.kaufoption_gezogen"), true), Err(e) => v.toast(&e, false) } }
-        } else if pl.leihe.is_none() && ui.button(Rect::new(r.x + 24.0, by - 50.0, 180.0, 40.0), crate::inhalt::t("aktion.verleihen"), false) { match c.leihe_abgeben(p) { Ok(()) => { v.toast(crate::inhalt::t("ui.pages.verliehen_bis_saisonende"), true); v.modal = Modal::None; return; } Err(e) => v.toast(&e, false) } }
+        } else if pl.leihe.is_none() && ui.button(Rect::new(r.x + 24.0, by - 50.0, 180.0, 40.0), crate::inhalt::t(if pl.ps.leihliste { "ui.leihe.von_liste" } else { "ui.leihe.auf_leihliste" }), pl.ps.leihliste) {
+            if pl.ps.leihliste { c.world.players[p].ps.leihliste = false; } else { match c.leihe_abgeben(p) { Ok(()) => v.toast(crate::inhalt::t("ui.leihe.auf_liste"), true), Err(e) => v.toast(&e, false) } }
+        }
         if let Some((pos, bis)) = &pl.ps.umschulung { ui.text(&crate::tf!("ui.pages.lernt_noch_tage", pos_de(pos), bis.saturating_sub(c.abs())), r.x + 300.0, by - 26.0, 15.0, Theme::text2()); }
         else {
             ui.text(crate::inhalt::t("ui.pages.umschulen"), r.x + 300.0, by - 26.0, 14.0, Theme::gedaempft());

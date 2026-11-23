@@ -27,7 +27,8 @@ pub const LEIH_GEBUEHR: f64 = 0.15;
 pub const LEIH_ANTEIL: f32 = 0.7;
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
-pub struct Leihe { pub von: usize, pub bis: u32, pub anteil: f32, pub option: f64, #[serde(default)] pub spielzeit: bool, #[serde(default)] pub grund: String }
+pub struct Leihe { pub von: usize, pub bis: u32, pub anteil: f32, pub option: f64, #[serde(default)] pub spielzeit: bool, #[serde(default)] pub grund: String, /// Strength when the loan began (monthly report). 
+#[serde(default)] pub start: f32 }
 
 /// Medical risk and verdict (drama.py medizin_risiko / medizin_urteil / medizin_abschlag).
 pub fn medizin(ausfall_tage: u16, alter: u8, u: f32) -> (&'static str, f32, f32) {
@@ -105,7 +106,12 @@ impl Career {
             self.msg(2, &cn, &crate::tf!("fenster.angebot.titel", nm), &body, Action::TransferOffer { pid: p, club: c, fee });
             self.world.players[p].ps.angebote.push(abs);
             // medien.toml [fremd]: from 2 Mio. the papers pick it up as a rumour
-            if fee >= 2_000_000.0 { self.geruecht(p, true); }
+            // the papers only pick it up when it is a story: a key player, a big club or big money, and not again within weeks
+            let r = |k: &str| crate::regeln::f("medien", &format!("geruecht_angebot.{k}"));
+            let pl = &self.world.players[p];
+            let wichtig = if pl.ovr >= self.club().level { r(crate::id("stammspieler")) } else { 0.0 } + if self.world.clubs[c].level >= crate::regeln::f("medien", "relevanz.grosser_verein_ab") { r("grosser_verein") } else { 0.0 } + if fee >= self.world.revenue(self.own) * 0.1 { r("grosse_summe") } else { 0.0 };
+            let neulich = self.me.geruechte.iter().any(|g| g.0 == p && abs < g.1 + r("sperre_tage") as u32);
+            if fee >= 2_000_000.0 && !neulich && zufall(&["geruecht_angebot", &id, &woche]) < r("basis") + wichtig { self.geruecht_mit(p, true, Some(c)); } // roh
             n += 1;
         }
     }
@@ -293,7 +299,7 @@ impl Career {
         let abs = self.abs();
         let pl = &mut self.world.players[p];
         pl.team = self.own as i32;
-        pl.leihe = Some(Leihe { von, bis: season, anteil: LEIH_ANTEIL, option, spielzeit: false, grund: String::new() });
+        pl.leihe = Some(Leihe { von, bis: season, anteil: LEIH_ANTEIL, option, spielzeit: false, grund: String::new(), start: 0.0 });
         pl.know = 1.0;
         pl.joined = abs;
         self.world.clubs[self.own].squad.push(p);
@@ -302,30 +308,90 @@ impl Career {
         self.world.refresh_levels();
         Ok(())
     }
+    /// Puts an own player on the loan list (Fabian 23.11.: like the transfer list): clubs make offers, the person chooses.
     pub fn leihe_abgeben(&mut self, p: usize) -> Result<(), String> {
+        let pl = &self.world.players[p];
+        if pl.team != self.own as i32 || pl.leihe.is_some() { return Err(crate::inhalt::t("ui.farm.das_geht_nur_mit_eigenen").into()); }
+        self.world.players[p].ps.leihliste = true;
+        Ok(())
+    }
+    /// Loan an own player to `c` on these terms (fee to us, wage share the borrower pays, a promise of play time).
+    pub fn leihe_an(&mut self, p: usize, c: usize, fee: f64, anteil: f32, spielzeit: bool) -> Result<(), String> {
         if self.in_window().is_none() { return Err(crate::inhalt::t("ui.farm.das_transferfenster_ist_geschlossen").into()); }
         let pl = &self.world.players[p];
         if pl.team != self.own as i32 || pl.leihe.is_some() { return Err(crate::inhalt::t("ui.farm.das_geht_nur_mit_eigenen").into()); }
-        let (ovr, value, id) = (pl.ovr, pl.value, pl.id.to_string());
-        let land = crate::cups::country(&self.world.leagues[self.league()]);
-        let cands: Vec<usize> = (0..self.world.clubs.len()).filter(|&c| c != self.own && self.world.erste_von(c).is_none() && crate::cups::country(&self.world.leagues[self.world.clubs[c].league]) == land && self.world.clubs[c].level <= ovr + 2.0 && self.world.clubs[c].level >= ovr - 8.0).collect();
-        if cands.is_empty() { return Err(crate::inhalt::t("ui.transfer.kein_verein_will_ihn_leihen").into()); }
-        let c = cands[(zufall(&["2026", crate::id("verleihen"), &id, &self.abs().to_string()]) * cands.len() as f32) as usize % cands.len()];
-        let fee = round_money(value * LEIH_GEBUEHR);
         let season = self.world.season;
-        let (name, cn) = (self.world.players[p].name.clone(), self.world.clubs[c].name.clone());
+        let (name, cn, start) = (pl.name.clone(), self.world.clubs[c].name.clone(), pl.ovr);
         self.world.clubs[self.own].squad.retain(|&x| x != p);
         self.world.clubs[c].squad.push(p);
         self.world.clubs[c].balance -= fee;
-        self.book(crate::inhalt::t("ui.transfer.leihgebuehren"), fee);
+        if fee > 0.0 { self.book(crate::inhalt::t("ui.transfer.leihgebuehren"), fee); }
         self.xi.retain(|&x| x != p);
         let own = self.own;
         let pl = &mut self.world.players[p];
         pl.team = c as i32;
-        pl.leihe = Some(Leihe { von: own, bis: season, anteil: LEIH_ANTEIL, option: 0.0, spielzeit: false, grund: String::new() });
+        pl.ps.leihliste = false;
+        pl.leihe = Some(Leihe { von: own, bis: season, anteil, option: 0.0, spielzeit, grund: String::new(), start });
         self.news(&crate::tf!("ui.transfer.wird_verliehen", name), &crate::tf!("ui.transfer.spielt_bis_saisonende_fuer", name, cn));
         self.world.refresh_levels();
         Ok(())
+    }
+    /// Loan offers for the players on the own loan list (in a window, every few days): the more a player promises,
+    /// the more clubs ask; each offer names the club, the role he would have, the fee and the wage share.
+    pub fn leihangebote_tag(&mut self) {
+        if self.in_window().is_none() { return; }
+        let abs = self.abs();
+        let r = |k: &str| crate::regeln::f("transfers", &format!("leihe.{k}"));
+        for m in self.inbox.iter_mut() { if !m.done && m.action_art() == Some(crate::id("leihe")) && abs >= abs_day(m.season, m.day) + r("frist_tage") as u32 { m.done = true; m.body += crate::inhalt::t("ui.transfer.die_frist_ist_abgelaufen"); } }
+        let liste: Vec<usize> = self.squad().into_iter().filter(|&p| self.world.players[p].ps.leihliste).collect();
+        let land = crate::cups::country(&self.world.leagues[self.league()]);
+        for p in liste {
+            let pl = &self.world.players[p];
+            let (ovr, pot, age, value, id) = (pl.ovr, pl.pot, pl.age, pl.value, pl.id);
+            if self.inbox.iter().filter(|m| !m.done && m.action_art() == Some(crate::id("leihe")) && matches!(&m.action, Action::Wahl { bezug, .. } if bezug.first() == Some(&p))).count() >= r("offen_hoechstens") as usize { continue; }
+            // interest: young with room to grow and already good enough for a lower club draw more clubs
+            let reiz = ((ovr - 55.0) / 20.0).clamp(0.0, 1.0) * 0.6 + ((pot - ovr) / 15.0).clamp(0.0, 1.0) * 0.3 + if age <= 23 { 0.1 } else { 0.0 };
+            if zufall(&["leihangebot", &id.to_string(), &abs.to_string()]) > r("chance_basis") + r("chance_reiz") * reiz { continue; } // roh
+            // clubs of the own country first; when none fits his level, clubs abroad
+            let passt = |c: usize, inland: bool| c != self.own && self.world.erste_von(c).is_none() && self.world.clubs[c].level <= ovr + 3.0 && self.world.clubs[c].level >= ovr - 12.0
+                && (crate::cups::country(&self.world.leagues[self.world.clubs[c].league]) == land) == inland
+                && !self.inbox.iter().any(|m| !m.done && m.action_art() == Some(crate::id("leihe")) && matches!(&m.action, Action::Wahl { art, bezug, .. } if bezug.first() == Some(&p) && art.starts_with(&format!("leihe:{c}:"))));
+            let mut cands: Vec<usize> = (0..self.world.clubs.len()).filter(|&c| passt(c, true)).collect();
+            if cands.is_empty() { cands = (0..self.world.clubs.len()).filter(|&c| passt(c, false)).collect(); }
+            if cands.is_empty() { continue; }
+            let c = cands[(zufall(&["leihverein", &id.to_string(), &abs.to_string()]) * cands.len() as f32) as usize % cands.len()]; // roh
+            let stamm = ovr >= self.world.clubs[c].level - 1.0;
+            let anteil = (r("anteil_von") + (r("anteil_bis") - r("anteil_von")) * reiz).min(1.0);
+            let fee = round_money(value * (r("gebuehr_von") + (r("gebuehr_bis") - r("gebuehr_von")) * reiz) as f64);
+            let (nm, cn, ln) = (self.world.players[p].name.clone(), self.world.clubs[c].name.clone(), self.world.leagues[self.world.clubs[c].league].name.clone());
+            let rolle = crate::inhalt::t(if stamm { "ui.leihe.rolle_stamm" } else { "ui.leihe.rolle_rotation" });
+            let body = crate::tf!("ui.leihe.angebot_text", cn.clone(), ln, nm.clone(), rolle, money(fee), format!("{:.0}", anteil * 100.0));
+            let opts = vec![(crate::id("ja").to_string(), crate::inhalt::t("ui.leihe.annehmen").to_string()), (crate::id("nein").to_string(), crate::inhalt::t("ui.leihe.ablehnen").to_string())];
+            self.msg(2, &cn, &crate::tf!("ui.leihe.angebot_titel", nm), &body, Action::Wahl { art: format!("leihe:{c}:{}:{}:{}", fee as u64, (anteil * 100.0) as u32, stamm as u8), bezug: vec![p], optionen: opts });
+        }
+    }
+    pub fn leihe_antwort(&mut self, sub: &str, p: usize, key: &str) -> String {
+        if key != "ja" { return crate::inhalt::t("ui.leihe.abgelehnt").into(); }
+        let t: Vec<&str> = sub.split(':').collect();
+        let (c, fee, anteil, stamm) = (t.first().and_then(|x| x.parse().ok()).unwrap_or(usize::MAX), t.get(1).and_then(|x| x.parse::<f64>().ok()).unwrap_or(0.0), t.get(2).and_then(|x| x.parse::<f32>().ok()).unwrap_or(50.0) / 100.0, t.get(3) == Some(&"1"));
+        if c >= self.world.clubs.len() { return String::new(); }
+        match self.leihe_an(p, c, fee, anteil, stamm) { Ok(()) => crate::tf!("ui.leihe.ok", self.world.players[p].name.clone(), self.world.clubs[c].name.clone()), Err(e) => e }
+    }
+    /// The monthly report of the players we have out on loan: games, goals, grade and how they grew.
+    pub fn leih_bericht(&mut self) {
+        let weg: Vec<usize> = (0..self.world.players.len()).filter(|&p| self.world.players[p].leihe.as_ref().map_or(false, |l| l.von == self.own) && self.world.players[p].team != self.own as i32 && self.world.players[p].team >= 0).collect();
+        if weg.is_empty() { return; }
+        let zeilen: Vec<String> = weg.iter().map(|&p| {
+            let pl = &self.world.players[p];
+            let l = pl.leihe.as_ref().unwrap();
+            let entw = if l.start > 0.0 { pl.ovr - l.start } else { 0.0 };
+            let note = if pl.rn > 0 { format!("{:.1}", pl.avg_rating()) } else { "–".into() };
+            let urteil = crate::inhalt::t(if pl.apps < 3 { "ui.leihe.kaum_spielzeit" } else if entw >= 1.0 { "ui.leihe.waechst" } else { "ui.leihe.spielt" });
+            crate::tf!("ui.leihe.bericht_zeile", pl.name.clone(), self.world.clubs[pl.team as usize].name.clone(), pl.apps, pl.goals, note, format!("{entw:+.0}"), urteil)
+        }).collect();
+        let karte: Vec<(usize, f32)> = weg.iter().map(|&p| (p, self.world.players[p].ovr)).collect();
+        self.msg(2, crate::inhalt::t("ui.game.transferabteilung"), crate::inhalt::t("ui.leihe.bericht_titel"), &zeilen.join(crate::id("\n")), Action::None);
+        self.meldung_karte(crate::pages::Art::Talent, crate::id("entwicklung"), karte.into_iter().take(6).collect());
     }
     /// Draw the purchase option of a loaned player.
     pub fn kaufoption(&mut self, p: usize) -> Result<(), String> {

@@ -5,6 +5,7 @@
 #![allow(dead_code)]
 use std::collections::{HashMap, HashSet};
 use std::io::{BufRead, BufReader, Read, Write};
+#[cfg(unix)]
 use std::os::unix::fs::FileExt;
 use std::path::{Path, PathBuf};
 use pesm_coaching_zone as cz;
@@ -18,7 +19,27 @@ pub const EXE: &str = "FL_2027.exe";
 
 /// Game folder G (PESM_FL27_SPIEL overrides it, for tests).
 pub fn spielordner() -> PathBuf {
-    std::env::var("PESM_FL27_SPIEL").map(PathBuf::from).unwrap_or_else(|_| PathBuf::from(PREFIX).join(crate::inhalt::t("ui.fl27.drive_c_games_sp_football")))
+    if let Ok(p) = std::env::var("PESM_FL27_SPIEL") { return PathBuf::from(p); }
+    #[cfg(windows)]
+    { static ORT: std::sync::OnceLock<PathBuf> = std::sync::OnceLock::new(); return ORT.get_or_init(spielordner_suchen).clone(); }
+    #[allow(unreachable_code)]
+    PathBuf::from(PREFIX).join(crate::inhalt::t("ui.fl27.drive_c_games_sp_football"))
+}
+/// Windows: the FL27 install next to PES M (any folder above it), else on any drive under the usual places.
+#[cfg(windows)]
+fn spielordner_suchen() -> PathBuf {
+    const NAME: &str = "SP Football Life 2027"; // roh
+    let passt = |d: &Path| d.join(EXE).is_file();
+    let neben = std::env::current_exe().ok().into_iter().flat_map(|e| e.ancestors().skip(1).map(Path::to_path_buf).collect::<Vec<_>>());
+    for d in neben { for k in [d.clone(), d.join(NAME), d.join(crate::id("Games")).join(NAME)] { if passt(&k) { return k; } } }
+    for lw in b'C'..=b'Z' {
+        let root = PathBuf::from(format!("{}:\\", lw as char));
+        if !root.is_dir() { continue; }
+        for k in [root.join(NAME), root.join(crate::id("Games")).join(NAME), root.join("Program Files (x86)").join(NAME), root.join("Program Files").join(NAME)] { if passt(&k) { return k; } } // roh
+        // one level deeper: X:\<any folder>\SP Football Life 2027
+        for e in std::fs::read_dir(&root).into_iter().flatten().flatten() { let k = e.path().join(NAME); if passt(&k) { return k; } }
+    }
+    PathBuf::from("C:\\Games").join(NAME)
 }
 pub fn sider() -> PathBuf { spielordner().join(crate::id("SiderAddons")) }
 pub fn welt_ordner(s: &Path) -> PathBuf { s.join(crate::id("livecpk")).join(WELT_ROOT) }
@@ -512,10 +533,17 @@ pub fn original_pruefen(karriere: &Path) -> Result<(), String> {
     let dest = karriere.join("original");
     let txt = std::fs::read_to_string(dest.join("inhalt.json")).map_err(|_| "Sicherung der Original-Welt fehlt".to_string())?;
     let list: serde_json::Map<String, serde_json::Value> = serde_json::from_str(&txt).map_err(|e| e.to_string())?;
-    for (f, h) in list {
-        if sha_file(&dest.join(&f)).ok().as_deref() != h.as_str() { return Err(format!("Sicherung beschädigt: {f}")); }
+    // the full hash pass runs once per manifest (tens of thousands of files froze every match start); after that a
+    // stamp with the manifest's hash allows a cheap existence check. Deleting geprueft.stamp forces the full pass again.
+    let stempel = dest.join("geprueft.stamp");
+    let marke = sha256_hex(txt.as_bytes());
+    if std::fs::read_to_string(&stempel).ok().as_deref() == Some(marke.as_str()) {
+        return match list.keys().find(|f| !dest.join(f).is_file()) { Some(f) => Err(format!("Sicherung beschädigt: {f} fehlt")), None => Ok(()) };
     }
-    Ok(())
+    for (f, h) in &list {
+        if sha_file(&dest.join(f)).ok().as_deref() != h.as_str() { return Err(format!("Sicherung beschädigt: {f}")); }
+    }
+    atomic_write(&stempel, marke.as_bytes())
 }
 pub fn karriere_pesdb(karriere: &Path) -> PathBuf { karriere.join("pesdb") }
 /// The career works on its own copy of the pesdb (made from the original backup, never from the game folder).
@@ -786,17 +814,36 @@ pub fn module_pruefen(s: &Path, assets: &Path, karriere: &Path, reparieren: bool
     out
 }
 /// Direktstart stage 1: replacement flow files and the 2-KB intro placeholder in S/livecpk/PESM_DirectMatch.
-pub fn direktstart_einrichten(s: &Path, assets: &Path) -> Result<(), String> {
+/// Without the templates (they are not in the public repository) the step is skipped: false.
+pub fn direktstart_einrichten(s: &Path, assets: &Path) -> Result<bool, String> {
+    if !assets.join("direktstart").is_dir() { return Ok(false); }
     let d = s.join("livecpk").join(DIRECT_ROOT);
     for (src, dst) in [("PreStartup.json", "common/script/flow/PreStartup.json"), ("MenuPreTitle.json", "common/script/flow/Intro/MenuPreTitle.json"), ("FL2027.usm", "movie/intro/FL2027.usm")] {
         let want = std::fs::read(assets.join("direktstart").join(src)).map_err(|e| format!("{src}: {e}"))?;
         if std::fs::read(d.join(dst)).ok().as_deref() != Some(&want[..]) { atomic_write(&d.join(dst), &want)?; }
     }
-    Ok(())
+    Ok(true)
 }
 
 // ---------------------------------------------------------------- process and start (§5)
 /// FL_2027.exe by its command line; with several, the one with the most memory (statm field 2).
+#[cfg(windows)]
+pub fn fl27_pid() -> Option<u32> {
+    if testmodus() { return None; }
+    tasklist(&format!("IMAGENAME eq {EXE}")).into_iter().next()
+}
+/// A Windows command without a console window popping up.
+#[cfg(windows)]
+fn still(c: &mut std::process::Command) -> &mut std::process::Command { use std::os::windows::process::CommandExt; c.creation_flags(0x0800_0000) }
+/// Process ids that `tasklist /FI <filter>` lists (CSV: "name","pid",...).
+#[cfg(windows)]
+fn tasklist(filter: &str) -> Vec<u32> {
+    still(std::process::Command::new("tasklist").args(["/FI", filter, "/FO", "CSV", "/NH"])).output()
+        .map(|o| String::from_utf8_lossy(&o.stdout).lines().filter_map(|l| l.split("\",\"").nth(1)?.parse().ok()).collect()).unwrap_or_default()
+}
+#[cfg(windows)]
+fn lebt(pid: u32) -> bool { !tasklist(&format!("PID eq {pid}")).is_empty() }
+#[cfg(unix)]
 pub fn fl27_pid() -> Option<u32> {
     if testmodus() { return ersatz_pid(); }
     let mut best: Option<(u64, u32)> = None;
@@ -810,6 +857,7 @@ pub fn fl27_pid() -> Option<u32> {
     }
     best.map(|b| b.1)
 }
+#[cfg(unix)]
 /// Test mode: only the substitute process named in PESM_FL27_ERSATZ_PID; a real FL_2027.exe there aborts.
 fn ersatz_pid() -> Option<u32> {
     let pid: u32 = std::env::var("PESM_FL27_ERSATZ_PID").ok()?.parse().ok()?;
@@ -818,6 +866,7 @@ fn ersatz_pid() -> Option<u32> {
     lebt(pid).then_some(pid)
 }
 /// Running and not a zombie.
+#[cfg(unix)]
 fn lebt(pid: u32) -> bool { std::fs::read_to_string(format!("/proc/{pid}/stat")).map_or(false, |s| !s.contains(") Z ")) }
 /// The Lutris game of FL27: Wine prefix and Wine version from its game configuration.
 #[derive(Debug, PartialEq)]
@@ -857,6 +906,16 @@ pub fn im_prefix(environ: &[u8], prefix: &Path) -> bool {
 }
 /// End FL27: only FL_2027.exe (command line) in the game's prefix. SIGTERM, up to 10 s; else SIGKILL and
 /// `wineserver -k` in that prefix so no Wine remains hang. Lutris and other programs stay open; nothing is written.
+#[cfg(windows)]
+pub fn fl27_beenden() -> Result<String, String> {
+    let pid = fl27_pid().ok_or("FL27 läuft nicht.")?;
+    let kill = |hart: bool| { let mut c = std::process::Command::new("taskkill"); c.args(["/PID", &pid.to_string()]); if hart { c.arg("/F"); } still(&mut c).status().map(|_| ()).map_err(|e| e.to_string()) };
+    kill(false)?;
+    for _ in 0..40 { if !lebt(pid) { return Ok("FL27 beendet.".into()); } std::thread::sleep(std::time::Duration::from_millis(250)); }
+    kill(true)?;
+    Ok("FL27 beendet (hart).".into())
+}
+#[cfg(unix)]
 pub fn fl27_beenden() -> Result<String, String> {
     // test mode: only the substitute process, no prefix and no wineserver
     let lu = if testmodus() { None } else { Some(lutris_spiel()?) };
@@ -878,6 +937,27 @@ pub fn fl27_beenden() -> Result<String, String> {
     };
     let _ = std::process::Command::new(ws).arg("-k").env("WINEPREFIX", &lu.prefix).status();
     Ok("FL27 beendet (hart, Wine-Reste im Prefix aufgeräumt).".into())
+}
+/// Starts FL27 with sider: on Windows the pack's launcher, on Linux through Lutris.
+pub fn spiel_starten() -> Result<&'static str, String> {
+    if testmodus() { return Err("Testmodus: FL27 wird nicht gestartet.".into()); }
+    #[cfg(windows)]
+    {
+        let g = spielordner();
+        let los = |p: PathBuf| still(std::process::Command::new(&p).current_dir(p.parent().unwrap_or(&g))).spawn().map(|_| ()).map_err(|e| format!("{}: {e}", p.display()));
+        // the launcher brings up sider and the game together
+        let start = g.join("FL 2027 start.exe");
+        if start.is_file() { los(start)?; return Ok("FL27 startet über FL 2027 start.exe …"); }
+        // else sider first, the game shortly after (sider.ini has no start.game, so sider alone would end without the game)
+        let sider_exe = [sider().join("sider.exe"), g.join("sider.exe")].into_iter().find(|p| p.is_file()).ok_or("sider.exe nicht gefunden")?;
+        los(sider_exe)?;
+        let exe = [g.join(EXE), sider().join(EXE)].into_iter().find(|p| p.is_file()).ok_or(format!("{EXE} nicht gefunden"))?;
+        std::thread::sleep(std::time::Duration::from_millis(1500));
+        los(exe)?;
+        return Ok("FL27 startet über sider.exe …");
+    }
+    #[allow(unreachable_code)]
+    lutris_starten().map(|_| "FL27 startet über Lutris …")
 }
 pub fn lutris_starten() -> Result<(), String> {
     if testmodus() { return Err("Testmodus: FL27 wird nicht gestartet.".into()); }
@@ -940,10 +1020,13 @@ pub trait Mem: Send {
     /// The helper searches itself (one round trip instead of gigabytes over the pipe).
     fn bloecke(&mut self) -> Option<Vec<u64>> { None }
 }
+#[cfg(unix)]
 pub struct ProcMem { pub pid: u32, file: std::fs::File }
+#[cfg(unix)]
 impl ProcMem {
     pub fn open(pid: u32) -> std::io::Result<ProcMem> { Ok(ProcMem { pid, file: std::fs::File::open(format!("/proc/{pid}/mem"))? }) }
 }
+#[cfg(unix)]
 impl Mem for ProcMem {
     fn regions(&mut self) -> Vec<(u64, u64)> {
         std::fs::read_to_string(format!("/proc/{}/maps", self.pid)).unwrap_or_default().lines().filter_map(|l| {
@@ -1226,6 +1309,14 @@ impl Mitlauf {
 /// Talks to the small helper binary (pesm-speicher, `setcap cap_sys_ptrace+ep`) over JSON lines: it can only
 /// search blocks and read bytes, never write. PES M itself stays unprivileged.
 pub struct DienstMem { pid: u32, child: std::process::Child, inp: std::process::ChildStdin, out: BufReader<std::process::ChildStdout> }
+/// The local clock as HH:MM (no time-zone crate: the system's own command).
+pub fn uhrzeit() -> String {
+    #[cfg(windows)]
+    let o = still(std::process::Command::new("cmd").args(["/C", "time", "/t"])).output();
+    #[cfg(not(windows))]
+    let o = std::process::Command::new("date").arg("+%H:%M").output();
+    o.ok().map(|o| String::from_utf8_lossy(&o.stdout).trim().to_string()).unwrap_or_default()
+}
 pub fn helfer_pfad() -> PathBuf { std::env::current_exe().ok().and_then(|p| p.parent().map(|d| d.join("pesm-speicher"))).unwrap_or_else(|| PathBuf::from("pesm-speicher")) }
 impl DienstMem {
     pub fn start(pid: u32) -> Result<DienstMem, String> {
@@ -1261,9 +1352,27 @@ impl Mem for DienstMem {
         r["bloecke"].as_array().map(|a| a.iter().filter_map(|x| x.as_u64()).collect())
     }
 }
+/// Windows reads FL27's memory directly through the Coaching Zone (OpenProcess/ReadProcessMemory).
+#[cfg(windows)]
+pub struct WinMem(cz::process::GameProcess);
+#[cfg(windows)]
+impl Mem for WinMem {
+    fn regions(&mut self) -> Vec<(u64, u64)> { cz::process::Memory::regions(&self.0).into_iter().map(|r| (r.start, r.start + r.len)).collect() }
+    fn read(&mut self, adr: u64, n: usize) -> Option<Vec<u8>> { cz::process::Memory::read(&self.0, adr, n) }
+    fn alive(&mut self) -> bool { cz::process::is_alive(&self.0) }
+}
+#[cfg(windows)]
+pub fn freischalten_hinweis() -> String { "Unter Windows nicht nötig. Verweigert Windows den Zugriff, PES M als derselbe Benutzer wie FL27 oder als Administrator starten.".into() }
+#[cfg(windows)]
+pub fn finder() -> Result<Option<Box<dyn Mem>>, String> {
+    if testmodus() { return Ok(None); }
+    match cz::process::GameProcess::find() { Ok(Some(g)) => Ok(Some(Box::new(WinMem(g)))), Ok(None) => Ok(None), Err(e) => Err(e.to_string()) }
+}
 /// What the person runs once so the helper may read FL27's memory.
+#[cfg(unix)]
 pub fn freischalten_hinweis() -> String { format!("Einmal im Terminal ausführen: sudo setcap cap_sys_ptrace+ep \"{}\"", helfer_pfad().display()) }
 /// The real finder: the game's process, read directly if allowed, else through the helper; without rights a clear message.
+#[cfg(unix)]
 pub fn finder() -> Result<Option<Box<dyn Mem>>, String> {
     let Some(pid) = fl27_pid() else { return Ok(None) };
     if let Ok(mut m) = ProcMem::open(pid) {
@@ -1654,5 +1763,31 @@ mod echt {
         let mt = std::fs::read_to_string(sider().join("content/stadiums/map_teams.txt")).unwrap_or_default();
         assert_eq!(heimstadion(&mt, 396).as_deref(), Some("England\\Stadium of Light"));
         eprintln!("{} assignments, {} competitions", a.len(), comps.len());
+    }
+}
+
+#[cfg(test)]
+mod pruefung_tests {
+    use super::*;
+    #[test]
+    fn original_pruefen_mit_stempel() {
+        let k = std::env::temp_dir().join(format!("pesm-original-{}", std::process::id()));
+        let o = k.join("original");
+        std::fs::create_dir_all(&o).unwrap();
+        std::fs::write(o.join("a.bin"), b"abc").unwrap();
+        let list = serde_json::json!({"a.bin": sha256_hex(b"abc")});
+        std::fs::write(o.join("inhalt.json"), list.to_string()).unwrap();
+        assert!(original_pruefen(&k).is_ok());
+        assert!(o.join("geprueft.stamp").exists(), "the full pass leaves its stamp");
+        // with the stamp only existence counts; a missing file is still caught
+        std::fs::write(o.join("a.bin"), b"xyz").unwrap();
+        assert!(original_pruefen(&k).is_ok());
+        std::fs::remove_file(o.join("a.bin")).unwrap();
+        assert!(original_pruefen(&k).is_err());
+        // without the stamp the hashes count again
+        std::fs::write(o.join("a.bin"), b"xyz").unwrap();
+        std::fs::remove_file(o.join("geprueft.stamp")).unwrap();
+        assert!(original_pruefen(&k).is_err());
+        let _ = std::fs::remove_dir_all(&k);
     }
 }

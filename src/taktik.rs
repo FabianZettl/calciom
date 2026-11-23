@@ -208,11 +208,29 @@ impl Career {
     }
     pub fn vorlage_laden(&mut self, i: usize) { if let Some((_, f_, t)) = self.std.vorlagen.get(i).cloned() { self.formation = f_; self.frei.clear(); self.tactic = t; self.auto_lineup(); } }
     /// Change a shirt number (1…99, unique in the squad); FL27 gets it with the squad (PlayerAssignment).
-    pub fn rueckennummer(&mut self, p: usize, d: i32) {
+    /// Only in a transfer window: during the season the numbers stay as registered.
+    pub fn rueckennummer(&mut self, p: usize, d: i32) -> Result<(), String> {
+        if self.in_window().is_none() { return Err(crate::inhalt::t("ui.nummer.nur_im_fenster").into()); }
         let belegt: Vec<u8> = self.world.clubs[self.own].squad.iter().filter(|&&q| q != p).map(|&q| self.world.players[q].no).collect();
         let mut n = self.world.players[p].no as i32;
         for _ in 0..99 { n = (n + d - 1).rem_euclid(99) + 1; if !belegt.contains(&(n as u8)) { break; } }
         self.world.players[p].no = n as u8;
+        Ok(())
+    }
+    /// Own first-team players without a number or with one already taken (new signings, promoted youth) get one: who was
+    /// here first keeps his number, the newcomer his old one if free, else the first free of the usual ones for his part.
+    pub fn nummern_vergeben(&mut self) {
+        let mut sq: Vec<usize> = self.world.clubs[self.own].squad.iter().copied().filter(|&p| self.world.players[p].youth == 0).collect();
+        sq.sort_by_key(|&p| (self.world.players[p].no == 0, self.world.players[p].joined));
+        let mut belegt: Vec<u8> = vec![];
+        for p in sq {
+            let pl = &self.world.players[p];
+            if pl.no != 0 && !belegt.contains(&pl.no) { belegt.push(pl.no); continue; }
+            let ueblich: &[u8] = match part_of(&pl.pos) { 0 => &[1, 12, 13, 21, 30, 33, 40], 1 => &[2, 3, 4, 5, 15, 16, 23, 24, 26, 28], 2 => &[6, 8, 10, 14, 17, 18, 20, 27], _ => &[9, 7, 11, 19, 29] };
+            let Some(n) = ueblich.iter().copied().chain(1..=99).find(|n| !belegt.contains(n)) else { continue };
+            belegt.push(n);
+            self.world.players[p].no = n;
+        }
     }
     /// Analysis after an own match (beobachter / taktikanalyse): grades per line, best and weakest, what to work on.
     pub fn analyse(&self, res: &MatchResult) -> String {
@@ -242,7 +260,17 @@ mod tests {
         assert!(z.iter().any(|l| l.starts_with("Plan:")));
         assert!(!c.taktikurteil().is_empty());
         let p = c.xi[3];
-        c.rueckennummer(p, 1);
+        c.rueckennummer(p, 1).unwrap();
+        // a newcomer with a taken number gets a free one, the old holder keeps his
+        let (q, alt) = (c.xi[4], c.world.players[p].no);
+        c.world.players[q].no = alt;
+        c.world.players[q].joined = 99;
+        c.nummern_vergeben();
+        assert_eq!(c.world.players[p].no, alt);
+        assert_ne!(c.world.players[q].no, alt);
+        c.world.day = 60;
+        assert!(c.rueckennummer(p, 1).is_err(), "no changes outside a transfer window");
+        c.world.day = 0;
         let nos: Vec<u8> = c.world.clubs[0].squad.iter().map(|&q| c.world.players[q].no).collect();
         assert_eq!(nos.iter().filter(|&&n| n == c.world.players[p].no).count(), 1, "numbers stay unique");
         c.vorlage_speichern().unwrap();

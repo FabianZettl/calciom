@@ -141,6 +141,11 @@ impl Career {
         nn.text = text.clone();
         Ok(text)
     }
+    /// Who speaks for the player in the chat: his agent with the agency, or the player himself.
+    pub fn berater_name(&self, p: usize) -> String {
+        let pl = &self.world.players[p];
+        person(pl).map(|(n, a)| format!("{n} · {a}")).unwrap_or_else(|| pl.name.clone())
+    }
     /// One line for the talk: who sits at the table for the player.
     pub fn berater_zeile(&self, p: usize) -> String {
         let pl = &self.world.players[p];

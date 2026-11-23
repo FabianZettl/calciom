@@ -221,12 +221,21 @@ static HOEHE: std::sync::atomic::AtomicU32 = std::sync::atomic::AtomicU32::new(0
 /// Seconds since start (for cards that stay a while).
 pub fn jetzt() -> f64 { static T0: std::sync::OnceLock<std::time::Instant> = std::sync::OnceLock::new(); T0.get_or_init(std::time::Instant::now).elapsed().as_secs_f64() }
 pub fn hoehe() -> f32 { f32::from_bits(HOEHE.load(std::sync::atomic::Ordering::Relaxed)) }
-/// Once per frame, from the window size in pixels.
+/// The UI scale chosen in the settings (0.75 … 1.5, Fabian 23.11.: on 3440×1440 everything looked like a touch screen).
+static SKALA: std::sync::atomic::AtomicU32 = std::sync::atomic::AtomicU32::new(0x3F80_0000); // 1.0
+pub fn ui_skala() -> f32 { f32::from_bits(SKALA.load(std::sync::atomic::Ordering::Relaxed)) }
+pub fn ui_skala_setzen(s: f32) { SKALA.store(s.clamp(0.75, 1.5).to_bits(), std::sync::atomic::Ordering::Relaxed); }
+/// Widest the layout gets; a wider window keeps the content in the middle (no stretching over 21:9).
+pub const W_MAX: f32 = 1920.0;
+/// Once per frame, from the window size in pixels: a pixel size of one unit from the window height and the chosen
+/// scale (1000 units high at 100 %), never narrower than 1400 or lower than 760 units, at most W_MAX wide and centred.
 pub fn hoehe_setzen(sw: f32, sh: f32) {
     if sw > 0.0 && sh > 0.0 {
-        let h = (sh * W_BASIS / sw).max(760.0);
+        let mut ppu = sh / 1000.0 * ui_skala();
+        ppu = ppu.min(sw / W_BASIS).min(sh / 760.0);
+        let h = sh / ppu;
         HOEHE.store(h.to_bits(), std::sync::atomic::Ordering::Relaxed);
-        BREITE.store((sw * h / sh).max(W_BASIS).to_bits(), std::sync::atomic::Ordering::Relaxed);
+        BREITE.store((sw / ppu).clamp(W_BASIS, W_MAX).to_bits(), std::sync::atomic::Ordering::Relaxed);
     }
 }
 
