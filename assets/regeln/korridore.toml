@@ -10,7 +10,7 @@ c = 62
 # Stufenabstand (Ziel minus Herkunft, positiv = höher): Index = Abstand + 3, also −3 … +3
 stufe = [0.0, 0.15, 0.6, 1.0, 0.8, 0.3, 0.05]
 land_gleich = 1.0
-kontinent_gleich = 0.7
+kontinent_gleich = 0.95  # three-year test: 0.7 → 74 %, 0.8 → 73 %, 0.95 → 71 % moves at home (target 60–70); the rest comes from language and flows
 kontinent_anders = 0.35
 sprache = 1.2
 strom = 1.4
@@ -88,3 +88,15 @@ laender = ["Saudi-Arabien", "Katar", "VAE", "USA", "China", "Türkei"]
 # Historische Ströme (Herkunft → Ziel)
 [strom_paare]
 paare = [["Belgien", "Frankreich"], ["Österreich", "Deutschland"], ["Schweiz", "Deutschland"], ["Portugal", "England"], ["Argentinien", "Spanien"], ["Argentinien", "Italien"], ["Argentinien", "Portugal"], ["Brasilien", "Portugal"], ["Brasilien", "Spanien"], ["Dänemark", "Deutschland"], ["Norwegen", "England"], ["Schweden", "Deutschland"], ["Niederlande", "England"], ["Schottland", "England"], ["Irland", "England"], ["Kroatien", "Deutschland"], ["Uruguay", "Spanien"], ["Kolumbien", "Portugal"], ["Mexiko", "USA"]]
+
+# Transfer windows per country (Fabian 24.11.: Teil 2): days of the season (day 0 = 1 August), a window that crosses
+# the season's turn as two pieces. Countries not listed use Europe's summer and winter window. GESCHÄTZT, änderbar.
+[fenster]
+"Brasilien" = [[157, 214], [334, 364], [0, 32]]
+"Argentinien" = [[157, 223], [333, 364]]
+"USA" = [[183, 265], [357, 364], [0, 20]]
+"Japan" = [[158, 242], [351, 364], [0, 14]]
+"Südkorea" = [[153, 241], [333, 364]]
+"China" = [[153, 241], [337, 364], [0, 26]]
+"Australien" = [[0, 52], [153, 183]]
+"Saudi-Arabien" = [[0, 39], [153, 183]]

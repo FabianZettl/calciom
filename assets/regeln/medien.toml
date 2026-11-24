@@ -310,6 +310,19 @@ grosser_verein = 0.25
 grosse_summe = 0.2
 sperre_tage = 21
 
+# Fabian 24.11.: the press asks whether we are negotiating, by the size of the deal
+[nachfrage]
+# chance of a question on our first offer: a player above our level, a key player, a big sum
+gross_ab_ueber_niveau = 3.0
+gross = 1.0
+mittel = 0.5
+grosse_summe = 15000000.0
+# confirmed: the fans get excited, the selling club knows it can ask more
+fans_bestaetigt = 1.5
+preis_bestaetigt = 0.05
+# denied: the player's agent takes it badly
+berater_dementi = -0.5
+
 # Konzept 6b: TV-Shows und Podcasts
 [sendung]
 chance_erfolg = 0.40            # je Woche bei Erfolg (Spitze, Serie)

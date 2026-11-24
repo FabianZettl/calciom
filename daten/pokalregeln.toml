@@ -1,0 +1,476 @@
+# PES M – Regeln der nationalen Pokale (Saison 2025/26)
+# Fabian darf alles ändern. sicher = false heißt: nicht Satz für Satz an einer Quelle geprüft, "änderbar".
+# Stand 2026-11-24. Quellen: Wikipedia-Saisonartikel 2025–26 je Pokal, Verbandsseiten (thefa.com, dfb.de, rfef.es,
+# fff.fr, knvb.nl, fpf.pt, tff.org, scottishfa.co.uk), siehe quellen = … am Pokal.
+#
+# Felder:
+#   teilnehmer_echt  = wie viele Vereine im echten Wettbewerb mitmachen (inkl. Qualifikation)
+#   einstieg         = welche Liga-Stufe in welcher Runde einsteigt; runde zählt ab 1 (= erste Hauptrunde in PES M)
+#   amateure         = Vereine unterhalb der Ligen, die es in der Welt gibt (Nicht-Liga, Landespokalsieger …)
+#   zweite_mannschaften = dürfen B-Teams/U23 mitspielen?
+#   unentschieden    = "verlaengerung_elfmeter" | "elfmeter" (sofort, ohne Verlängerung) | "wiederholung"
+#   heimrecht        = "auslosung" | "unterklassig" (der Verein aus der tieferen Liga hat Heimrecht)
+#   halbfinale       = "einzelspiel" | "hin_rueck"
+#   europa           = steht in ligaregeln.toml ([land.europa], "pokal"); hier nur zur Kontrolle
+#   ablauf           = was PES M spielt: Runden in Reihenfolge; neu = wer in dieser Runde einsteigt:
+#                      "stufe:N" alle Erstteams der Stufe N (fehlt die Liga in der Welt: Amateurvereine dieser Stufe aus amateure.toml),
+#                      "stufe:N:K" die K stärksten, "stufe:N:-K" die K schwächsten, "stufe:N:rest" die übrigen,
+#                      "stufe:N:europa" / "stufe:N:ohne_europa" mit / ohne Europapokal, "beste:K" die K stärksten des Landes,
+#                      "ab:N:K" K zufällige Amateurvereine ab Stufe N, "landespokal:K:p" K Landespokalsieger (Anteil p Drittligisten, sonst Amateure).
+#                      quali = nur Amateure, wird nebenbei berechnet; hin_rueck; elfmeter = ohne Verlängerung; tiefste = Neueinsteiger
+#                      gegen die tiefsten Vereine; gruppen/spiele = Gruppenphase; toepfe = obere Hälfte gegen untere Hälfte gelost. Ungerade Zahl: der Stärkste hat ein Freilos; nach dem
+#                      letzten Einstieg Freilose bis zur Zweierpotenz.
+#   welt             = was die FL-Welt (_FL26-27-Def, Megapack und MyWorld gleich) an Vereinen hat
+#   vorschlag        = wie PES M das Feld füllt, solange Vereine fehlen
+
+[standard]
+unentschieden = "verlaengerung_elfmeter"
+heimrecht = "auslosung"
+halbfinale = "einzelspiel"
+finale = "neutral"
+zweite_mannschaften = false
+freilose = "staerkste"          # nur wenn das Feld keine Zweierpotenz ist
+alle_ligen_des_landes = true     # alle Erstteams aller Ligen des Landes spielen mit (nicht nur die Datenbank-Liste)
+hinweis = "Ohne eigenen Eintrag: alle Erstteams des Landes, Einzelspiele mit Verlängerung und Elfmeterschießen, Finale auf neutralem Platz."
+
+# ============================================================ 1. FA Cup
+[[pokal]]
+land = "England"
+name = "FA Cup"
+ablauf = [
+  { name = "Extra-Vorrunde", quali = true, neu = ["stufe:9", "stufe:8:127"] },
+  { name = "Vorrunde", quali = true, neu = ["stufe:8:49"] },
+  { name = "1. Qualifikationsrunde", quali = true, neu = ["stufe:7"] },
+  { name = "2. Qualifikationsrunde", quali = true, neu = ["stufe:6"] },
+  { name = "3. Qualifikationsrunde", quali = true },
+  { name = "4. Qualifikationsrunde", quali = true, neu = ["stufe:5"] },
+  { name = "1. Hauptrunde", neu = ["stufe:3", "stufe:4"] },
+  { name = "2. Hauptrunde" },
+  { name = "3. Hauptrunde", neu = ["stufe:1", "stufe:2"] },
+  { name = "4. Runde" }, { name = "5. Runde" }, { name = "Viertelfinale" }, { name = "Halbfinale" }, { name = "Finale" },
+]
+teilnehmer_echt = 747
+zweite_mannschaften = false
+unentschieden = "verlaengerung_elfmeter"
+wiederholung_hinweis = "Wiederholungsspiele seit 2024/25 ab der 1. Hauptrunde abgeschafft. In der Qualifikation gab es 2025/26 noch Wiederholungen (nicht sicher geprüft)."
+heimrecht = "auslosung"
+halbfinale = "einzelspiel"
+finale = "Wembley-Stadion, London (Halbfinale ebenfalls Wembley)"
+runden = ["Vorqualifikation (6 Runden, nur Nicht-Liga)", "1. Hauptrunde (80)", "2. Hauptrunde (40)", "3. Hauptrunde (64)", "4. Runde (32)", "5. Runde (16)", "Viertelfinale", "Halbfinale", "Finale"]
+einstieg = [
+  { stufe = 6, runde = 0, hinweis = "Stufe 5–10 (National League und darunter) spielen sich durch die Qualifikation; 32 Nicht-Liga-Vereine erreichen die 1. Hauptrunde" },
+  { stufe = 3, runde = 1, hinweis = "League One und League Two (48 Vereine)" },
+  { stufe = 1, runde = 3, hinweis = "Premier League und Championship (44 Vereine), 3. Hauptrunde im Januar" },
+]
+europa = "Sieger: Europa League, Ligaphase"
+welt = { stufe_1 = 20, stufe_2 = 24, stufe_3 = 24, datenbank_pokal = 44 }
+fehlt = "League Two (24) und alle Nicht-Liga-Vereine (32 in der 1. Hauptrunde). Die Datenbank-Liste nimmt nur Stufe 1–2, League One fehlt ganz."
+vorschlag = "1. Hauptrunde mit 24 League-One-Vereinen + 56 generierten Vereinen (24 als League Two, 32 als Nicht-Liga) = 80. Ohne Generierung: Start in der 3. Hauptrunde mit 44 + 20 League-One-Vereinen = 64 (Hinweis im Spiel: verkleinertes Feld)."
+sicher = true
+quellen = ["https://en.wikipedia.org/wiki/2025%E2%80%9326_FA_Cup", "https://www.thefa.com/competitions/thefacup/round-dates", "https://www.tntsports.co.uk/football/the-emirates-fa-cup/2025-2026/replays-var-extra-time-penalties-away-goal-rule_sto23235682/story.shtml"]
+
+# ============================================================ 2. EFL Cup (Ligapokal)
+[[pokal]]
+land = "England"
+name = "EFL Cup"
+ablauf = [
+  { name = "Vorrunde", elfmeter = true, neu = ["stufe:4:-4"] },
+  { name = "1. Runde", elfmeter = true, neu = ["stufe:2", "stufe:3", "stufe:4:rest"] },
+  { name = "2. Runde", elfmeter = true, neu = ["stufe:1:ohne_europa"] },
+  { name = "3. Runde", elfmeter = true, neu = ["stufe:1:europa"] },
+  { name = "4. Runde", elfmeter = true }, { name = "Viertelfinale", elfmeter = true },
+  { name = "Halbfinale", elfmeter = true, hin_rueck = true }, { name = "Finale" },
+]
+art = "ligapokal"
+teilnehmer_echt = 92
+zweite_mannschaften = false
+unentschieden = "elfmeter"
+unentschieden_finale = "verlaengerung_elfmeter"
+heimrecht = "auslosung"
+halbfinale = "hin_rueck"
+finale = "Wembley-Stadion, London"
+runden = ["Vorrunde (4)", "1. Runde", "2. Runde", "3. Runde (32)", "4. Runde (16)", "Viertelfinale", "Halbfinale (Hin- und Rückspiel)", "Finale"]
+einstieg = [
+  { stufe = 2, runde = 1, hinweis = "Championship, League One, League Two (72); 2025/26 neu eine Vorrunde mit 4 Vereinen" },
+  { stufe = 1, runde = 2, hinweis = "Premier-League-Vereine ohne Europapokal" },
+  { stufe = 1, runde = 3, hinweis = "Premier-League-Vereine im Europapokal steigen erst in Runde 3 ein (2025/26: 9 Vereine)" },
+]
+europa = "Sieger: Conference League, Play-off (steht in ligaregeln.toml als \"ligapokal\")"
+welt = { stufe_1 = 20, stufe_2 = 24, stufe_3 = 24, datenbank_pokal = 0 }
+fehlt = "Den Wettbewerb gibt es in PES M noch gar nicht (keine Liste in der Datenbank, kein Code). League Two fehlt (24)."
+vorschlag = "Mit den 68 Vereinen der Welt, ohne Generierung: Runde 1 = 40 (Stufe 2–3 ohne die 8 besten der Championship) → 20; Runde 2 = 20 + 8 beste der Championship + 4 PL-Vereine → 32; Runde 3 = 16 Sieger + 16 PL-Vereine (alle Europapokal-Teams darunter) = 32. Mit League Two (24 generierte) ginge es wie echt."
+sicher = true
+quellen = ["https://en.wikipedia.org/wiki/2025%E2%80%9326_EFL_Cup", "https://www.skysports.com/football/news/12040/13382707/carabao-cup-preliminary-round-to-be-introduced-for-2025-26-season"]
+
+# ============================================================ 3. DFB-Pokal
+[[pokal]]
+land = "Deutschland"
+name = "DFB-Pokal"
+ablauf = [
+  { name = "1. Runde", toepfe = true, neu = ["stufe:1", "stufe:2", "stufe:3:4", "landespokal:24:0.25"] },
+  { name = "2. Runde" }, { name = "Achtelfinale" }, { name = "Viertelfinale" }, { name = "Halbfinale" }, { name = "Finale" },
+]
+teilnehmer_echt = 64
+zweite_mannschaften = false
+unentschieden = "verlaengerung_elfmeter"
+heimrecht = "unterklassig"
+heimrecht_hinweis = "Amateurverein (ab 4. Liga) hat bis einschließlich Viertelfinale Heimrecht gegen Profis; in Runde 1 hat immer der Verein aus Topf 2 (Amateure und schwächste Profis) Heimrecht."
+halbfinale = "einzelspiel"
+finale = "Olympiastadion, Berlin"
+runden = ["1. Runde (64)", "2. Runde (32)", "Achtelfinale", "Viertelfinale", "Halbfinale", "Finale"]
+freilose = "keine"
+einstieg = [
+  { stufe = 1, runde = 1, anzahl = 18, hinweis = "alle Bundesligisten der Vorsaison" },
+  { stufe = 2, runde = 1, anzahl = 18, hinweis = "alle Zweitligisten der Vorsaison" },
+  { stufe = 3, runde = 1, anzahl = 4, hinweis = "3. Liga Platz 1–4 der Vorsaison (Aufsteiger zählen mit)" },
+]
+amateure = { anzahl = 24, herkunft = "Landespokalsieger der 21 Landesverbände; Bayern, Niedersachsen und Westfalen stellen je 2 (der zweite über Liga-Platzierung bzw. Entscheidungsspiel)", stufen = "3. Liga (Platz 5+) bis Kreisliga, meist Regionalliga und Oberliga" }
+auslosung = "Zwei Töpfe: Topf 1 = 18 Bundesliga + 14 beste der 2. Liga; Topf 2 = 4 schwächste der 2. Liga + 4 aus der 3. Liga + 24 Amateure. Ab Runde 2 freie Auslosung."
+europa = "Sieger: Europa League, Ligaphase"
+welt = { stufe_1 = 18, stufe_2 = 18, stufe_3 = 18, datenbank_pokal = 18 }
+fehlt = "Die Datenbank-Liste enthält nur die 18 Bundesligisten. Es gibt keine Regionalliga oder Amateurvereine in der Welt."
+vorschlag = "Feld wie echt: 18 + 18 + 4 (3. Liga 1–4). Für die 24 Landespokal-Plätze zuerst die übrigen 14 Drittligisten als 'Landespokalsieger' (das ist auch echt oft so), dazu 10 generierte Regionalliga-/Oberliga-Vereine. Ohne Generierung: 54 Vereine mit 10 Freilosen (unrealistisch, mit Hinweis)."
+sicher = true
+quellen = ["https://en.wikipedia.org/wiki/2025%E2%80%9326_DFB-Pokal", "https://www.bundesliga.com/de/bundesliga/news/dfb-pokal-2025-26-auslosung-1-runde-pairungen-termine-spiele-32629"]
+
+# ============================================================ 4. Copa del Rey
+[[pokal]]
+land = "Spanien"
+name = "Copa del Rey"
+ablauf = [
+  { name = "1. Runde", neu = ["stufe:1:rest", "stufe:2", "stufe:3", "stufe:4", "stufe:5", "stufe:6:9"] },
+  { name = "2. Runde" },
+  { name = "Sechzehntelfinale", neu = ["beste:4"], tiefste = true },
+  { name = "Achtelfinale" }, { name = "Viertelfinale" }, { name = "Halbfinale", hin_rueck = true }, { name = "Finale" },
+]
+teilnehmer_echt = 125
+zweite_mannschaften = false
+unentschieden = "verlaengerung_elfmeter"
+heimrecht = "unterklassig"
+heimrecht_hinweis = "Bis einschließlich Achtelfinale spielt der Verein aus der tieferen Liga zu Hause."
+halbfinale = "hin_rueck"
+finale = "Estadio de La Cartuja, Sevilla"
+runden = ["Vorrunde (Amateure, 2025/26 mit Hin- und Rückspiel)", "1. Runde (112)", "2. Runde (56)", "Sechzehntelfinale (32)", "Achtelfinale", "Viertelfinale", "Halbfinale (Hin- und Rückspiel)", "Finale"]
+einstieg = [
+  { stufe = 1, runde = 1, hinweis = "LaLiga ohne die 4 Supercopa-Teilnehmer, alle Segunda, Primera und Segunda Federación, Regionalsieger" },
+  { stufe = 1, runde = 3, anzahl = 4, hinweis = "die 4 Supercopa-Teilnehmer steigen im Sechzehntelfinale ein und bekommen dort und im Achtelfinale einen Gegner aus der tiefsten noch vertretenen Liga" },
+]
+amateure = { anzahl = 80, herkunft = "Primera Federación, Segunda Federación, Tercera, Regionalpokal", stufen = "3.–5. Liga" }
+europa = "Sieger: Europa League, Ligaphase"
+welt = { stufe_1 = 20, stufe_2 = 22, datenbank_pokal = 41 }
+fehlt = "Alle Vereine unterhalb der Segunda (etwa 80)."
+vorschlag = "Start in der 2. Runde mit 56: 38 Vereine (Stufe 1–2 ohne Supercopa-Teilnehmer) + 18 generierte Federación-Vereine; Supercopa-Teilnehmer ab Sechzehntelfinale."
+sicher = true
+quellen = ["https://en.wikipedia.org/wiki/2025%E2%80%9326_Copa_del_Rey", "https://rfef.es/en/noticias/The-Copa-stages-its-final-dance-of-the-year"]
+
+# ============================================================ 5. Coppa Italia
+[[pokal]]
+land = "Italien"
+name = "Coppa Italia"
+ablauf = [
+  { name = "Vorrunde", elfmeter = true, neu = ["stufe:3", "stufe:2:-4"] },
+  { name = "1. Runde", elfmeter = true, neu = ["stufe:2:rest", "stufe:1:-12"] },
+  { name = "2. Runde", elfmeter = true },
+  { name = "Achtelfinale", elfmeter = true, neu = ["stufe:1:rest"] },
+  { name = "Viertelfinale", elfmeter = true }, { name = "Halbfinale", hin_rueck = true }, { name = "Finale" },
+]
+teilnehmer_echt = 44
+zweite_mannschaften = false
+unentschieden = "elfmeter"
+unentschieden_hinweis = "Seit 2024/25: bis zum Viertelfinale sofort Elfmeterschießen, Verlängerung nur im Halbfinale (nach dem Rückspiel) und im Finale."
+heimrecht = "gesetzt"
+heimrecht_hinweis = "Fester Turnierbaum nach Setzliste (Vorsaison); der besser gesetzte Verein spielt zu Hause."
+halbfinale = "hin_rueck"
+finale = "Stadio Olimpico, Rom"
+freilose = "setzliste"
+runden = ["Vorrunde (8)", "1. Runde (32)", "2. Runde (16)", "Achtelfinale", "Viertelfinale", "Halbfinale (Hin- und Rückspiel)", "Finale"]
+einstieg = [
+  { stufe = 3, runde = 0, anzahl = 4, hinweis = "4 Serie-C-Vereine in der Vorrunde (gegen 4 Serie-B-Vereine)" },
+  { stufe = 2, runde = 1, hinweis = "übrige Serie B" },
+  { stufe = 1, runde = 1, anzahl = 12, hinweis = "Serie A Platz 9–20 der Vorsaison (inkl. Aufsteiger)" },
+  { stufe = 1, runde = 4, anzahl = 8, hinweis = "Serie A Platz 1–8 der Vorsaison erst im Achtelfinale" },
+]
+europa = "Sieger: Europa League, Ligaphase"
+welt = { stufe_1 = 20, stufe_2 = 20, datenbank_pokal = 40 }
+fehlt = "Die 4 Serie-C-Vereine."
+vorschlag = "4 generierte Serie-C-Vereine, oder die Vorrunde streichen (die 4 Serie-B-Vereine der Vorrunde kommen direkt weiter). Beides kleine Abweichung."
+sicher = true
+quellen = ["https://en.wikipedia.org/wiki/2025%E2%80%9326_Coppa_Italia", "https://www.inter.it/en/news/coppa-italia-24-25-bracket-inter"]
+
+# ============================================================ 6. Coupe de France
+[[pokal]]
+land = "Frankreich"
+name = "Coupe de France"
+ablauf = [
+  { name = "Zweiunddreißigstelfinale", elfmeter = true, neu = ["stufe:1", "stufe:2", "stufe:3", "ab:4:10"] },
+  { name = "Sechzehntelfinale", elfmeter = true }, { name = "Achtelfinale", elfmeter = true }, { name = "Viertelfinale", elfmeter = true },
+  { name = "Halbfinale", elfmeter = true }, { name = "Finale" },
+]
+teilnehmer_echt = 7000
+zweite_mannschaften = false
+unentschieden = "elfmeter"
+unentschieden_hinweis = "Keine Verlängerung, bei Gleichstand sofort Elfmeterschießen (Finale: Verlängerung). Nicht Satz für Satz geprüft."
+heimrecht = "unterklassig"
+heimrecht_hinweis = "Liegen zwei oder mehr Ligen zwischen den Vereinen, spielt der tiefere zu Hause (bis Achtelfinale)."
+halbfinale = "einzelspiel"
+finale = "Stade de France, Saint-Denis"
+runden = ["6 Regionalrunden", "7. Runde (Ligue 2 steigt ein)", "8. Runde", "Zweiunddreißigstelfinale (64, Ligue 1 steigt ein)", "Sechzehntelfinale", "Achtelfinale", "Viertelfinale", "Halbfinale", "Finale"]
+einstieg = [
+  { stufe = 3, runde = 0, hinweis = "National ab der 5./6. Runde" },
+  { stufe = 2, runde = 0, hinweis = "Ligue 2 ab der 7. Runde" },
+  { stufe = 1, runde = 1, hinweis = "Ligue 1 im Zweiunddreißigstelfinale (64 Vereine, Dezember)" },
+]
+amateure = { anzahl = 46, herkunft = "Sieger der 8. Runde: Ligue 2, National, Amateure, Überseegebiete", stufen = "2.–9. Liga" }
+europa = "Sieger: Europa League, Ligaphase"
+welt = { stufe_1 = 18, stufe_2 = 18, stufe_3 = 18, datenbank_pokal = 36 }
+fehlt = "Alle Amateurvereine; National (18) fehlt in der Datenbank-Liste."
+vorschlag = "Zweiunddreißigstelfinale mit 64: 18 Ligue 1 + 18 Ligue 2 + 18 National + 10 generierte Amateurvereine. Amateure mit Heimrecht."
+sicher = false
+quellen = ["https://en.wikipedia.org/wiki/2025%E2%80%9326_Coupe_de_France", "https://ligue1.com/en/articles/l1_article_3769-"]
+
+# ============================================================ 7. KNVB Beker
+[[pokal]]
+land = "Niederlande"
+name = "KNVB-Beker"
+ablauf = [
+  { name = "1. Vorrunde", quali = true, neu = ["stufe:5"] },
+  { name = "2. Vorrunde", quali = true, neu = ["stufe:4"] },
+  { name = "1. Runde", neu = ["stufe:1:ohne_europa", "stufe:2"] },
+  { name = "2. Runde", neu = ["stufe:1:europa"] },
+  { name = "Achtelfinale" }, { name = "Viertelfinale" }, { name = "Halbfinale" }, { name = "Finale" },
+]
+teilnehmer_echt = 88
+zweite_mannschaften = false
+zweite_hinweis = "Jong-Teams (Jong Ajax, Jong PSV …) sind ausgeschlossen."
+unentschieden = "verlaengerung_elfmeter"
+heimrecht = "unterklassig"
+halbfinale = "einzelspiel"
+finale = "De Kuip, Rotterdam"
+runden = ["2 Qualifikationsrunden (Amateure)", "1. Runde (64)", "2. Runde (32)", "Achtelfinale", "Viertelfinale", "Halbfinale", "Finale"]
+einstieg = [
+  { stufe = 1, runde = 1, hinweis = "Eredivisie ohne Europapokal-Teilnehmer" },
+  { stufe = 2, runde = 1, hinweis = "Eerste Divisie ohne Jong-Teams (16)" },
+  { stufe = 1, runde = 2, hinweis = "Europapokal-Teilnehmer (2025/26: 6) erst in Runde 2" },
+]
+amateure = { anzahl = 24, herkunft = "Tweede Divisie (4 gelost direkt, Rest über Qualifikation) und weitere Amateure", stufen = "3.–5. Liga" }
+europa = "Sieger: Europa League, Ligaphase"
+welt = { stufe_1 = 18, stufe_2 = 16, datenbank_pokal = 18 }
+fehlt = "Die Datenbank-Liste hat nur die Eredivisie; Eerste Divisie fehlt darin. Keine Amateure in der Welt."
+vorschlag = "1. Runde mit 58 (64 minus 6 Europapokal-Teams): 12 Eredivisie + 16 Eerste Divisie + 30 generierte Amateure; oder ohne Generierung 34 Vereine mit Freilosen."
+sicher = true
+quellen = ["https://en.wikipedia.org/wiki/2025%E2%80%9326_KNVB_Cup", "https://www.vi.nl/nieuws/dit-zijn-de-deelnemers-aan-de-knvb-beker-2025-26"]
+
+# ============================================================ 8. Taça de Portugal
+[[pokal]]
+land = "Portugal"
+name = "Taça de Portugal"
+ablauf = [
+  { name = "1. Runde", quali = true, neu = ["stufe:5", "stufe:4"] },
+  { name = "2. Runde", quali = true, neu = ["stufe:3"] },
+  { name = "3. Runde", neu = ["stufe:2", "stufe:1"] },
+  { name = "4. Runde" }, { name = "Achtelfinale" }, { name = "Viertelfinale" }, { name = "Halbfinale", hin_rueck = true }, { name = "Finale" },
+]
+teilnehmer_echt = 149
+zweite_mannschaften = false
+unentschieden = "verlaengerung_elfmeter"
+heimrecht = "unterklassig"
+heimrecht_hinweis = "In der 3. Runde spielen Erstligisten immer auswärts."
+halbfinale = "hin_rueck"
+halbfinale_hinweis = "Ab 2026/27 soll das Halbfinale ein Einzelspiel sein und die Erstligisten erst in Runde 4 einsteigen (änderbar)."
+finale = "Estádio Nacional, Jamor (Oeiras)"
+runden = ["1. Runde", "2. Runde", "3. Runde (64, Erstligisten steigen ein)", "4. Runde", "Achtelfinale", "Viertelfinale", "Halbfinale (Hin- und Rückspiel)", "Finale"]
+einstieg = [
+  { stufe = 2, runde = 0, hinweis = "Liga 2, Liga 3, Campeonato de Portugal und Distriktvereine ab Runde 1/2" },
+  { stufe = 1, runde = 1, hinweis = "Primeira Liga (18) in der 3. Runde" },
+]
+amateure = { anzahl = 31, herkunft = "Liga 3, Campeonato de Portugal, Distriktmeister", stufen = "3.–5. Liga" }
+europa = "Sieger: Europa League, Ligaphase"
+welt = { stufe_1 = 18, stufe_2 = 15, datenbank_pokal = 18 }
+fehlt = "Datenbank-Liste nur Primeira Liga; Liga 2 hat in der Welt 15 statt 18 Vereine (B-Teams fehlen, richtig so); keine Amateure."
+vorschlag = "3. Runde mit 64: 18 + 15 + 31 generierte Amateure, Erstligisten auswärts."
+sicher = true
+quellen = ["https://en.wikipedia.org/wiki/2025%E2%80%9326_Ta%C3%A7a_de_Portugal"]
+
+# ============================================================ 9. Belgischer Pokal
+[[pokal]]
+land = "Belgien"
+name = "Croky Cup"
+ablauf = [
+  { name = "Vorrunden", quali = true, neu = ["stufe:3", "stufe:4", "stufe:5"] },
+  { name = "6. Runde", quali = true, neu = ["stufe:2:7"] },
+  { name = "Sechzehntelfinale", neu = ["stufe:1"] },
+  { name = "Achtelfinale" }, { name = "Viertelfinale" }, { name = "Halbfinale", hin_rueck = true }, { name = "Finale" },
+]
+teilnehmer_echt = 301
+zweite_mannschaften = false
+unentschieden = "verlaengerung_elfmeter"
+heimrecht = "auslosung"
+halbfinale = "hin_rueck"
+finale = "König-Baudouin-Stadion, Brüssel"
+runden = ["5 Vorrunden (Amateure, Challenger Pro League)", "Sechzehntelfinale (32, Pro League steigt ein, gesetzt)", "Achtelfinale", "Viertelfinale", "Halbfinale (Hin- und Rückspiel)", "Finale"]
+einstieg = [
+  { stufe = 1, runde = 1, anzahl = 16, hinweis = "Pro League im Sechzehntelfinale, gesetzt (treffen sich dort nicht)" },
+]
+amateure = { anzahl = 16, herkunft = "Sieger der Vorrunden: Challenger Pro League und Amateure", stufen = "2.–8. Liga" }
+europa = "Sieger: Europa League, Play-off"
+welt = { stufe_1 = 18, datenbank_pokal = 16 }
+fehlt = "Challenger Pro League und Amateure. Die Welt hat 18 Erstligisten (echt 2025/26: 16)."
+vorschlag = "Sechzehntelfinale mit 32: die 16 Pro-League-Vereine der Datenbank-Liste gesetzt + 16 generierte Vereine (2. Liga/Amateure)."
+sicher = true
+quellen = ["https://en.wikipedia.org/wiki/2025%E2%80%9326_Belgian_Cup"]
+
+# ============================================================ 10. Türkischer Pokal
+[[pokal]]
+land = "Türkei"
+name = "Türkiye Kupası"
+ablauf = [
+  { name = "1. Runde", quali = true, neu = ["stufe:5", "stufe:4:30"] },
+  { name = "2. Runde", quali = true, neu = ["stufe:3"] },
+  { name = "3. Runde", neu = ["stufe:2"] },
+  { name = "4. Runde", neu = ["stufe:1:ohne_europa"] },
+  { name = "Gruppenphase", neu = ["stufe:1:europa"], gruppen = 3, spiele = 4 },
+  { name = "Viertelfinale" }, { name = "Halbfinale" }, { name = "Finale" },
+]
+teilnehmer_echt = 155
+zweite_mannschaften = false
+unentschieden = "verlaengerung_elfmeter"
+heimrecht = "auslosung"
+halbfinale = "einzelspiel"
+finale = "neutral (wechselnd)"
+gruppenphase = { teams = 24, gruppen = 3, je_gruppe = 8, spiele = 4, hinweis = "seit 2024/25; jedes Team 4 Spiele (2 heim, 2 auswärts), danach K.-o.-Runde. Gruppenzahl in Quellen widersprüchlich (3×8 besser belegt)." }
+runden = ["4 Qualifikationsrunden", "Gruppenphase (24)", "Viertelfinale", "Halbfinale", "Finale"]
+einstieg = [
+  { stufe = 1, runde = 0, hinweis = "Süper Lig ohne Europapokal ab der 3. Qualifikationsrunde" },
+  { stufe = 1, runde = 1, anzahl = 5, hinweis = "Europapokal-Teilnehmer direkt in die Gruppenphase" },
+]
+amateure = { anzahl = 16, herkunft = "Amateurvereine (BAL) und 2.–4. Liga", stufen = "2.–5. Liga" }
+europa = "Sieger: Europa League, Play-off"
+welt = { stufe_1 = 18, stufe_2 = 20, datenbank_pokal = 18 }
+fehlt = "Datenbank-Liste nur Süper Lig; 1. Lig (20) in der Welt vorhanden, aber nicht in der Liste. Keine 2./3. Lig."
+vorschlag = "Qualifikationsrunde mit 38 (13 Süper Lig + 20 1. Lig + 5 generierte) → 19 Sieger + 5 Europapokal-Teams = 24 in der Gruppenphase. Braucht Gruppen im Pokal (Code fehlt)."
+sicher = false
+quellen = ["https://en.wikipedia.org/wiki/2025%E2%80%9326_Turkish_Cup", "https://www.tff.org/Resources/Tamsaha/250/128-129/"]
+
+# ============================================================ 11. Scottish Cup
+[[pokal]]
+land = "Schottland"
+name = "Scottish Cup"
+ablauf = [
+  { name = "1. Runde", quali = true, neu = ["stufe:5:60"] },
+  { name = "2. Runde", quali = true, neu = ["stufe:4"] },
+  { name = "3. Runde", quali = true, neu = ["stufe:3", "stufe:2"] },
+  { name = "4. Runde", neu = ["stufe:1"] },
+  { name = "5. Runde" }, { name = "Viertelfinale" }, { name = "Halbfinale" }, { name = "Finale" },
+]
+teilnehmer_echt = 118
+zweite_mannschaften = false
+unentschieden = "verlaengerung_elfmeter"
+wiederholung_hinweis = "Wiederholungsspiele seit 2022/23 abgeschafft."
+heimrecht = "auslosung"
+halbfinale = "einzelspiel"
+finale = "Hampden Park, Glasgow (Halbfinale ebenfalls)"
+runden = ["Vorrunden", "1.–3. Runde", "4. Runde (32, Premiership steigt ein)", "5. Runde", "Viertelfinale", "Halbfinale", "Finale"]
+einstieg = [
+  { stufe = 2, runde = 0, hinweis = "Championship in Runde 3, League One/Two in Runde 2, Highland/Lowland League und Junioren davor" },
+  { stufe = 1, runde = 1, anzahl = 12, hinweis = "Premiership in der 4. Runde (Januar)" },
+]
+amateure = { anzahl = 20, herkunft = "Championship, League One/Two, Highland/Lowland League", stufen = "2.–6. Liga" }
+europa = "Sieger: Europa League, Play-off"
+welt = { stufe_1 = 12, datenbank_pokal = 12 }
+fehlt = "Alles unterhalb der Premiership (die Welt hat nur 12 schottische Vereine)."
+vorschlag = "4. Runde mit 32: 12 Premiership + 20 generierte Vereine (Championship bis Highland League)."
+sicher = true
+quellen = ["https://en.wikipedia.org/wiki/2025%E2%80%9326_Scottish_Cup", "https://www.scottishfa.co.uk/en/scottish-cup/scottish-gas-mens-scottish-cup/format-rules"]
+
+# ============================================================ weitere (aus Wissen, sicher = false, änderbar)
+[[pokal]]
+land = "Österreich"
+name = "ÖFB-Cup"
+teilnehmer_echt = 64
+heimrecht = "unterklassig"
+finale = "Wörthersee-Stadion, Klagenfurt"
+hinweis = "Bundesliga + 2. Liga + Regionalliga-/Landespokalvertreter, 64 Vereine, Einzelspiele."
+welt = { stufe_1 = 12, stufe_2 = 12, datenbank_pokal = 24 }
+vorschlag = "Feld 64: 24 + 40 generierte, oder 32 (24 + 8 generierte)."
+sicher = false
+
+[[pokal]]
+land = "Schweiz"
+name = "Schweizer Cup"
+teilnehmer_echt = 64
+heimrecht = "unterklassig"
+finale = "Wankdorf, Bern"
+hinweis = "Super League + Challenge League + 44 Amateure in Runde 1 (64)."
+welt = { stufe_1 = 12, stufe_2 = 8, datenbank_pokal = 20 }
+vorschlag = "Feld 64: 20 + 44 generierte, oder 32 (20 + 12)."
+sicher = false
+
+[[pokal]]
+land = "Kroatien"
+name = "Kroatischer Pokal"
+heimrecht = "unterklassig"
+hinweis = "Halbfinale Einzelspiel, Finale beim Gewinner der Auslosung oder neutral."
+welt = { stufe_1 = 10, stufe_2 = 14, datenbank_pokal = 24 }
+sicher = false
+
+[[pokal]]
+land = "Griechenland"
+name = "Griechischer Pokal"
+hinweis = "Seit 2024/25 mit Ligaphase der Erstligisten; Halbfinale Hin- und Rückspiel; Finale neutral."
+halbfinale = "hin_rueck"
+welt = { stufe_1 = 14, datenbank_pokal = 14 }
+sicher = false
+
+[[pokal]]
+land = "Dänemark"
+name = "DBU Pokalen"
+halbfinale = "hin_rueck"
+finale = "Parken, Kopenhagen"
+hinweis = "Seit 2024/25 mit Gruppenphase für die Superliga-Vereine (änderbar)."
+welt = { stufe_1 = 12, datenbank_pokal = 12 }
+sicher = false
+
+[[pokal]]
+land = "Schweden"
+name = "Svenska Cupen"
+hinweis = "Gruppenphase mit 32 Vereinen (8 Gruppen à 4) im Frühjahr, dann K.-o.; Finale beim Gruppen-/Losbesten."
+welt = { stufe_1 = 16, stufe_2 = 16, datenbank_pokal = 32 }
+sicher = false
+
+[[pokal]]
+land = "Norwegen"
+name = "NM Cupen"
+finale = "Ullevaal-Stadion, Oslo"
+heimrecht = "unterklassig"
+welt = { stufe_1 = 16, stufe_2 = 16, datenbank_pokal = 32 }
+sicher = false
+
+[[pokal]]
+land = "Russland"
+name = "Russischer Pokal"
+hinweis = "Seit 2022/23 Zwei-Wege-System: Weg der Premjer-Liga mit Gruppen, Weg der Regionen; Finale der Sieger beider Wege."
+welt = { stufe_1 = 16, datenbank_pokal = 16 }
+sicher = false
+
+[[pokal]]
+land = "USA"
+name = "U.S. Open Cup"
+hinweis = "Profis aus MLS, USL und Amateure; 2025 nur ein Teil der MLS-Vereine. Kein Europa-, aber ein CONCACAF-Platz."
+welt = { stufe_1 = 20, datenbank_pokal = 20 }
+sicher = false
+
+[[pokal]]
+land = "Argentinien"
+name = "Copa Argentina"
+hinweis = "64 Vereine aus allen Ligen, alle Spiele auf neutralem Platz, bei Gleichstand sofort Elfmeterschießen."
+unentschieden = "elfmeter"
+heimrecht = "neutral"
+welt = { stufe_1 = 30, datenbank_pokal = 30 }
+sicher = false
+
+[[pokal]]
+land = "Japan"
+name = "Emperor's Cup"
+hinweis = "J1, J2, J3 und 47 Präfektur-Sieger (Amateure, Universitäten); Finale im Nationalstadion Tokio."
+welt = { stufe_1 = 17, datenbank_pokal = 17 }
+sicher = false

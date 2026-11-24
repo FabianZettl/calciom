@@ -12,6 +12,9 @@ pub struct Feier {
     pub text: String,
     pub spieler: Option<usize>,
     pub club: Option<usize>,
+    /// Voices on a big signing or renewal (Fabian 24.11.): (who, what they say), shown under the text.
+    #[serde(default)]
+    pub stimmen: Vec<(String, String)>,
 }
 
 /// (id, kind of count, target) of the milestones, from meilensteine.toml.
@@ -51,13 +54,13 @@ impl Career {
             self.msg(0, &co, &crate::tf!("ui.meilenstein.erreicht", titel), &text, Action::None);
             self.meldung_art(crate::pages::Art::Meilenstein, vec![]);
             let own = self.own;
-            self.feiern.push(Feier { art: crate::id("meilenstein").into(), titel, text, spieler: None, club: Some(own) });
+            self.feiern.push(Feier { art: crate::id("meilenstein").into(), titel, text, spieler: None, club: Some(own), stimmen: vec![] });
         }
         let titel_jetzt = self.world.titles.iter().filter(|x| x.club == self.own).count();
         if titel_jetzt > self.titel_gefeiert {
             for x in self.world.titles.iter().filter(|x| x.club == self.own).skip(self.titel_gefeiert).cloned().collect::<Vec<_>>() {
                 let own = self.own;
-                self.feiern.push(Feier { art: crate::id("titel").into(), titel: x.comp.clone(), text: crate::tf!("ui.feier.titel_text", self.club().name, x.comp, crate::date::season_label(x.season)), spieler: None, club: Some(own) });
+                self.feiern.push(Feier { art: crate::id("titel").into(), titel: x.comp.clone(), text: crate::tf!("ui.feier.titel_text", self.club().name, x.comp, crate::date::season_label(x.season)), spieler: None, club: Some(own), stimmen: vec![] });
             }
             self.titel_gefeiert = titel_jetzt;
         }
@@ -69,7 +72,21 @@ impl Career {
         let text = crate::tf!("ui.feier.neuzugang_text", pl.name, von, crate::world::money(abloese), crate::world::pos_de(&pl.pos), pl.no);
         let titel = crate::tf!("ui.feier.neuzugang", pl.name);
         let own = self.own;
-        self.feiern.push(Feier { art: crate::id("neuzugang").into(), titel, text, spieler: Some(p), club: Some(own) });
+        let stimmen = self.feier_stimmen(p, false);
+        self.feiern.push(Feier { art: crate::id("neuzugang").into(), titel, text, spieler: Some(p), club: Some(own), stimmen });
+    }
+    /// Fans, a transfer reporter and the captain on a signing or renewal of a player at least at the club's level;
+    /// each line from its own shuffle bag. None for smaller deals.
+    pub fn feier_stimmen(&mut self, p: usize, verlaengerung: bool) -> Vec<(String, String)> {
+        if self.world.players[p].ovr < self.club().level { return vec![]; }
+        let art = if verlaengerung { "vertrag" } else { "neuzugang" }; // roh
+        let n = self.world.players[p].name.clone();
+        let mut z = |c: &mut Career, wer: String, k: &str| { let v = c.variante(&format!("feier_{art}_{k}"), 4, &n); (wer, crate::tf!(&format!("ui.feier.stimme.{art}.{k}.{v}"), n.clone())) };
+        let mut out = vec![z(self, crate::inhalt::t("ui.feier.stimme.fans").into(), crate::id("fans"))];
+        let blatt = self.blatt(0);
+        if !blatt.is_empty() { out.push(z(self, blatt, crate::id("presse"))); }
+        if let Some(k) = self.kapitaen().filter(|&k| k != p) { let kn = self.world.players[k].name.clone(); out.push(z(self, kn, crate::id("kapitaen"))); }
+        out
     }
 }
 
@@ -77,6 +94,19 @@ impl Career {
 mod tests {
     use super::*;
 
+    /// Fabian 24.11.: a big signing gets voices (fans, press, captain), a small one none; no voice twice in a row.
+    #[test]
+    fn grosse_transfers_mit_stimmen() {
+        let mut c = Career::new(crate::world::testwelt(3), 2, "Test");
+        let lvl = c.club().level;
+        let gross = (0..c.world.players.len()).find(|&p| c.world.players[p].ovr >= lvl + 2.0).unwrap();
+        let klein = (0..c.world.players.len()).find(|&p| c.world.players[p].ovr < lvl - 10.0).unwrap();
+        let a = c.feier_stimmen(gross, false);
+        assert!(!a.is_empty() && a.iter().all(|(w, t)| !w.is_empty() && !t.is_empty() && !t.contains("ui.")), "{a:?}");
+        assert!(c.feier_stimmen(klein, true).is_empty());
+        let b = c.feier_stimmen(gross, false);
+        assert_ne!(a[0].1, b[0].1, "the fans don't say the same twice");
+    }
     #[test]
     fn meilensteine_mit_fortschritt_und_feier() {
         let w = crate::world::testwelt(7);

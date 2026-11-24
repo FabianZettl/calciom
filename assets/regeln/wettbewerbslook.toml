@@ -130,3 +130,30 @@ muster = "keins"
 "Griechenland" = ["0d5eaf", "ffffff"]
 "Dänemark" = ["c60c30", "ffffff"]
 "Russland" = ["0039a6", "d52b1e"]
+
+# Nationale Pokale (Fabian 24.11.: DFB-Pokal grün …), je Land; GESCHÄTZT, änderbar
+[pokal."Deutschland"]
+farbe1 = "00843d"
+farbe2 = "005a2b"
+akzent = "ffffff"
+muster = "keins"
+[pokal."England"]
+farbe1 = "0b2a5b"
+farbe2 = "c8102e"
+akzent = "ffffff"
+muster = "keins"
+[pokal."Spanien"]
+farbe1 = "a50034"
+farbe2 = "ffc400"
+akzent = "ffc400"
+muster = "keins"
+[pokal."Italien"]
+farbe1 = "0a3d91"
+farbe2 = "008c45"
+akzent = "ffffff"
+muster = "keins"
+[pokal."Frankreich"]
+farbe1 = "1d3f8f"
+farbe2 = "e4002b"
+akzent = "ffffff"
+muster = "keins"

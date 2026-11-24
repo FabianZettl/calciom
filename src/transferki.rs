@@ -33,13 +33,20 @@ fn land_roh(w: &World, l: usize) -> String {
     if !lg.land.is_empty() { return lg.land.clone(); }
     lg.name.trim_end_matches(|c: char| c.is_ascii_digit() || c == ' ').to_string()
 }
+/// The transfer window of league `l` open on season day `tag` (Teil 2: windows per country, korridore.toml [fenster]):
+/// its first and last day, else None.
+pub fn fenster(w: &World, l: usize, tag: u32) -> Option<(u32, u32)> {
+    let eigen = crate::regeln::wert_oder("korridore", &format!("fenster.{}", land(w, l))).and_then(|v| v.as_array()).map(|a| a.iter().filter_map(|x| Some((x[0].as_u64()? as u32, x[1].as_u64()? as u32))).collect::<Vec<_>>());
+    let liste = eigen.unwrap_or_else(|| crate::world::WINDOWS.to_vec());
+    liste.into_iter().find(|&(a, b)| tag >= a && tag <= b)
+}
 /// Tier 0 (A) … 3 (D) of a league by its strength.
 pub fn stufe(w: &World, l: usize) -> i32 { liga_info(w, l).0 }
 fn stufe_roh(w: &World, l: usize) -> i32 {
     let s = crate::statistik::liga_staerke(w, l);
     if s >= k("stufen.a") { 0 } else if s >= k("stufen.b") { 1 } else if s >= k("stufen.c") { 2 } else { 3 }
 }
-fn land_info(land: &str) -> (String, String) {
+pub fn land_info(land: &str) -> (String, String) {
     thread_local! { static C: std::cell::RefCell<std::collections::HashMap<String, (String, String)>> = Default::default(); }
     if let Some(x) = C.with(|c| c.borrow().get(land).cloned()) { return x; }
     let x = land_info_roh(land);
@@ -105,12 +112,13 @@ impl Career {
     /// Flow draws for the summary leagues (the detailed ones search themselves): each window day a share of the league's
     /// planned moves, buyer at random, a player from a corridor league in the buyer's strength band.
     pub fn strom_tag(&mut self) {
-        let Some((a, b)) = self.in_window() else { return };
-        let tage = (b - a + 1) as f32;
-        let winter = a > 100;
         let abs = self.abs();
         for l in 0..self.world.leagues.len() {
             if self.world.leagues[l].detail <= 1 || l == self.league() { continue; }
+            // each league buys in its own country's window
+            let Some((a, b)) = fenster(&self.world, l, self.world.day) else { continue };
+            let tage = (b - a + 1) as f32;
+            let winter = (100..250).contains(&a);
             let teams = self.world.leagues[l].teams.clone();
             if teams.is_empty() { continue; }
             let plan = teams.len() as f32 * k("strom.je_team") * if winter { k("strom.winter") } else { 1.0 };
@@ -158,6 +166,16 @@ impl Career {
 #[cfg(test)]
 mod tests {
     use crate::game::*;
+    /// Teil 2: each country its own window; Saudi Arabia shops until early September, Germany not in October.
+    #[test]
+    fn fenster_je_land() {
+        let w = crate::world::testwelt(2);
+        let l = |n: &str| w.leagues.iter().position(|x| x.name == n).unwrap();
+        let (de1, sau) = (l("Deutschland 1"), l("Saudi-Arabien 1"));
+        assert!(super::fenster(&w, de1, 10).is_some() && super::fenster(&w, de1, 35).is_none());
+        assert!(super::fenster(&w, sau, 35).is_some(), "the Saudi window runs into September");
+        assert!(super::fenster(&w, de1, 160).is_some() && super::fenster(&w, de1, 200).is_none());
+    }
     #[test]
     fn korridore_und_radius() {
         let w = crate::world::World::load(include_str!("../assets/world.json"), 2);

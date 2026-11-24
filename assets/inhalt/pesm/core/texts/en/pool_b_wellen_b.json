@@ -24,28 +24,28 @@
   "With the contract ending in {monate} months comes the question of how long I may carry on."
  ],
  "pool.b.egoist_auf_der_bank_lage": [
-  "It is about {gegner}, who has sat on the bench for {spiele} games and lets everyone feel it.",
-  "{gegner} has been out for {spiele} games, and the mood in the dressing room suffers."
+  "It is about {gegner}, who has sat on the bench for {gegner_spiele} games and lets everyone feel it.",
+  "{gegner} has been out for {gegner_spiele} games, and the mood in the dressing room suffers."
  ],
  "pool.b.egoist_auf_der_bank_lage.hitzig": [
-  "{gegner} has grumbled on the bench for {spiele} games and yesterday he kicked the door.",
-  "For {spiele} games {gegner} has simmered in reserve and takes it out on everyone."
+  "{gegner} has grumbled on the bench for {gegner_spiele} games and yesterday he kicked the door.",
+  "For {gegner_spiele} games {gegner} has simmered in reserve and takes it out on everyone."
  ],
  "pool.b.egoist_auf_der_bank_lage.loyal": [
-  "I do not like saying it about a teammate, but {gegner} has dragged us down for {spiele} games.",
-  "I do not want to blame anyone, yet {gegner} spoils the mood after {spiele} games on the bench."
+  "I do not like saying it about a teammate, but {gegner} has dragged us down for {gegner_spiele} games.",
+  "I do not want to blame anyone, yet {gegner} spoils the mood after {gegner_spiele} games on the bench."
  ],
  "pool.b.egoist_auf_der_bank_lage.ehrgeizig": [
-  "We want to compete at the top, but {gegner} disturbs the rhythm with his sulking for {spiele} games.",
-  "{gegner} thinks only of himself since he has watched {spiele} games, and that costs us sharpness."
+  "We want to compete at the top, but {gegner} disturbs the rhythm with his sulking for {gegner_spiele} games.",
+  "{gegner} thinks only of himself since he has watched {gegner_spiele} games, and that costs us sharpness."
  ],
  "pool.b.egoist_auf_der_bank_lage.wechselfreudig": [
-  "{gegner} talks openly about leaving since he has missed {spiele} games.",
-  "For {spiele} games {gegner} has made clear he would be better off elsewhere, even in front of the others."
+  "{gegner} talks openly about leaving since he has missed {gegner_spiele} games.",
+  "For {gegner_spiele} games {gegner} has made clear he would be better off elsewhere, even in front of the others."
  ],
  "pool.b.egoist_auf_der_bank_lage.sensibel": [
-  "It hurts me how {gegner} has suffered for {spiele} games and pulls everyone in.",
-  "For {spiele} games {gegner} has been bitter, and the mood in the dressing room pains me."
+  "It hurts me how {gegner} has suffered for {gegner_spiele} games and pulls everyone in.",
+  "For {gegner_spiele} games {gegner} has been bitter, and the mood in the dressing room pains me."
  ],
  "pool.b.fuehrungsspieler_ausser_form_lage": [
   "I know myself that things are not working for me right now, and it occupies me.",

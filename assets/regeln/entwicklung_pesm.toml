@@ -65,3 +65,28 @@ gleich_abzug = 1.5                # Moral weniger für Mitspieler gleicher Rolle
 gleich_arten = ["spielzeit", "gehalt", "rolle"]
 hoechstens = 6                    # betroffene Mitspieler je Gespräch
 anzeige_sekunden = 10             # so lange steht die Karte „So hat es gewirkt“
+
+# Fabian 24.11.: ratings move drastically and visibly with what happens, always with a reason (world.rs form_zuschlag).
+# Points on the written overall; they fade by `abklingen_je_tag` a day (0.96: half after about 17 days).
+[dynamik]
+grenze = 8
+abklingen_je_tag = 0.96
+doppelpack = 2
+dreierpack = 3
+rot = -1
+note_top_ab = 8.0
+note_top = 1
+note_flop_bis = 5.0
+note_flop = -1
+gk_drei_gegentore = -2
+gk_zu_null = 1
+abwehr_drei_gegentore = -1
+# state, as long as it lasts
+moral_tief_unter = 25
+moral_tief = -3
+moral_niedrig_unter = 40
+moral_niedrig = -1
+moral_hoch_ueber = 85
+moral_hoch = 1
+muede_unter = 60
+muede = -1

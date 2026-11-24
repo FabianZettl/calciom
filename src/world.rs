@@ -406,6 +406,9 @@ struct RawTeam {
 
 #[derive(Serialize, Deserialize, Clone)]
 pub struct World {
+    /// Amateur clubs of this season's national cups (pokalregeln.rs): only in the cups, no players, no league.
+    #[serde(default)]
+    pub amateure: Vec<(Club, u8)>,
     /// The result profile per league, corrected for its spread of strength (liga_profil; filled on first use, never saved).
     #[serde(skip)]
     pub profil_cache: Vec<Option<(f32, f32, f32)>>,
@@ -446,6 +449,9 @@ pub struct World {
     pub titles: Vec<crate::cups::Title>,
     #[serde(default)]
     pub coef: Vec<(String, u32, f32)>,
+    /// The clubs' European points per season (club, season, points): the UEFA club coefficient (Fabian 24.11.).
+    #[serde(default)]
+    pub club_coef: Vec<(usize, u32, f32)>,
     /// The nations' A-teams with their squads (nationalteams.rs).
     #[serde(default)]
     pub nationalteams: Vec<crate::nationalteams::Nationalteam>,
@@ -454,6 +460,11 @@ pub struct World {
     pub nat_punkte: std::collections::HashMap<u16, f32>,
     #[serde(default)]
     pub turniere: Vec<crate::nationalteams::Turnier>,
+    /// The Nations League groups of this autumn and the season they were drawn for (+1, 0 = none yet).
+    #[serde(default)]
+    pub nl: Vec<crate::nationalteams::NlGruppe>,
+    #[serde(default)]
+    pub nl_saison: u32,
     #[serde(skip)]
     pub turnier_tore: std::collections::HashMap<usize, u16>,
     #[serde(default)]
@@ -818,7 +829,7 @@ impl World {
             name, key, teams, fixtures: vec![], level: 68.0, deduct: vec![],
         }).collect();
         let next_id = players.iter().map(|p| p.id).max().unwrap_or(0) + 1;
-        let mut w = World { profil_cache: vec![], titelverteidiger: Default::default(), ki_ausgaben: Default::default(), eigen: Default::default(), gesichter: Default::default(), taktik_faktor: None, noten_woche: vec![], noten_monat: vec![], leagues, clubs, players, season: 0, day: 0, rng, source, next_id, cups: vec![], titles: vec![], coef: vec![], cup_money: vec![], neutral: false, entscheid: vec![], planen: None, ko_runde_nr: 0, db_cups: vec![], db_euro: None, ko_vorgabe: None, cids: Default::default(), zweite: vec![], koops: vec![], farm_an: false, trainer_an: false, trainer_pool: vec![], ligaregeln: crate::ligaregeln::eingebaut(), teamgeist_eigen: None, nationalteams: vec![], nat_punkte: Default::default(), turniere: vec![], turnier_tore: Default::default() };
+        let mut w = World { amateure: vec![], profil_cache: vec![], titelverteidiger: Default::default(), ki_ausgaben: Default::default(), eigen: Default::default(), gesichter: Default::default(), taktik_faktor: None, noten_woche: vec![], noten_monat: vec![], leagues, clubs, players, season: 0, day: 0, rng, source, next_id, cups: vec![], titles: vec![], coef: vec![], club_coef: vec![], cup_money: vec![], neutral: false, entscheid: vec![], planen: None, ko_runde_nr: 0, db_cups: vec![], db_euro: None, ko_vorgabe: None, cids: Default::default(), zweite: vec![], koops: vec![], farm_an: false, trainer_an: false, trainer_pool: vec![], ligaregeln: crate::ligaregeln::eingebaut(), teamgeist_eigen: None, nationalteams: vec![], nat_punkte: Default::default(), turniere: vec![], nl: vec![], nl_saison: 0, turnier_tore: Default::default() };
         w.ueber_ergaenzen();
         w.init_economy();
         w.kuerzel_eindeutig();
@@ -1436,7 +1447,17 @@ impl World {
         f.hg = res.hg as i8;
         f.ag = res.ag as i8;
         self.apply_stats(res);
-        // per-league figures for the rankings
+        self.wettbewerb_zaehlen(l, res);
+        // the awards of the week and month read these grades (ehrungen.rs)
+        for &(p, r) in &res.ratings {
+            let g = res.events.iter().filter(|e| e.kind == 0 && e.pid == p).count() as u8;
+            self.noten_woche.push((p, r, g));
+            self.noten_monat.push((p, r, g));
+        }
+    }
+    /// Per-competition figures for the rankings: a league by its index, a cup or European competition as 1000 + its
+    /// index (Fabian 24.11.: scorers etc. for every competition, the Champions League too).
+    pub fn wettbewerb_zaehlen(&mut self, l: usize, res: &MatchResult) {
         let mut eintrag = |w: &mut World, p: usize| -> usize {
             let v = &mut w.players[p].profil.ligen;
             if let Some(i) = v.iter().position(|x| x.l as usize == l) { i } else { v.push(LigaStat { l: l as u16, ..Default::default() }); v.len() - 1 }
@@ -1447,12 +1468,6 @@ impl World {
         for e in res.events.iter().filter(|e| e.kind == 0) {
             let i = eintrag(self, e.pid); self.players[e.pid].profil.ligen[i].goals += 1;
             if let Some(a) = e.pid2 { let i = eintrag(self, a); self.players[a].profil.ligen[i].assists += 1; }
-        }
-        // the awards of the week and month read these grades (ehrungen.rs)
-        for &(p, r) in &res.ratings {
-            let g = res.events.iter().filter(|e| e.kind == 0 && e.pid == p).count() as u8;
-            self.noten_woche.push((p, r, g));
-            self.noten_monat.push((p, r, g));
         }
     }
     /// Player side of a played match (league or cup): bans, apps, fitness, goals, cards, injuries, grades, form, morale.
@@ -1497,6 +1512,31 @@ impl World {
             if pl.last.len() > 5 { pl.last.remove(0); }
             pl.form = (pl.form * 0.8 + (r - 6.4) * 1.1).clamp(-3.0, 3.0);
         }
+        // the swing from what happened in the match (Fabian 24.11.: a keeper who lets in three goes down, a brace up)
+        let d = |k: &str| crate::regeln::f("entwicklung_pesm", &format!("dynamik.{k}"));
+        let heute = self.heute();
+        let mut anstoss: Vec<(usize, &'static str, f32)> = vec![];
+        for &(p, _) in &res.minutes {
+            let tore = res.events.iter().filter(|e| e.kind == 0 && e.pid == p).count();
+            if tore >= 3 { anstoss.push((p, crate::id("dreierpack"), d(crate::id("dreierpack")))); } else if tore == 2 { anstoss.push((p, crate::id("doppelpack"), d(crate::id("doppelpack")))); }
+            if res.events.iter().any(|e| e.kind == 3 && e.pid == p) { anstoss.push((p, crate::id("rot"), d(crate::id("rot")))); }
+            let r = res.ratings.iter().find(|x| x.0 == p).map(|x| x.1).unwrap_or(6.5);
+            if r >= d("note_top_ab") { anstoss.push((p, "note_top", d("note_top"))); } else if r <= d("note_flop_bis") { anstoss.push((p, "note_flop", d("note_flop"))); }
+            let pl = &self.players[p];
+            let gegen = if pl.team == res.h as i32 { res.ag } else { res.hg };
+            match (pl.pos.as_str(), gegen) {
+                ("GK", g) if g >= 3 => anstoss.push((p, "drei_gegentore", d("gk_drei_gegentore"))), // roh
+                ("GK", 0) => anstoss.push((p, "zu_null", d("gk_zu_null"))), // roh
+                ("CB" | "LB" | "RB", g) if g >= 3 => anstoss.push((p, "abwehr_drei", d("abwehr_drei_gegentore"))), // roh
+                _ => {}
+            }
+        }
+        for (p, k, w) in anstoss {
+            let ps = &mut self.players[p].ps;
+            ps.dyn_z = (ps.dyn_z + w).clamp(-d(crate::id("grenze")), d(crate::id("grenze")));
+            ps.dyn_gruende.push((heute, k.to_string(), w));
+            if ps.dyn_gruende.len() > 5 { ps.dyn_gruende.remove(0); }
+        }
         let dm = |gf: u8, ga: u8| if gf > ga { 3.0 } else if gf < ga { -3.0 } else { 0.0 };
         for (side, gf, ga) in [(res.h, res.hg, res.ag), (res.a, res.ag, res.hg)] {
             let played: Vec<usize> = res.minutes.iter().map(|m| m.0).collect();
@@ -1510,7 +1550,14 @@ impl World {
 
     /// One day passes for everybody (welt.py _recover): fitness, injuries, form and morale drift.
     pub fn recover_all(&mut self) {
+        // the swing from events fades (a brace is forgotten in a few weeks) and old reasons go with it
+        let (abkling, heute) = (crate::regeln::f("entwicklung_pesm", "dynamik.abklingen_je_tag"), self.heute());
         for p in self.players.iter_mut() {
+            if p.ps.dyn_z != 0.0 {
+                p.ps.dyn_z *= abkling;
+                if p.ps.dyn_z.abs() < 0.3 { p.ps.dyn_z = 0.0; p.ps.dyn_gruende.clear(); }
+                p.ps.dyn_gruende.retain(|g| heute < g.0 + 28);
+            }
             // welt.py _recover (line 311): only players still tired or injured recover and drift
             if p.team < 0 || (p.fit >= 100.0 && p.inj == 0) { continue; }
             // base fitness (own squad, vorbereitung.rs) caps the condition: 60 + 0.4 × base fitness
@@ -1575,7 +1622,24 @@ fn zahlen() -> &'static Zuschlag {
 }
 /// Form bonus from the form arrow (entwicklung_pesm.toml zuschlag.pfeil): works in the match and in the live-written database,
 /// never on the true strength.
-pub fn form_zuschlag(p: &Player) -> f32 { zahlen().pfeil[crate::mensch::pfeil(p.form).min(4) as usize] }
+/// The rating bonus written into the game: the form arrow, the swing from recent events (a brace, three conceded …)
+/// and the state of mind and body (morale on the floor −3, tired −1, flying +1). Limits in entwicklung_pesm.toml [dynamik].
+pub fn form_zuschlag(p: &Player) -> f32 {
+    let d = |k: &str| crate::regeln::f("entwicklung_pesm", &format!("dynamik.{k}"));
+    let zustand = if p.morale < d("moral_tief_unter") { d("moral_tief") } else if p.morale < d("moral_niedrig_unter") { d("moral_niedrig") } else if p.morale > d("moral_hoch_ueber") { d("moral_hoch") } else { 0.0 }
+        + if p.fit < d("muede_unter") { d(crate::id("muede")) } else { 0.0 };
+    (zahlen().pfeil[crate::mensch::pfeil(p.form).min(4) as usize] + p.ps.dyn_z.round() + zustand).clamp(-d(crate::id("grenze")), d(crate::id("grenze")))
+}
+/// Why the bonus is what it is, in words (newest first): the recent events and the state.
+pub fn zuschlag_gruende(p: &Player) -> Vec<String> {
+    let d = |k: &str| crate::regeln::f("entwicklung_pesm", &format!("dynamik.{k}"));
+    let mut v: Vec<String> = p.ps.dyn_gruende.iter().rev().map(|(_, k, w)| format!("{} {:+.0}", crate::inhalt::t(&format!("ui.dyn.{k}")), w).replace('-', "−")).collect();
+    if p.morale < d("moral_tief_unter") { v.push(format!("{} {:+.0}", crate::inhalt::t("ui.dyn.moral_tief"), d("moral_tief")).replace('-', "−")); }
+    else if p.morale < d("moral_niedrig_unter") { v.push(format!("{} {:+.0}", crate::inhalt::t("ui.dyn.moral_niedrig"), d("moral_niedrig")).replace('-', "−")); }
+    else if p.morale > d("moral_hoch_ueber") { v.push(format!("{} {:+.0}", crate::inhalt::t("ui.dyn.moral_hoch"), d("moral_hoch"))); }
+    if p.fit < d("muede_unter") { v.push(format!("{} {:+.0}", crate::inhalt::t("ui.dyn.muede"), d(crate::id("muede"))).replace('-', "−")); }
+    v
+}
 /// The abilities to write for a player: the true ones moved so the overall changes by exactly the form bonus (pesdb::shift).
 pub fn attrs_mit_zuschlag(p: &Player) -> Vec<f32> {
     let mut a = p.attrs.clone();
@@ -1606,6 +1670,29 @@ pub fn testwelt(seed: u64) -> World { World::load(crate::WORLD_JSON, seed) }
 #[cfg(test)]
 mod t {
     use super::World;
+    /// Fabian 24.11.: a keeper who lets in three drops, a brace lifts, morale on the floor costs three, all with reasons.
+    #[test]
+    fn dynamik_mit_gruenden() {
+        let mut w = testwelt(3);
+        let (mut gk, mut doppel) = (false, false);
+        for k in 0..300 {
+            let (h, a) = (k % 10, 10 + k % 7);
+            let r = w.play(h, a, 0, None, None);
+            w.apply_stats(&r);
+            gk |= w.players.iter().any(|p| p.ps.dyn_gruende.iter().any(|g| g.1 == "drei_gegentore") && p.ps.dyn_z < 0.0); // roh
+            doppel |= w.players.iter().any(|p| p.ps.dyn_gruende.iter().any(|g| g.1 == "doppelpack")); // roh
+            if gk && doppel { break; }
+        }
+        assert!(gk && doppel, "keeper down after three, brace up");
+        let mut p = w.players[0].clone();
+        p.ps.dyn_z = 0.0; p.form = 0.0; p.fit = 100.0;
+        p.morale = 20.0;
+        let tief = form_zuschlag(&p);
+        p.morale = 60.0;
+        assert!(form_zuschlag(&p) - tief >= 2.9, "morale on the floor costs three");
+        p.morale = 20.0;
+        assert!(!zuschlag_gruende(&p).is_empty());
+    }
     #[test]
     fn ranglisten_zaehlen_nur_die_liga() {
         let mut w = crate::world::testwelt(5);

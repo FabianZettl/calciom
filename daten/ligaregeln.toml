@@ -335,9 +335,18 @@ vereine = 18
 staffeln = 5
 aufsteiger_direkt = 1
 absteiger_direkt = 3
-sicher = false
-hinweis = "5 Staffeln, 4 Aufstiegsplätze. 2025/26: Meister West, Südwest und Nordost steigen direkt auf; Meister Nord und Bayern spielen ein Aufstiegsspiel (hin und rück). Die direkt aufsteigenden Staffeln wechseln jedes Jahr. Absteiger je Staffel unterschiedlich (meist 3–4)."
+sicher = true
+hinweis = "5 Staffeln (Nord, Nordost, West, Südwest, Bayern) mit je 18 Vereinen, zusammen 4 Aufsteiger in die 3. Liga. West und Südwest: Meister steigt immer direkt auf. Von Nord, Nordost und Bayern steigt reihum ein Meister direkt auf, die anderen zwei Meister spielen ein Aufstiegsspiel (Hin- und Rückspiel). 2025/26: Nord direkt (SV Meppen), Würzburger Kickers (Bayern) schlugen den Nordost-Meister. Zweite Mannschaften dürfen aufsteigen, nur nicht in die Liga der ersten. Absteiger in die Oberliga je Staffel verschieden; die Zahl hängt davon ab, wie viele Absteiger aus der 3. Liga in die Region kommen (Werte 2025/26, änderbar)."
 quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Regionalliga"
+direktaufstieg_reihum = { "2022/23" = "Nord", "2023/24" = "Nordost", "2024/25" = "Bayern", "2025/26" = "Nord", "2026/27" = "Nordost", "2027/28" = "Bayern" }
+staffel = [
+  { name = "Regionalliga Nord", vereine = 18, aufstieg = "reihum", absteiger_direkt = 2, gebiet = "Bremen, Hamburg, Niedersachsen, Schleswig-Holstein", unten = "Oberliga Niedersachsen, Bremen-Liga, Oberliga Hamburg, Schleswig-Holstein-Liga" },
+  { name = "Regionalliga Nordost", vereine = 18, aufstieg = "reihum", absteiger_direkt = 3, gebiet = "Berlin, Brandenburg, Mecklenburg-Vorpommern, Sachsen, Sachsen-Anhalt, Thüringen", unten = "NOFV-Oberliga Nord und Süd" },
+  { name = "Regionalliga West", vereine = 18, aufstieg = "direkt", absteiger_direkt = 3, gebiet = "Nordrhein-Westfalen", unten = "Oberliga Niederrhein, Oberliga Mittelrhein, Oberliga Westfalen" },
+  { name = "Regionalliga Südwest", vereine = 18, aufstieg = "direkt", absteiger_direkt = 4, gebiet = "Baden-Württemberg, Hessen, Rheinland-Pfalz, Saarland", unten = "Oberliga Baden-Württemberg, Hessenliga, Oberliga Rheinland-Pfalz/Saar" },
+  { name = "Regionalliga Bayern", vereine = 18, aufstieg = "reihum", absteiger_direkt = 2, relegation = "15. und 16. gegen die Zweiten der Bayernliga Nord und Süd (Hin- und Rückspiel)", gebiet = "Bayern", unten = "Bayernliga Nord und Süd" },
+]
+aufstiegsspiel = { teilnehmer = "die zwei Meister ohne Direktaufstieg", format = "hin_rueck", aufsteiger = 1 }
 
 [[land]]
 code = "FRA"
@@ -391,9 +400,9 @@ stufe = 3
 name = "National (ab 2026/27 'Ligue 3')"
 vereine = 17
 aufsteiger_direkt = 2
-absteiger_direkt = 4
+absteiger_direkt = 3
 sicher = false
-hinweis = "Der 3. spielt die Relegation gegen den 16. der Ligue 2. 2025/26 mit 17 Vereinen; FL-Welt nutzt 18."
+hinweis = "Der 3. spielt die Relegation gegen den 16. der Ligue 2. 2025/26 mit 17 Vereinen; FL-Welt nutzt 18. Korrektur 24.11.: 2025/26 stiegen nur der 16. und 17. sportlich ab (der 18. zusätzlich aus Verwaltungsgründen), weil die Liga 2026/27 als Ligue 3 weiterläuft; PES M nimmt 3 Absteiger (änderbar)."
 quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Championnat_National"
 [[land.liga]]
 stufe = 4
@@ -603,10 +612,11 @@ aufsteiger_direkt = 2
 absteiger_direkt = 4
 sicher = true
 quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_TFF_1._Lig"
+hinweis = "Korrektur 24.11.: Play-offs 2025/26 mit den Plätzen 3 bis 7; der 3. steigt erst im Finale ein (Freilos), 4 bis 7 spielen vorher. Einzelspiele, Finale auf neutralem Platz."
 [land.liga.playoffs]
-plaetze = [3, 4, 5, 6]
+plaetze = [3, 4, 5, 6, 7]
 aufsteiger = 1
-format = "halbfinale_einzel_finale_neutral"
+format = "4_bis_7_vorrunde_sieger_gegen_3_im_finale_einzel_neutral"
 [[land.liga]]
 stufe = 3
 name = "TFF 2. Lig"

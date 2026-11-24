@@ -163,6 +163,8 @@ impl Career {
                     nn.state = NegState::Waiting;
                     nn.reply_day = abs + tage;
                     nn.text = crate::tf!("ui.transfer.der_berater_von_laesst_sich", name, ft);
+                    let t = nn.text.clone();
+                    self.neg_msg(n.pid, &crate::tf!("ui.game.antwort_im_fall", name), &t);
                 }
                 1 => {
                     let rival = (0..self.world.clubs.len()).filter(|&c| c != self.own && self.world.clubs[c].rep >= self.club().rep - 5.0 && self.world.players[n.pid].team != c as i32)
@@ -182,7 +184,7 @@ impl Career {
                     nn.state = NegState::Rejected;
                     nn.text = crate::tf!("ui.transfer.der_verein_von_zieht_sich", name);
                     let t = nn.text.clone();
-                    self.msg(2, crate::inhalt::t("ui.game.transferabteilung"), &crate::tf!("ui.transfer.aus_fuer", name), &t, Action::None);
+                    self.neg_msg(n.pid, &crate::tf!("ui.transfer.aus_fuer", name), &t);
                 }
                 _ => {}
             }
@@ -448,8 +450,13 @@ impl Career {
             let pl = &self.world.players[p];
             let (ovr, pot, age, value, id) = (pl.ovr, pl.pot, pl.age, pl.value, pl.id);
             if self.inbox.iter().filter(|m| !m.done && m.action_art() == Some(crate::id("leihe")) && matches!(&m.action, Action::Wahl { bezug, .. } if bezug.first() == Some(&p))).count() >= r("offen_hoechstens") as usize { continue; }
-            // interest: young with room to grow and already good enough for a lower club draw more clubs
+            // our partner and farm clubs always ask about a player who fits them (Fabian 24.11.)
             let reiz = ((ovr - 55.0) / 20.0).clamp(0.0, 1.0) * 0.6 + ((pot - ovr) / 15.0).clamp(0.0, 1.0) * 0.3 + if age <= 23 { 0.1 } else { 0.0 };
+            for c in self.world.partner_von(self.own) {
+                let offen = self.inbox.iter().any(|m| m.action_art() == Some(crate::id("leihe")) && matches!(&m.action, Action::Wahl { art, bezug, .. } if bezug.first() == Some(&p) && art.starts_with(&format!("leihe:{c}:"))) && abs < abs_day(m.season, m.day) + 2 * r("frist_tage") as u32);
+                if !offen && self.world.clubs[c].squad.len() < 30 && self.world.clubs[c].level <= ovr + 5.0 { self.leihangebot_senden(p, c, reiz, true); }
+            }
+            // interest: young with room to grow and already good enough for a lower club draw more clubs
             if zufall(&["leihangebot", &id.to_string(), &abs.to_string()]) > r("chance_basis") + r("chance_reiz") * reiz { continue; } // roh
             // clubs of the own country first; when none fits his level, clubs abroad
             let passt = |c: usize, inland: bool| c != self.own && self.world.erste_von(c).is_none() && self.world.clubs[c].level <= ovr + 3.0 && self.world.clubs[c].level >= ovr - 12.0
@@ -459,15 +466,22 @@ impl Career {
             if cands.is_empty() { cands = (0..self.world.clubs.len()).filter(|&c| passt(c, false)).collect(); }
             if cands.is_empty() { continue; }
             let c = cands[(zufall(&["leihverein", &id.to_string(), &abs.to_string()]) * cands.len() as f32) as usize % cands.len()]; // roh
-            let stamm = ovr >= self.world.clubs[c].level - 1.0;
-            let anteil = (r("anteil_von") + (r("anteil_bis") - r("anteil_von")) * reiz).min(1.0);
-            let fee = round_money(value * (r("gebuehr_von") + (r("gebuehr_bis") - r("gebuehr_von")) * reiz) as f64);
-            let (nm, cn, ln) = (self.world.players[p].name.clone(), self.world.clubs[c].name.clone(), self.world.leagues[self.world.clubs[c].league].name.clone());
-            let rolle = crate::inhalt::t(if stamm { "ui.leihe.rolle_stamm" } else { "ui.leihe.rolle_rotation" });
-            let body = crate::tf!("ui.leihe.angebot_text", cn.clone(), ln, nm.clone(), rolle, money(fee), format!("{:.0}", anteil * 100.0));
-            let opts = vec![(crate::id("ja").to_string(), crate::inhalt::t("ui.leihe.annehmen").to_string()), (crate::id("nein").to_string(), crate::inhalt::t("ui.leihe.ablehnen").to_string())];
-            self.msg(2, &cn, &crate::tf!("ui.leihe.angebot_titel", nm), &body, Action::Wahl { art: format!("leihe:{c}:{}:{}:{}", fee as u64, (anteil * 100.0) as u32, stamm as u8), bezug: vec![p], optionen: opts });
+            self.leihangebot_senden(p, c, reiz, false);
         }
+    }
+    /// One loan offer from club `c` for our player `p`; a partner club takes him without fee and promises play time.
+    fn leihangebot_senden(&mut self, p: usize, c: usize, reiz: f32, partner: bool) {
+        let r = |k: &str| crate::regeln::f("transfers", &format!("leihe.{k}"));
+        let (ovr, value) = (self.world.players[p].ovr, self.world.players[p].value);
+        let stamm = partner || ovr >= self.world.clubs[c].level - 1.0;
+        let anteil = if partner { 1.0 } else { (r("anteil_von") + (r("anteil_bis") - r("anteil_von")) * reiz).min(1.0) };
+        let fee = if partner { 0.0 } else { round_money(value * (r("gebuehr_von") + (r("gebuehr_bis") - r("gebuehr_von")) * reiz) as f64) };
+        let (nm, cn, ln) = (self.world.players[p].name.clone(), self.world.clubs[c].name.clone(), self.world.leagues[self.world.clubs[c].league].name.clone());
+        let rolle = crate::inhalt::t(if stamm { "ui.leihe.rolle_stamm" } else { "ui.leihe.rolle_rotation" });
+        let mut body = crate::tf!("ui.leihe.angebot_text", cn.clone(), ln, nm.clone(), rolle, money(fee), format!("{:.0}", anteil * 100.0));
+        if partner { body = format!("{}\n\n{body}", crate::tf!("ui.leihe.partner_fragt", cn.clone(), nm.clone())); }
+        let opts = vec![(crate::id("ja").to_string(), crate::inhalt::t("ui.leihe.annehmen").to_string()), (crate::id("nein").to_string(), crate::inhalt::t("ui.leihe.ablehnen").to_string())];
+        self.msg(2, &cn, &crate::tf!("ui.leihe.angebot_titel", nm), &body, Action::Wahl { art: format!("leihe:{c}:{}:{}:{}", fee as u64, (anteil * 100.0) as u32, stamm as u8), bezug: vec![p], optionen: opts });
     }
     pub fn leihe_antwort(&mut self, sub: &str, p: usize, key: &str) -> String {
         if key != "ja" { return crate::inhalt::t("ui.leihe.abgelehnt").into(); }
@@ -710,7 +724,7 @@ impl Career {
             nn.text = crate::tf!("ui.neg.weggeschnappt", name.clone(), neu.clone());
             let t = nn.text.clone();
             nn.verlauf.push((2, t.clone()));
-            self.msg(2, crate::inhalt::t("ui.game.transferabteilung"), &crate::tf!("ui.neg.weggeschnappt_titel", name), &t, Action::None);
+            self.neg_msg(p, &crate::tf!("ui.neg.weggeschnappt_titel", name), &t);
             ende = true;
         }
         ende

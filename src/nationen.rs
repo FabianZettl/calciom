@@ -48,7 +48,7 @@ impl World {
             let neu = liste.unwrap_or_else(|| { let x = name(self, n); if x.is_empty() || x.starts_with(&vorsilbe) { crate::geo::liga_land_sicher(self, l).unwrap_or_default() } else { x } });
             if neu.is_empty() || neu.starts_with(&vorsilbe) { continue; }
             for k in 0..self.leagues.len() { if self.leagues[k].land == alt { self.leagues[k].land = neu.clone(); } }
-            for cu in self.cups.iter_mut() { if cu.country == alt { cu.country = neu.clone(); if cu.kind == 0 { cu.name = crate::cups::pokalname(&cu.key, &neu); } } }
+            for cu in self.cups.iter_mut() { if cu.country == alt { cu.country = neu.clone(); if cu.kind == 0 && !cu.lauf.as_ref().map_or(false, |l| l.ligapokal) { cu.name = crate::cups::pokalname(&cu.key, &neu); } } }
         }
     }
     /// The nationality most players of a league have: the league's country.

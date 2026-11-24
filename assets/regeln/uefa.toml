@@ -1,0 +1,43 @@
+# UEFA five-year ranking (Fabian 24.11.): starting values for the seasons before the career, GESCHÄTZT from the
+# ranking after 2024/25 (sum of five seasons), changeable. Country names as in the world (German).
+# In the game: each season adds the points of that season (win 2, draw 1, per club, divided by the country's clubs in
+# Europe); the starting value fades by a fifth with every season played.
+
+[land]
+England = 115.0
+Italien = 98.0
+Spanien = 93.0
+Deutschland = 90.0
+Frankreich = 72.0
+Niederlande = 64.0
+Portugal = 61.5
+Belgien = 56.0
+"Türkei" = 45.0
+Tschechien = 42.0
+Griechenland = 40.0
+Norwegen = 39.5
+Polen = 37.5
+"Dänemark" = 36.0
+"Österreich" = 35.5
+Schweiz = 33.5
+Schottland = 33.5
+Schweden = 28.5
+Israel = 28.0
+Zypern = 27.0
+Serbien = 26.0
+Ukraine = 25.0
+Kroatien = 25.0
+Ungarn = 22.0
+"Rumänien" = 20.0
+
+# Squad registration for the European competitions (meldung.rs): list A at most this many, list B free for own players
+# up to this age; in the winter window this many changes
+[meldung]
+liste_a = 25
+liste_b_alter = 21
+nachmeldungen = 3
+
+# Clubs: a starting value from the club's reputation for clubs of these countries (points = (rep − ab) × je_punkt)
+[verein]
+ab = 60.0
+je_punkt = 3.2

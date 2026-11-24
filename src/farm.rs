@@ -229,6 +229,33 @@ impl Career {
         self.world.refresh_levels();
         Ok(if nach == z { crate::tf!("ui.farm.spielt_jetzt_in_der_zweiten", n) } else { crate::tf!("ui.farm.gehoert_jetzt_zur_ersten_mannschaft", n) })
     }
+    /// Once a week in the window (Fabian 24.11.: the second team runs its own transfers): when our second team has
+    /// fewer pros than it needs, its coach signs young free agents of its level himself and tells us who came.
+    pub fn zweite_markt_woche(&mut self) {
+        let Some(z) = self.zweite_mannschaft() else { return };
+        if self.in_window().is_none() { return; }
+        let soll = fz("zweite.zweite_min") as usize + 2;
+        let profis = self.world.clubs[z].squad.iter().filter(|&&q| self.world.players[q].youth == 0).count();
+        if profis >= soll { return; }
+        let (ueber, _) = self.world.altersregel(z);
+        let lvl = self.world.clubs[z].level;
+        let mut frei: Vec<usize> = (0..self.world.players.len()).filter(|&p| { let pl = &self.world.players[p]; pl.team == -1 && pl.age <= ueber && pl.ovr <= lvl + 4.0 && pl.ovr >= lvl - 10.0 }).collect();
+        frei.sort_by(|a, b| { let k = |p: usize| self.world.players[p].ovr + (self.world.players[p].pot - self.world.players[p].ovr) * 0.5; k(*b).partial_cmp(&k(*a)).unwrap() });
+        let (abs, season, liga) = (self.abs(), self.world.season, self.world.leagues[self.world.clubs[z].league].level);
+        let mut neu = vec![];
+        for p in frei.into_iter().take(soll - profis) {
+            let pl = &mut self.world.players[p];
+            pl.team = z as i32;
+            pl.joined = abs;
+            pl.contract_end = season + crate::world::contract_years(pl.age);
+            pl.wage = crate::world::fair_wage(pl, liga);
+            self.world.clubs[z].squad.push(p);
+            neu.push(format!("{} ({}, {}, {:.0})", self.world.players[p].name, crate::world::pos_de(&self.world.players[p].pos), self.world.players[p].age, self.world.players[p].ovr));
+        }
+        if neu.is_empty() { return; }
+        let zn = self.world.clubs[z].name.clone();
+        self.msg(2, &zn, &crate::tf!("ui.farm.zweite_holt_titel", zn.clone(), neu.len()), &crate::tf!("ui.farm.zweite_holt", zn, neu.join(crate::id(", "))), Action::None);
+    }
     /// The academy hands its graduates to the second team instead of an invented U23.
     pub fn u23_an_zweite(&mut self) {
         let Some(z) = self.zweite_mannschaft() else { return };
@@ -495,6 +522,32 @@ mod tests {
         if !fl27::echte_welt(&w) { return None; }
         let p = w.join("common/etc/pesdb");
         Some((p.clone(), World::from_pesdb(&p, 3).unwrap()))
+    }
+    /// Fabian 24.11.: our second team fills a thin squad itself; our partner club asks about every loan-list player.
+    #[test]
+    fn zweite_kauft_selbst_und_partner_fragt() {
+        let mut w = crate::world::testwelt(4);
+        let own = 2;
+        let z = (0..w.clubs.len()).find(|&c| c != own && w.clubs[c].level < w.clubs[own].level - 8.0).unwrap();
+        w.zweite.push((z, own));
+        let mut c = Career::new(w, own, "Test");
+        c.world.day = 3;
+        for p in c.world.clubs[z].squad.split_off(10) { c.world.players[p].team = -1; }
+        c.zweite_markt_woche();
+        let profis = c.world.clubs[z].squad.iter().filter(|&&q| c.world.players[q].youth == 0).count();
+        assert!(profis > 10, "the second team signed players itself");
+        assert!(c.inbox.iter().any(|m| m.from == c.world.clubs[z].name), "and told us");
+        // a partner club asks about a loan-list player, every time a fitting one is listed
+        let partner = (0..c.world.clubs.len()).find(|&k| k != own && k != z && c.world.clubs[k].level < c.world.clubs[own].level - 3.0 && c.world.clubs[k].squad.len() < 30).unwrap();
+        c.world.koops.push(Koop { haupt: own, partner, bis: c.world.season + 2, betrag: 0.0, plaetze: 3, min_leihen: 0, bleiben: false, verstoesse: 0 });
+        let p = *c.squad().iter().find(|&&p| c.world.players[p].ovr >= c.world.clubs[partner].level - 5.0 && c.world.players[p].leihe.is_none()).unwrap();
+        c.leihe_abgeben(p).unwrap();
+        c.leihangebote_tag();
+        let m = c.inbox.iter().find(|m| matches!(&m.action, Action::Wahl { art, bezug, .. } if bezug == &vec![p] && art.starts_with(&format!("leihe:{partner}:0:")))).expect("the partner asks, without a fee");
+        assert!(m.body.contains(&c.world.clubs[partner].name));
+        let n = c.inbox.len();
+        c.leihangebote_tag();
+        assert!(c.inbox.iter().filter(|m| matches!(&m.action, Action::Wahl { art, .. } if art.starts_with(&format!("leihe:{partner}:")))).count() == 1, "not again while the offer is open ({n})");
     }
     const MEGA: &str = "/mnt/GAMES/sp-football-life-2026/drive_c/Games/SP Football Life 2027/SiderAddons/livecpk/_FL26Megapack";
     const MY: &str = "/mnt/GAMES/sp-football-life-2026/drive_c/Games/SP Football Life 2027/SiderAddons/livecpk/_FL26MyWorld";

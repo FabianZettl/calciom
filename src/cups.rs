@@ -23,6 +23,9 @@ pub struct Cup {
     pub alive: Vec<usize>,
     pub winner: Option<usize>,
     pub days: Vec<u32>,
+    /// The plan of a national cup by daten/pokalregeln.toml (pokalregeln.rs); None: old saves and other competitions.
+    #[serde(default)]
+    pub lauf: Option<Box<crate::pokalregeln::Lauf>>,
 }
 
 #[derive(Serialize, Deserialize, Clone)]
@@ -119,23 +122,30 @@ impl World {
     /// first season, from the strength order of the quota leagues).
     pub fn setup_cups(&mut self, euro: Option<[Vec<usize>; 3]>) {
         if euro.is_some() { self.ki_ausgaben.clear(); } // a new season: the fair-play account starts again
-        for c in &self.cups { if let Some(w) = c.winner { self.titelverteidiger.insert(c.name.clone(), w); } }
+        for c in &self.cups { if let Some(w) = c.winner.filter(|&w| !self.ist_amateur(w)) { self.titelverteidiger.insert(c.name.clone(), w); } }
         // the supercups of the new season: last season's champion against the cup winner (Fabian 23.11.); when the
         // champion also won the cup, the runner-up of the league plays instead
-        let mut supercups: Vec<(String, String, usize, usize)> = vec![];
+        let mut supercups: Vec<(String, String, Vec<usize>)> = vec![];
         if euro.is_some() {
             for c in self.cups.iter().filter(|c| c.kind == 0 && c.teams.len() > 2) {
-                let Some(pokal) = c.winner else { continue };
+                let Some(pokal) = c.winner.filter(|&w| !self.ist_amateur(w)) else { continue };
                 let Some(name) = crate::regeln::wert_oder("pokalnamen", "supercup").and_then(|m| m.get(&c.name)).and_then(|v| v.as_str()) else { continue };
                 let Some(l) = (0..self.leagues.len()).find(|&l| self.leagues[l].land == c.country && self.leagues[l].key.contains("_D1_")) else { continue };
                 let tab = self.table(l);
                 let meister = self.meister(l).unwrap_or(pokal);
                 let gegner = if meister == pokal { tab.get(1).map(|r| r.club).unwrap_or(pokal) } else { pokal };
-                if gegner != meister { supercups.push((name.to_string(), c.country.clone(), meister, gegner)); }
+                // Spain, Italy, Turkey: four clubs (champion, runner-up, cup winner and cup runner-up), semi-finals and final
+                let vier = crate::regeln::wert_oder("pokalnamen", "supercup_vier").and_then(|v| v.as_array().cloned()).unwrap_or_default().iter().any(|v| v.as_str() == Some(&c.name)); // roh
+                let mut teams = vec![meister, gegner];
+                if vier {
+                    let finalist = c.fx.iter().find(|x| x.stage == 34).map(|x| if x.f.h == pokal { x.f.a } else { x.f.h });
+                    for t in [pokal].into_iter().chain(finalist).chain(tab.iter().map(|r| r.club)) { if teams.len() < 4 && !teams.contains(&t) && !self.ist_amateur(t) { teams.push(t); } }
+                }
+                if gegner != meister { supercups.push((name.to_string(), c.country.clone(), teams)); }
             }
             // the UEFA Super Cup: Champions League winner against Europa League winner
             let sieger = |k: u8| self.cups.iter().find(|c| c.kind == k).and_then(|c| c.winner);
-            if let (Some(cl), Some(el)) = (sieger(1), sieger(2)) { if cl != el { supercups.push((crate::inhalt::t("ui.cups.uefa_supercup").to_string(), String::new(), cl, el)); } }
+            if let (Some(cl), Some(el)) = (sieger(1), sieger(2)) { if cl != el { supercups.push((crate::inhalt::t("ui.cups.uefa_supercup").to_string(), String::new(), vec![cl, el])); } }
         }
         self.cups.clear();
         let mut by_country: Vec<(String, Vec<usize>, String)> = vec![];
@@ -158,44 +168,40 @@ impl World {
                 (c, teams.iter().copied().filter(|&t| self.erste_von(t).is_none()).collect(), format!("={key}"))
             }).collect();
         }
-        // second teams play in no cup (daten/ligaregeln.toml [standard.zweite_mannschaften])
-        for x in by_country.iter_mut() { x.1.retain(|&t| self.erste_von(t).is_none()); }
+        self.amateure.clear();
         let mut busy = self.busy_days();
-        for (c, teams, base) in by_country {
-            if teams.len() < 8 { continue; }
-            let key = if let Some(k) = base.strip_prefix('=') { k.to_string() } else if base.is_empty() { String::new() } else { format!("{base}_D1_CUP") };
-            // comp.py cup_days: Tuesdays (day % 7 == 3) between day 24 and 296, spread, the final on the last one
-            let n = (teams.len() as f32).log2().ceil() as usize;
-            let tue: Vec<u32> = (24..=296).filter(|d| d % 7 == 3 && !INTL_BREAKS.iter().any(|(a, b)| d >= a && d <= b)).collect();
-            let mut days: Vec<u32> = if n > 1 { (0..n - 1).map(|i| tue[i * (tue.len() - 2) / (n - 1).max(1)]).collect() } else { vec![] };
-            days.push(*tue.last().unwrap());
-            let ci = self.cups.len();
-            self.cups.push(Cup { name: pokalname(&key, &c), key, kind: 0, country: c, teams: teams.clone(), fx: vec![], stage: 20, alive: vec![], winner: None, days });
-            // comp.py cup_draw: in the first round the strongest get byes up to the next power of two
-            let mut t = teams.clone();
-            t.sort_by(|a, b| self.clubs[*b].level.partial_cmp(&self.clubs[*a].level).unwrap());
-            let size = 1usize << n;
-            let byes: Vec<usize> = t.drain(..size - teams.len()).collect();
-            self.shuffle(&mut t);
-            self.cups[ci].alive = byes;
-            let d0 = self.cups[ci].days[0];
-            for p in t.chunks(2) { if p.len() == 2 { self.add_fx(ci, &mut busy, p[0], p[1], d0, 20, 0, false); } }
-        }
         let euro = euro.unwrap_or_else(|| self.euro_first());
+        let in_europa: HashSet<usize> = euro.iter().flatten().copied().collect();
+        // every first team of the country's leagues (not only the database list), by daten/pokalregeln.toml
+        for (c, _, base) in by_country {
+            let key = if let Some(k) = base.strip_prefix('=') { k.to_string() } else if base.is_empty() { String::new() } else { format!("{base}_D1_CUP") };
+            let regel = crate::pokalregeln::pokale().iter().find(|p| p.land == c && p.art.is_empty());
+            self.pokal_anlegen(&c, pokalname(&key, &c), key, regel, &in_europa, &mut busy);
+            for r in crate::pokalregeln::pokale().iter().filter(|p| p.land == c && !p.art.is_empty()) {
+                self.pokal_anlegen(&c, r.name.clone(), String::new(), Some(r), &in_europa, &mut busy);
+            }
+        }
         for (k, teams) in euro.into_iter().enumerate() {
             if teams.len() < 36 { continue; }
             let ci = self.cups.len();
-            self.cups.push(Cup { name: EURO[k].0.into(), key: EURO[k].1.into(), kind: k as u8 + 1, country: String::new(), teams: teams.clone(), fx: vec![], stage: 0, alive: vec![], winner: None, days: vec![] });
+            self.cups.push(Cup { name: EURO[k].0.into(), key: EURO[k].1.into(), kind: k as u8 + 1, country: String::new(), teams: teams.clone(), fx: vec![], stage: 0, alive: vec![], winner: None, days: vec![], lauf: None });
             for &t in &teams { self.prize(t, k, 0, 1.0); }
             // uefa.py _league_phase: four pots by strength, every team 8 games (2 per pot: one home, one away)
             let mut order = teams.clone();
             order.sort_by(|a, b| self.clubs[*b].level.partial_cmp(&self.clubs[*a].level).unwrap());
-            let m = order.len() / 4;
-            let mut pots: Vec<Vec<usize>> = (0..4).map(|i| order[i * m..(i + 1) * m].to_vec()).collect();
+            // Conference League: six pots of six, one opponent from every pot (6 matches, Fabian 24.11. "as in reality")
+            let topf = if k == 2 { 6 } else { 4 };
+            let m = order.len() / topf;
+            let mut pots: Vec<Vec<usize>> = (0..topf).map(|i| order[i * m..(i + 1) * m].to_vec()).collect();
             for p in pots.iter_mut() { self.shuffle(p); }
             let mut games = vec![];
-            for a in 0..4 {
+            for a in 0..topf {
                 let p = &pots[a];
+                if topf == 6 {
+                    games.extend((0..m / 2).map(|i| (p[2 * i], p[2 * i + 1])));
+                    for b in a + 1..topf { let q = &pots[b]; games.extend((0..m).map(|i| if (a + b + i) % 2 == 0 { (p[i], q[(i + b) % m]) } else { (q[(i + b) % m], p[i]) })); }
+                    continue;
+                }
                 games.extend((0..m).map(|i| (p[i], p[(i + 1) % m])));
                 for b in a + 1..4 {
                     let q = &pots[b];
@@ -213,10 +219,18 @@ impl World {
             }
         }
         // one match each, before the league starts, on neutral ground
-        for (name, land, meister, gegner) in supercups {
+        for (name, land, teams) in supercups {
             let mut busy = self.busy_days();
             let ci = self.cups.len();
-            self.cups.push(Cup { name, key: String::new(), kind: 0, country: land, teams: vec![meister, gegner], fx: vec![], stage: 34, alive: vec![], winner: None, days: vec![crate::regeln::f("pokalnamen", "supercup_tag") as u32] }); // roh
+            let tag = crate::regeln::f("pokalnamen", "supercup_tag") as u32; // roh
+            if teams.len() == 4 {
+                let lauf = crate::pokalregeln::Lauf { runden: vec![Default::default(), Default::default()], zugang: vec![teams.clone(), vec![]], slot: vec![0, 1], ..Default::default() };
+                self.cups.push(Cup { name, key: String::new(), kind: 0, country: land, teams, fx: vec![], stage: 20, alive: vec![], winner: None, days: vec![tag.saturating_sub(4), tag], lauf: Some(Box::new(lauf)) });
+                self.runde_ansetzen(ci, 0, vec![], &mut busy);
+                continue;
+            }
+            let (meister, gegner) = (teams[0], teams[1]);
+            self.cups.push(Cup { name, key: String::new(), kind: 0, country: land, teams: vec![meister, gegner], fx: vec![], stage: 34, alive: vec![], winner: None, days: vec![crate::regeln::f("pokalnamen", "supercup_tag") as u32], lauf: None }); // roh
             self.add_fx(ci, &mut busy, meister, gegner, crate::regeln::f("pokalnamen", "supercup_tag") as u32, 34, 0, true); // roh
         }
     }
@@ -241,7 +255,7 @@ impl World {
     /// Next season's participants from the final tables (call before promotion), cup winners and holders.
     pub fn euro_qualify(&self) -> [Vec<usize>; 3] {
         let ranks: HashMap<String, Vec<usize>> = (0..self.leagues.len()).map(|l| (self.leagues[l].key.clone(), self.table(l).iter().map(|r| r.club).collect())).collect();
-        let cups: HashMap<String, usize> = self.cups.iter().filter(|c| c.kind == 0).filter_map(|c| Some((c.country.clone(), c.winner?))).collect();
+        let cups: HashMap<String, usize> = self.cups.iter().filter(|c| c.kind == 0 && c.teams.len() > 4).filter_map(|c| Some((if c.lauf.as_ref().map_or(false, |l| l.ligapokal) { format!("{}|ligapokal", c.country) } else { c.country.clone() }, c.winner.filter(|&w| !self.ist_amateur(w))?))).collect(); // roh
         let w = |k: u8| self.cups.iter().find(|c| c.kind == k).and_then(|c| c.winner);
         // from the second season the performance places (EPS) follow this season's European results
         self.qualify(&ranks, &cups, [w(1), w(2), w(3)], &self.eps_berechnen())
@@ -288,11 +302,19 @@ impl World {
 
     /// Plays every cup match of the day except the own club's (that one goes through the match day).
     pub fn cup_day(&mut self, day: u32, own: usize) {
+        self.quali_tag(day);
         for ci in 0..self.cups.len() {
             for fi in 0..self.cups[ci].fx.len() {
                 let x = &self.cups[ci].fx[fi];
-                if x.f.day != day || x.f.hg >= 0 || x.f.h == own || x.f.a == own { continue; }
+                let amateur = self.ist_amateur(x.f.h) || self.ist_amateur(x.f.a);
+                if x.f.day != day || x.f.hg >= 0 || ((x.f.h == own || x.f.a == own) && !amateur) { continue; }
                 let (h, a) = (x.f.h, x.f.a);
+                if amateur {
+                    self.neutral = self.cups[ci].fx[fi].neutral;
+                    let mut res = self.spiel_amateur(h, a);
+                    self.finish_cup_match(ci, fi, &mut res);
+                    continue;
+                }
                 let lv = if self.cups[ci].kind > 0 { 1 } else { self.leagues[self.clubs[h].league].detail.max(self.leagues[self.clubs[a].league].detail).max(1) };
                 self.neutral = self.cups[ci].fx[fi].neutral;
                 let mut res = self.play(h, a, lv, None, None);
@@ -318,12 +340,15 @@ impl World {
             et = true;
             if on_pens { pens = Some(if home_won { PENS_UNKNOWN_H } else { PENS_UNKNOWN_A }); } else if home_won { res.hg += 1; } else { res.ag += 1; }
         } else if (ko_single || second) && level(res.hg, res.ag) {
-            let (lh, la) = World::rates(res.sh, res.sa, self.clubs[x.f.h].style, self.clubs[x.f.a].style);
-            let eh = self.rng.poisson(lh * ET_FACTOR).min(4) as u8;
-            let ea = self.rng.poisson(la * ET_FACTOR).min(4) as u8;
-            res.hg += eh;
-            res.ag += ea;
-            et = true;
+            // some cups go straight to penalties (daten/pokalregeln.toml elfmeter)
+            if !self.cups[ci].lauf.as_ref().map_or(false, |l| l.ohne_vl.contains(&x.stage)) {
+                let (lh, la) = World::rates(res.sh, res.sa, self.club(x.f.h).style, self.club(x.f.a).style);
+                let eh = self.rng.poisson(lh * ET_FACTOR).min(4) as u8;
+                let ea = self.rng.poisson(la * ET_FACTOR).min(4) as u8;
+                res.hg += eh;
+                res.ag += ea;
+                et = true;
+            }
             if level(res.hg, res.ag) {
                 let p_h = (0.5 + PENS_STRENGTH * (res.sh - res.sa)).clamp(0.35, 0.65);
                 let (mut ph, mut pa) = (0u8, 0u8);
@@ -340,6 +365,7 @@ impl World {
         y.pens = pens;
         y.et = et;
         self.apply_stats(res);
+        self.wettbewerb_zaehlen(1000 + ci, res);
         let k = self.cups[ci].kind;
         if k > 0 && x.stage < 10 {
             let t = k as usize - 1;
@@ -364,6 +390,8 @@ impl World {
             let Some(land) = country(&self.leagues[self.clubs[c].league]) else { continue };
             let pts = if gf > ga { 2.0 } else if gf == ga { 1.0 } else { 0.0 };
             match self.coef.iter_mut().find(|x| x.0 == land && x.1 == self.season) { Some(x) => x.2 += pts, None => self.coef.push((land, self.season, pts)) }
+            let season = self.season;
+            match self.club_coef.iter_mut().find(|x| x.0 == c && x.1 == season) { Some(x) => x.2 += pts, None => self.club_coef.push((c, season, pts)) }
         }
     }
     pub fn winner_of(&self, ci: usize, stage: u8, a: usize, b: usize) -> usize {
@@ -384,7 +412,7 @@ impl World {
                 if gf > ga { r.w += 1; r.pts += 3; } else if gf == ga { r.d += 1; r.pts += 1; } else { r.l += 1; }
             }
         }
-        rows.sort_by(|a, b| (b.pts, b.gf - b.ga, b.gf, std::cmp::Reverse(self.clubs[b.club].id)).cmp(&(a.pts, a.gf - a.ga, a.gf, std::cmp::Reverse(self.clubs[a.club].id))));
+        rows.sort_by(|a, b| (b.pts, b.gf - b.ga, b.gf, std::cmp::Reverse(self.club(b.club).id)).cmp(&(a.pts, a.gf - a.ga, a.gf, std::cmp::Reverse(self.club(a.club).id))));
         rows
     }
     /// Draws and schedules the next stage when the current one is complete.
@@ -409,6 +437,18 @@ impl World {
                 let mut stufen: Vec<u8> = self.cups[ci].fx.iter().map(|x| x.stage).collect();
                 stufen.dedup();
                 self.endrunde_runde(ci, next, stufen.len());
+                continue;
+            }
+            if kind == 0 && self.cups[ci].lauf.is_some() {
+                let weiter: Vec<usize> = if st < 10 { self.gruppen_weiter(ci) } else {
+                    let mut v = std::mem::take(&mut self.cups[ci].alive);
+                    let pairs: Vec<(usize, usize)> = self.cups[ci].fx.iter().filter(|x| x.stage == st && x.leg <= 1).map(|x| (x.f.h, x.f.a)).collect();
+                    for (a, b) in pairs { v.push(self.winner_of(ci, st, a, b)); }
+                    v
+                };
+                if st == 34 || weiter.len() == 1 { self.cup_won(ci, weiter[0]); continue; }
+                let k = self.cups[ci].lauf.as_ref().unwrap().runde + 1;
+                self.runde_ansetzen(ci, k, weiter, busy);
                 continue;
             }
             if kind == 0 {
@@ -474,10 +514,11 @@ impl World {
             }
         }
     }
-    fn cup_won(&mut self, ci: usize, w: usize) {
+    pub(crate) fn cup_won(&mut self, ci: usize, w: usize) {
         self.cups[ci].winner = Some(w);
         self.cups[ci].alive = vec![w];
         let name = self.cups[ci].name.clone();
+        if self.ist_amateur(w) { return; } // an amateur club's cup win is not in the honours (it exists only this season)
         // a title round makes the champion of its league (the league title goes into the honours at season end)
         if self.cups[ci].kind == 4 { let k = self.cups[ci].key.clone(); if let Some(l) = self.leagues.iter().position(|x| x.key == k) { self.leagues[l].meister = Some(w); } return; }
         self.titles.push(Title { season: self.season, comp: name, club: w });
@@ -498,6 +539,8 @@ impl World {
         }
         for (c, d) in delta { self.clubs[c].rep = (self.clubs[c].rep + d.min(4.0)).clamp(0.0, 100.0); } // ruf.json max_step 4
         self.coef.retain(|x| x.1 + 5 > self.season);
+        let s = self.season;
+        self.club_coef.retain(|x| x.1 + 5 > s);
     }
 }
 
@@ -548,7 +591,7 @@ mod t {
         let mut w = crate::world::testwelt(3);
         w.setup_cups(None);
         let fa = w.cups.iter().position(|c| c.name == "FA Cup").expect("FA Cup in the demo world");
-        let sieger = w.cups[fa].teams[3];
+        let sieger = *w.cups[fa].teams.iter().filter(|&&t| !w.ist_amateur(t)).nth(3).unwrap();
         w.cups[fa].winner = Some(sieger);
         let eu = [w.cups.iter().find(|c| c.kind == 1).map(|c| c.teams.clone()).unwrap_or_default(), vec![], vec![]];
         w.setup_cups(Some(eu));
@@ -594,7 +637,8 @@ mod t {
     #[test]
     fn answer_decides_level_knockout() {
         let mut w = crate::world::testwelt(4);
-        let ci = w.cups.iter().position(|c| c.kind == 0 && !c.fx.is_empty()).unwrap();
+        // a cup whose first two ties are between clubs of the world (amateur ties never come to the match day)
+        let ci = w.cups.iter().position(|c| c.kind == 0 && c.fx.len() > 1 && c.fx[..2].iter().all(|x| !w.ist_amateur(x.f.h) && !w.ist_amateur(x.f.a))).unwrap();
         let (h, a) = (w.cups[ci].fx[0].f.h, w.cups[ci].fx[0].f.a);
         assert!(w.ko_offen(ci, 0, 1, 1) && !w.ko_offen(ci, 0, 2, 1));
         let mut res = w.play(h, a, 1, None, Some((1, 1)));
@@ -616,7 +660,7 @@ mod t {
         let w = World::from_pesdb(&p, 5).unwrap();
         let dom: Vec<&Cup> = w.cups.iter().filter(|c| c.kind == 0).collect();
         assert!(dom.iter().any(|c| c.key == "ENGLAND_D1_CUP" && c.name == "FA Cup"), "{:?}", dom.iter().map(|c| (&c.key, &c.name)).collect::<Vec<_>>());
-        assert_eq!(dom.len(), w.db_cups.len());
+        assert_eq!(dom.len(), w.db_cups.len() + 1, "the database's cups and the EFL Cup");
         let db = w.db_euro.clone().unwrap();
         let cl = &w.cups.iter().find(|c| c.kind == 1).unwrap().teams;
         assert_eq!(cl.len(), 36);

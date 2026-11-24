@@ -73,7 +73,8 @@ impl Career {
         for &p in &sq {
             let pl = &self.world.players[p];
             let chs: Vec<f32> = (0..10).map(|i| crate::mensch::cw(pl, i)).collect();
-            let mut d = crate::mensch::ton_aenderung(TOENE[ton], &chs, pl.morale, self.vertrauen(p)) * self.mgr_faktor(0);
+            // a stressed coach reaches them less (Fabian 24.11., privat.rs)
+            let mut d = crate::mensch::ton_aenderung(TOENE[ton], &chs, pl.morale, self.vertrauen(p)) * self.mgr_faktor(0) * self.stress_faktor() * self.sprach_faktor();
             let ehrgeizig = chs[crate::mensch::EHRGEIZ] >= 60.0;
             if ziel == 0 { d += if staerke == 2 { k("ziel_unrealistisch") } else if staerke == 0 { k("ziel_realistisch") } else { 0.0 } + if ehrgeizig { 1.0 } else { 0.0 }; }
             if ziel == 1 { d += if staerke == 0 && ehrgeizig { k("ziel_unterfordert") } else if staerke == 2 { k("ziel_realistisch") } else { 0.0 }; }
@@ -87,7 +88,8 @@ impl Career {
         for (p, d) in je { self.moral_wirkung(p, d / 2.0, 0, t("pm.grund")); }
         self.ansprache_vor = Some(Vorgabe { tag: abs, ziel: ziel as u8, staerke });
         let mittel = if sq.is_empty() { 0.0 } else { summe / sq.len() as f32 };
-        Ok(t(if mittel >= 2.0 { "ui.rest3.die_ansprache_kam_an" } else if mittel <= -2.0 { "ui.rest3.die_ansprache_ging_daneben" } else { "ui.rest3.die_ansprache_verpuffte" }).into())
+        let satz = t(if mittel >= 2.0 { "ui.rest3.die_ansprache_kam_an" } else if mittel <= -2.0 { "ui.rest3.die_ansprache_ging_daneben" } else { "ui.rest3.die_ansprache_verpuffte" }).to_string();
+        Ok(if self.stress_faktor() < 1.0 { format!("{satz} {}", t("ui.privat.ansprache_gestresst")) } else { satz })
     }
     /// After the own match: was the goal of the talk met? The team's morale follows (werte.py auswertung).
     pub fn teamgespraech_auswertung(&mut self, gf: u8, ga: u8) {

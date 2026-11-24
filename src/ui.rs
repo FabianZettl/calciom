@@ -42,6 +42,10 @@ pub fn lesbar(c: Color, bg: Color, min: f32) -> Color {
 /// The main colour of a crest picture (RGBA): the most weighty hue among clearly coloured, opaque pixels (white,
 /// black, grey and transparent left out), as the mean of that hue's pixels. None when the crest has no real colour
 /// (core/vereinsfarben_ableitung.py: vorherrschende kräftige Farbe).
+/// The crest colours found so far, by club id (filled when a crest is first drawn; pages::club_color reads them).
+pub static WAPPEN_FARBEN: std::sync::LazyLock<std::sync::Mutex<std::collections::HashMap<u32, Option<u32>>>> = std::sync::LazyLock::new(Default::default);
+/// The crest colour of club id `id` once its crest has been drawn.
+pub fn wappen_farbe_von(id: u32) -> Option<u32> { WAPPEN_FARBEN.lock().ok().and_then(|m| m.get(&id).copied().flatten()) }
 pub fn hauptfarbe(rgba: &[u8]) -> Option<u32> {
     let mut eimer = [(0f32, 0f32, 0f32, 0f32); 24];
     let mut gesamt = 0f32;
@@ -184,7 +188,7 @@ pub struct Ui {
     /// Crest and logo files of the current world (fl27::bilder_index) and the world folder it was built for.
     pub bilder: crate::fl27::Bilder,
     pub bilder_fuer: Option<std::path::PathBuf>,
-    pub logos: std::cell::RefCell<std::collections::HashMap<u16, Option<Texture2D>>>,
+    pub logos: std::cell::RefCell<std::collections::HashMap<u16, Option<(Texture2D, bool)>>>,
     pub fotos: std::cell::RefCell<std::collections::HashMap<u32, Option<Texture2D>>>,
     pub stadien: std::cell::RefCell<std::collections::HashMap<u32, Option<Texture2D>>>,
     /// Photos loaded per frame at most (long lists load their visible rows over a few frames, without stutter).
@@ -675,6 +679,8 @@ impl Ui {
     /// Club crest from the FL-World pictures; initials only when no picture exists (guide §2).
     pub fn club_crest(&self, cx: f32, cy: f32, r: f32, id: u32, c1: Color, short: &str) {
         self.wappen_orte.borrow_mut().push((id, vec2(cx, cy), r));
+        // a club's colour is its crest's (Fabian 24.11.: Bayern was green, the database gives no club colours)
+        if !WAPPEN_FARBEN.lock().map_or(true, |m| m.contains_key(&id)) { let f = self.wappen_farbe(id); if let Ok(mut m) = WAPPEN_FARBEN.lock() { m.insert(id, f); } }
         let tex = self.crests.borrow_mut().entry(id).or_insert_with(|| load_crest(self.bilder.verein.get(&id).and_then(|q| q.lesen()), id)).clone();
         if let Some(t) = tex {
             draw_texture_ex(&t, cx - r, cy - r, WHITE, DrawTextureParams { dest_size: Some(vec2(r * 2.0, r * 2.0)), ..Default::default() });
@@ -798,10 +804,22 @@ impl Ui {
         true
     }
     /// The logo of a competition (emb_<id>_l.png of the world), when the world has one; false draws nothing.
-    pub fn wettbewerb_logo(&self, cx: f32, cy: f32, r: f32, cid: Option<u16>) -> bool {
+    pub fn wettbewerb_logo(&self, cx: f32, cy: f32, r: f32, cid: Option<u16>) -> bool { self.wettbewerb_logo_auf(cx, cy, r, cid, None) }
+    /// The logo; a light logo (white on transparent) on a light page gets a soft disc behind it, in the competition's
+    /// colour when one is given (Fabian 24.11.: white logos vanished on white).
+    pub fn wettbewerb_logo_auf(&self, cx: f32, cy: f32, r: f32, cid: Option<u16>, farbe: Option<Color>) -> bool {
         let Some(id) = cid else { return false };
-        let tex = self.logos.borrow_mut().entry(id).or_insert_with(|| self.bilder.emblem.get(&id).and_then(|q| q.lesen()).and_then(|b| png_tex(&b))).clone();
-        let Some(t) = tex else { return false };
+        let tex = self.logos.borrow_mut().entry(id).or_insert_with(|| self.bilder.emblem.get(&id).and_then(|q| q.lesen()).and_then(|b| {
+            let i = Image::from_file_with_format(&b, None).ok()?;
+            // light: the opaque pixels are bright on average
+            let (mut sum, mut n) = (0.0f32, 0u32);
+            for px in i.bytes.chunks_exact(4).step_by(7) { if px[3] > 128 { sum += (0.2126 * px[0] as f32 + 0.7152 * px[1] as f32 + 0.0722 * px[2] as f32) / 255.0; n += 1; } }
+            let t = Texture2D::from_image(&i);
+            t.set_filter(FilterMode::Linear);
+            Some((t, n > 0 && sum / n as f32 > 0.78))
+        })).clone();
+        let Some((t, hell)) = tex else { return false };
+        if hell && !Theme::dark() { draw_circle(cx, cy, r * 1.35, farbe.unwrap_or(hex(0x5b6472))); }
         let k = (2.0 * r / t.width().max(t.height())).min(4.0);
         draw_texture_ex(&t, cx - t.width() * k / 2.0, cy - t.height() * k / 2.0, WHITE, DrawTextureParams { dest_size: Some(vec2(t.width() * k, t.height() * k)), ..Default::default() });
         true

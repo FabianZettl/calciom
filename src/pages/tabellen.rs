@@ -199,7 +199,7 @@ fn cup_spiele_kasten(ui: &mut Ui, c: &Career, ci: usize, r: Rect, lk: &Look) {
         for f in auswahl.into_iter().take(n) {
             let mine = f.f.h == c.own || f.f.a == c.own;
             let res = if f.f.hg < 0 { date::short(c.world.season, f.f.day) } else { format!("{}:{}", f.f.hg, f.f.ag) };
-            let t = format!("{} – {}", c.world.clubs[f.f.h].short, c.world.clubs[f.f.a].short);
+            let t = format!("{} – {}", c.world.club(f.f.h).short, c.world.club(f.f.a).short);
             ui.text(&ui.fit(&t, 14.0, r.w - 100.0), r.x + 14.0, y, 14.0, if mine { Theme::gold() } else { Theme::text() });
             ui.text_right(&res, r.x + r.w - 14.0, y, 14.0, Theme::text2());
             y += 20.0;
@@ -212,7 +212,7 @@ fn cup_view(ui: &mut Ui, c: &Career, ci: usize, x: f32, tw: f32) {
     let land = if cup.country.is_empty() { c.world.leagues.iter().find(|l| l.key == cup.key).map(|l| l.land.clone()).unwrap_or_default() } else { cup.country.clone() };
     let lk = wettbewerb_look(c, &cup.key, cup.kind, &land);
     let nach_name = wettbewerb_banner(ui, Rect::new(x, Y0 - 44.0, tw, 46.0), &lk, c.world.cids.get(&cup.key).copied(), &cup.name);
-    let status = match cup.winner { Some(w) => crate::tf!("ui.pages.sieger", c.world.clubs[w].name), None => crate::tf!("ui.pages.laeuft", if cup.stage < 10 { crate::inhalt::t("ui.pages.ligaphase").to_string() } else { crate::cups::stage_name(cup.stage, cup.kind) }) };
+    let status = match cup.winner { Some(w) => crate::tf!("ui.pages.sieger", c.world.club(w).name), None => crate::tf!("ui.pages.laeuft", if cup.stage < 10 { crate::inhalt::t("ui.pages.ligaphase").to_string() } else { crate::cups::stage_name(cup.stage, cup.kind) }) };
     // more about the competition (Fabian 23.11.): title holder, clubs in it, where the final is played
     let mut info = vec![status];
     if let Some(&t) = c.world.titelverteidiger.get(&cup.name) { info.push(crate::tf!("ui.cup.titelverteidiger", c.world.clubs[t].name.clone())); }
@@ -246,7 +246,7 @@ fn cup_view(ui: &mut Ui, c: &Career, ci: usize, x: f32, tw: f32) {
             draw_rectangle(area.x + 4.0, y + 2.0, 3.0, rh - 4.0, zone);
             let fs = (rh * 0.66).min(15.0);
             ui.text(&format!("{}", i + 1), area.x + 12.0, y + rh * 0.75, fs, Theme::text2());
-            let k = &c.world.clubs[r.club];
+            let k = c.world.club(r.club);
             ui.club_crest(area.x + 44.0, y + rh / 2.0, rh * 0.42, k.id, hex(k.c1), &k.short);
             ui.text(&ui.fit(&k.name, fs, area.w * 0.44 - 60.0), area.x + 58.0, y + rh * 0.75, fs, Theme::text());
             let werte = [r.p.to_string(), r.w.to_string(), r.d.to_string(), r.l.to_string(), format!("{}:{}", r.gf, r.ga), format!("{:+}", r.gf - r.ga), r.pts.to_string()];
@@ -275,7 +275,7 @@ fn cup_view(ui: &mut Ui, c: &Career, ci: usize, x: f32, tw: f32) {
         for f in cup.fx.iter().filter(|f| f.stage == st) {
             if y > rr.y + rr.h - 10.0 { break; }
             let res = if f.f.hg < 0 { date::short(c.world.season, f.f.day) } else { format!("{}:{}{}{}", f.f.hg, f.f.ag, if f.et { crate::inhalt::t("ui.pages.kurz_nv") } else { "" }, f.pens.map(|p| crate::tf!("ui.pages.kurz_ie", crate::cups::pens_score(p))).unwrap_or_default()) };
-            let t = format!("{} – {}", c.world.clubs[f.f.h].short, c.world.clubs[f.f.a].short);
+            let t = format!("{} – {}", c.world.club(f.f.h).short, c.world.club(f.f.a).short);
             let mine = f.f.h == c.own || f.f.a == c.own;
             ui.text(&t, rr.x + 14.0, y, 15.0, if mine { Theme::gold() } else { Theme::text() });
             ui.text_right(&res, rr.x + rr.w - 14.0, y, 15.0, Theme::text2());
@@ -354,7 +354,7 @@ fn turnierbaum(ui: &mut Ui, c: &Career, ci: usize, r: Rect, lk: &Look) -> bool {
             let yy = br.y + 14.0 + j as f32 * 18.0;
             match t {
                 Some(k) => {
-                    let cl = &c.world.clubs[*k];
+                    let cl = c.world.club(*k);
                     ui.club_crest(br.x + 11.0, yy - 4.0, 7.0, cl.id, hex(cl.c1), &cl.short);
                     let raus = p.sieger.is_some() && p.sieger != Some(*k);
                     let col = if *k == c.own { Theme::gold() } else if raus { alpha(farbe, 0.45) } else { farbe };
@@ -371,7 +371,7 @@ fn turnierbaum(ui: &mut Ui, c: &Career, ci: usize, r: Rect, lk: &Look) -> bool {
         if k == runden - 1 {
             let x = r.x + sw * (runden - 1) as f32 + sw / 2.0;
             ui.text_center(&crate::cups::stage_name(34, cup.kind), x, r.y + 12.0, 13.0, lk.akzent_lesbar);
-            if let Some(w) = baum[k][0].sieger { let cl = &c.world.clubs[w]; ui.club_crest(x, r.y + r.h / 2.0 - 70.0, 26.0, cl.id, hex(cl.c1), &cl.short); ui.text_center(&crate::tf!("ui.pages.sieger", cl.name), x, r.y + r.h / 2.0 - 34.0, 13.0, Theme::gold()); }
+            if let Some(w) = baum[k][0].sieger { let cl = c.world.club(w); ui.club_crest(x, r.y + r.h / 2.0 - 70.0, 26.0, cl.id, hex(cl.c1), &cl.short); ui.text_center(&crate::tf!("ui.pages.sieger", cl.name), x, r.y + r.h / 2.0 - 34.0, 13.0, Theme::gold()); }
             kasten(ui, x, (r.y + 24.0 + r.y + r.h - 6.0) / 2.0, &baum[k][0], true);
             continue;
         }

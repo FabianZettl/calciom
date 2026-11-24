@@ -41,6 +41,10 @@ pub(super) fn optionen(ui: &mut Ui, v: &mut View, c: &mut Career) {
                 match crate::fl27::diagnose_paket() { Ok(p) => { v.toast(&crate::tf!("ui.diagnose.fertig", p.display()), true); if let Some(d) = p.parent() { crate::update::oeffnen(&d.display().to_string()); } } Err(e) => v.toast(&e, false) }
             }
             ui.paragraph(t("ui.spielstand.zum_start_hinweis"), r.x + 16.0, r.y + 494.0, 13.0, 600.0, Theme::text2());
+            // a slim world backup for new careers (only the database), off unless switched on
+            let schlank = crate::fl27::sicherung_schlank();
+            if ui.button(Rect::new(r.x + 16.0, r.y + 520.0, 420.0, 34.0), t("ui.sicherung.schlank"), schlank) { crate::fl27::sicherung_schlank_setzen(!schlank); }
+            ui.paragraph(t("ui.sicherung.schlank_hinweis"), r.x + 450.0, r.y + 528.0, 13.0, 460.0, Theme::text2());
         }
         1 => {
             ui.card_titled(r, t("ui.einst.reiter.anzeige"), Theme::akzent());
@@ -50,6 +54,8 @@ pub(super) fn optionen(ui: &mut Ui, v: &mut View, c: &mut Career) {
         let _ = std::fs::create_dir_all(save_dir());
         let _ = std::fs::write(theme_file(), if v.dark { crate::id("flutlicht") } else { crate::id("sonntag") });
     }
+    // on a matchday the competition's colours (Fabian 24.11.), on other days light or dark as chosen
+    if let Some(t) = ui.segment(Rect::new(r.x + 410.0, r.y + 78.0, 360.0, 38.0), &[crate::inhalt::t("ui.thema.immer_gleich"), crate::inhalt::t("ui.thema.wettbewerb")], c.thema_wettbewerb as usize) { c.thema_wettbewerb = t == 1; }
     ui.text_semi(crate::inhalt::t("optionen.sprache"), r.x + 16.0, r.y + 264.0, 17.0, Theme::text());
     let en = crate::inhalt::sprache() == crate::inhalt::Sprache::En;
     if let Some(t) = ui.segment(Rect::new(r.x + 16.0, r.y + 278.0, 380.0, 38.0), &[crate::inhalt::t("sprache.de"), crate::inhalt::t("sprache.en")], en as usize) {

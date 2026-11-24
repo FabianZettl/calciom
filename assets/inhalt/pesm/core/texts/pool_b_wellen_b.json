@@ -24,28 +24,28 @@
   "Mit dem Vertragsende in {monate} Monaten kommt auch die Frage, wie lange ich noch darf."
  ],
  "pool.b.egoist_auf_der_bank_lage": [
-  "Es geht um {gegner}, der seit {spiele} Spielen auf der Bank sitzt und das alle spüren lässt.",
-  "{gegner} sitzt seit {spiele} Spielen draußen, und die Laune in der Kabine leidet darunter."
+  "Es geht um {gegner}, der seit {gegner_spiele} Spielen auf der Bank sitzt und das alle spüren lässt.",
+  "{gegner} sitzt seit {gegner_spiele} Spielen draußen, und die Laune in der Kabine leidet darunter."
  ],
  "pool.b.egoist_auf_der_bank_lage.hitzig": [
-  "{gegner} schimpft seit {spiele} Spielen auf der Bank vor sich hin, und gestern hat er die Tür getreten.",
-  "Seit {spiele} Spielen kocht {gegner} in der Reserve und lässt es an allen aus."
+  "{gegner} schimpft seit {gegner_spiele} Spielen auf der Bank vor sich hin, und gestern hat er die Tür getreten.",
+  "Seit {gegner_spiele} Spielen kocht {gegner} in der Reserve und lässt es an allen aus."
  ],
  "pool.b.egoist_auf_der_bank_lage.loyal": [
-  "Ich sage es ungern über einen Mitspieler, aber {gegner} zieht uns seit {spiele} Spielen herunter.",
-  "Ich will keinen anschwärzen, doch {gegner} verdirbt nach {spiele} Spielen auf der Bank die Stimmung."
+  "Ich sage es ungern über einen Mitspieler, aber {gegner} zieht uns seit {gegner_spiele} Spielen herunter.",
+  "Ich will keinen anschwärzen, doch {gegner} verdirbt nach {gegner_spiele} Spielen auf der Bank die Stimmung."
  ],
  "pool.b.egoist_auf_der_bank_lage.ehrgeizig": [
-  "Wir wollen oben mitspielen, aber {gegner} stört mit seinem Schmollen seit {spiele} Spielen den Rhythmus.",
-  "{gegner} denkt nur an sich, seit er {spiele} Spiele zuschaut, und das kostet uns Schärfe."
+  "Wir wollen oben mitspielen, aber {gegner} stört mit seinem Schmollen seit {gegner_spiele} Spielen den Rhythmus.",
+  "{gegner} denkt nur an sich, seit er {gegner_spiele} Spiele zuschaut, und das kostet uns Schärfe."
  ],
  "pool.b.egoist_auf_der_bank_lage.wechselfreudig": [
-  "{gegner} redet offen über einen Abschied, seit er {spiele} Spiele nicht gespielt hat.",
-  "Seit {spiele} Spielen macht {gegner} klar, dass er woanders besser aufgehoben wäre, auch vor den anderen."
+  "{gegner} redet offen über einen Abschied, seit er {gegner_spiele} Spiele nicht gespielt hat.",
+  "Seit {gegner_spiele} Spielen macht {gegner} klar, dass er woanders besser aufgehoben wäre, auch vor den anderen."
  ],
  "pool.b.egoist_auf_der_bank_lage.sensibel": [
-  "Mir geht es nahe, wie {gegner} seit {spiele} Spielen leidet und alle mit hineinzieht.",
-  "Seit {spiele} Spielen ist {gegner} verbittert, und die Stimmung in der Kabine tut mir weh."
+  "Mir geht es nahe, wie {gegner} seit {gegner_spiele} Spielen leidet und alle mit hineinzieht.",
+  "Seit {gegner_spiele} Spielen ist {gegner} verbittert, und die Stimmung in der Kabine tut mir weh."
  ],
  "pool.b.fuehrungsspieler_ausser_form_lage": [
   "Ich weiß selbst, dass es bei mir derzeit nicht läuft, und das beschäftigt mich.",

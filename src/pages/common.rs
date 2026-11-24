@@ -11,7 +11,7 @@ pub const Y0: f32 = 244.0;
 pub enum Page {
     Uebersicht, Posteingang, Kalender, Kader, Aufstellung, Kabine, Training, Medizin, Praesidium, Finanzen, Trainer,
     Transfermarkt, Verhandlungen, Vertraege, Scouting, Akademie, Tabellen, Presse, Spieltag, Optionen,
-    Ziele, Manager, Stadion, Personalmarkt, Geschichte, Tagebuch, Klima, Marken, Kaderplanung, Vergleich, Entwicklung, Vorbereitung, Analyse, Zeitung, Fans, Ranglisten, Vereine, Vereinswelt, Portal, Handbuch, Regeln, Profi, Spielerprofil, Zentrale, Kooperationen, ZweiteMannschaft, Jugendnetz, Merkliste, Trainerteam, Nationalteams,
+    Awards, TheBest, LigaPreise, Privat, Uefa, Kadermeldung, Ziele, Manager, Stadion, Personalmarkt, Geschichte, Tagebuch, Klima, Marken, Kaderplanung, Vergleich, Entwicklung, Vorbereitung, Analyse, Zeitung, Fans, Ranglisten, Vereine, Vereinswelt, Portal, Handbuch, Regeln, Profi, Spielerprofil, Zentrale, Kooperationen, ZweiteMannschaft, Jugendnetz, Merkliste, Trainerteam, Nationalteams,
 }
 
 /// The side menu: group → main pages → their tabs. Every page keeps its id (links from the inbox, ticker and so on
@@ -19,7 +19,7 @@ pub enum Page {
 pub type Haupt = (&'static str, &'static [(Page, &'static str)]);
 pub const MENU: [(&str, &[Haupt]); 7] = [
     ("ui.pages.buero", &[("bereich.zentrale", &[(Page::Zentrale, "bereich.zentrale"), (Page::Uebersicht, "reiter.uebersicht")]), ("zentrale.k.posteingang", &[(Page::Posteingang, "zentrale.k.posteingang")]), ("gl.kopf.ergebnisse.alle", &[(Page::Kalender, "gl.kopf.ergebnisse.alle")])]),
-    ("ui.pages.mannschaft", &[("zentrale.k.kader", &[(Page::Kader, "zentrale.k.kader"), (Page::ZweiteMannschaft, "ui.game.zweite_mannschaft"), (Page::Kaderplanung, "aktion.kaderplanung"), (Page::Vergleich, "menu.spielervergleich.titel")]),
+    ("ui.pages.mannschaft", &[("zentrale.k.kader", &[(Page::Kader, "zentrale.k.kader"), (Page::ZweiteMannschaft, "ui.game.zweite_mannschaft"), (Page::Kaderplanung, "aktion.kaderplanung"), (Page::Kadermeldung, "ui.meldung.seite"), (Page::Vergleich, "menu.spielervergleich.titel")]),
         ("gb2.reiter.taktik", &[(Page::Aufstellung, "aktion.aufstellung"), (Page::Vorbereitung, "ui.pages.spielvorbereitung"), (Page::Analyse, "menu.analyse.titel")]),
         ("vg.pg.dim.kabine", &[(Page::Kabine, "vg.pg.dim.kabine")]),
         ("status.training", &[(Page::Training, "status.training"), (Page::Entwicklung, "profil.entwicklung_verlauf"), (Page::Medizin, "kachel.medizin")])]),
@@ -28,8 +28,9 @@ pub const MENU: [(&str, &[Haupt]); 7] = [
     ("ui.pages.verein", &[("klima.praesidium", &[(Page::Praesidium, "klima.praesidium"), (Page::Ziele, "aktion.ziele"), (Page::Klima, "ui.main.vereinsklima"), (Page::Geschichte, "menu.vereinsgeschichte.titel")]),
         ("bereich.finanzen", &[(Page::Finanzen, "bereich.finanzen"), (Page::Stadion, "menu.stadion_und_anlagen.titel"), (Page::Marken, "ui.main.marken_und_sponsoren"), (Page::Kooperationen, "ui.farm.kooperationen")]),
         ("md.ui.chip.personal", &[(Page::Trainerteam, "ui.main.trainerteam"), (Page::Personalmarkt, "ui.main.personalmarkt")]),
-        ("taktik.board.coach", &[(Page::Trainer, "aktion.trainerprofil"), (Page::Manager, "gm.mg.hero"), (Page::Tagebuch, "gm.tb.hero")])]),
-    ("ui.pages.welt", &[("zentrale.wettbewerbe", &[(Page::Tabellen, "ui.pages.tabellen"), (Page::Ranglisten, "ux.abschnitt.rankings"), (Page::Nationalteams, "ui.nt.seite")]),
+        ("taktik.board.coach", &[(Page::Trainer, "aktion.trainerprofil"), (Page::Manager, "gm.mg.hero"), (Page::Tagebuch, "gm.tb.hero"), (Page::Privat, "ui.privat.seite")])]),
+    ("ui.pages.welt", &[("zentrale.wettbewerbe", &[(Page::Tabellen, "ui.pages.tabellen"), (Page::Ranglisten, "ux.abschnitt.rankings"), (Page::LigaPreise, "ui.preis.liga_seite"), (Page::Uefa, "ui.uefa.seite"), (Page::Nationalteams, "ui.nt.seite")]),
+        ("ui.award.seite", &[(Page::Awards, "ui.preis.ballon_seite"), (Page::TheBest, "ui.preis.best_seite")]),
         ("menu.vereine_und_spieler.titel", &[(Page::Vereine, "suche.ueberschrift"), (Page::Vereinswelt, "ui.main.vereinswelt"), (Page::Portal, "md.pool.typ.portal")])]),
     ("ui.pages.medien", &[("zentrale.k.medien", &[(Page::Presse, "feed.art.journalist"), (Page::Zeitung, "md.pool.typ.zeitung"), (Page::Fans, "menu.fans_und_stimmung.titel")])]),
 ];
@@ -337,7 +338,12 @@ pub(super) fn entwicklung_pfeil_mit(ui: &Ui, x: f32, y: f32, d: f32, mit_zahl: b
 /// The form bonus next to a strength („+2“ green, „−1“ red); nothing at 0. It works in the match, not for good.
 pub(super) fn zuschlag_text(ui: &Ui, x: f32, y: f32, p: &Player) {
     let z = crate::world::form_zuschlag(p);
-    if z != 0.0 { ui.text(&format!("{z:+.0}").replace('-', "−"), x, y, 14.0, if z > 0.0 { Theme::gut() } else { Theme::problem() }); }
+    if z != 0.0 {
+        let t = format!("{z:+.0}").replace('-', "−");
+        ui.text(&t, x, y, 14.0, if z > 0.0 { Theme::gut() } else { Theme::problem() });
+        // the reasons on hover (Fabian 24.11.: every change with its reason)
+        if Rect::new(x - 4.0, y - 16.0, ui.measure(&t, 14.0) + 8.0, 20.0).contains(ui.mouse) { *ui.tooltip.borrow_mut() = Some(crate::world::zuschlag_gruende(p).join("\n")); }
+    }
 }
 pub(crate) fn form_arrow(ui: &Ui, x: f32, y: f32, f: f32) {
     // the form arrow of the game, 0…4 (entwicklung.toml pfeil_grenzen): up from 3, down to 1
@@ -352,8 +358,8 @@ pub(crate) fn form_arrow(ui: &Ui, x: f32, y: f32, f: f32) {
 }
 
 pub fn club_color(c: &Career, club: usize) -> (Color, Color) {
-    let cl = &c.world.clubs[club];
-    (hex(cl.c1), hex(cl.c2))
+    let cl = c.world.club(club);
+    (hex(crate::ui::wappen_farbe_von(cl.id).unwrap_or(cl.c1)), hex(cl.c2))
 }
 
 pub(super) fn player_row_head(ui: &Ui, x: f32, y: f32, cols: &[(&str, f32)]) {
@@ -575,6 +581,17 @@ pub(super) fn msg_spieler(c: &Career, m: &Msg) -> Option<usize> {
 /// The look of a competition (Fabian 22.11.: like the real leagues): colours and pattern from wettbewerbslook.toml by key,
 /// by kind for Europe (1 CL, 2 EL, 3 Conference), else the country's flag colours.
 pub struct Look { pub c1: Color, pub c2: Color, pub akzent: Color, pub akzent_lesbar: Color, pub text: Color, pub text2: Color, pub muster: String }
+/// The look of the competition a fixture belongs to (league, cup or European competition).
+pub fn wo_look(c: &Career, wo: Wo) -> Look {
+    match wo {
+        Wo::Liga(l) => { let lg = &c.world.leagues[l]; wettbewerb_look(c, &lg.key, 9, &lg.land) }
+        Wo::Pokal(k) => {
+            let cu = &c.world.cups[k];
+            let land = if cu.country.is_empty() { c.world.leagues.iter().find(|x| x.key == cu.key).map(|x| x.land.clone()).unwrap_or_default() } else { cu.country.clone() };
+            wettbewerb_look(c, &cu.key, cu.kind, &land)
+        }
+    }
+}
 /// The colour of the chosen competition for the page's head band on the tables and rankings (Fabian 23.11.).
 pub fn liga_farbe(v: &View, c: &Career) -> u32 {
     let l = v.table_league.unwrap_or(c.league());
@@ -590,13 +607,22 @@ pub fn wettbewerb_look(_c: &Career, key: &str, kind: u8, land: &str) -> Look {
     let farbe = |v: &serde_json::Value| u32::from_str_radix(v.as_str().unwrap_or("").trim_start_matches('#'), 16).ok();
     let aus = |w: &serde_json::Value| -> Option<(u32, u32, u32, String)> { Some((farbe(&w["farbe1"])?, farbe(&w["farbe2"])?, farbe(&w["akzent"])?, w["muster"].as_str().unwrap_or("keins").to_string())) };
     let art = match kind { 1 => Some(crate::id("cl")), 2 => Some(crate::id("el")), 3 => Some(crate::id("uecl")), _ => None };
-    let eintrag = art.and_then(|a| crate::regeln::wert_oder("wettbewerbslook", &format!("art.{a}")).and_then(aus))
+    let pokal = (kind == 0).then(|| crate::regeln::wert_oder("wettbewerbslook", "pokal").and_then(|l| l.get(land)).and_then(aus)).flatten();
+    let eintrag = pokal.or_else(|| art.and_then(|a| crate::regeln::wert_oder("wettbewerbslook", &format!("art.{a}")).and_then(aus)))
         .or_else(|| crate::regeln::wert_oder("wettbewerbslook", "liga").and_then(|l| l.get(key)).and_then(aus))
         .or_else(|| crate::regeln::wert_oder("wettbewerbslook", "land").and_then(|l| l.get(land)).and_then(|v| { let a = v.as_array()?; let (x, y) = (farbe(&a[0])?, farbe(&a[1])?); Some((x, y, y, crate::id("keins").to_string())) }));
     let (c1, c2, ak, muster) = eintrag.unwrap_or((0x1e293b, 0x334155, 0x94a3b8, crate::id("keins").to_string()));
     let (c1, c2, ak) = (hex(c1), hex(c2), hex(ak));
     let text = crate::ui::on(c1);
     Look { c1, c2, akzent: ak, akzent_lesbar: crate::ui::lesbar(ak, Theme::flaeche(), 3.0), text, text2: alpha(text, 0.8), muster }
+}
+/// The colours of the "per competition" theme (Fabian 24.11.): (head band, accent). A dark neutral first colour (the
+/// Europa League's black) gives way to a colourful accent; a pale accent (the Bundesliga's white) to the first colour.
+pub fn thema_farben(lk: &Look) -> (u32, u32) {
+    let bunt = |c: Color| { let (mx, mn) = (c.r.max(c.g).max(c.b), c.r.min(c.g).min(c.b)); mx > 0.0 && (mx - mn) / mx > 0.35 && mx > 0.25 };
+    let u = |c: Color| { let k = |x: f32| ((x * 255.0).round() as u32).min(255); (k(c.r) << 16) | (k(c.g) << 8) | k(c.b) };
+    let kopf = if bunt(lk.c1) || !bunt(lk.akzent) { lk.c1 } else { lk.akzent };
+    (u(kopf), u(if bunt(lk.akzent) { lk.akzent } else { kopf }))
 }
 /// A five-pointed star (the Champions League pattern).
 fn stern(x: f32, y: f32, r: f32, col: Color) {

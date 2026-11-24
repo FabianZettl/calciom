@@ -1,8 +1,9 @@
 use super::*;
 
 pub(super) fn kader(ui: &mut Ui, v: &mut View, c: &mut Career) {
-    tabs(ui, v, &[crate::inhalt::t("ui.pages.portraets"), crate::inhalt::t("kalender.ansicht.liste"), crate::inhalt::t("bericht.statistik")]);
-    if v.tab > 0 { kader_list(ui, v, c); return; }
+    // the list first, portraits as the alternative (Fabian 24.11.)
+    tabs(ui, v, &[crate::inhalt::t("kalender.ansicht.liste"), crate::inhalt::t("ui.pages.portraets"), crate::inhalt::t("bericht.statistik")]);
+    if v.tab != 1 { kader_list(ui, v, c); return; }
     let all = c.squad();
     // Kennzahlen-Leiste in words
     let n = all.len().max(1) as f32;
@@ -77,11 +78,11 @@ pub(super) fn kader(ui: &mut Ui, v: &mut View, c: &mut Career) {
 
 fn kader_list(ui: &mut Ui, v: &mut View, c: &mut Career) {
     let mut sq = c.squad();
-    let liste = 10 + v.tab as u8;
+    let liste = 10 + if v.tab == 0 { 1 } else { 2 };
     sortieren(v, liste, &mut sq, |p, col| {
         let pl = &c.world.players[p];
         let n = |x: f32| Sk::N(x);
-        match (v.tab == 1, col) {
+        match (v.tab == 0, col) {
             (_, 0) => n(-(pl.no as f32)),
             (_, 1) => Sk::S(pl.name.to_lowercase()),
             (_, 2) => n(-(crate::pesdb::pos_index(&pl.pos) as f32)),
@@ -94,10 +95,10 @@ fn kader_list(ui: &mut Ui, v: &mut View, c: &mut Career) {
     });
     let area = Rect::new(x0() + 4.0, Y0, cbreite(), hoehe() - Y0 - 16.0);
     ui.card(area);
-    let head: Vec<(&str, f32)> = if v.tab == 1 {
-        vec![(crate::id("NR"), 14.0), (crate::id("NAME"), 60.0), (crate::id("POS."), 330.0), (crate::id("ALTER"), 390.0), (crate::inhalt::t("ui.pages.staerke"), 450.0), (crate::id("POTENZIAL"), 520.0), (crate::id("FORM"), 620.0), (crate::id("FITNESS"), 680.0), (crate::id("MORAL"), 800.0), (crate::id("MARKTWERT"), 920.0), (crate::id("VERTRAG"), 1050.0)]
+    let head: Vec<(&str, f32)> = if v.tab == 0 {
+        vec![(crate::inhalt::t("ui.kader.kopf.nr"), 14.0), (crate::inhalt::t("ui.kader.kopf.name"), 60.0), (crate::inhalt::t("ui.kader.kopf.pos"), 330.0), (crate::inhalt::t("ui.kader.kopf.alter"), 390.0), (crate::inhalt::t("ui.pages.staerke"), 450.0), (crate::inhalt::t("ui.kader.kopf.potenzial"), 520.0), (crate::inhalt::t("ui.kader.kopf.form"), 620.0), (crate::inhalt::t("ui.kader.kopf.fitness"), 680.0), (crate::inhalt::t("ui.kader.kopf.moral"), 800.0), (crate::inhalt::t("ui.kader.kopf.marktwert"), 920.0), (crate::inhalt::t("ui.kader.kopf.vertrag"), 1050.0)]
     } else {
-        vec![(crate::id("NR"), 14.0), (crate::id("NAME"), 60.0), (crate::id("POS."), 330.0), (crate::id("SPIELE"), 400.0), (crate::id("TORE"), 480.0), (crate::id("VORLAGEN"), 550.0), (crate::inhalt::t("ui.pages.note"), 650.0), (crate::inhalt::t("ui.pages.letzte_fuenf"), 740.0), (crate::id("GELB"), 960.0), (crate::id("GEHALT"), 1030.0)]
+        vec![(crate::inhalt::t("ui.kader.kopf.nr"), 14.0), (crate::inhalt::t("ui.kader.kopf.name"), 60.0), (crate::inhalt::t("ui.kader.kopf.pos"), 330.0), (crate::inhalt::t("ui.kader.kopf.spiele"), 400.0), (crate::inhalt::t("ui.kader.kopf.tore"), 480.0), (crate::inhalt::t("ui.kader.kopf.vorlagen"), 550.0), (crate::inhalt::t("ui.pages.note"), 650.0), (crate::inhalt::t("ui.pages.letzte_fuenf"), 740.0), (crate::inhalt::t("ui.kader.kopf.gelb"), 960.0), (crate::inhalt::t("ui.kader.kopf.gehalt"), 1030.0)]
     };
     sort_head(ui, v, liste, area.x, area.y + 26.0, &head);
     let vis = ((area.h - 44.0) / 38.0) as usize;
@@ -117,13 +118,15 @@ fn kader_list(ui: &mut Ui, v: &mut View, c: &mut Career) {
         if pl.susp > 0 { rrect(r.x + 300.0, cy - 13.0, 10.0, 14.0, 2.0, Theme::problem()); }
         if pl.listed { ui.text_semi(crate::inhalt::t("ui.wort.buchstabe_t"), r.x + 314.0, cy, 15.0, Theme::gold()); }
         ui.pos_tag(r.x + 326.0, cy - 5.0, pos_de(&pl.pos));
-        if v.tab == 1 {
+        if v.tab == 0 {
             ui.text(&format!("{}", pl.age), r.x + 396.0, cy, 17.0, Theme::text());
             ui.pill(r.x + 470.0, cy - 6.0, pl.ovr, 38.0);
             zuschlag_text(ui, r.x + 493.0, cy - 1.0, &pl);
             let stars = ((pl.pot - 50.0) / 10.0).clamp(0.5, 5.0);
             for s in 0..5 { let full = (s as f32) < stars; draw_poly(r.x + 528.0 + s as f32 * 16.0, cy - 6.0, 5, 6.0, -90.0, if full { Theme::gold() } else { Theme::ueberlagerung() }); }
-            form_arrow(ui, r.x + 626.0, cy - 6.0, pl.form);
+            // the grades of the last five games as bars (Fabian 24.11.), the arrow while there are none
+            if pl.last.is_empty() { form_arrow(ui, r.x + 626.0, cy - 6.0, pl.form); }
+            for (j, rt) in pl.last.iter().rev().take(5).rev().enumerate() { let h = ((rt - 3.0) / 7.0 * 24.0).clamp(3.0, 24.0); draw_rectangle(r.x + 604.0 + j as f32 * 13.0, cy + 2.0 - h, 10.0, h, Theme::note(*rt)); }
             ui.bar(r.x + 680.0, cy - 10.0, 90.0, 8.0, pl.fit / 100.0, if pl.fit >= 80.0 { Theme::gut() } else if pl.fit >= 60.0 { Theme::achtung() } else { Theme::problem() });
             ui.text(&format!("{:.0}", pl.fit), r.x + 776.0, cy, 15.0, Theme::text2());
             ui.bar(r.x + 800.0, cy - 10.0, 90.0, 8.0, pl.morale / 100.0, if pl.morale >= 60.0 { Theme::gut() } else if pl.morale >= 40.0 { Theme::achtung() } else { Theme::problem() });
@@ -140,4 +143,48 @@ fn kader_list(ui: &mut Ui, v: &mut View, c: &mut Career) {
         }
         if ui.hit(r) { v.modal = Modal::Player(p); }
     }
+}
+
+/// Squad › Registration (Fabian 24.11.): for each European competition list A (at most 25) to tick, list B (own
+/// players up to 21) free; when the list can change and how many winter changes are left.
+pub(super) fn meldung_seite(ui: &mut Ui, v: &mut View, c: &mut Career) {
+    use crate::inhalt::t;
+    let wb = c.europa_wettbewerbe();
+    let r = Rect::new(x0() + 4.0, Y0, cbreite(), hoehe() - Y0 - 16.0);
+    if wb.is_empty() { ui.card_titled(r, t("ui.meldung.seite"), Theme::akzent()); ui.text(t("ui.meldung.kein_europa"), r.x + 16.0, r.y + 64.0, 15.0, Theme::text2()); return; }
+    let namen: Vec<String> = wb.iter().map(|&k| c.world.cups[k].name.clone()).collect();
+    let refs: Vec<&str> = namen.iter().map(|x| x.as_str()).collect();
+    tabs(ui, v, &refs);
+    let ci = wb[v.tab.min(wb.len() - 1)];
+    let lk = wo_look(c, Wo::Pokal(ci));
+    let _ = wettbewerb_banner(ui, Rect::new(r.x, r.y, r.w, 46.0), &lk, c.comp_cid(Wo::Pokal(ci)), &namen[v.tab.min(wb.len() - 1)]);
+    let a = c.meldung(ci).liste_a.clone();
+    let offen = c.meldung_offen(ci);
+    let max = crate::regeln::f("uefa", "meldung.liste_a") as usize;
+    let status = match &offen { Ok(false) => t("ui.meldung.offen").to_string(), Ok(true) => crate::tf!("ui.meldung.winter_offen", crate::regeln::f("uefa", "meldung.nachmeldungen") as u8 - c.meldung(ci).nachgemeldet), Err(e) => e.clone() };
+    ui.text_semi(&crate::tf!("ui.meldung.stand", a.len(), max), r.x + 8.0, r.y + 78.0, 18.0, if a.len() <= max { Theme::text() } else { Theme::problem() });
+    ui.text(&status, r.x + 220.0, r.y + 78.0, 14.0, if offen.is_ok() { Theme::gut() } else { Theme::text2() });
+    let mut sq: Vec<usize> = c.squad();
+    if let Some(z) = c.zweite_mannschaft() { sq.extend(c.world.clubs[z].squad.iter().copied().filter(|&p| c.liste_b(p))); }
+    sq.sort_by_key(|&p| (c.liste_b(p), crate::pesdb::pos_index(&c.world.players[p].pos)));
+    let spalten = 3;
+    let bw = (r.w - 16.0 * (spalten as f32 - 1.0)) / spalten as f32;
+    let zeile = 34.0;
+    let pro = ((r.h - 110.0) / zeile) as usize;
+    let mut klick = None;
+    for (i, &p) in sq.iter().enumerate().take(pro * spalten) {
+        let (sx, sy) = (r.x + (i / pro) as f32 * (bw + 16.0), r.y + 100.0 + (i % pro) as f32 * zeile);
+        let pl = &c.world.players[p];
+        let b = c.liste_b(p);
+        let drin = b || a.contains(&p);
+        let rr = Rect::new(sx, sy, bw, zeile - 4.0);
+        rrect(rr.x, rr.y, rr.w, rr.h, 6.0, if drin { alpha(Theme::gut(), 0.14) } else { Theme::erhoehung() });
+        rrect_line(rr.x + 8.0, rr.y + 7.0, 16.0, 16.0, 3.0, if drin { Theme::gut() } else { Theme::linie() });
+        if drin { rrect(rr.x + 11.0, rr.y + 10.0, 10.0, 10.0, 2.0, Theme::gut()); }
+        ui.pos_tag(rr.x + 34.0, rr.y + 9.0, pos_de(&pl.pos));
+        ui.text(&ui.fit(&pl.name, 14.0, bw - 150.0), rr.x + 76.0, rr.y + 20.0, 14.0, Theme::text());
+        ui.text_right(&if b { t("ui.meldung.liste_b").to_string() } else { format!("{:.0}", pl.ovr) }, rr.x + rr.w - 10.0, rr.y + 20.0, 13.0, if b { Theme::akzent() } else { Theme::text2() });
+        if ui.hit(rr) && !b { klick = Some(p); }
+    }
+    if let Some(p) = klick { match c.melden(ci, p) { Ok(m) => v.toast(&m, true), Err(e) => v.toast(&e, false) } }
 }

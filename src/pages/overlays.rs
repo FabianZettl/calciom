@@ -157,8 +157,8 @@ pub fn spielplan_modal(ui: &mut Ui, v: &mut View, c: &Career, k: usize) {
         let geg = if heim { f.a } else { f.h };
         ui.text(&crate::date::short(c.world.season, f.day), r.x + 16.0, y, 13.0, Theme::text2());
         ui.text(&ui.fit(wett, 12.0, 150.0), r.x + 100.0, y, 12.0, Theme::gedaempft());
-        ui.club_crest(r.x + 272.0, y - 4.0, 8.0, c.world.clubs[geg].id, club_color(c, geg).0, &c.world.clubs[geg].short);
-        ui.text(&ui.fit(&format!("{} {}", if heim { t("ui.duell.gegen") } else { "@" }, c.world.clubs[geg].name), 14.0, 300.0), r.x + 288.0, y, 14.0, Theme::text()); // roh
+        ui.club_crest(r.x + 272.0, y - 4.0, 8.0, c.world.club(geg).id, club_color(c, geg).0, &c.world.club(geg).short);
+        ui.text(&ui.fit(&format!("{} {}", if heim { t("ui.duell.gegen") } else { "@" }, c.world.club(geg).name), 14.0, 300.0), r.x + 288.0, y, 14.0, Theme::text()); // roh
         if f.hg >= 0 {
             let (g, gg) = if heim { (f.hg, f.ag) } else { (f.ag, f.hg) };
             let col = if g > gg { Theme::gut() } else if g == gg { Theme::achtung() } else { Theme::problem() };
@@ -231,7 +231,7 @@ pub fn auslosung_overlay(ui: &mut Ui, v: &mut View, c: &mut Career) {
         let unser = *a == c.own || *b == c.own;
         if unser { rrect(x - 6.0, y - 4.0, sw - 12.0, 30.0, 8.0, alpha(Theme::gold(), 0.25)); }
         for (j, club) in [*a, *b].iter().enumerate() {
-            let cl = &c.world.clubs[*club];
+            let cl = c.world.club(*club);
             let xx = x + j as f32 * (sw / 2.0);
             ui.club_crest(xx + 10.0, y + 11.0, 9.0, cl.id, hex(cl.c1), &cl.short);
             ui.text(&ui.fit(&cl.name, 14.0, sw / 2.0 - 40.0), xx + 24.0, y + 16.0, 14.0, if *club == c.own { Theme::gold() } else { Theme::text() });
@@ -249,7 +249,8 @@ pub fn feier_overlay(ui: &mut Ui, v: &mut View, c: &mut Career) {
     let (w, h) = (breite(), hoehe());
     draw_rectangle(0.0, 0.0, w, h, Color::new(0.0, 0.0, 0.0, 0.78));
     let t = get_time() as f32;
-    let r = Rect::new(w / 2.0 - 380.0, h / 2.0 - 250.0, 760.0, 500.0);
+    let hoch = if f.stimmen.is_empty() { 500.0 } else { 500.0 + 30.0 * f.stimmen.len() as f32 + 20.0 };
+    let r = Rect::new(w / 2.0 - 380.0, h / 2.0 - hoch / 2.0, 760.0, hoch);
     rrect(r.x - 3.0, r.y - 3.0, r.w + 6.0, r.h + 6.0, 20.0, Theme::gold());
     rrect(r.x, r.y, r.w, r.h, 18.0, Theme::flaeche());
     let (cx, cy) = (r.x + r.w / 2.0, r.y + 130.0);
@@ -273,6 +274,14 @@ pub fn feier_overlay(ui: &mut Ui, v: &mut View, c: &mut Career) {
     ui.title(&f.titel, cx - tw / 2.0, r.y + 304.0, size, Theme::text());
     let mut y = r.y + 340.0;
     for z in ui.wrap(&f.text, 17.0, r.w - 100.0).into_iter().take(4) { ui.text_center(&z, cx, y, 17.0, Theme::text2()); y += 24.0; }
+    // the voices on a big deal: who in gold, what in one line
+    y += 14.0;
+    for (wer, was) in &f.stimmen {
+        let ww = ui.measure(wer, 15.0) + 12.0;
+        ui.text(wer, r.x + 50.0, y, 15.0, Theme::gold());
+        ui.text(&ui.fit(&format!("\"{was}\""), 15.0, r.w - 100.0 - ww), r.x + 50.0 + ww, y, 15.0, Theme::text());
+        y += 30.0;
+    }
     let weiter = ui.button_gold(Rect::new(cx - 120.0, r.y + r.h - 70.0, 240.0, 48.0), crate::inhalt::t("ui.feier.weiter"));
     if weiter || is_key_pressed(KeyCode::Enter) || is_key_pressed(KeyCode::Space) || is_key_pressed(KeyCode::Escape) {
         c.feiern.remove(0);

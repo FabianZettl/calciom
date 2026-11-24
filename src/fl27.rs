@@ -623,7 +623,9 @@ pub fn original_sichern(karriere: &Path, s: &Path, welt: &Path) -> Result<(), St
     let n = dateien_zaehlen(welt);
     log(&format!("Sicherung der Welt {} beginnt: {n} Dateien", welt.display()));
     fort(1, n);
-    copy_dir(welt, &dest.join(&wn), &mut files, Path::new(""))?;
+    // slim (option, off by default, Fabian 24.11.): only the database PES M writes and restores, not the pictures
+    let teil = if sicherung_schlank() { Path::new("common/etc/pesdb") } else { Path::new("") };
+    copy_dir(welt, &dest.join(&wn), &mut files, teil)?;
     std::fs::copy(s.join("sider.ini"), dest.join("sider.ini")).map_err(|e| format!("sider.ini: {e}"))?;
     fort(2, files.len());
     let mut list = serde_json::Map::new();
@@ -635,6 +637,15 @@ pub fn original_sichern(karriere: &Path, s: &Path, welt: &Path) -> Result<(), St
     atomic_write(&dest.join("geprueft.stamp"), sha256_hex(txt.as_bytes()).as_bytes())?;
     log(&format!("Sicherung fertig: {} Dateien", files.len()));
     Ok(())
+}
+/// Whether new careers back up only the world's database (`sicherung_schlank.txt` next to the careers; the settings
+/// switch writes it). Off by default: the full world copy stays the safe way back.
+pub fn sicherung_schlank() -> bool { schlank_datei().exists() }
+pub fn sicherung_schlank_setzen(an: bool) { let f = schlank_datei(); if an { let _ = std::fs::write(&f, b"1"); } else { let _ = std::fs::remove_file(&f); } }
+/// Next to the careers folder (the same place as game::save_dir; fl27.rs is shared with pesm-speicher, which has no game).
+fn schlank_datei() -> PathBuf {
+    let k = std::env::var("PESM_KARRIEREN").map(PathBuf::from).unwrap_or_else(|_| PathBuf::from(std::env::var("HOME").unwrap_or_else(|_| ".".into())).join(".local/share/pesm-rust/karrieren")); // roh
+    k.join("../sicherung_schlank.txt") // roh
 }
 pub fn original_pruefen(karriere: &Path) -> Result<(), String> {
     let dest = karriere.join("original");
@@ -1999,6 +2010,24 @@ mod echt {
 #[cfg(test)]
 mod pruefung_tests {
     use super::*;
+    /// The slim backup copies only common/etc/pesdb (and sider.ini), the full one everything.
+    #[test]
+    fn schlanke_sicherung() {
+        let t = std::env::temp_dir().join(format!("pesm-schlank-{}", std::process::id()));
+        let welt = t.join("Welt");
+        std::fs::create_dir_all(welt.join("common/etc/pesdb")).unwrap();
+        std::fs::create_dir_all(welt.join("common/render/face")).unwrap();
+        std::fs::write(welt.join("common/etc/pesdb/Player.bin"), b"db").unwrap();
+        std::fs::write(welt.join("common/render/face/1.dds"), b"bild").unwrap();
+        let s = t.join("sider");
+        std::fs::create_dir_all(&s).unwrap();
+        std::fs::write(s.join("sider.ini"), b"x").unwrap();
+        let mut files = vec![];
+        copy_dir(&welt, &t.join("k/Welt"), &mut files, Path::new("common/etc/pesdb")).unwrap();
+        assert!(t.join("k/Welt/common/etc/pesdb/Player.bin").exists() && !t.join("k/Welt/common/render").exists());
+        assert_eq!(files, vec![PathBuf::from("common/etc/pesdb/Player.bin")]);
+        let _ = std::fs::remove_dir_all(&t);
+    }
     #[test]
     fn original_pruefen_mit_stempel() {
         let k = std::env::temp_dir().join(format!("pesm-original-{}", std::process::id()));

@@ -1,0 +1,74 @@
+# Private life, block 1 (Fabian 24.11., docs/intern/PRIVATLEBEN.md): stress, home, account, family, calendar.
+# All numbers estimated and changeable.
+
+[stress]
+start = 30
+spieltag = 3.0            # each matchday
+niederlage = 5.0          # a defeat on top
+sieg = -1.0               # a win eases it
+ruhetag = -0.4            # a day without a match
+pendeln_je_100km = 1.0    # a day of commuting, per 100 km of distance
+termin = -4.0             # a private appointment kept
+partner_schlecht = 1.0    # a day with a strained relationship (below 30)
+lebensstil_je_stufe = -0.2  # each lifestyle step above 2 eases a little
+ansprache_ab = 70         # from here team talks work weaker …
+ansprache_faktor = 0.9    # … by this factor
+erschoepft_ab = 85        # from here a warning once a month
+
+[wohnen]
+# monthly rent of a small, mid and large home, times the club's size factor (level / 75)
+miete = [2500.0, 6000.0, 15000.0]
+kauf_jahre = 18           # buying costs this many years of rent; on moving away it sells for 90 %
+umzug = 8000.0            # moving costs once
+pendeln_ab_km = 80        # closer than this needs no move
+
+[lebensstil]
+# monthly cost of lifestyle 1–5
+kosten = [1500.0, 4000.0, 10000.0, 25000.0, 60000.0]
+
+[familie]
+partner_chance = 0.65     # chance of a partner at the start of a career
+start_beziehung = 60
+jahrestag = 10            # relationship for a celebrated anniversary …
+jahrestag_vergessen = -15
+zeit_ja = 8               # … for a day off with the family
+zeit_nein = -8
+zeit_stress = -5
+ereignis_je_woche = 0.35  # chance of a family moment a week (at most one)
+kind_chance = 0.04        # chance a week of the news of a child (relationship above 70)
+
+# Block 2 (Fabian 24.11.): car, flights, staff, personal sponsors, languages
+[block2]
+auto_kosten = [0.0, 800.0, 2500.0, 6000.0]   # none, compact, premium, sports car a month
+motorrad_kosten = 400.0
+flug_kosten = [0.0, 3000.0, 20000.0]         # economy, business, private jet per away match
+flug_stress = [2.0, 1.0, 0.0]                # stress of an away trip by class
+personal_kosten = [3000.0, 5000.0, 4000.0]   # housekeeper, cook, driver a month
+personal_stress = -0.2                       # a day, per helper
+sponsor_ab_ruf = 75.0                        # personal sponsors from this reputation
+sponsor_chance = 0.15                        # a week
+sponsor_basis = 25000.0                      # a month at reputation 75 (× (rep/75)³)
+kurs_wochen = 12
+kurs_kosten = 3000.0
+kurs_stress = 0.5                            # the weekly lesson
+fremdsprache_faktor = 0.95                   # team talks in a language not yet learned
+besuch_moral = 5.0
+besuch_beziehung = 6.0
+
+# Income tax on the coach's salary by country; GESCHÄTZT
+[steuer]
+standard = 0.40
+Deutschland = 0.45
+England = 0.45
+Spanien = 0.47
+Italien = 0.43
+Frankreich = 0.45
+Niederlande = 0.495
+Portugal = 0.48
+Belgien = 0.50
+"Türkei" = 0.35
+Schottland = 0.45
+USA = 0.37
+"Saudi-Arabien" = 0.0
+Brasilien = 0.275
+Argentinien = 0.35

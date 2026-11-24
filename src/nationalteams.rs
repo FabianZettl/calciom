@@ -47,6 +47,11 @@ pub fn verband(n: u16) -> &'static str {
 }
 /// What a tournament left for one player of the own club: player, nation, stage reached (0 group … 5 won), goals.
 pub type TurnierSpur = (usize, u16, u8, u16);
+/// A Nations League group: its league (0 A … 3 D), the nations and the matches (goals −1 until played).
+#[derive(Serialize, Deserialize, Clone, Default, Debug)]
+pub struct NlGruppe { pub liga: u8, pub nats: Vec<u16>, pub spiele: Vec<NlSpiel> }
+#[derive(Serialize, Deserialize, Clone, Default, Debug)]
+pub struct NlSpiel { pub runde: u8, pub h: u16, pub a: u16, pub hg: i16, pub ag: i16 }
 /// A finished tournament for the history: name, year, winner, runner-up.
 #[derive(Serialize, Deserialize, Clone, Debug, Default)]
 pub struct Turnier { pub name: String, pub jahr: i32, pub sieger: u16, pub zweiter: u16 }
@@ -244,58 +249,118 @@ impl World {
                 None => self.nationalteams.push(Nationalteam { nat: n, kader, u21: jung, ..Default::default() }),
             }
         }
-        // two matches against a nation of similar strength (the neighbour in the strength order)
+        // the Nations League in the autumn windows (Fabian 24.11., Teil 4): UEFA nations play their group's matchdays
+        let fenster = INTL_BREAKS.iter().position(|(a, _)| *a == day).unwrap_or(9);
+        let st: std::collections::HashMap<u16, f32> = staerke.iter().copied().collect();
+        if fenster == 0 && (self.nl_saison != self.season + 1 || self.nl.is_empty()) { self.nl_auslosen(&nats); }
+        let mut in_nl: Vec<u16> = vec![];
+        if fenster < 3 {
+            for runde in [fenster * 2, fenster * 2 + 1] {
+                for g in 0..self.nl.len() {
+                    for s_i in 0..self.nl[g].spiele.len() {
+                        let sp = self.nl[g].spiele[s_i].clone();
+                        if sp.runde as usize != runde || sp.hg >= 0 { continue; }
+                        let (Some(&sa), Some(&sb)) = (st.get(&sp.h), st.get(&sp.a)) else { continue };
+                        let (ga, gb) = self.laenderspiel_spielen(sp.h, sa, sp.a, sb, &mut out);
+                        let x = &mut self.nl[g].spiele[s_i];
+                        (x.hg, x.ag) = (ga as i16, gb as i16);
+                        in_nl.extend([sp.h, sp.a]);
+                    }
+                }
+            }
+        }
+        // the others: two matches against a nation of similar strength (the neighbour in the strength order)
+        staerke.retain(|x| !in_nl.contains(&x.0));
         staerke.sort_by(|a, b| b.1.partial_cmp(&a.1).unwrap());
-        // shortcut: both matches against the same neighbour (home and away), until the competitions of Teil 4 are built
         for _runde in 0..2usize {
             let mut i = 0;
             while i + 1 < staerke.len() {
                 let ((na, sa), (nb, sb)) = (staerke[i], staerke[i + 1]);
-                let (lh, la) = World::rates(sa, sb, 0, 0);
-                let (ga, gb) = (self.rng.poisson(lh * 0.9).min(7) as u16, self.rng.poisson(la * 0.9).min(7) as u16);
-                // the ranking moves with every match (friendly weight)
-                let (pa, pb) = (self.fifa_punkte(na), self.fifa_punkte(nb));
-                let erw = 1.0 / (10f32.powf(-(pa - pb) / 600.0) + 1.0);
-                let ww = if ga > gb { 1.0 } else if ga == gb { 0.5 } else { 0.0 };
-                self.nat_punkte.insert(na, pa + k("elo_fenster") * (ww - erw));
-                self.nat_punkte.insert(nb, pb + k("elo_fenster") * (erw - ww));
-                for (n, tore, gegen) in [(na, ga, gb), (nb, gb, ga)] {
-                    let Some(ti) = self.nationalteams.iter().position(|t| t.nat == n) else { continue };
-                    let t = &mut self.nationalteams[ti];
-                    t.spiele += 1;
-                    if tore > gegen { t.siege += 1; } else if tore == gegen { t.remis += 1; }
-                    let mut kader = t.kader.clone();
-                    kader.sort_by(|a, b| self.players[*b].ovr.partial_cmp(&self.players[*a].ovr).unwrap());
-                    // the eleven and three substitutes play, goals for the attack
-                    let spieler: Vec<usize> = kader.iter().take(14).copied().collect();
-                    for &p in &spieler {
-                        let pl = &mut self.players[p];
-                        pl.profil.laenderspiele += 1;
-                        pl.fit = (pl.fit - k("fitness_je_spiel")).max(20.0);
-                        if pl.profil.laenderspiele <= 10 { pl.value *= 1.0 + k("wert_je_spiel") as f64; }
-                    }
-                    let w: Vec<f32> = spieler.iter().map(|&p| match part_of(&self.players[p].pos) { 0 => 0.0, 1 => 0.4, 2 => 1.2, _ => 3.0 }).collect();
-                    for _ in 0..tore {
-                        if w.iter().sum::<f32>() <= 0.0 { break; }
-                        let p = spieler[self.rng.weighted(&w)];
-                        self.players[p].profil.nat_tore += 1;
-                        if let Some(x) = out.iter_mut().find(|x| x.0 == p && x.2) { x.5 += 1; }
-                    }
-                    for &p in &spieler {
-                        if self.rng.chance(k("verletzung_je_spiel")) {
-                            let days = [7u16, 14, 28][(self.rng.next() % 3) as usize];
-                            self.players[p].inj = self.players[p].inj.max(days);
-                            self.players[p].inj_name = injury_names(days)[0].to_string();
-                            let e = (self.season, self.day, self.players[p].inj_name.clone(), days);
-                            self.players[p].profil.verletzungen.push(e);
-                            if let Some(x) = out.iter_mut().find(|x| x.0 == p && x.2) { x.4 = days; }
-                        }
-                    }
-                }
+                self.laenderspiel_spielen(na, sa, nb, sb, &mut out);
                 i += 2;
             }
         }
         out
+    }
+    /// One international between `na` and `nb` (strengths `sa`, `sb`): goals, ranking points, caps, scorers, injuries.
+    fn laenderspiel_spielen(&mut self, na: u16, sa: f32, nb: u16, sb: f32, out: &mut Vec<(usize, bool, bool, bool, u16, u16)>) -> (u16, u16) {
+        let (lh, la) = World::rates(sa, sb, 0, 0);
+        let (ga, gb) = (self.rng.poisson(lh * 0.9).min(7) as u16, self.rng.poisson(la * 0.9).min(7) as u16);
+        // the ranking moves with every match (friendly weight)
+        let (pa, pb) = (self.fifa_punkte(na), self.fifa_punkte(nb));
+        let erw = 1.0 / (10f32.powf(-(pa - pb) / 600.0) + 1.0);
+        let ww = if ga > gb { 1.0 } else if ga == gb { 0.5 } else { 0.0 };
+        self.nat_punkte.insert(na, pa + k("elo_fenster") * (ww - erw));
+        self.nat_punkte.insert(nb, pb + k("elo_fenster") * (erw - ww));
+        for (n, tore, gegen) in [(na, ga, gb), (nb, gb, ga)] {
+            let Some(ti) = self.nationalteams.iter().position(|t| t.nat == n) else { continue };
+            let t = &mut self.nationalteams[ti];
+            t.spiele += 1;
+            if tore > gegen { t.siege += 1; } else if tore == gegen { t.remis += 1; }
+            let mut kader = t.kader.clone();
+            kader.sort_by(|a, b| self.players[*b].ovr.partial_cmp(&self.players[*a].ovr).unwrap());
+            // the eleven and three substitutes play, goals for the attack
+            let spieler: Vec<usize> = kader.iter().take(14).copied().collect();
+            for &p in &spieler {
+                let pl = &mut self.players[p];
+                pl.profil.laenderspiele += 1;
+                pl.fit = (pl.fit - k("fitness_je_spiel")).max(20.0);
+                if pl.profil.laenderspiele <= 10 { pl.value *= 1.0 + k("wert_je_spiel") as f64; }
+            }
+            let w: Vec<f32> = spieler.iter().map(|&p| match part_of(&self.players[p].pos) { 0 => 0.0, 1 => 0.4, 2 => 1.2, _ => 3.0 }).collect();
+            for _ in 0..tore {
+                if w.iter().sum::<f32>() <= 0.0 { break; }
+                let p = spieler[self.rng.weighted(&w)];
+                self.players[p].profil.nat_tore += 1;
+                if let Some(x) = out.iter_mut().find(|x| x.0 == p && x.2) { x.5 += 1; }
+            }
+            for &p in &spieler {
+                if self.rng.chance(k("verletzung_je_spiel")) {
+                    let days = [7u16, 14, 28][(self.rng.next() % 3) as usize];
+                    self.players[p].inj = self.players[p].inj.max(days);
+                    self.players[p].inj_name = injury_names(days)[0].to_string();
+                    let e = (self.season, self.day, self.players[p].inj_name.clone(), days);
+                    self.players[p].profil.verletzungen.push(e);
+                    if let Some(x) = out.iter_mut().find(|x| x.0 == p && x.2) { x.4 = days; }
+                }
+            }
+        }
+        (ga, gb)
+    }
+    /// The Nations League draw (Fabian 24.11.): UEFA nations by ranking into leagues A, B, C of 16 and D for the rest,
+    /// groups of four (three at the end) drawn from pots, six matchdays in the three autumn windows.
+    fn nl_auslosen(&mut self, nats: &[u16]) {
+        let mut uefa: Vec<u16> = nats.iter().copied().filter(|&n| verband(n) == "UEFA").collect();
+        uefa.sort_by(|a, b| self.fifa_punkte(*b).partial_cmp(&self.fifa_punkte(*a)).unwrap());
+        self.nl.clear();
+        for (li, liga) in uefa.chunks(16).enumerate() {
+            let n_gr = liga.len().div_ceil(4).max(1);
+            let mut gruppen: Vec<Vec<u16>> = vec![vec![]; n_gr];
+            // pots: each run of n_gr nations spread over the groups, the order turned every pot (snake)
+            for (k, topf) in liga.chunks(n_gr).enumerate() {
+                for (j, &n) in topf.iter().enumerate() { let g = if k % 2 == 0 { j } else { n_gr - 1 - j }; gruppen[g.min(n_gr - 1)].push(n); }
+            }
+            for g in gruppen.into_iter().filter(|g| g.len() >= 2) {
+                let paare: &[&[(usize, usize)]] = if g.len() >= 4 { &[&[(0, 1), (2, 3)], &[(0, 2), (1, 3)], &[(3, 0), (1, 2)], &[(1, 0), (3, 2)], &[(2, 0), (3, 1)], &[(0, 3), (2, 1)]] }
+                    else if g.len() == 3 { &[&[(0, 1)], &[(1, 2)], &[(2, 0)], &[(1, 0)], &[(2, 1)], &[(0, 2)]] } else { &[&[(0, 1)], &[(1, 0)]] };
+                let spiele = paare.iter().enumerate().flat_map(|(r, ps)| ps.iter().map(move |&(h, a)| (r, h, a))).map(|(r, h, a)| NlSpiel { runde: r as u8, h: g[h], a: g[a], hg: -1, ag: -1 }).collect();
+                self.nl.push(NlGruppe { liga: li.min(3) as u8, nats: g.into_iter().take(4).collect(), spiele });
+            }
+        }
+        self.nl_saison = self.season + 1;
+    }
+    /// A Nations League group's table: (nation, played, won, drawn, lost, goals for, against, points), best first.
+    pub fn nl_tabelle(&self, g: &NlGruppe) -> Vec<(u16, u8, u8, u8, u8, i16, i16, u8)> {
+        let mut t: Vec<(u16, u8, u8, u8, u8, i16, i16, u8)> = g.nats.iter().map(|&n| (n, 0, 0, 0, 0, 0, 0, 0)).collect();
+        for sp in g.spiele.iter().filter(|x| x.hg >= 0) {
+            for (n, a, b) in [(sp.h, sp.hg, sp.ag), (sp.a, sp.ag, sp.hg)] {
+                let Some(r) = t.iter_mut().find(|x| x.0 == n) else { continue };
+                r.1 += 1; r.5 += a; r.6 += b;
+                if a > b { r.2 += 1; r.7 += 3; } else if a == b { r.3 += 1; r.7 += 1; } else { r.4 += 1; }
+            }
+        }
+        t.sort_by_key(|x| (std::cmp::Reverse(x.7), std::cmp::Reverse(x.5 - x.6), std::cmp::Reverse(x.5)));
+        t
     }
     /// A player's standing with his national coach (Teil 3.4): 0 set (core), 1 in the squad, 2 on the list, 3 outside.
     pub fn nat_status(&self, p: usize) -> Option<u8> {
@@ -359,6 +424,21 @@ impl crate::game::Career {
 #[cfg(test)]
 mod tests {
     use super::*;
+    /// Fabian 24.11.: the Nations League: leagues of 16, groups of four, six matchdays, a table.
+    #[test]
+    fn nations_league_auslosung() {
+        let mut w = crate::world::testwelt(4);
+        let nats: Vec<u16> = (190..226).collect();
+        w.nl_auslosen(&nats);
+        assert_eq!(w.nl.iter().filter(|g| g.liga == 0).count(), 4, "league A: four groups");
+        assert!(w.nl.iter().all(|g| g.spiele.iter().map(|x| x.runde).max() == Some(5)), "six matchdays");
+        let g = w.nl[0].clone();
+        assert!(g.nats.iter().all(|n| g.spiele.iter().filter(|x| x.h == *n || x.a == *n).count() == 6), "everyone plays six");
+        let mut g2 = g.clone();
+        for sp in g2.spiele.iter_mut() { (sp.hg, sp.ag) = (1, 0); }
+        let t = w.nl_tabelle(&g2);
+        assert_eq!(t.iter().map(|x| x.7 as u32).sum::<u32>(), 12 * 3);
+    }
     #[test]
     fn nominierung_und_laenderspiele() {
         let mut w = crate::world::testwelt(7);

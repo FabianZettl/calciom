@@ -36,7 +36,7 @@ pub(super) fn kalender(ui: &mut Ui, v: &mut View, c: &mut Career) {
         if intl { draw_rectangle(r.x, r.y + r.h - 4.0, r.w, 4.0, hex(0xB48CFF)); }
         ui.text_semi(&format!("{dd}"), r.x + 10.0, r.y + 24.0, 18.0, if d == c.world.day { Theme::akzent() } else { Theme::text2() });
         if let Some((wo, f)) = fx.iter().find(|x| x.1.day == d) {
-            ui.wettbewerb_logo(r.x + r.w - 16.0, r.y + 17.0, 10.0, c.comp_cid(*wo));
+            ui.wettbewerb_logo_auf(r.x + r.w - 16.0, r.y + 17.0, 10.0, c.comp_cid(*wo), Some(wo_look(c, *wo).c1));
             let home = f.h == c.own;
             let opp = if home { f.a } else { f.h };
             let (c1, c2) = club_color(c, opp);

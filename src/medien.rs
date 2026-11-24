@@ -527,6 +527,52 @@ impl Career {
         self.me.sendung_aktiv = Some((name, faktor));
         self.press = Some(q);
     }
+    /// Our first offer for player `p` (Fabian 24.11.): the bigger the deal, the likelier a transfer reporter asks
+    /// the press office whether we are negotiating. Once per player within the rumour quiet time.
+    pub fn presse_nachfrage(&mut self, p: usize) {
+        let r = |k: &str| f("medien", &format!("nachfrage.{k}"));
+        let abs = self.abs();
+        if self.me.geruechte.iter().any(|g| g.0 == p && abs < g.1 + f("medien", "geruecht_angebot.sperre_tage") as u32) { return; }
+        let pl = self.world.players[p].clone();
+        let lvl = self.club().level;
+        let chance = if pl.ovr >= lvl + r("gross_ab_ueber_niveau") || pl.value >= r("grosse_summe") as f64 { r(crate::id("gross")) } else if pl.ovr >= lvl { r(crate::id("mittel")) } else { 0.0 };
+        if crate::mensch::zufall(&[crate::id("nachfrage"), &pl.id.to_string(), &abs.to_string()]) >= chance { return; }
+        self.me.geruechte.push((p, abs, true, false));
+        self.journalisten_an();
+        let j = self.fuer_thema(crate::id("geruecht")).first().copied().unwrap_or(abs as usize % self.me.journalisten.len().max(1));
+        let wer = self.me.journalisten.get(j).map(|x| x.0.clone()).unwrap_or_default();
+        let blatt = { let b = self.blatt(j); if b.is_empty() { PAPERS[(abs as usize) % PAPERS.len()].to_string() } else { b } };
+        let n = pl.name.clone();
+        let von = if pl.team >= 0 { self.world.clubs[pl.team as usize].name.clone() } else { crate::inhalt::t("ui.wort.vereinslos").to_string() };
+        let (vt, vb, va, vd, vs) = (self.variante("nachfrage_titel", 3, &n), self.variante("nachfrage_body", 3, &n), self.variante("nachfrage_ja", 3, &n), self.variante("nachfrage_nein", 3, &n), self.variante("nachfrage_still", 3, &n));
+        let t = |k: &str, v: usize| crate::inhalt::t(&format!("ui.nachfrage.{k}.{v}")).to_string();
+        let opts = vec![(crate::id("bestaetigen").to_string(), t("ja", va)), (crate::id("dementieren").to_string(), t("nein", vd)), (crate::id("schweigen").to_string(), t("still", vs))];
+        self.msg(4, &blatt, &crate::tf!(&format!("ui.nachfrage.titel.{vt}"), n.clone()), &crate::tf!(&format!("ui.nachfrage.body.{vb}"), wer, blatt.clone(), n, von), Action::Wahl { art: format!("nachfrage:{p}"), bezug: vec![p], optionen: opts });
+        self.inbox[0].spieler = vec![p];
+    }
+    /// The press office's answer to a question about our talks with `p`, each with its visible effect.
+    pub fn nachfrage_antwort(&mut self, p: usize, key: &str) -> String {
+        let r = |k: &str| f("medien", &format!("nachfrage.{k}"));
+        let name = self.world.players[p].name.clone();
+        match key {
+            "bestaetigen" => {
+                let d = r("fans_bestaetigt");
+                self.me.fan_aktion = (self.me.fan_aktion + d).min(15.0);
+                self.grund(crate::id("Fans"), crate::inhalt::t("ui.nachfrage.wirkung_fans"), d, &crate::tf!("ui.nachfrage.grund_bestaetigt", name.clone()));
+                let x = r("preis_bestaetigt") as f64;
+                if let Some(n) = self.negs.iter_mut().rev().find(|n| n.pid == p && n.stage == 0 && !n.verkauf) { n.ask = crate::world::round_money(n.ask * (1.0 + x)); }
+                self.grund(&name, crate::inhalt::t("ui.nachfrage.wirkung_preis"), (x * 100.0) as f32, crate::inhalt::t("ui.nachfrage.grund_preis"));
+                crate::tf!("ui.nachfrage.ergebnis_ja", name)
+            }
+            "dementieren" => {
+                let d = r("berater_dementi");
+                self.berater_merken(p, d);
+                self.grund(&name, crate::inhalt::t("ui.nachfrage.wirkung_berater"), d, crate::inhalt::t("ui.nachfrage.grund_dementi"));
+                crate::tf!("ui.nachfrage.ergebnis_nein", name)
+            }
+            _ => crate::inhalt::t("ui.medien.wir_schweigen").into(),
+        }
+    }
     pub fn geruecht_antwort(&mut self, p: usize, key: &str) -> String {
         if key != crate::id("dementieren") { return crate::inhalt::t("ui.medien.wir_schweigen").into(); }
         if let Some(g) = self.me.geruechte.iter_mut().rev().find(|g| g.0 == p && !g.3) { g.3 = true; g.1 = self.world.season * crate::date::SEASON_DAYS + self.world.day; }
@@ -721,6 +767,32 @@ mod spieler_wirkung_tests {
 
 #[cfg(test)]
 mod fach_tests {
+    /// Fabian 24.11.: a big first offer brings a press question; confirming excites the fans and lifts the asking
+    /// price, every move in the talks lands in the inbox with the player attached.
+    #[test]
+    fn nachfrage_bei_grossem_angebot() {
+        let w = crate::world::testwelt(9);
+        let mut c = crate::game::Career::new(w, 0, "Test");
+        c.world.day = 3;
+        let lvl = c.club().level;
+        let kand: Vec<usize> = (0..c.world.players.len()).filter(|&p| { let pl = &c.world.players[p]; pl.team >= 0 && pl.team != c.own as i32 && pl.ovr >= lvl + 4.0 }).collect();
+        let (p, i) = kand.into_iter().find_map(|p| c.open_neg(p).ok().map(|i| (p, i))).expect("one is for sale");
+        c.verhandlungstempo = 1;
+        c.submit_neg(i);
+        let m = c.inbox.iter().position(|m| matches!(&m.action, crate::game::Action::Wahl { art, .. } if art == &format!("nachfrage:{p}"))).expect("the press asks");
+        let ask = c.negs[i].ask;
+        let f0 = c.me.fan_aktion;
+        assert!(!c.nachfrage_antwort(p, "bestaetigen").is_empty());
+        assert!(c.negs[i].ask > ask && c.me.fan_aktion > f0);
+        assert!(m < c.inbox.len());
+        // not twice for the same player
+        let n = c.inbox.len();
+        c.presse_nachfrage(p);
+        assert_eq!(c.inbox.len(), n);
+        // the answer to the offer arrives as a message with the player and a way back to the talks
+        for _ in 0..4 { let _ = c.end_day(); }
+        assert!(c.inbox.iter().any(|m| m.spieler == vec![p] && m.art == "angebot"), "a move in the talks reaches the inbox");
+    }
     /// Fabian 24.11.: journalists have beats; a transfer reporter asks the transfer questions.
     #[test]
     fn faecher_und_fragesteller() {

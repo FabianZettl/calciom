@@ -36,6 +36,9 @@ const DATEIEN: &[(&str, &str)] = &[
     ("statistik_ziele", include_str!("../assets/regeln/statistik_ziele.toml")), // roh
     ("spielideen", include_str!("../assets/regeln/spielideen.toml")), // roh
     ("korridore", include_str!("../assets/regeln/korridore.toml")), // roh
+    ("ligapreise", include_str!("../assets/regeln/ligapreise.toml")), // roh
+    ("privat", include_str!("../assets/regeln/privat.toml")), // roh
+    ("uefa", include_str!("../assets/regeln/uefa.toml")), // roh
     (crate::id("farm"), include_str!("../assets/regeln/farm.toml")),
     (crate::id("medizin"), include_str!("../assets/regeln/medizin.toml")),
     (crate::id("praemien"), include_str!("../assets/regeln/praemien.toml")),

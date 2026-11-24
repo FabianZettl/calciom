@@ -165,10 +165,14 @@ fn ticker(ui: &mut Ui, v: &mut View, c: &Career, idx: &HashMap<u32, usize>, m: &
         let gross = einblendung_art(&e.kind).is_some() || e.kind == EventKind::Sub;
         let hh = if gross { 54.0 } else { 28.0 };
         if y + hh > rr.y + rr.h - 6.0 { break; }
-        let (col, _) = club_color(c, if e.side == 0 { h } else { a });
+        // the bar always in the team's colour (Fabian 24.11.: Bayern showed green for a goal); the second colour when
+        // the first would vanish on the card; the kind of event as a dot next to the minute
+        let (c1, c2) = club_color(c, if e.side == 0 { h } else { a });
+        let col = if crate::ui::kontrast(c1, Theme::erhoehung()) < 1.4 { c2 } else { c1 };
         if gross {
             rrect(rr.x + 10.0, y, rr.w - 20.0, hh - 6.0, 10.0, Theme::erhoehung());
-            draw_rectangle(rr.x + 10.0, y, 5.0, hh - 6.0, einblendung_art(&e.kind).map(|x| x.2).unwrap_or(col));
+            draw_rectangle(rr.x + 10.0, y, 6.0, hh - 6.0, col);
+            if let Some(art) = einblendung_art(&e.kind) { draw_circle(rr.x + 74.0, y + 14.0, 5.0, art.2); }
             ui.title(&format!("{}'", e.minute), rr.x + 24.0, y + 32.0, 24.0, Theme::akzent());
             ui.text(&ereignis_text(c, idx, m, e), rr.x + 84.0, y + 22.0, 16.0, Theme::text());
             ui.text(&c.world.clubs[if e.side == 0 { h } else { a }].name, rr.x + 84.0, y + 40.0, 13.0, Theme::text2());

@@ -272,7 +272,7 @@ impl World {
             let noetig = self.endrunde_tage(l);
             if days.len() < noetig || days.first().map_or(true, |&d| d <= self.day) { days = (1..=noetig as u32).map(|i| self.day + 4 * i).collect(); }
             let name = crate::tf!("ui.ligaregeln.endrunde", lg.name);
-            self.cups.push(crate::cups::Cup { name, key: lg.key.clone(), kind: 4, country: String::new(), teams: teil.clone(), fx: vec![], stage: 0, alive: vec![], winner: None, days });
+            self.cups.push(crate::cups::Cup { name, key: lg.key.clone(), kind: 4, country: String::new(), teams: teil.clone(), fx: vec![], stage: 0, alive: vec![], winner: None, days, lauf: None });
             let ci = self.cups.len() - 1;
             self.endrunde_runde(ci, teil, 0);
             out.push(l);
@@ -329,7 +329,7 @@ impl World {
         let name = crate::tf!("ui.entscheid.name", self.leagues[oben].name, crate::inhalt::t(&format!("ui.entscheid.{art}")));
         let ci = match self.cups.iter().position(|c| c.kind == 5 && c.name == name) {
             Some(i) => i,
-            None => { self.cups.push(crate::cups::Cup { name, key, kind: 5, country: String::new(), teams: vec![], fx: vec![], stage: 33, alive: vec![], winner: None, days: vec![] }); self.cups.len() - 1 }
+            None => { self.cups.push(crate::cups::Cup { name, key, kind: 5, country: String::new(), teams: vec![], fx: vec![], stage: 33, alive: vec![], winner: None, days: vec![], lauf: None }); self.cups.len() - 1 }
         };
         let paar = |x: &crate::cups::CupFx| (x.f.h == a && x.f.a == b) || (x.f.h == b && x.f.a == a);
         // each round of a play-off its own stage (23.11.: semi-finals and the final shared one and looked like one round)
@@ -475,7 +475,7 @@ impl World {
             for p in &land.europa.as_ref().unwrap().plaetze {
                 let Some(t) = [crate::id("cl"), crate::id("el"), crate::id("uecl")].iter().position(|w| *w == p.wettbewerb) else { continue };
                 for o in &p.plaetze {
-                    let c = match o { Ort::Platz(n) => rang.get(n.wrapping_sub(1)).copied(), Ort::Pokal(s) if s == "pokal" => cup, Ort::Pokal(_) => None }.filter(|c| !taken.contains(c));
+                    let c = match o { Ort::Platz(n) => rang.get(n.wrapping_sub(1)).copied(), Ort::Pokal(s) if s == "pokal" => cup, Ort::Pokal(s) if s == "ligapokal" => pokal.get(&format!("{}|ligapokal", self.leagues[l].land)).copied(), Ort::Pokal(_) => None }.filter(|c| !taken.contains(c));
                     let c = c.or_else(|| naechster(taken));
                     add(t, c, taken);
                 }
@@ -618,7 +618,7 @@ mod tests {
         assert!(w.cups[ci].fx.iter().all(|x| x.f.hg >= 0));
         let sieger = w.winner_of(ci, 33, t1[15], t2[2]);
         let wechsel = w.saisonwechsel(&tabellen(&w));
-        let rel = wechsel.iter().find(|x| x.grund == "Relegation");
+        let rel = wechsel.iter().find(|x| x.grund == "Relegation" && x.oben == bl); // the Bundesliga tie (the 2. Bundesliga has one too)
         assert_eq!(rel.is_some(), sieger == t2[2], "Relegation folgt dem echten Ergebnis");
         assert!(w.entscheid.is_empty());
     }

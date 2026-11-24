@@ -148,14 +148,15 @@ impl Career {
     }
     /// Weekly phases of the own players (entwicklung3): Aufschwung, Formtief, Krise from the events of the last weeks,
     /// and the development leap of young regulars.
-    /// Retraining to a new position: 120 days + 6 per year over 21, a distant position × 1.8 (§18); a position he already
+    /// Retraining to a new position: 28 days + 3 per year over 21, a distant position × 2.5 (Fabian 24.11.: weeks); a position he already
     /// plays a little (B) goes 40 % faster. From 30 a player takes it as a step down (morale). Changeable, 24.11.
     pub fn umschulen(&mut self, p: usize, pos: &str) -> Result<u32, String> {
         let pl = &self.world.players[p];
         if pl.pos == pos { return Err(crate::inhalt::t("ui.personal.das_ist_schon_seine_position").into()); }
         let fern = part_of(&pl.pos) != part_of(pos);
         let teils = pl.pp.len() == 13 && pl.pp[crate::pesdb::pos_index(pos) as usize] >= 1;
-        let tage = ((120.0 + 6.0 * (pl.age as f32 - 21.0).max(0.0)) * if fern { 1.8 } else { 1.0 } * if teils { 0.6 } else { 1.0 }) as u32;
+        // Fabian 24.11.: several weeks, by player and position: 4 weeks + 3 days a year over 21, a distant position ×2.5
+        let tage = ((28.0 + 3.0 * (pl.age as f32 - 21.0).max(0.0)) * if fern { 2.5 } else { 1.0 } * if teils { 0.6 } else { 1.0 }) as u32;
         let abs = self.abs();
         let (n, alt) = (pl.name.clone(), pl.age >= 30);
         self.world.players[p].ps.umschulung = Some((pos.to_string(), abs + tage));
@@ -163,6 +164,40 @@ impl Career {
         self.grund(&n, crate::inhalt::t("menu.entwicklung.reiter.3"), tage as f32, &crate::tf!("ui.personal.lernt_die_position", pos_de(pos)));
         if alt { self.moral_wirkung(p, -4.0, 0, &crate::tf!("ui.personal.umschulung_alt", pos_de(pos))); }
         Ok(tage)
+    }
+    /// Once a week the assistant suggests a retraining where it makes sense (Fabian 24.11.): a line with fewer than two
+    /// natural players, and a player of the same part who would lose little there (his rating at the new position at
+    /// most 4 below his own) and is not retraining already. At most one suggestion a month.
+    pub fn umschulung_vorschlag(&mut self) {
+        let abs = self.abs();
+        if self.mensch.co_sperre.iter().any(|x| x.0 == "umschulung" && abs < x.1) { return; } // roh
+        let sq: Vec<usize> = self.squad().into_iter().filter(|&p| self.world.players[p].youth == 0).collect();
+        let natuerlich = |pos: &str| sq.iter().filter(|&&p| self.world.players[p].pos == pos).count();
+        let mut best: Option<(f32, usize, &'static str)> = None;
+        for pos in crate::pesdb::POS {
+            if natuerlich(pos) >= 2 { continue; }
+            let pi = crate::pesdb::pos_index(pos);
+            for &p in &sq {
+                let pl = &self.world.players[p];
+                if pl.pos == pos || pl.ps.umschulung.is_some() || part_of(&pl.pos) != part_of(pos) || pl.attrs.len() != 25 || natuerlich(&pl.pos) <= 2 { continue; }
+                let dort = crate::pesdb::ovr(&pl.attrs, pi);
+                let verlust = pl.ovr - dort;
+                if verlust > 4.0 { continue; }
+                if best.map_or(true, |b| verlust < b.0) { best = Some((verlust, p, pos)); }
+            }
+        }
+        let Some((_, p, pos)) = best else { return };
+        self.mensch.co_sperre.push(("umschulung".into(), abs + 28)); // roh
+        let n = self.world.players[p].name.clone();
+        let co = self.co_name.clone();
+        let opts = vec![(crate::id("ja").to_string(), crate::inhalt::t("ui.umschulung.ja").to_string()), (crate::id("nein").to_string(), crate::inhalt::t("ui.umschulung.nein").to_string())];
+        let alt = pos_de(&self.world.players[p].pos).to_string();
+        self.msg(1, &crate::tf!("ui.pool.von_co", co), &crate::tf!("ui.umschulung.titel", n.clone(), pos_de(pos)), &crate::tf!("ui.umschulung.text", n, alt, pos_de(pos)), Action::Wahl { art: format!("umschulen:{pos}"), bezug: vec![p], optionen: opts });
+        self.inbox[0].spieler = vec![p];
+    }
+    pub fn umschulung_antwort(&mut self, pos: &str, p: usize, key: &str) -> String {
+        if key != "ja" { return crate::inhalt::t("ui.umschulung.abgelehnt").into(); }
+        match self.umschulen(p, pos) { Ok(tage) => crate::tf!("ui.umschulung.laeuft", self.world.players[p].name.clone(), tage / 7), Err(e) => e }
     }
     /// Stop a running retraining; what was learned up to halfway stays.
     pub fn umschulung_abbrechen(&mut self, p: usize) {
@@ -200,6 +235,24 @@ impl Career {
 #[cfg(test)]
 mod tests {
     use super::*;
+    /// Fabian 24.11.: a new position takes weeks, not months; the assistant suggests one where a line is thin.
+    #[test]
+    fn umschulung_wochen_und_vorschlag() {
+        let mut c = Career::new(crate::world::testwelt(7), 0, "Test");
+        let p = c.squad().into_iter().find(|&q| c.world.players[q].pos == "CMF").unwrap(); // roh
+        c.world.players[p].age = 21;
+        assert_eq!(c.umschulen(p, "DMF").unwrap(), 28, "a neighbouring position: four weeks"); // roh
+        c.world.players[p].ps.umschulung = None;
+        // a thin line: every left-back but none gone, the suggestion comes as a question with an answer that works
+        for q in c.squad() { if c.world.players[q].pos == "LB" { c.world.players[q].pos = "CB".into(); } } // roh
+        c.umschulung_vorschlag();
+        if let Some(i) = c.inbox.iter().position(|m| matches!(&m.action, Action::Wahl { art, .. } if art.starts_with("umschulen:"))) {
+            let Action::Wahl { art, bezug, .. } = c.inbox[i].action.clone() else { unreachable!() };
+            let pos = art.split_once(':').unwrap().1.to_string();
+            assert!(!c.umschulung_antwort(&pos, bezug[0], "ja").is_empty()); // roh
+            assert!(c.world.players[bezug[0]].ps.umschulung.is_some());
+        }
+    }
     #[test]
     fn stab_und_belastung() {
         let w = crate::world::testwelt(7);

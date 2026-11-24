@@ -18,6 +18,27 @@ fn datei(name: &str) -> &'static Value {
 fn k(pfad: &str) -> &'static Value { pfad.split('.').fold(datei(crate::id("konfig")), |v, p| &v[p]) }
 fn kf(pfad: &str) -> f32 { k(pfad).as_f64().unwrap_or(0.0) as f32 }
 /// The gala's day of the season (late October, like the real Ballon d'Or).
+/// A player's season for the awards: (games, goals, grade). Real figures where his league is played in detail; else
+/// (Fabian 24.11.: the awards are worldwide) estimated like the statistics do for such leagues: games and goals from his
+/// role and strength, the grade from his strength, his club's points per game and a fixed personal spread.
+pub fn award_zahlen(w: &crate::world::World, p: usize, ppg: &[f32]) -> Option<(u16, u16, f32)> {
+    let pl = &w.players[p];
+    if pl.team < 0 { return None; }
+    let l = w.clubs[pl.team as usize].league;
+    // his league is played in detail (or he has none): the real figures
+    if l >= w.leagues.len() || pl.in_liga(l).rn > 0 { return (pl.rn > 0).then(|| (pl.apps, pl.goals, pl.avg_rating())); }
+    // else the league part estimated, the real cup and European games added
+    let s = crate::statistik::hochrechnen(w, p);
+    let la = crate::statistik::get(&s, crate::statistik::SPIELE) as u16;
+    let streu = crate::mensch::zufall(&["award_note", &pl.id.to_string(), &w.season.to_string()]) - 0.5;
+    let ln = (6.3 + (pl.ovr - 72.0) * 0.035 + (ppg.get(pl.team as usize).copied().unwrap_or(1.4) - 1.4) * 0.35 + streu * 0.4).clamp(5.5, 8.5);
+    let apps = la + pl.apps;
+    if apps == 0 { return None; }
+    let note = (ln * la as f32 + pl.rsum) / (la as f32 + pl.rn as f32).max(1.0);
+    Some((apps, crate::statistik::get(&s, crate::statistik::TORE) as u16 + pl.goals, note))
+}
+/// The gala's categories, in the order they are shown.
+pub const KATEGORIEN: [&str; 4] = ["ballon", "kopa", "yashin", "mueller"]; // roh
 fn kf_gala() -> u32 { crate::regeln::f("pokalnamen", "gala_tag") as u32 } // roh
 /// A sentence from the original's parts (texts in ui.de.json / ui.en.json as ehrung.teile.<key>.<part>.<variant>):
 /// one variant of each part by seed, joined, placeholders filled.
@@ -163,29 +184,52 @@ impl Career {
             let cn = self.world.clubs[c].name.clone();
             self.ehrung(crate::id("fair"), None, Some(c), titel("fair_club", &[(crate::id("club"), cn)]), titel("fair_club_why", &[]), 0.0);
         }
-        // Ballon d'Or: the world's best by grade and goals (at least min_apps) plus titles of the season
-        let season = self.world.season;
-        let titel_pkt = |c: &Career, club: usize| -> f32 {
-            c.world.titles.iter().filter(|t| t.season == season && t.club == club).map(|t| if c.world.leagues.iter().any(|x| x.name == t.comp) { kf("ballon.title.league") } else { kf("ballon.title.cup") }).sum()
-        };
-        let mut kand: Vec<(usize, f32)> = (0..self.world.players.len()).filter(|&p| self.world.players[p].team >= 0 && self.world.players[p].rn >= kf("ballon.min_apps") as u16 && self.world.players[p].ovr >= 78.0)
-            .map(|p| { let pl = &self.world.players[p]; (p, pl.avg_rating() + kf("goal_weight") * pl.goals as f32 / pl.apps.max(1) as f32 + 0.1 * titel_pkt(self, pl.team as usize) + pl.ovr / 100.0) }).collect();
-        kand.sort_by(|a, b| b.1.partial_cmp(&a.1).unwrap());
-        if let Some(&(p, _)) = kand.first() {
+        // Ballon d'Or and the gala (Fabian 23.11.: several categories on a real date): chosen now, shown on its day
+        let ballon = self.award_rennen(crate::id("ballon"), 1.0);
+        if let Some(&(p, _)) = ballon.first() {
             let pl = self.world.players[p].clone();
             let cn = self.world.clubs[pl.team as usize].name.clone();
-            let drei: Vec<String> = kand.iter().take(3).map(|x| self.world.players[x.0].name.clone()).collect();
+            let drei: Vec<String> = ballon.iter().take(3).map(|x| self.world.players[x.0].name.clone()).collect();
             self.ehrung(crate::id("ballon"), Some(p), Some(pl.team as usize), crate::tf!("ui.ehrung.ballon_titel", pl.name, cn), crate::tf!("ui.ehrung.ballon_text", drei.join(", ")), kf("effects.morale_award"));
         }
-        // the autumn gala (Fabian 23.11.: several categories on a real date): chosen now, shown on its day
+        // the nominees of the Ballon d'Or night and The Best, and the league awards (preise.rs)
         self.gala.clear();
-        if let Some(&(p, _)) = kand.first() { let c = self.world.players[p].team.max(0) as usize; self.gala.push((crate::id("ballon").into(), p, c)); }
-        let welt: Vec<usize> = (0..self.world.players.len()).filter(|&p| self.world.players[p].team >= 0 && self.world.players[p].rn >= kf("ballon.min_apps") as u16).collect();
-        let wert = |c: &Career, p: usize| { let pl = &c.world.players[p]; pl.avg_rating() + kf("goal_weight") * pl.goals as f32 / pl.apps.max(1) as f32 + pl.ovr / 100.0 };
-        if let Some(p) = welt.iter().copied().filter(|&p| self.world.players[p].age <= 21).max_by(|a, b| wert(self, *a).partial_cmp(&wert(self, *b)).unwrap()) { self.gala.push((crate::id("kopa").into(), p, self.world.players[p].team.max(0) as usize)); }
-        if let Some(p) = welt.iter().copied().filter(|&p| self.world.players[p].pos == "GK").max_by(|a, b| (self.world.players[*a].avg_rating() + self.world.players[*a].ovr / 100.0).partial_cmp(&(self.world.players[*b].avg_rating() + self.world.players[*b].ovr / 100.0)).unwrap()) { self.gala.push(("yashin".into(), p, self.world.players[p].team.max(0) as usize)); } // roh
-        if let Some(p) = welt.iter().copied().max_by_key(|&p| self.world.players[p].goals) { self.gala.push((crate::id("mueller").into(), p, self.world.players[p].team.max(0) as usize)); }
+        self.preise_saisonende();
         self.elf_der_woche.clear();
+    }
+    /// The race for an award (Ballon d'Or, Kopa, Yashin, Müller), best first: the same numbers the gala uses at the
+    /// season's end. `anteil` scales the minimum games (the preview mid-season asks for its share of them).
+    pub fn award_rennen(&self, kat: &str, anteil: f32) -> Vec<(usize, f32)> {
+        let season = self.world.season;
+        let min = (kf("ballon.min_apps") * anteil).round() as u16;
+        let titel_pkt = |club: usize| -> f32 {
+            self.world.titles.iter().filter(|t| t.season == season && t.club == club).map(|t| if self.world.leagues.iter().any(|x| x.name == t.comp) { kf("ballon.title.league") } else { kf("ballon.title.cup") }).sum()
+        };
+        let ppg = self.punkte_je_spiel();
+        let mut v: Vec<(usize, f32)> = (0..self.world.players.len()).filter_map(|p| {
+            let pl = &self.world.players[p];
+            if pl.team < 0 || pl.youth != 0 { return None; }
+            // cheap filters first: the estimate for leagues without single figures costs more
+            let passt = match kat { "ballon" => pl.ovr >= 78.0, "kopa" => pl.age <= 21 && pl.ovr >= 65.0, "yashin" => pl.pos == "GK" && pl.ovr >= 72.0, "mueller" => !matches!(pl.pos.as_str(), "GK" | "CB"), "best_alle" => pl.ovr >= 74.0, _ => false }; // roh
+            if !passt { return None; }
+            let (apps, goals, note) = award_zahlen(&self.world, p, &ppg)?;
+            if apps < min.max(1) { return None; }
+            let tore = kf("goal_weight") * goals as f32 / apps.max(1) as f32;
+            Some((p, match kat {
+                "ballon" | "best_alle" => note + tore + 0.1 * titel_pkt(pl.team as usize) + pl.ovr / 100.0, // roh
+                "kopa" => note + tore + pl.ovr / 100.0, // roh
+                "yashin" => note + pl.ovr / 100.0, // roh
+                _ => goals as f32 + note / 100.0,
+            }))
+        }).collect();
+        v.sort_by(|a, b| b.1.partial_cmp(&a.1).unwrap());
+        v
+    }
+    /// Points per game of every club in its league (for the estimate of players without single figures).
+    pub fn punkte_je_spiel(&self) -> Vec<f32> {
+        let mut v = vec![1.4f32; self.world.clubs.len()];
+        for l in 0..self.world.leagues.len() { for r in self.world.table(l) { if r.p > 0 { v[r.club] = r.pts as f32 / r.p as f32; } } }
+        v
     }
     /// The gala's day (late October): every category as a celebration card and in the papers.
     pub fn gala_tag(&mut self) {
@@ -198,7 +242,7 @@ impl Career {
             let text = crate::tf!("ui.gala.text", n.clone(), cn.clone(), titel.clone());
             self.news(&crate::tf!("ui.gala.news", titel.clone(), n), &text);
             // a card for everyone, a bigger moment when it is one of ours
-            if club == self.own || kat == "ballon" { self.feiern.push(crate::meilensteine::Feier { art: "gala".into(), titel, text, spieler: Some(p), club: Some(club) }); } // roh
+            if club == self.own || kat == "ballon" { self.feiern.push(crate::meilensteine::Feier { art: "gala".into(), titel, text, spieler: Some(p), club: Some(club), stimmen: vec![] }); } // roh
         }
     }
     /// The honours of a player (for the profile): count per kind, newest first.
@@ -211,6 +255,19 @@ impl Career {
 #[cfg(test)]
 mod tests {
     use super::*;
+    /// Fabian 24.11.: the awards preview ranks the same way the gala picks; mid-season fewer games are enough.
+    #[test]
+    fn award_rennen_wie_gala() {
+        let mut c = Career::new(crate::world::testwelt(6), 2, "Test");
+        let p = c.squad().into_iter().find(|&q| !matches!(c.world.players[q].pos.as_str(), "GK" | "CB")).unwrap(); // roh
+        let pl = &mut c.world.players[p];
+        pl.rn = 10; pl.rsum = 75.0; pl.apps = 10; pl.goals = 30;
+        let m = c.award_rennen("mueller", 0.5); // roh
+        assert_eq!(m.first().map(|x| x.0), Some(p), "the top scorer leads the Müller race");
+        assert!(c.award_rennen("mueller", 1.0).iter().all(|x| c.world.players[x.0].rn >= 10), "the full season asks for all games"); // roh
+        assert!(c.award_rennen("yashin", 0.5).iter().all(|x| c.world.players[x.0].pos == "GK")); // roh
+        assert!(c.award_rennen("kopa", 0.5).iter().all(|x| c.world.players[x.0].age <= 21)); // roh
+    }
     #[test]
     fn woche_monat_saison() {
         let w = crate::world::testwelt(7);

@@ -1,3 +1,5 @@
+# Supercups mit vier Vereinen (Meister, Vize, Pokalsieger, Pokalfinalist; Halbfinale und Finale): Spanien, Italien, Türkei.
+supercup_vier = ["Copa del Rey", "Coppa Italia", "Türkiye Kupası"]
 supercup_tag = 9
 gala_tag = 88       # Ende Oktober: Gala mit Ballon d'Or, Kopa, Jaschin und Gerd-Müller-Trophäe    # Tag der Saison für die Supercups (vor dem ersten Ligaspieltag)
 
@@ -79,20 +81,24 @@ gala_tag = 88       # Ende Oktober: Gala mit Ballon d'Or, Kopa, Jaschin und Gerd
 "Copa del Rey" = "Estadio de La Cartuja, Sevilla"
 "Coupe de France" = "Stade de France, Saint-Denis"
 "Coppa Italia" = "Stadio Olimpico, Rom"
+"KNVB-Beker" = "De Kuip, Rotterdam"
 "KNVB Beker" = "De Kuip, Rotterdam"
+"EFL Cup" = "Wembley Stadium, London"
+"Croky Cup" = "König-Baudouin-Stadion, Brüssel"
+"Türkiye Kupası" = "wechselnd (neutraler Ort)"
 "Taça de Portugal" = "Estádio Nacional, Oeiras"
 "Scottish Cup" = "Hampden Park, Glasgow"
 "ÖFB-Cup" = "Wörthersee Stadion, Klagenfurt"
 
 # Nationale Supercups: Meister gegen Pokalsieger (Fabian 23.11.), nach dem Namen des Landespokals.
+# Korrektur 24.11.: Schottland hat keinen Supercup; der belgische Supercup wird seit 2024 nicht mehr gespielt (änderbar).
 [supercup]
 "DFB-Pokal" = "DFL-Supercup"
 "FA Cup" = "FA Community Shield"
 "Copa del Rey" = "Supercopa de España"
 "Coupe de France" = "Trophée des Champions"
 "Coppa Italia" = "Supercoppa Italiana"
+"KNVB-Beker" = "Johan Cruijff Schaal"
 "KNVB Beker" = "Johan Cruijff Schaal"
 "Taça de Portugal" = "Supertaça Cândido de Oliveira"
-"Scottish Cup" = "Scottish Super Cup"
 "Türkiye Kupası" = "Turkish Super Cup"
-"Croky Cup" = "Belgian Super Cup"

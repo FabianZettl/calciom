@@ -90,6 +90,9 @@ pub enum B {
     /// A team of the week on a pitch: (player, grade) in the order keeper, four defenders, three midfielders, three forwards.
     Elf(Vec<(usize, f32)>),
     Reihe(Vec<B>),
+    /// A banner in the club's colours for the player a message is about (Fabian 24.11.): photo, name, position,
+    /// rating, morale and fitness as they are today.
+    Spielerband { pid: usize },
 }
 impl B {
     /// Shows a picture (photo, crest, face).
@@ -148,7 +151,21 @@ fn b_bezug(bs: &[B], sp: &mut Vec<usize>, ve: &mut Vec<usize>) {
 /// The building blocks of a message, from the game state.
 /// Who speaks for a sender: the person of an office (the president for „Präsidium“ …), else the sender itself.
 pub fn sprecher(c: &Career, from: &str) -> String { crate::pool::absender_echt(c.club().id, &c.club().name, from).map(|x| x.0).unwrap_or_else(|| from.to_string()) }
+/// The blocks of a message: every message about one of our players (or a player at all) opens with his banner, so the
+/// card is never bare text (Fabian 24.11.).
 pub fn bausteine(c: &Career, m: &Msg) -> Vec<B> {
+    let mut v = bausteine_roh(c, m);
+    let hat = |b: &B| matches!(b, B::Transfer { .. } | B::Spielerband { .. } | B::Kacheln(_) | B::Elf(_) | B::Rang(_));
+    if !v.iter().any(hat) {
+        if let Some(p) = beteiligte(c, m).first().copied().filter(|&p| p < c.world.players.len() && c.world.players[p].team >= 0) {
+            // the old small photo gives way to the banner
+            v.retain(|b| !matches!(b, B::Foto { pid, .. } if *pid == p));
+            v.insert(0, B::Spielerband { pid: p });
+        }
+    }
+    v
+}
+fn bausteine_roh(c: &Career, m: &Msg) -> Vec<B> {
     let t = |k: &str| crate::inhalt::t(&format!("ui.post.{k}")).to_string();
     let wer = beteiligte(c, m);
     let erst = wer.first().copied();
@@ -487,6 +504,7 @@ fn b_hoehe(ui: &Ui, b: &B, w: f32) -> f32 {
         B::Ergebnisse(v) => 36.0 * ((v.len() as f32) / 2.0).ceil(),
         B::Tabelle(v) => 26.0 * v.len() as f32 + 6.0,
         B::Transfer { .. } => 64.0,
+        B::Spielerband { .. } => 76.0,
         B::Pillen(v) => 30.0 * ((v.len() as f32) / 4.0).ceil(),
         B::Zeitung { text, .. } => ui.wrap(text, 16.0, w - 40.0).len().min(8) as f32 * 21.0 + 84.0,
         B::Siegel { .. } => 110.0,
@@ -633,6 +651,26 @@ fn b_eins(ui: &Ui, c: &Career, r: Rect, b: &B) {
                 if *pfeil > 0 { draw_triangle(vec2(px - 5.0, py + 4.0), vec2(px + 5.0, py + 4.0), vec2(px, py - 5.0), Theme::gut()); }
                 else if *pfeil < 0 { draw_triangle(vec2(px - 5.0, py - 4.0), vec2(px + 5.0, py - 4.0), vec2(px, py + 5.0), Theme::problem()); }
                 else { draw_rectangle(px - 5.0, py - 1.0, 10.0, 2.0, Theme::gedaempft()); }
+            }
+        }
+        B::Spielerband { pid } => {
+            let pl = &c.world.players[*pid];
+            let club = if pl.team >= 0 { pl.team as usize } else { c.own };
+            let farbe = crate::pages::club_color(c, club).0;
+            rrect(r.x, r.y, r.w - 8.0, r.h - 6.0, 10.0, farbe);
+            let tf = crate::ui::on(farbe);
+            ui.player_photo(r.x + 36.0, r.y + 35.0, 26.0, pl.id, &pl.name);
+            ui.text_semi(&ui.fit(&pl.name, 17.0, r.w * 0.36), r.x + 72.0, r.y + 30.0, 17.0, tf);
+            ui.pos_tag(r.x + 72.0, r.y + 44.0, pos_de(&pl.pos));
+            ui.text(&ui.fit(&crate::tf!("ui.wort.jahre_alt", pl.age), 13.0, 120.0), r.x + 116.0, r.y + 54.0, 13.0, alpha(tf, 0.85));
+            ui.pill(r.x + r.w * 0.5, r.y + 35.0, pl.ovr, 44.0);
+            for (k, (titel, wert)) in [(crate::inhalt::t("ui.post.stimmung"), pl.morale), (crate::inhalt::t("ui.post.fitness"), pl.fit)].iter().enumerate() {
+                let bx = r.x + r.w * 0.58 + k as f32 * (r.w * 0.2);
+                let bw = r.w * 0.17;
+                ui.text(titel, bx, r.y + 26.0, 12.0, alpha(tf, 0.85));
+                rrect(bx, r.y + 34.0, bw, 10.0, 5.0, alpha(hex(0x000000), 0.25));
+                rrect(bx, r.y + 34.0, bw * (wert / 100.0).clamp(0.0, 1.0), 10.0, 5.0, if *wert >= 60.0 { Theme::gut() } else if *wert >= 40.0 { Theme::achtung() } else { Theme::problem() });
+                ui.text(&format!("{wert:.0}"), bx, r.y + 60.0, 13.0, tf);
             }
         }
         B::Transfer { pid, nach, wert } => {
@@ -893,6 +931,10 @@ fn meldung_zeichnen(ui: &mut Ui, v: &mut View, c: &mut Career, rd: Rect, i: usiz
         }
         Action::TransferOffer { pid, club, fee } if !m.done => {
             if ui.button(Rect::new(haupt.x, by, 220.0, 38.0), crate::inhalt::t("aktion.vertragsgespraech"), false) { c.inbox[i].done = true; let k = c.verkauf_verhandeln(pid, club, fee); v.modal = Modal::Neg(k); }
+        }
+        // a move in our talks (Fabian 24.11.): straight to the negotiation
+        _ if art == Art::Angebot && m.spieler.len() == 1 && c.negs.iter().any(|n| n.pid == m.spieler[0]) => {
+            if ui.button_gold(Rect::new(haupt.x, by, 220.0, 38.0), crate::inhalt::t("ui.post.zum_gespraech")) { if let Some(k) = c.negs.iter().rposition(|n| n.pid == m.spieler[0]) { v.modal = Modal::Neg(k); } }
         }
         _ if art == Art::Gegner => {
             if ui.button(Rect::new(haupt.x, by, 240.0, 38.0), crate::inhalt::t("ui.post.zur_vorbereitung"), false) { v.go(Page::Vorbereitung); }

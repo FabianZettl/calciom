@@ -233,7 +233,8 @@ pub(super) fn spieltag(ui: &mut Ui, v: &mut View, c: &mut Career) {
     }
     let comp = c.today_match().map(|t| c.comp_name(t)).unwrap_or_else(|| c.world.leagues[c.league()].name.clone());
     let cid = c.comp_cid(c.today_match().map(|t| t.0).unwrap_or(Wo::Liga(c.league())));
-    let lx = if ui.wettbewerb_logo(sb.x + 130.0, sb.y + 85.0, 10.0, cid) { sb.x + 146.0 } else { sb.x + 120.0 };
+    let wo = c.today_match().map(|t| t.0).unwrap_or(Wo::Liga(c.league()));
+    let lx = if ui.wettbewerb_logo_auf(sb.x + 130.0, sb.y + 85.0, 10.0, cid, Some(wo_look(c, wo).c1)) { sb.x + 146.0 } else { sb.x + 120.0 };
     ui.text(&format!("{} · {}", comp, date::long(c.world.season, c.world.day)), lx, sb.y + 90.0, 15.0, Theme::text2());
     let body = Rect::new(x0() + 4.0, sb.y + sb.h + 12.0, cbreite(), hoehe() - sb.y - sb.h - 28.0);
     match mv.phase {

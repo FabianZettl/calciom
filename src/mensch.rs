@@ -39,6 +39,10 @@ pub struct Wirkung { pub pid: usize, pub moral: f32, pub vertrauen: f32, pub bez
 #[serde(default)]
 pub struct Psyche {
     pub an: bool,
+    /// Rating swing from what happened lately (Fabian 24.11.: drastic, always with a reason): points and the reasons
+    /// (abs day, text key, points), newest last.
+    pub dyn_z: f32,
+    pub dyn_gruende: Vec<(u32, String, f32)>,
     pub ch: Vec<f32>,
     pub sh: Vec<f32>,
     pub shm: Vec<f32>,
@@ -873,7 +877,14 @@ impl Career {
             self.mensch.anliegen.push(abs);
             let opts = self.optionen_fuer(crate::id("disziplin"), &format!("{id}:{abs}"));
             let co = self.co_name.clone();
-            self.msg(1, &co, &crate::tf!("ui.mensch.vorfall", n), &crate::tf!("ui.mensch.wie_reagierst_du", n, crate::inhalt::t(&format!("ui.vorfall.{art}.{variante}"))), Action::Wahl { art: format!("disziplin:{art}"), bezug: vec![p], optionen: opts });
+            // a row is always with someone we can see (Fabian 24.11.): a teammate, or the captain in variant 1
+            let mit = if art == "streit" { // roh
+                let kap = self.kapitaen().filter(|&k| k != p);
+                let sq: Vec<usize> = self.squad().into_iter().filter(|&q| q != p && Some(q) != kap).collect();
+                if variante == 1 { kap } else if sq.is_empty() { None } else { Some(sq[(zufall(&["streit_mit", &id, &abs.to_string()]) * sq.len() as f32) as usize % sq.len()]) } // roh
+            } else { None };
+            let was = match mit { Some(m) => crate::tf!(&format!("ui.vorfall.{art}_mit.{variante}"), self.world.players[m].name.clone()), None => crate::inhalt::t(&format!("ui.vorfall.{art}.{variante}")).to_string() };
+            self.msg(1, &crate::tf!("ui.pool.von_co", co), &crate::tf!("ui.mensch.vorfall", n), &crate::tf!("ui.mensch.wie_reagierst_du", n, was), Action::Wahl { art: format!("disziplin:{art}"), bezug: mit.map_or(vec![p], |m| vec![p, m]), optionen: opts });
             break; // vorfall_max_je_tag 1
         }
     }
@@ -950,6 +961,9 @@ impl Career {
             "disziplin" => { self.strafe(bezug[0], sub, key); crate::inhalt::t("ui.mensch.entschieden").into() }
             "medizin" | "nachforderung" | "hijack" => self.drama_antwort(kind, bezug[0], key),
             "geruecht" => self.geruecht_antwort(bezug[0], key),
+            "nachfrage" => self.nachfrage_antwort(bezug[0], key),
+            "umschulen" => self.umschulung_antwort(sub, bezug[0], key),
+            "privat" => self.privat_antwort(sub, key),
             "sendung" => self.sendung_antwort(key),
             "rat" => self.rat_antwort(sub, bezug, key),
             "story" => self.story_antwort(sub, bezug, key),
@@ -1129,7 +1143,7 @@ impl Career {
         let coach = self.coach.clone();
         self.grund(&coach, crate::id("lizenz"), 1.0, &crate::tf!("ui.lizenz.neu_titel", n));
         let own = self.own;
-        self.feiern.push(crate::meilensteine::Feier { art: crate::id("lizenz").into(), titel: crate::tf!("ui.lizenz.neu_titel", n), text: crate::tf!("ui.lizenz.neu_text", n, g), spieler: None, club: Some(own) });
+        self.feiern.push(crate::meilensteine::Feier { art: crate::id("lizenz").into(), titel: crate::tf!("ui.lizenz.neu_titel", n), text: crate::tf!("ui.lizenz.neu_text", n, g), spieler: None, club: Some(own), stimmen: vec![] });
     }
     pub fn ansehen(&self) -> f32 { f("laufbahn", "reputation.ruf") * self.mgr_rep + f("laufbahn", "reputation.medien") * self.media + f("laufbahn", "reputation.vertrauen") * self.mensch.vorstand }
     /// Coach salary at a club (laufbahn.toml [gehalt]).

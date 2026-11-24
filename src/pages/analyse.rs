@@ -130,11 +130,110 @@ pub(super) fn analyse_seite(ui: &mut Ui, v: &mut View, c: &mut Career) {
     if v.tab == 2 { saison_seite(ui, c); return; }
     let (l, r) = links_rechts();
     let Some(res) = c.last_result.clone() else { ui.card_titled(l, crate::inhalt::t("menu.analyse.titel"), Theme::akzent()); ui.text(crate::inhalt::t("spielbericht.kein_spiel"), l.x + 14.0, l.y + 64.0, 16.0, Theme::text2()); return; };
-    ui.card_titled(l, &format!("{} – {} {}:{}", c.world.clubs[res.h].name, c.world.clubs[res.a].name, res.hg, res.ag), Theme::akzent());
-    ui.paragraph(&c.analyse(&res), l.x + 14.0, l.y + 64.0, 16.0, l.w - 28.0, Theme::text());
-    ui.card_titled(r, crate::inhalt::t("bericht.noten"), Theme::gold());
-    let mut n: Vec<(usize, f32)> = res.ratings.iter().copied().filter(|x| c.world.players[x.0].team == c.own as i32).collect();
+    spielbericht(ui, v, c, &res, l, r);
+}
+
+/// The match report as a picture (Fabian 24.11.: no box of running text, everything in colours and figures): the
+/// score with both crests, the team figures as two-sided bars in the club colours, the units' grades, the goals on a
+/// time line and every player with his grade as a bar.
+fn spielbericht(ui: &mut Ui, v: &mut View, c: &Career, res: &crate::world::MatchResult, l: Rect, r: Rect) {
+    use crate::inhalt::t;
+    let (ch, ca) = (&c.world.clubs[res.h], &c.world.clubs[res.a]);
+    let (fh, fa) = (club_color(c, res.h).0, club_color(c, res.a).0);
+    ui.card(l);
+    // the score band
+    let band = Rect::new(l.x, l.y, l.w, 110.0);
+    rrect(band.x, band.y, band.w / 2.0, band.h, 12.0, alpha(fh, 0.85));
+    rrect(band.x + band.w / 2.0, band.y, band.w / 2.0, band.h, 12.0, alpha(fa, 0.85));
+    ui.club_crest(band.x + 60.0, band.y + 55.0, 34.0, ch.id, hex(ch.c1), &ch.short);
+    ui.club_crest(band.x + band.w - 60.0, band.y + 55.0, 34.0, ca.id, hex(ca.c1), &ca.short);
+    let score = match res.pens { Some((a, b)) => format!("{}:{} ({a}:{b})", res.hg, res.ag), None => format!("{}:{}", res.hg, res.ag) };
+    rrect(band.x + band.w / 2.0 - 90.0, band.y + 22.0, 180.0, 66.0, 12.0, alpha(hex(0x0b0e14), 0.75));
+    ui.title(&score, band.x + band.w / 2.0 - ui.measure_title(&score, 44.0) / 2.0, band.y + 72.0, 44.0, hex(0xffffff));
+    ui.text(&ui.fit(&ch.name, 15.0, band.w / 2.0 - 200.0), band.x + 104.0, band.y + 60.0, 15.0, crate::ui::on(fh));
+    ui.text_right(&ui.fit(&ca.name, 15.0, band.w / 2.0 - 200.0), band.x + band.w - 104.0, band.y + 60.0, 15.0, crate::ui::on(fa));
+    // team figures: shots, on target, possession, xG
+    let xg = |s: u8| res.schuesse.iter().filter(|x| x.side == s).map(|x| x.xg as f32 / 1000.0).sum::<f32>();
+    let zeilen: Vec<(&str, f32, f32, String, String)> = vec![
+        (t("ui.bericht.schuesse"), res.shots.0 as f32, res.shots.1 as f32, res.shots.0.to_string(), res.shots.1.to_string()),
+        (t("ui.bericht.aufs_tor"), res.on_target.0 as f32, res.on_target.1 as f32, res.on_target.0.to_string(), res.on_target.1.to_string()),
+        (t("ui.bericht.ballbesitz"), res.possession as f32, 100.0 - res.possession as f32, format!("{} %", res.possession), format!("{} %", 100 - res.possession)),
+        (t("ui.bericht.xg"), xg(0), xg(1), dez2(xg(0)), dez2(xg(1))),
+    ];
+    let mut y = band.y + band.h + 30.0;
+    let mx = l.x + l.w / 2.0;
+    let halb = l.w / 2.0 - 90.0;
+    for (name, a, b, ta, tb) in zeilen {
+        if a + b <= 0.0 { continue; }
+        ui.text_center(name, mx, y, 13.0, Theme::gedaempft());
+        let (wa, wb) = (halb * a / (a + b), halb * b / (a + b));
+        rrect(mx - 6.0 - wa, y + 8.0, wa, 12.0, 6.0, crate::ui::lesbar(fh, Theme::flaeche(), 1.5));
+        rrect(mx + 6.0, y + 8.0, wb, 12.0, 6.0, crate::ui::lesbar(fa, Theme::flaeche(), 1.5));
+        ui.text_right(&ta, mx - 14.0 - halb, y + 20.0, 15.0, Theme::text());
+        ui.text(&tb, mx + 14.0 + halb, y + 20.0, 15.0, Theme::text());
+        y += 46.0;
+    }
+    // our units' grades as bars
+    let eigen: Vec<(usize, f32)> = res.ratings.iter().copied().filter(|x| c.world.players[x.0].team == c.own as i32).collect();
+    y += 6.0;
+    ui.text_semi(t("ui.bericht.mannschaftsteile"), l.x + 18.0, y, 15.0, Theme::text());
+    let namen = [t("gb2.sp.teil.tor"), t("achse.Abwehr"), t("gb2.vgl.mittel"), t("bericht.achse.angriff")];
+    for k in 0..4 {
+        let w: Vec<f32> = eigen.iter().filter(|x| part_of(&c.world.players[x.0].pos) == k).map(|x| x.1).collect();
+        if w.is_empty() { continue; }
+        let n = w.iter().sum::<f32>() / w.len() as f32;
+        y += 28.0;
+        ui.text(namen[k], l.x + 18.0, y, 14.0, Theme::text2());
+        ui.bar(l.x + 130.0, y - 10.0, l.w - 220.0, 10.0, ((n - 4.0) / 5.0).clamp(0.0, 1.0), Theme::note(n));
+        ui.note_pill(l.x + l.w - 50.0, y - 6.0, n);
+    }
+    // the goals on a line from 0 to 90
+    y += 40.0;
+    ui.text_semi(t("ui.bericht.tore"), l.x + 18.0, y, 15.0, Theme::text());
+    let lx = l.x + 30.0;
+    let lw = l.w - 60.0;
+    let ly = y + 30.0;
+    draw_line(lx, ly, lx + lw, ly, 2.0, Theme::linie());
+    for m in [0, 45, 90] { ui.text_center(&format!("{m}'"), lx + lw * m as f32 / 90.0, ly + 22.0, 12.0, Theme::gedaempft()); }
+    for (k, e) in res.events.iter().filter(|e| e.kind == 0 || e.kind == 1).enumerate() {
+        let x = lx + lw * (e.min as f32).min(90.0) / 90.0;
+        let heim = e.side == 0;
+        let seite = heim; // side is the team the goal counts for, own goals too
+        let farbe = crate::ui::lesbar(if seite { fh } else { fa }, Theme::flaeche(), 1.5);
+        draw_circle(x, ly, 7.0, farbe);
+        let nm = c.world.players[e.pid].name.split(' ').last().unwrap_or("").to_string();
+        let dy = if seite { -14.0 } else { 40.0 } + if k % 2 == 1 { if seite { -14.0 } else { 14.0 } } else { 0.0 };
+        ui.text_center(&format!("{nm} {}'", e.min), x, ly + dy, 12.0, Theme::text());
+    }
+    // the coach's verdict in one line
+    let (sf, sg) = if res.h == c.own { res.shots } else { (res.shots.1, res.shots.0) };
+    let bb = if res.h == c.own { res.possession } else { 100 - res.possession };
+    let fazit = if sf < sg && bb < 45 { t("ui.taktik.wir_hatten_zu_wenig_vom") } else if sf > sg + 5 { t("ui.taktik.viele_abschluesse_an_der_chancenverwertu") } else { t("ui.taktik.ein_ausgeglichenes_spiel") };
+    let fy = l.y + l.h - 40.0;
+    rrect(l.x + 12.0, fy - 22.0, l.w - 24.0, 34.0, 8.0, alpha(Theme::akzent(), 0.14));
+    ui.text(&ui.fit(fazit, 15.0, l.w - 48.0), l.x + 24.0, fy, 15.0, Theme::text());
+    // right: every player of ours with his grade as a bar, his goals and assists
+    ui.card_titled(r, t("bericht.noten"), Theme::gold());
+    let mut n = eigen.clone();
     n.sort_by(|a, b| b.1.partial_cmp(&a.1).unwrap());
-    let z: Vec<(String, String)> = n.iter().map(|(p, r2)| (c.world.players[*p].name.clone(), format!("{r2:.1}"))).collect();
-    zeilen(ui, r, &z, 64.0);
+    let zeile = ((r.h - 70.0) / n.len().max(1) as f32).clamp(26.0, 40.0);
+    for (k, &(p, note)) in n.iter().enumerate() {
+        let y = r.y + 70.0 + k as f32 * zeile;
+        if y > r.y + r.h - 10.0 { break; }
+        let pl = &c.world.players[p];
+        let rr = Rect::new(r.x + 8.0, y - zeile / 2.0 - 6.0, r.w - 16.0, zeile - 2.0);
+        if ui.hover(rr) { rrect(rr.x, rr.y, rr.w, rr.h, 5.0, Theme::ueberlagerung()); }
+        if k == 0 { rrect(rr.x, rr.y, rr.w, rr.h, 5.0, alpha(Theme::gold(), 0.18)); }
+        ui.player_photo(r.x + 28.0, y - 6.0, 12.0, pl.id, &pl.name);
+        ui.pos_tag(r.x + 48.0, y - 6.0, pos_de(&pl.pos));
+        ui.text(&ui.fit(&pl.name, 14.0, r.w * 0.36), r.x + 92.0, y, 14.0, Theme::text());
+        let tore = res.events.iter().filter(|e| e.kind == 0 && e.pid == p).count();
+        let vorl = res.events.iter().filter(|e| e.kind == 0 && e.pid2 == Some(p)).count();
+        let mut ix = r.x + r.w * 0.5;
+        for _ in 0..tore { draw_circle(ix, y - 5.0, 5.0, Theme::gut()); ix += 13.0; }
+        for _ in 0..vorl { draw_circle_lines(ix, y - 5.0, 5.0, 2.0, Theme::gut()); ix += 13.0; }
+        ui.bar(r.x + r.w * 0.6, y - 10.0, r.w * 0.28, 9.0, ((note - 4.0) / 5.0).clamp(0.0, 1.0), Theme::note(note));
+        ui.note_pill(r.x + r.w - 32.0, y - 6.0, note);
+        if ui.hit(rr) { v.modal = Modal::Player(p); }
+    }
 }

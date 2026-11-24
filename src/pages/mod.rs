@@ -10,6 +10,7 @@ use macroquad::prelude::*;
 
 mod akademie;
 mod analyse;
+mod awards;
 mod aufstellung;
 mod common;
 mod finanzen;
@@ -28,6 +29,7 @@ mod personal;
 mod posteingang;
 mod praesidium;
 mod presse;
+mod privat;
 mod scouting;
 mod spielerkarte;
 mod spielerprofil;
@@ -45,6 +47,7 @@ mod welt;
 mod zentrale;
 use akademie::*;
 use analyse::*;
+use awards::*;
 use aufstellung::*;
 pub use common::*;
 use finanzen::*;
@@ -63,6 +66,7 @@ use personal::*;
 use posteingang::*;
 use praesidium::*;
 pub use presse::*;
+use privat::*;
 use scouting::*;
 pub use spielerkarte::*;
 pub use spielerprofil::*;
@@ -109,6 +113,7 @@ pub fn draw_page(ui: &mut Ui, v: &mut View, c: &mut Career) {
         Page::Personalmarkt => personalmarkt(ui, v, c),
         Page::Geschichte => geschichte(ui, v, c),
         Page::Tagebuch => tagebuch(ui, v, c),
+        Page::Privat => privat_seite(ui, v, c),
         Page::Klima => klima_seite(ui, v, c),
         Page::Marken => marken(ui, v, c),
         Page::Kaderplanung => kaderplanung(ui, v, c),
@@ -119,6 +124,11 @@ pub fn draw_page(ui: &mut Ui, v: &mut View, c: &mut Career) {
         Page::Zeitung => zeitung(ui, v, c),
         Page::Fans => fans_seite(ui, v, c),
         Page::Ranglisten => ranglisten(ui, v, c),
+        Page::Awards => awards_seite(ui, v, c),
+        Page::TheBest => the_best_seite(ui, v, c),
+        Page::LigaPreise => liga_preise_seite(ui, v, c),
+        Page::Uefa => uefa_seite(ui, v, c),
+        Page::Kadermeldung => meldung_seite(ui, v, c),
         Page::Nationalteams => nationalteams_seite(ui, v, c),
         Page::Vereine => vereine(ui, v, c),
         Page::Vereinswelt => vereinswelt(ui, v, c),

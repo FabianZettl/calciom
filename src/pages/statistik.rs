@@ -156,8 +156,16 @@ pub(super) fn statistik_reiter(ui: &mut Ui, v: &mut View, c: &Career, p: usize, 
         STAT_FENSTER.store(0, std::sync::atomic::Ordering::Relaxed);
         let r = Rect::new(x0() + 4.0, cy + 76.0, cbreite(), ch - 76.0);
         ui.card_titled(r, &crate::tf!("ui.stat.wie_titel", pl.name.clone()), Theme::akzent());
-        let kand: Vec<usize> = (0..c.world.players.len()).filter(|&q| !c.gehoert_uns(q) && crate::pages::markt_erweitert(c, q)).collect();
-        let liste = crate::statistik::aehnliche(&c.world, p, &kand, 15);
+        // computed once per player and day, not every frame (Fabian 24.11.: the page hung and was hard to leave)
+        static CACHE: std::sync::Mutex<Option<((usize, u32), Vec<(usize, f32)>)>> = std::sync::Mutex::new(None);
+        let key = (p, c.abs());
+        let mut g = CACHE.lock().unwrap_or_else(|e| e.into_inner());
+        if g.as_ref().map(|x| x.0) != Some(key) {
+            let kand: Vec<usize> = (0..c.world.players.len()).filter(|&q| !c.gehoert_uns(q) && crate::pages::markt_erweitert(c, q)).collect();
+            *g = Some((key, crate::statistik::aehnliche(&c.world, p, &kand, 15)));
+        }
+        let liste = g.as_ref().map(|x| x.1.clone()).unwrap_or_default();
+        drop(g);
         if liste.is_empty() { ui.paragraph(crate::inhalt::t("ui.stat.wie_leer"), r.x + 14.0, r.y + 60.0, 15.0, r.w - 28.0, Theme::text2()); return; }
         // the best three as cards (Fabian 24.11.: "still loveless"): photo, club, age, value, the similarity, and his key
         // numbers per 90 next to the model's, so the likeness shows

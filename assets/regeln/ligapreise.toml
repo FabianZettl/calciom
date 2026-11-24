@@ -1,0 +1,104 @@
+# League awards (Fabian 24.11.): every league has its own awards, given at the end of the season.
+# art: spieler (player of the season), tore (top scorer), jung (best young player up to `alter`),
+#      torwart (best keeper), trainer (coach of the season)
+# name: the real award's name (a proper noun, not translated); without it the generic text ui.ligapreis.<art> is used.
+# Country keys as in the world (German country names).
+
+# share of the league's games a player needs for a league award; weight of goals per game in the player award
+min_spiele_anteil = 0.5
+tor_gewicht = 0.8
+
+standard = [
+  { id = "spieler", art = "spieler" },
+  { id = "tore", art = "tore" },
+  { id = "jung", art = "jung", alter = 21 },
+  { id = "torwart", art = "torwart" },
+  { id = "trainer", art = "trainer" },
+]
+
+# Award calendar (days of the season, day 0 = 1 August): Ballon d'Or nominees 8 Sep, night 26 Oct;
+# The Best shortlist 6 Nov, night 16 Dec (France Football / FIFA 2025-26)
+[termine]
+ballon_nominierung = 38
+ballon_gala = 86
+best_shortlist = 97
+best_gala = 137
+
+[land]
+# Starting data from Fabian's overview (24.11., from memory; Portugal, Türkei, Brasilien and Argentinien are the least
+# certain): GESCHÄTZT, änderbar. vergabe: "saison" = at the season's end (all of these).
+Deutschland = [
+  { id = "fdj", art = "spieler", name = "Fußballer des Jahres" },
+  { id = "kanone", art = "tore", name = "Torjägerkanone" },
+  { id = "fw19", art = "jung", alter = 19, name = "Fritz-Walter-Medaille U19" },
+  { id = "fw18", art = "jung", alter = 18, name = "Fritz-Walter-Medaille U18" },
+  { id = "fw17", art = "jung", alter = 17, name = "Fritz-Walter-Medaille U17" },
+  { id = "tdj", art = "trainer", name = "Trainer des Jahres" },
+]
+England = [
+  { id = "pfa", art = "spieler", name = "PFA Players' Player of the Year" },
+  { id = "fwa", art = "spieler", name = "FWA Footballer of the Year", stimme = "presse" },
+  { id = "boot", art = "tore", name = "Golden Boot" },
+  { id = "pfa_jung", art = "jung", alter = 21, name = "PFA Young Player of the Year" },
+  { id = "glove", art = "torwart", name = "Golden Glove" },
+  { id = "manager", art = "trainer", name = "Manager of the Season" },
+]
+Spanien = [
+  { id = "distefano", art = "spieler", name = "Trofeo Alfredo Di Stéfano" },
+  { id = "pichichi", art = "tore", name = "Trofeo Pichichi" },
+  { id = "zarra", art = "tore", eigene = true, name = "Trofeo Zarra" },
+  { id = "rovira", art = "jung", alter = 21, name = "Trofeo Aldo Rovira" },
+  { id = "zamora", art = "torwart", name = "Trofeo Zamora" },
+  { id = "entrenador", art = "trainer", name = "Mejor Entrenador" },
+]
+Italien = [
+  { id = "aic", art = "spieler", name = "AIC Calciatore dell'Anno" },
+  { id = "capocannoniere", art = "tore", name = "Capocannoniere" },
+  { id = "giovane", art = "jung", alter = 21, name = "Serie A Best Young Player" },
+  { id = "portiere", art = "torwart", name = "Miglior Portiere" },
+  { id = "panchina", art = "trainer", name = "Panchina d'Oro" },
+]
+Frankreich = [
+  { id = "unfp", art = "spieler", name = "UNFP Joueur de l'année" },
+  { id = "buteur", art = "tore", name = "Meilleur buteur" },
+  { id = "espoir", art = "jung", alter = 21, name = "UNFP Meilleur espoir" },
+  { id = "gardien", art = "torwart", name = "UNFP Meilleur gardien" },
+  { id = "entraineur", art = "trainer", name = "UNFP Meilleur entraîneur" },
+]
+Niederlande = [
+  { id = "schoen", art = "spieler", name = "Gouden Schoen" },
+  { id = "topscorer", art = "tore", name = "Eredivisie Topscorer" },
+  { id = "cruijff", art = "jung", alter = 21, name = "Johan Cruijff Prijs" },
+  { id = "michels", art = "trainer", name = "Rinus Michels Award" },
+]
+Portugal = [
+  { id = "melhor", art = "spieler", name = "Melhor Jogador da Liga" },
+  { id = "prata", art = "tore", name = "Bola de Prata" },
+  { id = "jovem", art = "jung", alter = 21, name = "Melhor Jovem" },
+  { id = "treinador", art = "trainer", name = "Melhor Treinador" },
+]
+Belgien = [
+  { id = "schoen", art = "spieler", name = "Gouden Schoen" },
+  { id = "pro", art = "spieler", name = "Profvoetballer van het Jaar", stimme = "profis" },
+  { id = "topscorer", art = "tore", name = "Topschutter" },
+  { id = "young", art = "jung", alter = 21, name = "Young Pro Player of the Year" },
+]
+"Türkei" = [
+  { id = "yilin", art = "spieler", name = "Yılın Futbolcusu" },
+  { id = "golkrali", art = "tore", name = "Gol Kralı" },
+  { id = "teknik", art = "trainer", name = "Yılın Teknik Direktörü" },
+]
+Brasilien = [
+  { id = "ouro", art = "spieler", name = "Bola de Ouro" },
+  { id = "artilheiro", art = "tore", name = "Artilheiro" },
+  { id = "revelacao", art = "jung", alter = 21, name = "Craque Revelação" },
+  { id = "goleiro", art = "torwart", name = "Melhor Goleiro" },
+  { id = "tecnico", art = "trainer", name = "Melhor Técnico" },
+]
+Argentinien = [
+  { id = "ole", art = "spieler", name = "Futbolista del Año (Olé)" },
+  { id = "goleador", art = "tore", name = "Goleador del Torneo" },
+  { id = "revelacion", art = "jung", alter = 21, name = "Revelación del Año" },
+  { id = "arquero", art = "torwart", name = "Mejor Arquero" },
+  { id = "dt", art = "trainer", name = "Mejor Entrenador" },
+]

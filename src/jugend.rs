@@ -508,9 +508,48 @@ impl Career {
     }
 }
 
+impl Career {
+    /// Saves from before the youth spread (Fabian 24.11.: an old academy where nearly everyone is 66): the own
+    /// academy players are drawn once more like a talent day's group (rating by age, potential with few talents).
+    /// True when it happened.
+    pub fn jugend_neu_wuerfeln(&mut self) -> bool {
+        let z = self.zweite_mannschaft();
+        let jung: Vec<usize> = (0..self.world.players.len()).filter(|&p| { let pl = &self.world.players[p]; pl.youth > 0 && (pl.team == self.own as i32 || z.is_some_and(|z| pl.team == z as i32)) }).collect();
+        if jung.len() < 5 { return false; }
+        let mut zahl: std::collections::HashMap<i32, usize> = Default::default();
+        for &p in &jung { *zahl.entry(self.world.players[p].ovr.round() as i32).or_default() += 1; }
+        if zahl.values().copied().max().unwrap_or(0) * 10 < jung.len() * 6 { return false; }
+        let js = self.jugendstaerke(self.own).wert;
+        let (gw, pt, jp, juwel) = (reihe("jahrgang.gw"), reihe("jahrgang.pot"), reihe("jahrgang.juwel_pot"), reihe("jahrgang.juwel"));
+        for p in jung {
+            let age = self.world.players[p].age;
+            let pos = self.world.players[p].pos.clone();
+            let r = &mut self.world.rng;
+            let ovr = (gw[0] + gw[1] * js + (age as f32 - 15.5) * 3.0 + r.gauss(gw[2])).clamp(gw[3], gw[4] + 6.0);
+            let pot = if r.f() < juwel[0] + juwel[1] * js { (jp[0] + r.gauss(jp[1])).min(jp[2]) } else { (pt[0] + pt[1] * js + r.gauss(pt[2])).clamp(pt[3], pt[4]) }.max(ovr + 3.0);
+            let (attrs, pp) = self.world.template_attrs(&pos, ovr);
+            let pl = &mut self.world.players[p];
+            (pl.ovr, pl.pot, pl.attrs, pl.pp) = (ovr, pot, attrs, pp);
+        }
+        true
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
+    /// Fabian 24.11.: an old save with every academy player at 66 gets a spread once, and only once.
+    #[test]
+    fn alte_akademie_neu_gewuerfelt() {
+        let mut c = Career::new(crate::world::testwelt(7), 0, "Test");
+        let jung: Vec<usize> = (0..c.world.players.len()).filter(|&p| c.world.players[p].youth > 0 && c.world.players[p].team == c.own as i32).collect();
+        if jung.len() < 5 { return; }
+        for &p in &jung { c.world.players[p].ovr = 66.0; }
+        assert!(c.jugend_neu_wuerfeln());
+        let v: Vec<f32> = jung.iter().map(|&p| c.world.players[p].ovr).collect();
+        assert!(v.iter().any(|&x| (x - 66.0).abs() > 1.0), "{v:?}");
+        assert!(!c.jugend_neu_wuerfeln(), "a spread academy stays as it is");
+    }
     #[test]
     fn jugend_hat_streuung() {
         let w = crate::world::testwelt(7);
@@ -521,8 +560,13 @@ mod tests {
             let sd = (v.iter().map(|x| (x - m).powi(2)).sum::<f32>() / v.len() as f32).sqrt();
             assert!(sd > 2.0, "youth ratings spread: {v:?}");
         }
-        // few talents: most potentials stay below 80 (Fabian 24.11.: nearly all were 80–95)
-        let pot: Vec<f32> = c.world.clubs[c.own].squad.iter().copied().filter(|&p| c.world.players[p].youth > 0).map(|p| c.world.players[p].pot).collect();
+        // few talents: most potentials stay below 80 (Fabian 24.11.: nearly all were 80–95); over several worlds,
+        // one academy alone swings between 5 and 10 of 30 with the draw
+        let mut pot: Vec<f32> = vec![];
+        for seed in 1..=6 {
+            let c = Career::new(crate::world::testwelt(seed), 0, "Test");
+            pot.extend(c.world.clubs[c.own].squad.iter().copied().filter(|&p| c.world.players[p].youth > 0).map(|p| c.world.players[p].pot));
+        }
         assert!(pot.iter().filter(|&&x| x >= 80.0).count() * 4 <= pot.len(), "potentials: {pot:?}");
     }
     #[test]

@@ -299,10 +299,13 @@ impl Career {
             "merkmal": merkmale.clone(), "haken": haken, "kanal": [crate::id("mail"), crate::id("chat"), crate::id("persoenlich")],
         });
         let typ = typ(&merkmale, &ch);
+        // the teammate a complaint is about: the one who sat out longest (Fabian 24.11.: name him)
+        let gegner = self.squad().into_iter().filter(|&q| q != p && self.world.players[q].youth == 0).max_by_key(|&q| (self.world.players[q].benched, std::cmp::Reverse(self.world.players[q].morale as i32)));
         let var = BTreeMap::from([
             (crate::id("name").to_string(), pl.name.clone()), (crate::id("position").into(), crate::world::pos_de(&pl.pos).to_string()), (crate::id("verein").into(), self.club().name.clone()),
             (crate::id("monate").into(), format!("{:.0}", self.monate_rest(p))), (crate::id("spiele").into(), if pl.benched > 0 { pl.benched.to_string() } else { t("ui.pool.mehreren").to_string() }),
-            (crate::id("gegner").into(), t("ui.pool.mitspieler").to_string()),
+            (crate::id("gegner").into(), gegner.map(|g| self.world.players[g].name.clone()).unwrap_or_else(|| t("ui.pool.mitspieler").to_string())),
+            (crate::id("gegner_spiele").into(), gegner.map(|g| self.world.players[g].benched.max(2).to_string()).unwrap_or_else(|| t("ui.pool.mehreren").to_string())),
         ]);
         (k.as_object().cloned().unwrap_or_default(), var, typ)
     }
@@ -329,7 +332,10 @@ impl Career {
         pl.ps.sperre.push((format!("pool:{tid}"), abs + sperre));
         let n = pl.name.clone();
         let absender = th["absender"].as_str().unwrap_or(crate::id("spieler"));
-        let from = if absender == "spieler" || absender == "kapitaen" { n.clone() } else if absender == "co_trainer" { self.co_name.clone() } else { crate::regeln::wert("posteingang", &format!("rolle.de.{absender}")).as_str().unwrap_or(absender).to_string() };
+        // who speaks is always named with his role (Fabian 24.11.: player or assistant was not clear); the captain
+        // speaks about the player, so he is not the player himself
+        let kap = self.kapitaen().filter(|&k| k != p).map(|k| self.world.players[k].name.clone());
+        let from = if absender == "spieler" { n.clone() } else if let (true, Some(k)) = (absender == "kapitaen", kap) { crate::tf!("ui.pool.von_kapitaen", k) } else if absender == "co_trainer" || absender == "kapitaen" { crate::tf!("ui.pool.von_co", self.co_name.clone()) } else { crate::regeln::wert("posteingang", &format!("rolle.de.{absender}")).as_str().unwrap_or(absender).to_string() };
         let cat = crate::regeln::wert("posteingang", &format!("ordner.{}", th["kategorie"].as_str().unwrap_or(crate::id("spieler")))).as_u64().unwrap_or(1) as u8;
         let opts = ops.iter().map(|o| (o.id.clone(), o.text.clone())).collect();
         self.msg(cat, &from, &format!("{n} · {}", titel(tid)), &text, Action::Wahl { art: format!("pool:{tid}:{samen}"), bezug: vec![p], optionen: opts });
@@ -467,6 +473,16 @@ impl Career {
 
 #[cfg(test)]
 mod tests {
+    /// Fabian 24.11.: a complaint about a teammate names him, with his own games out.
+    #[test]
+    fn gegner_ist_ein_echter_mitspieler() {
+        let mut c = crate::game::Career::new(crate::world::testwelt(8), 2, "Test");
+        let sq = c.squad();
+        c.world.players[sq[5]].benched = 6;
+        let (_, var, _) = c.pool_kontext(sq[0]);
+        assert_eq!(var["gegner"], c.world.players[sq[5]].name);
+        assert_eq!(var["gegner_spiele"], "6");
+    }
     #[test]
     fn keine_spielzeitklage_vor_dem_ersten_spieltag() {
         let w = crate::world::testwelt(7);

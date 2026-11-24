@@ -150,11 +150,16 @@ fn zentrale_dashboard(ui: &mut Ui, v: &mut View, c: &mut Career, r: Rect) {
     let k2 = Rect::new(spalte(0), r.y + h1 + 12.0, w3, r.h - h1 - 12.0);
     ui.card_titled(k2, t("ui.zd.spiele"), Theme::gold());
     let mut y = k2.y + 58.0;
-    if let Some(f) = c.next_match() {
+    if let Some((wo, f)) = c.own_fixtures().into_iter().find(|x| x.1.hg < 0) {
         let g = if f.h == c.own { f.a } else { f.h };
         let cl = &c.world.clubs[g];
         ui.club_crest(k2.x + 26.0, y - 5.0, 12.0, cl.id, hex(cl.c1), &cl.short);
         ui.text_semi(&ui.fit(&crate::tf!("ui.zd.naechstes", cl.name.clone(), date::short(c.world.season, f.day)), 15.0, k2.w - 60.0), k2.x + 46.0, y, 15.0, Theme::text());
+        // the competition with its logo (Fabian 24.11.)
+        y += 24.0;
+        let name = match wo { Wo::Liga(l) => c.world.leagues[l].name.clone(), Wo::Pokal(k) => c.world.cups[k].name.clone() };
+        let lx = if ui.wettbewerb_logo_auf(k2.x + 26.0, y - 5.0, 10.0, c.comp_cid(wo), Some(wo_look(c, wo).c1)) { k2.x + 46.0 } else { k2.x + 14.0 };
+        ui.text(&ui.fit(&name, 14.0, k2.w - 60.0), lx, y, 14.0, Theme::text2());
         y += 30.0;
     }
     for s in c.spiele.iter().rev().take(((k2.y + k2.h - y) / 24.0).max(0.0) as usize) {

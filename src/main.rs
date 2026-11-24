@@ -12,6 +12,7 @@ mod cups;
 mod farm;
 mod inhalt;
 mod ligaregeln;
+mod pokalregeln;
 mod entwicklung;
 mod cpk;
 mod live;
@@ -23,6 +24,9 @@ mod transferki;
 mod spielgefuehl;
 mod klauseln;
 mod ehrungen;
+mod preise;
+mod privat;
+mod meldung;
 mod vorbereitung;
 mod trainerbank;
 mod realdaten;
@@ -137,6 +141,9 @@ fn stage_text(v: &View) -> (&'static str, &'static str, &'static str) {
         Page::Personalmarkt => (crate::inhalt::t("bereich.verein"), crate::inhalt::t("ui.main.personalmarkt"), crate::inhalt::t("ui.main.bewerber_und_freie_leute_trainer")),
         Page::Geschichte => (crate::inhalt::t("bereich.verein"), crate::inhalt::t("menu.vereinsgeschichte.titel"), crate::inhalt::t("ui.main.was_haben_wir_erreicht")),
         Page::Tagebuch => (crate::inhalt::t("bereich.verein"), crate::inhalt::t("gm.tb.hero"), crate::inhalt::t("ui.main.was_ist_warum_passiert")),
+        Page::Kadermeldung => (crate::inhalt::t("bereich.mannschaft"), crate::inhalt::t("ui.meldung.seite"), crate::inhalt::t("ui.meldung.unter")),
+        Page::Uefa => (crate::inhalt::t("ticker.kat.welt"), crate::inhalt::t("ui.uefa.seite"), crate::inhalt::t("ui.uefa.unter")),
+        Page::Privat => (crate::inhalt::t("bereich.verein"), crate::inhalt::t("ui.privat.seite"), crate::inhalt::t("ui.privat.unter")),
         Page::Klima => (crate::inhalt::t("bereich.verein"), crate::inhalt::t("ui.main.vereinsklima"), crate::inhalt::t("ui.main.wie_ist_die_stimmung_rund")),
         Page::Marken => (crate::inhalt::t("bereich.verein"), crate::inhalt::t("ui.main.marken_und_sponsoren"), crate::inhalt::t("ui.main.wer_zahlt_fuer_unseren_namen")),
         Page::Kaderplanung => (crate::inhalt::t("bereich.mannschaft"), crate::inhalt::t("aktion.kaderplanung"), crate::inhalt::t("ui.main.was_braucht_der_kader")),
@@ -147,6 +154,9 @@ fn stage_text(v: &View) -> (&'static str, &'static str, &'static str) {
         Page::Zeitung => ("Medien", crate::inhalt::t("md.pool.typ.zeitung"), crate::inhalt::t("ui.main.was_steht_in_der_zeitung")), // roh
         Page::Fans => ("Medien", crate::inhalt::t("menu.fans_und_stimmung.titel"), crate::inhalt::t("ui.main.was_denken_die_fans")), // roh
         Page::Ranglisten => (crate::inhalt::t("ticker.kat.welt"), crate::inhalt::t("ux.abschnitt.rankings"), crate::inhalt::t("ui.main.wer_ist_der_beste")),
+        Page::Awards => (crate::inhalt::t("ui.award.seite"), crate::inhalt::t("ui.preis.ballon_seite"), crate::inhalt::t("ui.award.unter")),
+        Page::TheBest => (crate::inhalt::t("ui.award.seite"), crate::inhalt::t("ui.preis.best_seite"), crate::inhalt::t("ui.preis.best_unter")),
+        Page::LigaPreise => (crate::inhalt::t("ticker.kat.welt"), crate::inhalt::t("ui.preis.liga_seite"), crate::inhalt::t("ui.preis.liga_unter")),
         Page::Nationalteams => (crate::inhalt::t("ticker.kat.welt"), crate::inhalt::t("ui.nt.seite"), crate::inhalt::t("ui.nt.seite_unter")),
         Page::Vereine => (crate::inhalt::t("ticker.kat.welt"), crate::inhalt::t("menu.vereine_und_spieler.titel"), crate::inhalt::t("ui.main.wer_spielt_wo")),
         Page::Vereinswelt => (crate::inhalt::t("ticker.kat.welt"), crate::inhalt::t("ui.main.vereinswelt"), crate::inhalt::t("ui.main.was_passiert_in_der_welt")),
@@ -932,9 +942,13 @@ impl App {
             ui.wappen_farbe(cl.id).or_else(|| [cl.c1, cl.c2].iter().find_map(|&f| crate::ui::hauptfarbe(&[(f >> 16) as u8, (f >> 8) as u8, f as u8, 255])))
         } else { pages::eigener_akzent() };
         // with the crest accent the banners (club colour) and the blue card heads follow it too (Fabian 22.11.: still blue)
+        // "per competition" theme (Fabian 24.11.): on a matchday the UI wears the competition's colours
+        let spieltag = if c.thema_wettbewerb { c.today_match().map(|t| pages::thema_farben(&pages::wo_look(c, t.0))) } else { None };
+        let akzent = spieltag.map(|x| x.1).or(akzent);
         let bereich = match (akzent, area_color(v.page)) { (Some(a), 0x38bdf8) => a, (_, b) => b };
+        let bereich = spieltag.map_or(bereich, |x| x.0);
         // the tables and rankings wear the colour of the chosen competition
-        let kopf = if matches!(v.page, Page::Tabellen | Page::Ranglisten) { pages::liga_farbe(v, c) } else { akzent.unwrap_or(c.club().c1) };
+        let kopf = if matches!(v.page, Page::Tabellen | Page::Ranglisten) { pages::liga_farbe(v, c) } else if let Some(x) = spieltag { x.0 } else { akzent.unwrap_or(c.club().c1) };
         Theme::set(v.dark, kopf, bereich);
         Theme::set_akzent(akzent.unwrap_or(0x38bdf8));
         clear_background(Theme::grund());
@@ -1423,9 +1437,12 @@ async fn main() {
             let c = app.career.as_mut().unwrap();
             for _ in 0..n { if c.today_match().is_some() { let r = c.prepare_match(None); c.apply_own_match(r); c.answer_press(Some(0)); } let _ = c.end_day(); }
         }
-        let p = match pg.as_str() { "posteingang" => Page::Posteingang, "kalender" => Page::Kalender, "kader" => Page::Kader, "aufstellung" => Page::Aufstellung, "training" => Page::Training, "medizin" => Page::Medizin, "praesidium" => Page::Praesidium, "finanzen" => Page::Finanzen, "trainer" => Page::Trainer, "transfermarkt" => Page::Transfermarkt, "verhandlungen" => Page::Verhandlungen, "vertraege" => Page::Vertraege, "scouting" => Page::Scouting, "akademie" => Page::Akademie, "tabellen" => Page::Tabellen, "presse" => Page::Presse, "spieltag" => Page::Spieltag, "kabine" => Page::Kabine, "optionen" => Page::Optionen, "ziele" => Page::Ziele, "manager" => Page::Manager, "stadion" => Page::Stadion, "personalmarkt" => Page::Personalmarkt, "geschichte" => Page::Geschichte, "tagebuch" => Page::Tagebuch, "klima" => Page::Klima, "marken" => Page::Marken, "kaderplanung" => Page::Kaderplanung, "vergleich" => Page::Vergleich, "entwicklung" => Page::Entwicklung, "vorbereitung" => Page::Vorbereitung, "analyse" => Page::Analyse, "zeitung" => Page::Zeitung, "fans" => Page::Fans, "ranglisten" => Page::Ranglisten, "vereine" => Page::Vereine, "vereinswelt" => Page::Vereinswelt, "portal" => Page::Portal, "handbuch" => Page::Handbuch, "regeln" => Page::Regeln, "profi" => Page::Profi, "spielerprofil" => Page::Spielerprofil, "zentrale" => Page::Zentrale, "kooperationen" => Page::Kooperationen, "zweite" => Page::ZweiteMannschaft, "jugendnetz" => Page::Jugendnetz, "merkliste" => Page::Merkliste, "trainerteam" => Page::Trainerteam, "nationalteams" => Page::Nationalteams, _ => Page::Uebersicht };
+        // PESM_THEMA=1: the "per competition" theme on; PESM_BIS_SPIELTAG=1: on to the next matchday (not played)
+        if std::env::var("PESM_THEMA").is_ok() { app.career.as_mut().unwrap().thema_wettbewerb = true; }
+        if std::env::var("PESM_BIS_SPIELTAG").is_ok() { let c = app.career.as_mut().unwrap(); for _ in 0..14 { if c.today_match().is_some() { break; } let _ = c.end_day(); } }
+        let p = match pg.as_str() { "posteingang" => Page::Posteingang, "kalender" => Page::Kalender, "awards" => Page::Awards, "privat" => Page::Privat, "uefa" => Page::Uefa, "kadermeldung" => Page::Kadermeldung, "thebest" => Page::TheBest, "ligapreise" => Page::LigaPreise, "kader" => Page::Kader, "aufstellung" => Page::Aufstellung, "training" => Page::Training, "medizin" => Page::Medizin, "praesidium" => Page::Praesidium, "finanzen" => Page::Finanzen, "trainer" => Page::Trainer, "transfermarkt" => Page::Transfermarkt, "verhandlungen" => Page::Verhandlungen, "vertraege" => Page::Vertraege, "scouting" => Page::Scouting, "akademie" => Page::Akademie, "tabellen" => Page::Tabellen, "presse" => Page::Presse, "spieltag" => Page::Spieltag, "kabine" => Page::Kabine, "optionen" => Page::Optionen, "ziele" => Page::Ziele, "manager" => Page::Manager, "stadion" => Page::Stadion, "personalmarkt" => Page::Personalmarkt, "geschichte" => Page::Geschichte, "tagebuch" => Page::Tagebuch, "klima" => Page::Klima, "marken" => Page::Marken, "kaderplanung" => Page::Kaderplanung, "vergleich" => Page::Vergleich, "entwicklung" => Page::Entwicklung, "vorbereitung" => Page::Vorbereitung, "analyse" => Page::Analyse, "zeitung" => Page::Zeitung, "fans" => Page::Fans, "ranglisten" => Page::Ranglisten, "vereine" => Page::Vereine, "vereinswelt" => Page::Vereinswelt, "portal" => Page::Portal, "handbuch" => Page::Handbuch, "regeln" => Page::Regeln, "profi" => Page::Profi, "spielerprofil" => Page::Spielerprofil, "zentrale" => Page::Zentrale, "kooperationen" => Page::Kooperationen, "zweite" => Page::ZweiteMannschaft, "jugendnetz" => Page::Jugendnetz, "merkliste" => Page::Merkliste, "trainerteam" => Page::Trainerteam, "nationalteams" => Page::Nationalteams, _ => Page::Uebersicht };
         app.v.go(p);
-        if p == Page::Tabellen { app.v.table_league = app.career.as_ref().unwrap().world.cups.iter().position(|c| c.kind == 1).map(|i| 1000 + i); }
+        if p == Page::Tabellen || p == Page::Ranglisten { app.v.table_league = app.career.as_ref().unwrap().world.cups.iter().position(|c| c.kind == 1).map(|i| 1000 + i); }
         // PESM_LIGA=eigene|<Liganame>: that league's table instead of the Champions League
         if let (true, Ok(n)) = (p == Page::Tabellen, std::env::var("PESM_LIGA")) { let c = app.career.as_ref().unwrap(); app.v.table_league = if n == crate::id("eigene") { Some(c.league()) } else { c.world.leagues.iter().position(|l| l.name == n).or_else(|| c.world.cups.iter().position(|x| x.name == n).map(|i| 1000 + i)) }; }
         if p == Page::Transfermarkt { app.v.sel_player = app.career.as_ref().unwrap().world.players.iter().position(|x| x.name.contains("Wirtz")); } // roh

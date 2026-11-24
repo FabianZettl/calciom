@@ -3,8 +3,9 @@ use super::*;
 /// Konzept Nationalteams Teil 7: our internationals, the FIFA ranking and the tournaments (past and coming).
 pub(super) fn nationalteams_seite(ui: &mut Ui, v: &mut View, c: &mut Career) {
     let t = crate::inhalt::t;
-    tabs(ui, v, &[t("ui.nt.reiter.ueberblick"), t("ui.nt.reiter.laender")]);
+    tabs(ui, v, &[t("ui.nt.reiter.ueberblick"), t("ui.nt.reiter.laender"), t("ui.nl.seite")]);
     if v.tab == 1 { return nation_seite(ui, v, c); }
+    if v.tab == 2 { return nl_seite(ui, v, c); }
     let w3 = (cbreite() - 24.0) / 3.0;
     let h = hoehe() - Y0 - 16.0;
     let (l, m, r) = (Rect::new(x0() + 4.0, Y0, w3, h), Rect::new(x0() + 16.0 + w3, Y0, w3, h), Rect::new(x0() + 28.0 + 2.0 * w3, Y0, w3, h));
@@ -174,4 +175,43 @@ fn nation_seite(ui: &mut Ui, v: &mut View, c: &mut Career) {
         yy += 26.0;
     }
     if let Some(p) = klick { v.modal = Modal::Player(p); }
+}
+
+/// The Nations League (Fabian 24.11.): every group of the chosen league with its table and the results by matchday;
+/// nations with our players marked, their squad of the last window as faces.
+fn nl_seite(ui: &mut Ui, v: &mut View, c: &mut Career) {
+    use crate::inhalt::t;
+    let r = Rect::new(x0() + 4.0, Y0, cbreite(), hoehe() - Y0 - 16.0);
+    if c.world.nl.is_empty() { ui.card_titled(r, t("ui.nl.seite"), Theme::akzent()); ui.text(t("ui.nl.noch_nicht"), r.x + 16.0, r.y + 64.0, 15.0, Theme::text2()); return; }
+    let ligen = ["A", "B", "C", "D"];
+    let n_ligen = c.world.nl.iter().map(|g| g.liga as usize + 1).max().unwrap_or(1);
+    let refs: Vec<String> = (0..n_ligen).map(|k| crate::tf!("ui.nl.liga", ligen[k])).collect();
+    let rr: Vec<&str> = refs.iter().map(|x| x.as_str()).collect();
+    let wahl = v.nt_verband.min(n_ligen - 1);
+    if let Some(k) = ui.segment(Rect::new(r.x, r.y, 120.0 * n_ligen as f32, 34.0), &rr, wahl) { v.nt_verband = k; }
+    let eigene: Vec<u16> = c.squad().into_iter().map(|p| c.world.players[p].nat).collect();
+    let gruppen: Vec<crate::nationalteams::NlGruppe> = c.world.nl.iter().filter(|g| g.liga as usize == wahl).cloned().collect();
+    let sp = 2usize;
+    let gw = (r.w - 12.0) / sp as f32;
+    let gh = ((r.h - 50.0) / gruppen.len().div_ceil(sp).max(1) as f32 - 12.0).max(150.0);
+    for (k, g) in gruppen.iter().enumerate() {
+        let gr = Rect::new(r.x + (k % sp) as f32 * (gw + 12.0), r.y + 46.0 + (k / sp) as f32 * (gh + 12.0), gw, gh);
+        if gr.y > r.y + r.h { break; }
+        ui.card_titled(gr, &crate::tf!("ui.nl.gruppe", ligen[wahl], k + 1), Theme::akzent());
+        let tab = c.world.nl_tabelle(g);
+        for (i, row) in tab.iter().enumerate() {
+            let y = gr.y + 64.0 + i as f32 * 24.0;
+            if eigene.contains(&row.0) { rrect(gr.x + 8.0, y - 17.0, gr.w * 0.55, 22.0, 5.0, alpha(Theme::akzent(), 0.16)); }
+            ui.text(&format!("{}. {}", i + 1, crate::nationen::name(&c.world, row.0)), gr.x + 16.0, y, 14.0, Theme::text());
+            ui.text_right(&format!("{}  {}:{}  {}", row.1, row.5, row.6, row.7), gr.x + gr.w * 0.55, y, 14.0, Theme::text2());
+        }
+        // the results, newest matchday first
+        let mut gespielt: Vec<&crate::nationalteams::NlSpiel> = g.spiele.iter().filter(|x| x.hg >= 0).collect();
+        gespielt.sort_by_key(|x| std::cmp::Reverse(x.runde));
+        for (i, x) in gespielt.iter().take(((gh - 70.0) / 20.0) as usize).enumerate() {
+            let y = gr.y + 64.0 + i as f32 * 20.0;
+            let kurz = |n: u16| crate::nationen::name(&c.world, n).chars().take(12).collect::<String>();
+            ui.text(&ui.fit(&format!("{}. {} {}:{} {}", x.runde + 1, kurz(x.h), x.hg, x.ag, kurz(x.a)), 12.0, gr.w * 0.42), gr.x + gr.w * 0.57, y, 12.0, Theme::text2());
+        }
+    }
 }

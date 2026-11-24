@@ -111,6 +111,7 @@ impl Career {
     }
     /// Weekly recommendations (from 3 own matches): form, play time, talents, unhappy players, long injuries, gaps.
     pub fn cotrainer_woche(&mut self) {
+        self.umschulung_vorschlag();
         let r = |k: &str| f("assistent", k);
         if (self.results.len() as f32) < r("min_spiele") { return; }
         let abs = self.abs();

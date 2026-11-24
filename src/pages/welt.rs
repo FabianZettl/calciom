@@ -3,15 +3,18 @@ use super::*;
 pub(super) fn ranglisten(ui: &mut Ui, v: &mut View, c: &mut Career) {
     use crate::inhalt::t;
     // every league has its rankings (Fabian 22.11.): country and league chosen in the banner like on the table page
-    let gruppen: Vec<(String, Vec<usize>)> = crate::pages::ligen_gruppen(c, |_| true);
-    let l = v.table_league.filter(|&x| x < 1000).unwrap_or(c.league());
+    // leagues, cups and European competitions alike (Fabian 24.11.): a cup is 1000 + its index
+    let gruppen: Vec<(String, Vec<usize>)> = crate::pages::wettbewerb_gruppen(c);
+    let gueltig = |x: usize| if x >= 1000 { x - 1000 < c.world.cups.len() } else { x < c.world.leagues.len() };
+    let l = v.table_league.filter(|&x| gueltig(x)).unwrap_or(c.league());
     let felder = crate::pages::wettbewerb_felder(c, &gruppen, l, Rect::new(x0() + 4.0 + cbreite() - 480.0, Y0 - 40.0, 470.0, 36.0));
     if let Some((f, i)) = crate::pages::auswahl_vorher(ui, v, &felder) { v.table_league = Some(crate::pages::wahl_umsetzen(&gruppen, l, f, i)); }
-    let l = v.table_league.filter(|&x| x < 1000).unwrap_or(c.league());
-    let lgk = c.world.leagues[l].key.clone();
-    let lk = crate::pages::wettbewerb_look(c, &lgk, 9, &c.world.leagues[l].land.clone());
-    let _ = crate::pages::wettbewerb_banner(ui, Rect::new(x0() + 4.0, Y0 - 44.0, cbreite(), 46.0), &lk, c.world.cids.get(&lgk).copied(), &c.world.leagues[l].name.clone());
-    let teams = c.world.leagues[l].teams.clone();
+    let l = v.table_league.filter(|&x| gueltig(x)).unwrap_or(c.league());
+    let wo = if l >= 1000 { Wo::Pokal(l - 1000) } else { Wo::Liga(l) };
+    let lk = crate::pages::wo_look(c, wo);
+    let name = match wo { Wo::Liga(x) => c.world.leagues[x].name.clone(), Wo::Pokal(x) => c.world.cups[x].name.clone() };
+    let _ = crate::pages::wettbewerb_banner(ui, Rect::new(x0() + 4.0, Y0 - 44.0, cbreite(), 46.0), &lk, c.comp_cid(wo), &name);
+    let teams = match wo { Wo::Liga(x) => c.world.leagues[x].teams.clone(), Wo::Pokal(x) => c.world.cups[x].teams.clone() };
     // only what was scored in this league counts (Fabian 23.11.: youth and U23 games stay out)
     let ls: std::collections::HashMap<usize, crate::world::LigaStat> = c.world.players.iter().enumerate().filter_map(|(p, pl)| pl.profil.ligen.iter().find(|x| x.l as usize == l).map(|x| (p, x.clone()))).collect();
     let mut alle: Vec<usize> = ls.keys().copied().collect();
@@ -78,12 +81,12 @@ pub(super) fn ranglisten(ui: &mut Ui, v: &mut View, c: &mut Career) {
     let satz = vorl.first().filter(|&&p| ls[&p].assists > 0).map(|&p| crate::tf!("ui.liga.vorlagen_satz", c.world.players[p].name, ls[&p].assists)).unwrap_or_else(leer);
     liste(ui, 1, t("ui.liga.vorlagen"), Theme::akzent(), vorl.iter().map(|&p| (Some(p), c.world.players[p].team.max(0) as usize, format!("{} ({})", c.world.players[p].name, kurz(p)), ls[&p].assists.to_string())).collect(), satz);
     // grades (at least five)
-    let mut noten: Vec<usize> = alle.iter().copied().filter(|&p| ls[&p].rn >= 5).collect();
+    let mut noten: Vec<usize> = alle.iter().copied().filter(|&p| ls[&p].rn >= if l >= 1000 { 3 } else { 5 }).collect();
     noten.sort_by(|a, b| ls[b].note().partial_cmp(&ls[a].note()).unwrap());
     let satz = noten.first().map(|&p| crate::tf!("ui.liga.noten_satz", c.world.players[p].name, dez2(ls[&p].note()))).unwrap_or_else(|| t("ui.liga.noten_leer").to_string());
     liste(ui, 2, t("ui.seiten.beste_noten_der_liga"), hex(0xa78bfa), noten.iter().map(|&p| (Some(p), c.world.players[p].team.max(0) as usize, format!("{} ({})", c.world.players[p].name, kurz(p)), dez2(ls[&p].note()))).collect(), satz);
     // clean sheets per club (played league matches without a goal against)
-    let fx = &c.world.leagues[l].fixtures;
+    let fx: Vec<crate::world::Fixture> = match wo { Wo::Liga(x) => c.world.leagues[x].fixtures.clone(), Wo::Pokal(x) => c.world.cups[x].fx.iter().map(|y| y.f.clone()).collect() };
     let mut null: Vec<(usize, usize)> = teams.iter().map(|&t| (t, fx.iter().filter(|f| f.hg >= 0 && ((f.h == t && f.ag == 0) || (f.a == t && f.hg == 0))).count())).collect();
     null.sort_by_key(|x| std::cmp::Reverse(x.1));
     let satz = null.first().filter(|x| x.1 > 0).map(|x| crate::tf!("ui.liga.zu_null_satz", c.world.clubs[x.0].name, x.1)).unwrap_or_else(leer);
