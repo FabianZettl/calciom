@@ -361,7 +361,7 @@ mod tests {
     use super::*;
     #[test]
     fn nominierung_und_laenderspiele() {
-        let mut w = World::load(include_str!("../assets/world.json"), 7);
+        let mut w = crate::world::testwelt(7);
         // the demo world has no nationalities: give the clubs' players two nations
         for (i, p) in w.players.iter_mut().enumerate() { p.nat = if i % 2 == 0 { 210 } else { 208 }; }
         let tag = INTL_BREAKS[0].0;

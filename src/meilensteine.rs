@@ -79,7 +79,7 @@ mod tests {
 
     #[test]
     fn meilensteine_mit_fortschritt_und_feier() {
-        let w = crate::world::World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let own = w.clubs.iter().position(|c| c.name.contains("Sunderland")).unwrap_or(0);
         let mut c = Career::new(w, own, "Test");
         assert_eq!(liste().len(), 10, "zehn Meilensteine");

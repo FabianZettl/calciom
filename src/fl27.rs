@@ -752,17 +752,21 @@ pub fn formation_codes(pesdb: &Path, team: u32) -> Result<Vec<u8>, String> {
 }
 /// Writes a formation for a team: place i gets (position code, depth 0..47, width 0..104) in all three sets, so the
 /// game shows it whatever set it starts with. Returns whether the file changed.
-pub fn formation_schreiben(pesdb: &Path, team: u32, plaetze: &[(u8, u8, u8)]) -> Result<bool, String> {
-    if plaetze.len() != 11 || plaetze.iter().any(|p| p.0 > 12 || p.1 > 47 || p.2 > 104) { return Err("Formation ungültig".into()); } // roh
+pub fn formation_schreiben(pesdb: &Path, team: u32, plaetze: &[(u8, u8, u8)]) -> Result<bool, String> { formation_schreiben_saetze(pesdb, team, [plaetze, plaetze, plaetze]) }
+/// The same with its own places per set (Fabian 24.11., The Gaffer's three formations: 0 kick-off, 1 and 2 with and
+/// against the ball – which of 1/2 is which is not confirmed in the game yet).
+pub fn formation_schreiben_saetze(pesdb: &Path, team: u32, saetze: [&[(u8, u8, u8)]; 3]) -> Result<bool, String> {
+    if saetze.iter().any(|plaetze| plaetze.len() != 11 || plaetze.iter().any(|p| p.0 > 12 || p.1 > 47 || p.2 > 104)) { return Err("Formation ungültig".into()); } // roh
     let k = formation_kennung(pesdb, team)?;
     let p = pesdb.join("TacticsFormation.bin");
     let (kopf, mut f) = unpack(&std::fs::read(&p).map_err(|e| format!("TacticsFormation.bin: {e}"))?)?;
     let orte: Vec<usize> = (0..f.len() / 12).map(|i| i * 12).filter(|&o| le32(&f, o) == k).collect();
     let alt = f.clone();
     for o in orte {
-        let platz = (u16::from_le_bytes([f[o + 10], f[o + 11]]) & 15) as usize;
+        let w = u16::from_le_bytes([f[o + 10], f[o + 11]]);
+        let (platz, satz) = ((w & 15) as usize, ((w >> 4) as usize).min(2));
         if platz >= 11 { continue; }
-        let (c, t, q) = plaetze[platz];
+        let (c, t, q) = saetze[satz][platz];
         f[o + 4..o + 8].copy_from_slice(&(c as u32).to_le_bytes());
         f[o + 8] = t;
         f[o + 9] = q;

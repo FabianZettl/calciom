@@ -9,7 +9,7 @@ use crate::world::*;
 
 fn k(p: &str) -> f32 { f("jugendakademie", p) }
 fn money_txt(v: f64) -> String { crate::world::money(v) }
-fn reihe(p: &str) -> Vec<f32> { wert("jugendakademie", p).as_array().map(|a| a.iter().map(|x| x.as_f64().unwrap_or(0.0) as f32).collect()).unwrap_or_default() }
+pub(crate) fn reihe(p: &str) -> Vec<f32> { wert("jugendakademie", p).as_array().map(|a| a.iter().map(|x| x.as_f64().unwrap_or(0.0) as f32).collect()).unwrap_or_default() }
 /// A normal draw from two keyed uniform draws (Box-Muller), so a year group stays the same on reload.
 fn normal(schluessel: &str, m: f32, sd: f32) -> f32 {
     let u1 = zufall(&[schluessel, "n1"]).max(1e-6); // roh
@@ -67,6 +67,24 @@ impl Career {
         self.world.clubs[club].squad.push(i);
         i
     }
+    /// The country of a new young player of a club (Fabian 24.11.: a small club almost only home-grown, a big one now and
+    /// then someone from abroad): home, or by a chance growing with the reputation a country weighted by how often it plays in
+    /// the club's league (only countries with enough real names).
+    pub(crate) fn jugend_nat(&self, club: usize, schluessel: &str) -> u16 {
+        let l = self.world.clubs[club].league;
+        let heim = self.world.land_nat(l);
+        let rep = (self.world.clubs[club].rep / 100.0).clamp(0.0, 1.0);
+        let h = reihe("herkunft.ausland");
+        if zufall(&[schluessel, crate::id("herkunft")]) >= h[0] + h[1] * rep * rep { return heim; }
+        let mut alle: std::collections::HashMap<u16, usize> = Default::default();
+        for p in &self.world.players { *alle.entry(p.nat).or_default() += 1; }
+        let mut liga: std::collections::BTreeMap<u16, usize> = Default::default();
+        for &t in &self.world.leagues[l].teams { for &p in &self.world.clubs[t].squad { let n = self.world.players[p].nat; if n > 0 && n != heim && alle[&n] >= k("herkunft.namen_mindestens") as usize { *liga.entry(n).or_default() += 1; } } }
+        let summe: usize = liga.values().sum();
+        if summe == 0 { return heim; }
+        let mut x = zufall(&[schluessel, crate::id("land")]) * summe as f32;
+        liga.iter().find(|(_, &z)| { x -= z as f32; x < 0.0 }).map_or(heim, |(&n, _)| n)
+    }
     /// First and last names of real players of a nation (for new players of that country); empty without any.
     /// First and last names to combine (Fabian 23.11.: realistic, a large pool): every player of the nationality, else
     /// every player of the own league's clubs, else a built-in list. Duplicates removed.
@@ -74,8 +92,10 @@ impl Career {
         let teilen = |it: &mut dyn Iterator<Item = &crate::world::Player>| -> (Vec<String>, Vec<String>) {
             let (mut a, mut b): (Vec<String>, Vec<String>) = (vec![], vec![]);
             for p in it {
-                let t: Vec<&str> = p.name.split_whitespace().collect();
-                if t.len() >= 2 && t[0].chars().count() > 2 && !t[0].ends_with('.') { a.push(t[0].to_string()); b.push(t[t.len() - 1].to_string()); }
+                let mut t: Vec<&str> = p.name.split_whitespace().collect();
+                // "Chase Jr" is no surname: drop suffixes and initials at the end
+                while t.len() > 2 && t.last().map_or(false, |x| [crate::id("Jr"), crate::id("Jr."), crate::id("Junior"), crate::id("Sr"), crate::id("Sr."), crate::id("II"), crate::id("III")].contains(x) || x.chars().count() <= 2) { t.pop(); }
+                if t.len() >= 2 && t[t.len() - 1].chars().count() > 2 && ![crate::id("Jr"), crate::id("Jr."), crate::id("Junior"), crate::id("Sr"), crate::id("Sr."), crate::id("II"), crate::id("III")].contains(&t[t.len() - 1]) && t[0].chars().count() > 2 && !t[0].ends_with('.') { a.push(t[0].to_string()); b.push(t[t.len() - 1].to_string()); }
             }
             a.sort(); a.dedup(); b.sort(); b.dedup();
             (a, b)
@@ -125,8 +145,7 @@ impl Career {
         let u17 = self.world.clubs[self.own].squad.iter().filter(|&&p| self.world.players[p].youth == 17).count();
         n = n.min(self.akademie_plaetze().0.saturating_sub(u17));
         if n == 0 { return vec![]; }
-        let nat = self.world.land_nat(self.world.clubs[self.own].league);
-        let namen = self.namen_von(nat);
+        let mut namen: std::collections::HashMap<u16, (Vec<String>, Vec<String>)> = Default::default();
         let (gw, pt, jp, juwel) = (reihe("jahrgang.gw"), reihe("jahrgang.pot"), reihe("jahrgang.juwel_pot"), reihe("jahrgang.juwel"));
         let tw = reihe("jahrgang.torhueter");
         let torhueter = (tw[0] + (zufall(&[&s, "tw"]) * (tw[1] - tw[0] + 1.0)).floor()) as usize; // roh
@@ -145,7 +164,8 @@ impl Career {
             let merkmal = if mz < k("jahrgang.spaetzuender") { Some("spaetzuender") } else if mz < k("jahrgang.spaetzuender") + k("jahrgang.fruehentwickler") { Some("fruehentwickler") } else { None }; // roh
             if merkmal == Some("fruehentwickler") { ovr += 3.0; pot -= 2.0; } // roh
             if merkmal == Some("spaetzuender") { ovr -= 2.0; } // roh
-            let name = self.name_aus(&namen, &sk);
+            let nat = self.jugend_nat(self.own, &sk);
+            let name = self.name_aus(namen.entry(nat).or_insert_with(|| self.namen_von(nat)), &sk);
             let p = self.nachwuchs_anlegen(self.own, name, &pos, alter, ovr, pot.max(ovr + 2.0), nat, 17);
             if let Some(m) = merkmal { self.world.players[p].ent.merkmale.push(m.into()); }
             self.world.eigen.insert(self.world.players[p].id, self.club().id);
@@ -203,9 +223,10 @@ impl Career {
             }
             if rest == 0 { continue; }
             let bonus = match self.world.leagues[l].stufe { 1 => lb[0], 2 => lb[1], _ => 0.0 };
-            let nm = namen.entry(nat).or_insert_with(|| self.namen_von(nat)).clone();
             for i in 0..rest {
                 let sk = format!("{s}:{i}");
+                let nat = self.jugend_nat(c, &sk);
+                let nm = namen.entry(nat).or_insert_with(|| self.namen_von(nat)).clone();
                 let ovr = normal(&format!("{sk}:gw"), gw[0] + gw[1] * js + bonus, gw[2]).clamp(38.0, 75.0);
                 let pot = normal(&format!("{sk}:pot"), pt[0] + pt[1] * js, pt[2]).clamp(ovr + 2.0, 92.0);
                 let pos = ["GK", "CB", "CB", "LB", "RB", "DMF", "CMF", "AMF", "LWF", "RWF", "CF"][(zufall(&[&sk, "pos"]) * 11.0) as usize % 11]; // roh
@@ -492,7 +513,7 @@ mod tests {
     use super::*;
     #[test]
     fn jugend_hat_streuung() {
-        let w = World::load(include_str!("../assets/world.json"), 7);
+        let w = crate::world::testwelt(7);
         let c = Career::new(w, 0, "Test");
         let v: Vec<f32> = c.world.clubs[c.own].squad.iter().copied().filter(|&p| c.world.players[p].youth > 0).map(|p| c.world.players[p].ovr).collect();
         if v.len() >= 5 {
@@ -500,10 +521,25 @@ mod tests {
             let sd = (v.iter().map(|x| (x - m).powi(2)).sum::<f32>() / v.len() as f32).sqrt();
             assert!(sd > 2.0, "youth ratings spread: {v:?}");
         }
+        // few talents: most potentials stay below 80 (Fabian 24.11.: nearly all were 80–95)
+        let pot: Vec<f32> = c.world.clubs[c.own].squad.iter().copied().filter(|&p| c.world.players[p].youth > 0).map(|p| c.world.players[p].pot).collect();
+        assert!(pot.iter().filter(|&&x| x >= 80.0).count() * 4 <= pot.len(), "potentials: {pot:?}");
+    }
+    #[test]
+    fn jugend_herkunft_nach_ruf() {
+        let w = crate::world::testwelt(7);
+        let mut c = Career::new(w, 0, "Test");
+        // the built-in world has no countries: two thirds home (1), the rest from country 2
+        for (i, p) in c.world.players.iter_mut().enumerate() { p.nat = if i % 3 == 0 { 2 } else { 1 }; }
+        let heim = c.world.land_nat(c.world.clubs[0].league);
+        assert_eq!(heim, 1);
+        let mut anteil = |rep: f32| { c.world.clubs[0].rep = rep; (0..400).filter(|i| c.jugend_nat(0, &format!("h{i}")) != heim).count() as f32 / 400.0 };
+        let (klein, gross) = (anteil(0.0), anteil(100.0));
+        assert!(klein < 0.1 && gross > 0.2 && gross < 0.5, "foreigners small club {klein}, big club {gross}");
     }
     #[test]
     fn jugendnamen_wiederholen_sich_nicht() {
-        let w = World::load(include_str!("../assets/world.json"), 7);
+        let w = crate::world::testwelt(7);
         let c = Career::new(w, 0, "Test");
         let namen = c.namen_von(c.world.land_nat(c.league()));
         let v: Vec<String> = (0..200).map(|i| c.name_aus(&namen, &format!("t{i}"))).collect();
@@ -513,7 +549,7 @@ mod tests {
     }
     #[test]
     fn jugendstaerke_talenttag_absolventen_mentor() {
-        let w = World::load(include_str!("../assets/world.json"), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         // every club has a youth strength 1–10, a known academy sits high
         for cl in 0..c.world.clubs.len() { let j = c.jugendstaerke(cl); assert!((1.0..=10.0).contains(&j.wert), "{:?}", j); }

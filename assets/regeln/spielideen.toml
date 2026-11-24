@@ -1,0 +1,61 @@
+# Spielideen (Konzept taktiksystem.md 1.2): Startwerte der neun Regler (1–5, Mitte 3) und der vier Schalter. Änderbar.
+# Reihenfolge der Regler: tempo, passweg, seite, risiko, freiheit, pressing, haerte, linie, kompakt
+# Schalter: gegenpressing, absichern, abseitsfalle, zeitspiel
+[ideen.gegenpressing]
+regler = [4, 3, 3, 4, 3, 5, 4, 4, 4]
+schalter = [true, false, false, false]
+[ideen.ballbesitz]
+regler = [1, 1, 3, 2, 4, 3, 3, 4, 3]
+schalter = [false, true, false, false]
+[ideen.konter]
+regler = [5, 4, 3, 3, 2, 2, 3, 2, 4]
+schalter = [false, false, false, false]
+[ideen.mauern]
+regler = [4, 4, 3, 2, 1, 1, 4, 1, 5]
+schalter = [false, true, false, true]
+[ideen.fluegel]
+regler = [3, 3, 5, 3, 3, 3, 3, 3, 2]
+schalter = [false, false, false, false]
+[ideen.direkt]
+regler = [5, 5, 3, 4, 2, 3, 4, 3, 3]
+schalter = [false, false, false, false]
+[ideen.kontrolliert]
+regler = [3, 3, 3, 3, 3, 3, 3, 3, 3]
+schalter = [false, false, false, false]
+[ideen.tikitaka]
+regler = [1, 1, 2, 3, 5, 4, 3, 4, 4]
+schalter = [true, false, false, false]
+
+[wirkung]
+# zusätzliche Wirkung in der Simulation je Stufe über/unter der Mitte (Startwerte): eigene Torgefahr, Gegentore
+risiko_eigen = 0.03
+risiko_gegner = 0.02
+haerte_gegner = -0.015
+freiheit_technik_ab = 75       # mittlere Technik der Elf, ab der freie Rollen helfen
+freiheit_eigen = 0.02
+abseitsfalle_gegner = -0.03
+absichern_gegner = -0.03
+absichern_eigen = -0.02
+
+# Erweiterte Anweisungen (2 im Angriff, 2 in der Abwehr, Liste wie im Spiel): Wirkung in der Simulation, je Anweisung
+# [eigene Torgefahr, Gegentore] als Faktor-Zuschlag. Startwerte, änderbar. Ins Spiel geschrieben werden sie (noch) nicht.
+[anweisung]
+seitenlinie = [0.02, 0.0]
+falsche_neun = [0.02, 0.0]
+falsche_av = [0.01, -0.01]
+offensive_av = [0.03, 0.02]
+fluegelrotation = [0.02, 0.0]
+tikitaka = [0.02, -0.01]
+flankenziele = [0.02, 0.0]
+defensiv = [-0.02, -0.02]
+falscher_fluegel = [0.01, 0.0]
+anker = [-0.01, -0.02]
+strafraum = [-0.02, -0.03]
+tiefe_linie = [-0.02, -0.03]
+gegenpressing = [0.03, 0.02]
+enge_deckung = [0.0, -0.02]
+konterziel = [0.02, 0.01]
+fluegelverteidiger = [0.01, -0.01]
+# Formation mit Ball / gegen den Ball: je Angreifer mehr als in der Grundformation (mit Ball) bzw. je Verteidiger mehr (gegen den Ball)
+mit_ball_je_angreifer = 0.02
+gegen_ball_je_verteidiger = -0.02

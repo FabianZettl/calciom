@@ -157,3 +157,32 @@ internat_ab = 3                 # Akademie-Anlagenstufe mit Internat
 wackeln = 0.25                  # je Monat mit Reisen
 abbruch = 0.20                  # je Monat, wenn er wackelt und weiter reist
 erholen = 0.40                  # je Monat ohne Reisen
+
+# Faces of new players (gesichter.rs, Fabian 24.11.): a new player wears the appearance of a real player of his
+# nationality; with chance `andere` one of a country his family could come from (migration, not any country).
+[gesicht]
+andere = 0.12                   # share with the face of another nationality (Fabian: about 10–15 %)
+jung_bis = 24                   # prefer faces of players up to this age (no grey beards on a 17-year-old)
+bartlos_bis = 21                # new players up to this age get a face without a beard (FacialHairType 0); 0 = off
+# nationality → [[nationality, weight], …]; numbers as in nationen.json; countries without a line keep their own
+[gesicht.herkunft]
+210 = [[190, 4], [227, 2], [64, 2], [80, 2], [50, 1], [198, 1], [200, 1], [303, 1], [76, 1]]   # Deutschland
+204 = [[80, 3], [64, 2], [214, 2], [56, 1], [83, 1], [146, 1]]                                 # England
+208 = [[83, 3], [56, 2], [50, 2], [44, 2], [76, 2], [65, 2], [228, 1]]                         # Frankreich
+236 = [[76, 3], [144, 2], [148, 1], [149, 1], [152, 1], [83, 1]]                               # Spanien
+215 = [[80, 2], [83, 2], [64, 2], [144, 1], [146, 1], [76, 1], [229, 1]]                       # Italien
+224 = [[76, 4], [190, 2], [64, 1], [80, 1]]                                                    # Niederlande
+197 = [[76, 3], [50, 2], [190, 2], [56, 1], [80, 1]]                                           # Belgien
+228 = [[146, 4], [65, 1], [83, 1]]                                                             # Portugal
+238 = [[200, 2], [303, 2], [198, 2], [190, 1], [56, 1], [50, 1]]                               # Schweiz
+194 = [[190, 3], [198, 2], [303, 2], [200, 1], [80, 1]]                                        # Österreich
+237 = [[198, 2], [303, 2], [11, 1], [80, 1], [64, 1]]                                          # Schweden
+226 = [[80, 1], [64, 1], [69, 1], [11, 1]]                                                     # Norwegen
+203 = [[190, 2], [80, 1], [64, 1]]                                                             # Dänemark
+232 = [[214, 1], [80, 1], [64, 1]]                                                             # Schottland
+
+[herkunft]
+# Fabian 24.11.: not every young player is from the home country; chance of a foreigner = Grund + je Ruf² (Ruf 0–1),
+# the country drawn by how often it plays in the club's league
+ausland = [0.04, 0.30]
+namen_mindestens = 60           # only countries with at least this many players (enough real names)

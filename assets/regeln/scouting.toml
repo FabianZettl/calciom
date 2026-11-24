@@ -227,3 +227,27 @@ luecke_rot = 4.0                # Kaderlücke rot: bester Spieler der Gruppe so 
 # Datenpakete (Statistik 8.1): erweiterte Zahlen einer Liga für eine Saison; Preis = basis × (Ligastärke/70)³ × Geldskala. Änderbar.
 [datenpaket]
 basis = 250000
+
+# Suchprofile für Aufträge (Fabian 24.11.: "wir suchen eher Spielerprofile als ein Alter und eine Position").
+# gruppe = Positionsgruppe der Suche, zahlen = Kernzahlen dieser Gruppe (statistik.rs kernzahlen), die zählen.
+# Ein Spieler passt, wenn sein mittleres Perzentil in diesen Zahlen gegen seine Liga mindestens `profil_schwelle` ist.
+profil_schwelle = 55
+profil_liste = ["spielmacher", "abraeumer", "knipser", "fluegel", "sechser", "aufbau_av", "wie"]
+[profil.spielmacher]
+gruppe = "om"
+zahlen = ["xa", "schluesselpaesse"]
+[profil.abraeumer]
+gruppe = "iv"
+zahlen = ["tacklings", "abgefangen", "prog_paesse"]
+[profil.knipser]
+gruppe = "st"
+zahlen = ["xg", "schuesse", "strafraum"]
+[profil.fluegel]
+gruppe = "fl"
+zahlen = ["dribblings", "prog_laeufe", "xa"]
+[profil.sechser]
+gruppe = "dm"
+zahlen = ["tacklings", "abgefangen", "passquote"]
+[profil.aufbau_av]
+gruppe = "av"
+zahlen = ["prog_laeufe", "flanken", "xa"]

@@ -78,7 +78,7 @@ impl Career {
         match art {
             "verlaengern" => match self.open_neg(p) { Ok(_) => crate::inhalt::t("ui.sd.verhandlung_offen").into(), Err(e) => e },
             "leihen" => match self.leihe_abgeben(p) { Ok(()) => crate::inhalt::t("ui.leihe.auf_liste").into(), Err(e) => e },
-            _ => { self.world.players[p].listed = true; crate::inhalt::t("ui.sd.gelistet").into() }
+            _ => match self.verkauf_gesperrt(p) { Some(g) => g, None => { self.world.players[p].listed = true; crate::inhalt::t("ui.sd.gelistet").into() } }
         }
     }
 }
@@ -89,7 +89,7 @@ mod tests {
     /// A good talk comes, is answered, and the same talk does not come back for that player in the season.
     #[test]
     fn gute_gespraeche_ohne_wiederholung() {
-        let w = crate::world::World::load(include_str!("../assets/world.json"), 5);
+        let w = crate::world::testwelt(5);
         let mut c = Career::new(w, 1, "Test");
         let mut zahl = std::collections::HashMap::<String, usize>::new();
         for _ in 0..200 {

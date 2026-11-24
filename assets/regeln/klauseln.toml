@@ -57,3 +57,15 @@ faktor = 1.7
 # KI-Vereine ziehen Klauseln anderer KI-Vereine: Chance je Spieler und Woche im offenen Fenster, höchstens so viele je Woche (PES M)
 chance_woche = 0.05
 je_woche = 3
+
+[raten]
+# Ablöse in Raten (Fabian 24.11., änderbar): 0 = sofort, 1 = zwei Raten (heute und zum nächsten Saisonstart), 2 = drei Raten.
+# Der Verkäufer rechnet spätes Geld mit diesem Abschlag (Anteil der ganzen Ablöse) ab; der Käufer spart ihn.
+abschlag = [0.0, 0.06, 0.11]
+
+[bonus]
+# Erfolgsbonus auf die Ablöse (Anteil der Ablöse), fällig nach so vielen Pflichtspielen für den neuen Verein.
+stufen = [0.0, 0.10, 0.20]
+einsaetze = 25
+# so wahrscheinlich hält der Verkäufer es, dass der Bonus fällig wird (zählt so viel wie sicheres Geld)
+erwartung = 0.45

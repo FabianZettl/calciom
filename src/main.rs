@@ -2,6 +2,8 @@
 /// An identifier in the code (compared, stored, looked up), never shown and never translated.
 pub const fn id(s: &'static str) -> &'static str { s }
 mod update;
+mod netzbilder;
+mod sofifa;
 mod kalibrieren;
 mod zufall_ereignis;
 mod gutgespraech;
@@ -16,6 +18,8 @@ mod live;
 mod livespiel;
 mod pool;
 mod vereinsfuehrung;
+mod taktik9;
+mod transferki;
 mod spielgefuehl;
 mod klauseln;
 mod ehrungen;
@@ -61,6 +65,7 @@ mod musik;
 mod krise;
 mod trainingsplan;
 mod jugend;
+mod gesichter;
 mod scoutbericht;
 mod statistik;
 mod auftraege;
@@ -213,7 +218,7 @@ fn verein_info(ui: &mut Ui, r: Rect, w: &world::World, t: usize, zoom: &mut f32,
     let k = crate::geo::karte(ui, kr, w, &lg.teams, Some(t), zoom, off);
     // the stadium photo in the room left below the map
     let unten = r.y + r.h - 8.0 - (kr.y + kr.h + 8.0);
-    if unten > 100.0 { ui.stadion_bild(Rect::new(r.x + 8.0, kr.y + kr.h + 8.0, r.w - 16.0, unten.min(r.w * 0.5)), cl.id); }
+    if unten > 100.0 { ui.stadion_bild(Rect::new(r.x + 8.0, kr.y + kr.h + 8.0, r.w - 16.0, unten.min(r.w * 0.5)), cl.id, &cl.name); }
     k
 }
 
@@ -312,7 +317,7 @@ impl App {
         ] {
             sfx.push((n.to_string(), macroquad::audio::load_sound_from_bytes(b).await.ok()));
         }
-        let ui = Ui { head, body, semi, mouse: Vec2::ZERO, clicked: false, released_consumed: false, wheel: 0.0, time: 0.0, typed: vec![], key_back: false, key_enter: false, sfx, sound_queue: vec![], hover_any: false, tooltip: Default::default(), rahmen: Default::default(), foto_orte: Default::default(), inject_click: None, crests: Default::default(), lautstaerke: pages::klang_lesen(), wappen_farben: Default::default(), bilder: Default::default(), bilder_fuer: None, logos: Default::default(), fotos: Default::default(), stadien: Default::default(), foto_budget: std::cell::Cell::new(6) };
+        let ui = Ui { head, body, semi, mouse: Vec2::ZERO, clicked: false, released_consumed: false, wheel: 0.0, time: 0.0, typed: vec![], key_back: false, key_enter: false, sfx, sound_queue: vec![], hover_any: false, tooltip: Default::default(), rahmen: Default::default(), foto_orte: Default::default(), wappen_orte: Default::default(), inject_click: None, crests: Default::default(), lautstaerke: pages::klang_lesen(), wappen_farben: Default::default(), bilder: Default::default(), bilder_fuer: None, logos: Default::default(), fotos: Default::default(), stadien: Default::default(), foto_budget: std::cell::Cell::new(6), netz: Default::default(), nachweise: Default::default() };
         let default_db = fl27::welt_ordner(&fl27::sider()).display().to_string();
         App {
             ui, v: View::new(), screen: Screen::Start,
@@ -343,7 +348,7 @@ impl App {
         self.ui.bilder_fuer_welt(welt);
         self.handy_bearbeiten();
         match self.screen {
-            Screen::Start => self.start_screen(),
+            Screen::Start => { self.start_screen(); self.ui.nachweise_zeichnen(); }
             Screen::Game => self.game_screen(),
         }
         self.ui.flush_sounds();
@@ -960,13 +965,15 @@ impl App {
         let feier_offen = !c.feiern.is_empty() || !c.auslosungen.is_empty();
         let modal_open = v.modal != Modal::None || feier_offen;
         // an open right-click menu takes the clicks like a window (but without darkening the page)
-        let kontext_offen = v.kontext.is_some();
+        let kontext_offen = v.kontext.is_some() || v.verein_kontext.is_some();
         let saved_click = ui.clicked;
         if modal_open || kontext_offen { ui.clicked = false; }
         draw_page(ui, v, c);
         // a right click on a player row opens his menu (the nearest photo in the row)
         if is_mouse_button_pressed(MouseButton::Right) && v.modal == Modal::None {
             if let Some(id) = ui.foto_unter_maus() { if let Some(p) = c.world.players.iter().position(|x| x.id == id) { v.kontext = Some((p, ui.mouse)); } }
+            // else a club row (its crest): the club's menu
+            else if let Some(id) = ui.wappen_unter_maus() { if let Some(k) = c.world.clubs.iter().position(|x| x.id == id) { v.verein_kontext = Some((k, ui.mouse)); } }
         }
         // guided first week: looking at the squad and handing in the line-up are steps
         match v.page { Page::Kader => c.erste_woche_schritt(0), Page::Aufstellung => c.erste_woche_schritt(2), _ => {} }
@@ -978,7 +985,7 @@ impl App {
         let weiter = Self::top_bar(ui, v, c);
         Self::sidebar(ui, v, c);
         ui.rahmen.borrow_mut().clear();
-        if v.modal == Modal::None && kontext_offen { ui.clicked = saved_click; pages::kontext_menue(ui, v, c); }
+        if v.modal == Modal::None && kontext_offen { ui.clicked = saved_click; pages::kontext_menue(ui, v, c); pages::verein_kontext_menue(ui, v, c); }
         if feier_offen {
             ui.clicked = saved_click;
             if c.feiern.is_empty() { pages::auslosung_overlay(ui, v, c); } else { pages::feier_overlay(ui, v, c); }
@@ -990,6 +997,7 @@ impl App {
                 Modal::Aktionen(p) => player_modal(ui, v, c, p),
                 Modal::Neg(i) => neg_modal(ui, v, c, i),
                 Modal::Suche => pages::suche_overlay(ui, v, c),
+                Modal::Spielplan(k) => pages::spielplan_modal(ui, v, c, k),
                 Modal::None => {}
             }
         }
@@ -1004,6 +1012,7 @@ impl App {
             }
         }
         crate::pages::wirkung_karte(ui, c);
+        ui.nachweise_zeichnen();
         // the full text of a cut text under the mouse (text_passend, buttons)
         let tipp = ui.tooltip.borrow().clone();
         if let Some(t) = tipp {
@@ -1157,8 +1166,21 @@ impl App {
             }
             y += 10.0;
         }
+        // music on: next-song button and the title playing now, above settings and match day (Fabian 24.11.)
+        let musik_an = !musik::url().is_empty();
+        if musik_an {
+            let y = hoehe() - 130.0;
+            let b = Rect::new(10.0, y, 28.0, 28.0);
+            rrect(b.x, b.y, b.w, b.h, 14.0, if ui.hover(b) { Theme::verein() } else { Theme::erhoehung() });
+            draw_triangle(vec2(b.x + 8.0, b.y + 8.0), vec2(b.x + 8.0, b.y + 20.0), vec2(b.x + 17.0, b.y + 14.0), Theme::text());
+            draw_rectangle(b.x + 18.0, b.y + 8.0, 2.5, 12.0, Theme::text());
+            if ui.hit(b) { musik::weiter(); }
+            let t = musik::titel();
+            ui.text(crate::inhalt::t("ui.musik.jetzt"), 46.0, y + 10.0, 11.0, Theme::gedaempft());
+            ui.text(&ui.fit(if t.is_empty() { "…" } else { &t }, 14.0, sw - 56.0), 46.0, y + 26.0, 14.0, Theme::text2());
+        }
         if c.today_match().is_some() {
-            let r = Rect::new(10.0, hoehe() - 150.0, sw - 20.0, 44.0);
+            let r = Rect::new(10.0, hoehe() - if musik_an { 182.0 } else { 150.0 }, sw - 20.0, 44.0);
             rrect(r.x, r.y, r.w, r.h, 12.0, Theme::verein());
             ui.title(crate::inhalt::t("ui.main.heute_spieltag"), r.x + 14.0, r.y + 29.0, 20.0, Theme::verein_auf());
             if ui.hit(r) { v.go(Page::Spieltag); }
@@ -1189,6 +1211,13 @@ impl App {
             if badge > 0 { draw_circle(r.x + r.w - 6.0, r.y + 6.0, 5.0, Theme::problem()); }
             if ui.hover(r) { let tw = ui.measure_semi(crate::inhalt::t(g), 14.0); rrect(sw + 6.0, r.y + 6.0, tw + 20.0, 28.0, 6.0, Theme::flaeche()); rrect_line(sw + 6.0, r.y + 6.0, tw + 20.0, 28.0, 6.0, Theme::linie()); ui.text_semi(crate::inhalt::t(g), sw + 16.0, r.y + 25.0, 14.0, Theme::text()); }
             if ui.hit(r) { let h = &hs[0]; let p = v.reiter_merk.get(h.0).copied().filter(|p| reiter(*h, c).iter().any(|x| x.0 == *p)).unwrap_or(h.1[0].0); v.go(p); }
+        }
+        if !musik::url().is_empty() {
+            let b = Rect::new(mx - 14.0, hoehe() - 124.0, 28.0, 28.0);
+            rrect(b.x, b.y, b.w, b.h, 14.0, if ui.hover(b) { Theme::verein() } else { Theme::erhoehung() });
+            draw_triangle(vec2(b.x + 8.0, b.y + 8.0), vec2(b.x + 8.0, b.y + 20.0), vec2(b.x + 17.0, b.y + 14.0), Theme::text());
+            draw_rectangle(b.x + 18.0, b.y + 8.0, 2.5, 12.0, Theme::text());
+            if ui.hit(b) { musik::weiter(); }
         }
         for (i, p) in [Page::Optionen, Page::Spieltag].iter().enumerate() {
             let r = Rect::new(6.0, hoehe() - 86.0 + i as f32 * 40.0, sw - 12.0, 34.0);
@@ -1414,6 +1443,8 @@ async fn main() {
         if let Ok(t) = std::env::var("PESM_REITER") { app.v.tab = t.parse().unwrap_or(0); }
         // PESM_RAD=1: the percentile wheel on the statistics tab
         if std::env::var("PESM_RAD").is_ok() { crate::pages::stat_rad_an(); }
+        // PESM_STAT_FENSTER=<area>:<row>: the league ranking of that number open (needs PESM_SPIELER)
+        if let (Ok(t), Some(p)) = (std::env::var("PESM_STAT_FENSTER"), app.v.sel_player) { if let Some((b, z)) = t.split_once(':') { crate::pages::stat_fenster_auf(p, b.parse().unwrap_or(0), z.parse().unwrap_or(0)); } }
         // PESM_AUSWAHL=<n>: that choice field open; PESM_LEISTE=zu|alle: side bar folded in or all groups open
         if let Ok(t) = std::env::var("PESM_AUSWAHL") { app.v.auswahl = t.parse().ok(); }
         match std::env::var("PESM_LEISTE").as_deref() { Ok("zu") => pages::SEITENLEISTE_ZU.store(true, std::sync::atomic::Ordering::Relaxed), Ok("alle") => app.v.menu_alle = true, _ => {} }
@@ -1460,6 +1491,10 @@ async fn main() {
         // PESM_VERHANDLUNG=<name>: the contract talks with that own player open (clauses, Punkt 6); PESM_VERKAUF=1: a sale of him
         if let Ok(n) = std::env::var("PESM_VERHANDLUNG") {
             let c = app.career.as_mut().unwrap();
+            // another club's player: the purchase talks (fee stage)
+            if !c.squad().into_iter().any(|p| c.world.players[p].name.contains(&n)) {
+                if let Some(p) = (0..c.world.players.len()).find(|&p| c.world.players[p].team >= 0 && c.world.players[p].name.contains(&n)) { match c.open_neg(p) { Ok(k) => app.v.modal = pages::Modal::Neg(k), Err(e) => eprintln!("open_neg: {e}") } }
+            }
             if let Some(p) = c.squad().into_iter().find(|&p| c.world.players[p].name.contains(&n)) {
                 let k = if std::env::var("PESM_VERKAUF").is_ok() {
                     let kaeufer = (0..c.world.clubs.len()).find(|&k| k != c.own && c.world.erste_von(k).is_none()).unwrap_or(0);
@@ -1481,8 +1516,13 @@ async fn main() {
             if c.today_match().is_some() {
                 let res = c.prepare_match(None);
                 let ende = t == crate::id("ende");
-                let mut mv = pages::MatchView { res: res.clone(), minute: t.parse().unwrap_or(90.0), speed: if ende { 1.0 } else { 0.0 }, phase: if ende { 2 } else { 1 }, ended_at: 0.0, manual: (0, 0), manual_open: false, halbzeit: 2, wirkung: vec![], nach_gesagt: false, angesprochen: vec![], eingriff: Default::default(), vorlauf: 3, vor_pause: 1.0 };
+                let mut mv = pages::MatchView { res: res.clone(), minute: t.parse().unwrap_or(90.0), speed: if ende { 1.0 } else { 0.0 }, phase: if ende { 2 } else { 1 }, ended_at: 0.0, manual: (0, 0), manual_open: false, halbzeit: 2, wirkung: vec![], nach_gesagt: false, angesprochen: vec![], eingriff: Default::default(), vorlauf: 3, vor_pause: 1.0, duell: vec![], parallel: vec![] };
 
+                mv.parallel = c.parallel_spielen();
+                // PESM_NACH_REITER=1: the matchday view after the match
+                mv.eingriff.nach_reiter = std::env::var("PESM_NACH_REITER").ok().and_then(|x| x.parse().ok()).unwrap_or(0);
+                // PESM_LIVE_REITER=<0|1|2>: that menu on the right
+                mv.eingriff.reiter = std::env::var("PESM_LIVE_REITER").ok().and_then(|x| x.parse().ok()).unwrap_or(0);
                 if ende { c.apply_own_match(res); c.press = None; if let Some(r) = c.last_result.clone() { mv.res = r; } }
                 app.v.mv = Some(mv);
                 app.v.go(Page::Spieltag);

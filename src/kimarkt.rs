@@ -120,22 +120,29 @@ impl Career {
                     let (status, grund, gewicht): (Status, &'static str, f32) =
                         if top && pl.contract_end > season { (Status::Unverkaeuflich, "", 0.0) }
                         else if rang < SOLL[i].0 { (Status::Stamm, "", 0.0) }
-                        else if pl.age <= 22 && pl.pot >= pl.ovr + 4.0 && pl.apps < 5 && self.world.day > 60 { (Status::Leihliste, crate::id("praxis"), 3.0) }
+                        // young players behind the starters go out on loan for minutes, from the summer on (Fabian 24.11.:
+                        // "after two weeks only one player on the loan list"): no waiting for half a season
+                        else if pl.age <= 22 && pl.pot >= pl.ovr + 3.0 && (pl.apps < 5 || self.world.day < 60) { (Status::Leihliste, crate::id("praxis"), 3.0) }
                         else if rang >= SOLL[i].0 + SOLL[i].1 && pl.age >= 24 { (Status::Transferliste, crate::id("kein_platz"), 3.0) }
                         else if pl.age >= 31 && pl.contract_end <= season { (Status::Transferliste, crate::id("alter_vertrag"), 2.0) }
                         else if gehalt.iter().position(|&x| x == p).unwrap_or(99) + 8 < stark.iter().position(|&x| x == p).unwrap_or(0) { (Status::Transferliste, crate::id("zu_teuer"), 1.5) }
                         // a club in debt sells a good player who is not one of its best three
                         else if self.world.clubs[c].balance < 0.0 && !top && rang < SOLL[i].0 + 1 && pl.value > 1e6 { (Status::Transferliste, crate::id("geldnot"), 2.5) }
-                        else if rang >= SOLL[i].0 && pl.age <= 23 && pl.apps < 3 && self.world.day > 30 { (Status::Leihliste, crate::id("praxis"), 1.0) }
+                        else if rang >= SOLL[i].0 && pl.age <= 24 && pl.apps < 6 { (Status::Leihliste, crate::id("praxis"), 1.5) }
+                        // surplus beyond the planned depth who is not wanted on the transfer list: on loan
+                        else if rang >= SOLL[i].0 + SOLL[i].1 && pl.age <= 27 { (Status::Leihliste, crate::id("kein_platz"), 1.0) }
                         else { (Status::Abgebbar, "", 0.0) };
                     liste.push((p, status, grund, gewicht));
                 }
             }
-            // gemäßigt: at most 15 % of the squad on a list, the strongest reasons first
-            let max = ((n as f32) * 0.15).ceil() as usize;
-            let mut auf: Vec<&mut (usize, Status, &'static str, f32)> = liste.iter_mut().filter(|x| matches!(x.1, Status::Transferliste | Status::Leihliste)).collect();
-            auf.sort_by(|a, b| b.3.partial_cmp(&a.3).unwrap());
-            for x in auf.into_iter().skip(max) { x.1 = Status::Abgebbar; x.2 = ""; }
+            // gemäßigt: at most 15 % of the squad on the transfer list and 20 % on the loan list (each its own cap, so
+            // the sales do not crowd out the loans), the strongest reasons first
+            for (art, anteil) in [(Status::Transferliste, 0.15f32), (Status::Leihliste, 0.20)] {
+                let max = ((n as f32) * anteil).ceil() as usize;
+                let mut auf: Vec<&mut (usize, Status, &'static str, f32)> = liste.iter_mut().filter(|x| x.1 == art).collect();
+                auf.sort_by(|a, b| b.3.partial_cmp(&a.3).unwrap());
+                for x in auf.into_iter().skip(max) { x.1 = Status::Abgebbar; x.2 = ""; }
+            }
             for (p, s, gr, _) in liste {
                 self.world.players[p].listed = s == Status::Transferliste;
                 neu.push(MarktStatus { p, status: s, grund: gr.to_string() });
@@ -179,9 +186,12 @@ impl Career {
         let pl = &self.world.players[p];
         let von = pl.team;
         if von < 0 || von as usize == c || von as usize == self.own || pl.youth > 0 || pl.leihe.is_some() || pl.inj >= 28 { return None; }
-        if self.abs().saturating_sub(pl.joined) < 150 && pl.joined > 0 { return None; }
+        if self.verkauf_gesperrt(p).is_some() { return None; }
         if preis > budget { return None; }
         if self.kaderregel_verstoss(c, p).is_some() { return None; }
+        // the corridor between the leagues and the player's market radius (transferki.rs, Fabian 24.11.)
+        let korridor = crate::transferki::faktor(&self.world, p, c);
+        if korridor <= 0.0 { return None; }
         let ruf = self.player_rep(p);
         if ruf > self.vereins_prestige(c) + 20.0 && pl.age < 31 { return None; }
         let von = von as usize;
@@ -215,7 +225,7 @@ impl Career {
         let status = match st { Some(Status::Transferliste) => 1.0, Some(Status::Abgebbar) | None => 0.6, Some(Status::Leihliste) => 0.5, Some(Status::Stamm) => 0.2, Some(Status::Unverkaeuflich) => 0.0 };
         let machbar = (1.0 - (ruf - self.vereins_prestige(c)).max(0.0) / 40.0) * status;
         let kennt = self.bekannt(c, von);
-        Some(100.0 * (0.30 * staerke + 0.20 * philo + 0.20 * geld + 0.15 * machbar + 0.15 * kennt))
+        Some(100.0 * (0.30 * staerke + 0.20 * philo + 0.20 * geld + 0.15 * machbar + 0.15 * kennt) * korridor.min(1.2))
     }
 
     /// Asking price of the seller by status (konzept 1.5): transfer list 85 %, open 100 %, regular 130 % of the value.
@@ -231,6 +241,8 @@ impl Career {
         // the clubs review their squads all year (lists are never empty), they only buy in a window (Fabian 23.11.)
         if self.marktstatus.is_empty() || (abs % 7 == 0) { self.marktstatus_pruefen(); }
         self.anbahnungen_abschliessen();
+        self.strom_log.clear();
+        self.strom_tag();
         if self.in_window().is_none() { return; }
         let tag = abs.to_string();
         let status: std::collections::HashMap<usize, Status> = self.marktstatus.iter().map(|m| (m.p, m.status)).collect();
@@ -351,7 +363,7 @@ impl Career {
         let k = |x: &str| crate::regeln::f("transfers", &format!("deadline.{x}"));
         // a late bid: clubs that missed out pay more
         if zufall(&[&s, crate::id("gebot")]) < k("gebot_chance") {
-            let kand: Vec<usize> = self.squad().into_iter().filter(|&p| { let pl = &self.world.players[p]; pl.ovr >= 55.0 && pl.leihe.is_none() && !self.inbox.iter().any(|m| !m.done && matches!(m.action, Action::TransferOffer { pid, .. } if pid == p)) }).collect();
+            let kand: Vec<usize> = self.squad().into_iter().filter(|&p| { let pl = &self.world.players[p]; pl.ovr >= 55.0 && self.verkauf_gesperrt(p).is_none() && !self.inbox.iter().any(|m| !m.done && matches!(m.action, Action::TransferOffer { pid, .. } if pid == p)) }).collect();
             if !kand.is_empty() {
                 let p = kand[(zufall(&[&s, crate::id("wer")]) * kand.len() as f32) as usize % kand.len()];
                 let (ovr, value) = (self.world.players[p].ovr, self.world.players[p].value);
@@ -492,7 +504,7 @@ impl Career {
             if raus != p && !self.marktstatus.iter().any(|x| x.p == raus) {
                 let jung = self.world.players[raus].age <= 23;
                 self.marktstatus.push(MarktStatus { p: raus, status: if jung { Status::Leihliste } else { Status::Transferliste }, grund: crate::id("verdraengt").into() });
-                if !jung { self.world.players[raus].listed = true; }
+                if !jung && self.verkauf_gesperrt(raus).is_none() { self.world.players[raus].listed = true; }
             }
         }
         let (nm, bn, sn, pos) = (self.world.players[p].name.clone(), self.world.clubs[nach].name.clone(), self.world.clubs[von].name.clone(), pos_de(&self.world.players[p].pos).to_string());
@@ -612,13 +624,13 @@ mod tests {
         let b = c.bedarf(k);
         assert_eq!(b.first().map(|x| (x.0, x.2)), Some((0, "leer")), "{b:?}");
         assert!(b.len() <= 4);
-        // the weekly review: lists with reasons, at most 15 % of a squad
+        // the weekly review: lists with reasons, at most 15 % of a squad on the transfer list and 20 % on the loan list
         c.marktstatus_pruefen();
         for k in 0..c.world.clubs.len() {
             if k == c.own || !c.detailliert(k) { continue; }
-            let n = c.world.clubs[k].squad.len();
-            let auf = c.marktstatus.iter().filter(|s| c.world.players[s.p].team == k as i32 && matches!(s.status, Status::Transferliste | Status::Leihliste)).count();
-            assert!(auf as f32 <= (n as f32 * 0.15).ceil(), "{auf} von {n}");
+            let n = c.world.clubs[k].squad.len() as f32;
+            let zahl = |st: Status| c.marktstatus.iter().filter(|s| c.world.players[s.p].team == k as i32 && s.status == st).count() as f32;
+            assert!(zahl(Status::Transferliste) <= (n * 0.15).ceil() && zahl(Status::Leihliste) <= (n * 0.20).ceil(), "too many listed at {k} of {n}");
         }
         assert!(c.marktstatus.iter().all(|s| !matches!(s.status, Status::Transferliste | Status::Leihliste) || !s.grund.is_empty()), "jede Liste hat einen Grund");
     }

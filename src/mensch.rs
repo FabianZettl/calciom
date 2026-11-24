@@ -311,6 +311,12 @@ impl Career {
             if pl.ps.an { continue; }
             let perz = alle.partition_point(|&x| x < pl.ovr) as f32 / n * 100.0;
             pl.ps.ch = charakter(pl.id, pl.age, perz);
+            // SoFIFA emotion: temperament and nerves lean to it (very calm … explosive)
+            if (1..=5).contains(&pl.profil.emotion) && pl.profil.emotion != 3 {
+                let k = pl.profil.emotion as usize - 1;
+                pl.ps.ch[TEMPERAMENT] = 0.4 * pl.ps.ch[TEMPERAMENT] + 0.6 * [10.0, 28.0, 50.0, 72.0, 90.0][k];
+                pl.ps.ch[NERVEN] = (pl.ps.ch[NERVEN] + [10.0, 5.0, 0.0, -5.0, -10.0][k]).clamp(0.0, 100.0);
+            }
             pl.ps.sh = vec![0.0; 10];
             pl.ps.shm = vec![0.0; 10];
             pl.ps.sv = f("entwicklung", "selbstvertrauen.neutral");
@@ -919,7 +925,7 @@ impl Career {
                 let p = bezug[0];
                 if self.world.players[p].team != self.own as i32 { return crate::inhalt::t("ui.mensch.er_ist_nicht_mehr_bei").into(); }
                 let d = self.gespraech(p, sub, key);
-                if sub == crate::id("zukunft") && key == crate::id("freigabe") { self.world.players[p].listed = true; }
+                if sub == crate::id("zukunft") && key == crate::id("freigabe") && self.verkauf_gesperrt(p).is_none() { self.world.players[p].listed = true; }
                 crate::tf!("ui.mensch.wirkt", self.world.players[p].name, Self::mimik(d))
             }
             "konflikt" => {
@@ -1192,7 +1198,7 @@ impl Career {
 mod tests {
     use super::*;
     fn karriere() -> Career {
-        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let own = w.clubs.iter().position(|c| c.name.contains("Sunderland")).unwrap_or(0);
         Career::new(w, own, "Test")
     }
@@ -1226,7 +1232,7 @@ mod tests {
 
     #[test]
     fn vorfaelle_selten_und_abwechslungsreich() {
-        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 1, "Test");
         c.psyche_an();
         for p in c.squad() { c.world.players[p].ps.ch[PROF] = 10.0; } // worst case: a squad of slackers
@@ -1334,7 +1340,8 @@ mod tests {
     #[test]
     fn jede_wirkung_hat_grund() {
         // guard (Grundsatz 1): fans, media and board confidence are only written here, through klima()
-        for (name, src) in [("game.rs", include_str!("game.rs")), ("pages.rs", include_str!("pages.rs")), ("world.rs", include_str!("world.rs"))] {
+        let seiten: Vec<(String, String)> = std::fs::read_dir(concat!(env!("CARGO_MANIFEST_DIR"), "/src/pages")).unwrap().map(|e| e.unwrap().path()).map(|p| (format!("pages/{}", p.file_name().unwrap().to_string_lossy()), std::fs::read_to_string(&p).unwrap())).collect();
+        for (name, src) in [("game.rs", include_str!("game.rs")), ("world.rs", include_str!("world.rs"))].into_iter().chain(seiten.iter().map(|(n, s)| (n.as_str(), s.as_str()))) {
             for pat in ["self.fans =", "self.media =", "c.fans =", "c.media =", ".vorstand ="] {
                 assert!(!src.contains(pat), "{name} writes `{pat}` without a reason");
             }

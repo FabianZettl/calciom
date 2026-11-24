@@ -213,7 +213,7 @@ mod tests {
     use super::*;
     #[test]
     fn woche_monat_saison() {
-        let w = crate::world::World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let own = w.clubs.iter().position(|c| c.name.contains("Arsenal")).unwrap_or(0); // roh
         let mut c = Career::new(w, own, "Test"); // roh
         for _ in 0..70 {

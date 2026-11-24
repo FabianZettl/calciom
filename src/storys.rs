@@ -236,12 +236,11 @@ impl Career {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::world::World;
     #[test]
     fn regeln_und_texte_aus_der_vorlage() {
         assert_eq!(daten().regeln.len(), 78);
         assert!(daten().texte.len() > 400);
-        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         c.psyche_an();
         let t = c.story_text("wenig_spielzeit_stammkraft.text", Some(c.squad()[0]), "x");

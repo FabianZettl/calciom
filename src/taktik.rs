@@ -104,7 +104,7 @@ impl Career {
         let st = crate::mensch::kaderstaerke(&self.world, g) - crate::mensch::kaderstaerke(&self.world, self.own);
         zeilen.push(crate::tf!("scouting.staerke", if st >= 3.0 { crate::inhalt::t("ui.taktik.klar_staerker_als_wir") } else if st >= 1.0 { crate::inhalt::t("ui.taktik.etwas_staerker") } else if st <= -3.0 { crate::inhalt::t("ui.taktik.klar_schwaecher_als_wir") } else if st <= -1.0 { crate::inhalt::t("ui.taktik.etwas_schwaecher") } else { crate::inhalt::t("ui.world.auf_augenhoehe") }));
         let table = self.world.table(self.world.clubs[g].league);
-        if let Some(r) = table.iter().find(|r| r.club == g) { zeilen.push(crate::tf!("ui.taktik.form_platz", r.form.iter().collect::<String>(), table.iter().position(|x| x.club == g).unwrap() + 1)); }
+        if let Some(r) = table.iter().find(|r| r.club == g) { zeilen.push(crate::tf!("ui.taktik.form_platz", r.form.iter().map(|ch| crate::inhalt::t(&format!("ui.form.{ch}"))).collect::<String>(), table.iter().position(|x| x.club == g).unwrap() + 1)); }
         let stil = match self.world.clubs[g].style { -1 => crate::inhalt::t("ui.taktik.steht_tief_und_kontert"), 1 => crate::inhalt::t("ui.taktik.spielt_offensiv_nach_vorn"), _ => crate::inhalt::t("ui.taktik.spielt_ausgewogen") };
         zeilen.push(crate::tf!("ui.taktik.spielweise", gn, stil));
         let mut beste: Vec<usize> = self.world.clubs[g].squad.iter().copied().filter(|&p| self.world.players[p].youth == 0 && self.world.players[p].available()).collect();
@@ -162,10 +162,10 @@ impl Career {
         let m = merkmale(&self.world, self.own);
         let get = |k: &str| m.iter().find(|x| x.0 == k).and_then(|x| x.1);
         let ausdauer = mittel(xi.iter().map(|(_, p, _)| faehig(&self.world.players[*p], &[AUSDAUER])).collect());
-        if self.tactic.pressing >= 1 && ausdauer.map_or(false, |a| a < 68.0) { v.push(crate::inhalt::t("ui.taktik.hohes_pressing_kostet_kraft_die").into()); }
+        if self.tactic.pressing == 0 && ausdauer.map_or(false, |a| a < 68.0) { v.push(crate::inhalt::t("ui.taktik.hohes_pressing_kostet_kraft_die").into()); }
         if self.tactic.linie >= f("gegner", "schwelle.linie_hoch") as i32 && get("tempo_abwehr").map_or(false, |t| t < f("gegner", "schwelle.iv_tempo_schwach")) { v.push(crate::inhalt::t("ui.taktik.die_hohe_abwehrlinie_ist_riskant").into()); }
-        if self.tactic.aufbau == 0 && get("technik_zentrum").map_or(false, |t| t < 68.0) { v.push(crate::inhalt::t("ui.taktik.kurzpassspiel_verlangt_technik_im_zentru").into()); }
-        if get("tempo_aussen").map_or(false, |t| t >= f("gegner", "schwelle.tempo_hoch")) && self.tactic.breite == 0 { v.push(crate::inhalt::t("ui.taktik.wir_haben_schnelle_aussen_breiter").into()); }
+        if self.tactic.aufbau == 1 && get("technik_zentrum").map_or(false, |t| t < 68.0) { v.push(crate::inhalt::t("ui.taktik.kurzpassspiel_verlangt_technik_im_zentru").into()); }
+        if get("tempo_aussen").map_or(false, |t| t >= f("gegner", "schwelle.tempo_hoch")) && self.tactic.breite == 1 { v.push(crate::inhalt::t("ui.taktik.wir_haben_schnelle_aussen_breiter").into()); }
         for (k, (slot, p, _)) in xi.iter().enumerate() {
             let Some(r) = self.std.rollen.iter().find(|x| x.0 == k).map(|x| x.1.clone()) else { continue };
             let _ = slot;
@@ -254,7 +254,7 @@ mod tests {
     use super::*;
     #[test]
     fn gegnerbericht_und_urteil() {
-        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         let (_, z) = c.gegnerbericht().expect("a next match");
         assert!(z.iter().any(|l| l.starts_with("Plan:")));
@@ -278,5 +278,122 @@ mod tests {
         c.vorlage_laden(0);
         assert_ne!(c.tactic.pressing, 2);
         assert!(c.schuetze(0).is_some());
+    }
+}
+
+/// One thing the assistant coach suggests against the next opponent, ready to apply with one click (Fabian 24.11.).
+#[derive(Clone, Copy, PartialEq, Debug)]
+pub enum Vorschlag { Angriff(u8), Aufbau(u8), Breite(u8), Pressing(u8), Linie(i32), Tausch(usize, usize) }
+
+impl Career {
+    /// The opponent of the next match, if there is one.
+    pub fn naechster_gegner(&self) -> Option<usize> { let f_ = self.next_match()?; Some(if f_.h == self.own { f_.a } else { f_.h }) }
+    /// Season figures of a club in its league per match: goals for, against, points, xG, shots, pass accuracy, tackles.
+    pub fn verein_zahlen(&self, club: usize) -> [f32; 7] {
+        use crate::statistik as sx;
+        let l = self.world.clubs[club].league;
+        let tab = self.world.table(l);
+        let Some(row) = tab.iter().find(|r| r.club == club) else { return [0.0; 7] };
+        let sp = row.p.max(1) as f32;
+        let mut st = [0f64; 4];
+        for &p in &self.world.clubs[club].squad { let s = self.world.players[p].in_liga(l).st; st[0] += sx::get(&s, sx::XG) as f64 / 1000.0; st[1] += sx::get(&s, sx::SCHUESSE) as f64; st[2] += sx::get(&s, sx::PAESSE_OK) as f64; st[3] += sx::get(&s, sx::PAESSE) as f64; }
+        let tackl: f64 = self.world.clubs[club].squad.iter().map(|&p| sx::get(&self.world.players[p].in_liga(l).st, sx::TACKL) as f64).sum();
+        [row.gf as f32 / sp, row.ga as f32 / sp, row.pts as f32 / sp, st[0] as f32 / sp, st[1] as f32 / sp, if st[3] > 0.0 { (st[2] / st[3] * 100.0) as f32 } else { 0.0 }, tackl as f32 / sp]
+    }
+    /// What the assistant coach would change against the next opponent, each with its reason (at most five).
+    pub fn gegner_vorschlaege(&self) -> Vec<(String, Vorschlag)> {
+        let Some(g) = self.naechster_gegner() else { return vec![] };
+        let t = |k: &str| crate::inhalt::t(k).to_string();
+        let mut v: Vec<(String, Vorschlag)> = vec![];
+        let st = crate::mensch::kaderstaerke(&self.world, g) - crate::mensch::kaderstaerke(&self.world, self.own);
+        let tc = &self.tactic;
+        for (bereich, schwach, _) in schwaechen(&self.world, g, self.own) {
+            match (bereich, schwach) {
+                ("tempo_abwehr", true) if tc.aufbau != 0 => v.push((t("ui.gv.lang"), Vorschlag::Aufbau(0))), // roh
+                ("luftduelle", true) | ("tempo_aussen", true) if tc.breite != 0 && !v.iter().any(|x| matches!(x.1, Vorschlag::Breite(_))) => v.push((t(if bereich == "luftduelle" { "ui.gv.flanken" } else { "ui.gv.fluegel" }), Vorschlag::Breite(0))), // roh
+                ("technik_zentrum", true) if tc.pressing != 0 => v.push((t("ui.gv.pressing"), Vorschlag::Pressing(0))), // roh
+                ("tempo_aussen", false) | ("tempo_abwehr", false) if tc.linie >= 6 => v.push((t("ui.gv.linie_tief"), Vorschlag::Linie(tc.linie - 2))), // roh
+                _ => {}
+            }
+        }
+        if st >= 3.0 && tc.angriff != 0 { v.push((t("ui.gv.kontern"), Vorschlag::Angriff(0))); }
+        if st <= -3.0 && tc.angriff != 1 { v.push((t("ui.gv.ballbesitz"), Vorschlag::Angriff(1))); }
+        // tired or out-of-form starters with a fresh man of the same position on the bench
+        let bank: Vec<usize> = self.squad().into_iter().filter(|p| !self.xi.contains(p) && self.world.players[*p].available() && self.world.players[*p].youth == 0).collect();
+        for &p in &self.xi {
+            if v.len() >= 5 { break; }
+            let pl = &self.world.players[p];
+            let muede = pl.fit < 75.0;
+            let schwach = pl.form <= -2.0;
+            if !muede && !schwach { continue; }
+            let Some(&q) = bank.iter().filter(|&&q| self.world.players[q].pos == pl.pos && self.world.players[q].fit >= 85.0 && self.world.players[q].ovr >= pl.ovr - 3.0).max_by(|a, b| self.world.players[**a].ovr.partial_cmp(&self.world.players[**b].ovr).unwrap()) else { continue };
+            let grund = if muede { crate::tf!("ui.gv.muede", pl.name.clone(), format!("{:.0}", pl.fit), self.world.players[q].name.clone()) } else { crate::tf!("ui.gv.form", pl.name.clone(), self.world.players[q].name.clone()) };
+            v.push((grund, Vorschlag::Tausch(p, q)));
+        }
+        v.truncate(5);
+        v
+    }
+    /// Carry out one suggestion; the reply says what changed.
+    pub fn vorschlag_umsetzen(&mut self, s: Vorschlag) -> String {
+        match s {
+            Vorschlag::Angriff(x) => self.tactic.angriff = x,
+            Vorschlag::Aufbau(x) => self.tactic.aufbau = x,
+            Vorschlag::Breite(x) => self.tactic.breite = x,
+            Vorschlag::Pressing(x) => self.tactic.pressing = x,
+            Vorschlag::Linie(x) => self.tactic.linie = x.clamp(1, 10),
+            Vorschlag::Tausch(raus, rein) => { if let Some(i) = self.xi.iter().position(|&x| x == raus) { self.xi[i] = rein; } return crate::tf!("ui.gv.getauscht", self.world.players[rein].name.clone(), self.world.players[raus].name.clone()); }
+        }
+        crate::inhalt::t("ui.gv.umgestellt").into()
+    }
+}
+
+#[cfg(test)]
+mod vorschlag_tests {
+    use crate::game::*;
+    #[test]
+    fn vorschlaege_lassen_sich_umsetzen() {
+        let w = crate::world::testwelt(3);
+        let mut c = Career::new(w, 1, "Test");
+        c.auto_lineup();
+        // a tired starter with a fresh man of his position on the bench is suggested, and swapped on click
+        let p = c.xi[3];
+        let pos = c.world.players[p].pos.clone();
+        if let Some(q) = c.squad().into_iter().find(|q| !c.xi.contains(q) && c.world.players[*q].pos == pos) {
+            c.world.players[p].fit = 60.0;
+            c.world.players[q].fit = 95.0;
+            c.world.players[q].ovr = c.world.players[p].ovr;
+            let v = c.gegner_vorschlaege();
+            if let Some((_, s)) = v.iter().find(|x| matches!(x.1, crate::taktik::Vorschlag::Tausch(a, _) if a == p)) {
+                c.vorschlag_umsetzen(*s);
+                assert!(!c.xi.contains(&p));
+            }
+        }
+        c.tactic.linie = 8;
+        c.vorschlag_umsetzen(crate::taktik::Vorschlag::Linie(6));
+        assert_eq!(c.tactic.linie, 6);
+        assert_eq!(c.verein_zahlen(c.own).len(), 7);
+    }
+}
+
+impl Career {
+    /// The assistant's assessment of the next opponent in his own words (Fabian 24.11.: "the assessments are missing"):
+    /// strength against ours, their form, their danger man, where they are weak, the plan. Variants fixed per opponent and day.
+    pub fn co_einschaetzung(&self, g: usize, siege: usize, bericht: &[String]) -> Vec<String> {
+        let gn = self.world.clubs[g].name.clone();
+        let tag = self.abs().to_string();
+        let wahl = |basis: &str| { let n = crate::inhalt::varianten(basis); let i = (crate::mensch::zufall(&["einsch", basis, &gn, &tag]) * n as f32) as usize % n; crate::inhalt::variante_key(basis, i) }; // roh
+        let st = crate::mensch::kaderstaerke(&self.world, g) - crate::mensch::kaderstaerke(&self.world, self.own);
+        let mut v = vec![];
+        let k = wahl(if st >= 3.0 { "ui.gb.staerker" } else if st <= -3.0 { "ui.gb.schwaecher" } else { "ui.gb.gleich" });
+        v.push(crate::tf!(&k, gn.clone()));
+        let k = wahl(if siege >= 3 { "ui.gb.form_gut" } else if siege <= 1 { "ui.gb.form_schlecht" } else { "ui.gb.form_mittel" });
+        v.push(crate::tf!(&k, gn.clone(), siege));
+        if let Some(&p) = self.schluesselspieler().first() {
+            let k = wahl("ui.gb.gefahr");
+            v.push(crate::tf!(&k, self.world.players[p].name.clone(), self.world.players[p].goals));
+        }
+        // the plan of the written report closes it
+        if let Some(plan) = bericht.last() { v.push(plan.clone()); }
+        v
     }
 }

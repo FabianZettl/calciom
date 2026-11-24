@@ -166,7 +166,7 @@ mod tests {
     use super::*;
     #[test]
     fn prioritaeten_typen_und_gedaechtnis() {
-        let w = crate::world::World::load(include_str!("../assets/world.json"), 7);
+        let w = crate::world::testwelt(7);
         let own = w.clubs.iter().position(|c| c.name.contains("Sunderland")).unwrap_or(0);
         let mut c = Career::new(w, own, "Test");
         let mut typen = [0usize; 5];

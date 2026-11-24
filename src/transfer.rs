@@ -31,6 +31,10 @@ pub struct Leihe { pub von: usize, pub bis: u32, pub anteil: f32, pub option: f6
 #[serde(default)] pub start: f32,
 /// Loan request (Fabian 23.11.): the abs day it ends (0 = season end) and whether the buy at its end is an obligation.
 #[serde(default)] pub bis_tag: u32, #[serde(default)] pub pflicht: bool }
+impl Leihe {
+    /// The day he goes back to `von`: the end day, else the end of the season `bis` (shown as 30 June).
+    pub fn rueckkehr(&self) -> String { if self.bis_tag > 0 { crate::date::short(self.bis_tag / crate::date::SEASON_DAYS, self.bis_tag % crate::date::SEASON_DAYS) } else { crate::date::short(self.bis, 333) } }
+}
 
 /// Medical risk and verdict (drama.py medizin_risiko / medizin_urteil / medizin_abschlag).
 pub fn medizin(ausfall_tage: u16, alter: u8, u: f32) -> (&'static str, f32, f32) {
@@ -46,6 +50,22 @@ impl Career {
         if pl.team < 0 { return 3; }
         let rang = self.world.clubs[pl.team as usize].squad.iter().filter(|&&q| self.world.players[q].ovr > pl.ovr).count();
         if rang < 11 { 0 } else if rang < 18 { 1 } else { 2 }
+    }
+    /// A player who cannot be sold right now (Fabian 24.11.): on loan, or signed since the last transfer window opened;
+    /// he can be sold again from the next window. The reason in words, for buttons, offers and the AI.
+    pub fn verkauf_gesperrt(&self, p: usize) -> Option<String> {
+        let pl = &self.world.players[p];
+        if pl.team < 0 { return None; }
+        if pl.leihe.is_some() { return Some(crate::tf!("ui.transfer.gesperrt.leihe", pl.name.clone())); }
+        if pl.joined == 0 { return None; }
+        // the start of the window that opened last (today or before), and the next one
+        let abs = self.abs();
+        let starts: Vec<u32> = (self.world.season.saturating_sub(1)..=self.world.season + 1).flat_map(|s| crate::world::WINDOWS.iter().map(move |w| abs_day(s, w.0))).collect();
+        let letzter = starts.iter().copied().filter(|&x| x <= abs).max().unwrap_or(0);
+        if pl.joined < letzter { return None; }
+        let naechster = starts.iter().copied().filter(|&x| x > abs).min().unwrap_or(abs);
+        let (s, d) = (naechster / crate::date::SEASON_DAYS, naechster % crate::date::SEASON_DAYS);
+        Some(crate::tf!("ui.transfer.gesperrt.neu", pl.name.clone(), crate::date::long(s, d)))
     }
     /// Readiness of the club to sell (own decision from §9: listed 0.9, wish to leave 0.8, by squad role 0.3/0.5/0.7;
     /// one of its three best with more than two years left is not for sale).
@@ -88,11 +108,12 @@ impl Career {
         let abs = self.abs();
         for m in self.inbox.iter_mut() { if !m.done && matches!(m.action, Action::TransferOffer { .. }) && abs >= abs_day(m.season, m.day) + 7 { m.done = true; m.body += crate::inhalt::t("ui.transfer.die_frist_ist_abgelaufen"); } }
         let woche = (abs / 7).to_string();
+        for p in self.squad() { if self.world.players[p].listed && self.verkauf_gesperrt(p).is_some() { self.world.players[p].listed = false; } }
         let mut n = 0;
         for p in self.squad() {
             if n >= 2 { break; }
             let pl = &self.world.players[p];
-            if pl.ovr < 55.0 || pl.youth > 0 || pl.leihe.is_some() { continue; }
+            if pl.ovr < 55.0 || pl.youth > 0 || self.verkauf_gesperrt(p).is_some() { continue; }
             let chance = if pl.listed { 0.5 } else if pl.ps.wunsch { 0.4 } else if pl.ovr >= self.club().level { 0.08 } else { 0.03 };
             let id = pl.id.to_string();
             if zufall(&["2026", crate::id("angebot"), &id, &woche]) >= chance { continue; }
@@ -107,7 +128,7 @@ impl Career {
             let (nm, cn) = (self.world.players[p].name.clone(), self.world.clubs[c].name.clone());
             let ampel = if fee >= value * 1.1 { crate::inhalt::t("ui.transfer.der_preis_ist_gut") } else if fee >= value * 0.95 { crate::inhalt::t("ui.transfer.der_preis_ist_fair") } else { crate::inhalt::t("ui.transfer.das_ist_unter_wert") };
             let wort = if wunsch { crate::inhalt::t("ui.transfer.er_selbst_will_wechseln") } else { "" };
-            let body = format!("{}\n\n{}", crate::tf!("ui.transfer.bietet_fuer_sein_marktwert_liegt", cn, money(fee), nm, money(value), ampel, wort), self.haltung_text(p, c));
+            let body = format!("{}\n\n{}", crate::tf!("ui.transfer.bietet_fuer_sein_marktwert_liegt", cn, money(fee), nm, money(value), ampel, wort, self.frist_text(self.frist(7))), self.haltung_text(p, c));
             self.msg(2, &cn, &crate::tf!("fenster.angebot.titel", nm), &body, Action::TransferOffer { pid: p, club: c, fee });
             self.world.players[p].ps.angebote.push(abs);
             // medien.toml [fremd]: from 2 Mio. the papers pick it up as a rumour
@@ -136,20 +157,24 @@ impl Career {
             let name = self.world.players[n.pid].name.clone();
             match art {
                 0 => {
+                    let tage = self.frist(2);
+                    let ft = self.frist_text(tage);
                     let nn = &mut self.negs[i];
                     nn.state = NegState::Waiting;
-                    nn.reply_day = abs + 2;
-                    nn.text = crate::tf!("ui.transfer.der_berater_von_laesst_sich", name);
+                    nn.reply_day = abs + tage;
+                    nn.text = crate::tf!("ui.transfer.der_berater_von_laesst_sich", name, ft);
                 }
                 1 => {
                     let rival = (0..self.world.clubs.len()).filter(|&c| c != self.own && self.world.clubs[c].rep >= self.club().rep - 5.0 && self.world.players[n.pid].team != c as i32)
                         .min_by(|&a, &b| (self.world.clubs[a].rep - self.club().rep).abs().partial_cmp(&(self.world.clubs[b].rep - self.club().rep).abs()).unwrap());
                     let Some(r) = rival else { continue };
                     let rn = self.world.clubs[r].name.clone();
+                    let tage = self.frist(HIJACK_TAGE);
+                    let ft = self.frist_text(tage);
                     self.negs[i].haken = 3;
-                    self.negs[i].haken_bis = abs + HIJACK_TAGE;
+                    self.negs[i].haken_bis = abs + tage;
                     let opts = vec![(crate::id("ueberbieten").to_string(), crate::inhalt::t("ui.transfer.wir_legen_10_drauf").to_string()), (crate::id("verzichten").to_string(), crate::inhalt::t("ui.transfer.dann_soll_er_gehen").to_string())];
-                    self.msg(2, crate::inhalt::t("ui.game.transferabteilung"), &crate::tf!("ui.transfer.graetscht_dazwischen", rn), &crate::tf!("ui.transfer.will_auch_und_bietet_mehr", rn, name, HIJACK_TAGE), Action::Wahl { art: crate::id("hijack").into(), bezug: vec![n.pid], optionen: opts });
+                    self.msg(2, crate::inhalt::t("ui.game.transferabteilung"), &crate::tf!("ui.transfer.graetscht_dazwischen", rn), &crate::tf!("ui.transfer.will_auch_und_bietet_mehr", rn, name, ft), Action::Wahl { art: crate::id("hijack").into(), bezug: vec![n.pid], optionen: opts });
                 }
                 _ if n.stage == 0 && n.round >= 2 => {
                     let nn = &mut self.negs[i];
@@ -187,12 +212,13 @@ impl Career {
             let pl = &self.world.players[p];
             let (urteil, risiko, abschlag) = medizin(pl.inj, pl.age, zufall(&["2026", crate::id("medizin"), &id, &abs.to_string()]));
             if urteil != crate::id("bestanden") {
+                let tage = self.frist(3);
                 self.negs[i].haken = 1;
-                self.negs[i].haken_bis = abs + 3;
+                self.negs[i].haken_bis = abs + tage;
                 self.negs[i].abschlag = abschlag as f64;
                 let text = if urteil == crate::id("durchgefallen") { crate::tf!("ui.transfer.ist_beim_medizincheck_durchgefallen_risi", name, format!("{:.0}", risiko * 100.0)) } else { crate::tf!("ui.transfer.beim_medizincheck_von_gibt_es", name, format!("{:.0}", risiko * 100.0)) };
                 let opts = vec![(crate::id("nachverhandeln").to_string(), crate::tf!("ui.transfer.wir_wollen_nachlass", format!("{:.0}", abschlag * 100.0))), (crate::id("trotzdem").to_string(), crate::inhalt::t("ui.transfer.wir_holen_ihn_trotzdem").to_string()), (crate::id("abbrechen").to_string(), crate::inhalt::t("ui.transfer.wir_lassen_es").to_string())];
-                self.msg(2, crate::inhalt::t("med.vg.absender"), &crate::tf!("ui.transfer.medizincheck", name), &crate::tf!("ui.transfer.du_hast_3_tage", text), Action::Wahl { art: crate::id("medizin").into(), bezug: vec![p], optionen: opts });
+                self.msg(2, crate::inhalt::t("med.vg.absender"), &crate::tf!("ui.transfer.medizincheck", name), &crate::tf!("ui.transfer.du_hast_3_tage", text, self.frist_text(tage)), Action::Wahl { art: crate::id("medizin").into(), bezug: vec![p], optionen: opts });
                 self.negs[i].state = NegState::Waiting;
                 self.negs[i].reply_day = u32::MAX;
                 return false;
@@ -202,10 +228,11 @@ impl Career {
             self.negs[i].gate = true;
             let fak = if self.deadline() { GATE_DEADLINE } else { 1.0 };
             if zufall(&["2026", crate::id("gate"), &id, &abs.to_string()]) < GATE * fak {
+                let tage = self.frist(3);
                 self.negs[i].haken = 2;
-                self.negs[i].haken_bis = abs + 3;
+                self.negs[i].haken_bis = abs + tage;
                 let opts = vec![(crate::id("zahlen").to_string(), crate::inhalt::t("ui.transfer.wir_zahlen_10_mehr_gehalt").to_string()), (crate::id("verhandeln").to_string(), crate::inhalt::t("ui.transfer.wir_verhandeln_noch_einmal").to_string()), (crate::id("ablehnen").to_string(), crate::inhalt::t("ui.transfer.nein_es_bleibt_beim_vereinbarten").to_string())];
-                self.msg(2, crate::inhalt::t("meldung.absender.berater"), &crate::tf!("ui.transfer.nachforderung_im_fall", name), &crate::tf!("ui.transfer.kurz_vor_der_unterschrift_will", name), Action::Wahl { art: crate::id("nachforderung").into(), bezug: vec![p], optionen: opts });
+                self.msg(2, crate::inhalt::t("meldung.absender.berater"), &crate::tf!("ui.transfer.nachforderung_im_fall", name), &crate::tf!("ui.transfer.kurz_vor_der_unterschrift_will", name, self.frist_text(tage)), Action::Wahl { art: crate::id("nachforderung").into(), bezug: vec![p], optionen: opts });
                 self.negs[i].state = NegState::Waiting;
                 self.negs[i].reply_day = u32::MAX;
                 return false;
@@ -524,7 +551,7 @@ mod tests {
     }
     #[test]
     fn mindestpreis_haelt_billige_angebote_ab() {
-        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         let sq = c.squad();
         for &p in &sq { c.world.players[p].listed = true; c.world.players[p].profil.mindestpreis = c.world.players[p].value * 10.0; }
@@ -536,7 +563,7 @@ mod tests {
     }
     #[test]
     fn doppeltes_senden_wirkt_einmal() {
-        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         let other = (1..c.world.clubs.len()).find(|&k| c.world.clubs[k].squad.len() > 22).unwrap();
         let p = *c.world.clubs[other].squad.iter().min_by(|a, b| c.world.players[**a].ovr.partial_cmp(&c.world.players[**b].ovr).unwrap()).unwrap();
@@ -557,7 +584,7 @@ mod tests {
     /// at the end day the obligation buys him, without it he goes back.
     #[test]
     fn leihanfrage_mit_kaufpflicht() {
-        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         c.transfer_budget = 1e9;
         let other = (1..c.world.clubs.len()).find(|&k| c.world.clubs[k].squad.len() > 22).unwrap();
@@ -575,7 +602,7 @@ mod tests {
     }
     #[test]
     fn leihe_hin_und_zurueck() {
-        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         c.transfer_budget = 1e9;
         let other = (1..c.world.clubs.len()).find(|&k| c.world.clubs[k].squad.len() > 22).unwrap();
@@ -586,5 +613,126 @@ mod tests {
         c.leihen_ende();
         assert_eq!(c.world.players[p].team, other as i32, "back at the end of the season");
         assert!(c.world.players[p].leihe.is_none());
+    }
+}
+
+#[cfg(test)]
+mod sperre_tests {
+    use crate::game::*;
+    /// Fabian 24.11.: a new signing or a loan player cannot be sold, listed or bid for before the next window.
+    #[test]
+    fn frisch_gewechselt_und_leihe_gesperrt() {
+        let w = crate::world::testwelt(5);
+        let mut c = Career::new(w, 2, "Test");
+        c.world.day = 10; // summer window
+        let p = c.squad()[3];
+        assert!(c.verkauf_gesperrt(p).is_none(), "a player who was there before the window is free");
+        let abs = c.abs();
+        c.world.players[p].joined = abs;
+        let g = c.verkauf_gesperrt(p).expect("a signing of this window is locked");
+        assert!(!g.is_empty());
+        // listed anyway: the weekly offers take him off the list and never make an offer for him
+        c.world.players[p].listed = true;
+        for _ in 0..3 { c.angebote_woche(); }
+        assert!(!c.world.players[p].listed);
+        assert!(!c.inbox.iter().any(|m| matches!(m.action, Action::TransferOffer { pid, .. } if pid == p)));
+        // the next window opens: free again
+        c.world.day = crate::world::WINDOWS[1].0;
+        assert!(c.verkauf_gesperrt(p).is_none(), "from the next window he can go");
+        // a loan player stays locked
+        let q = c.squad()[4];
+        c.world.players[q].leihe = Some(crate::transfer::Leihe { von: 0, bis: c.world.season, anteil: 0.5, option: 0.0, spielzeit: false, grund: String::new(), start: 0.0, bis_tag: 0, pflicht: false });
+        assert!(c.verkauf_gesperrt(q).is_some());
+        // another club's new signing cannot be bid for
+        let fremd = (0..c.world.players.len()).find(|&x| c.world.players[x].team >= 0 && c.world.players[x].team != c.own as i32).unwrap();
+        c.world.players[fremd].joined = c.abs();
+        assert!(c.open_neg(fremd).is_err());
+        // Fabian 24.11. (Tah): a player we sell is locked at his new club too
+        let r = c.squad()[6];
+        let k = (0..c.world.clubs.len()).find(|&k| k != c.own).unwrap();
+        c.sell(r, k, 1e6);
+        assert!(c.verkauf_gesperrt(r).is_some(), "sold today, cannot move on this window");
+    }
+}
+
+#[cfg(test)]
+mod frist_tests {
+    use crate::game::*;
+    /// Fabian 24.11.: near the end of the window no deadline goes past it; on its last day the answer comes today.
+    #[test]
+    fn fristen_enden_mit_dem_fenster() {
+        let w = crate::world::testwelt(5);
+        let mut c = Career::new(w, 2, "Test");
+        let (a, b) = crate::world::WINDOWS[0];
+        c.world.day = a + 1;
+        assert_eq!(c.frist(4), 4);
+        c.world.day = b - 1;
+        assert_eq!(c.frist(4), 1, "one day left: one day");
+        c.world.day = b;
+        assert_eq!(c.frist(4), 0, "deadline day: today");
+        assert!(!c.frist_text(0).is_empty() && c.frist_text(0) != c.frist_text(1));
+        // an offer sent on deadline day is answered the same day, not left lying
+        c.verhandlungstempo = 2;
+        let p = (0..c.world.players.len()).find(|&x| c.world.players[x].team >= 0 && c.world.players[x].team != c.own as i32 && c.world.players[x].joined == 0 && c.world.players[x].leihe.is_none()).unwrap();
+        if let Ok(i) = c.open_neg(p) {
+            c.submit_neg(i);
+            assert_eq!(c.negs[i].liegt_bis, 0, "nothing lies on the table past the window");
+        }
+        // outside the window the full time stays
+        c.world.day = b + 5;
+        assert_eq!(c.frist(4), 4);
+    }
+}
+
+impl Career {
+    /// Talks about a player who has meanwhile joined another club end at once (Fabian 24.11.: Kostoulas went to
+    /// Thessaloniki and a day later still accepted our offer). Also the club offers for him in the inbox. Returns
+    /// whether any talks ended.
+    pub fn negs_pruefen(&mut self) -> bool {
+        let mut ende = false;
+        for i in 0..self.negs.len() {
+            let n = &self.negs[i];
+            if n.stage >= 2 || n.renew || n.verkauf { continue; }
+            let jetzt = self.world.players[n.pid].team;
+            if n.verein == i32::MIN { self.negs[i].verein = jetzt; continue; }
+            if jetzt == n.verein { continue; }
+            let p = n.pid;
+            let name = self.world.players[p].name.clone();
+            let neu = if jetzt >= 0 { self.world.clubs[jetzt as usize].name.clone() } else { crate::inhalt::t("ui.wort.vereinslos").to_string() };
+            let nn = &mut self.negs[i];
+            nn.stage = 2;
+            nn.state = NegState::Rejected;
+            nn.liegt_bis = 0;
+            nn.text = crate::tf!("ui.neg.weggeschnappt", name.clone(), neu.clone());
+            let t = nn.text.clone();
+            nn.verlauf.push((2, t.clone()));
+            self.msg(2, crate::inhalt::t("ui.game.transferabteilung"), &crate::tf!("ui.neg.weggeschnappt_titel", name), &t, Action::None);
+            ende = true;
+        }
+        ende
+    }
+}
+
+#[cfg(test)]
+mod weggeschnappt_tests {
+    use crate::game::*;
+    /// A player we negotiate for joins another club: the talks end with a message, and nothing is signed later.
+    #[test]
+    fn verhandlung_endet_wenn_er_woanders_unterschreibt() {
+        let w = crate::world::World::load(include_str!("../assets/world.json"), 7);
+        let mut c = Career::new(w, 1, "Test");
+        c.world.day = 5;
+        let p = (0..c.world.players.len()).find(|&x| c.world.players[x].team >= 0 && c.world.players[x].team != c.own as i32 && c.world.players[x].ovr < 70.0 && c.world.players[x].leihe.is_none()).unwrap();
+        let Ok(i) = c.open_neg(p) else { return };
+        assert!(!c.negs_pruefen(), "nothing moved yet");
+        // he moves to a third club
+        let von = c.world.players[p].team as usize;
+        let dritter = (0..c.world.clubs.len()).find(|&k| k != von && k != c.own).unwrap();
+        c.world.clubs[von].squad.retain(|&x| x != p);
+        c.world.clubs[dritter].squad.push(p);
+        c.world.players[p].team = dritter as i32;
+        assert!(c.negs_pruefen());
+        assert_eq!(c.negs[i].stage, 2);
+        assert!(c.inbox.iter().any(|m| m.body.contains(&c.world.players[p].name)));
     }
 }

@@ -37,8 +37,18 @@ pub fn programme() -> (bool, bool) {
     })
 }
 
-/// mpv volume at full music (0–100).
-const VOLL: f32 = 45.0;
+/// mpv volume at full music (0–100), set by the slider in the settings (Fabian 24.11.), stored in musik_laut.txt.
+static LAUT: Mutex<Option<f32>> = Mutex::new(None);
+fn laut_datei() -> std::path::PathBuf { crate::game::save_dir().join(crate::id("../musik_laut.txt")) }
+pub fn lautstaerke() -> f32 { *LAUT.lock().unwrap().get_or_insert_with(|| std::fs::read_to_string(laut_datei()).ok().and_then(|s| s.trim().parse().ok()).unwrap_or(45.0)) }
+pub fn lautstaerke_setzen(v: f32) {
+    let _ = std::fs::create_dir_all(crate::game::save_dir());
+    let _ = std::fs::write(laut_datei(), format!("{v}"));
+    *LAUT.lock().unwrap() = Some(v);
+}
+/// The title playing now, for the sidebar (empty until mpv names one).
+static TITEL: Mutex<String> = Mutex::new(String::new());
+pub fn titel() -> String { TITEL.lock().unwrap().clone() }
 /// Seconds for a fade down or up.
 const FADE: f32 = 2.5;
 
@@ -52,7 +62,7 @@ pub struct Musik {
     url: String,
     #[cfg(unix)]
     ipc: Option<std::io::BufReader<std::os::unix::net::UnixStream>>,
-    /// Current loudness 0…1 of VOLL (faded towards 0 during a match), the last value sent to mpv, paused at 0.
+    /// Current loudness 0…1 of lautstaerke() (faded towards 0 during a match), the last value sent to mpv, paused at 0.
     pegel: f32,
     gesendet: i32,
     pausiert: bool,
@@ -68,13 +78,13 @@ impl Musik {
     /// Once per frame (dt in seconds): start or stop mpv for the stored URL, fade down and pause while a match runs,
     /// resume and fade up after it. Returns the new title when the song or stream title changes.
     pub fn takt(&mut self, url: &str, spiel_laeuft: bool, dt: f32) -> Option<String> {
-        if url != self.url { self.stopp(); self.url = url.to_string(); }
+        if url != self.url { self.stopp(); self.url = url.to_string(); TITEL.lock().unwrap().clear(); }
         if self.url.is_empty() { return None; }
         if self.kind.as_mut().map(|k| k.try_wait().ok().flatten().is_some()).unwrap_or(false) { return None; } // mpv ended (bad URL): no restart loop
         if self.kind.is_none() {
             let mut cmd = Command::new(crate::id("mpv"));
             cmd.args([crate::id("--no-video"), crate::id("--really-quiet"), crate::id("--no-terminal"), crate::id("--loop-playlist=inf"), "--ytdl-format=bestaudio/best"])
-                .arg(format!("--volume={}", if spiel_laeuft { 0.0 } else { VOLL }))
+                .arg(format!("--volume={}", if spiel_laeuft { 0.0 } else { lautstaerke() }))
                 // Fabian 23.11.: playlists in random order
                 .args(ist_youtube(&self.url).then_some(crate::id("--shuffle")))
                 .arg(format!("--input-ipc-server={}", Self::sock().display()))
@@ -84,11 +94,15 @@ impl Musik {
             unsafe { cmd.pre_exec(|| { libc::prctl(libc::PR_SET_PDEATHSIG, libc::SIGTERM); Ok(()) }); }
             self.kind = cmd.spawn().ok();
             self.pegel = if spiel_laeuft { 0.0 } else { 1.0 };
-            self.gesendet = (self.pegel * VOLL) as i32;
+            self.gesendet = (self.pegel * lautstaerke()) as i32;
             self.pausiert = false;
         }
         #[cfg(unix)]
-        return self.steuern(spiel_laeuft, dt);
+        {
+            let t = self.steuern(spiel_laeuft, dt);
+            if let Some(t) = &t { *TITEL.lock().unwrap() = t.clone(); }
+            return t;
+        }
         #[cfg(not(unix))]
         {
             let _ = (spiel_laeuft, dt);
@@ -117,7 +131,7 @@ impl Musik {
         if !spiel_laeuft && self.pausiert && writeln!(ipc.get_mut(), "{{\"command\":[\"set_property\",\"pause\",false]}}").is_ok() { self.pausiert = false; }
         let schritt = dt.min(0.1) / FADE;
         self.pegel = if self.pegel < ziel { (self.pegel + schritt).min(ziel) } else { (self.pegel - schritt).max(ziel) };
-        let vol = (self.pegel * VOLL).round() as i32;
+        let vol = (self.pegel * lautstaerke()).round() as i32;
         if vol != self.gesendet && writeln!(ipc.get_mut(), "{{\"command\":[\"set_property\",\"volume\",{}]}}", vol).is_ok() { self.gesendet = vol; }
         if spiel_laeuft && self.pegel <= 0.0 && !self.pausiert && writeln!(ipc.get_mut(), "{{\"command\":[\"set_property\",\"pause\",true]}}").is_ok() { self.pausiert = true; }
         // events from mpv: the title of the song (YouTube) or of the stream (radio's ICY title)

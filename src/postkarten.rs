@@ -1028,7 +1028,7 @@ mod post_t {
     /// a visible consequence.
     #[test]
     fn jede_art_hat_bild_und_zahl() {
-        let w = crate::world::World::load(include_str!("../assets/world.json"), 5);
+        let w = crate::world::testwelt(5);
         let own = w.clubs.iter().position(|c| c.name.contains("Bayern")).unwrap_or(0);
         let mut c = Career::new(w, own, "Test");
         c.inbox.clear();

@@ -64,4 +64,33 @@ mod tests {
     #[test]
     #[ignore]
     fn eine_saison_kalibrieren() { eprintln!("{}", super::lauf(1, None)); }
+    /// Plays the first league to its last match day and prints per position group the 10/50/90 % per-90 values of the key
+    /// numbers (900+ league minutes), to see whether the statistics tab's numbers are plausible.
+    #[test]
+    #[ignore]
+    fn verteilung_je_gruppe() {
+        use crate::statistik as sx;
+        let w = crate::world::World::load(include_str!("../assets/world.json"), 11);
+        let own = w.leagues[0].teams[0];
+        let mut c = crate::game::Career::new(w, own, "Kalibrierung"); // roh
+        while c.world.leagues[0].fixtures.iter().any(|f| f.hg < 0) {
+            if c.today_match().is_some() { let r = c.prepare_match(None); c.apply_own_match(r); }
+            c.ultimatum = None;
+            c.fired = false;
+            if c.end_day().is_err() { break; }
+        }
+        let werte = [("tore", sx::TORE), ("xg", sx::XG), ("schuesse", sx::SCHUESSE), ("vorlagen", sx::VORLAGEN), ("xa", sx::XA), ("schluessel", sx::SCHLUESSEL), ("paesse", sx::PAESSE), ("prog_paesse", sx::PROG_PAESSE), ("prog_laeufe", sx::PROG_LAEUFE), ("dribb", sx::DRIBB), ("flanken", sx::FLANKEN), ("ballverl", sx::BALLVERL), ("tackl", sx::TACKL), ("abgef", sx::ABGEF), ("klaer", sx::KLAER), ("kopf", sx::KOPF), ("paraden", sx::PARADEN)];
+        for gr in ["tw", "iv", "av", "dm", "zm", "om", "fl", "hs", "st"] {
+            let g = sx::liga_vergleich(&c.world, 0, gr);
+            let mut zeile = format!("{gr:<3} n={:<3}", g.len()); // roh
+            for (k, i) in werte {
+                let mut v: Vec<f32> = g.iter().filter_map(|s| sx::pro90(s, i)).collect();
+                v.sort_by(|a, b| a.partial_cmp(b).unwrap());
+                if v.is_empty() { continue; }
+                let q = |x: f32| v[((v.len() - 1) as f32 * x) as usize];
+                zeile += &format!(" {k}={:.2}/{:.2}/{:.2}/{:.2}", q(0.1), q(0.5), q(0.9), q(1.0)); // roh
+            }
+            eprintln!("{zeile}");
+        }
+    }
 }

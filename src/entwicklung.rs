@@ -124,6 +124,8 @@ pub struct Lage {
     pub anlagen: f32,
     /// Straight factor on the growth rate (academy: rate_faktor × akademie_faktor of akademie.toml [entwicklung_plus]).
     pub rate: f32,
+    /// Factor on the decline with age (growth profile, sofifa::kurve).
+    pub abbau: f32,
     pub seed: String,
     pub heute: u32,
 }
@@ -132,7 +134,7 @@ impl Lage {
     pub fn neutral(alter: u8, pos: usize, pot: f32, gw: f32) -> Lage {
         Lage { alter, pos, pot, gw, merkmale: vec![], quote: None, noten: vec![], serie_siege: 0, serie_niederlagen: 0, moral: 50.0, moral_vorher: 50.0, rolle: "stammspieler".into(),
             fokus: vec![], einheiten: vec![], training: 1.0, einzel: false, mentor: 0.0, mentor_werte: None, beziehung: 50.0, stab: None, belastung: 30.0, gespraeche: 0.0, vertrag: 0.0, teamgeist: None,
-            rueckkehr: false, anlagen: 1.0, rate: 1.0, seed: "x".into(), heute: 0 }
+            rueckkehr: false, anlagen: 1.0, rate: 1.0, abbau: 1.0, seed: "x".into(), heute: 0 }
     }
 }
 
@@ -313,7 +315,7 @@ pub fn wochenpunkte(l: &Lage, ph: &Neu, werte: &[f32], abzug: &mut [f32], peak: 
         // own decision E-E1: an ability the FL27 overall model weighs negatively for the position (a field player's goalkeeping,
         // a goalkeeper's play abilities) only stands for a constant there; it does not develop, or the overall would move the wrong way
         if gewicht[i] < 0.0 { continue; }
-        let rate = bevoelkerungsrate(i, l.alter) * k3("woche.grundrate_anteil") / 52.0 * if bevoelkerungsrate(i, l.alter) > 0.0 { l.rate } else { 1.0 };
+        let rate = bevoelkerungsrate(i, l.alter) * k3("woche.grundrate_anteil") / 52.0 * if bevoelkerungsrate(i, l.alter) > 0.0 { l.rate } else { l.abbau };
         let mut pt = 0.0;
         if rate > 0.0 {
             let pf = positionsfaktor(i, l.pos);
@@ -547,12 +549,13 @@ impl Career {
         l.seed = format!("sp{}", pl.id);
         l.merkmale = pl.ent.merkmale.clone();
         let fenster = k3("woche.spiele_fenster") as usize;
+        (l.rate, l.abbau) = (crate::sofifa::kurve(pl.profil.wachstum, (pl.age as f32).min(26.0)), crate::sofifa::kurve(pl.profil.wachstum, 30.0));
         if let Some((q, n)) = pl.ent.u23.filter(|_| pl.youth > 0) {
             let a = |k: &str| f(crate::id("akademie"), &format!("entwicklung_plus.{k}"));
             let akademie = pl.youth == 17 || q <= 0.0;
             l.quote = Some(if akademie { a("akademie_quote") } else { q });
             if !akademie { l.noten = vec![n; 4]; }
-            l.rate = a("rate_faktor") * if akademie { a("akademie_faktor") } else { 1.0 } * self.akademie_faktor(p);
+            l.rate *= a("rate_faktor") * if akademie { a("akademie_faktor") } else { 1.0 } * self.akademie_faktor(p);
         } else if !pl.ps.einsatz.is_empty() {
             let e: Vec<f32> = pl.ps.einsatz.iter().rev().take(fenster).copied().collect();
             l.quote = Some(e.iter().filter(|x| **x >= 0.5).count() as f32 / e.len() as f32);
@@ -1044,7 +1047,7 @@ mod tests {
     }
     #[test]
     fn merkmale_stabil_und_zwei_bis_vier() {
-        let w = crate::world::World::load(include_str!("../assets/world.json"), 5);
+        let w = crate::world::testwelt(5);
         let mut arbeitstiere = 0;
         for p in w.players.iter().take(300) {
             let m = merkmale_schaetzen(p);

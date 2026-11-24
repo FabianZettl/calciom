@@ -1,0 +1,90 @@
+# Korridore der Transfer-KI (docs/intern/TRANSFER-KI.md, Fabian 24.11.). Alle Zahlen Startwerte, änderbar.
+
+[stufen]
+# Ligastärke (Mittel der Vereinsstärken) → Stufe A–D: ab a = A, ab b = B, ab c = C, sonst D
+a = 74
+b = 68
+c = 62
+
+[gewicht]
+# Stufenabstand (Ziel minus Herkunft, positiv = höher): Index = Abstand + 3, also −3 … +3
+stufe = [0.0, 0.15, 0.6, 1.0, 0.8, 0.3, 0.05]
+land_gleich = 1.0
+kontinent_gleich = 0.7
+kontinent_anders = 0.35
+sprache = 1.2
+strom = 1.4
+geld = 1.5
+geld_ab_alter = 28
+mindestens = 0.05
+
+[radius]
+weltklasse_ab = 85
+gut_ab = 78
+alt_ab = 33
+
+[strom]
+# zusammengefasste Ligen: Wechsel je Team und Sommerfenster (Winter ein Drittel)
+je_team = 1.2
+winter = 0.33
+
+# Land (wie in der Welt geschrieben) → [Kontinent, Sprache]
+[land]
+"England" = ["EU", "en"]
+"Schottland" = ["EU", "en"]
+"Wales" = ["EU", "en"]
+"Irland" = ["EU", "en"]
+"Nordirland" = ["EU", "en"]
+"Deutschland" = ["EU", "de"]
+"Österreich" = ["EU", "de"]
+"Schweiz" = ["EU", "de"]
+"Spanien" = ["EU", "es"]
+"Portugal" = ["EU", "pt"]
+"Italien" = ["EU", "it"]
+"Frankreich" = ["EU", "fr"]
+"Belgien" = ["EU", "fr"]
+"Niederlande" = ["EU", "nl"]
+"Dänemark" = ["EU", "sk"]
+"Norwegen" = ["EU", "sk"]
+"Schweden" = ["EU", "sk"]
+"Island" = ["EU", "sk"]
+"Finnland" = ["EU", "fi"]
+"Türkei" = ["EU", "tr"]
+"Griechenland" = ["EU", "el"]
+"Russland" = ["EU", "ru"]
+"Ukraine" = ["EU", "ru"]
+"Polen" = ["EU", "pl"]
+"Tschechien" = ["EU", "cs"]
+"Kroatien" = ["EU", "hr"]
+"Serbien" = ["EU", "hr"]
+"Rumänien" = ["EU", "ro"]
+"Ungarn" = ["EU", "hu"]
+"Brasilien" = ["SA", "pt"]
+"Argentinien" = ["SA", "es"]
+"Chile" = ["SA", "es"]
+"Kolumbien" = ["SA", "es"]
+"Ecuador" = ["SA", "es"]
+"Uruguay" = ["SA", "es"]
+"Paraguay" = ["SA", "es"]
+"Peru" = ["SA", "es"]
+"USA" = ["NA", "en"]
+"Kanada" = ["NA", "en"]
+"Mexiko" = ["NA", "es"]
+"Japan" = ["AS", "ja"]
+"Südkorea" = ["AS", "ko"]
+"China" = ["AS", "zh"]
+"Saudi-Arabien" = ["AS", "ar"]
+"Katar" = ["AS", "ar"]
+"VAE" = ["AS", "ar"]
+"Australien" = ["OZ", "en"]
+"Ägypten" = ["AF", "ar"]
+"Marokko" = ["AF", "fr"]
+"Südafrika" = ["AF", "en"]
+
+# Geldligen: Spieler ab `gewicht.geld_ab_alter` gehen gern dorthin
+[geld]
+laender = ["Saudi-Arabien", "Katar", "VAE", "USA", "China", "Türkei"]
+
+# Historische Ströme (Herkunft → Ziel)
+[strom_paare]
+paare = [["Belgien", "Frankreich"], ["Österreich", "Deutschland"], ["Schweiz", "Deutschland"], ["Portugal", "England"], ["Argentinien", "Spanien"], ["Argentinien", "Italien"], ["Argentinien", "Portugal"], ["Brasilien", "Portugal"], ["Brasilien", "Spanien"], ["Dänemark", "Deutschland"], ["Norwegen", "England"], ["Schweden", "Deutschland"], ["Niederlande", "England"], ["Schottland", "England"], ["Irland", "England"], ["Kroatien", "Deutschland"], ["Uruguay", "Spanien"], ["Kolumbien", "Portugal"], ["Mexiko", "USA"]]

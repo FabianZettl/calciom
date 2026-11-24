@@ -3,7 +3,6 @@
 use crate::game::*;
 use crate::mensch::zufall;
 use crate::regeln::f;
-use crate::world::*;
 
 impl Career {
     fn a(k: &str) -> f32 { f("akademie", k) }
@@ -94,7 +93,7 @@ mod tests {
     use super::*;
     #[test]
     fn jahrgang_und_entwicklung() {
-        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         let vor = c.world.clubs[c.own].squad.clone().iter().filter(|&&p| c.world.players[p].youth > 0).count();
         c.akademie_jahrgang();

@@ -80,7 +80,7 @@ mod tests {
     use super::*;
     #[test]
     fn krisensitzung_und_plan() {
-        let w = crate::world::World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         c.mgr_since = 0;
         c.world.day = 100;
@@ -98,7 +98,7 @@ mod tests {
     }
     #[test]
     fn rueckgaengig_stellt_genau_her() {
-        let w = crate::world::World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         let vorher = serde_json::to_string(&c).unwrap();
         c.undo_merken();

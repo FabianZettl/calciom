@@ -376,7 +376,11 @@ impl Career {
             }
         }
         self.wellen(p, d, zusage.as_deref(), &grund, vorher);
-        [reakt, schluss].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" ")
+        // the talk also shows on the pitch (Fabian 24.11.): a solved worry lifts his form, an escalation weighs on it
+        let fo = match art.as_str() { "geloest" => crate::regeln::f_oder("gespraeche", "antwort.form_geloest", 0.4), "eskalation" => crate::regeln::f_oder("gespraeche", "antwort.form_eskalation", -0.5), _ => 0.0 }; // roh
+        if fo != 0.0 { let pl = &mut self.world.players[p]; pl.form = (pl.form + fo).clamp(-3.0, 3.0); }
+        let wirkung = if d != 0.0 || fo != 0.0 { crate::tf!("ui.pool.wirkung", format!("{d:+.0}"), format!("{fo:+.1}")) } else { String::new() };
+        [reakt, schluss, wirkung].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" ")
     }
     /// Stories in several steps (posteingang.toml [[kette]]): a conversation, then after some days a follow-up talk or a
     /// scene (a story rule). After the answer to the start theme or a step's theme, the next step whose `nur_nach` fits the
@@ -465,7 +469,7 @@ impl Career {
 mod tests {
     #[test]
     fn keine_spielzeitklage_vor_dem_ersten_spieltag() {
-        let w = crate::world::World::load(include_str!("../assets/world.json"), 7);
+        let w = crate::world::testwelt(7);
         let c = crate::game::Career::new(w, 0, "Test");
         for p in c.squad() { assert_eq!(c.pool_kontext(p).0["einsatz"].as_f64(), Some(1.0), "before matches play time counts as full"); }
     }
@@ -663,7 +667,7 @@ mod tests {
     /// sender; a chain's next step is scheduled after the answer.
     #[test]
     fn sechzig_tage_ohne_wiederholung_und_ketten() {
-        let w = crate::world::World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let own = w.clubs.iter().position(|c| c.name.contains("Sunderland")).unwrap_or(0); // roh
         let mut c = Career::new(w, own, "Test"); // roh
         let mut eroeffnungen: BTreeMap<String, Vec<String>> = BTreeMap::new();

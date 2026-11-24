@@ -4,7 +4,6 @@
 use crate::game::*;
 use crate::mensch::zufall;
 use crate::regeln::f;
-use crate::world::*;
 
 pub const TYPEN: [&str; 5] = [crate::id("starr"), crate::id("reaktiv"), crate::id("experimentierfreudig"), crate::id("dogmatisch"), crate::id("pragmatisch")];
 pub const VISIONEN: [&str; 4] = [crate::id("traditionell"), crate::id("ehrgeizig"), crate::id("sparsam"), crate::id("geduldig")];
@@ -93,7 +92,7 @@ mod tests {
     use super::*;
     #[test]
     fn ki_reagiert_auf_serien() {
-        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         for _ in 0..200 { if c.today_match().is_some() { let r = c.prepare_match(None); c.apply_own_match(r); } c.ultimatum = None; c.end_day().unwrap(); }
         assert!(c.world.clubs.iter().any(|cl| cl.ki_bis > 0) || c.world.clubs.iter().all(|cl| cl.style >= -1));
@@ -101,7 +100,7 @@ mod tests {
     }
     #[test]
     fn ki_rotiert_muede_stammspieler() {
-        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let c = Career::new(w, 0, "Test");
         let mut w = c.world.clone();
         // a club whose coach rotates

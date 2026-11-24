@@ -81,7 +81,7 @@ mod tests {
     use super::*;
     #[test]
     fn grosser_verein_mehr_geld_und_mehr_druck() {
-        let w = crate::world::World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let gross = w.clubs.iter().position(|c| c.name.contains("Bayern")).unwrap();
         let liga = w.clubs[gross].league;
         let klein = *w.leagues[liga].teams.iter().min_by(|a, c| w.clubs[**a].level.partial_cmp(&w.clubs[**c].level).unwrap()).unwrap();

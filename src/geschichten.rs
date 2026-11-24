@@ -296,7 +296,7 @@ mod tests {
         let t = sagen("maerchen_start", &[("club", "Testverein".into()), ("liga", "Liga".into()), ("platz", "Platz 2".into()), ("spiele", "9".into())], Some("fans"), "x");
         assert!(t.contains("Testverein") || t.contains("Platz 2"), "{t}");
         assert!(!t.contains('{'));
-        let w = crate::world::World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         for _ in 0..120 { if c.today_match().is_some() { let r = c.prepare_match(None); c.apply_own_match(r); } c.ultimatum = None; c.end_day().unwrap(); }
         c.geschichten_saisonende();

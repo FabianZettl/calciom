@@ -133,6 +133,8 @@ mod tests {
         assert_eq!(c.db_schreibvorgaenge, vorher + 1, "one write for ten changes");
         // a move to the second team is in PlayerAssignment.bin right after the calm
         let z = c.zweite_mannschaft().expect("FC Porto B");
+        // the world's own day may have filled the B team to its cap: make one place
+        while c.world.clubs[z].squad.iter().filter(|&&x| c.world.players[x].youth == 0).count() >= 30 { let x = c.world.clubs[z].squad.pop().unwrap(); c.world.players[x].team = -1; }
         let q = *c.world.clubs[c.own].squad.iter().filter(|&&q| c.world.players[q].age <= 22 && c.world.players[q].youth == 0).last().unwrap();
         c.mannschaft_wechseln(q).unwrap();
         c.db_beobachten(t0 + Duration::from_secs(30));

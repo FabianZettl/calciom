@@ -134,7 +134,7 @@ impl Career {
 mod tests {
     use super::*;
     fn karriere() -> Career {
-        let w = crate::world::World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let own = w.clubs.iter().position(|c| c.name.contains("Sunderland")).unwrap_or(0); // roh
         Career::new(w, own, "Test") // roh
     }
@@ -183,7 +183,7 @@ mod karrieren_tests {
         let tmp = std::env::temp_dir().join(format!("pesm-karr-{}", std::process::id()));
         let vorher = std::env::var_os("PESM_KARRIEREN");
         std::env::set_var("PESM_KARRIEREN", &tmp);
-        let w = crate::world::World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = crate::game::Career::new(w, 0, "Test"); // roh
         c.save_name = "Sicherungstest".into(); // roh
         for _ in 0..5 { c.save_mit_sicherung().unwrap(); }

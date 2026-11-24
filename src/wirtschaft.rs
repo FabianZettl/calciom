@@ -281,14 +281,20 @@ impl Career {
 #[cfg(test)]
 mod tests {
     use super::*;
-    /// Three seasons for a big club, an average club and the weakest club of the same league (stand-in for a promoted one).
+    // Three seasons for a big club, an average club and the weakest club of the same league (stand-in for a promoted one),
+    // one test each so they run side by side.
     #[test]
-    fn kasse_drei_saisons() {
-        let w0 = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+    fn kasse_drei_saisons_gross() { kasse_drei_saisons(0) }
+    #[test]
+    fn kasse_drei_saisons_mitte() { kasse_drei_saisons(1) }
+    #[test]
+    fn kasse_drei_saisons_schwach() { kasse_drei_saisons(2) }
+    fn kasse_drei_saisons(welcher: usize) {
+        let w0 = crate::world::testwelt(7);
         let l = w0.clubs[0].league;
         let mut t = w0.leagues[l].teams.clone();
         t.sort_by(|a, b| crate::mensch::kaderstaerke(&w0, *b).partial_cmp(&crate::mensch::kaderstaerke(&w0, *a)).unwrap());
-        for (art, own) in [("Großverein", t[0]), ("Durchschnitt", t[t.len() / 2]), ("Schwächster", t[t.len() - 1])] {
+        for (art, own) in [("Großverein", t[0]), ("Durchschnitt", t[t.len() / 2]), ("Schwächster", t[t.len() - 1])].into_iter().skip(welcher).take(1) {
             let mut c = Career::new(w0.clone(), own, "Test");
             c.mensch.vertrag_bis = u32::MAX; // this test is about money, not about the coach's contract
             let k0 = c.club().balance;
@@ -322,7 +328,7 @@ mod tests {
     }
     #[test]
     fn geld_wie_vorlage() {
-        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         c.wirtschaft_an();
         let k = c.kraft();

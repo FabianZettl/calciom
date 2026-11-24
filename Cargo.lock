@@ -638,6 +638,7 @@ dependencies = [
  "bytemuck",
  "byteorder",
  "color_quant",
+ "jpeg-decoder",
  "num-traits",
  "png 0.17.16",
 ]
@@ -669,6 +670,12 @@ name = "itoa"
 version = "1.0.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3bd1574e617a9a6c1f8f8181bd7e841e1f20e4277607ef28945765188d6284d4"
+
+[[package]]
+name = "jpeg-decoder"
+version = "0.3.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "00810f1d8b74be64b13dbf3db89ac67740615d6c891f0e7b6179326533011a07"
 
 [[package]]
 name = "lewton"
@@ -938,7 +945,7 @@ checksum = "9b4f627cb1b25917193a259e49bdad08f671f8d9708acfd5fe0a8c1455d87220"
 
 [[package]]
 name = "pesm"
-version = "0.1.2"
+version = "0.1.3"
 dependencies = [
  "axum",
  "flate2",
@@ -959,7 +966,6 @@ dependencies = [
 [[package]]
 name = "pesm-coaching-zone"
 version = "0.2.2"
-source = "git+https://github.com/FabianZettl/pesm-coaching-zone?rev=74c069f#74c069f3c6193652025c5587f339bd24d8bac077"
 dependencies = [
  "anyhow",
  "axum",

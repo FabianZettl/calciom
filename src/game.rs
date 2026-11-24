@@ -99,6 +99,7 @@ pub const PAPERS: [&str; 5] = ["Tribünenblatt", "Abendkurier", "Flutlicht-Zeitu
 #[derive(Serialize, Deserialize, Clone, PartialEq)]
 pub enum NegState { Waiting, Counter, Accepted, Rejected }
 
+fn verein_unbekannt() -> i32 { i32::MIN }
 #[derive(Serialize, Deserialize, Clone)]
 pub struct Neg {
     pub pid: usize,
@@ -128,6 +129,9 @@ pub struct Neg {
     /// The offer lies on the table until this abs day (negotiation pace, Fabian 23.11.); 0 = nothing pending.
     #[serde(default)]
     pub liegt_bis: u32,
+    /// The player's club when the talks began: if he moves elsewhere meanwhile, the talks end (Fabian 24.11.).
+    #[serde(default = "verein_unbekannt")]
+    pub verein: i32,
     /// Talks about a pre-contract: no fee, the move happens at the season's change (termine.rs).
     #[serde(default)]
     pub vorvertrag: bool,
@@ -195,7 +199,7 @@ pub struct YSpieler { pub name: String, pub pos: String, pub age: u8, pub ovr: f
 #[derive(Serialize, Deserialize, Clone, Default)]
 pub struct YouthLeague { pub name: String, pub rows: Vec<YRow>, pub round: u32, pub last: String }
 
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Serialize, Deserialize, Clone, Default)]
 pub struct Tactic {
     pub angriff: u8,
     pub aufbau: u8,
@@ -264,6 +268,23 @@ pub struct Career {
     pub frei: Vec<(f32, f32)>,
     pub xi: Vec<usize>,
     pub tactic: Tactic,
+    /// Transfer fees still to be paid or received in instalments, and conditional add-ons (klauseln.rs).
+    #[serde(default)]
+    pub raten: Vec<crate::klauseln::Rate>,
+    #[serde(default)]
+    pub boni: Vec<crate::klauseln::Bonus>,
+    /// The PES M tactic behind it: playing idea, nine sliders, four switches (taktik9.rs); translated into `tactic`.
+    #[serde(default)]
+    pub t9: crate::taktik9::Taktik9,
+    /// The formation with the ball and against it (Fabian 24.11., like The Gaffer's three formations: kick-off, in
+    /// possession, out of possession); None = the base formation. Index into FORMATIONS.
+    #[serde(default)]
+    pub formation_ball: Option<usize>,
+    #[serde(default)]
+    pub formation_gegen: Option<usize>,
+    /// The advanced instructions: two in attack and two in defence (ids as in the game's list, 0 none; taktik9.rs).
+    #[serde(default)]
+    pub anweisungen: [u8; 4],
     pub plan: [u8; 7],
     pub co_lineup: bool,
     /// The training week: seven days, three sessions each (trainingsplan.rs).
@@ -366,6 +387,9 @@ pub struct Career {
     /// The other clubs' moves of today (kimarkt.rs, the deadline-day ticker).
     #[serde(default)]
     pub welt_tag: Vec<(usize, usize, usize, f64)>,
+    /// Today's quiet moves of the summary leagues (transferki.rs), for tests and the world ticker.
+    #[serde(skip)]
+    pub strom_log: Vec<(usize, usize, usize, f64)>,
     /// Contract promises with a condition (vertragsanfrage.rs).
     #[serde(default)]
     pub bedingungen: Vec<crate::vertragsanfrage::Bedingung>,
@@ -629,6 +653,8 @@ pub fn asg_abgleichen(w: &World, a: &mut Vec<fl27::Asg>, known: &std::collection
 
 impl Career {
     pub fn new(mut world: World, own: usize, coach: &str) -> Career {
+        // real potentials, wages, values, contracts and loans, once per career (tests keep the world's own values)
+        let sofifa = if cfg!(test) || !world.players.iter().any(|p| p.db) { None } else { crate::sofifa::laden_aus(&crate::sofifa::ordner()).map(|(q, r)| world.sofifa_uebernehmen(&q, &r)) };
         let name = world.clubs[own].name.clone();
         let save_name = format!("PESM{}01", name.chars().filter(|c| c.is_alphanumeric()).take(16).collect::<String>());
         let rev = world.revenue(own);
@@ -644,9 +670,10 @@ impl Career {
         let mut c = Career {
             own, coach: coach.to_string(), save_name, formation: 0, frei: vec![], xi: vec![],
             tactic: Tactic { angriff: 0, aufbau: 0, breite: 0, abwehr: 0, pressing: 0, linie: 5, kompakt: 5, haltung: 1, stellung: 0, kontrolle: 0 },
+            t9: Default::default(), formation_ball: None, formation_gegen: None, anweisungen: [0; 4], raten: vec![], boni: vec![],
             plan: [3, 3, 2, 3, 4, 0, 0], co_lineup: false, co_training: false, co_press: false, wissen_info: Default::default(), auftraege: vec![], auftrag_id: 0, analyst_liste: vec![], probetrainings: vec![], aufstellung_kriterien: 1, vorfall_zuletzt: Default::default(), autosave: 0, schule: Default::default(), sichtung_saison: 0, plan_b: Default::default(), msg_id: 0, praesidium: vec![], praesidium_verein: 0, nebenziele: vec![], rel_cache: Default::default(), anbahnung: vec![], dl_stunde: 0, hz_wirkung: 0.0, wochenplan: Default::default(), tr_gewinn: vec![], tr_verletzt: 0,
             co_name: [crate::inhalt::t("ui.game.thomas_brueck"), crate::inhalt::t("ui.game.mehmet_ayd_n"), crate::inhalt::t("ui.game.rafael_ortega"), crate::inhalt::t("ui.game.sven_lindqvist"), crate::inhalt::t("ui.game.marco_ferri")][own % 5].to_string(),
-            inbox: vec![], feed: vec![], merkliste: vec![], moral_verlauf: Default::default(), db_live: true, akzent_wappen: true, kaderregeln: true, meilensteine: vec![], titel_gefeiert: 0, feiern: vec![], marktstatus: vec![], berater_bez: vec![], db_zuletzt: String::new(), fl27_auto_ende: false, vorgaben_gesetzt: vec![], db_nach_spiel_aus: false, wirkung: None, pool_antworten: vec![], pool_rauschen: vec![], pool_zuletzt: vec![], pool_gezeigt: vec![], pool_ketten: vec![], pool_folgen: vec![], erste_woche: [false; 5], erste_woche_aus: false, erste_woche_ab: 0, verlauf: vec![], spiele: vec![], spieler_saison: vec![], noten_verlauf: Default::default(), ehrungen: vec![], elf_der_woche: vec![], letzte_elf: vec![], lesezeichen: vec![], klauseln_gesaet: false, termine: vec![], teamevents: vec![], event_punkte: vec![], db_abdruck: 0, db_unruhe: None, db_schreibvorgaenge: 0, db_hinweis: false, fl27_letzte: (0, 0, 0), live_aenderung: Default::default(), fl27_offen: false, koop_suche: None, koop_angebote: vec![], vorkauf: vec![], welt_post: (0, 0), suchprofile: vec![], vorvertraege: vec![], sondierungen: vec![], ansprache_vor: None, welt_tag: vec![], bedingungen: vec![], geschichten: Default::default(), kredite: vec![], undo: None, geplant: vec![], trainerprofil: Default::default(), angebot_ligen: vec![], krise: Default::default(), neubau: Default::default(), experten_platz: None, negs: vec![], scouts: vec![
+            inbox: vec![], feed: vec![], merkliste: vec![], moral_verlauf: Default::default(), db_live: true, akzent_wappen: true, kaderregeln: true, meilensteine: vec![], titel_gefeiert: 0, feiern: vec![], marktstatus: vec![], berater_bez: vec![], db_zuletzt: String::new(), fl27_auto_ende: false, vorgaben_gesetzt: vec![], db_nach_spiel_aus: false, wirkung: None, pool_antworten: vec![], pool_rauschen: vec![], pool_zuletzt: vec![], pool_gezeigt: vec![], pool_ketten: vec![], pool_folgen: vec![], erste_woche: [false; 5], erste_woche_aus: false, erste_woche_ab: 0, verlauf: vec![], spiele: vec![], spieler_saison: vec![], noten_verlauf: Default::default(), ehrungen: vec![], elf_der_woche: vec![], letzte_elf: vec![], lesezeichen: vec![], klauseln_gesaet: false, termine: vec![], teamevents: vec![], event_punkte: vec![], db_abdruck: 0, db_unruhe: None, db_schreibvorgaenge: 0, db_hinweis: false, fl27_letzte: (0, 0, 0), live_aenderung: Default::default(), fl27_offen: false, koop_suche: None, koop_angebote: vec![], vorkauf: vec![], welt_post: (0, 0), suchprofile: vec![], vorvertraege: vec![], sondierungen: vec![], ansprache_vor: None, welt_tag: vec![], strom_log: vec![], bedingungen: vec![], geschichten: Default::default(), kredite: vec![], undo: None, geplant: vec![], trainerprofil: Default::default(), angebot_ligen: vec![], krise: Default::default(), neubau: Default::default(), experten_platz: None, negs: vec![], scouts: vec![
                 Scout { name: crate::inhalt::t("ui.game.erik_haldorsen").into(), q: 6, league: Some(own_league), pos: 0, watch: None, seen: 0, p: None },
                 Scout { name: crate::inhalt::t("ui.game.bruno_valente").into(), q: 4, league: None, pos: 0, watch: None, seen: 0, p: None },
             ],
@@ -674,6 +701,7 @@ impl Career {
         let op = c.co_opinion();
         let co = c.co_name.clone();
         c.msg(1, &co, crate::inhalt::t("ui.game.erste_gedanken_zum_kader"), &op, Action::None);
+        if let Some(b) = sofifa { let t = crate::tf!("ui.sofifa.text", b.gefunden, b.spieler, b.leihen, b.quelle); c.msg(5, &co, crate::inhalt::t("ui.sofifa.betreff"), &t, Action::None); }
         c.ligaregeln_laden();
         c.wirtschaft_an();
         c.start_erwartung();
@@ -791,6 +819,11 @@ impl Career {
     pub fn in_window(&self) -> Option<(u32, u32)> {
         WINDOWS.iter().copied().find(|(a, b)| self.world.day >= *a && self.world.day <= *b)
     }
+    /// A deadline of `tage` days, never past the end of the open window (Fabian 24.11.: on deadline day nobody says
+    /// "I'll get back to you in four days"); 0 = today.
+    pub fn frist(&self, tage: u32) -> u32 { self.in_window().map_or(tage, |(_, b)| tage.min(b - self.world.day)) }
+    /// "in 3 days" or "by tonight" for a deadline of `tage` days.
+    pub fn frist_text(&self, tage: u32) -> String { if tage == 0 { crate::inhalt::t("ui.frist.heute").into() } else { crate::tf!("ui.frist.tage", tage) } }
 
     // ------------------------------------------------------------ fixtures
     /// All own matches of the season (league, cups, Europe), by day.
@@ -1082,6 +1115,7 @@ impl Career {
         self.auftraege_tag();
         self.probetraining_tag();
         self.sendung_tag();
+        self.raten_tag();
         let day = self.world.day;
         for l in 0..self.world.leagues.len() {
             let level = self.world.leagues[l].detail;
@@ -1184,6 +1218,7 @@ impl Career {
         // detailed clubs trade daily with reasons (kimarkt.rs), the rest weekly in the simple market
         // on deadline day the market ran hour by hour already (kimarkt.rs deadline_stunde)
         if self.dl_stunde == 0 { self.ki_markt_tag(); }
+        self.negs_pruefen();
         self.dl_stunde = 0;
         if let Some((a, _)) = self.in_window() { if (day - a) % 7 == 3 { self.market_round(); } }
         if day % 3 == 1 { self.leihangebote_tag(); }
@@ -1273,29 +1308,27 @@ impl Career {
 
     // ------------------------------------------------------------ youth (akademie.json)
     fn academy_intake(&mut self, n: usize, start: bool) {
-        let level = self.world.club_level(self.own);
-        let bonus = self.jugend_bonus();
-        let first = ["Luca", "Noah", "Jonas", "Leon", "Elias", "Finn", "Ben", "Paul", "Milan", "Emil", "Mats", "Tim", "Niklas", "Malik", crate::inhalt::t("r.be.dienste.monat.0"), "Ole", "Liam", "Mateo", "Arda", "Yusuf", "Theo", "Lenny", "Anton", "Kilian"]; // roh
-        let last = ["Becker", "Kramer", "Wagner", "Hoffmann", "Schulz", "Keller", "Lange", "Brandt", "Vogel", "Krüger", "Yıldız", "Novak", "Petersen", "Lindner", "Arslan", "Weber", "Frank", "Roth", "Seidel", "Haas", "Kuhn", "Berger"]; // roh
+        // same numbers as the Talenttag (jugendakademie.toml [jahrgang]): most average, few talents, now and then a jewel
+        let js = self.jugendstaerke(self.own).wert;
+        let (gw, pt, jp, juwel) = (crate::jugend::reihe("jahrgang.gw"), crate::jugend::reihe("jahrgang.pot"), crate::jugend::reihe("jahrgang.juwel_pot"), crate::jugend::reihe("jahrgang.juwel"));
         let pos = [crate::id("GK"), crate::id("CB"), crate::id("CB"), crate::id("LB"), crate::id("RB"), crate::id("DMF"), crate::id("CMF"), crate::id("CMF"), crate::id("AMF"), crate::id("LMF"), crate::id("RMF"), crate::id("LWF"), crate::id("RWF"), crate::id("CF"), crate::id("CF")];
-        let namen = self.namen_von(self.world.land_nat(self.world.clubs[self.own].league));
+        let mut namen: std::collections::HashMap<u16, (Vec<String>, Vec<String>)> = Default::default();
         for i in 0..n {
-            let name = self.name_aus(&namen, &format!("start:{}:{}:{i}", self.club().id, self.world.season));
+            let sk = format!("start:{}:{}:{i}", self.club().id, self.world.season);
+            let nat = self.jugend_nat(self.own, &sk);
+            let name = self.name_aus(namen.entry(nat).or_insert_with(|| self.namen_von(nat)), &sk);
             let r = &mut self.world.rng;
             let age = if start { r.int(15, 18) as u8 } else { 15 };
-            let talent = (r.gauss(0.35) + 1.0).clamp(0.15, 2.3);
-            // spread by age and chance (Fabian 23.11.: they all were 66 — the old cap at 58 caught nearly every one)
-            let ovr = ((level * 0.72 - (18 - age) as f32 * 2.5 + r.gauss(5.0)).clamp(38.0, 64.0) + bonus).min(72.0);
-            let mut pot = ovr + bonus;
-            let mut a = age as f32;
-            while a < 27.0 { pot += yearly_change(a) * talent; a += 1.0; }
-            let _ = (&first, &last);
+            let talent = 1.0;
+            // the older ones of the start group are about 3 a year ahead (Fabian 24.11.: they all were alike)
+            let ovr = (gw[0] + gw[1] * js + (age as f32 - 15.5) * 3.0 + r.gauss(gw[2])).clamp(gw[3], gw[4] + 6.0);
+            let pot = if r.f() < juwel[0] + juwel[1] * js { (jp[0] + r.gauss(jp[1])).min(jp[2]) } else { (pt[0] + pt[1] * js + r.gauss(pt[2])).clamp(pt[3], pt[4]) }.max(ovr + 3.0);
             let ps = pos[(i + r.int(0, 14) as usize) % pos.len()].to_string();
             let persona = (r.next() % 5) as u8;
             let (attrs, pp) = self.world.template_attrs(&ps, ovr);
             let id = self.world.new_id();
-            let p = Player { nat: self.world.land_nat(self.world.clubs[self.own].league),
-                id, name, pos: ps, age, ovr, pot: pot.min(95.0), talent,
+            let p = Player { nat,
+                id, name, pos: ps, age, ovr, pot, talent,
                 no: 0, team: self.own as i32, youth: if age <= 16 { 17 } else { 19 }, form: 0.0, fit: 100.0, gf: 0.0, morale: 60.0, inj: 0, inj_name: String::new(), susp: 0,
                 wage: 0.0, contract_end: self.world.season + 2, value: 0.0, apps: 0, goals: 0, assists: 0, rsum: 0.0, rn: 0, yellow: 0, last: vec![], know: 1.0,
                 listed: false, persona, unhappy_days: 0, benched: 0, promise: 0, program: 0, joined: 0, talk_day: 0, ps: Default::default(), leihe: None, ent: Default::default(),
@@ -1528,6 +1561,8 @@ impl Career {
         // outside the window a player with an expiring contract can still be signed for the summer
         if self.in_window().is_none() && self.vorvertrag_moeglich(p) { return self.vorvertrag_oeffnen(p); }
         self.can_open(p)?;
+        // another club's new signing or loan player is not for sale before the next window (Fabian 24.11.)
+        if self.world.players[p].team >= 0 && self.world.players[p].team != self.own as i32 { if let Some(g) = self.verkauf_gesperrt(p) { return Err(g); } }
         if let Some(x) = self.mensch.neg_sperre.iter().find(|x| x.0 == p && self.abs() < x.1) { return Err(crate::tf!("ui.game.nach_dem_scheitern_will_die", x.1 - self.abs())); }
         let pl = &self.world.players[p];
         let renew = pl.team == self.own as i32;
@@ -1543,7 +1578,8 @@ impl Career {
             None => (ask, text),
         };
         let ph = if renew || free { self.spieler_phase(p, need) } else { self.vereins_phase(p, ask) };
-        self.negs.push(Neg { pid: p, renew, stage: if renew || free { 1 } else { 0 }, round: 0, ask, fee: (ask * 0.8 / 50000.0).round() * 50000.0, counter: 0.0, wage: (need * 0.9 / 5000.0).round() * 5000.0, need, years, state: NegState::Counter, reply_day: 0, ends, text, ph: Some(ph), ton: 0, handlung: 0, letzt: false, argument: 0, argumente: vec![], gefragt: false, tausch: false, haken: 0, haken_bis: 0, abschlag: 0.0, med: false, gate: false, verkauf: false, kaeufer: 0, gesendet: String::new(), kl: Default::default(), zeit: 0, vorvertrag: false, liegt_bis: 0, verlauf: vec![] });
+        self.negs.push(Neg { pid: p, renew, stage: if renew || free { 1 } else { 0 }, round: 0, ask, fee: (ask * 0.8 / 50000.0).round() * 50000.0, counter: 0.0, wage: (need * 0.9 / 5000.0).round() * 5000.0, need, years, state: NegState::Counter, reply_day: 0, ends, text, ph: Some(ph), ton: 0, handlung: 0, letzt: false, argument: 0, argumente: vec![], gefragt: false, tausch: false, haken: 0, haken_bis: 0, abschlag: 0.0, med: false, gate: false, verkauf: false, kaeufer: 0, gesendet: String::new(), kl: Default::default(), zeit: 0, vorvertrag: false, liegt_bis: 0, verlauf: vec![], verein: i32::MIN });
+        if let Some(n) = self.negs.last_mut() { n.verein = self.world.players[p].team; }
         Ok(self.negs.len() - 1)
     }
     fn vereins_phase(&self, p: usize, ask: f64) -> crate::verhandlung::Phase {
@@ -1564,7 +1600,9 @@ impl Career {
         if self.negs[i].liegt_bis > 0 { return; }
         if self.verhandlungstempo > 0 && self.negs[i].stage < 2 {
             let now = self.abs();
-            let tage = match self.verhandlungstempo { 1 => 2, _ => 2 + (crate::mensch::zufall(&["tempo", &self.negs[i].pid.to_string(), &now.to_string()]) * 3.0) as u32 }; // roh
+            let tage = self.frist(match self.verhandlungstempo { 1 => 2, _ => 2 + (crate::mensch::zufall(&["tempo", &self.negs[i].pid.to_string(), &now.to_string()]) * 3.0) as u32 }); // roh
+            // the window closes today: they answer today
+            if tage == 0 { self.negs[i].verlauf.push((0, zeile)); self.submit_neg_runde(i); return; }
             let n = &mut self.negs[i];
             n.liegt_bis = now + tage;
             n.ends = n.ends.max(n.liegt_bis + 7);
@@ -1745,11 +1783,13 @@ impl Career {
     }
     /// Ask the counterpart for more time: at most twice, 2 days each (runden.py zeit_max / zeit_tage).
     pub fn neg_zeit(&mut self, i: usize) -> Result<(), String> {
+        let tage = self.frist(crate::verhandlung::ZEIT_TAGE);
+        let text = if tage < crate::verhandlung::ZEIT_TAGE { crate::tf!("ui.frist.mehr_zeit_fenster", self.frist_text(tage)) } else { crate::tf!("ui.game.die_gegenseite_gibt_dir_tage", tage) };
         let n = &mut self.negs[i];
         if n.zeit >= crate::verhandlung::ZEIT_MAX { return Err(crate::inhalt::t("ui.game.mehr_zeit_gibt_es_nicht").into()); }
         n.zeit += 1;
-        n.ends += crate::verhandlung::ZEIT_TAGE;
-        n.text = crate::tf!("ui.game.die_gegenseite_gibt_dir_tage", crate::verhandlung::ZEIT_TAGE);
+        n.ends += tage;
+        n.text = text;
         Ok(())
     }
     /// Negotiate a club's offer for an own player instead of a plain yes or no (sale in the round model).
@@ -1763,10 +1803,12 @@ impl Career {
         ph.gegen = Some(-angebot);
         let ends = self.abs() + crate::verhandlung::FRIST_TAGE;
         let text = crate::tf!("ui.game.bietet_fuer_wir_koennen_mehr", self.world.clubs[kaeufer].name, money(angebot), self.world.players[p].name);
-        self.negs.push(Neg { pid: p, renew: false, stage: 0, round: 0, ask: angebot, fee: round_money(angebot * 1.15), counter: angebot, wage: 0.0, need: 0.0, years: 0, state: NegState::Counter, reply_day: 0, ends, text, ph: Some(ph), ton: 0, handlung: 0, letzt: false, argument: 0, argumente: vec![], gefragt: false, tausch: false, haken: 0, haken_bis: 0, abschlag: 0.0, med: true, gate: true, verkauf: true, kaeufer, gesendet: String::new(), kl: Default::default(), zeit: 0, vorvertrag: false, liegt_bis: 0, verlauf: vec![] });
+        self.negs.push(Neg { pid: p, renew: false, stage: 0, round: 0, ask: angebot, fee: round_money(angebot * 1.15), counter: angebot, wage: 0.0, need: 0.0, years: 0, state: NegState::Counter, reply_day: 0, ends, text, ph: Some(ph), ton: 0, handlung: 0, letzt: false, argument: 0, argumente: vec![], gefragt: false, tausch: false, haken: 0, haken_bis: 0, abschlag: 0.0, med: true, gate: true, verkauf: true, kaeufer, gesendet: String::new(), kl: Default::default(), zeit: 0, vorvertrag: false, liegt_bis: 0, verlauf: vec![], verein: i32::MIN });
         self.negs.len() - 1
     }
     pub fn neg_einig(&mut self, i: usize, v: f64) {
+        // he may have signed elsewhere since the last day: then there is nothing to agree (Fabian 24.11.)
+        if self.negs_pruefen() && self.negs[i].stage >= 2 { return; }
         let p = self.negs[i].pid;
         let name = self.world.players[p].name.clone();
         if self.negs[i].verkauf {
@@ -1778,7 +1820,11 @@ impl Career {
             n.state = NegState::Accepted;
             n.text = crate::tf!("ui.game.einigung_wechselt_fuer", name, money(fee));
             let neg = n.clone();
-            if self.world.players[p].team == self.own as i32 { self.sell(p, k, fee); self.klauseln_unterschrift(&neg); }
+            if self.world.players[p].team == self.own as i32 {
+                let jetzt = self.zahlweise_buchen(fee, neg.kl, true, p, k);
+                self.sell(p, k, jetzt);
+                self.klauseln_unterschrift(&neg);
+            }
             return;
         }
         if self.negs[i].stage == 0 {
@@ -1917,8 +1963,9 @@ impl Career {
         if from >= 0 {
             self.world.clubs[from as usize].squad.retain(|&x| x != p);
             self.world.clubs[from as usize].balance += n.fee;
-            self.book(crate::inhalt::t("ui.game.abloesen_kauf"), -n.fee);
-            self.transfer_budget -= n.fee;
+            let jetzt = self.zahlweise_buchen(n.fee, n.kl, false, p, from as usize);
+            self.book(crate::inhalt::t("ui.game.abloesen_kauf"), -jetzt);
+            self.transfer_budget -= jetzt;
             self.fans_transfer(n.fee, true);
         }
         let day = self.abs();
@@ -1980,8 +2027,10 @@ impl Career {
         self.wv_verkauf(fee, &nm);
         let lv = self.world.leagues[self.world.clubs[to].league].level;
         let season = self.world.season;
+        let abs = self.abs();
         let pl = &mut self.world.players[p];
         pl.team = to as i32;
+        pl.joined = abs; // a fresh signing can't be sold on in the same window
         pl.listed = false;
         pl.contract_end = season + contract_years(pl.age) - 1;
         pl.wage = fair_wage(pl, lv);
@@ -2007,7 +2056,7 @@ impl Career {
             let budget = self.world.clubs[buyer].balance * 0.5 + self.world.revenue(buyer) * 0.1;
             let cand = self.world.clubs[seller].squad.iter().copied().filter(|&p| {
                 let pl = &self.world.players[p];
-                pl.youth == 0 && pl.ovr >= blevel - 3.0 && pl.ovr <= blevel + 8.0 && pl.age <= 32 && pl.value * 1.2 < budget
+                pl.youth == 0 && pl.ovr >= blevel - 3.0 && pl.ovr <= blevel + 8.0 && pl.age <= 32 && pl.value * 1.2 < budget && self.verkauf_gesperrt(p).is_none()
             }).max_by(|a, b| self.world.players[*a].ovr.partial_cmp(&self.world.players[*b].ovr).unwrap());
             let Some(p) = cand else { continue };
             // a partner gives its parent club the first option (farm.rs): to us as a question, to an AI parent directly
@@ -2036,8 +2085,11 @@ impl Career {
             self.world.clubs[buyer].balance -= fee;
             let lv = self.world.leagues[self.world.clubs[buyer].league].level;
             let season = self.world.season;
+            let abs = self.abs();
             let pl = &mut self.world.players[p];
             pl.team = buyer as i32;
+            pl.joined = abs;
+            pl.listed = false;
             pl.contract_end = season + contract_years(pl.age) - 1;
             pl.wage = fair_wage(pl, lv);
             let big = fee >= 8e6 || pl.ovr >= 78.0;
@@ -2400,8 +2452,10 @@ impl Career {
                 let p = free[fi];
                 fi += 1;
                 let lv = self.world.leagues[self.world.clubs[c].league].level;
+                let abs = self.abs();
                 let pl = &mut self.world.players[p];
                 pl.team = c as i32;
+                pl.joined = abs;
                 pl.contract_end = season + contract_years(pl.age);
                 pl.wage = fair_wage(pl, lv);
                 self.world.clubs[c].squad.push(p);
@@ -2582,6 +2636,9 @@ impl Career {
             // the form bonus goes into the game for every player (both teams), always from the true strength, never added up
             pb.set_attrs(i, &crate::world::attrs_mit_zuschlag(p));
             pb.set_age(i, p.age);
+            // a re-rolled academy player keeps his record: name and country follow
+            if p.youth > 0 && pb.name(i) != p.name { pb.set_name(i, &p.name); }
+            if p.youth > 0 && p.nat > 0 && pb.nat(i) != p.nat { pb.set_nat(i, p.nat); }
             // the playing style always goes in: it is the player's role chosen in the tactics (Fabian 23.11.)
             if p.ent.an { pb.set_style_skills(i, p.style, p.skills); } else if pb.style(i) != p.style { pb.set_style(i, p.style); }
             if pb.data[i * crate::pesdb::REC..(i + 1) * crate::pesdb::REC] != before[..] { changed += 1; }
@@ -2605,9 +2662,19 @@ impl Career {
                     let mut plaetze: Vec<(u8, u8, u8, u32)> = slots.iter().zip(spots.iter()).enumerate().map(|(i, (s, &(x, y)))| (crate::pesdb::pos_index(s), (3.0 + (y - 0.04).max(0.0) / 0.82 * 40.0).round().clamp(0.0, 47.0) as u8, (x * 104.0).round().clamp(0.0, 104.0) as u8, order.get(i).copied().unwrap_or(0))).collect();
                     // the places in the order of the world's data (game test 22.11.: otherwise RB/CB and RM/CM swap)
                     fl27::formation_ordnen(&mut plaetze);
+                    // with and against the ball: the same players on the places of the other formation, in the order the
+                    // kick-off places got (Fabian 24.11.)
+                    let anders = |f: Option<usize>| -> Vec<(u8, u8, u8)> {
+                        let Some(f) = f else { return plaetze.iter().map(|p| (p.0, p.1, p.2)).collect() };
+                        let (sl, sp) = (crate::world::formation_slots(f), crate::world::formation_spots(f));
+                        let roh: Vec<(u8, u8, u8, u32)> = sl.iter().zip(sp.iter()).enumerate().map(|(i, (s, &(x, y)))| (crate::pesdb::pos_index(s), (3.0 + (y - 0.04).max(0.0) / 0.82 * 40.0).round().clamp(0.0, 47.0) as u8, (x * 104.0).round().clamp(0.0, 104.0) as u8, order.get(i).copied().unwrap_or(0))).collect();
+                        plaetze.iter().map(|b| roh.iter().find(|r| r.3 == b.3).map(|r| (r.0, r.1, r.2)).unwrap_or((b.0, b.1, b.2))).collect()
+                    };
+                    let (mit, gegen) = (anders(self.formation_ball), anders(self.formation_gegen));
                     // our sliders from the PES M tactics: compactness and defensive line (support range stays the world's)
-                    let _ = fl27::regler_schreiben(&pesdb, id, Some(self.tactic.kompakt.clamp(1, 10) as u8), None, Some(self.tactic.linie.clamp(1, 10) as u8));
-                    if fl27::formation_schreiben(&pesdb, id, &plaetze.iter().map(|p| (p.0, p.1, p.2)).collect::<Vec<_>>()).is_ok() && order.len() >= 11 {
+                    let _ = fl27::regler_schreiben(&pesdb, id, Some(self.tactic.kompakt.clamp(1, 10) as u8), Some(crate::taktik9::unterstuetzung(&self.t9)), Some(self.tactic.linie.clamp(1, 10) as u8));
+                    let grund: Vec<(u8, u8, u8)> = plaetze.iter().map(|p| (p.0, p.1, p.2)).collect();
+                    if fl27::formation_schreiben_saetze(&pesdb, id, [&grund, &mit, &gegen]).is_ok() && order.len() >= 11 {
                         let elf: Vec<u32> = plaetze.iter().map(|p| p.3).collect();
                         order.splice(..11, elf);
                     }
@@ -2657,6 +2724,7 @@ impl Career {
             if p1 == p2 { live_teams.push(t); } else { neustart = true; }
         }
         self.live_aenderung = (live_attr, live_teams, neustart);
+        self.gesichter_schreiben(); // faces of new players (gesichter.rs), read by FL27 at its next start
         Ok((changed + new_recs + n, dateien))
     }
     /// Weather and time of day for the presets: midweek games at night, the weather by month. Estimated rule.
@@ -2956,6 +3024,16 @@ fn kriterien_start() -> u8 { 1 }
 pub fn load(path: &std::path::Path) -> Result<Career, String> {
     let b = std::fs::read(path).map_err(|e| e.to_string())?;
     let mut c: Career = serde_json::from_slice(&b).map_err(|e| e.to_string())?;
+    // saves from before the league pyramid of the pesdb (tier, cup, league above, places up and down): read it once
+    if !c.fl27_welt.is_empty() && c.world.leagues.iter().any(|l| l.stufe == 0) {
+        if let Ok(d) = crate::pesdb::read_world(&c.welt().join("common/etc/pesdb")) {
+            for l in c.world.leagues.iter_mut() {
+                let Some(m) = d.leagues.iter().find(|m| m.key == l.key) else { continue };
+                if l.land.is_empty() { l.land = m.land.clone(); }
+                (l.stufe, l.ueber, l.auf, l.ab, l.pokal, l.land_nr) = (m.stufe, m.ueber.clone(), m.auf, m.ab, m.pokal.clone(), m.land_nr);
+            }
+        }
+    }
     c.world.ueber_ergaenzen(); // saves from before the country field
     if !c.world.farm_an { c.world.farm_einrichten(); } // saves from before second teams and farm teams
     if !c.world.trainer_an { let own = c.own; c.world.trainer_ausstatten(Some(own)); } // saves from before the coach bank
@@ -2973,6 +3051,8 @@ pub fn load(path: &std::path::Path) -> Result<Career, String> {
     c.ligaregeln_laden();
     c.ki_klauseln_saeen();
     c.echte_namen_einsetzen(); // saves from before the real club staff (24.11.)
+    c.praesidium_an(); // saves from before the board (made at a season start otherwise)
+    crate::statistik::nachtragen(&mut c.world); // imported saves: detailed numbers of the old matches from the totals
     Ok(c)
 }
 
@@ -3138,7 +3218,7 @@ mod t {
             }
             // a few user actions on the way: buy a free agent, answer decisions
             if c.world.day == 5 && c.world.season == 0 {
-                if let Some(p) = (0..c.world.players.len()).find(|&p| c.world.players[p].team >= 0 && c.world.players[p].team != c.own as i32 && c.world.players[p].ovr < 70.0) {
+                if let Some(p) = (0..c.world.players.len()).find(|&p| c.world.players[p].team >= 0 && c.world.players[p].team != c.own as i32 && c.world.players[p].ovr < 70.0 && c.verkauf_gesperrt(p).is_none()) {
                     let i = c.open_neg(p).unwrap();
                     c.negs[i].fee = c.negs[i].ask;
                     c.submit_neg(i);
@@ -3624,5 +3704,24 @@ mod spielstand {
         assert!(kopie.fl27_cpk.is_empty(), "the copy gets its own CPK");
         assert!(kopie.karriere_dir().join("pesdb/Team.bin").exists());
         for n in [neu, k] { let _ = std::fs::remove_dir_all(save_dir().join(&n)); let _ = std::fs::remove_file(save_dir().join(format!("{n}.json"))); let _ = std::fs::remove_file(save_dir().join(format!("{n}.info"))); }
+    }
+}
+
+impl Career {
+    /// The other matches of our league on this day, played now at our kick-off so the live screen can show them
+    /// minute by minute (Fabian 24.11.); the day's end then skips them. Empty when today is not a league day for us.
+    pub fn parallel_spielen(&mut self) -> Vec<(usize, usize, MatchResult)> {
+        let (day, l, own) = (self.world.day, self.league(), self.own);
+        if !self.world.leagues[l].fixtures.iter().any(|f| f.day == day && f.hg < 0 && (f.h == own || f.a == own)) { return vec![]; }
+        let level = self.world.leagues[l].detail;
+        let mut v = vec![];
+        for fi in 0..self.world.leagues[l].fixtures.len() {
+            let f = self.world.leagues[l].fixtures[fi];
+            if f.day != day || f.hg >= 0 || f.h == own || f.a == own { continue; }
+            let res = self.world.play(f.h, f.a, level, None, None);
+            self.world.apply_result(l, fi, &res);
+            v.push((f.h, f.a, res));
+        }
+        v
     }
 }

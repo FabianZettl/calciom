@@ -508,7 +508,7 @@ mod t {
     /// no club twice in a round, every club of a round won the one before (or had a bye), the last round is one tie.
     #[test]
     fn ko_runden_stimmig() {
-        let w = World::load(include_str!("../assets/world.json"), 3);
+        let w = crate::world::testwelt(3);
         let mut c = crate::game::Career::new(w, 1, "Test");
         for _ in 0..330 { if c.today_match().is_some() { let r = c.prepare_match(None); c.apply_own_match(r); } c.ultimatum = None; if c.end_day().is_err() { break; } }
         for (ci, cup) in c.world.cups.iter().enumerate() {
@@ -545,7 +545,7 @@ mod t {
     /// Fabian 23.11.: the new season opens with the supercup – champion against cup winner, one match, real name.
     #[test]
     fn supercup_meister_gegen_pokalsieger() {
-        let mut w = World::load(include_str!("../assets/world.json"), 3);
+        let mut w = crate::world::testwelt(3);
         w.setup_cups(None);
         let fa = w.cups.iter().position(|c| c.name == "FA Cup").expect("FA Cup in the demo world");
         let sieger = w.cups[fa].teams[3];
@@ -558,7 +558,7 @@ mod t {
         assert_eq!(sc.fx.len(), 1, "one match");
         assert_eq!(w.titelverteidiger.get("FA Cup"), Some(&sieger));
         // the UEFA Super Cup: winners of the Champions and Europa League
-        let mut w = World::load(include_str!("../assets/world.json"), 3);
+        let mut w = crate::world::testwelt(3);
         w.setup_cups(None);
         let (cl, el) = (w.cups.iter().position(|c| c.kind == 1), w.cups.iter().position(|c| c.kind == 2));
         if let (Some(cl), Some(el)) = (cl, el) {
@@ -572,7 +572,7 @@ mod t {
     }
     #[test]
     fn echter_kalender() {
-        let mut w = World::load(include_str!("../assets/world.json"), 3);
+        let mut w = crate::world::testwelt(3);
         w.setup_cups(None);
         // European nights on their weekdays, and no club plays a cup match the day before or after another match
         let mut tage: std::collections::HashMap<usize, Vec<u32>> = Default::default();
@@ -593,7 +593,7 @@ mod t {
     }
     #[test]
     fn answer_decides_level_knockout() {
-        let mut w = World::load(include_str!("../assets/world.json"), 4);
+        let mut w = crate::world::testwelt(4);
         let ci = w.cups.iter().position(|c| c.kind == 0 && !c.fx.is_empty()).unwrap();
         let (h, a) = (w.cups[ci].fx[0].f.h, w.cups[ci].fx[0].f.a);
         assert!(w.ko_offen(ci, 0, 1, 1) && !w.ko_offen(ci, 0, 2, 1));
@@ -624,7 +624,7 @@ mod t {
     }
     #[test]
     fn twenty_seasons_of_cups() {
-        let mut w = World::load(include_str!("../assets/world.json"), 9);
+        let mut w = crate::world::testwelt(9);
         for s in 0..20 {
             for day in 0..crate::date::SEASON_DAYS {
                 w.day = day;

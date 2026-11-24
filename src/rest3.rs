@@ -175,10 +175,21 @@ impl Career {
         let d = crate::mensch::kaderstaerke(&self.world, self.own) - crate::mensch::kaderstaerke(&self.world, g);
         let lage = if d >= 2.0 { crate::id("favorit") } else if d <= -2.0 { crate::id("aussenseiter") } else { crate::id("offen") };
         let gn = self.world.clubs[g].name.clone();
-        let opts = vec![(crate::id("respekt").to_string(), crate::tf!("ui.rest3.grosser_respekt_vor", gn)), (crate::id("selbstbewusst").to_string(), crate::inhalt::t("ui.rest3.wir_wissen_was_wir_koennen").to_string()), (crate::id("sticheln").to_string(), crate::tf!("ui.rest3.wird_sich_wundern", gn))];
-        let v = self.variante("mind_text", crate::inhalt::varianten("ui.rest3.die_reporter_wollen_eine_aussage"), &gn);
-        let text = crate::tf!(&crate::inhalt::variante_key("ui.rest3.die_reporter_wollen_eine_aussage", v), gn.clone(), self.world.rank_of(g).to_string(), self.world.rank_of(self.own).to_string());
-        self.msg(4, crate::inhalt::t("ui.medien.pressestelle"), &crate::tf!("ui.rest3.mind_games_vor_dem_spiel", gn), &text, Action::Wahl { art: format!("mind:{lage}"), bezug: vec![], optionen: opts });
+        // the opponent in the words (Fabian 24.11.: "the same every time, the same for every opponent"): their coach,
+        // their best player, both places; title, question and the three answers each from their own bag
+        let trainer = { let m = self.world.clubs[g].manager.clone(); if m.is_empty() { gn.clone() } else { m } };
+        let star = self.world.clubs[g].squad.iter().copied().max_by(|a, b| self.world.players[*a].ovr.partial_cmp(&self.world.players[*b].ovr).unwrap()).map(|p| self.world.players[p].name.clone()).unwrap_or_else(|| gn.clone());
+        let (rg, ro) = (self.world.rank_of(g).to_string(), self.world.rank_of(self.own).to_string());
+        let kt = self.vkey("ui.mind.titel", &gn);
+        let titel = crate::tf!(&kt, gn.clone());
+        let kx = self.vkey(&format!("ui.mind.text.{lage}"), &gn);
+        let text = crate::tf!(&kx, gn.clone(), trainer.clone(), star.clone(), rg, ro);
+        let mut opts = vec![];
+        for key in [crate::id("respekt"), crate::id("selbstbewusst"), crate::id("sticheln")] {
+            let k = self.vkey(&format!("ui.mind.opt.{key}"), &gn);
+            opts.push((key.to_string(), crate::tf!(&k, gn.clone(), trainer.clone(), star.clone())));
+        }
+        self.msg(4, crate::inhalt::t("ui.medien.pressestelle"), &titel, &text, Action::Wahl { art: format!("mind:{lage}"), bezug: vec![], optionen: opts });
     }
     pub fn mind_antwort(&mut self, lage: &str, key: &str) -> String {
         let mo = crate::regeln::f_oder("kabine", &format!("mind.{key}.moral.{lage}"), 0.0);
@@ -380,7 +391,7 @@ mod tests {
     use super::*;
     #[test]
     fn manager_netz_bewerbung() {
-        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         c.manager_an();
         let e0 = c.mgr_wert(0);

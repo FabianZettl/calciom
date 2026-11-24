@@ -314,3 +314,8 @@ social_media_star = { akzeptanz = -0.05, haerte = 1.1, medien = true }
 provokateur = { akzeptanz = -0.1, haerte = 1.2, medien = true }
 exzentrisch = { akzeptanz = -0.05, haerte = 1.1, medien = true }
 showman = { akzeptanz = -0.05, haerte = 1.1, medien = true }
+
+[antwort]
+# Wirkung eines Gesprächs auf die Form (Formpunkte, −3…+3), nach dem Ausgang (24.11., änderbar)
+form_geloest = 0.4
+form_eskalation = -0.5

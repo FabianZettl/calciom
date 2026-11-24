@@ -42,6 +42,11 @@ pub struct Auftrag {
     /// Minimum role strength (successor: his own minus 3).
     #[serde(default)]
     pub staerke_min: f32,
+    /// A player profile to search for (scouting.toml [profil.*]) or "wie" with a model player.
+    #[serde(default)]
+    pub profil: String,
+    #[serde(default)]
+    pub vorbild: Option<usize>,
 }
 
 fn a(k: &str) -> f32 { f("scouting", &format!("auftrag.{k}")) }
@@ -68,6 +73,19 @@ impl Career {
         if pl.team >= 0 && pl.joined > 0 && self.abs().saturating_sub(pl.joined) < a("frisch_gewechselt") as u32 { return Some("ui.auftrag.grund.frisch"); }
         if pl.inj as f32 >= a("verletzt_ab") { return Some("ui.auftrag.grund.verletzt"); }
         None
+    }
+    /// How well a player fits the assignment's profile, 0–100: the mean percentile of the profile's numbers against his
+    /// league's position group, or for "wie" the likeness to the model player. None without numbers to judge.
+    pub fn profil_passung(&self, p: usize, x: &Auftrag) -> Option<f32> {
+        if x.profil == crate::id("wie") { let v = x.vorbild?; return crate::statistik::aehnliche(&self.world, v, &[p], 1).first().map(|y| y.1); }
+        let keys: Vec<String> = crate::regeln::wert_oder("scouting", &format!("profil.{}.zahlen", x.profil))?.as_array()?.iter().filter_map(|v| v.as_str().map(|s| s.to_string())).collect();
+        let pl = &self.world.players[p];
+        if pl.team < 0 { return None; }
+        let gr = crate::scoutbericht::gruppe(&pl.pos);
+        let (st, _) = crate::statistik::saison_von(&self.world, p);
+        let vergleich = crate::statistik::liga_vergleich(&self.world, self.world.clubs[pl.team as usize].league, gr);
+        let werte: Vec<f32> = crate::statistik::kernzahlen(gr).into_iter().filter(|k| keys.iter().any(|x| x == k.0)).filter_map(|(_, fk, _)| crate::statistik::perzentil(&vergleich, fk, fk(&st)?, false)).collect();
+        (!werte.is_empty()).then(|| werte.iter().sum::<f32>() / werte.len() as f32)
     }
     pub fn auftraege_laufend(&self) -> usize { self.auftraege.iter().filter(|x| !x.fertig).count() }
     /// Starts an assignment: one per scout, at most as many as the club level allows.
@@ -172,6 +190,8 @@ impl Career {
                         y.gesehen.push(p);
                         let b = self.scout_urteil(p);
                         if b.urteil > 4 { continue; }
+                        // a profile search proposes only who plays like the profile (or like the model player)
+                        if !x.profil.is_empty() && self.profil_passung(p, &x).map_or(true, |s| s < f("scouting", "profil_schwelle")) { continue; }
                         let y = &mut self.auftraege[k];
                         if y.vorschlaege.len() >= 6 {
                             let (i, schwach) = y.vorschlaege.iter().enumerate().min_by(|a, b| a.1 .1.partial_cmp(&b.1 .1).unwrap()).map(|(i, v)| (i, v.1)).unwrap();
@@ -366,7 +386,7 @@ mod tests {
     use super::*;
     #[test]
     fn analyst_meldet_auffaellige_zahlen() {
-        let w = World::load(include_str!("../assets/world.json"), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         c.transfer_budget = 5e7;
         let s = 0;
@@ -379,7 +399,7 @@ mod tests {
     }
     #[test]
     fn suche_liefert_machbare_vorschlaege() {
-        let w = World::load(include_str!("../assets/world.json"), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         c.transfer_budget = 8e6;
         let scout = c.scouts[0].name.clone();

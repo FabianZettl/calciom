@@ -227,7 +227,7 @@ mod tests {
     use super::*;
     #[test]
     fn stufe_zwei_scouting() {
-        let w = crate::world::World::load(include_str!("../../assets/world.json"), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         let s = seite(&mut c, "scouting", 0);
         assert_eq!(s["seite"]["gruppen"].as_array().unwrap().len(), 9);

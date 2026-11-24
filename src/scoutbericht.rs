@@ -172,7 +172,7 @@ mod tests {
     use super::*;
     #[test]
     fn staerken_schwaechen_nur_relevant() {
-        let w = crate::world::World::load(include_str!("../assets/world.json"), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         let idx = |n: &str| crate::entwicklung::NAMEN.iter().position(|x| *x == n).unwrap();
         let gk: Vec<usize> = (20..25).collect();

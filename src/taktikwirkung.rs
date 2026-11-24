@@ -66,6 +66,30 @@ impl Career {
         if pressing { fe *= 1.0 + k("pressing.eigen"); fg *= 1.0 + k("pressing.konter"); }
         let stufe = (t.linie as f32 - 5.5) / 2.25;
         fg *= 1.0 + k("linie.je_stufe") * stufe;
+        // the PES M sliders and switches that the game has no field for (taktik9.rs, spielideen.toml [wirkung])
+        {
+            let w = |x: &str| crate::regeln::f("spielideen", &format!("wirkung.{x}"));
+            let st = |n: &str| self.t9.r(n) as f32 - 3.0;
+            fe *= 1.0 + w("risiko_eigen") * st("risiko"); // roh
+            fg *= 1.0 + w("risiko_gegner") * st("risiko") + w("haerte_gegner") * st("haerte"); // roh
+            let technik = mittel(self, elf, 2);
+            let frei = st("freiheit"); // roh
+            if frei > 0.0 { fe *= 1.0 + w("freiheit_eigen") * frei * if technik >= w("freiheit_technik_ab") { 1.0 } else { -1.0 }; }
+            if self.t9.s("abseitsfalle") { fg *= 1.0 + w("abseitsfalle_gegner"); } // roh
+            if self.t9.s("absichern") { fg *= 1.0 + w("absichern_gegner"); fe *= 1.0 + w("absichern_eigen"); } // roh
+            // advanced instructions and the formations with and without the ball (Fabian 24.11.)
+            for &id in &self.anweisungen {
+                let k = crate::taktik9::anweisung_key(id);
+                if k.is_empty() { continue; }
+                if let Some(a) = crate::regeln::wert_oder("spielideen", &format!("anweisung.{k}")).and_then(|v| v.as_array().cloned()) {
+                    fe *= 1.0 + a.first().and_then(|x| x.as_f64()).unwrap_or(0.0) as f32;
+                    fg *= 1.0 + a.get(1).and_then(|x| x.as_f64()).unwrap_or(0.0) as f32;
+                }
+            }
+            let teil = |f: usize, t: usize| crate::world::formation_slots(f).iter().filter(|s| crate::world::part_of(s) == t).count() as f32;
+            if let Some(fb) = self.formation_ball { fe *= 1.0 + crate::regeln::f("spielideen", "anweisung.mit_ball_je_angreifer") * (teil(fb, 3) - teil(self.formation, 3)); }
+            if let Some(fg2) = self.formation_gegen { fg *= 1.0 + crate::regeln::f("spielideen", "anweisung.gegen_ball_je_verteidiger") * (teil(fg2, 1) - teil(self.formation, 1)); }
+        }
         // counter rules (Konzept 3.4), each with its sentence
         let tempo = 10;
         let ivs: Vec<usize> = elf.iter().copied().filter(|&p| pos(p) == "CB").collect();
@@ -88,10 +112,11 @@ impl Career {
         if pressing && fit < k("regel.muede_unter") { fe *= 1.0 - k("regel.muede_eigen"); fg *= 1.0 + k("regel.muede_gegner"); saetze.push(crate::inhalt::t("ui.tw.muede_beine").to_string()); }
         // the coach's own style (trainerprofil.rs): when the tactics are his kind of football, he gets it across
         let passt = match self.trainerprofil.stil {
-            1 => t.haltung == 0 && t.pressing == 0,                 // counter
-            2 => t.pressing >= 1 && t.linie >= 6,                   // pressing
+            // the switches as on the tactics board: angriff 0 counter, pressing 0 hard, breite 0 wide
+            1 => t.angriff == 0 && t.haltung <= 1,                  // counter
+            2 => t.pressing == 0 && t.linie >= 6,                   // pressing
             3 => t.kompakt >= 7 && t.linie <= 4,                    // compact
-            4 => t.breite >= 1 || t.haltung == 2 && t.breite > 0,   // wing play
+            4 => t.breite == 0,                                     // wing play
             _ => t.angriff == 1 || t.aufbau == 1,                   // possession
         };
         if passt {
@@ -109,7 +134,7 @@ mod tests {
     use super::*;
     #[test]
     fn taktik_bleibt_im_deckel() {
-        let w = crate::world::World::load(include_str!("../assets/world.json"), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         let g = (c.own + 1) % c.world.clubs.len();
         for (angriff, aufbau, pressing, linie) in [(0u8, 0u8, 0u8, 10), (1, 1, 1, 1), (0, 1, 0, 5), (1, 0, 1, 8)] {
@@ -129,7 +154,7 @@ mod plan_b_tests {
     use crate::game::Career;
     #[test]
     fn plan_b_greift_im_spiel() {
-        let w = crate::world::World::load(include_str!("../assets/world.json"), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         while c.today_match().is_none() { c.end_day().unwrap(); }
         c.plan_b = crate::game::PlanB { an: true, minute: 46, wenn: 1, mentalitaet: 1 };

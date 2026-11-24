@@ -300,7 +300,7 @@ mod forderung_tests {
     /// Fabian 23.11.: who earns 16.2 M must not ask for 8.4 M; the demand follows the current wage.
     #[test]
     fn forderung_am_gehalt() {
-        let w = crate::world::World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = crate::game::Career::new(w, 1, "Test");
         let mut v: Vec<usize> = (0..c.world.players.len()).filter(|&p| c.world.players[p].team >= 0).collect();
         v.sort_by(|&a, &b| c.world.players[b].wage.total_cmp(&c.world.players[a].wage));

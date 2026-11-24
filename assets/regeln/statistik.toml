@@ -54,6 +54,8 @@ ballverluste = [1, 3]     # je höher, desto WENIGER Ballverluste (Faktor umgedr
 exponent = 1.5            # Wertefaktor (Wert / Mittel der Elf) ^ 1,5
 faktor_min = 0.5
 faktor_max = 2.0
+spielweise = 0.35         # feste Spielweise je Spieler und Familie (Lognormal-Streuung): ein Dribbler bleibt ein Dribbler.
+                          # Ohne sie lagen die Spieler einer Position zu eng beisammen (Flügel-Dribblings 3,4–4,7 pro 90; Fabian 24.11.)
 
 # Teil 3.4: Erfolg = Basis + a · (Wert − 70)/10 + b · (Wert − Gegnerwert)/10, begrenzt 0,05 … 0,97
 [erfolg]

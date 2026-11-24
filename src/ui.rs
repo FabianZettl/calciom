@@ -172,6 +172,8 @@ pub struct Ui {
     pub rahmen: std::cell::RefCell<Vec<Rect>>,
     /// Where player photos were drawn this frame (player id, centre, radius): a right click takes the nearest (Punkt 6).
     pub foto_orte: std::cell::RefCell<Vec<(u32, Vec2, f32)>>,
+    /// Crests drawn this frame (club id, centre, radius): a right click on a club row finds its club.
+    pub wappen_orte: std::cell::RefCell<Vec<(u32, Vec2, f32)>>,
     /// scripted click for --self-test
     pub inject_click: Option<Vec2>,
     /// Volume of the sounds 0…1 (Einstellungen → Klang: aus, leise, normal; default leise).
@@ -187,6 +189,9 @@ pub struct Ui {
     pub stadien: std::cell::RefCell<std::collections::HashMap<u32, Option<Texture2D>>>,
     /// Photos loaded per frame at most (long lists load their visible rows over a few frames, without stutter).
     pub foto_budget: std::cell::Cell<u8>,
+    /// Pictures from free web sources (netzbilder.rs) with their credit line, and where credits go this frame.
+    pub netz: std::cell::RefCell<std::collections::HashMap<(crate::netzbilder::Art, String), Option<(Texture2D, String)>>>,
+    pub nachweise: std::cell::RefCell<Vec<(Rect, String)>>,
 }
 
 /// Window-size check (tools/fenstertest.py, PESM_PRUEF=<report.json>): texts drawn beyond the window, texts cut to „…“,
@@ -244,6 +249,8 @@ impl Ui {
         self.foto_budget.set(6);
         self.rahmen.borrow_mut().clear();
         self.foto_orte.borrow_mut().clear();
+        self.wappen_orte.borrow_mut().clear();
+        self.nachweise.borrow_mut().clear();
         self.mouse = Vec2::from(mouse_position()) * view_scale() - vec2(versatz(), 0.0);
         self.clicked = is_mouse_button_pressed(MouseButton::Left);
         if let Some(p) = self.inject_click.take() {
@@ -667,6 +674,7 @@ impl Ui {
     }
     /// Club crest from the FL-World pictures; initials only when no picture exists (guide §2).
     pub fn club_crest(&self, cx: f32, cy: f32, r: f32, id: u32, c1: Color, short: &str) {
+        self.wappen_orte.borrow_mut().push((id, vec2(cx, cy), r));
         let tex = self.crests.borrow_mut().entry(id).or_insert_with(|| load_crest(self.bilder.verein.get(&id).and_then(|q| q.lesen()), id)).clone();
         if let Some(t) = tex {
             draw_texture_ex(&t, cx - r, cy - r, WHITE, DrawTextureParams { dest_size: Some(vec2(r * 2.0, r * 2.0)), ..Default::default() });
@@ -763,6 +771,12 @@ impl Ui {
     }
     /// The player a right click points at: of the photos drawn in this frame, the nearest one in the mouse's row
     /// (at most the photo's height above or below, 320 units beside it). Its id.
+    /// The club of the row under the mouse: the nearest crest at the same height.
+    pub fn wappen_unter_maus(&self) -> Option<u32> {
+        let m = self.mouse;
+        self.wappen_orte.borrow().iter().filter(|(_, c, r)| (m.y - c.y).abs() <= r + 10.0 && (m.x - c.x).abs() <= 420.0)
+            .min_by(|a, b| (a.1 - m).length().partial_cmp(&(b.1 - m).length()).unwrap()).map(|x| x.0)
+    }
     pub fn foto_unter_maus(&self) -> Option<u32> {
         let m = self.mouse;
         self.foto_orte.borrow().iter().filter(|(_, c, r)| (m.y - c.y).abs() <= r + 14.0 && (m.x - c.x).abs() <= 320.0)
@@ -793,13 +807,60 @@ impl Ui {
         true
     }
     /// The home stadium picture of a team (fl27::stadien_index), cropped to fill `r`; false when there is none.
-    pub fn stadion_bild(&self, r: Rect, team: u32) -> bool {
+    /// Without one in the game, the home ground's photo from Wikimedia Commons (netzbilder.rs) with its credit line.
+    pub fn stadion_bild(&self, r: Rect, team: u32, verein: &str) -> bool {
         let tex = self.stadien.borrow_mut().entry(team).or_insert_with(|| self.bilder.stadion.get(&team).and_then(|q| q.lesen()).and_then(|b| png_tex(&b))).clone();
-        let Some(t) = tex else { return false };
+        // shortcut: the club is searched by name only (no country), a namesake abroad could win; add the country if that shows up
+        let (t, nachweis) = match tex { Some(t) => (t, String::new()), None => match self.netz_bild(crate::netzbilder::Art::Stadion, verein, "") { Some(x) => x, None => return false } };
         let k = (r.w / t.width()).max(r.h / t.height());
         let src = Rect::new((t.width() - r.w / k) / 2.0, (t.height() - r.h / k) / 2.0, r.w / k, r.h / k);
         draw_texture_ex(&t, r.x, r.y, WHITE, DrawTextureParams { dest_size: Some(vec2(r.w, r.h)), source: Some(src), ..Default::default() });
+        if !nachweis.is_empty() { self.nachweise.borrow_mut().push((r, nachweis)); }
         true
+    }
+    /// A picture from a free web source as a texture with its credit; None while it loads or when there is none.
+    pub fn netz_bild(&self, art: crate::netzbilder::Art, name: &str, land: &str) -> Option<(Texture2D, String)> {
+        let k = (art, name.to_string());
+        if let Some(t) = self.netz.borrow().get(&k) { return t.clone(); }
+        if self.foto_budget.get() == 0 { return None; }
+        let t = match crate::netzbilder::holen(art, name, land) {
+            crate::netzbilder::Stand::Laeuft => return None,
+            crate::netzbilder::Stand::Fehlt => None,
+            crate::netzbilder::Stand::Da(b) => { self.foto_budget.set(self.foto_budget.get() - 1); std::fs::read(&b.datei).ok().and_then(|x| png_tex(&x)).map(|t| (t, b.nachweis)) }
+        };
+        self.netz.borrow_mut().insert(k, t.clone());
+        t
+    }
+    /// A journalist: the free photo (head part) in a circle when there is one, else the drawn press figure.
+    /// `land` is the country of a real reporter of the media pool; "" (invented journalist) never searches the web.
+    pub fn presse_kopf(&self, cx: f32, cy: f32, r: f32, name: &str, land: &str) {
+        let Some((t, nachweis)) = (!land.is_empty()).then(|| self.netz_bild(crate::netzbilder::Art::Person, name, land)).flatten() else { self.figur(cx, cy, r, name, Rolle::Presse); return };
+        draw_circle(cx, cy, r, Theme::erhoehung());
+        let s = r * 1.414;
+        let seite = t.width().min(t.height());
+        // portraits: the face sits in the upper part
+        let src = Rect::new((t.width() - seite) / 2.0, ((t.height() - seite) * 0.15).max(0.0), seite, seite);
+        draw_texture_ex(&t, cx - s / 2.0, cy - s / 2.0, WHITE, DrawTextureParams { dest_size: Some(vec2(s, s)), source: Some(src), ..Default::default() });
+        draw_circle_lines(cx, cy, r, 1.5, Theme::linie());
+        if !nachweis.is_empty() && Rect::new(cx - r, cy - r, 2.0 * r, 2.0 * r).contains(self.mouse) { *self.tooltip.borrow_mut() = Some(nachweis); }
+    }
+    /// An outlet's logo (public domain/CC0 from Commons) on a light chip inside `r`; false when there is none.
+    pub fn medium_logo(&self, r: Rect, name: &str, land: &str) -> bool {
+        let Some((t, _)) = self.netz_bild(crate::netzbilder::Art::Medium, name, land) else { return false };
+        rrect(r.x, r.y, r.w, r.h, 6.0, WHITE);
+        let k = ((r.w - 8.0) / t.width()).min((r.h - 8.0) / t.height());
+        let (w, h) = (t.width() * k, t.height() * k);
+        draw_texture_ex(&t, r.x + (r.w - w) / 2.0, r.y + (r.h - h) / 2.0, WHITE, DrawTextureParams { dest_size: Some(vec2(w, h)), ..Default::default() });
+        true
+    }
+    /// The credit lines of this frame's web pictures, small in their bottom right corner (CC BY / BY-SA need them).
+    pub fn nachweise_zeichnen(&self) {
+        for (r, n) in self.nachweise.borrow().iter() {
+            let n = self.fit(n, 11.0, r.w - 16.0);
+            let w = self.measure(&n, 11.0) + 10.0;
+            rrect(r.x + r.w - w - 4.0, r.y + r.h - 19.0, w, 16.0, 4.0, alpha(BLACK, 0.55));
+            self.text(&n, r.x + r.w - w + 1.0, r.y + r.h - 7.0, 11.0, alpha(WHITE, 0.9));
+        }
     }
     /// Five drawn stars from x (centre height y), `n` of them filled (halves allowed); the fonts have no star glyph.
     pub fn sterne(&self, x: f32, y: f32, n: f32, r: f32) {

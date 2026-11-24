@@ -223,7 +223,7 @@ mod tests {
         assert_eq!(reha_phase(20, 20).0, 0);
         assert_eq!(reha_phase(20, 1).0, 3);
         assert!(reha_phase(20, 10).0 >= 1);
-        let w = crate::world::World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         let p = c.squad()[1];
         c.world.players[p].inj = 30;
@@ -245,7 +245,7 @@ mod tests {
     }
     #[test]
     fn gruende_aus_der_lage() {
-        let w = crate::world::World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         let p = c.squad()[0];
         c.world.players[p].fit = 60.0;

@@ -55,7 +55,7 @@ mod tests {
     use crate::game::*;
     #[test]
     fn boykott_und_treffen() {
-        let w = crate::world::World::load(include_str!("../assets/world.json"), 5);
+        let w = crate::world::testwelt(5);
         let mut c = Career::new(w, 1, "Test");
         let d = 10.0 - c.fans; c.klima(d, 0.0, 0.0, "Test");
         c.results = vec!["N 0:1".into(); 6];

@@ -82,7 +82,7 @@ mod tests {
     use super::*;
     #[test]
     fn profile_filtern() {
-        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let c = Career::new(w, 0, "Test");
         let v = c.profil_vorlagen();
         assert!(v.len() >= 3);

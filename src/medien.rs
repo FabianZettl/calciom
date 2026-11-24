@@ -22,6 +22,9 @@ pub struct Medien {
     pub themen: Vec<(String, u32)>,
     /// The variants used last (key → index), so a question, an answer or a rumour does not come twice in a row.
     pub zuletzt: Vec<(String, usize)>,
+    /// What the last answer about a player did to him (shown once on the press card).
+    #[serde(skip)]
+    pub letzte_wirkung: String,
     /// Public promises: (kind nicht_verkaufen | saisonziel, player, since, deadline, state 0 open 1 kept 2 broken).
     pub zusagen: Vec<(String, Option<usize>, u32, u32, u8)>,
     /// Rumours: (player, abs day, real?, denied?).
@@ -123,6 +126,29 @@ impl Career {
             let name = if kand.is_empty() { PAPERS[i % PAPERS.len()].to_string() } else { kand[(zufall(&["2026", crate::id("blatt"), &seed, &i.to_string()]) * kand.len() as f32) as usize % kand.len()].0.clone() };
             self.me.blaetter.push(name);
         }
+    }
+    /// The two beats of journalist `j` (FAECHER): a real reporter by the keywords of his media pool entry, else by
+    /// his tone; an invented one by his style, the second beat fixed by his name.
+    pub fn faecher(&self, j: usize) -> Vec<&'static str> {
+        let Some((name, stil, _)) = self.me.journalisten.get(j) else { return vec![] };
+        let mut v: Vec<&'static str> = vec![];
+        if let Some(tags) = pool_schlagworte().get(name) {
+            for fach in FAECHER { let w = crate::regeln::wert("medien", &format!("journalist.fach_schlagworte.{fach}")); if tags.iter().any(|t| w.as_array().map_or(false, |a| a.iter().any(|x| x.as_str() == Some(t.as_str())))) { v.push(fach); } }
+        }
+        let erst = match pool_eintraege().iter().find(|e| &e.0 == name).map(|e| e.3.as_str()) {
+            Some("geruechte") => "transfers", Some("taktik") => "taktik", Some("insider") | Some("investigativ") => "interna", Some("fankultur") => crate::id("spieler"),
+            _ => match stil { 0 => "taktik", 1 => "transfers", 2 => "spieler", _ => crate::id("meinung") },
+        };
+        if !v.contains(&erst) { v.insert(0, erst); }
+        let h = name.bytes().fold(7usize, |a, b| a.wrapping_mul(31).wrapping_add(b as usize));
+        let rest: Vec<&'static str> = FAECHER.iter().copied().filter(|f| !v.contains(f)).collect();
+        if v.len() < 2 && !rest.is_empty() { v.push(rest[h % rest.len()]); }
+        v.truncate(2);
+        v
+    }
+    /// The journalists whose beats cover `thema` (medien.toml journalist.fach).
+    fn fuer_thema(&self, thema: &str) -> Vec<usize> {
+        (0..self.me.journalisten.len()).filter(|&j| self.faecher(j).iter().any(|f| crate::regeln::wert("medien", &format!("journalist.fach.{f}")).as_array().map_or(false, |a| a.iter().any(|x| x.as_str() == Some(thema))))).collect()
     }
     /// The outlet of journalist `j` ("" when unknown).
     pub fn blatt(&self, j: usize) -> String { self.me.blaetter.get(j).cloned().unwrap_or_default() }
@@ -246,7 +272,9 @@ impl Career {
                 answers.insert(0, (z, ton + 10)); // + 10 marks the answer that gives the public promise
             }
             let q = self.frage_text(&thema, p, &k.to_string());
-            let j = (zufall(&["2026", crate::id("frage"), &abs.to_string(), &k.to_string()]) * self.me.journalisten.len() as f32) as u8;
+            // the question comes from a journalist whose beat it is (Fabian 24.11.), else from anyone
+            let wer = { let v = self.fuer_thema(&thema); if v.is_empty() { (0..self.me.journalisten.len()).collect() } else { v } };
+            let j = wer[(zufall(&["2026", crate::id("frage"), &abs.to_string(), &k.to_string()]) * wer.len() as f32) as usize % wer.len().max(1)] as u8;
             self.me.themen.retain(|x| x.0 != thema);
             self.me.themen.push((thema.clone(), abs));
             fragen.push(PressQ { q, answers, post, thema, journalist: j, bezug: p, rest: vec![], summe: [0.0; 4] });
@@ -282,6 +310,21 @@ impl Career {
         }
         for k in 0..4 { pq.summe[k] += eff[k]; }
         if code >= 10 { self.zusage_geben(&pq.thema, pq.bezug); }
+        // an answer about one of our players hits him straight away (Fabian 24.11.): morale and form by the tone,
+        // stronger with his character, with the reason in his diary and on the card
+        if let Some(p) = pq.bezug.filter(|&p| self.world.players[p].team == self.own as i32) {
+            let sw = |x: &str| crate::regeln::f_oder("medien", &format!("spieler_ton.{ton}.{x}"), 0.0);
+            let pl = &self.world.players[p];
+            let (ego, temp) = (crate::mensch::cw(pl, crate::mensch::EGO) / 100.0, crate::mensch::cw(pl, crate::mensch::TEMPERAMENT) / 100.0);
+            let mut moral = sw(crate::id("moral"));
+            if moral < 0.0 { moral *= 1.0 + (f("medien", "spieler_ton.ego_kritik") - 1.0) * ego; }
+            let mut form = sw(crate::id("form"));
+            if form > 0.0 { form *= 1.0 + (f("medien", "spieler_ton.temperament_form") - 1.0) * temp; }
+            let (name, grund) = (pl.name.clone(), crate::tf!("ui.medien.ueber_ihn", crate::inhalt::t(&format!("md.ui.ton.{ton}"))));
+            if moral != 0.0 { self.moral_wirkung(p, moral, 0, &grund); }
+            if form != 0.0 { let pl = &mut self.world.players[p]; pl.form = (pl.form + form).clamp(-3.0, 3.0); }
+            self.me.letzte_wirkung = crate::tf!("ui.medien.wirkung_spieler", name, format!("{moral:+.0}"), format!("{form:+.1}"));
+        } else { self.me.letzte_wirkung.clear(); }
         let quote = pq.answers[i].0.clone();
         let rest = std::mem::take(&mut pq.rest);
         if let Some(mut next) = rest.first().cloned() {
@@ -422,7 +465,7 @@ impl Career {
         let n = self.world.players[p].name.clone();
         // the rumour comes from a tabloid journalist of the own country's press (medienpool), else any outlet
         self.journalisten_an();
-        let j = self.me.journalisten.iter().position(|x| x.1 == 1).unwrap_or(abs as usize % self.me.journalisten.len().max(1));
+        let j = (0..self.me.journalisten.len()).find(|&j| self.faecher(j).first() == Some(&crate::id("transfers"))).or_else(|| self.me.journalisten.iter().position(|x| x.1 == 1)).unwrap_or(abs as usize % self.me.journalisten.len().max(1));
         let paper_s = { let b = self.blatt(j); if b.is_empty() { PAPERS[(abs as usize) % PAPERS.len()].to_string() } else { b } };
         let paper = paper_s.as_str();
         let v = self.variante("geruecht_text", 5, &n);
@@ -500,7 +543,7 @@ impl Career {
 mod tests {
     #[test]
     fn sendung_einladung_und_auftritt() {
-        let w = crate::world::World::load(include_str!("../assets/world.json"), 7);
+        let w = crate::world::testwelt(7);
         let mut c = crate::game::Career::new(w, 0, "Test");
         c.me.sendung_angebot = Some(("Rasenfunk".into(), 1));
         c.sendung_antwort("zusage");
@@ -516,7 +559,7 @@ mod tests {
     }
     #[test]
     fn dementiertes_geruecht_kommt_nicht_wieder() {
-        let w = crate::world::World::load(include_str!("../assets/world.json"), 7);
+        let w = crate::world::testwelt(7);
         let mut c = crate::game::Career::new(w, 0, "Test");
         let p = c.squad()[0];
         c.geruecht(p, true);
@@ -528,7 +571,7 @@ mod tests {
     }
     #[test]
     fn varianten_wiederholen_sich_nicht() {
-        let w = crate::world::World::load(include_str!("../assets/world.json"), 7);
+        let w = crate::world::testwelt(7);
         let mut c = crate::game::Career::new(w, 0, "Test");
         let mut alt = usize::MAX;
         // a bag: five picks in a row are five different ones
@@ -541,10 +584,9 @@ mod tests {
         assert_ne!(a, b);
     }
     use super::*;
-    use crate::world::World;
     #[test]
     fn pressekonferenz_vier_fragen_und_deckel() {
-        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         let pq = c.press_question(false);
         let n = 1 + pq.rest.len();
@@ -562,7 +604,7 @@ mod tests {
     }
     #[test]
     fn fans_transfer_und_proteste() {
-        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         let u = c.umsatz_prognose();
         c.fans_transfer(u, true);
@@ -587,6 +629,18 @@ pub fn pool_eintraege() -> &'static Vec<(String, String, String, String)> {
         v["medien"].as_array().map(|a| a.iter().map(|m| (m["name"].as_str().unwrap_or("").to_string(), m["land"].as_str().unwrap_or("").to_string(), m["typ"].as_str().unwrap_or("").to_string(), m["ton"].as_str().unwrap_or("").to_string())).filter(|m| !m.0.is_empty()).collect()).unwrap_or_default()
     })
 }
+/// Beats a journalist can have (medien.toml journalist.fach).
+pub const FAECHER: [&str; 5] = ["transfers", "taktik", "interna", "meinung", "spieler"];
+/// Keywords of the media pool entries, lower case, by name.
+fn pool_schlagworte() -> &'static std::collections::HashMap<String, Vec<String>> {
+    static P: std::sync::OnceLock<std::collections::HashMap<String, Vec<String>>> = std::sync::OnceLock::new();
+    P.get_or_init(|| {
+        let v: serde_json::Value = serde_json::from_str(include_str!("../assets/inhalt/pesm/core/config/story/medienpool.json")).expect("medienpool.json");
+        v["medien"].as_array().map(|a| a.iter().map(|m| (m["name"].as_str().unwrap_or("").to_string(), m["tags"].as_array().map(|t| t.iter().filter_map(|x| x.as_str()).map(|x| x.to_lowercase()).collect()).unwrap_or_default())).collect()).unwrap_or_default()
+    })
+}
+/// The country code of an outlet or reporter of the media pool ("" when unknown).
+pub fn pool_land(name: &str) -> &'static str { pool_eintraege().iter().find(|e| e.0 == name).map_or("", |e| e.1.as_str()) }
 pub fn medienpool() -> &'static Vec<(String, String, String)> {
     static P: std::sync::OnceLock<Vec<(String, String, String)>> = std::sync::OnceLock::new();
     P.get_or_init(|| {
@@ -631,5 +685,51 @@ pub fn land_kuerzel(land: &str) -> &'static str {
         "Türkei" | "Turkey" => "TR", "Brasilien" | "Brazil" => "BR", "Argentinien" | "Argentina" => "AR", "Belgien" | "Belgium" => "BE", "Mexiko" | "Mexico" => "MX",
         "Japan" => "JP", "USA" => "US", "Saudi-Arabien" | "Katar" | "VAE" | "Saudi Arabia" | "Qatar" => "ME",
         _ => "INT",
+    }
+}
+
+#[cfg(test)]
+mod spieler_wirkung_tests {
+    use crate::game::*;
+    /// Fabian 24.11.: what we say about a player at the podium hits him directly – praise lifts morale and form,
+    /// criticism costs, stronger for a big ego.
+    #[test]
+    fn antwort_ueber_spieler_wirkt_direkt() {
+        let w = crate::world::testwelt(4);
+        let mut c = Career::new(w, 1, "Test");
+        let p = c.squad()[5];
+        let mut probe = |c: &mut Career, ton: u8| -> (f32, f32) {
+            c.world.players[p].form = 0.0;
+            c.world.players[p].morale = 50.0;
+            let mut q = c.press_question(false);
+            q.bezug = Some(p);
+            q.rest.clear();
+            q.answers = vec![("x".into(), ton)];
+            c.press = Some(q);
+            c.answer_press(Some(0));
+            // morale moves through its "talk" driver: the newest entry is this answer
+            (c.world.players[p].ps.gespr.last().map_or(0.0, |x| x.1), c.world.players[p].form)
+        };
+        let lob = crate::medien::TOENE.iter().position(|t| *t == "lob").unwrap() as u8;
+        let kritik = crate::medien::TOENE.iter().position(|t| *t == "kritik").unwrap() as u8;
+        let (ml, fl) = probe(&mut c, lob);
+        let (mk, fk) = probe(&mut c, kritik);
+        assert!(ml > mk && fl > fk, "praise {ml}/{fl} must beat criticism {mk}/{fk}");
+        assert!(fl > 0.0 && fk < 0.0 && ml > 0.0 && mk < 0.0);
+    }
+}
+
+#[cfg(test)]
+mod fach_tests {
+    /// Fabian 24.11.: journalists have beats; a transfer reporter asks the transfer questions.
+    #[test]
+    fn faecher_und_fragesteller() {
+        let mut c = crate::game::Career::new(crate::world::testwelt(4), 0, "Test");
+        c.me.journalisten = vec![("Florian Plettenberg".into(), 1, 0.0), ("Raphael Honigstein".into(), 0, 0.0), ("Ines Vogt".into(), 2, 0.0)];
+        assert_eq!(c.faecher(0)[0], "transfers");
+        assert!(c.faecher(1).contains(&"taktik"));
+        for j in 0..3 { assert_eq!(c.faecher(j).len(), 2, "{:?}", c.faecher(j)); }
+        assert!(c.fuer_thema("geruecht").contains(&0));
+        assert!(!c.fuer_thema("geruecht").contains(&1) || c.faecher(1).contains(&"transfers"));
     }
 }

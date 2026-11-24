@@ -106,7 +106,7 @@ mod tests {
     use super::*;
     #[test]
     fn ansprache_vor_dem_spiel() {
-        let w = crate::world::World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         while c.today_match().is_none() { c.end_day().unwrap(); }
         let e = c.spiel_erwartung().unwrap();
@@ -118,5 +118,45 @@ mod tests {
         let _ = m0;
         c.teamgespraech_auswertung(2, 0);
         assert!(c.ansprache_vor.is_none());
+    }
+}
+
+impl Career {
+    /// The voices of the duel screen (Fabian 24.11.): a TV pundit and the press on the match, then one key player per
+    /// side in an interview. Each from its own shuffle bag, so the next match sounds different.
+    pub fn duell_stimmen(&mut self, h: usize, a: usize, sh: f32, sa: f32, key_h: usize, key_a: usize) -> Vec<String> {
+        let (hn, an) = (self.world.clubs[h].name.clone(), self.world.clubs[a].name.clone());
+        let d = sh + 4.0 - sa;
+        let (fav, anderer, key) = if d >= 0.0 { (hn.clone(), an.clone(), key_h) } else { (an.clone(), hn.clone(), key_a) };
+        let tv = if d.abs() >= 6.0 { "ui.duell.tv.fav" } else { "ui.duell.tv.offen" }; // roh
+        let k = self.vkey(tv, &hn);
+        let tv = crate::tf!(&k, fav.clone(), anderer.clone(), self.world.players[key].name.clone());
+        let (rh, ra) = (self.world.rank_of(h), self.world.rank_of(a));
+        let k = self.vkey("ui.duell.presse", &an);
+        let presse = crate::tf!(&k, hn.clone(), an.clone(), rh, ra);
+        let mut v = vec![tv, presse];
+        for (p, gegner) in [(key_h, an.clone()), (key_a, hn.clone())] {
+            let gut = self.world.players[p].form >= 0.0;
+            let k = self.vkey(if gut { "ui.duell.interview.gut" } else { "ui.duell.interview.schlecht" }, &p.to_string()); // roh
+            v.push(crate::tf!(&k, gegner));
+        }
+        v
+    }
+}
+
+impl Career {
+    /// Voices on our result after the match (Fabian 24.11.): pundit, press and the fans, by win/draw/defeat and margin.
+    pub fn nach_stimmen(&mut self, res: &crate::world::MatchResult) -> Vec<String> {
+        let heim = res.h == self.own;
+        let (g, gg) = if heim { (res.hg, res.ag) } else { (res.ag, res.hg) };
+        let geg = self.world.clubs[if heim { res.a } else { res.h }].name.clone();
+        let ich = self.world.clubs[self.own].name.clone();
+        let art = if g > gg + 2 { "hoch" } else if g > gg { "sieg" } else if g == gg { "remis" } else if gg > g + 2 { "debakel" } else { "niederlage" }; // roh
+        let mut v = vec![];
+        for wer in ["tv", "presse", "fans"] { // roh
+            let k = self.vkey(&format!("ui.nach.{wer}.{art}"), &geg);
+            v.push(crate::tf!(&k, ich.clone(), geg.clone(), format!("{g}:{gg}")));
+        }
+        v
     }
 }

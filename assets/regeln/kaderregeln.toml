@@ -43,3 +43,7 @@ auslaender_max = 6
 "Ethiopian Premier League" = "Äthiopien"
 "Tajikistan Higher League" = "Tadschikistan"
 "Malaysia Super League" = "Malaysia"
+
+[spieltag]
+# Bank am Spieltag: so viele Ersatzspieler (mindestens ein Torwart), der Rest ist Reserve (änderbar)
+bank = 9

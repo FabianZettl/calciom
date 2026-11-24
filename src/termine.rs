@@ -116,7 +116,7 @@ mod tests {
     use super::*;
     #[test]
     fn vorvertrag_vom_januar_bis_zum_sommer() {
-        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         let andere = (0..c.world.clubs.len()).find(|&x| x != c.own && !c.world.clubs[x].squad.is_empty()).unwrap();
         let p = c.world.clubs[andere].squad[0];
@@ -124,7 +124,7 @@ mod tests {
         assert!(!c.vorvertrag_moeglich(p), "not before 1 January");
         c.world.day = AB_TAG;
         assert!(c.vorvertrag_moeglich(p));
-        let n = Neg { pid: p, renew: false, stage: 1, round: 0, ask: 0.0, fee: 0.0, counter: 0.0, wage: 1e6, need: 1e6, years: 3, state: NegState::Counter, reply_day: 0, ends: 0, text: String::new(), ph: None, ton: 0, handlung: 0, letzt: false, argument: 0, argumente: vec![], gefragt: false, tausch: false, haken: 0, haken_bis: 0, abschlag: 0.0, med: false, gate: false, verkauf: false, kaeufer: 0, gesendet: String::new(), kl: Default::default(), zeit: 0, vorvertrag: true, liegt_bis: 0, verlauf: vec![] };
+        let n = Neg { pid: p, renew: false, stage: 1, round: 0, ask: 0.0, fee: 0.0, counter: 0.0, wage: 1e6, need: 1e6, years: 3, state: NegState::Counter, reply_day: 0, ends: 0, text: String::new(), ph: None, ton: 0, handlung: 0, letzt: false, argument: 0, argumente: vec![], gefragt: false, tausch: false, haken: 0, haken_bis: 0, abschlag: 0.0, med: false, gate: false, verkauf: false, kaeufer: 0, gesendet: String::new(), kl: Default::default(), zeit: 0, vorvertrag: true, liegt_bis: 0, verlauf: vec![], verein: i32::MIN };
         c.vorvertrag_abschliessen(&n);
         assert_eq!(c.world.players[p].team, andere as i32, "he stays until the summer");
         c.vorvertraege_vollziehen();

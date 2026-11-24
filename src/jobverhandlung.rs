@@ -123,7 +123,7 @@ mod tests {
     use super::*;
     #[test]
     fn eigener_vertrag_verhandeln() {
-        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         let club = (0..c.world.clubs.len()).find(|&x| x != c.own).unwrap();
         c.job_verhandeln(club, 1_000_000.0);
@@ -134,7 +134,7 @@ mod tests {
         c.job_antwort("abgeben");
         assert!(c.own == club || c.mgr.verh.is_some(), "accepted or a counter-offer");
         // greed ends the talks
-        let mut d = Career::new(World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7), 0, "Test");
+        let mut d = Career::new(crate::world::testwelt(7), 0, "Test");
         d.job_verhandeln(club, 1_000_000.0);
         for _ in 0..12 { d.job_antwort("gehalt"); d.job_antwort("budget"); }
         let r = d.job_antwort("abgeben");

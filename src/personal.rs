@@ -202,7 +202,7 @@ mod tests {
     use super::*;
     #[test]
     fn stab_und_belastung() {
-        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         c.stab_an();
         assert_eq!(c.stab.len(), 6);

@@ -41,7 +41,7 @@ mod tests {
     use super::*;
     #[test]
     fn tipp_und_bilanz() {
-        let w = crate::world::World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         c.experten_tipp();
         let (_, p) = c.experten_platz.unwrap();

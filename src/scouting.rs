@@ -316,7 +316,7 @@ mod tests {
     use super::*;
     #[test]
     fn grundwissen_und_verfall() {
-        let w = World::load(include_str!("../assets/world.json"), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         // the own league is known, a star more than a bench player of the same club
         let eigene: Vec<usize> = c.world.leagues[c.league()].teams.iter().filter(|&&t| t != c.own).flat_map(|&t| c.world.clubs[t].squad.clone()).collect();
@@ -336,7 +336,7 @@ mod tests {
         assert_eq!(sterne(72.5), 2.5);
         assert!((gehalt(&[50.0; 4]) - 40000.0).abs() < 1.0);
         assert!((gehalt(&[60.0; 4]) - 65000.0).abs() < 1.0);
-        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         let p = c.world.clubs[1].squad[0];
         c.world.players[p].know = 0.0;

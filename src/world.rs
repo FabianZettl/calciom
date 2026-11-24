@@ -213,6 +213,16 @@ pub struct Profil {
     pub saison: crate::statistik::Stat,
     #[serde(default)]
     pub vorsaison: crate::statistik::Stat,
+    /// SoFIFA id of the player (0: not found, sofifa.rs) and his market value as a factor on the model's value (0: none).
+    #[serde(default)]
+    pub sofifa: u32,
+    #[serde(default)]
+    pub wert_faktor: f32,
+    /// SoFIFA emotion (1 very calm … 5 explosive) and growth profile (sofifa::kurve); 0 unknown.
+    #[serde(default)]
+    pub emotion: u8,
+    #[serde(default)]
+    pub wachstum: u8,
 }
 /// One player's figures in one league this season (league index, games, goals, assists, grade sum and count).
 #[derive(Serialize, Deserialize, Clone, Default, Debug, PartialEq)]
@@ -401,6 +411,9 @@ pub struct World {
     /// Home-grown players: player id → club id whose youth he came from (jugend.rs, Akademie-Konzept 6.3).
     #[serde(default)]
     pub eigen: std::collections::BTreeMap<u32, u32>,
+    /// Faces of new players: player id → id of the real player whose appearance he wears in FL27 (gesichter.rs).
+    #[serde(default)]
+    pub gesichter: std::collections::BTreeMap<u32, u32>,
     /// The own tactic's factors for the next play() of that club: (club, own goals, opponent goals) (taktikwirkung.rs).
     #[serde(skip)]
     pub taktik_faktor: Option<(usize, f32, f32)>,
@@ -532,6 +545,7 @@ pub fn market_value(p: &Player, season: u32, league_level: f32) -> f64 {
     v *= [0.72, 0.9, 1.0][years as usize - 1];
     v *= league_factor(league_level, 60.0, 0.7, 1.3) as f64;
     v *= WERT_AERA.load(std::sync::atomic::Ordering::Relaxed) as f64 / 100.0;
+    if p.profil.wert_faktor > 0.0 { v *= p.profil.wert_faktor as f64; }
     round_money(v)
 }
 pub fn fair_wage(p: &Player, league_level: f32) -> f64 {
@@ -803,7 +817,7 @@ impl World {
             name, key, teams, fixtures: vec![], level: 68.0, deduct: vec![],
         }).collect();
         let next_id = players.iter().map(|p| p.id).max().unwrap_or(0) + 1;
-        let mut w = World { profil_cache: vec![], titelverteidiger: Default::default(), ki_ausgaben: Default::default(), eigen: Default::default(), taktik_faktor: None, noten_woche: vec![], noten_monat: vec![], leagues, clubs, players, season: 0, day: 0, rng, source, next_id, cups: vec![], titles: vec![], coef: vec![], cup_money: vec![], neutral: false, entscheid: vec![], planen: None, ko_runde_nr: 0, db_cups: vec![], db_euro: None, ko_vorgabe: None, cids: Default::default(), zweite: vec![], koops: vec![], farm_an: false, trainer_an: false, trainer_pool: vec![], ligaregeln: crate::ligaregeln::eingebaut(), teamgeist_eigen: None, nationalteams: vec![], nat_punkte: Default::default(), turniere: vec![], turnier_tore: Default::default() };
+        let mut w = World { profil_cache: vec![], titelverteidiger: Default::default(), ki_ausgaben: Default::default(), eigen: Default::default(), gesichter: Default::default(), taktik_faktor: None, noten_woche: vec![], noten_monat: vec![], leagues, clubs, players, season: 0, day: 0, rng, source, next_id, cups: vec![], titles: vec![], coef: vec![], cup_money: vec![], neutral: false, entscheid: vec![], planen: None, ko_runde_nr: 0, db_cups: vec![], db_euro: None, ko_vorgabe: None, cids: Default::default(), zweite: vec![], koops: vec![], farm_an: false, trainer_an: false, trainer_pool: vec![], ligaregeln: crate::ligaregeln::eingebaut(), teamgeist_eigen: None, nationalteams: vec![], nat_punkte: Default::default(), turniere: vec![], turnier_tore: Default::default() };
         w.ueber_ergaenzen();
         w.init_economy();
         w.kuerzel_eindeutig();
@@ -1528,7 +1542,7 @@ impl World {
             let p = &self.players[i];
             let ae = p.age as f32 - if p.pos == crate::id("GK") { 3.0 } else { 0.0 }; // gk_shift 3
             let young = ae <= 26.0;
-            let d0 = if young { let a = ae.max(15.0); (p.pot - p.ovr).max(-2.0) * interp(&GROWTH, a) / rem(a) } else { interp(&DECLINE, ae.min(36.0)) };
+            let d0 = if young { let a = ae.max(15.0); (p.pot - p.ovr).max(-2.0) * interp(&GROWTH, a) / rem(a) } else { interp(&DECLINE, ae.min(36.0)) } * crate::sofifa::kurve(p.profil.wachstum, ae);
             // the own club and academy develop per ability (entwicklung.rs); only players without the 25 abilities (the demo world) keep this step
             if team as usize == own && self.players[i].attrs.len() == 25 { continue; }
             let tr = 1.0;
@@ -1584,12 +1598,16 @@ pub fn retire_chance(age: u8) -> f32 {
     RETIRE.iter().rev().find(|(a, _)| age >= *a).map(|x| x.1).unwrap_or(0.0)
 }
 
+/// The built-in test world; one shared copy of assets/world.json instead of one per test module.
+#[cfg(test)]
+pub fn testwelt(seed: u64) -> World { World::load(crate::WORLD_JSON, seed) }
+
 #[cfg(test)]
 mod t {
     use super::World;
     #[test]
     fn ranglisten_zaehlen_nur_die_liga() {
-        let mut w = World::load(include_str!("../assets/world.json"), 5);
+        let mut w = crate::world::testwelt(5);
         let (l, fi) = (0, 0);
         let (h, a) = (w.leagues[l].fixtures[fi].h, w.leagues[l].fixtures[fi].a);
         // goals from elsewhere (youth, second team, cups) sit in the season totals only
@@ -1606,7 +1624,7 @@ mod t {
     #[test]
     fn eingriff_wirkt_auf_den_rest() {
         // an attacking mentality from minute 30 brings more goals for both sides than a defensive one; the first half stays
-        let mut w = World::load(include_str!("../assets/world.json"), 5);
+        let mut w = crate::world::testwelt(5);
         let (mut off, mut def) = (0u32, 0u32);
         for k in 0..600 {
             let res = w.play(0, 1, 0, None, None);
@@ -1634,7 +1652,7 @@ mod t {
     }
     #[test]
     fn kuerzel_je_land_eindeutig() {
-        let mut welten = vec![World::load(include_str!("../assets/world.json"), 5)];
+        let mut welten = vec![crate::world::testwelt(5)];
         for n in ["_FL26-27-Def", "_FL26Megapack", "_FL26MyWorld"] {
             let d = crate::fl27::sider().join("livecpk").join(n).join("common/etc/pesdb");
             if crate::fl27::echte_welt(&d) { if let Ok(w) = World::from_pesdb(&d, 7) { welten.push(w); } }
@@ -1654,7 +1672,7 @@ mod t {
     /// Team spirit counts in the match: the same squad with team spirit 80 plays measurably better than with 30 (500 matches).
     #[test]
     fn teamgeist_wirkt_ueber_500_spiele() {
-        let w = super::World::load(include_str!("../assets/world.json"), 5);
+        let w = crate::world::testwelt(5);
         let l = &w.leagues[0];
         let (h, a) = (l.teams[0], l.teams[1]);
         let tordiff = |tg: f32| {
@@ -1669,7 +1687,7 @@ mod t {
     /// back at a neutral arrow the abilities are the true ones again, and writing twice never adds up.
     #[test]
     fn form_zuschlag_und_ruecknahme() {
-        let w = super::World::load(include_str!("../assets/world.json"), 5);
+        let w = crate::world::testwelt(5);
         let mut p = w.players[0].clone();
         p.pos = "CF".into();
         p.attrs = vec![65.0; 25];
@@ -1732,7 +1750,7 @@ mod saison_realismus {
     /// with the lion's share of his team's goals, and table, results and scorers that agree.
     #[test]
     fn eine_saison_wie_echt() {
-        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = crate::game::Career::new(w, 0, "Test");
         c.mensch.vertrag_bis = u32::MAX;
         while c.world.day < LEAGUE_END + 2 {

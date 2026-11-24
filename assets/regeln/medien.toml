@@ -141,6 +141,10 @@ echte_personen = 1               # echte Reporter aus medienpool.json (0: nur er
 haltung_je_antwort = 4         # Schritt je Antwort; Neigung des Stils entscheidet das Vorzeichen
 neigung = { sachlich = { ehrlich = 1, ausweichend = -1, diplomatisch = 1 }, boulevard = { kaempferisch = 1, kritik = 1, kontern = 1, ausweichend = -1 }, wohlwollend = { lob = 1, ehrlich = 1, diplomatisch = 1, kritik = -1 }, kritisch = { ehrlich = 1, ausweichend = -1, kaempferisch = -1, kontern = -1 } }
 verstaerkung = 0.4             # Wirkung auf das Medienbild ×(1 ± so viel), je nachdem, ob die Antwort dem Journalisten gefällt
+# Fachgebiete (Fabian 24.11.): worüber ein Journalist vor allem fragt. Jeder hat zwei; echte Reporter nach ihren
+# Schlagworten im Medienpool, erfundene nach ihrem Stil. Bei der Pressekonferenz stellt eine Frage bevorzugt, wer das Thema abdeckt.
+fach = { transfers = ["geruecht", "zusage_spieler", "neuzugang"], taktik = ["sieg", "niederlage", "remis", "standard", "serie_gut"], interna = ["vorstand", "ausfall", "zusage_ziel", "serie_schlecht"], meinung = ["serie_schlecht", "niederlage", "vorstand", "zusage_ziel"], spieler = ["star", "neuzugang", "ausfall", "sieg"] }
+fach_schlagworte = { transfers = ["transfers", "breaking", "gerüchte", "geld"], taktik = ["taktik", "analyse", "experte"], interna = ["insider", "bayern", "real madrid", "chelsea", "man utd", "barça", "ajax"], meinung = ["meinung", "kolumne", "kommentar", "essay", "hot takes", "talk"], spieler = ["interviews", "emotion", "geschichte", "fankultur"] }
 
 # Gerüchte und Dementis
 [geruecht]
@@ -315,3 +319,16 @@ tage_bis = 2                    # Auftritt so viele Tage nach der Zusage
 faktor_tv = 1.5                 # Wirkung gegenüber einer PK
 faktor_podcast = 0.8
 deckel = 8.0                    # höchstens ±8 je Ziel (PK ±6)
+
+# Antwort über einen Spieler (24.11., änderbar): direkte Wirkung auf ihn, je Ton Moral und Form (Formpunkte, −3…+3).
+# Ego verstärkt Kritik (Faktor bis ego_kritik), Temperament verstärkt den Schub aus Lob und Kampfansage (bis temperament_form).
+[spieler_ton]
+lob          = { moral = 5, form = 0.6 }
+kritik       = { moral = -6, form = -0.4 }
+kaempferisch = { moral = 2, form = 0.4 }
+ehrlich      = { moral = 1, form = 0.0 }
+diplomatisch = { moral = 1, form = 0.0 }
+ausweichend  = { moral = -1, form = 0.0 }
+kontern      = { moral = 2, form = 0.2 }
+ego_kritik = 1.6
+temperament_form = 1.5

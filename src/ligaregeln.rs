@@ -576,7 +576,7 @@ mod tests {
     }
 
     use super::*;
-    fn welt() -> World { let mut w = World::load(include_str!("../assets/world.json"), 5); w.zweite.clear(); w }
+    fn welt() -> World { let mut w = crate::world::testwelt(5); w.zweite.clear(); w }
     fn liga(w: &World, k: &str) -> usize { w.leagues.iter().position(|l| l.key == k).unwrap() }
     fn als(w: &mut World, l: usize, land: &str, stufe: u8, ueber: Option<usize>) {
         w.leagues[l].land = land.into();

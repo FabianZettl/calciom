@@ -82,7 +82,7 @@ mod tests {
         let p = Trainerprofil { vorwissen: 4, karriere: 4, ..Default::default() };
         assert_ne!(p.start_lizenz(), "c", "an experienced former pro starts higher");
         assert_eq!(Trainerprofil::default().start_lizenz(), "c");
-        let w = crate::world::World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         let liga = c.world.clubs[5].league;
         c.angebot_ligen = vec![liga];

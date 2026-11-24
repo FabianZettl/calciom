@@ -17,7 +17,7 @@ mod tests {
     #[test]
     #[ignore]
     fn wiederholungen_messen() {
-        let w = crate::world::World::load(include_str!("../assets/world.json"), 9);
+        let w = crate::world::testwelt(9);
         let mut c = Career::new(w, 3, "Test");
         let mut post: Vec<String> = vec![];
         let mut news: Vec<String> = vec![];

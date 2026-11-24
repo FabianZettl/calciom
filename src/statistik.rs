@@ -87,7 +87,7 @@ struct Cfg {
     rate: [f32; NF],
     profil: Vec<(String, [f32; NF])>,
     werte: Vec<Vec<usize>>,
-    exp: f32, fmin: f32, fmax: f32,
+    exp: f32, fmin: f32, fmax: f32, spielweise: f32,
     erfolg: Vec<Option<(f32, f32, f32)>>,
     arten: Vec<Art>,
     xg_sd: f32, xg_min: f32, xg_max: f32, tor_je10: f32, k: f32, weitere_min: f32, team_sd: f32, vorlage_quote: f32, ziel_f: f32,
@@ -120,7 +120,7 @@ fn cfg() -> &'static Cfg {
         let stil = |k: &str| { let mut a = [1.0; NF]; for (n, v) in w(crate::id("lage"))[k].as_object().unwrap() { a[idx(n)] = zahl(v); } a };
         Cfg {
             rate, profil, werte,
-            exp: zahl(&w(crate::id("verteilung"))["exponent"]), fmin: zahl(&w(crate::id("verteilung"))["faktor_min"]), fmax: zahl(&w(crate::id("verteilung"))["faktor_max"]),
+            exp: zahl(&w(crate::id("verteilung"))["exponent"]), fmin: zahl(&w(crate::id("verteilung"))["faktor_min"]), fmax: zahl(&w(crate::id("verteilung"))["faktor_max"]), spielweise: zahl(&w(crate::id("verteilung"))["spielweise"]),
             erfolg, arten,
             xg_sd: zahl(&c["xg_streuung"]), xg_min: zahl(&c["xg_min"]), xg_max: zahl(&c["xg_max"]), tor_je10: zahl(&c["aufs_tor_je_10"]),
             k: zahl(&c["psxg_k"]), weitere_min: zahl(&c["weitere_schuesse_min"]), team_sd: zahl(&c["xg_streuung_team"]), vorlage_quote: zahl(&c["vorlage_quote"]), ziel_f: zahl(&c["xg_ziel_faktor"]),
@@ -141,6 +141,16 @@ fn familienwerte(w: &World, p: usize) -> [f32; NF] {
     a
 }
 
+/// The role profile of a player's position group times his own playing style: a fixed factor per player and family
+/// (lognormal, mean 1), so players of one position differ the way real ones do, and the same ones stay dribblers or crossers.
+fn profil_von(w: &World, p: usize) -> [f32; NF] {
+    let c = cfg();
+    let gr = crate::scoutbericht::gruppe(&w.players[p].pos);
+    let mut prof = c.profil.iter().find(|x| x.0 == gr).map(|x| x.1).unwrap_or([1.0; NF]);
+    let mut rng = Rng(w.players[p].id as u64 * 0x2545_F491 + 0x51ED);
+    for x in prof.iter_mut() { *x *= (rng.gauss(c.spielweise) - c.spielweise * c.spielweise / 2.0).exp(); }
+    prof
+}
 /// A lognormal xG around `mittel` (mean kept), clamped.
 fn xg_ziehen(rng: &mut Rng, mittel: f32) -> f32 {
     let c = cfg();
@@ -166,9 +176,7 @@ pub fn spiel(w: &World, res: &MatchResult, rng: &mut Rng) -> (Vec<(usize, Stat)>
         else { res.events.iter().find(|e| e.kind == 5 && e.pid2 == Some(p)).map_or(0, |e| e.side) }
     };
     let sp: Vec<Sp> = res.minutes.iter().map(|&(p, m)| {
-        let gr = crate::scoutbericht::gruppe(&w.players[p].pos);
-        let prof = c.profil.iter().find(|x| x.0 == gr).map(|x| x.1).unwrap_or([1.0; NF]);
-        Sp { p, side: side_of(p), min: m as f32, prof, wert: familienwerte(w, p), gk: w.players[p].pos == "GK" }
+        Sp { p, side: side_of(p), min: m as f32, prof: profil_von(w, p), wert: familienwerte(w, p), gk: w.players[p].pos == "GK" }
     }).collect();
     let mut st: Vec<Stat> = sp.iter().map(|_| vec![0; N]).collect();
     for (i, s) in sp.iter().enumerate() { st[i][MIN] = s.min as u32; st[i][SPIELE] = 1; }
@@ -330,8 +338,7 @@ fn hochrechnen_saison(w: &World, p: usize, spiele_vorgabe: Option<f32>) -> Stat 
     let einsaetze = (spiele * quote).round();
     let min = einsaetze * if quote >= 0.8 { 84.0 } else { 55.0 };
     if min <= 0.0 { return s; }
-    let gr = crate::scoutbericht::gruppe(&pl.pos);
-    let prof = c.profil.iter().find(|x| x.0 == gr).map(|x| x.1).unwrap_or([1.0; NF]);
+    let prof = profil_von(w, p);
     let wert = familienwerte(w, p);
     let mittel = 70.0f32.max(crate::statistik::liga_staerke(w, l) - 2.0);
     let wf = |f: usize| -> f32 { let r = if f == F_BALLV { mittel / wert[f].max(1.0) } else { wert[f] / mittel }; r.powf(c.exp).clamp(c.fmin, c.fmax) };
@@ -375,6 +382,40 @@ fn hochrechnen_saison(w: &World, p: usize, spiele_vorgabe: Option<f32>) -> Stat 
     s
 }
 
+/// Imported careers (altimport.rs, Fabian 24.11.): the old matches left season totals (games, goals, assists, grades)
+/// but no trace. The missing games in a detailed league get numbers like the projection (role profile, values, fixed
+/// noise), scaled to the real games, with the real goals and assists. Returns the number of players filled.
+pub fn nachtragen(w: &mut World) -> usize {
+    let mut n = 0;
+    for p in 0..w.players.len() {
+        let mut neu = false;
+        for i in 0..w.players[p].profil.ligen.len() {
+            let ls = w.players[p].profil.ligen[i].clone();
+            let l = ls.l as usize;
+            if l >= w.leagues.len() || w.leagues[l].detail > 1 { continue; }
+            let fehlt = (ls.apps as u32).saturating_sub(get(&ls.st, SPIELE));
+            if fehlt == 0 { continue; }
+            let voll = w.leagues[l].teams.len().saturating_sub(1) as f32 * 2.0;
+            let mut s = hochrechnen_saison(w, p, Some(voll));
+            if s.len() < N { s = vec![0; N]; }
+            let f = fehlt as f32 / get(&s, SPIELE).max(1) as f32;
+            for x in s.iter_mut() { *x = (*x as f32 * f).round() as u32; }
+            if s[MIN] == 0 { s[MIN] = fehlt * 70; }
+            s[SPIELE] = fehlt;
+            s[TORE] = (ls.goals as u32).saturating_sub(get(&ls.st, TORE));
+            s[VORLAGEN] = (ls.assists as u32).saturating_sub(get(&ls.st, VORLAGEN));
+            s[SCHUESSE] = s[SCHUESSE].max(s[TORE]);
+            s[AUFS_TOR] = s[AUFS_TOR].clamp(s[TORE], s[SCHUESSE]);
+            for (ok, alle) in [(PAESSE_OK, PAESSE), (DRIBB_OK, DRIBB), (FLANKEN_OK, FLANKEN), (TACKL_OK, TACKL), (KOPF_OK, KOPF)] { s[ok] = s[ok].min(s[alle]); }
+            add(&mut w.players[p].profil.ligen[i].st, &s);
+            add(&mut w.players[p].profil.saison, &s);
+            neu = true;
+        }
+        n += neu as usize;
+    }
+    n
+}
+
 /// Konzept 2.5: Einfluss per 90 in goals — danger created (npxG, xA, progression) plus danger prevented (won duels,
 /// interceptions, blocks, saves above expectation) minus danger given away (ball losses, fouls). None under 90 minutes.
 pub fn einfluss90(s: &Stat) -> Option<f32> {
@@ -414,16 +455,18 @@ pub fn kernzahlen(gr: &str) -> Vec<Kern> {
 }
 /// The comparison group of a position group in a league: league figures of the detailed matches (at least 900 minutes,
 /// earlier in the season 45 % of the most-used player's), or the projections of a results-only league.
-pub fn liga_vergleich(w: &World, l: usize, gr: &str) -> Vec<Stat> {
-    if l >= w.leagues.len() { return vec![]; }
-    let alle: Vec<Stat> = if w.leagues[l].detail == 2 {
-        w.leagues[l].teams.iter().flat_map(|&t| w.clubs[t].squad.iter().copied()).filter(|&q| crate::scoutbericht::gruppe(&w.players[q].pos) == gr).map(|q| hochrechnen(w, q)).collect()
+pub fn liga_vergleich(w: &World, l: usize, gr: &str) -> Vec<Stat> { liga_vergleich_spieler(w, l, gr).0.into_iter().map(|x| x.1).collect() }
+/// The same group with the player of each figure, and the minutes it took to be in it.
+pub fn liga_vergleich_spieler(w: &World, l: usize, gr: &str) -> (Vec<(usize, Stat)>, u32) {
+    if l >= w.leagues.len() { return (vec![], 0); }
+    let alle: Vec<(usize, Stat)> = if w.leagues[l].detail == 2 {
+        w.leagues[l].teams.iter().flat_map(|&t| w.clubs[t].squad.iter().copied()).filter(|&q| crate::scoutbericht::gruppe(&w.players[q].pos) == gr).map(|q| (q, hochrechnen(w, q))).collect()
     } else {
-        w.players.iter().filter(|q| crate::scoutbericht::gruppe(&q.pos) == gr).filter_map(|q| q.profil.ligen.iter().find(|x| x.l as usize == l)).map(|x| x.st.clone()).collect()
+        w.players.iter().enumerate().filter(|(_, q)| crate::scoutbericht::gruppe(&q.pos) == gr).filter_map(|(i, q)| q.profil.ligen.iter().find(|x| x.l as usize == l).map(|x| (i, x.st.clone()))).collect()
     };
-    let hoechst = alle.iter().map(|s| get(s, MIN)).max().unwrap_or(0);
+    let hoechst = alle.iter().map(|s| get(&s.1, MIN)).max().unwrap_or(0);
     let schwelle = 900.min((hoechst as f32 * 0.45) as u32).max(90);
-    alle.into_iter().filter(|s| get(s, MIN) >= schwelle).collect()
+    (alle.into_iter().filter(|s| get(&s.1, MIN) >= schwelle).collect(), schwelle)
 }
 /// Percentile 0–100 of `wert` among the group's values (`weniger`: fewer is better). None with fewer than five.
 pub fn perzentil(gruppe: &[Stat], f: fn(&Stat) -> Option<f32>, wert: f32, weniger: bool) -> Option<f32> {
@@ -486,8 +529,21 @@ pub fn umrechnen(w: &World, wert: f32, von: usize, nach: usize, art: u8) -> f32 
 mod tests {
     use super::*;
     #[test]
+    fn nachtragen_aus_summen() {
+        let mut w = crate::world::testwelt(7);
+        let p = w.clubs[0].squad.iter().copied().find(|&q| w.players[q].pos == "CF").unwrap();
+        let l = w.clubs[0].league;
+        w.leagues[l].detail = 0;
+        w.players[p].profil.ligen.push(crate::world::LigaStat { l: l as u16, apps: 20, goals: 9, assists: 3, rsum: 140.0, rn: 20, st: vec![] });
+        assert_eq!(nachtragen(&mut w), 1);
+        let s = &w.players[p].profil.ligen[0].st;
+        assert!(get(s, SPIELE) == 20 && get(s, TORE) == 9 && get(s, VORLAGEN) == 3 && get(s, SCHUESSE) >= 9 && get(s, PAESSE) > 0 && get(s, MIN) > 900, "{s:?}");
+        assert_eq!(&w.players[p].profil.saison, s);
+        assert_eq!(nachtragen(&mut w), 0, "only once");
+    }
+    #[test]
     fn aehnlichkeit() {
-        let mut w = World::load(include_str!("../assets/world.json"), 11);
+        let mut w = crate::world::testwelt(11);
         for k in 0..120 { let (h, a) = (k % 18, (k * 5 + 1) % 18); if h != a { let r = w.play(h, a, 0, None, None); w.apply_stats(&r); for (p, st) in &r.stat { let l = w.clubs[w.players[*p].team.max(0) as usize].league as u16; let x = &mut w.players[*p].profil.ligen; if x.is_empty() { x.push(crate::world::LigaStat { l, ..Default::default() }); } add(&mut x[0].st, st); } } }
         let alle: Vec<usize> = (0..w.players.len()).collect();
         let st = alle.iter().copied().find(|&p| w.players[p].pos == "CF" && get(&saison_von(&w, p).0, MIN) >= 450).unwrap();
@@ -496,13 +552,13 @@ mod tests {
     }
     #[test]
     fn hochrechnung_ist_fest() {
-        let w = World::load(include_str!("../assets/world.json"), 3);
+        let w = crate::world::testwelt(3);
         let p = w.clubs[0].squad[3];
         assert_eq!(hochrechnen(&w, p), hochrechnen(&w, p), "the same number every time");
     }
     #[test]
     fn umrechnung_auf_andere_liga() {
-        let w = World::load(include_str!("../assets/world.json"), 3);
+        let w = crate::world::testwelt(3);
         let n = w.leagues.len();
         let (stark, schwach) = (0..n).fold((0, 0), |(a, b), l| (if liga_staerke(&w, l) > liga_staerke(&w, a) { l } else { a }, if liga_staerke(&w, l) < liga_staerke(&w, b) { l } else { b }));
         assert_eq!(umrechnen(&w, 0.5, stark, stark, 0), 0.5);
@@ -513,7 +569,7 @@ mod tests {
     }
     #[test]
     fn stimmigkeit_und_liga_xg() {
-        let mut w = World::load(include_str!("../assets/world.json"), 11);
+        let mut w = crate::world::testwelt(11);
         let (mut tore, mut xg, mut schuesse, mut spiele) = (0u32, 0u32, 0u32, 0u32);
         for k in 0..400 {
             let (h, a) = (k % 18, (k * 7 + 3) % 18);
@@ -555,7 +611,7 @@ mod noten_mittel {
     #[test]
     #[ignore]
     fn notenschnitt_messen() {
-        let mut w = crate::world::World::load(include_str!("../assets/world.json"), 5);
+        let mut w = crate::world::testwelt(5);
         let (mut s, mut n) = (0.0, 0);
         for k in 0..300 { let r = w.play(k % 18, (k + 5) % 18, 0, None, None); for x in &r.ratings { s += x.1; n += 1; } }
         eprintln!("Notenschnitt {:.3}", s / n as f32);

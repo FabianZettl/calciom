@@ -30,7 +30,21 @@ pub struct Klauseln {
 /// The choice in a negotiation as step numbers (release, goal bonus, match bonus, raise, sell-on, buy-back).
 #[derive(Serialize, Deserialize, Clone, Copy, Debug, Default, PartialEq)]
 #[serde(default)]
-pub struct Wahl { pub ausstieg: u8, pub tor: u8, pub einsatz: u8, pub steigerung: u8, pub weiterverkauf: u8, pub rueckkauf: u8, pub titel: u8 }
+pub struct Wahl { pub ausstieg: u8, pub tor: u8, pub einsatz: u8, pub steigerung: u8, pub weiterverkauf: u8, pub rueckkauf: u8, pub titel: u8, pub raten: u8, pub bonus: u8 }
+
+/// A payment still to come from a transfer in instalments (+ to us, − from us), due on an absolute day.
+#[derive(Serialize, Deserialize, Clone, Debug, Default)]
+pub struct Rate { pub faellig: u32, pub betrag: f64, pub spieler: String, pub verein: usize }
+/// A conditional add-on of a transfer: paid once the player has played `noetig` matches for the buying club.
+#[derive(Serialize, Deserialize, Clone, Debug, Default)]
+pub struct Bonus { pub pid: usize, pub kaeufer: usize, pub verkaeufer: usize, pub betrag: f64, pub noetig: u16, pub gespielt: u16 }
+
+/// What instalments and an add-on are worth to the selling club, as a share of the fee (− instalments, + expected add-on).
+pub fn zahlweise_anteil(w: &Wahl) -> f64 {
+    let a = crate::regeln::wert("klauseln", "raten.abschlag").as_array().and_then(|v| v.get(w.raten as usize)).and_then(|x| x.as_f64()).unwrap_or(0.0);
+    let b = crate::regeln::wert("klauseln", "bonus.stufen").as_array().and_then(|v| v.get(w.bonus as usize)).and_then(|x| x.as_f64()).unwrap_or(0.0);
+    -a + b * crate::regeln::f("klauseln", "bonus.erwartung") as f64
+}
 
 impl Career {
     /// Does the player want a release clause? (werte.py: ego from 0.7 or the trait „selbstbewusst“)
@@ -64,7 +78,9 @@ impl Career {
     }
     /// The clauses' worth in the units of the round model for negotiation i: + for the player (wage), − for a buyer.
     pub fn klausel_kv(&self, n: &Neg) -> f64 {
-        if n.verkauf { -self.klausel_kosten_kaeufer(n.pid, &n.kl, n.fee) } else if n.stage == 1 { self.klausel_wert_spieler(n.pid, &n.kl, n.wage, n.years) } else { 0.0 }
+        // instalments and add-ons on the fee (Fabian 24.11.): for a purchase they change what the seller gets; for a sale
+        // (our demand against the buyer) the buyer saves what we give up
+        if n.verkauf { -self.klausel_kosten_kaeufer(n.pid, &n.kl, n.fee) - n.fee * zahlweise_anteil(&n.kl) } else if n.stage == 1 { self.klausel_wert_spieler(n.pid, &n.kl, n.wage, n.years) } else { n.fee * zahlweise_anteil(&n.kl) }
     }
     /// The signed contract takes the clauses (purchase or renewal; for a sale the buyer's club holds them for us).
     pub fn klauseln_unterschrift(&mut self, n: &Neg) {
@@ -92,10 +108,17 @@ impl Career {
         for &(p, _) in &res.minutes { if self.world.players[p].team == self.own as i32 { summe += self.world.players[p].profil.klauseln.praemie_einsatz; } }
         for e in res.events.iter().filter(|e| e.kind == 0) { if self.world.players[e.pid].team == self.own as i32 { summe += self.world.players[e.pid].profil.klauseln.praemie_tor; } }
         if summe > 0.0 { self.book(crate::inhalt::t("ui.klausel.buchung_praemien"), -summe); }
+        let gespielt: Vec<usize> = res.minutes.iter().map(|x| x.0).collect();
+        self.boni_nach_spiel(&gespielt);
     }
     /// New season: title bonuses for the titles of the season just ended, the raise of every own player whose contract
     /// runs on.
     pub fn klauseln_saison(&mut self) {
+        // add-ons on players we sold: their season's matches at the new club count at the end of the season
+        let fremd: Vec<usize> = self.boni.iter().filter(|b| b.kaeufer != self.own).map(|b| b.pid).collect();
+        for p in fremd { let apps = self.world.players[p].apps; for b in self.boni.iter_mut().filter(|b| b.pid == p && b.kaeufer != self.own) { b.gespielt = b.gespielt.saturating_add(apps.saturating_sub(1)); } }
+        let alle: Vec<usize> = self.boni.iter().filter(|b| b.kaeufer != self.own).map(|b| b.pid).collect();
+        self.boni_nach_spiel_fuer(&alle);
         let season = self.world.season;
         let titel = self.world.titles.iter().filter(|t| t.club == self.own && t.season + 1 >= season).count() as f64;
         let summe: f64 = self.squad().iter().map(|&p| self.world.players[p].profil.klauseln.praemie_titel * titel).sum();
@@ -142,7 +165,7 @@ impl Career {
         self.klauseln_gesaet = true;
         for p in 0..self.world.players.len() {
             let pl = &self.world.players[p];
-            if pl.team < 0 || pl.team == self.own as i32 || pl.youth > 0 { continue; }
+            if pl.team < 0 || pl.team == self.own as i32 || pl.youth > 0 || pl.profil.sofifa > 0 { continue; } // real clauses come from SoFIFA (sofifa.rs)
             if crate::mensch::zufall(&[crate::id("klausel_welt"), &pl.id.to_string()]) < f("ki.anteil_welt") { let v = round_money(pl.value * f("ki.faktor") as f64); self.world.players[p].profil.klauseln.ausstieg = v; }
         }
     }
@@ -176,8 +199,11 @@ impl Career {
             self.world.clubs[k].balance -= a;
             let season = self.world.season;
             let lk = self.world.leagues[self.world.clubs[k].league].level;
+            let abs = self.abs();
             let pl = &mut self.world.players[p];
             pl.team = k as i32;
+            pl.joined = abs;
+            pl.listed = false;
             pl.contract_end = season + crate::world::contract_years(pl.age) - 1;
             pl.wage = crate::world::fair_wage(pl, lk);
             pl.profil.klauseln.ausstieg = 0.0;
@@ -240,7 +266,7 @@ impl Career {
 mod tests {
     use super::*;
     fn karriere() -> Career {
-        let w = crate::world::World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let w = crate::world::testwelt(7);
         let own = w.clubs.iter().position(|c| c.name.contains("Sunderland")).unwrap_or(0); // roh
         Career::new(w, own, "Test") // roh
     }
@@ -284,5 +310,90 @@ mod tests {
         c.weiterverkauf_abrechnen(p, fremd, 10_000_000.0);
         assert!((c.club().balance - k1 - 2_000_000.0).abs() < 1.0);
         assert!(c.world.players[p].profil.klauseln.weiterverkauf.is_none(), "paid once");
+    }
+}
+
+impl Career {
+    /// Split an agreed fee by instalments and an add-on (Fabian 24.11.): returns what is paid today; the later
+    /// instalments go to `raten` (due at the next season starts), the add-on to `boni`. `an_uns`: we sell.
+    pub fn zahlweise_buchen(&mut self, fee: f64, w: Wahl, an_uns: bool, p: usize, anderer: usize) -> f64 {
+        let teile = w.raten as u32 + 1;
+        let rate = crate::world::round_money(fee / teile as f64);
+        let name = self.world.players[p].name.clone();
+        for k in 1..teile {
+            let faellig = crate::game::abs_day(self.world.season + k, 0);
+            self.raten.push(Rate { faellig, betrag: if an_uns { rate } else { -rate }, spieler: name.clone(), verein: anderer });
+        }
+        let b = crate::regeln::wert("klauseln", "bonus.stufen").as_array().and_then(|v| v.get(w.bonus as usize)).and_then(|x| x.as_f64()).unwrap_or(0.0);
+        if b > 0.0 {
+            let (kaeufer, verkaeufer) = if an_uns { (anderer, self.own) } else { (self.own, anderer) };
+            self.boni.push(Bonus { pid: p, kaeufer, verkaeufer, betrag: crate::world::round_money(fee * b), noetig: f("bonus.einsaetze") as u16, gespielt: 0 });
+        }
+        fee - rate * (teile - 1) as f64
+    }
+    /// Daily: instalments that fall due are booked, each with a line in the inbox.
+    pub fn raten_tag(&mut self) {
+        let abs = self.abs();
+        let faellig: Vec<Rate> = self.raten.iter().filter(|r| r.faellig <= abs).cloned().collect();
+        self.raten.retain(|r| r.faellig > abs);
+        for r in faellig {
+            let titel = if r.betrag >= 0.0 { crate::inhalt::t("ui.game.abloesen_verkauf") } else { crate::inhalt::t("ui.game.abloesen_kauf") };
+            self.book(titel, r.betrag);
+            if r.verein < self.world.clubs.len() { self.world.clubs[r.verein].balance -= r.betrag; }
+            let vn = self.world.clubs.get(r.verein).map(|c| c.name.clone()).unwrap_or_default();
+            self.msg(2, crate::inhalt::t("ui.game.transferabteilung"), &crate::tf!("ui.rate.titel", r.spieler.clone()), &crate::tf!(if r.betrag >= 0.0 { "ui.rate.ein" } else { "ui.rate.aus" }, money(r.betrag.abs()), r.spieler.clone(), vn), crate::game::Action::None);
+        }
+    }
+    /// After a match: add-ons count the matches of players with one; once reached, the add-on is paid (to or by us).
+    pub fn boni_nach_spiel(&mut self, gespielt: &[usize]) {
+        let eigene: Vec<usize> = gespielt.iter().copied().filter(|&p| self.boni.iter().any(|b| b.pid == p && b.kaeufer == self.own)).collect();
+        self.boni_nach_spiel_fuer(&eigene);
+    }
+    fn boni_nach_spiel_fuer(&mut self, gespielt: &[usize]) {
+        let mut fertig = vec![];
+        for (k, b) in self.boni.iter_mut().enumerate() {
+            if !gespielt.contains(&b.pid) || self.world.players[b.pid].team != b.kaeufer as i32 { continue; }
+            b.gespielt += 1;
+            if b.gespielt >= b.noetig { fertig.push(k); }
+        }
+        for k in fertig.into_iter().rev() {
+            let b = self.boni.remove(k);
+            let an_uns = b.verkaeufer == self.own;
+            self.book(crate::inhalt::t(if an_uns { "ui.game.abloesen_verkauf" } else { "ui.game.abloesen_kauf" }), if an_uns { b.betrag } else { -b.betrag });
+            let name = self.world.players[b.pid].name.clone();
+            self.msg(2, crate::inhalt::t("ui.game.transferabteilung"), &crate::tf!("ui.bonus.titel", name.clone()), &crate::tf!(if an_uns { "ui.bonus.ein" } else { "ui.bonus.aus" }, name, b.noetig, money(b.betrag)), crate::game::Action::None);
+        }
+    }
+}
+
+#[cfg(test)]
+mod zahlweise_tests {
+    use crate::game::*;
+    /// Fabian 24.11.: a fee in instalments is paid in parts at the season starts, an add-on after the agreed matches,
+    /// and the seller values instalments less and an add-on at its chance.
+    #[test]
+    fn raten_und_bonus() {
+        let w = crate::world::testwelt(6);
+        let mut c = Career::new(w, 1, "Test");
+        let p = c.squad()[2];
+        let mut wahl = crate::klauseln::Wahl::default();
+        assert_eq!(crate::klauseln::zahlweise_anteil(&wahl), 0.0);
+        wahl.raten = 2;
+        assert!(crate::klauseln::zahlweise_anteil(&wahl) < 0.0, "instalments are worth less to the seller");
+        wahl.bonus = 2;
+        let jetzt = c.zahlweise_buchen(9_000_000.0, wahl, false, p, 3);
+        assert!((jetzt - 3_000_000.0).abs() < 1.0, "{jetzt}");
+        assert_eq!(c.raten.len(), 2);
+        assert_eq!(c.boni.len(), 1);
+        // the next season start: one instalment goes out
+        let kasse = c.world.clubs[c.own].balance;
+        c.world.season += 1; c.world.day = 0;
+        c.raten_tag();
+        assert_eq!(c.raten.len(), 1);
+        assert!(c.world.clubs[c.own].balance < kasse);
+        // the add-on after its matches
+        let noetig = c.boni[0].noetig;
+        for _ in 0..noetig { c.boni_nach_spiel(&[p]); }
+        assert!(c.boni.is_empty());
     }
 }
