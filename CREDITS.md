@@ -14,3 +14,6 @@
 Not included: game files, Sider modules, crests, player photos, stadium pictures, kit textures and databases. PES M reads those at runtime from the player's own installation and never ships them.
 
 Newspaper names, journalists and agents are invented. Club names are used only to name the clubs.
+
+## BlankState222
+Ideas for two FL27 sider modules come from BlankState222 (https://github.com/BlankState222): two-legged ties (`two_legs`) and start stamina (`start_stamina`). PES M does not copy their code; the match rules for first and second legs are written anew in `assets/fl27/livepatch/pesm-livepatch.lua`.

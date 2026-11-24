@@ -60,6 +60,8 @@ Without FL27, PES M starts with a small built-in sample world (real clubs, made-
 
 Rules and numbers: [MECHANICS.md](MECHANICS.md). Sources and licences: [CREDITS.md](CREDITS.md).
 
+Thanks to [BlankState222](https://github.com/BlankState222) for the ideas behind the two-legged ties and start-stamina FL27 modules.
+
 ## License
 
 MIT, see [LICENSE](LICENSE). Fonts: SIL Open Font License. Sounds: CC0.
