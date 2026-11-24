@@ -37,6 +37,18 @@ pub fn spielordner_setzen(p: &Path) {
 pub fn spielordner_aus(p: &Path) -> Option<PathBuf> {
     p.ancestors().find(|a| a.join("SiderAddons").join("livecpk").is_dir()).map(Path::to_path_buf) // roh
 }
+/// The system's file dialog for a PNG picture in the background (manager photo); None when cancelled.
+pub fn bild_dialog() -> std::sync::mpsc::Receiver<Option<PathBuf>> {
+    let (tx, rx) = std::sync::mpsc::channel();
+    std::thread::spawn(move || {
+        #[cfg(windows)]
+        let aus = std::process::Command::new("powershell").args(["-NoProfile", "-STA", "-Command", "Add-Type -AssemblyName System.Windows.Forms; $f = New-Object System.Windows.Forms.OpenFileDialog; $f.Filter = 'PNG|*.png'; if ($f.ShowDialog() -eq 'OK') { $f.FileName }"]).output(); // roh
+        #[cfg(not(windows))]
+        let aus = std::process::Command::new("zenity").args(["--file-selection", "--file-filter=*.png"]).output().or_else(|_| std::process::Command::new("kdialog").args(["--getopenfilename", ".", "*.png"]).output()); // roh
+        let _ = tx.send(aus.ok().map(|o| String::from_utf8_lossy(&o.stdout).trim().to_string()).filter(|s| !s.is_empty()).map(PathBuf::from));
+    });
+    rx
+}
 /// The system's folder dialog in the background (Windows: PowerShell, Linux: zenity or kdialog); None when cancelled.
 pub fn ordner_dialog() -> std::sync::mpsc::Receiver<Option<PathBuf>> {
     let (tx, rx) = std::sync::mpsc::channel();
@@ -140,6 +152,33 @@ pub fn log(zeile: &str) {
     let datei = datenordner().join("pesm.log");
     let _ = std::fs::create_dir_all(datei.parent().unwrap_or(Path::new(".")));
     if let Ok(mut f) = std::fs::OpenOptions::new().create(true).append(true).open(&datei) { let _ = writeln!(f, "{} {zeile}", zeit()); }
+}
+/// Diagnostics for bug reports (Einstellungen › Spielstand): pesm.log, sider.log, sider.ini and versions in one archive
+/// next to the log; the user name in paths is replaced, no save goes in. Returns the archive.
+pub fn diagnose_paket() -> Result<PathBuf, String> {
+    let d = datenordner();
+    let tmp = d.join(format!("pesm-diagnose-{}", zeit()));
+    std::fs::create_dir_all(&tmp).map_err(|e| e.to_string())?;
+    let nutzer: Vec<String> = ["USERNAME", "USER"].iter().filter_map(|k| std::env::var(k).ok()).filter(|n| n.len() >= 2).collect();
+    let sauber = |t: String| nutzer.iter().fold(t, |t, n| t.replace(n.as_str(), "<user>"));
+    let g = spielordner();
+    let quellen = [(d.join("pesm.log"), "pesm.log"), (sider().join("sider.log"), "sider.log"), (g.join("sider.log"), "sider-spiel.log"), (sider().join("sider.ini"), "sider.ini")]; // roh
+    for (q, n) in quellen { if let Ok(b) = std::fs::read(&q) { let _ = std::fs::write(tmp.join(n), sauber(String::from_utf8_lossy(&b).into_owned())); } }
+    let info = format!("PES M {}\nOS {} {}\nSpielordner {}\nWelten {}\n", env!("CARGO_PKG_VERSION"), std::env::consts::OS, std::env::consts::ARCH, g.display(), std::fs::read_dir(sider().join("livecpk")).map(|r| r.flatten().map(|e| e.file_name().to_string_lossy().into_owned()).collect::<Vec<_>>().join(", ")).unwrap_or_default()); // roh
+    std::fs::write(tmp.join("versionen.txt"), sauber(info)).map_err(|e| e.to_string())?; // roh
+    #[cfg(windows)]
+    let (ziel, st) = { let z = tmp.with_extension("zip"); let st = still(std::process::Command::new("powershell").args(["-NoProfile", "-Command", &format!("Compress-Archive -Path '{}\\*' -DestinationPath '{}' -Force", tmp.display(), z.display())])).status(); (z, st) }; // roh
+    #[cfg(not(windows))]
+    let (ziel, st) = { let z = tmp.with_extension("tar.gz"); let st = std::process::Command::new("tar").arg("czf").arg(&z).arg("-C").arg(&tmp).arg(".").status(); (z, st) }; // roh
+    let _ = std::fs::remove_dir_all(&tmp);
+    match st { Ok(s) if s.success() && ziel.exists() => Ok(ziel), _ => Err(format!("{}: Archiv nicht erstellt", ziel.display())) } // roh
+}
+/// A whole folder copied (career copy), with the progress counters.
+pub fn ordner_kopieren(from: &Path, to: &Path) -> Result<usize, String> {
+    fort(1, dateien_zaehlen(from));
+    let mut files = vec![];
+    copy_dir(from, to, &mut files, Path::new(""))?;
+    Ok(files.len())
 }
 fn copy_dir(from: &Path, to: &Path, files: &mut Vec<PathBuf>, rel: &Path) -> Result<(), String> {
     wache(to);
@@ -443,7 +482,10 @@ pub fn heimstadion(text: &str, team: u32) -> Option<String> {
 pub const WETTER: [&str; 4] = ["sunny", "cloudy", "rainy", "snowy"];
 pub const TAGESZEIT: [&str; 2] = ["tag", "nacht"];
 /// Writes S/flw/{wettbewerb,wetter,stadion}.txt (UTF-8, CRLF, atomic). None removes the file (the modules choose).
-pub fn vorgaben_schreiben(s: &Path, turnier: Option<u16>, wetter: Option<&str>, tageszeit: Option<&str>, stadion: Option<&str>) -> Result<(), String> {
+pub fn vorgaben_schreiben(s: &Path, turnier: Option<u16>, wetter: Option<&str>, tageszeit: Option<&str>, stadion: Option<&str>) -> Result<(), String> { vorgaben_schreiben_mit(s, turnier, wetter, tageszeit, stadion, None) }
+/// The same plus the match rules for the LivePatch module (spielregeln.txt: extra time and penalties on or off,
+/// the first leg's score as a note; idea after BlankState222's two_legs, written anew).
+pub fn vorgaben_schreiben_mit(s: &Path, turnier: Option<u16>, wetter: Option<&str>, tageszeit: Option<&str>, stadion: Option<&str>, regeln: Option<String>) -> Result<(), String> {
     if let Some(w) = wetter { if !WETTER.contains(&w) { return Err(format!("Wetter {w:?} unbekannt")); } }
     if let Some(t) = tageszeit { if !TAGESZEIT.contains(&t) { return Err(format!("Tageszeit {t:?} unbekannt")); } }
     let o = s.join("flw");
@@ -458,12 +500,13 @@ pub fn vorgaben_schreiben(s: &Path, turnier: Option<u16>, wetter: Option<&str>, 
     let wz: String = [("wetter", wetter), ("tageszeit", tageszeit)].iter().filter_map(|(k, v)| v.map(|v| format!("{k}={v}\r\n"))).collect();
     set("wetter.txt", (!wz.is_empty()).then_some(wz))?;
     set("stadion.txt", stadion.filter(|x| !x.is_empty()).map(|x| format!("{x}\r\n")))?;
+    set("spielregeln.txt", regeln)?; // roh
     Ok(())
 }
 
 /// The three preset files of a match start (CommonLib.lua pesm_wettbewerb, stadiums.lua pesm_stadion, weather.lua): without
 /// the file every module falls back to the game's normal choice by teams and home side.
-pub const VORGABEN: [&str; 3] = ["wettbewerb.txt", "stadion.txt", "wetter.txt"];
+pub const VORGABEN: [&str; 4] = ["wettbewerb.txt", "stadion.txt", "wetter.txt", "spielregeln.txt"]; // roh
 /// The presets now in S/flw with their SHA-256: what PES M wrote, so only that is undone later.
 pub fn vorgaben_merken(s: &Path) -> Vec<(String, String)> {
     VORGABEN.iter().filter_map(|n| std::fs::read(s.join("flw").join(n)).ok().map(|b| (n.to_string(), sha256_hex(&b)))).collect()
@@ -1574,6 +1617,17 @@ mod t {
     }
 
     use super::*;
+    /// The diagnostics archive is made without the user name in it.
+    #[test]
+    fn diagnose_ohne_nutzernamen() {
+        if std::env::var("PESM_KARRIEREN").is_err() { return; }
+        log(&format!("Test {}", std::env::var("USER").unwrap_or_default()));
+        let p = diagnose_paket().unwrap();
+        let aus = std::process::Command::new("tar").arg("xzOf").arg(&p).output().unwrap();
+        let t = String::from_utf8_lossy(&aus.stdout);
+        assert!(t.contains("Test <user>") && t.contains("PES M"), "{t}");
+        let _ = std::fs::remove_file(p);
+    }
     /// Beta 23.11.: another pack's stadiums.lua (here: ours without the addition, with other comments) gets the preset
     /// at its anchors, and the result is valid Lua (luac -p, when installed).
     #[test]
@@ -1838,6 +1892,9 @@ mod t {
         vorgaben_schreiben(&dir, Some(17), Some("rainy"), Some("nacht"), Some("England\\Stadium of Light")).unwrap();
         assert_eq!(std::fs::read_to_string(dir.join("flw/wetter.txt")).unwrap(), "wetter=rainy\r\ntageszeit=nacht\r\n");
         assert!(vorgaben_schreiben(&dir, None, Some("hagel"), None, None).is_err());
+        // the match rules for the LivePatch module (two legs): written with the presets, removed with them
+        vorgaben_schreiben_mit(&dir, None, None, None, None, Some("verlaengerung=0\r\nelfmeter=0\r\nhinspiel=2:1\r\n".into())).unwrap();
+        assert!(std::fs::read_to_string(dir.join("flw/spielregeln.txt")).unwrap().contains("hinspiel=2:1"));
         vorgaben_schreiben(&dir, None, None, None, None).unwrap();
         // undo after the match: only what PES M wrote and nobody changed
         vorgaben_schreiben(&dir, Some(17), Some("rainy"), Some("nacht"), Some("England\\Stadium of Light")).unwrap();
@@ -1958,5 +2015,36 @@ mod pruefung_tests {
         std::fs::remove_file(o.join("geprueft.stamp")).unwrap();
         assert!(original_pruefen(&k).is_err());
         let _ = std::fs::remove_dir_all(&k);
+    }
+}
+#[cfg(test)]
+mod anweisungen_forschung {
+    use super::*;
+    /// Research (Fabian 23.11.: individual instructions): which bits of Tactics.bin and TacticsFormation.bin vary.
+    /// cargo test --release anweisungen_forschung -- --ignored --nocapture
+    #[test]
+    #[ignore]
+    fn bits_zeigen() {
+        let pesdb = sider().join("livecpk/_FL26-27-Def/common/etc/pesdb");
+        let (_, t) = unpack(&std::fs::read(pesdb.join("Tactics.bin")).unwrap()).unwrap();
+        let (_, f) = unpack(&std::fs::read(pesdb.join("TacticsFormation.bin")).unwrap()).unwrap();
+        eprintln!("Tactics {} bytes ({} records), Formation {} bytes ({} records)", t.len(), t.len() / 12, f.len(), f.len() / 12);
+        let mut bits = [0u32; 32];
+        for o in (0..t.len() / 12).map(|i| i * 12) { let v = le32(&t, o + 8); for b in 0..32 { if v >> b & 1 == 1 { bits[b] += 1; } } }
+        eprintln!("Tactics u32@8 bit set counts: {bits:?}");
+        let mut b4 = [0u32; 32]; let mut b10 = [0u32; 16];
+        for o in (0..f.len() / 12).map(|i| i * 12) {
+            let v = le32(&f, o + 4); for b in 0..32 { if v >> b & 1 == 1 { b4[b] += 1; } }
+            let w = u16::from_le_bytes([f[o + 10], f[o + 11]]); for b in 0..16 { if w >> b & 1 == 1 { b10[b] += 1; } }
+        }
+        eprintln!("Formation u32@4 bits: {b4:?}");
+        eprintln!("Formation u16@10 bits: {b10:?}");
+        // the first team's records in full
+        let team = le32(&t, 4);
+        for o in (0..t.len() / 12).map(|i| i * 12).filter(|&o| le32(&t, o + 4) == team) {
+            let k = le32(&t, o);
+            eprintln!("team {team} key {k} sliders {:032b}", le32(&t, o + 8));
+            for p in (0..f.len() / 12).map(|i| i * 12).filter(|&p| le32(&f, p) == k) { eprintln!("  {:02x?}", &f[p..p + 12]); }
+        }
     }
 }

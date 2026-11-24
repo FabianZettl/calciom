@@ -101,6 +101,10 @@ impl Career {
         let belastung = match pl.program { 1 => 60.0, 2 => 90.0, _ => 35.0 } + if self.hard_streak >= 2 { 10.0 } else { 0.0 };
         // proneness as a factor around 1 (0.6 robust … 1.5 prone) from the robustness of the profile
         let anf = crate::pages::robustheit(pl).map(|r| 1.5 - 0.9 * r / 100.0).unwrap_or(1.0);
+        // the history counts too: every injury of the last twelve months adds (changeable in medizin.toml [ampel])
+        let jahr = self.world.season * 365 + self.world.day;
+        let zuletzt = pl.profil.verletzungen.iter().filter(|v| jahr.saturating_sub(v.0 * 365 + v.1) <= 365).count() as f32;
+        let anf = anf * (1.0 + (mk("ampel.historie_je_verletzung") * zuletzt).min(mk("ampel.historie_hoechstens")));
         ampel(pl.fit, belastung, minuten, n as f32, anf)
     }
     /// The current injury of an own player.

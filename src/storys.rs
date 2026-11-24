@@ -96,7 +96,7 @@ impl Career {
         c.clamp(0.0, 1.0)
     }
     /// The text of a rule, in the version of the player's first message type (persoenlichkeit.json nachrichten_typen).
-    fn story_text(&self, key: &str, p: Option<usize>, zweck: &str) -> String {
+    fn story_text(&mut self, key: &str, p: Option<usize>, zweck: &str) -> String {
         let Some(t) = daten().texte.get(key) else { return String::new() };
         let mut v = t["standard"].as_array().cloned().unwrap_or_default();
         if let Some(p) = p {
@@ -106,7 +106,8 @@ impl Career {
             }
         }
         if v.is_empty() { return String::new(); }
-        let i = (zufall(&["2026", crate::id("textvariante"), key, &self.abs().to_string(), zweck]) * v.len() as f32) as usize % v.len();
+        // the no-repeat bag per text (Fabian 23.11.): a variant comes back only after all others were used
+        let i = self.variante(&format!("story:{key}"), v.len(), zweck);
         let s = v[i].as_str().unwrap_or("").to_string();
         let name = p.map(|p| self.world.players[p].name.clone()).unwrap_or_default();
         let kurz = name.split(' ').last().unwrap_or("").to_string();
@@ -131,6 +132,9 @@ impl Career {
         let text = self.story_text(&format!("{id}.text"), p, crate::id("text"));
         let von = match r["absender"].as_str() { Some("spieler") => p.map(|p| self.world.players[p].name.clone()).unwrap_or_default(), Some("vorstand") => "Präsidium".into(), Some("presse") => crate::inhalt::t("feed.art.journalist").into(), Some("fans") => crate::inhalt::t("ui.storys.fanvertreter").into(), _ => self.co_name.clone() }; // roh
         let abs = self.abs();
+        // a rule without any text of its own is not sent (it came as "News from the squad" with an empty body)
+        if text.is_empty() && betreff.is_empty() { return; }
+        self.mensch.story_erzaehlt.push((id.clone(), abs, p.map(|p| self.world.players[p].id).unwrap_or(0)));
         let key = format!("{id}|{}", p.map(|p| self.world.players[p].id).unwrap_or(0));
         self.mensch.story_sperre.retain(|x| x.0 != key);
         self.mensch.story_sperre.push((key, abs + r["sperrfrist_tage"].as_u64().unwrap_or(14) as u32));
@@ -154,6 +158,9 @@ impl Career {
             for p in bezuege {
                 let key = format!("{id}|{}", p.map(|p| self.world.players[p].id).unwrap_or(0));
                 if self.mensch.story_sperre.iter().any(|x| x.0 == key) || !self.story_erfuellt(r, p) { continue; }
+                // Fabian 23.11. ("the lucky socks four times a season"): a story is told once per career by the same
+                // player and by anyone at most once in the rule's long quiet time (einmal_tage, default 120)
+                if self.mensch.story_erzaehlt.iter().any(|x| x.0 == id && (p.map_or(false, |p| x.2 == self.world.players[p].id) || abs < x.1 + r["einmal_tage"].as_u64().unwrap_or(120) as u32)) { continue; }
                 let u = zufall(&["2026", id, &key, &abs.to_string(), crate::id("ausloesen")]);
                 if u < self.story_chance(r, p) { kand.push((prio(r), r, p)); }
             }

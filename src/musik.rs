@@ -59,7 +59,11 @@ pub struct Musik {
 }
 
 impl Musik {
+    #[cfg(unix)]
     fn sock() -> std::path::PathBuf { std::env::temp_dir().join(format!("pesm-musik-{}.sock", std::process::id())) }
+    /// Windows: mpv's IPC is a named pipe.
+    #[cfg(not(unix))]
+    fn sock() -> std::path::PathBuf { std::path::PathBuf::from(format!("\\\\.\\pipe\\pesm-musik-{}", std::process::id())) }
 
     /// Once per frame (dt in seconds): start or stop mpv for the stored URL, fade down and pause while a match runs,
     /// resume and fade up after it. Returns the new title when the song or stream title changes.
@@ -86,7 +90,14 @@ impl Musik {
         #[cfg(unix)]
         return self.steuern(spiel_laeuft, dt);
         #[cfg(not(unix))]
-        { let _ = (spiel_laeuft, dt); None }
+        {
+            let _ = (spiel_laeuft, dt);
+            // shortcut: on Windows only "next song" goes through the pipe (no fade, no title), add them with a pipe reader
+            if WEITER.swap(false, std::sync::atomic::Ordering::Relaxed) {
+                if let Ok(mut p) = std::fs::OpenOptions::new().write(true).open(Self::sock()) { use std::io::Write; let _ = writeln!(p, "{{\"command\":[\"playlist-next\",\"force\"]}}"); }
+            }
+            None
+        }
     }
 
     #[cfg(unix)]

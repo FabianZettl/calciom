@@ -1,0 +1,6 @@
+# cargo nextest: every test in its own process, so one crash does not take the run down.
+# Run with PESM_KARRIEREN=$(mktemp -d) so careers never land in the real folder.
+[profile.default]
+test-threads = 2            # more gets the build or the run killed (exit 137) on this machine
+slow-timeout = { period = "120s" }
+fail-fast = false

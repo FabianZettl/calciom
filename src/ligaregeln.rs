@@ -332,17 +332,19 @@ impl World {
             None => { self.cups.push(crate::cups::Cup { name, key, kind: 5, country: String::new(), teams: vec![], fx: vec![], stage: 33, alive: vec![], winner: None, days: vec![] }); self.cups.len() - 1 }
         };
         let paar = |x: &crate::cups::CupFx| (x.f.h == a && x.f.a == b) || (x.f.h == b && x.f.a == a);
+        // each round of a play-off its own stage (23.11.: semi-finals and the final shared one and looked like one round)
+        let stufe = self.cups[ci].fx.iter().find(|x| paar(x)).map_or(33 + self.ko_runde_nr, |x| x.stage);
         if !self.cups[ci].fx.iter().any(paar) {
             // two legs after the league season, the better placed `a` at home second
             let mut busy = self.busy_days();
             let t = self.day.max(crate::world::LEAGUE_END) + 4;
             self.cups[ci].teams.extend([a, b]);
-            self.add_fx(ci, &mut busy, b, a, t, 33, 1, false);
-            self.add_fx(ci, &mut busy, a, b, t + 4, 33, 2, false);
+            self.add_fx(ci, &mut busy, b, a, t, stufe, 1, false);
+            self.add_fx(ci, &mut busy, a, b, t + 4, stufe, 2, false);
             return OFFEN;
         }
         if self.cups[ci].fx.iter().filter(|x| paar(x)).any(|x| x.f.hg < 0) { return OFFEN; }
-        let w = self.winner_of(ci, 33, a, b);
+        let w = self.winner_of(ci, stufe, a, b);
         self.entscheid.push((a, b, w));
         w
     }
@@ -358,13 +360,16 @@ impl World {
     /// A knock-out among clubs in table order: best against worst, each tie over two legs (unknown formats too).
     pub fn ko_runde(&mut self, teil: &[usize]) -> Option<usize> {
         let mut v = teil.to_vec();
+        self.ko_runde_nr = 0;
         while v.len() > 1 {
             let mut next = vec![];
             if v.len() % 2 == 1 { next.push(v.remove(0)); } // odd: the best has a bye
             for i in 0..v.len() / 2 { let (a, b) = (v[i], v[v.len() - 1 - i]); next.push(self.duell(a, b)); }
             next.sort_by_key(|c| teil.iter().position(|x| x == c));
             v = next;
+            self.ko_runde_nr += 1;
         }
+        self.ko_runde_nr = 0;
         v.first().copied()
     }
     fn tauschen(&mut self, w: &Wechsel) {

@@ -111,6 +111,18 @@ impl Career {
     pub fn ausstieg_woche(&mut self) {
         let abs = self.abs();
         let woche = (abs / 7).to_string();
+        // a player outgrows his release clause (FC-26 wish): a warning while there is still time to raise it
+        let season = self.world.season;
+        for p in self.squad() {
+            let (a, value, id) = { let pl = &self.world.players[p]; (pl.profil.klauseln.ausstieg, pl.value, pl.id) };
+            if a <= 0.0 || value * f("ausstieg.zieh_bis") as f64 * f("ausstieg.warnen_ab") as f64 <= a { continue; }
+            if self.mensch.story_erzaehlt.iter().any(|x| x.0 == "warn_klausel" && x.2 == id && x.1 / crate::date::SEASON_DAYS == season) { continue; } // roh
+            self.mensch.story_erzaehlt.push(("warn_klausel".into(), abs, id)); // roh
+            let n = self.world.players[p].name.clone();
+            let opts = vec![("verlaengern".to_string(), crate::inhalt::t("vv.warn.verlaengern").to_string()), ("lassen".to_string(), crate::inhalt::t("vv.warn.lassen").to_string())]; // roh
+            self.msg(1, crate::inhalt::t("ui.game.transferabteilung"), &crate::tf!("ui.klausel.warn_titel", n.clone()), &crate::tf!("ui.klausel.warn_text", n, money(a), money(value)), Action::Wahl { art: "vvwarn:k".into(), bezug: vec![p], optionen: opts }); // roh
+        }
+        if self.ohne_ki_klauseln { return; }
         for p in self.squad() {
             let (a, value, ovr, id) = { let pl = &self.world.players[p]; (pl.profil.klauseln.ausstieg, pl.value, pl.ovr, pl.id) };
             if a <= 0.0 || a > value * f("ausstieg.zieh_bis") as f64 { continue; }

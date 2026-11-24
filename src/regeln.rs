@@ -29,6 +29,11 @@ const DATEIEN: &[(&str, &str)] = &[
     (crate::id("personal"), include_str!("../assets/regeln/personal.toml")),
     (crate::id("gegner"), include_str!("../assets/regeln/gegner.toml")),
     ("budget_start", include_str!("../assets/regeln/budget_start.toml")),
+    ("pokalnamen", include_str!("../assets/regeln/pokalnamen.toml")), // roh
+    ("spielstile", include_str!("../assets/regeln/spielstile.toml")), // roh
+    ("gutgespraech", include_str!("../assets/regeln/gutgespraech.toml")), // roh
+    ("zufall_ereignis", include_str!("../assets/regeln/zufall_ereignis.toml")), // roh
+    ("statistik_ziele", include_str!("../assets/regeln/statistik_ziele.toml")), // roh
     (crate::id("farm"), include_str!("../assets/regeln/farm.toml")),
     (crate::id("medizin"), include_str!("../assets/regeln/medizin.toml")),
     (crate::id("praemien"), include_str!("../assets/regeln/praemien.toml")),

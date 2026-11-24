@@ -172,7 +172,10 @@ impl Career {
     /// Books a home match: every income and cost as its own line; remembers the crowd.
     pub fn heimspiel_buchen(&mut self) {
         let e = self.einst();
-        let s = self.spiel_rechnen(&e, self.ctx_heute(), self.wi.stufen[0]);
+        let mut s = self.spiel_rechnen(&e, self.ctx_heute(), self.wi.stufen[0]);
+        // a fan boycott empties the home end: less ticket income and fewer people
+        let b = self.boykott_faktor();
+        if b < 1.0 { s.ein[0] *= b; s.zuschauer = (s.zuschauer as f64 * b) as _; }
         for (i, k) in [crate::id("tickets"), crate::id("dauerkarten"), crate::id("vip"), crate::id("catering"), crate::id("werbung")].iter().enumerate() { if s.ein[i] > 0.0 { self.book(crate::inhalt::t(&format!("vw.art.{k}")), s.ein[i]); } } // roh
         for (i, k) in [crate::id("cateringkosten"), crate::id("sicherheit"), crate::id("verbandsstrafe")].iter().enumerate() { if s.aus[i] > 0.0 { self.book(crate::inhalt::t(&format!("vw.art.{k}")), -s.aus[i]); } } // roh
         if s.aus[2] > 0.0 { self.grund(crate::inhalt::t("bereich.verein"), crate::inhalt::t("vw.art.verbandsstrafe"), 0.0, &crate::tf!("sb.strafe", money(s.aus[2]))); }

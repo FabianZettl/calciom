@@ -104,6 +104,15 @@ fn schluessel_tabelle() -> &'static HashMap<String, [&'static str; 2]> {
 }
 /// The text of a key in the chosen language; English missing or empty → German; unknown key → "" (never the key).
 pub fn t(key: &str) -> &'static str { t_in(sprache(), key) }
+/// How many variants `basis.0`, `basis.1` … exist (`basis` itself counts as variant 0 when there is no `.0`).
+pub fn varianten(basis: &str) -> usize {
+    let start = if schluessel_tabelle().contains_key(&format!("{basis}.0")) { 0 } else { 1 };
+    let mut n = start;
+    while schluessel_tabelle().contains_key(&format!("{basis}.{n}")) { n += 1; }
+    n.max(1)
+}
+/// The key of variant `i`: `basis.i`, or `basis` itself for variant 0 when the texts start at `.1`.
+pub fn variante_key(basis: &str, i: usize) -> String { if i == 0 && !schluessel_tabelle().contains_key(&format!("{basis}.0")) { basis.to_string() } else { format!("{basis}.{i}") } }
 /// The text of a key in a given language (same rules as `t`).
 pub fn t_in(sprache: Sprache, key: &str) -> &'static str {
     let Some([de, en]) = schluessel_tabelle().get(key) else { return "" };

@@ -51,6 +51,19 @@ impl Career {
         if self.world.day < AB_TAG { return; }
         let season = self.world.season;
         let woche = (self.abs() / 7).to_string();
+        // a warning first (FC-26 wish): from now on other clubs may sign him for the summer; extend or let it happen
+        let abs = self.abs();
+        for p in self.squad() {
+            let pl = &self.world.players[p];
+            if pl.contract_end > season || pl.youth > 0 || pl.leihe.is_some() || self.vorvertraege.iter().any(|v| v.pid == p) { continue; }
+            let id = pl.id;
+            if self.mensch.story_erzaehlt.iter().any(|x| x.0 == "warn_vv" && x.2 == id && x.1 / crate::date::SEASON_DAYS == season) { continue; } // roh
+            self.mensch.story_erzaehlt.push(("warn_vv".into(), abs, id)); // roh
+            let nm = pl.name.clone();
+            let opts = vec![("verlaengern".to_string(), t("vv.warn.verlaengern").to_string()), ("lassen".to_string(), t("vv.warn.lassen").to_string())]; // roh
+            self.msg(1, t("ui.game.transferabteilung"), &crate::tf!("vv.warn.titel", nm.clone()), &crate::tf!("vv.warn.text", nm), Action::Wahl { art: "vvwarn:x".into(), bezug: vec![p], optionen: opts }); // roh
+        }
+        if self.ohne_ki_vorvertraege { return; }
         for p in self.squad() {
             let pl = &self.world.players[p];
             if pl.contract_end > season || pl.youth > 0 || pl.leihe.is_some() || self.vorvertraege.iter().any(|v| v.pid == p) || self.negs.iter().any(|n| n.pid == p && n.stage < 2) { continue; }
@@ -111,7 +124,7 @@ mod tests {
         assert!(!c.vorvertrag_moeglich(p), "not before 1 January");
         c.world.day = AB_TAG;
         assert!(c.vorvertrag_moeglich(p));
-        let n = Neg { pid: p, renew: false, stage: 1, round: 0, ask: 0.0, fee: 0.0, counter: 0.0, wage: 1e6, need: 1e6, years: 3, state: NegState::Counter, reply_day: 0, ends: 0, text: String::new(), ph: None, ton: 0, handlung: 0, letzt: false, argument: 0, argumente: vec![], gefragt: false, tausch: false, haken: 0, haken_bis: 0, abschlag: 0.0, med: false, gate: false, verkauf: false, kaeufer: 0, gesendet: String::new(), kl: Default::default(), zeit: 0, vorvertrag: true, verlauf: vec![] };
+        let n = Neg { pid: p, renew: false, stage: 1, round: 0, ask: 0.0, fee: 0.0, counter: 0.0, wage: 1e6, need: 1e6, years: 3, state: NegState::Counter, reply_day: 0, ends: 0, text: String::new(), ph: None, ton: 0, handlung: 0, letzt: false, argument: 0, argumente: vec![], gefragt: false, tausch: false, haken: 0, haken_bis: 0, abschlag: 0.0, med: false, gate: false, verkauf: false, kaeufer: 0, gesendet: String::new(), kl: Default::default(), zeit: 0, vorvertrag: true, liegt_bis: 0, verlauf: vec![] };
         c.vorvertrag_abschliessen(&n);
         assert_eq!(c.world.players[p].team, andere as i32, "he stays until the summer");
         c.vorvertraege_vollziehen();

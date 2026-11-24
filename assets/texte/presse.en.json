@@ -17,7 +17,13 @@
    "How fit is your squad before the {gegner} game?",
    "What has made {gegner} so strong lately?",
    "Any surprises in your line-up against {gegner}?",
-   "What has to go better than last time?"
+   "What has to go better than last time?",
+   "What do you expect from {naechster}?",
+   "Which player has impressed you most in training?",
+   "How do you set up against {naechster}?",
+   "Is anyone missing for the weekend?",
+   "How is the mood in the squad?",
+   "What's the plan for the next weeks?"
   ],
   "sieg": [
    "A win against {gegner}. What was the key?",
@@ -25,7 +31,13 @@
    "Who was your man of the match against {gegner}?",
    "The win wasn't always comfortable. Where did it stutter?",
    "What does this win mean for the table?",
-   "Did you expect a game like that against {gegner}?"
+   "Did you expect a game like that against {gegner}?",
+   "What made the difference today?",
+   "Who deserves special praise?",
+   "Is this the turning point of the season?",
+   "How do you keep your feet on the ground now?",
+   "Did the plan work as you imagined?",
+   "Where can the team still improve?"
   ],
   "niederlage": [
    "The defeat to {gegner} hurts. Where did it go wrong?",
@@ -33,7 +45,13 @@
    "Did your team give everything today?",
    "What do you tell the dressing room after this defeat to {gegner}?",
    "Was it tactics or attitude?",
-   "How quickly can you put this defeat behind you?"
+   "How quickly can you put this defeat behind you?",
+   "Do you have an explanation?",
+   "Is the team losing belief?",
+   "Who has to take responsibility?",
+   "Will there be changes next week?",
+   "How do you get the players back up?",
+   "Was the referee a factor?"
   ],
   "remis": [
    "A draw against {gegner}. A point gained or two dropped?",
@@ -41,70 +59,147 @@
    "A point against {gegner} in the end. Does the result annoy you?",
    "Should you have made changes earlier?",
    "What do you take from this draw?",
-   "Is your team missing that final punch right now?"
+   "Is your team missing that final punch right now?",
+   "Is a point enough for your ambitions?",
+   "Who was the better side?",
+   "What was missing to win it?",
+   "Are you happy with the reaction after the break?",
+   "Did you consider more changes?"
   ],
   "serie_gut": [
    "The run goes on. How far can it go?",
    "Several wins in a row: what is different from a few weeks ago?",
    "Should we expect your team higher up the table now?",
    "How do you keep the tension when things go this well?",
-   "Are you worried the run will end at some point?"
+   "Are you worried the run will end at some point?",
+   "What is the secret of this run?",
+   "How long can this go on?",
+   "Is your team the favourite now?",
+   "Do you fear complacency?",
+   "Who has been the winner of these weeks for you?",
+   "Are you looking up the table now?",
+   "What do you tell the team after a run like this?",
+   "Is this already the team you had in mind?"
   ],
   "serie_schlecht": [
    "No win in weeks. Is your job on the line?",
    "What is going wrong for your team right now?",
    "Do you still have the dressing room behind you?",
    "How do you want to turn it around?",
-   "Do you feel under pressure?"
+   "Do you feel under pressure?",
+   "How do you break this run?",
+   "Is the team still behind you?",
+   "Do you still believe in the target?",
+   "Do you fear for your job?",
+   "Will you change the line-up now?",
+   "What is your team missing at the moment?",
+   "Do you talk to the team differently now?",
+   "What gives you hope?"
   ],
   "star": [
    "{spieler} was outstanding today. Your thoughts?",
    "Is {spieler} the best player in the league right now?",
    "How important is {spieler} to your game?",
    "What did you tell {spieler} after the match?",
-   "How long can you keep hold of {spieler}?"
+   "How long can you keep hold of {spieler}?",
+   "Can you keep {spieler} at the club?",
+   "Is {spieler} the best player in the league?",
+   "How important is {spieler} for the dressing room?",
+   "What does {spieler} do better than the others?",
+   "Is {spieler} ready for the national team?",
+   "How does {spieler} stay so consistent?",
+   "Have you ever seen {spieler} this good?",
+   "Is {spieler} becoming too important to your game?"
   ],
   "vorstand": [
    "There are reports of unrest on the board. How are things between you and the board?",
    "Do you still have the full backing of the board?",
    "How often are you talking to the board at the moment?",
    "Has the board given you a deadline?",
-   "Do you feel supported from above?"
+   "Do you feel supported from above?",
+   "Do you still have the board's backing?",
+   "Did the president speak to you this week?",
+   "How long can you keep going like this?",
+   "Would a contract extension help to calm things down?",
+   "What did the board last tell you?",
+   "Does the president give you enough support?",
+   "Has there been a crisis meeting?",
+   "How much time do they still give you?",
+   "Do you talk to the board about transfers as well?",
+   "Is your relationship with the board strained?"
   ],
   "geruecht": [
    "Word is {spieler} could leave the club. Is there any truth in it?",
    "Is there an offer for {spieler}?",
    "How is {spieler} handling the rumours?",
    "Would you let {spieler} go for the right fee?",
-   "Has {spieler} asked to leave?"
+   "Has {spieler} asked to leave?",
+   "Did {spieler} ask to leave?",
+   "Is {spieler} focused on the next game?",
+   "How much peace does {spieler} need now?",
+   "Has the agent of {spieler} contacted you?",
+   "Would you let {spieler} go if he wants to leave?",
+   "Is there a price at which {spieler} leaves?",
+   "Is the dressing room talking about the rumours around {spieler}?",
+   "Is {spieler} still here in his head?"
   ],
   "ausfall": [
    "{spieler} is out. How will you cope without him?",
    "Who replaces {spieler}?",
    "How long will you be without {spieler}?",
    "Is losing {spieler} a reason to go back into the market?",
-   "How did the team react to the injury of {spieler}?"
+   "How did the team react to the injury of {spieler}?",
+   "Will you look for a replacement on the market?",
+   "When do you expect {spieler} back?",
+   "How does this absence affect you tactically?",
+   "Will a young player get his chance now?",
+   "How is {spieler} doing at the moment?",
+   "Have you spoken to {spieler} yet?",
+   "Was {spieler} overloaded?",
+   "Will you change the system now?"
   ],
   "neuzugang": [
    "{spieler} is new to the team. How soon will he make an impact?",
    "What convinced you about {spieler}?",
    "How has {spieler} settled into the dressing room?",
    "Is {spieler} already a candidate for the starting eleven?",
-   "What role do you have in mind for {spieler}?"
+   "What role do you have in mind for {spieler}?",
+   "Where do you see {spieler} in your team?",
+   "How quickly can {spieler} fit in?",
+   "Why did you want {spieler}?",
+   "What do you expect from {spieler} in the first weeks?",
+   "Who looks after {spieler} in the dressing room?",
+   "Does {spieler} still need time?",
+   "What can {spieler} do that you were missing?",
+   "Did you watch {spieler} for a long time?"
   ],
   "zusage_ziel": [
    "Your season target is position {ziel}. Will you promise that to the fans?",
    "Is position {ziel} realistic?",
    "What happens if you miss position {ziel}?",
    "Can you promise the fans position {ziel}?",
-   "Is position {ziel} the minimum or a dream?"
+   "Is position {ziel} the minimum or a dream?",
+   "What can the fans expect this season?",
+   "Are you aiming higher than the board?",
+   "What target have you agreed with the team?",
+   "Is the squad good enough for {ziel}th place?",
+   "What would a good season be for you?",
+   "What should you be judged on in the end?",
+   "Would you sign for {ziel}th place today?"
   ],
   "zusage_spieler": [
    "Can you guarantee that {spieler} stays?",
    "Is {spieler} not for sale?",
    "Will {spieler} still be with you next season?",
    "Can you rule out a move for {spieler}?",
-   "Are you planning long-term with {spieler}?"
+   "Are you planning long-term with {spieler}?",
+   "Can you promise {spieler} stays?",
+   "Will {spieler} be here next season?",
+   "Would you tie your future to that of {spieler}?",
+   "Is {spieler} a player you build the team around?",
+   "What do you tell the clubs asking about {spieler}?",
+   "Will {spieler} get a new contract?",
+   "Has {spieler} told you he wants to stay?"
   ]
  },
  "antworten": {
@@ -415,5 +510,145 @@
     "I don't comment on personnel matters."
    ]
   }
+ },
+ "einleitung": {
+  "standard": [
+   "{naechster} next.",
+   "Ahead of the game against {naechster}:",
+   "Your side sits {platz}. in the table.",
+   "With {punkte} points on the board so far.",
+   "The squad trained behind closed doors this week.",
+   "Your opponents {naechster} have been watching you closely.",
+   "Before kick-off against {naechster}:",
+   "The target is position {ziel}, you're {platz}. right now.",
+   "One question about the weekend:",
+   "Looking at the fixture list.",
+   "After a busy week at the training ground.",
+   "{naechster} come into this one with confidence."
+  ],
+  "sieg": [
+   "{ergebnis} against {gegner}.",
+   "A {ergebnis} win in the books.",
+   "Three points against {gegner}.",
+   "After the {ergebnis} today.",
+   "That's {punkte} points now.",
+   "Up to {platz}. in the table after the {ergebnis}.",
+   "Your side looked sharp against {gegner}.",
+   "The away end was loud after the {ergebnis}.",
+   "Win number {serie} in a row?",
+   "A day like this against {gegner}:",
+   "The win lifts you to {platz}.",
+   "The dressing room was singing after the {ergebnis}."
+  ],
+  "niederlage": [
+   "{ergebnis} against {gegner}.",
+   "A {ergebnis} defeat.",
+   "No points against {gegner} today.",
+   "After the {ergebnis}.",
+   "Down to {platz}. in the table.",
+   "That's {sieglos} games without a win now.",
+   "The fans went quiet after the {ergebnis}.",
+   "{gegner} took their chances, you didn't.",
+   "The table shows {platz}., the target was {ziel}.",
+   "A long evening after the {ergebnis}:",
+   "Your players left the pitch with their heads down.",
+   "The second half against {gegner} went wrong."
+  ],
+  "remis": [
+   "{ergebnis} against {gegner}.",
+   "A point, {ergebnis}.",
+   "Honours even with {gegner}.",
+   "After the {ergebnis} today.",
+   "Another draw, {ergebnis}.",
+   "You stay {platz}. after the {ergebnis}.",
+   "{gegner} held on for the {ergebnis}.",
+   "A point that could have been three:",
+   "A point that could have been none:",
+   "The {ergebnis} leaves you on {punkte} points."
+  ],
+  "serie_gut": [
+   "{serie} wins in a row.",
+   "Your run is now {serie} games long.",
+   "Nobody has stopped you in {serie} matches.",
+   "Up to {platz}. on a run of {serie} wins.",
+   "The streak goes on:",
+   "The league is starting to take notice of your run.",
+   "The team is on a roll.",
+   "The rivals are watching you."
+  ],
+  "serie_schlecht": [
+   "{sieglos} games without a win.",
+   "The bad run goes on.",
+   "Again no win, the {sieglos}. time.",
+   "Down at {platz}. in the table.",
+   "The pressure is growing week by week.",
+   "Your last win feels a long time ago.",
+   "The fans are whistling.",
+   "The mood in the stadium is turning."
+  ],
+  "star": [
+   "{spieler} was everywhere today.",
+   "What a game from {spieler}.",
+   "{spieler} again.",
+   "The crowd chanted {spieler}'s name.",
+   "Man of the match {spieler}:",
+   "Without {spieler} today.",
+   "The papers are celebrating {spieler}.",
+   "Once again it was {spieler}."
+  ],
+  "vorstand": [
+   "There's talk in the boardroom.",
+   "The board met this week.",
+   "Sources close to the club say the board is restless.",
+   "Position {platz}, the target {ziel}:",
+   "The president was seen leaving early today.",
+   "The rumours from the club offices are getting louder.",
+   "The president watched the last match with a serious face.",
+   "You are said to have been discussed in the supervisory board.",
+   "After the last match there was a long talk in the president's office."
+  ],
+  "geruecht": [
+   "The papers are full of {spieler} today.",
+   "There's a lot of talk about {spieler}.",
+   "{spieler}'s agent was seen at the stadium.",
+   "Scouts were in the stands to watch {spieler}.",
+   "The rumours about {spieler} won't go away.",
+   "A big club is said to have asked about {spieler}.",
+   "A photo of {spieler} in another club's shirt is going round online."
+  ],
+  "ausfall": [
+   "{spieler} is out for a while.",
+   "Losing {spieler} hurts.",
+   "Without {spieler} for weeks now.",
+   "The medical report on {spieler}:",
+   "{spieler}'s injury changes things.",
+   "Bad news from the medical department:",
+   "You will miss {spieler}.",
+   "The diagnosis for {spieler} is in."
+  ],
+  "neuzugang": [
+   "{spieler} has just arrived.",
+   "The new man {spieler}:",
+   "{spieler} trained with the team for the first time.",
+   "Fans are curious about {spieler}.",
+   "{spieler}'s first days at the club:",
+   "The shirt of {spieler} is selling well.",
+   "All eyes are on {spieler}."
+  ],
+  "zusage_ziel": [
+   "The season is still young.",
+   "The board talks about position {ziel}.",
+   "Everyone wants to hear a target from you.",
+   "The fans want ambition:",
+   "The bookmakers see you in {platz}th place.",
+   "Before the season starts, everyone asks about the target."
+  ],
+  "zusage_spieler": [
+   "{spieler} is the name on everyone's lips.",
+   "Clubs are queuing up for {spieler}.",
+   "{spieler}'s future is the question of the week.",
+   "The fans have painted a banner for {spieler}.",
+   "The contract of {spieler} is the talk of the town."
+  ]
  }
 }

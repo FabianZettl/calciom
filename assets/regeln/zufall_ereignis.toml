@@ -1,0 +1,8 @@
+# Zufallsereignisse (Ideen anderer FL-Werkzeuge, Fabian 23.11.). Änderbar.
+uebernahme_chance = 0.04     # je Monat: ein reicher Investor kauft einen Verein der eigenen Liga (höchstens einmal je Saison)
+uebernahme_umsatz = 1.5      # so viele Jahresumsätze bringt er mit
+boykott_fans_unter = 25      # Fanstimmung, unter der ein Boykott droht
+boykott_sieglos = 5          # Spiele ohne Sieg
+boykott_tage = 30            # so lange bleibt die Kurve leer, wenn der Trainer sich nicht mit den Fans trifft
+boykott_tickets = 0.6        # Anteil der Ticketeinnahmen während des Boykotts
+treffen_fans = 6             # Fanstimmung nach einem Treffen

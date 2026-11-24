@@ -94,6 +94,30 @@ positionen = ["TW", "IV", "LV", "RV", "DM", "ZM", "LM", "RM", "OM", "LA", "RA", 
 ultimatum_unter = 25
 ultimatum_erfuellt_ab = 35
 ultimatum_tage = 60
+ultimatum_spiele = 3          # Fabian 23.11.: konkretes Ziel – so viele Pflichtspiele …
+ultimatum_punkte = 4          # … mit mindestens so vielen Punkten; erreicht = gerettet, verfehlt = entlassen
+schonzeit_tage = 90           # in den ersten Tagen beim Verein kein Ultimatum
+saisonende_entlassung_unter = 6  # Saison mit (fast) keinem Vertrauen beendet: entlassen
+
+# Budget-Töpfe (Fabian 23.11.): Transfers, Gehälter (Jahressumme) und Infrastruktur; Schieben zwischen ihnen
+[toepfe]
+infra_anteil = 0.04           # zum Saisonstart so viel vom Umsatz in den Infrastruktur-Topf
+frei_bis = 0.10               # Verschiebungen bis zu diesem Anteil am Gesamtbudget gehen ohne Vorstand
+vorstand_ja_ab = 0.5          # größere: Bereitschaft (Vertrauen · 0,7 + Form · 0,3) ab der er zustimmt
+vorstand_halb_ab = 0.35       # … ab der er die Hälfte erlaubt
+
+# Bitten an den Vorstand (Fabian 23.11.): Antwort ganz, halb oder nein nach Vertrauen, Form und schon Gegebenem
+[bitten]
+transfer_anteil = 0.06        # ganz: so viel vom Jahresumsatz zusätzlich ins Transferbudget
+gehalt_anteil = 0.03          # ganz: so viel vom Jahresumsatz mehr Gehaltsrahmen
+ausbau_anteil = 0.5           # ganz: so viel der Kosten der günstigsten nächsten Ausbaustufe als Zuschuss
+ganz_ab = 0.70                # Bereitschaft ab der der Vorstand ganz zustimmt
+halb_ab = 0.45
+vertrauen_gewicht = 0.7       # Vertrauen/100 · das
+form_gewicht = 0.3            # Punkte je Spiel/3 · das
+je_bitte_abzug = 0.2          # je schon gewährter Bitte dieser Saison weniger
+nein_vertrauen = -2           # eine abgelehnte Bitte kostet etwas Vertrauen
+sperre_tage = 30              # dieselbe Bitte frühestens wieder nach so vielen Tagen
 
 # ---- Wirtschaft: Stellschrauben, Nachfrage und Fanaktionen (`wirtschaft.py`) ----
 [spielart]                         # Füllung des Stadions nach Spielart (Startwerte): Liga bleibt beim Modell unten
@@ -199,3 +223,7 @@ kosten = 60_000
 stimmung = 3
 medien = 0
 sperre = 30
+
+# Trikotverkauf (Ideen anderer FL-Werkzeuge, 23.11.): Anteil der Fanshop-Einnahmen, der ins Transferbudget geht. Änderbar.
+[merch]
+transfer_anteil = 0.15

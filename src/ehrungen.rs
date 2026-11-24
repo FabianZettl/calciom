@@ -17,6 +17,8 @@ fn datei(name: &str) -> &'static Value {
 }
 fn k(pfad: &str) -> &'static Value { pfad.split('.').fold(datei(crate::id("konfig")), |v, p| &v[p]) }
 fn kf(pfad: &str) -> f32 { k(pfad).as_f64().unwrap_or(0.0) as f32 }
+/// The gala's day of the season (late October, like the real Ballon d'Or).
+fn kf_gala() -> u32 { crate::regeln::f("pokalnamen", "gala_tag") as u32 } // roh
 /// A sentence from the original's parts (texts in ui.de.json / ui.en.json as ehrung.teile.<key>.<part>.<variant>):
 /// one variant of each part by seed, joined, placeholders filled.
 fn teile(key: &str, samen: &str, var: &[(&str, String)]) -> String {
@@ -95,7 +97,8 @@ impl Career {
         self.letzte_elf = elf.iter().map(|&p| self.world.players[p].id).collect();
         let noten: Vec<f32> = elf.iter().map(|&p| beste.iter().find(|x| x.0 == p).map_or(0.0, |x| x.1)).collect();
         // every week as a real eleven on a pitch (Fabian 23.11.): photos, grades, clubs; own players named in the text
-        let text = if meine.is_empty() { titel("week_reason", &[(crate::id("f"), "4-3-3".into())]) } else { format!("{} {}", titel("week_news", &[(crate::id("lg"), lg.clone()), (crate::id("n"), meine.len().to_string()), (crate::id("names"), meine.join(", "))]), titel("week_reason", &[(crate::id("f"), "4-3-3".into())])) };
+        let wk = self.vkey("ehrung.t.week_reason", "");
+        let text = if meine.is_empty() { fuellen(crate::inhalt::t(&wk), &[(crate::id("f"), "4-3-3".into())]) } else { format!("{} {}", titel("week_news", &[(crate::id("lg"), lg.clone()), (crate::id("n"), meine.len().to_string()), (crate::id("names"), meine.join(", "))]), titel("week_reason", &[(crate::id("f"), "4-3-3".into())])) };
         self.msg(0, crate::inhalt::t("zentrale.kennzahl.liga"), &crate::tf!("ui.ehrung.elf_titel", lg), &text, Action::None);
         if let Some(m) = self.inbox.first_mut() { m.karte = crate::id("elf").into(); m.spieler = elf.clone(); m.werte = noten; }
         self.ehrungen.push(Ehrung { season: self.world.season, art: "woche".into(), pid: Some(self.world.players[wer].id), club: Some(wc), titel: crate::tf!("ui.ehrung.spieler_der_woche", wn, cn) });
@@ -174,7 +177,29 @@ impl Career {
             let drei: Vec<String> = kand.iter().take(3).map(|x| self.world.players[x.0].name.clone()).collect();
             self.ehrung(crate::id("ballon"), Some(p), Some(pl.team as usize), crate::tf!("ui.ehrung.ballon_titel", pl.name, cn), crate::tf!("ui.ehrung.ballon_text", drei.join(", ")), kf("effects.morale_award"));
         }
+        // the autumn gala (Fabian 23.11.: several categories on a real date): chosen now, shown on its day
+        self.gala.clear();
+        if let Some(&(p, _)) = kand.first() { let c = self.world.players[p].team.max(0) as usize; self.gala.push((crate::id("ballon").into(), p, c)); }
+        let welt: Vec<usize> = (0..self.world.players.len()).filter(|&p| self.world.players[p].team >= 0 && self.world.players[p].rn >= kf("ballon.min_apps") as u16).collect();
+        let wert = |c: &Career, p: usize| { let pl = &c.world.players[p]; pl.avg_rating() + kf("goal_weight") * pl.goals as f32 / pl.apps.max(1) as f32 + pl.ovr / 100.0 };
+        if let Some(p) = welt.iter().copied().filter(|&p| self.world.players[p].age <= 21).max_by(|a, b| wert(self, *a).partial_cmp(&wert(self, *b)).unwrap()) { self.gala.push((crate::id("kopa").into(), p, self.world.players[p].team.max(0) as usize)); }
+        if let Some(p) = welt.iter().copied().filter(|&p| self.world.players[p].pos == "GK").max_by(|a, b| (self.world.players[*a].avg_rating() + self.world.players[*a].ovr / 100.0).partial_cmp(&(self.world.players[*b].avg_rating() + self.world.players[*b].ovr / 100.0)).unwrap()) { self.gala.push(("yashin".into(), p, self.world.players[p].team.max(0) as usize)); } // roh
+        if let Some(p) = welt.iter().copied().max_by_key(|&p| self.world.players[p].goals) { self.gala.push((crate::id("mueller").into(), p, self.world.players[p].team.max(0) as usize)); }
         self.elf_der_woche.clear();
+    }
+    /// The gala's day (late October): every category as a celebration card and in the papers.
+    pub fn gala_tag(&mut self) {
+        if self.gala.is_empty() || self.world.day != kf_gala() { return; }
+        for (kat, p, club) in std::mem::take(&mut self.gala) {
+            if p >= self.world.players.len() { continue; }
+            let n = self.world.players[p].name.clone();
+            let cn = self.world.clubs[club.min(self.world.clubs.len() - 1)].name.clone();
+            let titel = crate::inhalt::t(&format!("ui.gala.{kat}")).to_string();
+            let text = crate::tf!("ui.gala.text", n.clone(), cn.clone(), titel.clone());
+            self.news(&crate::tf!("ui.gala.news", titel.clone(), n), &text);
+            // a card for everyone, a bigger moment when it is one of ours
+            if club == self.own || kat == "ballon" { self.feiern.push(crate::meilensteine::Feier { art: "gala".into(), titel, text, spieler: Some(p), club: Some(club) }); } // roh
+        }
     }
     /// The honours of a player (for the profile): count per kind, newest first.
     pub fn ehrungen_von(&self, p: usize) -> Vec<&Ehrung> {

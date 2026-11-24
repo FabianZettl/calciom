@@ -166,12 +166,19 @@ impl Career {
     /// Mind games the day before a match: statement × balance of strength (favourite, open, underdog) → morale and media.
     pub fn mind_games_frage(&mut self) {
         let Some(f_) = self.next_match() else { return };
+        // not before every match (Fabian 23.11.: the same question again and again): at most every ten days
+        let abs = self.abs();
+        if self.mensch.co_sperre.iter().any(|x| x.0 == "mind" && abs < x.1) { return; } // roh
+        self.mensch.co_sperre.retain(|x| x.0 != "mind"); // roh
+        self.mensch.co_sperre.push(("mind".into(), abs + 10)); // roh
         let g = if f_.h == self.own { f_.a } else { f_.h };
         let d = crate::mensch::kaderstaerke(&self.world, self.own) - crate::mensch::kaderstaerke(&self.world, g);
         let lage = if d >= 2.0 { crate::id("favorit") } else if d <= -2.0 { crate::id("aussenseiter") } else { crate::id("offen") };
         let gn = self.world.clubs[g].name.clone();
         let opts = vec![(crate::id("respekt").to_string(), crate::tf!("ui.rest3.grosser_respekt_vor", gn)), (crate::id("selbstbewusst").to_string(), crate::inhalt::t("ui.rest3.wir_wissen_was_wir_koennen").to_string()), (crate::id("sticheln").to_string(), crate::tf!("ui.rest3.wird_sich_wundern", gn))];
-        self.msg(4, crate::inhalt::t("ui.medien.pressestelle"), &crate::tf!("ui.rest3.mind_games_vor_dem_spiel", gn), crate::inhalt::t("ui.rest3.die_reporter_wollen_eine_aussage"), Action::Wahl { art: format!("mind:{lage}"), bezug: vec![], optionen: opts });
+        let v = self.variante("mind_text", crate::inhalt::varianten("ui.rest3.die_reporter_wollen_eine_aussage"), &gn);
+        let text = crate::tf!(&crate::inhalt::variante_key("ui.rest3.die_reporter_wollen_eine_aussage", v), gn.clone(), self.world.rank_of(g).to_string(), self.world.rank_of(self.own).to_string());
+        self.msg(4, crate::inhalt::t("ui.medien.pressestelle"), &crate::tf!("ui.rest3.mind_games_vor_dem_spiel", gn), &text, Action::Wahl { art: format!("mind:{lage}"), bezug: vec![], optionen: opts });
     }
     pub fn mind_antwort(&mut self, lage: &str, key: &str) -> String {
         let mo = crate::regeln::f_oder("kabine", &format!("mind.{key}.moral.{lage}"), 0.0);

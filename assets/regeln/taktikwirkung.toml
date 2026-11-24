@@ -35,3 +35,9 @@ konter = 20                     # progressive Läufe
 flanken = 18
 pressing = 30                   # Tacklings + abgefangene Bälle
 gegen_aufs_tor = 4              # Schüsse aufs Tor des Gegners höchstens
+
+# Trainerprofil mit echter Spielwirkung (FC-26-Wunsch, 23.11.): spielt die Mannschaft so, wie es der Stil des Trainers
+# ist (Ballbesitz, Konter, Pressing, Kompakt, Flügel), wirkt die Taktik stärker – er kann sie vermitteln. Änderbar.
+[trainerstil]
+eigen = 0.04        # eigene Tore × (1 + das), wenn Taktik und Stil passen
+gegner = 0.03       # gegnerische Tore × (1 − das) beim kompakten oder Konter-Stil

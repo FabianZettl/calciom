@@ -8,6 +8,8 @@ rot_ab = 0.70
 minuten_voll = 360              # Einsatzminuten in 14 Tagen (4 Spiele zu 90), die als voll gelten; Minuten selbst kennt der Spielstand nicht: Startelf-Einsätze × 90
 dichte_voll = 5                 # Spiele der Mannschaft in 14 Tagen, die als voll gelten
 fenster_tage = 14
+historie_je_verletzung = 0.10   # Anfälligkeit +10 % je Verletzung der letzten zwölf Monate (24.11., änderbar)
+historie_hoechstens = 0.40
 rotation_ab_tage = 1            # Rotationsempfehlung am Spieltag und am Tag davor
 
 [prognose]

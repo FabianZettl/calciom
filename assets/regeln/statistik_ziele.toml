@@ -1,0 +1,12 @@
+# Zielwerte der Kalibrierung (Statistik Teil 9): je Teamspiel in einer Top-Liga. [von, bis] = grün, bis zu 15 % daneben = gelb.
+# Werkzeug: pesm --kalibrieren <saisons> [<Liganame>]. Änderbar.
+tore_je_spiel = [2.5, 3.1]      # beide Teams zusammen
+heimsieg = [0.40, 0.50]
+remis = [0.22, 0.30]
+xg_je_tor = [0.9, 1.1]          # Liga-xG geteilt durch Liga-Tore
+schuesse_je_team = [11.0, 15.0]
+aufs_tor_quote = [0.30, 0.40]
+passquote = [0.76, 0.86]
+paesse_je_team = [380.0, 520.0]
+tacklings_je_team = [14.0, 22.0]
+gelb_je_team = [1.5, 2.6]

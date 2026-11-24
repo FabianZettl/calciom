@@ -264,6 +264,13 @@ pub fn absender_person(club_id: u32, from: &str) -> Option<(String, String)> {
     let wort = crate::regeln::wert_oder("posteingang", &format!("rolle.{sp}.{rolle}")).and_then(|v| v.as_str()).unwrap_or_default().to_string();
     Some((name, wort))
 }
+/// Like `absender_person`, but the club's real president, sporting director or finance director where the list
+/// (vereinsfuehrung.toml) knows one.
+pub fn absender_echt(club_id: u32, club: &str, from: &str) -> Option<(String, String)> {
+    let (name, wort) = absender_person(club_id, from)?;
+    let rolle = crate::regeln::wert_oder("posteingang", &format!("von.{from}")).and_then(|v| v.as_str().map(|s| s.to_string())).unwrap_or_default();
+    Some((crate::vereinsfuehrung::person(club, crate::vereinsfuehrung::amt(&rolle)).unwrap_or(name), wort))
+}
 pub fn titel(tid: &str) -> String { varianten(&format!("pool.{tid}.titel")).first().map(|s| s.to_string()).unwrap_or_else(|| tid.replace('_', " ")) }
 
 // ---------------------------------------------------------------- PES M: context, start, answer, daily beat
@@ -398,6 +405,7 @@ impl Career {
     /// open conversation per player, and nothing new while `offen_hoechstens` are waiting. Urgent ones first.
     pub fn pool_tag(&mut self) {
         let abs = self.abs();
+        if abs < self.ruhe_bis { return; }
         // due steps of a chain come first and are never throttled: the story was already begun
         let faellig: Vec<(String, u32)> = self.pool_folgen.iter().filter(|x| abs >= x.2).map(|x| (x.0.clone(), x.1)).collect();
         self.pool_folgen.retain(|x| abs < x.2);

@@ -177,7 +177,8 @@ impl Career {
         let titel = crate::inhalt::t("ui.tp.bericht.titel");
         if gruppen.is_empty() { self.msg(1, &co, titel, crate::inhalt::t("ui.tp.bericht.nichts"), Action::None); return; }
         gruppen.sort_by(|a, b| b.1.cmp(&a.1));
-        let mut body = vec![crate::tf!("ui.tp.bericht.einheiten", gruppen.iter().map(|(g, n)| format!("{} {n}", crate::inhalt::t(&format!("tp.gruppe.{g}")))).collect::<Vec<_>>().join(", "))];
+        let auftakt = crate::inhalt::t(&self.vkey("ui.tp.bericht.auftakt", "")).to_string();
+        let mut body = vec![auftakt, crate::tf!("ui.tp.bericht.einheiten", gruppen.iter().map(|(g, n)| format!("{} {n}", crate::inhalt::t(&format!("tp.gruppe.{g}")))).collect::<Vec<_>>().join(", "))];
         let start = { let sq = self.squad(); sq.iter().map(|&p| self.world.players[p].ps.last).sum::<f32>() / sq.len().max(1) as f32 };
         let (_, zone) = verlauf(&w, start);
         body.push(crate::tf!("ui.tp.bericht.last", crate::inhalt::t(&format!("tp.zone.{}", zone_name(zone)))));

@@ -49,7 +49,7 @@ fn a(k: &str) -> f32 { f("scouting", &format!("auftrag.{k}")) }
 impl Career {
     /// The club's wage room: the target wage share of the expected turnover minus the current wage bill.
     pub fn gehalt_frei(&self) -> f64 {
-        (self.umsatz_prognose() * a(crate::id("gehaltsquote")) as f64 - self.world.wage_bill(self.own)).max(0.0)
+        (self.umsatz_prognose() * a(crate::id("gehaltsquote")) as f64 + self.gehalt_plus - self.world.wage_bill(self.own)).max(0.0)
     }
     /// Free transfer budget: the budget minus the fees of running negotiations.
     pub fn transfer_frei(&self) -> f64 {
@@ -255,6 +255,8 @@ impl Career {
     /// analyst 3 more results-only leagues (strongest first), 3 more from judgement 60 and from 75.
     pub fn analyst_ligen(&self) -> Vec<usize> {
         let mut v: Vec<usize> = (0..self.world.leagues.len()).filter(|&l| self.world.leagues[l].detail < 2).collect();
+        // bought data packages count like the analyst's leagues for their season
+        v.extend(self.datenpakete.iter().filter(|x| x.1 == self.world.season && x.0 < self.world.leagues.len()).map(|x| x.0));
         if let Some(s) = self.analyst() {
             let u = self.scouts[s].p.as_ref().map_or(50.0, |p| p.f[0]);
             let n = 3 + if u >= 60.0 { 3 } else { 0 } + if u >= 75.0 { 3 } else { 0 };
@@ -263,6 +265,19 @@ impl Career {
             v.extend(rest.into_iter().take(n));
         }
         v
+    }
+    /// The price of a league's data package for a season (Statistik 8.1): by the league's strength, in the club's money scale.
+    pub fn datenpaket_preis(&self, l: usize) -> f64 {
+        crate::world::round_money(crate::regeln::f("scouting", "datenpaket.basis") as f64 * (crate::statistik::liga_staerke(&self.world, l) as f64 / 70.0).powi(3) * self.skala())
+    }
+    pub fn datenpaket_kaufen(&mut self, l: usize) -> Result<String, String> {
+        let s = self.world.season;
+        if self.datenpakete.contains(&(l, s)) { return Err(crate::inhalt::t("ui.daten.schon").into()); }
+        let preis = self.datenpaket_preis(l);
+        if preis > self.club().balance.max(0.0) + self.transfer_budget { return Err(crate::inhalt::t("tv.drama.rueckmeldung.budget").into()); }
+        self.book(crate::inhalt::t("ui.daten.buchung"), -preis);
+        self.datenpakete.push((l, s));
+        Ok(crate::tf!("ui.daten.gekauft", self.world.leagues[l].name.clone(), money(preis)))
     }
     /// Konzept 5.2 "Auffällige Zahlen", once a week: performance against price in the analyst's leagues, ten players with a
     /// sentence each; a hit lifts the knowledge to 15 ("heard of"). A weak analyst looks at goals more than at xG and falls

@@ -14,9 +14,13 @@
   <img src="docs/screenshots/spielerprofil.png" width="49%" alt="Player profile: photo, abilities, attribute radar, strengths and weaknesses">
   <img src="docs/screenshots/posteingang.png" width="49%" alt="Inbox: rumours, offers, player talks">
   <img src="docs/screenshots/vereine.png" width="49%" alt="Clubs and players: league, coaches, map, club history and squad">
+  <img src="docs/screenshots/spieltag.png" width="49%" alt="Matchday: stadium and city before kick-off, then head to head and team talk">
+  <img src="docs/screenshots/statistik.png" width="49%" alt="Player statistics: percentile wheel against the position group">
+  <img src="docs/screenshots/kaderplanung.png" width="49%" alt="Squad planning: depth per position, contract timeline, staff ideas">
+  <img src="docs/screenshots/praesidium.png" width="49%" alt="Board: trust, season objective and the club's real president and directors">
 </p>
 
-> Screenshots taken with the author's own FL27 world (FL Mod Studio Gigapack). Crests, player photos and stadium pictures are read at runtime from the player's own game install; they are **not** shipped in this repository.
+> Screenshots taken with the author's own FL27 world (FL26 Megapack, Bayern career, autumn 2026). Crests, player photos and stadium pictures are read at runtime from the player's own game install; they are **not** shipped in this repository.
 
 > Unofficial fan project. Not affiliated with Konami or the Football Life team. This repository contains **no** game files, crests, photos or databases. You need your own copy of FL27.
 

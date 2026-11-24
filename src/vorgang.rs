@@ -8,6 +8,9 @@ use crate::world::*;
 pub fn stufen_t() -> [&'static str; 4] { [crate::inhalt::t("es.stufe.hintergrund"), crate::inhalt::t("story.prioritaet.gruen"), crate::inhalt::t("chat.dringend"), crate::inhalt::t("es.stufe.eil")] }
 pub fn pflicht_t() -> [&'static str; 3] { [crate::inhalt::t("md.ui.prio.1"), crate::inhalt::t("ui.vorgang.soll"), crate::inhalt::t("ui.vorgang.muss")] }
 
+/// A text variant for the co-trainer's advice: by day and player, so it changes (Fabian 23.11.: never the same words).
+fn zufall_v(basis: &str, abs: u32, p: usize) -> usize { let n = crate::inhalt::varianten(basis); (crate::mensch::zufall(&["co_rat", basis, &abs.to_string(), &p.to_string()]) * n as f32) as usize % n } // roh
+
 impl Career {
     /// Rate a new message (einstufung.toml / pflicht.toml): Muss, Soll or Info, the level, the deadline and the thread.
     pub fn einstufen(&mut self, m: &mut Msg) {
@@ -121,15 +124,15 @@ impl Career {
             let anteil = if pl.ps.einsatz.is_empty() { 0.0 } else { pl.ps.einsatz.iter().sum::<f32>() / pl.ps.einsatz.len() as f32 };
             let note = if pl.last.is_empty() { 6.5 } else { pl.last.iter().sum::<f32>() / pl.last.len() as f32 };
             let n = pl.name.clone();
-            if (note >= r("form.gut_note") || pl.form >= r("form.gut_form")) && anteil < r("form.wenig_anteil") && pl.inj == 0 { raete.push((crate::id("bringen").into(), p, crate::tf!("ui.vorgang.ist_in_form_spielt_aber", n), false)); }
-            else if (note <= r("form.schwach_note") || pl.form <= r("form.tief_form")) && anteil >= r("form.stamm_anteil") && !pl.last.is_empty() { raete.push((crate::id("rausnehmen").into(), p, crate::tf!("ui.vorgang.steckt_im_formtief_setz_ihn", n), false)); }
-            else if pl.age as f32 <= r("jugend.max_alter") && pl.pot - pl.ovr >= r("jugend.pot_luecke") && anteil < r("jugend.wenig_anteil") { raete.push((crate::id("talent").into(), p, crate::tf!("ui.vorgang.hat_grosses_potenzial_gib_ihm", n), false)); }
-            else if pl.morale < r("stimmung.unzufrieden") { raete.push((crate::id("gespraech").into(), p, crate::tf!("ui.vorgang.ist_unzufrieden_rede_mit_ihm", n, if pl.morale < r("stimmung.sehr") { crate::inhalt::t("ui.vorgang.sehr_sogar") } else { "" }), pl.morale < r("stimmung.sehr"))); }
-            else if pl.inj as f32 >= r("verletzt.lang_tage") { raete.push((crate::id("verletzt").into(), p, crate::tf!("ui.vorgang.faellt_lange_aus_tage_wir", n, pl.inj), false)); }
+            if (note >= r("form.gut_note") || pl.form >= r("form.gut_form")) && anteil < r("form.wenig_anteil") && pl.inj == 0 { raete.push((crate::id("bringen").into(), p, crate::tf!(&crate::inhalt::variante_key("ui.vorgang.ist_in_form_spielt_aber", zufall_v("ui.vorgang.ist_in_form_spielt_aber", abs, p)), n), false)); }
+            else if (note <= r("form.schwach_note") || pl.form <= r("form.tief_form")) && anteil >= r("form.stamm_anteil") && !pl.last.is_empty() { raete.push((crate::id("rausnehmen").into(), p, crate::tf!(&crate::inhalt::variante_key("ui.vorgang.steckt_im_formtief_setz_ihn", zufall_v("ui.vorgang.steckt_im_formtief_setz_ihn", abs, p)), n), false)); }
+            else if pl.age as f32 <= r("jugend.max_alter") && pl.pot - pl.ovr >= r("jugend.pot_luecke") && anteil < r("jugend.wenig_anteil") { raete.push((crate::id("talent").into(), p, crate::tf!(&crate::inhalt::variante_key("ui.vorgang.hat_grosses_potenzial_gib_ihm", zufall_v("ui.vorgang.hat_grosses_potenzial_gib_ihm", abs, p)), n), false)); }
+            else if pl.morale < r("stimmung.unzufrieden") { raete.push((crate::id("gespraech").into(), p, crate::tf!(&crate::inhalt::variante_key("ui.vorgang.ist_unzufrieden_rede_mit_ihm", zufall_v("ui.vorgang.ist_unzufrieden_rede_mit_ihm", abs, p)), n, if pl.morale < r("stimmung.sehr") { crate::inhalt::t("ui.vorgang.sehr_sogar") } else { "" }), pl.morale < r("stimmung.sehr"))); }
+            else if pl.inj as f32 >= r("verletzt.lang_tage") { raete.push((crate::id("verletzt").into(), p, crate::tf!(&crate::inhalt::variante_key("ui.vorgang.faellt_lange_aus_tage_wir", zufall_v("ui.vorgang.faellt_lange_aus_tage_wir", abs, p)), n, pl.inj), false)); }
         }
         let bereit = |teil: usize| self.squad().iter().filter(|&&p| self.world.players[p].available() && self.world.players[p].youth == 0 && part_of(&self.world.players[p].pos) == teil).count() as f32;
         for (teil, k, wort) in [(0usize, "luecken.tor", crate::inhalt::t("aka.pos.tw")), (1, "luecken.abwehr", crate::inhalt::t("ui.vorgang.abwehrspieler")), (2, "luecken.mittelfeld", crate::inhalt::t("ui.vorgang.mittelfeldspieler")), (3, "luecken.angriff", crate::inhalt::t("aka.pos.st"))] {
-            if bereit(teil) < r(k) { raete.push((crate::id("luecke").into(), usize::MAX, crate::tf!("ui.vorgang.uns_gehen_die_aus_wir", wort), true)); }
+            if bereit(teil) < r(k) { raete.push((crate::id("luecke").into(), usize::MAX, crate::tf!(&crate::inhalt::variante_key("ui.vorgang.uns_gehen_die_aus_wir", zufall_v("ui.vorgang.uns_gehen_die_aus_wir", abs, teil)), wort), true)); }
         }
         let mut n = 0;
         for (art, p, text, dringend) in raete {

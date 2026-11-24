@@ -82,3 +82,7 @@ rueckhol_nach_wochen = 4
 [heimweh]
 tage = 182
 je_woche = 1.5                  # Moral je Woche; Landsmann in der Akademie oder Mentor: halb
+
+# Jugendspieler fremder Akademien (FC-26-Wunsch, 23.11.): Ablöse je Potenzialpunkt in der Geldskala des Vereins. Änderbar.
+[fremd]
+abloese_je_pot = 4000

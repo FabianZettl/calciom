@@ -86,6 +86,19 @@ impl Career {
         }
         let fit = elf.iter().map(|&p| self.world.players[p].fit).sum::<f32>() / elf.len().max(1) as f32;
         if pressing && fit < k("regel.muede_unter") { fe *= 1.0 - k("regel.muede_eigen"); fg *= 1.0 + k("regel.muede_gegner"); saetze.push(crate::inhalt::t("ui.tw.muede_beine").to_string()); }
+        // the coach's own style (trainerprofil.rs): when the tactics are his kind of football, he gets it across
+        let passt = match self.trainerprofil.stil {
+            1 => t.haltung == 0 && t.pressing == 0,                 // counter
+            2 => t.pressing >= 1 && t.linie >= 6,                   // pressing
+            3 => t.kompakt >= 7 && t.linie <= 4,                    // compact
+            4 => t.breite >= 1 || t.haltung == 2 && t.breite > 0,   // wing play
+            _ => t.angriff == 1 || t.aufbau == 1,                   // possession
+        };
+        if passt {
+            fe *= 1.0 + k("trainerstil.eigen");
+            if matches!(self.trainerprofil.stil, 1 | 3) { fg *= 1.0 - k("trainerstil.gegner"); }
+            saetze.push(crate::inhalt::t("ui.tw.trainerstil").to_string());
+        }
         let cap = k(crate::id("cap"));
         (fe.clamp(1.0 - cap, 1.0 + cap), fg.clamp(1.0 - cap, 1.0 + cap), saetze)
     }

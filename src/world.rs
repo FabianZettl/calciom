@@ -188,6 +188,9 @@ pub struct Player {
 #[derive(Serialize, Deserialize, Clone, Default)]
 pub struct Profil {
     pub koerper: [u8; 5],
+    /// Injury history (FC-26 wish, 23.11.): season, day, injury, days out; newest last, at most 30.
+    #[serde(default)]
+    pub verletzungen: Vec<(u32, u32, String, u16)>,
     pub mindestpreis: f64,
     /// (season, club name, games, goals, average grade) per finished season.
     pub laufbahn: Vec<(u32, String, u16, u16, f32)>,
@@ -419,6 +422,12 @@ pub struct World {
     /// Paket 2: domestic cups and European competitions of the season, honours, country points, prize money not yet booked.
     #[serde(default)]
     pub cups: Vec<crate::cups::Cup>,
+    /// The last winner of each competition by name (title holder, Fabian 23.11.), kept over the season change.
+    #[serde(default)]
+    pub titelverteidiger: std::collections::HashMap<String, usize>,
+    /// Financial fair play of the AI clubs (ideas of other FL tools, 23.11.): fees paid this season per club.
+    #[serde(default)]
+    pub ki_ausgaben: std::collections::HashMap<usize, f64>,
     #[serde(default)]
     pub titles: Vec<crate::cups::Title>,
     #[serde(default)]
@@ -444,6 +453,9 @@ pub struct World {
     /// While planning those ties: the league above and the kind of tie.
     #[serde(skip)]
     pub planen: Option<(usize, &'static str)>,
+    /// The round of the knock-out being planned (0 first): each round of a play-off its own stage.
+    #[serde(skip)]
+    pub ko_runde_nr: u8,
     /// Real FL world: the cups (Competition.bin name, clubs) and the European entries of the database (first season).
     #[serde(default)]
     pub db_cups: Vec<(String, Vec<usize>)>,
@@ -512,11 +524,14 @@ pub fn round_money(v: f64) -> f64 {
 pub fn league_factor(level: f32, scale: f32, lo: f32, hi: f32) -> f32 {
     ((level - 68.0) / scale).exp().clamp(lo, hi)
 }
+/// Market-value era (setting, ideas of other FL tools): values × this percent (100 the game's own scale).
+pub static WERT_AERA: std::sync::atomic::AtomicU32 = std::sync::atomic::AtomicU32::new(100);
 pub fn market_value(p: &Player, season: u32, league_level: f32) -> f64 {
     let mut v = 10f64.powf(interp(&VALUE_CURVE, eff_value_strength(p)) as f64) * interp(&VALUE_AGE, p.age as f32) as f64;
     let years = (p.contract_end as i64 - season as i64 + 1).clamp(1, 3);
     v *= [0.72, 0.9, 1.0][years as usize - 1];
     v *= league_factor(league_level, 60.0, 0.7, 1.3) as f64;
+    v *= WERT_AERA.load(std::sync::atomic::Ordering::Relaxed) as f64 / 100.0;
     round_money(v)
 }
 pub fn fair_wage(p: &Player, league_level: f32) -> f64 {
@@ -788,7 +803,7 @@ impl World {
             name, key, teams, fixtures: vec![], level: 68.0, deduct: vec![],
         }).collect();
         let next_id = players.iter().map(|p| p.id).max().unwrap_or(0) + 1;
-        let mut w = World { profil_cache: vec![], eigen: Default::default(), taktik_faktor: None, noten_woche: vec![], noten_monat: vec![], leagues, clubs, players, season: 0, day: 0, rng, source, next_id, cups: vec![], titles: vec![], coef: vec![], cup_money: vec![], neutral: false, entscheid: vec![], planen: None, db_cups: vec![], db_euro: None, ko_vorgabe: None, cids: Default::default(), zweite: vec![], koops: vec![], farm_an: false, trainer_an: false, trainer_pool: vec![], ligaregeln: crate::ligaregeln::eingebaut(), teamgeist_eigen: None, nationalteams: vec![], nat_punkte: Default::default(), turniere: vec![], turnier_tore: Default::default() };
+        let mut w = World { profil_cache: vec![], titelverteidiger: Default::default(), ki_ausgaben: Default::default(), eigen: Default::default(), taktik_faktor: None, noten_woche: vec![], noten_monat: vec![], leagues, clubs, players, season: 0, day: 0, rng, source, next_id, cups: vec![], titles: vec![], coef: vec![], cup_money: vec![], neutral: false, entscheid: vec![], planen: None, ko_runde_nr: 0, db_cups: vec![], db_euro: None, ko_vorgabe: None, cids: Default::default(), zweite: vec![], koops: vec![], farm_an: false, trainer_an: false, trainer_pool: vec![], ligaregeln: crate::ligaregeln::eingebaut(), teamgeist_eigen: None, nationalteams: vec![], nat_punkte: Default::default(), turniere: vec![], turnier_tore: Default::default() };
         w.ueber_ergaenzen();
         w.init_economy();
         w.kuerzel_eindeutig();
@@ -1455,6 +1470,9 @@ impl World {
             let pl = &mut self.players[*p];
             pl.inj = pl.inj.max(*d);
             pl.inj_name = names[(pl.id as usize) % names.len()].to_string();
+            let eintrag = (self.season, self.day, pl.inj_name.clone(), *d);
+            pl.profil.verletzungen.push(eintrag);
+            if pl.profil.verletzungen.len() > 30 { pl.profil.verletzungen.remove(0); }
         }
         for (p, r) in &res.ratings {
             let pl = &mut self.players[*p];

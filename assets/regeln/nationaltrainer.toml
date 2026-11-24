@@ -1412,6 +1412,8 @@ KOR = []
 # PES M: Regeln der Nominierung und der Länderspiele (Kern)
 [pes_m]
 pool_mindestens = 15          # so viele Spieler braucht eine Nation, um ein Team zu stellen
+u21_alter = 21                # U21-Kader: so alt höchstens (Paketrest 23.11.)
+u21_kader = 23                # so viele Spieler
 verletzt_bis = 5              # länger verletzt: nicht im Pool
 fitness_je_spiel = 6.0
 wert_je_spiel = 0.01          # Marktwert +1 % je Länderspiel (die ersten zehn)

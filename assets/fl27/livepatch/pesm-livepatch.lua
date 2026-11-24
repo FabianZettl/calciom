@@ -301,9 +301,25 @@ function m.overlay_on(ctx)
   return s
 end
 
+-- Match rules from PES M (flw\spielregeln.txt, idea after BlankState222's two_legs, written anew): first and second
+-- legs end after 90 minutes (PES M settles a tie on aggregate), a single knock-out match gets extra time and penalties.
+-- Without the file the game's own choice stays.
+function m.set_match_settings(ctx, options)
+  local f = io.open((ctx.sider_dir or "") .. "flw\\spielregeln.txt", "r")
+  if not f then return nil end
+  local txt = f:read("*a") or ""
+  f:close()
+  local et = string.match(txt, "verlaengerung=(%d)")
+  local pen = string.match(txt, "elfmeter=(%d)")
+  if et then options.extra_time = tonumber(et) end
+  if pen then options.penalties = tonumber(pen) end
+  return options
+end
+
 function m.init(ctx)
   ctx_ref = ctx
   DIR = ctx.sider_dir .. "content\\pesm-livepatch\\"
+  ctx.register("set_match_settings", m.set_match_settings)
   ctx.register("key_down", m.key_down)
   ctx.register("overlay_on", m.overlay_on)
   for _, n in ipairs({ "players.txt", "teams.txt" }) do   -- the game has just loaded the files as they are: older patches are in them already

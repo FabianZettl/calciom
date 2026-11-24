@@ -4,6 +4,7 @@
 use crate::fl27::{self, Asg};
 use std::collections::{HashMap, HashSet};
 use std::path::{Path, PathBuf};
+use pesm_coaching_zone as cz;
 
 pub const REC: usize = 312;
 pub const POS: [&str; 13] = [crate::id("GK"), crate::id("CB"), crate::id("LB"), crate::id("RB"), crate::id("DMF"), crate::id("CMF"), crate::id("LMF"), crate::id("RMF"), crate::id("AMF"), crate::id("LWF"), crate::id("RWF"), crate::id("SS"), crate::id("CF")];
@@ -114,6 +115,7 @@ impl PlayerBin {
     pub fn nat(&self, i: usize) -> u16 { self.bits(i, 233, 9) as u16 }
     pub fn set_nat(&mut self, i: usize, n: u16) { self.set_bits(i, 233, 9, n as u32); }
     pub fn style(&self, i: usize) -> u8 { self.bits(i, 155, 5) as u8 }
+    pub fn set_style(&mut self, i: usize, style: u8) { self.set_bits(i, 155, 5, (style as u32).min(STYLES.len() as u32 - 1)); }
     pub fn skills(&self, i: usize) -> u64 { SKILLS.iter().enumerate().fold(0u64, |m, (k, (_, o))| m | ((self.bits(i, *o, 1) as u64) << k)) }
     /// Playing style and special abilities (learned or lost through the development paths, entwicklung.rs).
     pub fn set_style_skills(&mut self, i: usize, style: u8, skills: u64) {
@@ -314,6 +316,28 @@ pub fn pruefen(welt: &Path) -> Result<(), String> {
     Ok(())
 }
 /// All worlds in the game's livecpk folder.
+/// The database files of a world (common/etc/pesdb).
+pub const PESDB_DATEIEN: [&str; 9] = ["Team.bin", "Player.bin", "PlayerAssignment.bin", "Competition.bin", "CompetitionEntry.bin", "CompetitionRegulation.bin", "Coach.bin", "Tactics.bin", "TacticsFormation.bin"]; // roh
+/// The folder a database read from the game's CPKs goes to (Fabian 23.11.: without an extracted world, like FCFL).
+pub const CPK_WELT: &str = "FL27-Datenbank aus CPK"; // roh
+/// Fallback without an extracted world: the game's own database from its CPK files (the biggest Player.bin wins,
+/// Coaching Zone's search), written as a world folder into SiderAddons/livecpk so the career start works as usual.
+/// sider.ini does not list the folder, so the game never loads it; the career writes its own copy into its LiveCPK.
+pub fn welt_aus_cpk(spiel: &Path) -> Result<PathBuf, String> {
+    let quelle = cz::pesdb::find_in_game_folder(spiel).ok_or_else(|| crate::inhalt::t("ui.pesdb.keine_cpk").to_string())?;
+    if quelle.is_dir() { return ableiten(&quelle).map(|x| x.1).or_else(|| quelle.ancestors().nth(3).map(Path::to_path_buf)).ok_or_else(|| quelle.display().to_string()); }
+    let c = cz::cpk::Cpk::open(&quelle).map_err(|e| format!("{}: {e}", quelle.display()))?;
+    let ziel = spiel.join("SiderAddons").join("livecpk").join(CPK_WELT); // roh
+    let d = ziel.join("common/etc/pesdb");
+    for f in PESDB_DATEIEN {
+        let name = format!("common/etc/pesdb/{f}");
+        if !c.has(&name) { continue; }
+        let b = c.read(&name).map_err(|e| format!("{f}: {e}"))?;
+        fl27::atomic_write(&d.join(f), &b)?;
+    }
+    fl27::log(&format!("Datenbank aus {} gelesen nach {}", quelle.display(), ziel.display()));
+    pruefen(&ziel).map(|_| ziel)
+}
 pub fn welten(s: &Path) -> Vec<PathBuf> {
     let mut v: Vec<PathBuf> = std::fs::read_dir(s.join(crate::id("livecpk"))).map(|d| d.flatten().map(|e| e.path()).filter(|p| pruefen(p).is_ok()).collect()).unwrap_or_default();
     v.sort();
@@ -323,6 +347,36 @@ pub fn welten(s: &Path) -> Vec<PathBuf> {
 #[cfg(test)]
 mod t {
     use super::*;
+    /// Fabian 23.11.: the role chosen in the tactics is the playing style in Player.bin; it can be written and read back.
+    #[test]
+    fn spielstil_schreiben() {
+        let Some(w) = def() else { return };
+        let mut pb = PlayerBin::load(&w.join("common/etc/pesdb/Player.bin")).unwrap();
+        let alt = pb.style(0);
+        let neu = if alt == 9 { 20 } else { 9 };
+        pb.set_style(0, neu);
+        assert_eq!(pb.style(0), neu);
+        assert_eq!(STYLES[9], "The Destroyer");
+        for pos in POS { for s in crate::regeln::wert("spielstile", pos).as_array().unwrap() { assert!((s.as_u64().unwrap() as usize) < STYLES.len(), "{pos}"); } }
+    }
+    /// Fabian 23.11.: a game folder without an extracted world gets the database from its CPK (real data_s2627.cpk
+    /// through a link in a temporary game folder; the real folder is not written).
+    #[test]
+    fn welt_aus_cpk_ohne_entpackte_welt() {
+        let echt = fl27::spielordner().join("download/data_s2627.cpk");
+        if !fl27::echte_welt(&echt) { return; }
+        let g = std::env::temp_dir().join(format!("pesm-cpk-spiel-{}", std::process::id()));
+        std::fs::create_dir_all(g.join("download")).unwrap();
+        std::fs::create_dir_all(g.join("SiderAddons/livecpk")).unwrap();
+        #[cfg(unix)]
+        std::os::unix::fs::symlink(&echt, g.join("download/data_s2627.cpk")).unwrap();
+        let w = welt_aus_cpk(&g).expect("database from the CPK");
+        assert!(w.ends_with(CPK_WELT));
+        let welt = crate::world::World::from_pesdb(&w.join("common/etc/pesdb"), 7).expect("world loads");
+        assert!(welt.clubs.len() > 100 && welt.players.len() > 1000, "{} clubs {} players", welt.clubs.len(), welt.players.len());
+        assert_eq!(welten(&g.join("SiderAddons")), vec![w]);
+        let _ = std::fs::remove_dir_all(&g);
+    }
     fn def() -> Option<PathBuf> { let p = fl27::sider().join("livecpk/_FL26-27-Def"); fl27::echte_welt(&p.join("common/etc/pesdb")).then_some(p) }
 
     #[test]
@@ -409,7 +463,7 @@ mod t {
         c.world.clubs[ziel].squad.push(leih);
         c.world.players[leih].team = ziel as i32;
         c.world.players[leih].know = 0.0;
-        c.world.players[leih].leihe = Some(crate::transfer::Leihe { von: c.own, bis: c.world.season, anteil: 0.5, option: 0.0, spielzeit: false, grund: String::new(), start: 0.0 });
+        c.world.players[leih].leihe = Some(crate::transfer::Leihe { von: c.own, bis: c.world.season, anteil: 0.5, option: 0.0, spielzeit: false, grund: String::new(), start: 0.0, bis_tag: 0, pflicht: false });
         c.world.players[aka].youth = 19;
         for q in [leih, aka] {
             assert!(c.gehoert_uns(q) && c.know_of(q) >= 1.0, "ours");

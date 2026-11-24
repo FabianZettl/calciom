@@ -250,7 +250,9 @@ impl Career {
             if dl && self.dl_stunde > 0 && c % 12 != (self.dl_stunde - 1) as usize { continue; }
             if zufall(&["2026", crate::id("marktblick"), &c.to_string(), &tag]) > if dl && self.dl_stunde > 0 { 0.85 } else if dl { 0.5 } else { 0.35 } { continue; }
             for (gr, dringend, bedarf_grund) in self.bedarf(c) {
-            let budget = (self.world.clubs[c].balance * 0.5 + self.world.revenue(c) * 0.1).max(0.0);
+            // financial fair play: a season's fees at most a share of the revenue (plus what the club really has)
+            let ffp = self.world.revenue(c) * crate::regeln::f("transfers", "ffp.anteil_umsatz") as f64 + self.world.clubs[c].balance.max(0.0) * crate::regeln::f("transfers", "ffp.anteil_kasse") as f64 - self.world.ki_ausgaben.get(&c).copied().unwrap_or(0.0);
+            let budget = (self.world.clubs[c].balance * 0.5 + self.world.revenue(c) * 0.1).min(ffp).max(0.0);
             let g = self.gruppen(c);
             let ziel = g[gr].iter().take(SOLL[gr].0).map(|&x| self.world.players[x].ovr).fold(0.0f32, f32::max).max(self.world.clubs[c].level);
             let ph = self.philosophie(c).0;
@@ -304,8 +306,8 @@ impl Career {
         let wert = self.geruecht_wert(von, nach, preis);
         if fertig > self.abs() && wert {
             let (nm, vn, bn) = (self.world.players[p].name.clone(), self.world.clubs[von].name.clone(), self.world.clubs[nach].name.clone());
-            let v = (zufall(&["geruecht_text", &p.to_string()]) * 5.0) as usize % 5; // roh
-            self.news(&crate::tf!(&format!("ui.km.geruecht.{v}"), bn, nm, vn), &crate::tf!("ui.km.geruecht_text", nm, vn, bn, money(preis)));
+            let v = self.variante("km_geruecht", crate::inhalt::varianten("ui.km.geruecht"), &p.to_string()); // roh
+            self.news(&crate::tf!(&crate::inhalt::variante_key("ui.km.geruecht", v), bn, nm, vn), &crate::tf!("ui.km.geruecht_text", nm, vn, bn, money(preis)));
         }
     }
     /// Deals whose day has come: done when the player is still there and the buyer can still pay; now and then one falls through.
@@ -319,8 +321,9 @@ impl Career {
             let neu = if rest == 1 && a.stufe < 2 { 2 } else if rest <= 4 && a.stufe < 1 { 1 } else { continue };
             self.anbahnung[i].stufe = neu;
             let (nm, vn, bn) = (self.world.players[a.p].name.clone(), self.world.clubs[a.von].name.clone(), self.world.clubs[a.nach].name.clone());
-            let v = (zufall(&["geruecht_stufe", &a.p.to_string(), &neu.to_string()]) * 3.0) as usize % 3; // roh
-            self.news(&crate::tf!(&format!("ui.km.stufe{neu}.{v}"), nm.clone(), bn.clone(), vn.clone()), &crate::tf!("ui.km.stufe_text", nm, vn, bn, money(a.preis)));
+            let basis = format!("ui.km.stufe{neu}");
+            let v = self.variante(&format!("km_{basis}"), crate::inhalt::varianten(&basis), &a.p.to_string());
+            self.news(&crate::tf!(&crate::inhalt::variante_key(&basis, v), nm.clone(), bn.clone(), vn.clone()), &crate::tf!("ui.km.stufe_text", nm, vn, bn, money(a.preis)));
         }
         let offen = self.in_window().is_some();
         let (faellig, rest): (Vec<_>, Vec<_>) = std::mem::take(&mut self.anbahnung).into_iter().partition(|a| a.fertig <= abs || !offen);
@@ -332,7 +335,8 @@ impl Career {
             if geht && !platzt { self.ki_wechsel(a.p, a.von, a.nach, a.preis, &a.grund); }
             else if geht && platzt && a.fertig > abs.saturating_sub(1) {
                 let (nm, bn) = (self.world.players[a.p].name.clone(), self.world.clubs[a.nach].name.clone());
-                self.news(&crate::tf!("ui.km.geplatzt", nm, bn), crate::inhalt::t("ui.km.geplatzt_text"));
+                let v = self.variante("km_geplatzt", crate::inhalt::varianten("ui.km.geplatzt"), &nm); // roh
+                self.news(&crate::tf!(&crate::inhalt::variante_key("ui.km.geplatzt", v), nm, bn), crate::inhalt::t("ui.km.geplatzt_text"));
             }
         }
     }
@@ -452,16 +456,18 @@ impl Career {
             let pl = &mut self.world.players[p];
             pl.team = nach as i32;
             pl.listed = false;
-            pl.leihe = Some(crate::transfer::Leihe { von, bis: season, anteil: 0.7, option: 0.0, spielzeit: true, grund: grund.clone(), start: 0.0 });
+            pl.leihe = Some(crate::transfer::Leihe { von, bis: season, anteil: 0.7, option: 0.0, spielzeit: true, grund: grund.clone(), start: 0.0, bis_tag: 0, pflicht: false });
             self.marktstatus.retain(|x| x.p != p);
             let (nm, vn, nn) = (self.world.players[p].name.clone(), self.world.clubs[von].name.clone(), self.world.clubs[nach].name.clone());
             let warum = if grund.is_empty() { String::new() } else { crate::tf!(&format!("ui.km.grund.{grund}"), nm, vn) };
-            self.news(&crate::tf!("ui.km.leihe", vn, nm, nn), &warum);
+            let k = self.vkey("ui.km.leihe", &nm); // roh
+            self.news(&crate::tf!(&k, vn, nm, nn), &warum);
         }
     }
 
     /// Carries out an AI move and writes the news with its chain of reasons (need of the buyer, status at the seller).
     fn ki_wechsel(&mut self, p: usize, von: usize, nach: usize, fee: f64, bedarf_grund: &str) {
+        *self.world.ki_ausgaben.entry(nach).or_default() += fee;
         let status_grund = self.status_von(p).map(|s| s.grund.clone()).unwrap_or_default();
         self.weiterverkauf_abrechnen(p, von, fee);
         self.world.clubs[von].squad.retain(|&x| x != p);
@@ -499,7 +505,8 @@ impl Career {
         let mut elf = self.world.clubs[von].squad.clone();
         elf.sort_by(|a, b| self.world.players[*b].ovr.partial_cmp(&self.world.players[*a].ovr).unwrap());
         if elf.iter().take(11).any(|&x| x == p) || self.world.players[p].ovr >= self.world.clubs[von].level + 2.0 { warum = format!("{warum} {}", crate::tf!("ui.km.stimme.fans_ab", sn.clone(), nm.clone())); }
-        self.news(&crate::tf!("ui.km.wechsel", bn, pos, nm, sn, money(fee)), &warum);
+        let v = self.variante("km_wechsel", crate::inhalt::varianten("ui.km.wechsel"), &nm); // roh
+        self.news(&crate::tf!(&crate::inhalt::variante_key("ui.km.wechsel", v), bn, pos, nm, sn, money(fee)), &warum);
         self.welt_tag.push((p, von, nach, fee));
         // into the inbox only when it concerns us, with the reason (weltrelevanz.py)
         if let Some(g) = self.welt_bezug(p, von, nach, fee) {

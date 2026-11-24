@@ -15,6 +15,9 @@ pub struct Nationalteam {
     pub spiele: u16,
     pub siege: u16,
     pub remis: u16,
+    /// The U21 squad of the last international break (package rest, 23.11.): the best young ones not in the A-team.
+    #[serde(default)]
+    pub u21: Vec<usize>,
 }
 
 /// A coach's philosophy (0–1 each, Teil 2.2) and his name.
@@ -231,9 +234,14 @@ impl World {
             let mut elf: Vec<f32> = kader.iter().map(|&p| self.players[p].ovr).collect();
             elf.sort_by(|a, b| b.partial_cmp(a).unwrap());
             staerke.push((n, elf.iter().take(11).sum::<f32>() / 11.0f32.min(elf.len().max(1) as f32)));
+            // the U21: age up to 21, not in the A squad, by strength and potential
+            let mut jung: Vec<usize> = pools[&n].iter().copied().filter(|&p| self.players[p].age <= k("u21_alter") as u8 && !kader.contains(&p)).collect();
+            jung.sort_by(|a, b| (self.players[*b].ovr + self.players[*b].pot * 0.5).partial_cmp(&(self.players[*a].ovr + self.players[*a].pot * 0.5)).unwrap());
+            jung.truncate(k("u21_kader") as usize);
+            for &p in &jung { let pl = &mut self.players[p]; pl.fit = (pl.fit - k("fitness_je_spiel")).max(20.0); }
             match self.nationalteams.iter_mut().find(|t| t.nat == n) {
-                Some(t) => { let alt = std::mem::replace(&mut t.kader, kader); t.frueher.push(alt); if t.frueher.len() > 6 { t.frueher.remove(0); } }
-                None => self.nationalteams.push(Nationalteam { nat: n, kader, ..Default::default() }),
+                Some(t) => { let alt = std::mem::replace(&mut t.kader, kader); t.frueher.push(alt); if t.frueher.len() > 6 { t.frueher.remove(0); } t.u21 = jung; }
+                None => self.nationalteams.push(Nationalteam { nat: n, kader, u21: jung, ..Default::default() }),
             }
         }
         // two matches against a nation of similar strength (the neighbour in the strength order)
@@ -278,6 +286,8 @@ impl World {
                             let days = [7u16, 14, 28][(self.rng.next() % 3) as usize];
                             self.players[p].inj = self.players[p].inj.max(days);
                             self.players[p].inj_name = injury_names(days)[0].to_string();
+                            let e = (self.season, self.day, self.players[p].inj_name.clone(), days);
+                            self.players[p].profil.verletzungen.push(e);
                             if let Some(x) = out.iter_mut().find(|x| x.0 == p && x.2) { x.4 = days; }
                         }
                     }
@@ -307,7 +317,7 @@ impl crate::game::Career {
         let meine: Vec<(usize, bool, bool, bool, u16, u16)> = f.iter().copied().filter(|x| self.world.players[x.0].team == own).collect();
         for (p, erst, dabei, raus, verletzt, tore) in meine {
             let n = self.world.players[p].name.clone();
-            let land = crate::nationen::name(&self.world, self.world.players[p].nat);
+            let land = crate::nationen::name_anzeige(&self.world, self.world.players[p].nat);
             if dabei {
                 let mut z = crate::tf!(if erst { "ui.nt.zeile.erst" } else { "ui.nt.zeile.dabei" }, n.clone(), land.clone(), self.world.players[p].profil.laenderspiele);
                 if tore > 0 { z = format!("{z} {}", crate::tf!("ui.nt.zeile.tore", tore)); }
@@ -330,11 +340,11 @@ impl crate::game::Career {
 impl crate::game::Career {
     /// After a tournament: the winner in the news, and one message how the own players fared (heroes come back worth more).
     pub fn turnier_folgen(&mut self, name: &str, spur: &[TurnierSpur], sieger: u16) {
-        let land = crate::nationen::name(&self.world, sieger);
+        let land = crate::nationen::name_anzeige(&self.world, sieger);
         self.news(&crate::tf!("ui.nt.turnier.sieger_titel", land.clone(), name.to_string()), &crate::tf!("ui.nt.turnier.sieger_text", land, name.to_string()));
         let own = self.own as i32;
         let zeilen: Vec<String> = spur.iter().filter(|x| self.world.players[x.0].team == own).map(|&(p, n, st, tore)| {
-            crate::tf!("ui.nt.turnier.zeile", self.world.players[p].name.clone(), crate::nationen::name(&self.world, n), crate::inhalt::t(&format!("ui.nt.stufe.{}", st.min(5))), tore)
+            crate::tf!("ui.nt.turnier.zeile", self.world.players[p].name.clone(), crate::nationen::name_anzeige(&self.world, n), crate::inhalt::t(&format!("ui.nt.stufe.{}", st.min(5))), tore)
         }).collect();
         let meine: Vec<TurnierSpur> = spur.iter().copied().filter(|x| self.world.players[x.0].team == own).collect();
         for (p, _, st, _) in meine {
@@ -361,7 +371,10 @@ mod tests {
             assert_eq!(t.kader.iter().filter(|&&p| w.players[p].pos == "GK").count(), 3, "three keepers");
             assert!(t.kader.len() <= 23 && t.kader.iter().all(|&p| w.players[p].nat == t.nat));
             assert_eq!(t.spiele, 2);
+            // the U21: young, not in the A squad, of the nation
+            assert!(t.u21.iter().all(|&p| w.players[p].age <= 21 && !t.kader.contains(&p) && w.players[p].nat == t.nat));
         }
+        assert!(w.nationalteams.iter().any(|t| !t.u21.is_empty()), "U21 squads are picked");
         assert!(r.iter().any(|x| x.1), "first call-ups are reported");
         assert!(w.players.iter().any(|p| p.profil.laenderspiele > 0));
         // the strongest of a nation is called up

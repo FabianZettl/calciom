@@ -35,7 +35,7 @@ impl Career {
     /// The three people of the board, made once per club (names from the country's players, a stance each).
     pub fn praesidium_an(&mut self) {
         let cid = self.club().id;
-        if self.praesidium.len() == 3 && self.praesidium_verein == cid { return; }
+        if self.praesidium.len() == 3 && self.praesidium_verein == cid { self.praesidium_echt(); return; }
         let nat = self.world.land_nat(self.league());
         let namen: Vec<&String> = self.world.players.iter().filter(|p| p.db && p.nat == nat).map(|p| &p.name).take(300).collect();
         let haltungen = wert("praesidium", "personen.haltungen").as_array().unwrap().iter().filter_map(|x| x.as_str()).collect::<Vec<_>>();
@@ -48,6 +48,19 @@ impl Career {
             Person { name: format!("{vor} {nach}"), rolle: r, haltung }
         }).collect();
         self.praesidium_verein = cid;
+        self.praesidium_echt();
+    }
+    /// The club's real president, sporting director and finance director where vereinsfuehrung.toml knows them
+    /// (also for saves whose board was invented before, Fabian 24.11.).
+    fn praesidium_echt(&mut self) {
+        let (club, cid) = (self.club().name.clone(), self.club().id);
+        for p in self.praesidium.iter_mut() {
+            let r = p.rolle.min(2) as usize;
+            let amt = ["praesident", "sportdirektor", "finanzen"][r]; // roh
+            // the same person who writes to us in the inbox (real where known, else the invented office holder)
+            let absender = ["Präsidium", "Transferabteilung", "Finanzabteilung"][r]; // roh
+            if let Some(n) = crate::vereinsfuehrung::person(&club, crate::vereinsfuehrung::amt(amt)).or_else(|| crate::pool::absender_person(cid, absender).map(|x| x.0)) { p.name = n; }
+        }
     }
     /// One person's mood 0–100: the board's confidence, seen through his role and stance.
     pub fn person_stimmung(&self, p: &Person) -> f32 {

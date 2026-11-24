@@ -101,6 +101,7 @@ deckel = 6                     # größte Wirkung je Ziel und Konferenz
 nicht_erschienen = { medienbild = -3, vorstandsvertrauen = -1, fanstimmung = -1 }
 standardton = "ehrlich"
 wiederholung_tage = 21         # ein Thema, das so kürzlich dran war, kommt nur wieder, wenn es sonst nichts gibt
+geruecht_pause_tage = 28       # Fabian 23.11.: das Gerücht um einen eigenen Spieler höchstens alle vier Wochen in der PK
 interview_sperre_tage = 14
 
 # Zusagen in der Pressekonferenz: zu welchen Fragen eine Zusage als zusätzliche Antwort angeboten wird; erinnern_tage = [frühestens, spätestens] nach der Zusage, ab wann Journalisten nachfragen

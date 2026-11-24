@@ -31,10 +31,40 @@ impl Career {
         let abs = self.abs();
         let co = self.co_name.clone();
         for (i, (rolle, bereich)) in [(0u8, 4u8), (0, 4), (1, 4), (2, 4), (3, 4), (4, 4)].into_iter().enumerate() {
-            let name = if rolle == 1 { co.clone() } else { self.stab_name(&format!("start{i}")) };
+            let name = if rolle == 1 { co.clone() } else { self.echter_stab(i).unwrap_or_else(|| self.stab_name(&format!("start{i}"))) };
             let fz = (s0 + (zufall(&["2026", crate::id("stab"), &self.club().id.to_string(), &i.to_string()]) - 0.5) * 10.0).clamp(20.0, 95.0).round();
             self.stab.push(Stab { rolle, name, f: fz, bereich, gehalt: gehalt(rolle, fz), bis: abs + 2 * crate::date::SEASON_DAYS });
         }
+        self.echte_namen_einsetzen();
+    }
+    /// The real person for starting slot `i` (two coaches, co-trainer, doctor, physio, youth) from vereinsfuehrung.toml.
+    fn echter_stab(&self, i: usize) -> Option<String> {
+        let club = self.club().name.clone();
+        let (rolle, n) = [("fitness_coach", 0), ("goalkeeping_coach", 0), ("assistant_coach", 0), ("doctor", 0), ("physio", 0), ("academy_head", 0)][i.min(5)]; // roh
+        let mut v = crate::vereinsfuehrung::personen(&club, rolle);
+        if v.is_empty() && i == 5 { v = crate::vereinsfuehrung::personen(&club, "youth_coach"); } // roh
+        if v.is_empty() && i == 1 { v = crate::vereinsfuehrung::personen(&club, "analyst"); } // roh
+        v.into_iter().nth(n)
+    }
+    /// Saves from before the real names (Fabian 24.11.): the invented starting staff and co-trainer get the club's real
+    /// people; staff hired later keep their names.
+    pub fn echte_namen_einsetzen(&mut self) {
+        let co_echt = crate::vereinsfuehrung::personen(&self.club().name, "assistant_coach").into_iter().next(); // roh
+        for i in 0..6 {
+            let alt = self.stab_name(&format!("start{i}"));
+            let neu = if i == 2 { co_echt.clone() } else { self.echter_stab(i) };
+            if let Some(neu) = neu {
+                for s in self.stab.iter_mut().filter(|s| s.name == alt) { s.name = neu.clone(); }
+            }
+        }
+        if let Some(co) = co_echt {
+            if self.co_erfunden() { let alt = self.co_name.clone(); for s in self.stab.iter_mut().filter(|s| s.name == alt) { s.name = co.clone(); } self.co_name = co; }
+        }
+    }
+    /// The co-trainer still has one of the five invented starting names.
+    fn co_erfunden(&self) -> bool {
+        ["ui.game.thomas_brueck", "ui.game.mehmet_ayd_n", "ui.game.rafael_ortega", "ui.game.sven_lindqvist", "ui.game.marco_ferri"].iter() // roh
+            .any(|k| [crate::inhalt::Sprache::De, crate::inhalt::Sprache::En].iter().any(|&s| crate::inhalt::t_in(s, k) == self.co_name))
     }
     fn stab_name(&self, k: &str) -> String {
         let z = |x: &str| zufall(&["2026", crate::id("stabname"), k, x]);
@@ -118,25 +148,47 @@ impl Career {
     }
     /// Weekly phases of the own players (entwicklung3): Aufschwung, Formtief, Krise from the events of the last weeks,
     /// and the development leap of young regulars.
-    /// Retraining to a new position: 120 days + 6 per year over 21, a distant position × 1.8 (§18).
+    /// Retraining to a new position: 120 days + 6 per year over 21, a distant position × 1.8 (§18); a position he already
+    /// plays a little (B) goes 40 % faster. From 30 a player takes it as a step down (morale). Changeable, 24.11.
     pub fn umschulen(&mut self, p: usize, pos: &str) -> Result<u32, String> {
         let pl = &self.world.players[p];
         if pl.pos == pos { return Err(crate::inhalt::t("ui.personal.das_ist_schon_seine_position").into()); }
         let fern = part_of(&pl.pos) != part_of(pos);
-        let tage = ((120.0 + 6.0 * (pl.age as f32 - 21.0).max(0.0)) * if fern { 1.8 } else { 1.0 }) as u32;
+        let teils = pl.pp.len() == 13 && pl.pp[crate::pesdb::pos_index(pos) as usize] >= 1;
+        let tage = ((120.0 + 6.0 * (pl.age as f32 - 21.0).max(0.0)) * if fern { 1.8 } else { 1.0 } * if teils { 0.6 } else { 1.0 }) as u32;
         let abs = self.abs();
-        let n = pl.name.clone();
+        let (n, alt) = (pl.name.clone(), pl.age >= 30);
         self.world.players[p].ps.umschulung = Some((pos.to_string(), abs + tage));
+        self.world.players[p].ps.umschulung_start = Some(abs);
         self.grund(&n, crate::inhalt::t("menu.entwicklung.reiter.3"), tage as f32, &crate::tf!("ui.personal.lernt_die_position", pos_de(pos)));
+        if alt { self.moral_wirkung(p, -4.0, 0, &crate::tf!("ui.personal.umschulung_alt", pos_de(pos))); }
         Ok(tage)
+    }
+    /// Stop a running retraining; what was learned up to halfway stays.
+    pub fn umschulung_abbrechen(&mut self, p: usize) {
+        if let Some((pos, _)) = self.world.players[p].ps.umschulung.take() {
+            let n = self.world.players[p].name.clone();
+            self.grund(&n, crate::inhalt::t("menu.entwicklung.reiter.3"), 0.0, &crate::tf!("ui.personal.umschulung_abgebrochen", pos_de(&pos)));
+        }
     }
     pub fn umschulung_tag(&mut self) {
         let abs = self.abs();
         for p in self.squad() {
             let Some((pos, bis)) = self.world.players[p].ps.umschulung.clone() else { continue };
+            // halfway: he can already play there now and then (B), and the coach says so once
+            let pi = crate::pesdb::pos_index(&pos) as usize;
+            let start = self.world.players[p].ps.umschulung_start.unwrap_or(abs);
+            if self.world.players[p].ps.umschulung_start.is_none() { self.world.players[p].ps.umschulung_start = Some(abs); }
+            if abs < bis && abs >= start + (bis.saturating_sub(start)) / 2 && self.world.players[p].pp.len() == 13 && self.world.players[p].pp[pi] == 0 {
+                self.world.players[p].pp[pi] = 1;
+                let n = self.world.players[p].name.clone();
+                let k = self.vkey("ui.personal.umschulung_halb", &n);
+                self.msg(1, &self.co_name.clone(), &crate::tf!("ui.personal.umschulung_halb_titel", n.clone()), &crate::tf!(&k, n, pos_de(&pos)), Action::None);
+            }
             if abs < bis { continue; }
             let pl = &mut self.world.players[p];
             pl.ps.umschulung = None;
+            pl.ps.umschulung_start = None;
             if pl.pp.len() == 13 { pl.pp[crate::pesdb::pos_index(&pos) as usize] = 2; }
             pl.pos = pos.clone();
             let n = pl.name.clone();
@@ -166,8 +218,16 @@ mod tests {
         c.plan = [1; 7];
         for _ in 0..7 { c.belastung_tag(); c.world.day += 1; }
         assert!(c.world.players[p].ps.last < hoch);
-        let tage = c.umschulen(p, if c.world.players[p].pos == "CF" { "GK" } else { "CF" }).unwrap();
-        assert!(tage >= 120);
+        let ziel = if c.world.players[p].pos == "CF" { "GK" } else { "CF" };
+        let tage = c.umschulen(p, ziel).unwrap();
+        assert!(tage >= 60, "{tage}");
+        // halfway he may play there now and then (B), at the end it is his position
+        c.world.day += tage / 2 + 1;
+        c.umschulung_tag();
+        if c.world.players[p].pp.len() == 13 { assert!(c.world.players[p].pp[crate::pesdb::pos_index(ziel) as usize] >= 1); }
+        c.world.day += tage;
+        c.umschulung_tag();
+        assert_eq!(c.world.players[p].pos, ziel);
         assert!(c.stab_bewerber().len() >= 5);
     }
 }

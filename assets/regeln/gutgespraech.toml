@@ -1,0 +1,9 @@
+# Spieler melden sich auch ohne Problem; Sportdirektor (Fabian 23.11., Ideen anderer FL-Werkzeuge). Änderbar.
+chance = 0.45          # je Montag, wenn ein Anlass da ist
+sperre_tage = 120      # dasselbe Gespräch mit demselben Spieler frühestens wieder (und nie in derselben Saison)
+bereit_note = 7.2      # Formschnitt der letzten fünf, ab dem ein Ersatzspieler sagt, er sei bereit
+talent_luecke = 10     # Potenzial über Stärke, ab dem ein junger Spieler fragt, was ihm fehlt
+serie_kapitaen = 5     # so viele Spiele ohne Niederlage, dann meldet sich der Kapitän
+moral_ja = 4
+moral_nein = -2
+sd_sperre_tage = 90     # dieselbe Empfehlung des Sportdirektors zum selben Spieler frühestens wieder

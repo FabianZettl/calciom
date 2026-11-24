@@ -31,6 +31,31 @@ impl Career {
         let echt = wert("budget_start", crate::id("umsatz_echt")).as_object().and_then(|o| o.iter().find(|(n, _)| name.contains(n.as_str())).and_then(|(_, v)| v.as_f64()));
         match echt { Some(m) => m * 1e6, None => self.klasse().1 * b("budget.referenz_umsatz") }
     }
+    /// The infrastructure pot (Fabian 23.11.): facilities are paid from it.
+    pub fn infra(&self) -> f64 { self.infra_topf.unwrap_or_else(|| round_money(self.umsatz_prognose() * f("vereinswelt", "toepfe.infra_anteil") as f64)) }
+    /// The wage pot: the yearly wage sum the club allows (share of the revenue plus what the board added or was moved).
+    pub fn gehalt_topf(&self) -> f64 { self.world.wage_bill(self.own) + self.gehalt_frei() }
+    /// What each pot can give away: transfers (minus running bids), wages (never below the wages paid), infrastructure.
+    pub fn topf_frei(&self, t: u8) -> f64 { match t { 0 => self.transfer_frei(), 1 => self.gehalt_frei(), _ => self.infra().max(0.0) } }
+    /// Moves money between the pots (0 transfers, 1 wages per year, 2 infrastructure). Up to `frei_bis` of the whole
+    /// budget at once on the coach's word; more needs the board (full, half or no, by confidence and form).
+    pub fn budget_schieben(&mut self, von: u8, nach: u8, betrag: f64) -> Result<String, String> {
+        let t = |k: &str| f("vereinswelt", &format!("toepfe.{k}"));
+        if von == nach || betrag <= 0.0 { return Err(crate::inhalt::t("ui.topf.nichts").into()); }
+        if betrag > self.topf_frei(von) + 1.0 { return Err(crate::inhalt::t(if von == 1 { "ui.topf.gehalt_belegt" } else { "ui.topf.zu_wenig" }).into()); }
+        let gesamt = self.transfer_budget.max(0.0) + self.gehalt_topf() + self.infra();
+        let mut x = betrag;
+        let mut zusatz = String::new();
+        if betrag > gesamt * t("frei_bis") as f64 {
+            let bereit = self.mensch.vorstand / 100.0 * 0.7 + self.vereins_ppg().unwrap_or(1.3) / 3.0 * 0.3;
+            if bereit < t("vorstand_halb_ab") { return Err(crate::inhalt::t("ui.topf.vorstand_nein").into()); }
+            if bereit < t("vorstand_ja_ab") { x = round_money(betrag / 2.0); zusatz = crate::inhalt::t("ui.topf.vorstand_halb").into(); }
+        }
+        match von { 0 => self.transfer_budget -= x, 1 => self.gehalt_plus -= x, _ => self.infra_topf = Some(self.infra() - x) }
+        match nach { 0 => self.transfer_budget += x, 1 => self.gehalt_plus += x, _ => self.infra_topf = Some(self.infra() + x) }
+        let namen = [crate::inhalt::t("ui.topf.0"), crate::inhalt::t("ui.topf.1"), crate::inhalt::t("ui.topf.2")];
+        Ok(format!("{}{zusatz}", crate::tf!("ui.topf.verschoben", crate::world::money(x), namen[von.min(2) as usize], namen[nach.min(2) as usize])))
+    }
     /// Transfer budget the club's size gives: share of the revenue minus the reserve.
     pub fn transferbudget_echt(&self) -> f64 { round_money(self.umsatz_echt() * b("budget.transferanteil") * (1.0 - b("budget.reserve"))) }
     /// Where a year's money comes from (forecast): TV, sponsors, match days, advertising, merchandise, members, prizes so far.

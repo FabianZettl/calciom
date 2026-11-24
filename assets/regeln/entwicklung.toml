@@ -57,6 +57,7 @@ unzufrieden_unter = 35
 unzufrieden_wieder = 45
 spielzeit_fenster = 5           # letzte Spiele
 spielzeit_faktor = 30           # je Anteilspunkt Abweichung
+erweitert_abzug = 2.0          # erweiterter Kader: etwas weniger Ansehen in der Kabine (Ideen anderer FL-Werkzeuge, 23.11.)
 spielzeit_min = -15
 spielzeit_max = 8
 erwartet = { kapitaen = 0.9, vizekapitaen = 0.9, fuehrungsspieler = 0.85, stammspieler = 0.8, rotationsspieler = 0.5, perspektivspieler = 0.3, randfigur = 0.15 }

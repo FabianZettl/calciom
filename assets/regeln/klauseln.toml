@@ -14,6 +14,7 @@ fehlt = 0.04
 # andere Vereine ziehen sie, wenn sie höchstens so viel × Marktwert kostet (markt.clause.mult 1,7 ist die Klausel der KI;
 # PES M: ab 1,6 lohnt es sich für keinen mehr) …
 zieh_bis = 1.6
+warnen_ab = 0.85               # FC-26-Wunsch: Warnung, wenn der Marktwert die Ziehgrenze zu 85 % erreicht
 # … mit dieser Chance je Woche im offenen Fenster (PES M), wenn ein Verein mit dem Geld einen sportlichen Schritt bietet
 chance_woche = 0.2
 

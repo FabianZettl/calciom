@@ -190,6 +190,21 @@ impl Career {
         self.book(crate::inhalt::t("vw.mix.medien"), tv);
         self.book(crate::inhalt::t("menu.marken.reiter.0"), sp);
         self.book(crate::inhalt::t("ui.pages.merchandising"), m);
+        // the club shop's three best-selling shirts of the month, and a share of the shop's income for transfers
+        // (ideas of other FL tools, 23.11.): fame of the player, his goals, a new signing sells extra
+        {
+            let abs = self.abs();
+            let mut sq: Vec<(usize, f32)> = self.squad().into_iter().filter(|&p| self.world.players[p].youth == 0).map(|p| {
+                let pl = &self.world.players[p];
+                (p, pl.ovr + pl.goals as f32 * 1.5 + if abs < pl.joined + 60 { 6.0 } else { 0.0 } + crate::mensch::zufall(&["trikot", &pl.id.to_string(), &(abs / 30).to_string()]) * 4.0) // roh
+            }).collect();
+            sq.sort_by(|a, b| b.1.partial_cmp(&a.1).unwrap());
+            let top: Vec<String> = sq.iter().take(3).map(|x| { let pl = &self.world.players[x.0]; format!("{} #{}", pl.name, pl.no) }).collect();
+            let anteil = crate::regeln::f("vereinswelt", "merch.transfer_anteil") as f64;
+            let plus = crate::world::round_money(m * anteil);
+            if plus > 0.0 { self.transfer_budget += plus; }
+            if !top.is_empty() { let vk = self.vkey("ui.shop.text", ""); self.msg(0, crate::inhalt::t("ui.shop.absender"), crate::inhalt::t("ui.shop.titel"), &crate::tf!(&vk, top.join(", "), crate::world::money(m), crate::world::money(plus)), crate::game::Action::None); }
+        }
         let beitrag = self.beitraege_monat();
         self.book(crate::inhalt::t("mv.beitraege"), beitrag);
         if mk > 0.0 { self.book(crate::inhalt::t("vw.art.merchandising_kosten"), -mk); }
@@ -245,6 +260,9 @@ impl Career {
         if self.wi.bau.iter().any(|b| b.0 == a) { return Err(crate::inhalt::t("ui.wirtschaft.hier_wird_schon_gebaut").into()); }
         let k = self.ausbau_kosten(a);
         if self.club().balance - k < -v("budget.schuldengrenze_anteil") * self.umsatz_prognose() { return Err(crate::inhalt::t("tv.drama.rueckmeldung.budget").into()); }
+        // paid from the infrastructure pot (Fabian 23.11.)
+        if k > self.infra() + 1.0 { return Err(crate::tf!("ui.topf.infra_reicht_nicht", crate::world::money(self.infra()), crate::world::money(k))); }
+        self.infra_topf = Some(self.infra() - k);
         let dauer = (v(&format!("anlagen.dauer.{}", ANLAGEN[a])) * 30.4) as u32;
         let z = self.wi.stufen[a] + 1;
         self.book(crate::inhalt::t("vw.art.ausbau"), -k);
@@ -314,6 +332,7 @@ mod tests {
         let s = c.wi.stufen[2];
         assert!((c.ausbau_kosten(2) - 800000.0 * c.skala() * ((s + 1) as f64).powi(2)).abs() < 1.0, "cost base·level², in the club's money scale");
         let vorher = c.club().balance;
+        c.infra_topf = Some(1e12); // the pot is tested in game.rs toepfe
         c.ausbauen(2).ok();
         assert!(c.club().balance < vorher);
         for _ in 0..200 { c.world.day += 1; if c.world.day % 30 == 0 { c.wirtschaft_monat(); } }

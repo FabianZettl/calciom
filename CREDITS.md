@@ -9,6 +9,7 @@
 | League rules 2025/26 (`daten/ligaregeln.toml`) | Wikipedia season articles, UEFA access list (sources listed in the file) | facts |
 | Sample world (`assets/world.json`) | League and club structure of a Football Life world; **all player names are made up** | MIT |
 | Rules, texts, stories, content pool (`assets/regeln`, `assets/texte`, `assets/story`, `assets/inhalt`) | Written for PES M (Python original), list in `assets/inhalt/QUELLEN.txt` | MIT |
+| Club leadership, staff, stadiums and training grounds (`assets/vereinsfuehrung.toml`) | Wikipedia club articles (source URL per entry) | CC BY-SA 4.0 |
 | Overall rating weights (`assets/ovr_weights_fl27.json`) | Own fit against FL27 ratings | MIT |
 
 Not included: game files, Sider modules, crests, player photos, stadium pictures, kit textures and databases. PES M reads those at runtime from the player's own installation and never ships them.

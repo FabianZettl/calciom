@@ -147,7 +147,7 @@ fn b_bezug(bs: &[B], sp: &mut Vec<usize>, ve: &mut Vec<usize>) {
 }
 /// The building blocks of a message, from the game state.
 /// Who speaks for a sender: the person of an office (the president for „Präsidium“ …), else the sender itself.
-pub fn sprecher(c: &Career, from: &str) -> String { crate::pool::absender_person(c.club().id, from).map(|x| x.0).unwrap_or_else(|| from.to_string()) }
+pub fn sprecher(c: &Career, from: &str) -> String { crate::pool::absender_echt(c.club().id, &c.club().name, from).map(|x| x.0).unwrap_or_else(|| from.to_string()) }
 pub fn bausteine(c: &Career, m: &Msg) -> Vec<B> {
     let t = |k: &str| crate::inhalt::t(&format!("ui.post.{k}")).to_string();
     let wer = beteiligte(c, m);
@@ -801,7 +801,7 @@ fn meldung_zeichnen(ui: &mut Ui, v: &mut View, c: &mut Career, rd: Rect, i: usiz
     art_symbol(art, band.x + 36.0, band.y + 37.0, 14.0, hex(0xffffff));
     let wer = beteiligte(c, &m);
     // a sender that is an office (board, press, agents, fans) shows its person: name, face and role
-    let person = crate::pool::absender_person(c.club().id, &m.from);
+    let person = crate::pool::absender_echt(c.club().id, &c.club().name, &m.from);
     let gesicht = person.as_ref().map(|x| x.0.clone()).unwrap_or_else(|| m.from.clone());
     match msg_spieler(c, &m).filter(|_| art == Art::Gespraech) {
         Some(p) => ui.player_photo(band.x + 90.0, band.y + 37.0, 22.0, c.world.players[p].id, &m.from),
@@ -973,7 +973,8 @@ impl Career {
         let n = self.world.leagues[l].fixtures.iter().filter(|f| f.day > von && f.day <= bis && f.hg >= 0).count();
         if n == 0 { return; }
         let rang = self.world.rank_of(self.own);
-        self.msg(0, crate::inhalt::t("ui.post.redaktion"), crate::inhalt::t("ui.post.woche_titel"), &crate::tf!("ui.post.woche_text", n, rang), Action::None);
+        let vk = self.vkey("ui.post.woche_text", "");
+        self.msg(0, crate::inhalt::t("ui.post.redaktion"), crate::inhalt::t("ui.post.woche_titel"), &crate::tf!(&vk, n, rang), Action::None);
         self.meldung_art(Art::Woche, vec![]);
     }
     /// One example message of every kind, from the real game state (previews and the test).

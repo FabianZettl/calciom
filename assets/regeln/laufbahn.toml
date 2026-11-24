@@ -51,6 +51,12 @@ w_vakanz = 0.10
 ruf_luft = 0.25            # Vereine bis zu so viel über dem eigenen Niveau (in Ruf 0 bis 1) halten ihn noch für denkbar
 vakanz_bonus = 0.35
 schwelle_gespraech = 0.30  # darunter meldet sich kein Verein
+lockruf_tage = 60          # nach einem Erfolg (Titel, Ziel klar übertroffen, im Dezember oben mit zufriedenem Vorstand) so lange …
+lockruf_bonus = 0.35       # … mehr Interesse größerer Vereine
+lockruf_ziel_plaetze = 3   # „klar übertroffen“: so viele Plätze besser als das Saisonziel
+lockruf_dezember_vorstand = 70
+bleiben_vorstand = 3       # wer ein Angebot ablehnt, gewinnt Vertrauen und Ruf
+bleiben_ruf = 1
 vertrag_ende_monate = 6    # läuft der Vertrag in so vielen Monaten aus, steigt das Interesse
 vertrag_ende_bonus = 0.10
 klausel_malus = 0.15       # hohe Klausel schreckt ab (bei Klausel ab zwei Jahresgehältern)
@@ -62,7 +68,7 @@ vakanz_wahrscheinlichkeit = 0.5    # Hinweis auf einen freien Posten, wenn der V
 unserioes_wahrscheinlichkeit = 0.04
 offene_hoechstens = 3
 vakanzen_hoechstens = 3            # so viele freie Posten stehen gleichzeitig zur Bewerbung
-frist_tage = 14
+frist_tage = 21                # Fabian 23.11.: ein Angebot bleibt 21 Tage offen
 hinhalten_tage = 7
 hinhalten_hoechstens = 2
 hinhalten_malus = 0.12     # jede Verzögerung senkt das Interesse
@@ -122,6 +128,7 @@ wirkung = 0.25
 
 [wechsel]
 frist_nach_zusage_tage = 14
+ruhe_tage = 18                 # Fabian 23.11.: ruhiger Start beim neuen Verein (keine Vorfälle, Gespräche, Krisensitzungen)
 
 [erfunden]
 investoren = ["Nordhafen Capital", "Meridian Sports Holding", "Alba Invest", "Kronstadt Partners"]

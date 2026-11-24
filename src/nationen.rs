@@ -13,8 +13,24 @@ pub fn name(w: &World, n: u16) -> String {
         let v: serde_json::Value = serde_json::from_str(include_str!("../assets/regeln/nationen.json")).expect("nationen.json");
         v.as_object().map(|m| m.iter().filter_map(|(k, x)| Some((k.parse().ok()?, x.as_str()?.to_string()))).collect()).unwrap_or_default()
     });
-    if let Some(x) = t.get(&n) { return x.clone(); }
-    (0..w.leagues.len()).find(|&l| w.land_nat(l) == n && !w.leagues[l].land.is_empty()).map(|l| w.leagues[l].land.clone()).unwrap_or_default()
+    let x = if let Some(x) = t.get(&n) { x.clone() } else { (0..w.leagues.len()).find(|&l| w.land_nat(l) == n && !w.leagues[l].land.is_empty()).map(|l| w.leagues[l].land.clone()).unwrap_or_default() };
+    x
+}
+/// The name for the screen (English in the English interface); `name` stays the key for lookups.
+pub fn name_anzeige(w: &World, n: u16) -> String { anzeige(&name(w, n)) }
+/// A country name (German, as the lists keep it) in the interface language: English from the Natural Earth names
+/// (assets/geo/laender.json) plus the home nations; unknown names stay as they are.
+pub fn anzeige(de: &str) -> String {
+    if crate::inhalt::sprache() != crate::inhalt::Sprache::En { return de.to_string(); }
+    static T: std::sync::OnceLock<std::collections::HashMap<String, String>> = std::sync::OnceLock::new();
+    let t = T.get_or_init(|| {
+        let v: serde_json::Value = serde_json::from_str(include_str!("../assets/geo/laender.json")).unwrap_or_default();
+        let mut m: std::collections::HashMap<String, String> = v["laender"].as_array().into_iter().flatten()
+            .filter_map(|l| Some((l["de"].as_str()?.to_string(), l["en"].as_str()?.to_string()))).collect();
+        for (d, e) in [("Schottland", "Scotland"), ("Nordirland", "Northern Ireland"), ("Wales", "Wales"), ("England", "England"), ("Südkorea", "South Korea"), ("Elfenbeinküste", "Ivory Coast"), ("Tschechien", "Czechia"), ("Bosnien-Herzegowina", "Bosnia and Herzegovina")] { m.insert(d.into(), e.into()); } // roh
+        m
+    });
+    t.get(de).cloned().unwrap_or_else(|| de.to_string())
 }
 
 impl World {
@@ -32,7 +48,7 @@ impl World {
             let neu = liste.unwrap_or_else(|| { let x = name(self, n); if x.is_empty() || x.starts_with(&vorsilbe) { crate::geo::liga_land_sicher(self, l).unwrap_or_default() } else { x } });
             if neu.is_empty() || neu.starts_with(&vorsilbe) { continue; }
             for k in 0..self.leagues.len() { if self.leagues[k].land == alt { self.leagues[k].land = neu.clone(); } }
-            for cu in self.cups.iter_mut() { if cu.country == alt { cu.country = neu.clone(); } }
+            for cu in self.cups.iter_mut() { if cu.country == alt { cu.country = neu.clone(); if cu.kind == 0 { cu.name = crate::cups::pokalname(&cu.key, &neu); } } }
         }
     }
     /// The nationality most players of a league have: the league's country.

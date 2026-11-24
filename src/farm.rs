@@ -201,7 +201,7 @@ impl World {
         let grund = self.leihgrund(p, partner);
         let season = self.season;
         self.umziehen(p, haupt, partner);
-        self.players[p].leihe = Some(crate::transfer::Leihe { von: haupt, bis: season, anteil: crate::transfer::LEIH_ANTEIL, option: 0.0, spielzeit, grund, start: 0.0 });
+        self.players[p].leihe = Some(crate::transfer::Leihe { von: haupt, bis: season, anteil: crate::transfer::LEIH_ANTEIL, option: 0.0, spielzeit, grund, start: 0.0, bis_tag: 0, pflicht: false });
     }
 }
 

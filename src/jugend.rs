@@ -432,7 +432,8 @@ impl Career {
                 pl.morale = (pl.morale + 2.0).min(95.0);
                 let n = pl.name.clone();
                 self.schule.insert(self.world.players[p].id, 3);
-                self.msg(6, leiter, &crate::tf!("ui.jugend.schule.abschluss", n.clone()), &crate::tf!("ui.jugend.schule.abschluss.text", n), Action::None);
+                let vk = self.vkey("ui.jugend.schule.abschluss.text", "");
+                self.msg(6, leiter, &crate::tf!("ui.jugend.schule.abschluss", n.clone()), &crate::tf!(&vk, n), Action::None);
                 continue;
             }
             let pl = &mut self.world.players[p];

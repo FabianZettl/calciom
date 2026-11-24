@@ -29,7 +29,7 @@ impl Career {
                 self.msg(5, t("meldung.absender.praesident"), t(if ok { "kr2.plan_ok_titel" } else { "kr2.plan_nein_titel" }), &crate::tf!(if ok { "kr2.plan_ok" } else { "kr2.plan_nein" }, punkte, ziel), Action::None);
             }
         }
-        if self.mensch.vorstand >= KRISE_UNTER || (self.krise.gehalten && self.krise.saison == season) || self.ultimatum.is_some() || self.abs() < self.mgr_since + 45 { return; }
+        if self.mensch.vorstand >= KRISE_UNTER || (self.krise.gehalten && self.krise.saison == season) || self.ultimatum.is_some() || self.abs() < self.mgr_since + 45 || self.abs() < self.ruhe_bis { return; }
         self.krise = Krise { saison: season, gehalten: true, plan: None };
         let opts = vec![(crate::id("plan").to_string(), crate::tf!("kr2.opt.plan", PLAN_PUNKTE, PLAN_SPIELE)), (crate::id("rueckhalt").to_string(), t("kr2.opt.rueckhalt").to_string()), (crate::id("fehler").to_string(), t("kr2.opt.fehler").to_string())];
         let (rang, ziel) = (self.world.rank_of(self.own), self.club().goal_pos);

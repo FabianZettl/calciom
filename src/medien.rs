@@ -164,7 +164,12 @@ impl Career {
         if res.iter().rev().take_while(|&&x| x == 'S').count() >= 3 { t.push(("serie_gut".into(), None)); }
         if res.iter().rev().take_while(|&&x| x != 'S').count() >= 3 { t.push(("serie_schlecht".into(), None)); }
         if self.mensch.vorstand < 45.0 { t.push((crate::id("vorstand").into(), None)); }
-        if let Some(&(p, ..)) = self.me.geruechte.iter().rev().find(|g| self.world.players[g.0].team == self.own as i32) { t.push((crate::id("geruecht").into(), Some(p))); t.push(("zusage_spieler".into(), Some(p))); }
+        // the rumour about one of ours: asked about once in a while, not at every conference (Fabian 23.11.)
+        let abs0 = self.abs();
+        if let Some(&(p, ..)) = self.me.geruechte.iter().rev().find(|g| self.world.players[g.0].team == self.own as i32) {
+            let zuletzt = self.me.themen.iter().find(|y| y.0 == crate::id("geruecht")).map_or(0, |y| y.1);
+            if zuletzt == 0 || abs0 >= zuletzt + f("medien", "konferenz.geruecht_pause_tage") as u32 { t.push((crate::id("geruecht").into(), Some(p))); t.push(("zusage_spieler".into(), Some(p))); }
+        }
         if let Some(p) = self.squad().into_iter().filter(|&p| self.world.players[p].inj >= 14 && self.world.players[p].ps.rolle <= 3).max_by(|&a, &b| self.world.players[a].ovr.partial_cmp(&self.world.players[b].ovr).unwrap()) { t.push((crate::id("ausfall").into(), Some(p))); }
         if let Some(p) = self.squad().into_iter().filter(|&p| self.world.players[p].joined > 0 && self.abs() < self.world.players[p].joined + 30).max_by(|&a, &b| self.world.players[a].ovr.partial_cmp(&self.world.players[b].ovr).unwrap()) { t.push((crate::id("neuzugang").into(), Some(p))); }
         if !self.me.zusagen.iter().any(|z| z.0 == crate::id("saisonziel") && z.4 == 0) && self.world.day < 120 { t.push(("zusage_ziel".into(), None)); }
@@ -173,29 +178,50 @@ impl Career {
         t.sort_by_key(|x| self.me.themen.iter().any(|y| y.0 == x.0 && abs < y.1 + wh) as u8);
         t
     }
-    /// A variant out of `n` by chance, never the one used last time for this key (Fabian 23.11.: not always the same).
+    /// A variant out of `n` like a shuffle bag (Fabian 23.11.: nothing may repeat): never one already used for this
+    /// key until all were used; then the bag starts again, but not with the one used last.
     pub fn variante(&mut self, schluessel: &str, n: usize, salz: &str) -> usize {
         if n <= 1 { return 0; }
-        let alt = self.me.zuletzt.iter().find(|x| x.0 == schluessel).map(|x| x.1);
-        let mut i = (zufall(&["variante", schluessel, salz, &self.abs().to_string()]) * n as f32) as usize % n; // roh
-        if Some(i) == alt { i = (i + 1 + (zufall(&["variante2", schluessel, salz]) * (n - 1) as f32) as usize % (n - 1)) % n; } // roh
-        self.me.zuletzt.retain(|x| x.0 != schluessel);
+        let mut benutzt: Vec<usize> = self.me.zuletzt.iter().filter(|x| x.0 == schluessel).map(|x| x.1).collect();
+        let letzte = benutzt.last().copied();
+        if benutzt.iter().filter(|&&i| i < n).count() >= n {
+            self.me.zuletzt.retain(|x| x.0 != schluessel);
+            benutzt = letzte.into_iter().collect();
+        }
+        let frei: Vec<usize> = (0..n).filter(|i| !benutzt.contains(i)).collect();
+        let i = frei[(zufall(&["variante", schluessel, salz, &self.abs().to_string()]) * frei.len() as f32) as usize % frei.len()]; // roh
+        if benutzt.len() == 1 && self.me.zuletzt.iter().all(|x| x.0 != schluessel) { if let Some(l) = letzte { self.me.zuletzt.push((schluessel.to_string(), l)); } }
         self.me.zuletzt.push((schluessel.to_string(), i));
         i
     }
+    /// The key of the next variant of `basis` (basis, basis.1, basis.2 …) out of its own shuffle bag.
+    pub fn vkey(&mut self, basis: &str, salz: &str) -> String { let i = self.variante(&format!("v:{basis}"), crate::inhalt::varianten(basis), salz); crate::inhalt::variante_key(basis, i) } // roh
     fn frage_text(&mut self, thema: &str, p: Option<usize>, salz: &str) -> String {
         let fr = presse()["fragen"][thema].as_array().cloned().unwrap_or_default();
         let i = self.variante(&format!("frage:{thema}"), fr.len(), salz);
-        let s = fr.get(i).and_then(|x| x.as_str()).unwrap_or(crate::inhalt::t("ui.medien.ihre_meinung"));
-        self.platzhalter(s, thema, p)
+        let s = fr.get(i).and_then(|x| x.as_str()).unwrap_or(crate::inhalt::t("ui.medien.ihre_meinung")).to_string();
+        // a lead-in with the real context (score, streak, table, next opponent) in front of most questions, from its
+        // own bag, so question and lead-in combine anew each time (Fabian 23.11.: every question completely new)
+        let ein = presse()["einleitung"][thema].as_array().cloned().unwrap_or_default();
+        let mit = zufall(&["einleitung", thema, salz, &self.abs().to_string()]) < 0.9; // roh
+        let s = if mit && !ein.is_empty() { let j = self.variante(&format!("einleitung:{thema}"), ein.len(), salz); format!("{} {s}", ein[j].as_str().unwrap_or("")) } else { s };
+        self.platzhalter(&s, thema, p)
     }
     /// {gegner}, {spieler}, {platz}, {ziel} in a question or an answer of the press conference.
     fn platzhalter(&self, s: &str, thema: &str, p: Option<usize>) -> String {
         let gegner = self.next_match().map(|f| self.world.clubs[if f.h == self.own { f.a } else { f.h }].name.clone())
             .or_else(|| self.last_result.as_ref().map(|r| self.world.clubs[if r.h == self.own { r.a } else { r.h }].name.clone())).unwrap_or_default();
         let gegner = if self.last_result.is_some() && thema != crate::id("standard") { self.last_result.as_ref().map(|r| self.world.clubs[if r.h == self.own { r.a } else { r.h }].name.clone()).unwrap_or(gegner) } else { gegner };
+        let naechster = self.next_match().map(|f| self.world.clubs[if f.h == self.own { f.a } else { f.h }].name.clone()).unwrap_or_else(|| gegner.clone());
+        let ergebnis = self.last_result.as_ref().map(|r| if r.h == self.own { format!("{}:{}", r.hg, r.ag) } else { format!("{}:{}", r.ag, r.hg) }).unwrap_or_default();
+        let res: Vec<char> = self.results.iter().map(|r| r.chars().next().unwrap_or('U')).collect();
+        let serie = res.iter().rev().take_while(|&&x| x == 'S').count().max(1);
+        let sieglos = res.iter().rev().take_while(|&&x| x != 'S').count().max(1);
+        let punkte = self.world.table(self.league()).iter().find(|x| x.club == self.own).map(|x| x.pts).unwrap_or(0);
         s.replace("{gegner}", &gegner).replace("{spieler}", &p.map(|p| self.world.players[p].name.clone()).unwrap_or_default())
             .replace("{platz}", &self.world.rank_of(self.own).to_string()).replace("{ziel}", &self.club().goal_pos.to_string())
+            .replace("{naechster}", &naechster).replace("{ergebnis}", &ergebnis).replace("{serie}", &serie.to_string())
+            .replace("{sieglos}", &sieglos.to_string()).replace("{punkte}", &punkte.to_string())
     }
     /// A conference of up to 4 questions (konferenz.fragen); answers are the tones of the topic.
     pub fn press_question(&mut self, post: bool) -> PressQ {
@@ -286,9 +312,10 @@ impl Career {
         let tt = crate::pool::varianten(&format!("zt.pk.{ton}.titel"));
         let tx = crate::pool::varianten(&format!("zt.pk.{ton}.text"));
         if !tt.is_empty() && !tx.is_empty() {
-            let z = |k: &str, n: usize| (crate::mensch::zufall(&[crate::id("pk"), k, &abs.to_string()]) * n as f32) as usize % n;
+            // from the no-repeat bag (Fabian 23.11.: every newspaper report one of a kind)
+            let (it, ix) = (self.variante(&format!("zt.pk.{ton}.titel"), tt.len(), &quote), self.variante(&format!("zt.pk.{ton}.text"), tx.len(), &quote));
             let kurz: String = if quote.chars().count() > 70 { quote.chars().take(68).collect::<String>() + "…" } else { quote.clone() };
-            self.news(&tt[z(crate::id("t"), tt.len())].replace("%1", &kurz), &tx[z(crate::id("x"), tx.len())].replace("%1", &quote));
+            self.news(&tt[it].replace("%1", &kurz), &tx[ix].replace("%1", &quote));
             return;
         }
         let head = match ton { "kaempferisch" => crate::inhalt::t("sp.ton.vor.bestimmt"), "kritik" => crate::inhalt::t("ui.medien.trainer_kritisiert_eigene_spieler"), "kontern" => crate::inhalt::t("ui.medien.trainer_teilt_aus"), "ausweichend" => crate::inhalt::t("ui.medien.schweigen_auf_dem_podium"), "lob" => crate::inhalt::t("ui.medien.rueckendeckung_fuer_die_mannschaft"), _ => crate::inhalt::t("ui.medien.klare_worte_vom_trainer") };
@@ -310,9 +337,10 @@ impl Career {
             let tage = abs.saturating_sub(*tag);
             let art = if seit.is_empty() { crate::id("offen") } else if nl > s { crate::id("verpufft") } else { crate::id("gehalten") };
             let _ = ton;
-            zeilen.push(crate::tf!(&format!("ui.zeitung.bezug.{art}"), kurz, tage, bilanz));
+            zeilen.push(format!("{art}\t{kurz}\t{tage}\t{bilanz}")); // roh
             if zeilen.len() >= 2 { break; }
         }
+        let mut zeilen: Vec<String> = zeilen.into_iter().map(|z| { let v: Vec<&str> = z.splitn(4, '\t').collect(); let k = self.vkey(&format!("ui.zeitung.bezug.{}", v[0]), v[1]); crate::tf!(&k, v[1], v[2], v[3]) }).collect();
         let max = z(crate::id("schlagzeilen")) as usize;
         for nw in self.feed.iter().filter(|n| crate::game::abs_day(n.season, n.day) + 7 > abs && n.head.contains(&own)) {
             if zeilen.len() >= max { break; }
@@ -503,6 +531,9 @@ mod tests {
         let w = crate::world::World::load(include_str!("../assets/world.json"), 7);
         let mut c = crate::game::Career::new(w, 0, "Test");
         let mut alt = usize::MAX;
+        // a bag: five picks in a row are five different ones
+        let erste: std::collections::HashSet<usize> = (0..5).map(|k| { c.world.day += 1; c.variante("beutel", 5, &k.to_string()) }).collect();
+        assert_eq!(erste.len(), 5, "no repeat until the bag is empty");
         for k in 0..30 { let i = c.variante("probe", 5, &k.to_string()); assert!(i < 5 && i != alt, "{i} twice"); alt = i; c.world.day += 1; }
         // press conferences in a row do not open with the same question
         let a = c.press_question(false).q;

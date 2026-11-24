@@ -17,7 +17,13 @@
    "Wie fit ist Ihre Mannschaft vor dem Duell mit {gegner}?",
    "Was hat {gegner} in den letzten Wochen so stark gemacht?",
    "Gibt es personelle Überraschungen gegen {gegner}?",
-   "Was muss heute besser laufen als zuletzt?"
+   "Was muss heute besser laufen als zuletzt?",
+   "Was erwarten Sie von {naechster}?",
+   "Welcher Spieler hat Sie im Training am meisten beeindruckt?",
+   "Wie stellen Sie sich gegen {naechster} auf?",
+   "Fehlt jemand am Wochenende?",
+   "Wie ist die Stimmung in der Mannschaft?",
+   "Wie sieht der Plan für die nächsten Wochen aus?"
   ],
   "sieg": [
    "Ein Sieg gegen {gegner}. Was war der Schlüssel?",
@@ -25,7 +31,13 @@
    "Wer war für Sie der Mann des Spiels gegen {gegner}?",
    "Der Sieg war nicht immer souverän. Wo hat es gehakt?",
    "Was bedeutet dieser Sieg für die Tabelle?",
-   "Haben Sie mit so einem Spiel gegen {gegner} gerechnet?"
+   "Haben Sie mit so einem Spiel gegen {gegner} gerechnet?",
+   "Was hat heute den Unterschied gemacht?",
+   "Wer verdient ein Sonderlob?",
+   "Ist das der Wendepunkt der Saison?",
+   "Wie bleiben Sie jetzt auf dem Boden?",
+   "Ist der Plan so aufgegangen wie gedacht?",
+   "Wo kann sich die Mannschaft noch verbessern?"
   ],
   "niederlage": [
    "Die Niederlage gegen {gegner} tut weh. Wo lagen die Probleme?",
@@ -33,7 +45,13 @@
    "Hat Ihre Mannschaft heute alles gegeben?",
    "Was sagen Sie der Kabine nach dieser Niederlage gegen {gegner}?",
    "War das eine Frage der Taktik oder der Einstellung?",
-   "Wie schnell können Sie diese Niederlage abhaken?"
+   "Wie schnell können Sie diese Niederlage abhaken?",
+   "Haben Sie eine Erklärung?",
+   "Verliert die Mannschaft den Glauben?",
+   "Wer muss Verantwortung übernehmen?",
+   "Wird es nächste Woche Änderungen geben?",
+   "Wie richten Sie die Spieler wieder auf?",
+   "Hat der Schiedsrichter eine Rolle gespielt?"
   ],
   "remis": [
    "Ein Unentschieden gegen {gegner}. Gewonnener oder verlorener Punkt?",
@@ -41,70 +59,147 @@
    "Am Ende ein Punkt gegen {gegner}. Ärgert Sie das Ergebnis?",
    "Hätten Sie früher wechseln müssen?",
    "Was nehmen Sie aus diesem Unentschieden mit?",
-   "Fehlt Ihrer Mannschaft im Moment der letzte Punch?"
+   "Fehlt Ihrer Mannschaft im Moment der letzte Punch?",
+   "Reicht ein Punkt für Ihre Ansprüche?",
+   "Wer war die bessere Mannschaft?",
+   "Was hat zum Sieg gefehlt?",
+   "Sind Sie mit der Reaktion nach der Pause zufrieden?",
+   "Hatten Sie über mehr Wechsel nachgedacht?"
   ],
   "serie_gut": [
    "Die Serie hält. Wie weit kann es gehen?",
    "Mehrere Siege am Stück: Was ist anders als vor ein paar Wochen?",
    "Muss man Ihre Mannschaft jetzt weiter oben erwarten?",
    "Wie halten Sie die Spannung hoch, wenn es so gut läuft?",
-   "Haben Sie Angst, dass die Serie irgendwann reißt?"
+   "Haben Sie Angst, dass die Serie irgendwann reißt?",
+   "Was ist das Geheimnis dieser Serie?",
+   "Wie lange kann das so weitergehen?",
+   "Ist Ihre Mannschaft jetzt Favorit?",
+   "Fürchten Sie Selbstzufriedenheit?",
+   "Wer ist für Sie der Gewinner dieser Wochen?",
+   "Schauen Sie jetzt nach oben in der Tabelle?",
+   "Was sagen Sie der Mannschaft nach so einem Lauf?",
+   "Ist das schon die Mannschaft, die Sie sich vorgestellt haben?"
   ],
   "serie_schlecht": [
    "Seit Wochen kein Sieg. Wackelt Ihr Stuhl?",
    "Was läuft gerade schief bei Ihrer Mannschaft?",
    "Haben Sie die Kabine noch hinter sich?",
    "Wie wollen Sie die Wende schaffen?",
-   "Fühlen Sie sich unter Druck gesetzt?"
+   "Fühlen Sie sich unter Druck gesetzt?",
+   "Wie durchbrechen Sie diese Serie?",
+   "Steht die Mannschaft noch hinter Ihnen?",
+   "Glauben Sie noch an das Ziel?",
+   "Fürchten Sie um Ihren Job?",
+   "Werden Sie jetzt personell etwas ändern?",
+   "Was fehlt Ihrer Mannschaft im Moment?",
+   "Reden Sie mit der Mannschaft anders als sonst?",
+   "Was gibt Ihnen Hoffnung?"
   ],
   "star": [
    "{spieler} war heute überragend. Ihr Wort dazu?",
    "Ist {spieler} gerade der beste Spieler der Liga?",
    "Wie wichtig ist {spieler} für Ihr Spiel?",
    "Was haben Sie {spieler} nach dem Spiel gesagt?",
-   "Wie lange können Sie {spieler} noch halten?"
+   "Wie lange können Sie {spieler} noch halten?",
+   "Können Sie {spieler} halten?",
+   "Ist {spieler} der beste Spieler der Liga?",
+   "Wie wichtig ist {spieler} für die Kabine?",
+   "Was macht {spieler} besser als die anderen?",
+   "Ist {spieler} schon ein Fall für die Nationalmannschaft?",
+   "Wie bleibt {spieler} so konstant?",
+   "Haben Sie {spieler} schon einmal so stark gesehen?",
+   "Wird {spieler} zu wichtig für Ihr Spiel?"
   ],
   "vorstand": [
    "Im Präsidium soll es Unruhe geben. Wie ist Ihr Verhältnis zum Vorstand?",
    "Haben Sie noch das volle Vertrauen des Präsidiums?",
    "Wie oft sprechen Sie im Moment mit dem Vorstand?",
    "Gibt es eine Frist vom Präsidium?",
-   "Spüren Sie Rückendeckung von oben?"
+   "Spüren Sie Rückendeckung von oben?",
+   "Haben Sie noch den Rückhalt des Vorstands?",
+   "Hat der Präsident diese Woche mit Ihnen gesprochen?",
+   "Wie lange kann das so weitergehen?",
+   "Würden Sie sich eine Vertragsverlängerung wünschen, um Ruhe hineinzubringen?",
+   "Was hat Ihnen der Vorstand zuletzt mit auf den Weg gegeben?",
+   "Fühlen Sie sich vom Präsidenten ausreichend unterstützt?",
+   "Gab es ein Krisengespräch?",
+   "Wie viel Zeit gibt man Ihnen noch?",
+   "Reden Sie mit dem Vorstand auch über Transfers?",
+   "Ist das Verhältnis zum Präsidium belastet?"
   ],
   "geruecht": [
    "Man hört, {spieler} könnte den Verein verlassen. Was ist dran?",
    "Gibt es ein Angebot für {spieler}?",
    "Wie geht {spieler} mit den Gerüchten um?",
    "Würden Sie {spieler} für die richtige Summe abgeben?",
-   "Hat {spieler} einen Wechselwunsch geäußert?"
+   "Hat {spieler} einen Wechselwunsch geäußert?",
+   "Hat {spieler} um einen Wechsel gebeten?",
+   "Ist {spieler} auf das nächste Spiel konzentriert?",
+   "Wie viel Ruhe braucht {spieler} jetzt?",
+   "Hat sich der Berater von {spieler} bei Ihnen gemeldet?",
+   "Würden Sie {spieler} ziehen lassen, wenn er gehen will?",
+   "Gibt es eine Schmerzgrenze für {spieler}?",
+   "Spricht die Kabine über die Gerüchte um {spieler}?",
+   "Ist {spieler} mit dem Kopf noch hier?"
   ],
   "ausfall": [
    "{spieler} fällt aus. Wie wollen Sie das auffangen?",
    "Wer ersetzt {spieler}?",
    "Wie lange müssen Sie auf {spieler} verzichten?",
    "Ist der Ausfall von {spieler} ein Grund, noch einmal auf den Markt zu gehen?",
-   "Wie hat die Mannschaft auf die Verletzung von {spieler} reagiert?"
+   "Wie hat die Mannschaft auf die Verletzung von {spieler} reagiert?",
+   "Suchen Sie auf dem Markt nach Ersatz?",
+   "Wann rechnen Sie mit {spieler} zurück?",
+   "Wie trifft Sie dieser Ausfall taktisch?",
+   "Bekommt jetzt ein junger Spieler seine Chance?",
+   "Wie geht es {spieler} im Moment?",
+   "Haben Sie mit {spieler} schon gesprochen?",
+   "War die Belastung für {spieler} zu hoch?",
+   "Ändern Sie jetzt das System?"
   ],
   "neuzugang": [
    "{spieler} ist neu im Team. Wie schnell hilft er?",
    "Was hat Sie an {spieler} überzeugt?",
    "Wie hat sich {spieler} in der Kabine eingefunden?",
    "Ist {spieler} schon ein Kandidat für die Startelf?",
-   "Welche Rolle haben Sie für {spieler} vorgesehen?"
+   "Welche Rolle haben Sie für {spieler} vorgesehen?",
+   "Wo sehen Sie {spieler} in Ihrer Mannschaft?",
+   "Wie schnell kann sich {spieler} einfügen?",
+   "Warum wollten Sie {spieler} unbedingt?",
+   "Was erwarten Sie von {spieler} in den ersten Wochen?",
+   "Wer kümmert sich in der Kabine um {spieler}?",
+   "Braucht {spieler} noch Zeit?",
+   "Was kann {spieler}, was Ihnen bisher gefehlt hat?",
+   "Haben Sie {spieler} lange beobachtet?"
   ],
   "zusage_ziel": [
    "Ihr Saisonziel ist Platz {ziel}. Versprechen Sie das den Fans?",
    "Ist Platz {ziel} realistisch?",
    "Was passiert, wenn Sie Platz {ziel} verfehlen?",
    "Können Sie den Fans Platz {ziel} versprechen?",
-   "Ist Platz {ziel} das Minimum oder ein Traum?"
+   "Ist Platz {ziel} das Minimum oder ein Traum?",
+   "Was dürfen die Fans diese Saison erwarten?",
+   "Zielen Sie höher als der Vorstand?",
+   "Welches Ziel haben Sie mit der Mannschaft besprochen?",
+   "Ist der Kader gut genug für Platz {ziel}?",
+   "Was wäre für Sie eine gute Saison?",
+   "Woran wollen Sie sich am Ende messen lassen?",
+   "Unterschreiben Sie Platz {ziel} heute schon?"
   ],
   "zusage_spieler": [
    "Garantieren Sie, dass {spieler} bleibt?",
    "Ist {spieler} unverkäuflich?",
    "Bleibt {spieler} auch im nächsten Jahr bei Ihnen?",
    "Können Sie einen Wechsel von {spieler} ausschließen?",
-   "Planen Sie langfristig mit {spieler}?"
+   "Planen Sie langfristig mit {spieler}?",
+   "Können Sie versprechen, dass {spieler} bleibt?",
+   "Ist {spieler} nächste Saison noch hier?",
+   "Würden Sie Ihre Zukunft mit der von {spieler} verknüpfen?",
+   "Ist {spieler} ein Spieler, um den Sie die Mannschaft bauen?",
+   "Was sagen Sie den Vereinen, die nach {spieler} fragen?",
+   "Bekommt {spieler} einen neuen Vertrag?",
+   "Hat {spieler} Ihnen gesagt, dass er bleiben will?"
   ]
  },
  "antworten": {
@@ -415,5 +510,145 @@
     "Personalien kommentiere ich nicht."
    ]
   }
+ },
+ "einleitung": {
+  "standard": [
+   "Als Nächstes kommt {naechster}.",
+   "Vor dem Spiel gegen {naechster}:",
+   "Ihre Mannschaft steht auf Platz {platz}.",
+   "Mit bisher {punkte} Punkten.",
+   "Die Mannschaft hat diese Woche hinter verschlossenen Türen trainiert.",
+   "{naechster} hat Sie genau beobachtet.",
+   "Vor dem Anstoß gegen {naechster}:",
+   "Das Ziel ist Platz {ziel}, aktuell sind Sie {platz}.",
+   "Eine Frage zum Wochenende:",
+   "Mit Blick auf den Spielplan.",
+   "Nach einer intensiven Trainingswoche.",
+   "{naechster} reist mit Selbstvertrauen an."
+  ],
+  "sieg": [
+   "{ergebnis} gegen {gegner}.",
+   "Ein {ergebnis}-Sieg.",
+   "Drei Punkte gegen {gegner}.",
+   "Nach dem {ergebnis} heute.",
+   "Das sind jetzt {punkte} Punkte.",
+   "Nach dem {ergebnis} auf Platz {platz}.",
+   "Ihre Mannschaft wirkte gegen {gegner} hellwach.",
+   "Der Gästeblock war laut nach dem {ergebnis}.",
+   "Der {serie}. Sieg in Folge?",
+   "So ein Tag gegen {gegner}:",
+   "Der Sieg bringt Sie auf Platz {platz}.",
+   "In der Kabine wurde nach dem {ergebnis} gesungen."
+  ],
+  "niederlage": [
+   "{ergebnis} gegen {gegner}.",
+   "Eine {ergebnis}-Niederlage.",
+   "Keine Punkte gegen {gegner} heute.",
+   "Nach dem {ergebnis}.",
+   "Abgerutscht auf Platz {platz}.",
+   "Das sind jetzt {sieglos} Spiele ohne Sieg.",
+   "Nach dem {ergebnis} wurde es still im Stadion.",
+   "{gegner} hat die Chancen genutzt, Sie nicht.",
+   "Die Tabelle zeigt Platz {platz}, das Ziel war {ziel}.",
+   "Ein langer Abend nach dem {ergebnis}:",
+   "Ihre Spieler gingen mit gesenkten Köpfen vom Platz.",
+   "Die zweite Halbzeit gegen {gegner} ging schief."
+  ],
+  "remis": [
+   "{ergebnis} gegen {gegner}.",
+   "Ein Punkt, {ergebnis}.",
+   "Unentschieden gegen {gegner}.",
+   "Nach dem {ergebnis} heute.",
+   "Wieder ein Remis, {ergebnis}.",
+   "Nach dem {ergebnis} bleiben Sie auf Platz {platz}.",
+   "{gegner} hat das {ergebnis} über die Zeit gebracht.",
+   "Ein Punkt, der drei hätten sein können:",
+   "Ein Punkt, der auch keiner hätte sein können:",
+   "Mit dem {ergebnis} stehen Sie bei {punkte} Punkten."
+  ],
+  "serie_gut": [
+   "{serie} Siege in Folge.",
+   "Ihre Serie hält jetzt {serie} Spiele.",
+   "Seit {serie} Spielen hat Sie niemand gestoppt.",
+   "Mit {serie} Siegen auf Platz {platz}.",
+   "Die Serie geht weiter:",
+   "Die Liga wird auf Ihren Lauf aufmerksam.",
+   "Die Mannschaft spielt sich in einen Rausch.",
+   "Die Konkurrenz schaut auf Sie."
+  ],
+  "serie_schlecht": [
+   "{sieglos} Spiele ohne Sieg.",
+   "Die Durststrecke geht weiter.",
+   "Wieder kein Sieg, zum {sieglos}. Mal.",
+   "Unten auf Platz {platz}.",
+   "Der Druck wächst von Woche zu Woche.",
+   "Der letzte Sieg scheint lange her.",
+   "Die Fans pfeifen.",
+   "Die Stimmung im Stadion kippt."
+  ],
+  "star": [
+   "{spieler} war heute überall.",
+   "Was für ein Spiel von {spieler}.",
+   "Schon wieder {spieler}.",
+   "Das Publikum hat {spieler} gefeiert.",
+   "Spieler des Spiels {spieler}:",
+   "Ohne {spieler} heute.",
+   "Die Zeitungen feiern {spieler}.",
+   "Wieder war es {spieler}."
+  ],
+  "vorstand": [
+   "Im Vorstand wird geredet.",
+   "Der Vorstand hat diese Woche getagt.",
+   "Aus dem Umfeld heißt es, der Vorstand sei unruhig.",
+   "Platz {platz}, Ziel {ziel}:",
+   "Der Präsident ist heute früh gegangen.",
+   "Die Gerüchte aus der Geschäftsstelle werden lauter.",
+   "Der Präsident saß beim letzten Spiel mit ernster Miene auf der Tribüne.",
+   "Im Aufsichtsrat soll über Sie gesprochen worden sein.",
+   "Nach dem letzten Spiel gab es ein langes Gespräch im Büro des Präsidenten."
+  ],
+  "geruecht": [
+   "Die Zeitungen sind heute voll mit {spieler}.",
+   "Über {spieler} wird viel geredet.",
+   "Der Berater von {spieler} wurde im Stadion gesehen.",
+   "Scouts saßen auf der Tribüne, um {spieler} zu sehen.",
+   "Die Gerüchte um {spieler} reißen nicht ab.",
+   "Ein großer Klub soll sich nach {spieler} erkundigt haben.",
+   "Im Netz kursiert ein Foto von {spieler} mit einem fremden Trikot."
+  ],
+  "ausfall": [
+   "{spieler} fällt länger aus.",
+   "Der Ausfall von {spieler} schmerzt.",
+   "Wochenlang ohne {spieler}.",
+   "Der Befund zu {spieler}:",
+   "Die Verletzung von {spieler} ändert einiges.",
+   "Schlechte Nachricht aus der Medizinabteilung:",
+   "{spieler} wird Ihnen fehlen.",
+   "Die Diagnose bei {spieler} ist da."
+  ],
+  "neuzugang": [
+   "{spieler} ist gerade erst da.",
+   "Der Neue, {spieler}:",
+   "{spieler} hat zum ersten Mal mit der Mannschaft trainiert.",
+   "Die Fans sind neugierig auf {spieler}.",
+   "Die ersten Tage von {spieler} im Verein:",
+   "Das Trikot von {spieler} verkauft sich gut.",
+   "Alle schauen auf {spieler}."
+  ],
+  "zusage_ziel": [
+   "Die Saison ist noch jung.",
+   "Der Vorstand spricht von Platz {ziel}.",
+   "Alle wollen ein Ziel von Ihnen hören.",
+   "Die Fans wollen Ehrgeiz:",
+   "Die Buchmacher sehen Sie auf Platz {platz}.",
+   "Vor dem Saisonstart fragen alle nach dem Ziel."
+  ],
+  "zusage_spieler": [
+   "{spieler} ist in aller Munde.",
+   "Die Vereine stehen bei {spieler} Schlange.",
+   "Die Zukunft von {spieler} ist die Frage der Woche.",
+   "Die Fans haben ein Banner für {spieler} gemalt.",
+   "Der Vertrag von {spieler} ist Thema in der Stadt."
+  ]
  }
 }

@@ -223,3 +223,7 @@ analyst_mittel = 0.12           # Einfluss/90, auf den bei wenig Minuten geschru
 analyst_preisgewicht = 0.08     # je Zehnerpotenz Marktwert über 1 Mio. weniger
 analyst_wissen = 15             # ein Treffer hebt das Wissen auf „Gehört“
 luecke_rot = 4.0                # Kaderlücke rot: bester Spieler der Gruppe so weit unter dem Liga-Stammspieler-Schnitt
+
+# Datenpakete (Statistik 8.1): erweiterte Zahlen einer Liga für eine Saison; Preis = basis × (Ligastärke/70)³ × Geldskala. Änderbar.
+[datenpaket]
+basis = 250000

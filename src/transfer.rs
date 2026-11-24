@@ -28,7 +28,9 @@ pub const LEIH_ANTEIL: f32 = 0.7;
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct Leihe { pub von: usize, pub bis: u32, pub anteil: f32, pub option: f64, #[serde(default)] pub spielzeit: bool, #[serde(default)] pub grund: String, /// Strength when the loan began (monthly report). 
-#[serde(default)] pub start: f32 }
+#[serde(default)] pub start: f32,
+/// Loan request (Fabian 23.11.): the abs day it ends (0 = season end) and whether the buy at its end is an obligation.
+#[serde(default)] pub bis_tag: u32, #[serde(default)] pub pflicht: bool }
 
 /// Medical risk and verdict (drama.py medizin_risiko / medizin_urteil / medizin_abschlag).
 pub fn medizin(ausfall_tage: u16, alter: u8, u: f32) -> (&'static str, f32, f32) {
@@ -54,6 +56,9 @@ impl Career {
         if pl.ps.wunsch { return 0.8; }
         let rang = self.world.clubs[pl.team as usize].squad.iter().filter(|&&q| self.world.players[q].ovr > pl.ovr).count();
         if rang < 3 && pl.contract_end >= self.world.season + 2 { return 0.05; }
+        // a top club does not sell a young regular; only his release clause gets him out (ideas of other FL tools, 23.11.)
+        let gross = crate::regeln::f("medien", "relevanz.grosser_verein_ab");
+        if self.world.clubs[pl.team as usize].level >= gross && pl.age <= crate::regeln::f("transfers", "topklub.jung_bis") as u8 && self.kaderrolle(p) == 0 && pl.profil.klauseln.ausstieg <= 0.0 { return 0.05; }
         [0.3, 0.5, 0.7, 1.0][self.kaderrolle(p) as usize]
     }
     /// Asking fee (werte.py:75): market value × role (Stamm 1.25, Rotation 1.05, Reserve 0.85), × 0.7 at ≤ 6 months left.
@@ -299,7 +304,7 @@ impl Career {
         let abs = self.abs();
         let pl = &mut self.world.players[p];
         pl.team = self.own as i32;
-        pl.leihe = Some(Leihe { von, bis: season, anteil: LEIH_ANTEIL, option, spielzeit: false, grund: String::new(), start: 0.0 });
+        pl.leihe = Some(Leihe { von, bis: season, anteil: LEIH_ANTEIL, option, spielzeit: false, grund: String::new(), start: 0.0, bis_tag: 0, pflicht: false });
         pl.know = 1.0;
         pl.joined = abs;
         self.world.clubs[self.own].squad.push(p);
@@ -307,6 +312,73 @@ impl Career {
         self.nachspiel(p);
         self.world.refresh_levels();
         Ok(())
+    }
+    /// A loan request like a transfer request (Fabian 23.11.): 6 to 24 months, none, an option or an obligation to buy.
+    /// The club answers at once by his role, its loan list and the terms; a yes brings him at once.
+    pub fn leihanfrage(&mut self, p: usize, monate: u32, kauf: u8) -> Result<String, String> {
+        let r = |k: &str| crate::regeln::f("transfers", &format!("leihe.anfrage_{k}"));
+        if self.in_window().is_none() { return Err(crate::inhalt::t("ui.farm.das_transferfenster_ist_geschlossen").into()); }
+        let pl = &self.world.players[p];
+        if pl.team < 0 || pl.team == self.own as i32 { return Err(crate::inhalt::t("ui.transfer.nur_spieler_anderer_vereine_lassen").into()); }
+        if pl.leihe.is_some() { return Err(crate::inhalt::t("ui.farm.er_ist_schon_verliehen").into()); }
+        let von = pl.team as usize;
+        let pflicht = kauf == 2;
+        let jahre = monate as f32 / 12.0;
+        let fee = round_money(pl.value * (r("gebuehr_jahr") * jahre * if pflicht { r("gebuehr_pflicht") } else { 1.0 }) as f64);
+        let preis = if kauf == 0 { 0.0 } else { round_money(pl.value * if pflicht { r("preis_pflicht") } else { r("preis_option") } as f64) };
+        if fee > self.transfer_budget { return Err(crate::inhalt::t("ui.transfer.die_leihgebuehr_sprengt_das_transferbudg").into()); }
+        let auf_liste = self.status_von(p).map_or(false, |s| s.status == crate::kimarkt::Status::Leihliste);
+        let bereit = [r(crate::id("stamm")), r(crate::id("rotation")), r(crate::id("rand")), r(crate::id("rand"))][self.kaderrolle(p) as usize] + if auf_liste { r(crate::id("leihliste")) } else { 0.0 }
+            + match kauf { 2 => r("pflicht"), 1 => r("option"), _ => 0.0 } + (jahre - 1.0).max(0.0) * r("lang_je_jahr");
+        let (name, vn) = (pl.name.clone(), self.world.clubs[von].name.clone());
+        if bereit < r("ja_ab") { return Err(crate::tf!("ui.leihe.anfrage_nein", vn, name)); }
+        self.world.clubs[von].squad.retain(|&x| x != p);
+        self.world.clubs[von].balance += fee;
+        if fee > 0.0 { self.book(crate::inhalt::t("ui.transfer.leihgebuehren"), -fee); }
+        self.transfer_budget -= fee;
+        let (season, abs) = (self.world.season, self.abs());
+        let pl = &mut self.world.players[p];
+        pl.team = self.own as i32;
+        pl.leihe = Some(Leihe { von, bis: season + 2, anteil: LEIH_ANTEIL, option: preis, spielzeit: false, grund: String::new(), start: pl.ovr, bis_tag: abs + (monate as f32 * 30.4) as u32, pflicht });
+        pl.know = 1.0;
+        pl.joined = abs;
+        self.world.clubs[self.own].squad.push(p);
+        let kaufzeile = match kauf { 2 => crate::tf!("ui.leihe.mit_pflicht", money(preis)), 1 => crate::tf!("ui.leihe.mit_option", money(preis)), _ => String::new() };
+        let text = crate::tf!("ui.leihe.anfrage_ja", name.clone(), vn, monate, money(fee), kaufzeile);
+        self.msg(2, crate::inhalt::t("ui.game.transferabteilung"), &crate::tf!("vhd.titel.loan", name), &text, Action::None);
+        self.nachspiel(p);
+        self.world.refresh_levels();
+        Ok(text)
+    }
+    /// Loans with an end day: back to the club, or bought when the deal says so (daily).
+    pub fn leihen_tag(&mut self) {
+        let abs = self.abs();
+        for p in 0..self.world.players.len() {
+            let Some(l) = self.world.players[p].leihe.clone() else { continue };
+            if l.bis_tag == 0 || abs < l.bis_tag { continue; }
+            if l.pflicht && l.von != self.own && self.world.players[p].team == self.own as i32 {
+                // the obligation is paid even beyond the budget (it was agreed)
+                self.world.clubs[l.von].balance += l.option;
+                self.book(crate::inhalt::t("ui.game.abloesen_kauf"), -l.option);
+                self.transfer_budget -= l.option;
+                let season = self.world.season;
+                let pl = &mut self.world.players[p];
+                pl.leihe = None;
+                pl.contract_end = season + contract_years(pl.age) - 1;
+                let n = pl.name.clone();
+                self.news(&crate::tf!("ui.transfer.bleibt_fest", n), &crate::tf!("ui.leihe.pflicht_gezogen", money(l.option)));
+                continue;
+            }
+            let t = self.world.players[p].team;
+            if t >= 0 { self.world.clubs[t as usize].squad.retain(|&x| x != p); }
+            self.world.clubs[l.von].squad.push(p);
+            self.xi.retain(|&x| x != p);
+            let pl = &mut self.world.players[p];
+            pl.team = l.von as i32;
+            pl.leihe = None;
+            let n = pl.name.clone();
+            self.news(&crate::tf!("ui.leihe.zurueck", n), "");
+        }
     }
     /// Puts an own player on the loan list (Fabian 23.11.: like the transfer list): clubs make offers, the person chooses.
     pub fn leihe_abgeben(&mut self, p: usize) -> Result<(), String> {
@@ -331,7 +403,7 @@ impl Career {
         let pl = &mut self.world.players[p];
         pl.team = c as i32;
         pl.ps.leihliste = false;
-        pl.leihe = Some(Leihe { von: own, bis: season, anteil, option: 0.0, spielzeit, grund: String::new(), start });
+        pl.leihe = Some(Leihe { von: own, bis: season, anteil, option: 0.0, spielzeit, grund: String::new(), start, bis_tag: 0, pflicht: false });
         self.news(&crate::tf!("ui.transfer.wird_verliehen", name), &crate::tf!("ui.transfer.spielt_bis_saisonende_fuer", name, cn));
         self.world.refresh_levels();
         Ok(())
@@ -414,7 +486,7 @@ impl Career {
         let season = self.world.season;
         for p in 0..self.world.players.len() {
             let Some(l) = self.world.players[p].leihe.clone() else { continue };
-            if l.bis > season { continue; }
+            if l.bis > season || l.bis_tag > 0 { continue; }
             let t = self.world.players[p].team;
             if t >= 0 { self.world.clubs[t as usize].squad.retain(|&x| x != p); }
             self.world.clubs[l.von].squad.push(p);
@@ -480,6 +552,26 @@ mod tests {
         let own = c.squad()[0];
         c.world.players[own].contract_end = c.world.season + 4;
         assert!(c.open_neg(own).is_err());
+    }
+    /// Fabian 23.11.: a loan request with duration and an obligation to buy; a regular says no, a fringe player yes;
+    /// at the end day the obligation buys him, without it he goes back.
+    #[test]
+    fn leihanfrage_mit_kaufpflicht() {
+        let w = World::load(&std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/world.json")).unwrap(), 7);
+        let mut c = Career::new(w, 0, "Test");
+        c.transfer_budget = 1e9;
+        let other = (1..c.world.clubs.len()).find(|&k| c.world.clubs[k].squad.len() > 22).unwrap();
+        let mut sq = c.world.clubs[other].squad.clone();
+        sq.sort_by(|a, b| c.world.players[*b].ovr.partial_cmp(&c.world.players[*a].ovr).unwrap());
+        assert!(c.leihanfrage(sq[0], 24, 0).is_err(), "the best player is not loaned out for two years");
+        let (rand, rand2) = (sq[sq.len() - 1], sq[sq.len() - 2]);
+        c.leihanfrage(rand, 6, 2).unwrap();
+        c.leihanfrage(rand2, 6, 0).unwrap();
+        assert_eq!(c.world.players[rand].team, 0);
+        c.world.day += 190;
+        c.leihen_tag();
+        assert!(c.world.players[rand].leihe.is_none() && c.world.players[rand].team == 0, "obligation: he stays");
+        assert_eq!(c.world.players[rand2].team, other as i32, "without: back to his club");
     }
     #[test]
     fn leihe_hin_und_zurueck() {

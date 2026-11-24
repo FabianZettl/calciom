@@ -221,7 +221,8 @@ impl Career {
         opts.push((crate::id("dialog").to_string(), format!("{} ({}, {})", t("wv.protest.opt.dialog"), crate::tf!("wv.folge.kosten", money(kosten)), crate::tf!("wv.folge.chance", aussicht(c)))));
         opts.push((crate::id("halten").to_string(), format!("{} ({})", t("wv.protest.opt.halten"), t("wv.folge.fans.runter"))));
         let gp = self.spiel_neutral().preise[0];
-        self.msg(if schwer { 0 } else { 1 }, t("wv.figur.fans"), t(&format!("wv.protest.titel.{ursache}")), &crate::tf!(&format!("wv.protest.text.{ursache}"), format!("{st:.0}"), money(gp)), Action::Wahl { art: format!("wv:{key}|{kosten:.0}|{}", schwer as u8), bezug: vec![], optionen: opts }); // roh
+        let vk = self.vkey(&format!("wv.protest.text.{ursache}"), "");
+        self.msg(if schwer { 0 } else { 1 }, t("wv.figur.fans"), t(&format!("wv.protest.titel.{ursache}")), &crate::tf!(&vk, format!("{st:.0}"), money(gp)), Action::Wahl { art: format!("wv:{key}|{kosten:.0}|{}", schwer as u8), bezug: vec![], optionen: opts }); // roh
     }
     fn dialog_chance(&self, schwer: bool) -> f64 { (45.0 + self.mensch.vorstand as f64 * 0.3 + if self.ticket < 2 { 15.0 } else { 0.0 } - if schwer { 15.0 } else { 0.0 }).clamp(0.0, 100.0) }
     fn wv_protest_antwort(&mut self, key: &str, teile: &[&str], o: &str) -> String {

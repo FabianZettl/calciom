@@ -2,6 +2,10 @@
 /// An identifier in the code (compared, stored, looked up), never shown and never translated.
 pub const fn id(s: &'static str) -> &'static str { s }
 mod update;
+mod kalibrieren;
+mod zufall_ereignis;
+mod gutgespraech;
+mod wiederholung;
 mod cups;
 mod farm;
 mod inhalt;
@@ -11,6 +15,7 @@ mod cpk;
 mod live;
 mod livespiel;
 mod pool;
+mod vereinsfuehrung;
 mod spielgefuehl;
 mod klauseln;
 mod ehrungen;
@@ -109,7 +114,7 @@ fn stage_text(v: &View) -> (&'static str, &'static str, &'static str) {
         Page::Kabine => (crate::inhalt::t("bereich.mannschaft"), crate::inhalt::t("vg.pg.dim.kabine"), crate::inhalt::t("kabine.neu.unter")),
         Page::Training => (crate::inhalt::t("bereich.mannschaft"), crate::inhalt::t("status.training"), crate::inhalt::t("ui.main.woran_arbeiten_wir_diese_woche")),
         Page::Medizin => (crate::inhalt::t("bereich.mannschaft"), crate::inhalt::t("kachel.medizin"), crate::inhalt::t("ui.main.wer_fehlt_wer_ist_angeschlagen")),
-        Page::Praesidium => (crate::inhalt::t("bereich.verein"), "Präsidium", crate::inhalt::t("ui.main.was_erwartet_der_vorstand")), // roh
+        Page::Praesidium => (crate::inhalt::t("bereich.verein"), crate::inhalt::t("ui.main.praesidium"), crate::inhalt::t("ui.main.was_erwartet_der_vorstand")),
         Page::Finanzen => (crate::inhalt::t("bereich.verein"), crate::inhalt::t("bereich.finanzen"), crate::inhalt::t("ui.main.wie_steht_der_verein_da")),
         Page::Trainer => (crate::inhalt::t("bereich.verein"), crate::inhalt::t("aktion.trainerprofil"), crate::inhalt::t("ui.main.wie_laeuft_deine_laufbahn")),
         Page::Transfermarkt => (crate::inhalt::t("nav.gruppe.markt"), crate::inhalt::t("bereich.transfers"), crate::inhalt::t("ui.main.wen_suchen_wir")),
@@ -163,6 +168,7 @@ fn conf() -> Conf {
 #[derive(PartialEq)]
 enum Screen { Start, Game }
 /// The folder dialog of the start screen, running in the background.
+static CPK_LESEN: std::sync::Mutex<Option<std::sync::mpsc::Receiver<Result<std::path::PathBuf, String>>>> = std::sync::Mutex::new(None);
 static ORDNER_DIALOG: std::sync::Mutex<Option<std::sync::mpsc::Receiver<Option<std::path::PathBuf>>>> = std::sync::Mutex::new(None);
 
 /// The club card of the career start: crest, name, league and country, strength per part of the team, stadium and
@@ -544,6 +550,22 @@ impl App {
                 }
                 // beta 23.11.: the FL27 folder was not found on every PC and a path could not be pasted
                 if welten.is_empty() { ui.paragraph(&crate::tf!("ui.main.ordner_nicht_gefunden", fl27::spielordner().display()), rr.x + 20.0, rr.y + 124.0, 15.0, rr.w - 40.0, Theme::achtung()); }
+                // without an extracted world: the game's own database from its CPK files (in the background)
+                if fl27::sider().is_dir() && welten.iter().all(|w| fl27::welt_name(w) != pesdb::CPK_WELT) {
+                    let laeuft = CPK_LESEN.lock().unwrap().is_some();
+                    let y = if welten.is_empty() { rr.y + 184.0 } else { rr.y + 220.0 - 44.0 };
+                    if welten.len() <= 3 {
+                        ui.text(crate::inhalt::t(if laeuft { "ui.main.aus_cpk_laeuft" } else { "ui.main.aus_cpk_hinweis" }), rr.x + 20.0, y + 26.0, 14.0, Theme::text2());
+                        if !laeuft && ui.button(Rect::new(rr.x + rr.w - 300.0, y + 4.0, 280.0, 36.0), crate::inhalt::t("ui.main.aus_cpk"), false) {
+                            let g = fl27::spielordner();
+                            let (tx, rx) = std::sync::mpsc::channel();
+                            std::thread::spawn(move || { let _ = tx.send(pesdb::welt_aus_cpk(&g)); });
+                            *CPK_LESEN.lock().unwrap() = Some(rx);
+                        }
+                    }
+                }
+                let fertig = CPK_LESEN.lock().unwrap().as_ref().and_then(|rx| rx.try_recv().ok());
+                if let Some(r) = fertig { *CPK_LESEN.lock().unwrap() = None; match r { Ok(w) => pick = Some(w), Err(e) => { s.error = e; fl27::log(&s.error); } } }
                 let ir = Rect::new(rr.x + 20.0, rr.y + 236.0, rr.w - 340.0, 40.0);
                 if ui.hit(ir) { s.db_focus = true; }
                 let f = s.db_focus;
@@ -884,6 +906,16 @@ impl App {
     }
 
     fn game_screen(&mut self) {
+        // Einstellungen › Spielstand: save, then back to the start screen (load another career or start a new one)
+        if self.v.zum_start {
+            if let Some(c) = self.career.take() { let _ = c.save(); fl27::log(&format!("Zurück zum Start: {}", c.save_name)); }
+            self.v = View::new();
+            self.fast = false;
+            self.start.saves = game::list_saves();
+            self.start.step = 0;
+            self.screen = Screen::Start;
+            return;
+        }
         if self.fast { self.advance(); }
         let App { ui, v, career, .. } = self;
         let c = career.as_mut().unwrap();
@@ -893,7 +925,7 @@ impl App {
         let akzent = if c.akzent_wappen {
             let cl = c.club();
             ui.wappen_farbe(cl.id).or_else(|| [cl.c1, cl.c2].iter().find_map(|&f| crate::ui::hauptfarbe(&[(f >> 16) as u8, (f >> 8) as u8, f as u8, 255])))
-        } else { None };
+        } else { pages::eigener_akzent() };
         // with the crest accent the banners (club colour) and the blue card heads follow it too (Fabian 22.11.: still blue)
         let bereich = match (akzent, area_color(v.page)) { (Some(a), 0x38bdf8) => a, (_, b) => b };
         // the tables and rankings wear the colour of the chosen competition
@@ -925,7 +957,7 @@ impl App {
         // content
         if v.page != Page::Spieltag && v.mv.as_ref().map(|m| m.phase == 2).unwrap_or(false) { v.mv = None; }
         // a reward moment (meilensteine.rs) takes the whole screen and all clicks until it is closed
-        let feier_offen = !c.feiern.is_empty();
+        let feier_offen = !c.feiern.is_empty() || !c.auslosungen.is_empty();
         let modal_open = v.modal != Modal::None || feier_offen;
         // an open right-click menu takes the clicks like a window (but without darkening the page)
         let kontext_offen = v.kontext.is_some();
@@ -949,12 +981,13 @@ impl App {
         if v.modal == Modal::None && kontext_offen { ui.clicked = saved_click; pages::kontext_menue(ui, v, c); }
         if feier_offen {
             ui.clicked = saved_click;
-            pages::feier_overlay(ui, v, c);
+            if c.feiern.is_empty() { pages::auslosung_overlay(ui, v, c); } else { pages::feier_overlay(ui, v, c); }
         } else if modal_open {
             ui.clicked = saved_click;
             draw_rectangle(0.0, 0.0, breite(), hoehe(), Color::new(0.0, 0.0, 0.0, 0.6));
             match v.modal {
-                Modal::Player(p) => player_modal(ui, v, c, p),
+                Modal::Player(p) => { v.sel_player = Some(p); v.modal = Modal::None; v.go(Page::Spielerprofil); }
+                Modal::Aktionen(p) => player_modal(ui, v, c, p),
                 Modal::Neg(i) => neg_modal(ui, v, c, i),
                 Modal::Suche => pages::suche_overlay(ui, v, c),
                 Modal::None => {}
@@ -1076,6 +1109,10 @@ impl App {
         let sw = x0() - 18.0;
         let zu = SEITENLEISTE_ZU.load(std::sync::atomic::Ordering::Relaxed);
         draw_rectangle(0.0, 0.0, sw, hoehe(), if Theme::dark() { hex(0x0b0e13) } else { hex(0xfffdf9) });
+        // a simple background (Fabian 23.11.): a soft wash of the club colour from the top and thin diagonal stripes
+        gradient_v(0.0, 0.0, sw, 260.0, alpha(Theme::verein(), if Theme::dark() { 0.22 } else { 0.12 }), alpha(Theme::verein(), 0.0));
+        let mut x = -hoehe();
+        while x < sw { draw_line(x, hoehe(), x + hoehe() * 0.6, 0.0, 1.0, alpha(Theme::verein(), if Theme::dark() { 0.05 } else { 0.035 })); x += 22.0; }
         ui.rahmen(Rect::new(0.0, 0.0, sw, hoehe()));
         draw_rectangle(sw, 0.0, 1.0, hoehe(), Theme::linie());
         let cl = c.club().clone();
@@ -1282,6 +1319,12 @@ async fn main() {
         let g = |k: usize| args.get(i + k).cloned().unwrap_or_default();
         match altimport::neue_karriere(&g(1), &g(2), &g(3)) { Ok(t) => { println!("{t}"); std::process::exit(0) } Err(e) => { eprintln!("{e}"); std::process::exit(1) } }
     }
+    // pesm --kalibrieren <seasons> [<league>]: the calibration report (Statistik Teil 9)
+    if let Some(i) = args.iter().position(|a| a == "--kalibrieren") { // roh
+        let n = args.get(i + 1).and_then(|x| x.parse().ok()).unwrap_or(1);
+        println!("{}", kalibrieren::lauf(n, args.get(i + 2).map(|s| s.as_str())));
+        std::process::exit(0);
+    }
     // pesm --taktik-zeigen / --taktik-setzen / --formation-kopieren: probe tool for the in-game test (taktikprobe.rs)
     if let Some(r) = taktikprobe::kommando(&args) { match r { Ok(t) => { println!("{t}"); std::process::exit(0) } Err(e) => { eprintln!("{e}"); std::process::exit(1) } } }
     // pesm --import-alt <json> <alte-karriere> <welt>: a career of the Python version as a new career (altimport.rs)
@@ -1362,12 +1405,15 @@ async fn main() {
         // PESM_FEIER=1: a reward moment for the best own player (preview of the full-screen moment)
         // the moments the days collected stay away from other previews
         if std::env::var("PESM_FEIER").is_err() { app.career.as_mut().unwrap().feiern.clear(); }
+        if std::env::var("PESM_AUSLOSUNG").is_err() { app.career.as_mut().unwrap().auslosungen.clear(); }
         if std::env::var("PESM_FEIER").is_ok() { let c = app.career.as_mut().unwrap(); let p = c.squad()[0]; c.feier_neuzugang(p, crate::id("Testverein"), 25_000_000.0); }
         // PESM_PRESSE=1: a press conference is waiting (preview of the scene)
         if std::env::var("PESM_PRESSE").is_ok() { let c = app.career.as_mut().unwrap(); let q = c.press_question(false); c.press = Some(q); }
         // PESM_KLUB=<Name>: that club on the clubs page
         if let Ok(n) = std::env::var("PESM_KLUB") { app.v.sel_club = app.career.as_ref().unwrap().world.clubs.iter().position(|x| x.name == n); }
         if let Ok(t) = std::env::var("PESM_REITER") { app.v.tab = t.parse().unwrap_or(0); }
+        // PESM_RAD=1: the percentile wheel on the statistics tab
+        if std::env::var("PESM_RAD").is_ok() { crate::pages::stat_rad_an(); }
         // PESM_AUSWAHL=<n>: that choice field open; PESM_LEISTE=zu|alle: side bar folded in or all groups open
         if let Ok(t) = std::env::var("PESM_AUSWAHL") { app.v.auswahl = t.parse().ok(); }
         match std::env::var("PESM_LEISTE").as_deref() { Ok("zu") => pages::SEITENLEISTE_ZU.store(true, std::sync::atomic::Ordering::Relaxed), Ok("alle") => app.v.menu_alle = true, _ => {} }
@@ -1435,7 +1481,7 @@ async fn main() {
             if c.today_match().is_some() {
                 let res = c.prepare_match(None);
                 let ende = t == crate::id("ende");
-                let mut mv = pages::MatchView { res: res.clone(), minute: t.parse().unwrap_or(90.0), speed: if ende { 1.0 } else { 0.0 }, phase: if ende { 2 } else { 1 }, ended_at: 0.0, manual: (0, 0), manual_open: false, halbzeit: 2, wirkung: vec![], nach_gesagt: false, angesprochen: vec![], eingriff: Default::default(), vor_pause: 1.0 };
+                let mut mv = pages::MatchView { res: res.clone(), minute: t.parse().unwrap_or(90.0), speed: if ende { 1.0 } else { 0.0 }, phase: if ende { 2 } else { 1 }, ended_at: 0.0, manual: (0, 0), manual_open: false, halbzeit: 2, wirkung: vec![], nach_gesagt: false, angesprochen: vec![], eingriff: Default::default(), vorlauf: 3, vor_pause: 1.0 };
 
                 if ende { c.apply_own_match(res); c.press = None; if let Some(r) = c.last_result.clone() { mv.res = r; } }
                 app.v.mv = Some(mv);
@@ -1472,7 +1518,9 @@ async fn main() {
         if let Some(p) = &shot {
             // the window-size check records the last frames only (the layout has settled)
             if frames == 110 && std::env::var_os("PESM_PRUEF").is_some() { crate::ui::pruefung_starten(); }
-            if frames == 120 {
+            // wait until the window manager gave the asked size (a tiling layout resizes it after the first frames)
+            let soll = std::env::var("PESM_FENSTER").ok().and_then(|f| f.split('x').next().and_then(|w| w.parse::<f32>().ok())).unwrap_or(0.0);
+            if frames >= 120 && ((screen_width() * screen_dpi_scale() - soll).abs() <= 2.0 || soll == 0.0 || frames >= 900) {
                 let mut img = get_screen_data();
                 for px in img.bytes.chunks_mut(4) { px[3] = 255; }
                 img.export_png(p);

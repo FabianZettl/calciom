@@ -812,21 +812,26 @@ impl Ui {
         }
     }
     /// Text input field; edits `s` while focused. Returns true on Enter.
+    /// This frame's typing into `s`: letters, Backspace and Ctrl+V (paste), at most `max` characters. Every text field
+    /// goes through here (23.11.: the country/club search read the keys itself after they were already taken).
+    pub fn tippen(&self, s: &mut String, max: usize) -> bool {
+        let vorher = s.clone();
+        let strg = is_key_down(KeyCode::LeftControl) || is_key_down(KeyCode::RightControl) || is_key_down(KeyCode::LeftSuper);
+        if strg && is_key_pressed(KeyCode::V) {
+            let neu = macroquad::miniquad::window::clipboard_get().unwrap_or_default();
+            for c in neu.trim().trim_matches('"').chars().filter(|c| !c.is_control()) { if s.chars().count() < max { s.push(c); } }
+        } else {
+            for c in self.typed.iter() { if s.chars().count() < max && !(strg && c.eq_ignore_ascii_case(&'v')) { s.push(*c); } }
+        }
+        if self.key_back { s.pop(); }
+        *s != vorher
+    }
     pub fn input(&mut self, r: Rect, s: &mut String, focused: bool, placeholder: &str) -> bool { self.input_max(r, s, focused, placeholder, 40) }
     /// A text field of at most `max` characters; Ctrl+V pastes (beta 23.11.: folder paths could not be pasted).
     pub fn input_max(&mut self, r: Rect, s: &mut String, focused: bool, placeholder: &str, max: usize) -> bool {
         rrect(r.x, r.y, r.w, r.h, r.h / 2.0, if focused { Theme::akzent() } else { Theme::linie() });
         rrect(r.x + 1.5, r.y + 1.5, r.w - 3.0, r.h - 3.0, r.h / 2.0 - 1.5, Theme::flaeche());
-        if focused {
-            let strg = is_key_down(KeyCode::LeftControl) || is_key_down(KeyCode::RightControl) || is_key_down(KeyCode::LeftSuper);
-            if strg && is_key_pressed(KeyCode::V) {
-                let neu = macroquad::miniquad::window::clipboard_get().unwrap_or_default();
-                for c in neu.trim().trim_matches('"').chars().filter(|c| !c.is_control()) { if s.chars().count() < max { s.push(c); } }
-            } else {
-                for c in self.typed.iter() { if s.chars().count() < max && !(strg && c.eq_ignore_ascii_case(&'v')) { s.push(*c); } }
-            }
-            if self.key_back { s.pop(); }
-        }
+        if focused { self.tippen(s, max); }
         let size = 20.0;
         if s.is_empty() {
             self.text(placeholder, r.x + 18.0, r.y + r.h / 2.0 + 7.0, size, Theme::gedaempft());
@@ -891,6 +896,15 @@ pub fn gradient_h(x: f32, y: f32, w: f32, h: f32, a: Color, b: Color) {
         let t = i as f32 / (n - 1) as f32;
         let c = Color::new(a.r + (b.r - a.r) * t, a.g + (b.g - a.g) * t, a.b + (b.b - a.b) * t, a.a + (b.a - a.a) * t);
         draw_rectangle(x + w * i as f32 / n as f32, y, w / n as f32 + 0.5, h, c);
+    }
+}
+/// The same from top (a) to bottom (b).
+pub fn gradient_v(x: f32, y: f32, w: f32, h: f32, a: Color, b: Color) {
+    let n = 24;
+    for i in 0..n {
+        let t = i as f32 / (n - 1) as f32;
+        let c = Color::new(a.r + (b.r - a.r) * t, a.g + (b.g - a.g) * t, a.b + (b.b - a.b) * t, a.a + (b.a - a.a) * t);
+        draw_rectangle(x, y + h * i as f32 / n as f32, w, h / n as f32 + 0.5, c);
     }
 }
 pub fn rrect_line(x: f32, y: f32, w: f32, h: f32, _r: f32, c: Color) {
