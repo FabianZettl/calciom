@@ -62,6 +62,8 @@ Rules and numbers: [MECHANICS.md](MECHANICS.md). Sources and licences: [CREDITS.
 
 Thanks to [BlankState222](https://github.com/BlankState222) for the ideas behind the two-legged ties and start-stamina FL27 modules.
 
+**Start fitness in FL27 (optional):** install BlankState222's `start_stamina` module yourself from [github.com/BlankState222/FL27---siders](https://github.com/BlankState222/FL27---siders) and list it in `sider.ini` directly below the PESM LivePatch module. Then switch on *Settings › Football Life 2027 › Write start fitness for start_stamina*: before every match PES M writes `SiderAddons/modules/start_stamina.txt` with the fitness of both squads. All credit for the module goes to BlankState222.
+
 ## License
 
 MIT, see [LICENSE](LICENSE). Fonts: SIL Open Font License. Sounds: CC0.
