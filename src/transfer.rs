@@ -664,6 +664,10 @@ mod frist_tests {
         let w = crate::world::testwelt(5);
         let mut c = Career::new(w, 2, "Test");
         let (a, b) = crate::world::WINDOWS[0];
+        // Fabian 24.11.: deadline day is 31 August, on 1 September the window is shut
+        assert_eq!(crate::date::ymd(0, b), (2026, 8, 31));
+        c.world.day = b + 1;
+        assert!(c.in_window().is_none(), "1 September: closed");
         c.world.day = a + 1;
         assert_eq!(c.frist(4), 4);
         c.world.day = b - 1;

@@ -69,7 +69,8 @@ pub const OWN_GOAL: f32 = 0.04;
 // calendar (sim.json "calendar")
 pub const LEAGUE_START: u32 = 14;
 pub const LEAGUE_END: u32 = 301;
-pub const WINDOWS: [(u32, u32); 2] = [(0, 31), (153, 183)];
+/// Summer 1 Aug–31 Aug (day 0 is 1 August), winter 1 Jan–31 Jan.
+pub const WINDOWS: [(u32, u32); 2] = [(0, 30), (153, 183)];
 pub const INTL_BREAKS: [(u32, u32); 4] = [(35, 41), (70, 76), (105, 111), (238, 244)];
 pub const WINTER_BREAK: (u32, u32) = (139, 152);
 
