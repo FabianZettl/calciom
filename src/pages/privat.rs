@@ -4,6 +4,7 @@ use super::*;
 /// lifestyle, the family with the next anniversary, the weekly calendar.
 pub(super) fn privat_seite(ui: &mut Ui, v: &mut View, c: &mut Career) {
     use crate::inhalt::t;
+    if !c.feature("privat") { ui.text(t("ui.features.ist_aus"), x0() + 20.0, Y0 + 40.0, 16.0, Theme::text2()); return; } // roh
     tabs(ui, v, &[t("ui.privat.reiter.alltag"), t("ui.privat.reiter.mehr")]);
     if v.tab == 1 { return mehr_seite(ui, v, c); }
     let w3 = (cbreite() - 24.0) / 3.0;
@@ -91,11 +92,14 @@ pub(super) fn privat_seite(ui: &mut Ui, v: &mut View, c: &mut Career) {
     y = r.y + r.h - 130.0;
     ui.text_semi(t("ui.privat.neu"), r.x + 18.0, y, 15.0, Theme::text());
     let tage: Vec<&str> = (0..7).map(|k| crate::date::wd((k + 2) as u32)).collect();
-    if let Some(k) = ui.segment(Rect::new(r.x + 18.0, y + 12.0, r.w - 36.0, 30.0), &tage, v.leih_wahl.0.min(6)) { v.leih_wahl.0 = k; }
+    // the weekday picked for a new appointment (its own state: the loan dialog's must not be touched)
+    thread_local! { static TAG: std::cell::Cell<usize> = const { std::cell::Cell::new(0) }; }
+    let wt = TAG.with(|x| x.get());
+    if let Some(k) = ui.segment(Rect::new(r.x + 18.0, y + 12.0, r.w - 36.0, 30.0), &tage, wt) { TAG.with(|x| x.set(k)); }
     let bw = (r.w - 48.0) / 3.0;
     for (k, art) in crate::privat::ARTEN.iter().enumerate() {
         if ui.button(Rect::new(r.x + 18.0 + k as f32 * (bw + 6.0), y + 52.0, bw, 34.0), t(&format!("ui.privat.termin.{art}")), false) {
-            c.termin_anlegen(art, v.leih_wahl.0.min(6) as u8, 13);
+            c.termin_anlegen(art, TAG.with(|x| x.get()).min(6) as u8, 13);
             v.toast(t("ui.privat.angelegt"), true);
         }
     }

@@ -60,7 +60,7 @@ impl Career {
         if pl.joined == 0 { return None; }
         // the start of the window that opened last (today or before), and the next one
         let abs = self.abs();
-        let starts: Vec<u32> = (self.world.season.saturating_sub(1)..=self.world.season + 1).flat_map(|s| crate::world::WINDOWS.iter().map(move |w| abs_day(s, w.0))).collect();
+        let starts: Vec<u32> = (self.world.season.saturating_sub(1)..=self.world.season + 1).flat_map(|s| crate::world::WINDOWS.iter().filter(|w| w.0 != 0).map(move |w| abs_day(s, w.0))).collect(); // 1 August continues July's window
         let letzter = starts.iter().copied().filter(|&x| x <= abs).max().unwrap_or(0);
         if pl.joined < letzter { return None; }
         let naechster = starts.iter().copied().filter(|&x| x > abs).min().unwrap_or(abs);
@@ -589,10 +589,10 @@ mod tests {
             c.submit_neg(i);
             assert_eq!((c.negs[i].ph.as_ref().unwrap().runde, c.negs[i].ph.as_ref().unwrap().geduld, c.negs[i].text.clone()), (runde, geduld, text));
         }
-        // a renewal opens only 18 months before the end of the contract
+        // Fabian 24.11.: contract talks with our own players are always possible, years before the end too
         let own = c.squad()[0];
         c.world.players[own].contract_end = c.world.season + 4;
-        assert!(c.open_neg(own).is_err());
+        let r = c.open_neg(own); assert!(r.is_ok(), "{:?}", r.err());
     }
     /// Fabian 23.11.: a loan request with duration and an obligation to buy; a regular says no, a fringe player yes;
     /// at the end day the obligation buys him, without it he goes back.
@@ -678,6 +678,16 @@ mod frist_tests {
         let w = crate::world::testwelt(5);
         let mut c = Career::new(w, 2, "Test");
         let (a, b) = crate::world::WINDOWS[0];
+        // Fabian 24.11.: the summer window opens on 1 July (the end of the season before) and runs on through August
+        c.world.day = 335;
+        assert_eq!(crate::date::ymd(0, 334), (2027, 7, 1));
+        assert!(c.in_window().is_some() && c.frist(4) == 4 && !c.deadline());
+        let p0 = (0..c.world.players.len()).find(|&x| c.world.players[x].team >= 0 && c.world.players[x].leihe.is_none()).unwrap();
+        c.world.players[p0].joined = c.abs();
+        c.world.season += 1;
+        c.world.day = 10;
+        assert!(c.verkauf_gesperrt(p0).is_some(), "signed in July, still locked in August: one window");
+        c.world.season -= 1;
         // Fabian 24.11.: deadline day is 31 August, on 1 September the window is shut
         assert_eq!(crate::date::ymd(0, b), (2026, 8, 31));
         c.world.day = b + 1;

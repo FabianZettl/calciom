@@ -43,6 +43,10 @@ pub struct Psyche {
     /// (abs day, text key, points), newest last.
     pub dyn_z: f32,
     pub dyn_gruende: Vec<(u32, String, f32)>,
+    /// Days in a row the swing stayed clearly up (positive) or down (negative), and the base change it made this season
+    /// (Fabian 25.11.: a form confirmed for long becomes the new standard).
+    pub dyn_tage: i16,
+    pub dyn_dauer: (u32, f32),
     pub ch: Vec<f32>,
     pub sh: Vec<f32>,
     pub shm: Vec<f32>,
@@ -447,7 +451,8 @@ impl Career {
         let c = |i| cw(pl, i);
         let mut tr: Vec<(String, f32)> = vec![];
         let abs = self.abs();
-        if pl.inj == 0 && !pl.ps.einsatz.is_empty() {
+        // no complaints about playing time while nobody plays (Fabian 24.11.: after the season's end)
+        if pl.inj == 0 && !pl.ps.einsatz.is_empty() && !self.spielfrei() {
             let anteil = pl.ps.einsatz.iter().sum::<f32>() / pl.ps.einsatz.len() as f32;
             let erwartet = if pl.ps.erweitert { 0.0 } else { Self::erwartung(pl.ps.rolle) };
             let mut d = ((anteil - erwartet) * m("spielzeit_faktor")).clamp(m("spielzeit_min"), m("spielzeit_max"));
@@ -658,7 +663,10 @@ impl Career {
         (g("vertrauen_start") + s).clamp(0.0, 100.0)
     }
     /// A player comes with a concern (topic engine with throttle: 1 per day, 3 per week; important ones always).
+    /// The time without competitive matches: after the last league matchday until the first of the next season.
+    pub fn spielfrei(&self) -> bool { self.world.day > crate::world::LEAGUE_END || self.world.day < crate::world::LEAGUE_START }
     pub fn anliegen(&mut self, p: usize, thema: &str, wichtig: bool) {
+        if thema == "spielzeit" && self.spielfrei() { return; }
         let abs = self.abs();
         if self.world.players[p].ps.sperre.iter().any(|s| s.0 == thema && abs < s.1) { return; }
         self.mensch.anliegen.retain(|&d| abs < d + 7);
@@ -674,12 +682,38 @@ impl Career {
             if self.pool_starten(p, &tid) { return; }
         }
         let opts = self.optionen_fuer(thema, &format!("{}:{abs}", self.world.players[p].id));
-        let text = t(&format!("anlass.{thema}"));
-        let (title, from) = if thema == "lob" || thema == crate::id("kritik") { (crate::tf!("ui.mensch.gespraech_mit", n), self.co_name.clone()) } else { (crate::tf!("ui.mensch.moechte_mit_dir_sprechen", n), n.clone()) };
-        self.msg(1, &from, &title, text, Action::Wahl { art: format!("gespraech:{thema}"), bezug: vec![p], optionen: opts });
+        // how he comes to you depends on his mood and his character (Fabian 24.11.): same topic, another tone
+        let ton = self.haltung_ton(p);
+        let vk = self.vkey(&format!("ui.ton.auftakt.{ton}"), &format!("{}{abs}", self.world.players[p].id));
+        let text = format!("{}\n\n{}", crate::tf!(&vk, n.clone()), t(&format!("anlass.{thema}")));
+        let (title, from) = if thema == "lob" || thema == crate::id("kritik") { (crate::tf!("ui.mensch.gespraech_mit", n), self.co_name.clone()) } else { (crate::tf!(&format!("ui.ton.titel.{ton}"), n), n.clone()) };
+        self.msg(1, &from, &title, &text, Action::Wahl { art: format!("gespraech:{thema}"), bezug: vec![p], optionen: opts });
+    }
+    /// The tone a player takes with the coach: furious (low mood, hot temper), demanding (big ego or status), hurt (low
+    /// mood), unsure (weak nerves), else polite.
+    pub fn haltung_ton(&self, p: usize) -> &'static str {
+        let pl = &self.world.players[p];
+        let k = |i| cw(pl, i);
+        if pl.morale < 40.0 && k(TEMPERAMENT) >= 60.0 { crate::id("wuetend") }
+        else if k(EGO) >= 65.0 || k(STATUS) >= 70.0 { crate::id("fordernd") }
+        else if pl.morale < 45.0 { crate::id("enttaeuscht") }
+        else if k(NERVEN) < 40.0 { crate::id("unsicher") }
+        else { crate::id("hoeflich") }
+    }
+    /// His reaction to the answer, in his own way: a hothead slams the door, a professional nods, a sensitive one
+    /// goes quiet (the effect itself comes from gespraech()).
+    pub fn reaktion_text(&mut self, p: usize, d: f32) -> String {
+        let pl = &self.world.players[p];
+        let k = |i| cw(pl, i);
+        let typ = if k(TEMPERAMENT) >= 65.0 { crate::id("hitzkopf") } else if k(PROF) >= 65.0 { crate::id("profi") } else if k(NERVEN) < 40.0 { crate::id("sensibel") } else if k(EGO) >= 65.0 { crate::id("ego") } else { crate::id("normal") };
+        let stufe = if d >= 2.0 { crate::id("gut") } else if d <= -2.0 { crate::id("schlecht") } else { crate::id("mittel") };
+        let n = pl.name.clone();
+        let vk = self.vkey(&format!("ui.ton.reaktion.{typ}.{stufe}"), &format!("{}{}", pl.id, self.abs()));
+        crate::tf!(&vk, n)
     }
     /// Weekly topic engine (themen.toml): a fixed chance per week and player.
     fn themen_tag(&mut self) {
+        if !self.feature("gespraeche") { return; } // roh
         if crate::date::weekday(self.world.day) != 1 || self.abs() < self.ruhe_bis { return; }
         let woche = (self.abs() / 7).to_string();
         for p in self.squad() {
@@ -788,7 +822,7 @@ impl Career {
         let basis = if art == crate::id("vertrag") { self.world.players[p].contract_end as f64 } else { self.world.players[p].wage };
         self.mensch.versprechen.push(Versprechen { pid: p, art: art.into(), seit: abs, frist: abs + frist, gewicht, stand: 0, basis, entschieden: 0 });
         let n = self.world.players[p].name.clone();
-        self.grund(&n, crate::inhalt::t("ui.mensch.versprechen"), 0.0, &crate::tf!("ui.mensch.zusage_gegeben_frist_tage", art, frist));
+        self.grund(&n, crate::inhalt::t("ui.mensch.versprechen"), 0.0, &crate::tf!("ui.mensch.zusage_gegeben_frist_tage", crate::inhalt::t(&format!("ui.zusage.art.{art}")), frist));
     }
     /// Decide a promise: kept (true) or broken.
     pub fn versprechen_entscheiden(&mut self, i: usize, gehalten: bool) {
@@ -797,7 +831,7 @@ impl Career {
         if v.stand != 0 { return; }
         v.stand = if gehalten { 1 } else { 2 };
         v.entschieden = abs;
-        let (p, art) = (v.pid, v.art.clone());
+        let (p, art) = (v.pid, crate::inhalt::t(&format!("ui.zusage.art.{}", v.art)).to_string());
         let g = |k: &str| f("gespraeche", &format!("motor.{k}"));
         let n = self.world.players[p].name.clone();
         if gehalten {
@@ -937,7 +971,7 @@ impl Career {
                 if self.world.players[p].team != self.own as i32 { return crate::inhalt::t("ui.mensch.er_ist_nicht_mehr_bei").into(); }
                 let d = self.gespraech(p, sub, key);
                 if sub == crate::id("zukunft") && key == crate::id("freigabe") && self.verkauf_gesperrt(p).is_none() { self.world.players[p].listed = true; }
-                crate::tf!("ui.mensch.wirkt", self.world.players[p].name, Self::mimik(d))
+                format!("{} {}", self.reaktion_text(p, d), crate::tf!("ui.mensch.wirkt", self.world.players[p].name, Self::mimik(d)))
             }
             "konflikt" => {
                 let (a, b) = (bezug[0], bezug[1]);
@@ -1143,7 +1177,8 @@ impl Career {
         let coach = self.coach.clone();
         self.grund(&coach, crate::id("lizenz"), 1.0, &crate::tf!("ui.lizenz.neu_titel", n));
         let own = self.own;
-        self.feiern.push(crate::meilensteine::Feier { art: crate::id("lizenz").into(), titel: crate::tf!("ui.lizenz.neu_titel", n), text: crate::tf!("ui.lizenz.neu_text", n, g), spieler: None, club: Some(own), stimmen: vec![] });
+        self.feiern.push(crate::meilensteine::Feier { art: crate::id("lizenz").into(), titel: crate::tf!("ui.lizenz.neu_titel", n), text: crate::tf!("ui.lizenz.neu_text", n, g), spieler: None, club: Some(own), stimmen: vec![], ..Default::default() });
+        self.cp_geben(crate::regeln::f("skilltree", "manager.lizenz") as u8, crate::inhalt::t("ui.mst.grund.lizenz"));
     }
     pub fn ansehen(&self) -> f32 { f("laufbahn", "reputation.ruf") * self.mgr_rep + f("laufbahn", "reputation.medien") * self.media + f("laufbahn", "reputation.vertrauen") * self.mensch.vorstand }
     /// Coach salary at a club (laufbahn.toml [gehalt]).
@@ -1215,6 +1250,25 @@ mod tests {
         let w = crate::world::testwelt(7);
         let own = w.clubs.iter().position(|c| c.name.contains("Sunderland")).unwrap_or(0);
         Career::new(w, own, "Test")
+    }
+    /// Fabian 24.11.: the same topic in another tone by mood and character, and a reaction in his own way.
+    #[test]
+    fn ton_nach_charakter() {
+        let mut c = karriere();
+        let p = c.squad()[2];
+        c.world.players[p].ps.an = true;
+        c.world.players[p].ps.ch = vec![50.0; 10];
+        c.world.players[p].ps.sh = vec![];
+        c.world.players[p].morale = 70.0;
+        assert_eq!(c.haltung_ton(p), "hoeflich");
+        c.world.players[p].ps.ch[TEMPERAMENT] = 80.0;
+        c.world.players[p].morale = 30.0;
+        assert_eq!(c.haltung_ton(p), "wuetend");
+        let r = c.reaktion_text(p, -4.0);
+        assert!(r.contains(&c.world.players[p].name) && !r.contains("%1"));
+        c.world.players[p].ps.ch[TEMPERAMENT] = 50.0;
+        c.world.players[p].ps.ch[EGO] = 80.0;
+        assert_eq!(c.haltung_ton(p), "fordernd");
     }
 
     #[test]

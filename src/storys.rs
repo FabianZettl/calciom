@@ -187,6 +187,7 @@ impl Career {
     }
     /// Daily: follow-up rules that are due; unanswered story messages after 14 days cost the player 3 mood.
     pub fn story_tag(&mut self) {
+        if !self.feature("gespraeche") { return; } // roh
         let abs = self.abs();
         let faellig: Vec<(String, Option<usize>)> = self.mensch.story_folgen.iter().filter(|x| abs >= x.2).map(|x| (x.0.clone(), x.1)).collect();
         self.mensch.story_folgen.retain(|x| abs < x.2);

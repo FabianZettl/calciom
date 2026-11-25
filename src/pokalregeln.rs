@@ -373,7 +373,7 @@ mod tests {
         for c in w.cups.iter().filter(|c| c.kind == 0) { println!("{} ({}): {} Vereine, {} Amateure", c.name, c.country, c.teams.len(), c.teams.iter().filter(|&&t| t >= AMA).count()); }
         assert_eq!(groesse(&w, "DFB-Pokal"), 64);
         assert_eq!(groesse(&w, "FA Cup"), 747);
-        assert_eq!(groesse(&w, "EFL Cup"), 92);
+        assert_eq!(groesse(&w, "Carabao Cup"), 92);
         assert_eq!(groesse(&w, "Coppa Italia"), 44);
         let dfb = w.cups.iter().find(|c| c.name == "DFB-Pokal").unwrap();
         assert!(dfb.fx.iter().all(|x| w.pokal_stufe(x.f.h) >= w.pokal_stufe(x.f.a)), "the lower club at home");

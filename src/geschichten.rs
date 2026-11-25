@@ -110,6 +110,7 @@ impl Career {
     fn gw_stimme(&self, k: &str) -> u8 { (zufall(&[crate::id("stimme"), k, &self.abs().to_string()]) * 3.0) as u8 % 3 }
     /// Weekly (on the original's weekday, from the third week): updates, a new story, the memory.
     pub fn geschichten_woche(&mut self) {
+        if !self.feature("gespraeche") { return; } // roh
         if self.world.day < 14 || self.world.day % 7 != g(crate::id("wochentag")) as u32 { return; }
         let Some(l) = self.gw_lage() else { return };
         let (abs, season) = (self.abs(), self.world.season);

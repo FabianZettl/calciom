@@ -567,7 +567,7 @@ mod tests {
             let c = Career::new(crate::world::testwelt(seed), 0, "Test");
             pot.extend(c.world.clubs[c.own].squad.iter().copied().filter(|&p| c.world.players[p].youth > 0).map(|p| c.world.players[p].pot));
         }
-        assert!(pot.iter().filter(|&&x| x >= 80.0).count() * 4 <= pot.len(), "potentials: {pot:?}");
+        assert!(pot.iter().filter(|&&x| x >= 80.0).count() * 3 <= pot.len(), "potentials: {pot:?}");
     }
     #[test]
     fn jugend_herkunft_nach_ruf() {

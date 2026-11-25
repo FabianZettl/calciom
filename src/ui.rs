@@ -23,6 +23,16 @@ fn lum(c: Color) -> f32 {
     0.2126 * f(c.r) + 0.7152 * f(c.g) + 0.0722 * f(c.b)
 }
 /// The colour with the higher contrast on `bg`: white or near black (guide: verein_auf, at least 4.5:1).
+/// Characters the Barlow fonts do not have (Fabian 25.11.: a box instead of „→“) drawn as ones they have; emoji left out.
+pub fn zeichen(s: &str) -> std::borrow::Cow<'_, str> {
+    let fehlt = |c: char| matches!(c, '→' | '←' | '✓' | '▲' | '▼' | '↔' | '♪' | '►' | '⌫' | '★' | '⏳') || c as u32 >= 0x1F000;
+    if !s.chars().any(fehlt) { return std::borrow::Cow::Borrowed(s); }
+    let mut o = String::with_capacity(s.len());
+    for c in s.chars() {
+        match c { '→' => o.push('»'), '←' | '⌫' => o.push('«'), '✓' => o.push('√'), '▲' => o.push('+'), '▼' => o.push('−'), '↔' => o.push_str("‹›"), '►' => o.push('›'), '♪' | '★' => o.push('*'), _ if fehlt(c) => {}, _ => o.push(c) } // roh
+    }
+    std::borrow::Cow::Owned(o.trim_end().to_string())
+}
 pub fn on(bg: Color) -> Color { if (1.05 / (lum(bg) + 0.05)) >= ((lum(bg) + 0.05) / 0.0625) { hex(0xffffff) } else { hex(0x1b1f27) } }
 /// Contrast ratio of two colours (WCAG).
 pub fn kontrast(a: Color, b: Color) -> f32 { let (x, y) = (lum(a), lum(b)); (x.max(y) + 0.05) / (x.min(y) + 0.05) }
@@ -301,25 +311,28 @@ impl Ui {
 
     // drawn as given: fixed texts come translated from crate::inhalt::t / tf!, names never go through a translation
     pub fn text(&self, s: &str, x: f32, y: f32, size: f32, c: Color) {
+        let s = &*zeichen(s);
         let (s, g) = self.im_rahmen(s, x, y, size, &|t, g| self.measure(t, g));
         draw_text_ex(&s, x, y, TextParams { font: Some(&self.body), font_size: g as u16, color: c, ..Default::default() });
     }
     pub fn text_semi(&self, s: &str, x: f32, y: f32, size: f32, c: Color) {
+        let s = &*zeichen(s);
         let (s, g) = self.im_rahmen(s, x, y, size, &|t, g| self.measure_semi(t, g));
         draw_text_ex(&s, x, y, TextParams { font: Some(&self.semi), font_size: g as u16, color: c, ..Default::default() });
     }
     pub fn title(&self, s: &str, x: f32, y: f32, size: f32, c: Color) {
+        let s = &*zeichen(s);
         let (s, g) = self.im_rahmen(s, x, y, size, &|t, g| self.measure_title(t, g));
         draw_text_ex(&s, x, y, TextParams { font: Some(&self.head), font_size: g as u16, color: c, ..Default::default() });
     }
     pub fn measure_title(&self, s: &str, size: f32) -> f32 {
-        measure_text(s, Some(&self.head), size as u16, 1.0).width
+        measure_text(&zeichen(s), Some(&self.head), size as u16, 1.0).width
     }
     pub fn measure(&self, s: &str, size: f32) -> f32 {
-        measure_text(s, Some(&self.body), size as u16, 1.0).width
+        measure_text(&zeichen(s), Some(&self.body), size as u16, 1.0).width
     }
     pub fn measure_semi(&self, s: &str, size: f32) -> f32 {
-        measure_text(s, Some(&self.semi), size as u16, 1.0).width
+        measure_text(&zeichen(s), Some(&self.semi), size as u16, 1.0).width
     }
     pub fn text_right(&self, s: &str, right: f32, y: f32, size: f32, c: Color) {
         let w = self.measure(s, size);
@@ -992,6 +1005,13 @@ pub fn rrect_line(x: f32, y: f32, w: f32, h: f32, _r: f32, c: Color) {
 
 #[cfg(test)]
 mod farb_tests {
+    /// Fabian 25.11.: no character the fonts lack reaches the screen.
+    #[test]
+    fn zeichen_ersetzt() {
+        assert_eq!(super::zeichen("45 → 48"), "45 » 48");
+        assert_eq!(super::zeichen("Feuer 🔥"), "Feuer");
+        assert!(matches!(super::zeichen("normal – €"), std::borrow::Cow::Borrowed(_)));
+    }
     use super::*;
 
     fn bild(px: &[(u8, u8, u8, u8)], n: usize) -> Vec<u8> { px.iter().flat_map(|&(r, g, b, a)| std::iter::repeat([r, g, b, a]).take(n)).flatten().collect() }

@@ -1,0 +1,99 @@
+# Skill Tree (Fabian 24./25.11., konzepte/skilltree.md). Alle Zahlen sind Startwerte und änderbar.
+# Knoten: "Art:Inhalt:Kosten[:Voraussetzung]". Art A Werte (Name+Punkte, Komma), S Spezialfähigkeit, P Spielstil, E Erfahrung (kommt später),
+# X Signature (Werte und S=Fähigkeit). Je Ast 7 Knoten: Stufe 1 = 1–2, Stufe 2 = 3–4, Stufe 3 = 5–6, Stufe 4 = 7.
+
+[punkte]
+balken = [[6.5, 8.0], [7.0, 15.0], [7.5, 25.0], [8.0, 40.0]]   # ab Note → Balken
+spieler_des_spiels = 15.0
+min_minuten = 45
+faktor_pokal = 1.2
+faktor_europa = 1.3
+staerker_ab = 8.0
+faktor_staerker = 1.2
+faktor_schwaecher = 0.7
+konto_max = 6
+grenze_alter = [[21, 8], [26, 7], [30, 5], [33, 3], [99, 2]]   # bis Alter → höchstens SP je Saison
+meilenstein_sp = ["debuet", "spiele50", "spiele100", "spiele200", "spiele300", "erstes_laenderspiel", "hattrick"]
+
+[regeln]
+boost_je_woche = 0.5
+boost_wochen = 4
+boost_saison_max = 4.0
+attribute_bis_alter = 30
+koerper_bis_alter = 24
+halb_ab_alter = 27
+ueber_potenzial = 2.0
+teuer_ab = 90
+lern_chance = 0.70
+lern_treffer = 3
+skills_max = 10
+stil_saisons = 2
+pos_faktor = 0.7
+pos_max = 2
+master_bis_alter = 24
+koerper = ["Speed", "Acceleration", "Jump", "Stamina"]
+verwandt = [["CB", "DMF"], ["LB", "LMF"], ["RB", "RMF"], ["LB", "RB"], ["DMF", "CMF"], ["CMF", "AMF"], ["LMF", "LWF"], ["RMF", "RWF"], ["LWF", "RWF"], ["AMF", "SS"], ["SS", "CF"], ["LMF", "RMF"]]
+
+[baum.gk]
+positionen = ["GK"]
+aeste = ["shot_stopper", "sweeper_keeper", "commander"]
+shot_stopper = ["A:GKReflexes+2:1", "A:GKAwareness+2:1", "A:GKReflexes+1,GKAwareness+1:2", "E:Big Game Player:2", "A:GKReflexes+2:3", "E:Penalty Saver:3", "X:Wall:GKReflexes+1,GKReach+1:4"]
+sweeper_keeper = ["A:GKClearing+2:1", "A:LowPass+2:1", "S:GK Low Punt:2", "S:GK Long Throw:2", "P:Offensive Goalkeeper:3", "A:LoftedPass+2:3", "X:Libero in Gloves:GKClearing+1,LowPass+1,S=Long Ball Expert:4"]
+commander = ["A:GKReach+2:1", "A:GKCatching+2:1", "A:Jump+2:2", "S:Captaincy:2", "P:Defensive Goalkeeper:3", "E:Leader:3", "X:Voice of the Box:GKCatching+1:4"]
+
+[baum.cb]
+positionen = ["CB"]
+aeste = ["stopper", "ball_playing", "aerial"]
+stopper = ["A:BallWinning+2:1", "A:DefensiveAwareness+2:1", "S:Man Marking:2", "S:Interception:2:DefensiveAwareness>=72,BallWinning>=70", "P:The Destroyer:3", "A:Aggression+1,BallWinning+1:3", "X:Brick Wall:DefensiveAwareness+1,BallWinning+1,S=Fighting Spirit:4"]
+ball_playing = ["A:LowPass+2:1", "A:BallControl+2:1", "S:Low Lofted Pass:2", "A:LoftedPass+2:2", "P:Build Up:3", "S:Through Passing:3:LowPass>=78,OffensiveAwareness>=70", "X:Quarterback:LoftedPass+1,S=Weighted Pass:4"]
+aerial = ["A:Heading+2:1", "A:PhysicalContact+2:1", "A:Jump+2:2", "S:Acrobatic Clear:2", "S:Heading:3:Heading>=75,Jump>=70", "E:Leader:3", "X:Tower:Heading+1,Jump+1:4"]
+
+[baum.fb]
+positionen = ["LB", "RB"]
+aeste = ["overlapper", "defensive_fb", "inverted"]
+overlapper = ["A:Stamina+2:1", "A:LoftedPass+2:1", "S:Early Cross:2", "A:Speed+1,Acceleration+1:2", "P:Offensive Full-back:3", "S:Pinpoint Crossing:3:LoftedPass>=75,Curl>=70", "X:Engine:Stamina+1,S=Speeding Bullet:4"]
+defensive_fb = ["A:DefensiveAwareness+2:1", "A:BallWinning+2:1", "S:Track Back:2", "S:Man Marking:2", "P:Defensive Full-back:3", "S:Interception:3:DefensiveAwareness>=72,BallWinning>=70", "X:Shadow:DefensiveAwareness+1,Aggression+1:4"]
+inverted = ["A:LowPass+2:1", "A:BallControl+2:1", "S:One-touch Pass:2", "A:TightPossession+2:2", "P:Full-back Finisher:3", "S:Weighted Pass:3", "X:Extra Midfielder:LowPass+1:4"]
+
+[baum.cm]
+positionen = ["DMF", "CMF"]
+aeste = ["anchor", "box_to_box", "deep_playmaker"]
+anchor = ["A:DefensiveAwareness+2:1", "A:BallWinning+2:1", "S:Interception:2:DefensiveAwareness>=72,BallWinning>=70", "A:PhysicalContact+2:2", "P:Anchor Man:3", "S:Man Marking:3", "X:Shield:DefensiveAwareness+1,BallWinning+1:4"]
+box_to_box = ["A:Stamina+2:1", "A:OffensiveAwareness+2:1", "S:Fighting Spirit:2", "A:KickingPower+2:2", "P:Box-to-Box:3", "S:Long Range Drive:3:KickingPower>=78,Finishing>=68", "X:Engine Room:Stamina+1,S=Incisive Run:4"]
+deep_playmaker = ["A:LowPass+2:1", "A:LoftedPass+2:1", "S:One-touch Pass:2", "S:Weighted Pass:2", "P:Orchestrator:3", "S:Through Passing:3:LowPass>=78,OffensiveAwareness>=70", "X:Metronome:LowPass+1:4"]
+
+[baum.am]
+positionen = ["AMF", "LMF", "RMF", "LWF", "RWF"]
+aeste = ["creator", "dribbler", "inside_forward"]
+creator = ["A:LowPass+2:1", "A:OffensiveAwareness+2:1", "S:Through Passing:2:LowPass>=78,OffensiveAwareness>=70", "S:One-touch Pass:2", "P:Classic No. 10:3", "S:Weighted Pass:3", "X:Maestro:OffensiveAwareness+1,LowPass+1:4"]
+dribbler = ["A:Dribbling+2:1", "A:Balance+2:1", "S:Double Touch:2", "S:Marseille Turn:2", "P:Roaming Flank:3", "S:Flip Flap:3", "X:Magician:Dribbling+1,S=Mazing Run:4"]
+inside_forward = ["A:Finishing+2:1", "A:Curl+2:1", "S:Outside Curler:2", "S:First-time Shot:2", "P:Hole Player:3", "S:Long Range Shooting:3", "X:Cut-Inside King:Curl+1,Finishing+1:4"]
+
+[baum.cf]
+positionen = ["CF", "SS"]
+aeste = ["poacher", "target_man", "complete_forward"]
+poacher = ["A:Finishing+2:1", "A:OffensiveAwareness+2:1", "S:First-time Shot:2", "A:Acceleration+2:2", "P:Goal Poacher:3", "S:Acrobatic Finishing:3:Balance>=75,Finishing>=75", "X:Assassin:Finishing+1,S=Incisive Run:4"]
+target_man = ["A:Heading+2:1", "A:PhysicalContact+2:1", "S:Heading:2:Heading>=75,Jump>=70", "A:Jump+2:2", "P:Target Man:3", "S:Step On Ball Control:3", "X:Battering Ram:Heading+1,PhysicalContact+1:4"]
+complete_forward = ["A:BallControl+2:1", "A:LowPass+2:1", "S:One-touch Pass:2", "S:Chip Shot Control:2", "P:Dummy Runner:3", "S:Long Range Drive:3:KickingPower>=78,Finishing>=68", "X:Talisman:OffensiveAwareness+1,S=Penalty Specialist:4"]
+
+# Manager-Baum (Konzept Teil 5): Coaching Points aus Saisonziel, Titeln, Aufstieg, Siegen gegen Stärkere, Lizenz.
+# W = Managerwert +3 (bis 85), K = Kniff, T = Taktik, X = Signature: K, T und X wirken in einem späteren Update.
+[manager]
+konto_max = 5
+saison_max = 8
+ziel = 2
+ziel_uebertroffen = 3
+ziel_uebertroffen_plaetze = 3
+titel = 2
+sieg_staerker = 1
+sieg_staerker_max = 2
+staerker_ab = 8.0
+lizenz = 2
+wert_plus = 3.0
+wert_max = 85.0
+aeste = ["tactics", "people", "development", "market", "media"]
+tactics = ["W:taktikwissen:1", "T:Formation Pack:1", "T:Gegenpressing:2", "T:Direct Play:2", "T:Tiki-Taka:3", "T:Plan C:3", "X:Mastermind:4"]
+people = ["W:menschenfuehrung:1", "K:Motivation:1", "K:Half-time Talk+:2", "W:autoritaet:2", "K:Dressing Room Leader:3", "K:Second Chance:3", "X:Father Figure:4"]
+development = ["W:nachwuchsarbeit:1", "W:fitnesswissen:1", "K:Training Ground:2", "K:Academy Link:2", "K:Youth Promise:3", "K:Fitness Lab:3", "X:Talent Factory:4"]
+market = ["W:verhandlungsgeschick:1", "K:Scouting Eye:1", "K:Hidden Gem:2", "K:Clause Hunter:2", "K:Hard Bargain:3", "K:Network:3", "X:Super Agent:4"]
+media = ["W:medienwirkung:1", "K:Calm Voice:1", "K:Pundit:2", "K:Mind Games:2", "K:Languages:3", "K:Media Darling:3", "X:Face of the Club:4"]

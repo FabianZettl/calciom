@@ -4,7 +4,7 @@ use super::*;
 pub(super) fn optionen(ui: &mut Ui, v: &mut View, c: &mut Career) {
     // Fabian 23.11.: one area per topic instead of everything on one card
     let t = crate::inhalt::t;
-    tabs(ui, v, &[t("ui.einst.reiter.spielstand"), t("ui.einst.reiter.anzeige"), t("ui.einst.reiter.klang"), t("ui.einst.reiter.spiel"), t("ui.einst.reiter.fl27"), t("ui.einst.reiter.handy")]);
+    tabs(ui, v, &[t("ui.einst.reiter.spielstand"), t("ui.einst.reiter.anzeige"), t("ui.einst.reiter.klang"), t("ui.einst.reiter.spiel"), t("ui.einst.reiter.fl27"), t("ui.einst.reiter.features"), t("ui.einst.reiter.handy")]);
     let r = Rect::new(x0() + 4.0, Y0, cbreite(), hoehe() - Y0 - 16.0);
     match v.tab {
         0 => {
@@ -49,36 +49,37 @@ pub(super) fn optionen(ui: &mut Ui, v: &mut View, c: &mut Career) {
         1 => {
             ui.card_titled(r, t("ui.einst.reiter.anzeige"), Theme::akzent());
     ui.text_semi(crate::inhalt::t("ui.pages.thema"), r.x + 16.0, r.y + 64.0, 17.0, Theme::text());
-    if let Some(t) = ui.segment(Rect::new(r.x + 16.0, r.y + 78.0, 380.0, 38.0), &[crate::inhalt::t("ui.pages.sonntag_hell"), crate::inhalt::t("ui.pages.flutlicht_dunkel")], v.dark as usize) {
+    if let Some(t) = ui.segment(Rect::new(r.x + 16.0, r.y + 82.0, 420.0, 38.0), &[crate::inhalt::t("ui.pages.sonntag_hell"), crate::inhalt::t("ui.pages.flutlicht_dunkel")], v.dark as usize) {
         v.dark = t == 1;
         let _ = std::fs::create_dir_all(save_dir());
         let _ = std::fs::write(theme_file(), if v.dark { crate::id("flutlicht") } else { crate::id("sonntag") });
     }
     // on a matchday the competition's colours (Fabian 24.11.), on other days light or dark as chosen
-    if let Some(t) = ui.segment(Rect::new(r.x + 410.0, r.y + 78.0, 360.0, 38.0), &[crate::inhalt::t("ui.thema.immer_gleich"), crate::inhalt::t("ui.thema.wettbewerb")], c.thema_wettbewerb as usize) { c.thema_wettbewerb = t == 1; }
-    ui.text_semi(crate::inhalt::t("optionen.sprache"), r.x + 16.0, r.y + 264.0, 17.0, Theme::text());
+    ui.text_semi(crate::inhalt::t("ui.thema.spieltag"), r.x + 16.0, r.y + 154.0, 17.0, Theme::text());
+    if let Some(t) = ui.segment(Rect::new(r.x + 16.0, r.y + 172.0, 580.0, 38.0), &[crate::inhalt::t("ui.thema.immer_gleich"), crate::inhalt::t("ui.thema.wettbewerb")], c.thema_wettbewerb as usize) { c.thema_wettbewerb = t == 1; }
+    ui.text_semi(crate::inhalt::t("optionen.sprache"), r.x + 16.0, r.y + 474.0, 17.0, Theme::text());
     let en = crate::inhalt::sprache() == crate::inhalt::Sprache::En;
-    if let Some(t) = ui.segment(Rect::new(r.x + 16.0, r.y + 278.0, 380.0, 38.0), &[crate::inhalt::t("sprache.de"), crate::inhalt::t("sprache.en")], en as usize) {
+    if let Some(t) = ui.segment(Rect::new(r.x + 16.0, r.y + 492.0, 420.0, 38.0), &[crate::inhalt::t("sprache.de"), crate::inhalt::t("sprache.en")], en as usize) {
         crate::inhalt::sprache_setzen(if t == 1 { crate::inhalt::Sprache::En } else { crate::inhalt::Sprache::De });
         let _ = std::fs::create_dir_all(save_dir());
         let _ = std::fs::write(sprache_file(), if t == 1 { crate::id("en") } else { crate::id("de") });
     }
-    ui.text_semi(crate::inhalt::t("ui.akzent.titel"), r.x + 16.0, r.y + 144.0, 17.0, Theme::text());
+    ui.text_semi(crate::inhalt::t("ui.akzent.titel"), r.x + 16.0, r.y + 244.0, 17.0, Theme::text());
     // crest, default blue, or an own colour (Fabian 23.11.: let users adjust it themselves)
     let modus = if c.akzent_wappen { 0 } else if eigener_akzent().is_some() { 2 } else { 1 };
-    if let Some(t) = ui.segment(Rect::new(r.x + 16.0, r.y + 158.0, 420.0, 38.0), &[crate::inhalt::t("ui.akzent.wappen"), crate::inhalt::t("ui.akzent.standard"), crate::inhalt::t("ui.akzent.eigene")], modus) {
+    if let Some(t) = ui.segment(Rect::new(r.x + 16.0, r.y + 262.0, 580.0, 38.0), &[crate::inhalt::t("ui.akzent.wappen"), crate::inhalt::t("ui.akzent.standard"), crate::inhalt::t("ui.akzent.eigene")], modus) {
         c.akzent_wappen = t == 0;
         if t == 1 { akzent_setzen(None); } else if t == 2 && eigener_akzent().is_none() { akzent_setzen(Some(0x38bdf8)); }
     }
     if modus == 2 || (!c.akzent_wappen && eigener_akzent().is_some()) {
         const FARBEN: [u32; 12] = [0x38bdf8, 0x2563eb, 0x7c3aed, 0xdb2777, 0xdc2626, 0xea580c, 0xd97706, 0x65a30d, 0x16a34a, 0x0d9488, 0x475569, 0x111827];
         for (k, &f) in FARBEN.iter().enumerate() {
-            let b = Rect::new(r.x + 16.0 + k as f32 * 36.0, r.y + 204.0, 30.0, 30.0);
+            let b = Rect::new(r.x + 16.0 + k as f32 * 36.0, r.y + 314.0, 30.0, 30.0);
             rrect(b.x, b.y, b.w, b.h, 15.0, hex(f));
             if eigener_akzent() == Some(f) { rrect_line(b.x - 3.0, b.y - 3.0, b.w + 6.0, b.h + 6.0, 18.0, Theme::text()); }
             if ui.hit(b) { akzent_setzen(Some(f)); }
         }
-        let hr = Rect::new(r.x + 460.0, r.y + 200.0, 160.0, 38.0);
+        let hr = Rect::new(r.x + 460.0, r.y + 310.0, 160.0, 38.0);
         let mut h = v.name_neu.clone().filter(|s| s.starts_with('#')).unwrap_or_else(|| format!("#{:06x}", eigener_akzent().unwrap_or(0)));
         // a click starts an empty field (Fabian 23.11.: typing or pasting onto the old code gave nothing valid)
         if ui.hit(hr) { h = "#".into(); v.name_neu = Some(h.clone()); }
@@ -89,12 +90,12 @@ pub(super) fn optionen(ui: &mut Ui, v: &mut View, c: &mut Career) {
         }
     }
     // the UI scale (75–150 %), saved for every start
-    ui.text_semi(crate::inhalt::t("ui.skala.titel"), r.x + 460.0, r.y + 64.0, 17.0, Theme::text());
+    ui.text_semi(crate::inhalt::t("ui.skala.titel"), r.x + 16.0, r.y + 384.0, 17.0, Theme::text());
     let stufen = [0.75f32, 0.9, 1.0, 1.15, 1.3, 1.5];
     let namen: Vec<String> = stufen.iter().map(|s| format!("{:.0} %", s * 100.0)).collect();
     let nr: Vec<&str> = namen.iter().map(|s| s.as_str()).collect();
     let jetzt = stufen.iter().position(|s| (s - crate::ui::ui_skala()).abs() < 0.01).unwrap_or(2);
-    if let Some(k) = ui.segment(Rect::new(r.x + 460.0, r.y + 78.0, 400.0, 34.0), &nr, jetzt) {
+    if let Some(k) = ui.segment(Rect::new(r.x + 16.0, r.y + 402.0, 580.0, 38.0), &nr, jetzt) {
         crate::ui::ui_skala_setzen(stufen[k]);
         let _ = std::fs::create_dir_all(save_dir());
         let _ = std::fs::write(skala_file(), format!("{}", stufen[k]));
@@ -203,6 +204,20 @@ pub(super) fn optionen(ui: &mut Ui, v: &mut View, c: &mut Career) {
         let r = crate::fl27::sider_ini_anwenden(&k, &s, |t| Ok(crate::fl27::sider_ini_rueckbau(t, &cpk))).and_then(|_| crate::fl27::vorgaben_schreiben(&s, None, None, None, None));
         match r { Ok(_) => { c.vorgaben_gesetzt.clear(); v.toast(crate::inhalt::t("ui.pages.karriere_zeile_und_vorgaben_entfernt"), true) } Err(e) => v.toast(&e, false) }
     }
+        }
+        5 => {
+            // Fabian 25.11.: whole feature areas on or off, also in a running save; off = the world runs on with defaults
+            ui.card_titled(r, t("ui.einst.reiter.features"), Theme::akzent());
+            ui.paragraph(t("ui.features.hinweis"), r.x + 16.0, r.y + 56.0, 13.0, r.w - 32.0, Theme::text2());
+            for (i, f) in crate::game::FEATURES.iter().enumerate() {
+                let y = r.y + 100.0 + i as f32 * 56.0;
+                let an = c.feature(f);
+                if let Some(k) = ui.segment(Rect::new(r.x + 16.0, y, 180.0, 34.0), &[t("ui.features.an"), t("ui.features.aus")], (!an) as usize) {
+                    if (k == 0) != an { if an { c.aus.push(f.to_string()); } else { c.aus.retain(|a| a != f); } }
+                }
+                ui.text_semi(t(&format!("ui.features.{f}")), r.x + 212.0, y + 14.0, 16.0, Theme::text());
+                ui.text(t(&format!("ui.features.{f}.info")), r.x + 212.0, y + 32.0, 12.0, Theme::text2());
+            }
         }
         _ => {
             ui.card_titled(r, t("ui.einst.reiter.handy"), Theme::akzent());

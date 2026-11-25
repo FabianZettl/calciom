@@ -46,7 +46,7 @@ impl Career {
         d > self.world.day && d < crate::date::SEASON_DAYS && (0..dauer.max(1)).all(|i| !belegt(d + i))
     }
     /// The next free days for a friendly (from the day after tomorrow, at most n).
-    pub fn freie_tage(&self, n: usize, dauer: u32) -> Vec<u32> { (self.world.day + 2..self.world.day + 60).filter(|&d| self.tag_frei(d, dauer)).take(n).collect() }
+    pub fn freie_tage(&self, n: usize, dauer: u32) -> Vec<u32> { (self.world.day + 2..self.world.day + 150).filter(|&d| self.tag_frei(d, dauer)).take(n).collect() }
     /// Three opponents for a friendly: weaker, about as strong, stronger (by squad strength, nearby leagues first).
     pub fn testspiel_gegner(&self) -> Vec<usize> {
         let lv = self.club().level;
@@ -115,7 +115,12 @@ impl Career {
             if tm.art == 2 { if tm.ergebnis.is_none() && d >= tm.tag && d < tm.tag + tm.tage { self.lager_tag(i); } continue; }
             if tm.tag != d || tm.ergebnis.is_some() { continue; }
             if tm.art == 0 {
-                if tm.selbst { continue; } // the person plays it in FL27 and enters the score in the calendar
+                if tm.selbst {
+                    // played in FL27 as a matchday: its booked result goes into the calendar
+                    let erg = self.world.cups.iter().filter(|c| c.kind == 6).flat_map(|c| c.fx.iter()).find(|x| x.f.day == d && x.f.a == tm.gegner && x.f.hg >= 0).map(|x| (x.f.hg as u8, x.f.ag as u8));
+                    if let Some((g, ga)) = erg { let n = self.world.clubs[tm.gegner].name.clone(); self.termine[i].ergebnis = Some((g, ga)); self.termine[i].text = crate::tf!("ui.vorb.test_ergebnis", self.club().name.clone(), n, g, ga); }
+                    continue;
+                }
                 let (g, ga) = self.testspiel_spielen(tm.gegner, true);
                 let n = self.world.clubs[tm.gegner].name.clone();
                 self.termine[i].ergebnis = Some((g, ga));
@@ -411,6 +416,28 @@ impl Career {
         self.msg(1, &co, t("ui.gf.titel"), &format!("{co_zeile}\n{}", zeilen.join(crate::id("\n"))), Action::None);
         self.meldung_art(crate::pages::Art::Allgemein, sq.iter().take(3).copied().collect());
     }
+    /// A friendly the person plays in FL27 is a matchday like any other (Fabian 24.11.): it stands as a fixture of
+    /// the own "friendlies" competition, so the match day page, the direct start, live reading and "Confirm result"
+    /// all work; switched back to simulate, the fixture goes again.
+    pub fn testspiel_als_spieltag(&mut self, i: usize) {
+        let Some(tm) = self.termine.get(i).cloned() else { return };
+        if tm.art != 0 || tm.ergebnis.is_some() { return; }
+        let own = self.own;
+        let ci = match self.world.cups.iter().position(|c| c.kind == 6) {
+            Some(ci) => ci,
+            None => {
+                let land = crate::cups::country(&self.world.leagues[self.league()]).unwrap_or_default();
+                self.world.cups.push(crate::cups::Cup { name: t("ui.vorb.testspiele_wettbewerb").into(), key: String::new(), kind: 6, country: land, teams: vec![own], fx: vec![], stage: 0, alive: vec![], winner: None, days: vec![], lauf: None });
+                self.world.cups.len() - 1
+            }
+        };
+        let cup = &mut self.world.cups[ci];
+        cup.fx.retain(|x| !(x.f.day == tm.tag && x.f.a == tm.gegner && x.f.hg < 0));
+        if tm.selbst {
+            cup.fx.push(crate::cups::CupFx { f: crate::world::Fixture { day: tm.tag, h: own, a: tm.gegner, hg: -1, ag: -1, zeit: 15 * 60 }, stage: 0, leg: 0, neutral: false, pens: None, et: false });
+            if !cup.teams.contains(&tm.gegner) { cup.teams.push(tm.gegner); }
+        }
+    }
     /// The score of a friendly the person played in FL27.
     pub fn testspiel_eintragen(&mut self, i: usize, g: u8, ga: u8) {
         let Some(tm) = self.termine.get(i).cloned() else { return };
@@ -580,6 +607,33 @@ mod tests {
         assert!(c.inbox.iter().filter(|m| matches!(&m.action, Action::Wahl { art, .. } if art.starts_with("testanfrage:"))).all(|m| m.done || m.frist > c.abs()));
     }
 
+    /// Fabian 24.11.: a friendly played in FL27 is a real matchday: it is today's match, its result books like one and
+    /// lands in the calendar, and its goals stay out of the season's figures.
+    #[test]
+    fn testspiel_als_spieltag() {
+        let mut c = Career::new(crate::world::testwelt(3), 2, "Test");
+        let gegner = (0..c.world.clubs.len()).find(|&k| k != c.own).unwrap();
+        let tag = (1..60).find(|&d| c.today_match().is_none() && { c.world.day = d; c.today_match().is_none() }).unwrap();
+        c.world.day = tag;
+        c.termine.push(Termin { tag, art: 0, gegner, selbst: true, ..Default::default() });
+        let i = c.termine.len() - 1;
+        c.testspiel_als_spieltag(i);
+        let t = c.today_match().expect("the friendly is today's match");
+        assert!(matches!(t.0, Wo::Pokal(ci) if c.world.cups[ci].kind == 6));
+        let tore: u32 = c.squad().iter().map(|&p| c.world.players[p].goals as u32).sum();
+        let r = c.prepare_match(Some((3, 0)));
+        c.apply_own_match(r);
+        c.vorbereitung_tag();
+        assert!(c.termine[i].ergebnis.is_some(), "the booked result is in the calendar");
+        assert_eq!(c.squad().iter().map(|&p| c.world.players[p].goals as u32).sum::<u32>(), tore, "friendly goals don't count");
+        // switched back to simulate: the fixture goes
+        c.termine.push(Termin { tag: tag + 3, art: 0, gegner, selbst: true, ..Default::default() });
+        let j = c.termine.len() - 1;
+        c.testspiel_als_spieltag(j);
+        c.termine[j].selbst = false;
+        c.testspiel_als_spieltag(j);
+        assert!(!c.world.cups.iter().filter(|x| x.kind == 6).flat_map(|x| x.fx.iter()).any(|x| x.f.day == tag + 3));
+    }
     #[test]
     fn testspiel_reise_event_urlaub() {
         let mut c = karriere();

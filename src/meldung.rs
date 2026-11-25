@@ -9,7 +9,7 @@ fn f(k: &str) -> f32 { crate::regeln::f("uefa", &format!("meldung.{k}")) }
 
 /// A registration: the competition's key, the season, list A, and how many players were changed in winter.
 #[derive(Serialize, Deserialize, Clone, Default)]
-pub struct Meldung { pub key: String, pub season: u32, pub liste_a: Vec<usize>, pub nachgemeldet: u8 }
+pub struct Meldung { pub key: String, pub season: u32, pub liste_a: Vec<usize>, pub nachgemeldet: u8, #[serde(default)] pub extra: Vec<usize>, #[serde(default)] pub erinnert: u8 }
 
 impl Career {
     /// The European competitions we play this season (cup indices).
@@ -17,8 +17,45 @@ impl Career {
     /// List B: own players up to the age limit, from the first team, the second team or the academy; free to play.
     pub fn liste_b(&self, p: usize) -> bool {
         let pl = &self.world.players[p];
-        let z = self.zweite_mannschaft();
-        pl.age as f32 <= f("liste_b_alter") && (pl.team == self.own as i32 || z.is_some_and(|z| pl.team == z as i32))
+        pl.age as f32 <= f("liste_b_alter") && pl.team == self.own as i32 && pl.youth == 0
+    }
+    /// Players who can be added with "+" (Fabian 25.11.): the second team and the academy, not registered yet.
+    pub fn meldung_kandidaten(&mut self, ci: usize) -> Vec<usize> {
+        let extra = self.meldung(ci).extra.clone();
+        let own = self.own as i32;
+        let z = self.zweite_mannschaft().map(|z| z as i32);
+        (0..self.world.players.len()).filter(|&p| { let pl = &self.world.players[p]; (Some(pl.team) == z || (pl.team == own && pl.youth > 0)) && !extra.contains(&p) }).collect()
+    }
+    /// A free shirt number for a player joining the registered squad: his own if nobody of the first team or the
+    /// registered players wears it, else the first free one of the usual numbers for his part (taktik.rs rules).
+    fn freie_nummer(&mut self, ci: usize, p: usize) -> u8 {
+        let mut belegt: Vec<u8> = self.squad().iter().filter(|&&q| q != p).map(|&q| self.world.players[q].no).collect();
+        let extra = self.meldung(ci).extra.clone();
+        belegt.extend(extra.iter().filter(|&&q| q != p).map(|&q| self.world.players[q].no));
+        let pl = &self.world.players[p];
+        if pl.no > 0 && !belegt.contains(&pl.no) { return pl.no; }
+        let ueblich: &[u8] = match crate::world::part_of(&pl.pos) { 0 => &[1, 12, 13, 21, 30, 33, 40], 1 => &[2, 3, 4, 5, 15, 16, 23, 24, 26, 28], 2 => &[6, 8, 10, 14, 17, 18, 20, 27], _ => &[9, 7, 11, 19, 29] };
+        ueblich.iter().copied().chain(1..=99).find(|n| !belegt.contains(n)).unwrap_or(99)
+    }
+    /// "+": registers a player of the second team or the academy (list B up to 21, else he counts for list A) and gives
+    /// him a shirt number nobody else wears; again: takes him off.
+    pub fn extra_melden(&mut self, ci: usize, p: usize) -> Result<String, String> {
+        let (key, season) = (self.world.cups[ci].key.clone(), self.world.season);
+        let winter = self.meldung_offen(ci)?;
+        let _ = self.meldung(ci);
+        let n = self.world.players[p].name.clone();
+        let jung = self.world.players[p].age as f32 <= f("liste_b_alter");
+        let max = f("liste_a") as usize;
+        let m = self.meldungen.iter().find(|m| m.key == key && m.season == season).unwrap();
+        if let Some(i) = m.extra.iter().position(|&x| x == p) { self.meldungen.iter_mut().find(|m| m.key == key && m.season == season).unwrap().extra.remove(i); return Ok(crate::tf!("ui.meldung.abgemeldet", n)); }
+        let a_belegt = m.liste_a.len() + m.extra.iter().filter(|&&q| self.world.players[q].age as f32 > f("liste_b_alter")).count();
+        if !jung && a_belegt >= max { return Err(crate::tf!("ui.meldung.voll", max)); }
+        let nr = self.freie_nummer(ci, p);
+        self.world.players[p].no = nr;
+        let m = self.meldungen.iter_mut().find(|m| m.key == key && m.season == season).unwrap();
+        m.extra.push(p);
+        if winter { m.nachgemeldet += 1; }
+        Ok(crate::tf!("ui.meldung.extra_gemeldet", n, nr))
     }
     /// The registration for competition `ci` this season, made by the assistant with the 25 best when there is none.
     pub fn meldung(&mut self, ci: usize) -> &Meldung {
@@ -27,12 +64,35 @@ impl Career {
             let mut kader: Vec<usize> = self.squad().into_iter().filter(|&p| !self.liste_b(p)).collect();
             kader.sort_by(|a, b| self.world.players[*b].ovr.partial_cmp(&self.world.players[*a].ovr).unwrap());
             kader.truncate(f("liste_a") as usize);
-            self.meldungen.push(Meldung { key: key.clone(), season, liste_a: kader, nachgemeldet: 0 });
+            self.meldungen.push(Meldung { key: key.clone(), season, liste_a: kader, nachgemeldet: 0, ..Default::default() });
         }
         self.meldungen.retain(|m| m.season + 1 >= season);
         self.meldungen.iter().find(|m| m.key == key && m.season == season).unwrap()
     }
-    pub fn gemeldet(&mut self, ci: usize, p: usize) -> bool { self.liste_b(p) || self.meldung(ci).liste_a.contains(&p) }
+    pub fn gemeldet(&mut self, ci: usize, p: usize) -> bool { self.liste_b(p) || self.meldung(ci).liste_a.contains(&p) || self.meldung(ci).extra.contains(&p) }
+    /// The players of the own club who may not play in today's European match (FL27 squad and simulation).
+    pub fn nicht_gemeldet_heute(&mut self) -> Vec<usize> {
+        let Some((Wo::Pokal(ci), _)) = self.today_match() else { return vec![] };
+        if !(1..=3).contains(&self.world.cups[ci].kind) { return vec![]; }
+        self.squad().into_iter().filter(|&p| !self.gemeldet(ci, p)).collect()
+    }
+    /// A reminder in the inbox (Fabian 25.11.): a week before the first match of a competition, and when the winter
+    /// window opens.
+    pub fn meldung_erinnern(&mut self) {
+        let day = self.world.day;
+        for ci in self.europa_wettbewerbe() {
+            let erster = self.world.cups[ci].fx.iter().filter(|x| x.f.h == self.own || x.f.a == self.own).map(|x| x.f.day).min().unwrap_or(u32::MAX);
+            let winter = crate::world::WINDOWS[1].0;
+            let stufe = if day >= winter && day <= winter + 1 { 2 } else if erster != u32::MAX && day + 7 >= erster && day < erster { 1 } else { 0 };
+            if stufe == 0 || self.meldung(ci).erinnert >= stufe { continue; }
+            let (key, season) = (self.world.cups[ci].key.clone(), self.world.season);
+            if let Some(m) = self.meldungen.iter_mut().find(|m| m.key == key && m.season == season) { m.erinnert = stufe; }
+            let wb = self.world.cups[ci].name.clone();
+            let co = self.co_name.clone();
+            let (titel, text) = if stufe == 1 { (crate::tf!("ui.meldung.erinnerung_titel", wb.clone()), crate::tf!("ui.meldung.erinnerung", wb, crate::date::long(season, erster))) } else { (crate::tf!("ui.meldung.winter_titel", wb.clone()), crate::tf!("ui.meldung.winter", wb, f("nachmeldungen") as u8)) };
+            self.msg(1, &co, &titel, &text, Action::None);
+        }
+    }
     /// Whether the list may change now: before the competition's first match, or in the winter window (at most three).
     pub fn meldung_offen(&mut self, ci: usize) -> Result<bool, String> {
         let erster = self.world.cups[ci].fx.iter().filter(|x| x.f.h == self.own || x.f.a == self.own).map(|x| x.f.day).min().unwrap_or(u32::MAX);
@@ -100,5 +160,14 @@ mod tests {
         // before the first match changes are free, the list stays within 25
         c.world.day = 0;
         if let Some(&p) = a.first() { assert!(c.melden(ci, p).is_ok()); assert!(c.melden(ci, p).is_ok()); }
+        // Fabian 25.11.: "+" registers a player from outside the first team with a shirt number nobody else wears
+        let fremd = (0..c.world.players.len()).find(|&p| c.world.players[p].team >= 0 && c.world.players[p].team != c.own as i32).unwrap();
+        c.world.players[fremd].team = c.own as i32;
+        c.world.players[fremd].youth = 17;
+        c.world.players[fremd].no = c.world.players[c.squad()[0]].no;
+        assert!(c.meldung_kandidaten(ci).contains(&fremd));
+        c.extra_melden(ci, fremd).unwrap();
+        let nr = c.world.players[fremd].no;
+        assert!(c.gemeldet(ci, fremd) && nr > 0 && !c.squad().into_iter().filter(|&q| q != fremd).any(|q| c.world.players[q].no == nr), "unique number");
     }
 }

@@ -54,7 +54,7 @@ pub(super) fn uebersicht(ui: &mut Ui, v: &mut View, c: &mut Career) {
         let w = measure_text(crate::inhalt::t("ui.wort.gross_gegen"), Some(&ui.head), 34, 1.0).width;
         ui.title(crate::inhalt::t("ui.wort.gross_gegen"), r.x + r.w / 2.0 - w / 2.0, r.y + 102.0, 34.0, Theme::verein());
         let when = if f.day == c.world.day { crate::id("heute").to_string() } else { crate::tf!("zentrale.in_tagen.viele", f.day - c.world.day) };
-        ui.text_center(&crate::tf!("ui.pages.anstoss_15_30", date::long(c.world.season, f.day), when), r.x + r.w / 2.0, r.y + 130.0, 16.0, Theme::text2());
+        ui.text_center(&crate::tf!("ui.pages.anstoss_15_30", date::long(c.world.season, f.day), when, crate::ligaregeln::zeit_text(f.zeit)), r.x + r.w / 2.0, r.y + 130.0, 16.0, Theme::text2());
         let label = if c.today_match().is_some() { crate::inhalt::t("pm.zum_spiel") } else { crate::inhalt::t("ui.pages.elf_vorbereiten") };
         if ui.button_gold(Rect::new(r.x + r.w / 2.0 - 130.0, r.y + 204.0, 260.0, 44.0), label) { v.go(if c.today_match().is_some() { Page::Spieltag } else { Page::Aufstellung }); }
     } else {

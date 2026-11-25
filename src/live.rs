@@ -55,7 +55,7 @@ impl Career {
             for t in teams { gepatcht |= crate::livepatch::add_team(&live, t).unwrap_or(false); }
             if neustart { crate::livepatch::neustart_merken(&live)?; }
             if crate::fl27::fl27_pid().is_some() {
-                if neustart { return Ok(crate::inhalt::t("ui.live.neustart_noetig").into()); }
+                // new or moved players: PESMLivePatch takes them in while FL27 runs (Fabian 24.11.: no restart hint)
                 if gepatcht && !self.db_hinweis { self.db_hinweis = true; return Ok(crate::inhalt::t("ui.live.livepatch_bereit").into()); }
             }
         }

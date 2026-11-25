@@ -88,6 +88,7 @@ impl Career {
     /// The day in private life: stress from matches, rest, commuting and the relationship; the calendar; a move after a
     /// change of club; the anniversary; now and then a family moment.
     pub fn privat_tag(&mut self) {
+        if !self.feature("privat") { return; } // roh
         self.privat_an();
         let abs = self.abs();
         // the match of today is played before the day ends: read it from the season's games
@@ -130,7 +131,7 @@ impl Career {
                 let n = ["Paul", "Ella", "Noah", "Mila", "Ben", "Lina"][(zufall(&["kindname", &s]) * 6.0) as usize % 6].to_string(); // roh
                 self.privat.kinder.push((n.clone(), abs));
                 self.stress(-8.0, crate::id("kind"));
-                self.feiern.push(crate::meilensteine::Feier { art: "privat".into(), titel: crate::tf!("ui.privat.kind_titel", n.clone()), text: crate::tf!("ui.privat.kind_text", self.privat.partner.clone(), n), spieler: None, club: Some(self.own), stimmen: vec![] }); // roh
+                self.feiern.push(crate::meilensteine::Feier { art: "privat".into(), titel: crate::tf!("ui.privat.kind_titel", n.clone()), text: crate::tf!("ui.privat.kind_text", self.privat.partner.clone(), n), spieler: None, club: Some(self.own), stimmen: vec![], ..Default::default() }); // roh
             } else if zufall(&[crate::id("familie"), &s]) < f("familie.ereignis_je_woche") {
                 let opts = vec![(crate::id("ja").to_string(), crate::inhalt::t("ui.privat.zeit_ja").to_string()), (crate::id("nein").to_string(), crate::inhalt::t("ui.privat.zeit_nein").to_string())];
                 let v = self.vkey("ui.privat.zeit_text", &s);
@@ -246,6 +247,7 @@ impl Career {
     }
     /// The month's statement: salary, tax by the club's country, home and lifestyle; the rest goes to the account.
     pub fn privat_monat(&mut self) {
+        if !self.feature("privat") { return; } // roh
         self.privat_an();
         let gehalt = self.mgr_wage / 12.0;
         let land = crate::preise::liga_land(&self.world, self.league());
@@ -294,6 +296,16 @@ impl Career {
 mod tests {
     use crate::game::*;
     /// Fabian 24.11.: stress with reasons and its effect on talks, the statement with tax, the calendar resting on matchdays.
+    #[test]
+    fn features_aus() {
+        // all switched off: 60 days run cleanly, no private life, no stories, no popups, no tree points
+        let mut c = Career::new(crate::world::testwelt(4), 2, "Test");
+        c.aus = crate::game::FEATURES.iter().map(|f| f.to_string()).collect();
+        for _ in 0..60 { if c.today_match().is_some() { let r = c.prepare_match(None); c.apply_own_match(r); } c.ultimatum = None; c.end_day().unwrap(); }
+        assert!(!c.privat.an && c.privat.auszuege.is_empty());
+        assert!(c.squad().iter().all(|&p| c.world.players[p].st.balken == 0.0 && c.world.players[p].st.konto == 0));
+        assert!(!c.feature("privat") && c.feature("gibt_es_nicht"));
+    }
     #[test]
     fn privatleben_block1() {
         let mut c = Career::new(crate::world::testwelt(4), 2, "Test");

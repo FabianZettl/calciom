@@ -242,7 +242,7 @@ impl Career {
             let text = crate::tf!("ui.gala.text", n.clone(), cn.clone(), titel.clone());
             self.news(&crate::tf!("ui.gala.news", titel.clone(), n), &text);
             // a card for everyone, a bigger moment when it is one of ours
-            if club == self.own || kat == "ballon" { self.feiern.push(crate::meilensteine::Feier { art: "gala".into(), titel, text, spieler: Some(p), club: Some(club), stimmen: vec![] }); } // roh
+            if club == self.own || kat == "ballon" { self.feiern.push(crate::meilensteine::Feier { art: "gala".into(), titel, text, spieler: Some(p), club: Some(club), stimmen: vec![], ..Default::default() }); } // roh
         }
     }
     /// The honours of a player (for the profile): count per kind, newest first.

@@ -329,7 +329,14 @@ pub(super) fn transfermarkt(ui: &mut Ui, v: &mut View, c: &mut Career) {
     }
     // from 1 January a player with an expiring contract can be signed for the summer, without a fee (termine.rs)
     let vv = c.vorvertrag_moeglich(p);
-    if ui.button_gold(Rect::new(dr.x + 10.0, dr.y + unten, dr.w - 20.0, 42.0), if vv { crate::inhalt::t("vv.knopf") } else { crate::inhalt::t("ui.wort.gross_verhandeln") }) {
+    // a player on his club's loan list: ask for a loan right here (12 months, no buy clause; the player card offers
+    // every term), the transfer talks stay one click away on his card (Fabian 24.11.: the loan list had no loan button)
+    let leihbar = c.status_von(p).is_some_and(|s| s.status == crate::kimarkt::Status::Leihliste) && c.world.players[p].leihe.is_none();
+    if leihbar {
+        if ui.button_gold(Rect::new(dr.x + 10.0, dr.y + unten, dr.w - 20.0, 42.0), crate::inhalt::t("ui.leihe.anfragen")) {
+            match c.leihanfrage(p, 12, 0) { Ok(t) => { v.toast(&t, true); ui.play(crate::id("angebot")); } Err(e) => { v.toast(&e, false); ui.play(crate::id("fehler")); } }
+        }
+    } else if ui.button_gold(Rect::new(dr.x + 10.0, dr.y + unten, dr.w - 20.0, 42.0), if vv { crate::inhalt::t("vv.knopf") } else { crate::inhalt::t("ui.wort.gross_verhandeln") }) {
         match if vv { c.vorvertrag_oeffnen(p) } else { c.open_neg(p) } { Ok(i) => { v.modal = Modal::Neg(i); ui.play(crate::id("angebot")); } Err(e) => { v.toast(&e, false); ui.play(crate::id("fehler")); } }
     }
     // a watch assignment with a free scout (auftraege.rs)

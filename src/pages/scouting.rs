@@ -75,8 +75,8 @@ fn vorbild_finden(c: &Career, q: &str) -> Option<usize> {
 }
 /// The form for a new assignment (kept between frames).
 #[derive(Clone)]
-struct AuftragForm { art: usize, gruppe: usize, alter: (u8, u8), liga: usize, scout: usize, knapp: bool, lang: bool, spieler: usize, profil: usize, vorbild: String, vorbild_fokus: bool }
-thread_local! { static FORM: std::cell::RefCell<AuftragForm> = std::cell::RefCell::new(AuftragForm { art: 0, gruppe: 2, alter: (17, 28), liga: 0, scout: 0, knapp: false, lang: false, spieler: 0, profil: 0, vorbild: String::new(), vorbild_fokus: false }); }
+struct AuftragForm { art: usize, gruppe: usize, alter: (u8, u8), liga: usize, scout: usize, knapp: bool, lang: bool, spieler: usize, profil: usize, vorbild: String, vorbild_fokus: bool, weite: usize }
+thread_local! { static FORM: std::cell::RefCell<AuftragForm> = std::cell::RefCell::new(AuftragForm { art: 0, gruppe: 2, alter: (17, 28), liga: 0, scout: 0, knapp: false, lang: false, spieler: 0, profil: 0, vorbild: String::new(), vorbild_fokus: false, weite: 0 }); }
 const GRUPPEN: [&str; 9] = [crate::id("tw"), crate::id("iv"), crate::id("av"), crate::id("dm"), crate::id("zm"), crate::id("om"), crate::id("fl"), crate::id("hs"), crate::id("st")];
 
 /// Scouting assignments (konzepte/scouting.md Teil 3 and 7): a new one on the left, the running ones with their proposals
@@ -144,6 +144,11 @@ fn auftraege_seite(ui: &mut Ui, v: &mut View, c: &mut Career) {
     let gebiet_felder = wettbewerb_felder(c, &gebiet, lg, Rect::new(l.x + l.w * 0.38, y, l.w * 0.62 - 14.0, 36.0));
     if let Some((f, i)) = auswahl_vorher(ui, v, &gebiet_felder) { lg = wahl_umsetzen(&gebiet, lg, f, i); fm.liga = ligen.iter().position(|&k| k == lg).unwrap_or(0); }
     y += 46.0;
+    // how far: this league, its country, its continent or the world (Fabian 24.11., every kind of assignment)
+    let weiten = [t("ui.auftrag.weite.0"), t("ui.auftrag.weite.1"), t("ui.auftrag.weite.2"), t("ui.auftrag.weite.3")];
+    if let Some(i) = ui.segment(Rect::new(l.x + 14.0, y, l.w - 28.0, 30.0), &weiten, fm.weite) { fm.weite = i; }
+    y += 42.0;
+    let weite_wo = match fm.weite { 1 => crate::preise::liga_land(&c.world, lg), 2 => crate::transferki::land_info(&crate::preise::liga_land(&c.world, lg)).0, _ => String::new() };
     let sq = c.squad();
     match fm.art {
         0 => {
@@ -205,7 +210,8 @@ fn auftraege_seite(ui: &mut Ui, v: &mut View, c: &mut Career) {
         1 => t("ui.auftrag.satz.gebiet").to_string(),
         _ => crate::tf!("ui.auftrag.satz.ersatz", sq.get(fm.spieler % sq.len().max(1)).map(|&p| c.world.players[p].name.clone()).unwrap_or_default()),
     };
-    let satz = crate::tf!("ui.auftrag.satz", scout_name.clone(), was, fm.alter.0, fm.alter.1, c.world.leagues[lg].name.clone(), if fm.lang { 28 } else { 14 });
+    let wo = match fm.weite { 1 => weite_wo.clone(), 2 => t(&format!("ui.kontinent.{weite_wo}")).to_string(), 3 => t("ui.auftrag.welt").to_string(), _ => c.world.leagues[lg].name.clone() };
+    let satz = crate::tf!("ui.auftrag.satz", scout_name.clone(), was, fm.alter.0, fm.alter.1, wo, if fm.lang { 28 } else { 14 });
     let n = ui.text_passend(&satz, l.x + 14.0, y + 14.0, 14.0, l.w - 28.0, 3, Theme::akzent());
     y += 10.0 + 19.0 * n as f32;
     if ui.button_gold(Rect::new(l.x + 14.0, y, l.w - 28.0, 44.0), t("ui.auftrag.starten")) {
@@ -213,7 +219,7 @@ fn auftraege_seite(ui: &mut Ui, v: &mut View, c: &mut Career) {
         let x = crate::auftraege::Auftrag { art, scout: scout_name.clone(), gruppe: if fm.art == 0 { GRUPPEN[fm.gruppe].to_string() } else { String::new() }, alter_min: fm.alter.0, alter_max: fm.alter.1,
             liga: Some(lg), spieler: if fm.art == 2 { sq.get(fm.spieler % sq.len().max(1)).copied() } else { None }, knapp: fm.knapp,
             profil: if fm.art == 0 && fm.profil > 0 { crate::regeln::wert_oder("scouting", "profil_liste").and_then(|v| v.as_array().and_then(|a| a.get(fm.profil - 1).and_then(|x| x.as_str().map(|s| s.to_string())))).unwrap_or_default() } else { String::new() },
-            vorbild: if fm.art == 0 { vorbild_finden(c, &fm.vorbild) } else { None }, ..Default::default() };
+            vorbild: if fm.art == 0 { vorbild_finden(c, &fm.vorbild) } else { None }, weite: fm.weite as u8, weite_wo: weite_wo.clone(), ..Default::default() };
         let tage = if fm.lang || art == crate::auftraege::GEBIET { 28 } else { 14 };
         match c.auftrag_anlegen(x, tage) { Ok(m) => v.toast(&m, true), Err(e) => v.toast(&e, false) }
     }
@@ -305,7 +311,7 @@ pub(super) fn scouting(ui: &mut Ui, v: &mut View, c: &mut Career) {
                 ui.text(&crate::tf!("ui.pages.spieler_gesichtet", sc.seen), r.x + 16.0, r.y + 58.0, 16.0, Theme::text2());
             }
             ui.text_semi(crate::inhalt::t("ui.wort.gross_gebiet"), r.x + 16.0, r.y + 92.0, 14.0, Theme::text2());
-            if c.gebiet_erlaubt(s, None) && ui.button(Rect::new(r.x + 16.0, r.y + 66.0, 120.0, 22.0), crate::inhalt::t("ui.wort.weltweit"), sc.league.is_none()) { c.scouts[s].league = None; }
+            if c.gebiet_erlaubt(s, None) && ui.button(Rect::new(r.x + 150.0, r.y + 76.0, 120.0, 22.0), crate::inhalt::t("ui.wort.weltweit"), sc.league.is_none()) { c.scouts[s].league = None; }
             ui.text_semi(crate::inhalt::t("ui.wort.gross_position"), r.x + 300.0, r.y + 92.0, 14.0, Theme::text2());
             if let Some(p) = ui.segment(Rect::new(r.x + 300.0, r.y + 102.0, 250.0, 32.0), &[crate::inhalt::t("suche.gruppe.alle"), crate::inhalt::t("ui.wort.gross_tw"), crate::inhalt::t("ui.wort.gross_abw"), crate::inhalt::t("ui.wort.gross_mit"), crate::inhalt::t("ui.wort.gross_ang")], sc.pos as usize) { c.scouts[s].pos = p as u8; }
             ui.text_semi(crate::inhalt::t("ui.wort.gross_alter"), r.x + 562.0, r.y + 92.0, 14.0, Theme::text2());

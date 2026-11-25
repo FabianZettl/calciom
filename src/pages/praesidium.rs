@@ -96,16 +96,18 @@ pub(super) fn ziele(ui: &mut Ui, v: &mut View, c: &mut Career) {
     if !c.mensch.ziel_angenommen {
         if ui.button_gold(Rect::new(l.x + 14.0, l.y + 250.0, 220.0, 38.0), crate::inhalt::t("ui.seiten.ziel_annehmen")) { c.mensch.ziel_angenommen = true; c.grund("Präsidium", crate::inhalt::t("zentrale.k.ziel"), 0.0, crate::inhalt::t("ui.seiten.ziel_angenommen")); v.toast(crate::inhalt::t("ui.seiten.ziel_angenommen"), true); } // roh
     } else { ui.text(crate::inhalt::t("ui.seiten.du_hast_das_ziel_angenommen"), l.x + 14.0, l.y + 270.0, 16.0, Theme::gut()); }
-    ui.text(&crate::tf!("ui.seiten.vision_des_praesidiums", c.vision()), l.x + 14.0, l.y + 320.0, 16.0, Theme::text2());
+    ui.text(&crate::tf!("ui.seiten.vision_des_praesidiums", crate::inhalt::t(&format!("tm.persona.{}", c.vision()))), l.x + 14.0, l.y + 320.0, 16.0, Theme::text2());
     // milestones below the promises: seal when reached, otherwise progress (meilensteine.toml)
-    let hm = (r.h * 0.55).min(420.0);
+    // 19 milestones in two columns: the card takes the room it needs, the promises keep the rest
+    let n_ms = crate::meilensteine::liste().len();
+    let hm = (70.0 + n_ms.div_ceil(2) as f32 * 40.0).min(r.h * 0.78);
     let m = Rect::new(r.x, r.y + r.h - hm, r.w, hm);
     let r = Rect::new(r.x, r.y, r.w, r.h - hm - 12.0);
     ui.card_titled(m, crate::inhalt::t("ui.meilenstein.titel"), Theme::gold());
     for (k, (id, zaehlt, ziel)) in crate::meilensteine::liste().iter().enumerate() {
         let (sp, zeile) = (k % 2, k / 2);
         let bw = (m.w - 42.0) / 2.0;
-        let (x, y) = (m.x + 14.0 + sp as f32 * (bw + 14.0), m.y + 58.0 + zeile as f32 * ((m.h - 70.0) / 5.0));
+        let (x, y) = (m.x + 14.0 + sp as f32 * (bw + 14.0), m.y + 58.0 + zeile as f32 * ((m.h - 70.0) / n_ms.div_ceil(2).max(1) as f32));
         let erreicht = c.meilensteine.iter().any(|x| &x.0 == id);
         let stand = c.meilenstein_stand(zaehlt).min(*ziel);
         draw_circle(x + 12.0, y - 5.0, 11.0, if erreicht { Theme::gold() } else { alpha(Theme::gedaempft(), 0.3) });
@@ -115,7 +117,7 @@ pub(super) fn ziele(ui: &mut Ui, v: &mut View, c: &mut Career) {
         ui.text_right(&crate::tf!("ui.meilenstein.fortschritt", format!("{stand:.0}"), format!("{ziel:.0}")), x + bw, y + 14.0, 12.0, Theme::gedaempft());
     }
     ui.card_titled(r, crate::inhalt::t("ui.seiten.oeffentliche_zusagen"), Theme::akzent());
-    let z: Vec<(String, String)> = c.me.zusagen.iter().map(|z| (if z.0 == crate::id("saisonziel") { crate::inhalt::t("ui.seiten.saisonziel_erreichen").to_string() } else { crate::tf!("ui.seiten.bleibt", z.1.map(|p| c.world.players[p].name.clone()).unwrap_or_default()) }, [crate::id("offen"), crate::id("gehalten"), crate::id("gebrochen")][z.4.min(2) as usize].to_string())).collect();
+    let z: Vec<(String, String)> = c.me.zusagen.iter().map(|z| (if z.0 == crate::id("saisonziel") { crate::inhalt::t("ui.seiten.saisonziel_erreichen").to_string() } else { crate::tf!("ui.seiten.bleibt", z.1.map(|p| c.world.players[p].name.clone()).unwrap_or_default()) }, crate::inhalt::t(&format!("ui.zusage.stand.{}", [crate::id("offen"), crate::id("gehalten"), crate::id("gebrochen")][z.4.min(2) as usize])).to_string())).collect();
     if z.is_empty() { ui.text(crate::inhalt::t("ui.seiten.keine_zusagen_gegeben_in_der"), r.x + 14.0, r.y + 60.0, 16.0, Theme::text2()); }
     zeilen(ui, r, &z, 60.0);
 }

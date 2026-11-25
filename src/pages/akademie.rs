@@ -196,7 +196,7 @@ pub(super) fn jugendnetz(ui: &mut Ui, v: &mut View, c: &mut Career) {
     for (k, (land, st, inv)) in sorted.iter().enumerate() {
         let yy = l.y + 62.0 + k as f32 * 34.0;
         if yy > l.y + l.h - 14.0 { break; }
-        ui.text(land, l.x + 14.0, yy, 16.0, Theme::text());
+        ui.text(&ui.fit(&crate::nationen::anzeige(land), 16.0, 130.0), l.x + 14.0, yy, 16.0, Theme::text());
         ui.bar(l.x + 150.0, yy - 10.0, 120.0, 8.0, st / 100.0, if *st >= 35.0 { Theme::gut() } else if *st >= 20.0 { Theme::achtung() } else { Theme::ueberlagerung() });
         if let Some(i) = ui.segment(Rect::new(l.x + 290.0, yy - 22.0, l.w - 304.0, 28.0), &[crate::inhalt::t("ui.seiten.kein_geld"), crate::inhalt::t("ui.wort.wenig"), crate::inhalt::t("ui.wort.mittel"), crate::inhalt::t("ui.wort.viel")], *inv as usize) { c.netz_stufe(land, i as u8); }
     }
@@ -205,7 +205,7 @@ pub(super) fn jugendnetz(ui: &mut Ui, v: &mut View, c: &mut Career) {
         let yy = r.y + 62.0 + k as f32 * 40.0;
         if yy > r.y + r.h - 14.0 { break; }
         ui.pos_tag(r.x + 14.0, yy - 5.0, pos_de(&t.pos));
-        ui.text(&crate::tf!("ui.wort.name_alter_land", t.name, t.alter, t.land), r.x + 58.0, yy, 15.0, Theme::text());
+        ui.text(&crate::tf!("ui.wort.name_alter_land", t.name, t.alter, crate::nationen::anzeige(&t.land)), r.x + 58.0, yy, 15.0, Theme::text());
         ui.text(&crate::tf!("ui.seiten.potenzial", stufe_wort(t.ovr + 20.0), stufe_wort(t.pot)), r.x + 14.0, yy + 18.0, 13.0, Theme::text2());
         let laeuft = c.mgr.anwerbung.iter().any(|a| a.0 == t.key);
         if laeuft { ui.text_right(crate::inhalt::t("ui.seiten.wird_angeworben"), r.x + r.w - 14.0, yy, 14.0, Theme::achtung()); }

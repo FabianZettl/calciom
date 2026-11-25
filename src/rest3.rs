@@ -58,6 +58,7 @@ impl Career {
     }
     /// Weekly: the job costs stress and energy, motivation drifts to the middle, the style fades (0.97).
     pub fn manager_woche(&mut self) {
+        if !self.feature("manager") { return; } // roh
         self.manager_an();
         let w = |k: &str| Self::m(&format!("woche.{k}"));
         self.mgr.stress = (self.mgr.stress + w(crate::id("stress"))).clamp(0.0, 100.0);
@@ -165,6 +166,7 @@ impl Career {
     }
     /// Mind games the day before a match: statement × balance of strength (favourite, open, underdog) → morale and media.
     pub fn mind_games_frage(&mut self) {
+        if !self.feature("manager") { return; } // roh
         let Some(f_) = self.next_match() else { return };
         // not before every match (Fabian 23.11.: the same question again and again): at most every ten days
         let abs = self.abs();
@@ -194,8 +196,8 @@ impl Career {
     pub fn mind_antwort(&mut self, lage: &str, key: &str) -> String {
         let mo = crate::regeln::f_oder("kabine", &format!("mind.{key}.moral.{lage}"), 0.0);
         let me = crate::regeln::f_oder("kabine", &format!("mind.{key}.medien.{lage}"), 0.0) * self.mgr_faktor(3);
-        for p in self.xi.clone() { self.moral_wirkung(p, mo, 0, &crate::tf!("ui.rest3.mind_games", key)); }
-        if me != 0.0 { self.klima(0.0, me, 0.0, &crate::tf!("ui.rest3.mind_games", key)); }
+        for p in self.xi.clone() { self.moral_wirkung(p, mo, 0, &crate::tf!("ui.rest3.mind_games", crate::inhalt::t(&format!("ui.mind.ton.{key}")))); }
+        if me != 0.0 { self.klima(0.0, me, 0.0, &crate::tf!("ui.rest3.mind_games", crate::inhalt::t(&format!("ui.mind.ton.{key}")))); }
         self.stil_punkte(crate::id("presse"), if key == crate::id("sticheln") { crate::id("angriff") } else if key == crate::id("respekt") { crate::id("ruhig") } else { crate::id("locker") });
         crate::inhalt::t("ui.rest3.gesagt_ist_gesagt").into()
     }
@@ -293,7 +295,7 @@ impl Career {
                 let season = self.world.season;
                 let pl = Player { nat: 0, id, name: t.name.clone(), pos: t.pos.clone(), age: t.alter, ovr: t.ovr, pot: t.pot, talent: 1.0, no: 0, team: self.own as i32, youth: 17, form: 0.0, fit: 100.0, gf: 0.0, morale: 60.0, inj: 0, inj_name: String::new(), susp: 0,
                     wage: f("akademie", "aufnahme.gehalt") as f64, contract_end: season + 3, value: t.wert, apps: 0, goals: 0, assists: 0, rsum: 0.0, rn: 0, yellow: 0, last: vec![], know: 1.0,
-                    listed: false, persona: 0, unhappy_days: 0, benched: 0, promise: 0, program: 0, joined: abs, talk_day: 0, ps: Default::default(), leihe: None, ent: Default::default(), attrs, pp, style: 0, skills: 0, db: false, profil: Default::default() };
+                    listed: false, persona: 0, unhappy_days: 0, benched: 0, promise: 0, program: 0, joined: abs, talk_day: 0, ps: Default::default(), leihe: None, ent: Default::default(), st: Default::default(), attrs, pp, style: 0, skills: 0, db: false, profil: Default::default() };
                 let idx = self.world.players.len();
                 self.world.players.push(pl);
                 self.world.clubs[self.own].squad.push(idx);

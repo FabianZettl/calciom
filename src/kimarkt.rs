@@ -91,7 +91,7 @@ impl Career {
             if let Some(&w) = v.get(s - 1) { if self.world.players[w].ovr < self.world.clubs[c].level && self.world.clubs[c].balance > 0.0 { out.push((i, 35.0, crate::id("verstaerkung"))); } }
         }
         out.sort_by(|a, b| b.1.partial_cmp(&a.1).unwrap());
-        let winter = self.in_window().map_or(false, |(a, _)| a > 100);
+        let winter = self.in_window().map_or(false, |(a, _)| (100..250).contains(&a));
         if winter { out.retain(|x| x.1 >= 70.0); }
         let max = if self.world.clubs[c].rep >= 80.0 { 2 } else if self.world.clubs[c].balance < 0.0 { 4 } else { 3 };
         out.truncate(max);

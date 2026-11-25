@@ -81,6 +81,7 @@ mod taktikwirkung;
 mod neubau;
 mod prognose;
 mod trainerprofil;
+mod skilltree;
 mod vereinsbudget;
 mod scouting;
 mod transfer;
@@ -132,16 +133,19 @@ fn stage_text(v: &View) -> (&'static str, &'static str, &'static str) {
         Page::Scouting => (crate::inhalt::t("nav.gruppe.markt"), crate::inhalt::t("profil.teil.8"), crate::inhalt::t("ui.main.wen_suchen_wir")),
         Page::Akademie => (crate::inhalt::t("profil.jugend"), crate::inhalt::t("aka.gruppe.akademie"), crate::inhalt::t("ui.main.wer_ist_das_naechste_talent")),
         Page::Tabellen => (crate::inhalt::t("ticker.kat.welt"), crate::inhalt::t("zentrale.wettbewerbe"), crate::inhalt::t("ui.main.was_passiert_in_europa")),
-        Page::Presse => ("Medien", crate::inhalt::t("feed.art.journalist"), crate::inhalt::t("ui.main.was_schreibt_die_presse")), // roh
+        Page::Presse => (crate::inhalt::t("ui.pages.medien"), crate::inhalt::t("feed.art.journalist"), crate::inhalt::t("ui.main.was_schreibt_die_presse")),
         Page::Spieltag => if v.mv.as_ref().map(|m| m.phase == 2).unwrap_or(false) { (crate::inhalt::t("bereich.spieltag"), crate::inhalt::t("bericht.titel"), crate::inhalt::t("ui.main.so_lief_das_spiel")) } else { (crate::inhalt::t("bereich.spieltag"), crate::inhalt::t("gl.anpfiff"), crate::inhalt::t("ui.main.mach_deine_elf_bereit")) },
         Page::Optionen => (crate::inhalt::t("menu.bereich.system"), crate::inhalt::t("bereich.system"), crate::inhalt::t("ui.main.wie_soll_pes_m_aussehen")),
         Page::Ziele => (crate::inhalt::t("bereich.verein"), crate::inhalt::t("aktion.ziele"), crate::inhalt::t("ui.main.was_will_der_verein_erreichen")),
         Page::Manager => (crate::inhalt::t("bereich.verein"), crate::inhalt::t("gm.mg.hero"), crate::inhalt::t("ui.main.wie_geht_es_dir")),
+        Page::TrainerBaum => (crate::inhalt::t("bereich.verein"), crate::inhalt::t("ui.mst.seite"), crate::inhalt::t("ui.mst.unter")),
         Page::Stadion => (crate::inhalt::t("bereich.verein"), crate::inhalt::t("menu.stadion_und_anlagen.titel"), crate::inhalt::t("ui.main.wo_bauen_wir_aus")),
         Page::Personalmarkt => (crate::inhalt::t("bereich.verein"), crate::inhalt::t("ui.main.personalmarkt"), crate::inhalt::t("ui.main.bewerber_und_freie_leute_trainer")),
         Page::Geschichte => (crate::inhalt::t("bereich.verein"), crate::inhalt::t("menu.vereinsgeschichte.titel"), crate::inhalt::t("ui.main.was_haben_wir_erreicht")),
         Page::Tagebuch => (crate::inhalt::t("bereich.verein"), crate::inhalt::t("gm.tb.hero"), crate::inhalt::t("ui.main.was_ist_warum_passiert")),
         Page::Kadermeldung => (crate::inhalt::t("bereich.mannschaft"), crate::inhalt::t("ui.meldung.seite"), crate::inhalt::t("ui.meldung.unter")),
+        Page::Spielplan => (crate::inhalt::t("ticker.kat.welt"), crate::inhalt::t("ui.spielplan.seite"), crate::inhalt::t("ui.spielplan.unter")),
+        Page::Vereinsstatistik => (crate::inhalt::t("ticker.kat.welt"), crate::inhalt::t("ui.vstat.seite"), crate::inhalt::t("ui.vstat.unter")),
         Page::Uefa => (crate::inhalt::t("ticker.kat.welt"), crate::inhalt::t("ui.uefa.seite"), crate::inhalt::t("ui.uefa.unter")),
         Page::Privat => (crate::inhalt::t("bereich.verein"), crate::inhalt::t("ui.privat.seite"), crate::inhalt::t("ui.privat.unter")),
         Page::Klima => (crate::inhalt::t("bereich.verein"), crate::inhalt::t("ui.main.vereinsklima"), crate::inhalt::t("ui.main.wie_ist_die_stimmung_rund")),
@@ -151,8 +155,8 @@ fn stage_text(v: &View) -> (&'static str, &'static str, &'static str) {
         Page::Entwicklung => (crate::inhalt::t("bereich.mannschaft"), crate::inhalt::t("profil.entwicklung_verlauf"), crate::inhalt::t("ui.main.wer_waechst_wer_stockt")),
         Page::Vorbereitung => (crate::inhalt::t("bereich.spieltag"), crate::inhalt::t("gl.vorb.kicker"), crate::inhalt::t("ui.main.wie_gehen_wir_das_naechste")),
         Page::Analyse => (crate::inhalt::t("bereich.spieltag"), crate::inhalt::t("menu.analyse.titel"), crate::inhalt::t("ui.main.was_lief_im_letzten_spiel")),
-        Page::Zeitung => ("Medien", crate::inhalt::t("md.pool.typ.zeitung"), crate::inhalt::t("ui.main.was_steht_in_der_zeitung")), // roh
-        Page::Fans => ("Medien", crate::inhalt::t("menu.fans_und_stimmung.titel"), crate::inhalt::t("ui.main.was_denken_die_fans")), // roh
+        Page::Zeitung => (crate::inhalt::t("ui.pages.medien"), crate::inhalt::t("md.pool.typ.zeitung"), crate::inhalt::t("ui.main.was_steht_in_der_zeitung")),
+        Page::Fans => (crate::inhalt::t("ui.pages.medien"), crate::inhalt::t("menu.fans_und_stimmung.titel"), crate::inhalt::t("ui.main.was_denken_die_fans")),
         Page::Ranglisten => (crate::inhalt::t("ticker.kat.welt"), crate::inhalt::t("ux.abschnitt.rankings"), crate::inhalt::t("ui.main.wer_ist_der_beste")),
         Page::Awards => (crate::inhalt::t("ui.award.seite"), crate::inhalt::t("ui.preis.ballon_seite"), crate::inhalt::t("ui.award.unter")),
         Page::TheBest => (crate::inhalt::t("ui.award.seite"), crate::inhalt::t("ui.preis.best_seite"), crate::inhalt::t("ui.preis.best_unter")),
@@ -165,7 +169,7 @@ fn stage_text(v: &View) -> (&'static str, &'static str, &'static str) {
         Page::Regeln => (crate::inhalt::t("menu.bereich.system"), crate::inhalt::t("menu.regeln_und_anpassung.titel"), crate::inhalt::t("ui.main.welche_zahlen_gelten")),
         Page::Spielerprofil => (crate::inhalt::t("bereich.mannschaft"), crate::inhalt::t("reiter.profil"), crate::inhalt::t("ui.main.alles_ueber_einen_spieler")),
         Page::Zentrale => (crate::inhalt::t("gm.in.kicker"), crate::inhalt::t("bereich.zentrale"), crate::inhalt::t("ui.main.alle_bereiche_auf_einen_blick")),
-        Page::Kooperationen => (crate::inhalt::t("bereich.verein"), crate::inhalt::t("ui.farm.kooperationen"), crate::inhalt::t("ui.main.zweite_mannschaft_farmteams_und_partners")),
+        Page::Kooperationen => (crate::inhalt::t("ui.pages.mannschaft"), crate::inhalt::t("ui.farm.kooperationen"), crate::inhalt::t("ui.main.zweite_mannschaft_farmteams_und_partners")),
         Page::ZweiteMannschaft => (crate::inhalt::t("bereich.mannschaft"), crate::inhalt::t("ui.game.zweite_mannschaft"), crate::inhalt::t("ui.main.wer_spielt_oben_wer_unten")),
         Page::Jugendnetz => (crate::inhalt::t("profil.jugend"), crate::inhalt::t("ui.main.jugendnetz"), crate::inhalt::t("ui.main.wo_wachsen_die_talente_von")),
         Page::Merkliste => (crate::inhalt::t("nav.gruppe.markt"), crate::inhalt::t("aka.pille.merkliste"), crate::inhalt::t("ui.main.wen_hast_du_im_blick")),
@@ -184,6 +188,13 @@ fn conf() -> Conf {
 enum Screen { Start, Game }
 /// The folder dialog of the start screen, running in the background.
 static CPK_LESEN: std::sync::Mutex<Option<std::sync::mpsc::Receiver<Result<std::path::PathBuf, String>>>> = std::sync::Mutex::new(None);
+/// Reads the database from the CPK files of the FL27 folder in the background (no extracted world needed).
+fn cpk_starten() {
+    let g = fl27::spielordner();
+    let (tx, rx) = std::sync::mpsc::channel();
+    std::thread::spawn(move || { let _ = tx.send(pesdb::welt_aus_cpk(&g)); });
+    *CPK_LESEN.lock().unwrap() = Some(rx);
+}
 static ORDNER_DIALOG: std::sync::Mutex<Option<std::sync::mpsc::Receiver<Option<std::path::PathBuf>>>> = std::sync::Mutex::new(None);
 
 /// The club card of the career start: crest, name, league and country, strength per part of the team, stadium and
@@ -571,12 +582,7 @@ impl App {
                     let y = if welten.is_empty() { rr.y + 184.0 } else { rr.y + 220.0 - 44.0 };
                     if welten.len() <= 3 {
                         ui.text(crate::inhalt::t(if laeuft { "ui.main.aus_cpk_laeuft" } else { "ui.main.aus_cpk_hinweis" }), rr.x + 20.0, y + 26.0, 14.0, Theme::text2());
-                        if !laeuft && ui.button(Rect::new(rr.x + rr.w - 300.0, y + 4.0, 280.0, 36.0), crate::inhalt::t("ui.main.aus_cpk"), false) {
-                            let g = fl27::spielordner();
-                            let (tx, rx) = std::sync::mpsc::channel();
-                            std::thread::spawn(move || { let _ = tx.send(pesdb::welt_aus_cpk(&g)); });
-                            *CPK_LESEN.lock().unwrap() = Some(rx);
-                        }
+                        if !laeuft && ui.button(Rect::new(rr.x + rr.w - 400.0, y + 4.0, 380.0, 36.0), crate::inhalt::t("ui.main.aus_cpk"), false) { cpk_starten(); }
                     }
                 }
                 let fertig = CPK_LESEN.lock().unwrap().as_ref().and_then(|rx| rx.try_recv().ok());
@@ -595,7 +601,9 @@ impl App {
                         fl27::spielordner_setzen(&g);
                         fl27::log(&format!("Spielordner gewählt: {}", g.display()));
                         let w = pesdb::welten(&fl27::sider());
-                        pick = if w.len() == 1 { w.first().cloned() } else { s.error.clear(); None };
+                        // Reddit 25.11.: SiderAddons without an extracted world → straight to the game's CPK files
+                        if w.is_empty() && CPK_LESEN.lock().unwrap().is_none() { s.error = crate::inhalt::t("ui.main.keine_welt_cpk").into(); cpk_starten(); }
+                        pick = if w.len() == 1 { w.first().cloned() } else { if !w.is_empty() { s.error.clear(); } None };
                     }
                 }
                 if let Some(p) = pick {
@@ -616,10 +624,12 @@ impl App {
                             s.error.clear();
                             ui.play(crate::id("bestaetigt"));
                         }
+                        // a livecpk folder that is no extracted world (e.g. "no Competition.bin"): read the CPK files instead
+                        Err(e) if pesdb::ableiten(&p).is_some() && fl27::sider().is_dir() && CPK_LESEN.lock().unwrap().is_none() => { fl27::log(&e); s.error = crate::inhalt::t("ui.main.keine_welt_cpk").into(); cpk_starten(); }
                         Err(e) => { s.error = e; ui.play(crate::id("fehler")); }
                     }
                 }
-                ui.text(&s.error, rr.x + 20.0, rr.y + 300.0, 16.0, Theme::problem());
+                ui.paragraph(&s.error, rr.x + 20.0, rr.y + 300.0, 16.0, rr.w - 40.0, Theme::problem());
                 if !s.welt_info.is_empty() {
                     let mut y = ui.paragraph(&s.welt_info, rr.x + 20.0, rr.y + 330.0, 17.0, rr.w - 40.0, Theme::gut()) + 10.0;
                     // second teams found by name (Team.bin has no field for the parent club)
@@ -948,7 +958,7 @@ impl App {
         let bereich = match (akzent, area_color(v.page)) { (Some(a), 0x38bdf8) => a, (_, b) => b };
         let bereich = spieltag.map_or(bereich, |x| x.0);
         // the tables and rankings wear the colour of the chosen competition
-        let kopf = if matches!(v.page, Page::Tabellen | Page::Ranglisten) { pages::liga_farbe(v, c) } else if let Some(x) = spieltag { x.0 } else { akzent.unwrap_or(c.club().c1) };
+        let kopf = if matches!(v.page, Page::Tabellen | Page::Ranglisten | Page::Spielplan | Page::Vereinsstatistik) { pages::liga_farbe(v, c) } else if let Some(x) = spieltag { x.0 } else { akzent.unwrap_or(c.club().c1) };
         Theme::set(v.dark, kopf, bereich);
         Theme::set_akzent(akzent.unwrap_or(0x38bdf8));
         clear_background(Theme::grund());
@@ -976,6 +986,7 @@ impl App {
         // content
         if v.page != Page::Spieltag && v.mv.as_ref().map(|m| m.phase == 2).unwrap_or(false) { v.mv = None; }
         // a reward moment (meilensteine.rs) takes the whole screen and all clicks until it is closed
+        if !c.feature("feiern") { c.feiern.clear(); } // roh
         let feier_offen = !c.feiern.is_empty() || !c.auslosungen.is_empty();
         let modal_open = v.modal != Modal::None || feier_offen;
         // an open right-click menu takes the clicks like a window (but without darkening the page)
@@ -1354,6 +1365,8 @@ impl App {
 #[macroquad::main(conf)]
 async fn main() {
     let args: Vec<String> = std::env::args().collect();
+    // one line at every start, so pesm.log always exists for bug reports (Discord 24.11.: not found on Windows)
+    if !cfg!(test) && !args.iter().any(|a| a == "--screenshot") { fl27::log(&format!("PES M {} gestartet ({})", env!("CARGO_PKG_VERSION"), std::env::consts::OS)); } // roh
     let arg = |k: &str| args.iter().position(|a| a == k).and_then(|i| args.get(i + 1)).cloned();
     let shot = arg(crate::id("--screenshot"));
     // --vorschau: the preview career of PESM_WELT / PESM_VEREIN / PESM_PAGE, but the program keeps running (phone test)
@@ -1440,7 +1453,7 @@ async fn main() {
         // PESM_THEMA=1: the "per competition" theme on; PESM_BIS_SPIELTAG=1: on to the next matchday (not played)
         if std::env::var("PESM_THEMA").is_ok() { app.career.as_mut().unwrap().thema_wettbewerb = true; }
         if std::env::var("PESM_BIS_SPIELTAG").is_ok() { let c = app.career.as_mut().unwrap(); for _ in 0..14 { if c.today_match().is_some() { break; } let _ = c.end_day(); } }
-        let p = match pg.as_str() { "posteingang" => Page::Posteingang, "kalender" => Page::Kalender, "awards" => Page::Awards, "privat" => Page::Privat, "uefa" => Page::Uefa, "kadermeldung" => Page::Kadermeldung, "thebest" => Page::TheBest, "ligapreise" => Page::LigaPreise, "kader" => Page::Kader, "aufstellung" => Page::Aufstellung, "training" => Page::Training, "medizin" => Page::Medizin, "praesidium" => Page::Praesidium, "finanzen" => Page::Finanzen, "trainer" => Page::Trainer, "transfermarkt" => Page::Transfermarkt, "verhandlungen" => Page::Verhandlungen, "vertraege" => Page::Vertraege, "scouting" => Page::Scouting, "akademie" => Page::Akademie, "tabellen" => Page::Tabellen, "presse" => Page::Presse, "spieltag" => Page::Spieltag, "kabine" => Page::Kabine, "optionen" => Page::Optionen, "ziele" => Page::Ziele, "manager" => Page::Manager, "stadion" => Page::Stadion, "personalmarkt" => Page::Personalmarkt, "geschichte" => Page::Geschichte, "tagebuch" => Page::Tagebuch, "klima" => Page::Klima, "marken" => Page::Marken, "kaderplanung" => Page::Kaderplanung, "vergleich" => Page::Vergleich, "entwicklung" => Page::Entwicklung, "vorbereitung" => Page::Vorbereitung, "analyse" => Page::Analyse, "zeitung" => Page::Zeitung, "fans" => Page::Fans, "ranglisten" => Page::Ranglisten, "vereine" => Page::Vereine, "vereinswelt" => Page::Vereinswelt, "portal" => Page::Portal, "handbuch" => Page::Handbuch, "regeln" => Page::Regeln, "profi" => Page::Profi, "spielerprofil" => Page::Spielerprofil, "zentrale" => Page::Zentrale, "kooperationen" => Page::Kooperationen, "zweite" => Page::ZweiteMannschaft, "jugendnetz" => Page::Jugendnetz, "merkliste" => Page::Merkliste, "trainerteam" => Page::Trainerteam, "nationalteams" => Page::Nationalteams, _ => Page::Uebersicht };
+        let p = match pg.as_str() { "posteingang" => Page::Posteingang, "kalender" => Page::Kalender, "awards" => Page::Awards, "privat" => Page::Privat, "uefa" => Page::Uefa, "spielplan" => Page::Spielplan, "trainerbaum" => Page::TrainerBaum, "vereinsstatistik" => Page::Vereinsstatistik, "kadermeldung" => Page::Kadermeldung, "thebest" => Page::TheBest, "ligapreise" => Page::LigaPreise, "kader" => Page::Kader, "aufstellung" => Page::Aufstellung, "training" => Page::Training, "medizin" => Page::Medizin, "praesidium" => Page::Praesidium, "finanzen" => Page::Finanzen, "trainer" => Page::Trainer, "transfermarkt" => Page::Transfermarkt, "verhandlungen" => Page::Verhandlungen, "vertraege" => Page::Vertraege, "scouting" => Page::Scouting, "akademie" => Page::Akademie, "tabellen" => Page::Tabellen, "presse" => Page::Presse, "spieltag" => Page::Spieltag, "kabine" => Page::Kabine, "optionen" => Page::Optionen, "ziele" => Page::Ziele, "manager" => Page::Manager, "stadion" => Page::Stadion, "personalmarkt" => Page::Personalmarkt, "geschichte" => Page::Geschichte, "tagebuch" => Page::Tagebuch, "klima" => Page::Klima, "marken" => Page::Marken, "kaderplanung" => Page::Kaderplanung, "vergleich" => Page::Vergleich, "entwicklung" => Page::Entwicklung, "vorbereitung" => Page::Vorbereitung, "analyse" => Page::Analyse, "zeitung" => Page::Zeitung, "fans" => Page::Fans, "ranglisten" => Page::Ranglisten, "vereine" => Page::Vereine, "vereinswelt" => Page::Vereinswelt, "portal" => Page::Portal, "handbuch" => Page::Handbuch, "regeln" => Page::Regeln, "profi" => Page::Profi, "spielerprofil" => Page::Spielerprofil, "zentrale" => Page::Zentrale, "kooperationen" => Page::Kooperationen, "zweite" => Page::ZweiteMannschaft, "jugendnetz" => Page::Jugendnetz, "merkliste" => Page::Merkliste, "trainerteam" => Page::Trainerteam, "nationalteams" => Page::Nationalteams, _ => Page::Uebersicht };
         app.v.go(p);
         if p == Page::Tabellen || p == Page::Ranglisten { app.v.table_league = app.career.as_ref().unwrap().world.cups.iter().position(|c| c.kind == 1).map(|i| 1000 + i); }
         // PESM_LIGA=eigene|<Liganame>: that league's table instead of the Champions League
@@ -1448,11 +1461,23 @@ async fn main() {
         if p == Page::Transfermarkt { app.v.sel_player = app.career.as_ref().unwrap().world.players.iter().position(|x| x.name.contains("Wirtz")); } // roh
         // PESM_SPIELER=<Name>: that player; PESM_REITER=<n>: that tab
         if let Ok(n) = std::env::var("PESM_SPIELER") { app.v.sel_player = app.career.as_ref().unwrap().world.players.iter().position(|x| x.name.contains(&n)); }
+        // PESM_ST=1: the chosen player with points and a few bought nodes (preview of the Skill Tree)
+        if std::env::var("PESM_ST").is_ok() { if let Some(p) = app.v.sel_player { let c = app.career.as_mut().unwrap(); c.world.players[p].st.konto = 6; let baum = crate::skilltree::baum_von(&c.world.players[p].pos); for k in crate::skilltree::knoten(&baum).into_iter().filter(|k| k.stufe == 1 && k.ast != 1) { let _ = c.knoten_kaufen(p, &k); } c.world.players[p].st.konto = 3; c.world.players[p].st.balken = 62.0; } }
         // PESM_FEIER=1: a reward moment for the best own player (preview of the full-screen moment)
         // the moments the days collected stay away from other previews
         if std::env::var("PESM_FEIER").is_err() { app.career.as_mut().unwrap().feiern.clear(); }
         if std::env::var("PESM_AUSLOSUNG").is_err() { app.career.as_mut().unwrap().auslosungen.clear(); }
-        if std::env::var("PESM_FEIER").is_ok() { let c = app.career.as_mut().unwrap(); let p = c.squad()[0]; c.feier_neuzugang(p, crate::id("Testverein"), 25_000_000.0); }
+        // PESM_FEIER=<art>: a full-screen moment of that kind (titel, gala, derby, finale, meilenstein, vertrag; else a signing)
+        if let Ok(art) = std::env::var("PESM_FEIER") {
+            let c = app.career.as_mut().unwrap();
+            let p = c.squad()[0];
+            let own = c.own;
+            let gegner = c.world.leagues[c.league()].teams.iter().copied().find(|&t| t != own).unwrap_or(0);
+            match art.as_str() {
+                "titel" | "gala" | "derby" | "finale" | "meilenstein" | "vertrag" => c.feiern.push(crate::meilensteine::Feier { art: art.clone(), titel: crate::id("Preview").into(), text: crate::id("Preview").into(), spieler: (art != "titel").then_some(p), club: Some(own), gegner: Some(gegner), wo: Some((false, c.league())), ..Default::default() }), // roh
+                _ => c.feier_neuzugang(p, crate::id("Testverein"), 25_000_000.0),
+            }
+        }
         // PESM_PRESSE=1: a press conference is waiting (preview of the scene)
         if std::env::var("PESM_PRESSE").is_ok() { let c = app.career.as_mut().unwrap(); let q = c.press_question(false); c.press = Some(q); }
         // PESM_KLUB=<Name>: that club on the clubs page

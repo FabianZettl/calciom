@@ -2,6 +2,8 @@
 # Familien in dieser Reihenfolge (Index in statistik.rs FAM):
 # paesse, prog_paesse, prog_laeufe, dribblings, flanken, schuss, strafraum, schluessel, tacklings, abgefangen,
 # kopfball, klaerungen, blocks, fouls, ballverluste
+# Club statistics (Fabian 24.11.): a shot of at least this xG counts as a big chance (Opta: about 0.35).
+grosschance = 0.35
 familien = ["paesse", "prog_paesse", "prog_laeufe", "dribblings", "flanken", "schuss", "strafraum", "schluessel", "tacklings", "abgefangen", "kopfball", "klaerungen", "blocks", "fouls", "ballverluste"]
 
 # Teil 3.2: Grundraten je Team und Spiel (Top-Liga, 50 % Ballbesitz). schuss und schluessel kommen aus den Chancen.

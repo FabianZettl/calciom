@@ -243,38 +243,137 @@ pub fn auslosung_overlay(ui: &mut Ui, v: &mut View, c: &mut Career) {
         if fertig { c.auslosungen.remove(0); v.auslosung_t0 = 0.0; } else { v.auslosung_t0 -= 1000.0; }
     }
 }
+/// A gold trophy at (cx, cy), height h (Fabian 25.11.: football motifs instead of the sun).
+fn pokal(cx: f32, cy: f32, h: f32, glanz: f32) {
+    let g = Theme::gold();
+    let s = h / 120.0;
+    draw_circle(cx, cy - 20.0 * s, 34.0 * s, g);
+    draw_rectangle(cx - 34.0 * s, cy - 54.0 * s, 68.0 * s, 34.0 * s, g);
+    draw_circle_lines(cx - 40.0 * s, cy - 32.0 * s, 13.0 * s, 5.0 * s, g);
+    draw_circle_lines(cx + 40.0 * s, cy - 32.0 * s, 13.0 * s, 5.0 * s, g);
+    draw_rectangle(cx - 6.0 * s, cy + 12.0 * s, 12.0 * s, 22.0 * s, g);
+    draw_rectangle(cx - 26.0 * s, cy + 32.0 * s, 52.0 * s, 10.0 * s, g);
+    draw_rectangle(cx - 32.0 * s, cy + 42.0 * s, 64.0 * s, 14.0 * s, hex(0xb45309));
+    // the shine running over the cup
+    let x = cx - 30.0 * s + (glanz % 1.0) * 60.0 * s;
+    draw_rectangle(x, cy - 52.0 * s, 6.0 * s, 60.0 * s, alpha(WHITE, 0.35));
+}
+/// A medal on its ribbon.
+fn medaille(cx: f32, cy: f32, r: f32, band: Color) {
+    draw_triangle(vec2(cx - r * 0.9, cy - r * 2.2), vec2(cx - r * 0.1, cy - r * 2.2), vec2(cx - r * 0.1, cy - r * 0.6), band);
+    draw_triangle(vec2(cx + r * 0.9, cy - r * 2.2), vec2(cx + r * 0.1, cy - r * 2.2), vec2(cx + r * 0.1, cy - r * 0.6), alpha(band, 0.8));
+    draw_circle(cx, cy, r, Theme::gold());
+    draw_circle_lines(cx, cy, r * 0.78, 3.0, hex(0xb45309));
+    draw_poly(cx, cy, 5, r * 0.42, -90.0, hex(0xb45309));
+}
+/// A shirt in the club colours with a number.
+fn trikot(ui: &Ui, cx: f32, cy: f32, w: f32, c1: Color, c2: Color, nr: u8) {
+    let h = w * 1.05;
+    draw_rectangle(cx - w * 0.32, cy - h * 0.42, w * 0.64, h * 0.9, c1);
+    draw_triangle(vec2(cx - w * 0.32, cy - h * 0.42), vec2(cx - w * 0.55, cy - h * 0.18), vec2(cx - w * 0.32, cy - h * 0.05), c1);
+    draw_triangle(vec2(cx + w * 0.32, cy - h * 0.42), vec2(cx + w * 0.55, cy - h * 0.18), vec2(cx + w * 0.32, cy - h * 0.05), c1);
+    draw_rectangle(cx - w * 0.32, cy - h * 0.42, w * 0.64, h * 0.06, c2);
+    draw_circle(cx, cy - h * 0.42, w * 0.09, Theme::flaeche());
+    ui.title(&nr.to_string(), cx - ui.measure_title(&nr.to_string(), w * 0.42) / 2.0, cy + h * 0.2, w * 0.42, on(c1));
+}
+/// Floodlights: two masts with beams towards the middle.
+fn flutlicht(r: Rect, t: f32) {
+    for (x, seite) in [(r.x + 40.0, 1.0f32), (r.x + r.w - 40.0, -1.0)] {
+        draw_rectangle(x - 3.0, r.y + 30.0, 6.0, r.h - 40.0, alpha(WHITE, 0.25));
+        draw_rectangle(x - 16.0, r.y + 18.0, 32.0, 16.0, alpha(WHITE, 0.85));
+        let flackern = 0.10 + 0.04 * (t * 2.0 + x).sin();
+        draw_triangle(vec2(x, r.y + 26.0), vec2(x + seite * r.w * 0.55, r.y + r.h), vec2(x + seite * r.w * 0.20, r.y + r.h), alpha(WHITE, flackern));
+    }
+}
+/// Confetti in the club colours, falling and turning, seeded per piece.
+fn konfetti(r: Rect, t: f32, farben: [Color; 3]) {
+    for k in 0..70 {
+        let s = (k as f32 * 12.9898).sin() * 43758.547;
+        let fx = s - s.floor();
+        let speed = 50.0 + 70.0 * ((k * 7 % 11) as f32 / 11.0);
+        let y = r.y + ((t * speed + k as f32 * 37.0) % (r.h + 40.0)) - 20.0;
+        let x = r.x + fx * r.w + 12.0 * (t * 2.0 + k as f32).sin();
+        let w = 6.0 + 4.0 * (t * 3.0 + k as f32).cos().abs();
+        draw_rectangle(x, y, w, 4.0, farben[k % 3]);
+    }
+}
+
+/// Full-screen moments (Fabian 25.11.: more spectacular, fitting a football manager, no sun): three levels.
+/// Title and award: club band, trophy or golden ball, confetti. Big match ahead (derby, final): floodlights, both
+/// crests, the competition's colour. Signing and new contract: the shirt with his number and a stamp. Milestone and
+/// licence: a medal on a ribbon.
 pub fn feier_overlay(ui: &mut Ui, v: &mut View, c: &mut Career) {
     let Some(f) = c.feiern.first().cloned() else { return };
-    if !v.feier_ton { ui.play(if f.art == crate::id("meilenstein") || f.art == crate::id("lizenz") { crate::id("meilenstein") } else { crate::id("titel") }); v.feier_ton = true; }
+    if !v.feier_ton { ui.play(if matches!(f.art.as_str(), "meilenstein" | "lizenz" | "privat") { crate::id("meilenstein") } else { crate::id("titel") }); v.feier_ton = true; }
     let (w, h) = (breite(), hoehe());
-    draw_rectangle(0.0, 0.0, w, h, Color::new(0.0, 0.0, 0.0, 0.78));
+    draw_rectangle(0.0, 0.0, w, h, Color::new(0.0, 0.0, 0.0, 0.80));
     let t = get_time() as f32;
-    let hoch = if f.stimmen.is_empty() { 500.0 } else { 500.0 + 30.0 * f.stimmen.len() as f32 + 20.0 };
-    let r = Rect::new(w / 2.0 - 380.0, h / 2.0 - hoch / 2.0, 760.0, hoch);
-    rrect(r.x - 3.0, r.y - 3.0, r.w + 6.0, r.h + 6.0, 20.0, Theme::gold());
+    let art = f.art.as_str();
+    let gross = matches!(art, "titel" | "gala");
+    let spiel = matches!(art, "derby" | "finale");
+    let deal = matches!(art, "neuzugang" | "vertrag");
+    let hoch = (if gross { 560.0 } else { 520.0 }) + if f.stimmen.is_empty() { 0.0 } else { 30.0 * f.stimmen.len() as f32 + 20.0 };
+    let r = Rect::new(w / 2.0 - 400.0, h / 2.0 - hoch / 2.0, 800.0, hoch);
+    // the colours: own club, or the competition for a big match
+    let own = f.club.unwrap_or(c.own);
+    let (k1, k2) = club_color(c, own);
+    let band = match f.wo { Some((pokal, i)) if spiel => wo_look(c, if pokal { Wo::Pokal(i) } else { Wo::Liga(i) }).c1, _ => k1 };
+    // appearing: the card drops in from a little above over a quarter second
+    if v.feier_start <= 0.0 || v.feier_start > t { v.feier_start = t; }
+    let auf = ((t - v.feier_start) * 4.0).clamp(0.0, 1.0);
+    let r = Rect::new(r.x, r.y - 40.0 * (1.0 - auf), r.w, r.h);
+    rrect(r.x - 3.0, r.y - 3.0, r.w + 6.0, r.h + 6.0, 20.0, if gross { Theme::gold() } else { band });
     rrect(r.x, r.y, r.w, r.h, 18.0, Theme::flaeche());
-    let (cx, cy) = (r.x + r.w / 2.0, r.y + 130.0);
-    // rays that turn slowly, a breathing halo, the seal
-    for k in 0..16 {
-        let a = t * 0.4 + k as f32 * std::f32::consts::TAU / 16.0;
-        draw_line(cx + a.cos() * 78.0, cy + a.sin() * 78.0, cx + a.cos() * 104.0, cy + a.sin() * 104.0, 4.0, alpha(Theme::gold(), 0.55));
+    let kopf = Rect::new(r.x, r.y, r.w, 250.0);
+    rrect(kopf.x, kopf.y, kopf.w, kopf.h, 18.0, band);
+    draw_rectangle(kopf.x, kopf.y + kopf.h - 18.0, kopf.w, 18.0, band);
+    // a pitch pattern on the band
+    for k in 0..8 { if k % 2 == 0 { draw_rectangle(kopf.x + k as f32 * kopf.w / 8.0, kopf.y + 18.0, kopf.w / 8.0, kopf.h - 18.0, alpha(BLACK, 0.06)); } }
+    draw_circle_lines(kopf.x + kopf.w / 2.0, kopf.y + kopf.h, 90.0, 3.0, alpha(WHITE, 0.18));
+    let (cx, cy) = (r.x + r.w / 2.0, r.y + 128.0);
+    if gross {
+        konfetti(r, t, [k1, k2, Theme::gold()]);
+        if art == "gala" {
+            // the golden ball: a ball in gold with its pentagon
+            draw_circle(cx, cy, 70.0, Theme::gold());
+            draw_poly(cx, cy, 5, 22.0, -90.0 + t * 20.0, hex(0xb45309));
+            for k in 0..5 { let a = (t * 20.0 - 90.0 + k as f32 * 72.0).to_radians(); draw_line(cx + 22.0 * a.cos(), cy + 22.0 * a.sin(), cx + 62.0 * a.cos(), cy + 62.0 * a.sin(), 3.0, hex(0xb45309)); }
+            if let Some(p) = f.spieler { ui.player_photo(cx + 120.0, cy + 30.0, 46.0, c.world.players[p].id, &c.world.players[p].name.clone()); }
+        } else {
+            pokal(cx, cy + 10.0, 170.0 * (1.0 + 0.03 * (t * 2.5).sin()), t * 0.4);
+            let k = &c.world.clubs[own];
+            ui.club_crest(cx - 170.0, cy + 10.0, 44.0, k.id, hex(k.c1), &k.short.clone());
+            ui.club_crest(cx + 170.0, cy + 10.0, 44.0, k.id, hex(k.c1), &k.short.clone());
+        }
+    } else if spiel {
+        flutlicht(kopf, t);
+        let ko = &c.world.clubs[own];
+        ui.club_crest(cx - 150.0, cy, 64.0, ko.id, hex(ko.c1), &ko.short.clone());
+        if let Some(g) = f.gegner { let kg = &c.world.clubs[g]; ui.club_crest(cx + 150.0, cy, 64.0, kg.id, hex(kg.c1), &kg.short.clone()); }
+        let vs = 1.0 + 0.06 * (t * 4.0).sin();
+        ui.title("VS", cx - ui.measure_title("VS", 54.0 * vs) / 2.0, cy + 20.0, 54.0 * vs, on(band)); // roh
+    } else if deal {
+        let nr = f.spieler.map(|p| c.world.players[p].no).filter(|n| *n > 0).unwrap_or(10);
+        // a white outline so the shirt stands out on a band of the same colour
+        trikot(ui, cx + 110.0, cy + 6.0, 162.0, WHITE, WHITE, nr);
+        trikot(ui, cx + 110.0, cy + 6.0, 150.0, k1, k2, nr);
+        if let Some(p) = f.spieler { draw_circle(cx - 110.0, cy, 74.0, alpha(WHITE, 0.9)); ui.player_photo(cx - 110.0, cy, 68.0, c.world.players[p].id, &c.world.players[p].name.clone()); }
+        // the stamp, turned a little
+        let stempel = crate::inhalt::t(if art == "vertrag" { "ui.feier.stempel_vertrag" } else { "ui.feier.stempel_neu" });
+        let sw = ui.measure_title(stempel, 26.0) + 24.0;
+        rrect(cx - sw / 2.0, cy + 70.0, sw, 40.0, 6.0, alpha(Theme::gold(), 0.95));
+        ui.title(stempel, cx - sw / 2.0 + 12.0, cy + 100.0, 26.0, hex(0x1b1f27));
+    } else {
+        medaille(cx, cy + 40.0, 58.0 * (1.0 + 0.04 * (t * 3.0).sin()), k2);
+        if let Some(p) = f.spieler { ui.player_photo(cx + 140.0, cy + 30.0, 44.0, c.world.players[p].id, &c.world.players[p].name.clone()); }
     }
-    let puls = 1.0 + 0.05 * (t * 3.0).sin();
-    draw_circle(cx, cy, 74.0 * puls, alpha(Theme::gold(), 0.25));
-    draw_circle(cx, cy, 62.0, Theme::gold());
-    match (f.spieler, f.club) {
-        (Some(p), _) => ui.player_photo(cx, cy, 54.0, c.world.players[p].id, &c.world.players[p].name.clone()),
-        (None, Some(cl)) => { let k = &c.world.clubs[cl]; ui.club_crest(cx, cy, 50.0, k.id, hex(k.c1), &k.short.clone()); }
-        _ => {}
-    }
-    let art = match f.art.as_str() { "neuzugang" => crate::inhalt::t("ui.feier.art.neuzugang"), "titel" => crate::inhalt::t("ui.feier.art.titel"), "lizenz" => crate::inhalt::t("ui.feier.art.lizenz"), "gala" => crate::inhalt::t("ui.feier.art.gala"), "vertrag" => crate::inhalt::t("ui.feier.art.vertrag"), _ => crate::inhalt::t("ui.meilenstein.titel") };
-    ui.text_center(&art.to_uppercase(), cx, r.y + 258.0, 15.0, Theme::gold());
-    let size = if ui.measure_title(&f.titel, 40.0) > r.w - 60.0 { 30.0 } else { 40.0 };
+    let art_t = match art { "neuzugang" => crate::inhalt::t("ui.feier.art.neuzugang"), "titel" => crate::inhalt::t("ui.feier.art.titel"), "lizenz" => crate::inhalt::t("ui.feier.art.lizenz"), "gala" => crate::inhalt::t("ui.feier.art.gala"), "vertrag" => crate::inhalt::t("ui.feier.art.vertrag"), "derby" => crate::inhalt::t("ui.feier.art.derby"), "finale" => crate::inhalt::t("ui.feier.art.finale"), _ => crate::inhalt::t("ui.meilenstein.titel") };
+    ui.text_center(&art_t.to_uppercase(), cx, r.y + 286.0, 15.0, if gross { Theme::gold() } else { farbe_lesbar(band) });
+    let size = if ui.measure_title(&f.titel, 42.0) > r.w - 60.0 { 30.0 } else { 42.0 };
     let tw = ui.measure_title(&f.titel, size);
-    ui.title(&f.titel, cx - tw / 2.0, r.y + 304.0, size, Theme::text());
-    let mut y = r.y + 340.0;
+    ui.title(&f.titel, cx - tw / 2.0, r.y + 334.0, size, Theme::text());
+    let mut y = r.y + 372.0;
     for z in ui.wrap(&f.text, 17.0, r.w - 100.0).into_iter().take(4) { ui.text_center(&z, cx, y, 17.0, Theme::text2()); y += 24.0; }
-    // the voices on a big deal: who in gold, what in one line
     y += 14.0;
     for (wer, was) in &f.stimmen {
         let ww = ui.measure(wer, 15.0) + 12.0;
@@ -282,9 +381,10 @@ pub fn feier_overlay(ui: &mut Ui, v: &mut View, c: &mut Career) {
         ui.text(&ui.fit(&format!("\"{was}\""), 15.0, r.w - 100.0 - ww), r.x + 50.0 + ww, y, 15.0, Theme::text());
         y += 30.0;
     }
-    let weiter = ui.button_gold(Rect::new(cx - 120.0, r.y + r.h - 70.0, 240.0, 48.0), crate::inhalt::t("ui.feier.weiter"));
+    let weiter = ui.button_gold(Rect::new(cx - 120.0, r.y + r.h - 70.0, 240.0, 48.0), crate::inhalt::t(if spiel { "ui.feier.los" } else { "ui.feier.weiter" }));
     if weiter || is_key_pressed(KeyCode::Enter) || is_key_pressed(KeyCode::Space) || is_key_pressed(KeyCode::Escape) {
         c.feiern.remove(0);
         v.feier_ton = false;
+        v.feier_start = 0.0;
     }
 }

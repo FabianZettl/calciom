@@ -206,8 +206,7 @@ impl World {
         for i in (1..ts.len()).rev() { let j = (r.next() % (i as u64 + 1)) as usize; ts.swap(i, j); }
         let days = self.spieltage(l);
         let basis = self.runden_plan(l).0;
-        let mut fx: Vec<Fixture> = rundenplan(&ts, basis).into_iter().map(|(rd, h, a)| Fixture { day: days[rd], h, a, hg: -1, ag: -1 }).collect();
-        fx.sort_by_key(|f| f.day);
+        let mut fx: Vec<Fixture> = rundenplan(&ts, basis).into_iter().map(|(rd, h, a)| Fixture { day: days[rd], h, a, hg: -1, ag: -1, zeit: 0 }).collect();
         self.leagues[l].fixtures = fx;
         self.leagues[l].gruppen.clear();
         self.leagues[l].meister = None;
@@ -227,8 +226,8 @@ impl World {
             let table = self.table(l);
             let gruppen = split_gruppen(&table, &s);
             for (club, alt, neu) in split_punkte(&table, &s) { if alt != neu { self.leagues[l].deduct.push((club, alt - neu)); } }
-            for g in &gruppen { for (rd, h, a) in rundenplan(g, 2 * g.len().saturating_sub(1)) { if let Some(&d) = rest.get(rd) { self.leagues[l].fixtures.push(Fixture { day: d, h, a, hg: -1, ag: -1 }); } } }
-            self.leagues[l].fixtures.sort_by_key(|f| f.day);
+            for g in &gruppen { for (rd, h, a) in rundenplan(g, 2 * g.len().saturating_sub(1)) { if let Some(&d) = rest.get(rd) { self.leagues[l].fixtures.push(Fixture { day: d, h, a, hg: -1, ag: -1, zeit: 0 }); } } }
+            self.anstoss_verteilen(l);
             self.leagues[l].gruppen = gruppen;
             out.push(l);
         }
@@ -559,6 +558,23 @@ impl Career {
 
 #[cfg(test)]
 mod tests {
+    /// Fabian 25.11.: a Bundesliga round spreads over Friday to Sunday with real kick-off times; nobody plays twice a day.
+    #[test]
+    fn anstoss_wie_echt() {
+        let mut w = crate::world::testwelt(3);
+        let l = 0;
+        w.leagues[l].land = "Deutschland".into();
+        w.leagues[l].stufe = 1;
+        w.make_fixtures(l);
+        w.anstoss_verteilen(l);
+        let fx = &w.leagues[l].fixtures;
+        assert!(fx.iter().all(|f| f.zeit > 0));
+        let wt: std::collections::BTreeSet<usize> = fx.iter().map(|f| crate::date::weekday(f.day)).collect();
+        assert!(wt.contains(&4) && wt.contains(&5) && wt.contains(&6), "Friday, Saturday and Sunday: {wt:?}");
+        for f in fx { assert_eq!(fx.iter().filter(|g| g.day == f.day && (g.h == f.h || g.a == f.h || g.h == f.a || g.a == f.a)).count(), 1); }
+        assert_eq!(super::zeit_text(20 * 60 + 30), "20:30");
+    }
+
     #[test]
     fn heim_und_auswaerts_wechseln_sich_ab() {
         // no club plays more than two home or two away matches in a row in a double round robin
@@ -800,5 +816,73 @@ mod tests {
         assert_eq!(eng(0), r[..5].to_vec(), "1.–5. in die Champions League");
         assert_eq!(eng(1), vec![r[5], r[6]], "der Pokalplatz geht an den 6., der 6. Platz an den 7.");
         assert_eq!(eng(2), vec![r[7]], "kein Ligapokal: der nächste Ligaplatz");
+    }
+}
+
+// ---------------------------------------------------------------- kick-off days and times (assets/regeln/anstoss.toml)
+fn zeit_lesen(s: &str) -> u16 { let mut t = s.split(':'); let h: u16 = t.next().and_then(|x| x.parse().ok()).unwrap_or(15); let m: u16 = t.next().and_then(|x| x.parse().ok()).unwrap_or(30); h * 60 + m }
+/// "HH:MM" of a kick-off (0 = not set: an old save, shown as "15:30").
+pub fn zeit_text(z: u16) -> String { let z = if z == 0 { 15 * 60 + 30 } else { z }; format!("{:02}:{:02}", z / 60, z % 60) }
+/// Kick-off of a cup match by the kind of competition and the day.
+pub fn anstoss_pokal(kind: u8, tag: u32, stage: u8) -> u16 {
+    let w = |k: &str| crate::regeln::wert_oder("anstoss", &format!("pokal.{k}")).cloned();
+    let liste = |k: &str| -> Vec<String> { w(k).and_then(|v| v.as_array().cloned()).unwrap_or_default().iter().filter_map(|x| x.as_str().map(String::from)).collect() };
+    let eins = |k: &str| w(k).and_then(|v| v.as_str().map(String::from)).unwrap_or_else(|| "20:30".into());
+    let wt = crate::date::weekday(tag);
+    let s = match kind {
+        1..=3 => { let l = liste(&format!("k{kind}")); if l.is_empty() { "21:00".into() } else { l[(tag as usize * 7 + stage as usize) % l.len()].clone() } }
+        0 if stage == 34 => eins("k0_finale"),
+        0 if wt >= 4 => eins("k0_wochenende"),
+        0 => eins("k0_woche"),
+        k => eins(&format!("k{k}")),
+    };
+    zeit_lesen(&s)
+}
+impl World {
+    /// The matches of each round spread over the league's real days and times: weekend rounds Friday to Monday,
+    /// midweek rounds Tuesday to Thursday, in proportion to the slots' weights; the same order every season.
+    pub fn anstoss_verteilen(&mut self, l: usize) {
+        let pokal: std::collections::HashSet<(usize, u32)> = self.cups.iter().flat_map(|c| c.fx.iter().flat_map(|x| [(x.f.h, x.f.day), (x.f.a, x.f.day)])).collect();
+        self.anstoss_mit(l, &pokal);
+    }
+    /// All leagues, with the cup days counted once.
+    pub fn anstoss_alle(&mut self) {
+        let pokal: std::collections::HashSet<(usize, u32)> = self.cups.iter().flat_map(|c| c.fx.iter().flat_map(|x| [(x.f.h, x.f.day), (x.f.a, x.f.day)])).collect();
+        for l in 0..self.leagues.len() { self.anstoss_mit(l, &pokal); }
+    }
+    fn anstoss_mit(&mut self, l: usize, pokal: &std::collections::HashSet<(usize, u32)>) {
+        let (land, stufe) = (self.leagues[l].land.clone(), self.leagues[l].stufe);
+        let eintrag = crate::regeln::wert_oder("anstoss", "liga").and_then(|v| v.as_array().cloned()).unwrap_or_default().into_iter().find(|e| e["land"].as_str() == Some(land.as_str()) && e["stufe"].as_u64() == Some(stufe as u64));
+        let slots = |art: &str| -> Vec<(i32, u16, u32)> {
+            let v = eintrag.as_ref().and_then(|e| e[art].as_array().cloned()).or_else(|| crate::regeln::wert_oder("anstoss", &format!("standard.{art}")).and_then(|v| v.as_array().cloned())).unwrap_or_default();
+            v.iter().filter_map(|x| { let t: Vec<&str> = x.as_str()?.split(':').collect(); Some((t.first()?.parse().ok()?, zeit_lesen(&format!("{}:{}", t.get(1)?, t.get(2)?)), t.get(3).and_then(|g| g.parse().ok()).unwrap_or(1))) }).collect()
+        };
+        let (wochenende, woche) = (slots("wochenende"), slots("woche"));
+        // clubs with a cup or European match: no league match the day before or after it (Fabian 25.11.: Thursday in
+        // Europe, then not on Friday)
+        let frei = |h: usize, a: usize, tag: u32| ![h, a].iter().any(|&t| (tag.saturating_sub(1)..=tag + 1).any(|d| pokal.contains(&(t, d))));
+        let mut tage: Vec<u32> = self.leagues[l].fixtures.iter().filter(|f| f.zeit == 0).map(|f| f.day).collect();
+        tage.sort_unstable();
+        tage.dedup();
+        for d in tage {
+            let liste = if crate::date::weekday(d) >= 4 { &wochenende } else { &woche };
+            if liste.is_empty() { continue; }
+            let gesamt: u32 = liste.iter().map(|s| s.2).sum::<u32>().max(1);
+            let idx: Vec<usize> = (0..self.leagues[l].fixtures.len()).filter(|&i| self.leagues[l].fixtures[i].day == d && self.leagues[l].fixtures[i].zeit == 0).collect();
+            let n = idx.len().max(1) as u32;
+            for (k, i) in idx.into_iter().enumerate() {
+                // the k-th match takes the slot where k/n falls in the cumulated weights
+                let ziel = k as u32 * gesamt / n;
+                let mut summe = 0;
+                let mut s = liste.iter().find(|s| { summe += s.2; ziel < summe }).copied().unwrap_or(liste[0]);
+                let (h, a) = (self.leagues[l].fixtures[i].h, self.leagues[l].fixtures[i].a);
+                let tag = |s: &(i32, u16, u32)| (d as i64 + s.0 as i64).max(1) as u32;
+                if !frei(h, a, tag(&s)) { if let Some(x) = liste.iter().find(|x| frei(h, a, tag(x))) { s = *x; } else { s = (0, s.1, 1); } }
+                let f = &mut self.leagues[l].fixtures[i];
+                f.day = (d as i64 + s.0 as i64).max(1) as u32;
+                f.zeit = s.1;
+            }
+        }
+        self.leagues[l].fixtures.sort_by_key(|f| (f.day, f.zeit));
     }
 }

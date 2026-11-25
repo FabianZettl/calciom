@@ -11,7 +11,7 @@ pub const Y0: f32 = 244.0;
 pub enum Page {
     Uebersicht, Posteingang, Kalender, Kader, Aufstellung, Kabine, Training, Medizin, Praesidium, Finanzen, Trainer,
     Transfermarkt, Verhandlungen, Vertraege, Scouting, Akademie, Tabellen, Presse, Spieltag, Optionen,
-    Awards, TheBest, LigaPreise, Privat, Uefa, Kadermeldung, Ziele, Manager, Stadion, Personalmarkt, Geschichte, Tagebuch, Klima, Marken, Kaderplanung, Vergleich, Entwicklung, Vorbereitung, Analyse, Zeitung, Fans, Ranglisten, Vereine, Vereinswelt, Portal, Handbuch, Regeln, Profi, Spielerprofil, Zentrale, Kooperationen, ZweiteMannschaft, Jugendnetz, Merkliste, Trainerteam, Nationalteams,
+    Awards, TheBest, LigaPreise, Privat, Uefa, Kadermeldung, Spielplan, Vereinsstatistik, TrainerBaum, Ziele, Manager, Stadion, Personalmarkt, Geschichte, Tagebuch, Klima, Marken, Kaderplanung, Vergleich, Entwicklung, Vorbereitung, Analyse, Zeitung, Fans, Ranglisten, Vereine, Vereinswelt, Portal, Handbuch, Regeln, Profi, Spielerprofil, Zentrale, Kooperationen, ZweiteMannschaft, Jugendnetz, Merkliste, Trainerteam, Nationalteams,
 }
 
 /// The side menu: group → main pages → their tabs. Every page keeps its id (links from the inbox, ticker and so on
@@ -19,18 +19,18 @@ pub enum Page {
 pub type Haupt = (&'static str, &'static [(Page, &'static str)]);
 pub const MENU: [(&str, &[Haupt]); 7] = [
     ("ui.pages.buero", &[("bereich.zentrale", &[(Page::Zentrale, "bereich.zentrale"), (Page::Uebersicht, "reiter.uebersicht")]), ("zentrale.k.posteingang", &[(Page::Posteingang, "zentrale.k.posteingang")]), ("gl.kopf.ergebnisse.alle", &[(Page::Kalender, "gl.kopf.ergebnisse.alle")])]),
-    ("ui.pages.mannschaft", &[("zentrale.k.kader", &[(Page::Kader, "zentrale.k.kader"), (Page::ZweiteMannschaft, "ui.game.zweite_mannschaft"), (Page::Kaderplanung, "aktion.kaderplanung"), (Page::Kadermeldung, "ui.meldung.seite"), (Page::Vergleich, "menu.spielervergleich.titel")]),
+    ("ui.pages.mannschaft", &[("zentrale.k.kader", &[(Page::Kader, "zentrale.k.kader"), (Page::ZweiteMannschaft, "ui.game.zweite_mannschaft"), (Page::Kooperationen, "ui.farm.kooperationen"), (Page::Kaderplanung, "aktion.kaderplanung"), (Page::Kadermeldung, "ui.meldung.seite"), (Page::Vergleich, "menu.spielervergleich.titel")]),
         ("gb2.reiter.taktik", &[(Page::Aufstellung, "aktion.aufstellung"), (Page::Vorbereitung, "ui.pages.spielvorbereitung"), (Page::Analyse, "menu.analyse.titel")]),
         ("vg.pg.dim.kabine", &[(Page::Kabine, "vg.pg.dim.kabine")]),
         ("status.training", &[(Page::Training, "status.training"), (Page::Entwicklung, "profil.entwicklung_verlauf"), (Page::Medizin, "kachel.medizin")])]),
     ("ui.pages.markt", &[("bereich.transfers", &[(Page::Transfermarkt, "ux.abschnitt.markt"), (Page::Verhandlungen, "ux.abschnitt.verhandlungen"), (Page::Vertraege, "as.reiter.vertraege"), (Page::Merkliste, "aka.pille.merkliste")]), ("profil.teil.8", &[(Page::Scouting, "profil.teil.8")])]),
     ("ui.pages.jugend", &[("aka.gruppe.akademie", &[(Page::Akademie, "aka.gruppe.akademie"), (Page::Jugendnetz, "ui.main.jugendnetz")])]),
     ("ui.pages.verein", &[("klima.praesidium", &[(Page::Praesidium, "klima.praesidium"), (Page::Ziele, "aktion.ziele"), (Page::Klima, "ui.main.vereinsklima"), (Page::Geschichte, "menu.vereinsgeschichte.titel")]),
-        ("bereich.finanzen", &[(Page::Finanzen, "bereich.finanzen"), (Page::Stadion, "menu.stadion_und_anlagen.titel"), (Page::Marken, "ui.main.marken_und_sponsoren"), (Page::Kooperationen, "ui.farm.kooperationen")]),
+        ("bereich.finanzen", &[(Page::Finanzen, "bereich.finanzen"), (Page::Stadion, "menu.stadion_und_anlagen.titel"), (Page::Marken, "ui.main.marken_und_sponsoren")]),
         ("md.ui.chip.personal", &[(Page::Trainerteam, "ui.main.trainerteam"), (Page::Personalmarkt, "ui.main.personalmarkt")]),
-        ("taktik.board.coach", &[(Page::Trainer, "aktion.trainerprofil"), (Page::Manager, "gm.mg.hero"), (Page::Tagebuch, "gm.tb.hero"), (Page::Privat, "ui.privat.seite")])]),
-    ("ui.pages.welt", &[("zentrale.wettbewerbe", &[(Page::Tabellen, "ui.pages.tabellen"), (Page::Ranglisten, "ux.abschnitt.rankings"), (Page::LigaPreise, "ui.preis.liga_seite"), (Page::Uefa, "ui.uefa.seite"), (Page::Nationalteams, "ui.nt.seite")]),
-        ("ui.award.seite", &[(Page::Awards, "ui.preis.ballon_seite"), (Page::TheBest, "ui.preis.best_seite")]),
+        ("taktik.board.coach", &[(Page::Trainer, "aktion.trainerprofil"), (Page::Manager, "gm.mg.hero"), (Page::TrainerBaum, "ui.mst.seite"), (Page::Tagebuch, "gm.tb.hero"), (Page::Privat, "ui.privat.seite")])]),
+    ("ui.pages.welt", &[("zentrale.wettbewerbe", &[(Page::Tabellen, "ui.pages.tabellen"), (Page::Spielplan, "ui.spielplan.seite"), (Page::Ranglisten, "ux.abschnitt.rankings"), (Page::Vereinsstatistik, "ui.vstat.seite"), (Page::Uefa, "ui.uefa.seite"), (Page::Nationalteams, "ui.nt.seite")]),
+        ("ui.award.seite", &[(Page::Awards, "ui.preis.ballon_seite"), (Page::TheBest, "ui.preis.best_seite"), (Page::LigaPreise, "ui.preis.liga_seite")]),
         ("menu.vereine_und_spieler.titel", &[(Page::Vereine, "suche.ueberschrift"), (Page::Vereinswelt, "ui.main.vereinswelt"), (Page::Portal, "md.pool.typ.portal")])]),
     ("ui.pages.medien", &[("zentrale.k.medien", &[(Page::Presse, "feed.art.journalist"), (Page::Zeitung, "md.pool.typ.zeitung"), (Page::Fans, "menu.fans_und_stimmung.titel")])]),
 ];
@@ -88,6 +88,8 @@ pub struct View {
     pub karte_off: (f32, f32),
     /// The jingle of the reward moment on screen was played.
     pub feier_ton: bool,
+    /// When the current full-screen moment appeared (for its grow-in).
+    pub feier_start: f32,
     pub page: Page,
     pub back: Vec<Page>,
     pub fwd: Vec<Page>,
@@ -247,7 +249,7 @@ pub fn skala_file() -> std::path::PathBuf { save_dir().join("../skala.txt") } //
 pub fn sprache_file() -> std::path::PathBuf { save_dir().join(crate::id("../sprache.txt")) }
 impl View {
     pub fn new() -> View {
-        View { karte_zoom: 1.0, karte_off: (0.0, 0.0), feier_ton: false, page: Page::Uebersicht, back: vec![], fwd: vec![], modal: Modal::None, tab: 0, scroll: 0.0, scrolls: Default::default(), ziehen: None, tafel_zug: None, leih_wahl: (1, 0), topf_wahl: (0, 1, 1), vergleich: [None; 3], vergleich_suche: (usize::MAX, String::new()), auslosung_t0: 0.0, jugend_verein: None, zum_start: false, name_neu: None, bank_zug: None, nt_wahl: None, nt_scroll: 0, nt_verband: 0, nt_sort: 0, nt_u21: 0, auswahl: None, auswahl_scroll: 0, vereine_liga: None, post_folgen: None, sel_msg: None, msg_filter: 0, lager_reiter: 0, lager_tage: 7, halbzeit_fl27: None, sel_player: None,
+        View { karte_zoom: 1.0, karte_off: (0.0, 0.0), feier_ton: false, feier_start: 0.0, page: Page::Uebersicht, back: vec![], fwd: vec![], modal: Modal::None, tab: 0, scroll: 0.0, scrolls: Default::default(), ziehen: None, tafel_zug: None, leih_wahl: (1, 0), topf_wahl: (0, 1, 1), vergleich: [None; 3], vergleich_suche: (usize::MAX, String::new()), auslosung_t0: 0.0, jugend_verein: None, zum_start: false, name_neu: None, bank_zug: None, nt_wahl: None, nt_scroll: 0, nt_verband: 0, nt_sort: 0, nt_u21: 0, auswahl: None, auswahl_scroll: 0, vereine_liga: None, post_folgen: None, sel_msg: None, msg_filter: 0, lager_reiter: 0, lager_tage: 7, halbzeit_fl27: None, sel_player: None,
             market_pos: 0, market_age: 40, market_price: 0, market_genau: 0, market_gut: 0, market_stat: 0, market_scope: 0, market_text: String::new(), market_focus: false, sp_edit: Default::default(), sp_treffer: (Default::default(), u32::MAX, vec![]), pm_wahl: (u32::MAX, [0; 3]), kr: (50, 2), auswahl_suche: String::new(), menu_alle: false, suche_text: String::new(), vorb_tag: 0, vorb_tore: (0, 0), suche_treffer: vec![], suche_fuer: String::new(), market_cache: vec![], market_key: String::new(), sortierung: Default::default(), neg_tipp: 0.0, blog_filter: 0, tp_zelle: None,
             table_league: None, cal_month: -1, pick: None, toast: None, mv: None, sel_neg: None, changed_at: 0.0, hud_seen: vec![], league_scroll: 0, sel_club: None, kontext: None, verein_kontext: None, taktik_ansicht: 0,
             fl27: None, fl27_status: String::new(), fl27_live: None, fl27_log: vec![], fl27_t0: 0.0, fl27_ko: None, fl27_ko_apply: None, koop_form: (true, 1, 2, 0.0, 3), fl27_laeuft: false, fl27_ansicht: None, fl27_reiter: 0, fl27_seq: None, fl27_einblendung: None, fl27_vorschau: false, fl27_pruef_t: -10.0, fl27_gesehen: false, fl27_erster_blick: false, fl27_ende: None, fl27_ende_wunsch: false, fl27_auto_t: None, fl27_uebernommen: None, db_blick_t: 0.0, reiter_merk: Default::default(),
@@ -619,10 +621,12 @@ pub fn wettbewerb_look(_c: &Career, key: &str, kind: u8, land: &str) -> Look {
 /// The colours of the "per competition" theme (Fabian 24.11.): (head band, accent). A dark neutral first colour (the
 /// Europa League's black) gives way to a colourful accent; a pale accent (the Bundesliga's white) to the first colour.
 pub fn thema_farben(lk: &Look) -> (u32, u32) {
-    let bunt = |c: Color| { let (mx, mn) = (c.r.max(c.g).max(c.b), c.r.min(c.g).min(c.b)); mx > 0.0 && (mx - mn) / mx > 0.35 && mx > 0.25 };
+    // colourful: clearly saturated and not near-black (the Premier League's deep purple counts, the Europa League's black not)
+    let bunt = |c: Color| { let (mx, mn) = (c.r.max(c.g).max(c.b), c.r.min(c.g).min(c.b)); mx > 0.12 && (mx - mn) / mx > 0.35 };
     let u = |c: Color| { let k = |x: f32| ((x * 255.0).round() as u32).min(255); (k(c.r) << 16) | (k(c.g) << 8) | k(c.b) };
     let kopf = if bunt(lk.c1) || !bunt(lk.akzent) { lk.c1 } else { lk.akzent };
-    (u(kopf), u(if bunt(lk.akzent) { lk.akzent } else { kopf }))
+    // one colour for head and accent: the competition's own (Fabian 24.11.: Premier League purple, not its neon green)
+    (u(kopf), u(kopf))
 }
 /// A five-pointed star (the Champions League pattern).
 fn stern(x: f32, y: f32, r: f32, col: Color) {
@@ -663,7 +667,7 @@ pub(super) fn zeilen(ui: &mut Ui, r: Rect, items: &[(String, String)], start: f3
 }
 pub(super) fn links_rechts() -> (Rect, Rect) { (Rect::new(x0() + 4.0, Y0, cbreite() * 0.5 - 6.0, hoehe() - Y0 - 16.0), Rect::new(x0() + cbreite() * 0.5 + 10.0, Y0, cbreite() * 0.5 - 6.0, hoehe() - Y0 - 16.0)) }
 
-pub fn stufe_wort(o: f32) -> String { (if o >= 82.0 { crate::inhalt::t("stufe.staerke.5") } else if o >= 77.0 { crate::inhalt::t("stufe.staerke.4") } else if o >= 72.0 { crate::id("stark") } else if o >= 66.0 { crate::id("solide") } else { crate::inhalt::t("ui.seiten.ausbaufaehig") }).to_string() }
+pub fn stufe_wort(o: f32) -> String { (if o >= 82.0 { crate::inhalt::t("stufe.staerke.5") } else if o >= 77.0 { crate::inhalt::t("stufe.staerke.4") } else if o >= 72.0 { crate::inhalt::t("stufe.staerke.3") } else if o >= 66.0 { crate::inhalt::t("stufe.staerke.2") } else { crate::inhalt::t("ui.seiten.ausbaufaehig") }).to_string() }
 
 /// Liga in Zahlen (Teil 3): scorers, assists, grades and, per club, clean sheets and fair play (yellow cards of the squad),
 /// each card led by its leader in one sentence.

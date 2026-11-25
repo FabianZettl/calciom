@@ -1,5 +1,8 @@
+spieler_moral = 4.0   # Moral-Plus für den Spieler bei einem Meilenstein
+
 # Karriere-Meilensteine (PES M, eigene Festlegung nach SPIELGEFUEHL.md Maßnahme 4; die Python-Fassung hatte nur einen leeren Reiter).
-# zaehlt: siege, spiele, serie (längste Serie ohne Niederlage), zu_null, titel, saisons, talente (eigene Spieler bis 19 mit Einsatz), lizenz (0 C … 3 Profi)
+# zaehlt: kantersiege (4+ Tore Abstand), derbysiege, europa (Spiele in CL/EL/UECL), europa_siege, tore (eigene Tore),
+# siege, spiele, serie (längste Serie ohne Niederlage), zu_null, titel, saisons, talente (eigene Spieler bis 19 mit Einsatz), lizenz (0 C … 3 Profi)
 
 [[meilenstein]]
 id = "erster_sieg"
@@ -50,3 +53,116 @@ ziel = 50
 id = "profi_lizenz"
 zaehlt = "lizenz"
 ziel = 3
+
+[[meilenstein]]
+id = "kantersieg"
+zaehlt = "kantersiege"
+ziel = 1
+
+[[meilenstein]]
+id = "derbysieg"
+zaehlt = "derbysiege"
+ziel = 1
+
+[[meilenstein]]
+id = "europa_debuet"
+zaehlt = "europa"
+ziel = 1
+
+[[meilenstein]]
+id = "europa_zehn"
+zaehlt = "europa_siege"
+ziel = 10
+
+[[meilenstein]]
+id = "hundert_tore"
+zaehlt = "tore"
+ziel = 100
+
+[[meilenstein]]
+id = "hundert_siege"
+zaehlt = "siege"
+ziel = 100
+
+[[meilenstein]]
+id = "drei_titel"
+zaehlt = "titel"
+ziel = 3
+
+[[meilenstein]]
+id = "fuenf_saisons"
+zaehlt = "saisons"
+ziel = 5
+
+[[meilenstein]]
+id = "dreihundert_spiele"
+zaehlt = "spiele"
+ziel = 300
+
+# Spieler-Meilensteine im eigenen Verein (Fabian 24.11.). zaehlt: spiele / tore für den Verein, laenderspiele, hattrick (diese Woche).
+# feier = true: Vollbild-Moment.
+[[spieler]]
+id = "debuet"
+zaehlt = "spiele"
+ziel = 1
+
+[[spieler]]
+id = "erstes_tor"
+zaehlt = "tore"
+ziel = 1
+
+[[spieler]]
+id = "hattrick"
+zaehlt = "hattrick"
+ziel = 1
+feier = true
+
+[[spieler]]
+id = "spiele50"
+zaehlt = "spiele"
+ziel = 50
+
+[[spieler]]
+id = "spiele100"
+zaehlt = "spiele"
+ziel = 100
+feier = true
+
+[[spieler]]
+id = "spiele200"
+zaehlt = "spiele"
+ziel = 200
+feier = true
+
+[[spieler]]
+id = "spiele300"
+zaehlt = "spiele"
+ziel = 300
+feier = true
+
+[[spieler]]
+id = "tore25"
+zaehlt = "tore"
+ziel = 25
+
+[[spieler]]
+id = "tore50"
+zaehlt = "tore"
+ziel = 50
+feier = true
+
+[[spieler]]
+id = "tore100"
+zaehlt = "tore"
+ziel = 100
+feier = true
+
+[[spieler]]
+id = "erstes_laenderspiel"
+zaehlt = "laenderspiele"
+ziel = 1
+
+[[spieler]]
+id = "laenderspiele50"
+zaehlt = "laenderspiele"
+ziel = 50

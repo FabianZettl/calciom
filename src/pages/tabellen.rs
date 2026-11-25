@@ -14,6 +14,7 @@ fn zone_farbe(z: u8) -> Color {
 }
 
 // ================================================================ Tabellen
+thread_local! { static VORSAISON: std::cell::Cell<bool> = const { std::cell::Cell::new(false) }; }
 pub(super) fn tabellen(ui: &mut Ui, v: &mut View, c: &mut Career) {
     // no list on the left any more (Fabian 22.11.): country and competition are chosen in the banner, the page has the
     // whole width for table, scorers, form and news
@@ -45,12 +46,20 @@ pub(super) fn tabellen(ui: &mut Ui, v: &mut View, c: &mut Career) {
     ui.text(&hinweis, hx, Y0 - 14.0, 15.0, lk.text2);
     // estimated in daten/ligaregeln.toml (sicher = false) or no entry there: the standard rules
     if !regel.sicher && hx + ui.measure(&hinweis, 15.0) + 200.0 < x + tw - 490.0 { ui.text(crate::inhalt::t("ui.pages.regel_geschaetzt"), hx + ui.measure(&hinweis, 15.0), Y0 - 14.0, 15.0, Theme::achtung()); }
-    let table = c.world.table(l);
+    // this season or the season before (Fabian 24.11.: last season's table and scorers stay readable)
+    let archiv = c.world.archiv.iter().filter(|a| a.liga == l).max_by_key(|a| a.season).cloned();
+    let vorsaison = archiv.is_some() && VORSAISON.with(|x| x.get());
+    if let Some(a) = &archiv {
+        let titel = [crate::inhalt::t("ui.saison.diese_saison").to_string(), crate::date::season_label(a.season)];
+        let refs: Vec<&str> = titel.iter().map(|x| x.as_str()).collect();
+        if let Some(i) = ui.segment(Rect::new(x + tw - 760.0, Y0 - 38.0, 270.0, 32.0), &refs, vorsaison as usize) { VORSAISON.with(|x| x.set(i == 1)); }
+    }
+    let table = if vorsaison { archiv.as_ref().map(|a| a.tabelle.clone()).unwrap_or_default() } else { c.world.table(l) };
     let rows = table.len();
     let area = Rect::new(x, Y0 + 6.0, tw * 0.64, hoehe() - Y0 - 22.0);
     ui.card(area);
     draw_rectangle(area.x + 10.0, area.y, area.w - 20.0, 3.0, lk.akzent_lesbar);
-    player_row_head(ui, area.x, area.y + 22.0, &[("#", 10.0), (crate::inhalt::t("ui.wort.gross_verein"), 70.0), (crate::inhalt::t("ui.wort.gross_sp"), 330.0), (crate::inhalt::t("ui.wort.buchstabe_s"), 370.0), (crate::inhalt::t("ui.wort.buchstabe_u"), 400.0), (crate::inhalt::t("ui.wort.buchstabe_n"), 430.0), (crate::inhalt::t("ui.wort.gross_tore"), 470.0), (crate::inhalt::t("ui.wort.gross_pkt"), 540.0), (crate::inhalt::t("ui.wort.gross_form"), 590.0)]);
+    player_row_head(ui, area.x, area.y + 22.0, &[("#", 10.0), (crate::inhalt::t("ui.wort.gross_verein"), 70.0), (crate::inhalt::t("ui.wort.gross_sp"), 330.0), (crate::inhalt::t("ui.wort.buchstabe_s"), 370.0), (crate::inhalt::t("ui.wort.buchstabe_u"), 400.0), (crate::inhalt::t("ui.wort.buchstabe_n"), 430.0), (crate::inhalt::t("ui.wort.gross_tore"), 462.0), (crate::inhalt::t("ui.tabelle.diff"), 520.0), (crate::inhalt::t("ui.wort.gross_pkt"), 572.0), (crate::inhalt::t("ui.wort.gross_form"), 620.0)]);
     // rows keep a readable height (26 to 32); a long table (league phase, 36 teams) scrolls instead of being squeezed
     let rh = ((area.h - 36.0) / rows as f32).clamp(26.0, 32.0);
     let vis = ((area.h - 36.0) / rh) as usize;
@@ -82,9 +91,12 @@ pub(super) fn tabellen(ui: &mut Ui, v: &mut View, c: &mut Career) {
         ui.text_semi(&nm, area.x + 70.0, ty, fs, Theme::text());
         if sperre { let w = ui.measure_semi(&nm, fs); ui.text(crate::inhalt::t("ui.pages.kein_aufstieg"), area.x + 78.0 + w, ty, 12.0, Theme::text2()); }
         for (val, cx) in [(r.p as i32, 330.0), (r.w as i32, 370.0), (r.d as i32, 400.0), (r.l as i32, 430.0)] { ui.text(&format!("{val}"), area.x + cx, ty, fs, Theme::text()); }
-        ui.text(&format!("{}:{}", r.gf, r.ga), area.x + 470.0, ty, fs, Theme::text());
-        ui.text_semi(&format!("{}", r.pts), area.x + 540.0, ty, fs, Theme::text());
-        for (j, ch) in r.form.iter().enumerate() { let col = match ch { 'S' => Theme::gut(), 'N' => Theme::problem(), _ => Theme::achtung() }; rrect(area.x + 590.0 + j as f32 * 14.0, y + rh * 0.25, 10.0, rh * 0.45, 2.0, col); }
+        ui.text(&format!("{}:{}", r.gf, r.ga), area.x + 462.0, ty, fs, Theme::text());
+        // goal difference with its sign (Fabian 24.11.)
+        let d = r.gf - r.ga;
+        ui.text(&format!("{d:+}").replace('-', "−"), area.x + 520.0, ty, fs, if d > 0 { Theme::gut() } else if d < 0 { Theme::problem() } else { Theme::text2() });
+        ui.text_semi(&format!("{}", r.pts), area.x + 572.0, ty, fs, Theme::text());
+        for (j, ch) in r.form.iter().enumerate() { let col = match ch { 'S' => Theme::gut(), 'N' => Theme::problem(), _ => Theme::achtung() }; rrect(area.x + 620.0 + j as f32 * 14.0, y + rh * 0.25, 10.0, rh * 0.45, 2.0, col); }
         if ui.hit(rr) && r.club != c.own { /* club profile: not in this version */ }
     }
     // legend of the zones shown, under the table
@@ -109,8 +121,10 @@ pub(super) fn tabellen(ui: &mut Ui, v: &mut View, c: &mut Career) {
     for (seite, titel) in [crate::inhalt::t("ui.liga.tore"), crate::inhalt::t("ui.liga.scorer")].iter().enumerate() {
         let sx = r1.x + 14.0 + seite as f32 * (halb + 8.0);
         ui.text_semi(&titel.to_uppercase(), sx, r1.y + 56.0, 12.0, Theme::gedaempft());
-        let wert = |p: usize| { let x = c.world.players[p].in_liga(l); if seite == 0 { x.goals as u32 } else { (x.goals + x.assists) as u32 } };
-        let mut l2: Vec<usize> = spieler.iter().copied().filter(|&p| wert(p) > 0).collect();
+        let alt = |p: usize| archiv.as_ref().and_then(|a| a.torjaeger.iter().find(|x| x.0 == p)).map(|x| (x.1 as u32, x.2 as u32)).unwrap_or((0, 0));
+        let wert = |p: usize| { let (g, a) = if vorsaison { alt(p) } else { let x = c.world.players[p].in_liga(l); (x.goals as u32, x.assists as u32) }; if seite == 0 { g } else { g + a } };
+        let quelle: Vec<usize> = if vorsaison { archiv.as_ref().map(|a| a.torjaeger.iter().map(|x| x.0).collect()).unwrap_or_default() } else { spieler.clone() };
+        let mut l2: Vec<usize> = quelle.iter().copied().filter(|&p| wert(p) > 0).collect();
         l2.sort_by_key(|&p| std::cmp::Reverse(wert(p)));
         if l2.is_empty() { ui.text(crate::inhalt::t("statistik.keine_tore"), sx, r1.y + 80.0, 13.0, Theme::text2()); }
         let n = ((r1.h - 76.0) / 24.0) as usize;
@@ -198,11 +212,20 @@ fn cup_spiele_kasten(ui: &mut Ui, c: &Career, ci: usize, r: Rect, lk: &Look) {
         auswahl.extend(liste.iter().filter(|f| Some(f.f.day) == tag && !(f.f.h == c.own || f.f.a == c.own)));
         for f in auswahl.into_iter().take(n) {
             let mine = f.f.h == c.own || f.f.a == c.own;
-            let res = if f.f.hg < 0 { date::short(c.world.season, f.f.day) } else { format!("{}:{}", f.f.hg, f.f.ag) };
-            let t = format!("{} – {}", c.world.club(f.f.h).short, c.world.club(f.f.a).short);
-            ui.text(&ui.fit(&t, 14.0, r.w - 100.0), r.x + 14.0, y, 14.0, if mine { Theme::gold() } else { Theme::text() });
-            ui.text_right(&res, r.x + r.w - 14.0, y, 14.0, Theme::text2());
-            y += 20.0;
+            // both teams with crest and name (Fabian 25.11.), the date and kick-off or the score on the right
+            let res = if f.f.hg < 0 { format!("{} {}", date::short(c.world.season, f.f.day), crate::ligaregeln::zeit_text(f.f.zeit)) } else { format!("{}:{}", f.f.hg, f.f.ag) };
+            let rw = ui.measure(&res, 13.0) + 8.0;
+            let halb = (r.w - 28.0 - rw - 60.0) / 2.0;
+            let farbe = if mine { Theme::gold() } else { Theme::text() };
+            for (k, club) in [f.f.h, f.f.a].into_iter().enumerate() {
+                let kl = c.world.club(club);
+                let x = r.x + 14.0 + k as f32 * (halb + 30.0);
+                ui.club_crest(x + 9.0, y - 5.0, 9.0, kl.id, hex(kl.c1), &kl.short);
+                ui.text(&ui.fit(&kl.name, 14.0, halb - 24.0), x + 24.0, y, 14.0, farbe);
+            }
+            ui.text_center("–", r.x + 14.0 + halb + 15.0, y, 14.0, Theme::gedaempft());
+            ui.text_right(&res, r.x + r.w - 14.0, y, 13.0, Theme::text2());
+            y += 24.0;
         }
         y += 14.0;
     }
@@ -395,4 +418,144 @@ fn turnierbaum(ui: &mut Ui, c: &Career, ci: usize, r: Rect, lk: &Look) -> bool {
         }
     }
     true
+}
+
+/// Competitions › Fixtures (Fabian 24.11.): the whole schedule of the chosen competition by matchday (by day for a
+/// cup), played results and the dates still to come; ours marked; the list opens at the next round.
+pub(super) fn spielplan(ui: &mut Ui, v: &mut View, c: &mut Career) {
+    let gruppen = wettbewerb_gruppen(c);
+    let l = v.table_league.unwrap_or(c.league());
+    let x = x0() + 4.0;
+    let tw = cbreite();
+    let felder = wettbewerb_felder(c, &gruppen, l, Rect::new(x + tw - 480.0, Y0 - 40.0, 470.0, 36.0));
+    if let Some((f, i)) = auswahl_vorher(ui, v, &felder) { v.table_league = Some(wahl_umsetzen(&gruppen, l, f, i)); v.league_scroll = 0; v.scrolls.clear(); }
+    let l = v.table_league.unwrap_or(c.league());
+    let wo = if l >= 1000 && l - 1000 < c.world.cups.len() { Wo::Pokal(l - 1000) } else { Wo::Liga(l.min(c.world.leagues.len() - 1)) };
+    let (name, fx): (String, Vec<Fixture>) = match wo {
+        Wo::Liga(k) => (c.world.leagues[k].name.clone(), c.world.leagues[k].fixtures.clone()),
+        Wo::Pokal(k) => (c.world.cups[k].name.clone(), c.world.cups[k].fx.iter().map(|y| y.f.clone()).collect()),
+    };
+    let lk = wo_look(c, wo);
+    let _ = wettbewerb_banner(ui, Rect::new(x, Y0 - 44.0, tw, 46.0), &lk, c.comp_cid(wo), &name);
+    // the days with matches, each a block: a heading and its matches
+    let mut tage: Vec<u32> = fx.iter().map(|f| f.day).collect();
+    tage.sort_unstable();
+    tage.dedup();
+    let area = Rect::new(x, Y0 + 6.0, tw, hoehe() - Y0 - 22.0);
+    ui.card(area);
+    if tage.is_empty() { ui.text(crate::inhalt::t("ui.spielplan.leer"), area.x + 16.0, area.y + 40.0, 15.0, Theme::text2()); auswahl_zeichnen(ui, v, &felder); return; }
+    // rows: a heading per day, then its matches; the list starts at the next day with an open match
+    let mut zeilen: Vec<(Option<u32>, Option<Fixture>)> = vec![];
+    for (k, &d) in tage.iter().enumerate() {
+        zeilen.push((Some(k as u32 + 1), None));
+        for f in fx.iter().filter(|f| f.day == d) { zeilen.push((None, Some(f.clone()))); }
+    }
+    let rh = 28.0;
+    let vis = ((area.h - 16.0) / rh) as usize;
+    let key = (area.x as i32, area.y as i32);
+    if !v.scrolls.contains_key(&key) {
+        let naechster = zeilen.iter().position(|z| z.1.as_ref().is_some_and(|f| f.hg < 0)).unwrap_or(0).saturating_sub(1);
+        v.scrolls.insert(key, naechster.min(zeilen.len().saturating_sub(vis)) as f32);
+    }
+    let start = scroll_rows(ui, v, area, zeilen.len(), vis);
+    let mut y = area.y + 24.0;
+    for (runde, f) in zeilen.iter().skip(start).take(vis) {
+        if let Some(n) = runde {
+            let d = tage[*n as usize - 1];
+            ui.text_semi(&format!("{} · {}", crate::tf!("ui.spielplan.runde", n), date::long(c.world.season, d)), area.x + 16.0, y, 15.0, lk.akzent_lesbar);
+        } else if let Some(f) = f {
+            let eigen = f.h == c.own || f.a == c.own;
+            if eigen { rrect(area.x + 8.0, y - 19.0, area.w - 16.0, rh - 2.0, 5.0, alpha(Theme::akzent(), 0.16)); }
+            let mx = area.x + area.w / 2.0;
+            let (hc, ac) = (&c.world.clubs[f.h], &c.world.clubs[f.a]);
+            ui.text_right(&ui.fit(&hc.name, 15.0, area.w / 2.0 - 90.0), mx - 46.0, y, 15.0, Theme::text());
+            ui.club_crest(mx - 30.0, y - 5.0, 9.0, hc.id, hex(hc.c1), &hc.short);
+            let erg = if f.hg >= 0 { format!("{}:{}", f.hg, f.ag) } else { "–:–".into() };
+            ui.text_center(&erg, mx, y, 15.0, if f.hg >= 0 { Theme::text() } else { Theme::gedaempft() });
+            ui.club_crest(mx + 30.0, y - 5.0, 9.0, ac.id, hex(ac.c1), &ac.short);
+            ui.text(&ui.fit(&ac.name, 15.0, area.w / 2.0 - 90.0), mx + 46.0, y, 15.0, Theme::text());
+        }
+        y += rh;
+    }
+    auswahl_zeichnen(ui, v, &felder);
+}
+
+thread_local! { static VSTAT: std::cell::Cell<(usize, bool)> = const { std::cell::Cell::new((5, false)) }; }
+/// Club statistics of a competition (Fabian 24.11.: xG and co for clubs too): every club with detailed matches, its
+/// goals and xG for and against, shots, possession, big chances and pass accuracy; a click on a heading sorts.
+pub(super) fn vereinsstatistik(ui: &mut Ui, v: &mut View, c: &mut Career) {
+    use crate::statistik::{get, AUFS_TOR, PAESSE, PAESSE_OK, SCHUESSE, TACKL_OK, TORE, XG};
+    let gruppen = wettbewerb_gruppen(c);
+    let l = v.table_league.unwrap_or(c.league());
+    let x = x0() + 4.0;
+    let tw = cbreite();
+    let felder = wettbewerb_felder(c, &gruppen, l, Rect::new(x + tw - 480.0, Y0 - 40.0, 470.0, 36.0));
+    if let Some((f, i)) = auswahl_vorher(ui, v, &felder) { v.table_league = Some(wahl_umsetzen(&gruppen, l, f, i)); v.scrolls.clear(); }
+    let l = v.table_league.unwrap_or(c.league());
+    let wo = if l >= 1000 && l - 1000 < c.world.cups.len() { Wo::Pokal(l - 1000) } else { Wo::Liga(l.min(c.world.leagues.len() - 1)) };
+    let name = match wo { Wo::Liga(k) => c.world.leagues[k].name.clone(), Wo::Pokal(k) => c.world.cups[k].name.clone() };
+    let lk = wo_look(c, wo);
+    let lx = wettbewerb_banner(ui, Rect::new(x, Y0 - 44.0, tw, 46.0), &lk, c.comp_cid(wo), &name);
+    // this season or the one before
+    let (sortiert, vor) = VSTAT.with(|s| s.get());
+    let quelle = if vor { &c.world.vstat_vor } else { &c.world.vstat };
+    let titel = [crate::inhalt::t("ui.saison.diese_saison"), crate::inhalt::t("ui.stat.vorsaison")];
+    let sx = (lx + ui.measure_title(&name, 26.0) + 24.0).min(x + tw - 780.0);
+    if let Some(i) = ui.segment(Rect::new(sx, Y0 - 38.0, 270.0, 32.0), &titel, vor as usize) { VSTAT.with(|s| s.set((sortiert, i == 1))); }
+    let area = Rect::new(x, Y0 + 6.0, tw, hoehe() - Y0 - 22.0);
+    ui.card(area);
+    let mut rows: Vec<&crate::world::VereinStat> = quelle.iter().filter(|s| s.l as usize == l && s.spiele > 0).collect();
+    if rows.is_empty() { ui.text(crate::inhalt::t("ui.vstat.leer"), area.x + 16.0, area.y + 40.0, 15.0, Theme::text2()); auswahl_zeichnen(ui, v, &felder); return; }
+    // the columns: heading, value, decimals, higher is better
+    let xg = |s: &crate::statistik::Stat| get(s, XG) as f32 / 1000.0;
+    let quote = |s: &crate::statistik::Stat| if get(s, PAESSE) > 0 { get(s, PAESSE_OK) as f32 / get(s, PAESSE) as f32 * 100.0 } else { 0.0 };
+    type Spalte<'a> = (&'a str, Box<dyn Fn(&crate::world::VereinStat) -> f32 + 'a>, usize, bool);
+    let spalten: Vec<Spalte> = vec![
+        ("ui.vstat.sp", Box::new(|s| s.spiele as f32), 0, true),
+        ("ui.vstat.tore", Box::new(|s| get(&s.eigen, TORE) as f32), 0, true),
+        ("ui.vstat.xg", Box::new(move |s| xg(&s.eigen)), 1, true),
+        ("ui.vstat.gegentore", Box::new(|s| get(&s.gegen, TORE) as f32), 0, false),
+        ("ui.vstat.xga", Box::new(move |s| xg(&s.gegen)), 1, false),
+        ("ui.vstat.xgd", Box::new(move |s| xg(&s.eigen) - xg(&s.gegen)), 1, true),
+        ("ui.vstat.schuesse", Box::new(|s| get(&s.eigen, SCHUESSE) as f32), 0, true),
+        ("ui.vstat.aufs_tor", Box::new(|s| get(&s.eigen, AUFS_TOR) as f32), 0, true),
+        ("ui.vstat.schuesse_gegen", Box::new(|s| get(&s.gegen, SCHUESSE) as f32), 0, false),
+        ("ui.vstat.gross", Box::new(|s| s.gross as f32), 0, true),
+        ("ui.vstat.gross_gegen", Box::new(|s| s.gross_gegen as f32), 0, false),
+        ("ui.vstat.besitz", Box::new(|s| s.besitz as f32 / s.spiele.max(1) as f32), 0, true),
+        ("ui.vstat.passquote", Box::new(move |s| quote(&s.eigen)), 0, true),
+        ("ui.vstat.tacklings", Box::new(|s| get(&s.eigen, TACKL_OK) as f32), 0, true),
+    ];
+    let sortiert = sortiert.min(spalten.len() - 1);
+    let (f, hoch) = (&spalten[sortiert].1, spalten[sortiert].3);
+    rows.sort_by(|a, b| { let (x, y) = (f(a), f(b)); if hoch { y.partial_cmp(&x) } else { x.partial_cmp(&y) }.unwrap_or(std::cmp::Ordering::Equal) });
+    let name_w = 300.0;
+    let cw = (area.w - name_w - 40.0) / spalten.len() as f32;
+    let kopf_y = area.y + 26.0;
+    for (k, (key, _, _, _)) in spalten.iter().enumerate() {
+        let r = Rect::new(area.x + 16.0 + name_w + k as f32 * cw, kopf_y - 18.0, cw, 24.0);
+        let an = k == sortiert;
+        if ui.hover(r) && is_mouse_button_pressed(MouseButton::Left) { VSTAT.with(|s| s.set((k, vor))); }
+        ui.text_right(crate::inhalt::t(key), r.x + cw - 6.0, kopf_y, 13.0, if an { lk.akzent_lesbar } else { Theme::text2() });
+    }
+    ui.text(crate::inhalt::t("ui.vstat.hinweis"), area.x + 16.0, kopf_y, 13.0, Theme::gedaempft());
+    let rh = 30.0;
+    let liste = Rect::new(area.x, kopf_y + 12.0, area.w, area.h - (kopf_y + 12.0 - area.y));
+    let vis = ((liste.h - 8.0) / rh) as usize;
+    let start = scroll_rows(ui, v, liste, rows.len(), vis);
+    let mut y = liste.y + 20.0;
+    for (n, s) in rows.iter().enumerate().skip(start).take(vis) {
+        let k = &c.world.clubs[s.club];
+        if s.club == c.own { rrect(area.x + 8.0, y - 20.0, area.w - 16.0, rh - 2.0, 5.0, alpha(Theme::akzent(), 0.16)); }
+        ui.text_right(&format!("{}", n + 1), area.x + 40.0, y, 14.0, Theme::gedaempft());
+        ui.club_crest(area.x + 60.0, y - 5.0, 9.0, k.id, hex(k.c1), &k.short);
+        ui.text(&ui.fit(&k.name, 15.0, name_w - 80.0), area.x + 78.0, y, 15.0, Theme::text());
+        for (j, (_, f, nk, _)) in spalten.iter().enumerate() {
+            let w = f(s);
+            let t = if *nk == 0 { format!("{w:.0}") } else if j == 5 && w > 0.0 { format!("+{w:.1}") } else { format!("{w:.1}") };
+            ui.text_right(&t, area.x + 16.0 + name_w + (j + 1) as f32 * cw - 6.0, y, 15.0, if j == sortiert { Theme::text() } else { Theme::text2() });
+        }
+        y += rh;
+    }
+    auswahl_zeichnen(ui, v, &felder);
 }

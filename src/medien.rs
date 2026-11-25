@@ -114,11 +114,22 @@ impl Career {
     /// style: factual → serious/tactics, tabloid → tabloid/rumours, friendly → fan culture/insider, critical →
     /// investigative/serious. Fills the gaps of old saves too.
     pub fn blaetter_an(&mut self) {
+        // older saves: a real reporter keeps his own outlet; one without a checked outlet gives way to an invented one
+        for i in 0..self.me.journalisten.len() {
+            let name = self.me.journalisten[i].0.clone();
+            if pool_medium(&name).is_none() && pool_eintraege().iter().any(|e| e.0 == name && e.2 == "reporter") {
+                let frei = JOURNALISTEN.iter().find(|n| !self.me.journalisten.iter().any(|j| j.0 == **n)).map(|n| n.to_string());
+                if let Some(n) = frei { self.me.journalisten[i].0 = n; }
+            }
+            if let (Some(m), Some(b)) = (pool_medium(&self.me.journalisten[i].0), self.me.blaetter.get_mut(i)) { *b = m; }
+        }
         if self.me.blaetter.len() >= self.me.journalisten.len() { return; }
         let land = land_kuerzel(&self.world.leagues[self.league()].land);
         let pool = medienpool();
         let seed = self.club().id.to_string();
         for i in self.me.blaetter.len()..self.me.journalisten.len() {
+            // a real reporter writes for his own outlet (Fabian 24.11.: not one drawn by tone)
+            if let Some(m) = pool_medium(&self.me.journalisten[i].0) { self.me.blaetter.push(m); continue; }
             let toene: &[&str] = match self.me.journalisten[i].1 { 0 => &["serioes", "taktik"], 1 => &["boulevard", "geruechte"], 2 => &["fankultur", "insider"], _ => &[crate::id("investigativ"), crate::id("serioes")] };
             let mut kand: Vec<&(String, String, String)> = pool.iter().filter(|m| m.1 == land && toene.contains(&m.2.as_str()) && !self.me.blaetter.contains(&m.0)).collect();
             if kand.is_empty() { kand = pool.iter().filter(|m| m.1 == land && !self.me.blaetter.contains(&m.0)).collect(); }
@@ -161,7 +172,7 @@ impl Career {
         // their tone sets their style (rumours → boulevard, tactics → serious)
         let land = land_kuerzel(&self.world.leagues[self.league()].land);
         if f("medien", "journalist.echte_personen") > 0.0 {
-            for (name, _, typ, ton) in pool_eintraege().iter().filter(|e| e.1 == land && e.2 == "reporter").take(n / 2) {
+            for (name, _, typ, ton) in pool_eintraege().iter().filter(|e| e.1 == land && e.2 == "reporter" && pool_medium(&e.0).is_some()).take(n / 2) {
                 let _ = typ;
                 let stil = match ton.as_str() { "geruechte" | "boulevard" => 1, "fankultur" | "insider" => 2, "investigativ" => 3, _ => 0 };
                 self.me.journalisten.push((name.clone(), stil, 0.0));
@@ -367,6 +378,7 @@ impl Career {
     /// The weekly paper (Teil 2, posteingang.toml [zeitung]): on its weekday the headlines of the own club from the last
     /// seven days, led by what the coach said at the podium and what has happened since (results after the quote).
     pub fn zeitung_woche(&mut self) {
+        if !self.feature("medien") { return; } // roh
         let z = |k: &str| crate::regeln::f("posteingang", &format!("zeitung.{k}")) as u32;
         if (crate::date::weekday(self.world.day) as u32 + 6) % 7 != z(crate::id("wochentag")) { return; }
         let abs = self.abs();
@@ -418,6 +430,7 @@ impl Career {
     }
     /// Daily: public promises and rumours, a made-up rumour about a key player (4 % a day, 21 days lock).
     pub fn medien_tag(&mut self) {
+        if !self.feature("medien") { return; } // roh
         let abs = self.abs();
         for i in 0..self.me.zusagen.len() {
             let z = self.me.zusagen[i].clone();
@@ -482,6 +495,7 @@ impl Career {
     /// Once a week: an invitation when there is a reason (success, crisis, else the club's standing), at most one TV
     /// show and one podcast a month; shows and podcasts of the own country from medienpool.json.
     pub fn sendungen_woche(&mut self) {
+        if !self.feature("medien") { return; } // roh
         if self.me.sendung_angebot.is_some() || self.me.sendung.is_some() { return; }
         let abs = self.abs();
         let res: Vec<char> = self.results.iter().map(|r| r.chars().next().unwrap_or('U')).collect();
@@ -530,6 +544,7 @@ impl Career {
     /// Our first offer for player `p` (Fabian 24.11.): the bigger the deal, the likelier a transfer reporter asks
     /// the press office whether we are negotiating. Once per player within the rumour quiet time.
     pub fn presse_nachfrage(&mut self, p: usize) {
+        if !self.feature("medien") { return; } // roh
         let r = |k: &str| f("medien", &format!("nachfrage.{k}"));
         let abs = self.abs();
         if self.me.geruechte.iter().any(|g| g.0 == p && abs < g.1 + f("medien", "geruecht_angebot.sperre_tage") as u32) { return; }
@@ -675,6 +690,14 @@ pub fn pool_eintraege() -> &'static Vec<(String, String, String, String)> {
         v["medien"].as_array().map(|a| a.iter().map(|m| (m["name"].as_str().unwrap_or("").to_string(), m["land"].as_str().unwrap_or("").to_string(), m["typ"].as_str().unwrap_or("").to_string(), m["ton"].as_str().unwrap_or("").to_string())).filter(|m| !m.0.is_empty()).collect()).unwrap_or_default()
     })
 }
+/// The outlet a real reporter works for ("medium" in medienpool.json), checked by hand.
+pub fn pool_medium(name: &str) -> Option<String> {
+    static P: std::sync::OnceLock<std::collections::HashMap<String, String>> = std::sync::OnceLock::new();
+    P.get_or_init(|| {
+        let v: serde_json::Value = serde_json::from_str(include_str!("../assets/inhalt/pesm/core/config/story/medienpool.json")).expect("medienpool.json");
+        v["medien"].as_array().map(|a| a.iter().filter_map(|m| Some((m["name"].as_str()?.to_string(), m["medium"].as_str()?.to_string()))).collect()).unwrap_or_default()
+    }).get(name).cloned()
+}
 /// Beats a journalist can have (medien.toml journalist.fach).
 pub const FAECHER: [&str; 5] = ["transfers", "taktik", "interna", "meinung", "spieler"];
 /// Keywords of the media pool entries, lower case, by name.
@@ -793,11 +816,25 @@ mod fach_tests {
         for _ in 0..4 { let _ = c.end_day(); }
         assert!(c.inbox.iter().any(|m| m.spieler == vec![p] && m.art == "angebot"), "a move in the talks reaches the inbox");
     }
+    /// Fabian 24.11.: a real reporter writes for his own outlet, not one drawn by tone; one without a checked outlet is
+    /// replaced by an invented reporter in old saves. (The public copy has no real reporters: then only the second part.)
+    #[test]
+    fn echte_reporter_beim_richtigen_medium() {
+        use crate::medien::{pool_eintraege, pool_medium, JOURNALISTEN};
+        let mut c = crate::game::Career::new(crate::world::testwelt(4), 0, "Test");
+        let echt = pool_eintraege().iter().find(|e| e.2 == "reporter" && pool_medium(&e.0).is_some()).map(|e| e.0.clone());
+        let unsicher = pool_eintraege().iter().find(|e| e.2 == "reporter" && pool_medium(&e.0).is_none() && !JOURNALISTEN.contains(&e.0.as_str())).map(|e| e.0.clone());
+        c.me.journalisten = vec![(echt.clone().unwrap_or_else(|| JOURNALISTEN[0].into()), 1, 0.0), (unsicher.clone().unwrap_or_else(|| JOURNALISTEN[1].into()), 0, 0.0)];
+        c.me.blaetter = vec!["Rasenfunk".into(), "kicker".into()];
+        c.blaetter_an();
+        if let Some(e) = echt { assert_eq!(c.blatt(0), pool_medium(&e).unwrap()); }
+        if let Some(u) = unsicher { assert_ne!(c.me.journalisten[1].0, u); }
+    }
     /// Fabian 24.11.: journalists have beats; a transfer reporter asks the transfer questions.
     #[test]
     fn faecher_und_fragesteller() {
         let mut c = crate::game::Career::new(crate::world::testwelt(4), 0, "Test");
-        c.me.journalisten = vec![("Florian Plettenberg".into(), 1, 0.0), ("Raphael Honigstein".into(), 0, 0.0), ("Ines Vogt".into(), 2, 0.0)];
+        c.me.journalisten = vec![("Lukas Brenner".into(), 1, 0.0), ("Jonas Feldmann".into(), 0, 0.0), ("Ines Vogt".into(), 2, 0.0)];
         assert_eq!(c.faecher(0)[0], "transfers");
         assert!(c.faecher(1).contains(&"taktik"));
         for j in 0..3 { assert_eq!(c.faecher(j).len(), 2, "{:?}", c.faecher(j)); }

@@ -16,7 +16,21 @@ pub(super) fn geschichte(ui: &mut Ui, _v: &mut View, c: &mut Career) {
     let r = felder[1];
     ui.card_titled(r, t("ui.geschichte.vitrine"), Theme::akzent());
     let titel: Vec<&crate::cups::Title> = c.world.titles.iter().filter(|x| x.club == c.own).collect();
-    if titel.is_empty() { ui.paragraph(t("ui.seiten.noch_kein_titel_in_deiner"), r.x + 14.0, r.y + 60.0, 16.0, r.w - 28.0, Theme::text2()); }
+    if titel.is_empty() {
+        let y0 = ui.paragraph(t("ui.seiten.noch_kein_titel_in_deiner"), r.x + 14.0, r.y + 60.0, 16.0, r.w - 28.0, Theme::text2());
+        // the club's real honours before you (realdaten, up to summer 2026): kind, how many, the last one
+        if let Some(rd) = crate::realdaten::verein(&c.club().name).filter(|rd| !rd.titel.is_empty()) {
+            ui.text_semi(&t("ui.real.titel").to_uppercase(), r.x + 14.0, y0 + 18.0, 13.0, Theme::gedaempft());
+            for (k, (art, jahre)) in rd.titel.iter().enumerate() {
+                let y = y0 + 46.0 + k as f32 * 28.0;
+                if y > r.y + r.h - 12.0 { break; }
+                draw_circle(r.x + 24.0, y - 5.0, 7.0, Theme::gold());
+                ui.text(t(&format!("ui.titelart.{art}")), r.x + 40.0, y, 15.0, Theme::text());
+                let letzt = jahre.iter().max().map(|j| crate::tf!("ui.titelart.zuletzt", j)).unwrap_or_default();
+                ui.text_right(&format!("{}× · {letzt}", jahre.len()), r.x + r.w - 14.0, y, 15.0, Theme::text2());
+            }
+        }
+    }
     let je_reihe = ((r.w - 28.0) / 110.0).max(1.0) as usize;
     for (k, x) in titel.iter().rev().enumerate() {
         let (cx, cy) = (r.x + 14.0 + 55.0 + (k % je_reihe) as f32 * 110.0, r.y + 84.0 + (k / je_reihe) as f32 * 96.0);
@@ -87,6 +101,12 @@ pub(super) fn klima_seite(ui: &mut Ui, _v: &mut View, c: &mut Career) {
     }
     ui.text(c.protest_wort(c.protest_stufe()), l.x + 14.0, l.y + 300.0, 17.0, Theme::text2());
     ui.card_titled(r, crate::inhalt::t("ui.seiten.die_letzten_gruende"), Theme::gold());
-    let z: Vec<(String, String)> = c.mensch.gruende.iter().rev().filter(|g| ["Fans", "Medien", "Präsidium"].contains(&g.bezug.as_str())).take(18).map(|g| (format!("{}: {}", g.was, g.grund), format!("{:+.0}", g.wert))).collect(); // roh
+    // the same reason on several days in a row is one line with its sum and how often it came (no list of repeats)
+    let mut z: Vec<(String, f32, u32)> = vec![];
+    for g in c.mensch.gruende.iter().rev().filter(|g| ["Fans", "Medien", "Präsidium"].contains(&g.bezug.as_str())) { // roh
+        let t = format!("{}: {}", g.was, g.grund);
+        match z.iter_mut().find(|x| x.0 == t) { Some(x) => { x.1 += g.wert; x.2 += 1; } None => { if z.len() >= 18 { break; } z.push((t, g.wert, 1)); } }
+    }
+    let z: Vec<(String, String)> = z.into_iter().map(|(t, w, n)| (if n > 1 { format!("{t} (×{n})") } else { t }, format!("{w:+.0}"))).collect();
     zeilen(ui, r, &z, 64.0);
 }

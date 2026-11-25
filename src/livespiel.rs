@@ -301,6 +301,12 @@ pub fn zeichnen(ui: &mut Ui, v: &mut View, c: &Career, h: usize, a: usize, rr: R
     ui.text(&crate::tf!("live.ballkontakte", m.touch_share, 100 - m.touch_share.min(100)), sb.x + 100.0, sb.y + 104.0, 12.0, Theme::gedaempft());
     ui.text(&if v.fl27_vorschau { t("live.demo").to_string() } else { v.fl27_status.clone() }, sb.x + 100.0, sb.y + 22.0, 13.0, Theme::gedaempft());
     if ui.button(Rect::new(sb.x + sb.w - 230.0, sb.y + 8.0, 156.0, 26.0), t("ui.pages.mitlesen_beenden"), false) { v.fl27 = None; v.fl27_ansicht = None; v.fl27_vorschau = false; return; }
+    // the final whistle is not always seen (Fabian 24.11.): book the score and figures as they stand, once
+    if v.fl27.is_some() && v.fl27_live.is_some() && ui.button_gold(Rect::new(sb.x + sb.w - 420.0, sb.y + 8.0, 182.0, 26.0), t("ui.pages.ergebnis_bestaetigen")) {
+        if let Some(b) = &v.fl27 { b.jetzt_abschliessen(); }
+        v.fl27_live = None;
+        v.toast(t("ui.pages.ergebnis_wird_gebucht"), true);
+    }
     // three columns, and below them flow, team figures and sub ideas
     let top = sb.y + sb.h + 10.0;
     let unten = (rr.h * 0.3).clamp(190.0, 270.0);

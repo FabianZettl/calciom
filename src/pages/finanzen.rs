@@ -145,13 +145,33 @@ pub(super) fn finanzen(ui: &mut Ui, v: &mut View, c: &mut Career) {
         for (k, p) in [sb::CATERING, sb::MERCH, sb::SICHERHEIT, sb::WERBUNG].into_iter().enumerate() { stellschraube(ui, v, c, p, Rect::new(r2.x + 14.0, r2.y + 52.0 + k as f32 * rh, r2.w - 28.0, rh)); }
     } else if v.tab == 2 {
         let r = Rect::new(x0() + 4.0, y, cbreite() * 0.5 - 6.0, hoehe() - y - 16.0);
-        ui.card_titled(r, crate::inhalt::t("ui.pages.laufende_vertraege"), Theme::gold());
-        let mut yy = r.y + 60.0;
-        if c.wi.vertraege.is_empty() { ui.text(crate::inhalt::t("ui.pages.kein_sponsor_unter_vertrag"), r.x + 14.0, yy, 17.0, Theme::text2()); }
-        for sp in c.wi.vertraege.clone() {
-            ui.text_semi(&format!("{}: {}", crate::wirtschaft::sponsor_de_t()[sp.art as usize], sp.name), r.x + 14.0, yy, 18.0, Theme::text());
-            ui.text(&crate::tf!("ui.pages.im_jahr_bis_bonus_bei", money(sp.jahr), date::season_label(sp.bis), money(sp.bonus)), r.x + 14.0, yy + 24.0, 15.0, Theme::text2());
-            yy += 62.0;
+        // the pyramid (Fabian 24.11.): an investor above all, then main sponsor, kit, stadium name, two secondary
+        // sponsors and four boards; open places say so
+        ui.card_titled(r, crate::inhalt::t("ui.sponsor.pyramide"), Theme::gold());
+        let mut yy = r.y + 58.0;
+        let zeile = (r.h - 70.0) / (11.0 + c.wi.investor.is_some() as u8 as f32);
+        if let Some(inv) = &c.wi.investor {
+            rrect(r.x + 10.0, yy - 18.0, r.w - 20.0, zeile - 4.0, 6.0, alpha(Theme::gold(), 0.18));
+            ui.text_semi(&format!("{}: {}", crate::inhalt::t("ui.sponsor.investor"), inv.name), r.x + 18.0, yy, 16.0, Theme::text());
+            ui.text_right(&format!("{} · {} %", money(inv.summe), inv.anteil), r.x + r.w - 18.0, yy, 14.0, Theme::text2());
+            yy += zeile;
+        }
+        for art in 0..crate::wirtschaft::SPONSOR_ARTEN.len() as u8 {
+            let laufend: Vec<crate::wirtschaft::Sponsor> = c.wi.vertraege.iter().filter(|s| s.art == art).cloned().collect();
+            for k in 0..crate::wirtschaft::plaetze(art) {
+                let einzug = [0.0, 0.0, 0.0, 24.0, 48.0][art as usize];
+                let art_t = crate::wirtschaft::sponsor_de_t()[art as usize];
+                match laufend.get(k) {
+                    Some(sp) => {
+                        ui.text_semi(&ui.fit(&format!("{art_t}: {}", sp.name), 16.0, r.w * 0.55 - einzug), r.x + 18.0 + einzug, yy, 16.0, Theme::text());
+                        ui.text_right(&crate::tf!("ui.pages.im_jahr_bis_bonus_bei", money(sp.jahr), date::season_label(sp.bis), money(sp.bonus)), r.x + r.w - 18.0, yy, 13.0, Theme::text2());
+                    }
+                    None => {
+                        ui.text(&format!("{art_t}: {}", crate::inhalt::t("ui.sponsor.frei")), r.x + 18.0 + einzug, yy, 15.0, Theme::gedaempft());
+                    }
+                }
+                yy += zeile;
+            }
         }
         let r2 = Rect::new(x0() + cbreite() * 0.5 + 10.0, y, cbreite() * 0.5 - 6.0, hoehe() - y - 16.0);
         ui.card_titled(r2, crate::inhalt::t("as.reiter.angebote"), Theme::akzent());

@@ -39,6 +39,12 @@ pub struct Auftrag {
     /// Looked at and not good enough, or already proposed once.
     pub gesehen: Vec<usize>,
     pub fertig: bool,
+    /// How far the search reaches (Fabian 24.11.): 0 the league, 1 its country, 2 its continent, 3 the world; for 1 and 2
+    /// the country or continent code it is about.
+    #[serde(default)]
+    pub weite: u8,
+    #[serde(default)]
+    pub weite_wo: String,
     /// Minimum role strength (successor: his own minus 3).
     #[serde(default)]
     pub staerke_min: f32,
@@ -112,6 +118,13 @@ impl Career {
     fn scout_index(&self, name: &str) -> Option<usize> { self.scouts.iter().position(|s| s.name == name) }
     /// The leagues an assignment searches: its own league, else the scout's region, else the own league.
     fn auftrag_ligen(&self, x: &Auftrag) -> Vec<usize> {
+        // a country, a continent or the world: every league there the scout may work in
+        if x.weite > 0 {
+            let s = self.scout_index(&x.scout).unwrap_or(0);
+            let passt = |l: usize| match x.weite { 1 => crate::preise::liga_land(&self.world, l) == x.weite_wo, 2 => crate::transferki::land_info(&crate::preise::liga_land(&self.world, l)).0 == x.weite_wo, _ => true };
+            let v: Vec<usize> = (0..self.world.leagues.len()).filter(|&l| passt(l) && (l == self.league() || self.gebiet_erlaubt(s, Some(l)))).collect();
+            if !v.is_empty() { return v; }
+        }
         if let Some(l) = x.liga { return vec![l]; }
         let s = self.scout_index(&x.scout).and_then(|s| self.scouts[s].league);
         vec![s.unwrap_or(self.league())]
@@ -415,6 +428,15 @@ mod tests {
         // a second assignment for the same scout is refused
         let x2 = Auftrag { art: SUCHE, scout: c.scouts[0].name.clone(), ..Default::default() };
         assert!(c.auftrag_anlegen(x2, 14).is_err());
+        // Fabian 24.11.: a search can reach the league, its country, its continent or the world
+        let l = c.league();
+        let land = crate::preise::liga_land(&c.world, l);
+        let welt = Auftrag { weite: 3, ..Default::default() };
+        let im_land = Auftrag { weite: 1, weite_wo: land.clone(), ..Default::default() };
+        let liga = Auftrag { liga: Some(l), ..Default::default() };
+        assert_eq!(c.auftrag_ligen(&liga), vec![l]);
+        assert!(c.auftrag_ligen(&im_land).iter().all(|&k| crate::preise::liga_land(&c.world, k) == land));
+        assert!(c.auftrag_ligen(&welt).len() >= c.auftrag_ligen(&im_land).len());
         // a tiny budget leaves no proposal over it
         c.transfer_budget = 1.0;
         assert!(c.world.players.iter().enumerate().filter(|(_, p)| p.team >= 0 && p.team != c.own as i32 && p.youth == 0).take(400).all(|(p, _)| c.machbar(p, false).is_some() || c.world.players[p].team < 0 || c.ask_price(p) * (1.0 + c.preis_spanne(p) as f64) <= 1.0));

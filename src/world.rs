@@ -69,8 +69,10 @@ pub const OWN_GOAL: f32 = 0.04;
 // calendar (sim.json "calendar")
 pub const LEAGUE_START: u32 = 14;
 pub const LEAGUE_END: u32 = 301;
-/// Summer 1 Aug–31 Aug (day 0 is 1 August), winter 1 Jan–31 Jan.
-pub const WINDOWS: [(u32, u32); 2] = [(0, 30), (153, 183)];
+/// Day 0 is 1 August. The summer window runs 1 July–31 August (Fabian 24.11.: it opens on 1 July, England and most of
+/// Europe): its July part lies at the end of the season before and ends "on day 395" (31 August of the next season),
+/// its August part is the season's first days. Winter 1–31 January.
+pub const WINDOWS: [(u32, u32); 3] = [(0, 30), (153, 183), (334, 395)];
 pub const INTL_BREAKS: [(u32, u32); 4] = [(35, 41), (70, 76), (105, 111), (238, 244)];
 pub const WINTER_BREAK: (u32, u32) = (139, 152);
 
@@ -184,6 +186,9 @@ pub struct Player {
     /// Development per ability of the own players (entwicklung.rs).
     #[serde(default)]
     pub ent: crate::entwicklung::Ent,
+    /// The Skill Tree (skilltree.rs, own players).
+    #[serde(default)]
+    pub st: crate::skilltree::Baum,
 }
 /// [height cm, weight kg, foot (0 right, 1 left), weak foot use 1..4, weak foot accuracy 1..4]; zeros when unknown (demo world).
 #[derive(Serialize, Deserialize, Clone, Default)]
@@ -279,6 +284,9 @@ pub struct Fixture {
     pub a: usize,
     pub hg: i8,
     pub ag: i8,
+    /// Kick-off in minutes after midnight (Fabian 25.11.: real days and times per league); 0 = not set (old saves).
+    #[serde(default)]
+    pub zeit: u16,
 }
 
 #[derive(Serialize, Deserialize, Clone)]
@@ -308,7 +316,7 @@ pub struct League {
 }
 fn drei() -> u8 { 3 }
 
-#[derive(Clone, Default)]
+#[derive(Clone, Default, Serialize, Deserialize)]
 pub struct Row {
     pub club: usize,
     pub p: u32,
@@ -320,6 +328,14 @@ pub struct Row {
     pub pts: i32,
     pub form: Vec<char>,
 }
+
+/// A club's figures in one competition (index as in wettbewerb_zaehlen): matches, possession summed, big chances
+/// (a shot of at least statistik.toml grosschance xG) for and against, the team's sums and the opponents' sums.
+#[derive(Serialize, Deserialize, Clone, Default)]
+pub struct VereinStat { pub club: usize, pub l: u16, pub spiele: u16, pub besitz: u32, pub gross: u16, pub gross_gegen: u16, pub eigen: crate::statistik::Stat, pub gegen: crate::statistik::Stat }
+/// A league's season as it ended: the final table and its scorers (player, goals, assists), best first.
+#[derive(Serialize, Deserialize, Clone, Default)]
+pub struct LigaArchiv { pub season: u32, pub liga: usize, pub tabelle: Vec<Row>, pub torjaeger: Vec<(usize, u16, u16)>, #[serde(default)] pub meister: Option<usize> }
 
 #[derive(Serialize, Deserialize, Clone, Default)]
 pub struct MatchEvent {
@@ -465,6 +481,14 @@ pub struct World {
     pub nl: Vec<crate::nationalteams::NlGruppe>,
     #[serde(default)]
     pub nl_saison: u32,
+    /// The final tables and scorers of the seasons before (Fabian 24.11.: last season stays readable).
+    #[serde(default)]
+    pub archiv: Vec<LigaArchiv>,
+    /// Team figures per club and competition this season and the season before (Fabian 24.11.: xG and co for clubs).
+    #[serde(default)]
+    pub vstat: Vec<VereinStat>,
+    #[serde(default)]
+    pub vstat_vor: Vec<VereinStat>,
     #[serde(skip)]
     pub turnier_tore: std::collections::HashMap<usize, u16>,
     #[serde(default)]
@@ -805,7 +829,7 @@ impl World {
                 id: p.id, name: p.name, pos: p.pos, age: p.age, ovr: p.ovr, pot: pot.min(99.0).max(p.ovr), talent, no: p.no,
                 team, youth: 0, form: 0.0, fit: 100.0, gf: 0.0, morale: 55.0, inj: 0, inj_name: String::new(), susp: 0, wage: 0.0,
                 contract_end: 0, value: 0.0, apps: 0, goals: 0, assists: 0, rsum: 0.0, rn: 0, yellow: 0, last: vec![], know: 0.1,
-                listed: false, persona, unhappy_days: 0, benched: 0, promise: 0, program: 0, joined: 0, talk_day: 0, ps: Default::default(), leihe: None, ent: Default::default(),
+                listed: false, persona, unhappy_days: 0, benched: 0, promise: 0, program: 0, joined: 0, talk_day: 0, ps: Default::default(), leihe: None, ent: Default::default(), st: Default::default(),
                 attrs: p.attrs, pp: p.pp, style: p.style, skills: p.skills, nat: p.nat, db, profil: Profil { koerper: p.koerper, ..Default::default() },
             }
         };
@@ -829,7 +853,7 @@ impl World {
             name, key, teams, fixtures: vec![], level: 68.0, deduct: vec![],
         }).collect();
         let next_id = players.iter().map(|p| p.id).max().unwrap_or(0) + 1;
-        let mut w = World { amateure: vec![], profil_cache: vec![], titelverteidiger: Default::default(), ki_ausgaben: Default::default(), eigen: Default::default(), gesichter: Default::default(), taktik_faktor: None, noten_woche: vec![], noten_monat: vec![], leagues, clubs, players, season: 0, day: 0, rng, source, next_id, cups: vec![], titles: vec![], coef: vec![], club_coef: vec![], cup_money: vec![], neutral: false, entscheid: vec![], planen: None, ko_runde_nr: 0, db_cups: vec![], db_euro: None, ko_vorgabe: None, cids: Default::default(), zweite: vec![], koops: vec![], farm_an: false, trainer_an: false, trainer_pool: vec![], ligaregeln: crate::ligaregeln::eingebaut(), teamgeist_eigen: None, nationalteams: vec![], nat_punkte: Default::default(), turniere: vec![], nl: vec![], nl_saison: 0, turnier_tore: Default::default() };
+        let mut w = World { amateure: vec![], profil_cache: vec![], titelverteidiger: Default::default(), ki_ausgaben: Default::default(), eigen: Default::default(), gesichter: Default::default(), taktik_faktor: None, noten_woche: vec![], noten_monat: vec![], leagues, clubs, players, season: 0, day: 0, rng, source, next_id, cups: vec![], titles: vec![], coef: vec![], club_coef: vec![], cup_money: vec![], neutral: false, entscheid: vec![], planen: None, ko_runde_nr: 0, db_cups: vec![], db_euro: None, ko_vorgabe: None, cids: Default::default(), zweite: vec![], koops: vec![], farm_an: false, trainer_an: false, trainer_pool: vec![], ligaregeln: crate::ligaregeln::eingebaut(), teamgeist_eigen: None, nationalteams: vec![], nat_punkte: Default::default(), turniere: vec![], nl: vec![], nl_saison: 0, archiv: vec![], vstat: vec![], vstat_vor: vec![], turnier_tore: Default::default() };
         w.ueber_ergaenzen();
         w.init_economy();
         w.kuerzel_eindeutig();
@@ -1441,6 +1465,20 @@ impl World {
             }
         }
     }
+    /// Keeps every league's final table and top 30 scorers before the season turns (the last five seasons).
+    pub fn saison_archivieren(&mut self) {
+        let s = self.season;
+        for l in 0..self.leagues.len() {
+            let tabelle = self.table(l);
+            if tabelle.iter().all(|r| r.p == 0) { continue; }
+            let mut tj: Vec<(usize, u16, u16)> = self.players.iter().enumerate().filter_map(|(p, pl)| pl.profil.ligen.iter().find(|x| x.l as usize == l).filter(|x| x.goals + x.assists > 0).map(|x| (p, x.goals, x.assists))).collect();
+            tj.sort_by_key(|x| (std::cmp::Reverse(x.1), std::cmp::Reverse(x.2)));
+            tj.truncate(30);
+            let meister = self.meister(l);
+            self.archiv.push(LigaArchiv { season: s, liga: l, tabelle, torjaeger: tj, meister });
+        }
+        self.archiv.retain(|a| a.season + 5 > s);
+    }
     /// Writes a played match into the world: table, stats, fitness, morale, form, cards, injuries.
     pub fn apply_result(&mut self, l: usize, fi: usize, res: &MatchResult) {
         let f = &mut self.leagues[l].fixtures[fi];
@@ -1468,6 +1506,21 @@ impl World {
         for e in res.events.iter().filter(|e| e.kind == 0) {
             let i = eintrag(self, e.pid); self.players[e.pid].profil.ligen[i].goals += 1;
             if let Some(a) = e.pid2 { let i = eintrag(self, a); self.players[a].profil.ligen[i].assists += 1; }
+        }
+        // the clubs' figures: the team's sums and the opponent's (detailed matches only)
+        if res.stat.is_empty() { return; }
+        let gross = (crate::regeln::f("statistik", "grosschance") * 1000.0) as u16;
+        for (side, club) in [(0u8, res.h), (1u8, res.a)] {
+            let i = match self.vstat.iter().position(|x| x.club == club && x.l as usize == l) { Some(i) => i, None => { self.vstat.push(VereinStat { club, l: l as u16, ..Default::default() }); self.vstat.len() - 1 } };
+            let summe = |sd: u8| -> crate::statistik::Stat { (0..crate::statistik::N).map(|k| res.summe(sd, k)).collect() };
+            let (eigen, gegen) = (summe(side), summe(1 - side));
+            let v = &mut self.vstat[i];
+            v.spiele += 1;
+            v.besitz += if side == 0 { res.possession as u32 } else { 100 - res.possession.min(100) as u32 };
+            v.gross += res.schuesse.iter().filter(|x| x.side == side && x.xg >= gross).count() as u16;
+            v.gross_gegen += res.schuesse.iter().filter(|x| x.side != side && x.xg >= gross).count() as u16;
+            crate::statistik::add(&mut v.eigen, &eigen);
+            crate::statistik::add(&mut v.gegen, &gegen);
         }
     }
     /// Player side of a played match (league or cup): bans, apps, fitness, goals, cards, injuries, grades, form, morale.
@@ -1553,6 +1606,26 @@ impl World {
         // the swing from events fades (a brace is forgotten in a few weeks) and old reasons go with it
         let (abkling, heute) = (crate::regeln::f("entwicklung_pesm", "dynamik.abklingen_je_tag"), self.heute());
         for p in self.players.iter_mut() {
+            // a swing confirmed for weeks becomes his new standard (Fabian 25.11.): one rating point moves from the swing
+            // into the abilities, at most a few a season, upwards only up to his potential (entwicklung_pesm.toml [dauer])
+            {
+                let d = |k: &str| crate::regeln::f("entwicklung_pesm", &format!("dauer.{k}"));
+                let z = p.ps.dyn_z;
+                p.ps.dyn_tage = if z >= d(crate::id("ab")) { p.ps.dyn_tage.max(0) + 1 } else if z <= -d(crate::id("ab")) { p.ps.dyn_tage.min(0) - 1 } else { 0 };
+                if p.ps.dyn_dauer.0 != self.season { p.ps.dyn_dauer = (self.season, 0.0); }
+                let rauf = p.ps.dyn_tage as f32 >= d(crate::id("tage")) && p.ovr + 1.0 <= p.pot && p.ps.dyn_dauer.1 < d("saison_max");
+                let runter = p.ps.dyn_tage as f32 <= -d(crate::id("tage")) && p.ps.dyn_dauer.1 > -d("saison_max");
+                if (rauf || runter) && p.attrs.len() == 25 {
+                    let s = if rauf { 1.0 } else { -1.0 };
+                    let pi = crate::pesdb::pos_index(&p.pos);
+                    crate::pesdb::shift(&mut p.attrs, pi, s);
+                    p.ovr = crate::pesdb::ovr(&p.attrs, pi).clamp(30.0, 99.0);
+                    p.ps.dyn_z -= s;
+                    p.ps.dyn_dauer.1 += s;
+                    p.ps.dyn_tage = 0;
+                    p.ps.dyn_gruende.push((heute, crate::id(if rauf { "dauer_hoch" } else { "dauer_runter" }).to_string(), s));
+                }
+            }
             if p.ps.dyn_z != 0.0 {
                 p.ps.dyn_z *= abkling;
                 if p.ps.dyn_z.abs() < 0.3 { p.ps.dyn_z = 0.0; p.ps.dyn_gruende.clear(); }
@@ -1820,7 +1893,7 @@ mod t {
         assert!(h > 0.4 && h < 0.5, "{h}");
         assert!(d > 0.22 && d < 0.3, "{d}");
         assert!(a > 0.24 && a < 0.34, "{a}");
-        let mut v = Player { nat: 0, id: 1, name: "x".into(), pos: "CF".into(), age: 26, ovr: 77.0, pot: 77.0, talent: 1.0, no: 9, team: 0, youth: 0, form: 0.0, fit: 100.0, gf: 0.0, morale: 50.0, inj: 0, inj_name: String::new(), susp: 0, wage: 0.0, contract_end: 3, value: 0.0, apps: 0, goals: 0, assists: 0, rsum: 0.0, rn: 0, yellow: 0, last: vec![], know: 0.0, listed: false, persona: 0, unhappy_days: 0, benched: 0, promise: 0, program: 0, joined: 0, talk_day: 0, ps: Default::default(), leihe: None, ent: Default::default(), attrs: vec![], pp: vec![], style: 0, skills: 0, db: false, profil: Default::default() };
+        let mut v = Player { nat: 0, id: 1, name: "x".into(), pos: "CF".into(), age: 26, ovr: 77.0, pot: 77.0, talent: 1.0, no: 9, team: 0, youth: 0, form: 0.0, fit: 100.0, gf: 0.0, morale: 50.0, inj: 0, inj_name: String::new(), susp: 0, wage: 0.0, contract_end: 3, value: 0.0, apps: 0, goals: 0, assists: 0, rsum: 0.0, rn: 0, yellow: 0, last: vec![], know: 0.0, listed: false, persona: 0, unhappy_days: 0, benched: 0, promise: 0, program: 0, joined: 0, talk_day: 0, ps: Default::default(), leihe: None, ent: Default::default(), st: Default::default(), attrs: vec![], pp: vec![], style: 0, skills: 0, db: false, profil: Default::default() };
         let m = market_value(&v, 0, 68.0);
         assert!(m > 15e6 && m < 35e6, "{m}"); // MARKTWERT-EICHUNG: OVR 77 at 26 ≈ 24 Mio.
         v.ovr = 92.0; v.age = 25;
@@ -1834,6 +1907,35 @@ mod t {
 #[cfg(test)]
 mod saison_realismus {
     use super::*;
+    /// Fabian 25.11.: a swing confirmed for three weeks becomes the new standard (one point into the abilities, the
+    /// swing smaller by as much, so the rating in the game stays the same at that moment); never above the potential.
+    #[test]
+    fn bestaetigte_form_bleibt() {
+        let mut w = crate::world::testwelt(3);
+        let p = w.clubs[0].squad[0];
+        w.players[p].attrs = vec![70.0; 25];
+        w.players[p].ovr = crate::pesdb::ovr(&w.players[p].attrs, crate::pesdb::pos_index(&w.players[p].pos));
+        w.players[p].pot = w.players[p].ovr + 5.0;
+        let vorher = w.players[p].ovr;
+        for _ in 0..22 { w.players[p].ps.dyn_z = 3.0; w.recover_all(); }
+        assert!((w.players[p].ovr - vorher - 1.0).abs() < 0.2, "{} → {}", vorher, w.players[p].ovr);
+        w.players[p].pot = w.players[p].ovr;
+        let jetzt = w.players[p].ovr;
+        for _ in 0..30 { w.players[p].ps.dyn_z = 3.0; w.recover_all(); }
+        assert!((w.players[p].ovr - jetzt).abs() < 0.01, "not above the potential");
+    }
+    /// Fabian 24.11.: last season's table and scorers stay readable after the season ends.
+    #[test]
+    fn vorsaison_archiviert() {
+        let mut w = crate::world::testwelt(3);
+        let l = 0;
+        w.leagues[l].fixtures[0].hg = 2; w.leagues[l].fixtures[0].ag = 0;
+        let vorher = w.table(l);
+        w.saison_archivieren();
+        let ar = w.archiv.iter().find(|x| x.liga == l && x.season == w.season).expect("archive");
+        assert_eq!(ar.tabelle.len(), vorher.len());
+        assert_eq!(ar.tabelle[0].pts, vorher[0].pts);
+    }
     /// One season of the test world: goals and draws per league near its profile, a real spread of points, no striker
     /// with the lion's share of his team's goals, and table, results and scorers that agree.
     #[test]

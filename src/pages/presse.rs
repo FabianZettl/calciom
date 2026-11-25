@@ -236,15 +236,67 @@ pub fn press_card(ui: &mut Ui, v: &mut View, c: &mut Career, r: Rect) {
     }
 }
 
+/// Wrapped lines, at most `max` of them, the last one ending in an ellipsis when the text goes on.
+fn zeilen_bis(ui: &Ui, text: &str, size: f32, w: f32, max: usize) -> Vec<String> {
+    let mut z = ui.wrap(text, size, w);
+    if z.len() > max { z.truncate(max); if let Some(l) = z.last_mut() { *l = ui.fit(&format!("{l} …"), size, w); } }
+    z
+}
+/// The newspaper (Fabian 24.11.: more like a real paper): masthead with date line, the newest story as the lead over
+/// the full width, the others in three columns with their outlet as a kicker; the wheel turns the pages.
 pub(super) fn zeitung(ui: &mut Ui, v: &mut View, c: &mut Career) {
     let area = Rect::new(x0() + 4.0, Y0, cbreite(), hoehe() - Y0 - 16.0);
-    ui.card_titled(area, crate::inhalt::t("ui.seiten.die_zeitung"), Theme::akzent());
-    let vis = ((area.h - 60.0) / 64.0) as usize;
-    let start = scroll_rows(ui, v, area, c.feed.len(), vis);
-    for (k, n) in c.feed.iter().skip(start).take(vis).enumerate() {
-        let yy = area.y + 62.0 + k as f32 * 64.0;
-        ui.text(&format!("{} · {}", n.paper, date::short(n.season, n.day)), area.x + 14.0, yy, 13.0, Theme::gedaempft());
-        ui.text_semi(&ui.fit(&n.head, 19.0, area.w - 28.0), area.x + 14.0, yy + 22.0, 19.0, Theme::text());
-        ui.text(&ui.fit(&n.text, 15.0, area.w - 28.0), area.x + 14.0, yy + 44.0, 15.0, Theme::text2());
+    ui.card(area);
+    // paper tone over the card
+    rrect(area.x + 6.0, area.y + 6.0, area.w - 12.0, area.h - 12.0, 8.0, alpha(hex(0xd9c9a3), 0.10));
+    let (x, w) = (area.x + 28.0, area.w - 56.0);
+    let ink = Theme::text();
+    // the masthead: name, double rule, date line
+    let kopf = crate::inhalt::t("ui.zeitung.kopf");
+    let kw = ui.measure_title(kopf, 46.0);
+    ui.title(kopf, x + (w - kw) / 2.0, area.y + 62.0, 46.0, ink);
+    let datum = date::long(c.world.season, c.world.day);
+    let ausgabe = crate::tf!("ui.zeitung.ausgabe", c.abs() / 7 + 1);
+    ui.text(&datum, x, area.y + 88.0, 13.0, Theme::text2());
+    ui.text_center(crate::inhalt::t("ui.zeitung.motto"), x + w / 2.0, area.y + 88.0, 13.0, Theme::text2());
+    ui.text_right(&ausgabe, x + w, area.y + 88.0, 13.0, Theme::text2());
+    draw_rectangle(x, area.y + 96.0, w, 2.0, ink);
+    draw_rectangle(x, area.y + 100.0, w, 1.0, ink);
+    if c.feed.is_empty() { ui.text(crate::inhalt::t("ui.zeitung.leer"), x, area.y + 140.0, 16.0, Theme::text2()); return; }
+    // one page: the lead and six more; the wheel goes a page further
+    let seite_n = 7usize;
+    let seiten = c.feed.len().div_ceil(seite_n);
+    let seite = scroll_rows(ui, v, area, seiten, 1).min(seiten - 1);
+    let teil: Vec<&crate::game::News> = c.feed.iter().skip(seite * seite_n).take(seite_n).collect();
+    let mut y = area.y + 130.0;
+    if let Some(n) = teil.first() {
+        ui.text_semi(&format!("{} · {}", n.paper.to_uppercase(), date::short(n.season, n.day)), x, y, 12.0, Theme::akzent());
+        let kz = zeilen_bis(ui, &n.head, 34.0, w, 2);
+        for (k, l) in kz.iter().enumerate() { ui.title(l, x, y + 38.0 + k as f32 * 38.0, 34.0, ink); }
+        y += 38.0 * kz.len() as f32 + 22.0;
+        // the lead text in two columns
+        let sw = (w - 30.0) / 2.0;
+        let zl = zeilen_bis(ui, &n.text, 16.0, sw, 10);
+        let halb = zl.len().div_ceil(2);
+        for (k, l) in zl.iter().enumerate() { let (sx, sy) = if k < halb { (x, y + k as f32 * 21.0) } else { (x + sw + 30.0, y + (k - halb) as f32 * 21.0) }; ui.text(l, sx, sy, 16.0, Theme::text2()); }
+        if halb > 0 { draw_rectangle(x + sw + 14.0, y - 14.0, 1.0, halb as f32 * 21.0, alpha(ink, 0.25)); }
+        y += halb.max(1) as f32 * 21.0 + 14.0;
+        draw_rectangle(x, y, w, 1.0, ink);
+        y += 30.0;
     }
+    // the other stories: three columns, two rows
+    let cw = (w - 2.0 * 28.0) / 3.0;
+    let zeile_h = ((area.y + area.h - 40.0 - y) / 2.0).max(80.0);
+    for (k, n) in teil.iter().skip(1).enumerate() {
+        let (sp, rz) = (k % 3, k / 3);
+        let (sx, sy) = (x + sp as f32 * (cw + 28.0), y + rz as f32 * zeile_h);
+        if sp > 0 { draw_rectangle(sx - 14.0, sy - 14.0, 1.0, zeile_h - 22.0, alpha(ink, 0.25)); }
+        ui.text_semi(&format!("{} · {}", n.paper.to_uppercase(), date::short(n.season, n.day)), sx, sy, 11.0, Theme::akzent());
+        let kz = zeilen_bis(ui, &n.head, 20.0, cw, 2);
+        for (i, l) in kz.iter().enumerate() { ui.text_semi(l, sx, sy + 26.0 + i as f32 * 24.0, 20.0, ink); }
+        let ty = sy + 26.0 + kz.len() as f32 * 24.0 + 4.0;
+        let platz = (((sy + zeile_h - 30.0) - ty) / 19.0).max(1.0) as usize;
+        for (i, l) in zeilen_bis(ui, &n.text, 14.0, cw, platz).iter().enumerate() { ui.text(l, sx, ty + i as f32 * 19.0, 14.0, Theme::text2()); }
+    }
+    ui.text_right(&crate::tf!("ui.zeitung.seite", seite + 1, seiten), x + w, area.y + area.h - 18.0, 13.0, Theme::gedaempft());
 }

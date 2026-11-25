@@ -71,6 +71,7 @@ impl Career {
         self.wi.wv_plan.retain(|p| p.0 > monat);
         for b in plan { self.book(t("vw.art.merch_kampagne"), b); }
         self.wv_stadion();
+        self.investor_pruefen();
         self.wv_trikot();
         self.wv_protest();
         self.wv_bericht(einnahmen, ausgaben);
@@ -280,6 +281,81 @@ impl Career {
         t(&format!("wv.bericht.ergebnis.{o}")).into() // roh
     }
 
+    // ---------- sponsor requests and the investor (Fabian 24.11.: the pyramid lives)
+    /// A new sponsor offer as an inbox case: accept, ask for more, or leave it for later (it stays on the sponsors page).
+    pub fn sponsor_anfrage_melden(&mut self, i: usize) {
+        if !self.feature("sponsoren") { return; } // roh
+        let Some(o) = self.wi.angebote.get(i).cloned() else { return };
+        let art = crate::wirtschaft::SPONSOR_ARTEN[o.art as usize];
+        let jahre = o.bis + 1 - self.world.season.min(o.bis);
+        let vk = self.vkey(&format!("ui.sponsor.anfrage.text.{art}"), &o.name);
+        let text = crate::tf!(&vk, o.name.clone(), money(o.jahr), jahre, money(o.bonus));
+        let opts = vec![(crate::id("annehmen").to_string(), crate::tf!("ui.sponsor.opt.annehmen", money(o.jahr))), (crate::id("mehr").to_string(), crate::tf!("ui.sponsor.opt.mehr", crate::wirtschaftsvorgaenge::aussicht(self.sponsor_chance(i, 10)))), (crate::id("spaeter").to_string(), t("ui.sponsor.opt.spaeter").to_string())];
+        self.msg(3, t("ui.wirtschaft.marketing"), &crate::tf!(&format!("ui.sponsor.anfrage.titel.{art}"), o.name.clone()), &text, Action::Wahl { art: format!("wv:sponsor|{}", o.name), bezug: vec![], optionen: opts }); // roh
+        self.meldung_art(crate::pages::Art::Angebot, vec![]);
+    }
+    fn wv_sponsor_antwort(&mut self, name: &str, o: &str) -> String {
+        let Some(i) = self.wi.angebote.iter().position(|x| x.name == name) else { return t("ui.wirtschaft.das_angebot_gibt_es_nicht").into() };
+        match o {
+            "annehmen" => match self.sponsor_annehmen(i) { Ok(()) => t("ui.pages.vertrag_unterschrieben").into(), Err(e) => e },
+            "mehr" => match self.sponsor_verhandeln(i, 10) { Ok((_, txt)) => txt, Err(e) => e },
+            _ => t("ui.sponsor.bleibt_offen").into(),
+        }
+    }
+    /// Now and then an investor asks to come in (rarely, more often for a big or a struggling club); German clubs only
+    /// up to 49 % (50+1).
+    pub fn investor_pruefen(&mut self) {
+        if !self.feature("sponsoren") { return; } // roh
+        if self.wi.investor.is_some() { return; }
+        let abs = self.abs();
+        if self.wi.investor_frage > 0 && abs < self.wi.investor_frage + v("investor.pause_tage") as u32 { return; }
+        if abs < v("investor.ab_tag") as u32 { return; }
+        let monat = abs / 30;
+        let not = self.club().balance < 0.0;
+        let chance = v("investor.chance_monat") * (0.4 + self.kraft() + if not { 0.6 } else { 0.0 });
+        if zufall(&[crate::id("investor"), &self.club().id.to_string(), &monat.to_string()]) as f64 > chance { return; }
+        self.wi.investor_frage = abs;
+        let z = |x: &str| zufall(&[crate::id("investor"), x, &monat.to_string(), &self.club().id.to_string()]) as f64;
+        let typ = (z(crate::id("typ")) * 4.0) as u8 % 4;
+        let namen = crate::regeln::wert_oder("vereinswelt", &format!("investor.namen.t{typ}")).and_then(|x| x.as_array().cloned()).unwrap_or_default(); // roh
+        let name = namen.get((z("name") * namen.len().max(1) as f64) as usize % namen.len().max(1)).and_then(|x| x.as_str()).unwrap_or("Capital Partners").to_string(); // roh
+        let deutsch = self.world.leagues[self.league()].land == crate::id("Deutschland");
+        let anteil = if deutsch { 49 } else { [51u8, 75, 100][(z(crate::id("anteil")) * 3.0) as usize % 3] };
+        let summe = round_money(self.umsatz_prognose() * v(&format!("investor.faktor_t{typ}")) * (0.8 + 0.4 * z(crate::id("summe"))) * anteil as f64 / 100.0);
+        let inv = crate::wirtschaft::Investor { name: name.clone(), typ, summe, anteil, seit: abs };
+        let vk = self.vkey(&format!("ui.investor.text.t{typ}"), &name);
+        let text = format!("{} {}", crate::tf!(&vk, name.clone(), money(summe), anteil), t(if deutsch { "ui.investor.fuenfzig_plus_eins" } else { "ui.investor.folgen" }));
+        let opts = vec![(crate::id("annehmen").to_string(), crate::tf!("ui.investor.opt.annehmen", money(summe))), (crate::id("mehr").to_string(), t("ui.investor.opt.mehr").to_string()), (crate::id("ablehnen").to_string(), t("ui.investor.opt.ablehnen").to_string())];
+        let key = format!("investor|{}|{}|{}|{}|{}", typ, summe, anteil, abs, name); // roh
+        self.msg(1, t("vw.figur.praesident"), &crate::tf!("ui.investor.titel", name), &text, Action::Wahl { art: format!("wv:{key}"), bezug: vec![], optionen: opts }); // roh
+        self.meldung_art(crate::pages::Art::Angebot, vec![]);
+    }
+    fn wv_investor_antwort(&mut self, teile: &[&str], o: &str) -> String {
+        let (Some(typ), Some(summe), Some(anteil), Some(seit), Some(name)) = (teile.get(1).and_then(|x| x.parse::<u8>().ok()), teile.get(2).and_then(|x| x.parse::<f64>().ok()), teile.get(3).and_then(|x| x.parse::<u8>().ok()), teile.get(4).and_then(|x| x.parse::<u32>().ok()), teile.get(5)) else { return t("ui.akademie.notiert").into() };
+        if self.wi.investor.is_some() { return t("ui.investor.schon").into(); }
+        let mut summe = summe;
+        if o == "mehr" {
+            // more money: a fixed roll; a no ends the talks
+            if wurf(&format!("investor|mehr|{seit}")) > v("investor.mehr_chance") * 100.0 { self.news(&crate::tf!("ui.investor.news.weg_titel", name.to_string()), &crate::tf!("ui.investor.news.weg", name.to_string())); return crate::tf!("ui.investor.weg", name.to_string()); }
+            summe = round_money(summe * 1.15);
+        }
+        if o == "ablehnen" {
+            let fans = if typ <= 1 { v("investor.ablehnen_fans") as f32 } else { 1.0 };
+            self.klima(fans, 1.0, -v("investor.ablehnen_vorstand") as f32, &crate::tf!("ui.investor.grund_abgelehnt", name.to_string()));
+            return crate::tf!("ui.investor.abgelehnt", name.to_string());
+        }
+        // in: the money, higher goals, the fans react by kind (a state fund splits them, a local entrepreneur is welcome)
+        let club = self.own;
+        self.world.clubs[club].balance += summe;
+        self.transfer_budget += round_money(summe * v("investor.transfer_anteil"));
+        let ziel = self.world.clubs[club].goal_pos;
+        self.world.clubs[club].goal_pos = ziel.saturating_sub(v("investor.ziel_besser") as usize).max(1);
+        let fans = [-6.0f32, -4.0, -2.0, 3.0][typ.min(3) as usize];
+        self.klima(fans, 2.0, 6.0, &crate::tf!("ui.investor.grund_eingestiegen", name.to_string()));
+        self.wi.investor = Some(crate::wirtschaft::Investor { name: name.to_string(), typ, summe, anteil, seit: self.abs() });
+        self.news(&crate::tf!("ui.investor.news.titel", name.to_string(), self.club().name.clone()), &crate::tf!(&format!("ui.investor.news.t{typ}"), name.to_string(), money(summe), anteil));
+        crate::tf!("ui.investor.eingestiegen", name.to_string(), money(summe), self.world.clubs[club].goal_pos)
+    }
     /// The answer to an economy case (mensch.rs wahl, art „wv:<key>“).
     pub fn wv_antwort(&mut self, key: &str, o: &str) -> String {
         let teile: Vec<&str> = key.split('|').collect();
@@ -288,6 +364,8 @@ impl Career {
             "merch" => self.wv_merch_antwort(&teile, o),
             "protest" => self.wv_protest_antwort(key, &teile, o),
             "bericht" => self.wv_bericht_antwort(o),
+            "sponsor" => self.wv_sponsor_antwort(teile.get(1).copied().unwrap_or(""), o),
+            "investor" => self.wv_investor_antwort(&teile, o),
             _ => t("ui.akademie.notiert").into(),
         }
     }
@@ -301,6 +379,28 @@ mod tests {
         let mut c = Career::new(w, 0, "Test");
         c.wirtschaft_an();
         c
+    }
+    /// Fabian 24.11.: the sponsor pyramid fills its free places through inbox requests; an investor comes in with money
+    /// and higher goals.
+    #[test]
+    fn pyramide_und_investor() {
+        let mut c = karriere();
+        let frei = |c: &Career| 4 - c.wi.vertraege.iter().filter(|s| s.art == 4).count();
+        assert_eq!(frei(&c), 2);
+        for _ in 0..12 { c.world.day += 30; c.wirtschaft_monat(); if c.wi.angebote.iter().any(|o| o.art == 4) { break; } }
+        let i = c.inbox.iter().rposition(|m| matches!(&m.action, Action::Wahl { art, .. } if art.starts_with("wv:sponsor|"))).expect("sponsor request in the inbox");
+        let Action::Wahl { art, .. } = c.inbox[i].action.clone() else { unreachable!() };
+        let name = art.trim_start_matches("wv:sponsor|").to_string();
+        let a = c.wi.angebote.iter().find(|o| o.name == name).unwrap().art;
+        let vorher = c.wi.vertraege.iter().filter(|s| s.art == a).count();
+        c.wahl(&art, &[], "annehmen");
+        assert_eq!(c.wi.vertraege.iter().filter(|s| s.art == a).count(), vorher + 1);
+        assert!(c.wi.vertraege.iter().filter(|s| s.art == a).count() <= crate::wirtschaft::plaetze(a));
+        // the investor: money in, goal one or two places higher
+        let (geld, ziel) = (c.club().balance, c.club().goal_pos);
+        c.wahl("wv:investor|3|5000000|51|200|Familie Brenner Holding", &[], "annehmen");
+        assert!(c.wi.investor.is_some() && c.club().balance >= geld + 5_000_000.0 - 1.0);
+        assert!(c.club().goal_pos < ziel || ziel == 1);
     }
     #[test]
     fn stadion_voll_bringt_ausbaufrage() {

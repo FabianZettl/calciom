@@ -1,0 +1,314 @@
+{
+ "pool.spieler_elfmeter_wunsch.e.e1": [
+  "{b.gruss} {b.spieler_elfmeter_wunsch_lage} Ich will der Elfmeterschütze sein. Gib mir den Ball."
+ ],
+ "pool.spieler_elfmeter_wunsch.e.e2": [
+  "{b.gruss} {b.spieler_elfmeter_wunsch_lage} Beim nächsten Elfmeter möchte ich antreten. Ich verwandle den."
+ ],
+ "pool.spieler_elfmeter_wunsch.e.e3": [
+  "{b.gruss} {b.spieler_elfmeter_wunsch_lage} Ehrlich gesagt verstehe ich nicht, warum jemand anderes schießt, wenn ich in dieser Form bin."
+ ],
+ "pool.spieler_elfmeter_wunsch.e.e4": [
+  "{b.gruss} {b.spieler_elfmeter_wunsch_lage} Ich bin es leid, zuzuschauen. Elfmeter sind meine Sache, das weißt du."
+ ],
+ "pool.spieler_elfmeter_wunsch.e.e5": [
+  "{b.gruss} {b.spieler_elfmeter_wunsch_lage} Ich will mich nicht vordrängen, aber ich würde gern die Elfmeter übernehmen."
+ ],
+ "pool.spieler_elfmeter_wunsch.e.e6": [
+  "{b.gruss} {b.spieler_elfmeter_wunsch_lage} Die Stürmer bei den großen Vereinen schießen ihre Elfmeter selbst. Warum ich nicht?"
+ ],
+ "pool.spieler_elfmeter_wunsch.a.a1": [
+  "Einverstanden. Ab dem nächsten Spiel bist du dran."
+ ],
+ "pool.spieler_elfmeter_wunsch.a.a2": [
+  "Die Reihenfolge steht nach dem Training im Elfmeterschießen fest. Zeig es mir dort."
+ ],
+ "pool.spieler_elfmeter_wunsch.a.a3": [
+  "Du wirst zweiter Schütze. Wenn der erste ausfällt, gehört der Ball dir."
+ ],
+ "pool.spieler_elfmeter_wunsch.a.a4": [
+  "Nein. Wer schießt, entscheide ich, nicht die Statistik."
+ ],
+ "pool.spieler_elfmeter_wunsch.a.a5": [
+  "Ich sehe, wie gut du gerade drauf bist. Lass uns das in Ruhe zusammen entscheiden."
+ ],
+ "pool.spieler_elfmeter_wunsch.a.a6": [
+  "Sprich mit dem Co-Trainer, er plant die Standards."
+ ],
+ "pool.spieler_elfmeter_wunsch.a.a7": [
+  "Und wenn du verschießt, in der Schlussminute, im Derby. Hältst du das aus?"
+ ],
+ "pool.spieler_elfmeter_wunsch.a.a8": [
+  "Die Reihenfolge bleibt. Konzentrier dich auf deine Tore aus dem Spiel."
+ ],
+ "pool.spieler_elfmeter_wunsch.r.r1": [
+  "{b.gut} Danke, Trainer. Ich lasse dich nicht hängen."
+ ],
+ "pool.spieler_elfmeter_wunsch.r.r2": [
+  "{b.gut} Genau das wollte ich hören. Der nächste sitzt."
+ ],
+ "pool.spieler_elfmeter_wunsch.r.r3": [
+  "{b.gut} Fair. Ich nehme jede Rolle, die dem Team hilft."
+ ],
+ "pool.spieler_elfmeter_wunsch.r.r4": [
+  "{b.neutral} Okay. Ich zeige es im Training."
+ ],
+ "pool.spieler_elfmeter_wunsch.r.r5": [
+  "{b.neutral} Schon gut. Ich hatte mir mehr erhofft."
+ ],
+ "pool.spieler_elfmeter_wunsch.r.r6": [
+  "{b.neutral} Kein Drama. Wir reden in ein paar Wochen nochmal."
+ ],
+ "pool.spieler_elfmeter_wunsch.r.r7": [
+  "{b.schlecht} Dann eben nicht."
+ ],
+ "pool.spieler_elfmeter_wunsch.r.r8": [
+  "{b.schlecht} Das ist ein Witz. Ich treffe hier alles und darf nicht schießen?"
+ ],
+ "pool.spieler_elfmeter_wunsch.r.r9": [
+  "{b.schlecht} Woanders würde man mir den Ball geben."
+ ],
+ "pool.spieler_elfmeter_wunsch.x.x1": [
+  "Er nickt und geht zum Training. {entscheidung}"
+ ],
+ "pool.spieler_elfmeter_wunsch.x.x2": [
+  "Er geht ohne viele Worte. {entscheidung} Beim nächsten Elfmeter wird jeder hinschauen."
+ ],
+ "pool.spieler_elfmeter_wunsch.x.x3": [
+  "Er knallt die Tür. {entscheidung} Die Elfmeterfrage wird zum Thema in der Kabine."
+ ],
+ "pool.spieler_belastung_pause.e.e1": [
+  "{b.gruss} {b.spieler_belastung_pause_lage} Ich brauche ein Spiel Pause. Sonst passiert etwas."
+ ],
+ "pool.spieler_belastung_pause.e.e2": [
+  "{b.gruss} {b.spieler_belastung_pause_lage} Ich will mich nicht drücken, aber ich bin platt."
+ ],
+ "pool.spieler_belastung_pause.e.e3": [
+  "{b.gruss} {b.spieler_belastung_pause_lage} Ich merke es im Sprint, ich komme nicht mehr hinterher."
+ ],
+ "pool.spieler_belastung_pause.e.e4": [
+  "{b.gruss} {b.spieler_belastung_pause_lage} Wenn du mich weiter jede Woche spielen lässt, bin ich im Frühjahr verletzt."
+ ],
+ "pool.spieler_belastung_pause.e.e5": [
+  "{b.gruss} {b.spieler_belastung_pause_lage} Kann ich am Wochenende auf die Bank? Nur dieses eine Mal."
+ ],
+ "pool.spieler_belastung_pause.e.e6": [
+  "{b.gruss} {b.spieler_belastung_pause_lage} Der Arzt sagt nichts, aber mein Körper sagt einiges."
+ ],
+ "pool.spieler_belastung_pause.a.a1": [
+  "Du bekommst das nächste Spiel frei. Erhol dich."
+ ],
+ "pool.spieler_belastung_pause.a.a2": [
+  "Wir steuern die Belastung im Training runter, spielen musst du aber."
+ ],
+ "pool.spieler_belastung_pause.a.a3": [
+  "Du fängst auf der Bank an und kommst nach einer Stunde."
+ ],
+ "pool.spieler_belastung_pause.a.a4": [
+  "Müde sind alle. Wir brauchen dich auf dem Platz."
+ ],
+ "pool.spieler_belastung_pause.a.a5": [
+  "Danke, dass du es ehrlich sagst. Das ist mir lieber als eine Verletzung."
+ ],
+ "pool.spieler_belastung_pause.a.a6": [
+  "Lass dich von den Physios durchchecken, dann entscheiden wir."
+ ],
+ "pool.spieler_belastung_pause.a.a7": [
+  "Wer soll dich ersetzen? Sag mir einen Namen."
+ ],
+ "pool.spieler_belastung_pause.a.a8": [
+  "Bis zur Länderspielpause ziehst du noch durch."
+ ],
+ "pool.spieler_belastung_pause.r.r1": [
+  "{b.gut} Danke. Danach bin ich wieder voll da."
+ ],
+ "pool.spieler_belastung_pause.r.r2": [
+  "{b.gut} Das weiß ich zu schätzen, Trainer."
+ ],
+ "pool.spieler_belastung_pause.r.r3": [
+  "{b.gut} Gut zu wissen, dass man hier gehört wird."
+ ],
+ "pool.spieler_belastung_pause.r.r4": [
+  "{b.neutral} Okay, ich versuche es."
+ ],
+ "pool.spieler_belastung_pause.r.r5": [
+  "{b.neutral} Dann beiße ich eben die Zähne zusammen."
+ ],
+ "pool.spieler_belastung_pause.r.r6": [
+  "{b.neutral} Wird schon gehen."
+ ],
+ "pool.spieler_belastung_pause.r.r7": [
+  "{b.schlecht} Wenn ich mich verletze, weißt du, warum."
+ ],
+ "pool.spieler_belastung_pause.r.r8": [
+  "{b.schlecht} Ich bin doch keine Maschine!"
+ ],
+ "pool.spieler_belastung_pause.r.r9": [
+  "{b.schlecht} Dann sag ich eben nichts mehr."
+ ],
+ "pool.spieler_belastung_pause.x.x1": [
+  "Er wirkt erleichtert. {entscheidung}"
+ ],
+ "pool.spieler_belastung_pause.x.x2": [
+  "Er zuckt mit den Schultern. {entscheidung} Die nächsten Wochen werden zeigen, ob er durchhält."
+ ],
+ "pool.spieler_belastung_pause.x.x3": [
+  "Er geht wortlos. {entscheidung} In der Kabine fragen sich andere, ob sie auch verheizt werden."
+ ],
+ "pool.spieler_kapitaensbinde.e.e1": [
+  "{b.gruss} {b.spieler_kapitaensbinde_lage} Ich will Kapitän werden. Ich glaube, die Mannschaft sieht das genauso."
+ ],
+ "pool.spieler_kapitaensbinde.e.e2": [
+  "{b.gruss} {b.spieler_kapitaensbinde_lage} Die Binde wäre für mich eine Ehre. Denk darüber nach."
+ ],
+ "pool.spieler_kapitaensbinde.e.e3": [
+  "{b.gruss} {b.spieler_kapitaensbinde_lage} Ich rede schon jetzt in der Kabine, wenn es brennt. Dann kann ich auch die Binde tragen."
+ ],
+ "pool.spieler_kapitaensbinde.e.e4": [
+  "{b.gruss} {b.spieler_kapitaensbinde_lage} Mit Verlaub: Die Binde sitzt gerade am falschen Arm."
+ ],
+ "pool.spieler_kapitaensbinde.e.e5": [
+  "{b.gruss} {b.spieler_kapitaensbinde_lage} Ich will niemandem etwas wegnehmen, aber ich würde Verantwortung übernehmen."
+ ],
+ "pool.spieler_kapitaensbinde.e.e6": [
+  "{b.gruss} {b.spieler_kapitaensbinde_lage} Andere Spieler kommen mit Problemen eh zu mir. Mach es offiziell."
+ ],
+ "pool.spieler_kapitaensbinde.a.a1": [
+  "Du hast recht. Ab sofort trägst du die Binde."
+ ],
+ "pool.spieler_kapitaensbinde.a.a2": [
+  "Der Kapitän wird nicht gefordert, er wächst rein. Du bist auf dem Weg."
+ ],
+ "pool.spieler_kapitaensbinde.a.a3": [
+  "Du wirst Vizekapitän und führst den Mannschaftsrat."
+ ],
+ "pool.spieler_kapitaensbinde.a.a4": [
+  "Wer Kapitän ist, entscheide ich. Die Frage stellt sich nicht."
+ ],
+ "pool.spieler_kapitaensbinde.a.a5": [
+  "Es freut mich, dass du so denkst. Zeig es weiter, ich sehe das."
+ ],
+ "pool.spieler_kapitaensbinde.a.a6": [
+  "Die Mannschaft soll den Kapitän wählen. Stell dich zur Wahl."
+ ],
+ "pool.spieler_kapitaensbinde.a.a7": [
+  "Und was sagst du dem Kapitän, wenn du ihm die Binde abnimmst?"
+ ],
+ "pool.spieler_kapitaensbinde.a.a8": [
+  "Die Binde bleibt, wo sie ist. Führen kannst du auch ohne."
+ ],
+ "pool.spieler_kapitaensbinde.r.r1": [
+  "{b.gut} Ich werde dich nicht enttäuschen."
+ ],
+ "pool.spieler_kapitaensbinde.r.r2": [
+  "{b.gut} Das ist ein großer Schritt für mich."
+ ],
+ "pool.spieler_kapitaensbinde.r.r3": [
+  "{b.gut} Ich nehme die Aufgabe ernst, versprochen."
+ ],
+ "pool.spieler_kapitaensbinde.r.r4": [
+  "{b.neutral} Verstanden. Ich bleibe dran."
+ ],
+ "pool.spieler_kapitaensbinde.r.r5": [
+  "{b.neutral} Ich hoffe, du meinst das ernst."
+ ],
+ "pool.spieler_kapitaensbinde.r.r6": [
+  "{b.neutral} Gut. Mir geht es um die Mannschaft, nicht um ein Stück Stoff."
+ ],
+ "pool.spieler_kapitaensbinde.r.r7": [
+  "{b.schlecht} Dann weiß ich, woran ich bin."
+ ],
+ "pool.spieler_kapitaensbinde.r.r8": [
+  "{b.schlecht} Typisch. Die Lauten werden hier nie gehört."
+ ],
+ "pool.spieler_kapitaensbinde.r.r9": [
+  "{b.schlecht} Vielleicht schätzt man mich woanders mehr."
+ ],
+ "pool.spieler_kapitaensbinde.x.x1": [
+  "Er geht mit erhobenem Kopf. {entscheidung}"
+ ],
+ "pool.spieler_kapitaensbinde.x.x2": [
+  "Er nickt knapp. {entscheidung} Die Hierarchie in der Kabine bleibt ein Thema."
+ ],
+ "pool.spieler_kapitaensbinde.x.x3": [
+  "Es wird laut. {entscheidung} Der Kapitän erfährt noch am selben Tag davon."
+ ],
+ "pool.spieler_sponsortermin.e.e1": [
+  "{b.gruss} {b.spieler_sponsortermin_lage} Ich mache den Sponsorentermin morgen nicht. Mir ist nicht nach Fotos."
+ ],
+ "pool.spieler_sponsortermin.e.e2": [
+  "{b.gruss} {b.spieler_sponsortermin_lage} Kann jemand anderes zum Sponsor gehen? Ich brauche den Tag für mich."
+ ],
+ "pool.spieler_sponsortermin.e.e3": [
+  "{b.gruss} {b.spieler_sponsortermin_lage} Ich bin Fußballer, kein Werbegesicht."
+ ],
+ "pool.spieler_sponsortermin.e.e4": [
+  "{b.gruss} {b.spieler_sponsortermin_lage} Drei Termine in einer Woche, das ist zu viel. Ich sage ab."
+ ],
+ "pool.spieler_sponsortermin.e.e5": [
+  "{b.gruss} {b.spieler_sponsortermin_lage} Bitte versteh mich nicht falsch, aber ich will morgen nicht in die Kamera grinsen."
+ ],
+ "pool.spieler_sponsortermin.e.e6": [
+  "{b.gruss} {b.spieler_sponsortermin_lage} Der Sponsor zahlt den Verein, nicht mich. Warum soll ich dahin?"
+ ],
+ "pool.spieler_sponsortermin.a.a1": [
+  "In Ordnung, ich schicke einen anderen. Nimm dir den Tag."
+ ],
+ "pool.spieler_sponsortermin.a.a2": [
+  "Die Sponsoren zahlen auch dein Gehalt mit. Eine Stunde, dann bist du frei."
+ ],
+ "pool.spieler_sponsortermin.a.a3": [
+  "Wir kürzen den Termin auf eine halbe Stunde, ohne Interview."
+ ],
+ "pool.spieler_sponsortermin.a.a4": [
+  "Das steht in deinem Vertrag. Du gehst hin."
+ ],
+ "pool.spieler_sponsortermin.a.a5": [
+  "Was ist los? Lass uns erst darüber reden, dann über den Termin."
+ ],
+ "pool.spieler_sponsortermin.a.a6": [
+  "Kläre das mit der Marketingabteilung."
+ ],
+ "pool.spieler_sponsortermin.a.a7": [
+  "Und wenn morgen in der Zeitung steht, dass du dir zu fein bist?"
+ ],
+ "pool.spieler_sponsortermin.a.a8": [
+  "Du gehst. Danach reden wir über die Woche."
+ ],
+ "pool.spieler_sponsortermin.r.r1": [
+  "{b.gut} Danke, das hilft mir gerade."
+ ],
+ "pool.spieler_sponsortermin.r.r2": [
+  "{b.gut} Okay, dann mache ich es eben kurz."
+ ],
+ "pool.spieler_sponsortermin.r.r3": [
+  "{b.gut} Gut, dass du fragst, was los ist."
+ ],
+ "pool.spieler_sponsortermin.r.r4": [
+  "{b.neutral} Na gut. Aber lächeln werde ich nicht."
+ ],
+ "pool.spieler_sponsortermin.r.r5": [
+  "{b.neutral} Dann ziehe ich es eben durch."
+ ],
+ "pool.spieler_sponsortermin.r.r6": [
+  "{b.neutral} Eine Stunde, dann ist es vorbei."
+ ],
+ "pool.spieler_sponsortermin.r.r7": [
+  "{b.schlecht} Wie du meinst."
+ ],
+ "pool.spieler_sponsortermin.r.r8": [
+  "{b.schlecht} Dann gehe ich hin und sage, was ich denke."
+ ],
+ "pool.spieler_sponsortermin.r.r9": [
+  "{b.schlecht} Mal sehen, wie lange ich mir das noch antue."
+ ],
+ "pool.spieler_sponsortermin.x.x1": [
+  "Das Thema ist vom Tisch. {entscheidung}"
+ ],
+ "pool.spieler_sponsortermin.x.x2": [
+  "Er geht, die Laune bleibt mies. {entscheidung} Der Sponsor wird es merken."
+ ],
+ "pool.spieler_sponsortermin.x.x3": [
+  "Er erscheint am nächsten Tag nicht. {entscheidung} Die Marketingabteilung ist außer sich."
+ ]
+}

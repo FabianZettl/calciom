@@ -72,7 +72,7 @@ quellen = ["https://en.wikipedia.org/wiki/2025%E2%80%9326_FA_Cup", "https://www.
 # ============================================================ 2. EFL Cup (Ligapokal)
 [[pokal]]
 land = "England"
-name = "EFL Cup"
+name = "Carabao Cup"
 ablauf = [
   { name = "Vorrunde", elfmeter = true, neu = ["stufe:4:-4"] },
   { name = "1. Runde", elfmeter = true, neu = ["stufe:2", "stufe:3", "stufe:4:rest"] },

@@ -8,10 +8,21 @@ use serde::{Deserialize, Serialize};
 
 pub const ANLAGEN: [&str; 5] = [crate::id("stadion"), crate::id("fanshop"), crate::id("training"), crate::id("jugend"), crate::id("medizin")];
 pub fn anlagen_de_t() -> [&'static str; 5] { [crate::inhalt::t("verein.stadion"), crate::inhalt::t("vw.merch.fanshop"), crate::inhalt::t("ui.wirtschaft.trainingszentrum"), crate::inhalt::t("ui.wirtschaft.jugendzentrum"), crate::inhalt::t("ui.wirtschaft.medizinische_abteilung")] }
-pub const SPONSOR_ARTEN: [&str; 3] = [crate::id("trikot"), crate::id("ausruester"), crate::id("stadion")];
-pub fn sponsor_de_t() -> [&'static str; 3] { [crate::inhalt::t("mk.rolle.trikot"), crate::inhalt::t("mk.rolle.ausruester"), crate::inhalt::t("ui.wirtschaft.stadionname")] }
-/// Invented brand names (own decision: no real brands in the build).
-const MARKEN: [&str; 12] = ["Nordlicht Energie", "Alpenbank", "Rheinwerk Versicherung", "Hafenblick Logistik", "Sternquell Brauerei", "Talwind Mobil", "Kronfeld Technik", "Silberfluss Telekom", "Brückner Bau", "Auenland Molkerei", "Vierlinden Reisen", "Ostwind Airlines"]; // roh
+/// The sponsor pyramid (Fabian 24.11.): main (shirt) sponsor, kit supplier, stadium name, two secondary sponsors and four
+/// small partners on the boards; the places per kind in vereinswelt.toml [sponsor.plaetze].
+pub const SPONSOR_ARTEN: [&str; 5] = [crate::id("trikot"), crate::id("ausruester"), crate::id("stadion"), crate::id("neben"), crate::id("bande")];
+pub fn sponsor_de_t() -> [&'static str; 5] { [crate::inhalt::t("mk.rolle.trikot"), crate::inhalt::t("mk.rolle.ausruester"), crate::inhalt::t("ui.wirtschaft.stadionname"), crate::inhalt::t("ui.sponsor.neben"), crate::inhalt::t("ui.sponsor.bande")] }
+/// Places of a sponsor kind in the pyramid.
+pub fn plaetze(art: u8) -> usize { crate::regeln::wert_oder("vereinswelt", &format!("sponsor.plaetze.{}", SPONSOR_ARTEN[art as usize])).and_then(|x| x.as_u64()).unwrap_or(1) as usize } // roh
+/// Brand names of a kind (vereinswelt.toml [sponsor.marken]); the big brands (`gross_<kind>`) only ask big clubs.
+fn marken(art: u8, gross: bool) -> Vec<String> {
+    let k = SPONSOR_ARTEN[art as usize];
+    let liste = |n: &str| crate::regeln::wert_oder("vereinswelt", &format!("sponsor.marken.{n}")).and_then(|x| x.as_array().cloned()).unwrap_or_default().iter().filter_map(|x| x.as_str().map(String::from)).collect::<Vec<String>>(); // roh
+    let mut v = liste(k);
+    // a big club's boards go to national brands, not to the bakery round the corner
+    if gross { let g = liste(&format!("gross_{k}")); if g.len() >= 5 { return g; } v.extend(g); }
+    v
+}
 
 #[derive(Serialize, Deserialize, Clone)]
 pub struct Sponsor { pub art: u8, pub name: String, pub jahr: f64, pub bis: u32, pub bonus: f64, pub frist: u32, #[serde(default)] pub versucht: bool }
@@ -43,7 +54,14 @@ pub struct Wirtschaft {
     pub wv: Vec<String>,
     pub wv_plan: Vec<(u32, f64)>,
     pub wv_vormonat: Option<f64>,
+    /// The investor above the pyramid (Fabian 24.11.) and the abs day of the last request.
+    pub investor: Option<Investor>,
+    pub investor_frage: u32,
 }
+/// An investor or owner: name, kind (0 state fund, 1 US private equity, 2 Asian group, 3 local entrepreneur), the money
+/// he brings, his share in percent, since when.
+#[derive(Serialize, Deserialize, Clone, Default, Debug)]
+pub struct Investor { pub name: String, pub typ: u8, pub summe: f64, pub anteil: u8, pub seit: u32 }
 
 fn v(k: &str) -> f64 { f("vereinswelt", k) as f64 }
 fn b(k: &str) -> f64 { f("budget_start", k) as f64 }
@@ -85,7 +103,7 @@ impl Career {
         let spieltag = kap * aus * preis * heim;
         let merch = self.fanbasis() * v("einnahmen.merch_je_fan_monat") * f * (1.0 + v("einnahmen.merch_je_fanshopstufe") * (stufe - 1.0)) * (0.7 + 0.6 * self.fans_eff() as f64 / 100.0) * 12.0;
         let tv = (v("einnahmen.tv_basis") + v("einnahmen.tv_je_ruf") * k) * f;
-        let sp: f64 = SPONSOR_ARTEN.iter().map(|a| v(&format!("sponsor.{a}")) * (1.0 + v("sponsor.je_ruf") * k) * f).sum();
+        let sp: f64 = SPONSOR_ARTEN.iter().enumerate().map(|(i, a)| v(&format!("sponsor.{a}")) * (1.0 + v("sponsor.je_ruf") * k) * f * plaetze(i as u8) as f64).sum();
         spieltag + merch + tv + sp
     }
     /// The scale that brings the formula revenue to wages / quota (quota 0.62 → 0.57 by prestige, corridor 0.55…0.62).
@@ -134,7 +152,8 @@ impl Career {
         let s = (1.0 + (k * 3.0).round()).clamp(1.0, 3.0) as u8;
         self.wi.stufen = [s; 5];
         // own decision: the club starts with running contracts of the three kinds (middle offer, 2 years)
-        for art in 0..3u8 { let o = self.sponsor_angebot(art, 0, 9999); let mut o = o; o.bis = self.world.season + 1; self.wi.vertraege.push(o); }
+        // the pyramid starts full except the last two board places (offers for them come in the first months)
+        for art in 0..SPONSOR_ARTEN.len() as u8 { for i in 0..plaetze(art).saturating_sub(if art == 4 { 2 } else { 0 }) { let mut o = self.sponsor_angebot(art, i, 9999); o.bis = self.world.season + 1; self.wi.vertraege.push(o); } }
         self.wi.an = true;
     }
     fn sponsor_angebot(&self, art: u8, i: usize, monat: u32) -> Sponsor {
@@ -143,7 +162,10 @@ impl Career {
         let lz = arr("vereinswelt", "sponsor.laufzeiten");
         let jahre = lz[(z(crate::id("l")) * lz.len() as f64) as usize % lz.len()].as_u64().unwrap() as u32;
         let jahr = round_money(basis * (0.85 + 0.3 * z(crate::id("h"))));
-        Sponsor { art, name: MARKEN[(z(crate::id("n")) * MARKEN.len() as f64) as usize % MARKEN.len()].to_string(), jahr, bis: self.world.season + jahre - 1, bonus: round_money(jahr * v("sponsor.bonus_anteil")), frist: self.abs() + v("sponsor.frist_tage") as u32, versucht: false }
+        // a brand not yet with the club (running contracts and open offers)
+        let liste: Vec<String> = marken(art, self.kraft() >= v("sponsor.gross_ab")).into_iter().filter(|n| !self.wi.vertraege.iter().chain(self.wi.angebote.iter()).any(|s| &s.name == n)).collect();
+        let name = if liste.is_empty() { crate::inhalt::t("ui.sponsor.regional").to_string() } else { liste[(z(crate::id("n")) * liste.len() as f64) as usize % liste.len()].clone() };
+        Sponsor { art, name, jahr, bis: self.world.season + jahre - 1, bonus: round_money(jahr * v("sponsor.bonus_anteil")), frist: self.abs() + v("sponsor.frist_tage") as u32, versucht: false }
     }
     pub fn kapazitaet(&self) -> f64 { (v("verein.kapazitaet_basis") + v("verein.kapazitaet_je_ruf") * self.kraft()) * (1.0 + v("anlagen.kapazitaet_je_stufe") * (self.wi.stufen[0].max(1) as f64 - 1.0)) * self.neubau_faktor() }
     pub fn fanbasis(&self) -> f64 { v("verein.fanbasis") + v("verein.fanbasis_je_ruf") * self.kraft() }
@@ -216,11 +238,17 @@ impl Career {
         self.wi.angebote.retain(|o| abs < o.frist);
         if self.wi.angebot_monat != monat {
             self.wi.angebot_monat = monat;
-            for art in 0..3u8 {
-                let laeuft = self.wi.vertraege.iter().any(|s| s.art == art && s.bis > self.world.season);
-                if laeuft { continue; }
-                for i in 0..f("vereinswelt", "sponsor.angebote_je_art") as usize { let o = self.sponsor_angebot(art, i, monat); self.wi.angebote.push(o); }
+            // free places of the pyramid get offers, a place whose contract ends this season from January on; several
+            // times a season, never while offers for that kind are still open
+            let mut neu: Vec<usize> = vec![];
+            for art in 0..SPONSOR_ARTEN.len() as u8 {
+                let season = self.world.season;
+                let laufend = self.wi.vertraege.iter().filter(|s| s.art == art && (s.bis > season || s.bis == season && self.world.day < 153)).count();
+                if laufend >= plaetze(art) || self.wi.angebote.iter().any(|o| o.art == art) { continue; }
+                if zufall(&[crate::id("sponsor"), crate::id("anfrage"), &monat.to_string(), &art.to_string()]) as f64 > v("sponsor.anfrage_chance") { continue; }
+                for i in 0..f("vereinswelt", "sponsor.angebote_je_art") as usize { let o = self.sponsor_angebot(art, i, monat); neu.push(self.wi.angebote.len()); self.wi.angebote.push(o); }
             }
+            for i in neu { self.sponsor_anfrage_melden(i); }
         }
         // building work finished
         let fertig: Vec<(usize, u8, u32)> = self.wi.bau.iter().copied().filter(|b| abs >= b.2).collect();
@@ -242,8 +270,12 @@ impl Career {
     }
     pub fn sponsor_annehmen(&mut self, i: usize) -> Result<(), String> {
         let Some(o) = self.wi.angebote.get(i).cloned() else { return Err(crate::inhalt::t("ui.wirtschaft.das_angebot_gibt_es_nicht").into()) };
-        if self.wi.vertraege.iter().any(|s| s.art == o.art && s.bis > self.world.season) { return Err(crate::inhalt::t("ui.wirtschaft.fuer_diese_art_laeuft_schon").into()); }
-        self.wi.angebote.retain(|x| x.art != o.art);
+        if self.wi.vertraege.iter().filter(|s| s.art == o.art && s.bis > self.world.season).count() >= plaetze(o.art) { return Err(crate::inhalt::t("ui.wirtschaft.fuer_diese_art_laeuft_schon").into()); }
+        // the contract that ends this season gives way to the new partner
+        let season = self.world.season;
+        if let Some(k) = self.wi.vertraege.iter().position(|s| s.art == o.art && s.bis == season) { if self.wi.vertraege.iter().filter(|s| s.art == o.art).count() >= plaetze(o.art) { self.wi.vertraege.remove(k); } }
+        let voll = self.wi.vertraege.iter().filter(|s| s.art == o.art && s.bis > season).count() + 1 >= plaetze(o.art);
+        if voll { self.wi.angebote.retain(|x| x.art != o.art); } else { self.wi.angebote.retain(|x| x.name != o.name); }
         self.grund(crate::inhalt::t("ui.wirtschaft.marketing"), crate::inhalt::t("vg.rolle.sponsor"), 0.0, &crate::tf!("ui.wirtschaft.im_jahr_bis", o.name, money(o.jahr), crate::date::season_label(o.bis)));
         self.wi.vertraege.push(o);
         Ok(())
@@ -297,6 +329,7 @@ mod tests {
         for (art, own) in [("Großverein", t[0]), ("Durchschnitt", t[t.len() / 2]), ("Schwächster", t[t.len() - 1])].into_iter().skip(welcher).take(1) {
             let mut c = Career::new(w0.clone(), own, "Test");
             c.mensch.vertrag_bis = u32::MAX; // this test is about money, not about the coach's contract
+            c.wi.investor_frage = u32::MAX / 2; // and about the running money: no investor comes in
             let k0 = c.club().balance;
             let mut vorher = k0;
             let mut posten: Vec<(String, f64)> = vec![];
@@ -334,7 +367,7 @@ mod tests {
         let k = c.kraft();
         assert!((0.0..=1.0).contains(&k));
         assert!((c.kapazitaet() - (8000.0 + 55000.0 * k) * (1.0 + 0.12 * (c.wi.stufen[0] as f64 - 1.0))).abs() < 1.0);
-        assert_eq!(c.wi.vertraege.len(), 3);
+        assert_eq!(c.wi.vertraege.len(), (0..5u8).map(|a| plaetze(a)).sum::<usize>() - 2, "the pyramid with two free board places");
         let s = c.wi.stufen[2];
         assert!((c.ausbau_kosten(2) - 800000.0 * c.skala() * ((s + 1) as f64).powi(2)).abs() < 1.0, "cost base·level², in the club's money scale");
         let vorher = c.club().balance;

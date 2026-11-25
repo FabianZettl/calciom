@@ -345,6 +345,26 @@ fn bausteine_roh(c: &Career, m: &Msg) -> Vec<B> {
                     v.push(B::Reihe(vec![B::Wappen { club: *club }, B::Titel(k.name.clone())]));
                     v.push(B::Reihe(vec![B::Zahl { titel: t("gehalt"), wert: money(*wage) }, B::Zahl { titel: t("liga"), wert: c.world.leagues[k.league].name.clone() }, B::Zahl { titel: t("platz"), wert: c.world.rank_of(*club).to_string() }]));
                 }
+                // a sponsor request (Fabian 24.11.): the brand as a word mark, the deal in figures, its place in the pyramid
+                Action::Wahl { art, .. } if art.starts_with("wv:sponsor|") => {
+                    let name = art.trim_start_matches("wv:sponsor|");
+                    if let Some(o) = c.wi.angebote.iter().find(|o| o.name == name).or_else(|| c.wi.vertraege.iter().find(|o| o.name == name)) {
+                        v.push(B::Zeitung { name: name.to_string(), schlagzeile: crate::wirtschaft::sponsor_de_t()[o.art as usize].to_string(), text: String::new() });
+                        let jahre = o.bis + 1 - c.world.season.min(o.bis);
+                        v.push(B::Reihe(vec![B::Zahl { titel: t("pro_jahr"), wert: money(o.jahr) }, B::Zahl { titel: t("laufzeit"), wert: crate::tf!("ui.post.jahre", jahre) }, B::Zahl { titel: t("bonus"), wert: money(o.bonus) }, B::Zahl { titel: t("gesamt"), wert: money(o.jahr * jahre as f64) }]));
+                        let belegt = c.wi.vertraege.iter().filter(|s| s.art == o.art && s.bis > c.world.season).count();
+                        let plaetze = crate::wirtschaft::plaetze(o.art);
+                        v.push(B::Balken { titel: t("pyramide"), anteil: belegt as f32 / plaetze.max(1) as f32, text: crate::tf!("ui.post.belegt", belegt, plaetze), farbe: 3 });
+                    }
+                }
+                // an investor: who, how much, which share
+                Action::Wahl { art, .. } if art.starts_with("wv:investor|") => {
+                    let teile: Vec<&str> = art.trim_start_matches(crate::id("wv:")).split('|').collect();
+                    if let (Some(summe), Some(anteil), Some(name)) = (teile.get(2).and_then(|x| x.parse::<f64>().ok()), teile.get(3), teile.get(5)) {
+                        v.push(B::Zeitung { name: name.to_string(), schlagzeile: crate::inhalt::t("ui.sponsor.investor").to_string(), text: String::new() });
+                        v.push(B::Reihe(vec![B::Zahl { titel: t("kapital"), wert: money(summe) }, B::Zahl { titel: t("anteil"), wert: format!("{anteil} %") }, B::Zahl { titel: t("umsatz"), wert: money(c.umsatz_prognose()) }]));
+                    }
+                }
                 _ => { if let Some(p) = erst { v.push(B::Foto { pid: p, r: 36.0 }); v.push(B::Zahl { titel: t("marktwert"), wert: money(c.world.players[p].value) }); } }
             }
             if let Some(n) = erst.and_then(|p| c.negs.iter().find(|n| n.pid == p && n.stage < 2)) {

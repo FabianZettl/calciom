@@ -89,7 +89,6 @@ abstand = 8                  # Konkurrent: höchstens so viele Gesamtwertpunkte 
 summe_deckel = 5.0           # Summe der Beträge aller Moraländerungen eines Transfers
 
 [verlaengerung]
-beginn_restlaufzeit = 18     # Monate
 
 [verhandlungen]
 max = 10                         # Standard der gleichzeitig offenen Verhandlungen (5, 10 oder 15); die Einstellung in der Karriere (tf_meta) hat Vorrang

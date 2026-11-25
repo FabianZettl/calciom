@@ -1,0 +1,97 @@
+# Anstoßtage und -zeiten (Fabian 25.11.: Spieltage am richtigen Tag zur richtigen Uhrzeit, je Liga).
+# Slot "Tag:HH:MM:Gewicht": Tag relativ zum Spieltag-Samstag (-1 Freitag, 0 Samstag, 1 Sonntag, 2 Montag) oder bei
+# Wochentags-Spieltagen relativ zum Mittwoch (-1 Dienstag, 0 Mittwoch, 1 Donnerstag). Die Spiele eines Spieltags werden
+# im Verhältnis der Gewichte auf die Slots verteilt. Ohne Eintrag gilt [standard]. Startwerte, änderbar.
+
+[standard]
+wochenende = ["0:15:30:5", "1:15:30:4"]
+woche = ["-1:20:30:1", "0:20:30:1"]
+
+[[liga]]
+land = "Deutschland"
+stufe = 1
+wochenende = ["-1:20:30:1", "0:15:30:5", "0:18:30:1", "1:15:30:1", "1:17:30:1"]
+woche = ["-1:18:30:3", "-1:20:30:1", "0:18:30:4", "0:20:30:1"]
+
+[[liga]]
+land = "Deutschland"
+stufe = 2
+wochenende = ["-1:18:30:2", "0:13:00:3", "1:13:30:3", "0:20:30:1"]
+
+[[liga]]
+land = "Deutschland"
+stufe = 3
+wochenende = ["-1:19:00:1", "0:14:00:7", "1:13:30:1", "1:16:30:1"]
+
+[[liga]]
+land = "England"
+stufe = 1
+wochenende = ["0:12:30:1", "0:15:00:5", "0:17:30:1", "1:14:00:2", "1:16:30:1"]
+woche = ["-1:19:45:4", "0:20:00:6"]
+
+[[liga]]
+land = "England"
+stufe = 2
+wochenende = ["-1:20:00:1", "0:12:30:1", "0:15:00:10"]
+woche = ["-1:19:45:8", "0:20:00:4"]
+
+[[liga]]
+land = "England"
+stufe = 3
+wochenende = ["0:15:00:12"]
+woche = ["-1:19:45:12"]
+
+[[liga]]
+land = "Spanien"
+stufe = 1
+wochenende = ["-1:21:00:1", "0:14:00:1", "0:16:15:1", "0:18:30:1", "0:21:00:1", "1:14:00:1", "1:16:15:1", "1:18:30:1", "1:21:00:1", "2:21:00:1"]
+woche = ["-1:19:00:3", "-1:21:30:2", "0:19:00:3", "0:21:30:2"]
+
+[[liga]]
+land = "Italien"
+stufe = 1
+wochenende = ["-1:20:45:1", "0:15:00:1", "0:18:00:1", "0:20:45:1", "1:12:30:1", "1:15:00:2", "1:18:00:1", "1:20:45:1", "2:20:45:1"]
+woche = ["-1:18:30:2", "-1:20:45:3", "0:18:30:2", "0:20:45:3"]
+
+[[liga]]
+land = "Frankreich"
+stufe = 1
+wochenende = ["-1:20:45:1", "0:17:00:1", "0:19:00:1", "0:21:05:1", "1:15:00:3", "1:17:15:1", "1:20:45:1"]
+
+[[liga]]
+land = "Niederlande"
+stufe = 1
+wochenende = ["-1:20:00:1", "0:16:30:1", "0:18:45:1", "0:20:00:1", "0:21:00:1", "1:12:15:1", "1:14:30:2", "1:16:45:1"]
+
+[[liga]]
+land = "Portugal"
+stufe = 1
+wochenende = ["-1:20:15:1", "0:15:30:1", "0:18:00:1", "0:20:30:1", "1:15:30:2", "1:18:00:1", "1:20:30:1", "2:20:15:1"]
+
+[[liga]]
+land = "Schottland"
+stufe = 1
+wochenende = ["0:15:00:4", "1:12:00:1", "1:15:00:1"]
+
+[[liga]]
+land = "Türkei"
+stufe = 1
+wochenende = ["-1:20:00:1", "0:14:30:1", "0:17:00:1", "0:20:00:2", "1:14:30:1", "1:17:00:1", "1:20:00:2", "2:20:00:1"]
+
+[[liga]]
+land = "Belgien"
+stufe = 1
+wochenende = ["-1:20:45:1", "0:16:15:1", "0:18:45:1", "0:21:00:1", "1:13:30:1", "1:16:00:1", "1:18:30:1", "1:20:30:1"]
+
+# Pokale nach Art (cups.rs kind): 1 Champions League, 2 Europa League, 3 Conference League, 0 nationaler Pokal
+# (Wochenende/Woche/Finale), 4 Meisterrunde, 5 Play-offs, 6 Testspiele.
+[pokal]
+k1 = ["18:45", "21:00", "21:00", "21:00"]
+k2 = ["18:45", "21:00"]
+k3 = ["18:45", "21:00"]
+k0_wochenende = "15:30"
+k0_woche = "20:45"
+k0_finale = "20:00"
+k4 = "20:30"
+k5 = "20:30"
+k6 = "15:00"

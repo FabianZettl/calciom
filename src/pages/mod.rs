@@ -31,6 +31,7 @@ mod praesidium;
 mod presse;
 mod privat;
 mod scouting;
+mod skilltree;
 mod spielerkarte;
 mod spielerprofil;
 mod spieltag;
@@ -68,6 +69,7 @@ use praesidium::*;
 pub use presse::*;
 use privat::*;
 use scouting::*;
+use skilltree::*;
 pub use spielerkarte::*;
 pub use spielerprofil::*;
 pub use spieltag::*;
@@ -109,6 +111,7 @@ pub fn draw_page(ui: &mut Ui, v: &mut View, c: &mut Career) {
         Page::Optionen => optionen(ui, v, c),
         Page::Ziele => ziele(ui, v, c),
         Page::Manager => manager_seite(ui, v, c),
+        Page::TrainerBaum => trainerbaum(ui, v, c),
         Page::Stadion => stadion(ui, v, c),
         Page::Personalmarkt => personalmarkt(ui, v, c),
         Page::Geschichte => geschichte(ui, v, c),
@@ -128,6 +131,8 @@ pub fn draw_page(ui: &mut Ui, v: &mut View, c: &mut Career) {
         Page::TheBest => the_best_seite(ui, v, c),
         Page::LigaPreise => liga_preise_seite(ui, v, c),
         Page::Uefa => uefa_seite(ui, v, c),
+        Page::Spielplan => spielplan(ui, v, c),
+        Page::Vereinsstatistik => vereinsstatistik(ui, v, c),
         Page::Kadermeldung => meldung_seite(ui, v, c),
         Page::Nationalteams => nationalteams_seite(ui, v, c),
         Page::Vereine => vereine(ui, v, c),
@@ -151,6 +156,19 @@ include!("../postkarten.rs");
 
 #[cfg(test)]
 mod scroll_t {
+    /// Fabian 24.11.: the competition colours of the theme: Premier League purple, Europa League orange, FA Cup red,
+    /// Champions League navy, Bundesliga red.
+    #[test]
+    fn thema_farben_je_wettbewerb() {
+        let c = crate::game::Career::new(crate::world::testwelt(2), 0, "Test");
+        let farbe = |key: &str, kind: u8, land: &str| super::thema_farben(&super::wettbewerb_look(&c, key, kind, land)).0;
+        assert_eq!(farbe("ENGLAND_D1_LEAGUE", 9, "England"), 0x37003c); // roh
+        assert_eq!(farbe("", 2, ""), 0xf26522);
+        assert_eq!(farbe("x", 0, "England"), 0xc8102e); // roh
+        assert_eq!(farbe("", 1, ""), 0x0b1b4d);
+        assert_eq!(farbe("GERMANY_D1_LEAGUE", 9, "Deutschland"), 0xd20515); // roh
+    }
+
     /// A squad of 40 in the portrait grid (4 a row, 3 rows fit) and a bench of 12 (8 fit): scrolling shows every one.
     #[test]
     fn nach_dem_scrollen_sind_alle_zu_sehen() {

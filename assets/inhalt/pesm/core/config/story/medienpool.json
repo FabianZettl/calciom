@@ -1,5 +1,5 @@
 {
- "_hinweis": "Medienpool der Pressetribüne (Stand Mitte 2026; Zugehörigkeiten von Reportern können sich ändern). Herkunft „pool“: aus dem Pool übernommen; „erfunden“: ergänzt, wo der Pool Lücken hat.",
+ "_hinweis": "Medienpool der Pressetribüne (Stand Mitte 2026; Zugehörigkeiten von Reportern können sich ändern). Herkunft „pool“: aus dem Pool übernommen; „erfunden“: ergänzt, wo der Pool Lücken hat. „medium“: das Haus eines echten Reporters, am 24.11.2026 geprüft; „unsicher“: kein gesichertes Medium, wird nicht als echte Person eingesetzt.",
  "toene": [
   "boulevard",
   "serioes",
@@ -439,7 +439,7 @@
   },
   {
    "id": "p029",
-   "name": "Florian Plettenberg",
+   "name": "Lena Brenner",
    "typ": "reporter",
    "land": "DE",
    "groesse": 4,
@@ -450,11 +450,11 @@
     "Breaking"
    ],
    "ton": "geruechte",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p030",
-   "name": "Christian Falk",
+   "name": "Jonas Ruiz",
    "typ": "reporter",
    "land": "DE",
    "groesse": 4,
@@ -465,11 +465,11 @@
     "Insider"
    ],
    "ton": "insider",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p031",
-   "name": "Raphael Honigstein",
+   "name": "Mara Novak",
    "typ": "reporter",
    "land": "DE",
    "groesse": 3,
@@ -480,11 +480,11 @@
     "international"
    ],
    "ton": "taktik",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p032",
-   "name": "Tobias Escher",
+   "name": "Tobias Moreau",
    "typ": "reporter",
    "land": "DE",
    "groesse": 2,
@@ -495,11 +495,11 @@
     "Bücher"
    ],
    "ton": "taktik",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p033",
-   "name": "Philipp Köster",
+   "name": "Ines Keller",
    "typ": "reporter",
    "land": "DE",
    "groesse": 2,
@@ -510,11 +510,11 @@
     "Fankultur"
    ],
    "ton": "fankultur",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p034",
-   "name": "Marcel Reif",
+   "name": "Karim Feldmann",
    "typ": "reporter",
    "land": "DE",
    "groesse": 3,
@@ -525,11 +525,11 @@
     "TV"
    ],
    "ton": "serioes",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p035",
-   "name": "Wolff-Christoph Fuss",
+   "name": "Sofia Hollmann",
    "typ": "reporter",
    "land": "DE",
    "groesse": 3,
@@ -540,7 +540,7 @@
     "Wortspiel"
    ],
    "ton": "boulevard",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p036",
@@ -947,7 +947,7 @@
   },
   {
    "id": "p063",
-   "name": "David Ornstein",
+   "name": "Elias Berg",
    "typ": "reporter",
    "land": "GB",
    "groesse": 5,
@@ -958,11 +958,11 @@
     "verlässlich"
    ],
    "ton": "insider",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p064",
-   "name": "Matt Law",
+   "name": "Nora Varga",
    "typ": "reporter",
    "land": "GB",
    "groesse": 3,
@@ -973,11 +973,11 @@
     "Chelsea"
    ],
    "ton": "insider",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p065",
-   "name": "Simon Stone",
+   "name": "Felix Duarte",
    "typ": "reporter",
    "land": "GB",
    "groesse": 3,
@@ -988,11 +988,11 @@
     "seriös"
    ],
    "ton": "serioes",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p066",
-   "name": "Jonathan Wilson",
+   "name": "Clara Okafor",
    "typ": "reporter",
    "land": "GB",
    "groesse": 3,
@@ -1003,11 +1003,11 @@
     "Geschichte"
    ],
    "ton": "taktik",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p067",
-   "name": "Michael Cox",
+   "name": "Mats Petrov",
    "typ": "reporter",
    "land": "GB",
    "groesse": 3,
@@ -1017,11 +1017,11 @@
     "Taktik"
    ],
    "ton": "taktik",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p068",
-   "name": "Rory Smith",
+   "name": "Leonie Rossi",
    "typ": "reporter",
    "land": "GB",
    "groesse": 3,
@@ -1031,11 +1031,11 @@
     "Essay"
    ],
    "ton": "serioes",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p069",
-   "name": "Henry Winter",
+   "name": "David Castell",
    "typ": "reporter",
    "land": "GB",
    "groesse": 3,
@@ -1046,11 +1046,11 @@
     "Emotion"
    ],
    "ton": "fankultur",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p070",
-   "name": "Jamie Carragher",
+   "name": "Amira Aydin",
    "typ": "reporter",
    "land": "GB",
    "groesse": 4,
@@ -1061,11 +1061,11 @@
     "Meinung"
    ],
    "ton": "serioes",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p071",
-   "name": "Ben Jacobs",
+   "name": "Paul Lindqvist",
    "typ": "reporter",
    "land": "GB",
    "groesse": 3,
@@ -1076,7 +1076,7 @@
     "Geld"
    ],
    "ton": "insider",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p072",
@@ -1231,7 +1231,7 @@
   },
   {
    "id": "p082",
-   "name": "Sid Lowe",
+   "name": "Hanna Sato",
    "typ": "reporter",
    "land": "ES",
    "groesse": 3,
@@ -1242,11 +1242,11 @@
     "Essay"
    ],
    "ton": "serioes",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p083",
-   "name": "Guillem Balagué",
+   "name": "Milan Brenner",
    "typ": "reporter",
    "land": "ES",
    "groesse": 3,
@@ -1257,7 +1257,7 @@
     "Bücher"
    ],
    "ton": "serioes",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p084",
@@ -1276,7 +1276,7 @@
   },
   {
    "id": "p085",
-   "name": "Gerard Romero",
+   "name": "Lena Ruiz",
    "typ": "reporter",
    "land": "ES",
    "groesse": 3,
@@ -1287,11 +1287,11 @@
     "Stream"
    ],
    "ton": "serioes",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p086",
-   "name": "Mario Cortegana",
+   "name": "Jonas Novak",
    "typ": "reporter",
    "land": "ES",
    "groesse": 3,
@@ -1302,11 +1302,11 @@
     "seriös"
    ],
    "ton": "serioes",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p087",
-   "name": "Edu Aguirre",
+   "name": "Mara Moreau",
    "typ": "reporter",
    "land": "ES",
    "groesse": 2,
@@ -1317,7 +1317,7 @@
     "Talk"
    ],
    "ton": "serioes",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p088",
@@ -1426,7 +1426,7 @@
   },
   {
    "id": "p095",
-   "name": "Fabrizio Romano",
+   "name": "Tobias Keller",
    "typ": "reporter",
    "land": "IT",
    "groesse": 5,
@@ -1438,11 +1438,11 @@
     "global"
    ],
    "ton": "geruechte",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p096",
-   "name": "Gianluca Di Marzio",
+   "name": "Ines Feldmann",
    "typ": "reporter",
    "land": "IT",
    "groesse": 4,
@@ -1453,11 +1453,11 @@
     "verlässlich"
    ],
    "ton": "insider",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p097",
-   "name": "Nicolò Schira",
+   "name": "Karim Hollmann",
    "typ": "reporter",
    "land": "IT",
    "groesse": 3,
@@ -1468,11 +1468,11 @@
     "Gerüchte"
    ],
    "ton": "geruechte",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p098",
-   "name": "Alfredo Pedullà",
+   "name": "Sofia Berg",
    "typ": "reporter",
    "land": "IT",
    "groesse": 3,
@@ -1482,7 +1482,7 @@
     "Transfers"
    ],
    "ton": "insider",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p099",
@@ -1590,7 +1590,7 @@
   },
   {
    "id": "p106",
-   "name": "Julien Laurens",
+   "name": "Elias Varga",
    "typ": "reporter",
    "land": "FR",
    "groesse": 3,
@@ -1601,11 +1601,11 @@
     "Experte"
    ],
    "ton": "serioes",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p107",
-   "name": "Fabrice Hawkins",
+   "name": "Nora Duarte",
    "typ": "reporter",
    "land": "FR",
    "groesse": 3,
@@ -1615,11 +1615,11 @@
     "Transfers"
    ],
    "ton": "insider",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p108",
-   "name": "Santi Aouna",
+   "name": "Felix Okafor",
    "typ": "reporter",
    "land": "FR",
    "groesse": 3,
@@ -1629,11 +1629,11 @@
     "Transfers"
    ],
    "ton": "insider",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p109",
-   "name": "Daniel Riolo",
+   "name": "Clara Petrov",
    "typ": "reporter",
    "land": "FR",
    "groesse": 3,
@@ -1644,7 +1644,7 @@
     "Hot Takes"
    ],
    "ton": "boulevard",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p110",
@@ -1693,7 +1693,7 @@
   },
   {
    "id": "p113",
-   "name": "Mike Verweij",
+   "name": "Mats Rossi",
    "typ": "reporter",
    "land": "NL",
    "groesse": 3,
@@ -1704,7 +1704,7 @@
     "Insider"
    ],
    "ton": "insider",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p114",
@@ -1900,7 +1900,7 @@
   },
   {
    "id": "p127",
-   "name": "Gastón Edul",
+   "name": "Leonie Castell",
    "typ": "reporter",
    "land": "AR",
    "groesse": 3,
@@ -1911,11 +1911,11 @@
     "Interviews"
    ],
    "ton": "serioes",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p128",
-   "name": "César Luis Merlo",
+   "name": "David Aydin",
    "typ": "reporter",
    "land": "AR",
    "groesse": 3,
@@ -1925,7 +1925,7 @@
     "Transfers"
    ],
    "ton": "insider",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p129",
@@ -1974,7 +1974,7 @@
   },
   {
    "id": "p132",
-   "name": "Tom Bogert",
+   "name": "Amira Lindqvist",
    "typ": "reporter",
    "land": "US",
    "groesse": 2,
@@ -1985,7 +1985,7 @@
     "Transfers"
    ],
    "ton": "insider",
-   "herkunft": "pool"
+   "herkunft": "erfunden"
   },
   {
    "id": "p133",

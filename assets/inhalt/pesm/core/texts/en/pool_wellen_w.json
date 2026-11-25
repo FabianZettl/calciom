@@ -1,0 +1,314 @@
+{
+ "pool.spieler_elfmeter_wunsch.e.e1": [
+  "{b.gruss} {b.spieler_elfmeter_wunsch_lage} I want to be the penalty taker. Give me the ball."
+ ],
+ "pool.spieler_elfmeter_wunsch.e.e2": [
+  "{b.gruss} {b.spieler_elfmeter_wunsch_lage} Next penalty, I want to take it. I'll score it."
+ ],
+ "pool.spieler_elfmeter_wunsch.e.e3": [
+  "{b.gruss} {b.spieler_elfmeter_wunsch_lage} Honestly, I don't get why someone else takes them when I'm in this form."
+ ],
+ "pool.spieler_elfmeter_wunsch.e.e4": [
+  "{b.gruss} {b.spieler_elfmeter_wunsch_lage} I'm tired of watching. Penalties are my thing, you know that."
+ ],
+ "pool.spieler_elfmeter_wunsch.e.e5": [
+  "{b.gruss} {b.spieler_elfmeter_wunsch_lage} I don't want to push in, but I'd like to take over the penalties."
+ ],
+ "pool.spieler_elfmeter_wunsch.e.e6": [
+  "{b.gruss} {b.spieler_elfmeter_wunsch_lage} Strikers at the big clubs take their own penalties. Why not me?"
+ ],
+ "pool.spieler_elfmeter_wunsch.a.a1": [
+  "Agreed. From the next game, they're yours."
+ ],
+ "pool.spieler_elfmeter_wunsch.a.a2": [
+  "The order follows our shoot-out drills in training. Show me there."
+ ],
+ "pool.spieler_elfmeter_wunsch.a.a3": [
+  "You're second in line. If the first one isn't on the pitch, the ball is yours."
+ ],
+ "pool.spieler_elfmeter_wunsch.a.a4": [
+  "No. I decide who shoots, not the stats."
+ ],
+ "pool.spieler_elfmeter_wunsch.a.a5": [
+  "I can see how good you are right now. Let's decide this together, calmly."
+ ],
+ "pool.spieler_elfmeter_wunsch.a.a6": [
+  "Talk to the assistant, he plans the set pieces."
+ ],
+ "pool.spieler_elfmeter_wunsch.a.a7": [
+  "And if you miss, in the last minute, in the derby. Can you handle that?"
+ ],
+ "pool.spieler_elfmeter_wunsch.a.a8": [
+  "The order stays. Focus on your goals from open play."
+ ],
+ "pool.spieler_elfmeter_wunsch.r.r1": [
+  "{b.gut} Thanks, boss. I won't let you down."
+ ],
+ "pool.spieler_elfmeter_wunsch.r.r2": [
+  "{b.gut} That's what I wanted to hear. The next one goes in."
+ ],
+ "pool.spieler_elfmeter_wunsch.r.r3": [
+  "{b.gut} Fair. I'll take any role that helps the team."
+ ],
+ "pool.spieler_elfmeter_wunsch.r.r4": [
+  "{b.neutral} Okay. I'll show it in training."
+ ],
+ "pool.spieler_elfmeter_wunsch.r.r5": [
+  "{b.neutral} Fine. I'd hoped for more."
+ ],
+ "pool.spieler_elfmeter_wunsch.r.r6": [
+  "{b.neutral} No drama. We'll talk again in a few weeks."
+ ],
+ "pool.spieler_elfmeter_wunsch.r.r7": [
+  "{b.schlecht} Fine, then not."
+ ],
+ "pool.spieler_elfmeter_wunsch.r.r8": [
+  "{b.schlecht} That's a joke. I score everything here and I'm not allowed to shoot?"
+ ],
+ "pool.spieler_elfmeter_wunsch.r.r9": [
+  "{b.schlecht} Somewhere else they'd give me the ball."
+ ],
+ "pool.spieler_elfmeter_wunsch.x.x1": [
+  "He nods and heads to training. {entscheidung}"
+ ],
+ "pool.spieler_elfmeter_wunsch.x.x2": [
+  "He leaves without many words. {entscheidung} Everyone will be watching at the next penalty."
+ ],
+ "pool.spieler_elfmeter_wunsch.x.x3": [
+  "He slams the door. {entscheidung} The penalty question becomes a dressing-room topic."
+ ],
+ "pool.spieler_belastung_pause.e.e1": [
+  "{b.gruss} {b.spieler_belastung_pause_lage} I need a game off. Otherwise something will happen."
+ ],
+ "pool.spieler_belastung_pause.e.e2": [
+  "{b.gruss} {b.spieler_belastung_pause_lage} I'm not trying to dodge anything, but I'm shattered."
+ ],
+ "pool.spieler_belastung_pause.e.e3": [
+  "{b.gruss} {b.spieler_belastung_pause_lage} I can feel it in the sprints, I can't keep up any more."
+ ],
+ "pool.spieler_belastung_pause.e.e4": [
+  "{b.gruss} {b.spieler_belastung_pause_lage} If you keep playing me every week, I'll be injured by spring."
+ ],
+ "pool.spieler_belastung_pause.e.e5": [
+  "{b.gruss} {b.spieler_belastung_pause_lage} Can I be on the bench this weekend? Just this once."
+ ],
+ "pool.spieler_belastung_pause.e.e6": [
+  "{b.gruss} {b.spieler_belastung_pause_lage} The doctor says nothing, but my body says plenty."
+ ],
+ "pool.spieler_belastung_pause.a.a1": [
+  "You get the next game off. Recover."
+ ],
+ "pool.spieler_belastung_pause.a.a2": [
+  "We'll lower the load in training, but you have to play."
+ ],
+ "pool.spieler_belastung_pause.a.a3": [
+  "You start on the bench and come on after an hour."
+ ],
+ "pool.spieler_belastung_pause.a.a4": [
+  "Everyone's tired. We need you on the pitch."
+ ],
+ "pool.spieler_belastung_pause.a.a5": [
+  "Thanks for being honest. I'd rather hear it than see you injured."
+ ],
+ "pool.spieler_belastung_pause.a.a6": [
+  "Get checked by the physios, then we'll decide."
+ ],
+ "pool.spieler_belastung_pause.a.a7": [
+  "Who should replace you? Give me a name."
+ ],
+ "pool.spieler_belastung_pause.a.a8": [
+  "You push on until the international break."
+ ],
+ "pool.spieler_belastung_pause.r.r1": [
+  "{b.gut} Thanks. I'll be back at full speed after that."
+ ],
+ "pool.spieler_belastung_pause.r.r2": [
+  "{b.gut} I appreciate that, boss."
+ ],
+ "pool.spieler_belastung_pause.r.r3": [
+  "{b.gut} Good to know people listen here."
+ ],
+ "pool.spieler_belastung_pause.r.r4": [
+  "{b.neutral} Okay, I'll try."
+ ],
+ "pool.spieler_belastung_pause.r.r5": [
+  "{b.neutral} Then I'll grit my teeth."
+ ],
+ "pool.spieler_belastung_pause.r.r6": [
+  "{b.neutral} It'll be fine."
+ ],
+ "pool.spieler_belastung_pause.r.r7": [
+  "{b.schlecht} If I get injured, you'll know why."
+ ],
+ "pool.spieler_belastung_pause.r.r8": [
+  "{b.schlecht} I'm not a machine!"
+ ],
+ "pool.spieler_belastung_pause.r.r9": [
+  "{b.schlecht} Then I won't say anything any more."
+ ],
+ "pool.spieler_belastung_pause.x.x1": [
+  "He looks relieved. {entscheidung}"
+ ],
+ "pool.spieler_belastung_pause.x.x2": [
+  "He shrugs. {entscheidung} The coming weeks will show whether he lasts."
+ ],
+ "pool.spieler_belastung_pause.x.x3": [
+  "He leaves without a word. {entscheidung} Others in the dressing room wonder whether they're being run into the ground too."
+ ],
+ "pool.spieler_kapitaensbinde.e.e1": [
+  "{b.gruss} {b.spieler_kapitaensbinde_lage} I want to be captain. I think the team sees it the same way."
+ ],
+ "pool.spieler_kapitaensbinde.e.e2": [
+  "{b.gruss} {b.spieler_kapitaensbinde_lage} The armband would be an honour for me. Think about it."
+ ],
+ "pool.spieler_kapitaensbinde.e.e3": [
+  "{b.gruss} {b.spieler_kapitaensbinde_lage} I already speak up in the dressing room when things are on fire. I may as well wear the armband."
+ ],
+ "pool.spieler_kapitaensbinde.e.e4": [
+  "{b.gruss} {b.spieler_kapitaensbinde_lage} With respect: the armband is on the wrong arm right now."
+ ],
+ "pool.spieler_kapitaensbinde.e.e5": [
+  "{b.gruss} {b.spieler_kapitaensbinde_lage} I don't want to take anything from anyone, but I'd take on responsibility."
+ ],
+ "pool.spieler_kapitaensbinde.e.e6": [
+  "{b.gruss} {b.spieler_kapitaensbinde_lage} Other players come to me with their problems anyway. Make it official."
+ ],
+ "pool.spieler_kapitaensbinde.a.a1": [
+  "You're right. You wear the armband from now on."
+ ],
+ "pool.spieler_kapitaensbinde.a.a2": [
+  "A captain isn't requested, he grows into it. You're on the way."
+ ],
+ "pool.spieler_kapitaensbinde.a.a3": [
+  "You'll be vice-captain and lead the players' council."
+ ],
+ "pool.spieler_kapitaensbinde.a.a4": [
+  "I decide who's captain. The question doesn't arise."
+ ],
+ "pool.spieler_kapitaensbinde.a.a5": [
+  "I'm glad you think like that. Keep showing it, I see it."
+ ],
+ "pool.spieler_kapitaensbinde.a.a6": [
+  "The team should elect the captain. Stand for it."
+ ],
+ "pool.spieler_kapitaensbinde.a.a7": [
+  "And what do you tell the captain when you take the armband off him?"
+ ],
+ "pool.spieler_kapitaensbinde.a.a8": [
+  "The armband stays where it is. You can lead without it."
+ ],
+ "pool.spieler_kapitaensbinde.r.r1": [
+  "{b.gut} I won't let you down."
+ ],
+ "pool.spieler_kapitaensbinde.r.r2": [
+  "{b.gut} That's a big step for me."
+ ],
+ "pool.spieler_kapitaensbinde.r.r3": [
+  "{b.gut} I'll take the job seriously, I promise."
+ ],
+ "pool.spieler_kapitaensbinde.r.r4": [
+  "{b.neutral} Understood. I'll keep at it."
+ ],
+ "pool.spieler_kapitaensbinde.r.r5": [
+  "{b.neutral} I hope you mean that."
+ ],
+ "pool.spieler_kapitaensbinde.r.r6": [
+  "{b.neutral} Fine. It's about the team for me, not a piece of fabric."
+ ],
+ "pool.spieler_kapitaensbinde.r.r7": [
+  "{b.schlecht} Then I know where I stand."
+ ],
+ "pool.spieler_kapitaensbinde.r.r8": [
+  "{b.schlecht} Typical. The loud ones never get heard here."
+ ],
+ "pool.spieler_kapitaensbinde.r.r9": [
+  "{b.schlecht} Maybe they value me more somewhere else."
+ ],
+ "pool.spieler_kapitaensbinde.x.x1": [
+  "He leaves with his head up. {entscheidung}"
+ ],
+ "pool.spieler_kapitaensbinde.x.x2": [
+  "He gives a short nod. {entscheidung} The hierarchy in the dressing room stays a topic."
+ ],
+ "pool.spieler_kapitaensbinde.x.x3": [
+  "It gets loud. {entscheidung} The captain hears about it the same day."
+ ],
+ "pool.spieler_sponsortermin.e.e1": [
+  "{b.gruss} {b.spieler_sponsortermin_lage} I'm not doing the sponsor event tomorrow. I'm not in the mood for photos."
+ ],
+ "pool.spieler_sponsortermin.e.e2": [
+  "{b.gruss} {b.spieler_sponsortermin_lage} Can someone else go to the sponsor? I need the day for myself."
+ ],
+ "pool.spieler_sponsortermin.e.e3": [
+  "{b.gruss} {b.spieler_sponsortermin_lage} I'm a footballer, not an advertising face."
+ ],
+ "pool.spieler_sponsortermin.e.e4": [
+  "{b.gruss} {b.spieler_sponsortermin_lage} Three appearances in one week is too much. I'm cancelling."
+ ],
+ "pool.spieler_sponsortermin.e.e5": [
+  "{b.gruss} {b.spieler_sponsortermin_lage} Please don't get me wrong, but I don't want to grin into a camera tomorrow."
+ ],
+ "pool.spieler_sponsortermin.e.e6": [
+  "{b.gruss} {b.spieler_sponsortermin_lage} The sponsor pays the club, not me. Why should I go?"
+ ],
+ "pool.spieler_sponsortermin.a.a1": [
+  "All right, I'll send someone else. Take the day."
+ ],
+ "pool.spieler_sponsortermin.a.a2": [
+  "The sponsors help pay your wages too. One hour, then you're free."
+ ],
+ "pool.spieler_sponsortermin.a.a3": [
+  "We'll cut it to half an hour, no interview."
+ ],
+ "pool.spieler_sponsortermin.a.a4": [
+  "It's in your contract. You're going."
+ ],
+ "pool.spieler_sponsortermin.a.a5": [
+  "What's going on? Let's talk about that first, then about the event."
+ ],
+ "pool.spieler_sponsortermin.a.a6": [
+  "Sort it out with the marketing department."
+ ],
+ "pool.spieler_sponsortermin.a.a7": [
+  "And if tomorrow's paper says you think you're too good for it?"
+ ],
+ "pool.spieler_sponsortermin.a.a8": [
+  "You go. Then we'll talk about the week."
+ ],
+ "pool.spieler_sponsortermin.r.r1": [
+  "{b.gut} Thanks, that helps right now."
+ ],
+ "pool.spieler_sponsortermin.r.r2": [
+  "{b.gut} Okay, I'll keep it short then."
+ ],
+ "pool.spieler_sponsortermin.r.r3": [
+  "{b.gut} Good that you ask what's going on."
+ ],
+ "pool.spieler_sponsortermin.r.r4": [
+  "{b.neutral} Fine. But I won't be smiling."
+ ],
+ "pool.spieler_sponsortermin.r.r5": [
+  "{b.neutral} Then I'll get it done."
+ ],
+ "pool.spieler_sponsortermin.r.r6": [
+  "{b.neutral} One hour, then it's over."
+ ],
+ "pool.spieler_sponsortermin.r.r7": [
+  "{b.schlecht} As you like."
+ ],
+ "pool.spieler_sponsortermin.r.r8": [
+  "{b.schlecht} Then I'll go and say what I think."
+ ],
+ "pool.spieler_sponsortermin.r.r9": [
+  "{b.schlecht} We'll see how much longer I put up with this."
+ ],
+ "pool.spieler_sponsortermin.x.x1": [
+  "The matter is settled. {entscheidung}"
+ ],
+ "pool.spieler_sponsortermin.x.x2": [
+  "He leaves, his mood still sour. {entscheidung} The sponsor will notice."
+ ],
+ "pool.spieler_sponsortermin.x.x3": [
+  "He doesn't turn up the next day. {entscheidung} Marketing is furious."
+ ]
+}

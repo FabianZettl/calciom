@@ -121,7 +121,7 @@ pub fn player_modal(ui: &mut Ui, v: &mut View, c: &mut Career, p: usize) {
             let (m, k) = v.leih_wahl;
             if let Some(i) = ui.segment(Rect::new(r.x + 236.0, by - 46.0, 300.0, 34.0), &[crate::inhalt::t("ui.leihe.m6"), crate::inhalt::t("ui.leihe.m12"), crate::inhalt::t("ui.leihe.m18"), crate::inhalt::t("ui.leihe.m24")], m) { v.leih_wahl.0 = i; }
             if let Some(i) = ui.segment(Rect::new(r.x + 546.0, by - 46.0, 330.0, 34.0), &[crate::inhalt::t("ui.leihe.ohne_kauf"), crate::inhalt::t("ui.leihe.kaufoption"), crate::inhalt::t("ui.leihe.kaufpflicht")], k) { v.leih_wahl.1 = i; }
-            if ui.button(Rect::new(r.x + 236.0, by, 200.0, 40.0), crate::inhalt::t("ui.leihe.anfragen"), false) { match c.leihanfrage(p, MONATE[m], k as u8) { Ok(t) => { v.toast(&t, true); v.modal = Modal::None; return; } Err(e) => v.toast(&e, false) } }
+            if ui.button(Rect::new(r.x + 236.0, by, 200.0, 40.0), crate::inhalt::t("ui.leihe.anfragen"), false) { match c.leihanfrage(p, MONATE[m.min(3)], k.min(2) as u8) { Ok(t) => { v.toast(&t, true); v.modal = Modal::None; return; } Err(e) => v.toast(&e, false) } }
         }
     }
     if ui.button(Rect::new(r.x + r.w - 160.0, by, 136.0, 40.0), crate::inhalt::t("aktion.schliessen"), false) || is_key_pressed(KeyCode::Escape) { v.modal = Modal::None; }

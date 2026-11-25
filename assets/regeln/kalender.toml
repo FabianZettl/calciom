@@ -1,0 +1,26 @@
+# Termine im Kalender, an denen der eigene Verein nicht beteiligt ist (Fabian 25.11.): Turniere, Galas, Länderspiele.
+# von/bis als Jahr-Monat-Tag. Wird nur als Info gezeigt (gedämpft). Startwerte, änderbar.
+[[termin]]
+name = "Africa Cup of Nations"
+von = [2027, 6, 19]
+bis = [2027, 7, 17]
+
+[[termin]]
+name = "AFC Asian Cup"
+von = [2027, 1, 7]
+bis = [2027, 2, 5]
+
+[[termin]]
+name = "UEFA Nations League Finals"
+von = [2027, 6, 2]
+bis = [2027, 6, 6]
+
+[[termin]]
+name = "UEFA EURO 2028"
+von = [2028, 6, 9]
+bis = [2028, 7, 9]
+
+[[termin]]
+name = "FIFA World Cup 2030"
+von = [2030, 6, 8]
+bis = [2030, 7, 21]

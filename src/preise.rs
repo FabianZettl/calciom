@@ -270,7 +270,7 @@ impl Career {
                 let n = if ist_spieler { self.world.players[wer].name.clone() } else { trainer_name(self, wer) };
                 let club = if ist_spieler { self.world.players[wer].team.max(0) as usize } else { wer };
                 zeilen.push(format!("{}: {n} ({})", a.name(), self.world.clubs[club].name));
-                if club == self.own { self.feiern.push(crate::meilensteine::Feier { art: "gala".into(), titel: a.name(), text: crate::tf!("ui.preis.liga_sieg", n, a.name()), spieler: ist_spieler.then_some(wer), club: Some(club), stimmen: vec![] }); } // roh
+                if club == self.own { self.feiern.push(crate::meilensteine::Feier { art: "gala".into(), titel: a.name(), text: crate::tf!("ui.preis.liga_sieg", n, a.name()), spieler: ist_spieler.then_some(wer), club: Some(club), stimmen: vec![], ..Default::default() }); } // roh
             }
             if !zeilen.is_empty() {
                 let ln = self.world.leagues[l].name.clone();
@@ -347,7 +347,7 @@ impl Career {
             let name = crate::inhalt::t(&format!("ui.gala.{kat}")).to_string();
             let text = crate::tf!("ui.gala.text", wer.clone(), self.world.clubs[club].name.clone(), name.clone());
             self.news(&crate::tf!("ui.gala.news", name.clone(), wer), &text);
-            if club == self.own || *kat == "ballon" || *kat == "best_spieler" { self.feiern.push(crate::meilensteine::Feier { art: "gala".into(), titel: name, text, spieler: spieler.then_some(w), club: Some(club), stimmen: vec![] }); } // roh
+            if club == self.own || *kat == "ballon" || *kat == "best_spieler" { self.feiern.push(crate::meilensteine::Feier { art: "gala".into(), titel: name, text, spieler: spieler.then_some(w), club: Some(club), stimmen: vec![], ..Default::default() }); } // roh
         }
         self.msg(0, crate::inhalt::t("ui.preis.absender"), crate::inhalt::t(titel), crate::inhalt::t("ui.preis.nacht_text"), Action::None);
     }

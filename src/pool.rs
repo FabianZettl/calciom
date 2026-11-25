@@ -284,7 +284,7 @@ impl Career {
         // "too little play time" before the first matchday); until then it reads as full
         let mindest = crate::regeln::f("gespraeche", "motor.einsatz_ab_spielen") as usize;
         // and only when he really sat out several matches in a row (the texts say "{spiele} Spiele ohne Einsatz")
-        let einsatz = if pl.ps.einsatz.len() < mindest || self.results.len() < mindest || (pl.benched as f32) < crate::regeln::f("gespraeche", "motor.bank_ab_spielen") { 1.0 } else { pl.ps.einsatz.iter().sum::<f32>() / pl.ps.einsatz.len() as f32 };
+        let einsatz = if self.spielfrei() || pl.ps.einsatz.len() < mindest || self.results.len() < mindest || (pl.benched as f32) < crate::regeln::f("gespraeche", "motor.bank_ab_spielen") { 1.0 } else { pl.ps.einsatz.iter().sum::<f32>() / pl.ps.einsatz.len() as f32 };
         let g = |k: &str| crate::regeln::f("gespraeche", &format!("motor.{k}"));
         let stimmung = (g("stimmung_start") + (pl.morale - 50.0) * g("moral_einfluss") + pl.ps.bez * g("beziehung_einfluss")).clamp(5.0, 95.0);
         let haken: Vec<String> = self.mensch.versprechen.iter().filter(|v| v.pid == p).rev().take(6)
@@ -414,6 +414,7 @@ impl Career {
     /// themselves for own players whose triggers hold, by frequency roll and lock time; at most `neu_je_tag` a day, one
     /// open conversation per player, and nothing new while `offen_hoechstens` are waiting. Urgent ones first.
     pub fn pool_tag(&mut self) {
+        if !self.feature("gespraeche") { return; } // roh
         let abs = self.abs();
         if abs < self.ruhe_bis { return; }
         // due steps of a chain come first and are never throttled: the story was already begun
@@ -482,6 +483,19 @@ mod tests {
         let (_, var, _) = c.pool_kontext(sq[0]);
         assert_eq!(var["gegner"], c.world.players[sq[5]].name);
         assert_eq!(var["gegner_spiele"], "6");
+    }
+    /// Fabian 24.11.: after the season's end nobody complains about playing time.
+    #[test]
+    fn keine_spielzeitklage_nach_saisonende() {
+        let mut c = crate::game::Career::new(crate::world::testwelt(7), 0, "Test");
+        c.world.day = crate::world::LEAGUE_END + 10;
+        let p = c.squad()[20];
+        c.world.players[p].ps.einsatz = vec![0.0; 8];
+        c.world.players[p].benched = 8;
+        assert_eq!(c.pool_kontext(p).0["einsatz"].as_f64(), Some(1.0));
+        let n = c.inbox.len();
+        c.anliegen(p, "spielzeit", true);
+        assert_eq!(c.inbox.len(), n, "no playing-time complaint in the break");
     }
     #[test]
     fn keine_spielzeitklage_vor_dem_ersten_spieltag() {

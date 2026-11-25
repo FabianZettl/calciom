@@ -70,14 +70,39 @@ kandidaten_je_rolle = 3
 start_staerke = [35, 70]           # bei Ruf 0 und 1
 
 [sponsor]
-trikot = 840_000
-ausruester = 340_000
-stadion = 500_000
+trikot = 640_000                   # Summe aller Pyramidenplätze wie vorher die drei Arten (1,7 Mio.)
+ausruester = 300_000
+stadion = 400_000
 je_ruf = 25.0                      # Faktor 1 + je_ruf * ruf (Trikot: 1.5 Mio. bis 39 Mio.)
 laufzeiten = [1, 2, 3]
 bonus_anteil = 0.15
 angebote_je_art = 2
 frist_tage = 45
+neben = 120_000                    # Nebensponsor (Fabian 24.11.: Pyramide Haupt-, zwei Neben-, vier Bandensponsoren)
+bande = 30_000                     # Bandenwerbung, je Platz
+anfrage_chance = 0.45              # je Monat und freier Art: Chance, dass Anfragen kommen
+gross_ab = 0.55                    # ab dieser Wirtschaftskraft fragen auch die großen Marken an
+
+
+[sponsor.plaetze]
+trikot = 1
+ausruester = 1
+stadion = 1
+neben = 2
+bande = 4
+
+# Namen der Sponsoren je Art. Erfunden; die großen echten Marken stammen aus der alten Markenliste (core/marken/marken.toml).
+[sponsor.marken]
+trikot = ["Nordlicht Energie", "Alpenbank", "Rheinwerk Versicherung", "Silberfluss Telekom", "Ostwind Airlines", "Kronfeld Technik", "Hansefracht", "Solvia Pharma", "Meridian Bank", "Atlas Mobil"]
+ausruester = ["Vantor Sport", "Kestrel Athletics", "Lindgren Sportswear", "Ardent Kit", "Ferrovia Sport"]
+stadion = ["Hafenblick Logistik", "Brückner Bau", "Sternquell Arena-Partner", "Talwind Mobil", "Auenland Energie", "Westfalia Versicherung"]
+neben = ["Sternquell Brauerei", "Vierlinden Reisen", "Auenland Molkerei", "Rheintal Mineralwasser", "Polaris Software", "Kesselberg Autohaus", "Grünfeld Bio", "Orbit Gaming"]
+bande = ["Bäckerei Hollmann", "Stadtwerke", "Autohaus Lenz", "Elektro Brandt", "Getränke Kuhn", "Fitness Arena", "Druckerei Weiß", "Pizzeria Bella", "Reisebüro Sonnenweg", "Malerbetrieb Vogt", "Optik Riedel", "Zahnarztpraxis am Markt"]
+gross_trikot = ["Emirates", "Telekom"]
+gross_ausruester = ["Nike", "adidas", "PUMA"]
+gross_stadion = ["Allianz"]
+gross_neben = ["Heineken"]
+gross_bande = ["REWE", "Westfalia Versicherung", "Polaris Software", "Atlas Mobil", "Kesselberg Autohaus", "Rheintal Mineralwasser", "Meridian Bank"]
 
 [jugend]
 jahrgang_monat = 7
@@ -227,3 +252,26 @@ sperre = 30
 # Trikotverkauf (Ideen anderer FL-Werkzeuge, 23.11.): Anteil der Fanshop-Einnahmen, der ins Transferbudget geht. Änderbar.
 [merch]
 transfer_anteil = 0.15
+
+# Investor über der Sponsorenpyramide (Fabian 24.11.): selten, mit echten Folgen. faktor_tN: frisches Kapital für den Verein
+# als Anteil des Jahresumsatzes bei 100 % (der Kaufpreis an Altgesellschafter zählt nicht) (0 Staatsfonds, 1 US-Finanzinvestor, 2 asiatische Gruppe, 3 Unternehmer aus der Region).
+[investor]
+chance_monat = 0.012
+pause_tage = 540
+ab_tag = 120
+faktor_t0 = 0.9
+faktor_t1 = 0.6
+faktor_t2 = 0.45
+faktor_t3 = 0.25
+transfer_anteil = 0.5
+ziel_besser = 2
+mehr_chance = 0.45
+ablehnen_fans = 3.0
+ablehnen_vorstand = 4.0
+
+[investor.namen]
+t0 = ["Al-Noor Sports Holding", "Crescent Gulf Investments", "Desert Falcon Capital"]
+t1 = ["Harbor Point Partners", "Redwood Sports Capital", "Bluewater Equity Group"]
+t2 = ["Dragonfly Sports Group", "Jade River Holdings", "Eastern Star Capital"]
+t3 = ["Familie Brenner Holding", "Werner Lindgren Beteiligungen", "Hafenstadt Mittelstand GmbH"]
+

@@ -90,3 +90,25 @@ moral_hoch_ueber = 85
 moral_hoch = 1
 muede_unter = 60
 muede = -1
+
+# Dynamisches Potenzial (Fabian 25.11., wie FC 27): Saisonnoten-Schnitt junger Spieler verschiebt das Potenzial ein wenig,
+# für alle Vereine, nie unter den aktuellen Wert. Startwerte, änderbar.
+[potenzial]
+bis_alter = 23
+min_noten = 10
+top_ab = 7.6
+top = 2.0
+gut_ab = 7.2
+gut = 1.0
+schwach_bis = 6.2
+schwach = -1.0
+decke = 95.0
+
+# Bestätigte Form wird zum neuen Standard (Fabian 25.11.): bleibt der Zuschlag so viele Tage am Stück bei mindestens
+# „ab“ (oder darunter im Minus), wandert ein Gesamtwert-Punkt in die Fähigkeiten; höchstens saison_max je Saison,
+# nach oben nur bis zum Potenzial. Startwerte, änderbar.
+[dauer]
+ab = 2.0
+tage = 21
+saison_max = 3.0
+

@@ -265,6 +265,19 @@ fn squad_order(a: &[Asg], team: u32) -> Vec<usize> {
 }
 /// Lineup: the wanted ids on places 0, 1, … (starting XI in formation order, then bench), everybody else behind in the
 /// previous order. Only bits 10..15 change. Refuses players outside the club, duplicates and squads over 64.
+/// Set-piece takers of a team in PlayerAssignment.bin: bits 16..21 of a record, exactly one player of the team each
+/// (read from the FL27 world 24.11.: 21 captain, 20 penalties, 16/17 free kicks, 18/19 corners; which of each pair is
+/// short/long or left/right is not confirmed, PES M has one taker for both). `takers`: free kick, corner, penalty,
+/// captain; None or a player not in the team leaves that flag as it is.
+pub fn schuetzen_setzen(a: &mut [Asg], team: u32, takers: [Option<u32>; 4]) {
+    for (bits, pid) in [(&[16u32, 17][..], takers[0]), (&[18, 19][..], takers[1]), (&[20][..], takers[2]), (&[21][..], takers[3])] {
+        let Some(pid) = pid else { continue };
+        if !a.iter().any(|x| x.team == team && x.pid == pid) { continue; }
+        for x in a.iter_mut().filter(|x| x.team == team) {
+            for &b in bits { if x.pid == pid { x.k |= 1 << b; } else { x.k &= !(1 << b); } }
+        }
+    }
+}
 pub fn set_lineup(a: &mut [Asg], team: u32, order: &[u32]) -> Result<(), String> {
     let sq = squad_order(a, team);
     if sq.len() > 64 { return Err(format!("Kader {team} hat {} Spieler (höchstens 64)", sq.len())); }
@@ -470,6 +483,26 @@ pub fn turnier_ids(d: &[u8]) -> HashMap<u16, u16> {
     let mut out = HashMap::new();
     for r in d.chunks_exact(2352) { out.entry(r[8] as u16).or_insert(u16::from_le_bytes([r[2], r[3]])); }
     out
+}
+/// Tournament ids a map_competitions.txt (scoreboards, referee …) has an entry for: "tid, path  # comment". An entry
+/// whose path starts with another world's folder (`fremd`, e.g. "_FL26Megapack\A-League Men" in a MyWorld career)
+/// belongs to that world's ids and is left out.
+pub fn karten_tids(text: &str, fremd: &[String]) -> HashSet<u16> {
+    text.trim_start_matches('\u{feff}').lines().filter_map(|z| {
+        let (id, pfad) = z.split('#').next()?.split_once(',')?;
+        let erster = pfad.trim().split(['\\', '/']).next().unwrap_or("");
+        if fremd.iter().any(|f| f.eq_ignore_ascii_case(erster)) { return None; }
+        id.trim().parse().ok()
+    }).collect()
+}
+/// Tournament ids Entrance.lua (walk-out scenes) has a branch for: every "tid == N" outside a "--" comment.
+pub fn entrance_tids(lua: &str) -> HashSet<u16> {
+    lua.lines().flat_map(|z| z.split("--").next().unwrap_or("").split("tid == ").skip(1).filter_map(|s| s.split(|c: char| !c.is_ascii_digit()).next()?.parse().ok()).collect::<Vec<u16>>()).collect()
+}
+/// The tournament id for flw/wettbewerb.txt: the first candidate (closest first: exact, same kind, same country) that
+/// any of the content maps knows; none known: the first candidate (the modules then use their exhibition look).
+pub fn turnier_waehlen(kandidaten: &[u16], karten: &[HashSet<u16>]) -> Option<u16> {
+    kandidaten.iter().find(|t| karten.iter().any(|k| k.contains(t))).or(kandidaten.first()).copied()
 }
 /// content/stadiums/map_teams.txt: "Team-ID, Stadion-ID, Name, Pfad  # Kommentar"; the first entry of the team.
 pub fn heimstadion(text: &str, team: u32) -> Option<String> {
@@ -893,7 +926,10 @@ pub fn karriere_laden(karriere: &Path, s: &Path, welt: &Path, cpk: &str) -> Resu
             atomic_write(&dst.join(e.file_name()), &b)?;
         }
         let ch = root.join("common/character0");
-        if !ch.exists() { let mut f = vec![]; copy_dir(&welt.join("common/character0"), &ch, &mut f, Path::new(""))?; }
+        // a world read straight from the game's CPKs has no unpacked character0 (Reddit 25.11.: "character/0 missing"); the
+        // game then keeps its own, nothing to copy
+        let quelle = welt.join("common/character0");
+        if !ch.exists() && quelle.is_dir() { let mut f = vec![]; copy_dir(&quelle, &ch, &mut f, Path::new(""))?; }
         Ok(())
     })();
     if let Err(e) = result {
@@ -929,8 +965,9 @@ pub fn module_pruefen(s: &Path, assets: &Path, karriere: &Path, reparieren: bool
         let Ok(b) = std::fs::read(&p) else { out.push(format!("{rel} fehlt")); continue };
         if String::from_utf8_lossy(&b).contains("PES M") { continue; }
         let orig = std::fs::read_to_string(assets.join(format!("module/{name}.lua.orig.sha256"))).unwrap_or_default();
-        // beta 23.11.: other packs ship a different stadiums.lua; the addition then goes in at its anchors
-        let angepasst = if sha256_hex(&b) != orig.trim() { (name == "stadiums").then(|| stadion_einsetzen(&String::from_utf8_lossy(&b))).flatten() } else { None }; // roh
+        // beta 23.11.: other packs ship a different stadiums.lua; the public release has no copy of the original at all
+        // (export.sh): the addition goes in at its anchors either way, the copy is only the last resort
+        let angepasst = (name == "stadiums").then(|| stadion_einsetzen(&String::from_utf8_lossy(&b))).flatten(); // roh
         if sha256_hex(&b) != orig.trim() && angepasst.is_none() { out.push(format!("{rel}: Ergänzung fehlt und die Datei weicht ab; die Partie startet normal, nur ohne PES-M-Vorgabe")); continue; }
         if !reparieren { out.push(format!("{rel}: Ergänzung fehlt")); continue; }
         let sich = karriere.join("sicherungen").join(format!("{name}.lua.{}", stamp()));
@@ -1485,6 +1522,8 @@ impl Mitlauf {
         let dauer = l[l.len() / 2];
         self.gesehen.iter().filter_map(|(k, t)| self.ab_start.get(&k.3).map(|s| (*k, (t - s) / dauer))).collect()
     }
+    /// The match read so far as finished (no match read yet: nothing).
+    pub fn jetzt_fertig(&mut self, jetzt: f64) -> Option<SpielDoc> { self.st.is_some().then(|| self.abschluss(jetzt)) }
     fn abschluss(&mut self, jetzt: f64) -> SpielDoc {
         let st = self.st.clone().unwrap();
         let home = (self.team_fn)(&st.s[0].iter().map(|x| x.pid).collect::<Vec<_>>());
@@ -1574,18 +1613,26 @@ pub fn finder() -> Result<Option<Box<dyn Mem>>, String> {
 
 /// Runs a Mitlauf in its own thread (beat 2 s) and reports to the interface.
 pub enum Meldung { Status(String), Live(u32, u32), Ansicht(Box<cz::live::MatchView>), Fertig(Box<SpielDoc>) }
-pub struct Beobachter { pub rx: std::sync::mpsc::Receiver<Meldung>, stop: std::sync::Arc<std::sync::atomic::AtomicBool> }
+pub struct Beobachter { pub rx: std::sync::mpsc::Receiver<Meldung>, stop: std::sync::Arc<std::sync::atomic::AtomicBool>, abschluss: std::sync::Arc<std::sync::atomic::AtomicBool> }
+impl Beobachter {
+    /// "Confirm result" (Fabian 24.11.: the final whistle is not always seen): the match as it stands is finished now.
+    pub fn jetzt_abschliessen(&self) { self.abschluss.store(true, std::sync::atomic::Ordering::Relaxed); }
+}
 impl Drop for Beobachter { fn drop(&mut self) { self.stop.store(true, std::sync::atomic::Ordering::Relaxed); } }
 pub fn beobachten(team_fn: Box<dyn Fn(&[u32]) -> u32 + Send>) -> Beobachter {
     let (tx, rx) = std::sync::mpsc::channel();
     let stop = std::sync::Arc::new(std::sync::atomic::AtomicBool::new(false));
     let s2 = stop.clone();
+    let abschluss = std::sync::Arc::new(std::sync::atomic::AtomicBool::new(false));
+    let a2 = abschluss.clone();
     std::thread::spawn(move || {
         let mut ml = Mitlauf::new(Box::new(finder), team_fn);
         let t0 = std::time::Instant::now();
         let mut last = String::new();
         while !s2.load(std::sync::atomic::Ordering::Relaxed) {
-            let doc = ml.takt(t0.elapsed().as_secs_f64());
+            let mut doc = ml.takt(t0.elapsed().as_secs_f64());
+            // confirmed by hand: the figures so far are the result (once; the page drops the reader after booking)
+            if doc.is_none() && a2.swap(false, std::sync::atomic::Ordering::Relaxed) { doc = ml.jetzt_fertig(t0.elapsed().as_secs_f64()); }
             let status = if let Some(e) = &ml.fehler { e.clone() } else if ml.m.is_none() { "FL27 läuft nicht.".into() } else if ml.basis.is_none() { "FL27 läuft, warte auf den Anstoß …".into() } else { "Partie läuft, PES M liest mit.".into() };
             if status != last { let _ = tx.send(Meldung::Status(status.clone())); last = status; }
             if let Some((h, a)) = ml.live() { let _ = tx.send(Meldung::Live(h, a)); }
@@ -1594,7 +1641,7 @@ pub fn beobachten(team_fn: Box<dyn Fn(&[u32]) -> u32 + Send>) -> Beobachter {
             std::thread::sleep(std::time::Duration::from_secs(2));
         }
     });
-    Beobachter { rx, stop }
+    Beobachter { rx, stop, abschluss }
 }
 
 // ---------------------------------------------------------------- tests without the game (§7.1)
@@ -1758,6 +1805,9 @@ mod t {
         assert!(ml.takt(90.0).is_none());
         w(&|d| set(d, at, 0, 2, PASS as usize, 2, 3));
         assert!(ml.takt(180.0).is_none());
+        // "Confirm result" before the whistle is seen: the score and figures as they stand
+        let jetzt = ml.jetzt_fertig(181.0).expect("a match is read");
+        assert_eq!((jetzt.hg, jetzt.ag), (1, 0));
         // values fall back to 0: new match, the old one is closed exactly once
         w(&|d| { for side in 0..2 { for pl in 0..14 { for k in 0..ARTEN { for ab in 0..9 { set(d, at, side, pl, k, ab, 0); } } } } });
         let d = ml.takt(200.0).expect("closed");
@@ -1806,10 +1856,21 @@ mod t {
     #[test]
     fn no_rights_is_a_message() {
         let mut ml = Mitlauf::new(Box::new(|| Err("Speicherzugriff nicht freigeschaltet".into())), Box::new(|_| 0));
+        assert!(ml.jetzt_fertig(0.0).is_none(), "nothing read, nothing to confirm");
         assert!(ml.takt(0.0).is_none());
         assert!(ml.fehler.as_deref().unwrap().contains("nicht freigeschaltet"));
     }
 
+    /// Discord 24.11.: the set-piece takers from PES M land in PlayerAssignment.bin, one player per flag, other teams untouched.
+    #[test]
+    fn schuetzen_in_player_assignment() {
+        let mut a = vec![Asg { nr: 1, pid: 10, team: 5, k: 0x3f << 16 }, Asg { nr: 2, pid: 11, team: 5, k: 3 }, Asg { nr: 3, pid: 20, team: 6, k: 0x3f << 16 }];
+        schuetzen_setzen(&mut a, 5, [Some(11), None, Some(11), Some(99)]);
+        assert_eq!((a[1].k >> 16) & 0x3f, 0b010011, "free kicks and penalty to 11");
+        assert_eq!((a[0].k >> 16) & 0x3f, 0b101100, "10 keeps corners and captain (99 is not in the team)");
+        assert_eq!(a[1].k & 0x7f, 3, "shirt number untouched");
+        assert_eq!(a[2].k >> 16, 0x3f, "other team untouched");
+    }
     #[test]
     fn pesdb_lineup_transfer() {
         let a0 = vec![Asg { nr: 1, pid: 10, team: 5, k: (0 << 10) | 0 }, Asg { nr: 2, pid: 11, team: 5, k: (1 << 10) | 8 }, Asg { nr: 3, pid: 12, team: 5, k: (2 << 10) | 9 | 0x10000 }, Asg { nr: 4, pid: 20, team: 6, k: 0 }];
@@ -1890,6 +1951,22 @@ mod t {
         let c = aktiv.iter().position(|l| l.contains("PESMChelseaFC01")).unwrap();
         let w = aktiv.iter().position(|l| l.contains("_FL26MyWorld")).unwrap();
         assert!(c < w, "{neu}");
+    }
+
+    #[test]
+    fn wettbewerb_aus_den_karten() {
+        // real lines of FL27's scoreboards map and Entrance.lua (24.11.)
+        let sb = "\u{feff}# format: tournament_ID, scoreboard_path\r\n65535, Exhibición\\eFootball\r\n50, Germany\\Bundesliga\r\n#23, _FL26-27-Def\\_packs\\ENGC   # off\r\n11, _FL26Megapack\\A-League Men   # FL26 Mod Studio\r\n5, UEFA\\UEFA Europa League 21\\DAZN\r\n";
+        let sb = karten_tids(sb, &["_FL26Megapack".into()]);
+        assert!(sb.contains(&50) && sb.contains(&5) && !sb.contains(&23) && !sb.contains(&11), "{sb:?}");
+        let ent = entrance_tids("\tif tid == 2 or tid == 1026 then\n\telseif tid == 23 then\n\t--elseif tid == 112 then\n");
+        assert_eq!(ent, [2, 1026, 23].into_iter().collect());
+        let k = [sb, ent];
+        assert_eq!(turnier_waehlen(&[23, 17], &k), Some(23), "FA Cup keeps its walk-out, not the league look");
+        assert_eq!(turnier_waehlen(&[186, 5, 2], &k), Some(5), "Conference League without a look: Europa League");
+        assert_eq!(turnier_waehlen(&[11, 50], &k), Some(50), "2. Bundesliga on MyWorld: tid 11 is the Megapack's A-League");
+        assert_eq!(turnier_waehlen(&[99], &k), Some(99));
+        assert_eq!(turnier_waehlen(&[], &k), None);
     }
 
     #[test]

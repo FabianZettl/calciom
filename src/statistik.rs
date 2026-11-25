@@ -541,6 +541,22 @@ mod tests {
         assert_eq!(&w.players[p].profil.saison, s);
         assert_eq!(nachtragen(&mut w), 0, "only once");
     }
+    /// Fabian 24.11.: club figures per competition: the team's sums, the opponent's sums mirror the other club.
+    #[test]
+    fn vereinsstatistik() {
+        let mut w = crate::world::testwelt(11);
+        let r = w.play(0, 1, 0, None, None);
+        w.wettbewerb_zaehlen(0, &r);
+        if r.stat.is_empty() { return; }
+        let v = |c: usize| w.vstat.iter().find(|x| x.club == c && x.l == 0).unwrap().clone();
+        let (h, a) = (v(0), v(1));
+        assert_eq!((h.spiele, a.spiele), (1, 1));
+        assert_eq!(get(&h.eigen, TORE), r.hg as u32);
+        assert_eq!(h.eigen, a.gegen, "the opponent's sums are the other club's own");
+        assert_eq!(h.besitz + a.besitz, 100);
+        assert_eq!(h.gross, a.gross_gegen);
+        assert_eq!(get(&h.eigen, XG), r.summe(0, XG));
+    }
     #[test]
     fn aehnlichkeit() {
         let mut w = crate::world::testwelt(11);

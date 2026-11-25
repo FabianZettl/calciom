@@ -204,6 +204,7 @@ mod tests {
     fn soll_uebernimmt_der_co_trainer() {
         let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
+        c.world.day = crate::world::LEAGUE_START + 10; // in the season: no playing-time complaints in the off-season
         let p = c.squad()[5];
         c.anliegen(p, "spielzeit", true);
         let i = c.inbox.iter().position(|m| matches!(m.action, Action::Wahl { .. })).unwrap();

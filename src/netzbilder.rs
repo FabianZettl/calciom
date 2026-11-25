@@ -254,7 +254,7 @@ mod tests {
     #[test]
     #[ignore]
     fn netz_live() {
-        for (art, n, l) in [(Art::Stadion, "Sunderland", "GB"), (Art::Stadion, "Bayern München", "DE"), (Art::Medium, "BILD / SPORT BILD", "DE"), (Art::Medium, "Marca", "ES"), (Art::Person, "Fabrizio Romano", "IT"), (Art::Person, "Raphael Honigstein", "DE")] {
+        for (art, n, l) in [(Art::Stadion, "Sunderland", "GB"), (Art::Stadion, "Bayern München", "DE"), (Art::Medium, "BILD / SPORT BILD", "DE"), (Art::Medium, "Marca", "ES"), (Art::Person, "Marco Lindenqvist", "IT"), (Art::Person, "Jonas Feldmann", "DE")] {
             eprintln!("{art:?} {n}: {:?}", suchen(art, n, l).map(|t| t.map(|t| (t.bezeichnung, t.lizenz, t.nachweis))));
         }
     }

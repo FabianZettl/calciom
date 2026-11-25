@@ -104,6 +104,12 @@ pub(super) fn spielerprofil(ui: &mut Ui, v: &mut View, c: &mut Career) {
     ui.rahmen(hr);
     ui.rahmen(Rect::new(hr.x + 226.0, hr.y, 406.0, hr.h));
     ui.title(&if pl.no > 0 { pl.no.to_string() } else { "–".into() }, hr.x + 18.0, hr.y + 86.0, 76.0, alpha(fg, 0.9));
+    // the shirt number changes right here, only while a window is open (Fabian 24.11.); taken numbers are skipped
+    if pl.team == c.own as i32 && c.in_window().is_some() {
+        for (i, (t, d)) in [("−", -1), ("+", 1)].into_iter().enumerate() {
+            if ui.button(Rect::new(hr.x + 18.0 + i as f32 * 36.0, hr.y + 88.0, 30.0, 20.0), t, false) { if let Err(e) = c.rueckennummer(p, d) { v.toast(&e, false); } }
+        }
+    }
     let fr = Rect::new(hr.x + 118.0, hr.y + 6.0, 96.0, 100.0);
     rrect(fr.x, fr.y, fr.w, fr.h, 8.0, alpha(Theme::grund(), 0.35));
     if !ui.spieler_foto(fr.x, fr.y, fr.w, fr.h, pl.id) {
@@ -421,6 +427,8 @@ pub(super) fn spielerprofil(ui: &mut Ui, v: &mut View, c: &mut Career) {
             aehnliche_karte(ui, v, c, p, r);
         }
         4 => entwicklung_reiter(ui, c, p, cy, ch),
+        6 if own => skilltree_reiter(ui, v, c, p, cy, ch),
+        6 => { ui.card(Rect::new(x0() + 4.0, cy, cbreite(), ch)); ui.text(crate::inhalt::t("ui.st.nur_eigene"), x0() + 20.0, cy + 40.0, 16.0, Theme::text2()); }
         5 => { if stat_modal { ui.mouse = maus; ui.clicked = klick; } statistik_reiter(ui, v, c, p, own, cy, ch) }
         _ => {
             // career stations per season and the contract

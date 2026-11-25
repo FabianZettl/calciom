@@ -267,7 +267,7 @@ pub(super) fn vereinswelt(ui: &mut Ui, _v: &mut View, c: &mut Career) {
 
 pub(super) fn portal(ui: &mut Ui, v: &mut View, c: &mut Career) {
     let (l, r) = links_rechts();
-    ui.card_titled(l, crate::id("FL-Welt"), Theme::akzent()); // roh: product name
+    ui.card_titled(l, crate::inhalt::t("ui.portal.welt"), Theme::akzent());
     let welt = if c.fl27_welt.is_empty() { crate::inhalt::t("ui.main.eingebaute_probewelt_2").to_string() } else { std::path::Path::new(&c.fl27_welt).file_name().map(|x| x.to_string_lossy().to_string()).unwrap_or_default() };
     let z = vec![(crate::inhalt::t("ticker.kat.welt").to_string(), welt), (crate::inhalt::t("liga.art.liga_mz").into(), c.world.leagues.len().to_string()), (crate::inhalt::t("gs.partner.verein").into(), c.world.clubs.len().to_string()), (crate::inhalt::t("ui.pages.eigene_liga").into(), c.world.leagues[c.league()].name.clone())];
     zeilen(ui, l, &z, 64.0);

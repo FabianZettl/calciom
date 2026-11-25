@@ -138,8 +138,8 @@ farbe2 = "005a2b"
 akzent = "ffffff"
 muster = "keins"
 [pokal."England"]
-farbe1 = "0b2a5b"
-farbe2 = "c8102e"
+farbe1 = "c8102e"
+farbe2 = "0b2a5b"
 akzent = "ffffff"
 muster = "keins"
 [pokal."Spanien"]

@@ -52,7 +52,7 @@ pub fn importieren(json: &Value, alt: &Path, welt: &Path) -> Result<Career, Stri
         }
     }
     let fx_von = |f: &Value| -> Option<Fixture> {
-        Some(Fixture { day: f["day"].as_u64()? as u32, h: *club_ix.get(&(f["h"].as_u64()? as u32))?, a: *club_ix.get(&(f["a"].as_u64()? as u32))?, hg: f["hg"].as_i64()? as i8, ag: f["ag"].as_i64()? as i8 })
+        Some(Fixture { day: f["day"].as_u64()? as u32, h: *club_ix.get(&(f["h"].as_u64()? as u32))?, a: *club_ix.get(&(f["a"].as_u64()? as u32))?, hg: f["hg"].as_i64()? as i8, ag: f["ag"].as_i64()? as i8, zeit: 0 })
     };
     // leagues with an old schedule: its fixtures and the imported base table; the others are played up to the day
     let mut nachholen: Vec<usize> = vec![];

@@ -252,6 +252,20 @@ impl Career {
 #[cfg(test)]
 mod tests {
     use super::*;
+    /// Discord 24.11.: players can be placed freely in the formations with and against the ball too.
+    #[test]
+    fn freie_plaetze_je_satz() {
+        let mut c = Career::new(crate::world::testwelt(3), 2, "Test");
+        assert_eq!(c.satz_spots(1), c.eigene_spots(), "no own formation with the ball: the kick-off one");
+        c.formation_gegen = Some(1);
+        assert_eq!(c.satz_spots(2), crate::world::formation_spots(1));
+        let mut f = c.satz_spots(2).to_vec();
+        f[9] = (0.5, 0.9);
+        *c.satz_frei(2) = f;
+        assert_eq!(c.satz_spots(2)[9], (0.5, 0.9));
+        assert_eq!(c.satz_spots(0), c.eigene_spots(), "kick-off untouched");
+        assert_eq!(c.satz_slots(2).len(), 11);
+    }
     #[test]
     fn gegnerbericht_und_urteil() {
         let w = crate::world::testwelt(7);

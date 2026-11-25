@@ -4,7 +4,7 @@
 //! and copies the appearance record of `from` to `to` in memory (fl26regen.c fl26_regen_copy/apply_copies, at most
 //! 4096 copies). PES M picks `from` once per player (World.gesichter): a real player of his nationality, now and then
 //! one of a country his family could come from (jugendakademie.toml [gesicht]). The line appears once he plays for a
-//! first team (youth == 0): an academy player gets his face when he is promoted, bound to his id.
+//! player PES M writes into the career's Player.bin (academy players too: FL27 shows them, 24.11.), bound to his id.
 use crate::game::Career;
 use crate::regeln::{f, wert};
 use crate::world::Rng;
@@ -84,8 +84,33 @@ const APPEARANCE: &str = crate::id("common/character0/model/character/appearance
 /// Data/*.cpk, as the game loads them; FL27: download/data_s2627.cpk). On disk 60 bytes a record: u32 id + the 56 bytes
 /// that follow the id and 8 zero bytes in memory, so FacialHairType (memory bit 371, 5 bits) is disk bit 307.
 /// Read once per session; not found: empty (no filter).
-pub fn baertige(spiel: &Path) -> HashSet<u32> {
+/// Ids with a real face model (Asset/model/character/face/real/<id>/ in a livecpk folder or a CPK of the game). Their
+/// appearance record carries only body and skin, the head is the model, so a copy of it looks like the default face
+/// (Elijah Alker, 24.11.). Read once per session.
+pub fn echte_gesichter(spiel: &Path) -> HashSet<u32> {
     static C: std::sync::OnceLock<HashSet<u32>> = std::sync::OnceLock::new();
+    C.get_or_init(|| {
+        let mut s = HashSet::new();
+        let real = crate::id("asset/model/character/face/real/");
+        for e in std::fs::read_dir(spiel.join(crate::id("SiderAddons/livecpk"))).into_iter().flatten().flatten() {
+            for d in std::fs::read_dir(e.path().join(crate::id("Asset/model/character/face/real"))).into_iter().flatten().flatten() {
+                if let Some(id) = d.file_name().to_str().and_then(|n| n.parse().ok()) { s.insert(id); }
+            }
+        }
+        for ordner in [crate::id("download"), crate::id("Data")] {
+            for c in std::fs::read_dir(spiel.join(ordner)).into_iter().flatten().flatten().map(|e| e.path()).filter(|p| p.extension().is_some_and(|e| e.eq_ignore_ascii_case(crate::id("cpk")))) {
+                let Ok(cpk) = pesm_coaching_zone::cpk::Cpk::open(&c) else { continue };
+                for n in cpk.files.keys() {
+                    if let Some(id) = n.strip_prefix(real).and_then(|r| r.split('/').next()).and_then(|x| x.parse().ok()) { s.insert(id); }
+                }
+            }
+        }
+        s
+    }).clone()
+}
+/// The game's PlayerAppearance.bin records (unpacked), read once per session; empty when not found.
+fn aussehen(spiel: &Path) -> &'static [u8] {
+    static C: std::sync::OnceLock<Vec<u8>> = std::sync::OnceLock::new();
     C.get_or_init(|| {
         for ordner in [crate::id("download"), crate::id("Data")] {
             let mut cpks: Vec<_> = std::fs::read_dir(spiel.join(ordner)).into_iter().flatten().flatten().map(|e| e.path()).filter(|p| p.extension().is_some_and(|e| e.eq_ignore_ascii_case(crate::id("cpk")))).collect();
@@ -95,12 +120,15 @@ pub fn baertige(spiel: &Path) -> HashSet<u32> {
                 if !cpk.has(APPEARANCE) { continue; }
                 let Ok(b) = cpk.read(APPEARANCE) else { continue };
                 let Ok((_, d)) = crate::fl27::unpack(&b) else { continue };
-                return baertige_aus(&d);
+                return d;
             }
         }
-        HashSet::new()
-    }).clone()
+        vec![]
+    })
 }
+pub fn baertige(spiel: &Path) -> HashSet<u32> { baertige_aus(aussehen(spiel)) }
+/// Ids that have an appearance record of their own (only these can be copied).
+pub fn mit_aussehen(spiel: &Path) -> HashSet<u32> { aussehen(spiel).chunks_exact(60).map(|r| u32::from_le_bytes(r[..4].try_into().unwrap())).collect() }
 pub fn baertige_aus(d: &[u8]) -> HashSet<u32> {
     d.chunks_exact(60).filter(|r| (u64::from_le_bytes(r[38..46].try_into().unwrap()) >> 3) & 31 != 0).map(|r| u32::from_le_bytes(r[..4].try_into().unwrap())).collect()
 }
@@ -116,7 +144,13 @@ impl Career {
     pub fn gesichter_in(&mut self, datei: &Path) -> Result<bool, String> {
         let Ok(text) = std::fs::read_to_string(datei) else { return Ok(false) };
         let welt = welt_ids(&self.welt());
-        let paare = self.gesichter_waehlen(&welt, &newfaces(&text), &baertige(&crate::fl27::spielordner()));
+        let spiel = crate::fl27::spielordner();
+        let mut ohne = newfaces(&text);
+        ohne.extend(echte_gesichter(&spiel));
+        // only players with a record of their own (the world's newfaces players have none; the modules file may name another world's)
+        let app = mit_aussehen(&spiel);
+        if !app.is_empty() { ohne.extend(welt.iter().filter(|i| !app.contains(i))); }
+        let paare = self.gesichter_waehlen(&welt, &ohne, &baertige(&spiel));
         let neu = block_setzen(&text, &paare);
         if neu == text { return Ok(false); }
         let sicherung = datei.with_extension(crate::id("txt.vor-pesm"));
@@ -130,7 +164,9 @@ impl Career {
         if welt.is_empty() { return vec![]; }
         let jung = f("jugendakademie", "gesicht.jung_bis") as u8;
         let bartlos_bis = f("jugendakademie", "gesicht.bartlos_bis") as u8;
-        let neue: Vec<usize> = (0..self.world.players.len()).filter(|&i| { let p = &self.world.players[i]; p.team != -2 && p.youth == 0 && !welt.contains(&p.id) }).collect();
+        // a face chosen before a source became unfit (real face model, no record) is chosen again
+        self.world.gesichter.retain(|_, q| !ohne.contains(q));
+        let neue: Vec<usize> = (0..self.world.players.len()).filter(|&i| { let p = &self.world.players[i]; p.team != -2 && p.attrs.len() == 25 && !welt.contains(&p.id) }).collect();
         for &i in &neue {
             let (id, nat, alter) = (self.world.players[i].id, self.world.players[i].nat, self.world.players[i].age);
             if self.world.gesichter.contains_key(&id) { continue; }
@@ -186,6 +222,11 @@ mod tests {
         if !spiel.join(crate::id("download")).is_dir() { return; }
         let n = baertige(&spiel).len();
         assert!((10_000..20_000).contains(&n), "{n}");
+        // Elijah Alker's first face 165090 has a real face model (F4L facepack)
+        let e = echte_gesichter(&spiel);
+        assert!(e.contains(&165090), "{}", e.len());
+        assert_eq!(mit_aussehen(&spiel).len(), 26_395);
+        eprintln!("real face models: {}", e.len());
     }
     #[test]
     fn herkunft_meist_eigene_manchmal_andere() {
@@ -205,32 +246,34 @@ mod tests {
         let herkunft_liste = wert("jugendakademie", "gesicht.herkunft").get(nat.to_string()).is_some();
         // a new player of the first team, one in the academy, one retired
         let mut p = c.world.players[0].clone();
-        p.id = 9_000_001; p.youth = 0;
+        p.id = 9_000_001; p.youth = 0; p.attrs = vec![60.0; 25]; // only players with abilities go into Player.bin
         let mut jugend = p.clone(); jugend.id = 9_000_002; jugend.youth = 19;
         let mut weg = p.clone(); weg.id = 9_000_003; weg.team = -2;
         c.world.players.extend([p, jugend, weg]);
         let ohne: HashSet<u32> = [c.world.players[1].id].into_iter().collect();
         let paare = c.gesichter_waehlen(&welt, &ohne, &HashSet::new());
-        assert_eq!(paare.len(), 1, "only the first-team player");
+        assert_eq!(paare.iter().map(|x| x.0).collect::<Vec<_>>(), vec![9_000_001, 9_000_002], "first team and academy, not the retired one");
         let (to, from) = paare[0];
         assert_eq!(to, 9_000_001);
         assert!(welt.contains(&from) && !ohne.contains(&from));
         let fnat = c.world.players.iter().find(|q| q.id == from).unwrap().nat;
         assert!(fnat == nat || herkunft_liste, "face of the same nationality ({fnat} vs {nat})");
-        // the face is kept, and an academy player gets his when promoted
+        // the face is kept, also when the academy player is promoted
         let i = c.world.players.iter().position(|p| p.id == 9_000_002).unwrap();
         c.world.players[i].youth = 0;
         let paare2 = c.gesichter_waehlen(&welt, &ohne, &HashSet::new());
-        assert_eq!(paare2.len(), 2);
-        assert_eq!(paare2[0], (to, from));
+        assert_eq!(paare2, paare);
         // a young new player never gets a bearded face while a beardless one is there
         let mut bart: HashSet<u32> = welt.clone();
         let glatt = c.world.players.iter().find(|q| welt.contains(&q.id) && q.nat == nat && q.age <= 24 && !ohne.contains(&q.id)).map(|q| q.id).unwrap();
         bart.remove(&glatt);
-        let mut p = c.world.players[0].clone(); p.id = 9_000_004; p.youth = 0; p.age = 17;
+        let mut p = c.world.players[0].clone(); p.id = 9_000_004; p.youth = 19; p.age = 17; p.attrs = vec![60.0; 25];
         c.world.players.push(p);
         let paare3 = c.gesichter_waehlen(&welt, &ohne, &bart);
         let neu = paare3.iter().find(|x| x.0 == 9_000_004).unwrap().1;
         assert!(!bart.contains(&neu) || !herkunft_liste, "beardless face for a 17-year-old");
+        // the block for fl26world.txt names the new ids
+        let b = block_setzen("x\n", &paare3);
+        for id in [9_000_001, 9_000_002, 9_000_004] { assert!(b.contains(&format!(" {id}:")), "{id}"); }
     }
 }

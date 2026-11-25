@@ -1,7 +1,7 @@
 -- PESM-LivePatch: changes of the database (Player.bin attributes, line-ups, shirt numbers, formations) reach the RUNNING game, no restart.
 -- The converter (FCFL) or PESM writes the files into content\pesm-livepatch\ (players.txt, teams.txt); you open the Sider overlay, pick this module and press F7.
 -- Everything is written into the game's memory with a check first (right table size, same players in the squad); a failed check writes nothing.
-local m = { version = "1.0" }
+local m = { version = "1.1" }
 
 -- Sider's Lua has no pcall in some builds (PlayerDump has the same shim): fall back to xpcall, then to a plain call
 local pcall = pcall
@@ -316,7 +316,27 @@ function m.set_match_settings(ctx, options)
   return options
 end
 
+-- Competition look from PES M (flw\wettbewerb.txt, one tournament id): entrance, scoreboard and referee modules ask
+-- CommonLib's tid_same_league in exhibition matches (tid 65535); the answer is PES M's competition while the file is
+-- there. CommonLib itself stays untouched, so this also works with a CommonLib.lua without the PES M addition.
+local function wettbewerb(ctx)
+  local f = io.open((ctx.sider_dir or "") .. "flw\\wettbewerb.txt", "r")
+  if not f then return nil end
+  local t = f:read("*a") or ""
+  f:close()
+  return tonumber(string.match(t, "^%s*(%d+)"))
+end
+
+local function wettbewerb_einhaengen(ctx)
+  local cl = ctx.common_lib
+  if type(cl) ~= "table" or type(cl.tid_same_league) ~= "function" or cl.pesm_wettbewerb then return end
+  local alt = cl.tid_same_league
+  cl.tid_same_league = function(home, away) return wettbewerb(ctx) or alt(home, away) end
+  cl.pesm_wettbewerb = true
+end
+
 function m.init(ctx)
+  wettbewerb_einhaengen(ctx)
   ctx_ref = ctx
   DIR = ctx.sider_dir .. "content\\pesm-livepatch\\"
   ctx.register("set_match_settings", m.set_match_settings)

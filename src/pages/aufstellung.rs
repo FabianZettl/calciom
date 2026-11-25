@@ -29,7 +29,7 @@ pub(super) fn aufstellung(ui: &mut Ui, v: &mut View, c: &mut Career) {
         let idx = wert.map_or(0, |f| f + 1);
         let neu = if ui.button(Rect::new(lt.x + lt.w * 0.45, y + 2.0, 28.0, 26.0), "<", false) { Some((idx + n - 1) % n) } else if ui.button(Rect::new(lt.x + lt.w - 42.0, y + 2.0, 28.0, 26.0), ">", false) { Some((idx + 1) % n) } else { None }; // roh
         ui.text_center(&ui.fit(&name, 13.0, lt.w * 0.4 - 70.0), lt.x + lt.w * 0.45 + 28.0 + (lt.w * 0.55 - 84.0) / 2.0, y + 19.0, 13.0, if wert.is_some() { Theme::akzent() } else { Theme::text() });
-        if let Some(i) = neu { let f = if i == 0 { None } else { Some(i - 1) }; if k == 0 { c.formation_ball = f; } else { c.formation_gegen = f; } }
+        if let Some(i) = neu { let f = if i == 0 { None } else { Some(i - 1) }; if k == 0 { c.formation_ball = f; c.frei_ball.clear(); } else { c.formation_gegen = f; c.frei_gegen.clear(); } }
         y += 30.0;
     }
     y += 4.0;
@@ -97,9 +97,8 @@ pub(super) fn aufstellung(ui: &mut Ui, v: &mut View, c: &mut Career) {
     draw_rectangle_lines(pitch.x + pitch.w / 2.0 - 120.0, pitch.y + pitch.h - 86.0, 240.0, 80.0, 2.0, lc);
     // which formation the pitch shows: kick-off (editable), with the ball, against the ball (read only)
     let ansicht = v.taktik_ansicht.min(2);
-    let alt = match ansicht { 1 => c.formation_ball, 2 => c.formation_gegen, _ => None };
-    let spots = alt.map(crate::world::formation_spots).unwrap_or_else(|| c.eigene_spots());
-    let alt_slots = alt.map(crate::world::formation_slots);
+    let spots = c.satz_spots(ansicht);
+    let alt_slots = (ansicht > 0).then(|| c.satz_slots(ansicht));
     // the three formations (kick-off, with the ball, against the ball) to look at on the pitch
     if let Some(i) = ui.segment(Rect::new(pitch.x + 10.0, pitch.y + 8.0, 320.0, 26.0), &[crate::inhalt::t("ui.taktik.anstoss"), crate::inhalt::t("ui.taktik.mit_ball"), crate::inhalt::t("ui.taktik.gegen_ball")], v.taktik_ansicht as usize) { v.taktik_ansicht = i as u8; }
     let mut swap: Option<(usize, usize)> = None;
@@ -118,7 +117,7 @@ pub(super) fn aufstellung(ui: &mut Ui, v: &mut View, c: &mut Career) {
             else if i > 0 {
                 let mut f: Vec<(f32, f32)> = spots.to_vec();
                 f[i] = zug_ziel(ui.mouse);
-                c.frei = f;
+                *c.satz_frei(ansicht) = f;
                 c.co_lineup = false;
             }
             v.tafel_zug = None;
@@ -130,7 +129,7 @@ pub(super) fn aufstellung(ui: &mut Ui, v: &mut View, c: &mut Career) {
         let mut cx = pitch.x + 40.0 + sx * (pitch.w - 80.0);
         let mut cy = pitch.y + pitch.h - 50.0 - sy * (pitch.h - 100.0);
         if gezogen.map_or(false, |g| g.0 == i) && i > 0 { cx = ui.mouse.x; cy = ui.mouse.y; }
-        if ansicht == 0 && is_mouse_button_pressed(MouseButton::Left) && Rect::new(cx - 46.0, cy - 40.0, 92.0, 96.0).contains(ui.mouse) { v.tafel_zug = Some((i, ui.mouse)); }
+        if is_mouse_button_pressed(MouseButton::Left) && Rect::new(cx - 46.0, cy - 40.0, 92.0, 96.0).contains(ui.mouse) { v.tafel_zug = Some((i, ui.mouse)); }
         let r = Rect::new(cx - 46.0, cy - 40.0, 92.0, 96.0);
         let pl = &c.world.players[*p];
         let sel = v.pick == Some(i);

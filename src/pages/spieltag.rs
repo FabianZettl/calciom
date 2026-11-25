@@ -327,6 +327,12 @@ pub(super) fn spieltag(ui: &mut Ui, v: &mut View, c: &mut Career) {
                 let live = v.fl27_live.map(|(h, a)| crate::tf!("ui.pages.stand", h, a)).unwrap_or_default();
                 ui.text_semi(&format!("{}{live}", v.fl27_status), r2.x + 14.0, y + 26.0, 15.0, Theme::akzent());
                 if ui.button(Rect::new(r2.x + r2.w - 170.0, y + 8.0, 156.0, 28.0), crate::inhalt::t("ui.pages.mitlesen_beenden"), false) { v.fl27 = None; }
+                // the final whistle is not always seen (Fabian 24.11.): book the score and figures as they stand
+                if v.fl27_live.is_some() && ui.button_gold(Rect::new(r2.x + 14.0, y + 40.0, 220.0, 32.0), crate::inhalt::t("ui.pages.ergebnis_bestaetigen")) {
+                    if let Some(b) = &v.fl27 { b.jetzt_abschliessen(); }
+                    v.fl27_live = None;
+                    v.toast(crate::inhalt::t("ui.pages.ergebnis_wird_gebucht"), true);
+                }
                 if v.fl27_laeuft && v.fl27_ende.is_none() && !v.fl27_ende_wunsch && ui.button(Rect::new(r2.x + r2.w - 340.0, y + 8.0, 160.0, 28.0), crate::inhalt::t("ui.main.fl27_beenden"), false) { fl27_beenden_klick(v); }
                 if v.fl27_ende_wunsch {
                     let q = Rect::new(r2.x + 10.0, y + 44.0, r2.w - 20.0, 92.0);

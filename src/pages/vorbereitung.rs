@@ -149,7 +149,7 @@ pub(super) fn vorbereitung_seite(ui: &mut Ui, v: &mut View, c: &mut Career) {
             if ui.button(Rect::new(rx + 66.0, y + 2.0, 26.0, 26.0), "+", false) { v.vorb_tore.1 = (b + 1).min(9); }
             if ui.button(Rect::new(rx + 98.0, y + 2.0, r.x + r.w - rx - 112.0, 26.0), t("ui.vorb.eintragen"), true) { c.testspiel_eintragen(i, a, b); v.vorb_tore = (0, 0); }
         } else if tm.art == 0 {
-            if let Some(k) = ui.segment(Rect::new(rx, y + 2.0, r.x + r.w - rx - 14.0, 26.0), &[t("ui.vorb.simulieren"), t("ui.vorb.selbst")], tm.selbst as usize) { c.termine[i].selbst = k == 1; }
+            if let Some(k) = ui.segment(Rect::new(rx, y + 2.0, r.x + r.w - rx - 14.0, 26.0), &[t("ui.vorb.simulieren"), t("ui.vorb.selbst")], tm.selbst as usize) { c.termine[i].selbst = k == 1; c.testspiel_als_spieltag(i); }
         } else { ui.text(t("ui.vorb.geplant"), rx, y + 20.0, 13.0, Theme::gedaempft()); }
         y += 34.0;
     }

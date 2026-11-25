@@ -596,6 +596,12 @@ mod tests {
         asg_abgleichen(&c.world, &mut a, &known, &[porto]).unwrap();
         assert_eq!(team_von(&a), vec![c.world.clubs[porto].id]);
         assert_eq!(a.iter().find(|x| x.pid == id).unwrap().nummer(), nr, "same shirt number");
+        // a number changed in PES M reaches PlayerAssignment.bin (Fabian 24.11.)
+        let t = c.world.clubs[porto].id;
+        let frei = (1..=99u8).find(|&n| !a.iter().any(|x| x.team == t && x.nummer() == n as u32)).unwrap();
+        c.world.players[p].no = frei;
+        asg_abgleichen(&c.world, &mut a, &known, &[porto]).unwrap();
+        assert_eq!(a.iter().find(|x| x.pid == id).unwrap().nummer(), frei as u32, "new shirt number in FL27");
         // who played up this weekend may not play below
         c.world.players[p].profil.oben = c.world.heute() + 1;
         assert!(!c.world.spielberechtigt(p, b) && c.world.spielberechtigt(p, porto));
