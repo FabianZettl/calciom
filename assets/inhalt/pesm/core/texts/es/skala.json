@@ -1,0 +1,8 @@
+{
+ "optionen.groesse.titel": "Tamaño de la interfaz",
+ "optionen.groesse.hinweis": "Texto, espaciado e iconos en toda la interfaz. Se aplica al instante y se recuerda. 100% es el tamaño estándar para tu ventana.",
+ "optionen.groesse.vorschau": "Vista previa",
+ "optionen.groesse.vorschau_titel": "Táctica y alineación",
+ "optionen.groesse.vorschau_text": "Así de grandes se ven textos, cifras y botones.",
+ "optionen.groesse.standard": "Volver al 100%"
+}

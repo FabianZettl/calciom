@@ -1,0 +1,10 @@
+{
+ "med.dauer.tage": "%1 à %2 jours",
+ "med.hinweis.prognose": "Pronostic : %1",
+ "med.hinweis.phase": "Phase de rééducation : %1 (encore %2 jours dans cette phase)",
+ "med.hinweis.rueckfall_frueh": "Risque de rechute ×%1 pendant les %2 prochains jours",
+ "med.hinweis.frueh_ohne": "Pas de risque supplémentaire : la rééducation est pratiquement terminée",
+ "med.akt.reha": "Lancer le programme de rééducation",
+ "med.akt.fitspritze": "Faire une infiltration",
+ "med.hinweis.fit_rueckfall": "Risque de rechute ×%1 pendant %2 jours"
+}

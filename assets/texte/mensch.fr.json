@@ -1,0 +1,319 @@
+{
+ "_hinweis": "Texts for the People page (package 3), kept separate from the logic. Keys: topic.option.",
+ "werte": [
+  "Professionnalisme",
+  "Ambition",
+  "Ego",
+  "Esprit d'équipe",
+  "Leadership",
+  "Tempérament",
+  "Sang-froid",
+  "Amabilité",
+  "Loyauté",
+  "Statut"
+ ],
+ "typen": {
+  "vorbildprofi": "Pro modèle",
+  "anfuehrer": "Leader",
+  "kumpel": "Bon camarade",
+  "stimmungsmacher": "Boute-en-train",
+  "mentor": "Mentor",
+  "egoist": "Égoïste",
+  "diva": "Diva",
+  "heisssporn": "Tête brûlée",
+  "soeldner": "Mercenaire",
+  "vereinsikone": "Icône du club",
+  "einzelgaenger": "Solitaire",
+  "talent_mit_allueren": "Talent à caprices"
+ },
+ "rollen": [
+  "Capitaine",
+  "Vice-capitaine",
+  "Leader de l'équipe",
+  "Titulaire",
+  "Joueur de rotation",
+  "Espoir",
+  "Joueur en marge"
+ ],
+ "treiber": {
+  "spielzeit": "Temps de jeu",
+  "erfolg": "Succès de l'équipe",
+  "gehalt": "Comparaison salariale",
+  "vertrag": "Contrat en fin de course",
+  "zusagen": "Promesses de l'entraîneur",
+  "gespraech": "Discussions",
+  "rolle": "Rôle dans l'effectif",
+  "geruecht": "Intérêt d'autres clubs",
+  "freunde": "Amis dans l'équipe",
+  "isoliert": "Isolé",
+  "feinde": "Frictions avec des coéquipiers",
+  "mentor": "Mentor",
+  "training": "Entraînement",
+  "gruppe": "Esprit d'équipe",
+  "form": "Forme",
+  "verletzt": "Blessure",
+  "ueberlastet": "Surcharge",
+  "erweiterter_kader": "Effectif élargi"
+ },
+ "anlass": {
+  "spielzeit": "Je ne joue pas assez. Je veux savoir où j'en suis.",
+  "rolle": "Je vois mon rôle ici autrement. On peut parler ?",
+  "form": "Ça ne me réussit pas en ce moment. J'ai besoin de votre avis.",
+  "lob": "Un grand match de sa part. Un mot de vous compterait beaucoup pour lui.",
+  "kritik": "Sa dernière prestation était faible. Allez-vous lui parler ?",
+  "zukunft": "J'ai réfléchi à mon avenir ici."
+ },
+ "optionen": {
+  "spielzeit": [
+   [
+    "verstaendnis",
+    "Je comprends. Ton heure viendra.",
+    "Je vois que ça te travaille. Ta chance viendra.",
+    "Je comprends ta frustration. Accroche-toi, tu es tout près."
+   ],
+   [
+    "leistung",
+    "Montre-le à l'entraînement et tu joueras.",
+    "Convaincs-moi lors des prochaines séances et tu seras dedans.",
+    "La porte est ouverte. Fais la différence à l'entraînement."
+   ],
+   [
+    "zusage",
+    "Tu auras ton temps de jeu, je te le promets.",
+    "Tu joueras lors des prochains matchs, tu peux compter dessus.",
+    "Je compte sur toi, tu as ma parole."
+   ],
+   [
+    "kampf",
+    "Bats-toi pour ta place comme tout le monde.",
+    "Ici, personne ne reçoit rien gratuitement. Gagne ta place.",
+    "La concurrence est saine. Montre que tu es meilleur."
+   ],
+   [
+    "abwimmeln",
+    "C'est ma décision, pas la tienne.",
+    "C'est moi qui compose l'équipe. Point.",
+    "Je ne discuterai pas de ça avec toi."
+   ]
+  ],
+  "rolle": [
+   [
+    "wertschaetzung",
+    "Tu es important pour nous, tu le sais.",
+    "Tu es un élément important de cette équipe, même si tu le vois autrement en ce moment.",
+    "Ce groupe ne fonctionne pas sans des gens comme toi."
+   ],
+   [
+    "verantwortung",
+    "Tu auras plus de responsabilités, je te le promets.",
+    "À partir de maintenant, tu en prends plus, je te le promets.",
+    "Je te donne un rôle plus important, tu l'as mérité."
+   ],
+   [
+    "geduld",
+    "Sois patient, ton chemin est tracé.",
+    "Nous avons un plan pour toi. Laisse-lui du temps.",
+    "Ton moment viendra, on te construit pas à pas."
+   ],
+   [
+    "ausweichen",
+    "Parlons-en une autre fois.",
+    "Parlons-en calmement après le prochain match.",
+    "Ce n'est pas le moment pour ça."
+   ],
+   [
+    "dichtmachen",
+    "Ton rôle n'est pas négociable.",
+    "Les rôles sont fixés, rien ne change.",
+    "Tu joues le rôle que je te donne."
+   ]
+  ],
+  "form": [
+   [
+    "aufbauen",
+    "Garde la tête haute, je crois en toi.",
+    "Tout le monde traverse une période difficile. Je suis derrière toi.",
+    "Tu peux le faire, je l'ai vu assez souvent."
+   ],
+   [
+    "analyse",
+    "Revoyons ensemble tes matchs.",
+    "Installe-toi demain avec les analystes, on va trouver ensemble.",
+    "On va revoir les derniers matchs action par action."
+   ],
+   [
+    "anspornen",
+    "J'attends plus de toi.",
+    "Je veux revoir le joueur que je connais. Dès le prochain match.",
+    "J'attends plus de toi, et tu le sais."
+   ],
+   [
+    "abkanzeln",
+    "Ça ne peut pas continuer comme ça.",
+    "Je ne peux plus te faire jouer comme ça.",
+    "Ce n'est pas assez, et ça ne l'est plus depuis des semaines."
+   ],
+   [
+    "abwarten",
+    "Ça reviendra.",
+    "Ne t'inquiète pas, ça reviendra tout seul.",
+    "Laisse faire, la forme reviendra."
+   ]
+  ],
+  "lob": [
+   [
+    "ehrlich",
+    "Belle prestation, bien méritée.",
+    "C'était vraiment fort, tu l'as mérité.",
+    "Mérité, on ne voit pas une telle prestation toutes les semaines."
+   ],
+   [
+    "herzlich",
+    "Je suis ravi pour toi.",
+    "Je suis sincèrement content pour toi, génial !",
+    "C'était ton jour. Profite !"
+   ],
+   [
+    "knapp",
+    "Bien joué.",
+    "Costaud.",
+    "Bon match."
+   ],
+   [
+    "mit_forderung",
+    "Bien. Maintenant, fais-le chaque semaine.",
+    "Super. Et c'est ce que je veux voir chaque semaine désormais.",
+    "Très bien. Ne te relâche pas maintenant."
+   ]
+  ],
+  "kritik": [
+   [
+    "sachlich",
+    "Ça n'a pas marché. Voilà comment on fera mieux.",
+    "Ça n'a pas marché. On va travailler tes déplacements.",
+    "Regardons ce qui n'a pas marché et faisons mieux."
+   ],
+   [
+    "klar",
+    "Ce n'était pas suffisant, et tu le sais.",
+    "Ce n'était pas ton niveau, et tu le sais toi-même.",
+    "Une prestation comme ça ne suffit pas ici."
+   ],
+   [
+    "mit_ruecksicht",
+    "Je sais que ce n'est pas facile. Mais il faut plus.",
+    "Je sais que c'était dur pour toi. Mais j'ai besoin de plus.",
+    "Pas facile en ce moment, je sais. Mais je compte sur toi."
+   ],
+   [
+    "laut",
+    "C'était inacceptable !",
+    "C'était du néant !",
+    "Je ne veux plus jamais revoir ça !"
+   ],
+   [
+    "drumherum",
+    "Bon, ce n'était pas ton meilleur jour.",
+    "Oublie, ça arrive.",
+    "Bon, tant pis."
+   ]
+  ],
+  "zukunft": [
+   [
+    "bleiben",
+    "Nous voulons prolonger ton contrat, je te le promets.",
+    "Nous comptons sur toi à long terme et voulons prolonger.",
+    "Tu fais partie de notre avenir, on va te faire une offre."
+   ],
+   [
+    "gehalt",
+    "On parlera d'un meilleur salaire, je te le promets.",
+    "On va s'asseoir et parler de ton salaire.",
+    "Tes performances doivent aussi se voir sur ta fiche de paie, je te le promets."
+   ],
+   [
+    "freigabe",
+    "Si une bonne offre arrive, on te laissera partir.",
+    "Si le bon club arrive, on ne te barrera pas la route.",
+    "Si la bonne offre arrive, on parlera d'un départ."
+   ],
+   [
+    "offen",
+    "Attendons de voir.",
+    "Attendons les prochaines semaines.",
+    "Rien n'est encore décidé, gardons ça ouvert."
+   ],
+   [
+    "druck",
+    "Tu as un contrat. Tu l'honoreras.",
+    "Tu as signé. J'attends que tu l'honores.",
+    "Un contrat est un contrat."
+   ]
+  ],
+  "konflikt": [
+   [
+    "schlichten",
+    "Je vais servir de médiateur moi-même.",
+    "Je convoque les deux dans mon bureau.",
+    "Je m'en occupe personnellement."
+   ],
+   [
+    "aussprache",
+    "Qu'ils en parlent entre eux.",
+    "Les deux s'assoient et règlent ça.",
+    "Qu'ils s'expliquent en face à face."
+   ],
+   [
+    "kapitaen_bitten",
+    "Le capitaine doit s'en occuper.",
+    "Le capitaine doit parler aux deux.",
+    "C'est l'affaire du conseil des joueurs."
+   ],
+   [
+    "strafe",
+    "Les deux seront sanctionnés.",
+    "Les deux paient dans la caisse de l'équipe.",
+    "Les deux sont punis."
+   ],
+   [
+    "laufen_lassen",
+    "Ils régleront ça entre eux.",
+    "Ce sont des adultes, ils régleront ça seuls.",
+    "Je ne m'en mêle pas."
+   ]
+  ],
+  "disziplin": [
+   [
+    "nachsicht",
+    "Je ferme les yeux pour cette fois.",
+    "Je laisse passer cette fois.",
+    "Une fois ne compte pas."
+   ],
+   [
+    "ermahnung",
+    "Un avertissement clair.",
+    "Une discussion claire, rien de plus.",
+    "Il reçoit un message clair."
+   ],
+   [
+    "geldstrafe",
+    "Une amende.",
+    "Ça lui coûte une partie d'un mois de salaire.",
+    "Il paie dans la caisse de l'équipe."
+   ],
+   [
+    "bank",
+    "Il est écarté du prochain match.",
+    "Il manque le prochain match.",
+    "Il ne joue pas la prochaine rencontre."
+   ]
+  ]
+ },
+ "mimik": [
+  "très content",
+  "content",
+  "impassible",
+  "agacé",
+  "très agacé"
+ ]
+}

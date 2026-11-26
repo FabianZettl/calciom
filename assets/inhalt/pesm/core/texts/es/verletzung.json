@@ -1,0 +1,16 @@
+{
+ "verl.art.zerrung": "Distensión",
+ "verl.art.prellung": "Contusión",
+ "verl.art.muskelfaserriss": "Rotura de fibras",
+ "med.phase.behandlung": "Tratamiento",
+ "med.phase.aufbau": "Recuperación",
+ "med.phase.mannschaftstraining": "Entrenamiento con el grupo",
+ "med.phase.einsatzbereit": "Listo para jugar",
+ "med.ampel.gruen": "verde",
+ "med.ampel.gelb": "amarillo",
+ "med.ampel.rot": "rojo",
+ "med.ampel.muedigkeit": "Fatiga",
+ "med.ampel.minuten": "Minutos jugados",
+ "med.ampel.dichte": "Densidad de partidos",
+ "med.ampel.anfaellig": "Propensión a lesiones"
+}

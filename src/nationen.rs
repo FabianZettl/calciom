@@ -21,7 +21,7 @@ pub fn name_anzeige(w: &World, n: u16) -> String { anzeige(&name(w, n)) }
 /// A country name (German, as the lists keep it) in the interface language: English from the Natural Earth names
 /// (assets/geo/laender.json) plus the home nations; unknown names stay as they are.
 pub fn anzeige(de: &str) -> String {
-    if crate::inhalt::sprache() != crate::inhalt::Sprache::En { return de.to_string(); }
+    if crate::inhalt::sprache() == crate::inhalt::Sprache::De { return de.to_string(); }
     static T: std::sync::OnceLock<std::collections::HashMap<String, String>> = std::sync::OnceLock::new();
     let t = T.get_or_init(|| {
         let v: serde_json::Value = serde_json::from_str(include_str!("../assets/geo/laender.json")).unwrap_or_default();

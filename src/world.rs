@@ -93,7 +93,7 @@ pub fn part_of(pos: &str) -> usize {
 }
 pub fn pos_de(pos: &str) -> &'static str {
     // English: the PES codes themselves (GK, CB …)
-    if crate::inhalt::sprache() == crate::inhalt::Sprache::En { return crate::pesdb::POS.iter().copied().find(|p| *p == pos).unwrap_or("?"); }
+    if crate::inhalt::sprache() != crate::inhalt::Sprache::De { return crate::pesdb::POS.iter().copied().find(|p| *p == pos).unwrap_or("?"); }
     match pos {
         "GK" => "TW", "CB" => "IV", "LB" => "LV", "RB" => "RV", "DMF" => "DM", "CMF" => "ZM", "LMF" => "LM", "RMF" => crate::id("RM"),
         "AMF" => "OM", "LWF" => "LA", "RWF" => "RA", "SS" => "HS", "CF" => "ST", _ => "?",
@@ -661,7 +661,7 @@ fn titlecase(s: &str) -> String { s.split(' ').map(|w| { let mut c = w.chars(); 
 pub fn money(v: f64) -> String { geld(crate::inhalt::sprache(), v) }
 /// German "1,2 Mrd. €", "1,2 Mio. €", "850 Tsd. €", "500 €"; English "€1.2bn", "€1.2m", "€850k", "€500"; negative with a minus sign.
 pub fn geld(sprache: crate::inhalt::Sprache, v: f64) -> String {
-    let en = sprache == crate::inhalt::Sprache::En;
+    let en = sprache != crate::inhalt::Sprache::De;
     let a = v.abs();
     let zehntel_mio = (a / 1e5).round() as i64;
     let tsd = (a / 1e3).round() as i64;

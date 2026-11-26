@@ -112,6 +112,8 @@ pub struct View {
     pub vergleich_suche: (usize, String),
     /// Start time of the draw ceremony being shown.
     pub auslosung_t0: f32,
+    /// The one-time direct start question (Fabian 26.11.): 1 asking, 2 set up (guide), 3 could not be set up.
+    pub ds_frage: u8,
     /// Academy: the rival academy whose squad is shown.
     pub jugend_verein: Option<usize>,
     pub name_neu: Option<String>,
@@ -246,10 +248,12 @@ pub(super) fn akzent_setzen(f: Option<u32>) {
 pub(super) fn theme_file() -> std::path::PathBuf { save_dir().join(crate::id("../thema.txt")) }
 /// Einstellungen → Sprache: "de" or "en", beside thema.txt (read at start in main.rs).
 pub fn skala_file() -> std::path::PathBuf { save_dir().join("../skala.txt") } // roh
+/// Answer to the first-start question about the direct start ("ja"/"nein"); missing means not asked yet.
+pub fn direktstart_file() -> std::path::PathBuf { save_dir().join(crate::id("../direktstart.txt")) }
 pub fn sprache_file() -> std::path::PathBuf { save_dir().join(crate::id("../sprache.txt")) }
 impl View {
     pub fn new() -> View {
-        View { karte_zoom: 1.0, karte_off: (0.0, 0.0), feier_ton: false, feier_start: 0.0, page: Page::Uebersicht, back: vec![], fwd: vec![], modal: Modal::None, tab: 0, scroll: 0.0, scrolls: Default::default(), ziehen: None, tafel_zug: None, leih_wahl: (1, 0), topf_wahl: (0, 1, 1), vergleich: [None; 3], vergleich_suche: (usize::MAX, String::new()), auslosung_t0: 0.0, jugend_verein: None, zum_start: false, name_neu: None, bank_zug: None, nt_wahl: None, nt_scroll: 0, nt_verband: 0, nt_sort: 0, nt_u21: 0, auswahl: None, auswahl_scroll: 0, vereine_liga: None, post_folgen: None, sel_msg: None, msg_filter: 0, lager_reiter: 0, lager_tage: 7, halbzeit_fl27: None, sel_player: None,
+        View { karte_zoom: 1.0, karte_off: (0.0, 0.0), feier_ton: false, feier_start: 0.0, page: Page::Uebersicht, back: vec![], fwd: vec![], modal: Modal::None, tab: 0, scroll: 0.0, scrolls: Default::default(), ziehen: None, tafel_zug: None, leih_wahl: (1, 0), topf_wahl: (0, 1, 1), vergleich: [None; 3], vergleich_suche: (usize::MAX, String::new()), auslosung_t0: 0.0, ds_frage: 0, jugend_verein: None, zum_start: false, name_neu: None, bank_zug: None, nt_wahl: None, nt_scroll: 0, nt_verband: 0, nt_sort: 0, nt_u21: 0, auswahl: None, auswahl_scroll: 0, vereine_liga: None, post_folgen: None, sel_msg: None, msg_filter: 0, lager_reiter: 0, lager_tage: 7, halbzeit_fl27: None, sel_player: None,
             market_pos: 0, market_age: 40, market_price: 0, market_genau: 0, market_gut: 0, market_stat: 0, market_scope: 0, market_text: String::new(), market_focus: false, sp_edit: Default::default(), sp_treffer: (Default::default(), u32::MAX, vec![]), pm_wahl: (u32::MAX, [0; 3]), kr: (50, 2), auswahl_suche: String::new(), menu_alle: false, suche_text: String::new(), vorb_tag: 0, vorb_tore: (0, 0), suche_treffer: vec![], suche_fuer: String::new(), market_cache: vec![], market_key: String::new(), sortierung: Default::default(), neg_tipp: 0.0, blog_filter: 0, tp_zelle: None,
             table_league: None, cal_month: -1, pick: None, toast: None, mv: None, sel_neg: None, changed_at: 0.0, hud_seen: vec![], league_scroll: 0, sel_club: None, kontext: None, verein_kontext: None, taktik_ansicht: 0,
             fl27: None, fl27_status: String::new(), fl27_live: None, fl27_log: vec![], fl27_t0: 0.0, fl27_ko: None, fl27_ko_apply: None, koop_form: (true, 1, 2, 0.0, 3), fl27_laeuft: false, fl27_ansicht: None, fl27_reiter: 0, fl27_seq: None, fl27_einblendung: None, fl27_vorschau: false, fl27_pruef_t: -10.0, fl27_gesehen: false, fl27_erster_blick: false, fl27_ende: None, fl27_ende_wunsch: false, fl27_auto_t: None, fl27_uebernommen: None, db_blick_t: 0.0, reiter_merk: Default::default(),

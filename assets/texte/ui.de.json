@@ -4927,5 +4927,19 @@
  "ui.fl27.direktstart_aus": "Direktstart ins Spiel",
  "ui.fl27.spielminuten": "Spieldauer in FL27",
  "ui.fl27.spielminuten_spiel": "wie im Spiel",
- "ui.fl27.min": "%1 Min."
+ "ui.fl27.min": "%1 Min.",
+ "ui.ds.frage.titel": "Spiele mit Direktstart?",
+ "ui.ds.frage.text": "Neu in dieser Version: FL27 startet direkt in dein Spiel. Kein Hauptmenü, keine Teamwahl, die richtigen Trikots. PES M richtet das jetzt für dich ein, aus deinen eigenen Spieldateien, auf Linux und Windows. Dazu schaltet PES M in der Mod-Datei modules/fl26match.lua (GigaPack) die Statistik-Datei ab, weil sie FL27 zufällig abstürzen lässt. Die Mod läuft weiter, das Original bleibt als Sicherung daneben und kommt beim Ausschalten zurück.\n\nDu kannst es jederzeit unter Einstellungen › Football Life 2027 ändern.",
+ "ui.ds.ja": "Ja, einschalten",
+ "ui.ds.nein": "Nein, mit Menüs spielen",
+ "ui.ds.fertig.titel": "Direktstart ist eingerichtet",
+ "ui.ds.schritt.1": "Am Spieltag in PES M „Match in FL27 starten“ klicken. Dort stellst du auch die Spiellänge ein.",
+ "ui.ds.schritt.2": "FL27 startet und geht direkt zur Seitenwahl: Controller nach links oder rechts schieben und bestätigen.",
+ "ui.ds.schritt.3": "Der Spieltag-Bildschirm kommt mit beiden Teams und Trikots. Den Anstoß drückst du selbst.",
+ "ui.ds.schritt.4": "Zur Halbzeit bleibt das Menü: Wechsel und Taktik wie gewohnt.",
+ "ui.ds.schritt.5": "Nach dem Abpfiff überspringt FL27 die Ergebnis-Bildschirme, PES M bucht das Ergebnis und schließt FL27. Zum nächsten Spiel startet PES M es wieder, direkt ins Spiel.",
+ "ui.ds.luecken": "Noch nicht dabei: die Einlaufanimation vor dem Anstoß. Neue oder transferierte Spieler brauchen einen Neustart von FL27. Windows ist noch nicht getestet.",
+ "ui.ds.ok": "Verstanden",
+ "ui.ds.fehler.titel": "Direktstart nicht eingerichtet",
+ "ui.ds.fehler.text": "PES M hat die Spieldateien von FL27 nicht gefunden (Data/dt16_all.cpk). Prüfe den Spielordner unter Einstellungen › Football Life 2027 und schalte den Direktstart dort ein. Bis dahin startet FL27 mit seinen Menüs."
 }

@@ -1,0 +1,319 @@
+{
+ "_hinweis": "Texts for the People page (package 3), kept separate from the logic. Keys: topic.option.",
+ "werte": [
+  "Profesionalidad",
+  "Ambición",
+  "Ego",
+  "Espíritu de equipo",
+  "Liderazgo",
+  "Temperamento",
+  "Serenidad",
+  "Amabilidad",
+  "Lealtad",
+  "Estatus"
+ ],
+ "typen": {
+  "vorbildprofi": "Profesional ejemplar",
+  "anfuehrer": "Líder",
+  "kumpel": "Buen compañero",
+  "stimmungsmacher": "Animador",
+  "mentor": "Mentor",
+  "egoist": "Egoísta",
+  "diva": "Diva",
+  "heisssporn": "Exaltado",
+  "soeldner": "Mercenario",
+  "vereinsikone": "Icono del club",
+  "einzelgaenger": "Solitario",
+  "talent_mit_allueren": "Talento con aires"
+ },
+ "rollen": [
+  "Capitán",
+  "Segundo capitán",
+  "Líder del equipo",
+  "Titular",
+  "Jugador de rotación",
+  "Promesa",
+  "Jugador de fondo de armario"
+ ],
+ "treiber": {
+  "spielzeit": "Minutos de juego",
+  "erfolg": "Éxito del equipo",
+  "gehalt": "Comparación salarial",
+  "vertrag": "Contrato a punto de vencer",
+  "zusagen": "Promesas del entrenador",
+  "gespraech": "Charlas",
+  "rolle": "Rol en la plantilla",
+  "geruecht": "Interés de otros clubes",
+  "freunde": "Amigos en el equipo",
+  "isoliert": "Aislado",
+  "feinde": "Roces con compañeros",
+  "mentor": "Mentor",
+  "training": "Entrenamiento",
+  "gruppe": "Espíritu de equipo",
+  "form": "Forma",
+  "verletzt": "Lesión",
+  "ueberlastet": "Carga excesiva",
+  "erweiterter_kader": "Plantilla ampliada"
+ },
+ "anlass": {
+  "spielzeit": "No juego lo suficiente. Quiero saber cuál es mi situación.",
+  "rolle": "Veo mi rol aquí de otra manera. ¿Podemos hablar?",
+  "form": "Las cosas no me salen ahora mismo. Necesito tu opinión.",
+  "lob": "Un gran partido suyo. Unas palabras tuyas significarían mucho para él.",
+  "kritik": "Su última actuación fue floja. ¿Hablarás con él?",
+  "zukunft": "He estado pensando en mi futuro aquí."
+ },
+ "optionen": {
+  "spielzeit": [
+   [
+    "verstaendnis",
+    "Lo entiendo. Tu momento llegará.",
+    "Veo que esto te preocupa. Tendrás tu oportunidad.",
+    "Entiendo tu frustración. Sigue así, estás cerca."
+   ],
+   [
+    "leistung",
+    "Demuéstralo en el entrenamiento y jugarás.",
+    "Convénceme en las próximas sesiones y estarás dentro.",
+    "La puerta está abierta. Marca la diferencia en el entrenamiento."
+   ],
+   [
+    "zusage",
+    "Tendrás tus minutos, te lo prometo.",
+    "Tendrás minutos en los próximos partidos, puedes contar con ello.",
+    "Cuento contigo, tienes mi palabra."
+   ],
+   [
+    "kampf",
+    "Gánate el sitio como todos.",
+    "Aquí nadie regala nada. Gánate tu puesto.",
+    "La competencia es sana. Demuestra que eres mejor."
+   ],
+   [
+    "abwimmeln",
+    "Esa es mi decisión, no la tuya.",
+    "Yo elijo el equipo. Punto.",
+    "No voy a discutir eso contigo."
+   ]
+  ],
+  "rolle": [
+   [
+    "wertschaetzung",
+    "Eres importante para nosotros, lo sabes.",
+    "Eres una parte importante de este equipo, aunque ahora lo veas de otra forma.",
+    "Este grupo no funciona sin gente como tú."
+   ],
+   [
+    "verantwortung",
+    "Tendrás más responsabilidad, te lo prometo.",
+    "A partir de ahora asumes más, te lo prometo.",
+    "Te doy un rol mayor, te lo has ganado."
+   ],
+   [
+    "geduld",
+    "Ten paciencia, tu camino está trazado.",
+    "Tenemos un plan para ti. Dale tiempo.",
+    "Tu momento llegará, te estamos construyendo paso a paso."
+   ],
+   [
+    "ausweichen",
+    "Hablemos de eso en otro momento.",
+    "Hablémoslo con calma después del próximo partido.",
+    "Ahora no es el momento para eso."
+   ],
+   [
+    "dichtmachen",
+    "Tu rol no está en discusión.",
+    "Los roles están fijados, no cambia nada.",
+    "Juegas el rol que yo te dé."
+   ]
+  ],
+  "form": [
+   [
+    "aufbauen",
+    "Ánimo, creo en ti.",
+    "Todos pasan por un mal momento. Estoy contigo.",
+    "Puedes hacerlo, lo he visto muchas veces."
+   ],
+   [
+    "analyse",
+    "Repasemos juntos tus partidos.",
+    "Siéntate mañana con los analistas, lo resolveremos juntos.",
+    "Repasaremos los últimos partidos jugada a jugada."
+   ],
+   [
+    "anspornen",
+    "Espero más de ti.",
+    "Quiero ver al jugador que conozco. Desde el próximo partido.",
+    "Espero más de ti, y lo sabes."
+   ],
+   [
+    "abkanzeln",
+    "Esto no puede seguir así.",
+    "Así ya no puedo ponerte.",
+    "No es suficiente, y no lo es desde hace semanas."
+   ],
+   [
+    "abwarten",
+    "Ya volverá.",
+    "No te preocupes, volverá solo.",
+    "Déjalo correr, la forma volverá."
+   ]
+  ],
+  "lob": [
+   [
+    "ehrlich",
+    "Gran actuación, muy merecido.",
+    "Eso estuvo muy bien, te lo has ganado.",
+    "Merecido, una actuación así no se ve todas las semanas."
+   ],
+   [
+    "herzlich",
+    "Me alegro mucho por ti.",
+    "Me alegro de verdad por ti, ¡genial!",
+    "Era tu día. ¡Disfrútalo!"
+   ],
+   [
+    "knapp",
+    "Bien hecho.",
+    "Fuerte.",
+    "Buen partido."
+   ],
+   [
+    "mit_forderung",
+    "Bien. Ahora hazlo cada semana.",
+    "Genial. Y eso es lo que quiero ver cada semana a partir de ahora.",
+    "Muy bien. No aflojes ahora."
+   ]
+  ],
+  "kritik": [
+   [
+    "sachlich",
+    "Eso no funcionó. Así lo haremos mejor.",
+    "Eso no funcionó. Trabajaremos tus desmarques.",
+    "Veamos qué salió mal y hagámoslo mejor."
+   ],
+   [
+    "klar",
+    "Eso no fue suficiente, y lo sabes.",
+    "Ese no era tu nivel, y tú mismo lo sabes.",
+    "Una actuación así no basta aquí."
+   ],
+   [
+    "mit_ruecksicht",
+    "Sé que no es fácil. Aun así: más.",
+    "Sé que fue duro para ti. Aun así, necesito más.",
+    "Ahora no es fácil, lo sé. Pero cuento contigo."
+   ],
+   [
+    "laut",
+    "¡Eso fue inaceptable!",
+    "¡Eso no fue nada!",
+    "¡No quiero volver a ver eso!"
+   ],
+   [
+    "drumherum",
+    "Bueno, no fue tu mejor día.",
+    "Olvídalo, pasa.",
+    "Bueno, da igual."
+   ]
+  ],
+  "zukunft": [
+   [
+    "bleiben",
+    "Queremos renovarte, te lo prometo.",
+    "Contamos contigo a largo plazo y queremos renovarte.",
+    "Formas parte de nuestro futuro, te haremos una oferta."
+   ],
+   [
+    "gehalt",
+    "Hablaremos de un salario mejor, te lo prometo.",
+    "Nos sentaremos a hablar de tu salario.",
+    "Tu rendimiento también debe notarse en tu sueldo, te lo prometo."
+   ],
+   [
+    "freigabe",
+    "Si llega una buena oferta, te dejaremos ir.",
+    "Si llega el club adecuado, no nos interpondremos.",
+    "Si llega la oferta adecuada, hablaremos de un traspaso."
+   ],
+   [
+    "offen",
+    "Esperemos a ver.",
+    "Esperemos a las próximas semanas.",
+    "Aún no hay nada decidido, dejémoslo abierto."
+   ],
+   [
+    "druck",
+    "Tienes contrato. Lo cumplirás.",
+    "Firmaste. Espero que lo cumplas.",
+    "Un contrato es un contrato."
+   ]
+  ],
+  "konflikt": [
+   [
+    "schlichten",
+    "Mediaré yo mismo.",
+    "Llamaré a los dos a mi despacho.",
+    "Me ocuparé personalmente."
+   ],
+   [
+    "aussprache",
+    "Que lo hablen entre ellos.",
+    "Los dos se sientan y lo arreglan.",
+    "Que lo aclaren cara a cara."
+   ],
+   [
+    "kapitaen_bitten",
+    "Que se encargue el capitán.",
+    "Que el capitán hable con los dos.",
+    "Eso es cosa del consejo de jugadores."
+   ],
+   [
+    "strafe",
+    "Los dos serán sancionados.",
+    "Los dos ponen dinero en el bote del equipo.",
+    "Los dos reciben un castigo."
+   ],
+   [
+    "laufen_lassen",
+    "Ya lo arreglarán entre ellos.",
+    "Son adultos, lo arreglarán solos.",
+    "No me voy a meter."
+   ]
+  ],
+  "disziplin": [
+   [
+    "nachsicht",
+    "Por esta vez haré la vista gorda.",
+    "Esta vez lo dejo pasar.",
+    "Una vez no cuenta."
+   ],
+   [
+    "ermahnung",
+    "Una advertencia clara.",
+    "Una charla clara, nada más.",
+    "Recibe un mensaje claro."
+   ],
+   [
+    "geldstrafe",
+    "Una multa.",
+    "Le cuesta parte del sueldo de un mes.",
+    "Pone dinero en el bote del equipo."
+   ],
+   [
+    "bank",
+    "Se queda fuera el próximo partido.",
+    "Se pierde el próximo partido.",
+    "No juega el próximo encuentro."
+   ]
+  ]
+ },
+ "mimik": [
+  "muy contento",
+  "contento",
+  "impasible",
+  "molesto",
+  "muy molesto"
+ ]
+}

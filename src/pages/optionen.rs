@@ -58,11 +58,12 @@ pub(super) fn optionen(ui: &mut Ui, v: &mut View, c: &mut Career) {
     ui.text_semi(crate::inhalt::t("ui.thema.spieltag"), r.x + 16.0, r.y + 154.0, 17.0, Theme::text());
     if let Some(t) = ui.segment(Rect::new(r.x + 16.0, r.y + 172.0, 580.0, 38.0), &[crate::inhalt::t("ui.thema.immer_gleich"), crate::inhalt::t("ui.thema.wettbewerb")], c.thema_wettbewerb as usize) { c.thema_wettbewerb = t == 1; }
     ui.text_semi(crate::inhalt::t("optionen.sprache"), r.x + 16.0, r.y + 474.0, 17.0, Theme::text());
-    let en = crate::inhalt::sprache() == crate::inhalt::Sprache::En;
-    if let Some(t) = ui.segment(Rect::new(r.x + 16.0, r.y + 492.0, 420.0, 38.0), &[crate::inhalt::t("sprache.de"), crate::inhalt::t("sprache.en")], en as usize) {
-        crate::inhalt::sprache_setzen(if t == 1 { crate::inhalt::Sprache::En } else { crate::inhalt::Sprache::De });
+    // Fabian 26.11.: Spanish and French as well; their own names, so everyone finds theirs
+    if let Some(t) = ui.segment(Rect::new(r.x + 16.0, r.y + 492.0, 580.0, 38.0), &[crate::inhalt::t("sprache.de"), crate::inhalt::t("sprache.en"), "Español", "Français"], crate::inhalt::sprache() as usize) { // roh
+        let s = crate::inhalt::SPRACHEN[t];
+        crate::inhalt::sprache_setzen(s);
         let _ = std::fs::create_dir_all(save_dir());
-        let _ = std::fs::write(sprache_file(), if t == 1 { crate::id("en") } else { crate::id("de") });
+        let _ = std::fs::write(sprache_file(), s.code());
     }
     ui.text_semi(crate::inhalt::t("ui.akzent.titel"), r.x + 16.0, r.y + 244.0, 17.0, Theme::text());
     // crest, default blue, or an own colour (Fabian 23.11.: let users adjust it themselves)
@@ -170,6 +171,7 @@ pub(super) fn optionen(ui: &mut Ui, v: &mut View, c: &mut Career) {
     let live = c.db_live;
     if ui.button(Rect::new(r2.x + 268.0, r2.y + 48.0, 290.0, 34.0), if live { crate::inhalt::t("ui.pages.datenbank_live_mitschreiben") } else { crate::inhalt::t("ui.pages.datenbank_live_mitschreiben_2") }, live) { c.db_live = !live; }
     // BlankState222's start_stamina module (installed by the user): PES M writes the start fitness for it
+    if ui.button(Rect::new(r2.x + 450.0, r2.y + 90.0, 300.0, 34.0), crate::inhalt::t(if c.direktstart { "ui.fl27.direktstart_an" } else { "ui.fl27.direktstart_aus" }), c.direktstart) { c.direktstart = !c.direktstart; }
     if ui.button(Rect::new(r2.x + 16.0, r2.y + 90.0, 420.0, 34.0), crate::inhalt::t(if c.start_stamina { "ui.fl27.start_stamina_an" } else { "ui.fl27.start_stamina_aus" }), c.start_stamina) { c.start_stamina = !c.start_stamina; }
     if ui.button(Rect::new(r2.x + 450.0, r2.y + 90.0, 300.0, 34.0), crate::inhalt::t(if c.direktstart { "ui.fl27.direktstart_an" } else { "ui.fl27.direktstart_aus" }), c.direktstart) { c.direktstart = !c.direktstart; }
     let auto = c.fl27_auto_ende;

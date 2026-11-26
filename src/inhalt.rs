@@ -29,16 +29,21 @@ pub fn quellen() -> Vec<String> {
 
 // ---------------------------------------------------------------- language (Einstellungen → Sprache)
 use std::collections::{BTreeMap, HashMap};
-use std::sync::atomic::{AtomicBool, Ordering::Relaxed};
+use std::sync::atomic::{AtomicU8, Ordering::Relaxed};
 use std::sync::OnceLock;
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
-pub enum Sprache { De, En }
-static ENGLISCH: AtomicBool = AtomicBool::new(false);
-pub fn sprache() -> Sprache { if ENGLISCH.load(Relaxed) { Sprache::En } else { Sprache::De } }
-pub fn sprache_setzen(s: Sprache) { ENGLISCH.store(s == Sprache::En, Relaxed) }
-/// "de" → German, anything else → English (Fabian 23.11.: English first, also the default without a choice; stored in
-/// sprache.txt and in PESM_SPRACHE).
-pub fn sprache_aus(s: &str) -> Sprache { if s.trim() == "de" { Sprache::De } else { Sprache::En } }
+pub enum Sprache { De, En, Es, Fr }
+/// The order of the choice in Einstellungen and of the text columns: German, English, Spanish, French (Fabian 26.11.).
+pub const SPRACHEN: [Sprache; 4] = [Sprache::De, Sprache::En, Sprache::Es, Sprache::Fr];
+impl Sprache {
+    pub fn code(self) -> &'static str { ["de", "en", "es", "fr"][self as usize] } // roh
+}
+static SPRACHE: AtomicU8 = AtomicU8::new(0);
+pub fn sprache() -> Sprache { SPRACHEN[SPRACHE.load(Relaxed) as usize % 4] }
+pub fn sprache_setzen(s: Sprache) { SPRACHE.store(s as u8, Relaxed) }
+/// "de", "es", "fr" → that language, anything else → English (Fabian 23.11.: English first, also the default without a
+/// choice; stored in sprache.txt and in PESM_SPRACHE).
+pub fn sprache_aus(s: &str) -> Sprache { SPRACHEN.into_iter().find(|x| x.code() == s.trim()).unwrap_or(Sprache::En) }
 
 type Texte = HashMap<String, String>;
 /// Texts of a file as dotted key paths (list entries by index); only texts, no numbers.
@@ -53,20 +58,21 @@ fn flach(v: &serde_json::Value, pfad: &str, out: &mut Texte) {
 }
 /// Every file of pesm/core/texts: name (without .json) → (German, English). The English side of de gets the keys
 /// of texts/en/nachtrag.json that the original English file lacks.
-fn alle() -> &'static BTreeMap<String, (Texte, Texte)> {
-    static T: OnceLock<BTreeMap<String, (Texte, Texte)>> = OnceLock::new();
+fn alle() -> &'static BTreeMap<String, (Texte, Texte, Texte, Texte)> {
+    static T: OnceLock<BTreeMap<String, (Texte, Texte, Texte, Texte)>> = OnceLock::new();
     T.get_or_init(|| {
         let dir = ordner().join("pesm/core/texts");
         let mut m = BTreeMap::new();
         for e in std::fs::read_dir(&dir).into_iter().flatten().flatten() {
             let p = e.path();
             if p.extension().map_or(true, |x| x != "json") { continue; }
-            let (mut de, mut en) = (Texte::new(), Texte::new());
+            let (mut de, mut en, mut es, mut fr) = (Texte::new(), Texte::new(), Texte::new(), Texte::new());
             if let Ok(v) = lesen(&p) { flach(&v, "", &mut de); }
-            if let Ok(v) = lesen(&dir.join("en").join(p.file_name().unwrap())) { flach(&v, "", &mut en); }
-            m.insert(p.file_stem().unwrap().to_string_lossy().to_string(), (de, en));
+            // Spanish and French (Fabian 26.11.) sit next to English: texts/es, texts/fr; missing files fall back to English
+            for (sp, t) in [("en", &mut en), ("es", &mut es), ("fr", &mut fr)] { if let Ok(v) = lesen(&dir.join(sp).join(p.file_name().unwrap())) { flach(&v, "", t); } } // roh
+            m.insert(p.file_stem().unwrap().to_string_lossy().to_string(), (de, en, es, fr));
         }
-        if let (Some((_, en)), Ok(v)) = (m.get_mut("de"), lesen(&ordner().join("texts/en/nachtrag.json"))) {
+        if let (Some((_, en, _, _)), Ok(v)) = (m.get_mut("de"), lesen(&ordner().join("texts/en/nachtrag.json"))) {
             let mut n = Texte::new();
             flach(&v, "", &mut n);
             for (k, t) in n { en.entry(k).or_insert(t); }
@@ -77,28 +83,32 @@ fn alle() -> &'static BTreeMap<String, (Texte, Texte)> {
 /// A text of pesm/core/texts/<datei>.json by its key (dotted path, list entries by index) in that language.
 /// Missing or empty in English: the German text. Missing in both: "" – nothing is shown, never the key.
 pub fn text(sprache: Sprache, datei: &str, schluessel: &str) -> String {
-    let Some((de, en)) = alle().get(datei.trim_end_matches(".json")) else { return String::new() };
-    waehlen(sprache, de.get(schluessel), en.get(schluessel))
+    let Some((de, en, es, fr)) = alle().get(datei.trim_end_matches(".json")) else { return String::new() };
+    let eigen = match sprache { Sprache::Es => es.get(schluessel), Sprache::Fr => fr.get(schluessel), _ => None };
+    eigen.filter(|t| !t.trim().is_empty()).cloned().unwrap_or_else(|| waehlen(sprache, de.get(schluessel), en.get(schluessel)))
 }
 fn waehlen(sprache: Sprache, de: Option<&String>, en: Option<&String>) -> String {
     let gut = |t: Option<&String>| t.filter(|t| !t.trim().is_empty()).cloned();
-    (if sprache == Sprache::En { gut(en) } else { None }).or_else(|| gut(de)).unwrap_or_default()
+    (if sprache != Sprache::De { gut(en) } else { None }).or_else(|| gut(de)).unwrap_or_default()
 }
 /// Every text by key in both languages: the code's texts (assets/texte/ui.de.json, ui.en.json) and the original's
 /// (pesm/core/texts, de.json first, then the files by name; English from texts/en and the nachtrag). Built once.
-fn schluessel_tabelle() -> &'static HashMap<String, [&'static str; 2]> {
-    static T: OnceLock<HashMap<String, [&'static str; 2]>> = OnceLock::new();
+fn schluessel_tabelle() -> &'static HashMap<String, [&'static str; 4]> {
+    static T: OnceLock<HashMap<String, [&'static str; 4]>> = OnceLock::new();
     T.get_or_init(|| {
         let leak = |s: &String| -> &'static str { Box::leak(s.clone().into_boxed_str()) };
-        let mut m: HashMap<String, [&'static str; 2]> = HashMap::new();
+        let mut m: HashMap<String, [&'static str; 4]> = HashMap::new();
         let a = alle();
-        for (_, (de, en)) in a.get("de").into_iter().chain(a.iter().filter(|(n, _)| n.as_str() != "de").map(|(_, x)| x)).map(|x| ((), x)) {
-            for (k, d) in de { m.entry(k.clone()).or_insert_with(|| [leak(d), en.get(k).map(leak).unwrap_or("")]); }
+        for (_, (de, en, es, fr)) in a.get("de").into_iter().chain(a.iter().filter(|(n, _)| n.as_str() != "de").map(|(_, x)| x)).map(|x| ((), x)) {
+            let z = |t: &Texte, k: &String| t.get(k).map(leak).unwrap_or("");
+            for (k, d) in de { m.entry(k.clone()).or_insert_with(|| [leak(d), z(en, k), z(es, k), z(fr, k)]); }
         }
-        let (mut de, mut en) = (Texte::new(), Texte::new());
+        let (mut de, mut en, mut es, mut fr) = (Texte::new(), Texte::new(), Texte::new(), Texte::new());
         flach(&serde_json::from_str(include_str!("../assets/texte/ui.de.json")).expect("ui.de.json"), "", &mut de);
         flach(&serde_json::from_str(include_str!("../assets/texte/ui.en.json")).expect("ui.en.json"), "", &mut en);
-        for (k, d) in &de { m.insert(k.clone(), [leak(d), en.get(k).map(leak).unwrap_or("")]); }
+        flach(&serde_json::from_str(include_str!("../assets/texte/ui.es.json")).expect("ui.es.json"), "", &mut es);
+        flach(&serde_json::from_str(include_str!("../assets/texte/ui.fr.json")).expect("ui.fr.json"), "", &mut fr);
+        for (k, d) in &de { m.insert(k.clone(), [leak(d), en.get(k).map(leak).unwrap_or(""), es.get(k).map(leak).unwrap_or(""), fr.get(k).map(leak).unwrap_or("")]); }
         m
     })
 }
@@ -115,8 +125,9 @@ pub fn varianten(basis: &str) -> usize {
 pub fn variante_key(basis: &str, i: usize) -> String { if i == 0 && !schluessel_tabelle().contains_key(&format!("{basis}.0")) { basis.to_string() } else { format!("{basis}.{i}") } }
 /// The text of a key in a given language (same rules as `t`).
 pub fn t_in(sprache: Sprache, key: &str) -> &'static str {
-    let Some([de, en]) = schluessel_tabelle().get(key) else { return "" };
-    if sprache == Sprache::En && !en.trim().is_empty() { en } else { de }
+    let Some(z) = schluessel_tabelle().get(key) else { return "" };
+    // the chosen language, else English (Spanish and French are translated from it), else German
+    [sprache as usize, 1, 0].into_iter().map(|i| z[i]).find(|x| !x.trim().is_empty()).unwrap_or(z[0])
 }
 /// A text with placeholders %1, %2 … filled in (from the highest number down, so %1 never eats %10).
 pub fn tf(key: &str, werte: &[String]) -> String { tf_in(sprache(), key, werte) }
@@ -128,7 +139,7 @@ pub fn tf_in(sprache: Sprache, key: &str, werte: &[String]) -> String {
 /// One of the code's own text files (assets/texte/<name>.json and <name>.en.json) in the chosen language; in English
 /// the German values fill every gap, so a missing English text shows the German one.
 pub fn eigen(name: &str) -> &'static serde_json::Value {
-    static T: OnceLock<HashMap<&'static str, [serde_json::Value; 2]>> = OnceLock::new();
+    static T: OnceLock<HashMap<&'static str, [serde_json::Value; 4]>> = OnceLock::new();
     let m = T.get_or_init(|| {
         fn mischen(de: &serde_json::Value, en: &serde_json::Value) -> serde_json::Value {
             match (de, en) {
@@ -138,18 +149,25 @@ pub fn eigen(name: &str) -> &'static serde_json::Value {
                 (d, _) => d.clone(),
             }
         }
-        let paar = |de: &str, en: &str| { let d: serde_json::Value = serde_json::from_str(de).expect("Textdatei"); let e = serde_json::from_str(en).unwrap_or(serde_json::Value::Null); let e = mischen(&d, &e); [d, e] };
+        // Spanish and French over English over German, so every gap shows the next language
+        let paar = |de: &str, en: &str, es: &str, fr: &str| {
+            let d: serde_json::Value = serde_json::from_str(de).expect("Textdatei");
+            let lies = |t: &str| serde_json::from_str(t).unwrap_or(serde_json::Value::Null);
+            let e = mischen(&d, &lies(en));
+            let (s, f) = (mischen(&e, &lies(es)), mischen(&e, &lies(fr)));
+            [d, e, s, f]
+        };
         HashMap::from([
-            ("mensch", paar(include_str!("../assets/texte/mensch.json"), include_str!("../assets/texte/mensch.en.json"))),
-            ("presse", paar(include_str!("../assets/texte/presse.json"), include_str!("../assets/texte/presse.en.json"))),
-            ("spielerprofil", paar(include_str!("../assets/texte/spielerprofil.json"), include_str!("../assets/texte/spielerprofil.en.json"))),
-            ("farm", paar(include_str!("../assets/texte/farm.json"), include_str!("../assets/texte/farm.en.json"))),
-            ("handbuch", paar(include_str!("../assets/texte/handbuch.json"), include_str!("../assets/texte/handbuch.en.json"))),
-            ("handbuch_texte", paar(include_str!("../assets/texte/handbuch_texte.json"), include_str!("../assets/texte/handbuch_texte.en.json"))),
+            ("mensch", paar(include_str!("../assets/texte/mensch.json"), include_str!("../assets/texte/mensch.en.json"), include_str!("../assets/texte/mensch.es.json"), include_str!("../assets/texte/mensch.fr.json"))),
+            ("presse", paar(include_str!("../assets/texte/presse.json"), include_str!("../assets/texte/presse.en.json"), include_str!("../assets/texte/presse.es.json"), include_str!("../assets/texte/presse.fr.json"))),
+            ("spielerprofil", paar(include_str!("../assets/texte/spielerprofil.json"), include_str!("../assets/texte/spielerprofil.en.json"), include_str!("../assets/texte/spielerprofil.es.json"), include_str!("../assets/texte/spielerprofil.fr.json"))),
+            ("farm", paar(include_str!("../assets/texte/farm.json"), include_str!("../assets/texte/farm.en.json"), include_str!("../assets/texte/farm.es.json"), include_str!("../assets/texte/farm.fr.json"))),
+            ("handbuch", paar(include_str!("../assets/texte/handbuch.json"), include_str!("../assets/texte/handbuch.en.json"), include_str!("../assets/texte/handbuch.es.json"), include_str!("../assets/texte/handbuch.fr.json"))),
+            ("handbuch_texte", paar(include_str!("../assets/texte/handbuch_texte.json"), include_str!("../assets/texte/handbuch_texte.en.json"), include_str!("../assets/texte/handbuch_texte.es.json"), include_str!("../assets/texte/handbuch_texte.fr.json"))),
         ])
     });
     let p = m.get(name).unwrap_or_else(|| panic!("Textdatei {name} fehlt")); // roh
-    &p[usize::from(ENGLISCH.load(Relaxed))]
+    &p[sprache() as usize]
 }
 /// A data value that is also shown (the sender of a message, the subject of a reason, a placeholder manager): its text
 /// from the explicit list `ui.anzeige.<value>`; any other value (a name) is shown as it is.

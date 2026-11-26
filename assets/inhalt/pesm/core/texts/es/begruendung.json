@@ -1,0 +1,22 @@
+{
+ "bg.zufall.pech": "Mala suerte: salió mal y nadie tiene la culpa.",
+ "bg.entscheidung.verl_rueckfall": "Volvió demasiado pronto y la vieja lesión rebrotó.",
+ "bg.entscheidung.verl_belastung": "Su carga era alta.",
+ "bg.entscheidung.verl_muedigkeit": "Estaba cansado, su forma física era solo de %1.",
+ "bg.entscheidung.verl_alter": "A los %1 el cuerpo aguanta peor la carga.",
+ "bg.entscheidung.verl_rueckkehr": "Acaba de volver de una lesión.",
+ "bg.entscheidung.verl_spieldichte": "Jugó el %1% de los partidos, y cada minuto conlleva riesgo.",
+ "bg.entscheidung.verl_anfaellig": "Por naturaleza es más propenso a lesionarse.",
+ "bg.entscheidung.verl_vorgeschichte": "Ya tuvo %1 bajas el último año.",
+ "bg.entscheidung.dauer_art": "Una %1 suele durar de %2 a %3 días, el fisio espera de %4 a %5.",
+ "bg.entscheidung.dauer_spanne_weit": "El departamento solo puede estimarlo a grandes rasgos, el margen es amplio.",
+ "bg.entscheidung.dauer_spanne_mittel": "El departamento lo estima con precisión media.",
+ "bg.entscheidung.dauer_spanne_eng": "El departamento lo estima con precisión, el margen es estrecho.",
+ "bg.entscheidung.dauer_abteilung_kuerzer": "Tu departamento médico acorta la baja en torno al %1%.",
+ "bg.entscheidung.arzt_frueh": "Lo alineas ya, en plena fase de rehabilitación \"%1\", con %2 días de baja aún pendientes.",
+ "bg.entscheidung.arzt_rueckfall": "El riesgo de recaída se multiplica por %1 durante los próximos %2 días.",
+ "bg.entscheidung.arzt_reha": "El programa de rehabilitación acorta la baja %1 días y cuesta %2 €.",
+ "bg.entscheidung.arzt_fit": "Infiltración número %1 de un máximo de %2 esta temporada.",
+ "bg.entscheidung.arzt_fit_leistung": "Forma física y rendimiento quedan mermados durante %1 días.",
+ "bg.entscheidung.arzt_dauerschaden": "En la %1.ª infiltración de la temporada se pierde para siempre un punto de velocidad o resistencia."
+}

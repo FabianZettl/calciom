@@ -882,6 +882,8 @@ impl App {
             // without a club the career is held by the smallest club of the world until an offer is taken
             let platz = s.team.unwrap_or_else(|| (0..w.clubs.len()).min_by(|a, b| w.clubs[*a].rep.partial_cmp(&w.clubs[*b].rep).unwrap()).unwrap_or(0));
             let mut c = Career::new(w, platz, s.coach.trim());
+            // the answer to the direct start question holds for new careers too (still changeable in Settings)
+            if std::fs::read_to_string(pages::direktstart_file()).is_ok_and(|t| t.trim() == crate::id("ja")) { c.direktstart = true; c.fl27_erlaubt = true; c.fl27_bestaetigt = true; c.fl27_auto_ende = true; }
             c.trainer_uebernehmen(s.profil.clone());
             if s.ohne {
                 c.angebot_ligen = match s.angebot_modus { 1 => (0..c.world.leagues.len()).filter(|&l| c.world.leagues[l].land == s.profil.nation).collect(), 2 => s.ligen.clone(), _ => vec![] };
@@ -989,8 +991,15 @@ impl App {
         if v.page != Page::Spieltag && v.mv.as_ref().map(|m| m.phase == 2).unwrap_or(false) { v.mv = None; }
         // a reward moment (meilensteine.rs) takes the whole screen and all clicks until it is closed
         if !c.feature("feiern") { c.feiern.clear(); } // roh
+        // first start with the direct start version: ask once (Fabian 26.11.); screenshots only with PESM_DIALOG
+        static DS_GEPRUEFT: std::sync::atomic::AtomicBool = std::sync::atomic::AtomicBool::new(false);
+        if !DS_GEPRUEFT.swap(true, std::sync::atomic::Ordering::Relaxed) {
+            let vorschau = std::env::var("PESM_DIALOG").unwrap_or_default();
+            if vorschau.starts_with(crate::id("direktstart")) { v.ds_frage = if vorschau.ends_with('2') { 2 } else { 1 }; }
+            else if std::env::var("PESM_PAGE").is_err() && !cfg!(test) && !pages::direktstart_file().exists() { v.ds_frage = 1; }
+        }
         let feier_offen = !c.feiern.is_empty() || !c.auslosungen.is_empty();
-        let modal_open = v.modal != Modal::None || feier_offen;
+        let modal_open = v.modal != Modal::None || feier_offen || v.ds_frage > 0;
         // an open right-click menu takes the clicks like a window (but without darkening the page)
         let kontext_offen = v.kontext.is_some() || v.verein_kontext.is_some();
         let saved_click = ui.clicked;
@@ -1013,7 +1022,10 @@ impl App {
         Self::sidebar(ui, v, c);
         ui.rahmen.borrow_mut().clear();
         if v.modal == Modal::None && kontext_offen { ui.clicked = saved_click; pages::kontext_menue(ui, v, c); pages::verein_kontext_menue(ui, v, c); }
-        if feier_offen {
+        if v.ds_frage > 0 {
+            ui.clicked = saved_click;
+            pages::direktstart_frage(ui, v, c);
+        } else if feier_offen {
             ui.clicked = saved_click;
             if c.feiern.is_empty() { pages::auslosung_overlay(ui, v, c); } else { pages::feier_overlay(ui, v, c); }
         } else if modal_open {

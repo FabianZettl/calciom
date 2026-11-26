@@ -1,0 +1,10 @@
+{
+ "lg.welt.ki_geruecht": "Rumor: %1 se iría a %2.",
+ "lg.welt.wechsel": "%1: %2 a %3",
+ "lg.welt.grund.eigen": "Lo lees porque afecta a un jugador de tu club (plantilla, cantera, cesión o candidato a venta).",
+ "lg.welt.grund.verhandlung": "Lo lees porque estás negociando por él ahora mismo.",
+ "lg.welt.grund.beobachtet": "Lo lees porque lo estás observando o lo tienes en tu lista.",
+ "lg.welt.grund.konkurrent": "Lo lees porque afecta a uno de los jugadores más valiosos de un rival directo de tu liga.",
+ "lg.welt.grund.weltstar": "Lo lees porque es una estrella mundial y el traspaso es enorme.",
+ "lg.welt.grund.groesste": "Lo lees porque está entre los mayores traspasos del día."
+}

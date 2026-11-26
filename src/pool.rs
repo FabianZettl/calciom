@@ -260,7 +260,7 @@ pub fn absender_person(club_id: u32, from: &str) -> Option<(String, String)> {
     let liste = a[n["liste"].as_str()?].as_array()?;
     if liste.is_empty() { return None; }
     let name = liste[(club_id as usize + n["versatz"].as_u64().unwrap_or(0) as usize) % liste.len()].as_str()?.to_string();
-    let sp = if crate::inhalt::sprache() == crate::inhalt::Sprache::En { crate::id("en") } else { crate::id("de") };
+    let sp = if crate::inhalt::sprache() == crate::inhalt::Sprache::De { crate::id("de") } else { crate::id("en") };
     let wort = crate::regeln::wert_oder("posteingang", &format!("rolle.{sp}.{rolle}")).and_then(|v| v.as_str()).unwrap_or_default().to_string();
     Some((name, wort))
 }

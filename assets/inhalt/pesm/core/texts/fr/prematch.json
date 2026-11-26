@@ -1,0 +1,21 @@
+{
+ "pm.titel": "Avant-match",
+ "pm.einordnung.pflichtsieg": "Victoire obligatoire",
+ "pm.einordnung.favorit": "Favoris",
+ "pm.einordnung.offen": "Match ouvert",
+ "pm.einordnung.aussenseiter": "Outsiders",
+ "pm.einordnung.derby": "Derby",
+ "pm.grund.tabelle_unbekannt": "Classement non lu",
+ "pm.grund.abstand_vorn": "Classement nettement meilleur",
+ "pm.grund.abstand_hinten": "Classement nettement moins bon",
+ "pm.grund.abstand_eng": "Équipes proches au classement",
+ "pm.grund.heim": "Avantage du terrain",
+ "pm.grund.auswaerts": "Match à l'extérieur",
+ "pm.grund.form_besser": "Meilleure forme",
+ "pm.grund.form_schlechter": "Moins bonne forme",
+ "pm.grund.ausfaelle": "Beaucoup d'absents",
+ "pm.grund.ziel_verfehlt": "Sous l'objectif de la saison",
+ "pm.grund.ziel_erreicht": "Objectif de saison à portée",
+ "pm.aufstellung.aendern": "Modifier la composition",
+ "pm.zum_spiel": "Au match"
+}

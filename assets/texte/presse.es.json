@@ -1,0 +1,654 @@
+{
+ "_hinweis": "Texts for the press conference (package 3l), kept separate from the logic. {gegner}, {spieler}, {platz}, {ziel} are replaced.",
+ "toene": [
+  "ehrlich",
+  "kaempferisch",
+  "ausweichend",
+  "lob",
+  "kritik",
+  "diplomatisch",
+  "kontern"
+ ],
+ "fragen": {
+  "standard": [
+   "Mañana toca {gegner}. ¿Qué espera?",
+   "Puesto {platz} antes de enfrentarse a {gegner}: ¿cómo está el ánimo?",
+   "{gegner} tiene fama de rival incómodo. ¿Su táctica?",
+   "¿Cómo está físicamente la plantilla antes del partido contra {gegner}?",
+   "¿Qué ha hecho tan fuerte a {gegner} últimamente?",
+   "¿Alguna sorpresa en su alineación contra {gegner}?",
+   "¿Qué tiene que salir mejor que la última vez?",
+   "¿Qué espera de {naechster}?",
+   "¿Qué jugador le ha impresionado más en los entrenamientos?",
+   "¿Cómo plantea el partido contra {naechster}?",
+   "¿Falta alguien para el fin de semana?",
+   "¿Cómo está el ánimo en la plantilla?",
+   "¿Cuál es el plan para las próximas semanas?"
+  ],
+  "sieg": [
+   "Victoria contra {gegner}. ¿Cuál fue la clave?",
+   "Su equipo se vio muy sólido hoy. ¿Contento?",
+   "¿Quién fue su hombre del partido contra {gegner}?",
+   "La victoria no siempre fue cómoda. ¿Dónde se atascó?",
+   "¿Qué significa esta victoria para la clasificación?",
+   "¿Esperaba un partido así contra {gegner}?",
+   "¿Qué marcó la diferencia hoy?",
+   "¿Quién merece un elogio especial?",
+   "¿Es este el punto de inflexión de la temporada?",
+   "¿Cómo mantienen ahora los pies en el suelo?",
+   "¿Funcionó el plan como lo imaginaba?",
+   "¿En qué puede mejorar todavía el equipo?"
+  ],
+  "niederlage": [
+   "La derrota ante {gegner} duele. ¿Dónde falló?",
+   "La afición pitó al final. ¿Lo entiende?",
+   "¿Lo dio todo su equipo hoy?",
+   "¿Qué le dice al vestuario tras esta derrota ante {gegner}?",
+   "¿Fue cosa de táctica o de actitud?",
+   "¿Cuánto tardarán en olvidar esta derrota?",
+   "¿Tiene una explicación?",
+   "¿Está perdiendo fe el equipo?",
+   "¿Quién tiene que asumir la responsabilidad?",
+   "¿Habrá cambios la próxima semana?",
+   "¿Cómo levanta a los jugadores?",
+   "¿Influyó el árbitro?"
+  ],
+  "remis": [
+   "Empate contra {gegner}. ¿Un punto ganado o dos perdidos?",
+   "¿Le basta un punto así para sus objetivos?",
+   "Un punto contra {gegner} al final. ¿Le molesta el resultado?",
+   "¿Debió hacer cambios antes?",
+   "¿Qué se lleva de este empate?",
+   "¿Le falta ahora mismo a su equipo la última puntada?",
+   "¿Basta un punto para sus ambiciones?",
+   "¿Quién fue el mejor equipo?",
+   "¿Qué faltó para ganar?",
+   "¿Está contento con la reacción tras el descanso?",
+   "¿Se planteó hacer más cambios?"
+  ],
+  "serie_gut": [
+   "La racha continúa. ¿Hasta dónde puede llegar?",
+   "Varias victorias seguidas: ¿qué ha cambiado respecto a hace unas semanas?",
+   "¿Debemos esperar ahora a su equipo más arriba en la tabla?",
+   "¿Cómo mantiene la tensión cuando las cosas van tan bien?",
+   "¿Le preocupa que la racha acabe en algún momento?",
+   "¿Cuál es el secreto de esta racha?",
+   "¿Cuánto puede durar esto?",
+   "¿Es su equipo ahora el favorito?",
+   "¿Teme la relajación?",
+   "¿Quién ha sido para usted el ganador de estas semanas?",
+   "¿Mira ahora hacia arriba en la tabla?",
+   "¿Qué le dice al equipo tras una racha así?",
+   "¿Es ya este el equipo que tenía en mente?"
+  ],
+  "serie_schlecht": [
+   "Semanas sin ganar. ¿Peligra su puesto?",
+   "¿Qué está fallando en su equipo ahora mismo?",
+   "¿Sigue teniendo al vestuario con usted?",
+   "¿Cómo quiere darle la vuelta?",
+   "¿Se siente presionado?",
+   "¿Cómo romper esta racha?",
+   "¿Sigue el equipo con usted?",
+   "¿Sigue creyendo en el objetivo?",
+   "¿Teme por su puesto?",
+   "¿Cambiará ahora la alineación?",
+   "¿Qué le falta ahora mismo a su equipo?",
+   "¿Le habla ahora de otra manera al equipo?",
+   "¿Qué le da esperanza?"
+  ],
+  "star": [
+   "{spieler} estuvo sobresaliente hoy. ¿Su opinión?",
+   "¿Es {spieler} ahora mismo el mejor jugador de la liga?",
+   "¿Qué importancia tiene {spieler} en su juego?",
+   "¿Qué le dijo a {spieler} después del partido?",
+   "¿Cuánto tiempo podrán retener a {spieler}?",
+   "¿Puede retener a {spieler} en el club?",
+   "¿Es {spieler} el mejor jugador de la liga?",
+   "¿Qué importancia tiene {spieler} en el vestuario?",
+   "¿Qué hace {spieler} mejor que los demás?",
+   "¿Está {spieler} listo para la selección?",
+   "¿Cómo se mantiene {spieler} tan regular?",
+   "¿Había visto alguna vez a {spieler} tan bien?",
+   "¿Se está volviendo {spieler} demasiado importante en su juego?"
+  ],
+  "vorstand": [
+   "Se habla de inquietud en la directiva. ¿Cómo está su relación con ella?",
+   "¿Sigue teniendo el pleno respaldo de la directiva?",
+   "¿Con qué frecuencia habla ahora con la directiva?",
+   "¿Le ha puesto la directiva un plazo?",
+   "¿Se siente respaldado desde arriba?",
+   "¿Sigue contando con el respaldo de la directiva?",
+   "¿Habló el presidente con usted esta semana?",
+   "¿Cuánto tiempo puede seguir así?",
+   "¿Ayudaría una renovación a calmar las cosas?",
+   "¿Qué le dijo la directiva la última vez?",
+   "¿Le da el presidente suficiente apoyo?",
+   "¿Ha habido una reunión de crisis?",
+   "¿Cuánto tiempo le dan todavía?",
+   "¿Habla también de fichajes con la directiva?",
+   "¿Está tensa su relación con la directiva?"
+  ],
+  "geruecht": [
+   "Se dice que {spieler} podría dejar el club. ¿Hay algo de cierto?",
+   "¿Hay una oferta por {spieler}?",
+   "¿Cómo lleva {spieler} los rumores?",
+   "¿Dejaría ir a {spieler} por el precio adecuado?",
+   "¿Ha pedido {spieler} salir?",
+   "¿Pidió {spieler} marcharse?",
+   "¿Está {spieler} centrado en el próximo partido?",
+   "¿Cuánta tranquilidad necesita ahora {spieler}?",
+   "¿Se ha puesto en contacto con usted el agente de {spieler}?",
+   "¿Dejaría ir a {spieler} si quiere irse?",
+   "¿Hay un precio por el que {spieler} se va?",
+   "¿Se habla en el vestuario de los rumores sobre {spieler}?",
+   "¿Sigue {spieler} aquí con la cabeza?"
+  ],
+  "ausfall": [
+   "{spieler} está de baja. ¿Cómo se arreglarán sin él?",
+   "¿Quién sustituye a {spieler}?",
+   "¿Cuánto tiempo estarán sin {spieler}?",
+   "¿Es la baja de {spieler} un motivo para volver al mercado?",
+   "¿Cómo reaccionó el equipo a la lesión de {spieler}?",
+   "¿Buscará un sustituto en el mercado?",
+   "¿Cuándo espera que vuelva {spieler}?",
+   "¿Cómo le afecta tácticamente esta baja?",
+   "¿Tendrá ahora su oportunidad un joven?",
+   "¿Cómo está {spieler} ahora mismo?",
+   "¿Ha hablado ya con {spieler}?",
+   "¿Estaba {spieler} sobrecargado?",
+   "¿Cambiará ahora el sistema?"
+  ],
+  "neuzugang": [
+   "{spieler} es nuevo en el equipo. ¿Cuándo se notará su impacto?",
+   "¿Qué le convenció de {spieler}?",
+   "¿Cómo se ha integrado {spieler} en el vestuario?",
+   "¿Es ya {spieler} candidato al once inicial?",
+   "¿Qué rol tiene pensado para {spieler}?",
+   "¿Dónde ve a {spieler} en su equipo?",
+   "¿Cuánto tardará {spieler} en adaptarse?",
+   "¿Por qué quería a {spieler}?",
+   "¿Qué espera de {spieler} en las primeras semanas?",
+   "¿Quién cuida de {spieler} en el vestuario?",
+   "¿Necesita {spieler} todavía tiempo?",
+   "¿Qué aporta {spieler} que les faltaba?",
+   "¿Siguió mucho tiempo a {spieler}?"
+  ],
+  "zusage_ziel": [
+   "Su objetivo de temporada es el puesto {ziel}. ¿Se lo promete a la afición?",
+   "¿Es realista el puesto {ziel}?",
+   "¿Qué pasa si no logra el puesto {ziel}?",
+   "¿Puede prometer a la afición el puesto {ziel}?",
+   "¿Es el puesto {ziel} el mínimo o un sueño?",
+   "¿Qué puede esperar la afición esta temporada?",
+   "¿Apunta más alto que la directiva?",
+   "¿Qué objetivo ha acordado con el equipo?",
+   "¿Es la plantilla suficiente para el puesto {ziel}?",
+   "¿Qué sería para usted una buena temporada?",
+   "¿Por qué debería juzgársele al final?",
+   "¿Firmaría hoy el puesto {ziel}?"
+  ],
+  "zusage_spieler": [
+   "¿Puede garantizar que {spieler} se queda?",
+   "¿Es {spieler} intransferible?",
+   "¿Seguirá {spieler} con ustedes la próxima temporada?",
+   "¿Puede descartar un traspaso de {spieler}?",
+   "¿Cuenta a largo plazo con {spieler}?",
+   "¿Puede prometer que {spieler} se queda?",
+   "¿Estará {spieler} aquí la próxima temporada?",
+   "¿Ligaría su futuro al de {spieler}?",
+   "¿Es {spieler} un jugador sobre el que construir el equipo?",
+   "¿Qué les dice a los clubes que preguntan por {spieler}?",
+   "¿Tendrá {spieler} un nuevo contrato?",
+   "¿Le ha dicho {spieler} que quiere quedarse?"
+  ]
+ },
+ "antworten": {
+  "ehrlich": "Con sinceridad: lo diré tal como es.",
+  "kaempferisch": "¡No nos rendimos, vamos a por ello!",
+  "ausweichend": "Hoy no voy a comentar eso.",
+  "lob": "Estoy orgulloso de mi equipo.",
+  "kritik": "Algunos jugadores no estuvieron hoy a su nivel.",
+  "diplomatisch": "Respetamos a todos y seguimos trabajando con calma.",
+  "kontern": "Esa pregunta es una insinuación."
+ },
+ "zusage_antwort": {
+  "zusage_ziel": "Sí. Lo conseguiremos, tienen mi palabra.",
+  "zusage_spieler": "Sí. {spieler} no se venderá."
+ },
+ "proteste": {
+  "stadion": "Protesta en el estadio",
+  "transparente": "Pancartas contra la directiva",
+  "pfiffe": "Pitos en el estadio",
+  "murren": "Murmullos en las gradas"
+ },
+ "aktionen": [
+  [
+   "fanfest",
+   "Fiesta de la afición",
+   160000,
+   5,
+   2,
+   90
+  ],
+  [
+   "familientag",
+   "Día de las familias",
+   45000,
+   2,
+   1,
+   30
+  ],
+  [
+   "legendenspiel",
+   "Partido de leyendas",
+   320000,
+   6,
+   5,
+   180
+  ],
+  [
+   "wohltaetigkeit",
+   "Partido benéfico",
+   90000,
+   1,
+   4,
+   60
+  ],
+  [
+   "auswaertsfahrt",
+   "Viaje para la afición",
+   60000,
+   3,
+   0,
+   30
+  ]
+ ],
+ "antworten_thema": {
+  "standard": {
+   "ehrlich": [
+    "{gegner} está en buena forma, no será fácil. Pero sabemos lo que valemos.",
+    "Sinceramente, espero un partido ajustado contra {gegner}. El puesto {platz} es solo una foto del momento.",
+    "Hemos entrenado bien, pero contra {gegner} decidirá el día."
+   ],
+   "kaempferisch": [
+    "No vamos a {gegner} a mirar. Queremos los tres puntos.",
+    "Por fuerte que sea {gegner}, afrontamos el partido con confianza.",
+    "Queremos mostrar desde el primer minuto quién manda ahí fuera."
+   ],
+   "diplomatisch": [
+    "{gegner} tiene mi respeto. Nos preparamos con calma y nos centramos en nosotros.",
+    "Cada partido tiene su historia. Contra {gegner} solo cuenta el rendimiento del día.",
+    "No miro la tabla, solo los próximos 90 minutos."
+   ],
+   "ausweichend": [
+    "No diré nada de nuestra táctica contra {gegner} antes del partido.",
+    "Pregúntemelo otra vez mañana tras el pitido final.",
+    "Esperemos al partido."
+   ]
+  },
+  "sieg": {
+   "ehrlich": [
+    "La victoria contra {gegner} fue merecida, pero no todo funcionó.",
+    "Ganamos porque fuimos más precisos en los momentos decisivos.",
+    "También tuvimos algo de suerte, es el fútbol. Pero los chicos se lo ganaron."
+   ],
+   "lob": [
+    "Los chicos hicieron todo lo que hablamos contra {gegner}. Estoy orgulloso.",
+    "Fue una actuación madura de todo el equipo.",
+    "Enorme mérito de todo el equipo, hoy todos trabajaron para todos."
+   ],
+   "kritik": [
+    "Ganamos, pero no me gustó la segunda parte. Lo hablaremos.",
+    "Tres puntos contra {gegner}, bien. Aun así, fuimos descuidados demasiadas veces.",
+    "Una victoria es una victoria, pero no estoy contento con la segunda parte."
+   ]
+  },
+  "niederlage": {
+   "ehrlich": [
+    "{gegner} fue mejor hoy, hay que aceptarlo.",
+    "Cometimos demasiados errores sencillos y los pagamos.",
+    "{gegner} fue simplemente mejor hoy. Tenemos que aceptarlo."
+   ],
+   "kaempferisch": [
+    "Esta derrota contra {gegner} no nos va a hundir. Responderemos.",
+    "Nos levantamos y seguimos. La próxima semana mostraremos otra cara.",
+    "Nos levantaremos. Este equipo tiene carácter."
+   ],
+   "kontern": [
+    "Deberían mirar con detalle la jugada antes de su primer gol.",
+    "Quien habla de crisis no ha visto las últimas semanas.",
+    "Prefiero no hablar de algunas decisiones del árbitro."
+   ],
+   "diplomatisch": [
+    "Enhorabuena a {gegner}. Lo analizaremos con calma.",
+    "Días así pasan. Aprendemos de ellos.",
+    "Lo analizaremos con calma y sacaremos las conclusiones correctas."
+   ]
+  },
+  "remis": {
+   "ehrlich": [
+    "Puedo vivir con el punto contra {gegner}, hoy no había para más.",
+    "Un empate justo, ambos tuvieron sus ocasiones.",
+    "Podemos vivir con el punto, hoy no había para más."
+   ],
+   "kaempferisch": [
+    "Un punto es poco para nosotros. Queríamos ganar a {gegner}.",
+    "Deberíamos haberlo ganado. La próxima vez nos llevamos tres.",
+    "La próxima semana nos llevamos los tres puntos."
+   ],
+   "kritik": [
+    "Hemos regalado dos puntos. Eso me molesta.",
+    "Nos faltó contundencia arriba, y también se lo diré al equipo.",
+    "Dejamos escapar demasiadas ocasiones, eso tiene que mejorar."
+   ]
+  },
+  "serie_gut": {
+   "ehrlich": [
+    "La racha es bonita, pero no jugará por nosotros el fin de semana.",
+    "Lo disfrutamos, pero seguimos con los pies en el suelo.",
+    "Las cosas van bien, pero sabemos lo rápido que pueden cambiar."
+   ],
+   "lob": [
+    "El equipo lleva semanas trabajando de maravilla. Se han ganado esta racha.",
+    "Pocas veces he visto un grupo que corra así el uno por el otro.",
+    "Los chicos están totalmente implicados, ahora mismo da gusto."
+   ],
+   "kritik": [
+    "Justo ahora no podemos relajarnos. Ya veo las primeras señales.",
+    "La racha esconde algunas debilidades. Estamos trabajando en ellas.",
+    "Justo ahora es cuando no podemos aflojar."
+   ]
+  },
+  "serie_schlecht": {
+   "ehrlich": [
+    "Los resultados no son suficientes, aquí todos lo saben.",
+    "Estamos en un momento difícil. Asumo la responsabilidad.",
+    "Estamos en un momento difícil, no hay que maquillarlo."
+   ],
+   "kaempferisch": [
+    "No voy a huir de esto. Saldremos juntos.",
+    "La tabla se decide al final. Le daremos la vuelta.",
+    "No voy a huir, saldremos de esta peleando."
+   ],
+   "kontern": [
+    "Mi puesto no es el tema. Pregunten por el partido.",
+    "Llevan semanas escribiendo estas preguntas. Seguimos trabajando.",
+    "Hace unas semanas todos escribían sobre un gran equipo."
+   ],
+   "diplomatisch": [
+    "Hablo con la directiva con regularidad, estamos de acuerdo en el camino.",
+    "Mantenemos la calma. El pánico nunca ha ayudado a ningún equipo.",
+    "Mantenemos la calma y seguimos con nuestro plan."
+   ]
+  },
+  "star": {
+   "ehrlich": [
+    "{spieler} hizo hoy un muy buen partido, ni más ni menos.",
+    "{spieler} estuvo fuerte, pero él mismo sabe que aún puede mejorar.",
+    "{spieler} hizo muchas cosas bien hoy, pero fue un rendimiento de equipo."
+   ],
+   "lob": [
+    "{spieler} estuvo sobresaliente hoy. Jugadores así ganan partidos.",
+    "Lo que mostró {spieler} hoy fue de primer nivel.",
+    "No es habitual tener un jugador como {spieler} en la plantilla."
+   ],
+   "kritik": [
+    "{spieler} estuvo bien, pero ganamos como equipo, no por un solo jugador.",
+    "No quiero endiosar a {spieler}. Lo que cuenta es la regularidad.",
+    "{spieler} sabe que también tiene que trabajar más en defensa."
+   ]
+  },
+  "vorstand": {
+   "ehrlich": [
+    "La relación es profesional. Hay opiniones distintas, es normal.",
+    "Claro que la directiva espera más. Yo también.",
+    "Hablamos abiertamente entre nosotros, eso forma parte."
+   ],
+   "lob": [
+    "Siento el respaldo de la directiva cada día.",
+    "La directiva trabaja de maravilla con nosotros.",
+    "La directiva hace un buen trabajo, remamos en la misma dirección."
+   ],
+   "diplomatisch": [
+    "Lo que se habla dentro se queda dentro.",
+    "Todos remamos en la misma dirección, aunque haya cosas que hablar.",
+    "Esas conversaciones se quedan dentro, como debe ser."
+   ]
+  },
+  "geruecht": {
+   "ehrlich": [
+    "Hay interés por {spieler}, es normal con los buenos jugadores. No hay nada decidido.",
+    "{spieler} tiene contrato con nosotros. Todo lo demás lo hablamos internamente.",
+    "Si un club pregunta, escuchamos. Eso es todo por ahora."
+   ],
+   "kontern": [
+    "¿Quién escribe estos rumores sobre {spieler}? Nada de eso es cierto.",
+    "No comento historias que alguien se ha inventado.",
+    "La semana que viene leeré que el que se va soy yo."
+   ],
+   "ausweichend": [
+    "Hoy no diré nada sobre {spieler}.",
+    "Los fichajes no son tema para una rueda de prensa.",
+    "Hoy no comento eso."
+   ]
+  },
+  "ausfall": {
+   "ehrlich": [
+    "Perder a {spieler} duele, no hay que maquillarlo.",
+    "Echaremos de menos a {spieler}. Ahora otros tienen que dar un paso al frente.",
+    "Su baja duele, no se puede esconder."
+   ],
+   "kaempferisch": [
+    "Tenemos una plantilla amplia. Quien entre lo dará todo.",
+    "No hay excusas. Lo sacaremos adelante juntos.",
+    "Ahora es el turno de los demás. Confío en la plantilla."
+   ],
+   "lob": [
+    "Confío en los chicos que juegan ahora en lugar de {spieler}.",
+    "Nuestra plantilla es lo bastante fuerte, lo he visto en los entrenamientos.",
+    "Los chicos que entran ahora se mueren por jugar."
+   ]
+  },
+  "neuzugang": {
+   "ehrlich": [
+    "{spieler} necesita unas semanas más para conocer todos los automatismos.",
+    "Le damos tiempo a {spieler}, que se adapte.",
+    "{spieler} necesita unas semanas más, es normal."
+   ],
+   "lob": [
+    "{spieler} ya ha mostrado en el entrenamiento por qué lo fichamos.",
+    "Con {spieler} tenemos exactamente el jugador que queríamos.",
+    "{spieler} mostró desde el primer día en el entrenamiento por qué lo fichamos."
+   ],
+   "ausweichend": [
+    "Prefiero hablar de jugadores concretos después de unos partidos.",
+    "Esperemos a ver qué dice el campo.",
+    "Hoy no hablo de jugadores concretos."
+   ]
+  },
+  "zusage_ziel": {
+   "ehrlich": [
+    "El puesto {ziel} es realista, pero en el fútbol no se puede prometer nada.",
+    "Trabajamos por el puesto {ziel}, no hay garantías.",
+    "El puesto {ziel} es alcanzable, pero nadie te lo regala."
+   ],
+   "diplomatisch": [
+    "El objetivo está fijado y todo el club lo respalda.",
+    "Vamos partido a partido, todos conocen el objetivo.",
+    "Se nos juzgará al final de la temporada, no en otoño."
+   ],
+   "kontern": [
+    "Hago promesas al final de la temporada, no en otoño.",
+    "Usted quiere un titular, yo quiero puntos.",
+    "La directiva fija los objetivos, yo pongo el trabajo."
+   ],
+   "ausweichend": [
+    "Las cuentas se hacen en mayo.",
+    "Ya he dicho todo sobre eso.",
+    "Hoy no doy cifras."
+   ]
+  },
+  "zusage_spieler": {
+   "ehrlich": [
+    "Quiero retener a {spieler}, pero en el fútbol todo es posible.",
+    "{spieler} es importante para nosotros. Que se quede no depende solo de mí.",
+    "{spieler} está contento aquí y contamos con él."
+   ],
+   "diplomatisch": [
+    "Hablamos con calma con {spieler} y su entorno.",
+    "{spieler} se siente en casa aquí, eso es lo que cuenta para mí.",
+    "En el fútbol todo es posible, pero no tenemos intención de dejarlo ir."
+   ],
+   "kontern": [
+    "Las únicas garantías vienen con las neveras.",
+    "Pregúntele al propio {spieler}, le dirá lo mismo.",
+    "Pregúntemelo otra vez dentro de dos años."
+   ],
+   "ausweichend": [
+    "No comento asuntos contractuales en público.",
+    "Eso lo hablamos internamente.",
+    "No comento cuestiones de personal."
+   ]
+  }
+ },
+ "einleitung": {
+  "standard": [
+   "Ahora toca {naechster}.",
+   "Antes del partido contra {naechster}:",
+   "Su equipo va {platz}.º en la tabla.",
+   "Con {punkte} puntos hasta ahora.",
+   "La plantilla entrenó a puerta cerrada esta semana.",
+   "Su rival {naechster} les ha observado de cerca.",
+   "Antes del saque inicial contra {naechster}:",
+   "El objetivo es el puesto {ziel}, ahora mismo van {platz}.º.",
+   "Una pregunta sobre el fin de semana:",
+   "Mirando el calendario.",
+   "Tras una semana intensa en la ciudad deportiva.",
+   "{naechster} llega a este partido con confianza."
+  ],
+  "sieg": [
+   "{ergebnis} contra {gegner}.",
+   "Una victoria por {ergebnis} en el bolsillo.",
+   "Tres puntos contra {gegner}.",
+   "Tras el {ergebnis} de hoy.",
+   "Ya son {punkte} puntos.",
+   "{platz}.º en la tabla tras el {ergebnis}.",
+   "Su equipo se vio afilado contra {gegner}.",
+   "La grada visitante estaba ruidosa tras el {ergebnis}.",
+   "¿Victoria número {serie} seguida?",
+   "Un día así contra {gegner}:",
+   "La victoria les sube al puesto {platz}.",
+   "El vestuario cantaba tras el {ergebnis}."
+  ],
+  "niederlage": [
+   "{ergebnis} contra {gegner}.",
+   "Una derrota por {ergebnis}.",
+   "Hoy sin puntos contra {gegner}.",
+   "Tras el {ergebnis}.",
+   "Bajan al puesto {platz} en la tabla.",
+   "Ya son {sieglos} partidos sin ganar.",
+   "La afición enmudeció tras el {ergebnis}.",
+   "{gegner} aprovechó sus ocasiones, ustedes no.",
+   "La tabla marca el puesto {platz}, el objetivo era el {ziel}.",
+   "Una noche larga tras el {ergebnis}:",
+   "Sus jugadores dejaron el campo cabizbajos.",
+   "La segunda parte contra {gegner} salió mal."
+  ],
+  "remis": [
+   "{ergebnis} contra {gegner}.",
+   "Un punto, {ergebnis}.",
+   "Tablas con {gegner}.",
+   "Tras el {ergebnis} de hoy.",
+   "Otro empate, {ergebnis}.",
+   "Siguen {platz}.º tras el {ergebnis}.",
+   "{gegner} aguantó el {ergebnis}.",
+   "Un punto que pudieron ser tres:",
+   "Un punto que pudo ser ninguno:",
+   "El {ergebnis} les deja con {punkte} puntos."
+  ],
+  "serie_gut": [
+   "{serie} victorias seguidas.",
+   "Su racha ya es de {serie} partidos.",
+   "Nadie les ha frenado en {serie} partidos.",
+   "Suben al puesto {platz} con una racha de {serie} victorias.",
+   "La racha continúa:",
+   "La liga empieza a fijarse en su racha.",
+   "El equipo está lanzado.",
+   "Los rivales les observan."
+  ],
+  "serie_schlecht": [
+   "{sieglos} partidos sin ganar.",
+   "La mala racha continúa.",
+   "Otra vez sin ganar, la {sieglos}.ª vez.",
+   "Bajan al puesto {platz} en la tabla.",
+   "La presión crece semana a semana.",
+   "Su última victoria parece muy lejana.",
+   "La afición pita.",
+   "El ambiente en el estadio está cambiando."
+  ],
+  "star": [
+   "{spieler} estuvo en todas partes hoy.",
+   "Qué partido de {spieler}.",
+   "Otra vez {spieler}.",
+   "La grada coreó el nombre de {spieler}.",
+   "Jugador del partido {spieler}:",
+   "Sin {spieler} hoy.",
+   "Los periódicos celebran a {spieler}.",
+   "Una vez más fue {spieler}."
+  ],
+  "vorstand": [
+   "Se habla en el palco.",
+   "La directiva se reunió esta semana.",
+   "Fuentes cercanas al club dicen que la directiva está inquieta.",
+   "Puesto {platz}, el objetivo {ziel}:",
+   "Se vio al presidente irse pronto hoy.",
+   "Los rumores desde las oficinas del club suenan cada vez más fuerte.",
+   "El presidente vio el último partido con cara seria.",
+   "Al parecer se habló de usted en el consejo.",
+   "Tras el último partido hubo una larga charla en el despacho del presidente."
+  ],
+  "geruecht": [
+   "Los periódicos hablan hoy de {spieler}.",
+   "Se habla mucho de {spieler}.",
+   "Se vio al agente de {spieler} en el estadio.",
+   "Había ojeadores en la grada para ver a {spieler}.",
+   "Los rumores sobre {spieler} no desaparecen.",
+   "Al parecer un grande ha preguntado por {spieler}.",
+   "Circula por internet una foto de {spieler} con la camiseta de otro club."
+  ],
+  "ausfall": [
+   "{spieler} estará un tiempo de baja.",
+   "La baja de {spieler} duele.",
+   "Sin {spieler} durante semanas.",
+   "El parte médico de {spieler}:",
+   "La lesión de {spieler} lo cambia todo.",
+   "Malas noticias del departamento médico:",
+   "Echarán de menos a {spieler}.",
+   "Ya está el diagnóstico de {spieler}."
+  ],
+  "neuzugang": [
+   "{spieler} acaba de llegar.",
+   "El nuevo, {spieler}:",
+   "{spieler} entrenó por primera vez con el equipo.",
+   "La afición siente curiosidad por {spieler}.",
+   "Los primeros días de {spieler} en el club:",
+   "La camiseta de {spieler} se vende bien.",
+   "Todas las miradas están puestas en {spieler}."
+  ],
+  "zusage_ziel": [
+   "La temporada aún es joven.",
+   "La directiva habla del puesto {ziel}.",
+   "Todos quieren oírle un objetivo.",
+   "La afición quiere ambición:",
+   "Las casas de apuestas le ven en el puesto {platz}.",
+   "Antes del inicio de la temporada, todos preguntan por el objetivo."
+  ],
+  "zusage_spieler": [
+   "{spieler} es el nombre en boca de todos.",
+   "Los clubes hacen cola por {spieler}.",
+   "El futuro de {spieler} es la pregunta de la semana.",
+   "La afición ha pintado una pancarta para {spieler}.",
+   "El contrato de {spieler} es el tema de la ciudad."
+  ]
+ }
+}

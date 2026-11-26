@@ -1,0 +1,14 @@
+{
+ "gs.ton.bestimmt": "Ferme",
+ "gs.partner.verein": "Clubs",
+ "gs.status.einig": "D'accord",
+ "gs.ui.gegen_annehmen": "Accepter la contre-proposition",
+ "gs.ui.partner_bricht_ab": "%1 rompt les discussions.",
+ "gs.ui.haltung.gegen_willen": "%1 n'apprécie pas, la relation en pâtit.",
+ "gs.ui.nahelegen": "Suggérer le départ",
+ "gs.ui.zum_bleiben": "Le convaincre de rester",
+ "gs.ui.ok.haltung_nahegelegt": "Vous suggérez le départ à %1. Son attitude change, la demande au club reste.",
+ "gs.ui.ok.haltung_bleiben": "Vous demandez à %1 de rester. Son attitude change, la demande au club reste.",
+ "gs.ui.fehler.schon_ausgereizt": "Vous ne pouvez pas obtenir plus de lui.",
+ "gs.vorfall.anliegen_stufe2.betreff": "%1 veut partir"
+}

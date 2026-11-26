@@ -1,0 +1,10 @@
+{
+ "med.dauer.tage": "De %1 a %2 días",
+ "med.hinweis.prognose": "Pronóstico: %1",
+ "med.hinweis.phase": "Fase de rehabilitación: %1 (%2 días más en esta fase)",
+ "med.hinweis.rueckfall_frueh": "Riesgo de recaída ×%1 durante los próximos %2 días",
+ "med.hinweis.frueh_ohne": "Sin riesgo adicional: la rehabilitación está prácticamente completa",
+ "med.akt.reha": "Iniciar programa de rehabilitación",
+ "med.akt.fitspritze": "Poner una infiltración",
+ "med.hinweis.fit_rueckfall": "Riesgo de recaída ×%1 durante %2 días"
+}

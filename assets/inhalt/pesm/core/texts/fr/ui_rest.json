@@ -1,0 +1,10 @@
+{
+ "r.ui.demo.gross": "grand",
+ "r.ui.demo.ueberlastet": "surchargé",
+ "r.ui.demo.muskelverhaertung": "Contracture musculaire",
+ "optionen.akzent.quelle.wappen": "Source : déduite du blason.",
+ "optionen.akzent.quelle.gespeichert": "Source : apparence enregistrée de cette carrière.",
+ "optionen.akzent.quelle.spieldaten": "Source : couleurs des données du jeu.",
+ "optionen.akzent.quelle.manuell": "Source : couleur choisie par vous.",
+ "optionen.akzent.quelle.system": "Source : accent par défaut ; aucun blason ni couleur trouvés dans les données du jeu."
+}

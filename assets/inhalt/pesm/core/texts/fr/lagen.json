@@ -1,0 +1,10 @@
+{
+ "lg.welt.ki_geruecht": "Rumeur : %1 rejoindrait %2.",
+ "lg.welt.wechsel": "%1 : %2 vers %3",
+ "lg.welt.grund.eigen": "Vous lisez ceci car cela concerne un joueur de votre club (effectif, jeunes, prêt ou candidat à la vente).",
+ "lg.welt.grund.verhandlung": "Vous lisez ceci car vous négociez pour lui en ce moment.",
+ "lg.welt.grund.beobachtet": "Vous lisez ceci car vous l'observez ou l'avez sur votre liste.",
+ "lg.welt.grund.konkurrent": "Vous lisez ceci car cela concerne l'un des joueurs les plus précieux d'un rival direct de votre championnat.",
+ "lg.welt.grund.weltstar": "Vous lisez ceci car c'est une star mondiale et l'indemnité est énorme.",
+ "lg.welt.grund.groesste": "Vous lisez ceci car c'est l'une des plus grosses indemnités du jour."
+}

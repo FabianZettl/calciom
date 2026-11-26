@@ -1,0 +1,31 @@
+{
+ "_hinweis": "Texts for second teams and farm teams, kept separate from the logic. %1, %2 are replaced.",
+ "luecke": {
+  "tor": "Il nous faut un jeune gardien qui puisse jouer chez nous.",
+  "abwehr": "Il nous manque des défenseurs centraux et nous avons de la place dans l'effectif.",
+  "aussen": "Il nous faut de jeunes latéraux et nous avons de la place dans l'effectif.",
+  "mitte": "Nous sommes justes au milieu ; des jeunes joueraient tout de suite.",
+  "fluegel": "Il nous manque de la vitesse sur les ailes ; il y a de la place pour vos talents.",
+  "sturm": "Nous cherchons de jeunes attaquants qui veulent marquer pour nous."
+ },
+ "grund": {
+  "klamm": "L'argent nous aiderait à finir la saison sereinement.",
+  "abstand": "Avec un grand partenaire, nous obtenons des joueurs que nous ne pourrions jamais nous offrir.",
+  "trainer": "Notre entraîneur aime travailler avec des jeunes.",
+  "naehe": "Courtes distances, même langue : ça colle tout simplement."
+ },
+ "leihgrund": {
+  "jung": "Doit acquérir de l'expérience à %1.",
+  "verletzt": "Doit retrouver le rythme à %1 après sa blessure.",
+  "bank": "Joue à peine ici et doit faire ses preuves à %1.",
+  "sonst": "Doit se montrer à %1 pour viser plus haut."
+ },
+ "kuendigung": {
+  "zurueck": "%1 met fin au partenariat : « Vous nous aviez promis que les jeunes joueraient la saison chez nous, puis vous les rappelez. Impossible de planifier comme ça. »",
+  "wenig": "%1 met fin au partenariat : « On nous avait promis %2 joueurs prêtés et nous en avons eu %3. Pas besoin d'un grand partenaire pour ça. »",
+  "zahlung": "%1 met fin au partenariat : « L'argent n'arrive pas. Nous aussi, nous avons des factures à payer. »",
+  "ablauf": "Le partenariat avec %1 est arrivé à échéance."
+ },
+ "anfrage_titel": "%1 veut devenir notre club satellite",
+ "bewerbung_titel": "Candidature comme club partenaire : %1"
+}

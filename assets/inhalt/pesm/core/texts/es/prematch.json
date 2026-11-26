@@ -1,0 +1,21 @@
+{
+ "pm.titel": "Previa",
+ "pm.einordnung.pflichtsieg": "Hay que ganar",
+ "pm.einordnung.favorit": "Favoritos",
+ "pm.einordnung.offen": "Partido abierto",
+ "pm.einordnung.aussenseiter": "Modestos",
+ "pm.einordnung.derby": "Derbi",
+ "pm.grund.tabelle_unbekannt": "Clasificación sin leer",
+ "pm.grund.abstand_vorn": "Posición claramente mejor",
+ "pm.grund.abstand_hinten": "Posición claramente peor",
+ "pm.grund.abstand_eng": "Equipos cerca en la tabla",
+ "pm.grund.heim": "Ventaja de jugar en casa",
+ "pm.grund.auswaerts": "Partido fuera",
+ "pm.grund.form_besser": "Mejor forma",
+ "pm.grund.form_schlechter": "Peor forma",
+ "pm.grund.ausfaelle": "Muchas bajas",
+ "pm.grund.ziel_verfehlt": "Por debajo del objetivo de temporada",
+ "pm.grund.ziel_erreicht": "Objetivo de temporada al alcance",
+ "pm.aufstellung.aendern": "Cambiar alineación",
+ "pm.zum_spiel": "Al partido"
+}

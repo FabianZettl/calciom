@@ -1,0 +1,22 @@
+{
+ "bg.zufall.pech": "Pas de chance : ça a mal tourné et personne n'est fautif.",
+ "bg.entscheidung.verl_rueckfall": "Il est revenu trop tôt et l'ancienne blessure s'est réveillée.",
+ "bg.entscheidung.verl_belastung": "Sa charge était élevée.",
+ "bg.entscheidung.verl_muedigkeit": "Il était fatigué, sa condition n'était que de %1.",
+ "bg.entscheidung.verl_alter": "À %1 ans, le corps supporte moins bien la charge.",
+ "bg.entscheidung.verl_rueckkehr": "Il vient tout juste de revenir de blessure.",
+ "bg.entscheidung.verl_spieldichte": "Il a joué %1% des matchs, et chaque minute comporte un risque.",
+ "bg.entscheidung.verl_anfaellig": "Il est naturellement plus sujet aux blessures.",
+ "bg.entscheidung.verl_vorgeschichte": "Il a déjà eu %1 absences l'an dernier.",
+ "bg.entscheidung.dauer_art": "Une %1 dure en général %2 à %3 jours, le kiné s'attend à %4 à %5.",
+ "bg.entscheidung.dauer_spanne_weit": "Le service ne peut l'estimer que grossièrement, la fourchette est large.",
+ "bg.entscheidung.dauer_spanne_mittel": "Le service l'estime avec une précision moyenne.",
+ "bg.entscheidung.dauer_spanne_eng": "Le service l'estime avec précision, la fourchette est étroite.",
+ "bg.entscheidung.dauer_abteilung_kuerzer": "Votre service médical raccourcit l'absence d'environ %1%.",
+ "bg.entscheidung.arzt_frueh": "Vous le faites jouer maintenant, en pleine phase de rééducation « %1 », avec encore %2 jours d'absence.",
+ "bg.entscheidung.arzt_rueckfall": "Le risque de rechute est multiplié par %1 pendant les %2 prochains jours.",
+ "bg.entscheidung.arzt_reha": "Le programme de rééducation raccourcit l'absence de %1 jours et coûte %2 €.",
+ "bg.entscheidung.arzt_fit": "Infiltration numéro %1 sur %2 maximum cette saison.",
+ "bg.entscheidung.arzt_fit_leistung": "Condition et forme restent diminuées pendant %1 jours.",
+ "bg.entscheidung.arzt_dauerschaden": "À la %1e infiltration de la saison, un point de vitesse ou d'endurance est perdu définitivement."
+}

@@ -104,7 +104,7 @@ On match day you can **Simulate** the match in PES M, or **Play (FL27)** and pla
 
 1. **Close FL27** if it is running.
 2. On the match day page choose **Play (FL27)**.
-3. The first time, click **Allow match launch**, then read the note and click **Understood, don't ask again**.
+3. The first time, click **Allow match launch**, then read the note and click **Understood, don't ask again**. (If you said yes to direct start in the first-start question, PES M has done this for you and you go straight to step 4.)
 4. Click **Start match in FL27**.
 
 PES M now does this, step by step:
@@ -132,18 +132,32 @@ Tip: switch on **Settings › Football Life 2027 › "Quit FL27 after full time"
 
 ### The next matches (FL27 stays open)
 
-You do not have to restart FL27 between matches. If FL27 is still running when you click **Start match in FL27**, PES M prepares the changes for the running game. Then in FL27:
+You do not have to restart FL27 between matches. If FL27 is still running when you click **Start match in FL27**, PES M prepares the changes for the running game.
 
-1. Open the Sider overlay (**Space**).
-2. Pick the module **PESM-LivePatch** (key **1**).
-3. Press **F7**.
-4. Close the overlay and start the match as above.
+In FL27 open the Sider overlay (**Space**), pick the module **PESM-LivePatch** (key **1**), press **F7**, close the overlay and start the match as above.
+
+With **direct start** on, PES M closes FL27 after each match and starts it again straight into the next one, so you don't need this.
 
 This updates the 25 attributes, line-ups, shirt numbers and formations. **New or transferred players, skills, positions and names need a restart of FL27.** PES M tells you when that is the case: quit FL27 and click **Start match in FL27** again.
 
-### Coming soon: direct start
+### Direct start
 
-We have a direct start working in tests: FL27 boots straight into the match with the right teams and kits, without the main menu (a Sider module and a small file `SiderAddons\flw\direktmatch.txt` with the two team IDs). It is **not in PES M yet**, and its files are not in this repository. Until then, pick the teams yourself as described above.
+**The first time you open PES M 0.2.1** it asks once: *"Play your matches with direct start?"*
+
+- **Yes, switch it on:** PES M sets everything up right away, on Linux and Windows. It reads the game's own flow files from `Data\dt16_all.cpk`, changes only three targets and writes them to `SiderAddons\content\pesm-direktmatch\flow`. It also installs the Sider module `pesm_direktmatch.lua` and its `sider.ini` line, allows the match launch and switches on *Quit FL27 after full time* for you. If you have GigaPack's `modules\fl26match.lua`, PES M comments out its statistics file call (`fl26_match_statsfile`): its background thread makes FL27 crash at random, mostly at half-time or when a match ends. The mod keeps working; the original is kept as `fl26match.lua.pesm-original` and is put back when you switch direct start off. A short guide follows. New careers get direct start too.
+- **No, keep the menus:** nothing changes, FL27 starts with its normal menus.
+
+You can change it any time under **Settings › Football Life 2027 › Direct start**. PES M ships no game files for this.
+
+**How a match goes with direct start:**
+
+1. On match day click **Start match in FL27**. Set the **match length** right below it.
+2. FL27 starts and goes straight to the **side selection**: move your controller left or right and confirm.
+3. The match day screen comes up with both teams and kits. You press **Kick-off** yourself.
+4. At **half-time** the menu stays: substitutions and tactics as usual.
+5. After the final whistle FL27 skips the stats and result screens, PES M books the result and closes FL27 (*Quit FL27 after full time* is switched on with direct start). For the next match PES M starts it again, straight into the match, with all your changes.
+
+Not there yet: the entrance animation before kick-off. New or transferred players need an FL27 restart. Direct start is tested on Linux; Windows is not tested yet.
 
 ### Undo everything
 

@@ -269,6 +269,8 @@ local function load_all()
   if not ok then say("error in teams: " .. tostring(e)) end
   say(string.format("loaded: %d player values, %d teams (%d skipped) in %.1f s", w, tw, b + ts, os.clock() - t0))
 end
+-- the direct-start module calls this when FL27 is back at side selection, so no F7 is needed there
+pesm_livepatch_laden = load_all
 
 function m.key_down(ctx, vkey)
   if tonumber(vkey) == KEY_LOAD then load_all() end

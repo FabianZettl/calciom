@@ -1015,35 +1015,82 @@ pub fn stadion_einsetzen(t: &str) -> Option<String> {
 }
 /// Direktstart stage 1: replacement flow files and the 2-KB intro placeholder in S/livecpk/PESM_DirectMatch.
 /// Without the templates (they are not in the public repository) the step is skipped: false.
-pub fn direktstart_einrichten(s: &Path, assets: &Path) -> Result<bool, String> {
-    if !assets.join("direktstart").is_dir() { return Ok(false); }
+pub fn direktstart_einrichten(s: &Path) -> Result<bool, String> {
     let d = s.join("livecpk").join(DIRECT_ROOT);
-    for (src, dst) in [("PreStartup.json", "common/script/flow/PreStartup.json"), ("MenuPreTitle.json", "common/script/flow/Intro/MenuPreTitle.json"), ("FL2027.usm", "movie/intro/FL2027.usm")] {
-        let want = std::fs::read(assets.join("direktstart").join(src)).map_err(|e| format!("{src}: {e}"))?;
-        if std::fs::read(d.join(dst)).ok().as_deref() != Some(&want[..]) { atomic_write(&d.join(dst), &want)?; }
+    for dst in ["common/script/flow/PreStartup.json", "common/script/flow/Intro/MenuPreTitle.json"] { // roh
+        if std::fs::read(d.join(dst)).ok().as_deref() != Some(FLOW_LADEN.as_bytes()) { atomic_write(&d.join(dst), FLOW_LADEN.as_bytes())?; }
+    }
+    // an old mod's short film replaced the game's intro even on a normal start (fl27-direktstart 26.11.): it goes
+    let _ = std::fs::remove_file(d.join("movie/intro/FL2027.usm")); // roh
+    Ok(true)
+}
+/// Stage 1: a flow step that goes straight on to loading the system data (no intro, no title screen).
+const FLOW_LADEN: &str = "{\n\t\"events\": {\n\t\t\"proceed\": {\n\t\t\t\"to\": \"Intro/ProcSystemDataLoad\",\n\t\t\t\"go\": \"forward\",\n\t\t\t\"clear\": \"all\",\n\t\t\t\"fadeStart\": \"\",\n\t\t\t\"fadeEnd\": \"do\",\n\t\t\t\"bgType\": \"none\"\n\t\t}\n\t},\n\t\"data\": {\n\t\t\"type\": \"process\",\n\t\t\"bgId\": \"\",\n\t\t\"dialog\": \"\"\n\t},\n\t\"binFile\": {\n\t\t\"files\": []\n\t}\n}\n"; // roh
+
+/// Direktstart stage 2 (fl27-direktstart, Fabian 26.11.): the module pesm_direktmatch.lua and the flow files it puts
+/// in only for a direct start (side selection → match day screen without team choice, result menus skipped).
+/// The flow files are the game's own, so they are never shipped: they are built here from the originals in the
+/// player's Data/dt16_all.cpk with only the targets of FLOW_UMLEITUNGEN changed. False when that is not possible.
+pub fn direktmatch_einrichten(s: &Path, assets: &Path) -> Result<bool, String> {
+    let Ok(lua) = std::fs::read(assets.join("direktmatch/pesm_direktmatch.lua")) else { return Ok(false) };
+    let Some(spiel) = s.parent() else { return Ok(false) };
+    let Ok(cpk) = pesm_coaching_zone::cpk::Cpk::open(&spiel.join("Data/dt16_all.cpk")) else { return Ok(false) }; // roh
+    let mut neu = vec![];
+    for (f, ev, to) in FLOW_UMLEITUNGEN {
+        let Ok(roh) = cpk.read(&format!("common/script/flow/{f}.json")) else { return Ok(false) }; // roh
+        let roh = if roh.len() > 16 && &roh[3..8] == b"WESYS" { unpack(&roh)?.1 } else { roh };
+        let t = String::from_utf8(roh).map_err(|e| format!("{f}: {e}"))?;
+        neu.push((f, flow_umleiten(&t, ev, to).ok_or(format!("{f}: {ev}"))?));
+    }
+    let ziel = s.join("modules").join("pesm_direktmatch.lua");
+    if std::fs::read(&ziel).ok().as_deref() != Some(&lua[..]) { atomic_write(&ziel, &lua)?; }
+    // the module takes every file in the folder: old copies of dropped ones must go (replay hang, half-time menu back on 26.11.)
+    for alt in ["Match/MatchReplay.json", "Match/MatchPreHalfTime.json"] { let _ = std::fs::remove_file(s.join("content/pesm-direktmatch/flow").join(alt)); } // roh
+    for (f, t) in neu {
+        let d = s.join("content/pesm-direktmatch/flow").join(format!("{f}.json")); // roh
+        if std::fs::read(&d).ok().as_deref() != Some(t.as_bytes()) { atomic_write(&d, t.as_bytes())?; }
     }
     Ok(true)
 }
-
-/// Direktstart stage 2 (fl27-direktstart, Fabian 26.11.): the module pesm_direktmatch.lua and the flow files it puts
-/// in only for a direct start (side selection → match day screen without team choice, half-time and result menus
-/// skipped). Without the templates the step is skipped: false.
-pub fn direktmatch_einrichten(s: &Path, assets: &Path) -> Result<bool, String> {
-    let q = assets.join("direktmatch");
-    // the flow files are the game's own (not in the public repository): without them no direct start
-    if !q.join("flow").is_dir() { return Ok(false); }
-    let Ok(lua) = std::fs::read(q.join("pesm_direktmatch.lua")) else { return Ok(false) };
-    let ziel = s.join("modules").join("pesm_direktmatch.lua");
-    if std::fs::read(&ziel).ok().as_deref() != Some(&lua[..]) { atomic_write(&ziel, &lua)?; }
-    // the replay redirect hung the pause menu's replay (fl27-direktstart 26.11.): an old copy goes
-    // the module takes every file in the folder: old copies of dropped ones must go (replay hang, half-time menu back on 26.11.)
-    for alt in ["Match/MatchReplay.json", "Match/MatchPreHalfTime.json"] { let _ = std::fs::remove_file(s.join("content/pesm-direktmatch/flow").join(alt)); } // roh
-    for f in ["Match/MatchIdle.json", "Match/MatchPreResult.json", "Exhibition/ExhibiSideSetting.json"] { // roh
-        let want = std::fs::read(q.join("flow").join(f)).map_err(|e| format!("{f}: {e}"))?;
-        let d = s.join("content/pesm-direktmatch/flow").join(f);
-        if std::fs::read(&d).ok().as_deref() != Some(&want[..]) { atomic_write(&d, &want)?; }
-    }
+/// GigaPack's fl26match.lua (another mod): its statistics file call starts a 5 s thread that reads a match pointer
+/// unchecked and crashes FL27 at half-time or the end in the direct start (fl27-direktstart 26.11.). With direct start
+/// on, that one call is commented out and the original kept next to it; true when the file was changed now.
+pub fn fl26match_statistik_aus(s: &Path) -> Result<bool, String> {
+    let p = s.join("modules/fl26match.lua"); // roh
+    let Ok(t) = std::fs::read_to_string(&p) else { return Ok(false) };
+    let aktiv = |z: &str| z.contains("\"fl26_match_statsfile\"") && !z.trim_start().starts_with("--"); // roh
+    if !t.split_inclusive('\n').any(aktiv) { return Ok(false); }
+    let sich = s.join("modules/fl26match.lua.pesm-original"); // roh
+    if !sich.exists() { atomic_write(&sich, t.as_bytes())?; }
+    let neu: String = t.split_inclusive('\n').map(|z| if aktiv(z) { let e = z.len() - z.trim_start().len(); format!("{}-- {}", &z[..e], &z[e..]) } else { z.to_string() }).collect();
+    atomic_write(&p, neu.as_bytes())?;
     Ok(true)
+}
+/// Direct start off: fl26match.lua back as it was before PES M touched it.
+pub fn fl26match_wiederherstellen(s: &Path) -> Result<(), String> {
+    let sich = s.join("modules/fl26match.lua.pesm-original"); // roh
+    let Ok(t) = std::fs::read(&sich) else { return Ok(()) };
+    atomic_write(&s.join("modules/fl26match.lua"), &t)?; // roh
+    std::fs::remove_file(&sich).map_err(|e| e.to_string())
+}
+/// The only changes to the game's flow (fl27-direktstart/ablauf/README.md): file, event, new target.
+pub const FLOW_UMLEITUNGEN: [(&str, &str, &str); 3] = [
+    ("Exhibition/ExhibiSideSetting", "proceed", "Exhibition/ExhibiChangeCompeDesignKind"), // roh
+    ("Match/MatchIdle", "02_match_result", "Match/MatchPreResult"), // roh
+    ("Match/MatchPreResult", "proceed", "Match/MatchEnd"), // roh
+];
+/// The flow text with the "to" of `events.<ev>` set to `to`, everything else byte for byte as it was; None when the
+/// event is missing or the result differs from the original in anything but that target.
+pub fn flow_umleiten(t: &str, ev: &str, to: &str) -> Option<String> {
+    let e = t.find("\"events\"")?;
+    let k = e + t[e..].find(&format!("\"{ev}\""))?;
+    let z = k + t[k..].find("\"to\"")?;
+    let a = z + 4 + t[z + 4..].find('"')? + 1;
+    let b = a + t[a..].find('"')?;
+    let neu = format!("{}{to}{}", &t[..a], &t[b..]);
+    let mut soll: serde_json::Value = serde_json::from_str(t).ok()?;
+    *soll.get_mut("events")?.get_mut(ev)?.get_mut("to")? = to.into(); // roh
+    (serde_json::from_str::<serde_json::Value>(&neu).ok()? == soll).then_some(neu)
 }
 /// The line of flw/direktmatch.txt the module reads at the game's start: "heim gast kit_h kit_a minuten menue" with
 /// the rules: vl/em (extra time, penalties), finale=1 or mi=52 (semi-final: the mods' final look and full stands),

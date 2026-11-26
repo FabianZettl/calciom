@@ -1,0 +1,31 @@
+{
+ "_hinweis": "Texts for second teams and farm teams, kept separate from the logic. %1, %2 are replaced.",
+ "luecke": {
+  "tor": "Necesitamos un portero joven que pueda jugar con nosotros.",
+  "abwehr": "Nos faltan centrales y tenemos sitio en la plantilla.",
+  "aussen": "Necesitamos laterales jóvenes y tenemos sitio en la plantilla.",
+  "mitte": "Vamos cortos en el centro del campo; los jóvenes jugarían de inmediato.",
+  "fluegel": "Nos falta velocidad por las bandas; hay sitio para tus talentos.",
+  "sturm": "Buscamos delanteros jóvenes que quieran marcar goles con nosotros."
+ },
+ "grund": {
+  "klamm": "El dinero nos ayudaría a terminar la temporada con tranquilidad.",
+  "abstand": "Con un socio grande conseguimos jugadores que nunca podríamos pagar.",
+  "trainer": "A nuestro entrenador le gusta trabajar con jóvenes.",
+  "naehe": "Distancias cortas, mismo idioma: simplemente encaja."
+ },
+ "leihgrund": {
+  "jung": "Debe ganar experiencia en %1.",
+  "verletzt": "Debe recuperar el ritmo en %1 tras su lesión.",
+  "bank": "Apenas juega aquí y debe demostrar su valía en %1.",
+  "sonst": "Debe postularse para cosas mayores en %1."
+ },
+ "kuendigung": {
+  "zurueck": "%1 pone fin a la colaboración: “Nos prometiste que los chicos jugarían la temporada con nosotros, y luego los repescas. Así no podemos planificar.”",
+  "wenig": "%1 pone fin a la colaboración: “Nos prometieron %2 cedidos y recibimos %3. Para eso no necesitamos un socio grande.”",
+  "zahlung": "%1 pone fin a la colaboración: “El dinero no llega. Nosotros también tenemos facturas que pagar.”",
+  "ablauf": "La colaboración con %1 ha vencido."
+ },
+ "anfrage_titel": "%1 quiere ser nuestro club satélite",
+ "bewerbung_titel": "Candidatura como club asociado: %1"
+}

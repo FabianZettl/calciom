@@ -1,0 +1,16 @@
+{
+ "verl.art.zerrung": "Élongation",
+ "verl.art.prellung": "Contusion",
+ "verl.art.muskelfaserriss": "Déchirure musculaire",
+ "med.phase.behandlung": "Traitement",
+ "med.phase.aufbau": "Reprise",
+ "med.phase.mannschaftstraining": "Entraînement collectif",
+ "med.phase.einsatzbereit": "Apte",
+ "med.ampel.gruen": "vert",
+ "med.ampel.gelb": "jaune",
+ "med.ampel.rot": "rouge",
+ "med.ampel.muedigkeit": "Fatigue",
+ "med.ampel.minuten": "Minutes jouées",
+ "med.ampel.dichte": "Densité du calendrier",
+ "med.ampel.anfaellig": "Prédisposition aux blessures"
+}

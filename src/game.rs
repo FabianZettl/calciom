@@ -3306,11 +3306,7 @@ impl fl27::Ablauf for Fl27Start<'_> {
     }
     fn konfiguration(&mut self) -> Result<(), String> {
         let s = fl27::sider();
-        if !fl27::direktstart_einrichten(&s, &self.assets)? { self.log.push("Direktstart-Vorlagen fehlen, Schritt übersprungen".into()); }
-        // stage 2: straight into the match (side selection for the controllers, then the match day screen)
-        if fl27::direktmatch_einrichten(&s, &self.assets)? {
-            if fl27::sider_ini_anwenden(&self.c.karriere_dir(), &s, |t| Ok(crate::livepatch::ini_mit_lua(t, "pesm_direktmatch.lua")))? { self.log.push("sider.ini: PESM-Direktstart eingetragen".into()); } // roh
-        }
+        if self.c.direktstart { self.direktstart_bauen()?; } else { fl27::direktstart_einrichten(&s)?; fl27::fl26match_wiederherstellen(&s)?; }
         // LivePatch module: later database changes reach the running game with F7 (no restart)
         if crate::livepatch::modul_einrichten(&s, &self.assets)? {
             if fl27::sider_ini_anwenden(&self.c.karriere_dir(), &s, |t| Ok(crate::livepatch::ini_mit_modul(t)))? { self.log.push("sider.ini: PESM-LivePatch eingetragen".into()); }
@@ -3370,6 +3366,17 @@ impl fl27::Ablauf for Fl27Start<'_> {
     }
 }
 impl Fl27Start<'_> {
+    /// The whole direct start way (Fabian 26.11., also from the first-start question): stage 1, the flow files built
+    /// from the game's own archive, the module and its sider.ini line. False when the game's files are not there.
+    pub fn direktstart_bauen(&mut self) -> Result<bool, String> {
+        let s = fl27::sider();
+        fl27::direktstart_einrichten(&s)?;
+        // stage 2: straight into the match (side selection for the controllers, then the match day screen)
+        if !fl27::direktmatch_einrichten(&s, &self.assets)? { return Ok(false); }
+        if fl27::fl26match_statistik_aus(&s)? { self.log.push("fl26match.lua: Statistik-Datei aus (Sicherung daneben)".into()); } // roh
+        if fl27::sider_ini_anwenden(&self.c.karriere_dir(), &s, |t| Ok(crate::livepatch::ini_mit_lua(t, "pesm_direktmatch.lua")))? { self.log.push("sider.ini: PESM-Direktstart eingetragen".into()); } // roh
+        Ok(true)
+    }
     /// The career's database in the game folder (what the running game loaded and the patches are made from).
     fn live_pesdb(&mut self) -> std::path::PathBuf { fl27::sider().join(crate::id("livecpk")).join(self.c.fl27_cpk()).join("common/etc/pesdb") }
 }
@@ -3954,9 +3961,33 @@ mod direktmatch {
     fn einrichten_und_zeile() {
         let s = std::env::temp_dir().join(format!("pesm-direktmatch-{}", std::process::id()));
         let _ = std::fs::remove_dir_all(&s);
-        let da = std::path::Path::new("assets/fl27/direktmatch/flow").is_dir();
-        assert_eq!(fl27::direktmatch_einrichten(&s, std::path::Path::new("assets/fl27")).unwrap(), da);
-        assert!(!da || s.join("modules/pesm_direktmatch.lua").is_file() && s.join("content/pesm-direktmatch/flow/Exhibition/ExhibiSideSetting.json").is_file());
+        // built from the game's own Data/dt16_all.cpk: without the game nothing happens
+        let spiel = fl27::spielordner();
+        let da = spiel.join("Data/dt16_all.cpk").is_file();
+        std::fs::create_dir_all(s.join("SiderAddons")).unwrap();
+        if da { std::os::unix::fs::symlink(spiel.join("Data"), s.join("Data")).unwrap(); }
+        let sa = s.join("SiderAddons");
+        assert_eq!(fl27::direktmatch_einrichten(&sa, std::path::Path::new("assets/fl27")).unwrap(), da);
+        if da {
+            let t = std::fs::read_to_string(sa.join("content/pesm-direktmatch/flow/Match/MatchIdle.json")).unwrap();
+            let v: serde_json::Value = serde_json::from_str(&t).unwrap();
+            assert_eq!(v["events"]["02_match_result"]["to"], "Match/MatchPreResult");
+            assert!(sa.join("modules/pesm_direktmatch.lua").is_file() && sa.join("content/pesm-direktmatch/flow/Exhibition/ExhibiSideSetting.json").is_file());
+        }
+        // GigaPack's statistics call goes off with a backup and comes back as it was
+        let m = s.join("SiderAddons/modules");
+        std::fs::create_dir_all(&m).unwrap();
+        let orig = "  report(\"x\")\r\n  ffi.cast(\"t\", f(h, \"fl26_match_statsfile\"))(d)\r\nend\r\n";
+        std::fs::write(m.join("fl26match.lua"), orig).unwrap();
+        assert!(fl27::fl26match_statistik_aus(&sa).unwrap() && !fl27::fl26match_statistik_aus(&sa).unwrap());
+        assert_eq!(std::fs::read_to_string(m.join("fl26match.lua")).unwrap(), orig.replace("  ffi.cast", "  -- ffi.cast"));
+        fl27::fl26match_wiederherstellen(&sa).unwrap();
+        assert_eq!(std::fs::read_to_string(m.join("fl26match.lua")).unwrap(), orig);
+        assert!(!m.join("fl26match.lua.pesm-original").exists());
+        // only the target changes; a missing event is refused
+        let t = "{\"events\": {\"a\": {\"to\": \"X/Y\", \"go\": \"forward\"}, \"proceed\": {\"to\": \"X/Z\"}}}";
+        assert_eq!(fl27::flow_umleiten(t, "proceed", "Q/R").unwrap(), t.replace("X/Z", "Q/R"));
+        assert!(fl27::flow_umleiten(t, "fehlt", "Q/R").is_none());
         let ini = crate::livepatch::ini_mit_lua("[sider]\r\n\tlua.module = \"a.lua\"\r\n", "pesm_direktmatch.lua");
         assert!(ini.contains("\tlua.module = \"pesm_direktmatch.lua\"\r\n") && crate::livepatch::ini_mit_lua(&ini, "pesm_direktmatch.lua") == ini);
         assert_eq!(fl27::direktmatch_zeile(101, 103, 10, true, true, Some(53)), "101 103 0 1 10 menue vl=1 em=1 finale=1 ast=1");

@@ -1,0 +1,10 @@
+{
+ "r.ui.demo.gross": "grande",
+ "r.ui.demo.ueberlastet": "sobrecargado",
+ "r.ui.demo.muskelverhaertung": "Contractura muscular",
+ "optionen.akzent.quelle.wappen": "Origen: calculado a partir del escudo.",
+ "optionen.akzent.quelle.gespeichert": "Origen: aspecto guardado de esta carrera.",
+ "optionen.akzent.quelle.spieldaten": "Origen: colores de los datos del juego.",
+ "optionen.akzent.quelle.manuell": "Origen: color elegido por ti.",
+ "optionen.akzent.quelle.system": "Origen: acento predeterminado; no se encontró escudo ni colores en los datos del juego."
+}

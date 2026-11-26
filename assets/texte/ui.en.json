@@ -4927,5 +4927,19 @@
  "ui.fl27.direktstart_aus": "Direct start into the match",
  "ui.fl27.spielminuten": "Match length in FL27",
  "ui.fl27.spielminuten_spiel": "as in game",
- "ui.fl27.min": "%1 min"
+ "ui.fl27.min": "%1 min",
+ "ui.ds.frage.titel": "Play your matches with direct start?",
+ "ui.ds.frage.text": "New in this version: FL27 boots straight into your match. No main menu, no team selection, the right kits. PES M sets it up for you now, from your own game files, on Linux and Windows. PES M also switches off the statistics file in the mod file modules/fl26match.lua (GigaPack), because it makes FL27 crash at random. The mod keeps working, the original is kept as a backup and comes back when you switch direct start off.\n\nYou can change this any time under Settings › Football Life 2027.",
+ "ui.ds.ja": "Yes, switch it on",
+ "ui.ds.nein": "No, keep the menus",
+ "ui.ds.fertig.titel": "Direct start is ready",
+ "ui.ds.schritt.1": "On match day click “Start match in FL27” in PES M. That is also where you set the match length.",
+ "ui.ds.schritt.2": "FL27 starts and goes straight to the side selection: move your controller left or right and confirm.",
+ "ui.ds.schritt.3": "The match day screen comes up with both teams and kits. You press Kick-off yourself.",
+ "ui.ds.schritt.4": "At half-time the menu stays: substitutions and tactics as usual.",
+ "ui.ds.schritt.5": "After the final whistle FL27 skips the result screens, PES M books the result and closes FL27. For the next match PES M starts it again, straight into the match.",
+ "ui.ds.luecken": "Not there yet: the entrance animation before kick-off. New or transferred players need an FL27 restart. Windows is not tested yet.",
+ "ui.ds.ok": "Got it",
+ "ui.ds.fehler.titel": "Direct start could not be set up",
+ "ui.ds.fehler.text": "PES M did not find FL27's game files (Data/dt16_all.cpk). Check the game folder under Settings › Football Life 2027 and switch direct start on there. Until then FL27 starts with its menus."
 }

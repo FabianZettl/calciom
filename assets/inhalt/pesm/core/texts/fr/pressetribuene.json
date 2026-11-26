@@ -1,0 +1,14 @@
+{
+ "md.pool.typ.zeitung": "Journal",
+ "md.pool.typ.portal": "Portail",
+ "md.pool.land.DE": "Allemagne",
+ "md.pool.land.ES": "Espagne",
+ "md.pool.land.IT": "Italie",
+ "md.pool.land.FR": "France",
+ "md.pool.land.NL": "Pays-Bas",
+ "md.pool.land.BE": "Belgique",
+ "md.pool.land.PT": "Portugal",
+ "md.pool.land.BR": "Brésil",
+ "md.pool.land.AR": "Argentine",
+ "md.pool.land.JP": "Japon"
+}

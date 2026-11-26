@@ -1,0 +1,8 @@
+{
+ "optionen.groesse.titel": "Taille de l'interface",
+ "optionen.groesse.hinweis": "Texte, espacements et icônes dans toute l'interface. S'applique tout de suite et est mémorisé. 100% est la taille standard pour votre fenêtre.",
+ "optionen.groesse.vorschau": "Aperçu",
+ "optionen.groesse.vorschau_titel": "Tactique et composition",
+ "optionen.groesse.vorschau_text": "Voici la taille des textes, chiffres et boutons.",
+ "optionen.groesse.standard": "Revenir à 100%"
+}

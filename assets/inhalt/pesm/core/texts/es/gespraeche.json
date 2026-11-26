@@ -1,0 +1,14 @@
+{
+ "gs.ton.bestimmt": "Firme",
+ "gs.partner.verein": "Clubes",
+ "gs.status.einig": "De acuerdo",
+ "gs.ui.gegen_annehmen": "Aceptar contraoferta",
+ "gs.ui.partner_bricht_ab": "%1 rompe las conversaciones.",
+ "gs.ui.haltung.gegen_willen": "A %1 no le gusta, la relación se resiente.",
+ "gs.ui.nahelegen": "Sugerir la salida",
+ "gs.ui.zum_bleiben": "Convencerle de quedarse",
+ "gs.ui.ok.haltung_nahegelegt": "Le sugieres la salida a %1. Su actitud cambia, la petición al club se mantiene.",
+ "gs.ui.ok.haltung_bleiben": "Le pides a %1 que se quede. Su actitud cambia, la petición al club se mantiene.",
+ "gs.ui.fehler.schon_ausgereizt": "No puedes conseguir más con él.",
+ "gs.vorfall.anliegen_stufe2.betreff": "%1 quiere irse"
+}

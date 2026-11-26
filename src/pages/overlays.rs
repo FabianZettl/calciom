@@ -391,3 +391,55 @@ pub fn feier_overlay(ui: &mut Ui, v: &mut View, c: &mut Career) {
         v.feier_start = 0.0;
     }
 }
+
+/// The one-time question after the update with the direct start (Fabian 26.11.): yes builds the whole way at once
+/// (flow files from the player's game, module, sider.ini line), then a short guide of what happens from now on.
+pub fn direktstart_frage(ui: &mut Ui, v: &mut View, c: &mut Career) {
+    let (w, h) = (breite(), hoehe());
+    draw_rectangle(0.0, 0.0, w, h, Color::new(0.0, 0.0, 0.0, 0.75));
+    let r = Rect::new(w / 2.0 - 380.0, (h / 2.0 - 230.0).max(20.0), 760.0, 460.0);
+    rrect(r.x - 3.0, r.y - 3.0, r.w + 6.0, r.h + 6.0, 20.0, Theme::gold());
+    rrect(r.x, r.y, r.w, r.h, 18.0, Theme::flaeche());
+    let (x, bw) = (r.x + 32.0, r.w - 64.0);
+    let titel = ["ui.ds.frage.titel", "ui.ds.fertig.titel", "ui.ds.fehler.titel"][(v.ds_frage as usize).clamp(1, 3) - 1]; // roh
+    ui.title(&ui.fit(crate::inhalt::t(titel), 30.0, bw), x, r.y + 60.0, 30.0, Theme::text());
+    let mut y = r.y + 100.0;
+    match v.ds_frage {
+        1 => {
+            ui.paragraph(crate::inhalt::t("ui.ds.frage.text"), x, y, 17.0, bw, Theme::text2());
+            let bt = Rect::new(x, r.y + r.h - 76.0, bw / 2.0 - 8.0, 48.0);
+            if ui.button_gold(bt, crate::inhalt::t("ui.ds.ja")) {
+                c.direktstart = true;
+                // the yes covers the launch from PES M too: nothing more to allow on match day
+                c.fl27_erlaubt = true;
+                c.fl27_bestaetigt = true;
+                // one match per FL27 run until the quick start comes: PES M closes it and starts it again next time
+                c.fl27_auto_ende = true;
+                let mut st = crate::game::Fl27Start { c: &mut *c, assets: crate::game::fl27_assets(), log: vec![] };
+                let ok = st.direktstart_bauen();
+                v.fl27_log = st.log;
+                v.ds_frage = if matches!(ok, Ok(true)) { 2 } else { 3 };
+                let _ = std::fs::write(direktstart_file(), "ja"); // roh
+            }
+            if ui.button(Rect::new(bt.x + bw / 2.0 + 8.0, bt.y + 7.0, bw / 2.0 - 8.0, 34.0), crate::inhalt::t("ui.ds.nein"), false) {
+                let _ = std::fs::write(direktstart_file(), "nein"); // roh
+                v.ds_frage = 0;
+            }
+        }
+        2 => {
+            for (i, k) in ["ui.ds.schritt.1", "ui.ds.schritt.2", "ui.ds.schritt.3", "ui.ds.schritt.4", "ui.ds.schritt.5"].iter().enumerate() { // roh
+                draw_circle(x + 13.0, y + 11.0, 13.0, Theme::gold());
+                ui.text_center(&(i + 1).to_string(), x + 13.0, y + 17.0, 15.0, Theme::flaeche());
+                let zeilen = ui.wrap(crate::inhalt::t(k), 16.0, bw - 44.0);
+                for (j, z) in zeilen.iter().enumerate() { ui.text(z, x + 40.0, y + 16.0 + j as f32 * 21.0, 16.0, Theme::text()); }
+                y += 21.0 * zeilen.len().max(1) as f32 + 14.0;
+            }
+            ui.paragraph(crate::inhalt::t("ui.ds.luecken"), x, y + 10.0, 15.0, bw, Theme::text2());
+            if ui.button_gold(Rect::new(x, r.y + r.h - 76.0, bw, 48.0), crate::inhalt::t("ui.ds.ok")) { v.ds_frage = 0; }
+        }
+        _ => {
+            ui.paragraph(crate::inhalt::t("ui.ds.fehler.text"), x, y, 17.0, bw, Theme::text2());
+            if ui.button_gold(Rect::new(x, r.y + r.h - 76.0, bw, 48.0), crate::inhalt::t("ui.ds.ok")) { v.ds_frage = 0; }
+        }
+    }
+}
