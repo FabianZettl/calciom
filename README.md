@@ -1,27 +1,30 @@
+<p align="center"><img src="docs/calciom-logo.png" width="180" alt="CalcioM logo"></p>
+
 # CalcioM – Calcio Management
 
 **A football manager that uses Football Life 2027 as its match engine.**
 
 > [!NOTE]
-> **CalcioM (Calcio Management), formerly PES M.** Version 0.5 is the first stable release. Downloads for Linux and Windows are on the [Releases page](https://github.com/FabianZettl/calciom/releases) (Windows is not tested on a real PC yet). Or build it yourself (see [Build](#build)).
-> **Coming from PES M?** Unpack CalcioM into the same folder and start it: your saves move over by themselves ([details](docs/GETTING-STARTED.md#upgrading-from-pes-m)). Old PES M versions won't show this update, please download CalcioM from the new release page.
+> **CalcioM (Calcio Management), formerly PES M.** Version 0.5 is the first stable release (current: 0.5.1). Downloads for Linux and Windows are on the [Releases page](https://github.com/FabianZettl/calciom/releases) (Windows is not tested on a real PC yet). Or build it yourself (see [Build](#build)).
+> **Coming from PES M?** Unpack CalcioM into the same folder and start it: your saves move over by themselves ([details](docs/GETTING-STARTED.md#upgrading-from-pes-m)). Old PES M versions show the update notice too (the old repository link forwards here).
 > **New here?** Read the [Getting started guide](docs/GETTING-STARTED.md): from the first launch to a career and your first FL27 match, for Windows and Linux.
 > CalcioM never touches your original FL27 database: it always works on **its own copy of the database in a separate LiveCPK folder** per career.
 
 <p align="center">
-  <img src="docs/screenshots/zentrale.png" width="49%" alt="Hub: today's task, the season so far, every part of the club">
-  <img src="docs/screenshots/aufstellung.png" width="49%" alt="Tactics: formation, starting eleven on the pitch, bench and assistant's advice">
-  <img src="docs/screenshots/kader.png" width="49%" alt="Squad: player portraits with rating and mood">
-  <img src="docs/screenshots/spielerprofil.png" width="49%" alt="Player profile: photo, abilities, attribute radar, strengths and weaknesses">
-  <img src="docs/screenshots/posteingang.png" width="49%" alt="Inbox: rumours, offers, player talks">
-  <img src="docs/screenshots/vereine.png" width="49%" alt="Clubs and players: league, coaches, map, club history and squad">
-  <img src="docs/screenshots/spieltag.png" width="49%" alt="Matchday: stadium and city before kick-off, then head to head and team talk">
-  <img src="docs/screenshots/statistik.png" width="49%" alt="Player statistics: percentile wheel against the position group">
-  <img src="docs/screenshots/kaderplanung.png" width="49%" alt="Squad planning: depth per position, contract timeline, staff ideas">
-  <img src="docs/screenshots/praesidium.png" width="49%" alt="Board: trust, season objective and the club's real president and directors">
+  <img src="docs/screenshots/02-zentrale-realmadrid-dunkel.jpg" width="49%" alt="Hub in mid-September: table, form and top scorers (Real Madrid, dark theme)">
+  <img src="docs/screenshots/05-aufstellung-realmadrid-hell.jpg" width="49%" alt="Line-up and tactics with sliders">
+  <img src="docs/screenshots/04-kader-realmadrid-dunkel.jpg" width="49%" alt="Squad list with position colours, form, fitness and morale">
+  <img src="docs/screenshots/03-posteingang-realmadrid-hell.jpg" width="49%" alt="Inbox with advice from the assistant coach">
+  <img src="docs/screenshots/06-spieltag-realmadrid-hell.jpg" width="49%" alt="Matchday before a Champions League game: stadium and city">
+  <img src="docs/screenshots/07-spielbericht-realmadrid-dunkel.jpg" width="49%" alt="Match report after full time: league, ratings, reactions">
+  <img src="docs/screenshots/08-kalender-acmilan-hell.jpg" width="49%" alt="Calendar in competition colours with the international break">
+  <img src="docs/screenshots/09-verhandlung-acmilan-hell.jpg" width="49%" alt="Contract talks with the agent: clauses and counter-offer">
+  <img src="docs/screenshots/10-skilltree-acmilan-dunkel.jpg" width="49%" alt="Skill Tree of a player">
+  <img src="docs/screenshots/11-pressekonferenz-liverpool-hell.jpg" width="49%" alt="Press conference with the journalist card">
+  <img src="docs/screenshots/12-statistik-perzentile-liverpool-dunkel.jpg" width="49%" alt="Player statistics with the percentile wheel">
 </p>
 
-> Screenshots taken with the author's own FL27 world (FL26 Megapack, Bayern career, autumn 2026). Crests, player photos and stadium pictures are read at runtime from the player's own game install; they are **not** shipped in this repository.
+> Screenshots of CalcioM 0.5.0 from three test careers (Real Madrid, AC Milan, Liverpool), light and dark theme. Crests, player photos and stadium pictures are read at runtime from the player's own game install; they are **not** shipped in this repository.
 
 > Unofficial fan project. Not affiliated with Konami or the Football Life team. This repository contains **no** game files, crests, photos or databases. You need your own copy of FL27.
 
@@ -33,7 +36,7 @@ CalcioM (formerly PES M) started as a small companion app for Master League. It 
 ### What CalcioM does
 
 - **Careers over many seasons** on your FL27 world (leagues, clubs and squads are read straight from the pesdb). One day is one step.
-- **Start from your Master League save:** "Import ML save…" in the world step takes over the date, squads, contracts, abilities, form, injuries, tables and fixtures of an FL27 Master League save (read only, tested with copies of real saves).
+- **Start from your Master League save:** pick one of the saves CalcioM finds (or "Import ML save…") in the world step; it takes over the date, squads, contracts, abilities, form, injuries, tables and fixtures of an FL27 Master League save (read only, tested with copies of real saves).
 - **Squad and tactics:** line-up, roles and instructions, set pieces, opponent reports, training, medical, form, development per ability.
 - **Market:** transfers with negotiations, agents with their own goals, clauses, loans, scouting, shortlist, staff market.
 - **Club:** board and objectives, finances, stadium and facilities, sponsors, coaching staff, academy, reserve team, partner clubs.
