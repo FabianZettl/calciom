@@ -1,4 +1,4 @@
-# KI-Trainer (Entscheidungslogik). Eigene Festlegungen von PESM; alles Entwurf, nichts wird ins Spiel geschrieben (docs/intern/KI-TRAINER.md).
+# KI-Trainer (Entscheidungslogik). Eigene Festlegungen von CalcioM; alles Entwurf, nichts wird ins Spiel geschrieben (docs/intern/KI-TRAINER.md).
 # Die Trainertypen sind die der Taktikanpassung (core/gegner/anpassung.py): starr, reaktiv, experimentierfreudig, dogmatisch, pragmatisch.
 
 [startelf]

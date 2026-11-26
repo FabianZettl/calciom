@@ -1,7 +1,7 @@
 //! The world map (Gesamtauftrag Punkt 13): country outlines (Natural Earth 1:50m, assets/geo/laender.json) and club
 //! positions (Wikidata: home venue coordinates, assets/geo/vereine.json), both built once by tools/geo_bauen.py.
 //! A club without a match gets the middle of its country with a small offset and counts as "Lage geschätzt".
-//! Everything is offline; PES M never goes online.
+//! Everything is offline; CalcioM never goes online.
 use crate::world::World;
 use crate::ui::*;
 use macroquad::prelude::*;

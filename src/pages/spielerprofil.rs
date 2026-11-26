@@ -112,8 +112,8 @@ pub(super) fn spielerprofil(ui: &mut Ui, v: &mut View, c: &mut Career) {
     }
     let fr = Rect::new(hr.x + 118.0, hr.y + 6.0, 96.0, 100.0);
     rrect(fr.x, fr.y, fr.w, fr.h, 8.0, alpha(Theme::grund(), 0.35));
-    // preview aid: PESM_PASSFOTO=1 shows the pass photo also for players with a photo
-    if std::env::var_os("PESM_PASSFOTO").is_some() || !ui.spieler_foto(fr.x, fr.y, fr.w, fr.h, pl.id) {
+    // preview aid: CALCIOM_PASSFOTO=1 shows the pass photo also for players with a photo
+    if std::env::var_os("CALCIOM_PASSFOTO").is_some() || !ui.spieler_foto(fr.x, fr.y, fr.w, fr.h, pl.id) {
         // no photo: his own pass photo in the club's kit (keeper in green), look from FL27's appearance record (Fabian 25.11.)
         let (k1, k2) = club_color(c, club);
         let tw = pl.pos == crate::id("GK");
@@ -449,7 +449,7 @@ pub(super) fn spielerprofil(ui: &mut Ui, v: &mut View, c: &mut Career) {
             player_row_head(ui, l.x, l.y + 56.0, &[(tx("spp.t.saison"), 14.0), (tx("spp.t.verein"), 130.0), (tx("spp.t.spiele"), 430.0), (tx("spp.t.tore"), 510.0), (tx("spp.t.note"), 580.0)]);
             let mut stationen: Vec<(String, String, u16, u16, f32)> = pl.profil.laufbahn.iter().map(|(s, cl, a, g, n)| (date::season_label(*s), cl.clone(), *a, *g, *n)).collect();
             stationen.push((crate::tf!("ui.seiten.laeuft", date::season_label(c.world.season)), clubname.clone(), pl.apps, pl.goals, pl.avg_rating()));
-            // before PES M: the real career up to summer 2026 (realdaten spieler.json), oldest first
+            // before CalcioM: the real career up to summer 2026 (realdaten spieler.json), oldest first
             let echt: Vec<(String, String, u16, u16, f32)> = crate::realdaten::spieler(pl.id).map(|rs| { let mut st: Vec<&crate::realdaten::Station> = rs.stationen.iter().collect(); st.sort_by_key(|x| (x.von, x.bis.unwrap_or(9999))); st }).map(|st| st.into_iter().map(|st| (match st.bis { Some(b) if b != st.von => format!("{}–{}", st.von, b), Some(_) => st.von.to_string(), None => format!("{}–", st.von) }, st.verein.clone(), st.spiele.unwrap_or(0) as u16, st.tore.unwrap_or(0) as u16, 0.0)).collect()).unwrap_or_default();
             let echt_leer = echt.is_empty();
             stationen.splice(0..0, echt);

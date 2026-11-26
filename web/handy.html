@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>PES M unterwegs</title>
+<title>CalcioM unterwegs</title>
 <style>
 @font-face { font-family: Kopf; src: url(/schrift/kopf.ttf); }
 @font-face { font-family: Text; src: url(/schrift/text.ttf); }
@@ -53,7 +53,7 @@ input { font-size: 22px; padding: 12px; border-radius: 12px; border: 1px solid v
 </style>
 </head>
 <body>
-<header><div class="wappen" id="wappen">PES</div><div class="titel"><h1 id="verein">PES M</h1><div class="datum" id="datum"></div></div><div class="punkt" id="punkt"></div></header>
+<header><div class="wappen" id="wappen">PES</div><div class="titel"><h1 id="verein">CalcioM</h1><div class="datum" id="datum"></div></div><div class="punkt" id="punkt"></div></header>
 <main id="inhalt"></main>
 <div id="meldung"></div>
 <button id="weiter" onclick="weiter(this)">Weiter</button>
@@ -212,7 +212,7 @@ function ablauf(r) {
   }, 400);
 }
 function koppelnZeigen() {
-  $('inhalt').innerHTML = `<div class="karte"><h2>Mit PES M verbinden</h2><p>Am PC: Einstellungen → Handy-Zugang. Dort steht ein 6-stelliger Code.</p>
+  $('inhalt').innerHTML = `<div class="karte"><h2>Mit CalcioM verbinden</h2><p>Am PC: Einstellungen → Handy-Zugang. Dort steht ein 6-stelliger Code.</p>
     <input id="code" inputmode="numeric" maxlength="6" placeholder="000000"><p></p><input id="name" style="letter-spacing:0;font-size:16px" placeholder="Name dieses Handys (z. B. Fabians Handy)">
     <div class="knoepfe"><button class="haupt" onclick="koppeln(this)">Verbinden</button></div></div>`;
   const c = new URLSearchParams(location.search).get('c'); if (c) $('code').value = c;

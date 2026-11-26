@@ -62,7 +62,7 @@
  "gs.kontext.luecke.spielzeit": "Zur Spielzeit liegt noch keine Einschätzung des Trainerstabs vor.",
  "gs.kontext.luecke.gehalt": "Das Gehalt ist nicht gelesen.",
  "gs.kontext.luecke.laufzeit": "Die Laufzeit ist nicht gelesen.",
- "gs.kontext.luecke.klausel": "Die Ausstiegsklausel liest PESM nicht aus dem Spielstand.",
+ "gs.kontext.luecke.klausel": "Die Ausstiegsklausel liest CalcioM nicht aus dem Spielstand.",
  "gs.kontext.luecke.marktwert": "Der Marktwert ist noch nicht eingeschätzt.",
  "gs.kontext.luecke.pos_gehalt": "Kein Spieler gleicher Position und Stärke im Kader.",
  "gs.kontext.luecke.forderung": "Die Forderung des Beraters liegt noch nicht vor.",

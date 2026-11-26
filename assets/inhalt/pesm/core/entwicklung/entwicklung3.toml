@@ -1,8 +1,8 @@
-# Wochenlauf der Spielerentwicklung (Sitzung E3). Eigene Festlegung von PESM, Zahlen austauschbar; Grundlage der Raten ist
+# Wochenlauf der Spielerentwicklung (Sitzung E3). Eigene Festlegung von CalcioM, Zahlen austauschbar; Grundlage der Raten ist
 # `kalibrierung.json` (Querschnitt der Datenbank, siehe tools/entwicklung_kalibrieren.py). Punkte = Fähigkeitspunkte (Skala 40 bis 99).
 
 [woche]
-grundrate_anteil = 0.9          # Anteil der Jahresänderung der Bevölkerung, den PESM rechnet; den Rest überlässt PESM dem Spiel (Saisonende)
+grundrate_anteil = 0.9          # Anteil der Jahresänderung der Bevölkerung, den CalcioM rechnet; den Rest überlässt CalcioM dem Spiel (Saisonende)
 fremd_anrechnen = 0.5           # Änderung durch das Spiel zählt zu diesem Anteil als schon erbrachte Entwicklung (gegen doppeltes Rechnen)
 spiele_fenster = 6              # letzte Mannschaftsspiele für Einsatzquote, Noten, Serien
 noten_fenster = 4               # letzte Einsätze mit Note

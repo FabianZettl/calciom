@@ -1,6 +1,6 @@
 {
   "modellversion": 4,
-  "_hinweis": "Persönlichkeitsmodell von PESM (eigene Festlegung, alles austauschbar; erfundener Spielwert ohne Bezug zur realen Person). Eingabe sind die vier Achsen der PES-Persönlichkeit (Spezifikation 14). Je Achse s in −1 … +1. normierung = perzentil: s = 2·p − 1 mit p = Rangstelle des vorzeichenbehafteten Werts unter allen Spielern mit vergebener Persönlichkeit derselben Datenbank (gleiche Werte teilen sich die mittlere Rangstelle). normierung = roh: s = Seite × Stärke, Stärke = (|Wert| − staerke.unten) / staerke.spanne, begrenzt auf 0 bis 1. Ohne vergebene Persönlichkeit (alle vier Werte 0) sind alle s = 0. Charakterwert = neutral + Summe(Gewicht × s) + Alterszuschläge + Bonus + Zufall, begrenzt auf bereich; abgeleitete Werte danach. Die Stärkeformel gilt immer für die Anzeige der vier Paare.",
+  "_hinweis": "Persönlichkeitsmodell von CalcioM (eigene Festlegung, alles austauschbar; erfundener Spielwert ohne Bezug zur realen Person). Eingabe sind die vier Achsen der PES-Persönlichkeit (Spezifikation 14). Je Achse s in −1 … +1. normierung = perzentil: s = 2·p − 1 mit p = Rangstelle des vorzeichenbehafteten Werts unter allen Spielern mit vergebener Persönlichkeit derselben Datenbank (gleiche Werte teilen sich die mittlere Rangstelle). normierung = roh: s = Seite × Stärke, Stärke = (|Wert| − staerke.unten) / staerke.spanne, begrenzt auf 0 bis 1. Ohne vergebene Persönlichkeit (alle vier Werte 0) sind alle s = 0. Charakterwert = neutral + Summe(Gewicht × s) + Alterszuschläge + Bonus + Zufall, begrenzt auf bereich; abgeleitete Werte danach. Die Stärkeformel gilt immer für die Anzeige der vier Paare.",
   "bereich": [0, 100],
   "neutral": 50,
   "normierung": "perzentil",
@@ -36,7 +36,7 @@
     }
   },
   "verschiebung": {
-    "_hinweis": "Verschiebung der Charakterwerte durch Entscheidungen (nur in PESM, Tabelle pesm_persoenlichkeit_verschiebung): wirksamer Wert = Basis + Summe der Verschiebungen. Je Spieler und Wert höchstens je_monat im Kalendermonat des Spieldatums und gesamt insgesamt, in beide Richtungen.",
+    "_hinweis": "Verschiebung der Charakterwerte durch Entscheidungen (nur in CalcioM, Tabelle pesm_persoenlichkeit_verschiebung): wirksamer Wert = Basis + Summe der Verschiebungen. Je Spieler und Wert höchstens je_monat im Kalendermonat des Spieldatums und gesamt insgesamt, in beide Richtungen.",
     "je_monat": 5,
     "gesamt": 40
   },

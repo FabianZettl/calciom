@@ -196,7 +196,7 @@
   "zugriff.befehle.weniger": "less",
   "zugriff.befehle.mehr": "more",
   "zugriff.befehle.datum_diff": "Game date %1 in the game, %2 in the saved game.",
-  "zugriff.befehle.budget_warten": "The transfer stays pending. Save in the game: PESM then reads the save itself and triggers the transfer.",
+  "zugriff.befehle.budget_warten": "The transfer stays pending. Save in the game: CalcioM then reads the save itself and triggers the transfer.",
  "zugriff.weg_a.budget_speicher_neuer": "The game memory is newer: the transfer budget in the game is %1 €, the file has %2 €. Save in the game, then repeat the comparison.",
  "zugriff.weg_a.budget_datei_neuer": "The file is newer: game date in memory %1, in the file %2. Reload the career in the game (main menu, load), then repeat the comparison.",
   "zugriff.weg_a.karriere_nicht_geladen": "The game is running but no career is loaded: nothing queued.",

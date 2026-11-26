@@ -1,5 +1,5 @@
 # Entwicklung, Teil 2: Wachstumsraten je Fähigkeit, Fortschrittswege (Spielstile, Spezialfähigkeiten), Spielertyp, Berichte.
-# Eigene Festlegung von PESM; Zahlen austauschbar. Namen der Wege sind eigene Bezeichnungen (Texte `en2.weg.*`).
+# Eigene Festlegung von CalcioM; Zahlen austauschbar. Namen der Wege sind eigene Bezeichnungen (Texte `en2.weg.*`).
 
 [wachstum]
 # Fähigkeitspunkte je Jahr nach Alter und Gruppe (linear dazwischen); negativ = Rückgang

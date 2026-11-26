@@ -1,5 +1,5 @@
 {
-  "hinweis": "PESM-Gruppierung der 25 Fähigkeiten auf sechs Achsen (eigene Festlegung, nicht aus dem Spiel). Achsenwert = Mittelwert (Ø) der bekannten Fähigkeiten der Achse; eine Achse gilt als gelesen, wenn mindestens die Hälfte ihrer Fähigkeiten bekannt ist.",
+  "hinweis": "CalcioM-Gruppierung der 25 Fähigkeiten auf sechs Achsen (eigene Festlegung, nicht aus dem Spiel). Achsenwert = Mittelwert (Ø) der bekannten Fähigkeiten der Achse; eine Achse gilt als gelesen, wenn mindestens die Hälfte ihrer Fähigkeiten bekannt ist.",
   "feld": {
     "angriff": ["offensivgeist", "abschluss", "schusskraft", "kopfball"],
     "technik": ["ballkontrolle", "dribbling", "enge_ballfuehrung", "effet"],

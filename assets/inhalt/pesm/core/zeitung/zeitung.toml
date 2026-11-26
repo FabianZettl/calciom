@@ -1,4 +1,4 @@
-# Zahlen der Zeitung (eigene Festlegung von PESM, austauschbar). Die Texte stehen in core/texts/zeitung.json.
+# Zahlen der Zeitung (eigene Festlegung von CalcioM, austauschbar). Die Texte stehen in core/texts/zeitung.json.
 
 [takt]
 vorgabe = "taeglich"            # taeglich | woechentlich (je Karriere umstellbar)

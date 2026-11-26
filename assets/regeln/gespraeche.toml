@@ -1,4 +1,4 @@
-# Konfiguration der Gesprächswelt (Sitzung H). Alles hier ist eine eigene Festlegung von PESM und austauschbar.
+# Konfiguration der Gesprächswelt (Sitzung H). Alles hier ist eine eigene Festlegung von CalcioM und austauschbar.
 
 [motor]
 einsatz_ab_spielen = 4         # die Einsatzquote zählt erst ab so vielen Pflichtspielen der Saison (vorher gilt sie als voll)

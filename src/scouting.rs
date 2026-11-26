@@ -108,7 +108,7 @@ impl Career {
         self.erste_woche_schritt(3);
         Ok(())
     }
-    /// Konzept 1.1: what PES M knows about a player without any scouting — the most of reputation (star players are
+    /// Konzept 1.1: what CalcioM knows about a player without any scouting — the most of reputation (star players are
     /// known), league (own league, same country, top-5) and own club. scouting.toml [grundwissen].
     pub fn grundwissen(&self, p: usize) -> f32 {
         let pl = &self.world.players[p];

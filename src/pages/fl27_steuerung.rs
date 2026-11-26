@@ -20,7 +20,7 @@ pub fn fl27_und_db(v: &mut View, c: &mut Career) {
         v.fl27_pruef_t = t;
         v.fl27_laeuft = crate::fl27::fl27_pid().is_some();
         if v.fl27_laeuft { v.fl27_gesehen = true; }
-        // FL27 is gone after a match (ended, closed or crashed), or PES M starts and old presets are still there: undo them.
+        // FL27 is gone after a match (ended, closed or crashed), or CalcioM starts and old presets are still there: undo them.
         // Between writing the presets and FL27 appearing nothing happens (it hasn't been seen yet).
         else if (v.fl27_gesehen || !v.fl27_erster_blick) && v.fl27_ende.is_none() && v.fl27.is_none() {
             v.fl27_gesehen = false;

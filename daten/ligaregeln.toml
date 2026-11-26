@@ -1,4 +1,4 @@
-# PES M – Ligaregeln aller Länder (Saison 2025/26)
+# CalcioM – Ligaregeln aller Länder (Saison 2025/26)
 # Maschinenlesbar (TOML). Fabian darf alles ändern und ergänzen.
 # Zuordnung: zuerst [[land]] über pes_land (= country=… in fl26world.txt), dann [[land.liga]] über stufe (= tier=…).
 # Für Grundligen ohne league-Zeile (z. B. Premier League, LaLiga) zusätzlich über schluessel (Competition.bin, z. B. ENGLAND_D1_LEAGUE).
@@ -60,7 +60,7 @@ ofc_champions_league = "OFC Champions League"
 rangliste = "UEFA-Verbandskoeffizient 2024 (gilt für 2025/26)"
 quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Champions_League#Association_team_allocation"
 leistungsplaetze_eps = 2
-eps_hinweis = "Die zwei Verbände mit dem besten Koeffizienten der Vorsaison bekommen je einen zusätzlichen CL-Platz (nächster Ligaplatz). 2025/26: England und Spanien. PES M soll das ab der 2. Saison selbst aus den simulierten Europapokal-Ergebnissen berechnen."
+eps_hinweis = "Die zwei Verbände mit dem besten Koeffizienten der Vorsaison bekommen je einen zusätzlichen CL-Platz (nächster Ligaplatz). 2025/26: England und Spanien. CalcioM soll das ab der 2. Saison selbst aus den simulierten Europapokal-Ergebnissen berechnen."
 weitergabe = "Hat sich der Pokalsieger schon über die Liga qualifiziert, geht sein Platz an den nächsten Ligaplatz, der noch nicht qualifiziert ist."
 titelverteidiger = "Sieger von CL und EL sind für die CL-Ligaphase gesetzt; der UECL-Sieger für die EL-Ligaphase. Ist er schon qualifiziert, rückt ein Platz im Zugangsschema nach."
 genauigkeit = "Welche Plätze in welchen Wettbewerb gehen, folgt dem UEFA-Zugangsschema 2025/26. Die Einstiegsrunde (phase) ist für Ränge ab 8 teilweise geschätzt."
@@ -74,7 +74,7 @@ pes_land = 204
 verband = "UEFA"
 uefa_rang = 1
 teilnehmer_2025_26_tatsaechlich = { cl = 6, el = 2, uecl = 1 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -164,7 +164,7 @@ pes_land = 215
 verband = "UEFA"
 uefa_rang = 2
 teilnehmer_2025_26_tatsaechlich = { cl = 4, el = 2, uecl = 1 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 3
@@ -230,7 +230,7 @@ pes_land = 236
 verband = "UEFA"
 uefa_rang = 3
 teilnehmer_2025_26_tatsaechlich = { cl = 5, el = 2, uecl = 1 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 2
@@ -284,7 +284,7 @@ pes_land = 210
 verband = "UEFA"
 uefa_rang = 4
 teilnehmer_2025_26_tatsaechlich = { cl = 4, el = 2, uecl = 1 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 3
@@ -355,7 +355,7 @@ pes_land = 208
 verband = "UEFA"
 uefa_rang = 5
 teilnehmer_2025_26_tatsaechlich = { cl = 4, el = 3, uecl = 1 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 4
@@ -402,7 +402,7 @@ vereine = 17
 aufsteiger_direkt = 2
 absteiger_direkt = 3
 sicher = false
-hinweis = "Der 3. spielt die Relegation gegen den 16. der Ligue 2. 2025/26 mit 17 Vereinen; FL-Welt nutzt 18. Korrektur 24.11.: 2025/26 stiegen nur der 16. und 17. sportlich ab (der 18. zusätzlich aus Verwaltungsgründen), weil die Liga 2026/27 als Ligue 3 weiterläuft; PES M nimmt 3 Absteiger (änderbar)."
+hinweis = "Der 3. spielt die Relegation gegen den 16. der Ligue 2. 2025/26 mit 17 Vereinen; FL-Welt nutzt 18. Korrektur 24.11.: 2025/26 stiegen nur der 16. und 17. sportlich ab (der 18. zusätzlich aus Verwaltungsgründen), weil die Liga 2026/27 als Ligue 3 weiterläuft; CalcioM nimmt 3 Absteiger (änderbar)."
 quelle = "https://en.wikipedia.org/wiki/2025%E2%80%9326_Championnat_National"
 [[land.liga]]
 stufe = 4
@@ -421,7 +421,7 @@ pes_land = 224
 verband = "UEFA"
 uefa_rang = 6
 teilnehmer_2025_26_tatsaechlich = { cl = 3, el = 3, uecl = 1 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 2
@@ -479,7 +479,7 @@ pes_land = 228
 verband = "UEFA"
 uefa_rang = 7
 teilnehmer_2025_26_tatsaechlich = { cl = 2, el = 2, uecl = 1 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 2
@@ -531,7 +531,7 @@ pes_land = 197
 verband = "UEFA"
 uefa_rang = 8
 teilnehmer_2025_26_tatsaechlich = { cl = 2, el = 2, uecl = 2 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 2
@@ -586,7 +586,7 @@ pes_land = 190
 verband = "UEFA"
 uefa_rang = 9
 teilnehmer_2025_26_tatsaechlich = { cl = 2, el = 3, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -649,7 +649,7 @@ pes_land = 202
 verband = "UEFA"
 uefa_rang = 10
 teilnehmer_2025_26_tatsaechlich = { cl = 2, el = 3, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 2
@@ -691,7 +691,7 @@ pes_land = 232
 verband = "UEFA"
 uefa_rang = 11
 teilnehmer_2025_26_tatsaechlich = { cl = 2, el = 4, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 5
@@ -763,7 +763,7 @@ pes_land = 238
 verband = "UEFA"
 uefa_rang = 12
 teilnehmer_2025_26_tatsaechlich = { cl = 2, el = 4, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 3
@@ -812,7 +812,7 @@ pes_land = 194
 verband = "UEFA"
 uefa_rang = 13
 teilnehmer_2025_26_tatsaechlich = { cl = 2, el = 3, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 2
@@ -860,7 +860,7 @@ pes_land = 226
 verband = "UEFA"
 uefa_rang = 14
 teilnehmer_2025_26_tatsaechlich = { cl = 2, el = 2, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 3
@@ -913,7 +913,7 @@ pes_land = 211
 verband = "UEFA"
 uefa_rang = 15
 teilnehmer_2025_26_tatsaechlich = { cl = 2, el = 2, uecl = 2 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 2
@@ -952,7 +952,7 @@ pes_land = 203
 verband = "UEFA"
 uefa_rang = 16
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 2 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -1001,7 +1001,7 @@ pes_land = 189
 verband = "UEFA"
 uefa_rang = 17
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -1038,7 +1038,7 @@ pes_land = 239
 verband = "UEFA"
 uefa_rang = 18
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 4 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 3
@@ -1076,7 +1076,7 @@ pes_land = 303
 verband = "UEFA"
 uefa_rang = 19
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -1121,7 +1121,7 @@ pes_land = 200
 verband = "UEFA"
 uefa_rang = 20
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 2
@@ -1174,7 +1174,7 @@ pes_land = 227
 verband = "UEFA"
 uefa_rang = 21
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 4 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 3
@@ -1222,7 +1222,7 @@ pes_land = 230
 verband = "UEFA"
 uefa_rang = 22
 teilnehmer_2025_26_tatsaechlich = { cl = 0, el = 0, uecl = 0 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 3
@@ -1264,7 +1264,7 @@ pes_land = 201
 verband = "UEFA"
 uefa_rang = 23
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -1301,7 +1301,7 @@ pes_land = 212
 verband = "UEFA"
 uefa_rang = 24
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 3
@@ -1343,7 +1343,7 @@ pes_land = 237
 verband = "UEFA"
 uefa_rang = 25
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -1392,7 +1392,7 @@ pes_land = 229
 verband = "UEFA"
 uefa_rang = 26
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 3
@@ -1434,7 +1434,7 @@ pes_land = 199
 verband = "UEFA"
 uefa_rang = 27
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 2
@@ -1476,7 +1476,7 @@ pes_land = 195
 verband = "UEFA"
 uefa_rang = 28
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -1506,7 +1506,7 @@ pes_land = 234
 verband = "UEFA"
 uefa_rang = 29
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 4 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 2
@@ -1547,7 +1547,7 @@ pes_land = 235
 verband = "UEFA"
 uefa_rang = 30
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 4 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 2
@@ -1584,7 +1584,7 @@ pes_land = 223
 verband = "UEFA"
 uefa_rang = 31
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 4 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -1613,7 +1613,7 @@ pes_land = 311
 verband = "UEFA"
 uefa_rang = 32
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 4 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -1650,7 +1650,7 @@ pes_land = 216
 verband = "UEFA"
 uefa_rang = 33
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 2
@@ -1683,7 +1683,7 @@ pes_land = 207
 verband = "UEFA"
 uefa_rang = 34
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 2, uecl = 5 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 3
@@ -1717,7 +1717,7 @@ pes_land = 214
 verband = "UEFA"
 uefa_rang = 35
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -1760,7 +1760,7 @@ pes_land = 193
 verband = "UEFA"
 uefa_rang = 36
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 4 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 2
@@ -1793,7 +1793,7 @@ pes_land = 217
 verband = "UEFA"
 uefa_rang = 37
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 4 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -1823,7 +1823,7 @@ pes_land = 206
 verband = "UEFA"
 uefa_rang = 38
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 4 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 2
@@ -1849,7 +1849,7 @@ pes_land = 198
 verband = "UEFA"
 uefa_rang = 39
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 4 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -1884,7 +1884,7 @@ pes_land = 0
 verband = "UEFA"
 uefa_rang = 40
 teilnehmer_2025_26_tatsaechlich = { cl = 0, el = 0, uecl = 1 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 # keine eigene Liga in den FL-Welten
 [land.zweite_mannschaften]
 erlaubt = false
@@ -1903,7 +1903,7 @@ pes_land = 213
 verband = "UEFA"
 uefa_rang = 41
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 4 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -1944,7 +1944,7 @@ pes_land = 225
 verband = "UEFA"
 uefa_rang = 42
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 4 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -1986,7 +1986,7 @@ pes_land = 220
 verband = "UEFA"
 uefa_rang = 43
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 4 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -2022,7 +2022,7 @@ pes_land = 219
 verband = "UEFA"
 uefa_rang = 44
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 4 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 2
@@ -2059,7 +2059,7 @@ pes_land = 222
 verband = "UEFA"
 uefa_rang = 45
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 4 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -2095,7 +2095,7 @@ pes_land = 209
 verband = "UEFA"
 uefa_rang = 46
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 4 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 2
@@ -2126,7 +2126,7 @@ pes_land = 191
 verband = "UEFA"
 uefa_rang = 47
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 4 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -2168,7 +2168,7 @@ pes_land = 205
 verband = "UEFA"
 uefa_rang = 48
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 4 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 2
@@ -2198,7 +2198,7 @@ pes_land = 196
 verband = "UEFA"
 uefa_rang = 49
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 4 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 2
@@ -2234,7 +2234,7 @@ pes_land = 221
 verband = "UEFA"
 uefa_rang = 50
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 4 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -2265,7 +2265,7 @@ pes_land = 192
 verband = "UEFA"
 uefa_rang = 51
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = true
 hoechste_stufe = 2
@@ -2292,7 +2292,7 @@ pes_land = 241
 verband = "UEFA"
 uefa_rang = 52
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -2331,7 +2331,7 @@ pes_land = 304
 verband = "UEFA"
 uefa_rang = 53
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -2362,7 +2362,7 @@ pes_land = 245
 verband = "UEFA"
 uefa_rang = 54
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 1, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0
@@ -2388,7 +2388,7 @@ pes_land = 231
 verband = "UEFA"
 uefa_rang = 55
 teilnehmer_2025_26_tatsaechlich = { cl = 1, el = 0, uecl = 3 }
-# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; PES M nutzt [land.europa] (Grundschema).
+# teilnehmer_…: echte Zahl 2025/26 inkl. Nachrücker; CalcioM nutzt [land.europa] (Grundschema).
 [land.zweite_mannschaften]
 erlaubt = false
 hoechste_stufe = 0

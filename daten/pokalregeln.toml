@@ -1,18 +1,18 @@
-# PES M – Regeln der nationalen Pokale (Saison 2025/26)
+# CalcioM – Regeln der nationalen Pokale (Saison 2025/26)
 # Fabian darf alles ändern. sicher = false heißt: nicht Satz für Satz an einer Quelle geprüft, "änderbar".
 # Stand 2026-11-24. Quellen: Wikipedia-Saisonartikel 2025–26 je Pokal, Verbandsseiten (thefa.com, dfb.de, rfef.es,
 # fff.fr, knvb.nl, fpf.pt, tff.org, scottishfa.co.uk), siehe quellen = … am Pokal.
 #
 # Felder:
 #   teilnehmer_echt  = wie viele Vereine im echten Wettbewerb mitmachen (inkl. Qualifikation)
-#   einstieg         = welche Liga-Stufe in welcher Runde einsteigt; runde zählt ab 1 (= erste Hauptrunde in PES M)
+#   einstieg         = welche Liga-Stufe in welcher Runde einsteigt; runde zählt ab 1 (= erste Hauptrunde in CalcioM)
 #   amateure         = Vereine unterhalb der Ligen, die es in der Welt gibt (Nicht-Liga, Landespokalsieger …)
 #   zweite_mannschaften = dürfen B-Teams/U23 mitspielen?
 #   unentschieden    = "verlaengerung_elfmeter" | "elfmeter" (sofort, ohne Verlängerung) | "wiederholung"
 #   heimrecht        = "auslosung" | "unterklassig" (der Verein aus der tieferen Liga hat Heimrecht)
 #   halbfinale       = "einzelspiel" | "hin_rueck"
 #   europa           = steht in ligaregeln.toml ([land.europa], "pokal"); hier nur zur Kontrolle
-#   ablauf           = was PES M spielt: Runden in Reihenfolge; neu = wer in dieser Runde einsteigt:
+#   ablauf           = was CalcioM spielt: Runden in Reihenfolge; neu = wer in dieser Runde einsteigt:
 #                      "stufe:N" alle Erstteams der Stufe N (fehlt die Liga in der Welt: Amateurvereine dieser Stufe aus amateure.toml),
 #                      "stufe:N:K" die K stärksten, "stufe:N:-K" die K schwächsten, "stufe:N:rest" die übrigen,
 #                      "stufe:N:europa" / "stufe:N:ohne_europa" mit / ohne Europapokal, "beste:K" die K stärksten des Landes,
@@ -21,7 +21,7 @@
 #                      gegen die tiefsten Vereine; gruppen/spiele = Gruppenphase; toepfe = obere Hälfte gegen untere Hälfte gelost. Ungerade Zahl: der Stärkste hat ein Freilos; nach dem
 #                      letzten Einstieg Freilose bis zur Zweierpotenz.
 #   welt             = was die FL-Welt (_FL26-27-Def, Megapack und MyWorld gleich) an Vereinen hat
-#   vorschlag        = wie PES M das Feld füllt, solange Vereine fehlen
+#   vorschlag        = wie CalcioM das Feld füllt, solange Vereine fehlen
 
 [standard]
 unentschieden = "verlaengerung_elfmeter"
@@ -97,7 +97,7 @@ einstieg = [
 ]
 europa = "Sieger: Conference League, Play-off (steht in ligaregeln.toml als \"ligapokal\")"
 welt = { stufe_1 = 20, stufe_2 = 24, stufe_3 = 24, datenbank_pokal = 0 }
-fehlt = "Den Wettbewerb gibt es in PES M noch gar nicht (keine Liste in der Datenbank, kein Code). League Two fehlt (24)."
+fehlt = "Den Wettbewerb gibt es in CalcioM noch gar nicht (keine Liste in der Datenbank, kein Code). League Two fehlt (24)."
 vorschlag = "Mit den 68 Vereinen der Welt, ohne Generierung: Runde 1 = 40 (Stufe 2–3 ohne die 8 besten der Championship) → 20; Runde 2 = 20 + 8 beste der Championship + 4 PL-Vereine → 32; Runde 3 = 16 Sieger + 16 PL-Vereine (alle Europapokal-Teams darunter) = 32. Mit League Two (24 generierte) ginge es wie echt."
 sicher = true
 quellen = ["https://en.wikipedia.org/wiki/2025%E2%80%9326_EFL_Cup", "https://www.skysports.com/football/news/12040/13382707/carabao-cup-preliminary-round-to-be-introduced-for-2025-26-season"]

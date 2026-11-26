@@ -1,4 +1,4 @@
-# Builds Linux and Windows packages when a tag v* is pushed and attaches them to a draft pre-release.
+# Builds Linux and Windows packages when a tag v* is pushed and attaches them to a draft release.
 name: release
 on:
   push:
@@ -24,22 +24,22 @@ jobs:
       - name: Package
         shell: bash
         run: |
-          P=pesm-${GITHUB_REF_NAME}-${{ matrix.name }}
+          P=calciom-${GITHUB_REF_NAME}-${{ matrix.name }}
           mkdir $P
           cp -r assets README.md LICENSE CREDITS.md $P/
           if [ "$RUNNER_OS" = Windows ]; then
-            cp target/release/pesm.exe $P/
+            cp target/release/calciom.exe $P/
             7z a $P.zip $P
           else
-            cp target/release/pesm target/release/pesm-speicher $P/
-            printf '#!/bin/sh\ncd "$(dirname "$0")" && exec ./pesm "$@"\n' > $P/pesm.sh
-            chmod +x $P/pesm.sh
+            cp target/release/calciom target/release/calciom-speicher $P/
+            printf '#!/bin/sh\ncd "$(dirname "$0")" && exec ./calciom "$@"\n' > $P/calciom.sh
+            chmod +x $P/calciom.sh
             tar czf $P.tar.gz $P
           fi
       - uses: softprops/action-gh-release@v2
         with:
           draft: true
-          prerelease: true
+          prerelease: false
           files: |
-            pesm-*.zip
-            pesm-*.tar.gz
+            calciom-*.zip
+            calciom-*.tar.gz

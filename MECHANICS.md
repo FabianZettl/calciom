@@ -1,4 +1,4 @@
-# PES M (Rust) – Regelblatt
+# CalcioM (Rust) – Regelblatt
 
 Every number that shapes play, with where it came from. "FL sim" = the original's FL world simulation in
 `pesm/fl/sim/ (Python original)` (config files under `config/`), read in Deep mode.
@@ -136,7 +136,7 @@ Mouse for everything; Space = Weiter (end the day); 1–7 open the sidebar group
 | Weather | midweek games at night; winter 15 % snow, 35 % rain | estimated, `game.rs fl27_wetter` |
 
 ### Decompiled from FL_2027.exe (Ghidra, Deep mode)
-PES M itself is Python (no machine code). The game engine is native: `FL_2027.exe` (SHA-256 14dd630a…a7997d, the same file the original's
+CalcioM itself is Python (no machine code). The game engine is native: `FL_2027.exe` (SHA-256 14dd630a…a7997d, the same file the original's
 table `config/spielversionen/fl27_1.00.json` names; image base 0x140000000, no ASLR) was opened with core_target_open (target t_14dd630aaaa0)
 and the statistics getters the original lists were decompiled with native_function_pseudocode / native_functions_decompile.
 
@@ -151,9 +151,9 @@ and the statistics getters the original lists were decompiled with native_functi
 ## Karriere-CPK and sider.ini (Übergabe "Daten und Datenbank" §8.1)
 | Rule | Value | Source |
 |---|---|---|
-| CPK name | "PESM" + club name (accents dropped, ASCII letters/digits, ≤ 30) + first free 01..99 | §8.1, `fl27::cpk_name` |
+| CPK name | "CalcioM" + club name (accents dropped, ASCII letters/digits, ≤ 30) + first free 01..99 | §8.1, `fl27::cpk_name` |
 | quelle.json | `{spiel, welt, cpk}` in the career folder | §8.1 |
-| sider.ini | other PES M careers' active lines commented with ";"; own line removed and set again as first active line below the active PESM_DirectMatch line; world switched on or added below; backup `sider.ini.bak-pesm-YYYYmmdd_HHMMSS` next to the file; written only when something changes | §8.1, `fl27::sider_ini_einrichten` |
+| sider.ini | other CalcioM careers' active lines commented with ";"; own line removed and set again as first active line below the active CalcioM_DirectMatch line; world switched on or added below; backup `sider.ini.bak-calciom-YYYYmmdd_HHMMSS` next to the file; written only when something changes | §8.1, `fl27::sider_ini_einrichten` |
 
 ## Paket 1: own FL database (Anweisungen 21.11.2026)
 | Rule | Value | Source |
@@ -200,7 +200,7 @@ and the statistics getters the original lists were decompiled with native_functi
 | European days | CL Wednesday, EL/ECL Thursday: league phase days 46/60/81/95/116/123/130/158/172/186 (CL), play-offs 214/221, last 16 228/249, quarter 263/270, semi 277/284, final 298 (CL) / 299 | uefa.json days |
 | No double booking | a match moves to the nearest free day (offsets 0, +1, −1, +2, −2, +3, −3) outside international breaks | uefa.py _place; test: 20 seasons |
 | First season | real FL world: the database's entries of CL (2), EL (3), ECL (174), topped up to 36 | uefa.py _db_entries |
-| Level knock-out match played in FL27 | the person picks the winner (extra time or penalties); without an answer PES M decides as for simulated matches | the person's decision 21.11.2026 |
+| Level knock-out match played in FL27 | the person picks the winner (extra time or penalties); without an answer CalcioM decides as for simulated matches | the person's decision 21.11.2026 |
 | Places | holder to CL, EL winner to CL, ECL winner to EL, then quota per league (England, Spain, Italy, Germany 4/1/1, France 3/1/1, Portugal, Netherlands, Belgium 2/1/1, Turkey, Scotland, Greece, Denmark, Russia 1/1/1) from last season's final table; domestic cup winner of these countries into the EL; filled to 36 with the strongest clubs of the quota leagues, at most 7 per country in each competition | uefa.json quota/fill_cap, uefa.py _qualify |
 | Prize money | start 18.6 M, win 2.1 M, draw 0.7 M, play-offs 1.0 M, last 16 11 M, quarter 12.5 M, semi 15 M, final 18.5 M, champion 6.5 M; EL × 0.25, ECL × 0.12 | uefa.json prizes |
 | Reputation | per season: league title +2, domestic cup +1, CL win +3, EL +1.5, ECL +1, taking part CL +0.6, EL +0.3, ECL +0.2; at most +4 | ruf.json club |
@@ -280,7 +280,7 @@ All numbers are read from copies of the Python rule files (`core/**/*.toml`, `co
 | Application | four steps (project, style, question, reaction), answer effect −1…+1 by the board's persona, 33 % an incident −0.25; value 0.3·fit + 0.45·arguments + 0.25·reputation; offer from 0.62, waiting from 0.42 | laufbahn.toml [bewerbung] |
 | AI rotation | coaches of types reaktiv, experimentierfreudig, pragmatisch rotate: a starter below fitness 55 loses 4 points in the line-up choice | ki_trainer.toml startelf, typ.*.rotiert |
 | Roles and instructions | 21 roles by position (rollen.json), minimums from rollenwissen.json in the verdict; instructions Normal / Nach vorn / Zurückhaltend / Pressen, pressing +2 load a match, holding back −2 (choice) | config/taktik |
-| Rule files at runtime | a copy in `~/.local/share/pesm-rust/regeln/<name>.toml|json` overrides only the values it names; broken copies are ignored and listed | choice for Paket 6 |
+| Rule files at runtime | a copy in `~/.local/share/calciom/regeln/<name>.toml|json` overrides only the values it names; broken copies are ignored and listed | choice for Paket 6 |
 | Diagnosis | duration of every day step (last 200), save size, counts | choice for Paket 6 |
 
 ## Paket 6
@@ -328,7 +328,7 @@ All numbers are read from copies of the Python rule files (`core/**/*.toml`, `co
 - Erwartung (Pfeil): Wochenpunkte dieser Woche × Gewichte des Gesamtwertmodells × 52; ab +2 steil hoch, ab +0,5 hoch, über −0,5 gleich, über −2 runter
 
 ## Live-Ansicht eines Spiels in FL27 (Punkt 4, Coaching Zone als Bibliothek)
-- Quelle: der Statistik-Block im Speicher von FL_2027.exe, gelesen über `pesm_coaching_zone::stats` (Blocksuche: drei Datensätze mit Heim-Kopf in Folge, Gast-Kopf eine Seite weiter, plausible Spieler-ID; obere 16 Bit des Kopfs beliebig). Alle 2 Sekunden ein Schnappschuss; PES M rechnet Tore, Karten, Minuten und Wechsel für die Karriere weiter selbst (`fl27::doc`), die Live-Ansicht kommt aus `live::Tracker` der Coaching Zone
+- Quelle: der Statistik-Block im Speicher von FL_2027.exe, gelesen über `pesm_coaching_zone::stats` (Blocksuche: drei Datensätze mit Heim-Kopf in Folge, Gast-Kopf eine Seite weiter, plausible Spieler-ID; obere 16 Bit des Kopfs beliebig). Alle 2 Sekunden ein Schnappschuss; CalcioM rechnet Tore, Karten, Minuten und Wechsel für die Karriere weiter selbst (`fl27::doc`), die Live-Ansicht kommt aus `live::Tracker` der Coaching Zone
 - Anzeigetafel: Stand, Minute und Abschnitt, Balken = Anteil der Ballkontakte im laufenden Abschnitt (FL27 speichert keinen Ballbesitz)
 - Note je Spieler: die Formel der Coaching Zone (6,0 + 1,0 je Tor + 0,6 je Vorlage + 0,12 je Schuss aufs Tor + 0,004 je angekommenem Pass + 0,06 je gewonnenem Zweikampf + 0,05 je abgefangenem Pass + 0,3 je Parade − 0,3 Gelb − 1,5 Rot − 0,1 je Foul − 0,8 je Eigentor, 3,0 … 10,0)
 - Kondition in der Liste: der Stand vor dem Anpfiff (FL27s Live-Wert wird noch nicht gelesen); Formpfeil aus der PES-M-Welt
@@ -340,7 +340,7 @@ All numbers are read from copies of the Python rule files (`core/**/*.toml`, `co
 - Persönlichkeitstyp: erst aus den Merkmalen (launisch, hitzig, wechselfreudig, sensibel, ehrgeizig, loyal, gelassen, in dieser Reihenfolge), sonst aus den Charakterwerten (Temperament ≥ 0,8 hitzig, Loyalität ≤ 0,25 wechselfreudig, Nerven ≤ 0,25 sensibel, Ehrgeiz ≥ 0,8 ehrgeizig, Loyalität ≥ 0,8 loyal, Nerven ≥ 0,8 und Temperament ≤ 0,3 gelassen), sonst neutral; er färbt die Bausteine der Texte und bestimmt, wie eine Antwort ankommt
 - Antworten: 4–6 je Runde aus dem Thema, je eine lösende (gewichtete Wirkung ≥ 2), verschlimmernde (≤ −2) und neutrale, verschiedene Strategien, höchstens zwei gleiche Töne; Reihenfolge Zusagen, Erklären, Vertrösten, Ablehnen, Ausgleich, Nachfragen, Hart bleiben, Verständnis, Abgeben
 - Reaktion: Klasse der Antwort, verschoben nach Typ (z. B. hitzig: harter Ton −1, Verständnis +1; ehrgeizig: Zusage/Ausgleich +1, Ablehnen −1); Launische kippen mit 30 % je Richtung
-- Wirkungen: Moral × 0,5 (halbe Gesprächswirkung), Wechselwunsch über die Moral (÷ 1,6 × 0,5), Beziehung voll, Zusage = Versprechen mit PES Ms Fristen, Kosten als Buchung, Fans/Medien/Vorstand; nach drei Antworten eines Spielers in sieben Tagen wirkt nichts mehr auf die Stimmung (die Sache selbst schon). Die Wellen eines Gesprächs (Freunde, Führungsspieler, Gleichbehandlung) gelten wie bei den übrigen Gesprächen
+- Wirkungen: Moral × 0,5 (halbe Gesprächswirkung), Wechselwunsch über die Moral (÷ 1,6 × 0,5), Beziehung voll, Zusage = Versprechen mit CalcioMs Fristen, Kosten als Buchung, Fans/Medien/Vorstand; nach drei Antworten eines Spielers in sieben Tagen wirkt nichts mehr auf die Stimmung (die Sache selbst schon). Die Wellen eines Gesprächs (Freunde, Führungsspieler, Gleichbehandlung) gelten wie bei den übrigen Gesprächen
 - Von selbst: je Tag höchstens 2 neue, nichts Neues ab 8 offenen, eins je Spieler; je Thema Wurf mit `haeufigkeit`, Sperre `sperre_tage` je Spieler und kaderweit; Drosselung: Wichtiges immer, sonst 1 am Tag und 3 in 7 Tagen zusammen mit den übrigen Anliegen, Rauschen 1 in 7 Tagen
 - Wiederholschutz: je Thema und Spieler werden die zuletzt gezeigten Eröffnungen gemerkt (höchstens 12, nie alle); erst kommen die Eröffnungen des eigenen Typs, dann die allgemeinen, erst danach wiederholt sich etwas
 - Ketten (`posteingang.toml [[kette]]`): Der Neue findet keinen Anschluss → nach 21 Tagen Nachfrage (Mentor) → nach 14 Tagen Szene in der Kabine; Heimweh und Müde Beine → nach 21 Tagen die gute oder die schlechte Szene, je nach Ausgang des Gesprächs

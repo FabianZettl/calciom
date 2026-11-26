@@ -4,7 +4,7 @@
 //! are the original's, copied unchanged; the numbers that stood in its code are in assets/regeln/posteingang.toml.
 //! A conversation: an opening coloured by the player's personality, 4–6 answers (at least one that solves, one that
 //! makes it worse and one neutral, when the theme has them), the reaction (how the answer lands with this type) and
-//! the outcome; the effects go through PES M's own ways (morale, relation, promises, money, board/fans/media).
+//! the outcome; the effects go through CalcioM's own ways (morale, relation, promises, money, board/fans/media).
 use crate::game::*;
 use crate::mensch::{arr, cw, zufall};
 use serde_json::{Map, Value};
@@ -273,7 +273,7 @@ pub fn absender_echt(club_id: u32, club: &str, from: &str) -> Option<(String, St
 }
 pub fn titel(tid: &str) -> String { varianten(&format!("pool.{tid}.titel")).first().map(|s| s.to_string()).unwrap_or_else(|| tid.replace('_', " ")) }
 
-// ---------------------------------------------------------------- PES M: context, start, answer, daily beat
+// ---------------------------------------------------------------- CalcioM: context, start, answer, daily beat
 impl Career {
     /// Context for the conditions, variables for the texts and the personality type of an own player (only read).
     pub fn pool_kontext(&self, p: usize) -> (Map<String, Value>, BTreeMap<String, String>, &'static str) {
@@ -341,7 +341,7 @@ impl Career {
         self.msg(cat, &from, &format!("{n} · {}", titel(tid)), &text, Action::Wahl { art: format!("pool:{tid}:{samen}"), bezug: vec![p], optionen: opts });
         true
     }
-    /// The answer to a pool conversation: reaction and outcome as text; the effects go through PES M's ways. After
+    /// The answer to a pool conversation: reaction and outcome as text; the effects go through CalcioM's ways. After
     /// three answers of one player in seven days the mood effects stop (the original's limit), the rest still counts.
     pub fn pool_antwort(&mut self, rest: &str, p: usize, key: &str) -> String {
         let Some((tid, samen)) = rest.split_once(':') else { return String::new() };

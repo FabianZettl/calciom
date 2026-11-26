@@ -7,11 +7,11 @@
   "handbuch.abschnitt.tipps": "Tipps",
 
   "handbuch.erste_schritte.titel": "Erste Schritte",
-  "handbuch.erste_schritte.kurz": "Karriere anlegen, Tage abschließen, Spiele in FL27 oder in PES M spielen.",
-  "handbuch.erste_schritte.was": "PES M ist dein Managerbüro rund um FL27. Hier führst du Verein, Kader, Gespräche, Transfers und Finanzen. Die Spiele spielst du in FL27 oder lässt sie von PES M rechnen.",
-  "handbuch.erste_schritte.ablauf": "Lege eine Karriere in vier Schritten an: Welt-Ordner wählen und prüfen, Verein, Trainername, Start.\nPES M sichert die Welt und die Sider-Einstellungen in den Karriere-Ordner und legt eine eigene Kopie der Datenbank an. Das Original bleibt unberührt.\nPlane den Tag: Posteingang, Training, Aufstellung, Transfers.\nKlicke auf Nächster Tag. Am Spieltag geht es zum Spiel.\nDas Spiel spielst du in FL27 oder lässt es von PES M rechnen. Das Ergebnis wird mitgelesen oder von Hand eingetragen.",
-  "handbuch.erste_schritte.wirkung": "Was ins Spiel muss, schreibt PES M in die Datenbank-Kopie deiner Karriere: Kader, Fähigkeiten, Verträge, Aufstellung, neue Spieler. Jede Datei wird vorher gesichert, nach dem Schreiben gelesen und bei einem Fehler zurückgesetzt.",
-  "handbuch.erste_schritte.mehr": "In den Spielordner schreibt PES M nur, wenn du es in den Einstellungen erlaubst, und dann nur die Sider-Einstellungen, die vorher gesichert werden.\nEndet ein K.-o.-Spiel aus FL27 unentschieden, fragt PES M mit Knöpfen, wer gewonnen hat. Den Stand des Elfmeterschießens kennt es nicht und zeigt nur „i.E.“.\nDie Karriere wird jede Woche und beim Beenden gesichert.",
+  "handbuch.erste_schritte.kurz": "Karriere anlegen, Tage abschließen, Spiele in FL27 oder in CalcioM spielen.",
+  "handbuch.erste_schritte.was": "CalcioM ist dein Managerbüro rund um FL27. Hier führst du Verein, Kader, Gespräche, Transfers und Finanzen. Die Spiele spielst du in FL27 oder lässt sie von CalcioM rechnen.",
+  "handbuch.erste_schritte.ablauf": "Lege eine Karriere in vier Schritten an: Welt-Ordner wählen und prüfen, Verein, Trainername, Start.\nCalcioM sichert die Welt und die Sider-Einstellungen in den Karriere-Ordner und legt eine eigene Kopie der Datenbank an. Das Original bleibt unberührt.\nPlane den Tag: Posteingang, Training, Aufstellung, Transfers.\nKlicke auf Nächster Tag. Am Spieltag geht es zum Spiel.\nDas Spiel spielst du in FL27 oder lässt es von CalcioM rechnen. Das Ergebnis wird mitgelesen oder von Hand eingetragen.",
+  "handbuch.erste_schritte.wirkung": "Was ins Spiel muss, schreibt CalcioM in die Datenbank-Kopie deiner Karriere: Kader, Fähigkeiten, Verträge, Aufstellung, neue Spieler. Jede Datei wird vorher gesichert, nach dem Schreiben gelesen und bei einem Fehler zurückgesetzt.",
+  "handbuch.erste_schritte.mehr": "In den Spielordner schreibt CalcioM nur, wenn du es in den Einstellungen erlaubst, und dann nur die Sider-Einstellungen, die vorher gesichert werden.\nEndet ein K.-o.-Spiel aus FL27 unentschieden, fragt CalcioM mit Knöpfen, wer gewonnen hat. Den Stand des Elfmeterschießens kennt es nicht und zeigt nur „i.E.“.\nDie Karriere wird jede Woche und beim Beenden gesichert.",
   "handbuch.erste_schritte.tipps": "Lies am Anfang den Posteingang: Dort stehen Ziel und Budget.\nDie Zentrale zeigt alle Bereiche auf einen Blick.\nIm Tagebuch steht zu jeder Veränderung, warum sie passiert ist.",
 
   "handbuch.inbox.titel": "Posteingang und Gespräche",
@@ -120,8 +120,8 @@
 
   "handbuch.einstellungen.titel": "Einstellungen und Regeln",
   "handbuch.einstellungen.kurz": "Aussehen, Klang, FL27 und die Zahlen der Spielwelt.",
-  "handbuch.einstellungen.was": "In den Optionen wählst du Thema (Sonntag hell, Flutlicht dunkel), Klang und ob PES M mit FL27 zusammenarbeiten darf. Unter Regeln und Anpassung siehst du alle Regeldateien.",
-  "handbuch.einstellungen.ablauf": "Öffne Regeln und Anpassung und klicke bei einer Datei auf Anpassen.\nPES M legt eine Kopie im Datenordner an. Ändere Zahlen darin mit einem Texteditor.\nStarte PES M neu; die Kopie gilt dann statt der eingebauten Zahlen.",
+  "handbuch.einstellungen.was": "In den Optionen wählst du Thema (Sonntag hell, Flutlicht dunkel), Klang und ob CalcioM mit FL27 zusammenarbeiten darf. Unter Regeln und Anpassung siehst du alle Regeldateien.",
+  "handbuch.einstellungen.ablauf": "Öffne Regeln und Anpassung und klicke bei einer Datei auf Anpassen.\nCalcioM legt eine Kopie im Datenordner an. Ändere Zahlen darin mit einem Texteditor.\nStarte CalcioM neu; die Kopie gilt dann statt der eingebauten Zahlen.",
   "handbuch.einstellungen.wirkung": "Eine Kopie überschreibt nur die Werte, die sie enthält. Löschst du sie, gelten wieder die Zahlen der Vorlage.",
   "handbuch.einstellungen.mehr": "Fehlerhafte Kopien werden ignoriert und auf der Seite gemeldet.\nUnter Profi-Details siehst du, wie lange ein Tag dauert und wie groß der Spielstand ist.",
   "handbuch.einstellungen.tipps": "Ändere wenig auf einmal, dann siehst du die Wirkung."

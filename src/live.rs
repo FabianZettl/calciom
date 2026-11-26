@@ -1,5 +1,5 @@
 //! Live writing of the career's pesdb (as in the Python version): after every day and every change that matters to
-//! the game, PES M writes abilities, positions, age, club, shirt numbers and line-ups (everything fl27_vorbereiten
+//! the game, CalcioM writes abilities, positions, age, club, shirt numbers and line-ups (everything fl27_vorbereiten
 //! writes) into <Karriere>/pesdb and, once the career was loaded into FL27, into its livecpk copy. Changes in quick
 //! succession are collected: one write after RUHE of calm. Only changed files are written, atomically, read back and
 //! rolled back on a difference; the original world is never touched.
@@ -53,7 +53,9 @@ impl Career {
             let mut gepatcht = false;
             if n_spieler > 0 { gepatcht |= matches!(crate::livepatch::add_players(&live, &attr, n_spieler)?, Some(k) if k > 0); }
             for t in teams { gepatcht |= crate::livepatch::add_team(&live, t).unwrap_or(false); }
-            if neustart { crate::livepatch::neustart_merken(&live)?; }
+            // against the snapshot of what FL27 loaded the list is complete and replaces the mark; without it, it adds up
+            if self.start_asg_datei().is_some_and(|p| p.exists()) { crate::livepatch::neustart_loeschen(&live); }
+            if !neustart.is_empty() { crate::livepatch::neustart_merken(&live, &neustart)?; }
             if crate::fl27::fl27_pid().is_some() {
                 // new or moved players: PESMLivePatch takes them in while FL27 runs (Fabian 24.11.: no restart hint)
                 if gepatcht && !self.db_hinweis { self.db_hinweis = true; return Ok(crate::inhalt::t("ui.live.livepatch_bereit").into()); }
@@ -79,7 +81,7 @@ mod tests {
     fn karriere(tmp: &std::path::Path) -> Option<(Career, std::path::PathBuf)> {
         let welt = std::path::PathBuf::from("/mnt/GAMES/sp-football-life-2026/drive_c/Games/SP Football Life 2027/SiderAddons/livecpk/_FL26MyWorld");
         if !fl27::echte_welt(&welt) { return None; }
-        std::env::set_var("PESM_KARRIEREN", tmp.join("karrieren"));
+        std::env::set_var("CALCIOM_KARRIEREN", tmp.join("karrieren"));
         let w = World::from_pesdb(&welt.join("common/etc/pesdb"), 3).unwrap();
         let own = w.clubs.iter().position(|c| c.name == "FC Porto").unwrap();
         let mut c = Career::new(w, own, "Test");
@@ -97,11 +99,11 @@ mod tests {
         let _g = crate::game::HOME_LOCK.lock().unwrap_or_else(|e| e.into_inner());
         assert_eq!(fl27::fl27_pid(), None, "the real FL27 is never seen in tests");
         let mut kind = std::process::Command::new("sleep").arg("30").spawn().unwrap();
-        std::env::set_var("PESM_FL27_ERSATZ_PID", kind.id().to_string());
+        std::env::set_var("CALCIOM_FL27_ERSATZ_PID", kind.id().to_string());
         assert_eq!(fl27::fl27_pid(), Some(kind.id()));
         let t = fl27::fl27_beenden();
         let _ = kind.wait();
-        std::env::remove_var("PESM_FL27_ERSATZ_PID");
+        std::env::remove_var("CALCIOM_FL27_ERSATZ_PID");
         assert!(t.unwrap().contains("Ersatzprozess"));
         let echt = std::path::Path::new(fl27::PREFIX).join("drive_c/Games/SP Football Life 2027/SiderAddons/livecpk/PESMTest/x.bin");
         assert!(std::panic::catch_unwind(|| fl27::atomic_write(&echt, b"x")).is_err(), "the guard stops a write in the real livecpk");
@@ -110,7 +112,7 @@ mod tests {
     #[test]
     fn live_mitschreiben() {
         let _g = crate::game::HOME_LOCK.lock().unwrap_or_else(|e| e.into_inner());
-        let tmp = std::env::temp_dir().join(format!("pesm-live-{}", std::process::id()));
+        let tmp = std::env::temp_dir().join(format!("calciom-live-{}", std::process::id()));
         let Some((mut c, welt)) = karriere(&tmp) else { return };
         let original = sha(&welt.join("common/etc/pesdb/Player.bin"));
         let pesdb = fl27::karriere_pesdb(&c.karriere_dir());
@@ -148,6 +150,6 @@ mod tests {
         assert!(c.db_tick(t0 + Duration::from_secs(43)).is_none());
         assert_eq!(sha(&welt.join("common/etc/pesdb/Player.bin")), original, "the original stays untouched");
         let _ = std::fs::remove_dir_all(&tmp);
-        std::env::remove_var("PESM_KARRIEREN");
+        std::env::remove_var("CALCIOM_KARRIEREN");
     }
 }

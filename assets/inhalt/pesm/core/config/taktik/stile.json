@@ -1,5 +1,5 @@
 {
-  "hinweis": "Stilvorlagen des Taktik-Assistenten: eigene PESM-Heuristik (nicht aus dem Spiel). Schalter in der Reihenfolge Offensivstil, Aufbau, Angriffsbereich, Stellungsspiel, Defensivstil, Kontrollbereich, Pressing (0/1); Regler Unterstützungsbereich, Abwehrreihe, Kompaktheit (1-10). Nur Entwurf in PESM.",
+  "hinweis": "Stilvorlagen des Taktik-Assistenten: eigene CalcioM-Heuristik (nicht aus dem Spiel). Schalter in der Reihenfolge Offensivstil, Aufbau, Angriffsbereich, Stellungsspiel, Defensivstil, Kontrollbereich, Pressing (0/1); Regler Unterstützungsbereich, Abwehrreihe, Kompaktheit (1-10). Nur Entwurf in CalcioM.",
   "stile": {
     "ballbesitz":    {"schalter": [1, 1, 1, 1, 1, 0, 1], "regler": [5, 5, 6], "ip": "4-3-3",   "oop": "4-4-2",   "plus": 2, "minus": 2},
     "gegenpressing": {"schalter": [1, 1, 1, 1, 0, 0, 0], "regler": [7, 8, 7], "ip": "4-2-3-1", "oop": "4-4-2",   "plus": 2, "minus": 2},

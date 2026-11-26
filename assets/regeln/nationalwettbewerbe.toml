@@ -1,4 +1,4 @@
-# PES M – Länderspielfenster und Nationalteam-Wettbewerbe (Startdaten), Stand 23.11.2026
+# CalcioM – Länderspielfenster und Nationalteam-Wettbewerbe (Startdaten), Stand 23.11.2026
 # Stil wie ligaregeln.toml. Fabian darf alles ändern. sicher = false heißt: geschätzt, bitte prüfen.
 # Wettbewerbe wiederholen sich über "rhythmus" (alle n Jahre ab "erstes_jahr"), damit lange Karrieren funktionieren.
 # Formate (Baukasten): gruppen_ko, liga, liga_stufen (Nations League), quali_gruppen, ko
@@ -301,7 +301,7 @@ weiter = { gruppensieger = true, zweite = true, beste_dritte = 0 }
 ko_ab = "viertelfinale"
 altersgrenze = 23
 sicher = false
-hinweis = "Für AFC/CAF/CONMEBOL/CONCACAF spielt die U21 in PES M die U23-Turniere ihres Verbands (Altersgrenze aus diesem Feld)."
+hinweis = "Für AFC/CAF/CONMEBOL/CONCACAF spielt die U21 in CalcioM die U23-Turniere ihres Verbands (Altersgrenze aus diesem Feld)."
 
 [[wettbewerb]]
 kuerzel = "olympia"

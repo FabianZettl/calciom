@@ -33,7 +33,7 @@ pub(super) fn aufstellung(ui: &mut Ui, v: &mut View, c: &mut Career) {
         y += 30.0;
     }
     y += 4.0;
-    // the PES M tactic (taktik9.rs): a playing idea, nine sliders in football words, four switches; every change is
+    // the CalcioM tactic (taktik9.rs): a playing idea, nine sliders in football words, four switches; every change is
     // translated at once into the game's values (tab "How FL27 plays it")
     let mut neu = false;
     if !c.t9.aktiv { c.t9 = crate::taktik9::Taktik9::aus_tactic(&c.tactic); neu = true; }
@@ -297,7 +297,7 @@ fn standards_seite(ui: &mut Ui, v: &mut View, c: &mut Career) {
     ui.text_semi(crate::inhalt::t("ui.pages.urteil_des_co_trainers"), r2.x + 14.0, yy, 16.0, Theme::akzent());
     for (k, l) in c.taktikurteil().iter().enumerate().take(4) { ui.paragraph(l, r2.x + 14.0, yy + 26.0 + k as f32 * 44.0, 15.0, r2.w - 28.0, Theme::text2()); }
 }
-/// "How FL27 plays it" (Konzept 2.3): every game value with its setting, the reason, and whether PES M writes it into
+/// "How FL27 plays it" (Konzept 2.3): every game value with its setting, the reason, and whether CalcioM writes it into
 /// the game's database (Tactics.bin) or only the simulation knows it.
 fn fl27_taktik_seite(ui: &mut Ui, c: &mut Career) {
     let t = crate::inhalt::t;
@@ -318,16 +318,16 @@ fn fl27_taktik_seite(ui: &mut Ui, c: &mut Career) {
         ui.text(t(&format!("ui.t9.n.{}", z.name)), x1, y - 2.0, 15.0, Theme::text());
         ui.text_semi(&z.wert, x2, y - 2.0, 15.0, Theme::akzent());
         ui.text(&ui.fit(&z.grund, 14.0, r.w * 0.4), x3, y - 2.0, 14.0, Theme::text2());
-        // written into the game, or only in PES M's simulation until the research finds the field
+        // written into the game, or only in CalcioM's simulation until the research finds the field
         let (col, txt) = if z.geschrieben { (Theme::gut(), t("ui.t9.stand.geschrieben")) } else { (Theme::achtung(), t("ui.t9.stand.simulation")) };
         draw_circle(r.x + r.w - 214.0, y - 7.0, 6.0, col);
         ui.text(txt, r.x + r.w - 200.0, y - 2.0, 13.0, Theme::text2());
     }
-    // what only PES M knows
+    // what only CalcioM knows
     let nur: Vec<&str> = crate::taktik9::SCHALTER.iter().enumerate().filter(|(k, _)| c.t9.schalter[*k] && *k >= 2).map(|(_, n)| crate::inhalt::t(&format!("ui.t9.s.{n}"))).collect();
     if !nur.is_empty() { ui.text(&crate::tf!("ui.t9.nur_simulation", nur.join(", ")), r.x + 14.0, r.y + r.h - 24.0, 13.0, Theme::text2()); }
     // the advanced instructions, two in attack and two in defence (the game's list, as The Gaffer has it); they act in
-    // PES M's simulation, the place in FL27's database is still unknown
+    // CalcioM's simulation, the place in FL27's database is still unknown
     let ay = r.y + r.h - 150.0;
     ui.text_semi(t("ui.t9.anweisungen"), r.x + 14.0, ay, 14.0, Theme::akzent());
     let bw = (r.w - 28.0 - 3.0 * 12.0) / 4.0;

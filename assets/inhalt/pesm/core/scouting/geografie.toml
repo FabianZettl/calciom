@@ -3,7 +3,7 @@
 # international: echte internationale Wettbewerbe (Europa-, Südamerika-, Asienpokale, Klub-Weltpokal, internationale Vorbereitungsturniere) – Gebiet „International“.
 # Typ geprüft gegen die Spieldaten (Teilnehmer, Art, Größe): Wettbewerb 22 und 28 (nationale Liga und Pokal eines Landes mit vielen Legionären, nur ~50 % einer Nationalität)
 # sind national; 106 (internationales Vorbereitungsturnier mit 4 Vereinen) ist international.
-# weltregion: Flaggennummer → Weltregion, von PESM gepflegt; nicht verzeichnete Flaggen gelten als „weitere“. Ergänzen, sobald Ländernamen vorliegen.
+# weltregion: Flaggennummer → Weltregion, von CalcioM gepflegt; nicht verzeichnete Flaggen gelten als „weitere“. Ergänzen, sobald Ländernamen vorliegen.
 
 [liga_land]
 22 = 228

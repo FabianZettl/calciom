@@ -193,7 +193,7 @@ mod tests {
     fn zehn_jahre() {
         let w = crate::world::World::load(include_str!("../assets/world.json"), 8);
         let mut c = Career::new(w, 3, "Test");
-        let jahre: u32 = std::env::var("PESM_JAHRE").ok().and_then(|x| x.parse().ok()).unwrap_or(10);
+        let jahre: u32 = std::env::var("CALCIOM_JAHRE").ok().and_then(|x| x.parse().ok()).unwrap_or(10);
         let mut alle: Vec<(usize, usize, usize, f64, u8)> = vec![];
         for _ in 0..jahre * crate::date::SEASON_DAYS {
             if c.today_match().is_some() { let r = c.prepare_match(None); c.apply_own_match(r); }

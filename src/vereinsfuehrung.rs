@@ -59,11 +59,11 @@ pub fn amt(rolle: &str) -> &'static [&'static str] {
 
 #[cfg(test)]
 mod tests {
-    /// Which listed clubs find no club of a real world: PESM_WELT=<world> cargo test --release abgleich -- --ignored --nocapture
+    /// Which listed clubs find no club of a real world: CALCIOM_WELT=<world> cargo test --release abgleich -- --ignored --nocapture
     #[test]
     #[ignore]
     fn abgleich_mit_welt() {
-        let Ok(d) = std::env::var("PESM_WELT") else { return };
+        let Ok(d) = std::env::var("CALCIOM_WELT") else { return };
         let w = crate::world::World::from_pesdb(std::path::Path::new(&d), 1).unwrap();
         let welt: std::collections::HashSet<String> = w.clubs.iter().map(|c| super::norm(&c.name)).collect();
         let fehlt: Vec<&String> = super::tabelle().keys().filter(|k| !welt.contains(*k)).collect();

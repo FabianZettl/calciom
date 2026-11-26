@@ -14,9 +14,14 @@ thread_local! {
     static DARK: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
     static CLUB: std::cell::Cell<u32> = const { std::cell::Cell::new(0xd4152f) };
     static AREA: std::cell::Cell<u32> = const { std::cell::Cell::new(0x38bdf8) };
-    /// Accent of the theme: from the own crest (Ui::wappen_farbe) or the default blue.
-    static AKZENT: std::cell::Cell<u32> = const { std::cell::Cell::new(0x38bdf8) };
+    /// Accent of the theme: from the own crest (Ui::wappen_farbe) or CalcioM's lawn green.
+    static AKZENT: std::cell::Cell<u32> = const { std::cell::Cell::new(MARKE_GRUEN) };
 }
+// CalcioM colours (Fabian's brand sheet 26.11.2026): lawn green, its light-theme shade, deep green, paper, gold.
+pub const MARKE_GRUEN: u32 = 0x34c47c;
+pub const MARKE_GRUEN_HELL: u32 = 0x146b43;
+pub const MARKE_TIEFGRUEN: u32 = 0x0e3b2a;
+pub const MARKE_GOLD: u32 = 0xd9a441;
 fn pick(dark: u32, light: u32) -> Color { hex(if DARK.with(|d| d.get()) { dark } else { light }) }
 fn lum(c: Color) -> f32 {
     let f = |x: f32| if x <= 0.03928 { x / 12.92 } else { ((x + 0.055) / 1.055).powf(2.4) };
@@ -117,24 +122,27 @@ pub struct Theme;
 impl Theme {
     pub fn set(dark: bool, club: u32, area: u32) { DARK.with(|d| d.set(dark)); CLUB.with(|c| c.set(club)); AREA.with(|a| a.set(area)); }
     pub fn dark() -> bool { DARK.with(|d| d.get()) }
-    pub fn grund() -> Color { pick(0x0f1218, 0xf6f3ee) }
-    pub fn grund_tief() -> Color { pick(0x0a0d12, 0xede8e0) }
-    pub fn flaeche() -> Color { pick(0x171c26, 0xffffff) }
-    pub fn erhoehung() -> Color { pick(0x1e2430, 0xfbf9f6) }
-    pub fn ueberlagerung() -> Color { pick(0x2a3242, 0xefe9df) }
-    pub fn linie() -> Color { pick(0x2a3242, 0xe4ded4) }
-    pub fn text() -> Color { pick(0xeef2f8, 0x1b1f27) }
+    pub fn grund() -> Color { pick(0x0d1310, 0xf3eee3) }
+    pub fn grund_tief() -> Color { pick(0x090d0b, 0xebe4d6) }
+    pub fn flaeche() -> Color { pick(0x141c18, 0xfffdf8) }
+    pub fn erhoehung() -> Color { pick(0x1b2520, 0xf9f6ef) }
+    pub fn ueberlagerung() -> Color { pick(0x26332c, 0xece5d6) }
+    pub fn linie() -> Color { pick(0x26332c, 0xe0d8c8) }
+    pub fn text() -> Color { pick(0xeef3ef, 0x0d1310) }
     pub fn text2() -> Color { pick(0x9aa6b8, 0x5d6676) }
-    pub fn gedaempft() -> Color { pick(0x7f8a9c, 0x6b7280) }
+    pub fn gedaempft() -> Color { pick(0x8a95a6, 0x5f6673) }
     /// The accent, made readable on the current background: at least 3:1 against it (buttons, bars, markings).
-    pub fn akzent() -> Color { lesbar(hex(AKZENT.with(|a| a.get())), Theme::grund(), 3.0) }
+    pub fn akzent() -> Color {
+        let a = AKZENT.with(|a| a.get());
+        lesbar(hex(if a == MARKE_GRUEN && !Theme::dark() { MARKE_GRUEN_HELL } else { a }), Theme::grund(), 3.0)
+    }
     /// Text on the accent: white or near black, whichever reads better (at least 4.5:1).
     pub fn auf_akzent() -> Color { on(Theme::akzent()) }
     pub fn set_akzent(c: u32) { AKZENT.with(|a| a.set(c)); }
     pub fn gut() -> Color { hex(0x3ecf8e) }
     pub fn achtung() -> Color { hex(0xf5b942) }
     pub fn problem() -> Color { hex(0xff4d6a) }
-    pub fn gold() -> Color { hex(0xf5b942) }
+    pub fn gold() -> Color { hex(MARKE_GOLD) }
     pub fn kontur() -> Color { Theme::linie() }
     pub fn schatten() -> Color { Color::new(0.0, 0.0, 0.0, if Theme::dark() { 0.35 } else { 0.07 }) }
     pub fn verein() -> Color { hex(CLUB.with(|c| c.get())) }
@@ -208,7 +216,7 @@ pub struct Ui {
     pub nachweise: std::cell::RefCell<Vec<(Rect, String)>>,
 }
 
-/// Window-size check (tools/fenstertest.py, PESM_PRUEF=<report.json>): texts drawn beyond the window, texts cut to „…“,
+/// Window-size check (tools/fenstertest.py, CALCIOM_PRUEF=<report.json>): texts drawn beyond the window, texts cut to „…“,
 /// and how far right and down anything was drawn (a big empty band shows as a gap).
 #[derive(Default)]
 pub struct Pruefung { pub ueberlauf: std::collections::BTreeSet<String>, pub gekuerzt: std::collections::BTreeSet<String>, pub kartenrand: std::collections::BTreeSet<String>, pub rechts: f32, pub unten: f32 }

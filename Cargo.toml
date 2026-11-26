@@ -1,8 +1,8 @@
 [package]
-name = "pesm"
-version = "0.2.1"
+name = "calciom"
+version = "0.5.0"
 edition = "2021"
-default-run = "pesm"
+default-run = "calciom"
 
 [dependencies]
 # macroquad's own image crate, with its DDS reader (DXT1/3/5) switched on for player photos and crests
@@ -19,7 +19,7 @@ tokio = { version = "1", features = ["rt-multi-thread", "net", "sync", "time", "
 rand = "0.10"
 qrcode = { version = "0.15", default-features = false }
 local-ip-address = "0.6"
-# background music: mpv ends with PES M (prctl), already in the tree
+# background music: mpv ends with CalcioM (prctl), already in the tree
 libc = "0.2"
 # Punkt 4: the Coaching Zone as a library (memory reader, live tracker); read only, its folder is never changed
 pesm-coaching-zone = { git = "https://github.com/FabianZettl/pesm-coaching-zone", rev = "74c069f" }

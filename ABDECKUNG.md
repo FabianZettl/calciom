@@ -4,7 +4,7 @@ Erzeugt von `tools/abdeckung.py` (neu erzeugen nach jedem größeren Bau). Eine 
 
 | Datei | Aufgabe | Rust | Status |
 |---|---|---|---|
-| `__init__.py` | PESM: Manager-Oberbau für PES. Reines Python im Kern, Oberfläche folgt in späteren Arbeitspaketen. | — (Paketdatei) | entfällt |
+| `__init__.py` | CalcioM: Manager-Oberbau für PES. Reines Python im Kern, Oberfläche folgt in späteren Arbeitspaketen. | — (Paketdatei) | entfällt |
 | `diagnose.py` | Live-Diagnose der Spielverbindung: eine Logdatei, in die alle Stationen schreiben (Backend, Brücke, Einlesen, Weg A). | pages.rs (Profi-Details) | Bereich |
 | `gesundheit.py` | Gesundheitswächter: erkennt auch stilles Scheitern und meldet es in die Problemliste (pesm/probleme.py, docs/intern/WAECHTER.md). | fl27.rs (Wächter) | Bereich |
 | `pfade.py` | Zentrale Pfadverwaltung: alle Nutzerorte (Einstellungen, Daten, Zwischenspeicher) folgen den XDG-Regeln; Tests leiten HOME/XDG_* um (tests/_ | game.rs (Karrieren-Ordner) | Bereich |
@@ -32,9 +32,9 @@ Erzeugt von `tools/abdeckung.py` (neu erzeugen nach jedem größeren Bau). Eine 
 | `adapters/pes/__init__.py` |  | — (Paketdatei) | entfällt |
 | `adapters/pes/attribute.py` | Reine Rechenfunktion: Attribut-Grenzen am Spielspeicher (PES-Skala 1-99). | pesdb.rs, fl27.rs | Bereich |
 | `adapters/pes/cpk.py` | CPK-Archive des Spiels (Data/*.cpk) nur lesen: Verzeichnis (TOC) auslesen und einzelne Dateien herausholen. | pesdb.rs, fl27.rs | Bereich |
-| `adapters/pes/datenbank.py` | PESM-Datenbank je Speicherplatz (SQLite): Spieldaten mit Herkunft und Stand, PESM-eigene Tabellen getrennt. | pesdb.rs, fl27.rs | Bereich |
+| `adapters/pes/datenbank.py` | CalcioM-Datenbank je Speicherplatz (SQLite): Spieldaten mit Herkunft und Stand, CalcioM-eigene Tabellen getrennt. | pesdb.rs, fl27.rs | Bereich |
 | `adapters/pes/felder.py` | Katalog der Spielerfelder (Fähigkeiten, Spielstil, Spielerfähigkeiten, Bereiche, Stile je Position, Anzeigestatus) und ihre Prüfung. | pesdb.rs, fl27.rs | Bereich |
-| `adapters/pes/journal.py` | Unterbrochener Schreibvorgang: ein liegengebliebenes `-journal` neben einer PESM-Datenbank erkennen, vorher sichern, zurücksetzen. | pesdb.rs, fl27.rs | Bereich |
+| `adapters/pes/journal.py` | Unterbrochener Schreibvorgang: ein liegengebliebenes `-journal` neben einer CalcioM-Datenbank erkennen, vorher sichern, zurücksetzen. | pesdb.rs, fl27.rs | Bereich |
 | `adapters/pes/positionen.py` | Positionscode eines Formationsplatzes aus seiner Lage (Tiefe, Breite), mit den Zonentabellen des Spiels (`positionen.toml`). | pesdb.rs, fl27.rs | Bereich |
 | `adapters/pes/prozess.py` | Spielprozess finden und seine Speicherbereiche auflisten (Spezifikation 02, „Auffinden“). | pesdb.rs, fl27.rs | Bereich |
 | `adapters/pes/sicherheit.py` | Ablage der Backups vor dem Löschen einer Karriere (karrieren.loeschen). | pesdb.rs, fl27.rs | Bereich |
@@ -76,13 +76,13 @@ Erzeugt von `tools/abdeckung.py` (neu erzeugen nach jedem größeren Bau). Eine 
 | `backend/bericht.py` | Spielbericht in voller Aufbereitung (UX-Nacht, Etappe 7), nur lesend: Ergebnis und Verlauf aus dem Bericht des Spieltags (H2, | taktik.rs | gebaut |
 | `backend/besetzung.py` | Besetzung je Position, Formationsvorlagen und Rollen der Startelf: lesende Abfragen auf Basis der Rollenanalyse. | — | entfällt |
 | `backend/bilder.py` | Bilder für die Oberfläche: Erlaubnis, Einstellung und Abruf über `adapters/bilder` (Wappen, Spielerbilder). | fl27.rs | gebaut |
-| `backend/charakter.py` | Charakterwerte als Startwerte in der PESM-Datenbank (`pesm_persoenlichkeit`) und ihr Abruf für das Profil. | — | entfällt |
+| `backend/charakter.py` | Charakterwerte als Startwerte in der CalcioM-Datenbank (`pesm_persoenlichkeit`) und ihr Abruf für das Profil. | — | entfällt |
 | `backend/cotrainer_aufstellung.py` | Der Co-Trainer stellt am Spieltag nach Fristende selbst auf, wenn du keine Aufstellung abgegeben hast. | — | entfällt |
 | `backend/datenbankdienst.py` | Datenbank-Dienst der Karriere-Datenbank: Sicherungen, Zustandsbild, Prüfung und die Neuberechnung der Startwerte. | — | entfällt |
 | `backend/dienste.py` | Methoden des Backends für den Rahmen (AP4): Registry, Status, Seitenabfragen, Änderungen, Suche. Nur Mocks. | — | entfällt |
 | `backend/direktmatch_dienst.py` | Dienst „Direktmatch“: bindet den Controller `pesm/fl/direktmatch.py` an das Backend (Methoden `direktmatch.*`) und taktet ihn, solange ein A | — | entfällt |
 | `backend/drama_vorgaenge.py` | Transfer- und Vertragsdrama in der Inbox: Backend-Adapter zu `core/transfers/drama_vorgang.py`. | — | entfällt |
-| `backend/einrichtung.py` | Ort der lokalen Einstellung `~/.config/pesm/verbindung.toml` (überschreibbar mit PESM_VERBINDUNG, z. B. für Selbsttests). | — | entfällt |
+| `backend/einrichtung.py` | Ort der lokalen Einstellung `~/.config/pesm/verbindung.toml` (überschreibbar mit CALCIOM_VERBINDUNG, z. B. für Selbsttests). | — | entfällt |
 | `backend/einstufung.py` | Einstufung im Posteingang (docs/intern/POSTEINGANG.md): verbindet die Regeln aus `core/vorgang/einstufung.py` mit dem VorgangDienst. | — | entfällt |
 | `backend/entwicklung.py` | Entwicklung und Moral im Backend (Sitzung E): verbindet den Kern (`core/entwicklung`) mit Spielzugriff, Datenbank und Seiten. | world.rs | gebaut |
 | `backend/ereignisse.py` | Ereignisse der Tagesphasen als Vorgänge der Inbox: Aufstellung durch den Co-Trainer (Abend), Reaktionen auf die Entscheidungen des Tages (Ab | — | entfällt |
@@ -99,10 +99,10 @@ Erzeugt von `tools/abdeckung.py` (neu erzeugen nach jedem größeren Bau). Eine 
 | `backend/kabine.py` | Kabine im Backend (Sitzung Kabine): Tonkarten für die Ansprachen vor, in der Halbzeit und nach dem Spiel, Mind Games und die | mensch.rs, pages.rs | gebaut |
 | `backend/kaderuebersicht.py` | Dienst `kader.uebersicht` für die Kaderseite: baut je Spieler des eigenen Kaders eine Zeile aus den vorhandenen Quellen und gibt Kennzahlen, | — | entfällt |
 | `backend/karriere.py` | Karriere im Spielerprofil: reale Vorgeschichte über `adapters/karriere` (erster Anbieter Wikidata, CC0). | — | entfällt |
-| `backend/karrieren.py` | Karrieren: Das eigentliche Objekt in PESM. Eine Karriere hat einen eigenen Namen, einen Verein und eine eigene Welt (pesm/fl) mit PESM-Daten | — | entfällt |
-| `backend/ki_trainer.py` | KI-Trainer: Eingabe aus den PESM-Daten bauen, mit dem Stand der Entscheidung (Karriere-Tabelle) verbinden und den Wochenentwurf rechnen. | — | entfällt |
+| `backend/karrieren.py` | Karrieren: Das eigentliche Objekt in CalcioM. Eine Karriere hat einen eigenen Namen, einen Verein und eine eigene Welt (pesm/fl) mit CalcioM-Daten | — | entfällt |
+| `backend/ki_trainer.py` | KI-Trainer: Eingabe aus den CalcioM-Daten bauen, mit dem Stand der Entscheidung (Karriere-Tabelle) verbinden und den Wochenentwurf rechnen. | — | entfällt |
 | `backend/kleinigkeiten.py` | Mehrere kleine Spielwelt-Funktionen (nur lesend gegenüber dem Spiel; nichts wird ins Spiel geschrieben): | — | entfällt |
-| `backend/ladestand.py` | Ladezustand für den Ladebildschirm: was PESM gerade tut, bevor alles bedienbar ist (Spielstand lesen, Welt aktualisieren, Station, Vorwärmen | — | entfällt |
+| `backend/ladestand.py` | Ladezustand für den Ladebildschirm: was CalcioM gerade tut, bevor alles bedienbar ist (Spielstand lesen, Welt aktualisieren, Station, Vorwärmen | — | entfällt |
 | `backend/lagen.py` | Lageberichte der Tagesphasen als Vorgänge der Inbox: Stufenwechsel des Vorstandsvertrauens (Morgen), Kadertiefe des Co-Trainers (Morgen, SOL | — | entfällt |
 | `backend/laufbahn.py` | Laufbahn im Backend: verbindet den Kern (`core/laufbahn`) mit Spielzugriff, Tabelle, Trainerwelt, Posteingang (Medien) und Story-Ereignissen | — | entfällt |
 | `backend/liga.py` | Wettbewerbe, Tabellen, Spielplan für die Oberfläche (nur lesend): dünne Schicht über `PesmDatenbank.wettbewerbe()`, | — | entfällt |
@@ -113,7 +113,7 @@ Erzeugt von `tools/abdeckung.py` (neu erzeugen nach jedem größeren Bau). Eine 
 | `backend/merkmale.py` | Persönlichkeitsmerkmale im Backend: Ablage je Spieler (mk_-Tabellen), Schätzung für alle ohne Vorlage, Import einer lokalen Vorlage. | — | entfällt |
 | `backend/ml_taktik.py` | Aufstellung und Taktik des eigenen Vereins aus den eingelesenen Tabellen (Spezifikation 21) als lesende Abfrage. | — | entfällt |
 | `backend/note.py` | Spielernote für die Oberfläche (nur Daten): `note.letzte`, `note.saison`, `note.erklaerung`, `note.liste`. | — | entfällt |
-| `backend/optionen.py` | Optionen: gewählte Karriere und Sicherungen der PESM-Datenbank (Ordner, Anzahl, jetzt sichern). | — | entfällt |
+| `backend/optionen.py` | Optionen: gewählte Karriere und Sicherungen der CalcioM-Datenbank (Ordner, Anzahl, jetzt sichern). | — | entfällt |
 | `backend/personal.py` | Personalmarkt im Backend (Sitzung S): Bewerber, Stab, Kosten und Wirkung; verbindet den Kern (`core/personal`) mit Scouting (S), Vereinswelt | — | entfällt |
 | `backend/postkarten.py` | Reiche Detailkarten der Inbox: nur schon vorhandene Daten (Spieltag-Lage, Gespräche, ML-Taktik, Tabelle); fehlt etwas, steht es als Lücke | — | entfällt |
 | `backend/postleben.py` | Nachrichten, die dem Posteingang noch fehlten: Verletzung und Genesung, Physio (Rückkehr bald, Belastung des Kaders) und Finanzen (Monatsber | — | entfällt |
@@ -121,7 +121,7 @@ Erzeugt von `tools/abdeckung.py` (neu erzeugen nach jedem größeren Bau). Eine 
 | `backend/saisonabschluss.py` | Auszeichnungen und Saisonabschluss im Backend: liest die Leistungszeilen aus dem Spielstand, vergibt im Tagestakt (einmal je Datum) und spie | — | entfällt |
 | `backend/scouting.py` | Scouting im Backend (Sitzung S): verbindet den Kern (`core/scouting`) mit Transfers (D), Spieldaten, Posteingang (G) und der Story-Schicht. | — | entfällt |
 | `backend/seitendaten.py` | Seiten aus eingelesenen Daten füllen, die bisher nur Probe-Inhalte kannten. | — | entfällt |
-| `backend/spielordner.py` | Spielordner erkennen: Der Anwender nennt nur den Installationsordner des Spiels, PESM findet den Rest. | — | entfällt |
+| `backend/spielordner.py` | Spielordner erkennen: Der Anwender nennt nur den Installationsordner des Spiels, CalcioM findet den Rest. | — | entfällt |
 | `backend/spieltag.py` | Spieltag im Backend (Sitzung H2): verbindet den Kern (`core/spieltag`) mit Spielplan, Spielberichten, Transfers (D), Entwicklung (E), | — | entfällt |
 | `backend/spielwelt.py` | Mock-Spielwelt für AP5 (Seiten-Skelett): Grunddaten für die Seiten, gezielte Lese-Abfragen an die Mock-Dienste, | — | entfällt |
 | `backend/spielwelt2.py` | Mock-Arbeitswelt für AP5 Phase 2: Daten der Seiten Training, Kabine, Medizin, Analyse, Kaderplanung, Scouting, | — | entfällt |
@@ -130,24 +130,24 @@ Erzeugt von `tools/abdeckung.py` (neu erzeugen nach jedem größeren Bau). Eine 
 | `backend/stationen.py` | Zu welcher Station (Verein des Anwenders) gehört eine Nachricht oder ein Gespräch? Die Stationen stehen im Merker „karriere“ der Story | — | entfällt |
 | `backend/story.py` | Story-Schicht für die Oberfläche: Vorschau (Schritt 1) und Motor mit Posteingang (Schritt 2). | storys.rs | gebaut |
 | `backend/tagebuch.py` | Das Manager-Tagebuch im Backend: sammelt Archiv (ar_), Spielpläne und -berichte sowie Ereignisse und lässt `core/tagebuch` den Zeitstrahl ba | — | entfällt |
-| `backend/tagesphase.py` | Tagesphase: ein Tag in PESM ist ein Schritt (Fabian, 20.11.2026; vorher Morgen/Mittag/Abend, docs/intern/TAGESABLAUF-IDEE.md). „Tag abschlie | — | entfällt |
+| `backend/tagesphase.py` | Tagesphase: ein Tag in CalcioM ist ein Schritt (Fabian, 20.11.2026; vorher Morgen/Mittag/Abend, docs/intern/TAGESABLAUF-IDEE.md). „Tag abschlie | — | entfällt |
 | `backend/taktikanalyse.py` | Lesender Backend-Endpunkt für Spielerrollen; Konfiguration außerhalb des Kerns. | — | entfällt |
 | `backend/taktikboard.py` | Spielstile je Position für die Taktiktafel. | — | entfällt |
 | `backend/taktikengine.py` | Backend-Endpunkte der Taktik-Engine (nur lesend): Aufstellung analysieren, Co-Trainer fragen, Spieler gegen Rolle. | — | entfällt |
 | `backend/taktikklug.py` | Backend-Endpunkte der klügeren Taktik-Engine (nur lesend, zwischengespeichert nach Datenstand): Positionseignung, Umschulungsempfehlung, Mod | — | entfällt |
 | `backend/taktikmodus.py` | Backend zur Wahl des Trainers je Spiel (`taktik.modus_wahl`): merken, bei "einstellen" die Vorschläge als Entwurf vorbereiten (nur Vorschlag | — | entfällt |
 | `backend/taktikplaner.py` | Taktik-Menü: Daten für Planer, Standards, Elfmeter, Gegneranweisungen und Datenhub (nur lesend, schreibt nichts). | — | entfällt |
-| `backend/taktikschreiben.py` | Taktiktafel -> Karriere: der Entwurf der Tafel wird die Aufstellung des eigenen Vereins in der PESM-Datenbank der FL-World-Karriere (pesm.fl | — | entfällt |
+| `backend/taktikschreiben.py` | Taktiktafel -> Karriere: der Entwurf der Tafel wird die Aufstellung des eigenen Vereins in der CalcioM-Datenbank der FL-World-Karriere (pesm.fl | — | entfällt |
 | `backend/trainer.py` | Trainerwelt im Backend (Sitzung S): Trainerbank-Zuordnung je Verein, Vertrautheit, Trainerkarussell (Wochenlauf im Tagestakt) und die Seite  | — | entfällt |
 | `backend/trainingsplan.py` | Trainingsplan im Backend (`training.*`): Einheitenkatalog, Wochenraster, Vorschau (Wirkung, Belastungsampel), Vorlagen je Karriere und die Ü | — | entfällt |
-| `backend/trainingswoche.py` | Trainingswoche (UX-Nacht, Etappe 7), nur lesend aus Entwicklung und Moral (E, E2): je Spieler die in PESM entwickelten | — | entfällt |
+| `backend/trainingswoche.py` | Trainingswoche (UX-Nacht, Etappe 7), nur lesend aus Entwicklung und Moral (E, E2): je Spieler die in CalcioM entwickelten | — | entfällt |
 | `backend/transfers.py` | Transferwelt im Backend (Sitzung D): verbindet den Kern (`core/transfers`) mit Spielzugriff, Datenbank und Seiten. | game.rs, transfer.rs, world.rs | gebaut |
 | `backend/transfers_vorgang.py` | Transfer-Lebenszyklus im Backend: Methoden `transfers.vorgang_*` und Seitenzeilen (Vorgangsübersicht, Verhandlung, Kalender). | — | entfällt |
 | `backend/vereinslook.py` | Look des eigenen Vereins (Wappen und Vereinsfarben je Karriere, siehe `adapters/pes/vereinslook.py`). | — | entfällt |
 | `backend/vereinswelt.py` | Vereinswelt im Backend (Sitzung F): verbindet den Kern (`core/vereinswelt`) mit Spielzugriff, Datenbank und Seiten. | — | entfällt |
 | `backend/verhandlung_dienst.py` | Verhandlungsdienst der FL-World-Karriere: dünne Schicht zwischen Oberfläche und `pesm/fl/sim/vdialog.py` (Regeln in `pesm/core/verhandlung/r | — | entfällt |
 | `backend/vorgang.py` | Dienst des Vorgangsmodells (AP1): `vorgang.liste`, `vorgang.detail`, `vorgang.verlauf`, `vorgang.antworten`, `vorgang.zaehler`. | pool.rs | gebaut |
-| `backend/welt.py` | Welt-Index (nur lesend): alle Spieler und Vereine der PESM-Datenbank im Arbeitsspeicher, für Suche, Vereinsseiten | pesdb.rs, world.rs | gebaut |
+| `backend/welt.py` | Welt-Index (nur lesend): alle Spieler und Vereine der CalcioM-Datenbank im Arbeitsspeicher, für Suche, Vereinsseiten | pesdb.rs, world.rs | gebaut |
 | `backend/wettbewerbsansicht.py` | Wettbewerbsansicht der Fußballwelt (nur lesend): Kopfkarte eines Wettbewerbs (Kennzahlen, Spieltag, Saisonwerte), Zonen der FL27-Welt, | — | entfällt |
 | `backend/wettbewerbsregeln.py` | Regeln der Wettbewerbe im Backend: Zonen der Tabelle, Seite „Regeln“, Turnierbaum, Saisonende (Nachricht und Archiv). | — | entfällt |
 | `backend/wirtschaft.py` | Wirtschaft im Backend: Seiten (Wirtschaftszentrale, Preise, Betrieb, Fanaktionen, Stadion-Bauprojekte) und Methoden. | — | entfällt |
@@ -159,21 +159,21 @@ Erzeugt von `tools/abdeckung.py` (neu erzeugen nach jedem größeren Bau). Eine 
 | `core/aufstellung_eindeutig.py` | Eine Wahrheit für „jeder Spieler in genau einer Gruppe“: Startelf (Plätze 0 … 10) > Bank (11 … 22) > Reserve (23 …). | game.rs | Bereich |
 | `core/berechtigung.py` | Ist ein Anliegen berechtigt? Eine Frage vor jeder Meldung (Gespräche H, Hinweise E): schlechte Reservisten beschweren sich nicht. | mensch.rs | Bereich |
 | `core/dateistand.py` | Ergebnis einer Prüfung am Stand der Datenbankdatei merken: Jede neue Verbindung zu einer großen Datenbank kostet über 1 ms (Schema laden), | entfällt (SQLite) | entfällt |
-| `core/einfluesse.py` | Einflüsse der PESM-internen Attribute (DOMAIN-PRUEFUNG §8a). Reine Funktionen, kein Qt. | mensch.rs | Bereich |
+| `core/einfluesse.py` | Einflüsse der CalcioM-internen Attribute (DOMAIN-PRUEFUNG §8a). Reine Funktionen, kein Qt. | mensch.rs | Bereich |
 | `core/fans.py` | Fans und Stimmung (Seite „Fans und Stimmung“): Stimmung je Spiel mit Ursachen, Stimmungssatz, Fanbanner und Fanstimmen. | pages.rs (Fans), wirtschaft.rs | Bereich |
-| `core/gesamtwert.py` | Gesamtwert (SGB) eines Spielers für seine Hauptposition – eine Näherung von PESM, nicht der Wert des Spiels. | pesdb.rs (ovr) | Bereich |
+| `core/gesamtwert.py` | Gesamtwert (SGB) eines Spielers für seine Hauptposition – eine Näherung von CalcioM, nicht der Wert des Spiels. | pesdb.rs (ovr) | Bereich |
 | `core/handbuch.py` | Handbuch „Wie funktioniert das?“: die Kapitelliste liegt als Daten in `config/handbuch.json` (Kennung, Symbol, Zielseite), | pages.rs (Handbuch) | Bereich |
 | `core/hierarchie.py` | Hierarchie im eigenen Kader: Hierarchiewert, Rangfolge, Rollen und Hinweise (reine Berechnung, nur Anzeige). | mensch.rs | Bereich |
 | `core/kaderuebersicht.py` | Kaderübersicht: Kennzahlen, Filter, Sortierung, Empfehlungen und Aufteilung nach Mannschaftsteil für die Kaderseite (reine Rechnung, kein Le | pages.rs (Kader) | Bereich |
 | `core/kleinigkeiten.py` | Reine Rechnung für mehrere kleine Spielwelt-Funktionen: Radar der Fähigkeitsgruppen, Rückennummern-Entwurf, Formtabelle. | pages.rs, postkarten.rs | Bereich |
 | `core/nachweis.py` | Änderungs-Nachweis (docs/intern/AENDERUNGS-NACHWEIS.md): Urteil am Ist-Wert des eingelesenen Spielstands und das Lesen genau der Felder offe | fl27.rs | Bereich |
-| `core/persoenlichkeit.py` | PES-Persönlichkeit als Eingabe für die Charakterwerte von PESM. | mensch.rs | Bereich |
+| `core/persoenlichkeit.py` | PES-Persönlichkeit als Eingabe für die Charakterwerte von CalcioM. | mensch.rs | Bereich |
 | `core/pool.py` | Verbindungen zur großen Karriere-Datenbank wiederverwenden: Jede neue Verbindung lädt das Schema (über 1 ms), und eine Seite öffnet hunderte | pool.rs | gebaut |
 | `core/ports.py` | Schnittstellen (Ports) zwischen Kern und Außenwelt. Kein Qt, keine festen Dateipfade. | entfällt | entfällt |
 | `core/sicherung.py` | Sicherungen der Karriere-Datenbank: SQLite-Sicherungsfunktion (nie Dateikopie), Name `<Kennung>-<Anlass>-<Datum>.db`, höchstens `BEHALTEN` j | game.rs (Sicherung) | Bereich |
 | `core/sicht.py` | Reine Funktion: Sicht auf versteckte Rohwerte, je Wissensstand. | scouting.rs | Bereich |
 | `core/sprache.py` | Sprachwahl der Oberfläche (Standard Englisch) und Zahlen-, Datums- und Währungsformate je Sprache. | inhalt.rs | Bereich |
-| `core/startelfentwurf.py` | Entwurf der PESM-Aufstellung (Startelf) in der Karriere-Datenbank: eine Zeile, gilt nur für genau die Aufnahme (`datei_sha256`), zu der er g | game.rs, fl27.rs | Bereich |
+| `core/startelfentwurf.py` | Entwurf der CalcioM-Aufstellung (Startelf) in der Karriere-Datenbank: eine Zeile, gilt nur für genau die Aufnahme (`datei_sha256`), zu der er g | game.rs, fl27.rs | Bereich |
 | `core/story.py` | Story-Schicht, Schritt 1: Regeln aus Konfigurationsdateien gegen benannte Werte prüfen (reine Berechnung). | storys.rs | gebaut |
 | `core/stufen.py` | Stärke und Potenzial als Stufenwort statt Zahl (Regel des Anwenders: Stufenwörter statt Rechenwerte im Anwendertext). | seiten.rs (stufe_wort) | Bereich |
 | `core/tabellensperre.py` | Sperre „keine Tabellenurteile ohne gespielte Spiele“ (Zahlen: config/tabellensperre.toml, je Quelle einstellbar). | medien.rs | Bereich |
@@ -181,7 +181,7 @@ Erzeugt von `tools/abdeckung.py` (neu erzeugen nach jedem größeren Bau). Eine 
 | `core/taktikeignung.py` | Positionseignung und Umschulungsempfehlung. Reiner Kern ohne Qt und Spielzugriff, baut auf `taktikengine.passung` auf. | taktik.rs | gebaut |
 | `core/taktikengine.py` | Taktik-Engine: bewertet eine Aufstellung und stellt als "Co-Trainer" automatisch auf. | taktik.rs | Bereich |
 | `core/taktikfm.py` | Taktik-Menü (Anzeige): abgeleitete Größen nach dem Vorbild des Taktik-Planers, rein und ohne Daten. | taktik.rs, pages.rs | Bereich |
-| `core/taktikmodus.py` | Wahl des Trainers je Spiel: "auf den Gegner einstellen" oder "eigenes Spiel durchziehen" (Tabelle tk_modus der Karriere, nur PESM, idempoten | taktik.rs | Bereich |
+| `core/taktikmodus.py` | Wahl des Trainers je Spiel: "auf den Gegner einstellen" oder "eigenes Spiel durchziehen" (Tabelle tk_modus der Karriere, nur CalcioM, idempoten | taktik.rs | Bereich |
 | `core/taktikurteil.py` | Urteile des Co-Trainers über Rollen und Formation: Synergien zwischen Mitspielern, Konsistenzhinweise, Erklärung je Platz und die | taktik.rs | gebaut |
 | `core/taktikvorschlag.py` | Co-Trainer-Vorschläge zur Taktik gegen einen Gegner: Reglervorschläge aus Gegnerbericht und eigener Kaderlage. Reine Funktionen. | taktik.rs | Bereich |
 | `core/vereinsfarben_ableitung.py` | Entwurf (UI-Basis Schritt A, Abschnitt 1.2): aus der Vereinsfarbe die Töne vHaupt, vAuf, vTief, vSanft ableiten. Reines Python, noch nicht i | ui.rs | gebaut |
@@ -230,7 +230,7 @@ Erzeugt von `tools/abdeckung.py` (neu erzeugen nach jedem größeren Bau). Eine 
 | `core/entwicklung/felder.py` | Die 25 Fähigkeiten des Spiels (Spielstand trägt 15, die zehn übrigen kommen nur aus dem Speicher) und ihre Gruppen. | entwicklung.rs | Bereich |
 | `core/entwicklung/felderweg.py` | Weg ins Spiel für Felder ohne Dateiweg: die 25 Fähigkeiten, Spielstil und Spielerfähigkeiten (skill_00 … skill_40) über `felder.json`. | entwicklung.rs | Bereich |
 | `core/entwicklung/gruende.py` | Gründe der Kabine: aus den echten Treibern der Moralregel (`regeln.moral_treiber`) werden Ursachen mit Gewicht, nie aus dem Ergebnis erfunde | entwicklung.rs | Bereich |
-| `core/entwicklung/haltbar.py` | Haltbarkeits-Logbuch: Wie lange trägt das Spiel einen Wert, den PESM hineingeschrieben hat, bevor es ihn selbst ändert? | entwicklung.rs | Bereich |
+| `core/entwicklung/haltbar.py` | Haltbarkeits-Logbuch: Wie lange trägt das Spiel einen Wert, den CalcioM hineingeschrieben hat, bevor es ihn selbst ändert? | entwicklung.rs | Bereich |
 | `core/entwicklung/kabine.py` | Kabine: Beziehungen, Gruppen, Konflikte, Gespräche, Teamgeist (reine Funktionen, Zahlen aus `entwicklung.toml`). | mensch.rs, pages.rs | gebaut |
 | `core/entwicklung/medizin.py` | Medizinische Abteilung v1 (reine Funktionen, Zahlen aus `medizin.toml`): Belastungsampel, Prognose-Spanne, Reha-Phasen und Rückfallrisiko. | entwicklung.rs | Bereich |
 | `core/entwicklung/medizin_gruende.py` | Gründe der Medizin: Verletzung (Belastung, Müdigkeit, Alter, Einsatz, Anfälligkeit, Vorgeschichte, Pech), Dauer-Schätzung, Meldung und Arzte | entwicklung.rs | Bereich |
@@ -280,10 +280,10 @@ Erzeugt von `tools/abdeckung.py` (neu erzeugen nach jedem größeren Bau). Eine 
 | `core/ki_trainer/welt.py` | KI-Trainer-Welt (reine Funktionen): Spielidee, Reaktion auf Ergebnisse, Elf nach Spielwichtigkeit (Entlassung und Einstellung: core/trainer/ | pesdb.rs, world.rs | gebaut |
 | `core/laufbahn/__init__.py` | Laufbahn des Nutzers als Trainer: Profil, Ruf, Vertrag, Angebote anderer Vereine, Verhandlung, Bewerbung, Wechsel als Vorgang. | — (Paketdatei) | entfällt |
 | `core/laufbahn/gespraech.py` | Gespräche der Laufbahn: Verhandlung (sechs Punkte) und Bewerbung beim Präsidium (vier Schritte). Reine Funktionen auf JSON-tauglichen Zustän | mensch.rs | Bereich |
-| `core/laufbahn/schema.py` | Tabellen der Laufbahn (Präfix lb_, Schemanummern 120 bis 129). Alles PESM-intern: nichts davon geht ins Spiel. | mensch.rs | Bereich |
+| `core/laufbahn/schema.py` | Tabellen der Laufbahn (Präfix lb_, Schemanummern 120 bis 129). Alles CalcioM-intern: nichts davon geht ins Spiel. | mensch.rs | Bereich |
 | `core/laufbahn/service.py` | Die Laufbahn des Nutzers als Trainer: Profil, Vertrag, Stationen, Angebotsmotor, Gespräche, Entscheidung und Wechsel als Vorgang. | game.rs, ki.rs, mensch.rs, trainerbank.rs | gebaut |
 | `core/laufbahn/werte.py` | Zahlenmodell der Laufbahn (reine Funktionen, Zahlen aus laufbahn.toml): Ruf, Reputation, Lizenz, Passung, Interesse, Rahmen der Verhandlung. | game.rs, klauseln.rs, mensch.rs, transfer.rs, verhandlung.rs, wirtschaft.rs | gebaut |
-| `core/manager/schema.py` | Tabellen des Managers (Präfix mg_, Schemanummer 130). Alles PESM-intern: nichts davon geht ins Spiel. Idempotent; die Fassung steht in `mg_m | mensch.rs | Bereich |
+| `core/manager/schema.py` | Tabellen des Managers (Präfix mg_, Schemanummer 130). Alles CalcioM-intern: nichts davon geht ins Spiel. Idempotent; die Fassung steht in `mg_m | mensch.rs | Bereich |
 | `core/manager/service.py` | Der Manager als Person: Werte, Stil aus dem Verhalten, Passung zu Spielertypen, Lehrgänge, Freizeit, Wohnen und eine Privatkasse. | game.rs, ki.rs, mensch.rs, trainerbank.rs | gebaut |
 | `core/marken/__init__.py` | Markenwelt: liest `marken.toml` (einzige Quelle für Marken). UI und Textbausteine fragen nur hier. | — (Paketdatei) | entfällt |
 | `core/mechanics/__init__.py` |  | — (Paketdatei) | entfällt |
@@ -298,7 +298,7 @@ Erzeugt von `tools/abdeckung.py` (neu erzeugen nach jedem größeren Bau). Eine 
 | `core/merkmale/schaetzen.py` | Merkmale für Spieler ohne Vorlage: stabil aus dem Satzindex erzeugt (gleiche Eingabe, gleiche Merkmale). | entwicklung.rs | gebaut |
 | `core/merkmale/schema.py` | Tabellen der Merkmale (Präfix mk_, Schemanummern 110 bis 119). | entwicklung.rs | Bereich |
 | `core/merkmale/zuordnen.py` | Zuordnung einer Vorlage (Name, Nation, Position, Merkmale) zu den Spielern der Datenbank. | entwicklung.rs | Bereich |
-| `core/note/__init__.py` | Spielernote (Sitzung Note): PESM benotet die eigenen Spieler selbst. Die Note lebt nur in PESM und geht nie ins Spiel. | — (Paketdatei) | entfällt |
+| `core/note/__init__.py` | Spielernote (Sitzung Note): CalcioM benotet die eigenen Spieler selbst. Die Note lebt nur in CalcioM und geht nie ins Spiel. | — (Paketdatei) | entfällt |
 | `core/note/service.py` | Spielernote aus der Karriere-Datenbank (nur lesen). Gerechnet wird einmal je Datenstand für den ganzen Kader und im Speicher gehalten; | game.rs, ki.rs, mensch.rs, trainerbank.rs | gebaut |
 | `core/note/werte.py` | Rechenkern der Spielernote: reine Funktionen, keine Datenbank, kein Zufall. Zahlen aus `note.toml`. | game.rs, klauseln.rs, mensch.rs, transfer.rs, verhandlung.rs, wirtschaft.rs | gebaut |
 | `core/personal/__init__.py` |  | — (Paketdatei) | entfällt |
@@ -358,8 +358,8 @@ Erzeugt von `tools/abdeckung.py` (neu erzeugen nach jedem größeren Bau). Eine 
 | `core/trainingsplan/spezial.py` | Spezialtraining: welche Spezialfähigkeiten (Fortschrittswege) ein Spieler im Trainingsplan wählen darf. Reine Funktionen, keine Datenbank. | game.rs | Bereich |
 | `core/trainingsplan/vorgaenge.py` | Training als Vorgänge (Mail des Trainerstabs, Thema `entwicklung`; die Inbox zeigt sie als Spielerliste mit Gesicht und Wert, `VorgangWochen | game.rs | Bereich |
 | `core/transfers/__init__.py` | Transferwelt (Sitzung D): Marktwert, Scouting, Verhandlung, Angebote, Fenster, Gerüchte, Ausführungsschicht. | — (Paketdatei) | entfällt |
-| `core/transfers/abgleich.py` | Saga-Abgleich: PESM trackt den Stand selbst. Nach jedem Einlesen und Tageswechsel prüft jeder offene Transfer-Vorgang, ob seine Voraussetzun | transfer.rs, kimarkt.rs | Bereich |
-| `core/transfers/ausfuehrung.py` | Ausführungsschicht: setzt eine in PESM vereinbarte Verhandlung im Spiel um. | transfer.rs, kimarkt.rs | Bereich |
+| `core/transfers/abgleich.py` | Saga-Abgleich: CalcioM trackt den Stand selbst. Nach jedem Einlesen und Tageswechsel prüft jeder offene Transfer-Vorgang, ob seine Voraussetzun | transfer.rs, kimarkt.rs | Bereich |
+| `core/transfers/ausfuehrung.py` | Ausführungsschicht: setzt eine in CalcioM vereinbarte Verhandlung im Spiel um. | transfer.rs, kimarkt.rs | Bereich |
 | `core/transfers/begruendet.py` | Begründung der Transfers (Grundsatz „Keine Wirkung ohne Ursache“, docs/intern/GRUNDSAETZE.md). | transfer.rs, kimarkt.rs | Bereich |
 | `core/transfers/bruecke.py` | Brücke vom Transfer-Vorgang (`tv_vorgang`) zum Vorgangsmodell (H, `Vorgangswelt.einspielen`): reine Beschreibung, kein Schreiben. | transfer.rs, kimarkt.rs | Bereich |
 | `core/transfers/chance.py` | Erfolgschance einer Verhandlung, 0 bis 100 Prozent, getrennt für Verein und Spieler plus Gesamt. | transfer.rs, kimarkt.rs | Bereich |
@@ -369,7 +369,7 @@ Erzeugt von `tools/abdeckung.py` (neu erzeugen nach jedem größeren Bau). Eine 
 | `core/transfers/eignung.py` | Eignungsbewertung je Paar Spieler/Verein (reine Funktionen): ob ein Wechsel logisch ist. | transfer.rs, kimarkt.rs | Bereich |
 | `core/transfers/formular.py` | Angebotsformular für einen fremden Spieler: Vorbelegung, Erfolgschance live (Verein, Spieler, Gesamt) und Abschicken nach Bestätigung. | transfer.rs, kimarkt.rs | Bereich |
 | `core/transfers/ki_regeln.py` | Regeln der KI-Transferwelt über dem Plan (ki_welt.py): Sperren, Bedarf, Reihenfolge, Deadline Day, Wiederkehr gescheiterter Ziele, Gerüchte. | transfer.rs, kimarkt.rs | Bereich |
-| `core/transfers/ki_welt.py` | KI-Transferwelt mit Plan und Gedächtnis (Schalter `ki_welt` je Karriere, alles PESM-intern, nichts geht ins Spiel). | transfer.rs, kimarkt.rs | Bereich |
+| `core/transfers/ki_welt.py` | KI-Transferwelt mit Plan und Gedächtnis (Schalter `ki_welt` je Karriere, alles CalcioM-intern, nichts geht ins Spiel). | transfer.rs, kimarkt.rs | Bereich |
 | `core/transfers/markt.py` | Was der Markt von selbst tut: eingehende Angebote der KI-Vereine, Gerüchte, Rolle und Verkaufsbereitschaft. | transfer.rs, kimarkt.rs | Bereich |
 | `core/transfers/schema.py` | Tabellen der Transferwelt (Präfix tf_, Schemanummern 20 bis 29 gehören D). | transfer.rs, kimarkt.rs | Bereich |
 | `core/transfers/scouting.py` | Scouting: Wissen, Berichte mit Spannen, Kandidatenlisten (reine Funktionen). | transfer.rs, kimarkt.rs | Bereich |
@@ -410,23 +410,23 @@ Erzeugt von `tools/abdeckung.py` (neu erzeugen nach jedem größeren Bau). Eine 
 | `core/wettbewerbe/ableiten.py` | Regeln aus dem Spielstand ableiten und mit der Konfiguration abgleichen. Reine Funktionen auf einfachen Listen (kein Datenbankzugriff). | cups.rs, ligaregeln.rs | Bereich |
 | `core/wettbewerbe/konfig.py` | Konfiguration der Wettbewerbsregeln je Spielwelt (wettbewerbe.toml). | cups.rs, ligaregeln.rs | Bereich |
 | `core/wettbewerbe/regelwerk.py` | Regelwerk der Wettbewerbe: speichern (Ableitung plus Konfiguration), Zonen der Tabelle, Qualifikation, Turnierbaum, Saisonende. | cups.rs, ligaregeln.rs | Bereich |
-| `core/wettbewerbe/schema.py` | Tabellen der Wettbewerbsregeln (Präfix wb_, Schemanummern 130 bis 139). PESM-eigen: sie bleiben beim Neu-Einlesen bestehen und werden dabei  | cups.rs, ligaregeln.rs | Bereich |
+| `core/wettbewerbe/schema.py` | Tabellen der Wettbewerbsregeln (Präfix wb_, Schemanummern 130 bis 139). CalcioM-eigen: sie bleiben beim Neu-Einlesen bestehen und werden dabei  | cups.rs, ligaregeln.rs | Bereich |
 | `core/wirtschaft/budget_start.py` | Budget-Herleitung aus dem Kader: eine einzige Rechnung für Karrierestart, Saisonwechsel und Neuberechnung. | wirtschaft.rs | gebaut |
 | `core/wirtschaft/praemien.py` | Wettbewerbs-Prämien, Liga-Fernsehgeld und Auf-/Abstiegsgeld (Konfiguration: `core/config/wirtschaft/praemien/*.toml`). | wirtschaft.rs | Bereich |
 | `core/wirtschaft/vorgaenge.py` | Wirtschaft als Vorgänge: Stadionausbau, Sponsorenangebote, Merch-Kampagnen, Ticketpreis-/Fanprotest und der monatliche Finanzbericht. | wirtschaft.rs | Bereich |
 | `core/zeitung/__init__.py` |  | — (Paketdatei) | entfällt |
 | `core/zeitung/artikel.py` | Berichte der Blätter: aus dem Stoff einer Ausgabe schreiben mehrere Zeitungen mit eigenem Ton je einige Artikel (Überschrift, Unterzeile, | medien.rs | Bereich |
 | `core/zeitung/redaktion.py` | Die Redaktion: aus dem Stoff eines Zeitraums wird die Titelseite einer Ausgabe (reine Funktionen, Zahlen aus zeitung.toml, Texte aus zeitung | medien.rs | Bereich |
-| `core/zeitung/schema.py` | Tabellen der Zeitung (Präfix zt_, Schemanummer 140). Alles PESM-intern; idempotent, die Fassung steht in `zt_meta`. | medien.rs | Bereich |
+| `core/zeitung/schema.py` | Tabellen der Zeitung (Präfix zt_, Schemanummer 140). Alles CalcioM-intern; idempotent, die Fassung steht in `zt_meta`. | medien.rs | Bereich |
 | `core/zeitung/service.py` | Die Zeitung einer Karriere: Ausgaben in den zt_-Tabellen, erzeugt im Tagestakt (nie beim Öffnen), idempotent je Datum. | game.rs, ki.rs, mensch.rs, trainerbank.rs | gebaut |
 | `fl/__init__.py` | FL27-Welt ohne Master League: Import aus der FL-Datenbank (pesdb), Weltsimulation (aus fl-world), Original-Welt sichern/zurückladen, Export  | — (Paketdatei) | entfällt |
 | `fl/aufstellung.py` | Aufstellung des eigenen Vereins in der FL27-Welt (ohne Master League): Erstbelegung aus der Weltsimulation, Speichern aus der Taktiktafel, | fl27.rs, live.rs | Bereich |
 | `fl/bilder.py` | Bilder der FL27-Welt aus den Spieldateien: Gesichter, Wappen, Stadionfotos (nur lesen im Spielordner, nichts ändern). | fl27.rs | gebaut |
 | `fl/dbschicht.py` | Datenbank-Schicht ohne Meister Liga: Basis -> Modifikatoren -> Wirkwert -> Datenbank (Beschreibung: docs/intern/DB-SCHICHT.md). Werte: confi | fl27.rs, live.rs | Bereich |
 | `fl/dbtreiber.py` | Schreib-Schnittstelle der Datenbank-Schicht: zwei Treiber mit derselben Form (docs/intern/DB-SCHICHT.md). | fl27.rs, live.rs | Bereich |
-| `fl/direktmatch.py` | PESM Direct Match Controller: PESM simuliert die Welt, Football Life ist nur die 3D-Engine für die vom Anwender gewählte Partie. | fl27.rs, live.rs | Bereich |
-| `fl/export.py` | Weltsimulation -> PESM-Datenbank: legt dieselben Tabellen an, die sonst der Master-League-Einleser füllt (Spieler, Werte, Fähigkeiten, | fl27.rs, live.rs | Bereich |
-| `fl/export_module.py` | Weltdaten der Module (Transfers, Gerüchte, Ehrungen, Chronik, Europapokal, Akademie/U19, Rücktritte, Spielberichte, Begründungen) -> PESM-Da | fl27.rs, live.rs | Bereich |
+| `fl/direktmatch.py` | CalcioM Direct Match Controller: CalcioM simuliert die Welt, Football Life ist nur die 3D-Engine für die vom Anwender gewählte Partie. | fl27.rs, live.rs | Bereich |
+| `fl/export.py` | Weltsimulation -> CalcioM-Datenbank: legt dieselben Tabellen an, die sonst der Master-League-Einleser füllt (Spieler, Werte, Fähigkeiten, | fl27.rs, live.rs | Bereich |
+| `fl/export_module.py` | Weltdaten der Module (Transfers, Gerüchte, Ehrungen, Chronik, Europapokal, Akademie/U19, Rücktritte, Spielberichte, Begründungen) -> CalcioM-Da | fl27.rs, live.rs | Bereich |
 | `fl/formmodell.py` | Form und Verletzungen im Freundschaftsmodus (Beschreibung: docs/intern/FORM-VERLETZUNG.md, Werte: config/formmodell.json). | fl27.rs, live.rs | Bereich |
 | `fl/gegnerbericht.py` | Scoutbericht über den Gegner eines kommenden Spiels einer FL-World-Karriere (Seite `gegnerbericht`, Methode `flwelt.gegnerbericht`). | fl27.rs, live.rs | Bereich |
 | `fl/karriere.py` | FL-World-Karriere: eine eigene Karriereart ohne Master League und ohne ML-Platz (docs/intern/WELT-TAKT.md). | fl27.rs, live.rs | Bereich |
@@ -440,8 +440,8 @@ Erzeugt von `tools/abdeckung.py` (neu erzeugen nach jedem größeren Bau). Eine 
 | `fl/spielstart.py` | 'Match starten': die Kette von der Karriere bis ins Spiel (docs/intern/MATCHSTART.md, Teil 2). | fl27.rs, live.rs | Bereich |
 | `fl/stadion.py` | Stadionangaben der FL27-Welt: Kapazität je Verein aus `sim/config/stadien.json` (nach Vereinsnamen der Welt). | fl27.rs, live.rs | Bereich |
 | `fl/taktikdb.py` | Taktik-Dateien der FL27-Datenbank (Tactics.bin, TacticsFormation.bin): Leser, Schreiber der Formationsplätze. Befund und Belege: docs/intern | fl27.rs, live.rs | Bereich |
-| `fl/vollzug.py` | Rückkanal PESM -> Welt: Entscheidungen der PESM-Module kommen in die Weltsimulation. | fl27.rs, live.rs | Bereich |
-| `fl/vorgaben.py` | Vorgaben für das Freundschaftsspiel in FL27, die PES M vor dem Start in den Sider-Ordner schreibt (kleine Textdateien). | fl27.rs, live.rs | Bereich |
+| `fl/vollzug.py` | Rückkanal CalcioM -> Welt: Entscheidungen der CalcioM-Module kommen in die Weltsimulation. | fl27.rs, live.rs | Bereich |
+| `fl/vorgaben.py` | Vorgaben für das Freundschaftsspiel in FL27, die CalcioM vor dem Start in den Sider-Ordner schreibt (kleine Textdateien). | fl27.rs, live.rs | Bereich |
 | `fl/zeitung.py` | Zeitung der FL27-Welt: Stoff für PESMs Redaktion (`core/zeitung`) aus der Weltsimulation (`fl/sim`) statt aus dem Master-League-Spielstand. | fl27.rs, live.rs | Bereich |
 | `fl/zusatzdatei.py` | Zusatzdatei: Leihen und schon vereinbarte Wechsel, die die Spieldatenbank nicht kennt (siehe docs/intern/ZUSATZDATEI.md). | fl27.rs, live.rs | Bereich |
 | `fl/beobachter/__init__.py` |  | — (Paketdatei) | entfällt |

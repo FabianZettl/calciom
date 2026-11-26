@@ -176,13 +176,13 @@ mod tests {
 #[cfg(test)]
 mod karrieren_tests {
     /// Punkt 6, Karrieren verwalten: the list card, three rotating backups, deleting into the bin (never for good).
-    /// Runs in the test folder of PESM_KARRIEREN (never the person's careers).
+    /// Runs in the test folder of CALCIOM_KARRIEREN (never the person's careers).
     #[test]
     fn sicherungen_und_papierkorb() {
         let _g = crate::game::HOME_LOCK.lock().unwrap_or_else(|e| e.into_inner());
-        let tmp = std::env::temp_dir().join(format!("pesm-karr-{}", std::process::id()));
-        let vorher = std::env::var_os("PESM_KARRIEREN");
-        std::env::set_var("PESM_KARRIEREN", &tmp);
+        let tmp = std::env::temp_dir().join(format!("calciom-karr-{}", std::process::id()));
+        let vorher = std::env::var_os("CALCIOM_KARRIEREN");
+        std::env::set_var("CALCIOM_KARRIEREN", &tmp);
         let w = crate::world::testwelt(7);
         let mut c = crate::game::Career::new(w, 0, "Test"); // roh
         c.save_name = "Sicherungstest".into(); // roh
@@ -195,7 +195,7 @@ mod karrieren_tests {
         let korb = tmp.join("papierkorb");
         assert!(std::fs::read_dir(&korb).unwrap().flatten().any(|e| e.path().join("Sicherungstest.json").exists()), "kept in the bin");
         // only the test's own folder is removed, and the folder of the other tests comes back
-        match vorher { Some(v) => std::env::set_var("PESM_KARRIEREN", v), None => std::env::remove_var("PESM_KARRIEREN") }
+        match vorher { Some(v) => std::env::set_var("CALCIOM_KARRIEREN", v), None => std::env::remove_var("CALCIOM_KARRIEREN") }
         let _ = std::fs::remove_dir_all(&tmp);
     }
 }

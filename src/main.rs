@@ -1,7 +1,8 @@
-// PES M (Rust): a football manager on a Football Life world database.
+// CalcioM (Rust): a football manager on a Football Life world database.
 /// An identifier in the code (compared, stored, looked up), never shown and never translated.
 pub const fn id(s: &'static str) -> &'static str { s }
 mod update;
+mod marke;
 mod netzbilder;
 mod sofifa;
 mod kalibrieren;
@@ -34,6 +35,7 @@ mod meilensteine;
 mod kimarkt;
 mod berater;
 mod altimport;
+mod mlimport;
 mod taktikprobe;
 mod nationen;
 mod geo;
@@ -180,13 +182,14 @@ fn stage_text(v: &View) -> (&'static str, &'static str, &'static str) {
 }
 
 fn conf() -> Conf {
-    // preview aid: PESM_FENSTER=1920x1080 starts with that window size (checks of other screen shapes)
-    let (w, h) = std::env::var(crate::id("PESM_FENSTER")).ok().and_then(|s| { let (a, b) = s.split_once('x')?; Some((a.parse().ok()?, b.parse().ok()?)) }).unwrap_or((crate::ui::W_BASIS as i32, 900));
-    Conf { window_title: "PES M".into(), window_width: w, window_height: h, high_dpi: true, sample_count: 4, ..Default::default() } // roh
+    // preview aid: CALCIOM_FENSTER=1920x1080 starts with that window size (checks of other screen shapes)
+    let (w, h) = std::env::var(crate::id("CALCIOM_FENSTER")).ok().and_then(|s| { let (a, b) = s.split_once('x')?; Some((a.parse().ok()?, b.parse().ok()?)) }).unwrap_or((crate::ui::W_BASIS as i32, 900));
+    Conf { window_title: "CalcioM".into(), window_width: w, window_height: h, high_dpi: true, sample_count: 4, icon: Some(crate::marke::icon()), ..Default::default() } // roh
 }
 
+/// Splash: the start picture (its start time, negative until the first frame), then the start screen.
 #[derive(PartialEq)]
-enum Screen { Start, Game }
+enum Screen { Splash(f32), Start, Game }
 /// The folder dialog of the start screen, running in the background.
 static CPK_LESEN: std::sync::Mutex<Option<std::sync::mpsc::Receiver<Result<std::path::PathBuf, String>>>> = std::sync::Mutex::new(None);
 /// Reads the database from the CPK files of the FL27 folder in the background (no extracted world needed).
@@ -196,6 +199,10 @@ fn cpk_starten() {
     std::thread::spawn(move || { let _ = tx.send(pesdb::welt_aus_cpk(&g)); });
     *CPK_LESEN.lock().unwrap() = Some(rx);
 }
+/// Master League import (mlimport.rs): the file dialog and the reading of the chosen save, both in the background.
+static ML_DIALOG: std::sync::Mutex<Option<std::sync::mpsc::Receiver<Option<std::path::PathBuf>>>> = std::sync::Mutex::new(None);
+type MlGelesen = Result<(mlimport::MlStand, std::path::PathBuf, String), String>;
+static ML_LESEN: std::sync::Mutex<Option<std::sync::mpsc::Receiver<MlGelesen>>> = std::sync::Mutex::new(None);
 static ORDNER_DIALOG: std::sync::Mutex<Option<std::sync::mpsc::Receiver<Option<std::path::PathBuf>>>> = std::sync::Mutex::new(None);
 
 /// The club card of the career start: crest, name, league and country, strength per part of the team, stadium and
@@ -283,6 +290,8 @@ struct StartState {
     ligen_scroll: usize,
     /// League list of the new career: 0 by strength, 1 grouped by country (Fabian 23.11.).
     liga_sort: u8,
+    /// A Master League save read for the start: what it holds, the world it fits and the preview text.
+    ml: Option<(mlimport::MlStand, std::path::PathBuf, String)>,
 }
 
 struct SelfTest {
@@ -294,7 +303,7 @@ struct SelfTest {
 }
 
 /// `--start-test <bericht> [welt]`: clicks through the four start steps like a person (world, club via search,
-/// coach, start). Its careers go to a fresh temporary folder (PESM_KARRIEREN), never the person's or the game folder.
+/// coach, start). Its careers go to a fresh temporary folder (CALCIOM_KARRIEREN), never the person's or the game folder.
 struct StartTest { path: String, welt: Option<String>, frame: u32, stage: u8, steps: Vec<(String, bool, String)>, team: String }
 
 struct App {
@@ -342,9 +351,9 @@ impl App {
         let ui = Ui { head, body, semi, mouse: Vec2::ZERO, clicked: false, released_consumed: false, wheel: 0.0, time: 0.0, typed: vec![], key_back: false, key_enter: false, sfx, sound_queue: vec![], hover_any: false, tooltip: Default::default(), rahmen: Default::default(), foto_orte: Default::default(), wappen_orte: Default::default(), inject_click: None, crests: Default::default(), lautstaerke: pages::klang_lesen(), wappen_farben: Default::default(), bilder: Default::default(), bilder_fuer: None, logos: Default::default(), fotos: Default::default(), stadien: Default::default(), foto_budget: std::cell::Cell::new(6), netz: Default::default(), nachweise: Default::default() };
         let default_db = fl27::welt_ordner(&fl27::sider()).display().to_string();
         App {
-            ui, v: View::new(), screen: Screen::Start,
-            start: StartState { step: 0, db_path: default_db, db_focus: false, league: 0, team: None, coach: String::new(), coach_focus: false, saves: game::list_saves(), loeschen: None, offen: None, error: String::new(), scroll: 0, welt: None, welt_info: String::new(), such: String::new(), such_focus: false, f_land: None, f_liga: None, index: None, treffer: 0, paare: vec![], unklar: vec![], karte_zoom: 1.0, karte_off: (0.0, 0.0), profil: Default::default(), ohne: false, angebot_modus: 0, ligen: vec![], ligen_scroll: 0, liga_sort: 0 },
-            template: None, career: None, fast: false, last_inbox: 0, selftest: None, starttest: None, handy: None, handy_geaendert: None, musik: Default::default(), musik_titel: std::env::var(crate::id("PESM_MUSIK_TITEL")).ok().map(|t| (t, 1e6)), start_lauf: None,
+            ui, v: View::new(), screen: Screen::Splash(-1.0),
+            start: StartState { step: 0, db_path: default_db, db_focus: false, league: 0, team: None, coach: String::new(), coach_focus: false, saves: game::list_saves(), loeschen: None, offen: None, error: String::new(), scroll: 0, welt: None, welt_info: String::new(), such: String::new(), such_focus: false, f_land: None, f_liga: None, index: None, treffer: 0, paare: vec![], unklar: vec![], karte_zoom: 1.0, karte_off: (0.0, 0.0), profil: Default::default(), ohne: false, angebot_modus: 0, ligen: vec![], ligen_scroll: 0, liga_sort: 0, ml: None },
+            template: None, career: None, fast: false, last_inbox: 0, selftest: None, starttest: None, handy: None, handy_geaendert: None, musik: Default::default(), musik_titel: std::env::var(crate::id("CALCIOM_MUSIK_TITEL")).ok().map(|t| (t, 1e6)), start_lauf: None,
         }
     }
 
@@ -361,8 +370,8 @@ impl App {
 
     // ------------------------------------------------------------ frame
     fn frame(&mut self) {
-        Theme::set(self.v.dark, 0x38bdf8, 0x38bdf8);
-        Theme::set_akzent(0x38bdf8);
+        Theme::set(self.v.dark, crate::ui::MARKE_GRUEN, crate::ui::MARKE_GRUEN);
+        Theme::set_akzent(crate::ui::MARKE_GRUEN);
         clear_background(Theme::grund());
         self.ui.begin();
         // the career's world (the built-in demo world uses the FL world folder of the game for its pictures)
@@ -371,11 +380,12 @@ impl App {
         if let Some(c) = &self.career { crate::gesichter::spender_setzen(&c.world.gesichter); }
         self.handy_bearbeiten();
         match self.screen {
+            Screen::Splash(_) => self.splash(),
             Screen::Start => { self.start_screen(); self.ui.nachweise_zeichnen(); }
             Screen::Game => self.game_screen(),
         }
         self.ui.flush_sounds();
-        // a match running: FL27's reader sees a live score, or PES M's own match plays live
+        // a match running: FL27's reader sees a live score, or CalcioM's own match plays live
         let spiel = (self.v.fl27.is_some() && self.v.fl27_live.is_some()) || self.v.mv.as_ref().map(|m| m.phase == 1).unwrap_or(false);
         if let Some(t) = self.musik.takt(&musik::url(), spiel, get_frame_time()) { self.musik_titel = Some((t, get_time() as f32)); }
         self.musik_popup();
@@ -384,7 +394,7 @@ impl App {
     /// The new song or stream title, bottom right: slides in, stays five seconds, fades out.
     fn musik_popup(&mut self) {
         let Some((t, t0)) = self.musik_titel.clone() else { return };
-        let age = if t0 >= 1e6 { 1.0 } else { get_time() as f32 - t0 }; // preview (PESM_MUSIK_TITEL): stays on screen
+        let age = if t0 >= 1e6 { 1.0 } else { get_time() as f32 - t0 }; // preview (CALCIOM_MUSIK_TITEL): stays on screen
         if age > 6.0 { self.musik_titel = None; return; }
         let ui = &mut self.ui;
         let text = ui.fit(&t, 16.0, 380.0);
@@ -426,7 +436,7 @@ impl App {
         for b in auftraege {
             let stand = self.handy.as_ref().map(|h| h.stand.load(std::sync::atomic::Ordering::Relaxed)).unwrap_or(0);
             let antwort = match (&b.auftrag, self.career.is_some() && matches!(self.screen, Screen::Game)) {
-                // crests and photos from the loaders PES M already has; DDS turned into PNG for the browser
+                // crests and photos from the loaders CalcioM already has; DDS turned into PNG for the browser
                 (handy::Auftrag::Bild(art, id), _) => {
                     let q = match art.as_str() { "verein" => self.ui.bilder.verein.get(id), _ => self.ui.bilder.spieler.get(id) }; // roh
                     handy::Antwort::Png(q.and_then(|q| q.lesen()).map(|b| if b.starts_with(b"\x89PNG") { b } else { image::load_from_memory(&b).ok().map(|i| { let mut out = std::io::Cursor::new(vec![]); let _ = i.write_to(&mut out, image::ImageFormat::Png); out.into_inner() }).unwrap_or_default() }).unwrap_or_default())
@@ -473,7 +483,7 @@ impl App {
         let fertig_ = self.start_lauf.as_ref().and_then(|(_, rx)| match rx.try_recv() { Ok(x) => Some(x), Err(std::sync::mpsc::TryRecvError::Disconnected) => Some(Err("abgebrochen".into())), Err(_) => None }); // roh
         if let Some(r) = fertig_ {
             let (mut c, _) = self.start_lauf.take().unwrap();
-            if let Err(e) = r { fl27::log(&format!("Sicherung fehlgeschlagen: {e}")); c.msg(5, "PES M", crate::inhalt::t("ui.main.sicherung_der_welt_fehlgeschlagen"), &crate::tf!("ui.main.die_karriere_laeuft_fuer_fl27", e), game::Action::None); } // roh
+            if let Err(e) = r { fl27::log(&format!("Sicherung fehlgeschlagen: {e}")); c.msg(5, "CalcioM", crate::inhalt::t("ui.main.sicherung_der_welt_fehlgeschlagen"), &crate::tf!("ui.main.die_karriere_laeuft_fuer_fl27", e), game::Action::None); } // roh
             let _ = c.fl27_cpk();
             let _ = c.save();
             fl27::log(&format!("Karriere gestartet: {}", c.save_name));
@@ -483,6 +493,17 @@ impl App {
             self.v = View::new();
             self.ui.play(crate::id("titel"));
         }
+    }
+    /// The start picture for a moment; a click or a key goes on at once. CALCIOM_PAGE=splash holds it (preview).
+    fn splash(&mut self) {
+        let Screen::Splash(t0) = self.screen else { return };
+        let jetzt = get_time() as f32;
+        if t0 < 0.0 { self.screen = Screen::Splash(jetzt); }
+        let halten = std::env::var("CALCIOM_PAGE").as_deref() == Ok(crate::id("splash"));
+        let t = if halten { 1.4 } else { jetzt - t0.max(0.0) };
+        let taste = self.ui.clicked || self.ui.key_enter || is_key_pressed(KeyCode::Escape) || is_key_pressed(KeyCode::Space);
+        if !halten && t0 >= 0.0 && (t >= crate::marke::DAUER || (t > 0.3 && taste)) { self.screen = Screen::Start; return; }
+        crate::marke::startbild(t);
     }
     fn start_screen(&mut self) {
         if self.start_lauf.is_some() { return self.start_laden(); }
@@ -497,8 +518,8 @@ impl App {
         let s = &mut self.start;
         // background stripes
         for i in 0..14 { let x = 600.0 + i as f32 * 70.0; draw_triangle(vec2(x, hoehe()), vec2(x + 260.0, 0.0), vec2(x + 300.0, 0.0), alpha(Theme::akzent(), 0.03)); }
-        ui.title("PES M", 60.0, 110.0, 96.0, Theme::text()); // roh
-        ui.text_semi(crate::inhalt::t("ui.main.pro_evolution_soccer_manager_fussball"), 64.0, 146.0, 22.0, Theme::akzent());
+        crate::marke::wortmarke(60.0, 44.0, 340.0, Theme::dark(), 1.0);
+        ui.text_semi(crate::inhalt::t("ui.main.calcio_management_fussball"), 62.0, 176.0, 18.0, Theme::akzent());
         // left: continue
         let lr = Rect::new(60.0, 190.0, 420.0, 650.0);
         ui.card_titled(lr, crate::inhalt::t("ui.main.karriere_fortsetzen"), Theme::akzent());
@@ -565,6 +586,7 @@ impl App {
             ui.text_semi(t, x, rr.y + 26.0, 17.0, if i == s.step { Theme::akzent() } else { Theme::gedaempft() });
         }
         let mut start_new = false;
+        let mut ml_start: Option<(Career, std::path::PathBuf)> = None;
         let mut start_felder: Vec<pages::Auswahl> = vec![];
         match s.step {
             0 => {
@@ -638,6 +660,34 @@ impl App {
                     let liste = if s.paare.is_empty() { crate::id("keine").to_string() } else { s.paare.iter().take(6).cloned().collect::<Vec<_>>().join(", ") + if s.paare.len() > 6 { " …" } else { "" } };
                     y = ui.paragraph(&crate::tf!("ui.main.zweite_mannschaften_erkannt", s.paare.len(), liste), rr.x + 20.0, y, 15.0, rr.w - 40.0, Theme::text2()) + 6.0;
                     for u in s.unklar.iter().take(3) { y = ui.paragraph(&crate::tf!("ui.main.bitte_pruefen", u), rr.x + 20.0, y, 15.0, rr.w - 40.0, Theme::achtung()) + 2.0; }
+                }
+                // or a Master League save of FL27 as the start (Fabian 26.11.): choose, look at it, start; the save is only read
+                if let Some(g) = ML_DIALOG.lock().unwrap().as_ref().and_then(|rx| rx.try_recv().ok()) {
+                    *ML_DIALOG.lock().unwrap() = None;
+                    if let Some(p) = g {
+                        let (tx, rx) = std::sync::mpsc::channel();
+                        std::thread::spawn(move || { let _ = tx.send(mlimport::lesen(&p).and_then(|st| { let (w, n) = mlimport::welt_waehlen(&st).ok_or_else(|| crate::inhalt::t("ui.mlimport.keine_welt").to_string())?; let v = mlimport::vorschau(&st, &w, n); Ok((st, w, v)) })); });
+                        *ML_LESEN.lock().unwrap() = Some(rx);
+                    }
+                }
+                let gelesen = ML_LESEN.lock().unwrap().as_ref().and_then(|rx| rx.try_recv().ok());
+                if let Some(r) = gelesen { *ML_LESEN.lock().unwrap() = None; match r { Ok(x) => { s.ml = Some(x); s.error.clear(); } Err(e) => { fl27::log(&e); s.error = e; } } }
+                let laeuft = ML_LESEN.lock().unwrap().is_some();
+                let yb = rr.y + rr.h - 112.0;
+                ui.text(crate::inhalt::t("ui.mlimport.hinweis"), rr.x + 20.0, yb + 26.0, 15.0, Theme::text2());
+                if ui.button(Rect::new(rr.x + rr.w - 320.0, yb, 300.0, 40.0), crate::inhalt::t(if laeuft { "ui.mlimport.liest" } else { "ui.mlimport.waehlen" }), false) && !laeuft && ML_DIALOG.lock().unwrap().is_none() { *ML_DIALOG.lock().unwrap() = Some(fl27::datei_dialog(false)); }
+                if let Some((st, w, text)) = s.ml.as_ref() {
+                    let pr = Rect::new(rr.x + 20.0, rr.y + 290.0, rr.w - 40.0, rr.h - 290.0 - 124.0);
+                    rrect(pr.x, pr.y, pr.w, pr.h, 10.0, Theme::gold());
+                    rrect(pr.x + 2.0, pr.y + 2.0, pr.w - 4.0, pr.h - 4.0, 9.0, Theme::flaeche());
+                    ui.paragraph(text, pr.x + 16.0, pr.y + 28.0, 15.0, pr.w - 32.0, Theme::text());
+                    if ui.button_gold(Rect::new(pr.x + 16.0, pr.y + pr.h - 54.0, 300.0, 42.0), crate::inhalt::t("ui.mlimport.start")) {
+                        match mlimport::karriere_anlegen(st, w) {
+                            Ok(c) => ml_start = Some((c, w.clone())),
+                            Err(e) => { fl27::log(&e); s.error = e; }
+                        }
+                    }
+                    if ui.button(Rect::new(pr.x + 330.0, pr.y + pr.h - 54.0, 140.0, 42.0), crate::inhalt::t("ui.mlimport.abbrechen"), false) { s.ml = None; }
                 }
                 if self.template.is_some() && s.welt.is_some() && ui.button_gold(Rect::new(rr.x + rr.w - 220.0, rr.y + rr.h - 56.0, 200.0, 44.0), crate::inhalt::t("ui.wort.gross_weiter")) { s.step = 1; s.such_focus = true; s.index = None; }
                 if ui.button(Rect::new(rr.x + 20.0, rr.y + rr.h - 56.0, 300.0, 44.0), crate::inhalt::t("ui.main.eingebaute_probewelt"), false) { self.template = Some(Self::builtin_world()); s.welt = None; s.step = 1; s.such_focus = true; s.index = None; }
@@ -877,13 +927,23 @@ impl App {
             }
         }
         pages::auswahl_zeichnen(ui, &self.v, &start_felder);
+        // the career from the Master League save: the world backup in the background like a new career
+        if let Some((c, welt)) = ml_start {
+            self.start.ml = None;
+            let s2 = welt.parent().and_then(|p| p.parent()).map(|p| p.to_path_buf()).unwrap_or_else(fl27::sider);
+            let k = c.karriere_dir();
+            let (tx, rx) = std::sync::mpsc::channel();
+            std::thread::spawn(move || { let _ = tx.send(fl27::original_sichern(&k, &s2, &welt).and_then(|_| fl27::karriere_pesdb_anlegen(&k, &welt))); });
+            self.start_lauf = Some((c, rx));
+            return;
+        }
         if start_new {
             let w = self.template.take().unwrap();
             // without a club the career is held by the smallest club of the world until an offer is taken
             let platz = s.team.unwrap_or_else(|| (0..w.clubs.len()).min_by(|a, b| w.clubs[*a].rep.partial_cmp(&w.clubs[*b].rep).unwrap()).unwrap_or(0));
             let mut c = Career::new(w, platz, s.coach.trim());
             // the answer to the direct start question holds for new careers too (still changeable in Settings)
-            if std::fs::read_to_string(pages::direktstart_file()).is_ok_and(|t| t.trim() == crate::id("ja")) { c.direktstart = true; c.fl27_erlaubt = true; c.fl27_bestaetigt = true; c.fl27_auto_ende = true; }
+            if std::fs::read_to_string(pages::direktstart_file()).is_ok_and(|t| t.trim() == crate::id("ja")) { c.direktstart = true; c.schnellstart = true; c.fl27_erlaubt = true; c.fl27_bestaetigt = true; }
             c.trainer_uebernehmen(s.profil.clone());
             if s.ohne {
                 c.angebot_ligen = match s.angebot_modus { 1 => (0..c.world.leagues.len()).filter(|&l| c.world.leagues[l].land == s.profil.nation).collect(), 2 => s.ligen.clone(), _ => vec![] };
@@ -964,7 +1024,7 @@ impl App {
         // the tables and rankings wear the colour of the chosen competition
         let kopf = if matches!(v.page, Page::Tabellen | Page::Ranglisten | Page::Spielplan | Page::Vereinsstatistik) { pages::liga_farbe(v, c) } else if let Some(x) = spieltag { x.0 } else { akzent.unwrap_or(c.club().c1) };
         Theme::set(v.dark, kopf, bereich);
-        Theme::set_akzent(akzent.unwrap_or(0x38bdf8));
+        Theme::set_akzent(akzent.unwrap_or(crate::ui::MARKE_GRUEN));
         clear_background(Theme::grund());
         let (over, title, question) = stage_text(v);
         // the main page's tabs sit in the stage band, in place of the question; the tab last open is remembered
@@ -991,12 +1051,12 @@ impl App {
         if v.page != Page::Spieltag && v.mv.as_ref().map(|m| m.phase == 2).unwrap_or(false) { v.mv = None; }
         // a reward moment (meilensteine.rs) takes the whole screen and all clicks until it is closed
         if !c.feature("feiern") { c.feiern.clear(); } // roh
-        // first start with the direct start version: ask once (Fabian 26.11.); screenshots only with PESM_DIALOG
+        // first start with the direct start version: ask once (Fabian 26.11.); screenshots only with CALCIOM_DIALOG
         static DS_GEPRUEFT: std::sync::atomic::AtomicBool = std::sync::atomic::AtomicBool::new(false);
         if !DS_GEPRUEFT.swap(true, std::sync::atomic::Ordering::Relaxed) {
-            let vorschau = std::env::var("PESM_DIALOG").unwrap_or_default();
+            let vorschau = std::env::var("CALCIOM_DIALOG").unwrap_or_default();
             if vorschau.starts_with(crate::id("direktstart")) { v.ds_frage = if vorschau.ends_with('2') { 2 } else { 1 }; }
-            else if std::env::var("PESM_PAGE").is_err() && !cfg!(test) && !pages::direktstart_file().exists() { v.ds_frage = 1; }
+            else if std::env::var("CALCIOM_PAGE").is_err() && !cfg!(test) && !pages::direktstart_file().exists() { v.ds_frage = 1; }
         }
         let feier_offen = !c.feiern.is_empty() || !c.auslosungen.is_empty();
         let modal_open = v.modal != Modal::None || feier_offen || v.ds_frage > 0;
@@ -1379,11 +1439,13 @@ impl App {
 #[macroquad::main(conf)]
 async fn main() {
     let args: Vec<String> = std::env::args().collect();
-    // one line at every start, so pesm.log always exists for bug reports (Discord 24.11.: not found on Windows)
-    if !cfg!(test) && !args.iter().any(|a| a == "--screenshot") { fl27::log(&format!("PES M {} gestartet ({})", env!("CARGO_PKG_VERSION"), std::env::consts::OS)); } // roh
+    // first start after the rename: the old folders move to CalcioM's names before anything writes there
+    if !cfg!(test) { fl27::umzug(); }
+    // one line at every start, so calciom.log always exists for bug reports (Discord 24.11.: not found on Windows)
+    if !cfg!(test) && !args.iter().any(|a| a == "--screenshot") { fl27::log(&format!("CalcioM {} gestartet ({})", env!("CARGO_PKG_VERSION"), std::env::consts::OS)); } // roh
     let arg = |k: &str| args.iter().position(|a| a == k).and_then(|i| args.get(i + 1)).cloned();
     let shot = arg(crate::id("--screenshot"));
-    // --vorschau: the preview career of PESM_WELT / PESM_VEREIN / PESM_PAGE, but the program keeps running (phone test)
+    // --vorschau: the preview career of CALCIOM_WELT / CALCIOM_VEREIN / CALCIOM_PAGE, but the program keeps running (phone test)
     let vorschau = shot.clone().or(args.iter().any(|a| a == "--vorschau").then(String::new)); // roh
     if let Some(i) = args.iter().position(|a| a == crate::id("--neue-karriere")) {
         let g = |k: usize| args.get(i + k).cloned().unwrap_or_default();
@@ -1402,23 +1464,29 @@ async fn main() {
         let (j, alt, welt) = (args.get(i + 1).cloned().unwrap_or_default(), args.get(i + 2).cloned().unwrap_or_default(), args.get(i + 3).cloned().unwrap_or_default());
         match altimport::kommando(&j, &alt, &welt) { Ok(t) => { println!("{t}"); std::process::exit(0) } Err(e) => { eprintln!("{e}"); std::process::exit(1) } }
     }
+    // calciom --import-ml <save> [<welt>]: a career from a Master League save of FL27 (mlimport.rs), the save is only read
+    if let Some(i) = args.iter().position(|a| a == crate::id("--import-ml")) {
+        match mlimport::kommando(&args.get(i + 1).cloned().unwrap_or_default(), args.get(i + 2).map(|s| s.as_str())) { Ok(t) => { println!("{t}"); std::process::exit(0) } Err(e) => { eprintln!("{e}"); std::process::exit(1) } }
+    }
     let selftest = arg(crate::id("--self-test"));
     // check runs never touch the real FL27 process or game folder (fl27::testmodus)
-    if shot.is_some() || selftest.is_some() || args.iter().any(|a| a == crate::id("--start-test")) { std::env::set_var("PESM_TESTMODUS", "1"); }
+    if shot.is_some() || selftest.is_some() || args.iter().any(|a| a == crate::id("--start-test")) { std::env::set_var("CALCIOM_TESTMODUS", "1"); }
     if arg(crate::id("--start-test")).is_some() {
         // never the person's careers: a fresh folder of its own, whatever the environment says
-        let d = std::env::temp_dir().join(format!("pesm-starttest-{}", std::process::id())).join(crate::id("karrieren"));
+        let d = std::env::temp_dir().join(format!("calciom-starttest-{}", std::process::id())).join(crate::id("karrieren"));
         let _ = std::fs::create_dir_all(&d);
-        std::env::set_var("PESM_KARRIEREN", &d);
+        std::env::set_var("CALCIOM_KARRIEREN", &d);
     }
     let mut app = App::new().await;
+    // the start picture only on a plain start (previews, tests and command-line runs go straight on); CALCIOM_PAGE=splash shows it
+    if (args.len() > 1 || std::env::var("CALCIOM_KARRIEREN").is_ok()) && std::env::var("CALCIOM_PAGE").as_deref() != Ok(crate::id("splash")) { app.screen = Screen::Start; }
     if shot.is_none() { update::pruefen(); }
-    // Einstellungen → Sprache (sprache.txt); preview aid: PESM_SPRACHE=en|de overrides it (e.g. for --screenshot)
-    inhalt::sprache_setzen(inhalt::sprache_aus(&std::env::var("PESM_SPRACHE").unwrap_or_else(|_| std::fs::read_to_string(sprache_file()).unwrap_or_default())));
-    if (shot.is_some() && std::env::var("PESM_PAGE").as_deref() != Ok(crate::id("start"))) || selftest.is_some() { app.new_demo_career(); }
-    // preview aid: PESM_PAGE=start PESM_KARRIEREN_BEISPIEL=1 shows the list with two example careers (in the preview's own
+    // Einstellungen → Sprache (sprache.txt); preview aid: CALCIOM_SPRACHE=en|de overrides it (e.g. for --screenshot)
+    inhalt::sprache_setzen(inhalt::sprache_aus(&std::env::var("CALCIOM_SPRACHE").unwrap_or_else(|_| std::fs::read_to_string(sprache_file()).unwrap_or_default())));
+    if (shot.is_some() && !matches!(std::env::var("CALCIOM_PAGE").as_deref(), Ok("start" | "splash"))) || selftest.is_some() { app.new_demo_career(); } // roh
+    // preview aid: CALCIOM_PAGE=start CALCIOM_KARRIEREN_BEISPIEL=1 shows the list with two example careers (in the preview's own
     // folder, never the person's), one with backups, and the question before deleting the second
-    if shot.is_some() && std::env::var("PESM_KARRIEREN_BEISPIEL").is_ok() {
+    if shot.is_some() && std::env::var("CALCIOM_KARRIEREN_BEISPIEL").is_ok() {
         for (k, verein) in [crate::id("Bayern"), crate::id("Dortmund")].iter().enumerate() {
             let w = App::builtin_world();
             let own = w.clubs.iter().position(|c| c.name.contains(verein)).unwrap_or(k);
@@ -1430,59 +1498,63 @@ async fn main() {
         app.start.offen = app.start.saves.iter().find(|p| p.to_string_lossy().contains(crate::id("Beispiel1"))).cloned();
         app.start.loeschen = app.start.saves.iter().find(|p| p.to_string_lossy().contains(crate::id("Beispiel2"))).cloned();
     }
-    // preview aid: PESM_PAGE=start PESM_SUCHE=<text> [PESM_WELT=<Weltordner>] shows the club step with that search
-    if let (Some(_), Ok(q)) = (&shot, std::env::var("PESM_SUCHE")) {
-        let welt = std::env::var("PESM_WELT").ok().map(std::path::PathBuf::from);
+    // preview aid: CALCIOM_PAGE=start CALCIOM_SUCHE=<text> [CALCIOM_WELT=<Weltordner>] shows the club step with that search
+    if let (Some(_), Ok(q)) = (&shot, std::env::var("CALCIOM_SUCHE")) {
+        let welt = std::env::var("CALCIOM_WELT").ok().map(std::path::PathBuf::from);
         app.template = Some(welt.as_ref().and_then(|w| World::from_pesdb(&w.join("common/etc/pesdb"), 7).ok()).unwrap_or_else(App::builtin_world));
         app.start.welt = welt;
         app.start.step = 1; app.start.such = q; app.start.such_focus = true;
-        // PESM_SCHRITT=2|3: the coach step or the summary of a start without a club
-        if let Ok(n) = std::env::var("PESM_SCHRITT") { app.start.step = n.parse().unwrap_or(2); app.start.ohne = true; app.start.coach = crate::id("Max Muster").into(); app.start.angebot_modus = 2; }
+        // CALCIOM_SCHRITT=2|3: the coach step or the summary of a start without a club
+        if let Ok(n) = std::env::var("CALCIOM_SCHRITT") { app.start.step = n.parse().unwrap_or(2); app.start.ohne = true; app.start.coach = crate::id("Max Muster").into(); app.start.angebot_modus = 2; }
     }
-    // preview aid: PESM_WELT=<Weltordner> plays the preview on a real world (own club: the strongest of its first league)
-    if let (Some(_), Ok(wp), true) = (&vorschau, std::env::var("PESM_WELT"), std::env::var("PESM_PAGE").as_deref() != Ok(crate::id("start"))) {
+    // preview aid: CALCIOM_PAGE=start CALCIOM_ML=<Master League save> shows the import preview (the save is only read)
+    if let (Some(_), Ok(f)) = (&shot, std::env::var("CALCIOM_ML")) {
+        if let Ok(st) = mlimport::lesen(std::path::Path::new(&f)) { if let Some((w, n)) = mlimport::welt_waehlen(&st) { let v = mlimport::vorschau(&st, &w, n); app.start.ml = Some((st, w, v)); } }
+    }
+    // preview aid: CALCIOM_WELT=<Weltordner> plays the preview on a real world (own club: the strongest of its first league)
+    if let (Some(_), Ok(wp), true) = (&vorschau, std::env::var("CALCIOM_WELT"), std::env::var("CALCIOM_PAGE").as_deref() != Ok(crate::id("start"))) {
         if let Ok(w) = World::from_pesdb(&std::path::Path::new(&wp).join("common/etc/pesdb"), 7) {
-            // PESM_VEREIN=<Name>: that club (else the strongest of the first league)
-            let own = std::env::var("PESM_VEREIN").ok().and_then(|n| w.clubs.iter().position(|c| c.name == n))
+            // CALCIOM_VEREIN=<Name>: that club (else the strongest of the first league)
+            let own = std::env::var("CALCIOM_VEREIN").ok().and_then(|n| w.clubs.iter().position(|c| c.name == n))
                 .unwrap_or_else(|| w.leagues[0].teams.iter().copied().max_by(|a, b| w.clubs[*a].level.partial_cmp(&w.clubs[*b].level).unwrap()).unwrap_or(0));
             let mut c = Career::new(w, own, crate::inhalt::t("ui.main.fabian_trainer"));
             c.fl27_welt = wp.clone();
-            // PESM_KOOP_SUCHE=1: a farm-team search runs (applications come during PESM_DAYS)
-            if std::env::var("PESM_KOOP_SUCHE").is_ok() { let _ = c.koop_suche_starten(crate::farm::KoopSuche { bis: 0, nur_land: true, stufe_von: 1, stufe_bis: 2, plaetze: 3, max_betrag: c.koop_rahmen() }); }
+            // CALCIOM_KOOP_SUCHE=1: a farm-team search runs (applications come during CALCIOM_DAYS)
+            if std::env::var("CALCIOM_KOOP_SUCHE").is_ok() { let _ = c.koop_suche_starten(crate::farm::KoopSuche { bis: 0, nur_land: true, stufe_von: 1, stufe_bis: 2, plaetze: 3, max_betrag: c.koop_rahmen() }); }
             app.career = Some(c);
             app.screen = Screen::Game;
         }
     }
-    // preview aid for checks: PESM_PAGE=kader|aufstellung|... opens that page, PESM_DAYS=n advances days first
-    if let (Ok(pg), Some(_), true) = (std::env::var("PESM_PAGE"), &vorschau, app.career.is_some()) {
-        // PESM_AUFTRAG=<group>: a player search of the first scout in the own league starts first (preview of assignments)
-        if let (Ok(g), Some(c)) = (std::env::var("PESM_AUFTRAG"), app.career.as_mut()) {
+    // preview aid for checks: CALCIOM_PAGE=kader|aufstellung|... opens that page, CALCIOM_DAYS=n advances days first
+    if let (Ok(pg), Some(_), true) = (std::env::var("CALCIOM_PAGE"), &vorschau, app.career.is_some()) {
+        // CALCIOM_AUFTRAG=<group>: a player search of the first scout in the own league starts first (preview of assignments)
+        if let (Ok(g), Some(c)) = (std::env::var("CALCIOM_AUFTRAG"), app.career.as_mut()) {
             let x = crate::auftraege::Auftrag { art: crate::auftraege::SUCHE, scout: c.scouts[0].name.clone(), gruppe: g, alter_min: 17, alter_max: 30, liga: Some(c.league()), ..Default::default() };
             let _ = c.auftrag_anlegen(x, 14);
         }
-        if let Ok(n) = std::env::var("PESM_DAYS").unwrap_or_default().parse::<u32>() {
+        if let Ok(n) = std::env::var("CALCIOM_DAYS").unwrap_or_default().parse::<u32>() {
             let c = app.career.as_mut().unwrap();
             for _ in 0..n { if c.today_match().is_some() { let r = c.prepare_match(None); c.apply_own_match(r); c.answer_press(Some(0)); } let _ = c.end_day(); }
         }
-        // PESM_THEMA=1: the "per competition" theme on; PESM_BIS_SPIELTAG=1: on to the next matchday (not played)
-        if std::env::var("PESM_THEMA").is_ok() { app.career.as_mut().unwrap().thema_wettbewerb = true; }
-        if std::env::var("PESM_BIS_SPIELTAG").is_ok() { let c = app.career.as_mut().unwrap(); for _ in 0..14 { if c.today_match().is_some() { break; } let _ = c.end_day(); } }
+        // CALCIOM_THEMA=1: the "per competition" theme on; CALCIOM_BIS_SPIELTAG=1: on to the next matchday (not played)
+        if std::env::var("CALCIOM_THEMA").is_ok() { app.career.as_mut().unwrap().thema_wettbewerb = true; }
+        if std::env::var("CALCIOM_BIS_SPIELTAG").is_ok() { let c = app.career.as_mut().unwrap(); for _ in 0..14 { if c.today_match().is_some() { break; } let _ = c.end_day(); } }
         let p = match pg.as_str() { "posteingang" => Page::Posteingang, "kalender" => Page::Kalender, "awards" => Page::Awards, "privat" => Page::Privat, "uefa" => Page::Uefa, "spielplan" => Page::Spielplan, "trainerbaum" => Page::TrainerBaum, "vereinsstatistik" => Page::Vereinsstatistik, "kadermeldung" => Page::Kadermeldung, "thebest" => Page::TheBest, "ligapreise" => Page::LigaPreise, "kader" => Page::Kader, "aufstellung" => Page::Aufstellung, "training" => Page::Training, "medizin" => Page::Medizin, "praesidium" => Page::Praesidium, "finanzen" => Page::Finanzen, "trainer" => Page::Trainer, "transfermarkt" => Page::Transfermarkt, "verhandlungen" => Page::Verhandlungen, "vertraege" => Page::Vertraege, "scouting" => Page::Scouting, "akademie" => Page::Akademie, "tabellen" => Page::Tabellen, "presse" => Page::Presse, "spieltag" => Page::Spieltag, "kabine" => Page::Kabine, "optionen" => Page::Optionen, "ziele" => Page::Ziele, "manager" => Page::Manager, "stadion" => Page::Stadion, "personalmarkt" => Page::Personalmarkt, "geschichte" => Page::Geschichte, "tagebuch" => Page::Tagebuch, "klima" => Page::Klima, "marken" => Page::Marken, "kaderplanung" => Page::Kaderplanung, "vergleich" => Page::Vergleich, "entwicklung" => Page::Entwicklung, "vorbereitung" => Page::Vorbereitung, "analyse" => Page::Analyse, "zeitung" => Page::Zeitung, "fans" => Page::Fans, "ranglisten" => Page::Ranglisten, "vereine" => Page::Vereine, "vereinswelt" => Page::Vereinswelt, "portal" => Page::Portal, "handbuch" => Page::Handbuch, "regeln" => Page::Regeln, "profi" => Page::Profi, "spielerprofil" => Page::Spielerprofil, "zentrale" => Page::Zentrale, "kooperationen" => Page::Kooperationen, "zweite" => Page::ZweiteMannschaft, "jugendnetz" => Page::Jugendnetz, "merkliste" => Page::Merkliste, "trainerteam" => Page::Trainerteam, "nationalteams" => Page::Nationalteams, _ => Page::Uebersicht };
         app.v.go(p);
         if p == Page::Tabellen || p == Page::Ranglisten { app.v.table_league = app.career.as_ref().unwrap().world.cups.iter().position(|c| c.kind == 1).map(|i| 1000 + i); }
-        // PESM_LIGA=eigene|<Liganame>: that league's table instead of the Champions League
-        if let (true, Ok(n)) = (p == Page::Tabellen, std::env::var("PESM_LIGA")) { let c = app.career.as_ref().unwrap(); app.v.table_league = if n == crate::id("eigene") { Some(c.league()) } else { c.world.leagues.iter().position(|l| l.name == n).or_else(|| c.world.cups.iter().position(|x| x.name == n).map(|i| 1000 + i)) }; }
+        // CALCIOM_LIGA=eigene|<Liganame>: that league's table instead of the Champions League
+        if let (true, Ok(n)) = (p == Page::Tabellen, std::env::var("CALCIOM_LIGA")) { let c = app.career.as_ref().unwrap(); app.v.table_league = if n == crate::id("eigene") { Some(c.league()) } else { c.world.leagues.iter().position(|l| l.name == n).or_else(|| c.world.cups.iter().position(|x| x.name == n).map(|i| 1000 + i)) }; }
         if p == Page::Transfermarkt { app.v.sel_player = app.career.as_ref().unwrap().world.players.iter().position(|x| x.name.contains("Wirtz")); } // roh
-        // PESM_SPIELER=<Name>: that player; PESM_REITER=<n>: that tab
-        if let Ok(n) = std::env::var("PESM_SPIELER") { app.v.sel_player = app.career.as_ref().unwrap().world.players.iter().position(|x| x.name.contains(&n)); }
-        // PESM_ST=1: the chosen player with points and a few bought nodes (preview of the Skill Tree)
-        if std::env::var("PESM_ST").is_ok() { if let Some(p) = app.v.sel_player { let c = app.career.as_mut().unwrap(); c.world.players[p].st.konto = 6; let baum = crate::skilltree::baum_von(&c.world.players[p].pos); for k in crate::skilltree::knoten(&baum).into_iter().filter(|k| k.stufe == 1 && k.ast != 1) { let _ = c.knoten_kaufen(p, &k); } c.world.players[p].st.konto = 3; c.world.players[p].st.balken = 62.0; } }
-        // PESM_FEIER=1: a reward moment for the best own player (preview of the full-screen moment)
+        // CALCIOM_SPIELER=<Name>: that player; CALCIOM_REITER=<n>: that tab
+        if let Ok(n) = std::env::var("CALCIOM_SPIELER") { app.v.sel_player = app.career.as_ref().unwrap().world.players.iter().position(|x| x.name.contains(&n)); }
+        // CALCIOM_ST=1: the chosen player with points and a few bought nodes (preview of the Skill Tree)
+        if std::env::var("CALCIOM_ST").is_ok() { if let Some(p) = app.v.sel_player { let c = app.career.as_mut().unwrap(); c.world.players[p].st.konto = 6; let baum = crate::skilltree::baum_von(&c.world.players[p].pos); for k in crate::skilltree::knoten(&baum).into_iter().filter(|k| k.stufe == 1 && k.ast != 1) { let _ = c.knoten_kaufen(p, &k); } c.world.players[p].st.konto = 3; c.world.players[p].st.balken = 62.0; } }
+        // CALCIOM_FEIER=1: a reward moment for the best own player (preview of the full-screen moment)
         // the moments the days collected stay away from other previews
-        if std::env::var("PESM_FEIER").is_err() { app.career.as_mut().unwrap().feiern.clear(); }
-        if std::env::var("PESM_AUSLOSUNG").is_err() { app.career.as_mut().unwrap().auslosungen.clear(); }
-        // PESM_FEIER=<art>: a full-screen moment of that kind (titel, gala, derby, finale, meilenstein, vertrag; else a signing)
-        if let Ok(art) = std::env::var("PESM_FEIER") {
+        if std::env::var("CALCIOM_FEIER").is_err() { app.career.as_mut().unwrap().feiern.clear(); }
+        if std::env::var("CALCIOM_AUSLOSUNG").is_err() { app.career.as_mut().unwrap().auslosungen.clear(); }
+        // CALCIOM_FEIER=<art>: a full-screen moment of that kind (titel, gala, derby, finale, meilenstein, vertrag; else a signing)
+        if let Ok(art) = std::env::var("CALCIOM_FEIER") {
             let c = app.career.as_mut().unwrap();
             let p = c.squad()[0];
             let own = c.own;
@@ -1497,81 +1569,81 @@ async fn main() {
                 _ => c.feier_neuzugang(p, crate::id("Testverein"), 25_000_000.0),
             }
         }
-        // PESM_PRESSE=1: a press conference is waiting (preview of the scene)
-        if std::env::var("PESM_PRESSE").is_ok() { let c = app.career.as_mut().unwrap(); let q = c.press_question(false); c.press = Some(q); }
-        // PESM_KLUB=<Name>: that club on the clubs page
-        if let Ok(n) = std::env::var("PESM_KLUB") { app.v.sel_club = app.career.as_ref().unwrap().world.clubs.iter().position(|x| x.name == n); }
-        if let Ok(t) = std::env::var("PESM_REITER") { app.v.tab = t.parse().unwrap_or(0); }
-        // PESM_RAD=1: the percentile wheel on the statistics tab
-        if std::env::var("PESM_RAD").is_ok() { crate::pages::stat_rad_an(); }
-        // PESM_STAT_FENSTER=<area>:<row>: the league ranking of that number open (needs PESM_SPIELER)
-        if let (Ok(t), Some(p)) = (std::env::var("PESM_STAT_FENSTER"), app.v.sel_player) { if let Some((b, z)) = t.split_once(':') { crate::pages::stat_fenster_auf(p, b.parse().unwrap_or(0), z.parse().unwrap_or(0)); } }
-        // PESM_AUSWAHL=<n>: that choice field open; PESM_LEISTE=zu|alle: side bar folded in or all groups open
-        if let Ok(t) = std::env::var("PESM_AUSWAHL") { app.v.auswahl = t.parse().ok(); }
-        match std::env::var("PESM_LEISTE").as_deref() { Ok("zu") => pages::SEITENLEISTE_ZU.store(true, std::sync::atomic::Ordering::Relaxed), Ok("alle") => app.v.menu_alle = true, _ => {} }
-        // PESM_TP=<ready-made week>[:day,slot]: that training week, with a session chosen (preview of the plan)
-        if let Ok(t) = std::env::var("PESM_TP") { let mut it = t.split(':'); let n = it.next().unwrap_or(""); if let Some(w) = crate::trainingsplan::werk().into_iter().find(|w| w.0 == n) { if let Some(c) = app.career.as_mut() { c.wochenplan = w.1; c.plan_uebernehmen(); } } if let Some((d, s)) = it.next().and_then(|x| x.split_once(',')) { app.v.tp_zelle = Some((d.parse().unwrap_or(0), s.parse().unwrap_or(0))); } }
-        // PESM_SORT=<list>:<column>[:auf]: a sorted list (preview of the clickable header)
-        if let Ok(s) = std::env::var("PESM_SORT") { let t: Vec<&str> = s.split(':').collect(); if let (Some(l), Some(k)) = (t.first().and_then(|x| x.parse().ok()), t.get(1).and_then(|x| x.parse().ok())) { app.v.sortierung.insert(l, (k, t.get(2) == Some(&crate::id("auf")))); } }
-        // PESM_FOKUS=1: the three youngest own players get an individual programme with different focus groups (training preview)
-        if std::env::var("PESM_FOKUS").is_ok() {
+        // CALCIOM_PRESSE=1: a press conference is waiting (preview of the scene)
+        if std::env::var("CALCIOM_PRESSE").is_ok() { let c = app.career.as_mut().unwrap(); let q = c.press_question(false); c.press = Some(q); }
+        // CALCIOM_KLUB=<Name>: that club on the clubs page
+        if let Ok(n) = std::env::var("CALCIOM_KLUB") { app.v.sel_club = app.career.as_ref().unwrap().world.clubs.iter().position(|x| x.name == n); }
+        if let Ok(t) = std::env::var("CALCIOM_REITER") { app.v.tab = t.parse().unwrap_or(0); }
+        // CALCIOM_RAD=1: the percentile wheel on the statistics tab
+        if std::env::var("CALCIOM_RAD").is_ok() { crate::pages::stat_rad_an(); }
+        // CALCIOM_STAT_FENSTER=<area>:<row>: the league ranking of that number open (needs CALCIOM_SPIELER)
+        if let (Ok(t), Some(p)) = (std::env::var("CALCIOM_STAT_FENSTER"), app.v.sel_player) { if let Some((b, z)) = t.split_once(':') { crate::pages::stat_fenster_auf(p, b.parse().unwrap_or(0), z.parse().unwrap_or(0)); } }
+        // CALCIOM_AUSWAHL=<n>: that choice field open; CALCIOM_LEISTE=zu|alle: side bar folded in or all groups open
+        if let Ok(t) = std::env::var("CALCIOM_AUSWAHL") { app.v.auswahl = t.parse().ok(); }
+        match std::env::var("CALCIOM_LEISTE").as_deref() { Ok("zu") => pages::SEITENLEISTE_ZU.store(true, std::sync::atomic::Ordering::Relaxed), Ok("alle") => app.v.menu_alle = true, _ => {} }
+        // CALCIOM_TP=<ready-made week>[:day,slot]: that training week, with a session chosen (preview of the plan)
+        if let Ok(t) = std::env::var("CALCIOM_TP") { let mut it = t.split(':'); let n = it.next().unwrap_or(""); if let Some(w) = crate::trainingsplan::werk().into_iter().find(|w| w.0 == n) { if let Some(c) = app.career.as_mut() { c.wochenplan = w.1; c.plan_uebernehmen(); } } if let Some((d, s)) = it.next().and_then(|x| x.split_once(',')) { app.v.tp_zelle = Some((d.parse().unwrap_or(0), s.parse().unwrap_or(0))); } }
+        // CALCIOM_SORT=<list>:<column>[:auf]: a sorted list (preview of the clickable header)
+        if let Ok(s) = std::env::var("CALCIOM_SORT") { let t: Vec<&str> = s.split(':').collect(); if let (Some(l), Some(k)) = (t.first().and_then(|x| x.parse().ok()), t.get(1).and_then(|x| x.parse().ok())) { app.v.sortierung.insert(l, (k, t.get(2) == Some(&crate::id("auf")))); } }
+        // CALCIOM_FOKUS=1: the three youngest own players get an individual programme with different focus groups (training preview)
+        if std::env::var("CALCIOM_FOKUS").is_ok() {
             let c = app.career.as_mut().unwrap();
             let mut jung = c.squad();
             jung.sort_by_key(|&p| c.world.players[p].age);
             for (k, p) in jung.into_iter().take(3).enumerate() { c.world.players[p].program = if k == 2 { 2 } else { 1 }; c.world.players[p].ent.fokus = k as u8 * 2; }
         }
-        // PESM_BEISPIELE=1: one example message of every kind (previews of the inbox layouts)
-        if std::env::var("PESM_BEISPIELE").is_ok() { app.career.as_mut().unwrap().beispiel_meldungen(); }
-        // PESM_POOL=<thema>: a pool conversation of that theme with the first squad player, opened in the inbox
-        if let Ok(th) = std::env::var("PESM_POOL") {
+        // CALCIOM_BEISPIELE=1: one example message of every kind (previews of the inbox layouts)
+        if std::env::var("CALCIOM_BEISPIELE").is_ok() { app.career.as_mut().unwrap().beispiel_meldungen(); }
+        // CALCIOM_POOL=<thema>: a pool conversation of that theme with the first squad player, opened in the inbox
+        if let Ok(th) = std::env::var("CALCIOM_POOL") {
             let c = app.career.as_mut().unwrap();
             let p = c.squad()[0];
             if c.pool_starten(p, &th) { app.v.sel_msg = Some(0); app.v.go(Page::Posteingang); }
         }
-        if let Ok(m) = std::env::var("PESM_MELDUNG") { app.v.sel_msg = m.parse().ok().or_else(|| app.career.as_ref().and_then(|c| c.inbox.iter().position(|x| x.title.contains(&m) || x.karte == m))); }
-        // PESM_VERLETZT=<n>: n squad players injured (5, 12, 25, 40 … days), for the medical page
-        if let Ok(n) = std::env::var("PESM_VERLETZT") {
+        if let Ok(m) = std::env::var("CALCIOM_MELDUNG") { app.v.sel_msg = m.parse().ok().or_else(|| app.career.as_ref().and_then(|c| c.inbox.iter().position(|x| x.title.contains(&m) || x.karte == m))); }
+        // CALCIOM_VERLETZT=<n>: n squad players injured (5, 12, 25, 40 … days), for the medical page
+        if let Ok(n) = std::env::var("CALCIOM_VERLETZT") {
             let c = app.career.as_mut().unwrap();
             for (k, p) in c.squad().into_iter().take(n.parse().unwrap_or(3)).enumerate() { let d = [5u16, 12, 25, 40, 18][k % 5]; c.world.players[p].inj = d; c.world.players[p].inj_name = crate::world::injury_names(d)[0].to_string(); c.world.players[p].ent.inj_gesamt = d + 6 * k as u16; }
         }
-        // PESM_LAGER=1: the Vorbereitung page shows the training camps
-        if std::env::var("PESM_LAGER").is_ok() { app.v.lager_reiter = 1; }
-        // PESM_KONTEXT=<name>: the right-click menu of that player over the page
-        if let Ok(n) = std::env::var("PESM_KONTEXT") {
+        // CALCIOM_LAGER=1: the Vorbereitung page shows the training camps
+        if std::env::var("CALCIOM_LAGER").is_ok() { app.v.lager_reiter = 1; }
+        // CALCIOM_KONTEXT=<name>: the right-click menu of that player over the page
+        if let Ok(n) = std::env::var("CALCIOM_KONTEXT") {
             let c = app.career.as_ref().unwrap();
             if let Some(p) = c.world.players.iter().position(|x| x.name.contains(&n)) { app.v.kontext = Some((p, vec2(520.0, 360.0))); }
         }
-        // PESM_SUCHFENSTER=<text>: the search over the page with that text (empty: the bookmarks; two are set)
-        if let Ok(q) = std::env::var("PESM_SUCHFENSTER") {
+        // CALCIOM_SUCHFENSTER=<text>: the search over the page with that text (empty: the bookmarks; two are set)
+        if let Ok(q) = std::env::var("CALCIOM_SUCHFENSTER") {
             app.v.modal = pages::Modal::Suche;
             app.v.suche_text = q;
             app.v.suche_fuer = "-".into();
             let c = app.career.as_mut().unwrap();
             c.lesezeichen = vec![crate::id("Transfermarkt").into(), crate::id("Tabellen").into()];
         }
-        // PESM_VERHANDLUNG=<name>: the contract talks with that own player open (clauses, Punkt 6); PESM_VERKAUF=1: a sale of him
-        if let Ok(n) = std::env::var("PESM_VERHANDLUNG") {
+        // CALCIOM_VERHANDLUNG=<name>: the contract talks with that own player open (clauses, Punkt 6); CALCIOM_VERKAUF=1: a sale of him
+        if let Ok(n) = std::env::var("CALCIOM_VERHANDLUNG") {
             let c = app.career.as_mut().unwrap();
             // another club's player: the purchase talks (fee stage)
             if !c.squad().into_iter().any(|p| c.world.players[p].name.contains(&n)) {
                 if let Some(p) = (0..c.world.players.len()).find(|&p| c.world.players[p].team >= 0 && c.world.players[p].name.contains(&n)) { match c.open_neg(p) { Ok(k) => app.v.modal = pages::Modal::Neg(k), Err(e) => eprintln!("open_neg: {e}") } }
             }
             if let Some(p) = c.squad().into_iter().find(|&p| c.world.players[p].name.contains(&n)) {
-                let k = if std::env::var("PESM_VERKAUF").is_ok() {
+                let k = if std::env::var("CALCIOM_VERKAUF").is_ok() {
                     let kaeufer = (0..c.world.clubs.len()).find(|&k| k != c.own && c.world.erste_von(k).is_none()).unwrap_or(0);
                     Some(c.verkauf_verhandeln(p, kaeufer, c.world.players[p].value))
                 } else { c.world.players[p].contract_end = c.world.season; c.open_neg(p).ok() };
                 if let Some(k) = k {
                     app.v.modal = pages::Modal::Neg(k);
                     if let Some(ng) = c.negs.get_mut(k) { ng.kl.ausstieg = 1; ng.kl.tor = 1; ng.kl.weiterverkauf = 2; }
-                    // PESM_RUNDEN=n: that many offers sent already, each a bit lower than asked (chat preview)
-                    let runden: usize = std::env::var("PESM_RUNDEN").ok().and_then(|x| x.parse().ok()).unwrap_or(0);
+                    // CALCIOM_RUNDEN=n: that many offers sent already, each a bit lower than asked (chat preview)
+                    let runden: usize = std::env::var("CALCIOM_RUNDEN").ok().and_then(|x| x.parse().ok()).unwrap_or(0);
                     for r in 0..runden { if c.negs[k].state != game::NegState::Counter { break; } c.negs[k].wage = (c.negs[k].need * (0.7 + 0.08 * r as f64) / 5000.0).round() * 5000.0; c.negs[k].argument = (r % 6 + 1) as u8; c.submit_neg(k); }
                 }
             }
         }
-        // PESM_TICKER=<minute|ende>: the simulated match on the ticker at that minute, or after the final whistle
-        if let Ok(t) = std::env::var("PESM_TICKER") {
+        // CALCIOM_TICKER=<minute|ende>: the simulated match on the ticker at that minute, or after the final whistle
+        if let Ok(t) = std::env::var("CALCIOM_TICKER") {
             let c = app.career.as_mut().unwrap();
             for _ in 0..21 { if c.today_match().is_some() { break; } let _ = c.end_day(); }
             if c.today_match().is_some() {
@@ -1580,22 +1652,22 @@ async fn main() {
                 let mut mv = pages::MatchView { res: res.clone(), minute: t.parse().unwrap_or(90.0), speed: if ende { 1.0 } else { 0.0 }, phase: if ende { 2 } else { 1 }, ended_at: 0.0, manual: (0, 0), manual_open: false, halbzeit: 2, wirkung: vec![], nach_gesagt: false, angesprochen: vec![], eingriff: Default::default(), vorlauf: 3, vor_pause: 1.0, duell: vec![], parallel: vec![] };
 
                 mv.parallel = c.parallel_spielen();
-                // PESM_NACH_REITER=1: the matchday view after the match
-                mv.eingriff.nach_reiter = std::env::var("PESM_NACH_REITER").ok().and_then(|x| x.parse().ok()).unwrap_or(0);
-                // PESM_LIVE_REITER=<0|1|2>: that menu on the right
-                mv.eingriff.reiter = std::env::var("PESM_LIVE_REITER").ok().and_then(|x| x.parse().ok()).unwrap_or(0);
+                // CALCIOM_NACH_REITER=1: the matchday view after the match
+                mv.eingriff.nach_reiter = std::env::var("CALCIOM_NACH_REITER").ok().and_then(|x| x.parse().ok()).unwrap_or(0);
+                // CALCIOM_LIVE_REITER=<0|1|2>: that menu on the right
+                mv.eingriff.reiter = std::env::var("CALCIOM_LIVE_REITER").ok().and_then(|x| x.parse().ok()).unwrap_or(0);
                 if ende { c.apply_own_match(res); c.press = None; if let Some(r) = c.last_result.clone() { mv.res = r; } }
                 app.v.mv = Some(mv);
                 app.v.go(Page::Spieltag);
             }
         }
-        // PESM_LIVE=1: the live view of a match in FL27 with made-up numbers (the next match day, minute 67)
-        if std::env::var("PESM_LIVE").is_ok() {
+        // CALCIOM_LIVE=1: the live view of a match in FL27 with made-up numbers (the next match day, minute 67)
+        if std::env::var("CALCIOM_LIVE").is_ok() {
             let c = app.career.as_mut().unwrap();
             for _ in 0..21 { if c.today_match().is_some() { break; } let _ = c.end_day(); }
             app.v.fl27_ansicht = crate::livespiel::beispiel(c);
-            // PESM_LIVE=halbzeit: the same at the break (half-time talk)
-            if std::env::var("PESM_LIVE").as_deref() == Ok(crate::id("halbzeit")) { if let Some(m) = app.v.fl27_ansicht.as_mut() { m.minute = 45; m.period = 2; } }
+            // CALCIOM_LIVE=halbzeit: the same at the break (half-time talk)
+            if std::env::var("CALCIOM_LIVE").as_deref() == Ok(crate::id("halbzeit")) { if let Some(m) = app.v.fl27_ansicht.as_mut() { m.minute = 45; m.period = 2; } }
             app.v.fl27_vorschau = app.v.fl27_ansicht.is_some();
             app.v.fl27_seq = Some(7);
             app.v.go(Page::Spieltag);
@@ -1603,8 +1675,8 @@ async fn main() {
     }
     if let Some(p) = selftest { app.selftest = Some(SelfTest { path: p, frame: 0, day0: 0, steps: vec![], stage: 0 }); }
     if let Some(p) = arg(crate::id("--start-test")) { app.starttest = Some(StartTest { path: p, welt: arg(crate::id("--welt")), frame: 0, stage: 0, steps: vec![], team: String::new() }); }
-    // the UI scale of the settings (skala.txt); PESM_SKALA for previews
-    if let Some(s) = std::env::var("PESM_SKALA").ok().or_else(|| std::fs::read_to_string(pages::skala_file()).ok()).and_then(|x| x.trim().parse::<f32>().ok()) { crate::ui::ui_skala_setzen(s); }
+    // the UI scale of the settings (skala.txt); CALCIOM_SKALA for previews
+    if let Some(s) = std::env::var("CALCIOM_SKALA").ok().or_else(|| std::fs::read_to_string(pages::skala_file()).ok()).and_then(|x| x.trim().parse::<f32>().ok()) { crate::ui::ui_skala_setzen(s); }
     let mut frames = 0;
     loop {
         hoehe_setzen(screen_width(), screen_height());
@@ -1621,14 +1693,14 @@ async fn main() {
         if app.starttest.is_some() && app.start_test_step() { break; }
         if let Some(p) = &shot {
             // the window-size check records the last frames only (the layout has settled)
-            if frames == 110 && std::env::var_os("PESM_PRUEF").is_some() { crate::ui::pruefung_starten(); }
+            if frames == 110 && std::env::var_os("CALCIOM_PRUEF").is_some() { crate::ui::pruefung_starten(); }
             // wait until the window manager gave the asked size (a tiling layout resizes it after the first frames)
-            let soll = std::env::var("PESM_FENSTER").ok().and_then(|f| f.split('x').next().and_then(|w| w.parse::<f32>().ok())).unwrap_or(0.0);
+            let soll = std::env::var("CALCIOM_FENSTER").ok().and_then(|f| f.split('x').next().and_then(|w| w.parse::<f32>().ok())).unwrap_or(0.0);
             if frames >= 120 && ((screen_width() * screen_dpi_scale() - soll).abs() <= 2.0 || soll == 0.0 || frames >= 900) {
                 let mut img = get_screen_data();
                 for px in img.bytes.chunks_mut(4) { px[3] = 255; }
                 img.export_png(p);
-                if let Ok(b) = std::env::var("PESM_PRUEF") { let _ = std::fs::write(b, crate::ui::pruefung_bericht()); }
+                if let Ok(b) = std::env::var("CALCIOM_PRUEF") { let _ = std::fs::write(b, crate::ui::pruefung_bericht()); }
                 break;
             }
         }

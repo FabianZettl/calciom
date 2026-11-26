@@ -1,7 +1,7 @@
 //! Real contract data from SoFIFA (Fabian 24.11.): potential, wage, market value, contract end, release clause and loans,
 //! taken over once at the start of a career from the German SoFIFA export of the FCFL Stats Converter
 //! (`ID;Name;Vollständiger Name;…;Vertrag;…;Leihende;Lohn;Wert;Freigabeklausel;…`).
-//! Source (changeable, PAKETE.md): the newest full export in PES M's folder `sofifa/` or in the converter's `ea-base` /
+//! Source (changeable, PAKETE.md): the newest full export in CalcioM's folder `sofifa/` or in the converter's `ea-base` /
 //! `ea-updates` folders; the converter is not called, its files are only read.
 use crate::trainerbank::norm;
 use crate::world::World;
@@ -80,7 +80,7 @@ pub fn lesen(text: &str) -> Option<Vec<Zeile>> {
     }).collect())
 }
 
-/// Folders searched for exports: PES M's own `sofifa/` and the converter's data folder.
+/// Folders searched for exports: CalcioM's own `sofifa/` and the converter's data folder.
 pub fn ordner() -> Vec<PathBuf> {
     let conv = std::env::var("APPDATA").map(|a| PathBuf::from(a).join("FL-Stats-Converter")) // roh
         .unwrap_or_else(|_| PathBuf::from(std::env::var("HOME").unwrap_or_default()).join(".local/share/fl-stats-converter")); // roh
@@ -261,13 +261,13 @@ mod tests {
         assert_eq!(abs_tag(2027, 6, 30), 333);
         assert!(lesen("ID;Name;Gesamtbewertung\n1;x;70\n").is_none(), "update without contracts");
     }
-    /// Hit rate against the real world: PESM_SOFIFA=<csv> cargo test --release sofifa_trefferquote -- --ignored --nocapture
+    /// Hit rate against the real world: CALCIOM_SOFIFA=<csv> cargo test --release sofifa_trefferquote -- --ignored --nocapture
     #[test]
     #[ignore]
     fn sofifa_trefferquote() {
-        let csv = std::env::var("PESM_SOFIFA").expect("PESM_SOFIFA");
+        let csv = std::env::var("CALCIOM_SOFIFA").expect("CALCIOM_SOFIFA");
         let rows = lesen(&std::fs::read_to_string(&csv).unwrap()).unwrap();
-        let welt = std::env::var("PESM_WELT_PFAD").map(PathBuf::from).unwrap_or_else(|_| crate::fl27::sider().join("livecpk/_FL26-27-Def/common/etc/pesdb"));
+        let welt = std::env::var("CALCIOM_WELT_PFAD").map(PathBuf::from).unwrap_or_else(|_| crate::fl27::sider().join("livecpk/_FL26-27-Def/common/etc/pesdb"));
         let mut w = World::from_pesdb(&welt, 7).unwrap();
         let b = w.sofifa_uebernehmen(&csv, &rows);
         println!("{} of {} players ({:.1} %), {} loans, {} SoFIFA rows", b.gefunden, b.spieler, 100.0 * b.gefunden as f32 / b.spieler as f32, b.leihen, rows.len());
@@ -285,7 +285,7 @@ mod tests {
             println!("{}: tv {:.0} M, balance {:.0} M", w.clubs[c].name, w.clubs[c].tv / 1e6, w.clubs[c].balance / 1e6);
             for &p in w.clubs[c].squad.iter().take(6) { let x = &w.players[p]; println!("  {} {} ovr {} pot {} wage {:.0} k value {:.1} M until {} clause {:.0} M loan {:?}", x.name, x.age, x.ovr, x.pot, x.wage / 1e3, x.value / 1e6, x.contract_end, x.profil.klauseln.ausstieg / 1e6, x.leihe.as_ref().map(|l| (w.clubs[l.von].name.clone(), l.bis, l.bis_tag))); }
         } }
-        if let Ok(j) = std::env::var("PESM_VERGLEICH") {
+        if let Ok(j) = std::env::var("CALCIOM_VERGLEICH") {
             let v: HashMap<String, String> = serde_json::from_str(&std::fs::read_to_string(j).unwrap()).unwrap();
             let rn: HashMap<u32, &Zeile> = rows.iter().map(|r| (r.id, r)).collect();
             let (mut gleich, mut anders, mut nur_conv, mut nur_wir, mut bsp) = (0, 0, 0, 0, vec![]);
@@ -298,7 +298,7 @@ mod tests {
                     _ => {}
                 }
             }
-            println!("compare: same {gleich}, different {anders}, only converter {nur_conv}, only PES M {nur_wir}");
+            println!("compare: same {gleich}, different {anders}, only converter {nur_conv}, only CalcioM {nur_wir}");
             for b in bsp.iter().take(60) { println!("  {b}"); }
         }
         println!("not found, rating 78+: {}", fehl.join("; "));

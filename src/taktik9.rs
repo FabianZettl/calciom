@@ -1,4 +1,4 @@
-//! The PES M tactic (Konzept taktiksystem.md Teil 1–2, Fabian 24.11.: "FM27 level, translated into the FL values and
+//! The CalcioM tactic (Konzept taktiksystem.md Teil 1–2, Fabian 24.11.: "FM27 level, translated into the FL values and
 //! written into Tactics"): a playing idea, nine sliders with football words (1–5), four switches. A pure translation
 //! turns them into the game's values (attack style, build-up, attacking area, positioning, support, defensive style,
 //! containment area, pressing, defensive line, compactness), each with its reason.
@@ -29,7 +29,7 @@ impl Taktik9 {
         for (j, x) in s.as_array().into_iter().flatten().enumerate().take(4) { schalter[j] = x.as_bool().unwrap_or(false); }
         Taktik9 { idee: i as u8, regler, schalter, angepasst: false, aktiv: true }
     }
-    /// The sliders that give an existing tactic of the game's switches (saves from before the PES M tactic), so the
+    /// The sliders that give an existing tactic of the game's switches (saves from before the CalcioM tactic), so the
     /// first look at the page changes nothing on the pitch.
     pub fn aus_tactic(t: &crate::game::Tactic) -> Taktik9 {
         let mut k = Self::aus_idee(6);
@@ -120,7 +120,7 @@ impl crate::game::Career {
     pub fn zielspieler_in_elf(&self) -> bool {
         self.xi.iter().any(|&p| { let pl = &self.world.players[p]; pl.pos == "CF" && pl.attrs.get(7).copied().unwrap_or(0.0) >= 80.0 }) // roh
     }
-    /// Translate the PES M tactic into the game's values (Tactic), keeping the stance in step.
+    /// Translate the CalcioM tactic into the game's values (Tactic), keeping the stance in step.
     pub fn taktik9_anwenden(&mut self) {
         let z = self.zielspieler_in_elf();
         let k = self.t9.clone();

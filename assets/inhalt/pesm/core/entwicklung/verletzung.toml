@@ -1,4 +1,4 @@
-# Verletzungsszenario (Nutzer-Ja 22.10.2026): PESM würfelt deterministisch Ausfälle und schreibt `ausfalltage`. Startwerte aus der Fachliteratur gerundet, nicht kalibriert
+# Verletzungsszenario (Nutzer-Ja 22.10.2026): CalcioM würfelt deterministisch Ausfälle und schreibt `ausfalltage`. Startwerte aus der Fachliteratur gerundet, nicht kalibriert
 # (Kalibriert 30.10.2026 an einem Kader von 30 mit Faktor 2,0: etwa 1,4 Ausfälle je Spieler und Saison, davon ~60 % leicht und ~10 % schwer, gleichzeitig im Schnitt 2 Ausfälle, selten über 5;
 # dazu etwa 0,6 Fälle „angeschlagen“ je Spieler und Saison, die nicht zählen). Das Tagesrisiko aus `entwicklung.toml [risiko]` (Belastung, Alter, Kondition,
 # Rückkehrphase, Medizin) bleibt der gemeinsame Faktor; hier kommen Anfälligkeit, Vorgeschichte, Spielzeit und die Arten dazu.
@@ -23,7 +23,7 @@ normal_von = 0.9                # alle anderen: zwischen diesen Faktoren, je Spi
 normal_bis = 1.1
 
 # Arten: Schweregrad (angeschlagen | leicht | mittel | schwer), Dauer in Tagen (von, bis), `spiel` und `training` sind die Gewichte je Ursache.
-# angeschlagen: kein Ausfall, der Spieler bleibt einsetzbar; PESM senkt nur seine Kondition um `abzug` Punkte (Erkältung, leichtes Zwicken). Leicht 1 bis 7 Tage, mittel 1 bis 4 Wochen,
+# angeschlagen: kein Ausfall, der Spieler bleibt einsetzbar; CalcioM senkt nur seine Kondition um `abzug` Punkte (Erkältung, leichtes Zwicken). Leicht 1 bis 7 Tage, mittel 1 bis 4 Wochen,
 # schwer 1 bis 6 Monate (Richtwert: im Profifußball sind etwa 60 % der Ausfälle leicht, etwa 10 % schwer).
 
 [[art]]
@@ -85,5 +85,5 @@ spiel = 0.015
 training = 0.008
 
 [bereinigung]
-# Ein Ausfall im Spiel, dessen von PESM beschlossene Dauer um mehr als diese Tage überschritten ist, gilt als Altlast und wird beim nächsten Tag über den normalen Weg auf 0 gesetzt.
+# Ein Ausfall im Spiel, dessen von CalcioM beschlossene Dauer um mehr als diese Tage überschritten ist, gilt als Altlast und wird beim nächsten Tag über den normalen Weg auf 0 gesetzt.
 karenz_tage = 3

@@ -29,7 +29,7 @@ spielzeit_wenig = 0.8
 
 [wege_pes]
 # Fortschrittswege der Python-Fassung als Bits in Player.bin: Spielstil (Name aus pesdb::STYLES) oder Spezialfähigkeit
-# (Name aus pesdb::SKILLS). Leer = im Spiel gibt es keine passende Fähigkeit, der Weg wird nur in PES M geführt.
+# (Name aus pesdb::SKILLS). Leer = im Spiel gibt es keine passende Fähigkeit, der Weg wird nur in CalcioM geführt.
 vollstrecker = "Goal Poacher"
 zielspieler = "Target Man"
 fluegelflitzer = "Prolific Winger"

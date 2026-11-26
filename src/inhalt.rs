@@ -1,4 +1,4 @@
-//! The content of the Python PES M, copied unchanged into assets/inhalt/ (same folder layout, list in QUELLEN.txt):
+//! The content of the Python CalcioM, copied unchanged into assets/inhalt/ (same folder layout, list in QUELLEN.txt):
 //! text blocks de and en, the content pool (themes, catalogue, occasions), world texts, scenarios, story and config.
 //! Read at runtime from the app folder; nothing is rewritten or shortened.
 use std::path::{Path, PathBuf};
@@ -42,7 +42,7 @@ static SPRACHE: AtomicU8 = AtomicU8::new(0);
 pub fn sprache() -> Sprache { SPRACHEN[SPRACHE.load(Relaxed) as usize % 4] }
 pub fn sprache_setzen(s: Sprache) { SPRACHE.store(s as u8, Relaxed) }
 /// "de", "es", "fr" → that language, anything else → English (Fabian 23.11.: English first, also the default without a
-/// choice; stored in sprache.txt and in PESM_SPRACHE).
+/// choice; stored in sprache.txt and in CALCIOM_SPRACHE).
 pub fn sprache_aus(s: &str) -> Sprache { SPRACHEN.into_iter().find(|x| x.code() == s.trim()).unwrap_or(Sprache::En) }
 
 type Texte = HashMap<String, String>;

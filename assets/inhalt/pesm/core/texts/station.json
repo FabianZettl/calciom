@@ -36,7 +36,7 @@
  "station.pille": "Neue Aufgabe?",
  "station.begonnen": "Neue Station begonnen. Willkommen bei %1.",
  "station.fehler": "Die neue Station konnte nicht begonnen werden. Es wurde nichts geändert.",
- "station.ohne_verein": "Du hast zurzeit keinen Verein. Sobald du einen neuen Job annimmst, fragt PESM, ob eine neue Aufgabe beginnt.",
+ "station.ohne_verein": "Du hast zurzeit keinen Verein. Sobald du einen neuen Job annimmst, fragt CalcioM, ob eine neue Aufgabe beginnt.",
  "station.vorgemerkt": "Verstanden: Die neue Station bei %1 beginnt mit dem nächsten Einlesen. Speichere dafür im Spiel.",
  "station.phase.sicherung": "Neue Station: Sicherung wird angelegt …",
  "station.phase.zuruecksetzen": "Neue Station: Vereinsdaten werden zurückgesetzt …",

@@ -1,6 +1,6 @@
 # Prämien Champions League (Nutzerrecherche 27.10., Schätzung 2026/27). Beträge in Mio EUR der Recherche; im Spiel zählt nur der ANTEIL am Bezug:
 # Betrag im Spiel = Wert / bezug_mio * Referenzumsatz des Vereins (Durchschnitt der obersten Liga im Maßstab des Vereins, siehe praemien.referenz()).
-# So bleiben die Prämien im Verhältnis zum Budget, egal wie die Spielwelt skaliert ist. Eigene Festlegung von PESM, austauschbar.
+# So bleiben die Prämien im Verhältnis zum Budget, egal wie die Spielwelt skaliert ist. Eigene Festlegung von CalcioM, austauschbar.
 wettbewerb = "cl"                  # Schlüssel in wettbewerbe.toml [europa]
 bezug_mio = 284.6                  # Durchschnitts-Jahreseinnahmen der obersten Liga (DFL 2024/25) = Bezug 1,0
 startgeld = 18.62                  # Ligaphase, bei Teilnahme

@@ -1,18 +1,18 @@
 //! Faces of new players (youth, regens, Fabian 24.11.). FL27 finds a player's appearance (head, skin, hair: a 56-byte
-//! record of PlayerAppearance.bin) by his id, so a player PES M adds has none and wears the default look. fl26regen
+//! record of PlayerAppearance.bin) by his id, so a player CalcioM adds has none and wears the default look. fl26regen
 //! (FL Mod Studio, modules/fl26regen.dll) reads "faceapp <to>:<from>" lines in modules/fl26world.txt at the game's start
 //! and copies the appearance record of `from` to `to` in memory (fl26regen.c fl26_regen_copy/apply_copies, at most
-//! 4096 copies). PES M picks `from` once per player (World.gesichter): a real player of his nationality, now and then
+//! 4096 copies). CalcioM picks `from` once per player (World.gesichter): a real player of his nationality, now and then
 //! one of a country his family could come from (jugendakademie.toml [gesicht]). The line appears once he plays for a
-//! player PES M writes into the career's Player.bin (academy players too: FL27 shows them, 24.11.), bound to his id.
+//! player CalcioM writes into the career's Player.bin (academy players too: FL27 shows them, 24.11.), bound to his id.
 use crate::game::Career;
 use crate::regeln::{f, wert};
 use crate::world::Rng;
 use std::collections::HashSet;
 use std::path::Path;
 
-const ANFANG: &str = crate::id("# PES M faces begin (written by PES M at every match start)");
-const ENDE: &str = crate::id("# PES M faces end");
+const ANFANG: &str = crate::id("# CalcioM faces begin (written by CalcioM at every match start)");
+const ENDE: &str = crate::id("# CalcioM faces end");
 const KOPIEN_MAX: usize = 4096; // fl26regen.c MAX_COPY
 
 /// Ids in "newfaces"/"newfaces3d" lines: the world builder's own new players, who have no record of their own to copy.
@@ -31,7 +31,7 @@ pub fn newfaces(text: &str) -> HashSet<u32> {
     s
 }
 
-/// The text with PES M's block replaced (or appended, or removed when there are no pairs), in the file's line ending.
+/// The text with CalcioM's block replaced (or appended, or removed when there are no pairs), in the file's line ending.
 pub fn block_setzen(text: &str, paare: &[(u32, u32)]) -> String {
     let nl = if text.contains(crate::id("\r\n")) { crate::id("\r\n") } else { crate::id("\n") };
     let mut aus: Vec<&str> = vec![];

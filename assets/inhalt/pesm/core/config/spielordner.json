@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Woran PESM den Spielordner erkennt: die Spieldatei und der Ordner der Erweiterungen (dort liegt der Briefkasten). Bilder stehen in den Archiven des Spiels.",
+  "_hinweis": "Woran CalcioM den Spielordner erkennt: die Spieldatei und der Ordner der Erweiterungen (dort liegt der Briefkasten). Bilder stehen in den Archiven des Spiels.",
   "spieldatei": [
     "FL_2026.exe"
   ],

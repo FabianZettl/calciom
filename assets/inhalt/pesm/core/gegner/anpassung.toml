@@ -1,4 +1,4 @@
-# Taktikanpassung der Gegner (Sitzung S): Anpassungstyp je Trainer und seine Parameter. Eigene Festlegungen von PESM; die Schlagwörter stehen in config/scouting/trainerbank.json.
+# Taktikanpassung der Gegner (Sitzung S): Anpassungstyp je Trainer und seine Parameter. Eigene Festlegungen von CalcioM; die Schlagwörter stehen in config/scouting/trainerbank.json.
 
 [schwelle]
 typ_gesichert = 2.0        # Punktzahl aus Schlagwörtern, ab der der Typ „gesichert“ (geprüfter Bankeintrag) statt „geschätzt“ ist

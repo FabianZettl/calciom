@@ -1,5 +1,5 @@
--- PESM-LivePatch: changes of the database (Player.bin attributes, line-ups, shirt numbers, formations) reach the RUNNING game, no restart.
--- The converter (FCFL) or PESM writes the files into content\pesm-livepatch\ (players.txt, teams.txt); you open the Sider overlay, pick this module and press F7.
+-- CalcioM-LivePatch: changes of the database (Player.bin attributes, line-ups, shirt numbers, formations) reach the RUNNING game, no restart.
+-- The converter (FCFL) or CalcioM writes the files into content\pesm-livepatch\ (players.txt, teams.txt); you open the Sider overlay, pick this module and press F7.
 -- Everything is written into the game's memory with a check first (right table size, same players in the squad); a failed check writes nothing.
 local m = { version = "1.1" }
 
@@ -35,7 +35,7 @@ local LOGO = [[
 ]]
 
 local function say(s)
-  log("PESM-LivePatch: " .. s)
+  log("CalcioM-LivePatch: " .. s)
   STATUS[#STATUS + 1] = s
   if #STATUS > 4 then table.remove(STATUS, 1) end
 end
@@ -292,7 +292,7 @@ end
 function m.overlay_on(ctx)
   local s = LOGO
   s = s .. "\n Load changes into the running game - no restart\n"
-  s = s .. "\n 1. Change and write in the manager (PESM) or in the FCFL converter."
+  s = s .. "\n 1. Change and write in the manager (CalcioM) or in the FCFL converter."
   s = s .. "\n 2. Here, in the main menu, press  F7."
   s = s .. "\n 3. Close the overlay (Space) and start your match as usual."
   s = s .. "\n    The changes are there at once.\n"
@@ -303,8 +303,8 @@ function m.overlay_on(ctx)
   return s
 end
 
--- Match rules from PES M (flw\spielregeln.txt, idea after BlankState222's two_legs, written anew): first and second
--- legs end after 90 minutes (PES M settles a tie on aggregate), a single knock-out match gets extra time and penalties.
+-- Match rules from CalcioM (flw\spielregeln.txt, idea after BlankState222's two_legs, written anew): first and second
+-- legs end after 90 minutes (CalcioM settles a tie on aggregate), a single knock-out match gets extra time and penalties.
 -- Without the file the game's own choice stays.
 function m.set_match_settings(ctx, options)
   local f = io.open((ctx.sider_dir or "") .. "flw\\spielregeln.txt", "r")
@@ -318,9 +318,9 @@ function m.set_match_settings(ctx, options)
   return options
 end
 
--- Competition look from PES M (flw\wettbewerb.txt, one tournament id): entrance, scoreboard and referee modules ask
--- CommonLib's tid_same_league in exhibition matches (tid 65535); the answer is PES M's competition while the file is
--- there. CommonLib itself stays untouched, so this also works with a CommonLib.lua without the PES M addition.
+-- Competition look from CalcioM (flw\wettbewerb.txt, one tournament id): entrance, scoreboard and referee modules ask
+-- CommonLib's tid_same_league in exhibition matches (tid 65535); the answer is CalcioM's competition while the file is
+-- there. CommonLib itself stays untouched, so this also works with a CommonLib.lua without the CalcioM addition.
 local function wettbewerb(ctx)
   local f = io.open((ctx.sider_dir or "") .. "flw\\wettbewerb.txt", "r")
   if not f then return nil end
@@ -348,7 +348,7 @@ function m.init(ctx)
     local f = io.open(DIR .. n, "w")
     if f then f:close() end
   end
-  log(string.format("PESM-LivePatch %s: ready (F7 in the overlay), ffi %s", m.version, RPM and "ok" or "MISSING"))
+  log(string.format("CalcioM-LivePatch %s: ready (F7 in the overlay), ffi %s", m.version, RPM and "ok" or "MISSING"))
 end
 
 return m

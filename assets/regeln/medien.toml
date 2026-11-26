@@ -1,4 +1,4 @@
-# Konfiguration der Medienwelt (Sitzung G). Alles hier ist eine eigene Festlegung von PESM und austauschbar.
+# Konfiguration der Medienwelt (Sitzung G). Alles hier ist eine eigene Festlegung von CalcioM und austauschbar.
 
 [posteingang]
 je_tag_hoechstens = 4          # neue Meldungen aus Anlässen je Tag in voller Priorität; weitere kommen ruhig (Priorität 1), nichts verfällt

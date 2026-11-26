@@ -26,7 +26,7 @@
  "en3.nachricht.formtief": "%1 está en un bache. %2",
  "en3.nachricht.genesung": "%1 se ha recuperado y vuelve a su forma.",
  "en3.nachricht.krise": "%1 está en crisis. %2 Deberíamos hablar.",
- "en3.nachricht.spiel_entwicklung": "El juego cambió valores de %1 jugadores. PESM restaura sus propios valores: cuenta el valor de PESM.",
+ "en3.nachricht.spiel_entwicklung": "El juego cambió valores de %1 jugadores. CalcioM restaura sus propios valores: cuenta el valor de CalcioM.",
  "en3.nachricht.sprung": "%1 ha dado un salto claro: %2.",
  "en3.phase.alterung": "Envejecimiento",
  "en3.phase.aufschwung": "Racha al alza",

@@ -1,4 +1,4 @@
-# Budget-Herleitung beim Karrierestart und je Saison (`budget_start.py`). Alles hier ist eine eigene Festlegung von PESM.
+# Budget-Herleitung beim Karrierestart und je Saison (`budget_start.py`). Alles hier ist eine eigene Festlegung von CalcioM.
 # Beträge in Euro. Die Gehaltssumme des Kaders ist der Anker; Prestige (0 bis 1) schiebt die Personalkostenquote innerhalb des Korridors.
 
 [prestige]
@@ -46,7 +46,7 @@ referenz_umsatz = 284_600_000      # Liga-Durchschnitt der obersten Liga 2024/25
 # Liga-Durchschnitt 285 / kleiner Erstligist 100 / Liga-Durchschnitt zweite Liga 67 / dritte Liga 17 Mio.
 # `mix` = Anteile an den Gesamteinnahmen in Prozent (summieren 100). `transfers` ist ein Bonus (Verkäufe), der nie fest ins Budget geplant wird:
 # das Pflichtbudget rechnet nur mit den übrigen Posten (`mix_pflicht`). Belegt sind Weltspitze (Marke 51 % = Sponsoring 36 + Fanartikel 15, Fernsehen 29,
-# Spieltag 20), Erstliga-Durchschnitt und Zweitliga-Durchschnitt; die übrigen Sprossen sind Festlegungen von PESM zwischen den belegten.
+# Spieltag 20), Erstliga-Durchschnitt und Zweitliga-Durchschnitt; die übrigen Sprossen sind Festlegungen von CalcioM zwischen den belegten.
 [[klasse]]
 name = "dritte_liga"
 umsatz_rel = 0.059
@@ -81,7 +81,7 @@ mix = { spieltag = 20.0, sponsoring = 36.0, medien = 29.0, merch = 15.0, transfe
 stuetz = [[1.0, 0.246], [3.0, 0.336]]
 
 # Umsatz großer Vereine (Mio. €, Saison 2023/24, gerundet nach der Deloitte Football Money League 2025; eigene Übernahme
-# von PES M aus dem Gedächtnis, nicht aus der Quelle geprüft – bitte bei Bedarf berichtigen). Wer hier steht, bekommt
+# von CalcioM aus dem Gedächtnis, nicht aus der Quelle geprüft – bitte bei Bedarf berichtigen). Wer hier steht, bekommt
 # diesen Umsatz statt der Schätzung über die Vereinsklasse.
 [umsatz_echt]
 "Real Madrid" = 1046

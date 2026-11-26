@@ -1,6 +1,6 @@
 # Auszeichnungen aus echten Leistungen. Startwerte, nicht kalibriert. Punktformel je Spieler und Zeitraum:
 #   punkte = tore * tor * tor_faktor[gruppe] + vorlagen * vorlage + einsaetze * einsatz + (note - note_basis) * note * bewertete_einsaetze + (form - 50) / 50 * form
-# Die Form kennt PESM nur im eigenen Kader; bei Fremden entfällt dieser Posten (nichts wird geschätzt).
+# Die Form kennt CalcioM nur im eigenen Kader; bei Fremden entfällt dieser Posten (nichts wird geschätzt).
 
 [gewicht]
 tor = 4.0
@@ -39,7 +39,7 @@ nominiert_anteil = 0.25       # eigene Spieler auf Platz 2 bis `kandidaten` beko
 
 [ballon.wirkung]              # Gewinnt oder steht ein eigener Spieler auf der Kurzliste (Platz 1 voll)
 moral = 8.0                   # Punkte Moral (0-100), geschrieben über die Begründung
-marktwert_prozent = 15.0      # Aufschlag auf seinen Marktwert, nur in PESM geführt (az_wirkung), kein Spielfeld
+marktwert_prozent = 15.0      # Aufschlag auf seinen Marktwert, nur in CalcioM geführt (az_wirkung), kein Spielfeld
 marktwert_monate = 12         # so lange gilt der Aufschlag
 fans = 5.0                    # Punkte Fanstimmung des eigenen Vereins
 

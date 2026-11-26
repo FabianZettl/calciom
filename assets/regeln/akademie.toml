@@ -1,4 +1,4 @@
-# Konfiguration der Akademie (U23 und Akademie). Eigene Festlegungen von PESM, austauschbar.
+# Konfiguration der Akademie (U23 und Akademie). Eigene Festlegungen von CalcioM, austauschbar.
 
 [kader]
 hoechstens = 40                # Akademie und U23 zusammen (eigene Jugendspieler aus dem Spiel und fiktive Fremdspieler)
@@ -40,7 +40,7 @@ kader_hoechstens = 40         # Profikader: bei 40 Spielern holt Weg A niemanden
 mindestkader = 18             # unter dieser Zahl Profis darf kein Profi in die U23 geführt werden
 
 [aufnahme]
-gehalt = 60_000                # Jahresgehalt eines in PESM verpflichteten Jugendspielers
+gehalt = 60_000                # Jahresgehalt eines in CalcioM verpflichteten Jugendspielers
 jahre = 3                      # Vertragslaufzeit
 abfindung_anteil = 0.5         # Entlassung: so viel der Restgehälter wird abgefunden
 gruppe = "akademie"            # Neue Spieler beginnen in der Akademie
@@ -74,7 +74,7 @@ teams = 12                     # simulierte U23-Liga: eigene U23 plus fiktive Zw
 spiele_je_tag = 1
 
 [leihe]
-# Leihe an einen Verein der Vereinswelt (PESM-seitig): Rückmeldung des Stabs alle paar Wochen, Rückholung erst nach einer Frist
+# Leihe an einen Verein der Vereinswelt (CalcioM-seitig): Rückmeldung des Stabs alle paar Wochen, Rückholung erst nach einer Frist
 rueckmeldung_wochen = 4
 rueckhol_nach_wochen = 4
 

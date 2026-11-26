@@ -1,11 +1,11 @@
 # Vorbereitung, Testspiele, Reisen, Teamevents, Urlaub (Punkt 14). Zahlen aus dem Konzept
-# konzepte/vorbereitung-und-teamevents.md, wo es sie nennt; „PES M“ = eigene Startwerte.
+# konzepte/vorbereitung-und-teamevents.md, wo es sie nennt; „CalcioM“ = eigene Startwerte.
 
 [urlaub]
 # Sommerpause: so viele Urlaubstage; je Tag verliert ein Spieler 0,6 × (1,3 − Professionalität) Kondition (Konzept 3.3)
 tage = 28
 verlust_je_tag = 0.6
-# Übergewicht: Chance = basis + (1 − Professionalität) × je_unprofi; dann zusätzlich so viel Kondition weg und Moral −2 (PES M)
+# Übergewicht: Chance = basis + (1 − Professionalität) × je_unprofi; dann zusätzlich so viel Kondition weg und Moral −2 (CalcioM)
 basis = 0.02
 je_unprofi = 0.12
 extra_verlust = 8.0
@@ -17,7 +17,7 @@ belastung = 10.0
 # Eingespieltheit je Testspiel und Moral für die, die spielen (Spielzeit-Treiber halb)
 eingespielt = 0.6
 moral_spielzeit = 0.5
-# Zusage des Gegners: so wahrscheinlich bei gleicher Stärke, je Stärkepunkt, den er besser ist, weniger (PES M)
+# Zusage des Gegners: so wahrscheinlich bei gleicher Stärke, je Stärkepunkt, den er besser ist, weniger (CalcioM)
 zusage = 0.9
 zusage_je_punkt = 0.04
 # Abstand zu Pflichtspielen in Tagen (Konzept 1.3): davor 2, danach 1
@@ -36,7 +36,7 @@ staerke_unter = 8.0
 staerke_ueber = 3.0
 
 [reise]
-# Teamgeist „Lager“ für eine Reise (bis +7 im Konzept) und Eingespieltheit je Turnierspiel (PES M)
+# Teamgeist „Lager“ für eine Reise (bis +7 im Konzept) und Eingespieltheit je Turnierspiel (CalcioM)
 teamgeist = 4.0
 eingespielt = 0.8
 

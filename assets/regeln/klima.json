@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Vereinsgrößen (Schritt 5): Medienbild, Vorstandsvertrauen, Fanstimmung, je 0 bis 100, neutral 50, nur in PESM. Sie bewegen sich an einem neuen Datenstand, wenn seitdem mindestens ein Spiel gewertet wurde: Jeder Treiber, dessen Bedingungen die Vereinswerte erfüllen, bucht seine Wirkungen mal der Zahl der neu gewerteten Spiele (die Werte selbst gibt es nur für den eingelesenen Stand); Treiber mit einmalig zählen einfach. je_takt begrenzt die Summe je Größe und Stand. Bedingungen wie in den Regeln (wert, min, max, gleich). Alle Zahlen sind Startwerte von PESM.",
+  "_hinweis": "Vereinsgrößen (Schritt 5): Medienbild, Vorstandsvertrauen, Fanstimmung, je 0 bis 100, neutral 50, nur in CalcioM. Sie bewegen sich an einem neuen Datenstand, wenn seitdem mindestens ein Spiel gewertet wurde: Jeder Treiber, dessen Bedingungen die Vereinswerte erfüllen, bucht seine Wirkungen mal der Zahl der neu gewerteten Spiele (die Werte selbst gibt es nur für den eingelesenen Stand); Treiber mit einmalig zählen einfach. je_takt begrenzt die Summe je Größe und Stand. Bedingungen wie in den Regeln (wert, min, max, gleich). Alle Zahlen sind Startwerte von CalcioM.",
   "groessen": ["medienbild", "vorstandsvertrauen", "fanstimmung"],
   "je_takt": 8,
   "treiber": [
@@ -16,6 +16,6 @@
     {"id": "saison_ziel_erreicht", "bedingungen": [{"wert": "spiele_offen", "max": 0}, {"wert": "vereinsspiele_saison", "min": 10}, {"wert": "abstand_zum_ziel", "max": 0}], "wirkungen": {"vorstandsvertrauen": 6, "fanstimmung": 3}, "einmalig": true},
     {"id": "saison_ziel_verfehlt", "bedingungen": [{"wert": "spiele_offen", "max": 0}, {"wert": "vereinsspiele_saison", "min": 10}, {"wert": "abstand_zum_ziel", "min": 1}], "wirkungen": {"vorstandsvertrauen": -6, "medienbild": -2}, "einmalig": true}
   ],
-  "liga": {"_hinweis": "Vorgaben für die Einstellung auf der Seite Ziele: Zahl der Aufstiegs- und Abstiegsplätze der eigenen Liga. PESM liest sie nicht aus dem Spielstand. Mit 0 Aufstiegsplätzen löst aufstiegszone nie aus.", "aufstiegsplaetze": 0, "abstiegsplaetze": 3},
+  "liga": {"_hinweis": "Vorgaben für die Einstellung auf der Seite Ziele: Zahl der Aufstiegs- und Abstiegsplätze der eigenen Liga. CalcioM liest sie nicht aus dem Spielstand. Mit 0 Aufstiegsplätzen löst aufstiegszone nie aus.", "aufstiegsplaetze": 0, "abstiegsplaetze": 3},
   "saisonziel": {"_hinweis": "Vorschlag des Vorstands: Rang der Vereinsstärke in der eigenen Liga (Mittel des Gesamtwerts der besten spieler_je_verein Spieler je Verein), ab tabelle_ab_spielen gespielten Spielen gemischt mit dem Tabellenplatz (gewicht_tabelle). Der stärkste Kader bekommt nicht den Titel als Pflicht: Der Vorschlag ist dann Platz 2 oder besser – Platz 1 nur, wenn sein Vorsprung auf den zweitstärksten Kader mindestens spitze_abstand Punkte des Gesamtwerts beträgt.", "spieler_je_verein": 16, "tabelle_ab_spielen": 6, "gewicht_tabelle": 0.3, "spitze_abstand": 4.0}
 }

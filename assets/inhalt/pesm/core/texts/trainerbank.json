@@ -192,6 +192,6 @@
  "tb.einst.an": "An",
  "tb.einst.aus": "Aus",
  "tb.einst.schalter": "Trainer passen die Taktik an",
- "tb.einst.hinweis": "An: Trainer ändern Schalter, Regler und Formation je nach Typ, Ergebnisserie, Gegner, Heim oder Auswärts und Ausfällen. Aus: Die Taktik im Spielstand gilt unverändert. PESM schreibt nichts ins Spiel.",
+ "tb.einst.hinweis": "An: Trainer ändern Schalter, Regler und Formation je nach Typ, Ergebnisserie, Gegner, Heim oder Auswärts und Ausfällen. Aus: Die Taktik im Spielstand gilt unverändert. CalcioM schreibt nichts ins Spiel.",
  "tb.auftrag.grund": "%1: %2 übernimmt als Trainer."
 }

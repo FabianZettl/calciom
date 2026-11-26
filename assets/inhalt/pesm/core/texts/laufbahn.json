@@ -133,7 +133,7 @@
  "lb.vorgang.titel": "Wechsel zu %1 vereinbart",
  "lb.vorgang.unter": "Ab %1 · Kündigungsfrist %2 Tage · Ablöse %3",
  "lb.vorgang.status.vereinbart": "Vereinbart",
- "lb.anleitung": "Wechsle im Spiel zu %1. Sobald du dort angekommen bist, bemerkt PESM den Wechsel selbst und legt die neue Station an.",
+ "lb.anleitung": "Wechsle im Spiel zu %1. Sobald du dort angekommen bist, bemerkt CalcioM den Wechsel selbst und legt die neue Station an.",
  "lb.stationen": "Stationen",
  "lb.station.von_bis": "%1 bis %2",
  "lb.station.seit": "Seit %1",

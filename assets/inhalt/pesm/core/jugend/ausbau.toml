@@ -1,4 +1,4 @@
-# Entscheidungen zu Jugendspielern und Mentor-Zuordnung (Jugendausbau). Eigene Festlegungen von PESM, Startwerte, nicht kalibriert.
+# Entscheidungen zu Jugendspielern und Mentor-Zuordnung (Jugendausbau). Eigene Festlegungen von CalcioM, Startwerte, nicht kalibriert.
 
 [erwartung]
 # Was Berater und Eltern erwarten: "profi" (reif, Potenzial hoch), "praxis" (zu wenig Einsätze), sonst "perspektive"
@@ -23,7 +23,7 @@ perspektive_tage = 90          # Frist der Zusage "Perspektive"
 leihe_monate = 6
 vertrag_gegen_anteil = 0.5     # Gegenangebot: so weit zwischen Angebot und Forderung
 
-# Mentor-Zuordnung: ein erfahrener Spieler gibt eine Spezialfähigkeit an einen jungen weiter (PESM-seitig; ins Spiel geschrieben wird nichts hier)
+# Mentor-Zuordnung: ein erfahrener Spieler gibt eine Spezialfähigkeit an einen jungen weiter (CalcioM-seitig; ins Spiel geschrieben wird nichts hier)
 [mentor]
 alter_abstand = 3              # Mentor mindestens so viele Jahre älter
 beziehung_ab = 60              # wie E (entwicklung3.toml): darunter kein Weitergeben
@@ -32,9 +32,9 @@ chance_deckel = 0.6
 dauer_wochen = 12              # Laufzeit der Zuordnung, danach entscheidet der Wurf
 hoechstens_wege = 3            # so viele Vorschläge zeigt ein Vorgang
 spieler_hoechstens = 10        # Zehn-Limit der Spezialfähigkeiten (Test 2026-10-14); ohne Ersatz kein Weitergeben
-schreibweg = "spezialfaehigkeit_hinzufuegen"      # bestätigter Schreibweg; PESM-seitig nur geplant
+schreibweg = "spezialfaehigkeit_hinzufuegen"      # bestätigter Schreibweg; CalcioM-seitig nur geplant
 
-# Leihe eines Jugendspielers: Zielvereine aus der Vereinswelt, Einsatzerwartung aus dem Stärkeabstand, Gehaltsanteil des Zielvereins (PESM-Festlegungen, geschätzt)
+# Leihe eines Jugendspielers: Zielvereine aus der Vereinswelt, Einsatzerwartung aus dem Stärkeabstand, Gehaltsanteil des Zielvereins (CalcioM-Festlegungen, geschätzt)
 [leihe]
 ziele = 3                      # so viele Zielvereine zeigt der Vorgang
 quote_basis = 0.55             # erwartete Einsatzquote bei gleicher Stärke

@@ -1,4 +1,4 @@
-# Feste Kürzel je Verein (voller Name wie in der Welt = drei Zeichen). Alle anderen bildet PES M aus dem Namen und
+# Feste Kürzel je Verein (voller Name wie in der Welt = drei Zeichen). Alle anderen bildet CalcioM aus dem Namen und
 # macht sie je Land eindeutig: der stärkere Verein behält sein Kürzel, die anderen nehmen das nächste freie.
 [verein]
 "Bayer 04 Leverkusen" = "B04"

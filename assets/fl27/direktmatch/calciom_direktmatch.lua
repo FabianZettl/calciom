@@ -1,14 +1,14 @@
--- PES M: Direktstart in eine Partie, ohne Hauptmenue (nur Speicher + livecpk, FL_2027.exe bleibt unveraendert).
+-- CalcioM: Direktstart in eine Partie, ohne Hauptmenue (nur Speicher + livecpk, FL_2027.exe bleibt unveraendert).
 -- Schalter: flw\direktmatch.txt mit "heim gast" (Team-IDs aus Team.bin), z. B. "396 179".
 --   Zeile da   -> Ablaufdatei EditDataLoadProcess.json springt nach Match/MatchDirectSetup, die festen Teams
 --                 108/52 des Knotens werden ersetzt, danach wird die Zeile zu "# benutzt: ..." (einmalig:
 --                 der naechste Start ohne neue Zeile geht wieder ins Hauptmenue).
 --   keine Zeile -> Ablaufdatei zeigt wie das Original auf TopMenu/TopMenu, normales Spiel.
 -- Fundstelle: ProcessMatchSetup (Direct) ruft 0x141522c30(code, side, 0) mit 0x1b0000 / 0xd0000; code = id<<14 | Platz (0).
-local m = { version = "1.22" }
+local m = { version = "1.25" }
 
 -- Ablauf im Spiel ohne Tastendruck: Nur im Direktstart schiebt das Modul eigene Ablauf-Dateien unter
--- (content\pesm-direktmatch\flow\Match\*.json, gebaut von tools/flow_bauen.py): Halbzeit- und End-Statistik
+-- (content\calciom-direktmatch\flow\Match\*.json, gebaut von tools/flow_bauen.py): Halbzeit- und End-Statistik
 -- sowie Halbzeit- und Ergebnis-Menue werden uebersprungen, sonst wartet das Spiel dort auf eine Taste.
 local flow_dir = nil
 local MENUE = nil   -- Weg "menue": {heim, gast, minuten, gesetzt}
@@ -30,10 +30,43 @@ local function datei_da(p)
     if f then f:close() return true end
     return false
 end
+-- Schnellstart: naechstes Spiel aus direktmatch.txt (von CalcioM nach dem Abpfiff geschrieben), nur Speicher-Schreiben
+function naechstes_spiel()
+    -- Schnellstart: neue Werte/Aufstellungen von CalcioM laden wie F7 im LivePatch-Overlay (falls das Modul das anbietet)
+    if type(pesm_livepatch_laden) == "function" then
+        local ok, e = pcall(pesm_livepatch_laden)
+        log("pesm_direktmatch: SCHNELLSTART LivePatch geladen " .. (ok and "ok" or tostring(e)))
+    end
+    local p = ctx_root .. "flw\\direktmatch.txt"
+    local heim, gast, kh, kg, minuten = lese_teams(p)
+    if not heim then
+        log("pesm_direktmatch: SCHNELLSTART keine neue Zeile in direktmatch.txt - gleiche Teams wie zuvor")
+        return
+    end
+    MENUE.heim, MENUE.gast, MENUE.kh, MENUE.kg, MENUE.minuten = heim, gast, kh, kg, minuten
+    menue_hoehlen(false)
+    local f = io.open(p, "wb")
+    if f then f:write(string.format("# benutzt: %d %d\r\n", heim, gast)) f:close() end
+    log(string.format("pesm_direktmatch: SCHNELLSTART naechstes Spiel %d gegen %d", heim, gast))
+end
+
 local function flow_key(ctx, filename)
     local bereich, name = (filename or ""):match("script[\\/]flow[\\/](%w+)[\\/]([%w_]+)%.json$")
     if not bereich then return end
     log("pesm_direktmatch: FLOW " .. bereich .. "/" .. name)
+    if MENUE and MENUE.cave and bereich == "Exhibition" and name == "ExhibiSideSetting" then
+        MENUE.seitenwahl = MENUE.seitenwahl + 1
+    end
+    -- Schnellstart: erst beim VERLASSEN der Seitenwahl neu lesen (CalcioM schreibt das naechste Spiel oft erst Tage
+    -- spaeter, kurz bevor der Spieler die Seite bestaetigt); die Team-Hoehlen dieses Zustands laufen danach
+    if MENUE and MENUE.cave and MENUE.seitenwahl > 1 and bereich == "Exhibition" and name == "ExhibiChangeCompeDesignKind" then
+        naechstes_spiel()
+    end
+    if MENUE and REGELN.schnell == 1 and flow_dir and ((bereich == "Exhibition" and name == "ExhibiFlowEnd") or
+            (bereich == "Match" and name == "MatchEnd")) then
+        log("pesm_direktmatch: SCHNELLSTART nach dem Spiel zurueck in die Seitenwahl (" .. name .. ")")
+        return "pesm_flow_Schnell_" .. name
+    end
     -- Finale frueh kennzeichnen (nur ein Speicher-Schreiben, kein Funktionsaufruf), damit Einlauf/Stadion-Module es schon
     -- beim Spieltag-Bildschirm sehen; der MatchSetup-Haken schreibt es spaeter noch einmal.
     if MENUE and (REGELN.finale == 1 or REGELN.mi) and bereich == "Exhibition" and name == "ExhibiChangeCompeDesignKind" then
@@ -115,7 +148,7 @@ local function status_frame(ctx)
 end
 
 local SIG = "\x45\x33\xc0\x33\xd2\xb9\x00\x00\x1b\x00\xe8"
-local FLOW = "livecpk\\PESM_DirectMatch\\common\\script\\flow\\Edit\\Load\\EditDataLoadProcess.json"
+local FLOW = "livecpk\\CalcioM_DirectMatch\\common\\script\\flow\\Edit\\Load\\EditDataLoadProcess.json"
 
 local function flow_json(ziel)
     local ev = string.format('{"to":"%s","go":"backward","clear":"all","fadeStart":"","fadeEnd":"do","bgType":"none"}', ziel)
@@ -146,7 +179,7 @@ local function regel_code()
     if REGELN.em then c = c .. "\xc6\x80" .. d(0x35960 + 0x2f) .. b1(REGELN.em) end
     return c
 end
-local function lese_teams(p)
+function lese_teams(p)
     local f = io.open(p, "r")
     if not f then return nil end
     local t = f:read("*l") or ""
@@ -181,7 +214,65 @@ local function b(x) return string.char(x) end
 local function d32(x) return memory.pack("u32", x % 4294967296) end
 local function q64(x) return memory.pack("u32", x % 4294967296) .. memory.pack("u32", math.floor(x / 4294967296)) end
 
-local ctx_root = ""
+-- Weg "menue": Teams, Trikots, Spieldauer, Regeln und Sider-Ereignisse setzt nativer Code im Spiel-Thread
+-- (aus Lua heraus zerlegt Siders set_team_id-Haken den Lua-Stapel). Zwei Stellen:
+--  1. Fabrik von Exhibition/ExhibiChangeCompeDesignKind (0x1412ec270), also VOR dem Spieltag-Bildschirm.
+--  2. Fabrik von Match/MatchSetup (0x1412f39ac): Spieldauer, Regeln, Sider-Ereignisse (Trikots ausser bei anstoss=selbst).
+-- Die Hoehlen-Programme werden mit den Werten aus MENUE neu geschrieben; beim ersten Mal auch die Spruenge dorthin.
+-- Schnellstart: vor jedem weiteren Spiel (Seitenwahl) wird direktmatch.txt neu gelesen und die Programme neu geschrieben.
+function menue_hoehlen(erstmals)
+    local function b(x) return string.char(x) end
+    local function d32(x) return memory.pack("u32", x % 4294967296) end
+    local function q64(x) return memory.pack("u32", x % 4294967296) .. memory.pack("u32", math.floor(x / 4294967296)) end
+    local cave = MENUE.cave
+    local h, g = MENUE.heim * 16384 + MENUE.kh, MENUE.gast * 16384 + MENUE.kg
+    local function nutzlast(mit_teams, mit_trikots)
+        local c = ""
+        if mit_teams then
+            c = c .. "\xb9" .. d32(MENUE.heim * 16384) .. "\x31\xd2\x45\x31\xc0" .. b(0x48) .. b(0xb8) .. q64(0x141522c30) .. "\xff\xd0"
+                .. "\xb9" .. d32(MENUE.gast * 16384) .. "\xba\x01\x00\x00\x00\x45\x31\xc0" .. b(0x48) .. b(0xb8) .. q64(0x141522c30) .. "\xff\xd0"
+        end
+        c = c .. b(0x48) .. b(0xb8) .. q64(0x143705e10) .. "\x48\x8b\x00\x48\x8b\x40\x50"
+        if mit_trikots then
+            for _, f in ipairs({ { 0x120, h }, { 0x124, g }, { 0x128, h + 0x80 }, { 0x12c, g + 0x80 } }) do
+                c = c .. "\xc7\x80" .. d32(0x35960 + f[1]) .. d32(f[2])
+            end
+        end
+        if MENUE.minuten and MENUE.minuten > 0 then c = c .. "\xc6\x80" .. d32(0x35960 + 0x1c) .. b(MENUE.minuten % 256) end
+        c = c .. regel_code()
+        c = c .. "\x48\x8d\x88" .. d32(0x35960 + 0x70) .. "\x48\x89\xca"
+            .. b(0x49) .. b(0xbb) .. q64(0x1414c07b0) .. "\x41\xff\xd3"
+        return c
+    end
+    local fe = 0x1412ec270
+    if erstmals then MENUE.frueh = memory.read(fe, 6) == "\x40\x53\x48\x83\xec\x30" and REGELN.nofrueh ~= 1 end
+    if MENUE.frueh then
+        local c4 = cave + 0x600
+        local code = "\x51\x52\x48\x83\xec\x28" .. nutzlast(true, true) .. "\x48\x83\xc4\x28\x5a\x59"
+            .. "\x40\x53\x48\x83\xec\x30" .. b(0x48) .. b(0xb8) .. q64(fe + 6) .. "\xff\xe0"
+        ffi.copy(ffi.cast("void*", c4), code, #code)
+        if erstmals then memory.write(fe, b(0xe9) .. memory.pack("i32", c4 - (fe + 5)) .. "\x90") end
+        log(string.format("pesm_direktmatch: MENUE Teams %d/%d vor dem Spieltag-Bildschirm -> 0x%x", MENUE.heim, MENUE.gast, c4))
+    elseif erstmals then
+        log("pesm_direktmatch: ChangeCompeDesignKind-Fabrik passt nicht - Teams erst beim Anstoss")
+    end
+    local sj = 0x1412f39ac
+    if erstmals then
+        MENUE.setup_ok = memory.read(sj, 1) == "\xe9" and sj + 5 + memory.unpack("i32", memory.read(sj + 1, 4)) == 0x1412f38f0
+    end
+    if MENUE.setup_ok then
+        local c3 = cave + 0x400
+        local code = "\x51\x52\x48\x83\xec\x28" .. nutzlast(not MENUE.frueh, REGELN.ast ~= 1)
+            .. "\x48\x83\xc4\x28\x5a\x59" .. b(0x48) .. b(0xb8) .. q64(0x1412f38f0) .. "\xff\xe0"
+        ffi.copy(ffi.cast("void*", c3), code, #code)
+        if erstmals then memory.write(sj + 1, memory.pack("i32", c3 - (sj + 5))) end
+        MENUE.gesetzt = true
+    elseif erstmals then
+        log("pesm_direktmatch: MatchSetup-Fabrik passt nicht - Teams im Menue-Weg nicht gesetzt")
+    end
+end
+
+ctx_root = ""
 local function trikots_haken(addr, heim, gast, kh, kg, minuten)
     if ffi == nil then
         log("pesm_direktmatch: ffi fehlt (luajit.ext.enabled = 1) - Trikots nicht gesetzt")
@@ -279,51 +370,8 @@ local function trikots_haken(addr, heim, gast, kh, kg, minuten)
     --     Trikots sind dort schon zu sehen (wichtig, wenn die Spieler selbst "Anstoss" druecken und Trikots aendern).
     --  2. Fabrik von Match/MatchSetup (0x1412f39ac): nur Spieldauer, Regeln, Sider-Ereignisse (Trikotwahl im Menue bleibt).
     if MENUE then
-        local function nutzlast(mit_teams, mit_trikots)
-            local c = ""
-            if mit_teams then
-                c = c .. "\xb9" .. d32(heim * 16384) .. "\x31\xd2\x45\x31\xc0" .. b(0x48) .. b(0xb8) .. q64(0x141522c30) .. "\xff\xd0"
-                    .. "\xb9" .. d32(gast * 16384) .. "\xba\x01\x00\x00\x00\x45\x31\xc0" .. b(0x48) .. b(0xb8) .. q64(0x141522c30) .. "\xff\xd0"
-            end
-            c = c .. b(0x48) .. b(0xb8) .. q64(0x143705e10) .. "\x48\x8b\x00\x48\x8b\x40\x50"
-            if mit_trikots then
-                for _, f in ipairs({ { 0x120, h }, { 0x124, g }, { 0x128, h + 0x80 }, { 0x12c, g + 0x80 } }) do
-                    c = c .. "\xc7\x80" .. d32(0x35960 + f[1]) .. d32(f[2])
-                end
-            end
-            if minuten and minuten > 0 then c = c .. "\xc6\x80" .. d32(0x35960 + 0x1c) .. b(minuten % 256) end
-            c = c .. regel_code()
-            c = c .. "\x48\x8d\x88" .. d32(0x35960 + 0x70) .. "\x48\x89\xca"
-                .. b(0x49) .. b(0xbb) .. q64(0x1414c07b0) .. "\x41\xff\xd3"
-            return c
-        end
-        local frueh = false
-        local fe = 0x1412ec270
-        if memory.read(fe, 6) == "\x40\x53\x48\x83\xec\x30" then
-            local c4 = cave + 0x600
-            local code = "\x51\x52\x48\x83\xec\x28" .. nutzlast(true, true) .. "\x48\x83\xc4\x28\x5a\x59"
-                .. "\x40\x53\x48\x83\xec\x30" .. b(0x48) .. b(0xb8) .. q64(fe + 6) .. "\xff\xe0"
-            -- rax ist am Funktionsanfang frei; der Sprung zurueck nutzt ihn (die Fabrik setzt rax spaeter selbst)
-            ffi.copy(ffi.cast("void*", c4), code, #code)
-            memory.write(fe, b(0xe9) .. memory.pack("i32", c4 - (fe + 5)) .. "\x90")
-            frueh = true
-            log(string.format("pesm_direktmatch: MENUE Teams/Trikots vor dem Spieltag-Bildschirm -> 0x%x", c4))
-        else
-            log("pesm_direktmatch: ChangeCompeDesignKind-Fabrik passt nicht - Teams erst beim Anstoss")
-        end
-        local sj = 0x1412f39ac
-        if memory.read(sj, 1) == "\xe9" and sj + 5 + memory.unpack("i32", memory.read(sj + 1, 4)) == 0x1412f38f0 then
-            local c3 = cave + 0x400
-            -- Trikots hier erneut, ausser die Spieler druecken selbst "Anstoss" (ast=1): dann gilt ihre Wahl im Menue
-            local code = "\x51\x52\x48\x83\xec\x28" .. nutzlast(not frueh, REGELN.ast ~= 1)
-                .. "\x48\x83\xc4\x28\x5a\x59" .. b(0x48) .. b(0xb8) .. q64(0x1412f38f0) .. "\xff\xe0"
-            ffi.copy(ffi.cast("void*", c3), code, #code)
-            memory.write(sj + 1, memory.pack("i32", c3 - (sj + 5)))
-            MENUE.gesetzt = true
-            log(string.format("pesm_direktmatch: MENUE Regeln/Spieldauer im MatchSetup-Haken -> 0x%x", c3))
-        else
-            log("pesm_direktmatch: MatchSetup-Fabrik passt nicht - Teams im Menue-Weg nicht gesetzt")
-        end
+        MENUE.cave = cave
+        menue_hoehlen(true)
     end
 end
 
@@ -348,10 +396,11 @@ function m.init(ctx)
     memory.write(addr + 6, memory.pack("u32", heim * 16384))
     memory.write(addr + 21, memory.pack("u32", gast * 16384))
     local an = schalte(flow, true, weg)
-    MENUE = (weg == "menue") and { heim = heim, gast = gast, minuten = minuten, gesetzt = false } or nil
+    MENUE = (weg == "menue") and { heim = heim, gast = gast, kh = kh, kg = kg, minuten = minuten, gesetzt = false,
+        seitenwahl = 0 } or nil
     trikots_haken(addr, heim, gast, kh, kg, minuten)
     status_datei = root .. "flw\\pesm_status.txt"
-    flow_dir = root .. "content\\pesm-direktmatch\\flow\\"
+    flow_dir = root .. "content\\calciom-direktmatch\\flow\\"
     ctx.register("livecpk_make_key", flow_key)
     ctx.register("livecpk_get_filepath", flow_pfad)
     ctx.register("display_frame", status_frame)

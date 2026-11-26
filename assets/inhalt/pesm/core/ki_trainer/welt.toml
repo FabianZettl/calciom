@@ -1,4 +1,4 @@
-# KI-Trainer-Welt: Spielidee, Reaktion auf Ergebnisse, Spielwichtigkeit, Entlassung und Einstellung. Eigene Festlegungen von PESM (Startwerte, nicht kalibriert).
+# KI-Trainer-Welt: Spielidee, Reaktion auf Ergebnisse, Spielwichtigkeit, Entlassung und Einstellung. Eigene Festlegungen von CalcioM (Startwerte, nicht kalibriert).
 
 # Spielidee: Regler 1 … 10 und Schalter (offensivstil 1 Ballbesitz / 0 Konter; pressing 0 aggressiv / 1 defensiv). passt = Gewichte je Linie der Formation (Abwehr+Sechser, Mitte, Sturm).
 [idee.ballbesitz]

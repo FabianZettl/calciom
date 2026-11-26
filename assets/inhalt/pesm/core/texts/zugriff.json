@@ -196,7 +196,7 @@
   "zugriff.befehle.weniger": "weniger",
   "zugriff.befehle.mehr": "mehr",
   "zugriff.befehle.datum_diff": "Spieldatum im Spiel %1, im gespeicherten Spielstand %2.",
-  "zugriff.befehle.budget_warten": "Der Wechsel bleibt vorgemerkt. Im Spiel speichern: PESM liest den Stand dann selbst ein und löst den Wechsel aus.",
+  "zugriff.befehle.budget_warten": "Der Wechsel bleibt vorgemerkt. Im Spiel speichern: CalcioM liest den Stand dann selbst ein und löst den Wechsel aus.",
  "zugriff.weg_a.budget_speicher_neuer": "Der Speicher ist neuer: im Spiel ist das Transferbudget %1 €, die Datei hat %2 €. Im Spiel speichern, dann den Vergleich wiederholen.",
  "zugriff.weg_a.budget_datei_neuer": "Die Datei ist neuer: Spieldatum im Speicher %1, in der Datei %2. Die Karriere im Spiel neu laden (Hauptmenü, Laden), dann den Vergleich wiederholen.",
   "zugriff.weg_a.karriere_nicht_geladen": "Das Spiel läuft, aber es ist keine Karriere geladen: nichts abgelegt.",

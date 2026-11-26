@@ -7,7 +7,7 @@
   "med.stufe.niedrig": "niedrig",
   "med.stufe.mittel": "mittel",
   "med.stufe.hoch": "hoch",
-  "med.hinweis.dauer_spiel": "Die Dauer des Ausfalls (%1 Tage) bestimmt das Spiel; PESM kann sie nicht verkürzen.",
+  "med.hinweis.dauer_spiel": "Die Dauer des Ausfalls (%1 Tage) bestimmt das Spiel; CalcioM kann sie nicht verkürzen.",
   "med.hinweis.risiko": "Verletzungsrisiko in %4 Tagen: %1 statt %2 (%3 %)",
   "med.hinweis.risiko_gleich": "Verletzungsrisiko bleibt %1",
   "med.hinweis.entwicklung": "Entwicklung %1 % im Training",

@@ -1,4 +1,4 @@
-# Konfiguration des Spieltag-Erlebnisses (Sitzung H2). Alles hier ist eine eigene Festlegung von PESM und austauschbar.
+# Konfiguration des Spieltag-Erlebnisses (Sitzung H2). Alles hier ist eine eigene Festlegung von CalcioM und austauschbar.
 
 [bericht]
 note_stark = 7.0            # Mannschaftsteil gilt als stark ab diesem Notenmittel

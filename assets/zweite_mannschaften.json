@@ -1,5 +1,5 @@
 {
- "_hinweis": "Zweite Mannschaften ohne Zusatz wie „II“, „B“ oder „Jong“: Name der zweiten Mannschaft → Name des Hauptvereins (wie im Spiel geschrieben). Eigene Ergänzungen gehen auch in eine gleichnamige Datei im Datenordner (~/.local/share/pesm-rust/zweite_mannschaften.json).",
+ "_hinweis": "Zweite Mannschaften ohne Zusatz wie „II“, „B“ oder „Jong“: Name der zweiten Mannschaft → Name des Hauptvereins (wie im Spiel geschrieben). Eigene Ergänzungen gehen auch in eine gleichnamige Datei im Datenordner (~/.local/share/calciom/zweite_mannschaften.json).",
  "paare": {
   "Real Madrid Castilla": "Real Madrid",
   "Barcelona Atlètic": "FC Barcelona",

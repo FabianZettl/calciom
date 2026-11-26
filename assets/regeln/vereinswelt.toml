@@ -1,4 +1,4 @@
-# Konfiguration der Vereinswelt (Sitzung F). Alles hier ist eine eigene Festlegung von PESM und austauschbar.
+# Konfiguration der Vereinswelt (Sitzung F). Alles hier ist eine eigene Festlegung von CalcioM und austauschbar.
 # Beträge in Euro. `ruf` ist der Rang der Kaderstärke unter allen Vereinen, 0 (schwächster) bis 1 (stärkster).
 
 [verein]

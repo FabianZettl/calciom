@@ -5,7 +5,7 @@
 //! only); photos need CC BY / CC BY-SA / CC0 / public domain and keep their credit line, logos only CC0 / public domain.
 //! Everything is loaded on the person's computer by one background thread and kept in the cache folder
 //! (`<cache>/netzbilder/<art>/<key>.{bild,json}`); nothing goes into the repository. Tests and previews stay offline
-//! (PESM_KARRIEREN) unless PESM_NETZBILDER=1.
+//! (CALCIOM_KARRIEREN) unless CALCIOM_NETZBILDER=1.
 use serde_json::Value;
 use std::collections::HashMap;
 use std::path::PathBuf;
@@ -24,14 +24,14 @@ pub struct Bild { pub datei: PathBuf, pub nachweis: String }
 #[derive(Clone, Debug, PartialEq)]
 pub enum Stand { Laeuft, Fehlt, Da(Bild) }
 
-const UA: &str = "PESM/0.1 (https://github.com/FabianZettl/pesm; football manager, loads free pictures)"; // roh
+const UA: &str = "CalcioM/0.1 (https://github.com/FabianZettl/calciom; football manager, loads free pictures)"; // roh
 
 fn cache() -> PathBuf {
-    if let Ok(d) = std::env::var("PESM_NETZBILDER_DIR") { return PathBuf::from(d); }
+    if let Ok(d) = std::env::var("CALCIOM_NETZBILDER_DIR") { return PathBuf::from(d); }
     let basis = std::env::var("LOCALAPPDATA").map(PathBuf::from).unwrap_or_else(|_| PathBuf::from(std::env::var("HOME").unwrap_or_else(|_| ".".into())).join(crate::id(".cache")));
-    basis.join(crate::id("pesm")).join(crate::id("netzbilder"))
+    crate::fl27::neu_oder_alt(basis.join(crate::id("calciom")), basis.join(concat!("pe", "sm"))).join(crate::id("netzbilder"))
 }
-fn offline() -> bool { std::env::var("PESM_NETZBILDER").map_or(std::env::var("PESM_KARRIEREN").is_ok(), |v| v == "0") }
+fn offline() -> bool { std::env::var("CALCIOM_NETZBILDER").map_or(std::env::var("CALCIOM_KARRIEREN").is_ok(), |v| v == "0") }
 
 /// The file name for a request: readable start plus a short hash, so different names never collide.
 fn schluessel(name: &str) -> String {
@@ -228,7 +228,7 @@ mod tests {
         assert_ne!(schluessel("Kicker"), schluessel("kicker"));
     }
     /// How many pictures are missing and how many the web fills (needs the network, fills the real cache):
-    /// `PESM_MESS_VEREINE=80 cargo test --release netz_messen -- --ignored --nocapture`.
+    /// `CALCIOM_MESS_VEREINE=80 cargo test --release netz_messen -- --ignored --nocapture`.
     #[test]
     #[ignore]
     fn netz_messen() {
@@ -237,7 +237,7 @@ mod tests {
         let st = crate::fl27::stadien_index(&sider);
         let ohne: Vec<&crate::world::Club> = w.clubs.iter().filter(|c| !st.contains_key(&c.id)).collect();
         eprintln!("Vereine {}, mit Stadionbild im Spiel {}, ohne {}", w.clubs.len(), w.clubs.len() - ohne.len(), ohne.len());
-        let n: usize = std::env::var("PESM_MESS_VEREINE").ok().and_then(|s| s.parse().ok()).unwrap_or(40);
+        let n: usize = std::env::var("CALCIOM_MESS_VEREINE").ok().and_then(|s| s.parse().ok()).unwrap_or(40);
         let mut gefunden = 0;
         // the clubs of the strongest leagues first (those a career meets most)
         let mut probe = ohne.clone();

@@ -1,5 +1,5 @@
 //! Career milestones and reward moments (SPIELGEFUEHL.md measures 3 and 4): ten milestones with progress and a seal,
-//! and full-screen moments for a milestone, a title, a new licence and a signing. The milestones are PES M's own
+//! and full-screen moments for a milestone, a title, a new licence and a signing. The milestones are CalcioM's own
 //! (the Python version only had an empty tab), the numbers are in assets/regeln/meilensteine.toml.
 use crate::game::*;
 use serde::{Deserialize, Serialize};

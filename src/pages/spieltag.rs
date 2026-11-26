@@ -189,7 +189,7 @@ pub(super) fn spieltag(ui: &mut Ui, v: &mut View, c: &mut Career) {
             return;
         };
         let f = c.fixture(fi);
-        v.mv = Some(MatchView { res: MatchResult { h: f.h, a: f.a, ..Default::default() }, minute: 0.0, speed: 1.0, phase: 0, ended_at: 0.0, manual: (0, 0), manual_open: false, halbzeit: 0, wirkung: vec![], nach_gesagt: false, angesprochen: vec![], vorlauf: std::env::var("PESM_VORLAUF").ok().and_then(|x| x.parse().ok()).unwrap_or(0), eingriff: Default::default(), vor_pause: 1.0, duell: vec![], parallel: vec![] });
+        v.mv = Some(MatchView { res: MatchResult { h: f.h, a: f.a, ..Default::default() }, minute: 0.0, speed: 1.0, phase: 0, ended_at: 0.0, manual: (0, 0), manual_open: false, halbzeit: 0, wirkung: vec![], nach_gesagt: false, angesprochen: vec![], vorlauf: std::env::var("CALCIOM_VORLAUF").ok().and_then(|x| x.parse().ok()).unwrap_or(0), eingriff: Default::default(), vor_pause: 1.0, duell: vec![], parallel: vec![] });
     }
     let mut mv = v.mv.take().unwrap();
     let (h, a) = (mv.res.h, mv.res.a);
@@ -309,16 +309,23 @@ pub(super) fn spieltag(ui: &mut Ui, v: &mut View, c: &mut Career) {
                 ui.paragraph(crate::inhalt::t("ui.pages.die_karriere_wird_in_den"), r2.x + 14.0, y, 15.0, r2.w - 28.0, Theme::text2());
                 if ui.button(Rect::new(r2.x + 14.0, y + 70.0, 300.0, 34.0), crate::inhalt::t("ui.pages.verstanden_nicht_mehr_fragen"), false) { c.fl27_bestaetigt = true; }
             } else if v.fl27.is_none() {
-                if ui.button_gold(Rect::new(r2.x + 14.0, y, r2.w - 28.0, 44.0), crate::inhalt::t("ui.pages.match_in_fl27_starten")) {
+                // the running FL27 lacks new or moved players: start anyway or restart FL27 (Fabian 26.11.)
+                let trotzdem = v.fl27_neustart_frage && ui.button(Rect::new(r2.x + 14.0, y + 52.0, 300.0, 34.0), crate::inhalt::t("ui.live.trotzdem_starten"), false);
+                if v.fl27_neustart_frage { ui.paragraph(crate::inhalt::t("ui.live.trotzdem_hinweis"), r2.x + 330.0, y + 52.0, 14.0, r2.w - 344.0, Theme::achtung()); }
+                if ui.button_gold(Rect::new(r2.x + 14.0, y, r2.w - 28.0, 44.0), crate::inhalt::t("ui.pages.match_in_fl27_starten")) || trotzdem {
+                    c.fl27_trotzdem = trotzdem;
+                    c.fl27_neustart = false;
                     let mut st = Fl27Start { c: &mut *c, assets: fl27_assets(), log: vec![] };
                     let r = crate::fl27::match_starten(&mut st);
                     v.fl27_log = st.log;
+                    c.fl27_trotzdem = false;
+                    v.fl27_neustart_frage = r.is_err() && c.fl27_neustart;
                     match r {
                         Ok(()) => { let tf = c.fl27_team_fn(); v.fl27 = Some(crate::fl27::beobachten(tf)); v.fl27_live = None; v.fl27_status = crate::inhalt::t("ui.pages.warte_auf_fl27").into(); v.fl27_t0 = get_time() as f32; ui.play(crate::id("bestaetigt")); }
                         Err(e) => { v.fl27_log.push(e.clone()); v.toast(&e, false); ui.play(crate::id("fehler")); }
                     }
                 }
-                y += 52.0;
+                y += if v.fl27_neustart_frage { 104.0 } else { 52.0 };
                 // the real match length in FL27 (Fabian 26.11.), only the direct start can set it
                 if c.direktstart {
                     ui.text(crate::inhalt::t("ui.fl27.spielminuten"), r2.x + 14.0, y + 22.0, 15.0, Theme::text2());
@@ -366,7 +373,7 @@ pub(super) fn spieltag(ui: &mut Ui, v: &mut View, c: &mut Career) {
                 }
             }
             if let Some(d) = fertig { if c.fl27_ko_offen(&d) { v.fl27_ko = Some(KoOffen::Doc(d)); v.fl27 = None; ui.play(crate::id("angebot")); } else { v.fl27_ko_apply = Some((KoOffen::Doc(d), None)); } }
-            // a level knock-out match from FL27: who won after extra time or on penalties? (no answer = PES M decides)
+            // a level knock-out match from FL27: who won after extra time or on penalties? (no answer = CalcioM decides)
             if v.fl27_ko.is_some() {
                 let q = Rect::new(r2.x + 10.0, r2.y + 196.0, r2.w - 20.0, 250.0);
                 rrect(q.x, q.y, q.w, q.h, 14.0, Theme::ueberlagerung());
@@ -394,7 +401,7 @@ pub(super) fn spieltag(ui: &mut Ui, v: &mut View, c: &mut Career) {
                         v.toast(&t, true);
                         if let Some(r) = &c.last_result { v.fl27_uebernommen = Some(format!("{} {}:{} {}", c.world.clubs[r.h].name, r.hg, r.ag, c.world.clubs[r.a].name)); }
                         // optional: end FL27 30 s after the final whistle, the protocol is saved by now
-                        if aus_fl27 && c.fl27_auto_ende { v.fl27_auto_t = Some(get_time() as f32 + 30.0); }
+                        if aus_fl27 && c.fl27_auto_ende && !(c.direktstart && c.schnellstart) { v.fl27_auto_t = Some(get_time() as f32 + 30.0); }
                         mv.res = c.last_result.clone().unwrap_or_default();
                         mv.phase = 2;
                         mv.ended_at = get_time() as f32;
@@ -427,9 +434,9 @@ pub(super) fn spieltag(ui: &mut Ui, v: &mut View, c: &mut Career) {
         1 => {
             let before = mv.minute;
             // the clock stands at the break until the half-time talk is given (Fabian 22.11.: on the ticker, not in the inbox)
-            // PESM_INTRO=<seconds> holds the cut-scene at that moment (preview)
-            let t_intro = std::env::var("PESM_INTRO").ok().and_then(|x| x.parse::<f32>().ok()).unwrap_or(get_time() as f32 - mv.eingriff.intro);
-            let im_intro = (mv.eingriff.intro > 0.0 || std::env::var("PESM_INTRO").is_ok()) && t_intro < INTRO_DAUER;
+            // CALCIOM_INTRO=<seconds> holds the cut-scene at that moment (preview)
+            let t_intro = std::env::var("CALCIOM_INTRO").ok().and_then(|x| x.parse::<f32>().ok()).unwrap_or(get_time() as f32 - mv.eingriff.intro);
+            let im_intro = (mv.eingriff.intro > 0.0 || std::env::var("CALCIOM_INTRO").is_ok()) && t_intro < INTRO_DAUER;
             // Fabian 23.11.: slower – at normal speed one half takes about a minute (0.75 match minutes per second)
             if mv.halbzeit != 1 && !im_intro { mv.minute += get_frame_time() * 0.75 * mv.speed; }
             if mv.halbzeit == 0 && before < 45.0 && mv.minute >= 45.0 { mv.minute = 45.0; mv.halbzeit = 1; }

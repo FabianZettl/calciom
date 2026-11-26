@@ -76,14 +76,14 @@
    "fm": "Spielerrolle (Ballbesitz)",
    "klasse": "nur_anzeige",
    "stand": "",
-   "hinweis": "PES hat Spielstile statt Rollen; die Rolle ist eine PESM-Heuristik aus den 25 Fähigkeiten"
+   "hinweis": "PES hat Spielstile statt Rollen; die Rolle ist eine CalcioM-Heuristik aus den 25 Fähigkeiten"
   },
   {
    "id": "rolle_ohne_ball",
    "fm": "Spielerrolle ohne Ball",
    "klasse": "pes_kennt_es_nicht",
    "stand": "",
-   "hinweis": "PES kennt keine Rolle ohne Ball; PESM leitet ein Verhalten aus Position und Pressing ab"
+   "hinweis": "PES kennt keine Rolle ohne Ball; CalcioM leitet ein Verhalten aus Position und Pressing ab"
   },
   {
    "id": "ansicht_ballbesitz",
@@ -97,35 +97,35 @@
    "fm": "Eignung in Sternen",
    "klasse": "nur_anzeige",
    "stand": "",
-   "hinweis": "PESM-Berechnung (Passung zu Position und Rolle), nicht aus dem Spiel"
+   "hinweis": "CalcioM-Berechnung (Passung zu Position und Rolle), nicht aus dem Spiel"
   },
   {
    "id": "vertrautheit",
    "fm": "Vertrautheit (Balken)",
    "klasse": "nur_anzeige",
    "stand": "",
-   "hinweis": "PESM-Berechnung aus den Positionsstufen A/B/C; das Spiel hat Team Spirit nicht lesbar"
+   "hinweis": "CalcioM-Berechnung aus den Positionsstufen A/B/C; das Spiel hat Team Spirit nicht lesbar"
   },
   {
    "id": "intensitaet",
    "fm": "Intensität (Balken)",
    "klasse": "nur_anzeige",
    "stand": "",
-   "hinweis": "PESM-Ableitung aus Pressing und Abwehrreihe"
+   "hinweis": "CalcioM-Ableitung aus Pressing und Abwehrreihe"
   },
   {
    "id": "rat",
    "fm": "Rat (Assistenz)",
    "klasse": "nur_anzeige",
    "stand": "",
-   "hinweis": "PESM-Taktikengine, schreibt nichts"
+   "hinweis": "CalcioM-Taktikengine, schreibt nichts"
   },
   {
    "id": "gegnerbericht",
    "fm": "Gegnerbericht",
    "klasse": "nur_anzeige",
    "stand": "",
-   "hinweis": "PESM-Auswertung aus Tabelle, Form und Spielstand"
+   "hinweis": "CalcioM-Auswertung aus Tabelle, Form und Spielstand"
   },
   {
    "id": "datenhub",
@@ -139,7 +139,7 @@
    "fm": "Mentalität",
    "klasse": "pes_kennt_es_nicht",
    "stand": "",
-   "hinweis": "PES hat keine Mentalität; PESM zeigt eine abgeleitete Einordnung"
+   "hinweis": "PES hat keine Mentalität; CalcioM zeigt eine abgeleitete Einordnung"
   },
   {
    "id": "stil",
@@ -160,14 +160,14 @@
    "fm": "Regler Spieler im Angriff / in der Abwehr",
    "klasse": "pes_kennt_es_nicht",
    "stand": "",
-   "hinweis": "Lagen +141/+144 nicht belegt: nur in PESM"
+   "hinweis": "Lagen +141/+144 nicht belegt: nur in CalcioM"
   },
   {
    "id": "taktikvorgabe",
    "fm": "Taktikvorgabe",
    "klasse": "pes_kennt_es_nicht",
    "stand": "",
-   "hinweis": "nicht belegt: nur in PESM"
+   "hinweis": "nicht belegt: nur in CalcioM"
   },
   {
    "id": "gegneranweisungen",

@@ -26,7 +26,7 @@
  "en3.nachricht.formtief": "%1 est dans le creux. %2",
  "en3.nachricht.genesung": "%1 s'est rétabli et retrouve sa forme.",
  "en3.nachricht.krise": "%1 traverse une crise. %2 Nous devrions parler.",
- "en3.nachricht.spiel_entwicklung": "Le jeu a modifié les valeurs de %1 joueurs. PESM rétablit ses propres valeurs : c'est la valeur PESM qui compte.",
+ "en3.nachricht.spiel_entwicklung": "Le jeu a modifié les valeurs de %1 joueurs. CalcioM rétablit ses propres valeurs : c'est la valeur CalcioM qui compte.",
  "en3.nachricht.sprung": "%1 a franchi un vrai cap : %2.",
  "en3.phase.alterung": "Vieillissement",
  "en3.phase.aufschwung": "Embellie",

@@ -1,4 +1,4 @@
-# Trainerwelt (Sitzung S): Vertrautheit und Trainerkarussell. Eigene Festlegungen von PESM; die Daten der Trainerbank stehen in config/scouting/trainerbank.json.
+# Trainerwelt (Sitzung S): Vertrautheit und Trainerkarussell. Eigene Festlegungen von CalcioM; die Daten der Trainerbank stehen in config/scouting/trainerbank.json.
 
 [vertraut]
 start_monate = 30.0        # Vertrautheit eines Trainers beim Start = start + je_monat * Monate im Amt (höchstens 95)

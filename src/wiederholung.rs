@@ -24,7 +24,7 @@ mod tests {
         let mut pk: Vec<String> = vec![];
         let mut letzte_id = 0u64;
         let mut news_gesehen: std::collections::HashSet<(u32, u32, String)> = Default::default();
-        let tage = std::env::var("PESM_WDH_SAISONS").ok().and_then(|x| x.parse::<u32>().ok()).unwrap_or(2) * 365; // roh
+        let tage = std::env::var("CALCIOM_WDH_SAISONS").ok().and_then(|x| x.parse::<u32>().ok()).unwrap_or(2) * 365; // roh
         for _ in 0..tage {
             if c.today_match().is_some() { let r = c.prepare_match(None); c.apply_own_match(r); }
             while let Some(q) = c.press.clone() { pk.push(vorlage(&c, &q.q)); for r in &q.rest { pk.push(vorlage(&c, &r.q)); } c.answer_press(Some(0)); if c.press.as_ref().map_or(false, |x| x.q == q.q) { break; } }

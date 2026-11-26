@@ -1,5 +1,5 @@
-//! PESM-LivePatch (Übergabe 23.11.2026, ~/Projects/pesm/pes-management/uebergabe/pesm-livepatch, ported from livepatch.py):
-//! changes of Player.bin / PlayerAssignment / Tactics reach the RUNNING game without a restart. PES M writes small patch
+//! CalcioM-LivePatch (Übergabe 23.11.2026, ~/Projects/pesm/pes-management/uebergabe/pesm-livepatch, ported from livepatch.py):
+//! changes of Player.bin / PlayerAssignment / Tactics reach the RUNNING game without a restart. CalcioM writes small patch
 //! files next to the game; the Sider module pesm-livepatch.lua writes them into the game's memory when the person presses
 //! F7 in the Sider overlay. Live: the 25 attributes, squad order (line-up), shirt numbers, both formations of a team. Not
 //! live (restart): skills, styles, positions, names, new or moved players.
@@ -156,23 +156,31 @@ pub fn ini_mit_lua(t: &str, name: &str) -> String {
     out.join(if t.contains(crate::id("\r\n")) { crate::id("\r\n") } else { crate::id("\n") }) + if t.ends_with('\n') { if t.contains(crate::id("\r\n")) { crate::id("\r\n") } else { crate::id("\n") } } else { "" }
 }
 
-/// Marker for "the running game cannot take this in": new or moved players since the game started. PES M deletes it
+/// Marker for "the running game cannot take this in": new or moved players since the game started. CalcioM deletes it
 /// when it starts FL27 itself (the game then loads the files as they are).
-/// shortcut: a game started outside PES M keeps an old marker (one restart too many), compare with the process start time if that bothers.
-pub fn neustart_merken(pesdb: &Path) -> Result<(), String> {
+/// shortcut: a game started outside CalcioM keeps an old marker (one restart too many), compare with the process start time if that bothers.
+/// The teams whose squads changed since FL27 started (new or moved players): only they need a restart.
+pub fn neustart_merken(pesdb: &Path, teams: &[u32]) -> Result<(), String> {
     let Some(d) = live_dir(pesdb) else { return Ok(()) };
-    speichern(&d.join("neustart.txt"), &[crate::id("neu").into()])
+    let mut z = zeilen(&d.join("neustart.txt"));
+    for t in teams { if !z.contains(&t.to_string()) { z.push(t.to_string()); } }
+    speichern(&d.join("neustart.txt"), &z)
 }
 pub fn neustart_loeschen(pesdb: &Path) { if let Some(d) = live_dir(pesdb) { let _ = std::fs::remove_file(d.join("neustart.txt")); } }
-pub fn neustart_noetig(pesdb: &Path) -> bool { live_dir(pesdb).map_or(false, |d| d.join("neustart.txt").exists()) }
+/// Does one of `teams` (the two of the match) need a restart? Squad changes at other clubs don't matter for this
+/// match (Fabian 26.11.: the restart hint came although his match had no new players); an old mark without teams does.
+pub fn neustart_noetig(pesdb: &Path, teams: &[u32]) -> bool {
+    let Some(d) = live_dir(pesdb) else { return false };
+    zeilen(&d.join("neustart.txt")).iter().any(|z| z.trim().parse::<u32>().map_or(!z.trim().is_empty(), |t| teams.contains(&t)))
+}
 
 /// Can the running game take the career's patches: the module is on in sider.ini and the career is the first active
-/// PES M database (else the game runs another career or world and the patches would land in the wrong database).
+/// CalcioM database (else the game runs another career or world and the patches would land in the wrong database).
 pub fn ini_passt(t: &str, cpk: &str) -> bool {
     let aktiv = |z: &&str| { let z = z.trim_start(); !z.starts_with(';') && !z.starts_with('#') };
     let modul = t.lines().filter(aktiv).any(|z| z.trim_start().starts_with("lua.module") && z.contains("pesm-livepatch.lua"));
     let erste = t.lines().filter(aktiv).filter_map(|z| z.trim_start().strip_prefix("cpk.root")?.split(crate::id("\\livecpk\\")).nth(1).map(|r| r.trim_end().trim_end_matches('"').to_string()))
-        .find(|n| n.starts_with(crate::id("PESM")) && n != crate::fl27::DIRECT_ROOT);
+        .find(|n| crate::fl27::eigener_cpk(n) && n != crate::fl27::DIRECT_ROOT);
     modul && erste.as_deref() == Some(cpk)
 }
 
@@ -236,13 +244,17 @@ mod tests {
         assert!(p.starts_with("COUNT 1000") && p.contains("7 20 7 7 81") && !p.contains("7 20 7 7 80"));
         assert_eq!(add_players(&db, &[], 1000).unwrap(), None);
         assert!(ini_mit_modul("[x]\n\tlua.module = \"a.lua\"\n").contains("\tlua.module = \"pesm-livepatch.lua\""));
-        let ini = "\tcpk.root = \".\\livecpk\\PESM_DirectMatch\"\n\t;cpk.root = \".\\livecpk\\PESMArsenal01\"\n\tcpk.root = \".\\livecpk\\PESMChelseaFC01\"\n\tlua.module = \"pesm-livepatch.lua\"\n";
+        let ini = "\tcpk.root = \".\\livecpk\\CalcioM_DirectMatch\"\n\t;cpk.root = \".\\livecpk\\PESMArsenal01\"\n\tcpk.root = \".\\livecpk\\PESMChelseaFC01\"\n\tlua.module = \"pesm-livepatch.lua\"\n";
         assert!(ini_passt(ini, "PESMChelseaFC01") && !ini_passt(ini, "PESMArsenal01") && !ini_passt(&ini.replace("\tlua", "\t;lua"), "PESMChelseaFC01"));
-        assert!(!neustart_noetig(&db));
-        neustart_merken(&db).unwrap();
-        assert!(neustart_noetig(&db));
+        // only the teams of the match count; an old mark without teams still does
+        assert!(!neustart_noetig(&db, &[5, 6]));
+        neustart_merken(&db, &[7]).unwrap();
+        neustart_merken(&db, &[7, 9]).unwrap();
+        assert!(!neustart_noetig(&db, &[5, 6]) && neustart_noetig(&db, &[5, 9]));
         neustart_loeschen(&db);
-        assert!(!neustart_noetig(&db));
+        assert!(!neustart_noetig(&db, &[7]));
+        speichern(&live_dir(&db).unwrap().join("neustart.txt"), &["neu".into()]).unwrap();
+        assert!(neustart_noetig(&db, &[5]));
         let _ = std::fs::remove_dir_all(&root);
     }
 }

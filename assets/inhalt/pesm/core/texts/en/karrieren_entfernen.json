@@ -1,7 +1,7 @@
 {
- "karrieren.entfernen.knopf": "Remove from PESM",
- "karrieren.entfernen.titel": "Remove career from PESM?",
- "karrieren.entfernen.text": "Everything PESM has stored for %1 (conversations, reports, development, plans) will be removed. Your save in the game stays untouched. Beforehand PESM makes a backup under ~/pesm-backup.",
+ "karrieren.entfernen.knopf": "Remove from CalcioM",
+ "karrieren.entfernen.titel": "Remove career from CalcioM?",
+ "karrieren.entfernen.text": "Everything CalcioM has stored for %1 (conversations, reports, development, plans) will be removed. Your save in the game stays untouched. Beforehand CalcioM makes a backup under ~/pesm-backup.",
  "karrieren.entfernen.tippen": "Type the name to confirm",
  "karrieren.entfernen.oder": "or deliberately press and hold",
  "karrieren.entfernen.halten": "Press and hold",

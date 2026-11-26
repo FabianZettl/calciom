@@ -14,6 +14,6 @@
   "wirkung.folge":                    { "standard": ["Das Thema könnte später noch einmal auf den Tisch kommen."] },
   "wirkung.spielfeld.formpfeil":      { "standard": ["Das könnte sich auf seine Form auswirken."] },
   "wirkung.spielfeld.kondition":      { "standard": ["Das könnte sich auf seine Kondition auswirken."] },
-  "wirkung.nur_in_pesm":              { "standard": ["nur in PESM"] },
+  "wirkung.nur_in_pesm":              { "standard": ["nur in CalcioM"] },
   "wirkung.ins_spiel":                { "standard": ["wirkt auch im Spiel"] }
 }

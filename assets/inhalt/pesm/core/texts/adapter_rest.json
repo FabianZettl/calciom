@@ -8,7 +8,7 @@
   "r.ad.datenbank.schema_version_fehlt_datei": "Schema-Version fehlt (Datei vor Einführung der Version oder nie vollständig eingelesen)",
   "r.ad.datenbank.schema_version_unlesbar": "Schema-Version unlesbar (%1)",
   "r.ad.datenbank.schema_version_ist_aelter": "Schema-Version %1 ist älter als %2",
-  "r.ad.datenbank.schema_version_ist_neuer": "Schema-Version %1 ist neuer als diese PESM-Fassung (%2)",
+  "r.ad.datenbank.schema_version_ist_neuer": "Schema-Version %1 ist neuer als diese CalcioM-Fassung (%2)",
   "r.ad.datenbank.keine_pesm_datenbank": "Noch kein Archiv %1",
   "r.ad.datenbank.datei_nicht_lesbar": "Datei nicht lesbar (%1)",
   "r.ad.datenbank.bestaetigter_alias": "bestätigter Alias",

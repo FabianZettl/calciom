@@ -1,4 +1,4 @@
-# Auf- und Abstieg als große Geldereignisse (Festlegung von PESM, nicht recherchiert; Anteile am Referenzumsatz des NEUEN Maßstabs, siehe champions_league.toml).
+# Auf- und Abstieg als große Geldereignisse (Festlegung von CalcioM, nicht recherchiert; Anteile am Referenzumsatz des NEUEN Maßstabs, siehe champions_league.toml).
 # Aufstieg: einmalige Aufstiegsprämie; der Fernsehgeld-Sprung kommt über den Maßstab der neuen Liga (budget_start jahresschritt).
 # Abstieg: Fallschirmzahlung als Anteil am Referenzumsatz der abgebrochenen Liga, über `jahre` Jahre verteilt gebucht (hier: Einmalbuchung der ersten Rate).
 [aufstieg]

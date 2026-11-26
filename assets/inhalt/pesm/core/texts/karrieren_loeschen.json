@@ -2,5 +2,5 @@
  "karrieren.loeschen.nicht_bestaetigt": "Zum Löschen braucht es deine ausdrückliche Bestätigung.",
  "karrieren.loeschen.aktiv": "Die gerade geöffnete Karriere kann nicht gelöscht werden. Wähle zuerst eine andere oder schließe die Auswahl.",
  "karrieren.loeschen.backup_fehlt": "Die Sicherung vor dem Löschen ist nicht gelungen, deshalb bleibt die Karriere unverändert.",
- "karrieren.loeschen.ok": "Die Karriere „%1“ ist aus PESM entfernt. Eine Sicherung liegt im Sicherungsordner; dein Spielstand im Spiel bleibt unberührt."
+ "karrieren.loeschen.ok": "Die Karriere „%1“ ist aus CalcioM entfernt. Eine Sicherung liegt im Sicherungsordner; dein Spielstand im Spiel bleibt unberührt."
 }

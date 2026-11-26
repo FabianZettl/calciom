@@ -3,7 +3,7 @@
 1. assets/geo/laender.json: country outlines from Natural Earth Admin 0, 1:50m (public domain), simplified.
 2. assets/geo/vereine.json: club positions from Wikidata (CC0): club -> home venue (P115) -> coordinates (P625),
    otherwise the club's own coordinates (P625) or its seat (P159). Name, country and source per entry.
-PES M reads only these files; it never goes online. Raw downloads stay in tools/geo_roh/ (not in the program).
+CalcioM reads only these files; it never goes online. Raw downloads stay in tools/geo_roh/ (not in the program).
 Usage: python3 -I tools/geo_bauen.py [laender] [vereine]
 """
 import json, math, os, struct, sys, time, urllib.parse, urllib.request
@@ -105,7 +105,7 @@ SELECT ?club ?clubLabel ?clubLabelEn ?landLabel ?coord ?quelle WHERE {
 
 def vereine():
     url = "https://query.wikidata.org/sparql?" + urllib.parse.urlencode({"query": SPARQL, "format": "json"})
-    req = urllib.request.Request(url, headers={"User-Agent": "PESM-Rust geo_bauen/1.0 (private use)", "Accept": "application/sparql-results+json"})
+    req = urllib.request.Request(url, headers={"User-Agent": "CalcioM-Rust geo_bauen/1.0 (private use)", "Accept": "application/sparql-results+json"})
     roh = os.path.join(ROH, "wikidata_vereine.json")
     if not os.path.exists(roh):
         with urllib.request.urlopen(req, timeout=300) as r, open(roh, "wb") as f: f.write(r.read())
@@ -130,7 +130,7 @@ def vereine():
 
 def orte():
     """Towns with at least 15,000 people (GeoNames cities15000, CC BY 4.0): (ascii name, country ISO2, lon, lat), the
-    largest town per name and country. PES M finds a club's town in its name ("Sunderland AFC" -> Sunderland)."""
+    largest town per name and country. CalcioM finds a club's town in its name ("Sunderland AFC" -> Sunderland)."""
     import zipfile
     z = zipfile.ZipFile(os.path.join(ROH, "cities15000.zip"))
     beste = {}

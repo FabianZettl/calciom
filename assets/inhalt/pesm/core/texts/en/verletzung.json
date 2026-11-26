@@ -44,7 +44,7 @@
   "testverl.angemeldet": "The team doctor has noted the absence. It counts in the game once the day is booked.",
   "testverl.beendet": "The player is reported fit again.",
   "testverl.grund.schon_verletzt": "This player is already injured.",
-  "testverl.grund.schreiben_aus": "Player development by PESM is switched off.",
+  "testverl.grund.schreiben_aus": "Player development by CalcioM is switched off.",
   "testverl.grund.keine_testverletzung": "That was not a triggered test injury.",
   "testverl.grund.fehler": "That did not work."
 }

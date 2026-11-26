@@ -66,7 +66,7 @@ impl Career {
         if pressing { fe *= 1.0 + k("pressing.eigen"); fg *= 1.0 + k("pressing.konter"); }
         let stufe = (t.linie as f32 - 5.5) / 2.25;
         fg *= 1.0 + k("linie.je_stufe") * stufe;
-        // the PES M sliders and switches that the game has no field for (taktik9.rs, spielideen.toml [wirkung])
+        // the CalcioM sliders and switches that the game has no field for (taktik9.rs, spielideen.toml [wirkung])
         {
             let w = |x: &str| crate::regeln::f("spielideen", &format!("wirkung.{x}"));
             let st = |n: &str| self.t9.r(n) as f32 - 3.0;

@@ -596,7 +596,7 @@ mod tests {
         asg_abgleichen(&c.world, &mut a, &known, &[porto]).unwrap();
         assert_eq!(team_von(&a), vec![c.world.clubs[porto].id]);
         assert_eq!(a.iter().find(|x| x.pid == id).unwrap().nummer(), nr, "same shirt number");
-        // a number changed in PES M reaches PlayerAssignment.bin (Fabian 24.11.)
+        // a number changed in CalcioM reaches PlayerAssignment.bin (Fabian 24.11.)
         let t = c.world.clubs[porto].id;
         let frei = (1..=99u8).find(|&n| !a.iter().any(|x| x.team == t && x.nummer() == n as u32)).unwrap();
         c.world.players[p].no = frei;

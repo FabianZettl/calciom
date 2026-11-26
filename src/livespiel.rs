@@ -15,12 +15,12 @@ fn t(k: &str) -> &'static str { crate::inhalt::t(k) }
 const ABSCHNITT: [&str; 9] = ["live.abschnitt.1", "live.abschnitt.2", "live.abschnitt.3", "live.abschnitt.4", "live.abschnitt.5", "live.abschnitt.6",
     "live.abschnitt.7", "live.abschnitt.8", "live.abschnitt.9"];
 
-/// FL27 player id → PES M player, for the two teams of the match.
+/// FL27 player id → CalcioM player, for the two teams of the match.
 fn index(c: &Career, h: usize, a: usize) -> HashMap<u32, usize> {
     [h, a].iter().flat_map(|&k| c.world.clubs[k].squad.iter().map(|&p| (c.world.players[p].id, p))).collect()
 }
 fn spieler(m: &MatchView, side: usize, slot: usize) -> Option<&PlayerView> { m.players.iter().find(|p| p.side == side && p.slot == slot) }
-/// The name PES M knows for a place, else what the Coaching Zone has.
+/// The name CalcioM knows for a place, else what the Coaching Zone has.
 fn name(c: &Career, idx: &HashMap<u32, usize>, m: &MatchView, side: usize, slot: usize) -> String {
     match spieler(m, side, slot) { Some(p) => idx.get(&p.id).map(|&q| c.world.players[q].name.clone()).unwrap_or_else(|| p.name.clone()), None => "?".into() }
 }
@@ -343,7 +343,7 @@ pub fn zeichnen(ui: &mut Ui, v: &mut View, c: &Career, h: usize, a: usize, rr: R
     }
 }
 
-/// Made-up numbers for previews and the window check (PESM_LIVE=1): the next own match in minute 67, 2:1, with a goal,
+/// Made-up numbers for previews and the window check (CALCIOM_LIVE=1): the next own match in minute 67, 2:1, with a goal,
 /// a yellow card, a sub and a missed penalty. Never used with a real match.
 pub fn beispiel(c: &Career) -> Option<MatchView> {
     use pesm_coaching_zone::live::{FlowRow, SubsInfo};

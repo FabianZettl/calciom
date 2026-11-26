@@ -1,4 +1,4 @@
-# Live-Ansicht eines Spiels in FL27 (Punkt 4): PES M's own numbers, not from the Python original.
+# Live-Ansicht eines Spiels in FL27 (Punkt 4): CalcioM's own numbers, not from the Python original.
 
 # FL27 allows five substitutions; used when the game's own limit is not read
 wechsel_max = 5

@@ -1,5 +1,5 @@
-// Read-only memory helper for PES M (FL27-Anbindung §1.1). The person gives it the read right once
-// (capability cap_sys_ptrace, see the settings page of PES M for the exact command).
+// Read-only memory helper for CalcioM (FL27-Anbindung §1.1). The person gives it the read right once
+// (capability cap_sys_ptrace, see the settings page of CalcioM for the exact command).
 // It answers JSON lines on stdin/stdout and can only search statistics blocks and read bytes, never write.
 /// An identifier in the code (see src/main.rs).
 pub const fn id(s: &'static str) -> &'static str { s }
@@ -13,7 +13,7 @@ mod inhalt;
 #[cfg(unix)]
 use std::io::{BufRead, Write};
 
-/// Windows reads FL27 directly from PES M; the helper is only needed on Linux.
+/// Windows reads FL27 directly from CalcioM; the helper is only needed on Linux.
 #[cfg(windows)]
 fn main() {}
 #[cfg(unix)]

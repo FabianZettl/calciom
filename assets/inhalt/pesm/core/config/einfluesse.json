@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Einflüsse der PESM-internen Attribute (DOMAIN-PRUEFUNG §8a). Kleine Zuschläge im Form-Overlay, gedeckelt wie alle anderen (±3 je Attribut, ±6 gesamt), nie auf den Basiswert. 'pes': Gewicht je PES-Zielattribut nach Positionsgruppe. 'intern': Wirkung nur auf PESM-Größen (Chemie, Moral), nie ins Spiel.",
+  "_hinweis": "Einflüsse der CalcioM-internen Attribute (DOMAIN-PRUEFUNG §8a). Kleine Zuschläge im Form-Overlay, gedeckelt wie alle anderen (±3 je Attribut, ±6 gesamt), nie auf den Basiswert. 'pes': Gewicht je PES-Zielattribut nach Positionsgruppe. 'intern': Wirkung nur auf CalcioM-Größen (Chemie, Moral), nie ins Spiel.",
   "positionsgruppen": {
     "Torwart": ["TW"],
     "Abwehr": ["IV", "LV", "RV"],

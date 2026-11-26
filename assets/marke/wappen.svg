@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 288" width="256" height="288">
+  <!-- CalcioM crest: flat top, round bottom, deep green with a gold rim; loading screen, trophies, neutral placeholder -->
+  <path d="M28 24H228V140C228 206 180 250 128 270C76 250 28 206 28 140Z" fill="#0e3b2a" stroke="#d9a441" stroke-width="12" stroke-linejoin="round"/>
+  <path d="M88 186V86L128 146L168 86V186" fill="none" stroke="#f3eee3" stroke-width="18" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="1.5"/>
+  <circle cx="128" cy="158" r="10" fill="#d9a441"/>
+</svg>

@@ -1,6 +1,6 @@
 spieler_moral = 4.0   # Moral-Plus für den Spieler bei einem Meilenstein
 
-# Karriere-Meilensteine (PES M, eigene Festlegung nach SPIELGEFUEHL.md Maßnahme 4; die Python-Fassung hatte nur einen leeren Reiter).
+# Karriere-Meilensteine (CalcioM, eigene Festlegung nach SPIELGEFUEHL.md Maßnahme 4; die Python-Fassung hatte nur einen leeren Reiter).
 # zaehlt: kantersiege (4+ Tore Abstand), derbysiege, europa (Spiele in CL/EL/UECL), europa_siege, tore (eigene Tore),
 # siege, spiele, serie (längste Serie ohne Niederlage), zu_null, titel, saisons, talente (eigene Spieler bis 19 mit Einsatz), lizenz (0 C … 3 Profi)
 

@@ -1,7 +1,7 @@
 {
- "karrieren.entfernen.knopf": "Aus PESM entfernen",
- "karrieren.entfernen.titel": "Karriere aus PESM entfernen?",
- "karrieren.entfernen.text": "Alles, was PESM zu %1 gespeichert hat (Gespräche, Berichte, Entwicklung, Pläne), wird entfernt. Dein Spielstand im Spiel bleibt unberührt. Vorher legt PESM eine Sicherung unter ~/pesm-backup an.",
+ "karrieren.entfernen.knopf": "Aus CalcioM entfernen",
+ "karrieren.entfernen.titel": "Karriere aus CalcioM entfernen?",
+ "karrieren.entfernen.text": "Alles, was CalcioM zu %1 gespeichert hat (Gespräche, Berichte, Entwicklung, Pläne), wird entfernt. Dein Spielstand im Spiel bleibt unberührt. Vorher legt CalcioM eine Sicherung unter ~/pesm-backup an.",
  "karrieren.entfernen.tippen": "Zur Bestätigung den Namen eintippen",
  "karrieren.entfernen.oder": "oder bewusst gedrückt halten",
  "karrieren.entfernen.halten": "Gedrückt halten",

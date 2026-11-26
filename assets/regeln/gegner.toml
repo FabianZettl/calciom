@@ -1,4 +1,4 @@
-# Konfiguration des Gegnerberichts (Sitzung S). Eigene Festlegungen von PESM; alles in PESM-Rechnung, nichts wird ins Spiel geschrieben.
+# Konfiguration des Gegnerberichts (Sitzung S). Eigene Festlegungen von CalcioM; alles in CalcioM-Rechnung, nichts wird ins Spiel geschrieben.
 
 [schwelle]
 tempo_hoch = 74            # Mittel (Schnelligkeit, Antritt) der Außen: „schnell“

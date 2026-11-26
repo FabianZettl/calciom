@@ -93,7 +93,7 @@ pub(super) fn skilltree_reiter(ui: &mut Ui, v: &mut View, c: &mut Career, p: usi
             'L' | 'M' | 'H' => ui.text_center(pos_de(&k.name), *x, *y + 5.0, 12.0, farbe_z),
             _ => ui.text_center(match k.art { 'A' => "+", 'S' => "S", 'P' => "P", _ => "E" }, *x, *y + 6.0, 16.0, farbe_z), // roh
         }
-        // the FL27 light: green in the game, blue PES M only
+        // the FL27 light: green in the game, blue CalcioM only
         let gruen = !matches!(k.art, 'E');
         draw_circle(*x + r * 0.7, *y - r * 0.7, 4.5, if gruen { hex(0x22c55e) } else { hex(0x3b82f6) });
         if frei { draw_circle(*x - r * 0.75, *y + r * 0.75, 8.0, hex(GOLD)); ui.text_center(&k.kosten.to_string(), *x - r * 0.75, *y + r * 0.75 + 4.0, 11.0, hex(0x1b1f27)); }

@@ -14,7 +14,7 @@
   "module.hinweis.veraltet": "The module has not reported in for a while.",
   "module.hinweis.aus": "The module switched itself off after errors.",
   "module.hinweis.spiel_aus": "The game is not running or not reporting.",
-  "module.hinweis.veraltet_version": "The version in the game folder is older than the one shipped with PESM: update it.",
+  "module.hinweis.veraltet_version": "The version in the game folder is older than the one shipped with CalcioM: update it.",
   "module.hinweis.datei_fehlt": "The module file is missing from the game folder.",
   "module.hinweis.neustart": "A new version is ready: restart the game.",
   "module.zustand.ruht": "idle (switch off)"

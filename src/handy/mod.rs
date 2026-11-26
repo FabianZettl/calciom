@@ -35,8 +35,8 @@ impl Kopplung {
     pub fn aktuell(&mut self) -> String { if Instant::now() >= self.bis { self.code = neuer_code(); self.bis = Instant::now() + Duration::from_secs(r("kopplung.gueltig_s") as u64); } self.code.clone() }
 }
 fn neuer_code() -> String {
-    // PESM_HANDY_CODE: a fixed code for the automatic phone test, never set in normal play
-    if let Ok(c) = std::env::var("PESM_HANDY_CODE") { return c; }
+    // CALCIOM_HANDY_CODE: a fixed code for the automatic phone test, never set in normal play
+    if let Ok(c) = std::env::var("CALCIOM_HANDY_CODE") { return c; }
     let n: u32 = rand::random::<u32>() % 1_000_000; format!("{n:06}")
 }
 
@@ -46,8 +46,8 @@ pub struct Geraet { pub hash: String, pub name: String, pub seit: u64, pub zulet
 
 fn jetzt() -> u64 { SystemTime::now().duration_since(UNIX_EPOCH).map(|d| d.as_secs()).unwrap_or(0) }
 fn hash(s: &str) -> String { use sha2::{Digest, Sha256}; Sha256::digest(s.as_bytes()).iter().map(|b| format!("{b:02x}")).collect() }
-/// The folder of the device list and the log: next to the careers (PESM_HANDY_DIR for the test only).
-fn ordner() -> std::path::PathBuf { std::env::var("PESM_HANDY_DIR").map(std::path::PathBuf::from).unwrap_or_else(|_| crate::game::save_dir()) }
+/// The folder of the device list and the log: next to the careers (CALCIOM_HANDY_DIR for the test only).
+fn ordner() -> std::path::PathBuf { std::env::var("CALCIOM_HANDY_DIR").map(std::path::PathBuf::from).unwrap_or_else(|_| crate::game::save_dir()) }
 fn geraete_pfad() -> std::path::PathBuf { ordner().join("handy_geraete.json") }
 pub fn geraete() -> Vec<Geraet> {
     let max_alter = (r("geraete.abmelden_tage") * 86400.0) as u64;
@@ -90,7 +90,7 @@ impl Handy {
     pub fn code(&self) -> String { self.kopplung.lock().map(|mut k| k.aktuell()).unwrap_or_default() }
 }
 
-pub fn port() -> u16 { std::env::var("PESM_HANDY_PORT").ok().and_then(|p| p.parse().ok()).unwrap_or(r("server.port") as u16) }
+pub fn port() -> u16 { std::env::var("CALCIOM_HANDY_PORT").ok().and_then(|p| p.parse().ok()).unwrap_or(r("server.port") as u16) }
 fn schalter() -> std::path::PathBuf { crate::game::save_dir().join("../handy.txt") } // roh
 /// "Handy-Zugang" in the settings (off unless switched on).
 pub fn an() -> bool { std::fs::read_to_string(schalter()).map_or(false, |s| s.trim() == "an") } // roh
@@ -248,9 +248,9 @@ mod tests {
     }
     #[test]
     fn koppeln_und_befehle_ueber_den_server() {
-        let dir = std::env::temp_dir().join(format!("pesm_handy_{}", std::process::id()));
+        let dir = std::env::temp_dir().join(format!("calciom_handy_{}", std::process::id()));
         let _ = std::fs::create_dir_all(&dir);
-        unsafe { std::env::set_var("PESM_HANDY_DIR", &dir); std::env::set_var("PESM_HANDY_PORT", "18420"); }
+        unsafe { std::env::set_var("CALCIOM_HANDY_DIR", &dir); std::env::set_var("CALCIOM_HANDY_PORT", "18420"); }
         let port = 18420;
         let mut h = starten().unwrap();
         let code = h.code();

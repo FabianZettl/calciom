@@ -133,7 +133,7 @@
  "lb.vorgang.titel": "Move to %1 agreed",
  "lb.vorgang.unter": "From %1 · notice %2 days · fee %3",
  "lb.vorgang.status.vereinbart": "Agreed",
- "lb.anleitung": "Move to %1 in the game. As soon as you have arrived, PESM notices the move and adds the new station.",
+ "lb.anleitung": "Move to %1 in the game. As soon as you have arrived, CalcioM notices the move and adds the new station.",
  "lb.stationen": "Stations",
  "lb.station.von_bis": "%1 to %2",
  "lb.station.seit": "Since %1",

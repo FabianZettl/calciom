@@ -1,5 +1,5 @@
 # Konfiguration von Entwicklung, Moral, Kabine und Training (Sitzung E). Alles hier ist eine eigene Festlegung von
-# PESM und austauschbar; im Code steht keine dieser Zahlen. Moral, Belastung, Selbstvertrauen: 0–100, neutral 50 bzw. 30.
+# CalcioM und austauschbar; im Code steht keine dieser Zahlen. Moral, Belastung, Selbstvertrauen: 0–100, neutral 50 bzw. 30.
 
 [entwicklung]
 # Alter -> Fähigkeitszuwachs je Jahr in Gesamtwert-Punkten (linear dazwischen); negativ = Verfall
@@ -139,7 +139,7 @@ alter_je_jahr = 0.08
 kondition_hebel = 1.0
 rueckkehr_faktor = 1.5
 stufen = [["niedrig", 0.002], ["mittel", 0.004], ["hoch", 1.0]]   # Obergrenze des Tagesrisikos
-ausloesen = false               # true: PESM löst Verletzungen selbst aus (Standard aus: das Spiel kennt sie sonst nicht)
+ausloesen = false               # true: CalcioM löst Verletzungen selbst aus (Standard aus: das Spiel kennt sie sonst nicht)
 dauer = [3, 40]
 
 [stab]

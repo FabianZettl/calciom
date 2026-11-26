@@ -1,4 +1,4 @@
-# Laufbahn des Trainers (eigene Festlegungen von PESM, austauschbar). Euro, Prozent als Anteil 0 bis 1, Ruf 0 bis 100.
+# Laufbahn des Trainers (eigene Festlegungen von CalcioM, austauschbar). Euro, Prozent als Anteil 0 bis 1, Ruf 0 bis 100.
 
 [ruf]
 basis = 12

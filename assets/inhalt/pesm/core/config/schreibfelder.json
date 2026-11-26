@@ -1,4 +1,4 @@
 {
-  "_hinweis": "Felder, die PESM aus der Oberfläche ins laufende Spiel schreiben darf. Zunächst leer: Ein Feld kommt erst hinein, wenn Sitzung A und Sitzung B es im Spiel getestet haben. Zusätzlich muss es in der Freigabeliste des Schreibdienstes den Status „bestätigt“ tragen. Felder, die hier fehlen, bleiben in PESM und wirken nicht im Spiel.",
+  "_hinweis": "Felder, die CalcioM aus der Oberfläche ins laufende Spiel schreiben darf. Zunächst leer: Ein Feld kommt erst hinein, wenn Sitzung A und Sitzung B es im Spiel getestet haben. Zusätzlich muss es in der Freigabeliste des Schreibdienstes den Status „bestätigt“ tragen. Felder, die hier fehlen, bleiben in CalcioM und wirken nicht im Spiel.",
   "felder": []
 }

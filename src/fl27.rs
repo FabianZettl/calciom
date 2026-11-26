@@ -1,7 +1,7 @@
 // FL27-Anbindung (Modul-Paket "FL27-Anbindung", Stand 2026-11-20): memory reader for the live match statistics,
 // pesdb container and PlayerAssignment writing, career LiveCPK, sider.ini, Sider presets and the match start via Lutris.
 // Pure std + flate2/sha2/serde_json and the Coaching Zone library (Punkt 4), no crate:: imports: the read-only helper
-// binary (src/bin/pesm-speicher.rs) includes it too.
+// binary (src/bin/calciom-speicher.rs) includes it too.
 #![allow(dead_code)]
 use std::collections::{HashMap, HashSet};
 use std::io::{BufRead, BufReader, Read, Write};
@@ -13,15 +13,27 @@ use pesm_coaching_zone as cz;
 // ---------------------------------------------------------------- environment (§0)
 pub const PREFIX: &str = crate::id("/mnt/GAMES/sp-football-life-2026");
 pub const WELT_ROOT: &str = "_FL26MyWorld";
-pub const DIRECT_ROOT: &str = "PESM_DirectMatch";
+pub const DIRECT_ROOT: &str = "CalcioM_DirectMatch";
 pub const LUTRIS_ID: u32 = 7;
 pub const EXE: &str = "FL_2027.exe";
 
-/// PES M's own data folder (log, chosen game folder): Windows %APPDATA%\pesm, else ~/.local/share/pesm-rust;
-/// tests and previews use their PESM_KARRIEREN folder.
+/// CalcioM's own data folder (log, chosen game folder): Windows %APPDATA%\calciom, else ~/.local/share/calciom;
+/// tests and previews use their CALCIOM_KARRIEREN folder.
 pub fn datenordner() -> PathBuf {
-    std::env::var("PESM_KARRIEREN").map(PathBuf::from).or_else(|_| std::env::var("APPDATA").map(|a| PathBuf::from(a).join(crate::id("pesm"))))
-        .unwrap_or_else(|_| PathBuf::from(std::env::var("HOME").unwrap_or_else(|_| ".".into())).join(".local/share/pesm-rust"))
+    if let Ok(d) = std::env::var("CALCIOM_KARRIEREN") { return PathBuf::from(d); }
+    match std::env::var("APPDATA") {
+        Ok(a) => neu_oder_alt(PathBuf::from(&a).join(crate::id("calciom")), PathBuf::from(a).join(concat!("pe", "sm"))),
+        Err(_) => neu_oder_alt(heim().join(".local/share/calciom"), heim().join(concat!(".local/share/pe", "sm-rust"))), // roh
+    }
+}
+fn heim() -> PathBuf { PathBuf::from(std::env::var("HOME").unwrap_or_else(|_| ".".into())) }
+/// The new folder, or the old one of PES M while it is still there and the new one is not (the move at the start
+/// failed, e.g. a file of it open on Windows): old careers and settings are read where they are, nothing is copied.
+pub fn neu_oder_alt(neu: PathBuf, alt: PathBuf) -> PathBuf { if !neu.exists() && alt.is_dir() { alt } else { neu } }
+/// The careers folder (game::save_dir and the memory helper): next to the settings, old or new name as above.
+pub fn karrieren_ordner() -> PathBuf {
+    if let Ok(d) = std::env::var("CALCIOM_KARRIEREN") { return PathBuf::from(d); }
+    neu_oder_alt(heim().join(".local/share/calciom"), heim().join(concat!(".local/share/pe", "sm-rust"))).join(crate::id("karrieren")) // roh
 }
 static GEWAEHLT: std::sync::Mutex<Option<Option<PathBuf>>> = std::sync::Mutex::new(None);
 /// The game folder the person chose (beta 23.11.: the search did not find every install), kept in spielordner.txt.
@@ -38,13 +50,16 @@ pub fn spielordner_aus(p: &Path) -> Option<PathBuf> {
     p.ancestors().find(|a| a.join("SiderAddons").join("livecpk").is_dir()).map(Path::to_path_buf) // roh
 }
 /// The system's file dialog for a PNG picture in the background (manager photo); None when cancelled.
-pub fn bild_dialog() -> std::sync::mpsc::Receiver<Option<PathBuf>> {
+pub fn bild_dialog() -> std::sync::mpsc::Receiver<Option<PathBuf>> { datei_dialog(true) }
+/// The system's file dialog in the background: a PNG picture, or (`png` false) any file such as a Master League save.
+pub fn datei_dialog(png: bool) -> std::sync::mpsc::Receiver<Option<PathBuf>> {
     let (tx, rx) = std::sync::mpsc::channel();
     std::thread::spawn(move || {
+        let (win, zen, kde) = if png { ("PNG|*.png", "--file-filter=*.png", "*.png") } else { ("*|*.*", "--file-filter=*", "*") }; // roh
         #[cfg(windows)]
-        let aus = std::process::Command::new("powershell").args(["-NoProfile", "-STA", "-Command", "Add-Type -AssemblyName System.Windows.Forms; $f = New-Object System.Windows.Forms.OpenFileDialog; $f.Filter = 'PNG|*.png'; if ($f.ShowDialog() -eq 'OK') { $f.FileName }"]).output(); // roh
+        let aus = std::process::Command::new("powershell").args(["-NoProfile", "-STA", "-Command", &format!("Add-Type -AssemblyName System.Windows.Forms; $f = New-Object System.Windows.Forms.OpenFileDialog; $f.Filter = '{win}'; if ($f.ShowDialog() -eq 'OK') {{ $f.FileName }}")]).output(); // roh
         #[cfg(not(windows))]
-        let aus = std::process::Command::new("zenity").args(["--file-selection", "--file-filter=*.png"]).output().or_else(|_| std::process::Command::new("kdialog").args(["--getopenfilename", ".", "*.png"]).output()); // roh
+        let aus = { let _ = win; std::process::Command::new("zenity").args(["--file-selection", zen]).output().or_else(|_| std::process::Command::new("kdialog").args(["--getopenfilename", ".", kde]).output()) }; // roh
         let _ = tx.send(aus.ok().map(|o| String::from_utf8_lossy(&o.stdout).trim().to_string()).filter(|s| !s.is_empty()).map(PathBuf::from));
     });
     rx
@@ -62,16 +77,16 @@ pub fn ordner_dialog() -> std::sync::mpsc::Receiver<Option<PathBuf>> {
     });
     rx
 }
-/// Game folder G (PESM_FL27_SPIEL overrides it, for tests).
+/// Game folder G (CALCIOM_FL27_SPIEL overrides it, for tests).
 pub fn spielordner() -> PathBuf {
-    if let Ok(p) = std::env::var("PESM_FL27_SPIEL") { return PathBuf::from(p); }
+    if let Ok(p) = std::env::var("CALCIOM_FL27_SPIEL") { return PathBuf::from(p); }
     if let Some(p) = gewaehlt() { return p; }
     #[cfg(windows)]
     { static ORT: std::sync::OnceLock<PathBuf> = std::sync::OnceLock::new(); return ORT.get_or_init(spielordner_suchen).clone(); }
     #[allow(unreachable_code)]
     PathBuf::from(PREFIX).join(crate::inhalt::t("ui.fl27.drive_c_games_sp_football"))
 }
-/// Windows: the FL27 install next to PES M (any folder above it), else on any drive under the usual places.
+/// Windows: the FL27 install next to CalcioM (any folder above it), else on any drive under the usual places.
 #[cfg(windows)]
 fn spielordner_suchen() -> PathBuf {
     const NAME: &str = "SP Football Life 2027"; // roh
@@ -90,7 +105,7 @@ fn spielordner_suchen() -> PathBuf {
 pub fn sider() -> PathBuf { spielordner().join(crate::id("SiderAddons")) }
 pub fn welt_ordner(s: &Path) -> PathBuf { s.join(crate::id("livecpk")).join(WELT_ROOT) }
 
-/// Career CPK name (Übergabe Daten und Datenbank §8.1): "PESM" + club name (accents dropped, ASCII letters and digits,
+/// Career CPK name (Übergabe Daten und Datenbank §8.1): "CalcioM" + club name (accents dropped, ASCII letters and digits,
 /// at most 30) + the first free number 01..99 in the livecpk folder.
 pub fn cpk_name(club: &str, livecpk: &Path) -> String {
     let base: String = club.chars().filter_map(|c| {
@@ -99,16 +114,62 @@ pub fn cpk_name(club: &str, livecpk: &Path) -> String {
             'ñ' => 'n', 'Ñ' => 'N', 'ç' => 'c', 'Ç' => 'C', 'ş' | 'š' => 's', 'Ş' | 'Š' => 'S', 'ğ' => 'g', 'Ğ' => 'G', 'ž' => 'z', 'Ž' => 'Z', 'č' | 'ć' => 'c', 'Č' | 'Ć' => 'C', x => x };
         b.is_ascii_alphanumeric().then_some(b)
     }).take(30).collect();
-    (1..=99).map(|n| format!("PESM{base}{n:02}")).find(|n| !livecpk.join(n).exists()).unwrap_or_else(|| format!("PESM{base}99"))
+    (1..=99).map(|n| format!("CalcioM{base}{n:02}")).find(|n| !livecpk.join(n).exists()).unwrap_or_else(|| format!("CalcioM{base}99"))
 }
 
-/// Tests with the real world: a missing world folder fails the test, unless PESM_OHNE_SPIEL=1 says on purpose that
+/// Our own career folders: those from before the rename (26.11.2026) start with the old short name, new ones with CalcioM.
+pub fn eigener_cpk(n: &str) -> bool { let n = n.to_ascii_lowercase(); n.starts_with(crate::id("pesm")) || n.starts_with(crate::id("calciom")) }
+/// Our marker in other mods' Lua files: installs from before the rename carry the old name.
+pub fn von_uns(t: &str) -> bool { t.contains(concat!("PES", " M")) || t.contains("CalcioM") }
+
+/// First start after the rename to CalcioM (26.11.2026): the old data folders move to the new names, so careers,
+/// log, chosen game folder and picture cache stay. On Linux the old name stays as a link to the new folder (an older
+/// build still finds everything). Nothing happens when the new folder already exists or a test folder is set.
+pub fn umzug() {
+    if std::env::var(crate::id("CALCIOM_KARRIEREN")).is_ok() { return; }
+    let home = PathBuf::from(std::env::var("HOME").unwrap_or_else(|_| ".".into()));
+    let mut paare = vec![(home.join(concat!(".local/share/pesm", "-rust")), home.join(".local/share/calciom"))];
+    if let Ok(a) = std::env::var("APPDATA") { paare.push((PathBuf::from(&a).join(concat!("pe", "sm")), PathBuf::from(a).join("calciom"))); }
+    let cache = std::env::var("LOCALAPPDATA").map(PathBuf::from).unwrap_or_else(|_| home.join(crate::id(".cache")));
+    paare.push((cache.join(concat!("pe", "sm")), cache.join("calciom")));
+    for (alt, neu) in paare { umziehen(&alt, &neu); }
+    let d = datenordner();
+    umziehen(&d.join(concat!("pesm", ".log")), &d.join("calciom.log"));
+}
+fn umziehen(alt: &Path, neu: &Path) {
+    if neu.exists() || !alt.exists() || alt.is_symlink() { return; }
+    if std::fs::rename(alt, neu).is_ok() && neu.is_dir() {
+        #[cfg(unix)] let _ = std::os::unix::fs::symlink(neu, alt);
+    }
+}
+
+/// The old direct start in the game folder (before the rename): its folder, module and flow files go, its sider.ini
+/// lines are switched off with ";". The caller sets up the new names right after, so nothing runs twice.
+pub fn alte_namen_weg(s: &Path) -> Result<(), String> {
+    let (root, modul) = (concat!("PE", "SM_DirectMatch"), concat!("pesm", "_direktmatch.lua"));
+    if std::fs::read_to_string(s.join("sider.ini")).is_ok_and(|t| alte_zeilen_aus(&t, root, modul) != t) {
+        sider_ini_anwenden(s, s, |t| Ok(alte_zeilen_aus(t, root, modul)))?;
+    }
+    let _ = std::fs::remove_dir_all(s.join(crate::id("livecpk")).join(root));
+    let _ = std::fs::remove_file(s.join(crate::id("modules")).join(modul));
+    let _ = std::fs::remove_dir_all(s.join(crate::id("content")).join(concat!("pesm", "-direktmatch")));
+    Ok(())
+}
+fn alte_zeilen_aus(t: &str, root: &str, modul: &str) -> String {
+    t.split_inclusive('\n').map(|l| {
+        let r = l.trim_start();
+        let alt = !r.starts_with(';') && !r.starts_with('#') && (r.contains(&format!("\\livecpk\\{root}\"")) || (r.starts_with("lua.module") && r.contains(&format!("\"{modul}\""))));
+        if alt { format!("{};{r}", indent_of(l)) } else { l.to_string() }
+    }).collect()
+}
+
+/// Tests with the real world: a missing world folder fails the test, unless CALCIOM_OHNE_SPIEL=1 says on purpose that
 /// they run without the game (then they are reported as skipped, never silently green).
 #[cfg(test)]
 pub fn echte_welt(p: &Path) -> bool {
     if p.exists() { return true; }
-    if std::env::var("PESM_OHNE_SPIEL").is_ok() { eprintln!("ÜBERSPRUNGEN (PESM_OHNE_SPIEL): {} fehlt", p.display()); return false; }
-    panic!("Welt-Ordner fehlt: {}. Ohne das Spiel mit PESM_OHNE_SPIEL=1 testen, dann werden diese Tests als übersprungen gemeldet.", p.display());
+    if std::env::var("CALCIOM_OHNE_SPIEL").is_ok() { eprintln!("ÜBERSPRUNGEN (CALCIOM_OHNE_SPIEL): {} fehlt", p.display()); return false; }
+    panic!("Welt-Ordner fehlt: {}. Ohne das Spiel mit CALCIOM_OHNE_SPIEL=1 testen, dann werden diese Tests als übersprungen gemeldet.", p.display());
 }
 
 // ---------------------------------------------------------------- files
@@ -120,15 +181,15 @@ pub fn sha_file(p: &Path) -> Result<String, String> { std::fs::read(p).map(|b| s
 
 /// Atomic write (temp file + rename), then read back and compare.
 /// Test mode (cargo test, --screenshot, --self-test, --start-test): never the real FL27 process, never the real game folder.
-pub fn testmodus() -> bool { cfg!(test) || std::env::var_os("PESM_TESTMODUS").is_some() }
+pub fn testmodus() -> bool { cfg!(test) || std::env::var_os("CALCIOM_TESTMODUS").is_some() }
 /// Guard: in test mode, writing or deleting below the real game prefix aborts.
 pub fn wache(p: &Path) {
-    if testmodus() && p.starts_with(PREFIX) { panic!("Testmodus: PES M würde in den echten Spielordner schreiben: {}", p.display()); }
+    if testmodus() && p.starts_with(PREFIX) { panic!("Testmodus: CalcioM würde in den echten Spielordner schreiben: {}", p.display()); }
 }
 pub fn atomic_write(p: &Path, b: &[u8]) -> Result<(), String> {
     wache(p);
     if let Some(d) = p.parent() { std::fs::create_dir_all(d).map_err(|e| format!("{}: {e}", d.display()))?; }
-    let tmp = p.with_extension(format!("{}.pesm-tmp", p.extension().and_then(|e| e.to_str()).unwrap_or("")));
+    let tmp = p.with_extension(format!("{}.calciom-tmp", p.extension().and_then(|e| e.to_str()).unwrap_or("")));
     std::fs::write(&tmp, b).map_err(|e| format!("{}: {e}", tmp.display()))?;
     std::fs::rename(&tmp, p).map_err(|e| format!("{}: {e}", p.display()))?;
     match std::fs::read(p) { Ok(back) if back == b => Ok(()), _ => Err(format!("{}: nach dem Schreiben nicht gleich", p.display())) }
@@ -147,24 +208,24 @@ fn fort(phase: usize, gesamt: usize) {
 fn dateien_zaehlen(d: &Path) -> usize {
     std::fs::read_dir(d).map(|r| r.flatten().map(|e| match e.file_type() { Ok(t) if t.is_dir() => dateien_zaehlen(&e.path()), Ok(t) if t.is_file() => 1, _ => 0 }).sum()).unwrap_or(0)
 }
-/// One line into the log file users can send along (Windows %APPDATA%\pesm\pesm.log, else next to the careers).
+/// One line into the log file users can send along (Windows %APPDATA%\calciom\calciom.log, else next to the careers).
 pub fn log(zeile: &str) {
-    let datei = datenordner().join("pesm.log");
+    let datei = datenordner().join("calciom.log");
     let _ = std::fs::create_dir_all(datei.parent().unwrap_or(Path::new(".")));
     if let Ok(mut f) = std::fs::OpenOptions::new().create(true).append(true).open(&datei) { let _ = writeln!(f, "{} {zeile}", zeit()); }
 }
-/// Diagnostics for bug reports (Einstellungen › Spielstand): pesm.log, sider.log, sider.ini and versions in one archive
+/// Diagnostics for bug reports (Einstellungen › Spielstand): calciom.log, sider.log, sider.ini and versions in one archive
 /// next to the log; the user name in paths is replaced, no save goes in. Returns the archive.
 pub fn diagnose_paket() -> Result<PathBuf, String> {
     let d = datenordner();
-    let tmp = d.join(format!("pesm-diagnose-{}", zeit()));
+    let tmp = d.join(format!("calciom-diagnose-{}", zeit()));
     std::fs::create_dir_all(&tmp).map_err(|e| e.to_string())?;
     let nutzer: Vec<String> = ["USERNAME", "USER"].iter().filter_map(|k| std::env::var(k).ok()).filter(|n| n.len() >= 2).collect();
     let sauber = |t: String| nutzer.iter().fold(t, |t, n| t.replace(n.as_str(), "<user>"));
     let g = spielordner();
-    let quellen = [(d.join("pesm.log"), "pesm.log"), (sider().join("sider.log"), "sider.log"), (g.join("sider.log"), "sider-spiel.log"), (sider().join("sider.ini"), "sider.ini")]; // roh
+    let quellen = [(d.join("calciom.log"), "calciom.log"), (sider().join("sider.log"), "sider.log"), (g.join("sider.log"), "sider-spiel.log"), (sider().join("sider.ini"), "sider.ini")]; // roh
     for (q, n) in quellen { if let Ok(b) = std::fs::read(&q) { let _ = std::fs::write(tmp.join(n), sauber(String::from_utf8_lossy(&b).into_owned())); } }
-    let info = format!("PES M {}\nOS {} {}\nSpielordner {}\nWelten {}\n", env!("CARGO_PKG_VERSION"), std::env::consts::OS, std::env::consts::ARCH, g.display(), std::fs::read_dir(sider().join("livecpk")).map(|r| r.flatten().map(|e| e.file_name().to_string_lossy().into_owned()).collect::<Vec<_>>().join(", ")).unwrap_or_default()); // roh
+    let info = format!("CalcioM {}\nOS {} {}\nSpielordner {}\nWelten {}\n", env!("CARGO_PKG_VERSION"), std::env::consts::OS, std::env::consts::ARCH, g.display(), std::fs::read_dir(sider().join("livecpk")).map(|r| r.flatten().map(|e| e.file_name().to_string_lossy().into_owned()).collect::<Vec<_>>().join(", ")).unwrap_or_default()); // roh
     std::fs::write(tmp.join("versionen.txt"), sauber(info)).map_err(|e| e.to_string())?; // roh
     #[cfg(windows)]
     let (ziel, st) = { let z = tmp.with_extension("zip"); let st = still(std::process::Command::new("powershell").args(["-NoProfile", "-Command", &format!("Compress-Archive -Path '{}\\*' -DestinationPath '{}' -Force", tmp.display(), z.display())])).status(); (z, st) }; // roh
@@ -267,7 +328,7 @@ fn squad_order(a: &[Asg], team: u32) -> Vec<usize> {
 /// previous order. Only bits 10..15 change. Refuses players outside the club, duplicates and squads over 64.
 /// Set-piece takers of a team in PlayerAssignment.bin: bits 16..21 of a record, exactly one player of the team each
 /// (read from the FL27 world 24.11.: 21 captain, 20 penalties, 16/17 free kicks, 18/19 corners; which of each pair is
-/// short/long or left/right is not confirmed, PES M has one taker for both). `takers`: free kick, corner, penalty,
+/// short/long or left/right is not confirmed, CalcioM has one taker for both). `takers`: free kick, corner, penalty,
 /// captain; None or a player not in the team leaves that flag as it is.
 pub fn schuetzen_setzen(a: &mut [Asg], team: u32, takers: [Option<u32>; 4]) {
     for (bits, pid) in [(&[16u32, 17][..], takers[0]), (&[18, 19][..], takers[1]), (&[20][..], takers[2]), (&[21][..], takers[3])] {
@@ -540,11 +601,11 @@ pub fn vorgaben_schreiben_mit(s: &Path, turnier: Option<u16>, wetter: Option<&st
 /// The three preset files of a match start (CommonLib.lua pesm_wettbewerb, stadiums.lua pesm_stadion, weather.lua): without
 /// the file every module falls back to the game's normal choice by teams and home side.
 pub const VORGABEN: [&str; 4] = ["wettbewerb.txt", "stadion.txt", "wetter.txt", "spielregeln.txt"]; // roh
-/// The presets now in S/flw with their SHA-256: what PES M wrote, so only that is undone later.
+/// The presets now in S/flw with their SHA-256: what CalcioM wrote, so only that is undone later.
 pub fn vorgaben_merken(s: &Path) -> Vec<(String, String)> {
     VORGABEN.iter().filter_map(|n| std::fs::read(s.join("flw").join(n)).ok().map(|b| (n.to_string(), sha256_hex(&b)))).collect()
 }
-/// Undo after a match: removes the presets PES M wrote and nobody changed since. Changed files stay and are returned.
+/// Undo after a match: removes the presets CalcioM wrote and nobody changed since. Changed files stay and are returned.
 pub fn vorgaben_zuruecksetzen(s: &Path, gesetzt: &[(String, String)]) -> Result<Vec<String>, String> {
     let mut geaendert = vec![];
     for (n, sha) in gesetzt {
@@ -567,10 +628,10 @@ fn uncomment(line: &str) -> String {
 }
 fn indent_of(l: &str) -> String { l.chars().take_while(|c| c.is_whitespace()).collect() }
 fn root_line_of(l: &str, name: &str, indent: &str) -> String { format!("{indent}cpk.root = \".\\livecpk\\{name}\"") }
-/// sider.ini for a career (Übergabe Daten und Datenbank §8.1, idempotent): active CPK lines of other PES M careers are
+/// sider.ini for a career (Übergabe Daten und Datenbank §8.1, idempotent): active CPK lines of other CalcioM careers are
 /// commented out with ";"; the career's own line is removed and set again as the first active line, directly below the
-/// active PESM_DirectMatch line (without it: before the first cpk.root line); a commented world line is switched on,
-/// a missing one is added directly below the career line. With `mit_direktstart` a missing PESM_DirectMatch line becomes
+/// active CalcioM_DirectMatch line (without it: before the first cpk.root line); a commented world line is switched on,
+/// a missing one is added directly below the career line. With `mit_direktstart` a missing CalcioM_DirectMatch line becomes
 /// the first root (FL27 spec §4). Line endings and indentation are kept; a correct file stays byte-equal.
 pub fn sider_ini_einrichten(text: &str, cpk: &str, welt: &str, andere: &[String], mit_direktstart: bool) -> Result<String, String> {
     let eol = if text.contains("\r\n") { "\r\n" } else { "\n" };
@@ -581,11 +642,11 @@ pub fn sider_ini_einrichten(text: &str, cpk: &str, welt: &str, andere: &[String]
     for n in andere.iter().filter(|n| n.as_str() != cpk) {
         for l in lines.iter_mut() { if root_line(l, n) == Some(true) { let i = indent_of(l); *l = format!("{i};{}", l.trim_start()); } }
     }
-    // any other active PES M career folder (the list can miss one whose name was folded, e.g. „München“ → „Munchen“)
+    // any other active CalcioM career folder (the list can miss one whose name was folded, e.g. „München“ → „Munchen“)
     for l in lines.iter_mut() {
         let t = l.trim_start();
         let Some(n) = t.strip_prefix("cpk.root").and_then(|r| r.split("\\livecpk\\").nth(1)).map(|r| r.trim_end().trim_end_matches('"')) else { continue };
-        if n.starts_with(crate::id("PESM")) && n != DIRECT_ROOT && n != cpk { let i = indent_of(l); *l = format!("{i};{}", l.trim_start()); }
+        if crate::fl27::eigener_cpk(n) && n != DIRECT_ROOT && n != cpk { let i = indent_of(l); *l = format!("{i};{}", l.trim_start()); }
     }
     if mit_direktstart {
         match find(&lines, DIRECT_ROOT) {
@@ -595,7 +656,7 @@ pub fn sider_ini_einrichten(text: &str, cpk: &str, welt: &str, andere: &[String]
                 let first = lines.iter().position(|l| root_line_any(l)).ok_or("keine cpk.root-Zeile in sider.ini")?;
                 let indent = indent_of(&lines[first]);
                 lines.insert(first, root_line_of("", DIRECT_ROOT, &indent));
-                lines.insert(first, format!("{indent};--- PESM Direktstart (Stufe 1) ---"));
+                lines.insert(first, format!("{indent};--- CalcioM Direktstart (Stufe 1) ---"));
             }
         }
     }
@@ -656,7 +717,7 @@ pub fn original_sichern(karriere: &Path, s: &Path, welt: &Path) -> Result<(), St
     let n = dateien_zaehlen(welt);
     log(&format!("Sicherung der Welt {} beginnt: {n} Dateien", welt.display()));
     fort(1, n);
-    // slim (option, off by default, Fabian 24.11.): only the database PES M writes and restores, not the pictures
+    // slim (option, off by default, Fabian 24.11.): only the database CalcioM writes and restores, not the pictures
     let teil = if sicherung_schlank() { Path::new("common/etc/pesdb") } else { Path::new("") };
     copy_dir(welt, &dest.join(&wn), &mut files, teil)?;
     std::fs::copy(s.join("sider.ini"), dest.join("sider.ini")).map_err(|e| format!("sider.ini: {e}"))?;
@@ -675,9 +736,9 @@ pub fn original_sichern(karriere: &Path, s: &Path, welt: &Path) -> Result<(), St
 /// switch writes it). Off by default: the full world copy stays the safe way back.
 pub fn sicherung_schlank() -> bool { schlank_datei().exists() }
 pub fn sicherung_schlank_setzen(an: bool) { let f = schlank_datei(); if an { let _ = std::fs::write(&f, b"1"); } else { let _ = std::fs::remove_file(&f); } }
-/// Next to the careers folder (the same place as game::save_dir; fl27.rs is shared with pesm-speicher, which has no game).
+/// Next to the careers folder (the same place as game::save_dir; fl27.rs is shared with calciom-speicher, which has no game).
 fn schlank_datei() -> PathBuf {
-    let k = std::env::var("PESM_KARRIEREN").map(PathBuf::from).unwrap_or_else(|_| PathBuf::from(std::env::var("HOME").unwrap_or_else(|_| ".".into())).join(".local/share/pesm-rust/karrieren")); // roh
+    let k = karrieren_ordner();
     k.join("../sicherung_schlank.txt") // roh
 }
 pub fn original_pruefen(karriere: &Path) -> Result<(), String> {
@@ -877,7 +938,7 @@ pub fn formation_ordnen<T>(p: &mut [(u8, u8, u8, T)]) {
     let rang = |c: u8| [0u8, 1, 3, 2, 4, 5, 7, 6, 8, 10, 9, 11, 12].iter().position(|&x| x == c).unwrap_or(13);
     p.sort_by_key(|x| (rang(x.0), std::cmp::Reverse(x.2)));
 }
-/// The eleven in the order of the game's formation: each place takes the player whose PES M slot (or position) fits
+/// The eleven in the order of the game's formation: each place takes the player whose CalcioM slot (or position) fits
 /// its code best, so nobody ends up on the wrong place when the formation itself is the world's (opponents).
 pub fn nach_formation(codes: &[u8], elf: &[(u8, u32)]) -> Vec<u32> {
     let gruppe = |c: u8| match c { 0 => 0, 1..=3 => 1, 4..=8 => 2, _ => 3 };
@@ -948,14 +1009,14 @@ pub fn sider_ini_anwenden(karriere: &Path, s: &Path, f: impl Fn(&str) -> Result<
     let neu = f(&text)?;
     if neu == text { return Ok(false); }
     let _ = karriere;
-    let b = s.join(format!("sider.ini.bak-pesm-{}", zeit())); // Übergabe §8.1: backup next to sider.ini
+    let b = s.join(format!("sider.ini.bak-calciom-{}", zeit())); // Übergabe §8.1: backup next to sider.ini
     wache(&b);
     std::fs::write(&b, &raw).map_err(|e| e.to_string())?;
     if let Err(e) = atomic_write(&p, neu.as_bytes()) { let _ = std::fs::write(&p, &raw); return Err(e); }
     Ok(true)
 }
 
-/// The three Lua modules carry a small PES M addition (§4). Missing addition: if the file is exactly the known
+/// The three Lua modules carry a small CalcioM addition (§4). Missing addition: if the file is exactly the known
 /// original (SHA-256), it is backed up and replaced by the patched copy; a changed module is only reported.
 pub const MODULE: [(&str, &str); 3] = [("modules/lib/CommonLib.lua", "CommonLib"), ("modules/common/weather.lua", "weather"), ("modules/common/stadiums.lua", "stadiums")];
 pub fn module_pruefen(s: &Path, assets: &Path, karriere: &Path, reparieren: bool) -> Vec<String> {
@@ -963,7 +1024,7 @@ pub fn module_pruefen(s: &Path, assets: &Path, karriere: &Path, reparieren: bool
     for (rel, name) in MODULE {
         let p = s.join(rel);
         let Ok(b) = std::fs::read(&p) else { out.push(format!("{rel} fehlt")); continue };
-        if String::from_utf8_lossy(&b).contains("PES M") { continue; }
+        if crate::fl27::von_uns(&String::from_utf8_lossy(&b)) { continue; }
         let orig = std::fs::read_to_string(assets.join(format!("module/{name}.lua.orig.sha256"))).unwrap_or_default();
         // beta 23.11.: other packs ship a different stadiums.lua; the public release has no copy of the original at all
         // (export.sh): the addition goes in at its anchors either way, the copy is only the last resort
@@ -978,13 +1039,13 @@ pub fn module_pruefen(s: &Path, assets: &Path, karriere: &Path, reparieren: bool
     }
     out
 }
-/// The PES M stadium preset put into any stadiums.lua at its anchors: the function before get_new_stadium_path and
+/// The CalcioM stadium preset put into any stadiums.lua at its anchors: the function before get_new_stadium_path and
 /// the exhibition branch (tid 65535) in both places that pick the stadium. None when an anchor is missing.
 pub fn stadion_einsetzen(t: &str) -> Option<String> {
     let nl = if t.contains("\r\n") { "\r\n" } else { "\n" };
-    let funk = ["-- PES M: Stadion-Vorgabe fuer Freundschaftsspiele aus flw\\stadion.txt.", "local function pesm_stadion(ctx)", "    local f = io.open((ctx.sider_dir or \"\") .. \"flw\\\\stadion.txt\", \"r\")", "    if not f then return nil end",
+    let funk = ["-- CalcioM: Stadion-Vorgabe fuer Freundschaftsspiele aus flw\\stadion.txt.", "local function pesm_stadion(ctx)", "    local f = io.open((ctx.sider_dir or \"\") .. \"flw\\\\stadion.txt\", \"r\")", "    if not f then return nil end",
         "    local t = trim(f:read(\"*l\") or \"\")", "    f:close()", "    if t == \"\" then return nil end", "    local s = string.lower(t)", "    for i, row in ipairs(all_stadiums_map) do",
-        "        if string.lower(row[2] or \"\") == s or string.lower(row[3] or \"\") == s then", "            return i", "        end", "    end", "    log(\"PES M: Stadion-Vorgabe nicht gefunden: \" .. t)", "    return nil", "end", "", ""].join(nl); // roh
+        "        if string.lower(row[2] or \"\") == s or string.lower(row[3] or \"\") == s then", "            return i", "        end", "    end", "    log(\"CalcioM: Stadion-Vorgabe nicht gefunden: \" .. t)", "    return nil", "end", "", ""].join(nl); // roh
     let anker = "local function get_new_stadium_path(ctx)"; // roh
     if t.matches(anker).count() != 1 || !t.contains("trim(") { return None; } // roh
     // the two places: "if tid == 65535 then" followed by the manual-selection line
@@ -1005,7 +1066,7 @@ pub fn stadion_einsetzen(t: &str) -> Option<String> {
         if i == orte[0] + 1 { out.push(z.replacen("if manual_selection_status", "elseif manual_selection_status", 1)); continue; } // roh
         if i == orte[1] {
             out.push(format!("{e}if tid == 65535 and pesm_stadion(ctx) then")); // roh
-            for x in ["local pesm_idx = pesm_stadion(ctx)", "custom_st_id = all_stadiums_map[pesm_idx][1]", "custom_name = all_stadiums_map[pesm_idx][2]", "custom_path = all_stadiums_map[pesm_idx][3]", "stadium_switched = true", "log(\"Switching to stadium with ID \" .. custom_st_id .. \" (exhibition mode, PES M Vorgabe)\")"] { out.push(format!("{e}\t{x}")); } // roh
+            for x in ["local pesm_idx = pesm_stadion(ctx)", "custom_st_id = all_stadiums_map[pesm_idx][1]", "custom_name = all_stadiums_map[pesm_idx][2]", "custom_path = all_stadiums_map[pesm_idx][3]", "stadium_switched = true", "log(\"Switching to stadium with ID \" .. custom_st_id .. \" (exhibition mode, CalcioM Vorgabe)\")"] { out.push(format!("{e}\t{x}")); } // roh
             out.push(format!("{e}elseif tid == 65535 then")); // roh
             continue;
         }
@@ -1013,9 +1074,10 @@ pub fn stadion_einsetzen(t: &str) -> Option<String> {
     }
     Some(out.join(nl))
 }
-/// Direktstart stage 1: replacement flow files and the 2-KB intro placeholder in S/livecpk/PESM_DirectMatch.
+/// Direktstart stage 1: replacement flow files and the 2-KB intro placeholder in S/livecpk/CalcioM_DirectMatch.
 /// Without the templates (they are not in the public repository) the step is skipped: false.
 pub fn direktstart_einrichten(s: &Path) -> Result<bool, String> {
+    alte_namen_weg(s)?;
     let d = s.join("livecpk").join(DIRECT_ROOT);
     for dst in ["common/script/flow/PreStartup.json", "common/script/flow/Intro/MenuPreTitle.json"] { // roh
         if std::fs::read(d.join(dst)).ok().as_deref() != Some(FLOW_LADEN.as_bytes()) { atomic_write(&d.join(dst), FLOW_LADEN.as_bytes())?; }
@@ -1027,27 +1089,28 @@ pub fn direktstart_einrichten(s: &Path) -> Result<bool, String> {
 /// Stage 1: a flow step that goes straight on to loading the system data (no intro, no title screen).
 const FLOW_LADEN: &str = "{\n\t\"events\": {\n\t\t\"proceed\": {\n\t\t\t\"to\": \"Intro/ProcSystemDataLoad\",\n\t\t\t\"go\": \"forward\",\n\t\t\t\"clear\": \"all\",\n\t\t\t\"fadeStart\": \"\",\n\t\t\t\"fadeEnd\": \"do\",\n\t\t\t\"bgType\": \"none\"\n\t\t}\n\t},\n\t\"data\": {\n\t\t\"type\": \"process\",\n\t\t\"bgId\": \"\",\n\t\t\"dialog\": \"\"\n\t},\n\t\"binFile\": {\n\t\t\"files\": []\n\t}\n}\n"; // roh
 
-/// Direktstart stage 2 (fl27-direktstart, Fabian 26.11.): the module pesm_direktmatch.lua and the flow files it puts
+/// Direktstart stage 2 (fl27-direktstart, Fabian 26.11.): the module calciom_direktmatch.lua and the flow files it puts
 /// in only for a direct start (side selection → match day screen without team choice, result menus skipped).
 /// The flow files are the game's own, so they are never shipped: they are built here from the originals in the
 /// player's Data/dt16_all.cpk with only the targets of FLOW_UMLEITUNGEN changed. False when that is not possible.
 pub fn direktmatch_einrichten(s: &Path, assets: &Path) -> Result<bool, String> {
-    let Ok(lua) = std::fs::read(assets.join("direktmatch/pesm_direktmatch.lua")) else { return Ok(false) };
+    let Ok(lua) = std::fs::read(assets.join("direktmatch/calciom_direktmatch.lua")) else { return Ok(false) };
     let Some(spiel) = s.parent() else { return Ok(false) };
     let Ok(cpk) = pesm_coaching_zone::cpk::Cpk::open(&spiel.join("Data/dt16_all.cpk")) else { return Ok(false) }; // roh
     let mut neu = vec![];
-    for (f, ev, to) in FLOW_UMLEITUNGEN {
-        let Ok(roh) = cpk.read(&format!("common/script/flow/{f}.json")) else { return Ok(false) }; // roh
+    for (f, quelle, evs) in FLOW_UMLEITUNGEN {
+        let Ok(roh) = cpk.read(&format!("common/script/flow/{quelle}.json")) else { return Ok(false) }; // roh
         let roh = if roh.len() > 16 && &roh[3..8] == b"WESYS" { unpack(&roh)?.1 } else { roh };
-        let t = String::from_utf8(roh).map_err(|e| format!("{f}: {e}"))?;
-        neu.push((f, flow_umleiten(&t, ev, to).ok_or(format!("{f}: {ev}"))?));
+        let mut t = String::from_utf8(roh).map_err(|e| format!("{f}: {e}"))?;
+        for (ev, to) in evs.iter() { t = flow_umleiten(&t, ev, to).ok_or(format!("{f}: {ev}"))?; }
+        neu.push((f, t));
     }
-    let ziel = s.join("modules").join("pesm_direktmatch.lua");
+    let ziel = s.join("modules").join("calciom_direktmatch.lua");
     if std::fs::read(&ziel).ok().as_deref() != Some(&lua[..]) { atomic_write(&ziel, &lua)?; }
     // the module takes every file in the folder: old copies of dropped ones must go (replay hang, half-time menu back on 26.11.)
-    for alt in ["Match/MatchReplay.json", "Match/MatchPreHalfTime.json"] { let _ = std::fs::remove_file(s.join("content/pesm-direktmatch/flow").join(alt)); } // roh
+    for alt in ["Match/MatchReplay.json", "Match/MatchPreHalfTime.json"] { let _ = std::fs::remove_file(s.join("content/calciom-direktmatch/flow").join(alt)); } // roh
     for (f, t) in neu {
-        let d = s.join("content/pesm-direktmatch/flow").join(format!("{f}.json")); // roh
+        let d = s.join("content/calciom-direktmatch/flow").join(format!("{f}.json")); // roh
         if std::fs::read(&d).ok().as_deref() != Some(t.as_bytes()) { atomic_write(&d, t.as_bytes())?; }
     }
     Ok(true)
@@ -1066,18 +1129,21 @@ pub fn fl26match_statistik_aus(s: &Path) -> Result<bool, String> {
     atomic_write(&p, neu.as_bytes())?;
     Ok(true)
 }
-/// Direct start off: fl26match.lua back as it was before PES M touched it.
+/// Direct start off: fl26match.lua back as it was before CalcioM touched it.
 pub fn fl26match_wiederherstellen(s: &Path) -> Result<(), String> {
     let sich = s.join("modules/fl26match.lua.pesm-original"); // roh
     let Ok(t) = std::fs::read(&sich) else { return Ok(()) };
     atomic_write(&s.join("modules/fl26match.lua"), &t)?; // roh
     std::fs::remove_file(&sich).map_err(|e| e.to_string())
 }
-/// The only changes to the game's flow (fl27-direktstart/ablauf/README.md): file, event, new target.
-pub const FLOW_UMLEITUNGEN: [(&str, &str, &str); 3] = [
-    ("Exhibition/ExhibiSideSetting", "proceed", "Exhibition/ExhibiChangeCompeDesignKind"), // roh
-    ("Match/MatchIdle", "02_match_result", "Match/MatchPreResult"), // roh
-    ("Match/MatchPreResult", "proceed", "Match/MatchEnd"), // roh
+/// The only changes to the game's flow (fl27-direktstart/ablauf/README.md): file written, original it comes from,
+/// events and their new target. Schnell/* only count with schnell=1 (quick start: back to the side selection).
+pub const FLOW_UMLEITUNGEN: [(&str, &str, &[(&str, &str)]); 5] = [
+    ("Exhibition/ExhibiSideSetting", "Exhibition/ExhibiSideSetting", &[("proceed", "Exhibition/ExhibiChangeCompeDesignKind")]), // roh
+    ("Match/MatchIdle", "Match/MatchIdle", &[("02_match_result", "Match/MatchPreResult")]), // roh
+    ("Match/MatchPreResult", "Match/MatchPreResult", &[("proceed", "Match/MatchEnd")]), // roh
+    ("Schnell/MatchEnd", "Match/MatchEnd", &[("01_discontinue", "Exhibition/ExhibiFlowInit"), ("04_postExhibition", "Exhibition/ExhibiFlowInit")]), // roh
+    ("Schnell/ExhibiFlowEnd", "Exhibition/ExhibiFlowEnd", &[("proceed", "Exhibition/ExhibiFlowInit")]), // roh
 ];
 /// The flow text with the "to" of `events.<ev>` set to `to`, everything else byte for byte as it was; None when the
 /// event is missing or the result differs from the original in anything but that target.
@@ -1096,9 +1162,21 @@ pub fn flow_umleiten(t: &str, ev: &str, to: &str) -> Option<String> {
 /// the rules: vl/em (extra time, penalties), finale=1 or mi=52 (semi-final: the mods' final look and full stands),
 /// ast=1 (the players press "Kick-off" themselves; the side selection stays for the controllers anyway).
 /// The module marks it "# benutzt" after the start, so the next plain start goes to the main menu.
-pub fn direktmatch_zeile(heim: u32, gast: u32, minuten: u8, vl: bool, em: bool, runde: Option<u8>) -> String {
+pub fn direktmatch_zeile(heim: u32, gast: u32, minuten: u8, vl: bool, em: bool, runde: Option<u8>, schnell: bool) -> String {
     let r = match runde { Some(53) => " finale=1".to_string(), Some(m) => format!(" mi={m}"), None => String::new() }; // roh
-    format!("{heim} {gast} 0 1 {minuten} menue vl={} em={}{r} ast=1", vl as u8, em as u8) // roh
+    let s = if schnell { " schnell=1" } else { "" }; // roh
+    format!("{heim} {gast} 0 1 {minuten} menue vl={} em={}{r} ast=1{s}", vl as u8, em as u8) // roh
+}
+/// Quick start: FL27 waits at the side selection, so its window comes to the front once the next match is written.
+pub fn fenster_nach_vorne() {
+    #[cfg(windows)]
+    { let _ = std::process::Command::new("powershell").args(["-NoProfile", "-Command", "(New-Object -ComObject WScript.Shell).AppActivate((Get-Process FL_2027).Id)"]).status(); } // roh
+    #[cfg(unix)]
+    {
+        // Hyprland first, then any X11 desktop; neither there: the player switches by hand
+        let hypr = std::process::Command::new("hyprctl").args(["dispatch", "focuswindow", "class:(?i).*fl_2027.*"]).output().is_ok_and(|o| o.status.success() && !String::from_utf8_lossy(&o.stdout).contains("No such")); // roh
+        if !hypr { let _ = std::process::Command::new("xdotool").args(["search", "--class", "fl_2027", "windowactivate"]).status(); } // roh
+    }
 }
 pub fn direktmatch_schreiben(s: &Path, zeile: &str) -> Result<(), String> { atomic_write(&s.join("flw").join("direktmatch.txt"), format!("{zeile}\r\n").as_bytes()) }
 
@@ -1135,9 +1213,9 @@ pub fn fl27_pid() -> Option<u32> {
     best.map(|b| b.1)
 }
 #[cfg(unix)]
-/// Test mode: only the substitute process named in PESM_FL27_ERSATZ_PID; a real FL_2027.exe there aborts.
+/// Test mode: only the substitute process named in CALCIOM_FL27_ERSATZ_PID; a real FL_2027.exe there aborts.
 fn ersatz_pid() -> Option<u32> {
-    let pid: u32 = std::env::var("PESM_FL27_ERSATZ_PID").ok()?.parse().ok()?;
+    let pid: u32 = std::env::var("CALCIOM_FL27_ERSATZ_PID").ok()?.parse().ok()?;
     let cmd = std::fs::read(format!("/proc/{pid}/cmdline")).ok()?;
     if String::from_utf8_lossy(&cmd).trim_end_matches('\0').ends_with(EXE) { panic!("Testmodus: PID {pid} ist das echte FL27"); }
     lebt(pid).then_some(pid)
@@ -1199,7 +1277,7 @@ pub fn fl27_beenden() -> Result<String, String> {
     let pid = fl27_pid().ok_or("FL27 läuft nicht.")?;
     if let Some(lu) = &lu {
         let env = std::fs::read(format!("/proc/{pid}/environ")).map_err(|e| format!("Prozess {pid}: {e}"))?;
-        if !im_prefix(&env, &lu.prefix) { return Err(format!("FL_2027.exe läuft nicht im Prefix {}; PES M beendet es nicht.", lu.prefix.display())); }
+        if !im_prefix(&env, &lu.prefix) { return Err(format!("FL_2027.exe läuft nicht im Prefix {}; CalcioM beendet es nicht.", lu.prefix.display())); }
     }
     let lebt = || lebt(pid);
     let signal = |s: &str| std::process::Command::new("kill").args([s, &pid.to_string()]).status().map(|_| ()).map_err(|e| e.to_string());
@@ -1366,7 +1444,7 @@ pub fn bloecke(m: &mut dyn Mem) -> Vec<u64> {
 }
 /// One reading of the block at `basis` through the Coaching Zone (both sides, 40 places each).
 pub fn schnappschuss(m: &mut dyn Mem, basis: u64) -> Option<cz::stats::Snapshot> { cz::stats::Snapshot::read(&CzMem(std::cell::RefCell::new(m)), basis) }
-/// The reading in PES M's form: per place the kinds with any value. The Coaching Zone reads kinds 0..0xAF; kind 0xB0
+/// The reading in CalcioM's form: per place the kinds with any value. The Coaching Zone reads kinds 0..0xAF; kind 0xB0
 /// (the game knows it, `kind < 0xb1`) is used nowhere and stays out (wish in PAKETE.md).
 pub fn stand(s: &cz::stats::Snapshot) -> Stand {
     let seite = |side: usize| s.sides[side].iter().enumerate().filter_map(|(pl, x)| x.as_ref().map(|x| Spieler {
@@ -1612,8 +1690,8 @@ impl Mitlauf {
 }
 
 // ---------------------------------------------------------------- helper process (read-only, cap_sys_ptrace)
-/// Talks to the small helper binary (pesm-speicher, `setcap cap_sys_ptrace+ep`) over JSON lines: it can only
-/// search blocks and read bytes, never write. PES M itself stays unprivileged.
+/// Talks to the small helper binary (calciom-speicher, `setcap cap_sys_ptrace+ep`) over JSON lines: it can only
+/// search blocks and read bytes, never write. CalcioM itself stays unprivileged.
 pub struct DienstMem { pid: u32, child: std::process::Child, inp: std::process::ChildStdin, out: BufReader<std::process::ChildStdout> }
 /// The local clock as HH:MM (no time-zone crate: the system's own command).
 pub fn uhrzeit() -> String {
@@ -1623,7 +1701,7 @@ pub fn uhrzeit() -> String {
     let o = std::process::Command::new("date").arg("+%H:%M").output();
     o.ok().map(|o| String::from_utf8_lossy(&o.stdout).trim().to_string()).unwrap_or_default()
 }
-pub fn helfer_pfad() -> PathBuf { std::env::current_exe().ok().and_then(|p| p.parent().map(|d| d.join("pesm-speicher"))).unwrap_or_else(|| PathBuf::from("pesm-speicher")) }
+pub fn helfer_pfad() -> PathBuf { std::env::current_exe().ok().and_then(|p| p.parent().map(|d| d.join("calciom-speicher"))).unwrap_or_else(|| PathBuf::from("calciom-speicher")) }
 impl DienstMem {
     pub fn start(pid: u32) -> Result<DienstMem, String> {
         let p = helfer_pfad();
@@ -1668,7 +1746,7 @@ impl Mem for WinMem {
     fn alive(&mut self) -> bool { cz::process::is_alive(&self.0) }
 }
 #[cfg(windows)]
-pub fn freischalten_hinweis() -> String { "Unter Windows nicht nötig. Verweigert Windows den Zugriff, PES M als derselbe Benutzer wie FL27 oder als Administrator starten.".into() }
+pub fn freischalten_hinweis() -> String { "Unter Windows nicht nötig. Verweigert Windows den Zugriff, CalcioM als derselbe Benutzer wie FL27 oder als Administrator starten.".into() }
 #[cfg(windows)]
 pub fn finder() -> Result<Option<Box<dyn Mem>>, String> {
     if testmodus() { return Ok(None); }
@@ -1710,7 +1788,7 @@ pub fn beobachten(team_fn: Box<dyn Fn(&[u32]) -> u32 + Send>) -> Beobachter {
             let mut doc = ml.takt(t0.elapsed().as_secs_f64());
             // confirmed by hand: the figures so far are the result (once; the page drops the reader after booking)
             if doc.is_none() && a2.swap(false, std::sync::atomic::Ordering::Relaxed) { doc = ml.jetzt_fertig(t0.elapsed().as_secs_f64()); }
-            let status = if let Some(e) = &ml.fehler { e.clone() } else if ml.m.is_none() { "FL27 läuft nicht.".into() } else if ml.basis.is_none() { "FL27 läuft, warte auf den Anstoß …".into() } else { "Partie läuft, PES M liest mit.".into() };
+            let status = if let Some(e) = &ml.fehler { e.clone() } else if ml.m.is_none() { "FL27 läuft nicht.".into() } else if ml.basis.is_none() { "FL27 läuft, warte auf den Anstoß …".into() } else { "Partie läuft, CalcioM liest mit.".into() };
             if status != last { let _ = tx.send(Meldung::Status(status.clone())); last = status; }
             if let Some((h, a)) = ml.live() { let _ = tx.send(Meldung::Live(h, a)); }
             if let Some(a) = ml.ansicht() { let _ = tx.send(Meldung::Ansicht(Box::new(a))); }
@@ -1724,6 +1802,42 @@ pub fn beobachten(team_fn: Box<dyn Fn(&[u32]) -> u32 + Send>) -> Beobachter {
 // ---------------------------------------------------------------- tests without the game (§7.1)
 #[cfg(test)]
 mod t {
+    /// Rename CalcioM → CalcioM: old career folders still count as ours, the old direct start goes, the data folder moves.
+    #[test]
+    fn alte_namen_werden_uebernommen() {
+        assert!(eigener_cpk(concat!("PE", "SMChelseaFC01")) && eigener_cpk("CalcioMChelseaFC01") && !eigener_cpk("_FL26Megapack"));
+        assert!(von_uns(concat!("-- PES", " M: Stadion")) && von_uns("-- CalcioM: Stadion") && !von_uns("-- GigaPack"));
+        let s = std::env::temp_dir().join(format!("calciom-umzug-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&s);
+        let (root, modul) = (concat!("PE", "SM_DirectMatch"), concat!("pesm", "_direktmatch.lua"));
+        std::fs::create_dir_all(s.join("livecpk").join(root).join("common")).unwrap();
+        std::fs::create_dir_all(s.join("modules")).unwrap();
+        std::fs::write(s.join("modules").join(modul), "x").unwrap();
+        let ini = format!("[sider]\r\n\tcpk.root = \".\\livecpk\\{root}\"\r\n\tcpk.root = \".\\livecpk\\_FL26Megapack\"\r\n\tlua.module = \"{modul}\"\r\n\t;lua.module = \"{modul}\"\r\n\tlua.module = \"a.lua\"\r\n");
+        std::fs::write(s.join("sider.ini"), &ini).unwrap();
+        alte_namen_weg(&s).unwrap();
+        let neu = std::fs::read_to_string(s.join("sider.ini")).unwrap();
+        assert_eq!(neu, ini.replace(&format!("\tcpk.root = \".\\livecpk\\{root}"), &format!("\t;cpk.root = \".\\livecpk\\{root}")).replacen(&format!("\tlua.module = \"{modul}"), &format!("\t;lua.module = \"{modul}"), 1));
+        assert!(!s.join("livecpk").join(root).exists() && !s.join("modules").join(modul).exists());
+        alte_namen_weg(&s).unwrap();
+        assert_eq!(std::fs::read_to_string(s.join("sider.ini")).unwrap(), neu, "a second run changes nothing");
+        // data folder: moved, old name left as a link, an existing new folder is never overwritten
+        let (alt, ziel) = (s.join("alt"), s.join("neu"));
+        std::fs::create_dir_all(alt.join("karrieren")).unwrap();
+        umziehen(&alt, &ziel);
+        assert!(ziel.join("karrieren").is_dir());
+        #[cfg(unix)] assert!(alt.is_symlink() && alt.join("karrieren").is_dir());
+        std::fs::create_dir_all(s.join("alt2")).unwrap();
+        umziehen(&s.join("alt2"), &ziel);
+        assert!(s.join("alt2").is_dir() && !s.join("alt2").is_symlink());
+        // a move that failed (Windows: a file still open): the old folder is read where it is, until the new one exists
+        let (n3, a3) = (s.join("neu3"), s.join("alt3"));
+        std::fs::create_dir_all(&a3).unwrap();
+        assert_eq!(neu_oder_alt(n3.clone(), a3.clone()), a3);
+        std::fs::create_dir_all(&n3).unwrap();
+        assert_eq!(neu_oder_alt(n3.clone(), a3), n3);
+        let _ = std::fs::remove_dir_all(&s);
+    }
     #[test]
     fn fl27_beenden_nur_im_prefix() {
         let yml = "game:\n  exe: /g/FL_2027.bat\n  prefix: /mnt/GAMES/sp-football-life-2026\n  working_dir: /g\nsystem:\n  env:\n    X: '1'\nwine:\n  version: system\n";
@@ -1759,12 +1873,12 @@ mod t {
     /// The diagnostics archive is made without the user name in it.
     #[test]
     fn diagnose_ohne_nutzernamen() {
-        if std::env::var("PESM_KARRIEREN").is_err() { return; }
+        if std::env::var("CALCIOM_KARRIEREN").is_err() { return; }
         log(&format!("Test {}", std::env::var("USER").unwrap_or_default()));
         let p = diagnose_paket().unwrap();
         let aus = std::process::Command::new("tar").arg("xzOf").arg(&p).output().unwrap();
         let t = String::from_utf8_lossy(&aus.stdout);
-        assert!(t.contains("Test <user>") && t.contains("PES M"), "{t}");
+        assert!(t.contains("Test <user>") && t.contains("CalcioM"), "{t}");
         let _ = std::fs::remove_file(p);
     }
     /// Beta 23.11.: another pack's stadiums.lua (here: ours without the addition, with other comments) gets the preset
@@ -1775,7 +1889,7 @@ mod t {
         let Ok(a) = std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/assets/fl27/module/stadiums.lua")) else { return };
         let nl = "\r\n";
         let z: Vec<&str> = a.split(nl).collect();
-        let von = z.iter().position(|l| l.starts_with("-- PES M: Stadion-Vorgabe")).unwrap();
+        let von = z.iter().position(|l| l.starts_with("-- CalcioM: Stadion-Vorgabe")).unwrap();
         let bis = z.iter().position(|l| l.starts_with("local function get_new_stadium_path")).unwrap();
         let mut o: Vec<String> = z[..von].iter().chain(z[bis..].iter()).map(|s| s.to_string()).collect();
         let k = o.iter().position(|l| l.trim() == "local pesm_idx = pesm_stadion(ctx)").unwrap();
@@ -1790,7 +1904,7 @@ mod t {
         let neu = stadion_einsetzen(&fremd).expect("anchors found");
         assert_eq!(neu.matches("pesm_stadion(ctx)").count(), 4);
         if std::process::Command::new("luac5.1").arg("-v").output().is_ok() {
-            let d = std::env::temp_dir().join(format!("pesm-stadion-{}.lua", std::process::id()));
+            let d = std::env::temp_dir().join(format!("calciom-stadion-{}.lua", std::process::id()));
             std::fs::write(&d, &neu).unwrap();
             let ok = std::process::Command::new("luac5.1").args(["-p"]).arg(&d).status().unwrap().success();
             let _ = std::fs::remove_file(&d);
@@ -1938,7 +2052,7 @@ mod t {
         assert!(ml.fehler.as_deref().unwrap().contains("nicht freigeschaltet"));
     }
 
-    /// Discord 24.11.: the set-piece takers from PES M land in PlayerAssignment.bin, one player per flag, other teams untouched.
+    /// Discord 24.11.: the set-piece takers from CalcioM land in PlayerAssignment.bin, one player per flag, other teams untouched.
     #[test]
     fn schuetzen_in_player_assignment() {
         let mut a = vec![Asg { nr: 1, pid: 10, team: 5, k: 0x3f << 16 }, Asg { nr: 2, pid: 11, team: 5, k: 3 }, Asg { nr: 3, pid: 20, team: 6, k: 0x3f << 16 }];
@@ -1977,10 +2091,10 @@ mod t {
     #[test]
     fn welt_ueber_der_karriere_wird_verschoben() {
         // Fabian 22.11.: the world above the career and a second career active - the world's database won, Bischof was missing
-        let ini = "[sider]\r\n\tcpk.root = \".\\livecpk\\_FL26Megapack\"\r\n\tcpk.root = \".\\livecpk\\PESM_DirectMatch\"\r\n\tcpk.root = \".\\livecpk\\PESMSunderlandAFC01\"\r\n\tcpk.root = \".\\livecpk\\PESMBayernMunchen01\"\r\n\tcpk.root = \".\\livecpk\\boot-root\"\r\n";
+        let ini = "[sider]\r\n\tcpk.root = \".\\livecpk\\_FL26Megapack\"\r\n\tcpk.root = \".\\livecpk\\CalcioM_DirectMatch\"\r\n\tcpk.root = \".\\livecpk\\PESMSunderlandAFC01\"\r\n\tcpk.root = \".\\livecpk\\PESMBayernMunchen01\"\r\n\tcpk.root = \".\\livecpk\\boot-root\"\r\n";
         let neu = sider_ini_einrichten(ini, "PESMSunderlandAFC01", "_FL26Megapack", &["PESMBayernMünchen01".into()], true).unwrap();
         let aktiv: Vec<&str> = neu.split("\r\n").filter(|l| l.trim_start().starts_with("cpk.root")).collect();
-        assert!(aktiv[0].contains("PESM_DirectMatch") && aktiv[1].contains("PESMSunderlandAFC01") && aktiv[2].contains("_FL26Megapack"), "{neu}");
+        assert!(aktiv[0].contains("CalcioM_DirectMatch") && aktiv[1].contains("PESMSunderlandAFC01") && aktiv[2].contains("_FL26Megapack"), "{neu}");
         assert!(!aktiv.iter().any(|l| l.contains("PESMBayernMunchen01")), "andere Karriere aus: {neu}");
         assert_eq!(sider_ini_einrichten(&neu, "PESMSunderlandAFC01", "_FL26Megapack", &[], true).unwrap(), neu, "bleibt gleich");
     }
@@ -2002,7 +2116,7 @@ mod t {
         // a formation written into a copy of the world reads back the same
         let welt = sider().join("livecpk/_FL26MyWorld/common/etc/pesdb");
         if !welt.join("TacticsFormation.bin").exists() { return; }
-        let d = std::env::temp_dir().join(format!("pesm-formation-{}", std::process::id()));
+        let d = std::env::temp_dir().join(format!("calciom-formation-{}", std::process::id()));
         std::fs::create_dir_all(&d).unwrap();
         for n in ["Tactics.bin", "TacticsFormation.bin"] { std::fs::copy(welt.join(n), d.join(n)).unwrap(); }
         let p442: Vec<(u8, u8, u8)> = vec![(0, 3, 52), (3, 12, 89), (1, 10, 63), (1, 10, 41), (2, 12, 15), (7, 30, 87), (5, 20, 64), (5, 20, 40), (6, 30, 18), (12, 43, 66), (12, 43, 38)];
@@ -2021,7 +2135,7 @@ mod t {
     #[test]
     fn fremde_welt_wird_abgeschaltet() {
         // a career on MyWorld while the Megapack line is active above it: the Megapack line goes out, MyWorld comes in below
-        let ini = "[sider]\r\n\tcpk.root = \".\\livecpk\\_FL26Megapack\"\r\n\tcpk.root = \".\\livecpk\\PESM_DirectMatch\"\r\n\tcpk.root = \".\\livecpk\\PESMChelseaFC01\"\r\n\t#cpk.root = \".\\livecpk\\_FL26MyWorld\"\r\n";
+        let ini = "[sider]\r\n\tcpk.root = \".\\livecpk\\_FL26Megapack\"\r\n\tcpk.root = \".\\livecpk\\CalcioM_DirectMatch\"\r\n\tcpk.root = \".\\livecpk\\PESMChelseaFC01\"\r\n\t#cpk.root = \".\\livecpk\\_FL26MyWorld\"\r\n";
         let neu = sider_ini_einrichten(ini, "PESMChelseaFC01", "_FL26MyWorld", &["_FL26Megapack".into()], true).unwrap();
         let aktiv: Vec<&str> = neu.split("\r\n").filter(|l| l.trim_start().starts_with("cpk.root")).collect();
         assert!(!aktiv.iter().any(|l| l.contains("_FL26Megapack")), "{neu}");
@@ -2057,7 +2171,7 @@ mod t {
         let mt = "#STADIUM\r\n396, 009, Stadium of Light, England\\Stadium of Light\t\t# Sunderland\r\n4071, 009, Vitality Stadium, England\\Dean Court  # B\r\n";
         assert_eq!(heimstadion(mt, 396).as_deref(), Some("England\\Stadium of Light"));
         assert_eq!(heimstadion(mt, 1), None);
-        let dir = std::env::temp_dir().join(format!("pesm-vorgaben-{}", std::process::id()));
+        let dir = std::env::temp_dir().join(format!("calciom-vorgaben-{}", std::process::id()));
         vorgaben_schreiben(&dir, Some(17), Some("rainy"), Some("nacht"), Some("England\\Stadium of Light")).unwrap();
         assert_eq!(std::fs::read_to_string(dir.join("flw/wetter.txt")).unwrap(), "wetter=rainy\r\ntageszeit=nacht\r\n");
         assert!(vorgaben_schreiben(&dir, None, Some("hagel"), None, None).is_err());
@@ -2065,7 +2179,7 @@ mod t {
         vorgaben_schreiben_mit(&dir, None, None, None, None, Some("verlaengerung=0\r\nelfmeter=0\r\nhinspiel=2:1\r\n".into())).unwrap();
         assert!(std::fs::read_to_string(dir.join("flw/spielregeln.txt")).unwrap().contains("hinspiel=2:1"));
         vorgaben_schreiben(&dir, None, None, None, None).unwrap();
-        // undo after the match: only what PES M wrote and nobody changed
+        // undo after the match: only what CalcioM wrote and nobody changed
         vorgaben_schreiben(&dir, Some(17), Some("rainy"), Some("nacht"), Some("England\\Stadium of Light")).unwrap();
         let gesetzt = vorgaben_merken(&dir);
         assert_eq!(gesetzt.len(), 3, "der Start setzt drei Dateien");
@@ -2084,7 +2198,7 @@ mod t {
         vorgaben_schreiben(&dir, None, None, None, None).unwrap();
         assert!(!dir.join("flw/wettbewerb.txt").exists() && !dir.join("flw/stadion.txt").exists());
         let _ = std::fs::remove_dir_all(&dir);
-        let ini = "[sider]\r\n\t;--- PESM Direktstart (Stufe 1) ---\r\n\tcpk.root = \".\\livecpk\\PESM_DirectMatch\"\r\n\tcpk.root = \".\\livecpk\\boot-root\"\r\n\t#cpk.root = \".\\livecpk\\_FL26MyWorld\"\r\n";
+        let ini = "[sider]\r\n\t;--- CalcioM Direktstart (Stufe 1) ---\r\n\tcpk.root = \".\\livecpk\\CalcioM_DirectMatch\"\r\n\tcpk.root = \".\\livecpk\\boot-root\"\r\n\t#cpk.root = \".\\livecpk\\_FL26MyWorld\"\r\n";
         let other = "\tcpk.root = \".\\livecpk\\PESMArsenalFC01\"\r\n";
         let ini2 = ini.replace("\tcpk.root = \".\\livecpk\\boot-root\"\r\n", &format!("{other}\tcpk.root = \".\\livecpk\\boot-root\"\r\n"));
         let neu = sider_ini_einrichten(&ini2, "PESMSunderlandAFC01", WELT_ROOT, &["PESMArsenalFC01".into()], true).unwrap();
@@ -2099,7 +2213,7 @@ mod t {
         let ini3 = "\tcpk.root = \".\\livecpk\\boot-root\"\n\tcpk.root = \".\\livecpk\\PESMSunderlandAFC01\"\n";
         let n3 = sider_ini_einrichten(ini3, "PESMSunderlandAFC01", WELT_ROOT, &[], false).unwrap();
         assert_eq!(n3, "\tcpk.root = \".\\livecpk\\PESMSunderlandAFC01\"\n\tcpk.root = \".\\livecpk\\_FL26MyWorld\"\n\tcpk.root = \".\\livecpk\\boot-root\"\n");
-        assert_eq!(cpk_name("Bayern München", Path::new("/nonexistent")), "PESMBayernMunchen01");
+        assert_eq!(cpk_name("Bayern München", Path::new("/nonexistent")), "CalcioMBayernMunchen01");
         assert!(zeit().len() == 15);
     }
 
@@ -2167,7 +2281,7 @@ mod pruefung_tests {
     /// The slim backup copies only common/etc/pesdb (and sider.ini), the full one everything.
     #[test]
     fn schlanke_sicherung() {
-        let t = std::env::temp_dir().join(format!("pesm-schlank-{}", std::process::id()));
+        let t = std::env::temp_dir().join(format!("calciom-schlank-{}", std::process::id()));
         let welt = t.join("Welt");
         std::fs::create_dir_all(welt.join("common/etc/pesdb")).unwrap();
         std::fs::create_dir_all(welt.join("common/render/face")).unwrap();

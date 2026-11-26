@@ -45,7 +45,7 @@ pub(super) fn geschichte(ui: &mut Ui, _v: &mut View, c: &mut Career) {
         ui.text_center(&ui.fit(&x.comp, 12.0, 104.0), cx, cy + 44.0, 12.0, Theme::text());
         ui.text_center(&date::season_label(x.season), cx, cy + 58.0, 11.0, Theme::gedaempft());
     }
-    // records from the own matches (all seasons with this club in PES M)
+    // records from the own matches (all seasons with this club in CalcioM)
     let r = felder[2];
     ui.card_titled(r, t("ui.geschichte.rekorde"), hex(0xa78bfa));
     let sp = &c.spiele;

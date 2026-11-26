@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Hierarchie im eigenen Kader (eigene Festlegung von PESM, alles änderbar; nur Anzeige, keine Wirkung im Spiel). Hierarchiewert 0–100 = gewichtete Summe der Bestandteile (Gewichte werden auf Summe 1 gebracht). Fehlt eine Eingabe, zählt der Bestandteil neutral und ist als geschätzt gekennzeichnet.",
+  "_hinweis": "Hierarchie im eigenen Kader (eigene Festlegung von CalcioM, alles änderbar; nur Anzeige, keine Wirkung im Spiel). Hierarchiewert 0–100 = gewichtete Summe der Bestandteile (Gewichte werden auf Summe 1 gebracht). Fehlt eine Eingabe, zählt der Bestandteil neutral und ist als geschätzt gekennzeichnet.",
   "neutral": 50,
   "_status": "Der Bestandteil status ist der Rang im Kader: Gesamtwert (Näherung) linear zwischen dem schwächsten (0) und dem stärksten (100) Spieler des eigenen Kaders. Der Charakterwert Status (Perzentil in der Welt) geht nicht in die Hierarchie ein; er bleibt für die Typen.",
   "gewichte": { "fuehrung": 0.30, "status": 0.15, "loyalitaet": 0.10, "vereinszugehoerigkeit": 0.05, "spielzeit": 0.10, "erfahrung": 0.10, "einfluss": 0.20 },
@@ -10,7 +10,7 @@
     "neuzugang": 0
   },
   "erfahrung": {
-    "_hinweis": "Erfahrung aus dem Alter: bis alter_von 0, ab alter_bis 100, dazwischen gleichmäßig. Festlegung von PESM, weil Einsätze der Laufbahn nicht eingelesen sind.",
+    "_hinweis": "Erfahrung aus dem Alter: bis alter_von 0, ab alter_bis 100, dazwischen gleichmäßig. Festlegung von CalcioM, weil Einsätze der Laufbahn nicht eingelesen sind.",
     "alter_von": 18,
     "alter_bis": 32
   },

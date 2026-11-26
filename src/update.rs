@@ -1,24 +1,24 @@
 //! Update notice (Fabian 23.11.): once at start a background thread asks GitHub for the newest release of
-//! FabianZettl/pesm (curl, built into Windows 10+ and Linux); a newer one shows a banner on the start screen with a
+//! FabianZettl/calciom (formerly FabianZettl/pesm; curl -L follows GitHub's forward); a newer one shows a banner on the start screen with a
 //! button to its page. Nothing is downloaded or installed, and without network nothing happens.
 use std::sync::OnceLock;
 
 /// The version of this build, as tagged on GitHub.
-pub const VERSION: &str = concat!("v", env!("CARGO_PKG_VERSION"), "-beta");
-const API: &str = "https://api.github.com/repos/FabianZettl/pesm/releases?per_page=1";
+pub const VERSION: &str = concat!("v", env!("CARGO_PKG_VERSION"));
+const API: &str = "https://api.github.com/repos/FabianZettl/calciom/releases?per_page=1";
 
 /// The newest release (tag, page) when it is newer than this build.
 pub static NEUER: OnceLock<Option<(String, String)>> = OnceLock::new();
 
 pub fn pruefen() {
-    if std::env::var("PESM_KARRIEREN").is_ok() { return; } // tests and previews stay offline
+    if std::env::var("CALCIOM_KARRIEREN").is_ok() { return; } // tests and previews stay offline
     std::thread::spawn(|| {
-        let r = std::process::Command::new(crate::id("curl")).args([crate::id("-s"), crate::id("-m"), "8", crate::id("-H"), "User-Agent: pesm", API]).output().ok().filter(|o| o.status.success()); // roh
+        let r = std::process::Command::new(crate::id("curl")).args([crate::id("-sL"), crate::id("-m"), "8", crate::id("-H"), "User-Agent: calciom", API]).output().ok().filter(|o| o.status.success()); // roh
         let neu = r.and_then(|o| {
             let v: serde_json::Value = serde_json::from_slice(&o.stdout).ok()?;
             let e = v.get(0)?;
             let tag = e["tag_name"].as_str()?.to_string();
-            neuer(&tag, VERSION).then(|| (tag, e["html_url"].as_str().unwrap_or("https://github.com/FabianZettl/pesm/releases").to_string()))
+            neuer(&tag, VERSION).then(|| (tag, e["html_url"].as_str().unwrap_or("https://github.com/FabianZettl/calciom/releases").to_string()))
         });
         let _ = NEUER.set(neu);
     });
@@ -44,5 +44,7 @@ mod tests {
         assert!(super::neuer("v0.2.0-beta", "v0.1.1-beta"));
         assert!(!super::neuer("v0.1.1-beta", "v0.1.1-beta"));
         assert!(!super::neuer("v0.1.0-beta", "v0.1.1-beta"));
+        // CalcioM 0.5.0 is the first release without "-beta"
+        assert!(super::neuer("v0.5.0", "v0.2.1-beta") && !super::neuer("v0.5.0", "v0.5.0"));
     }
 }

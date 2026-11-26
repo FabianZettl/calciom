@@ -70,10 +70,10 @@ pub struct Musik {
 
 impl Musik {
     #[cfg(unix)]
-    fn sock() -> std::path::PathBuf { std::env::temp_dir().join(format!("pesm-musik-{}.sock", std::process::id())) }
+    fn sock() -> std::path::PathBuf { std::env::temp_dir().join(format!("calciom-musik-{}.sock", std::process::id())) }
     /// Windows: mpv's IPC is a named pipe.
     #[cfg(not(unix))]
-    fn sock() -> std::path::PathBuf { std::path::PathBuf::from(format!("\\\\.\\pipe\\pesm-musik-{}", std::process::id())) }
+    fn sock() -> std::path::PathBuf { std::path::PathBuf::from(format!("\\\\.\\pipe\\calciom-musik-{}", std::process::id())) }
 
     /// Once per frame (dt in seconds): start or stop mpv for the stored URL, fade down and pause while a match runs,
     /// resume and fade up after it. Returns the new title when the song or stream title changes.
@@ -89,7 +89,7 @@ impl Musik {
                 .args(ist_youtube(&self.url).then_some(crate::id("--shuffle")))
                 .arg(format!("--input-ipc-server={}", Self::sock().display()))
                 .arg(abspiel_url(&self.url)).stdin(Stdio::null()).stdout(Stdio::null()).stderr(Stdio::null());
-            // mpv dies with PES M, also when the window is simply closed
+            // mpv dies with CalcioM, also when the window is simply closed
             #[cfg(target_os = "linux")]
             unsafe { cmd.pre_exec(|| { libc::prctl(libc::PR_SET_PDEATHSIG, libc::SIGTERM); Ok(()) }); }
             self.kind = cmd.spawn().ok();
@@ -187,7 +187,7 @@ mod tests {
     #[test]
     #[ignore]
     fn fade_und_pause_mit_mpv() {
-        let d = std::env::temp_dir().join(format!("pesm-mpv-test-{}", std::process::id()));
+        let d = std::env::temp_dir().join(format!("calciom-mpv-test-{}", std::process::id()));
         std::fs::create_dir_all(&d).unwrap();
         std::fs::write(d.join("mpv.conf"), "ao=null\n").unwrap();
         std::env::set_var("MPV_HOME", &d);

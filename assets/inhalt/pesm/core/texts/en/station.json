@@ -36,7 +36,7 @@
  "station.pille": "New assignment?",
  "station.begonnen": "New station begun. Welcome to %1.",
  "station.fehler": "The new station could not be started. Nothing was changed.",
- "station.ohne_verein": "You currently have no club. As soon as you take a new job, PESM asks whether a new assignment begins.",
+ "station.ohne_verein": "You currently have no club. As soon as you take a new job, CalcioM asks whether a new assignment begins.",
  "station.vorgemerkt": "Understood: the new station at %1 begins with the next read. Save in the game for that.",
  "station.phase.sicherung": "New station: backup is being made …",
  "station.phase.zuruecksetzen": "New station: club data is being reset …",

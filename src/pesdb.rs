@@ -49,7 +49,7 @@ pub fn wvec(pos: u8) -> &'static [f32] {
     w.get(&pos).or_else(|| w.get(&match pos { 6 | 7 => 5, 11 => 12, p => p })).or_else(|| w.get(&5)).unwrap()
 }
 pub fn pos_index(pos: &str) -> u8 { POS.iter().position(|p| *p == pos).unwrap_or(5) as u8 }
-/// ovr(pos) = Σ w[pos][i]·attr[i] + w[pos][25] (convert.ovr_model; PES M rounds it for display).
+/// ovr(pos) = Σ w[pos][i]·attr[i] + w[pos][25] (convert.ovr_model; CalcioM rounds it for display).
 pub fn ovr(attrs: &[f32], pos: u8) -> f32 {
     let w = wvec(pos);
     attrs.iter().zip(w).map(|(a, w)| a * w).sum::<f32>() + w[25]
@@ -305,10 +305,10 @@ pub fn ableiten(p: &Path) -> Option<(PathBuf, PathBuf)> {
     }
     None
 }
-/// A world is a livecpk folder with Team.bin and Player.bin (and the other required files), whose name does not start with PESM.
+/// A world is a livecpk folder with Team.bin and Player.bin (and the other required files), whose name does not start with CalcioM.
 pub fn pruefen(welt: &Path) -> Result<(), String> {
     let name = welt.file_name().and_then(|n| n.to_str()).unwrap_or("");
-    if name.to_uppercase().starts_with(crate::id("PESM")) { return Err(crate::inhalt::t("ui.pesdb.das_ist_ein_ordner_von").into()); }
+    if crate::fl27::eigener_cpk(&name) { return Err(crate::inhalt::t("ui.pesdb.das_ist_ein_ordner_von").into()); }
     let d = welt.join("common/etc/pesdb");
     for f in ["Team.bin", "Player.bin", "PlayerAssignment.bin", "Competition.bin", "CompetitionEntry.bin"] {
         if !d.join(f).exists() { return Err(crate::tf!("ui.pesdb.in_diesem_ordner_fehlt_die", f)); }
@@ -365,7 +365,7 @@ mod t {
     fn welt_aus_cpk_ohne_entpackte_welt() {
         let echt = fl27::spielordner().join("download/data_s2627.cpk");
         if !fl27::echte_welt(&echt) { return; }
-        let g = std::env::temp_dir().join(format!("pesm-cpk-spiel-{}", std::process::id()));
+        let g = std::env::temp_dir().join(format!("calciom-cpk-spiel-{}", std::process::id()));
         std::fs::create_dir_all(g.join("download")).unwrap();
         std::fs::create_dir_all(g.join("SiderAddons/livecpk")).unwrap();
         #[cfg(unix)]

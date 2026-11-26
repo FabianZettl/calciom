@@ -1,4 +1,4 @@
-# Regeln der Wettbewerbe je Spielwelt (hier: SP Football Life 2026, Datenstand 2026). Eigene Festlegung von PESM, austauschbar.
+# Regeln der Wettbewerbe je Spielwelt (hier: SP Football Life 2026, Datenstand 2026). Eigene Festlegung von CalcioM, austauschbar.
 # Was der Spielstand trägt, wird beim Einlesen gemessen (WETTBEWERBE.md) und gegen diese Datei abgeglichen; was er nicht trägt, steht hier.
 # sicherheit: "bestaetigt" = am Spielstand oder im Spiel belegt, "vermutet" = Regel der Saison 2025/26 aus dem Fußball, im Spiel nicht belegt.
 # Plätze der Tabelle: oben als [von, bis] (1 = Meister), unten als Zahl vom Tabellenende her (abstieg = die letzten N, relegation = die N Plätze darüber).

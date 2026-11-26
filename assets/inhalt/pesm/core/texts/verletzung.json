@@ -44,7 +44,7 @@
   "testverl.angemeldet": "Der Mannschaftsarzt hat den Ausfall aufgenommen. Er gilt im Spiel, sobald der Tag verbucht ist.",
   "testverl.beendet": "Der Spieler wird wieder gesund gemeldet.",
   "testverl.grund.schon_verletzt": "Dieser Spieler ist schon verletzt.",
-  "testverl.grund.schreiben_aus": "Die Spielerentwicklung durch PESM ist ausgeschaltet.",
+  "testverl.grund.schreiben_aus": "Die Spielerentwicklung durch CalcioM ist ausgeschaltet.",
   "testverl.grund.keine_testverletzung": "Das war keine ausgelöste Testverletzung.",
   "testverl.grund.fehler": "Das hat nicht geklappt."
 }

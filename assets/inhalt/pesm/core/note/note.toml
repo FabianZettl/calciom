@@ -7,7 +7,7 @@ unten = 1.0
 oben = 10.0
 
 [spiel]
-# Eine Spielnote kommt vom Spiel (nur Startelf). Fehlt sie, schätzt PESM aus Teamergebnis, Toren, Vorlagen und Position (Regression über die Liga).
+# Eine Spielnote kommt vom Spiel (nur Startelf). Fehlt sie, schätzt CalcioM aus Teamergebnis, Toren, Vorlagen und Position (Regression über die Liga).
 gewicht_spiel = 0.85            # Mischwert, wenn beides da ist (Spielnote des Spiels zählt hoch)
 gewicht_schaetzung = 0.15
 basis = 5.65
@@ -23,7 +23,7 @@ letzte = 5                      # „Note der letzten n Spiele“
 alter_faktor = 0.9              # je älterem Spiel zählt es so viel weniger
 
 [training]
-# ERSATZ (kein Trainingsverlauf vorhanden): Trainingsnote je Woche aus der Entwicklungsphase und den Wochenpunkten des Entwicklungslaufs (E3); Intensität und Einzeltraining kennt PESM nur als aktuellen Stand.
+# ERSATZ (kein Trainingsverlauf vorhanden): Trainingsnote je Woche aus der Entwicklungsphase und den Wochenpunkten des Entwicklungslaufs (E3); Intensität und Einzeltraining kennt CalcioM nur als aktuellen Stand.
 phase = { aufschwung = 0.4, reifung = 0.2, stagnation = 0.0, alterung = 0.0, formtief = -0.5, krise = -1.0 }
 punkte_je = 8.0                 # Wochenpunkte (Summe über alle Fähigkeiten) pro Stufe
 punkte_stufe = 0.25
@@ -42,7 +42,7 @@ hoechstens = 0.8                # Betrag der Abweichung von der Mitte
 
 [gesamt]
 spiel = 0.8                     # Gewichte; fehlt ein Teil, verteilt sich das Gewicht auf die anderen
-training = 0.1                  # Ersatz: PESM kennt keinen Trainingsverlauf, nur Entwicklungsphase und Wochenpunkte; klein halten, bis es Trainingsdaten gibt
+training = 0.1                  # Ersatz: CalcioM kennt keinen Trainingsverlauf, nur Entwicklungsphase und Wochenpunkte; klein halten, bis es Trainingsdaten gibt
 verhalten = 0.1
 spreizung = 2.0                 # Die Spielnoten der Liga liegen eng (σ 0,4): die Anzeigenote verstärkt die Abweichung vom Kadermittel der Spieler mit Einsatz
 schrumpfung = 3.0              # wenige Einsätze sind wenig Beleg: die Abweichung zählt mit n / (n + schrumpfung)

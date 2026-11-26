@@ -1,6 +1,6 @@
 {
  "flw.start.anleitung.teams": "Choisissez les équipes : domicile %1, extérieur %2.",
  "flw.start.anleitung.controller": "Dans le menu principal, choisissez Coup d'envoi et placez votre manette sur %1.",
- "flw.start.anleitung.stadion": "Stade : %1 (défini par PES M, laissez le menu tel quel).",
+ "flw.start.anleitung.stadion": "Stade : %1 (défini par CalcioM, laissez le menu tel quel).",
  "flw.start.anleitung.anstoss": "Lancez le match avec le coup d'envoi. Le résultat revient tout seul ensuite."
 }

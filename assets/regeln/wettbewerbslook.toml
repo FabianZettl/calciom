@@ -1,4 +1,4 @@
-# Look der Wettbewerbe in PES M (Wettbewerbsseiten): Farben wie die echten Ligen, Muster (sterne, streifen, keins).
+# Look der Wettbewerbe in CalcioM (Wettbewerbsseiten): Farben wie die echten Ligen, Muster (sterne, streifen, keins).
 # Schlüssel = Wettbewerbsschlüssel der Welt (z. B. ENGLAND_D1_LEAGUE) oder Art (cl, el, uecl). Ohne Eintrag: die Farben des Landes.
 # farbe1 = Grund des Banners, farbe2 = zweite Farbe (Verlauf, Kanten), akzent = Linien und Zonen. Diese Datei darfst du ändern.
 

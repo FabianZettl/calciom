@@ -2,7 +2,7 @@
 //! reads the old welt.db into JSON; this builds the world from the old career's database, then takes over the date,
 //! the coach, the players' state, the clubs' money, the league tables (the imported base plus the matches since) and
 //! the domestic cups with their fixtures. Leagues and cups the old career did not play (no fixtures there) and the
-//! European competitions are played by PES M up to the import day. The old career is only read.
+//! European competitions are played by CalcioM up to the import day. The old career is only read.
 use crate::cups::{Cup, CupFx};
 use crate::game::Career;
 use crate::world::{Fixture, World};
@@ -161,11 +161,11 @@ pub fn kommando(json_pfad: &str, alt: &str, welt: &str) -> Result<String, String
 
 #[cfg(test)]
 mod tests {
-    /// Look at an imported career (PESM_ALT_SAVE=<…json>): run with --ignored --nocapture.
+    /// Look at an imported career (CALCIOM_ALT_SAVE=<…json>): run with --ignored --nocapture.
     #[test]
     #[ignore]
     fn import_ansehen() {
-        let Ok(p) = std::env::var("PESM_ALT_SAVE") else { return };
+        let Ok(p) = std::env::var("CALCIOM_ALT_SAVE") else { return };
         let c = crate::game::load(std::path::Path::new(&p)).unwrap();
         eprintln!("{} {} Tag {} Kasse {:.0}", c.coach, c.club().name, crate::date::long(c.world.season, c.world.day), c.club().balance);
         let l = c.league();
@@ -177,8 +177,8 @@ mod tests {
         let offen: usize = c.world.leagues.iter().map(|lg| lg.fixtures.iter().filter(|f| f.hg < 0 && f.day < c.world.day).count()).sum();
         let offen_c: usize = c.world.cups.iter().map(|cu| cu.fx.iter().filter(|f| f.f.hg < 0 && f.f.day < c.world.day).count()).sum();
         eprintln!("vergangene offene Ligaspiele {offen}, Pokalspiele {offen_c}");
-        // PESM_ALT_WEITER=1: play on into the next season (no panic, the season end takes the imported table)
-        if std::env::var("PESM_ALT_WEITER").is_ok() {
+        // CALCIOM_ALT_WEITER=1: play on into the next season (no panic, the season end takes the imported table)
+        if std::env::var("CALCIOM_ALT_WEITER").is_ok() {
             let mut c = c;
             let s0 = c.world.season;
             for _ in 0..120 {

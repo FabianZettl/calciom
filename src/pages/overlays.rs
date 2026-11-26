@@ -410,11 +410,12 @@ pub fn direktstart_frage(ui: &mut Ui, v: &mut View, c: &mut Career) {
             let bt = Rect::new(x, r.y + r.h - 76.0, bw / 2.0 - 8.0, 48.0);
             if ui.button_gold(bt, crate::inhalt::t("ui.ds.ja")) {
                 c.direktstart = true;
-                // the yes covers the launch from PES M too: nothing more to allow on match day
+                // the yes covers the launch from CalcioM too: nothing more to allow on match day
                 c.fl27_erlaubt = true;
                 c.fl27_bestaetigt = true;
-                // one match per FL27 run until the quick start comes: PES M closes it and starts it again next time
-                c.fl27_auto_ende = true;
+                // quick start (Fabian 26.11., "the game changer"): FL27 stays open and waits at the side selection
+                c.schnellstart = true;
+                c.fl27_auto_ende = false;
                 let mut st = crate::game::Fl27Start { c: &mut *c, assets: crate::game::fl27_assets(), log: vec![] };
                 let ok = st.direktstart_bauen();
                 v.fl27_log = st.log;

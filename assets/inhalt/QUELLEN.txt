@@ -1,4 +1,4 @@
-Unveränderte Kopien aus pesm-ml-raus (Python-Fassung von PES M), Pfade relativ zum Projektordner.
+Unveränderte Kopien aus pesm-ml-raus (Python-Fassung von CalcioM), Pfade relativ zum Projektordner.
 pesm/core/akademie/bericht.toml
 pesm/core/akademie/u23.toml
 pesm/core/auszeichnungen/awards.toml

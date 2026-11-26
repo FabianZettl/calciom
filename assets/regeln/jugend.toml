@@ -1,4 +1,4 @@
-# Konfiguration des Jugendnetzwerks (Sitzung S). Eigene Festlegungen von PESM, austauschbar.
+# Konfiguration des Jugendnetzwerks (Sitzung S). Eigene Festlegungen von CalcioM, austauschbar.
 
 [spieler]
 alter_max = 17                 # U17: so alt dürfen die beobachteten Talente höchstens sein

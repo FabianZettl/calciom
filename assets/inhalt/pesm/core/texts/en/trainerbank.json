@@ -192,6 +192,6 @@
  "tb.einst.an": "On",
  "tb.einst.aus": "Off",
  "tb.einst.schalter": "Coaches adapt the tactic",
- "tb.einst.hinweis": "On: coaches change switches, sliders and formation depending on type, results, opponent, home or away and absences. Off: the tactic in the save applies unchanged. PESM writes nothing to the game.",
+ "tb.einst.hinweis": "On: coaches change switches, sliders and formation depending on type, results, opponent, home or away and absences. Off: the tactic in the save applies unchanged. CalcioM writes nothing to the game.",
  "tb.auftrag.grund": "%1: %2 takes over as coach."
 }

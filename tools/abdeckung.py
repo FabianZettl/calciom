@@ -103,7 +103,7 @@ def main():
 - `core/scouting/suchprofil.py`: Suchprofile mit Kriterien (sofort oder als Scout-Auftrag).
 - `core/transfers/wechselbezug.py` / `weltrelevanz.py`: Warum ein fremder Wechsel dich angeht (Rivale, Gegner, eigener Ex-Spieler) als Grund für eine Meldung.
 - `core/gespraeche/haltung.py`: Haltung eines Spielers zu einem Angebot für ihn (will nicht weg / will weg), Verkauf nicht gegen seinen Willen.
-- `adapters/bilder/thesportsdb.py`: Bilder aus dem Netz. Bewusst nicht übernommen (PES M nutzt nur Bilder aus dem Spiel, kein Netz zur Laufzeit).
+- `adapters/bilder/thesportsdb.py`: Bilder aus dem Netz. Bewusst nicht übernommen (CalcioM nutzt nur Bilder aus dem Spiel, kein Netz zur Laufzeit).
 Stand der Prüfung: 177 von 236 „Bereich“-Zeilen haben mindestens 40 % ihrer Funktions- und Dateinamen in Rust; von den übrigen 59 sind die 22 schwächsten nach ihrer Beschreibung einzeln gesichtet, daraus die Lücken oben. Die restlichen 37 sind noch nicht einzeln gesichtet.
 """
     fuss = luecken + "\n**Zahlen:** " + ", ".join(f"{k} {v}" for k, v in sorted(zahl.items())) + f", zusammen {sum(zahl.values())}.\n"

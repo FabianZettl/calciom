@@ -170,10 +170,11 @@ pub(super) fn optionen(ui: &mut Ui, v: &mut View, c: &mut Career) {
     if ui.button(Rect::new(r2.x + 16.0, r2.y + 48.0, 240.0, 34.0), if on { crate::inhalt::t("ui.pages.spielstart_erlaubt") } else { crate::inhalt::t("ui.pages.spielstart_erlaubt_2") }, on) { on = !on; c.fl27_erlaubt = on; }
     let live = c.db_live;
     if ui.button(Rect::new(r2.x + 268.0, r2.y + 48.0, 290.0, 34.0), if live { crate::inhalt::t("ui.pages.datenbank_live_mitschreiben") } else { crate::inhalt::t("ui.pages.datenbank_live_mitschreiben_2") }, live) { c.db_live = !live; }
-    // BlankState222's start_stamina module (installed by the user): PES M writes the start fitness for it
-    if ui.button(Rect::new(r2.x + 450.0, r2.y + 90.0, 300.0, 34.0), crate::inhalt::t(if c.direktstart { "ui.fl27.direktstart_an" } else { "ui.fl27.direktstart_aus" }), c.direktstart) { c.direktstart = !c.direktstart; }
+    // BlankState222's start_stamina module (installed by the user): CalcioM writes the start fitness for it
     if ui.button(Rect::new(r2.x + 16.0, r2.y + 90.0, 420.0, 34.0), crate::inhalt::t(if c.start_stamina { "ui.fl27.start_stamina_an" } else { "ui.fl27.start_stamina_aus" }), c.start_stamina) { c.start_stamina = !c.start_stamina; }
     if ui.button(Rect::new(r2.x + 450.0, r2.y + 90.0, 300.0, 34.0), crate::inhalt::t(if c.direktstart { "ui.fl27.direktstart_an" } else { "ui.fl27.direktstart_aus" }), c.direktstart) { c.direktstart = !c.direktstart; }
+    // quick start (Fabian 26.11.): FL27 stays open, the next match is loaded at the side selection
+    if c.direktstart && ui.button(Rect::new(r2.x + 760.0, r2.y + 90.0, 320.0, 34.0), crate::inhalt::t(if c.schnellstart { "ui.fl27.schnellstart_an" } else { "ui.fl27.schnellstart_aus" }), c.schnellstart) { c.schnellstart = !c.schnellstart; }
     let auto = c.fl27_auto_ende;
     if ui.button(Rect::new(r2.x + 570.0, r2.y + 48.0, 320.0, 34.0), if auto { crate::inhalt::t("ui.pages.fl27_nach_dem_abpfiff_beenden") } else { crate::inhalt::t("ui.pages.fl27_nach_dem_abpfiff_beenden_2") }, auto) { c.fl27_auto_ende = !auto; }
     // right column under „Rückbau“: the career database after the match, and presets still lying in the game folder
@@ -191,7 +192,7 @@ pub(super) fn optionen(ui: &mut Ui, v: &mut View, c: &mut Career) {
     let welt = c.welt().join("common/etc/pesdb/PlayerAssignment.bin").exists();
     let ini = std::fs::read_to_string(s.join("sider.ini")).unwrap_or_default();
     let zeile = !c.fl27_cpk.is_empty() && ini.lines().any(|l| l.trim_start().starts_with("cpk.root") && l.contains(&format!("\\{}\"", c.fl27_cpk)));
-    let module = crate::fl27::MODULE.iter().filter(|(rel, _)| std::fs::read_to_string(s.join(rel)).map(|t| t.contains("PES M")).unwrap_or(false)).count(); // roh
+    let module = crate::fl27::MODULE.iter().filter(|(rel, _)| std::fs::read_to_string(s.join(rel)).map(|t| crate::fl27::von_uns(&t)).unwrap_or(false)).count(); // roh
     let lines = [
         crate::tf!("ui.pages.spielordner_und_welt_datenbank", ok(welt)),
         crate::tf!("ui.pages.karriere_zeile_in_sider_ini", if zeile { crate::inhalt::t("ui.wort.aktiv") } else { crate::inhalt::t("ui.pages.noch_nicht_eingerichtet") }, module),

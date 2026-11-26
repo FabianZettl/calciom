@@ -1,4 +1,4 @@
-# PES M – Nationaltrainer (Startdaten), Stand 23.11.2026
+# CalcioM – Nationaltrainer (Startdaten), Stand 23.11.2026
 # Fabian darf alles ändern und ergänzen. Zuordnung über code (= ligaregeln.toml [[land]] code).
 # sicher = true  : vor und nach der WM 2026 bestätigt (mehrere Quellen bzw. lange im Amt, kein gemeldeter Wechsel)
 # sicher = false : nur eine Presse-Quelle (Juli/Aug 2026) oder Stand vor der WM ohne Bestätigung danach -> bitte prüfen
@@ -936,7 +936,7 @@ liga_anspruch = 55
 disziplin = 65
 experimentierlust = 50
 handschrift = []
-hinweis = "Hong Myung-bo nach der WM zurückgetreten; Nachfolger in PES M per Nachfolger-Regel (Konzept 2.5) wählen lassen."
+hinweis = "Hong Myung-bo nach der WM zurückgetreten; Nachfolger in CalcioM per Nachfolger-Regel (Konzept 2.5) wählen lassen."
 
 [[trainer]]
 code = "CZE"
@@ -1409,7 +1409,7 @@ ESP = ["Santi Denia"]
 ARG = []
 KOR = []
 
-# PES M: Regeln der Nominierung und der Länderspiele (Kern)
+# CalcioM: Regeln der Nominierung und der Länderspiele (Kern)
 [pes_m]
 pool_mindestens = 15          # so viele Spieler braucht eine Nation, um ein Team zu stellen
 u21_alter = 21                # U21-Kader: so alt höchstens (Paketrest 23.11.)
@@ -1425,7 +1425,7 @@ turnier_starttag = 10         # Turniere beginnen am 10. ihres ersten Monats
 turnier_schub = [1.03, 1.06, 1.10, 1.15, 1.20, 1.30]   # Marktwert nach Turnier: Gruppe, Achtel-, Viertel-, Halbfinale, Finale, Sieg
 wissen_nach_turnier = 45      # wer bei einem Turnier war, ist danach bekannt          # „Auf dem Zettel“: höchstens so weit unter dem schwächsten Nominierten seiner Mannschaftsteils
 
-# PES M: Kürzel → Ländername wie in nationen.json (Zuordnung zur Nationalität aus Player.bin)
+# CalcioM: Kürzel → Ländername wie in nationen.json (Zuordnung zur Nationalität aus Player.bin)
 [codes]
 ALB = "Albanien"
 ALG = "Algerien"

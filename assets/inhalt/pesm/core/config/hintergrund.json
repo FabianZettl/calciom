@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Schwere Hintergrundläufe von PESM (Welt-Index, Startwerte ablegen und neu berechnen, Neu-Einlesen, Datenbank-Dienst) sollen das Spiel nicht bremsen. Sie laufen mit niedriger Priorität (nice, ionice idle) und werden nicht gestartet, solange der Spielprozess läuft – dann zurückgestellt und danach nachgeholt. Ausnahme: ein Lauf, den der Anwender ausdrücklich anstößt.",
+  "_hinweis": "Schwere Hintergrundläufe von CalcioM (Welt-Index, Startwerte ablegen und neu berechnen, Neu-Einlesen, Datenbank-Dienst) sollen das Spiel nicht bremsen. Sie laufen mit niedriger Priorität (nice, ionice idle) und werden nicht gestartet, solange der Spielprozess läuft – dann zurückgestellt und danach nachgeholt. Ausnahme: ein Lauf, den der Anwender ausdrücklich anstößt.",
   "spielprozess": "FL_2026.exe",
   "_startprozesse": "Zählen wie das Spiel selbst: Sie laufen schon, während das Spiel startet (Sider erscheint vor dem Spiel, das Startskript davor). Erkennung wie beim Spielprozess.",
   "startprozesse": ["sider.exe", "FL_2026.bat"],

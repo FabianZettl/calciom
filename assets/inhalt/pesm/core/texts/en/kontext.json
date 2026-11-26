@@ -62,7 +62,7 @@
  "gs.kontext.luecke.spielzeit": "The coaching staff has not yet assessed playing time.",
  "gs.kontext.luecke.gehalt": "The wage has not been read.",
  "gs.kontext.luecke.laufzeit": "The length has not been read.",
- "gs.kontext.luecke.klausel": "PESM does not read the release clause from the save.",
+ "gs.kontext.luecke.klausel": "CalcioM does not read the release clause from the save.",
  "gs.kontext.luecke.marktwert": "The market value has not been assessed yet.",
  "gs.kontext.luecke.pos_gehalt": "No player of the same position and rating in the squad.",
  "gs.kontext.luecke.forderung": "The agent's demand is not on file yet.",

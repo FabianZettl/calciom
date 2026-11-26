@@ -1,6 +1,6 @@
 {
   "modellversion": 1,
-  "_hinweis": "Gesamtwert (SGB) von PESM – eine NÄHERUNG, nicht der Wert des Spiels. Je Positionsgruppe: SGB = a × Eingang + b, kaufmännisch gerundet und auf bereich begrenzt (die Gerade läuft bei den allerbesten Spielern über 99 hinaus). Eingang bei Feldspielern: Mittel der feld_hoechste höchsten Feldwerte (alle Fähigkeiten außer den Torwartwerten); beim Torwart: Mittel der Torwartwerte. fehler = mittlerer Fehler der Kreuzvalidierung in Punkten. Gilt nur für die Hauptposition. Alles austauschbar.",
+  "_hinweis": "Gesamtwert (SGB) von CalcioM – eine NÄHERUNG, nicht der Wert des Spiels. Je Positionsgruppe: SGB = a × Eingang + b, kaufmännisch gerundet und auf bereich begrenzt (die Gerade läuft bei den allerbesten Spielern über 99 hinaus). Eingang bei Feldspielern: Mittel der feld_hoechste höchsten Feldwerte (alle Fähigkeiten außer den Torwartwerten); beim Torwart: Mittel der Torwartwerte. fehler = mittlerer Fehler der Kreuzvalidierung in Punkten. Gilt nur für die Hauptposition. Alles austauschbar.",
   "art": "naeherung",
   "torwartwerte": ["torwartgefuehl", "fangen", "klaeren", "reflexe", "reichweite"],
   "feld_hoechste": 8,

@@ -1,7 +1,7 @@
 # Fernsehgeld der Liga nach Tabellenplatz (Nutzerrecherche 27.10.). `spreizung` = Verhältnis Erster zu Letztem; die Gewichte fallen linear mit dem Platz und haben den Mittelwert 1.
 # Deutschland: Erster 83,4 / Letzter 31,4 Mio (2,7 : 1). England: gleicher Sockel für alle plus Platzierungsgeld je Platz (1,6 : 1). Nicht genannte Ligen: [standard].
 # Zum Monatsgeld der Vereinswelt (vereinswelt.toml tv_platzbonus) kommt am Saisonende ein Zuschlag, wenn der Platz mehr wert ist als der monatliche Platzbonus:
-# Zuschlag = Jahresbasis * zuschlag_faktor * (Gewicht(Platz) - 1), nie negativ (kein Rückzahlen). Eigene Festlegung von PESM.
+# Zuschlag = Jahresbasis * zuschlag_faktor * (Gewicht(Platz) - 1), nie negativ (kein Rückzahlen). Eigene Festlegung von CalcioM.
 zuschlag_faktor = 0.5
 [standard]
 spreizung = 2.0
