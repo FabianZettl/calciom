@@ -70,6 +70,7 @@ mod krise;
 mod trainingsplan;
 mod jugend;
 mod gesichter;
+mod passfoto;
 mod scoutbericht;
 mod statistik;
 mod auftraege;
@@ -181,7 +182,7 @@ fn stage_text(v: &View) -> (&'static str, &'static str, &'static str) {
 fn conf() -> Conf {
     // preview aid: PESM_FENSTER=1920x1080 starts with that window size (checks of other screen shapes)
     let (w, h) = std::env::var(crate::id("PESM_FENSTER")).ok().and_then(|s| { let (a, b) = s.split_once('x')?; Some((a.parse().ok()?, b.parse().ok()?)) }).unwrap_or((crate::ui::W_BASIS as i32, 900));
-    Conf { window_title: "PES M".into(), window_width: w, window_height: h, high_dpi: false, sample_count: 4, ..Default::default() } // roh
+    Conf { window_title: "PES M".into(), window_width: w, window_height: h, high_dpi: true, sample_count: 4, ..Default::default() } // roh
 }
 
 #[derive(PartialEq)]
@@ -367,6 +368,7 @@ impl App {
         // the career's world (the built-in demo world uses the FL world folder of the game for its pictures)
         let welt = match (&self.screen, &self.career) { (Screen::Game, Some(c)) => Some(c.welt()).filter(|w| w.is_dir()), _ => self.start.welt.clone() };
         self.ui.bilder_fuer_welt(welt);
+        if let Some(c) = &self.career { crate::gesichter::spender_setzen(&c.world.gesichter); }
         self.handy_bearbeiten();
         match self.screen {
             Screen::Start => { self.start_screen(); self.ui.nachweise_zeichnen(); }
@@ -1475,6 +1477,11 @@ async fn main() {
             let gegner = c.world.leagues[c.league()].teams.iter().copied().find(|&t| t != own).unwrap_or(0);
             match art.as_str() {
                 "titel" | "gala" | "derby" | "finale" | "meilenstein" | "vertrag" => c.feiern.push(crate::meilensteine::Feier { art: art.clone(), titel: crate::id("Preview").into(), text: crate::id("Preview").into(), spieler: (art != "titel").then_some(p), club: Some(own), gegner: Some(gegner), wo: Some((false, c.league())), ..Default::default() }), // roh
+                "siegerehrung" if !c.world.cups.is_empty() => { // roh
+                    let sq = c.squad();
+                    let res = crate::world::MatchResult { h: own, a: gegner, hg: 2, ag: 1, pens: None, events: vec![crate::world::MatchEvent { min: 23, side: 0, kind: 0, pid: sq[sq.len() - 1], pid2: None }, crate::world::MatchEvent { min: 67, side: 0, kind: 0, pid: sq[sq.len() - 1], pid2: None }, crate::world::MatchEvent { min: 81, side: 1, kind: 0, pid: c.world.leagues[c.league()].teams.iter().copied().find(|&t| t == gegner).and_then(|g| (0..c.world.players.len()).find(|&q| c.world.players[q].team == g as i32)).unwrap_or(p), pid2: None }], ..Default::default() };
+                    c.siegerehrung(0, &res);
+                }
                 _ => c.feier_neuzugang(p, crate::id("Testverein"), 25_000_000.0),
             }
         }
@@ -1589,12 +1596,15 @@ async fn main() {
     let mut frames = 0;
     loop {
         hoehe_setzen(screen_width(), screen_height());
+        crate::passfoto::vorbereiten();
         let k = view_scale();
         let mut cam = Camera2D::from_display_rect(Rect::new(-versatz(), 0.0, screen_width() * k, screen_height() * k));
         cam.zoom.y = -cam.zoom.y; // from_display_rect is made for render targets; the window needs y pointing down
         set_camera(&cam);
         app.frame();
         frames += 1;
+        // for bug reports about blurry text: the window's pixel density and the UI's pixels per unit
+        if frames == 2 { fl27::log(&format!("Anzeige: {}x{} Punkte, DPI-Faktor {:.2}, {:.2} Pixel je Einheit", screen_width(), screen_height(), screen_dpi_scale(), crate::ui::px_je_einheit())); } // roh
         if app.selftest.is_some() && app.self_test_step() { break; }
         if app.starttest.is_some() && app.start_test_step() { break; }
         if let Some(p) = &shot {

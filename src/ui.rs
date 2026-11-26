@@ -313,26 +313,29 @@ impl Ui {
     pub fn text(&self, s: &str, x: f32, y: f32, size: f32, c: Color) {
         let s = &*zeichen(s);
         let (s, g) = self.im_rahmen(s, x, y, size, &|t, g| self.measure(t, g));
-        draw_text_ex(&s, x, y, TextParams { font: Some(&self.body), font_size: g as u16, color: c, ..Default::default() });
+        let (fs, sc) = scharf(g); let (x, y) = pixelgenau(x, y);
+        draw_text_ex(&s, x, y, TextParams { font: Some(&self.body), font_size: fs, font_scale: sc, color: c, ..Default::default() });
     }
     pub fn text_semi(&self, s: &str, x: f32, y: f32, size: f32, c: Color) {
         let s = &*zeichen(s);
         let (s, g) = self.im_rahmen(s, x, y, size, &|t, g| self.measure_semi(t, g));
-        draw_text_ex(&s, x, y, TextParams { font: Some(&self.semi), font_size: g as u16, color: c, ..Default::default() });
+        let (fs, sc) = scharf(g); let (x, y) = pixelgenau(x, y);
+        draw_text_ex(&s, x, y, TextParams { font: Some(&self.semi), font_size: fs, font_scale: sc, color: c, ..Default::default() });
     }
     pub fn title(&self, s: &str, x: f32, y: f32, size: f32, c: Color) {
         let s = &*zeichen(s);
         let (s, g) = self.im_rahmen(s, x, y, size, &|t, g| self.measure_title(t, g));
-        draw_text_ex(&s, x, y, TextParams { font: Some(&self.head), font_size: g as u16, color: c, ..Default::default() });
+        let (fs, sc) = scharf(g); let (x, y) = pixelgenau(x, y);
+        draw_text_ex(&s, x, y, TextParams { font: Some(&self.head), font_size: fs, font_scale: sc, color: c, ..Default::default() });
     }
     pub fn measure_title(&self, s: &str, size: f32) -> f32 {
-        measure_text(&zeichen(s), Some(&self.head), size as u16, 1.0).width
+        { let (fs, sc) = scharf(size); measure_text(&zeichen(s), Some(&self.head), fs, sc).width }
     }
     pub fn measure(&self, s: &str, size: f32) -> f32 {
-        measure_text(&zeichen(s), Some(&self.body), size as u16, 1.0).width
+        { let (fs, sc) = scharf(size); measure_text(&zeichen(s), Some(&self.body), fs, sc).width }
     }
     pub fn measure_semi(&self, s: &str, size: f32) -> f32 {
-        measure_text(&zeichen(s), Some(&self.semi), size as u16, 1.0).width
+        { let (fs, sc) = scharf(size); measure_text(&zeichen(s), Some(&self.semi), fs, sc).width }
     }
     pub fn text_right(&self, s: &str, right: f32, y: f32, size: f32, c: Color) {
         let w = self.measure(s, size);
@@ -613,13 +616,16 @@ impl Ui {
     pub fn avatar(&self, cx: f32, cy: f32, r: f32, name: &str) { self.figur(cx, cy, r, name, Rolle::aus_name(name)); }
     /// A drawn figure inside a circle: head with skin tone and hair, clothes by role (suit and tie for the board,
     /// suit and sunglasses for agents, glasses and notebook colours for the press, a cap for scouts, a kit for players).
-    pub fn figur(&self, cx: f32, cy: f32, r: f32, name: &str, rolle: Rolle) {
+    pub fn figur(&self, cx: f32, cy: f32, r: f32, name: &str, rolle: Rolle) { self.figur_mit(cx, cy, r, name, rolle, None) }
+    /// The figure with a player's look from FL27 (skin, hair colour, bald, beard) instead of the one guessed from the name.
+    pub fn figur_mit(&self, cx: f32, cy: f32, r: f32, name: &str, rolle: Rolle, look: Option<crate::gesichter::Aussehen>) {
         let h = name.bytes().fold(7u32, |a, b| a.wrapping_mul(31).wrapping_add(b as u32));
         let wahl = |n: u32, k: u32| ((h >> k) % n) as usize;
         let grund = hex([0x3ecf8e, 0xf5b942, 0x38bdf8, 0x2dd4bf, 0xf472b6, 0xfb923c, 0xa78bfa, 0x94a3b8][wahl(8, 0)]);
         draw_circle(cx, cy, r, with_light(grund, if Theme::dark() { 0.32 } else { 0.86 }, 0.6));
         let haut = hex([0xf2d3b8, 0xe0b48c, 0xc68e62, 0x9c6a43, 0x6b4428][wahl(5, 3)]);
         let haar = hex([0x2b1d14, 0x5a3a22, 0x8a5a2b, 0xc9a86b, 0x9a9a9a, 0x1b1b1b][wahl(6, 6)]);
+        let (haut, haar) = look.map_or((haut, haar), |l| (haut_farbe(l.haut), haar_farbe(l.haar)));
         let kleid = match rolle {
             Rolle::Vorstand | Rolle::Berater => hex([0x1f2937, 0x23314d, 0x3b3b3b][wahl(3, 9)]),
             Rolle::Spieler => Theme::verein(),
@@ -644,13 +650,15 @@ impl Ui {
         draw_rectangle(cx - r * 0.09, cy + r * 0.18, r * 0.18, r * 0.22, haut);
         let (kx, ky, kr) = (cx, cy - r * 0.12, r * 0.35);
         draw_circle(kx, ky, kr, haut);
-        let glatze = wahl(7, 12) == 0;
+        let glatze = look.map_or(wahl(7, 12) == 0, |l| l.glatze());
         if !glatze {
             draw_rectangle(kx - kr, ky - kr * 0.55, kr * 2.0, kr * 0.35, haar);
             draw_circle(kx, ky - kr * 0.35, kr * 0.92, haar);
             draw_circle(kx, ky + kr * 0.12, kr * 0.86, haut);
             if wahl(3, 15) == 0 { draw_rectangle(kx - kr * 1.02, ky - kr * 0.3, kr * 0.26, kr * 1.1, haar); draw_rectangle(kx + kr * 0.76, ky - kr * 0.3, kr * 0.26, kr * 1.1, haar); }
         }
+        // a beard: a soft band of the hair colour round the chin
+        if look.is_some_and(|l| l.bart) { draw_circle(kx, ky + kr * 0.42, kr * 0.62, alpha(haar, 0.6)); draw_circle(kx, ky + kr * 0.22, kr * 0.62, haut); }
         // eyes and a calm mouth
         let auge = hex(0x1f1f1f);
         match rolle {
@@ -778,7 +786,7 @@ impl Ui {
     }
     pub fn player_photo(&self, cx: f32, cy: f32, r: f32, id: u32, name: &str) {
         self.foto_orte.borrow_mut().push((id, vec2(cx, cy), r));
-        let Some(t) = self.foto_tex(id) else { self.figur(cx, cy, r, name, Rolle::Spieler); return };
+        let Some(t) = self.foto_tex(id) else { self.figur_mit(cx, cy, r, name, Rolle::Spieler, crate::gesichter::aussehen_von(id)); return };
         draw_circle(cx, cy, r, Theme::erhoehung());
         // the photo inside the circle (inscribed square, head at the top)
         let s = r * 1.414;
@@ -943,6 +951,22 @@ impl Ui {
 
 /// Virtual units per window pixel: the width 1400 fills the window; only below the minimum height (very wide windows)
 /// the layout keeps 760 and extra width stays on the right.
+/// Physical pixels per layout unit (the camera scales units to the window; with high DPI the framebuffer is bigger).
+pub fn px_je_einheit() -> f32 { screen_dpi_scale() / view_scale() }
+/// Text rasterised at its size on screen and scaled back to units, instead of rasterised at the unit size and
+/// stretched by the camera (user feedback 25.11.: blurry UI, at 1080p every glyph was scaled by 1.08 and filtered).
+pub fn scharf(g: f32) -> (u16, f32) {
+    let soll = (g as u16).max(1) as f32;
+    let fs = (soll * px_je_einheit()).round().max(1.0);
+    (fs as u16, soll / fs)
+}
+/// The text's origin on a whole physical pixel, so glyphs are not smeared across two pixels.
+pub fn pixelgenau(x: f32, y: f32) -> (f32, f32) {
+    let p = px_je_einheit();
+    if p <= 0.0 || !p.is_finite() { return (x, y); }
+    let v = versatz();
+    (((x + v) * p).round() / p - v, (y * p).round() / p)
+}
 pub fn view_scale() -> f32 { (breite() / screen_width()).max(hoehe() / screen_height()) }
 /// Left offset of the layout (0 since the width follows the window; kept for the camera and the mouse).
 pub fn versatz() -> f32 { ((screen_width() * view_scale() - breite()) / 2.0).max(0.0) }
@@ -1042,3 +1066,8 @@ mod farb_tests {
         }
     }
 }
+
+/// Skin step 1 (fair) … 6 (very dark) of an appearance record as a drawing colour (the pass photo's tones).
+pub fn haut_farbe(stufe: u8) -> Color { let f = crate::passfoto::haut_stufe(stufe); Color::from_rgba(f[0], f[1], f[2], 255) }
+/// The game's 6-bit hair RGB as a drawing colour (the pass photo's tones).
+pub fn haar_farbe(rgb: [u8; 3]) -> Color { let f = crate::passfoto::haar_rgb(rgb[0], rgb[1], rgb[2]); Color::from_rgba(f[0], f[1], f[2], 255) }

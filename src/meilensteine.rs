@@ -91,6 +91,7 @@ impl Career {
         let titel_jetzt = self.world.titles.iter().filter(|x| x.club == self.own).count();
         if titel_jetzt > self.titel_gefeiert {
             for x in self.world.titles.iter().filter(|x| x.club == self.own).skip(self.titel_gefeiert).cloned().collect::<Vec<_>>() {
+                if self.meilensteine.iter().any(|m| m.0 == format!("sieg:{}:{}", x.season, x.comp)) { continue; } // roh
                 let own = self.own;
                 self.feiern.push(Feier { art: crate::id("titel").into(), titel: x.comp.clone(), text: crate::tf!("ui.feier.titel_text", self.club().name, x.comp, crate::date::season_label(x.season)), spieler: None, club: Some(own), stimmen: vec![], ..Default::default() });
             }
@@ -115,6 +116,27 @@ impl Career {
     /// Player milestones of the own squad (meilensteine.toml [[spieler]]): debut, first goal, hat-trick, 50/100/200/300
     /// games, 25/50/100 goals, first cap; an inbox note with his banner, a boost for his morale, the big ones
     /// celebrated full screen. The first check only marks what was reached before.
+    /// Our own trophy ceremony after a won final (Fabian 25.11.: FL27's own presentation can't be triggered): trophy,
+    /// both crests, the score with penalties, the scorers of both sides. The plain title moment is skipped for this cup.
+    pub fn siegerehrung(&mut self, ci: usize, res: &crate::world::MatchResult) {
+        let (cup, own) = (self.world.cups[ci].name.clone(), self.own);
+        self.meilensteine.push((format!("sieg:{}:{}", self.world.season, cup), self.abs())); // roh
+        let home = res.h == own;
+        let (opp, gf, ga) = if home { (res.a, res.hg, res.ag) } else { (res.h, res.ag, res.hg) };
+        let mut text = format!("{} {gf}:{ga} {}", self.club().name, self.world.clubs[opp].name); // roh
+        if let Some(p) = res.pens { text += &crate::tf!("ui.feier.elfer", crate::cups::pens_score(if home { p } else { (p.1, p.0) })); }
+        // scorers per side in match order: "Kane 23', 67' · Musiala 80'"; an own goal counts for the other side
+        let mut stimmen = vec![];
+        for (seite, club) in [(if home { 0 } else { 1 }, own), (if home { 1 } else { 0 }, opp)] {
+            let mut namen: Vec<(String, Vec<String>)> = vec![];
+            for e in res.events.iter().filter(|e| (e.kind == 0 && e.side == seite) || (e.kind == 1 && e.side != seite)) {
+                let n = self.world.players[e.pid].name.clone() + if e.kind == 1 { crate::inhalt::t("ui.feier.eigentor") } else { "" };
+                match namen.iter_mut().find(|x| x.0 == n) { Some(x) => x.1.push(format!("{}'", e.min)), None => namen.push((n, vec![format!("{}'", e.min)])) } // roh
+            }
+            if !namen.is_empty() { stimmen.push((self.world.clubs[club].name.clone(), namen.iter().map(|(n, m)| format!("{n} {}", m.join(", "))).collect::<Vec<_>>().join(" · "))); }
+        }
+        self.feiern.push(Feier { art: crate::id("siegerehrung").into(), titel: cup, text, spieler: None, club: Some(own), stimmen, gegner: Some(opp), wo: Some((true, ci)) });
+    }
     pub fn spieler_meilensteine(&mut self) {
         let liste: Vec<(String, String, u32, bool)> = crate::mensch::arr("meilensteine", "spieler").iter().filter_map(|m| Some((m["id"].as_str()?.to_string(), m["zaehlt"].as_str()?.to_string(), m["ziel"].as_u64()? as u32, m["feier"].as_bool().unwrap_or(false)))).collect();
         let erste = self.spieler_ms.is_none();
@@ -184,6 +206,30 @@ mod tests {
         assert!(c.feier_stimmen(klein, true).is_empty());
         let b = c.feier_stimmen(gross, false);
         assert_ne!(a[0].1, b[0].1, "the fans don't say the same twice");
+    }
+    #[test]
+    fn siegerehrung_nach_finale() {
+        let mut c = Career::new(crate::world::testwelt(3), 2, "Test");
+        let (own, opp) = (c.own, 3);
+        let p = c.squad()[0];
+        let q = (0..c.world.players.len()).find(|&q| c.world.players[q].team == opp as i32).unwrap();
+        let ev = |min, side, kind, pid| crate::world::MatchEvent { min, side, kind, pid, pid2: None };
+        // we play away: our goals are side 1; their own goal (side 0, kind 1) counts for us
+        let res = crate::world::MatchResult { h: opp, a: own, hg: 1, ag: 2, pens: Some((3, 4)), events: vec![ev(10, 1, 0, p), ev(50, 0, 0, q), ev(70, 1, 0, p), ev(80, 0, 1, q)], ..Default::default() };
+        let titel = c.world.titles.len();
+        c.world.titles.push(crate::cups::Title { season: c.world.season, comp: c.world.cups[0].name.clone(), club: own });
+        c.siegerehrung(0, &res);
+        let f = c.feiern.last().unwrap().clone();
+        assert_eq!(f.art, "siegerehrung");
+        assert!(f.text.contains("2:1") && f.text.contains("4:3"), "{}", f.text);
+        let n = c.world.players[p].name.clone();
+        assert!(f.stimmen[0].1.starts_with(&format!("{n} 10', 70'")), "{:?}", f.stimmen);
+        assert!(f.stimmen[0].1.contains("80'") && f.stimmen[1].1.contains("50'"), "{:?}", f.stimmen);
+        // the plain title moment for the same cup stays away
+        let vor = c.feiern.len();
+        c.titel_gefeiert = titel;
+        c.meilensteine_pruefen();
+        assert!(!c.feiern[vor..].iter().any(|x| x.art == "titel"));
     }
     #[test]
     fn meilensteine_mit_fortschritt_und_feier() {

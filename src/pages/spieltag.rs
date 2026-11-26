@@ -319,6 +319,16 @@ pub(super) fn spieltag(ui: &mut Ui, v: &mut View, c: &mut Career) {
                     }
                 }
                 y += 52.0;
+                // the real match length in FL27 (Fabian 26.11.), only the direct start can set it
+                if c.direktstart {
+                    ui.text(crate::inhalt::t("ui.fl27.spielminuten"), r2.x + 14.0, y + 22.0, 15.0, Theme::text2());
+                    let stufen = [0u8, 5, 8, 10, 15, 20, 30];
+                    let namen: Vec<String> = stufen.iter().map(|&m| if m == 0 { crate::inhalt::t("ui.fl27.spielminuten_spiel").to_string() } else { crate::tf!("ui.fl27.min", m) }).collect();
+                    let namen: Vec<&str> = namen.iter().map(|s| s.as_str()).collect();
+                    let jetzt = stufen.iter().position(|&m| m == c.spielminuten).unwrap_or(0);
+                    if let Some(i) = ui.segment(Rect::new(r2.x + 200.0, y + 2.0, (r2.w - 214.0).min(560.0), 32.0), &namen, jetzt) { c.spielminuten = stufen[i]; }
+                    y += 42.0;
+                }
                 for l in v.fl27_log.iter().rev().take(3) { let t = ui.fit(l, 14.0, r2.w - 28.0); ui.text(&t, r2.x + 14.0, y + 14.0, 14.0, Theme::text2()); y += 18.0; }
             } else {
                 for l in c.fl27_ansage() { y = ui.paragraph(&format!("• {l}"), r2.x + 14.0, y + 14.0, 15.0, r2.w - 28.0, Theme::text()) - 8.0; }

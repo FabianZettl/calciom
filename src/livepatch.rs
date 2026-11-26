@@ -138,19 +138,21 @@ pub fn modul_einrichten(sider: &Path, assets: &Path) -> Result<bool, String> {
     Ok(true)
 }
 /// The sider.ini text with the module line (after the first lua.module line), unchanged when it is there.
-pub fn ini_mit_modul(t: &str) -> String {
-    if t.lines().any(|z| z.contains("pesm-livepatch.lua") && !z.trim_start().starts_with(';')) { return t.to_string(); }
+pub fn ini_mit_modul(t: &str) -> String { ini_mit_lua(t, "pesm-livepatch.lua") }
+/// The sider.ini text with `lua.module = "<name>"` (after the first lua.module line), unchanged when it is there.
+pub fn ini_mit_lua(t: &str, name: &str) -> String {
+    if t.lines().any(|z| z.contains(name) && !z.trim_start().starts_with(';')) { return t.to_string(); }
     let mut out = vec![];
     let mut drin = false;
     for z in t.lines() {
         out.push(z.to_string());
         if !drin && z.trim_start().starts_with("lua.module") {
             let einzug: String = z.chars().take_while(|c| c.is_whitespace()).collect();
-            out.push(format!("{einzug}lua.module = \"pesm-livepatch.lua\""));
+            out.push(format!("{einzug}lua.module = \"{name}\""));
             drin = true;
         }
     }
-    if !drin { out.push("lua.module = \"pesm-livepatch.lua\"".into()); } // roh
+    if !drin { out.push(format!("lua.module = \"{name}\"")); } // roh
     out.join(if t.contains(crate::id("\r\n")) { crate::id("\r\n") } else { crate::id("\n") }) + if t.ends_with('\n') { if t.contains(crate::id("\r\n")) { crate::id("\r\n") } else { crate::id("\n") } } else { "" }
 }
 

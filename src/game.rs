@@ -486,6 +486,13 @@ pub struct Career {
     /// Write PES M's fitness into start_stamina.txt for BlankState222's start_stamina module (setting, off by default).
     #[serde(default)]
     pub start_stamina: bool,
+    /// Direct start into the match (Fabian 26.11.: switchable in Einstellungen › Football Life 2027); off = FL27 opens on
+    /// the main menu as before. Off by default while the direct start is new.
+    #[serde(default)]
+    pub direktstart: bool,
+    /// Real match length in FL27 for the direct start (Fabian 26.11.: set before the match); 0 = as set in the game.
+    #[serde(default)]
+    pub spielminuten: u8,
     /// Switches (FC-26 wish): no pre-contracts and no release clauses by AI clubs for our players.
     #[serde(default)]
     pub ohne_ki_vorvertraege: bool,
@@ -726,7 +733,7 @@ impl Career {
                 Scout { name: crate::inhalt::t("ui.game.erik_haldorsen").into(), q: 6, league: Some(own_league), pos: 0, watch: None, seen: 0, p: None },
                 Scout { name: crate::inhalt::t("ui.game.bruno_valente").into(), q: 4, league: None, pos: 0, watch: None, seen: 0, p: None },
             ],
-            ticket: 1, merch: 1, fans: 60.0, media: 50.0, warned: false, ultimatum: None, ultimatum_ab: None, lockruf_bis: 0, bitten: vec![], gehalt_plus: 0.0, ruhe_bis: 0, verhandlungstempo: if cfg!(test) { 0 } else { 1 }, infra_topf: None, gala: vec![], preise: vec![], preis_kand: vec![], preis_kand_saison: 0, thema_wettbewerb: false, privat: Default::default(), meldungen: vec![], start_stamina: false, ohne_ki_vorvertraege: false, ohne_ki_klauseln: false, boykott_bis: 0, marktwert_aera: 0, datenpakete: vec![], auslosungen: vec![], auslosung_gesehen: vec![], fired: false,
+            ticket: 1, merch: 1, fans: 60.0, media: 50.0, warned: false, ultimatum: None, ultimatum_ab: None, lockruf_bis: 0, bitten: vec![], gehalt_plus: 0.0, ruhe_bis: 0, verhandlungstempo: if cfg!(test) { 0 } else { 1 }, infra_topf: None, gala: vec![], preise: vec![], preis_kand: vec![], preis_kand_saison: 0, thema_wettbewerb: false, privat: Default::default(), meldungen: vec![], start_stamina: false, direktstart: false, spielminuten: 0, ohne_ki_vorvertraege: false, ohne_ki_klauseln: false, boykott_bis: 0, marktwert_aera: 0, datenpakete: vec![], auslosungen: vec![], auslosung_gesehen: vec![], fired: false,
             mgr_rep: (world.clubs[own].rep * 0.6 + 10.0).min(80.0), mgr_wage: (rev * 0.004).max(120000.0), mgr_money: 0.0, mgr_since: 0,
             book: vec![], balance_hist: vec![world.clubs[own].balance], youth: Default::default(), history: vec![],
             transfer_budget: rev * 0.22, last_result: None, press: None, hard_streak: 0, results: vec![], fl27_erlaubt: false, fl27_bestaetigt: false, fl27_spiele: vec![], fl27_cpk: String::new(), fl27_welt: String::new(), mensch: Default::default(), wi: Default::default(), me: Default::default(), stab: vec![], std: Default::default(), mgr: Default::default(), mst: Default::default(), gespraech_termine: vec![],
@@ -1048,7 +1055,11 @@ impl Career {
         let comp = self.comp_name(t);
         match t.0 {
             Wo::Liga(l) => self.world.apply_result(l, t.1, &res),
-            Wo::Pokal(ci) => { self.world.finish_cup_match(ci, t.1, &mut res); self.world.cup_progress(); self.pokal_praemie(ci); }
+            Wo::Pokal(ci) => {
+                let vorher = self.world.cups[ci].winner;
+                self.world.finish_cup_match(ci, t.1, &mut res); self.world.cup_progress(); self.pokal_praemie(ci);
+                if vorher.is_none() && self.world.cups[ci].winner == Some(self.own) && self.world.cups[ci].kind != 6 { self.siegerehrung(ci, &res); }
+            }
         }
         if res.et { res.reason = crate::tf!("ui.game.nach_verlaengerung", res.reason, res.pens.map(|p| crate::tf!("ui.game.und_elfmeterschiessen", crate::cups::pens_score(p))).unwrap_or_default()); }
         if !matches!(t.0, Wo::Liga(_)) { res.reason = crate::tf!("diagnose.schalter", comp, res.reason); }
@@ -2895,6 +2906,21 @@ impl Career {
         if self.start_stamina { let _ = self.start_stamina_schreiben(); }
         Ok(crate::tf!("ui.game.wettbewerb_stadion_wetter", tid.map(|t| t.to_string()).unwrap_or(crate::inhalt::t("ui.wort.frei").into()), stadion.unwrap_or(crate::inhalt::t("ui.wort.frei").into()), w, t))
     }
+    /// The direct-start line for the next match (fl27::direktmatch_zeile): FL27 team ids, extra time and penalties only
+    /// for a single knock-out match (two legs PES M settles itself, as in flw/spielregeln.txt), final or semi-final.
+    pub fn direktmatch_text(&self) -> Option<String> {
+        let t = self.next_termin()?;
+        let f = self.fixture(t);
+        let (mut einzel, mut runde) = (false, None);
+        if let Wo::Pokal(ci) = t.0 {
+            let (c, x) = (&self.world.cups[ci], &self.world.cups[ci].fx[t.1]);
+            if c.kind == 6 { return Some(fl27::direktmatch_zeile(self.world.clubs[f.h].id, self.world.clubs[f.a].id, self.spielminuten, false, false, None)); }
+            einzel = (x.stage >= 20 && x.stage != 33 || c.kind == 0) && x.leg == 0;
+            let (halb, fin) = if c.kind == 4 { (matches!(x.stage, 22 | 32), matches!(x.stage, 23 | 33)) } else { (x.stage == 33, x.stage == 34) };
+            runde = if fin { Some(53) } else if halb { Some(52) } else { None };
+        }
+        Some(fl27::direktmatch_zeile(self.world.clubs[f.h].id, self.world.clubs[f.a].id, self.spielminuten, einzel, einzel, runde))
+    }
     /// The FL27 tournament id of the next match, picked from what the content maps know (Fabian 24.11.: entrance and
     /// scoreboard should find a fitting entry): the competition itself, then the same kind (Conference → Europa →
     /// Champions League, a super cup → the country's cup), then the country's league; Competition.bin byte 3 is the country.
@@ -3281,6 +3307,10 @@ impl fl27::Ablauf for Fl27Start<'_> {
     fn konfiguration(&mut self) -> Result<(), String> {
         let s = fl27::sider();
         if !fl27::direktstart_einrichten(&s, &self.assets)? { self.log.push("Direktstart-Vorlagen fehlen, Schritt übersprungen".into()); }
+        // stage 2: straight into the match (side selection for the controllers, then the match day screen)
+        if fl27::direktmatch_einrichten(&s, &self.assets)? {
+            if fl27::sider_ini_anwenden(&self.c.karriere_dir(), &s, |t| Ok(crate::livepatch::ini_mit_lua(t, "pesm_direktmatch.lua")))? { self.log.push("sider.ini: PESM-Direktstart eingetragen".into()); } // roh
+        }
         // LivePatch module: later database changes reach the running game with F7 (no restart)
         if crate::livepatch::modul_einrichten(&s, &self.assets)? {
             if fl27::sider_ini_anwenden(&self.c.karriere_dir(), &s, |t| Ok(crate::livepatch::ini_mit_modul(t)))? { self.log.push("sider.ini: PESM-LivePatch eingetragen".into()); }
@@ -3308,6 +3338,14 @@ impl fl27::Ablauf for Fl27Start<'_> {
     }
     fn start(&mut self) -> Result<(), String> {
         self.c.fl27_offen = false;
+        // the game starts straight into this match (the module uses the line once, then the main menu comes back)
+        if fl27::sider().join("modules/pesm_direktmatch.lua").is_file() {
+            match self.c.direktmatch_text().filter(|_| self.c.direktstart) {
+                Some(z) => { fl27::direktmatch_schreiben(&fl27::sider(), &z)?; self.log.push(format!("Direktstart: {z}")); } // roh
+                // switched off: no line, so the module leaves the game on its main menu
+                None => fl27::direktmatch_schreiben(&fl27::sider(), "# aus: Hauptmenue")?, // roh
+            }
+        }
         let t = fl27::spiel_starten()?;
         crate::livepatch::neustart_loeschen(&self.live_pesdb()); // the game loads the files as they are
         self.log.push(t.into());
@@ -3904,5 +3942,34 @@ impl Career {
             v.push((f.h, f.a, res));
         }
         v
+    }
+}
+
+#[cfg(test)]
+mod direktmatch {
+    use super::*;
+    /// Direktstart stage 2 (Fabian 26.11.): module and flow files land in the Sider folder, sider.ini gets the line
+    /// once, and the line names the teams with the rules of the match (final, semi-final, single knock-out).
+    #[test]
+    fn einrichten_und_zeile() {
+        let s = std::env::temp_dir().join(format!("pesm-direktmatch-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&s);
+        let da = std::path::Path::new("assets/fl27/direktmatch/flow").is_dir();
+        assert_eq!(fl27::direktmatch_einrichten(&s, std::path::Path::new("assets/fl27")).unwrap(), da);
+        assert!(!da || s.join("modules/pesm_direktmatch.lua").is_file() && s.join("content/pesm-direktmatch/flow/Exhibition/ExhibiSideSetting.json").is_file());
+        let ini = crate::livepatch::ini_mit_lua("[sider]\r\n\tlua.module = \"a.lua\"\r\n", "pesm_direktmatch.lua");
+        assert!(ini.contains("\tlua.module = \"pesm_direktmatch.lua\"\r\n") && crate::livepatch::ini_mit_lua(&ini, "pesm_direktmatch.lua") == ini);
+        assert_eq!(fl27::direktmatch_zeile(101, 103, 10, true, true, Some(53)), "101 103 0 1 10 menue vl=1 em=1 finale=1 ast=1");
+        assert_eq!(fl27::direktmatch_zeile(5, 6, 0, false, false, Some(52)), "5 6 0 1 0 menue vl=0 em=0 mi=52 ast=1");
+        fl27::direktmatch_schreiben(&s, "1 2 0 1 0 menue").unwrap();
+        assert_eq!(std::fs::read_to_string(s.join("flw/direktmatch.txt")).unwrap(), "1 2 0 1 0 menue\r\n");
+        let _ = std::fs::remove_dir_all(&s);
+        // a cup final of the career: final mark, extra time and penalties
+        let mut c = Career::new(crate::world::testwelt(3), 2, "Test");
+        let own = c.own;
+        let ci = c.world.cups.iter().position(|x| x.kind == 0).unwrap();
+        c.world.cups[ci].fx.push(crate::cups::CupFx { f: Fixture { day: c.world.day, h: own, a: 3, hg: -1, ag: -1, zeit: 0 }, stage: 34, leg: 0, neutral: true, pens: None, et: false });
+        let z = c.direktmatch_text().unwrap();
+        assert!(z.starts_with(&format!("{} {} ", c.world.clubs[own].id, c.world.clubs[3].id)) && z.contains("vl=1 em=1 finale=1"), "{z}");
     }
 }

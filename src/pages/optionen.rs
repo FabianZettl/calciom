@@ -171,6 +171,7 @@ pub(super) fn optionen(ui: &mut Ui, v: &mut View, c: &mut Career) {
     if ui.button(Rect::new(r2.x + 268.0, r2.y + 48.0, 290.0, 34.0), if live { crate::inhalt::t("ui.pages.datenbank_live_mitschreiben") } else { crate::inhalt::t("ui.pages.datenbank_live_mitschreiben_2") }, live) { c.db_live = !live; }
     // BlankState222's start_stamina module (installed by the user): PES M writes the start fitness for it
     if ui.button(Rect::new(r2.x + 16.0, r2.y + 90.0, 420.0, 34.0), crate::inhalt::t(if c.start_stamina { "ui.fl27.start_stamina_an" } else { "ui.fl27.start_stamina_aus" }), c.start_stamina) { c.start_stamina = !c.start_stamina; }
+    if ui.button(Rect::new(r2.x + 450.0, r2.y + 90.0, 300.0, 34.0), crate::inhalt::t(if c.direktstart { "ui.fl27.direktstart_an" } else { "ui.fl27.direktstart_aus" }), c.direktstart) { c.direktstart = !c.direktstart; }
     let auto = c.fl27_auto_ende;
     if ui.button(Rect::new(r2.x + 570.0, r2.y + 48.0, 320.0, 34.0), if auto { crate::inhalt::t("ui.pages.fl27_nach_dem_abpfiff_beenden") } else { crate::inhalt::t("ui.pages.fl27_nach_dem_abpfiff_beenden_2") }, auto) { c.fl27_auto_ende = !auto; }
     // right column under „Rückbau“: the career database after the match, and presets still lying in the game folder

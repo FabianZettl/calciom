@@ -1025,6 +1025,36 @@ pub fn direktstart_einrichten(s: &Path, assets: &Path) -> Result<bool, String> {
     Ok(true)
 }
 
+/// Direktstart stage 2 (fl27-direktstart, Fabian 26.11.): the module pesm_direktmatch.lua and the flow files it puts
+/// in only for a direct start (side selection → match day screen without team choice, half-time and result menus
+/// skipped). Without the templates the step is skipped: false.
+pub fn direktmatch_einrichten(s: &Path, assets: &Path) -> Result<bool, String> {
+    let q = assets.join("direktmatch");
+    // the flow files are the game's own (not in the public repository): without them no direct start
+    if !q.join("flow").is_dir() { return Ok(false); }
+    let Ok(lua) = std::fs::read(q.join("pesm_direktmatch.lua")) else { return Ok(false) };
+    let ziel = s.join("modules").join("pesm_direktmatch.lua");
+    if std::fs::read(&ziel).ok().as_deref() != Some(&lua[..]) { atomic_write(&ziel, &lua)?; }
+    // the replay redirect hung the pause menu's replay (fl27-direktstart 26.11.): an old copy goes
+    // the module takes every file in the folder: old copies of dropped ones must go (replay hang, half-time menu back on 26.11.)
+    for alt in ["Match/MatchReplay.json", "Match/MatchPreHalfTime.json"] { let _ = std::fs::remove_file(s.join("content/pesm-direktmatch/flow").join(alt)); } // roh
+    for f in ["Match/MatchIdle.json", "Match/MatchPreResult.json", "Exhibition/ExhibiSideSetting.json"] { // roh
+        let want = std::fs::read(q.join("flow").join(f)).map_err(|e| format!("{f}: {e}"))?;
+        let d = s.join("content/pesm-direktmatch/flow").join(f);
+        if std::fs::read(&d).ok().as_deref() != Some(&want[..]) { atomic_write(&d, &want)?; }
+    }
+    Ok(true)
+}
+/// The line of flw/direktmatch.txt the module reads at the game's start: "heim gast kit_h kit_a minuten menue" with
+/// the rules: vl/em (extra time, penalties), finale=1 or mi=52 (semi-final: the mods' final look and full stands),
+/// ast=1 (the players press "Kick-off" themselves; the side selection stays for the controllers anyway).
+/// The module marks it "# benutzt" after the start, so the next plain start goes to the main menu.
+pub fn direktmatch_zeile(heim: u32, gast: u32, minuten: u8, vl: bool, em: bool, runde: Option<u8>) -> String {
+    let r = match runde { Some(53) => " finale=1".to_string(), Some(m) => format!(" mi={m}"), None => String::new() }; // roh
+    format!("{heim} {gast} 0 1 {minuten} menue vl={} em={}{r} ast=1", vl as u8, em as u8) // roh
+}
+pub fn direktmatch_schreiben(s: &Path, zeile: &str) -> Result<(), String> { atomic_write(&s.join("flw").join("direktmatch.txt"), format!("{zeile}\r\n").as_bytes()) }
+
 // ---------------------------------------------------------------- process and start (§5)
 /// FL_2027.exe by its command line; with several, the one with the most memory (statm field 2).
 #[cfg(windows)]

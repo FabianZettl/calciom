@@ -112,12 +112,12 @@ pub(super) fn spielerprofil(ui: &mut Ui, v: &mut View, c: &mut Career) {
     }
     let fr = Rect::new(hr.x + 118.0, hr.y + 6.0, 96.0, 100.0);
     rrect(fr.x, fr.y, fr.w, fr.h, 8.0, alpha(Theme::grund(), 0.35));
-    if !ui.spieler_foto(fr.x, fr.y, fr.w, fr.h, pl.id) {
-        // no photo: the little footballer in his club's kit with his number (keeper in green); build from his body data
+    // preview aid: PESM_PASSFOTO=1 shows the pass photo also for players with a photo
+    if std::env::var_os("PESM_PASSFOTO").is_some() || !ui.spieler_foto(fr.x, fr.y, fr.w, fr.h, pl.id) {
+        // no photo: his own pass photo in the club's kit (keeper in green), look from FL27's appearance record (Fabian 25.11.)
         let (k1, k2) = club_color(c, club);
         let tw = pl.pos == crate::id("GK");
-        let gross = if pl.profil.koerper[0] > 0 { ((pl.profil.koerper[1] as f32 / pl.profil.koerper[0].max(1) as f32 * 100.0 - 38.0) / 10.0).clamp(0.0, 1.0) } else { 0.5 };
-        ui.kicker(fr.x + 48.0, fr.y + fr.h - 6.0, 88.0, pl.id, if tw { hex(0x16a34a) } else { k1 }, if tw { hex(0x14532d) } else { k2 }, pl.no, gross);
+        crate::passfoto::zeichnen(fr.x, fr.y, fr.w, fr.h, pl.id, if tw { hex(0x16a34a) } else { k1 }, if tw { hex(0x14532d) } else { k2 });
     }
     let teile: Vec<&str> = pl.name.split_whitespace().collect();
     let (vor, nach) = if teile.len() > 1 { (teile[..teile.len() - 1].join(" "), teile[teile.len() - 1].to_string()) } else { (String::new(), pl.name.clone()) };
@@ -130,6 +130,18 @@ pub(super) fn spielerprofil(ui: &mut Ui, v: &mut View, c: &mut Career) {
     let land = crate::nationen::name_anzeige(&c.world, pl.nat);
     let nat = if land.is_empty() { String::new() } else if let Some(st) = c.world.nat_status(p) { format!(" · {}", crate::tf!(&format!("ui.nt.status.{st}"), land, pl.profil.laenderspiele, pl.profil.nat_tore)) } else { format!(" · {land}") };
     ui.text(&format!("{}{nat}", crate::tf!("as.ent.talent", pl.age, koerper)), hr.x + 232.0, hr.y + 98.0, 16.0, alpha(fg, 0.85));
+    // skin and hair colour from FL27's appearance record (Fabian 25.11.): a colour dot and a word each, top right of the name box
+    if let Some(l) = crate::gesichter::aussehen_von(pl.id) {
+        let haar = if l.glatze() { crate::inhalt::t("ui.aussehen.glatze").to_string() } else { crate::inhalt::t(&format!("ui.aussehen.haar.{}", l.haar_stufe)).to_string() };
+        let mut rechts = hr.x + 620.0;
+        for (wort, farbe) in [(crate::tf!("ui.aussehen.haar", haar), crate::ui::haar_farbe(l.haar)), (crate::tf!("ui.aussehen.haut", crate::inhalt::t(&format!("ui.aussehen.haut.{}", l.haut))), crate::ui::haut_farbe(l.haut))] {
+            ui.text_right(&wort, rechts, hr.y + 30.0, 14.0, alpha(fg, 0.85));
+            let x = rechts - ui.measure(&wort, 14.0) - 10.0;
+            draw_circle(x, hr.y + 25.0, 6.0, farbe);
+            draw_circle_lines(x, hr.y + 25.0, 6.0, 1.0, alpha(fg, 0.6));
+            rechts = x - 16.0;
+        }
+    }
     let rx = hr.x + 640.0;
     // the position in its line's colour (keeper, defence, midfield, attack), as everywhere
     rrect(rx, hr.y + 10.0, 54.0, 24.0, 6.0, Theme::teil(&pl.pos));

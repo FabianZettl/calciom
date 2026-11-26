@@ -309,7 +309,7 @@ pub fn feier_overlay(ui: &mut Ui, v: &mut View, c: &mut Career) {
     draw_rectangle(0.0, 0.0, w, h, Color::new(0.0, 0.0, 0.0, 0.80));
     let t = get_time() as f32;
     let art = f.art.as_str();
-    let gross = matches!(art, "titel" | "gala");
+    let gross = matches!(art, "titel" | "gala" | "siegerehrung");
     let spiel = matches!(art, "derby" | "finale");
     let deal = matches!(art, "neuzugang" | "vertrag");
     let hoch = (if gross { 560.0 } else { 520.0 }) + if f.stimmen.is_empty() { 0.0 } else { 30.0 * f.stimmen.len() as f32 + 20.0 };
@@ -343,7 +343,9 @@ pub fn feier_overlay(ui: &mut Ui, v: &mut View, c: &mut Career) {
             pokal(cx, cy + 10.0, 170.0 * (1.0 + 0.03 * (t * 2.5).sin()), t * 0.4);
             let k = &c.world.clubs[own];
             ui.club_crest(cx - 170.0, cy + 10.0, 44.0, k.id, hex(k.c1), &k.short.clone());
-            ui.club_crest(cx + 170.0, cy + 10.0, 44.0, k.id, hex(k.c1), &k.short.clone());
+            // the ceremony shows the beaten finalist on the right, a little smaller
+            let (rk, rr) = match f.gegner { Some(g) if art == "siegerehrung" => (&c.world.clubs[g], 34.0), _ => (k, 44.0) };
+            ui.club_crest(cx + 170.0, cy + 10.0, rr, rk.id, hex(rk.c1), &rk.short.clone());
         }
     } else if spiel {
         flutlicht(kopf, t);
@@ -367,7 +369,7 @@ pub fn feier_overlay(ui: &mut Ui, v: &mut View, c: &mut Career) {
         medaille(cx, cy + 40.0, 58.0 * (1.0 + 0.04 * (t * 3.0).sin()), k2);
         if let Some(p) = f.spieler { ui.player_photo(cx + 140.0, cy + 30.0, 44.0, c.world.players[p].id, &c.world.players[p].name.clone()); }
     }
-    let art_t = match art { "neuzugang" => crate::inhalt::t("ui.feier.art.neuzugang"), "titel" => crate::inhalt::t("ui.feier.art.titel"), "lizenz" => crate::inhalt::t("ui.feier.art.lizenz"), "gala" => crate::inhalt::t("ui.feier.art.gala"), "vertrag" => crate::inhalt::t("ui.feier.art.vertrag"), "derby" => crate::inhalt::t("ui.feier.art.derby"), "finale" => crate::inhalt::t("ui.feier.art.finale"), _ => crate::inhalt::t("ui.meilenstein.titel") };
+    let art_t = match art { "neuzugang" => crate::inhalt::t("ui.feier.art.neuzugang"), "titel" => crate::inhalt::t("ui.feier.art.titel"), "lizenz" => crate::inhalt::t("ui.feier.art.lizenz"), "gala" => crate::inhalt::t("ui.feier.art.gala"), "vertrag" => crate::inhalt::t("ui.feier.art.vertrag"), "derby" => crate::inhalt::t("ui.feier.art.derby"), "finale" => crate::inhalt::t("ui.feier.art.finale"), "siegerehrung" => crate::inhalt::t("ui.feier.art.siegerehrung"), _ => crate::inhalt::t("ui.meilenstein.titel") };
     ui.text_center(&art_t.to_uppercase(), cx, r.y + 286.0, 15.0, if gross { Theme::gold() } else { farbe_lesbar(band) });
     let size = if ui.measure_title(&f.titel, 42.0) > r.w - 60.0 { 30.0 } else { 42.0 };
     let tw = ui.measure_title(&f.titel, size);
@@ -378,7 +380,8 @@ pub fn feier_overlay(ui: &mut Ui, v: &mut View, c: &mut Career) {
     for (wer, was) in &f.stimmen {
         let ww = ui.measure(wer, 15.0) + 12.0;
         ui.text(wer, r.x + 50.0, y, 15.0, Theme::gold());
-        ui.text(&ui.fit(&format!("\"{was}\""), 15.0, r.w - 100.0 - ww), r.x + 50.0 + ww, y, 15.0, Theme::text());
+        let was = if art == "siegerehrung" { was.clone() } else { format!("\"{was}\"") }; // scorers, not quotes
+        ui.text(&ui.fit(&was, 15.0, r.w - 100.0 - ww), r.x + 50.0 + ww, y, 15.0, Theme::text());
         y += 30.0;
     }
     let weiter = ui.button_gold(Rect::new(cx - 120.0, r.y + r.h - 70.0, 240.0, 48.0), crate::inhalt::t(if spiel { "ui.feier.los" } else { "ui.feier.weiter" }));

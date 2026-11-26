@@ -133,6 +133,49 @@ pub fn baertige_aus(d: &[u8]) -> HashSet<u32> {
     d.chunks_exact(60).filter(|r| (u64::from_le_bytes(r[38..46].try_into().unwrap()) >> 3) & 31 != 0).map(|r| u32::from_le_bytes(r[..4].try_into().unwrap())).collect()
 }
 
+/// A player's look from his appearance record (layout: PES Edit Face AI docs/appearance-record.md, checked against
+/// 1,879 player photos 25.11.): skin 1 (fair) … 6 (very dark); hair colour as the game's 6-bit RGB and its nearest
+/// preset step 1 (black) … 7 (blond); hair style (HairStyle: 0 bald, 4 afro); beard (FacialHairType ≠ 0).
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
+pub struct Aussehen { pub haut: u8, pub haar: [u8; 3], pub haar_stufe: u8, pub stil: u8, pub bart: bool }
+impl Aussehen { pub fn glatze(&self) -> bool { self.stil == 0 } }
+/// The game's seven hair colour presets (HairColourType 1–7), 6-bit RGB.
+const HAAR_STUFEN: [[u8; 3]; 7] = [[5, 4, 3], [8, 5, 3], [11, 7, 4], [15, 8, 4], [14, 10, 7], [18, 14, 10], [33, 28, 21]];
+/// One bit field of a disk record (lowest bit first; disk bit = memory bit − 64).
+fn feld(r: &[u8], bit: usize, breite: u32) -> u8 {
+    let b = bit / 8;
+    let mut x = [0u8; 4];
+    let n = (r.len() - b).min(4);
+    x[..n].copy_from_slice(&r[b..b + n]);
+    ((u32::from_le_bytes(x) >> (bit % 8)) & ((1 << breite) - 1)) as u8
+}
+fn satz_aussehen(r: &[u8]) -> Aussehen {
+    let rgb = [feld(r, 366, 6), feld(r, 372, 6), feld(r, 378, 6)];
+    let stufe = feld(r, 460, 3);
+    // the RGB is the colour itself; 53 records hold none (0/0/0) and keep their preset
+    let haar = if rgb == [0, 0, 0] && (1..=7).contains(&stufe) { HAAR_STUFEN[stufe as usize - 1] } else { rgb };
+    let abstand = |s: &[u8; 3]| (0..3).map(|k| (s[k] as i32 - haar[k] as i32).pow(2)).sum::<i32>();
+    let haar_stufe = (1..=7u8).min_by_key(|&k| abstand(&HAAR_STUFEN[k as usize - 1])).unwrap();
+    Aussehen { haut: feld(r, 296, 3).clamp(1, 6), haar, haar_stufe, stil: feld(r, 384, 3), bart: feld(r, 307, 5) != 0 }
+}
+pub fn aussehen_aus(d: &[u8]) -> std::collections::HashMap<u32, Aussehen> {
+    d.chunks_exact(60).map(|r| (u32::from_le_bytes(r[..4].try_into().unwrap()), satz_aussehen(r))).collect()
+}
+/// New player → the real player whose face he wears (World.gesichter of the open career), for the drawn pictures.
+static SPENDER: std::sync::Mutex<std::collections::BTreeMap<u32, u32>> = std::sync::Mutex::new(std::collections::BTreeMap::new());
+/// Tells the pictures which faces the open career's new players wear (called each frame; copies only on a change).
+pub fn spender_setzen(m: &std::collections::BTreeMap<u32, u32>) {
+    if let Ok(mut g) = SPENDER.lock() { if *g != *m { *g = m.clone(); } }
+}
+/// The look of a player in FL27: his own record, for a new player the record of the face he wears; None without one
+/// (no game folder, or a player FL27 has no appearance for). The game's file is read once per session.
+pub fn aussehen_von(id: u32) -> Option<Aussehen> {
+    static C: std::sync::OnceLock<std::collections::HashMap<u32, Aussehen>> = std::sync::OnceLock::new();
+    let m = C.get_or_init(|| aussehen_aus(aussehen(&crate::fl27::spielordner())));
+    let q = SPENDER.lock().ok().and_then(|g| g.get(&id).copied()).unwrap_or(id);
+    m.get(&q).copied()
+}
+
 impl Career {
     /// Chooses the missing faces and writes the "faceapp" block into the game's modules/fl26world.txt (once a backup
     /// fl26world.txt.vor-pesm). No fl26regen file: nothing to do. FL27 reads it at its next start.
@@ -214,6 +257,34 @@ mod tests {
         d[..4].copy_from_slice(&11u32.to_le_bytes()); d[60..64].copy_from_slice(&12u32.to_le_bytes());
         d[38] = 5 << 3;
         assert_eq!(baertige_aus(&d), [11].into_iter().collect());
+    }
+    #[test]
+    fn aussehen_aus_dem_satz() {
+        // skin 6 (disk bit 296 = byte 37), hair RGB 33/28/21 (bits 366/372/378), step 7 (bit 460), HairStyle 0 (bald)
+        let mut r = vec![0u8; 60];
+        r[..4].copy_from_slice(&5u32.to_le_bytes());
+        let mut setze = |bit: usize, w: u32, v: u64| { let mut x = u64::from_le_bytes(r[bit / 8..bit / 8 + 8].try_into().unwrap_or([0; 8])); x |= (v & ((1 << w) - 1)) << (bit % 8); r[bit / 8..bit / 8 + 8].copy_from_slice(&x.to_le_bytes()); };
+        setze(296, 3, 6); setze(366, 6, 33); setze(372, 6, 28); setze(378, 6, 21); setze(307, 5, 2);
+        r[57] |= 7 << 4;
+        let a = aussehen_aus(&r)[&5];
+        assert_eq!(a, Aussehen { haut: 6, haar: [33, 28, 21], haar_stufe: 7, stil: 0, bart: true });
+        assert!(a.glatze());
+        // no RGB: the preset of its step; a hair style: not bald
+        let mut r2 = r.clone(); r2[45] &= 0b0011_1111; r2[46] = 0; r2[47] = 0; r2[48] = 1;
+        let b = aussehen_aus(&r2)[&5];
+        assert_eq!((b.haar, b.haar_stufe, b.glatze()), ([33, 28, 21], 7, false));
+    }
+    #[test]
+    fn aussehen_im_echten_spiel() {
+        // read only; Haaland fair and blond, Koulibaly very dark, black hair, bald (25.11.)
+        if !crate::fl27::spielordner().join(crate::id("download")).is_dir() { return; }
+        let h = aussehen_von(133543).unwrap();
+        assert_eq!((h.haut, h.haar_stufe, h.haar), (1, 7, [33, 28, 21]));
+        let k = aussehen_von(102757).unwrap();
+        assert_eq!((k.haut, k.haar_stufe, k.glatze()), (6, 1, true));
+        // a new player wears his face's look
+        spender_setzen(&[(9_000_777, 133543)].into_iter().collect());
+        assert_eq!(aussehen_von(9_000_777), Some(h));
     }
     #[test]
     fn bart_im_echten_spiel() {
