@@ -1082,6 +1082,9 @@ pub fn direktstart_einrichten(s: &Path) -> Result<bool, String> {
     for dst in ["common/script/flow/PreStartup.json", "common/script/flow/Intro/MenuPreTitle.json"] { // roh
         if std::fs::read(d.join(dst)).ok().as_deref() != Some(FLOW_LADEN.as_bytes()) { atomic_write(&d.join(dst), FLOW_LADEN.as_bytes())?; }
     }
+    // the module writes its switch (main menu or straight to the side selection) into Edit/Load at every start; Lua
+    // cannot make folders, and the renamed root lacked it, so FL27 landed on the main menu (Fabian 26.11.)
+    std::fs::create_dir_all(d.join("common/script/flow/Edit/Load")).map_err(|e| e.to_string())?; // roh
     // an old mod's short film replaced the game's intro even on a normal start (fl27-direktstart 26.11.): it goes
     let _ = std::fs::remove_file(d.join("movie/intro/FL2027.usm")); // roh
     Ok(true)
@@ -1592,14 +1595,17 @@ pub struct Mitlauf {
     wechsel: Vec<(u8, Option<u32>, u32, u8)>,
     /// The Coaching Zone's live tracker: events, minute, grades and places for the live view.
     pub tracker: cz::live::Tracker,
+    /// FL27's process ended since the last beat: a match that ends now was broken off, not whistled (Discord 26.11.).
+    pub abgebrochen: bool,
 }
 pub const SUCHE_S: f64 = 30.0;
 impl Mitlauf {
     pub fn new(finder: Box<dyn FnMut() -> Result<Option<Box<dyn Mem>>, String> + Send>, team_fn: Box<dyn Fn(&[u32]) -> u32 + Send>) -> Mitlauf {
-        Mitlauf { finder, team_fn, m: None, basis: None, st: None, kenn: None, fehler: None, suche_ab: 0.0, start: None, gesehen: HashMap::new(), ab_start: HashMap::new(), wechsel: vec![], tracker: cz::live::Tracker::new() }
+        Mitlauf { finder, team_fn, m: None, basis: None, st: None, kenn: None, fehler: None, suche_ab: 0.0, start: None, gesehen: HashMap::new(), ab_start: HashMap::new(), wechsel: vec![], tracker: cz::live::Tracker::new(), abgebrochen: false }
     }
     fn neu(&mut self) { self.start = None; self.gesehen.clear(); self.ab_start.clear(); self.wechsel.clear(); }
     fn lesen(&mut self, jetzt: f64) -> Option<cz::stats::Snapshot> {
+        if self.m.as_mut().is_some_and(|m| !m.alive()) { self.abgebrochen = true; }
         if self.m.as_mut().map(|m| !m.alive()).unwrap_or(true) {
             self.basis = None;
             match (self.finder)() { Ok(m) => { self.m = m; self.fehler = None; } Err(e) => { self.m = None; self.fehler = Some(e); } }
@@ -1767,7 +1773,8 @@ pub fn finder() -> Result<Option<Box<dyn Mem>>, String> {
 }
 
 /// Runs a Mitlauf in its own thread (beat 2 s) and reports to the interface.
-pub enum Meldung { Status(String), Live(u32, u32), Ansicht(Box<cz::live::MatchView>), Fertig(Box<SpielDoc>) }
+/// Abgebrochen: FL27 was closed during the match; the figures so far, for the person to count or discard.
+pub enum Meldung { Status(String), Live(u32, u32), Ansicht(Box<cz::live::MatchView>), Fertig(Box<SpielDoc>), Abgebrochen(Box<SpielDoc>) }
 pub struct Beobachter { pub rx: std::sync::mpsc::Receiver<Meldung>, stop: std::sync::Arc<std::sync::atomic::AtomicBool>, abschluss: std::sync::Arc<std::sync::atomic::AtomicBool> }
 impl Beobachter {
     /// "Confirm result" (Fabian 24.11.: the final whistle is not always seen): the match as it stands is finished now.
@@ -1786,13 +1793,15 @@ pub fn beobachten(team_fn: Box<dyn Fn(&[u32]) -> u32 + Send>) -> Beobachter {
         let mut last = String::new();
         while !s2.load(std::sync::atomic::Ordering::Relaxed) {
             let mut doc = ml.takt(t0.elapsed().as_secs_f64());
+            let weg = std::mem::take(&mut ml.abgebrochen);
             // confirmed by hand: the figures so far are the result (once; the page drops the reader after booking)
-            if doc.is_none() && a2.swap(false, std::sync::atomic::Ordering::Relaxed) { doc = ml.jetzt_fertig(t0.elapsed().as_secs_f64()); }
+            let mut weg = weg;
+            if doc.is_none() && a2.swap(false, std::sync::atomic::Ordering::Relaxed) { doc = ml.jetzt_fertig(t0.elapsed().as_secs_f64()); weg = false; }
             let status = if let Some(e) = &ml.fehler { e.clone() } else if ml.m.is_none() { "FL27 läuft nicht.".into() } else if ml.basis.is_none() { "FL27 läuft, warte auf den Anstoß …".into() } else { "Partie läuft, CalcioM liest mit.".into() };
             if status != last { let _ = tx.send(Meldung::Status(status.clone())); last = status; }
             if let Some((h, a)) = ml.live() { let _ = tx.send(Meldung::Live(h, a)); }
             if let Some(a) = ml.ansicht() { let _ = tx.send(Meldung::Ansicht(Box::new(a))); }
-            if let Some(d) = doc { if tx.send(Meldung::Fertig(Box::new(d))).is_err() { break; } }
+            if let Some(d) = doc { if tx.send(if weg { Meldung::Abgebrochen(Box::new(d)) } else { Meldung::Fertig(Box::new(d)) }).is_err() { break; } }
             std::thread::sleep(std::time::Duration::from_secs(2));
         }
     });
@@ -1982,7 +1991,8 @@ mod t {
             fn alive(&mut self) -> bool { self.0.lock().unwrap().alive }
         }
         let s2 = shared.clone();
-        let mut ml = Mitlauf::new(Box::new(move || Ok(Some(Box::new(Shared(s2.clone())) as Box<dyn Mem>))), Box::new(|_| 7));
+        // like the real finder: no process, no memory
+        let mut ml = Mitlauf::new(Box::new(move || Ok(s2.lock().unwrap().alive.then(|| Box::new(Shared(s2.clone())) as Box<dyn Mem>))), Box::new(|_| 7));
         let w = |f: &dyn Fn(&mut Vec<u8>)| f(&mut shared.lock().unwrap().data);
         // kick-off: everything 0, all starters run
         for pl in 0..11 { w(&|d| { set(d, at, 0, pl, LAUF as usize, 0, 1); set(d, at, 1, pl, LAUF as usize, 0, 1); }); }
@@ -2009,9 +2019,15 @@ mod t {
         assert_eq!(sub.art, EvArt::Wechsel { raus: Some(1006) });
         assert_eq!(sub.pid, 1012);
         assert!(ml.takt(202.0).is_none());
-        // the game ends: nothing more
+        assert!(!ml.abgebrochen, "the game ran on: a whistled match, not a broken-off one");
+        // a next match is under way and FL27 is closed: its figures come once, marked as broken off (Discord 26.11.)
+        w(&|d| set(d, at, 0, 9, GOAL as usize, 0, 1));
+        assert!(ml.takt(203.0).is_none());
         shared.lock().unwrap().alive = false;
-        assert!(ml.takt(204.0).is_none());
+        let d = ml.takt(204.0).expect("the broken-off match");
+        assert!(ml.abgebrochen && (d.hg, d.ag) == (1, 0));
+        ml.abgebrochen = false;
+        assert!(ml.takt(206.0).is_none());
     }
 
     #[test]

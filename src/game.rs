@@ -424,6 +424,9 @@ pub struct Career {
     /// The coach as created at the start, and the leagues offers may come from (empty: all; trainerprofil.rs).
     #[serde(default)]
     pub trainerprofil: crate::trainerprofil::Trainerprofil,
+    /// Players promoted from the academy who still wait for their AI pass photo (kifoto.rs), by player id.
+    #[serde(default)]
+    pub ki_fotos: Vec<u32>,
     #[serde(default)]
     pub angebot_ligen: Vec<usize>,
     /// The crisis meeting of this season and its plan (krise.rs).
@@ -738,7 +741,7 @@ impl Career {
             t9: Default::default(), formation_ball: None, formation_gegen: None, frei_ball: vec![], frei_gegen: vec![], anweisungen: [0; 4], raten: vec![], boni: vec![],
             plan: [3, 3, 2, 3, 4, 0, 0], co_lineup: false, co_training: false, co_press: false, wissen_info: Default::default(), auftraege: vec![], auftrag_id: 0, analyst_liste: vec![], probetrainings: vec![], aufstellung_kriterien: 1, vorfall_zuletzt: Default::default(), autosave: 0, aus: vec![], schule: Default::default(), sichtung_saison: 0, plan_b: Default::default(), msg_id: 0, praesidium: vec![], praesidium_verein: 0, nebenziele: vec![], rel_cache: Default::default(), anbahnung: vec![], dl_stunde: 0, hz_wirkung: 0.0, wochenplan: Default::default(), tr_gewinn: vec![], tr_verletzt: 0,
             co_name: [crate::inhalt::t("ui.game.thomas_brueck"), crate::inhalt::t("ui.game.mehmet_ayd_n"), crate::inhalt::t("ui.game.rafael_ortega"), crate::inhalt::t("ui.game.sven_lindqvist"), crate::inhalt::t("ui.game.marco_ferri")][own % 5].to_string(),
-            inbox: vec![], feed: vec![], merkliste: vec![], moral_verlauf: Default::default(), db_live: true, akzent_wappen: true, kaderregeln: true, meilensteine: vec![], spieler_ms: None, titel_gefeiert: 0, feiern: vec![], marktstatus: vec![], berater_bez: vec![], db_zuletzt: String::new(), fl27_auto_ende: false, vorgaben_gesetzt: vec![], db_nach_spiel_aus: false, wirkung: None, pool_antworten: vec![], pool_rauschen: vec![], pool_zuletzt: vec![], pool_gezeigt: vec![], pool_ketten: vec![], pool_folgen: vec![], erste_woche: [false; 5], erste_woche_aus: false, erste_woche_ab: 0, verlauf: vec![], spiele: vec![], spieler_saison: vec![], noten_verlauf: Default::default(), ehrungen: vec![], elf_der_woche: vec![], letzte_elf: vec![], lesezeichen: vec![], klauseln_gesaet: false, termine: vec![], teamevents: vec![], event_punkte: vec![], db_abdruck: 0, db_unruhe: None, db_schreibvorgaenge: 0, db_hinweis: false, fl27_letzte: (0, 0, 0), live_aenderung: Default::default(), fl27_offen: false, koop_suche: None, koop_angebote: vec![], vorkauf: vec![], welt_post: (0, 0), suchprofile: vec![], vorvertraege: vec![], sondierungen: vec![], ansprache_vor: None, welt_tag: vec![], strom_log: vec![], bedingungen: vec![], geschichten: Default::default(), kredite: vec![], undo: None, geplant: vec![], trainerprofil: Default::default(), angebot_ligen: vec![], krise: Default::default(), neubau: Default::default(), experten_platz: None, negs: vec![], scouts: vec![
+            inbox: vec![], feed: vec![], merkliste: vec![], moral_verlauf: Default::default(), db_live: true, akzent_wappen: true, kaderregeln: true, meilensteine: vec![], spieler_ms: None, titel_gefeiert: 0, feiern: vec![], marktstatus: vec![], berater_bez: vec![], db_zuletzt: String::new(), fl27_auto_ende: false, vorgaben_gesetzt: vec![], db_nach_spiel_aus: false, wirkung: None, pool_antworten: vec![], pool_rauschen: vec![], pool_zuletzt: vec![], pool_gezeigt: vec![], pool_ketten: vec![], pool_folgen: vec![], erste_woche: [false; 5], erste_woche_aus: false, erste_woche_ab: 0, verlauf: vec![], spiele: vec![], spieler_saison: vec![], noten_verlauf: Default::default(), ehrungen: vec![], elf_der_woche: vec![], letzte_elf: vec![], lesezeichen: vec![], klauseln_gesaet: false, termine: vec![], teamevents: vec![], event_punkte: vec![], db_abdruck: 0, db_unruhe: None, db_schreibvorgaenge: 0, db_hinweis: false, fl27_letzte: (0, 0, 0), live_aenderung: Default::default(), fl27_offen: false, koop_suche: None, koop_angebote: vec![], vorkauf: vec![], welt_post: (0, 0), suchprofile: vec![], vorvertraege: vec![], sondierungen: vec![], ansprache_vor: None, welt_tag: vec![], strom_log: vec![], bedingungen: vec![], geschichten: Default::default(), kredite: vec![], undo: None, geplant: vec![], trainerprofil: Default::default(), ki_fotos: vec![], angebot_ligen: vec![], krise: Default::default(), neubau: Default::default(), experten_platz: None, negs: vec![], scouts: vec![
                 Scout { name: crate::inhalt::t("ui.game.erik_haldorsen").into(), q: 6, league: Some(own_league), pos: 0, watch: None, seen: 0, p: None },
                 Scout { name: crate::inhalt::t("ui.game.bruno_valente").into(), q: 4, league: None, pos: 0, watch: None, seen: 0, p: None },
             ],
@@ -1073,6 +1076,9 @@ impl Career {
         if res.et { res.reason = crate::tf!("ui.game.nach_verlaengerung", res.reason, res.pens.map(|p| crate::tf!("ui.game.und_elfmeterschiessen", crate::cups::pens_score(p))).unwrap_or_default()); }
         if !matches!(t.0, Wo::Liga(_)) { res.reason = crate::tf!("diagnose.schalter", comp, res.reason); }
         let home = res.h == self.own;
+        // a friendly played in FL27 (kind 6) earns no match-day money or win bonus: friendlies are set to "Play in
+        // FL27" by default since 0.5.2 and would otherwise fill the cash like league matches (economy test 26.11.)
+        let freundschaft = matches!(t.0, Wo::Pokal(ci) if self.world.cups[ci].kind == 6);
         let (gf, ga) = if home { (res.hg, res.ag) } else { (res.ag, res.hg) };
         let opp = if home { res.a } else { res.h };
         let opp_name = self.world.clubs[opp].name.clone();
@@ -1097,8 +1103,8 @@ impl Career {
         self.ultimatum_spiele_pruefen();
         self.praemien_nach_spiel(&res);
         // the league's win bonus is income of the club (vereinswelt/service.py einnahmen „praemien“)
-        if gf > ga { let pr = (crate::regeln::f("vereinswelt", "einnahmen.praemie_sieg") as f64 + crate::regeln::f("vereinswelt", "einnahmen.praemie_sieg_je_ruf") as f64 * self.kraft()) * self.skala(); self.book(crate::inhalt::t("ui.game.siegpraemien"), pr); }
-        if home { self.heimspiel_buchen(); }
+        if gf > ga && !freundschaft { let pr = (crate::regeln::f("vereinswelt", "einnahmen.praemie_sieg") as f64 + crate::regeln::f("vereinswelt", "einnahmen.praemie_sieg_je_ruf") as f64 * self.kraft()) * self.skala(); self.book(crate::inhalt::t("ui.game.siegpraemien"), pr); }
+        if home && !freundschaft { self.heimspiel_buchen(); }
         let score = format!("{}:{}", res.hg, res.ag);
         let line = format!("{} – {} {}", self.world.clubs[res.h].name, self.world.clubs[res.a].name, score);
         self.results.push(format!("{} {}", if gf > ga { crate::id("S") } else if gf < ga { crate::id("N") } else { crate::id("U") }, line));
@@ -1570,6 +1576,7 @@ impl Career {
         pl.contract_end = season + 2;
         pl.wage = fair_wage(pl, lv);
         let n = pl.name.clone();
+        if !self.ki_fotos.contains(&pl.id) { self.ki_fotos.push(pl.id); }
         self.psyche_an();
         self.moral_wirkung(p, 8.0, 0, crate::inhalt::t("ui.game.zu_den_profis_hochgezogen"));
         if self.vision() == crate::id("traditionell") { self.klima(0.0, 0.0, 2.0, crate::inhalt::t("ui.game.ein_eigengewaechs_rueckt_zu_den")); }
@@ -3313,6 +3320,7 @@ impl fl27::Ablauf for Fl27Start<'_> {
     }
     fn laden(&mut self) -> Result<(), String> {
         let cpk = self.c.fl27_cpk();
+        crate::kifoto::ins_spiel(&self.c.karriere_dir(), &cpk);
         if self.c.db_live && fl27::sider().join("livecpk").join(&cpk).join("common/etc/pesdb/PlayerAssignment.bin").exists() {
             let neu = fl27::karriere_abgleichen(&self.c.karriere_dir(), &fl27::sider(), &cpk)?;
             if !neu.is_empty() { self.log.push(format!("Abgeglichen: {}", neu.join(", "))); } // roh
@@ -3994,6 +4002,9 @@ mod direktmatch {
         std::fs::create_dir_all(s.join("SiderAddons")).unwrap();
         if da { std::os::unix::fs::symlink(spiel.join("Data"), s.join("Data")).unwrap(); }
         let sa = s.join("SiderAddons");
+        // stage 1: the folder the module writes its start switch into must exist (Lua cannot create it)
+        fl27::direktstart_einrichten(&sa).unwrap();
+        assert!(sa.join("livecpk").join(fl27::DIRECT_ROOT).join("common/script/flow/Edit/Load").is_dir());
         assert_eq!(fl27::direktmatch_einrichten(&sa, std::path::Path::new("assets/fl27")).unwrap(), da);
         if da {
             let t = std::fs::read_to_string(sa.join("content/calciom-direktmatch/flow/Match/MatchIdle.json")).unwrap();

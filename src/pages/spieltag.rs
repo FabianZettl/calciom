@@ -369,8 +369,19 @@ pub(super) fn spieltag(ui: &mut Ui, v: &mut View, c: &mut Career) {
                         crate::fl27::Meldung::Live(h, a) => v.fl27_live = Some((h, a)),
                         crate::fl27::Meldung::Ansicht(m) => v.fl27_ansicht = Some(*m),
                         crate::fl27::Meldung::Fertig(d) => { fertig = Some(d); v.fl27_live = None; }
+                        crate::fl27::Meldung::Abgebrochen(d) => { v.fl27_abgebrochen = Some(d); v.fl27_live = None; ui.play(crate::id("angebot")); }
                     }
                 }
+            }
+            // FL27 closed mid-match (Discord 26.11.): the last figures only count when the person says so
+            if let Some(d) = &v.fl27_abgebrochen {
+                let q = Rect::new(r2.x + 10.0, r2.y + 196.0, r2.w - 20.0, 170.0);
+                rrect(q.x, q.y, q.w, q.h, 14.0, Theme::ueberlagerung());
+                ui.title(crate::inhalt::t("ui.fl27.abgebrochen_titel"), q.x + 14.0, q.y + 30.0, 22.0, Theme::text());
+                ui.paragraph(&crate::tf!("ui.fl27.abgebrochen_text", c.world.clubs[h].name, d.hg, d.ag, c.world.clubs[a].name), q.x + 14.0, q.y + 50.0, 15.0, q.w - 28.0, Theme::text2());
+                let bw = (q.w - 38.0) / 2.0;
+                if ui.button(Rect::new(q.x + 14.0, q.y + q.h - 50.0, bw, 38.0), crate::inhalt::t("ui.fl27.abgebrochen_werten"), false) { fertig = v.fl27_abgebrochen.take(); }
+                else if ui.button(Rect::new(q.x + 24.0 + bw, q.y + q.h - 50.0, bw, 38.0), crate::inhalt::t("ui.fl27.abgebrochen_verwerfen"), true) { v.fl27_abgebrochen = None; v.fl27_status = crate::inhalt::t("ui.fl27.abgebrochen_verworfen").into(); }
             }
             if let Some(d) = fertig { if c.fl27_ko_offen(&d) { v.fl27_ko = Some(KoOffen::Doc(d)); v.fl27 = None; ui.play(crate::id("angebot")); } else { v.fl27_ko_apply = Some((KoOffen::Doc(d), None)); } }
             // a level knock-out match from FL27: who won after extra time or on penalties? (no answer = CalcioM decides)

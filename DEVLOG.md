@@ -2,6 +2,13 @@
 
 Short notes on how things work under the hood, newest first. Player-facing changes are in [CHANGELOG.md](CHANGELOG.md).
 
+## 26.11.2026 – CalcioM 0.5.2 (hotfix)
+
+- **Broken-off matches.** The reader (`fl27::Mitlauf`) notes when FL27's process ends while it follows a match (`abgebrochen`). The figures of that match come as `Meldung::Abgebrochen`, and the matchday page asks whether to count or discard them. A whistled match (FL27 alive) is booked as before.
+- **Read from cpk.** An incomplete world entry in `sider.ini` (for example a partial `_FL26MyWorld`) is skipped, the `.cpk` files are read instead, and there is no endless retry.
+- **Friendlies** are created with `selbst: true` and go straight onto the match calendar (`testspiel_neu`).
+- **AI pass photos** (optional): stable-diffusion.cpp paints a pass photo from the drawn one, written as a 128×128 DXT5 portrait into the career and its livecpk.
+
 ## 26.11.2026 – CalcioM 0.5.0
 
 - **Rename.** `tools/calciom_umbenennen.py` renames every tracked file and name. The hand-written part (`src/marke.rs`, `fl27::umzug`, `fl27::alte_namen_weg`) moves the old data folders and switches off the old direct-start lines in `sider.ini`. Details: [docs/CALCIOM.md](docs/CALCIOM.md).

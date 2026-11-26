@@ -233,15 +233,41 @@ pub fn vorbereiten() {
     });
 }
 
+fn lager_neu() -> Lager { Lager { toon: material(FS_TOON, CullFace::Nothing), rand: material(FS_RAND, CullFace::Front), bilder: HashMap::new(), reihe: vec![], offen: vec![] } }
+fn schluessel_von(id: u32, trikot: Color, kragen: Color) -> ((u32, u32), [u8; 4], [u8; 4]) {
+    let farbe = |c: Color| -> [u8; 4] { [(c.r * 255.0) as u8, (c.g * 255.0) as u8, (c.b * 255.0) as u8, 255] };
+    let (t, k) = (farbe(trikot), farbe(kragen));
+    ((id, u32::from_le_bytes(t) ^ u32::from_le_bytes(k).rotate_left(7)), t, k)
+}
+
+/// The pass photo as a picture on a plain studio grey (`grund`), top row first: the template of the AI photo
+/// (kifoto.rs). None while it is not rendered yet: it is asked for and rendered at the start of the next frame.
+pub fn vorlage(id: u32, trikot: Color, kragen: Color, grund: [u8; 3]) -> Option<image::RgbaImage> {
+    let (schluessel, t, k) = schluessel_von(id, trikot, kragen);
+    LAGER.with(|z| {
+        let mut z = z.borrow_mut();
+        let l = z.get_or_insert_with(lager_neu);
+        let Some(rt) = l.bilder.get(&schluessel) else {
+            if !l.offen.iter().any(|o| o.0 == schluessel) { l.offen.push((schluessel, t, k)); }
+            return None;
+        };
+        let d = rt.texture.get_texture_data();
+        // the render target is stored bottom row first (zeichnen draws it with flip_y)
+        Some(image::RgbaImage::from_fn(BREITE, HOEHE, |x, y| {
+            let p = d.get_pixel(x, HOEHE - 1 - y);
+            let m = |c: f32, g: u8| (c * 255.0 * p.a + g as f32 * (1.0 - p.a)).round().clamp(0.0, 255.0) as u8;
+            image::Rgba([m(p.r, grund[0]), m(p.g, grund[1]), m(p.b, grund[2]), 255])
+        }))
+    })
+}
+
 /// The pass photo into the box (x, y, w, h): studio grey gradient, the player in his kit (keeper: keeper's kit).
 /// The first frame shows the backdrop only; the photo is rendered before the next one.
 pub fn zeichnen(x: f32, y: f32, w: f32, h: f32, id: u32, trikot: Color, kragen: Color) {
-    let farbe = |c: Color| -> [u8; 4] { [(c.r * 255.0) as u8, (c.g * 255.0) as u8, (c.b * 255.0) as u8, 255] };
-    let (t, k) = (farbe(trikot), farbe(kragen));
-    let schluessel = (id, u32::from_le_bytes(t) ^ u32::from_le_bytes(k).rotate_left(7));
+    let (schluessel, t, k) = schluessel_von(id, trikot, kragen);
     let tex = LAGER.with(|z| {
         let mut z = z.borrow_mut();
-        let l = z.get_or_insert_with(|| Lager { toon: material(FS_TOON, CullFace::Nothing), rand: material(FS_RAND, CullFace::Front), bilder: HashMap::new(), reihe: vec![], offen: vec![] });
+        let l = z.get_or_insert_with(lager_neu);
         let tex = l.bilder.get(&schluessel).map(|r| r.texture.clone());
         if tex.is_none() && !l.offen.iter().any(|o| o.0 == schluessel) { l.offen.push((schluessel, t, k)); }
         tex

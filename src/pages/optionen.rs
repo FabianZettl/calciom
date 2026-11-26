@@ -222,6 +222,21 @@ pub(super) fn optionen(ui: &mut Ui, v: &mut View, c: &mut Career) {
                 ui.text_semi(t(&format!("ui.features.{f}")), r.x + 212.0, y + 14.0, 16.0, Theme::text());
                 ui.text(t(&format!("ui.features.{f}.info")), r.x + 212.0, y + 32.0, 12.0, Theme::text2());
             }
+            // AI pass photos for academy graduates (kifoto.rs): optional, a one-off download nobody gets unasked
+            let y = r.y + 100.0 + crate::game::FEATURES.len() as f32 * 56.0 + 16.0;
+            ui.text_semi(t("ui.kifoto.titel"), r.x + 16.0, y + 14.0, 16.0, Theme::text());
+            ui.paragraph(t("ui.kifoto.info"), r.x + 16.0, y + 34.0, 12.0, r.w - 32.0, Theme::text2());
+            let knopf = Rect::new(r.x + 16.0, y + 84.0, 240.0, 34.0);
+            if crate::kifoto::laedt() {
+                let gb = |b: u64| format!("{:.1}", b as f64 / 1e9);
+                ui.text(&crate::tf!("ui.kifoto.laedt", gb(crate::kifoto::geladen()), gb(crate::kifoto::MODELL_GROESSE)), knopf.x, knopf.y + 22.0, 14.0, Theme::text());
+            } else if crate::kifoto::werkzeug().is_some() {
+                ui.text(t("ui.kifoto.bereit"), knopf.x, knopf.y + 22.0, 14.0, Theme::text());
+                if ui.button(Rect::new(knopf.x + 420.0, knopf.y, 140.0, 34.0), t("ui.kifoto.entfernen"), false) { crate::kifoto::entfernen(); }
+            } else {
+                if ui.button(knopf, t("ui.kifoto.laden"), false) { crate::kifoto::installieren(); }
+                if let Some(e) = crate::kifoto::ladefehler() { ui.text(&crate::tf!("ui.kifoto.fehler", e), knopf.x + 256.0, knopf.y + 22.0, 13.0, Theme::achtung()); }
+            }
         }
         _ => {
             ui.card_titled(r, t("ui.einst.reiter.handy"), Theme::akzent());

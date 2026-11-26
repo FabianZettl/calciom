@@ -60,6 +60,11 @@ impl Career {
         for (d, s) in [(-6.0, crate::id("a")), (0.0, crate::id("b")), (5.0, crate::id("c"))] { if let Some(k) = pick(&v, lv + d, s) { out.push(k); v.retain(|&x| x != k); } }
         out
     }
+    /// A new friendly in the calendar: played in FL27 by default (Fabian 26.11.), "Simulate" stays a click away.
+    fn testspiel_neu(&mut self, tag: u32, gegner: usize) {
+        self.termine.push(Termin { tag, art: 0, gegner, selbst: true, ..Default::default() });
+        self.testspiel_als_spieltag(self.termine.len() - 1);
+    }
     /// Ask a club for a friendly on day d: a stronger club says no more often. Ok(text) or Err(text).
     pub fn testspiel_anfragen(&mut self, gegner: usize, d: u32) -> Result<String, String> {
         if !self.tag_frei(d, 1) { return Err(t("ui.vorb.tag_belegt").into()); }
@@ -67,7 +72,7 @@ impl Career {
         let chance = f("testspiel.zusage") - f("testspiel.zusage_je_punkt") * diff;
         let n = self.world.clubs[gegner].name.clone();
         if zufall(&[crate::id("testspiel"), &self.world.clubs[gegner].id.to_string(), &d.to_string()]) >= chance { return Err(crate::tf!("ui.vorb.absage", n)); }
-        self.termine.push(Termin { tag: d, art: 0, gegner, ..Default::default() });
+        self.testspiel_neu(d, gegner);
         Ok(crate::tf!("ui.vorb.zusage", n, crate::date::short(self.world.season, d)))
     }
     /// Book a trip with its tournament from day d: the costs go out now, the travel load comes on the first day.
@@ -206,7 +211,7 @@ impl Career {
         let n = self.world.clubs[g as usize].name.clone();
         if key != crate::id("zusagen") { return crate::tf!("ui.vorb.anfrage_abgesagt", n); }
         if !self.tag_frei(tag, 1) { return t("ui.vorb.tag_belegt").into(); }
-        self.termine.push(Termin { tag, art: 0, gegner: g as usize, ..Default::default() });
+        self.testspiel_neu(tag, g as usize);
         crate::tf!("ui.vorb.zusage", n, crate::date::short(self.world.season, tag))
     }
     /// The camp types that fit now: summer during the pre-season, winter in the winter break, short and closed camps
@@ -644,11 +649,15 @@ mod tests {
         let mut ok = false;
         for &x in &g { if c.testspiel_anfragen(x, d).is_ok() { ok = true; break; } }
         assert!(ok, "someone says yes");
+        // a new friendly is played in FL27 by default (Fabian 26.11.): it is on the match calendar
+        assert!(c.termine[0].selbst && c.world.cups.iter().filter(|x| x.kind == 6).flat_map(|x| x.fx.iter()).any(|x| x.f.day == d));
+        c.termine[0].selbst = false;
+        c.testspiel_als_spieltag(0);
         let tabelle: Vec<i32> = c.world.table(c.league()).iter().map(|r| r.pts).collect();
         let fam0 = c.club().fam;
         while c.world.day < d { c.ultimatum = None; c.end_day().unwrap(); if c.today_match().is_some() { let r = c.prepare_match(None); c.apply_own_match(r); } }
         c.vorbereitung_tag();
-        assert!(c.termine[0].ergebnis.is_some(), "simulated by default");
+        assert!(c.termine[0].ergebnis.is_some(), "switched to simulate: simulated");
         assert!(c.club().fam > fam0);
         assert_eq!(tabelle, c.world.table(c.league()).iter().map(|r| r.pts).collect::<Vec<_>>(), "no table points");
         // a trip with a tournament of four: costs, travel, two matches

@@ -2,6 +2,13 @@
 
 CalcioM (Calcio Management) was called PES M until version 0.2.1. Full release notes: [Releases page](https://github.com/FabianZettl/calciom/releases).
 
+## 0.5.2 – 26.11.2026
+- FL27 started from CalcioM landed in its main menu instead of the side selection (after the rename a folder was missing that the direct start needs; CalcioM creates it now).
+- Read from the FL27 .cpk files no longer gets stuck or fails on an incomplete _FL26MyWorld (or old career folder) in sider.ini; it reads the .cpk files instead.
+- FL27 closed during a match: the last score read is no longer counted by itself. CalcioM asks: count this result, or discard it and play the match again or simulate it.
+- New friendlies are set to "Play in FL27" by default; "Simulate" is still one click away.
+- **AI pass photos for academy graduates (optional).** Promote a youngster from your academy and CalcioM paints him a real-looking pass photo on your own PC from his in-game face (skin, hair, beard). It shows in CalcioM and as his portrait in FL27. Turn it on under Settings › Features: one download of about 2.7 GB (stable-diffusion.cpp from GitHub and a smaller copy of SDXL-Lightning by the Hugging Face user mzwing, both checked by checksum). Without it nothing changes. "New photo" in the player profile paints another one.
+
 ## 0.5.1 – 26.11.2026
 - Master League import: the ML saves found on your computer (FL27 save folder and save… copies) now show up as buttons with club and date under New career › 1 World, no file dialog needed.
 - The big club crest at the top left sits on a light disc (a red crest disappeared in the red glow).

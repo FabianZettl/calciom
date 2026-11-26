@@ -119,6 +119,13 @@ pub(super) fn spielerprofil(ui: &mut Ui, v: &mut View, c: &mut Career) {
         let tw = pl.pos == crate::id("GK");
         crate::passfoto::zeichnen(fr.x, fr.y, fr.w, fr.h, pl.id, if tw { hex(0x16a34a) } else { k1 }, if tw { hex(0x14532d) } else { k2 });
     }
+    // an academy graduate's AI photo (kifoto.rs): paint a new one; one promoted before the feature can ask for his first
+    // (home-grown, or one of CalcioM's own made-up players: older careers did not note the home-grown ones)
+    let eigen = pl.youth == 0 && (c.world.eigen.contains_key(&pl.id) || c.world.gesichter.contains_key(&pl.id)) && crate::kifoto::werkzeug().is_some();
+    if pl.team == c.own as i32 && (crate::kifoto::hat_foto(c, pl.id) || eigen) {
+        let warte = c.ki_fotos.contains(&pl.id);
+        if ui.button(Rect::new(fr.x + 4.0, fr.y + fr.h - 22.0, fr.w - 8.0, 18.0), crate::inhalt::t(if warte { "ui.kifoto.wird_gemalt" } else { "ui.kifoto.neues_foto" }), false) && !warte { c.ki_fotos.push(pl.id); }
+    }
     let teile: Vec<&str> = pl.name.split_whitespace().collect();
     let (vor, nach) = if teile.len() > 1 { (teile[..teile.len() - 1].join(" "), teile[teile.len() - 1].to_string()) } else { (String::new(), pl.name.clone()) };
     ui.text_semi(&vor, hr.x + 232.0, hr.y + 30.0, 18.0, alpha(fg, 0.85));

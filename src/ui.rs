@@ -742,6 +742,8 @@ impl Ui {
     }
     /// A player's photo texture: loaded once and kept (world folders, game archives, then the picture cache of the
     /// Python version, read only); None while the frame's loading budget is used up or when there is no photo.
+    /// A new photo file of a player (kifoto.rs): shown from now on.
+    pub fn foto_neu(&mut self, id: u32, datei: std::path::PathBuf) { self.bilder.spieler.insert(id, crate::fl27::Quelle::Datei(datei)); self.fotos.borrow_mut().remove(&id); }
     fn foto_tex(&self, id: u32) -> Option<Texture2D> {
         if let Some(t) = self.fotos.borrow().get(&id) { return t.clone(); }
         if self.foto_budget.get() == 0 { return None; }

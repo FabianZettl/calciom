@@ -324,8 +324,15 @@ pub const CPK_WELT: &str = "FL27-Datenbank aus CPK"; // roh
 /// Coaching Zone's search), written as a world folder into SiderAddons/livecpk so the career start works as usual.
 /// sider.ini does not list the folder, so the game never loads it; the career writes its own copy into its LiveCPK.
 pub fn welt_aus_cpk(spiel: &Path) -> Result<PathBuf, String> {
-    let quelle = cz::pesdb::find_in_game_folder(spiel).ok_or_else(|| crate::inhalt::t("ui.pesdb.keine_cpk").to_string())?;
-    if quelle.is_dir() { return ableiten(&quelle).map(|x| x.1).or_else(|| quelle.ancestors().nth(3).map(Path::to_path_buf)).ok_or_else(|| quelle.display().to_string()); }
+    let mut quelle = cz::pesdb::find_in_game_folder(spiel).ok_or_else(|| crate::inhalt::t("ui.pesdb.keine_cpk").to_string())?;
+    if quelle.is_dir() {
+        let w = ableiten(&quelle).map(|x| x.1).or_else(|| quelle.ancestors().nth(3).map(Path::to_path_buf)).ok_or_else(|| quelle.display().to_string())?;
+        if pruefen(&w).is_ok() { return Ok(w); }
+        // Discord 26.11. (dew): sider.ini's first cpk.root with a Player.bin (e.g. a partial _FL26MyWorld or a career
+        // folder) is no complete world; read the game's CPK files instead of failing on it
+        fl27::log(&format!("{} ist keine vollständige Welt, lese die CPK-Dateien", w.display()));
+        quelle = groesste_cpk(spiel).ok_or_else(|| crate::inhalt::t("ui.pesdb.keine_cpk").to_string())?;
+    }
     let c = cz::cpk::Cpk::open(&quelle).map_err(|e| format!("{}: {e}", quelle.display()))?;
     let ziel = spiel.join("SiderAddons").join("livecpk").join(CPK_WELT); // roh
     let d = ziel.join("common/etc/pesdb");
@@ -336,7 +343,15 @@ pub fn welt_aus_cpk(spiel: &Path) -> Result<PathBuf, String> {
         fl27::atomic_write(&d.join(f), &b)?;
     }
     fl27::log(&format!("Datenbank aus {} gelesen nach {}", quelle.display(), ziel.display()));
-    pruefen(&ziel).map(|_| ziel)
+    let datei = quelle.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
+    pruefen(&ziel).map(|_| ziel).map_err(|_| crate::tf!("ui.pesdb.cpk_unvollstaendig", datei))
+}
+/// The game's CPK file with the biggest Player.bin (cz::pesdb::find_in_game_folder without its sider.ini shortcut).
+fn groesste_cpk(spiel: &Path) -> Option<PathBuf> {
+    let player = format!("{}/Player.bin", cz::pesdb::PESDB_IN_CPK);
+    cz::cpk::find_files(spiel, 4).into_iter()
+        .filter_map(|p| Some((cz::cpk::Cpk::open(&p).ok()?.size_of(&player)?, p)))
+        .max_by_key(|x| x.0).map(|x| x.1)
 }
 pub fn welten(s: &Path) -> Vec<PathBuf> {
     let mut v: Vec<PathBuf> = std::fs::read_dir(s.join(crate::id("livecpk"))).map(|d| d.flatten().map(|e| e.path()).filter(|p| pruefen(p).is_ok()).collect()).unwrap_or_default();
@@ -376,6 +391,24 @@ mod t {
         assert!(welt.clubs.len() > 100 && welt.players.len() > 1000, "{} clubs {} players", welt.clubs.len(), welt.players.len());
         assert_eq!(welten(&g.join("SiderAddons")), vec![w]);
         let _ = std::fs::remove_dir_all(&g);
+    }
+    /// Discord 26.11. (dew): sider.ini points at a _FL26MyWorld with only a Player.bin; "read from the .cpk files" read
+    /// that folder and failed on the missing Competition.bin. Now it reads the CPK instead.
+    #[test]
+    fn cpk_statt_halber_welt() {
+        let echt = fl27::spielordner().join("download/data_s2627.cpk");
+        if !fl27::echte_welt(&echt) { return; }
+        let g = std::env::temp_dir().join(format!("calciom-cpk-halb-{}", std::process::id()));
+        let halb = g.join("SiderAddons/livecpk/_FL26MyWorld/common/etc/pesdb");
+        std::fs::create_dir_all(&halb).unwrap();
+        std::fs::create_dir_all(g.join("download")).unwrap();
+        std::fs::write(halb.join("Player.bin"), b"x").unwrap();
+        std::fs::write(g.join("SiderAddons/sider.ini"), "cpk.root = \".\\livecpk\\_FL26MyWorld\"\n").unwrap();
+        #[cfg(unix)]
+        std::os::unix::fs::symlink(&echt, g.join("download/data_s2627.cpk")).unwrap();
+        let w = welt_aus_cpk(&g);
+        let _ = std::fs::remove_dir_all(&g);
+        assert!(w.expect("database from the CPK").ends_with(CPK_WELT));
     }
     fn def() -> Option<PathBuf> { let p = fl27::sider().join("livecpk/_FL26-27-Def"); fl27::echte_welt(&p.join("common/etc/pesdb")).then_some(p) }
 

@@ -73,6 +73,7 @@ mod trainingsplan;
 mod jugend;
 mod gesichter;
 mod passfoto;
+mod kifoto;
 mod scoutbericht;
 mod statistik;
 mod auftraege;
@@ -613,6 +614,7 @@ impl App {
                     }
                 }
                 let fertig = CPK_LESEN.lock().unwrap().as_ref().and_then(|rx| rx.try_recv().ok());
+                let aus_cpk = matches!(fertig, Some(Ok(_))); // its world failing must not start the CPK read again (endless loop)
                 if let Some(r) = fertig { *CPK_LESEN.lock().unwrap() = None; match r { Ok(w) => pick = Some(w), Err(e) => { s.error = e; fl27::log(&s.error); } } }
                 let ir = Rect::new(rr.x + 20.0, rr.y + 236.0, rr.w - 340.0, 40.0);
                 if ui.hit(ir) { s.db_focus = true; }
@@ -652,7 +654,7 @@ impl App {
                             ui.play(crate::id("bestaetigt"));
                         }
                         // a livecpk folder that is no extracted world (e.g. "no Competition.bin"): read the CPK files instead
-                        Err(e) if pesdb::ableiten(&p).is_some() && fl27::sider().is_dir() && CPK_LESEN.lock().unwrap().is_none() => { fl27::log(&e); s.error = crate::inhalt::t("ui.main.keine_welt_cpk").into(); cpk_starten(); }
+                        Err(e) if !aus_cpk && pesdb::ableiten(&p).is_some() && fl27::sider().is_dir() && CPK_LESEN.lock().unwrap().is_none() => { fl27::log(&e); s.error = crate::inhalt::t("ui.main.keine_welt_cpk").into(); cpk_starten(); }
                         Err(e) => { s.error = e; ui.play(crate::id("fehler")); }
                     }
                 }
@@ -1570,6 +1572,8 @@ async fn main() {
         if p == Page::Transfermarkt { app.v.sel_player = app.career.as_ref().unwrap().world.players.iter().position(|x| x.name.contains("Wirtz")); } // roh
         // CALCIOM_SPIELER=<Name>: that player; CALCIOM_REITER=<n>: that tab
         if let Ok(n) = std::env::var("CALCIOM_SPIELER") { app.v.sel_player = app.career.as_ref().unwrap().world.players.iter().position(|x| x.name.contains(&n)); }
+        // CALCIOM_KIFOTO=1: that player waits for his AI pass photo (check of kifoto.rs without promoting)
+        if std::env::var_os("CALCIOM_KIFOTO").is_some() { if let (Some(c), Some(p)) = (app.career.as_mut(), app.v.sel_player) { let id = c.world.players[p].id; c.ki_fotos.push(id); } }
         // CALCIOM_ST=1: the chosen player with points and a few bought nodes (preview of the Skill Tree)
         if std::env::var("CALCIOM_ST").is_ok() { if let Some(p) = app.v.sel_player { let c = app.career.as_mut().unwrap(); c.world.players[p].st.konto = 6; let baum = crate::skilltree::baum_von(&c.world.players[p].pos); for k in crate::skilltree::knoten(&baum).into_iter().filter(|k| k.stufe == 1 && k.ast != 1) { let _ = c.knoten_kaufen(p, &k); } c.world.players[p].st.konto = 3; c.world.players[p].st.balken = 62.0; } }
         // CALCIOM_FEIER=1: a reward moment for the best own player (preview of the full-screen moment)
@@ -1704,6 +1708,7 @@ async fn main() {
     loop {
         hoehe_setzen(screen_width(), screen_height());
         crate::passfoto::vorbereiten();
+        if let Some(c) = app.career.as_mut() { if let Some((id, datei)) = crate::kifoto::takt(c) { app.ui.foto_neu(id, datei); } }
         let k = view_scale();
         let mut cam = Camera2D::from_display_rect(Rect::new(-versatz(), 0.0, screen_width() * k, screen_height() * k));
         cam.zoom.y = -cam.zoom.y; // from_display_rect is made for render targets; the window needs y pointing down
