@@ -324,34 +324,35 @@ pub const CPK_WELT: &str = "FL27-Datenbank aus CPK"; // roh
 /// Coaching Zone's search), written as a world folder into SiderAddons/livecpk so the career start works as usual.
 /// sider.ini does not list the folder, so the game never loads it; the career writes its own copy into its LiveCPK.
 pub fn welt_aus_cpk(spiel: &Path) -> Result<PathBuf, String> {
-    let mut quelle = cz::pesdb::find_in_game_folder(spiel).ok_or_else(|| crate::inhalt::t("ui.pesdb.keine_cpk").to_string())?;
+    let quelle = cz::pesdb::find_in_game_folder(spiel).ok_or_else(|| crate::inhalt::t("ui.pesdb.keine_cpk").to_string())?;
     if quelle.is_dir() {
         let w = ableiten(&quelle).map(|x| x.1).or_else(|| quelle.ancestors().nth(3).map(Path::to_path_buf)).ok_or_else(|| quelle.display().to_string())?;
         if pruefen(&w).is_ok() { return Ok(w); }
         // Discord 26.11. (dew): sider.ini's first cpk.root with a Player.bin (e.g. a partial _FL26MyWorld or a career
         // folder) is no complete world; read the game's CPK files instead of failing on it
         fl27::log(&format!("{} ist keine vollständige Welt, lese die CPK-Dateien", w.display()));
-        quelle = groesste_cpk(spiel).ok_or_else(|| crate::inhalt::t("ui.pesdb.keine_cpk").to_string())?;
     }
-    let c = cz::cpk::Cpk::open(&quelle).map_err(|e| format!("{}: {e}", quelle.display()))?;
+    let mut cpks: Vec<(PathBuf, cz::cpk::Cpk)> = cz::cpk::find_files(spiel, 4).into_iter().filter_map(|p| Some((p.clone(), cz::cpk::Cpk::open(&p).ok()?))).collect();
+    if quelle.is_file() && !cpks.iter().any(|c| c.0 == quelle) { cpks.push((quelle.clone(), cz::cpk::Cpk::open(&quelle).map_err(|e| format!("{}: {e}", quelle.display()))?)); }
+    let groesse = |i: usize, f: &str| cpks[i].1.size_of(&format!("{}/{f}", cz::pesdb::PESDB_IN_CPK));
+    // the main CPK: the one find_in_game_folder chose, else the biggest Player.bin
+    let haupt = cpks.iter().position(|c| c.0 == quelle).or_else(|| quelle_fuer("Player.bin", None, cpks.len(), &groesse)).ok_or_else(|| crate::inhalt::t("ui.pesdb.keine_cpk").to_string())?;
     let ziel = spiel.join("SiderAddons").join("livecpk").join(CPK_WELT); // roh
     let d = ziel.join("common/etc/pesdb");
     for f in PESDB_DATEIEN {
-        let name = format!("common/etc/pesdb/{f}");
-        if !c.has(&name) { continue; }
-        let b = c.read(&name).map_err(|e| format!("{f}: {e}"))?;
+        let Some(i) = quelle_fuer(f, Some(haupt), cpks.len(), &groesse) else { continue };
+        let b = cpks[i].1.read(&format!("common/etc/pesdb/{f}")).map_err(|e| format!("{f}: {e}"))?;
         fl27::atomic_write(&d.join(f), &b)?;
+        fl27::log(&format!("Datenbank: {f} aus {}", cpks[i].0.display()));
     }
-    fl27::log(&format!("Datenbank aus {} gelesen nach {}", quelle.display(), ziel.display()));
-    let datei = quelle.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
+    let datei = cpks[haupt].0.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
     pruefen(&ziel).map(|_| ziel).map_err(|_| crate::tf!("ui.pesdb.cpk_unvollstaendig", datei))
 }
-/// The game's CPK file with the biggest Player.bin (cz::pesdb::find_in_game_folder without its sider.ini shortcut).
-fn groesste_cpk(spiel: &Path) -> Option<PathBuf> {
-    let player = format!("{}/Player.bin", cz::pesdb::PESDB_IN_CPK);
-    cz::cpk::find_files(spiel, 4).into_iter()
-        .filter_map(|p| Some((cz::cpk::Cpk::open(&p).ok()?.size_of(&player)?, p)))
-        .max_by_key(|x| x.0).map(|x| x.1)
+/// Which of n CPKs a database file comes from: the main CPK if it has the file, else the one with the biggest copy.
+/// Windows 26.11.: an FL27 update (data_s26272.cpk) carries the biggest Player.bin but no Competition.bin.
+fn quelle_fuer(f: &str, haupt: Option<usize>, n: usize, groesse: &dyn Fn(usize, &str) -> Option<u64>) -> Option<usize> {
+    if let Some(h) = haupt.filter(|&h| groesse(h, f).is_some()) { return Some(h); }
+    (0..n).filter_map(|i| Some((groesse(i, f)?, i))).max().map(|x| x.1)
 }
 pub fn welten(s: &Path) -> Vec<PathBuf> {
     let mut v: Vec<PathBuf> = std::fs::read_dir(s.join(crate::id("livecpk"))).map(|d| d.flatten().map(|e| e.path()).filter(|p| pruefen(p).is_ok()).collect()).unwrap_or_default();
@@ -409,6 +410,17 @@ mod t {
         let w = welt_aus_cpk(&g);
         let _ = std::fs::remove_dir_all(&g);
         assert!(w.expect("database from the CPK").ends_with(CPK_WELT));
+    }
+    /// Windows 26.11.: the update CPK has the biggest Player.bin but no Competition.bin; the rest comes from the base CPK.
+    #[test]
+    fn datei_aus_anderer_cpk() {
+        let tab: [&[(&str, u64)]; 2] = [&[("Player.bin", 10), ("Competition.bin", 5)], &[("Player.bin", 20)]];
+        let g = |i: usize, f: &str| tab[i].iter().find(|x| x.0 == f).map(|x| x.1);
+        let haupt = quelle_fuer("Player.bin", None, 2, &g);
+        assert_eq!(haupt, Some(1));
+        assert_eq!(quelle_fuer("Player.bin", haupt, 2, &g), Some(1));
+        assert_eq!(quelle_fuer("Competition.bin", haupt, 2, &g), Some(0));
+        assert_eq!(quelle_fuer("Team.bin", haupt, 2, &g), None);
     }
     fn def() -> Option<PathBuf> { let p = fl27::sider().join("livecpk/_FL26-27-Def"); fl27::echte_welt(&p.join("common/etc/pesdb")).then_some(p) }
 

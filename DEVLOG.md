@@ -2,6 +2,10 @@
 
 Short notes on how things work under the hood, newest first. Player-facing changes are in [CHANGELOG.md](CHANGELOG.md).
 
+## 26.11.2026 – CalcioM 0.5.3 (hotfix)
+
+- **Read from cpk.** Each database file (Player.bin, Competition.bin …) is taken from the `.cpk` that contains it, instead of all from the one with the biggest Player.bin: an FL27 update package like `data_s26272.cpk` has players but no competitions.
+
 ## 26.11.2026 – CalcioM 0.5.2 (hotfix)
 
 - **Broken-off matches.** The reader (`fl27::Mitlauf`) notes when FL27's process ends while it follows a match (`abgebrochen`). The figures of that match come as `Meldung::Abgebrochen`, and the matchday page asks whether to count or discard them. A whistled match (FL27 alive) is booked as before.

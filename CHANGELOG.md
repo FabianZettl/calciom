@@ -2,6 +2,9 @@
 
 CalcioM (Calcio Management) was called PES M until version 0.2.1. Full release notes: [Releases page](https://github.com/FabianZettl/calciom/releases).
 
+## 0.5.3 – 26.11.2026 (hotfix)
+- Read from the FL27 .cpk files: each database file now comes from the .cpk that contains it (FL27 update packages like data_s26272.cpk have players but no competitions).
+
 ## 0.5.2 – 26.11.2026
 - FL27 started from CalcioM landed in its main menu instead of the side selection (after the rename a folder was missing that the direct start needs; CalcioM creates it now).
 - Read from the FL27 .cpk files no longer gets stuck or fails on an incomplete _FL26MyWorld (or old career folder) in sider.ini; it reads the .cpk files instead.
