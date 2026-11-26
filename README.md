@@ -5,6 +5,7 @@
 > [!WARNING]
 > **Work in progress.** PES M is under heavy development and this repository gets several pushes a day. Things change fast and can break.
 > **Beta downloads** for Linux and Windows are on the [Releases page](https://github.com/FabianZettl/pesm/releases) (Windows is not tested on a real PC yet). Or build it yourself (see [Build](#build)).
+> **New here?** Read the [Getting started guide](docs/GETTING-STARTED.md): from the first launch to a career and your first FL27 match, for Windows and Linux.
 > PES M never touches your original FL27 database: it always works on **its own copy of the database in a separate LiveCPK folder** per career.
 
 <p align="center">
