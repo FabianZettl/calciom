@@ -1,4 +1,4 @@
-# CalcioM – Nationaltrainer (Startdaten), Stand 23.11.2026
+# CalcioM – Nationaltrainer, neutral: die Namen kommen aus dem Paket echte-daten (regeln/nationaltrainer.toml)
 # Fabian darf alles ändern und ergänzen. Zuordnung über code (= ligaregeln.toml [[land]] code).
 # sicher = true  : vor und nach der WM 2026 bestätigt (mehrere Quellen bzw. lange im Amt, kein gemeldeter Wechsel)
 # sicher = false : nur eine Presse-Quelle (Juli/Aug 2026) oder Stand vor der WM ohne Bestätigung danach -> bitte prüfen
@@ -16,7 +16,7 @@ weltmeister_2026 = "ESP"   # 1:0 gegen Argentinien, 19.7.2026
 [[trainer]]
 code = "ESP"
 team = "A"
-name = "Luis de la Fuente"
+name = ""
 seit = 2022
 vertrag_bis = 2028
 sicher = true
@@ -36,7 +36,7 @@ handschrift = ["kennt die Jahrgänge aus der U21", "Gruppe vor Einzelnen", "ruhi
 [[trainer]]
 code = "FRA"
 team = "A"
-name = "Zinédine Zidane"
+name = ""
 seit = 2026
 vertrag_bis = 2030
 sicher = true
@@ -56,7 +56,7 @@ handschrift = ["spricht wenig, entscheidet klar", "vertraut großen Persönlichk
 [[trainer]]
 code = "GER"
 team = "A"
-name = "Jürgen Klopp"
+name = ""
 seit = 2026
 vertrag_bis = 2028
 sicher = false
@@ -76,7 +76,7 @@ handschrift = ["Mentalität und Teamgeist zuerst", "emotional, viele Bilder", "P
 [[trainer]]
 code = "ENG"
 team = "A"
-name = "Thomas Tuchel"
+name = ""
 seit = 2025
 vertrag_bis = 2026
 sicher = false
@@ -97,7 +97,7 @@ hinweis = "Vertrag lief laut Vorab-Stand bis nach der WM 2026; Verbleib prüfen.
 [[trainer]]
 code = "ARG"
 team = "A"
-name = "Lionel Scaloni"
+name = ""
 seit = 2018
 vertrag_bis = 2026
 sicher = false
@@ -117,7 +117,7 @@ handschrift = ["Weltmeister-Kern", "Arbeit gegen den Ball", "Zukunft nach der WM
 [[trainer]]
 code = "BRA"
 team = "A"
-name = "Carlo Ancelotti"
+name = ""
 seit = 2025
 vertrag_bis = 2030
 sicher = true
@@ -137,7 +137,7 @@ handschrift = ["gelassen", "lässt Stars Freiheit", "Balance vor System"]
 [[trainer]]
 code = "POR"
 team = "A"
-name = "Jorge Jesus"
+name = ""
 seit = 2026
 vertrag_bis = 2030
 sicher = false
@@ -157,7 +157,7 @@ handschrift = ["fordert hohes Tempo", "laut an der Linie", "kennt die heimische 
 [[trainer]]
 code = "NED"
 team = "A"
-name = "Xavi Hernández"
+name = ""
 seit = 2026
 vertrag_bis = 2028
 sicher = false
@@ -177,7 +177,7 @@ handschrift = ["Positionsspiel", "Ballbesitz als Schutz", "junge Techniker"]
 [[trainer]]
 code = "ITA"
 team = "A"
-name = "Roberto Mancini"
+name = ""
 seit = 2026
 vertrag_bis = 2028
 sicher = false
@@ -197,7 +197,7 @@ handschrift = ["zweite Amtszeit", "traut Jungen ohne Stammplatz", "Ballbesitz mi
 [[trainer]]
 code = "BEL"
 team = "A"
-name = "Mark van Bommel"
+name = ""
 seit = 2026
 vertrag_bis = 2028
 sicher = false
@@ -217,7 +217,7 @@ handschrift = ["Härte im Zweikampf", "Generationswechsel", "klare Ansagen"]
 [[trainer]]
 code = "CRO"
 team = "A"
-name = "Slaven Bilić"
+name = ""
 seit = 2026
 vertrag_bis = 2028
 sicher = false
@@ -237,7 +237,7 @@ handschrift = ["zweite Amtszeit", "Emotion und Stolz", "Übergang nach der Modri
 [[trainer]]
 code = "URU"
 team = "A"
-name = "Diego Forlán"
+name = ""
 seit = 2026
 vertrag_bis = 2030
 sicher = false
@@ -257,7 +257,7 @@ handschrift = ["betreut auch die U20", "setzt auf Jugend", "Mut im Angriff"]
 [[trainer]]
 code = "MEX"
 team = "A"
-name = "Rafael Márquez"
+name = ""
 seit = 2026
 vertrag_bis = 2030
 sicher = false
@@ -277,7 +277,7 @@ handschrift = ["Aufbau von hinten", "viele Spieler aus der Liga MX", "ruhiger To
 [[trainer]]
 code = "SCO"
 team = "A"
-name = "Sébastien Pocognoli"
+name = ""
 seit = 2026
 vertrag_bis = 2028
 sicher = false
@@ -297,7 +297,7 @@ handschrift = ["junger Trainer, neue Ideen", "aktive Abwehr", "erklärt viel"]
 [[trainer]]
 code = "SEN"
 team = "A"
-name = "Patrick Vieira"
+name = ""
 seit = 2026
 vertrag_bis = 2028
 sicher = false
@@ -317,7 +317,7 @@ handschrift = ["Körperlichkeit im Zentrum", "Doppelpass-Spieler aus Frankreich 
 [[trainer]]
 code = "CIV"
 team = "A"
-name = "Hervé Renard"
+name = ""
 seit = 2026
 vertrag_bis = 2028
 sicher = false
@@ -337,7 +337,7 @@ handschrift = ["zweite Amtszeit", "Turniererfahrung in Afrika", "Mentalität"]
 [[trainer]]
 code = "TUN"
 team = "A"
-name = "Mouine Chaabani"
+name = ""
 seit = 2026
 vertrag_bis = 2028
 sicher = false
@@ -357,7 +357,7 @@ handschrift = ["kennt die Heimliga", "kompakt", "pragmatisch"]
 [[trainer]]
 code = "UAE"
 team = "A"
-name = "Zlatko Dalić"
+name = ""
 seit = 2026
 vertrag_bis = 2030
 sicher = false
@@ -378,7 +378,7 @@ handschrift = ["Vater der Mannschaft", "Treue zu Führungsspielern", "ruhig"]
 [[trainer]]
 code = "USA"
 team = "A"
-name = "Mauricio Pochettino"
+name = ""
 seit = 2024
 vertrag_bis = 2026
 sicher = false
@@ -399,7 +399,7 @@ hinweis = "Presse meldete einen Wechsel zu einem Premier-League-Verein; Nachfolg
 [[trainer]]
 code = "MAR"
 team = "A"
-name = "Walid Regragui"
+name = ""
 seit = 2022
 vertrag_bis = 2027
 sicher = false
@@ -419,7 +419,7 @@ handschrift = ["Abwehr als Fundament", "wirbt Doppelpass-Spieler aktiv", "Gemein
 [[trainer]]
 code = "JPN"
 team = "A"
-name = "Hajime Moriyasu"
+name = ""
 seit = 2018
 vertrag_bis = 2026
 sicher = false
@@ -439,7 +439,7 @@ handschrift = ["viele Europa-Legionäre", "geduldig", "flexibel zwischen Dreier-
 [[trainer]]
 code = "SUI"
 team = "A"
-name = "Murat Yakin"
+name = ""
 seit = 2021
 vertrag_bis = 2026
 sicher = false
@@ -459,7 +459,7 @@ handschrift = ["taktisch flexibel", "Erfahrung zählt", "gelassen"]
 [[trainer]]
 code = "AUT"
 team = "A"
-name = "Ralf Rangnick"
+name = ""
 seit = 2022
 vertrag_bis = 2026
 sicher = false
@@ -479,7 +479,7 @@ handschrift = ["Pressing und Umschalten", "Spielidee vor Namen", "deutliche Wort
 [[trainer]]
 code = "DEN"
 team = "A"
-name = "Brian Riemer"
+name = ""
 seit = 2024
 vertrag_bis = 2026
 sicher = false
@@ -499,7 +499,7 @@ handschrift = ["Standards wichtig", "modern", "Datenblick"]
 [[trainer]]
 code = "NOR"
 team = "A"
-name = "Ståle Solbakken"
+name = ""
 seit = 2020
 vertrag_bis = 2026
 sicher = false
@@ -519,7 +519,7 @@ handschrift = ["Stärken der Stars nutzen", "ruhig", "pragmatisch"]
 [[trainer]]
 code = "SWE"
 team = "A"
-name = "Graham Potter"
+name = ""
 seit = 2025
 vertrag_bis = 2026
 sicher = false
@@ -539,7 +539,7 @@ handschrift = ["flexible Systeme", "erklärt geduldig", "baut auf Struktur"]
 [[trainer]]
 code = "POL"
 team = "A"
-name = "Jan Urban"
+name = ""
 seit = 2025
 vertrag_bis = 2026
 sicher = false
@@ -559,7 +559,7 @@ handschrift = ["ruhige Hand", "Erfahrung", "Balance"]
 [[trainer]]
 code = "TUR"
 team = "A"
-name = "Vincenzo Montella"
+name = ""
 seit = 2023
 vertrag_bis = 2026
 sicher = false
@@ -579,7 +579,7 @@ handschrift = ["junge Techniker", "mutiger Angriff", "Leidenschaft"]
 [[trainer]]
 code = "WAL"
 team = "A"
-name = "Craig Bellamy"
+name = ""
 seit = 2024
 vertrag_bis = 2028
 sicher = false
@@ -599,7 +599,7 @@ handschrift = ["mutiger Ballbesitz", "fordernd", "Spieler aus der Championship w
 [[trainer]]
 code = "IRL"
 team = "A"
-name = "Heimir Hallgrímsson"
+name = ""
 seit = 2024
 vertrag_bis = 2026
 sicher = false
@@ -619,7 +619,7 @@ handschrift = ["Ordnung", "Standards", "Gemeinschaft"]
 [[trainer]]
 code = "NIR"
 team = "A"
-name = "Michael O'Neill"
+name = ""
 seit = 2024
 vertrag_bis = 2028
 sicher = false
@@ -639,7 +639,7 @@ handschrift = ["junge Mannschaft", "kompakt", "Mut zur Lücke"]
 [[trainer]]
 code = "HUN"
 team = "A"
-name = "Marco Rossi"
+name = ""
 seit = 2018
 vertrag_bis = 2026
 sicher = false
@@ -659,7 +659,7 @@ handschrift = ["Dreierkette", "Treue zum Kern", "ruhig"]
 [[trainer]]
 code = "SRB"
 team = "A"
-name = "Veljko Paunović"
+name = ""
 seit = 2025
 vertrag_bis = 2026
 sicher = false
@@ -679,7 +679,7 @@ handschrift = ["Neuanfang", "Disziplin", "offensiv"]
 [[trainer]]
 code = "UKR"
 team = "A"
-name = "Serhiy Rebrov"
+name = ""
 seit = 2023
 vertrag_bis = 2026
 sicher = false
@@ -699,7 +699,7 @@ handschrift = ["Zusammenhalt", "Ballbesitz", "ruhig"]
 [[trainer]]
 code = "GRE"
 team = "A"
-name = "Ivan Jovanović"
+name = ""
 seit = 2024
 vertrag_bis = 2026
 sicher = false
@@ -719,7 +719,7 @@ handschrift = ["junge Griechen aus Europa", "Struktur", "Mut"]
 [[trainer]]
 code = "SVK"
 team = "A"
-name = "Francesco Calzona"
+name = ""
 seit = 2022
 vertrag_bis = 2026
 sicher = false
@@ -739,7 +739,7 @@ handschrift = ["Spielidee aus Neapel", "Ballbesitz", "Ordnung"]
 [[trainer]]
 code = "SVN"
 team = "A"
-name = "Matjaž Kek"
+name = ""
 seit = 2018
 vertrag_bis = 2026
 sicher = false
@@ -759,7 +759,7 @@ handschrift = ["kompakt", "Treue", "Konter über die Stürmer"]
 [[trainer]]
 code = "GEO"
 team = "A"
-name = "Willy Sagnol"
+name = ""
 seit = 2021
 vertrag_bis = 2026
 sicher = false
@@ -779,7 +779,7 @@ handschrift = ["Fünferkette", "Konter über die Stars", "Stolz"]
 [[trainer]]
 code = "ALB"
 team = "A"
-name = "Sylvinho"
+name = ""
 seit = 2023
 vertrag_bis = 2026
 sicher = false
@@ -799,7 +799,7 @@ handschrift = ["Doppelpass-Spieler aus der Diaspora", "Zusammenhalt", "geordnet"
 [[trainer]]
 code = "BIH"
 team = "A"
-name = "Sergej Barbarez"
+name = ""
 seit = 2024
 vertrag_bis = 2026
 sicher = false
@@ -819,7 +819,7 @@ handschrift = ["Neuaufbau", "Diaspora im Blick", "direkte Worte"]
 [[trainer]]
 code = "ISL"
 team = "A"
-name = "Arnar Gunnlaugsson"
+name = ""
 seit = 2025
 vertrag_bis = 2026
 sicher = false
@@ -839,7 +839,7 @@ handschrift = ["mutiger Ballbesitz", "junge Spieler", "neuer Weg"]
 [[trainer]]
 code = "FIN"
 team = "A"
-name = "Jacob Friis"
+name = ""
 seit = 2025
 vertrag_bis = 2026
 sicher = false
@@ -859,7 +859,7 @@ handschrift = ["Pressing", "Struktur", "dänische Schule"]
 [[trainer]]
 code = "COL"
 team = "A"
-name = "Néstor Lorenzo"
+name = ""
 seit = 2022
 vertrag_bis = 2026
 sicher = false
@@ -879,7 +879,7 @@ handschrift = ["Treue zum Kern", "Technik und Umschalten", "ruhig"]
 [[trainer]]
 code = "PAR"
 team = "A"
-name = "Gustavo Alfaro"
+name = ""
 seit = 2024
 vertrag_bis = 2026
 sicher = false
@@ -899,7 +899,7 @@ handschrift = ["Ordnung über alles", "Kampf", "Gemeinschaft"]
 [[trainer]]
 code = "CAN"
 team = "A"
-name = "Jesse Marsch"
+name = ""
 seit = 2024
 vertrag_bis = 2026
 sicher = false
@@ -919,7 +919,7 @@ handschrift = ["Pressing und Tempo", "Energie", "klare Rollen"]
 [[trainer]]
 code = "KOR"
 team = "A"
-name = "offen"
+name = ""
 seit = 2026
 vertrag_bis = 2026
 sicher = false
@@ -941,7 +941,7 @@ hinweis = "Hong Myung-bo nach der WM zurückgetreten; Nachfolger in CalcioM per 
 [[trainer]]
 code = "CZE"
 team = "A"
-name = "offen"
+name = ""
 seit = 2026
 vertrag_bis = 2026
 sicher = false
@@ -963,7 +963,7 @@ hinweis = "Miroslav Koubek zurückgetreten; Nachfolger offen."
 [[trainer]]
 code = "ECU"
 team = "A"
-name = "offen"
+name = ""
 seit = 2026
 vertrag_bis = 2026
 sicher = false
@@ -985,7 +985,7 @@ hinweis = "Sebastián Beccacece zurückgetreten; Nachfolger offen."
 [[trainer]]
 code = "JOR"
 team = "A"
-name = "offen"
+name = ""
 seit = 2026
 vertrag_bis = 2026
 sicher = false
@@ -1007,7 +1007,7 @@ hinweis = "Trennung von Jamal Sellami; Nachfolger offen."
 [[trainer]]
 code = "KSA"
 team = "A"
-name = "Hervé Renard"
+name = ""
 seit = 2024
 vertrag_bis = 2026
 sicher = false
@@ -1028,7 +1028,7 @@ hinweis = "Renard ist laut Presse inzwischen Trainer der Elfenbeinküste. Saudi-
 [[trainer]]
 code = "AUS"
 team = "A"
-name = "Tony Popovic"
+name = ""
 seit = 2024
 vertrag_bis = 2026
 sicher = false
@@ -1048,7 +1048,7 @@ handschrift = ["Disziplin", "kompakte Abwehr", "Arbeit"]
 [[trainer]]
 code = "IRN"
 team = "A"
-name = "Amir Ghalenoei"
+name = ""
 seit = 2023
 vertrag_bis = 2026
 sicher = false
@@ -1068,7 +1068,7 @@ handschrift = ["erfahrener Kern", "kompakt", "Heimliga"]
 [[trainer]]
 code = "QAT"
 team = "A"
-name = "Julen Lopetegui"
+name = ""
 seit = 2025
 vertrag_bis = 2026
 sicher = false
@@ -1088,7 +1088,7 @@ handschrift = ["Ballbesitz", "Ordnung"]
 [[trainer]]
 code = "UZB"
 team = "A"
-name = "Fabio Cannavaro"
+name = ""
 seit = 2025
 vertrag_bis = 2026
 sicher = false
@@ -1108,7 +1108,7 @@ handschrift = ["Abwehr zuerst", "Stolz", "erste WM des Landes"]
 [[trainer]]
 code = "EGY"
 team = "A"
-name = "Hossam Hassan"
+name = ""
 seit = 2024
 vertrag_bis = 2026
 sicher = false
@@ -1128,7 +1128,7 @@ handschrift = ["Leidenschaft", "Heimliga stark vertreten", "um den Star herum"]
 [[trainer]]
 code = "NGA"
 team = "A"
-name = "Éric Chelle"
+name = ""
 seit = 2025
 vertrag_bis = 2026
 sicher = false
@@ -1148,7 +1148,7 @@ handschrift = ["Ordnung", "Tempo vorne", "Disziplin"]
 [[trainer]]
 code = "GHA"
 team = "A"
-name = "Otto Addo"
+name = ""
 seit = 2024
 vertrag_bis = 2026
 sicher = false
@@ -1168,7 +1168,7 @@ handschrift = ["Talententwickler", "Doppelpass-Spieler aus Europa", "ruhig"]
 [[trainer]]
 code = "ALG"
 team = "A"
-name = "Vladimir Petković"
+name = ""
 seit = 2024
 vertrag_bis = 2026
 sicher = false
@@ -1188,7 +1188,7 @@ handschrift = ["Ballbesitz", "Erfahrung", "Diaspora aus Frankreich"]
 [[trainer]]
 code = "RSA"
 team = "A"
-name = "Hugo Broos"
+name = ""
 seit = 2021
 vertrag_bis = 2026
 sicher = false
@@ -1208,7 +1208,7 @@ handschrift = ["Heimliga als Rückgrat", "streng", "offen in der Presse"]
 [[trainer]]
 code = "NZL"
 team = "A"
-name = "Darren Bazeley"
+name = ""
 seit = 2023
 vertrag_bis = 2026
 sicher = false
@@ -1228,7 +1228,7 @@ handschrift = ["um den Zielstürmer", "Gemeinschaft"]
 [[trainer]]
 code = "PAN"
 team = "A"
-name = "Thomas Christiansen"
+name = ""
 seit = 2020
 vertrag_bis = 2026
 sicher = false
@@ -1248,7 +1248,7 @@ handschrift = ["Treue", "Struktur"]
 [[trainer]]
 code = "CPV"
 team = "A"
-name = "Bubista"
+name = ""
 seit = 2020
 vertrag_bis = 2026
 sicher = false
@@ -1270,7 +1270,7 @@ handschrift = ["Diaspora aus Portugal und den Niederlanden", "Gemeinschaft"]
 [[trainer]]
 code = "GER"
 team = "U21"
-name = "Antonio Di Salvo"
+name = ""
 seit = 2023
 sicher = false
 spielidee = "gegenpressing"
@@ -1289,7 +1289,7 @@ handschrift = ["Spielzeit in der Bundesliga zählt"]
 [[trainer]]
 code = "ENG"
 team = "U21"
-name = "Lee Carsley"
+name = ""
 seit = 2021
 sicher = false
 spielidee = "ballbesitz"
@@ -1308,7 +1308,7 @@ handschrift = ["U21-Europameister 2023 und 2025", "Leihspieler im Blick"]
 [[trainer]]
 code = "ESP"
 team = "U21"
-name = "Santi Denia"
+name = ""
 seit = 2022
 sicher = false
 spielidee = "ballbesitz"
@@ -1327,7 +1327,7 @@ handschrift = ["Olympiasieger 2024", "Positionsspiel"]
 [[trainer]]
 code = "FRA"
 team = "U21"
-name = "Gérald Baticle"
+name = ""
 seit = 2023
 sicher = false
 spielidee = "kontrollierte_offensive"
@@ -1346,7 +1346,7 @@ handschrift = ["großer Pool", "viel Wettbewerb"]
 [[trainer]]
 code = "ITA"
 team = "U21"
-name = "Silvio Baldini"
+name = ""
 seit = 2025
 sicher = false
 spielidee = "kontrollierte_offensive"
@@ -1365,7 +1365,7 @@ handschrift = ["Charakter zählt"]
 [[trainer]]
 code = "NED"
 team = "U21"
-name = "Michael Reiziger"
+name = ""
 seit = 2022
 sicher = false
 spielidee = "ballbesitz"
@@ -1384,7 +1384,7 @@ handschrift = ["Jong-Teams als Quelle"]
 [[trainer]]
 code = "POR"
 team = "U21"
-name = "Rui Jorge"
+name = ""
 seit = 2010
 sicher = false
 spielidee = "kontrollierte_offensive"

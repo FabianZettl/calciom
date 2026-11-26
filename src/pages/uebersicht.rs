@@ -39,8 +39,15 @@ pub(super) fn uebersicht(ui: &mut Ui, v: &mut View, c: &mut Career) {
     ui.card_titled(r, crate::inhalt::t("zentrale.spiel_naechstes"), Theme::akzent());
     let table = c.world.table(c.league());
     let form_of = |club: usize| table.iter().find(|x| x.club == club).map(|x| x.form.clone()).unwrap_or_default();
-    if let Some(f) = c.next_match() {
+    if let Some((wo, f)) = c.own_fixtures().into_iter().find(|x| x.1.hg < 0) {
         let (h, a) = (f.h, f.a);
+        // competition logo and "Bundesliga, Spieltag 2" between the crests (Fabian 26.11.); later a small kit view here
+        let comp = match wo {
+            Wo::Liga(_) => format!("{} {}", c.comp_name((wo, 0)), crate::tf!("wettbewerbe.spieltag", c.own_fixtures().iter().filter(|x| x.0 == wo && x.1.day <= f.day).count())),
+            Wo::Pokal(k) => c.world.cups[k].fx.iter().position(|x| x.f.day == f.day && x.f.h == h && x.f.a == a).map(|i| c.comp_name((wo, i))).unwrap_or_else(|| c.world.cups[k].name.clone()),
+        };
+        ui.wettbewerb_logo_auf(r.x + r.w / 2.0, r.y + 66.0, 20.0, c.comp_cid(wo), Some(wo_look(c, wo).c1));
+        ui.text_center(&ui.fit(&comp, 15.0, r.w - 380.0), r.x + r.w / 2.0, r.y + 106.0, 15.0, Theme::text2());
         for (k, club) in [h, a].iter().enumerate() {
             let cx = if k == 0 { r.x + 120.0 } else { r.x + r.w - 120.0 };
             let cl = &c.world.clubs[*club];
@@ -52,9 +59,9 @@ pub(super) fn uebersicht(ui: &mut Ui, v: &mut View, c: &mut Career) {
             form_squares(ui, cx - fm.len() as f32 * 13.0, r.y + 172.0, &fm);
         }
         let w = measure_text(crate::inhalt::t("ui.wort.gross_gegen"), Some(&ui.head), 34, 1.0).width;
-        ui.title(crate::inhalt::t("ui.wort.gross_gegen"), r.x + r.w / 2.0 - w / 2.0, r.y + 102.0, 34.0, Theme::verein());
+        ui.title(crate::inhalt::t("ui.wort.gross_gegen"), r.x + r.w / 2.0 - w / 2.0, r.y + 140.0, 34.0, Theme::verein());
         let when = if f.day == c.world.day { crate::id("heute").to_string() } else { crate::tf!("zentrale.in_tagen.viele", f.day - c.world.day) };
-        ui.text_center(&crate::tf!("ui.pages.anstoss_15_30", date::long(c.world.season, f.day), when, crate::ligaregeln::zeit_text(f.zeit)), r.x + r.w / 2.0, r.y + 130.0, 16.0, Theme::text2());
+        ui.text_center(&crate::tf!("ui.pages.anstoss_15_30", date::long(c.world.season, f.day), when, crate::ligaregeln::zeit_text(f.zeit)), r.x + r.w / 2.0, r.y + 166.0, 16.0, Theme::text2());
         let label = if c.today_match().is_some() { crate::inhalt::t("pm.zum_spiel") } else { crate::inhalt::t("ui.pages.elf_vorbereiten") };
         if ui.button_gold(Rect::new(r.x + r.w / 2.0 - 130.0, r.y + 204.0, 260.0, 44.0), label) { v.go(if c.today_match().is_some() { Page::Spieltag } else { Page::Aufstellung }); }
     } else {

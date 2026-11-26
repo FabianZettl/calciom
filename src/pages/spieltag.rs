@@ -189,7 +189,10 @@ pub(super) fn spieltag(ui: &mut Ui, v: &mut View, c: &mut Career) {
             return;
         };
         let f = c.fixture(fi);
-        v.mv = Some(MatchView { res: MatchResult { h: f.h, a: f.a, ..Default::default() }, minute: 0.0, speed: 1.0, phase: 0, ended_at: 0.0, manual: (0, 0), manual_open: false, halbzeit: 0, wirkung: vec![], nach_gesagt: false, angesprochen: vec![], vorlauf: std::env::var("CALCIOM_VORLAUF").ok().and_then(|x| x.parse().ok()).unwrap_or(0), eingriff: Default::default(), vor_pause: 1.0, duell: vec![], parallel: vec![] });
+        // preview of the FL27 kick-off part with the direct start (screenshots, Fabian 26.11.)
+        let anpfiff = std::env::var("CALCIOM_ANPFIFF").is_ok();
+        if anpfiff { (c.fl27_erlaubt, c.fl27_bestaetigt, c.direktstart) = (true, true, true); }
+        v.mv = Some(MatchView { res: MatchResult { h: f.h, a: f.a, ..Default::default() }, minute: 0.0, speed: 1.0, phase: 0, ended_at: 0.0, manual: (0, 0), manual_open: anpfiff, halbzeit: 0, wirkung: vec![], nach_gesagt: false, angesprochen: vec![], vorlauf: std::env::var("CALCIOM_VORLAUF").ok().and_then(|x| x.parse().ok()).unwrap_or(0), eingriff: Default::default(), vor_pause: 1.0, duell: vec![], parallel: vec![] });
     }
     let mut mv = v.mv.take().unwrap();
     let (h, a) = (mv.res.h, mv.res.a);
@@ -321,28 +324,57 @@ pub(super) fn spieltag(ui: &mut Ui, v: &mut View, c: &mut Career) {
                     c.fl27_trotzdem = false;
                     v.fl27_neustart_frage = r.is_err() && c.fl27_neustart;
                     match r {
-                        Ok(()) => { let tf = c.fl27_team_fn(); v.fl27 = Some(crate::fl27::beobachten(tf)); v.fl27_live = None; v.fl27_status = crate::inhalt::t("ui.pages.warte_auf_fl27").into(); v.fl27_t0 = get_time() as f32; ui.play(crate::id("bestaetigt")); }
+                        Ok(()) => { if let Some(w) = c.stadion_warnung() { v.fl27_log.push(w.clone()); v.toast(&w, false); } let tf = c.fl27_team_fn(); v.fl27 = Some(crate::fl27::beobachten(tf)); v.fl27_live = None; v.fl27_status = crate::inhalt::t("ui.pages.warte_auf_fl27").into(); v.fl27_t0 = get_time() as f32; ui.play(crate::id("bestaetigt")); }
                         Err(e) => { v.fl27_log.push(e.clone()); v.toast(&e, false); ui.play(crate::id("fehler")); }
                     }
                 }
                 y += if v.fl27_neustart_frage { 104.0 } else { 52.0 };
-                // the real match length in FL27 (Fabian 26.11.), only the direct start can set it
+                // match length, weather and difficulty as dropdowns in one row (Fabian 26.11.), only the direct start sets them
                 if c.direktstart {
-                    ui.text(crate::inhalt::t("ui.fl27.spielminuten"), r2.x + 14.0, y + 22.0, 15.0, Theme::text2());
+                    let t = crate::inhalt::t;
                     let stufen = [0u8, 5, 8, 10, 15, 20, 30];
-                    let namen: Vec<String> = stufen.iter().map(|&m| if m == 0 { crate::inhalt::t("ui.fl27.spielminuten_spiel").to_string() } else { crate::tf!("ui.fl27.min", m) }).collect();
-                    let namen: Vec<&str> = namen.iter().map(|s| s.as_str()).collect();
-                    let jetzt = stufen.iter().position(|&m| m == c.spielminuten).unwrap_or(0);
-                    if let Some(i) = ui.segment(Rect::new(r2.x + 200.0, y + 2.0, (r2.w - 214.0).min(560.0), 32.0), &namen, jetzt) { c.spielminuten = stufen[i]; }
-                    y += 42.0;
+                    let fw = (r2.w - 28.0 - 16.0) / 3.0;
+                    let feld = |k: usize| Rect::new(r2.x + 14.0 + k as f32 * (fw + 8.0), y + 2.0, fw, 40.0);
+                    let felder = vec![
+                        Auswahl { r: feld(0), titel: t("ui.fl27.spielminuten").into(), items: stufen.iter().map(|&m| if m == 0 { t("ui.fl27.spielminuten_spiel").to_string() } else { crate::tf!("ui.fl27.min", m) }).collect(), sel: stufen.iter().position(|&m| m == c.spielminuten).unwrap_or(0) },
+                        Auswahl { r: feld(1), titel: t("ui.fl27.wetter").into(), items: ["ui.fl27.wetter_real", "ui.fl27.sonnig", "ui.fl27.bewoelkt", "ui.fl27.regen", "ui.fl27.schnee"].iter().map(|k| t(k).to_string()).collect(), sel: c.wetter_wahl as usize },
+                        Auswahl { r: feld(2), titel: t("ui.fl27.schwierigkeit").into(), items: std::iter::once("ui.fl27.sk_spiel".to_string()).chain((0..7).map(|i| format!("ui.fl27.sk{i}"))).map(|k| t(&k).to_string()).collect(), sel: c.schwierigkeit as usize },
+                    ];
+                    if let Some((f, i)) = auswahl_vorher(ui, v, &felder) { match f { 0 => c.spielminuten = stufen[i], 1 => c.wetter_wahl = i as u8, _ => c.schwierigkeit = i as u8 } }
+                    y += 56.0;
+                    // the kits from the kitserver, as a picture, picked here (Fabian 26.11.)
+                    let tag = c.today_match().map(|t| c.fixture(t).day).unwrap_or(c.world.day);
+                    let mut nr = c.trikot_nr(tag);
+                    let mut neu = false;
+                    let mit = [h, a].iter().any(|&x| !crate::trikots::von_team(c.world.clubs[x].id).is_empty());
+                    if mit { ui.text(crate::inhalt::t("ui.fl27.trikots"), r2.x + 14.0, y + 62.0, 15.0, Theme::text2()); }
+                    for (k, club) in [h, a].into_iter().enumerate() {
+                        let liste = crate::trikots::von_team(c.world.clubs[club].id);
+                        if liste.is_empty() { continue; }
+                        let x = r2.x + 200.0 + k as f32 * 200.0;
+                        let i = if k == 0 { &mut nr.0 } else { &mut nr.1 };
+                        *i = (*i).min(liste.len() as u8 - 1);
+                        ui.trikot(Rect::new(x + 40.0, y, 96.0, 110.0), &liste[*i as usize]);
+                        ui.text_center(&format!("{} {}/{}", c.world.clubs[club].short, *i + 1, liste.len()), x + 88.0, y + 128.0, 14.0, Theme::text2());
+                        if liste.len() > 1 {
+                            if ui.button(Rect::new(x, y + 40.0, 32.0, 32.0), "<", false) { *i = (*i + liste.len() as u8 - 1) % liste.len() as u8; neu = true; } // roh
+                            if ui.button(Rect::new(x + 144.0, y + 40.0, 32.0, 32.0), ">", false) { *i = (*i + 1) % liste.len() as u8; neu = true; } // roh
+                        }
+                    }
+                    if neu { c.trikotwahl = Some((tag, nr.0, nr.1)); }
+                    if mit { y += 146.0; }
+                    auswahl_zeichnen(ui, v, &felder);
                 }
                 for l in v.fl27_log.iter().rev().take(3) { let t = ui.fit(l, 14.0, r2.w - 28.0); ui.text(&t, r2.x + 14.0, y + 14.0, 14.0, Theme::text2()); y += 18.0; }
             } else {
-                for l in c.fl27_ansage() { y = ui.paragraph(&format!("• {l}"), r2.x + 14.0, y + 14.0, 15.0, r2.w - 28.0, Theme::text()) - 8.0; }
+                // the direct start does it all: no instructions, only what FL27 is doing (Fabian 26.11.)
+                if !c.direktstart { for l in c.fl27_ansage() { y = ui.paragraph(&format!("• {l}"), r2.x + 14.0, y + 14.0, 15.0, r2.w - 28.0, Theme::text()) - 8.0; } }
                 // §5.9: FL27 must be running within 240 s
                 if v.fl27_status == "FL27 läuft nicht." && get_time() as f32 - v.fl27_t0 > 240.0 { v.fl27_status = crate::inhalt::t("ui.pages.fl27_ist_nach_240_s").into(); } // roh
                 let live = v.fl27_live.map(|(h, a)| crate::tf!("ui.pages.stand", h, a)).unwrap_or_default();
-                ui.text_semi(&format!("{}{live}", v.fl27_status), r2.x + 14.0, y + 26.0, 15.0, Theme::akzent());
+                let st = v.fl27_status.as_str();
+                let status = if !c.direktstart { st } else if st == "FL27 läuft nicht." || st == crate::inhalt::t("ui.pages.warte_auf_fl27") { crate::inhalt::t("ui.fl27.startet") } else if st == "FL27 läuft, warte auf den Anstoß …" { crate::inhalt::t("ui.fl27.anstoss") } else { st }.to_string(); // roh
+                ui.text_semi(&format!("{status}{live}"), r2.x + 14.0, y + 26.0, 15.0, Theme::akzent());
                 if ui.button(Rect::new(r2.x + r2.w - 170.0, y + 8.0, 156.0, 28.0), crate::inhalt::t("ui.pages.mitlesen_beenden"), false) { v.fl27 = None; }
                 // the final whistle is not always seen (Fabian 24.11.): book the score and figures as they stand
                 if v.fl27_live.is_some() && ui.button_gold(Rect::new(r2.x + 14.0, y + 40.0, 220.0, 32.0), crate::inhalt::t("ui.pages.ergebnis_bestaetigen")) {
@@ -412,7 +444,7 @@ pub(super) fn spieltag(ui: &mut Ui, v: &mut View, c: &mut Career) {
                         v.toast(&t, true);
                         if let Some(r) = &c.last_result { v.fl27_uebernommen = Some(format!("{} {}:{} {}", c.world.clubs[r.h].name, r.hg, r.ag, c.world.clubs[r.a].name)); }
                         // optional: end FL27 30 s after the final whistle, the protocol is saved by now
-                        if aus_fl27 && c.fl27_auto_ende && !(c.direktstart && c.schnellstart) { v.fl27_auto_t = Some(get_time() as f32 + 30.0); }
+                        if aus_fl27 && c.fl27_auto_ende && !c.direktstart { v.fl27_auto_t = Some(get_time() as f32 + 30.0); }
                         mv.res = c.last_result.clone().unwrap_or_default();
                         mv.phase = 2;
                         mv.ended_at = get_time() as f32;

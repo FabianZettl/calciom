@@ -84,6 +84,14 @@ fn alle() -> &'static Vec<(&'static str, serde_json::Value)> {
             (*n, serde_json::to_value(tv).unwrap())
         }).collect();
         v.extend(JSON.iter().map(|(n, t)| (*n, serde_json::from_str(t).unwrap_or_else(|e| panic!("{n}.json: {e}"))))); // roh
+        // the real-data pack (src/pakete.rs) lays its rule files over the neutral built-in ones
+        for (n, w) in v.iter_mut() {
+            for (rel, toml_art) in [(format!("regeln/{n}.toml"), true), (format!("regeln/{n}.json"), false)] {
+                let Some(text) = crate::pakete::echt(&rel) else { continue };
+                let neu: Result<serde_json::Value, String> = if toml_art { toml::from_str::<toml::Value>(&text).map_err(|e| e.to_string()).map(|t| serde_json::to_value(t).unwrap()) } else { serde_json::from_str(&text).map_err(|e| e.to_string()) };
+                match neu { Ok(x) => mischen(w, x), Err(e) => FEHLER.lock().unwrap().push(format!("{rel}: {e}")) }
+            }
+        }
         // Paket 6: a copy in the data folder (never the game folder) overrides the built-in values; broken copies are ignored and reported
         if !cfg!(test) {
             for (n, w) in v.iter_mut() {

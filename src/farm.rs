@@ -24,7 +24,7 @@ fn fz(k: &str) -> f32 { f("farm", k) }
 fn eigene_liste() -> HashMap<String, String> {
     let mut m: HashMap<String, String> = HashMap::new();
     let lesen = |t: &str, m: &mut HashMap<String, String>| { if let Ok(v) = serde_json::from_str::<serde_json::Value>(t) { if let Some(o) = v["paare"].as_object() { for (k, w) in o { if let Some(w) = w.as_str() { m.insert(k.clone(), w.to_string()); } } } } };
-    lesen(include_str!("../assets/zweite_mannschaften.json"), &mut m);
+    lesen(&crate::pakete::oder("zweite_mannschaften.json", include_str!("../assets/zweite_mannschaften.json")), &mut m);
     if let Ok(t) = std::fs::read_to_string(crate::game::save_dir().join(crate::id("../zweite_mannschaften.json"))) { lesen(&t, &mut m); }
     m
 }
@@ -156,7 +156,7 @@ impl World {
     /// Second teams and the start cooperations of assets/kooperationen.json (by team id, both clubs in the world).
     pub fn farm_einrichten(&mut self) {
         self.zweite = self.zweite_erkennen().0;
-        let v: serde_json::Value = serde_json::from_str(include_str!("../assets/kooperationen.json")).expect("kooperationen.json");
+        let v: serde_json::Value = serde_json::from_str(&crate::pakete::oder("kooperationen.json", include_str!("../assets/kooperationen.json"))).expect("kooperationen.json");
         let idx = |id: u64| self.clubs.iter().position(|c| c.id as u64 == id);
         let mut k = vec![];
         for p in v["paare"].as_array().unwrap() {

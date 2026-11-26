@@ -8,7 +8,7 @@ use std::sync::OnceLock;
 fn tabelle() -> &'static HashMap<String, Vec<(String, String, bool)>> {
     static T: OnceLock<HashMap<String, Vec<(String, String, bool)>>> = OnceLock::new();
     T.get_or_init(|| {
-        let v: toml::Value = toml::from_str(include_str!("../assets/vereinsfuehrung.toml")).unwrap_or(toml::Value::Integer(0));
+        let v: toml::Value = toml::from_str(&crate::pakete::oder("vereinsfuehrung.toml", include_str!("../assets/vereinsfuehrung.toml"))).unwrap_or(toml::Value::Integer(0));
         let mut m = HashMap::new();
         for (name, c) in v.get("clubs").and_then(|x| x.as_table()).into_iter().flatten() {
             let leute: Vec<(String, String, bool)> = c.get("people").and_then(|x| x.as_array()).into_iter().flatten().filter_map(|p| {

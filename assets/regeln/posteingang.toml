@@ -43,7 +43,7 @@ nicht_von_selbst = ["verein", "sondierung"]          # Verein-Themen gehören de
 
 [pruefung]
 # pruefung.py
-variablen = ["name", "position", "verein", "zahl", "frist", "spiele", "entscheidung", "haken", "gegner", "betrag", "monate", "rolle", "trainer"]
+variablen = ["name", "position", "verein", "zahl", "frist", "spiele", "entscheidung", "haken", "gegner", "betrag", "monate", "rolle", "trainer", "joker_tore", "tore_zuletzt", "startelf", "note_zuletzt", "torlos", "serie_s", "serie_n", "letzter_gegner", "gegner_trainer", "gegner_spieler", "naechster_gegner", "tipp_spieler", "talent", "dichte", "spaete_gt"]
 berechtigungen = ["spielzeit", "form", "wechsel", "vertrag", "gehalt", "belastung"]
 stilplatz = ["spielstil", "platzhalter", "todo", "xxx", "lorem"]
 
@@ -54,6 +54,8 @@ merken = 12                     # so viele gezeigte Eröffnungen je Thema (katal
 # Kategorie des Themas → Ordner im Posteingang (game.rs CATS: 0 Spiel und Liga, 1 Kader, 2 Transfers, 3 Finanzen, 4 Medien, 5 Präsidium, 6 Scouting)
 [ordner]
 spieler = 1
+spielbezug = 1
+teambezug = 1
 kabine = 1
 medizin = 1
 drama = 1

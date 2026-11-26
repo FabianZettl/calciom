@@ -686,7 +686,7 @@ mod tests {
 pub fn pool_eintraege() -> &'static Vec<(String, String, String, String)> {
     static P: std::sync::OnceLock<Vec<(String, String, String, String)>> = std::sync::OnceLock::new();
     P.get_or_init(|| {
-        let v: serde_json::Value = serde_json::from_str(include_str!("../assets/inhalt/pesm/core/config/story/medienpool.json")).expect("medienpool.json");
+        let v: serde_json::Value = serde_json::from_str(&crate::pakete::oder("medienpool.json", include_str!("../assets/inhalt/pesm/core/config/story/medienpool.json"))).expect("medienpool.json");
         v["medien"].as_array().map(|a| a.iter().map(|m| (m["name"].as_str().unwrap_or("").to_string(), m["land"].as_str().unwrap_or("").to_string(), m["typ"].as_str().unwrap_or("").to_string(), m["ton"].as_str().unwrap_or("").to_string())).filter(|m| !m.0.is_empty()).collect()).unwrap_or_default()
     })
 }
@@ -694,7 +694,7 @@ pub fn pool_eintraege() -> &'static Vec<(String, String, String, String)> {
 pub fn pool_medium(name: &str) -> Option<String> {
     static P: std::sync::OnceLock<std::collections::HashMap<String, String>> = std::sync::OnceLock::new();
     P.get_or_init(|| {
-        let v: serde_json::Value = serde_json::from_str(include_str!("../assets/inhalt/pesm/core/config/story/medienpool.json")).expect("medienpool.json");
+        let v: serde_json::Value = serde_json::from_str(&crate::pakete::oder("medienpool.json", include_str!("../assets/inhalt/pesm/core/config/story/medienpool.json"))).expect("medienpool.json");
         v["medien"].as_array().map(|a| a.iter().filter_map(|m| Some((m["name"].as_str()?.to_string(), m["medium"].as_str()?.to_string()))).collect()).unwrap_or_default()
     }).get(name).cloned()
 }
@@ -704,7 +704,7 @@ pub const FAECHER: [&str; 5] = ["transfers", "taktik", "interna", "meinung", "sp
 fn pool_schlagworte() -> &'static std::collections::HashMap<String, Vec<String>> {
     static P: std::sync::OnceLock<std::collections::HashMap<String, Vec<String>>> = std::sync::OnceLock::new();
     P.get_or_init(|| {
-        let v: serde_json::Value = serde_json::from_str(include_str!("../assets/inhalt/pesm/core/config/story/medienpool.json")).expect("medienpool.json");
+        let v: serde_json::Value = serde_json::from_str(&crate::pakete::oder("medienpool.json", include_str!("../assets/inhalt/pesm/core/config/story/medienpool.json"))).expect("medienpool.json");
         v["medien"].as_array().map(|a| a.iter().map(|m| (m["name"].as_str().unwrap_or("").to_string(), m["tags"].as_array().map(|t| t.iter().filter_map(|x| x.as_str()).map(|x| x.to_lowercase()).collect()).unwrap_or_default())).collect()).unwrap_or_default()
     })
 }
@@ -713,7 +713,7 @@ pub fn pool_land(name: &str) -> &'static str { pool_eintraege().iter().find(|e| 
 pub fn medienpool() -> &'static Vec<(String, String, String)> {
     static P: std::sync::OnceLock<Vec<(String, String, String)>> = std::sync::OnceLock::new();
     P.get_or_init(|| {
-        let v: serde_json::Value = serde_json::from_str(include_str!("../assets/inhalt/pesm/core/config/story/medienpool.json")).expect("medienpool.json");
+        let v: serde_json::Value = serde_json::from_str(&crate::pakete::oder("medienpool.json", include_str!("../assets/inhalt/pesm/core/config/story/medienpool.json"))).expect("medienpool.json");
         v["medien"].as_array().map(|a| a.iter().map(|m| (m["name"].as_str().unwrap_or("").to_string(), m["land"].as_str().unwrap_or("").to_string(), m["ton"].as_str().unwrap_or("").to_string())).filter(|m| !m.0.is_empty()).collect()).unwrap_or_default()
     })
 }
@@ -721,7 +721,7 @@ pub fn medienpool() -> &'static Vec<(String, String, String)> {
 pub fn medienpool_voll() -> &'static Vec<(String, String, String)> {
     static P: std::sync::OnceLock<Vec<(String, String, String)>> = std::sync::OnceLock::new();
     P.get_or_init(|| {
-        let v: serde_json::Value = serde_json::from_str(include_str!("../assets/inhalt/pesm/core/config/story/medienpool.json")).expect("medienpool.json");
+        let v: serde_json::Value = serde_json::from_str(&crate::pakete::oder("medienpool.json", include_str!("../assets/inhalt/pesm/core/config/story/medienpool.json"))).expect("medienpool.json");
         v["medien"].as_array().map(|a| a.iter().filter_map(|m| {
             let (typ, ton, land) = (m["typ"].as_str()?, m["ton"].as_str().unwrap_or(""), m["land"].as_str().unwrap_or(""));
             let layout = match (typ, ton) {

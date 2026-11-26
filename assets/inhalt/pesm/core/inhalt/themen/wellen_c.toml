@@ -7,7 +7,7 @@ kanal = "chat"
 dringlichkeit = 0
 sperre_tage = 14
 haeufigkeit = 0.5
-wenn = ["form>=2", "moral>=65"]
+wenn = ["form>=2", "moral>=65", "position:CF,SS,LWF,RWF,AMF"]
 eroeffnung = [
   { id = "e1" },
   { id = "e2" },

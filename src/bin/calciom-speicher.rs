@@ -10,6 +10,9 @@ mod cpk;
 #[path = "../inhalt.rs"]
 #[allow(dead_code)]
 mod inhalt;
+#[path = "../pakete.rs"]
+#[allow(dead_code)]
+mod pakete;
 #[cfg(unix)]
 use std::io::{BufRead, Write};
 

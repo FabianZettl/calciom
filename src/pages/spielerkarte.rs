@@ -101,6 +101,8 @@ pub fn player_modal(ui: &mut Ui, v: &mut View, c: &mut Career, p: usize) {
         }
         // first or extended squad
         if ui.button(Rect::new(r.x + 24.0, by - 94.0, 260.0, 34.0), crate::inhalt::t(if pl.ps.erweitert { "ui.kader.in_erste" } else { "ui.kader.in_erweitert" }), pl.ps.erweitert) { c.world.players[p].ps.erweitert = !pl.ps.erweitert; }
+        // a young first-team player back to the U19 (t2-ecom, Discord 26.11.)
+        if pl.age <= 19 && pl.youth == 0 && ui.button(Rect::new(r.x + 296.0, by - 94.0, 220.0, 34.0), crate::inhalt::t("ui.u19.knopf"), false) { match c.zur_u19(p) { Ok(t) => { v.toast(&t, true); v.modal = Modal::None; return; } Err(e) => v.toast(&e, false) } }
         if let Some((pos, bis)) = &pl.ps.umschulung {
             ui.text(&crate::tf!("ui.pages.lernt_noch_tage", pos_de(pos), bis.saturating_sub(c.abs())), r.x + 300.0, by - 26.0, 15.0, Theme::text2());
             if ui.button(Rect::new(r.x + 640.0, by - 44.0, 120.0, 28.0), crate::inhalt::t("ui.personal.abbrechen"), false) { c.umschulung_abbrechen(p); }

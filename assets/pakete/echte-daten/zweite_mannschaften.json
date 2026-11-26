@@ -1,0 +1,13 @@
+{
+ "_hinweis": "Zweite Mannschaften ohne Zusatz wie „II“, „B“ oder „Jong“: Name der zweiten Mannschaft → Name des Hauptvereins (wie im Spiel geschrieben). Eigene Ergänzungen gehen auch in eine gleichnamige Datei im Datenordner (~/.local/share/calciom/zweite_mannschaften.json).",
+ "paare": {
+  "Real Madrid Castilla": "Real Madrid",
+  "Barcelona Atlètic": "FC Barcelona",
+  "Bilbao Athletic": "Athletic Club",
+  "Sevilla Atlético": "Sevilla FC",
+  "Sporting CP B": "Sporting CP",
+  "SL Benfica B": "SL Benfica",
+  "Sport Lisboa e Benfica B": "SL Benfica",
+  "Sociedad B": "Real Sociedad"
+ }
+}

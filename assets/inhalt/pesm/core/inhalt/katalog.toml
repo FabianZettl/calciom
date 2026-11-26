@@ -21,6 +21,14 @@ optionen_je_runde = [4, 6]
 eroeffnungen = [3, 12]
 antworten = [4, 6]
 reaktionen = [1, 6]
+[grenzen_kategorie.spielbezug]   # Szenarien aus echten Spieldaten (CalcioM 26.11.): vier Eröffnungen, vier bis sechs Antworten, je Gruppe eine bis zwei Reaktionen
+eroeffnungen = [3, 12]
+antworten = [4, 6]
+reaktionen = [1, 6]
+[grenzen_kategorie.teambezug]    # Szenarien über die ganze Mannschaft aus Spieldaten (CalcioM 26.11.): Präsidium, Presse, Fans, Stab, Scout
+eroeffnungen = [3, 12]
+antworten = [4, 6]
+reaktionen = [1, 6]
 [grenzen_kategorie.sondierung]   # kurze Themen: Sondierung eines fremden Spielers (drei Eröffnungen, vier bis sechs Antworten, je Gruppe eine Reaktion)
 eroeffnungen = [3, 12]
 antworten = [4, 6]
@@ -29,6 +37,33 @@ reaktionen = [1, 6]
 
 # Datenfelder, die Bedingungen lesen dürfen (Quelle in Klammern); Zahlen in der Einheit des Felds
 [felder]
+anker = [0, 1]                    # Team-Themen nur für einen Spieler (den ersten des Kaders)
+spaete_gt = [0, 30]               # Gegentore ab der fünfundsiebzigsten Minute in den letzten fünf
+blamage = [0, 1]                  # letzte Niederlage gegen einen klar schwächeren Gegner
+derby_s = [0, 1]                  # letztes Spiel ein gewonnenes Derby
+derby_n = [0, 1]                  # letztes Spiel ein verlorenes Derby
+auswaerts_n = [0, 1]              # letztes Spiel eine Auswärtsniederlage
+comeback = [0, 1]                 # nach Rückstand gewonnen
+sieg_zuletzt = [0, 1]             # letztes Spiel gewonnen
+gegner_star = [0, 1]              # ein Gegenspieler mit Note ab sieben komma fünf
+pokal_naechst = [0, 1]            # nächstes Spiel im nationalen Pokal
+dichte = [0, 10]                  # eigene Spiele in den nächsten acht Tagen
+tipp = [0, 1]                     # beim nächsten Gegner läuft ein starker Vertrag aus
+talent_da = [0, 1]                # Akademie-Talent ab siebzehn mit hohem Potenzial
+startelf = [0, 5]                  # CalcioM-Spielberichte: Startelfeinsätze in den letzten fünf eigenen Spielen
+joker = [0, 5]                   # Einwechslungen in den letzten fünf
+joker_tore = [0, 20]              # Tore als Einwechselspieler in den letzten fünf
+tore_zuletzt = [0, 20]                   # Tore in den letzten fünf
+note_zuletzt = [0, 10]                   # Notenschnitt der letzten fünf
+zuletzt_bank = [0, 1]             # letztes Spiel nicht in der Startelf
+torlos = [0, 50]                  # Startelfeinsätze in Folge ohne Tor
+rot_zuletzt = [0, 1]              # Rote Karte im letzten Spiel
+patzer = [0, 1]                   # Note unter 5,5 im letzten Spiel als Startspieler
+tw_reserve = [0, 1]               # Torwart ohne Einsatz, fast so stark wie die Nummer eins
+serie_s = [0, 50]                 # Siege in Folge
+serie_n = [0, 50]                 # Niederlagen in Folge
+fitness = [0, 100]                # Fitness
+jung = [0, 1]                     # 21 oder jünger
 moral = [0, 100]                  # Entwicklung
 form = [-6, 6]                    # Entwicklung (Overlay)
 rest = [0, 120]                   # Vertragsrestmonate
@@ -120,6 +155,8 @@ gewicht = 0.0
 
 # Welche Wirkungsziele ein Thema je Kategorie haben darf (spieler, kabine, vertrag: alle). Gremien (Vorstand, Fans, Presse) und Vereine haben keine Spielerwerte.
 [kategorie_ziele]
+teambezug = ["moral", "fanstimmung", "medienbild", "vorstandsvertrauen", "kosten"]      # Team-Szenarien: Moral wirkt auf den ganzen Kader
+spielbezug = ["moral", "beziehung", "kosten", "zusage", "wechselwunsch", "medienbild"]      # Szenarien aus Spieldaten: Spielerbezug wie spieler
 vorstand = ["vorstandsvertrauen", "fanstimmung", "medienbild", "kosten", "beziehung"]
 fans = ["vorstandsvertrauen", "fanstimmung", "medienbild", "kosten", "beziehung"]
 presse = ["vorstandsvertrauen", "fanstimmung", "medienbild", "beziehung"]

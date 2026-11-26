@@ -191,7 +191,9 @@ mod tests {
         assert!(q.len() >= 545, "{} Dateien in QUELLEN.txt", q.len());
         let (mut py, mut rs, mut fehlt) = (0usize, 0usize, vec![]);
         for rel in &q {
-            let hier = lesen(&ordner().join(rel)).unwrap_or_else(|e| panic!("{e}"));
+            // real data moved into the pack (src/pakete.rs) counts from there; the program holds a neutral stand-in
+            let im_paket = rel.starts_with("pesm/core/config/").then(|| crate::pakete::echt_ordner().map(|d| d.join(Path::new(rel).file_name().unwrap()))).flatten().filter(|p| p.is_file());
+            let hier = lesen(&im_paket.unwrap_or_else(|| ordner().join(rel))).unwrap_or_else(|e| panic!("{e}"));
             rs += eintraege(&hier);
             let quelle = Path::new(PYTHON).join(rel);
             if !quelle.exists() { continue; } // another computer: only the copy is checked

@@ -131,6 +131,8 @@ pub(super) fn kalender(ui: &mut Ui, v: &mut View, c: &mut Career) {
                     TAG.with(|x| x.set(None));
                 }
             }
+            // play on up to this day (t2-ecom, Discord 26.11.): own matches and press conferences still stop it
+            if ui.button(Rect::new(px + 570.0, bar.y + 6.0, 170.0, 28.0), crate::inhalt::t("ui.kal.bis_hier"), true) { v.vorspulen_bis = Some(tag); v.toast(&crate::tf!("ui.kal.bis_hier_toast", date::long(c.world.season, tag)), true); TAG.with(|x| x.set(None)); }
             if ui.button(Rect::new(bar.x + bar.w - 36.0, bar.y + 6.0, 28.0, 28.0), "×", false) { TAG.with(|x| x.set(None)); } // roh
         }
     }

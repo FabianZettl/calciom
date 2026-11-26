@@ -5,7 +5,7 @@
 --                 der naechste Start ohne neue Zeile geht wieder ins Hauptmenue).
 --   keine Zeile -> Ablaufdatei zeigt wie das Original auf TopMenu/TopMenu, normales Spiel.
 -- Fundstelle: ProcessMatchSetup (Direct) ruft 0x141522c30(code, side, 0) mit 0x1b0000 / 0xd0000; code = id<<14 | Platz (0).
-local m = { version = "1.25" }
+local m = { version = "1.29" }
 
 -- Ablauf im Spiel ohne Tastendruck: Nur im Direktstart schiebt das Modul eigene Ablauf-Dateien unter
 -- (content\calciom-direktmatch\flow\Match\*.json, gebaut von tools/flow_bauen.py): Halbzeit- und End-Statistik
@@ -62,6 +62,12 @@ local function flow_key(ctx, filename)
     if MENUE and MENUE.cave and MENUE.seitenwahl > 1 and bereich == "Exhibition" and name == "ExhibiChangeCompeDesignKind" then
         naechstes_spiel()
     end
+    -- edit=0 (CalcioM 26.11.): ohne die Edit-Daten (EDIT00000000) starten, sie ueberschrieben die Karriere-Datenbank.
+    -- Nach dem Installationsschritt direkt weiter, an Edit/Load/EditDataLoadProcess vorbei.
+    if MENUE and REGELN.edit == 0 and flow_dir and bereich == "Intro" and name == "ProcInstall" and datei_da(flow_dir .. "Ohne\\ProcInstall.json") then
+        log("pesm_direktmatch: OHNE EDIT-DATEN (Intro/ProcInstall -> Exhibition/ExhibiFlowInit)")
+        return "pesm_flow_Ohne_ProcInstall"
+    end
     if MENUE and REGELN.schnell == 1 and flow_dir and ((bereich == "Exhibition" and name == "ExhibiFlowEnd") or
             (bereich == "Match" and name == "MatchEnd")) then
         log("pesm_direktmatch: SCHNELLSTART nach dem Spiel zurueck in die Seitenwahl (" .. name .. ")")
@@ -74,6 +80,13 @@ local function flow_key(ctx, filename)
         local s = ffi.cast("uint64_t*", g + 0x50)[0] + 0x35960
         ffi.cast("uint8_t*", s + 0x10)[0] = REGELN.mi or 53
         log("pesm_direktmatch: RUNDE gekennzeichnet (S+0x10 = " .. tostring(REGELN.mi or 53) .. ")")
+    end
+    -- Trikotwahl aus CalcioM (26.11.): der Spieltag-Bildschirm setzt die Kit-Felder beim Aufbau auf Trikot 0 zurueck
+    -- (gelesen: S+0x120 = team<<14 | 0 trotz Wahl 2). Nach dem Aufbau nachgesetzt, zeigt die Vorschau die Wahl (mit
+    -- Fabian im Spiel bestaetigt): status_frame setzt sie 15 s lang wieder, sobald der Bildschirm sie zuruecksetzt.
+    if MENUE and bereich == "Exhibition" and name == "ExhibiMatchMenu" then
+        MENUE.trikot_bis = os.time() + 15
+        trikots_nachsetzen()
     end
     if false and MENUE and not MENUE.gesetzt and bereich == "Exhibition" and name == "ExhibiChangeCompeDesignKind" then
         MENUE.faellig = true   -- nicht hier (Datei-Lader), sondern im naechsten display_frame
@@ -110,10 +123,26 @@ local function an_matchidle(id, was)
     ffi.cast("void(*)(void*, void*)", 0x1412f6230)(ffi.cast("void*", obj), msg_buf)
     log("pesm_direktmatch: " .. was .. " gesendet")
 end
+-- Schreibt CalcioMs Trikotwahl in S+0x120..0x12c (nur Speicher, kein Funktionsaufruf), wenn dort etwas anderes steht.
+function trikots_nachsetzen()
+    local g = ffi.cast("uint64_t*", 0x143705e10)[0]
+    if g == 0 then return end
+    local sp = ffi.cast("uint64_t*", g + 0x50)[0]
+    if sp == 0 then return end
+    local k = ffi.cast("uint32_t*", sp + 0x35960 + 0x120)
+    local h, gg = MENUE.heim * 16384 + MENUE.kh, MENUE.gast * 16384 + MENUE.kg
+    if k[0] ~= h or k[1] ~= gg then
+        k[0], k[1], k[2], k[3] = h, gg, h + 0x80, gg + 0x80
+        log(string.format("pesm_direktmatch: TRIKOTS am Spieltag-Bildschirm gesetzt %d/%d", MENUE.kh, MENUE.kg))
+    end
+end
 local function status_frame(ctx)
     if MENUE and MENUE.faellig and not MENUE.gesetzt then
         MENUE.faellig = false
         menue_teams_setzen()
+    end
+    if MENUE and MENUE.trikot_bis then
+        if os.time() <= MENUE.trikot_bis then trikots_nachsetzen() else MENUE.trikot_bis = nil end
     end
     local t = os.clock()
     if t - letzt_schreiben < 1.0 then return end
@@ -177,6 +206,8 @@ local function regel_code()
     if false and REGELN.tid then c = c .. "\x66\xc7\x80" .. d(0x35960 + 0x0a) .. memory.pack("u16", REGELN.tid) end
     if REGELN.vl then c = c .. "\xc6\x80" .. d(0x35960 + 0x2c) .. b1(REGELN.vl) end
     if REGELN.em then c = c .. "\xc6\x80" .. d(0x35960 + 0x2f) .. b1(REGELN.em) end
+    -- Schwierigkeit der CPU (S+0x18, u32; 0 Anfaenger ... 6 Legende), CalcioM 26.11.
+    if REGELN.sk then c = c .. "\xc7\x80" .. d(0x35960 + 0x18) .. d(REGELN.sk) end
     return c
 end
 function lese_teams(p)
@@ -262,7 +293,7 @@ function menue_hoehlen(erstmals)
     end
     if MENUE.setup_ok then
         local c3 = cave + 0x400
-        local code = "\x51\x52\x48\x83\xec\x28" .. nutzlast(not MENUE.frueh, REGELN.ast ~= 1)
+        local code = "\x51\x52\x48\x83\xec\x28" .. nutzlast(not MENUE.frueh, true)
             .. "\x48\x83\xc4\x28\x5a\x59" .. b(0x48) .. b(0xb8) .. q64(0x1412f38f0) .. "\xff\xe0"
         ffi.copy(ffi.cast("void*", c3), code, #code)
         if erstmals then memory.write(sj + 1, memory.pack("i32", c3 - (sj + 5))) end
@@ -368,7 +399,8 @@ local function trikots_haken(addr, heim, gast, kh, kg, minuten)
     -- (aus Lua heraus zerlegt Siders set_team_id-Haken den Lua-Stapel). Zwei Stellen:
     --  1. Fabrik von Exhibition/ExhibiChangeCompeDesignKind (0x1412ec270), also VOR dem Spieltag-Bildschirm: Teams und
     --     Trikots sind dort schon zu sehen (wichtig, wenn die Spieler selbst "Anstoss" druecken und Trikots aendern).
-    --  2. Fabrik von Match/MatchSetup (0x1412f39ac): nur Spieldauer, Regeln, Sider-Ereignisse (Trikotwahl im Menue bleibt).
+    --  2. Fabrik von Match/MatchSetup (0x1412f39ac): Spieldauer, Regeln, Sider-Ereignisse und die Trikots aus CalcioM
+    --     (seit 26.11. immer: die Wahl liegt in CalcioM, der Spieltag-Bildschirm setzte sie zurueck).
     if MENUE then
         MENUE.cave = cave
         menue_hoehlen(true)

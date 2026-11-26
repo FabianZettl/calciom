@@ -137,36 +137,150 @@ pub fn verein_kontext_menue(ui: &mut Ui, v: &mut View, c: &mut Career) {
         None => if (ui.clicked && !r.contains(ui.mouse)) || is_key_pressed(KeyCode::Escape) { v.verein_kontext = None; },
     }
 }
-/// A club's fixtures of the season, league and cups, with results so far.
+/// A club's matches of the season (Fabian 26.11., roadmap, after his example): left the list by month with time,
+/// venue, result and competition; right the chosen match with scorers, cards and grades, and the earlier meetings.
 pub fn spielplan_modal(ui: &mut Ui, v: &mut View, c: &Career, k: usize) {
     let t = crate::inhalt::t;
-    let r = Rect::new(x0() + cbreite() / 2.0 - 360.0, Y0 - 40.0, 720.0, hoehe() - Y0 + 20.0);
+    let w = (cbreite() - 40.0).min(1240.0);
+    let r = Rect::new(x0() + cbreite() / 2.0 - w / 2.0, Y0 - 40.0, w, hoehe() - Y0 + 20.0);
     let (farbe, _) = club_color(c, k);
     ui.card_titled(r, &crate::tf!("ui.vk.spielplan_titel", c.world.clubs[k].name.clone()), farbe);
+    let fx = spiele_des_vereins(c, k);
+    // the chosen match: by click, else the last one played, else the first
+    let wahl = v.spiel_wahl.and_then(|(d, h, a)| fx.iter().position(|x| x.f.day == d && x.f.h == h && x.f.a == a))
+        .or_else(|| fx.iter().rposition(|x| x.f.hg >= 0)).unwrap_or(0);
+    let lw = (r.w * 0.58).floor();
+    let zh = 26.0;
+    // rows: a month heading before the first match of each month
+    let mut zeilen: Vec<Option<usize>> = vec![];
+    let mut monat = 0;
+    for (i, x) in fx.iter().enumerate() {
+        let m = crate::date::ymd(c.world.season, x.f.day).1;
+        if m != monat { zeilen.push(None); monat = m; }
+        zeilen.push(Some(i));
+    }
+    let liste = Rect::new(r.x, r.y + 50.0, lw, r.h - 110.0);
+    let sichtbar = (liste.h / zh) as usize;
+    let start = scroll_rows(ui, v, liste, zeilen.len(), sichtbar);
+    for (n, z) in zeilen.iter().skip(start).take(sichtbar).enumerate() {
+        let y = r.y + 74.0 + n as f32 * zh;
+        let Some(i) = *z else {
+            let i = zeilen.iter().skip(start + n).find_map(|z| *z).unwrap_or(0);
+            let (yr, m, _) = crate::date::ymd(c.world.season, fx[i].f.day);
+            ui.text_semi(&format!("{} {yr}", crate::date::month_name(m)), r.x + 16.0, y, 14.0, Theme::text()); // roh
+            continue;
+        };
+        let x = &fx[i];
+        let zr = Rect::new(r.x + 8.0, y - 17.0, lw - 16.0, zh - 2.0);
+        if i == wahl { rrect(zr.x, zr.y, zr.w, zr.h, 6.0, Theme::ueberlagerung()); }
+        if ui.hit(zr) { v.spiel_wahl = Some((x.f.day, x.f.h, x.f.a)); }
+        let heim = x.f.h == k;
+        let geg = if heim { x.f.a } else { x.f.h };
+        ui.text(&crate::date::short(c.world.season, x.f.day), r.x + 16.0, y, 13.0, Theme::text2());
+        ui.text(&crate::ligaregeln::zeit_text(x.f.zeit), r.x + 100.0, y, 13.0, Theme::text2());
+        ui.club_crest(r.x + 158.0, y - 4.0, 8.0, c.world.club(geg).id, club_color(c, geg).0, &c.world.club(geg).short);
+        ui.text(&ui.fit(&c.world.club(geg).name, 14.0, lw * 0.30), r.x + 172.0, y, 14.0, Theme::text());
+        let ort = if x.neutral { t("ui.vk.neutral") } else if heim { t("ui.vk.heim") } else { t("ui.vk.auswaerts") };
+        ui.text_center(ort, r.x + lw * 0.30 + 192.0, y, 13.0, Theme::text2());
+        if x.f.hg >= 0 {
+            let (g, gg) = if heim { (x.f.hg, x.f.ag) } else { (x.f.ag, x.f.hg) };
+            let gewonnen = x.pens.map(|(ph, pa)| if heim { ph > pa } else { pa > ph });
+            let col = match gewonnen { Some(true) => Theme::gut(), Some(false) => Theme::problem(), None if g > gg => Theme::gut(), None if g == gg => Theme::achtung(), None => Theme::problem() };
+            draw_circle(r.x + lw * 0.30 + 222.0, y - 4.0, 5.0, col);
+            ui.text(&format!("{}{g}–{gg}", if x.pens.is_some() { t("ui.vk.elfmeter_kurz") } else { "" }), r.x + lw * 0.30 + 232.0, y, 13.0, Theme::text()); // roh
+        }
+        ui.text(&ui.fit(&x.wettbewerb, 12.0, lw * 0.70 - 290.0), r.x + lw * 0.30 + 282.0, y, 12.0, Theme::gedaempft());
+    }
+    if let Some(x) = fx.get(wahl) { spiel_detail(ui, c, x, Rect::new(r.x + lw + 8.0, r.y + 50.0, r.w - lw - 24.0, r.h - 110.0)); }
+    if ui.button(Rect::new(r.x + r.w - 160.0, r.y + r.h - 52.0, 140.0, 40.0), t("aktion.schliessen"), false) || is_key_pressed(KeyCode::Escape) { v.modal = Modal::None; v.spiel_wahl = None; }
+}
+/// One match of a club's list: the fixture, its competition with round and leg, neutral ground and penalties.
+pub struct VereinsSpiel { pub f: crate::world::Fixture, pub wettbewerb: String, pub neutral: bool, pub pens: Option<(u8, u8)> }
+pub fn spiele_des_vereins(c: &Career, k: usize) -> Vec<VereinsSpiel> {
     let mine = |f: &crate::world::Fixture| f.h == k || f.a == k;
     let l = c.world.clubs[k].league;
-    let mut fx: Vec<(String, crate::world::Fixture)> = c.world.leagues[l].fixtures.iter().filter(|f| mine(f)).map(|f| (c.world.leagues[l].name.clone(), *f)).collect();
-    for cu in &c.world.cups { fx.extend(cu.fx.iter().filter(|x| mine(&x.f)).map(|x| (cu.name.clone(), x.f))); }
-    fx.sort_by_key(|x| x.1.day);
-    let zh = 26.0;
-    let sichtbar = ((r.h - 110.0) / zh) as usize;
-    let start = scroll_rows(ui, v, Rect::new(r.x, r.y + 50.0, r.w, r.h - 110.0), fx.len(), sichtbar);
-    for (i, (wett, f)) in fx.iter().skip(start).take(sichtbar).enumerate() {
-        let y = r.y + 74.0 + i as f32 * zh;
-        let heim = f.h == k;
-        let geg = if heim { f.a } else { f.h };
-        ui.text(&crate::date::short(c.world.season, f.day), r.x + 16.0, y, 13.0, Theme::text2());
-        ui.text(&ui.fit(wett, 12.0, 150.0), r.x + 100.0, y, 12.0, Theme::gedaempft());
-        ui.club_crest(r.x + 272.0, y - 4.0, 8.0, c.world.club(geg).id, club_color(c, geg).0, &c.world.club(geg).short);
-        ui.text(&ui.fit(&format!("{} {}", if heim { t("ui.duell.gegen") } else { "@" }, c.world.club(geg).name), 14.0, 300.0), r.x + 288.0, y, 14.0, Theme::text()); // roh
-        if f.hg >= 0 {
-            let (g, gg) = if heim { (f.hg, f.ag) } else { (f.ag, f.hg) };
-            let col = if g > gg { Theme::gut() } else if g == gg { Theme::achtung() } else { Theme::problem() };
-            rrect(r.x + r.w - 70.0, y - 14.0, 48.0, 20.0, 5.0, col);
-            ui.text_center(&format!("{g}:{gg}"), r.x + r.w - 46.0, y + 1.0, 13.0, hex(0xffffff));
+    let mut fx: Vec<VereinsSpiel> = c.world.leagues[l].fixtures.iter().filter(|f| mine(f)).map(|f| VereinsSpiel { f: *f, wettbewerb: c.world.leagues[l].name.clone(), neutral: false, pens: None }).collect();
+    for cu in &c.world.cups {
+        for x in cu.fx.iter().filter(|x| mine(&x.f)) {
+            let paare = cu.fx.iter().filter(|y| y.stage == x.stage && y.leg <= 1).count();
+            let mut w = format!("{} · {}", cu.name, crate::cups::runden_name(x.stage, cu.kind, paare)); // roh
+            if x.leg == 1 { w = format!("{w} · {}", crate::inhalt::t("ui.vk.hinspiel")); } else if x.leg == 2 { w = format!("{w} · {}", crate::inhalt::t("ui.vk.rueckspiel")); } // roh
+            fx.push(VereinsSpiel { f: x.f, wettbewerb: w, neutral: x.neutral, pens: x.pens });
         }
     }
-    if ui.button(Rect::new(r.x + r.w - 160.0, r.y + r.h - 52.0, 140.0, 40.0), t("aktion.schliessen"), false) || is_key_pressed(KeyCode::Escape) { v.modal = Modal::None; }
+    fx.sort_by_key(|x| (x.f.day, x.f.zeit));
+    fx
+}
+/// The right side of the match page: score, scorers and cards of both sides, the grades, earlier meetings.
+fn spiel_detail(ui: &mut Ui, c: &Career, x: &VereinsSpiel, r: Rect) {
+    let t = crate::inhalt::t;
+    rrect(r.x, r.y, r.w, r.h, 10.0, Theme::ueberlagerung());
+    let (h, a) = (x.f.h, x.f.a);
+    ui.text_center(&format!("{} · {}", crate::date::short(c.world.season, x.f.day), x.wettbewerb), r.x + r.w / 2.0, r.y + 24.0, 13.0, Theme::text2()); // roh
+    let my = r.y + 66.0;
+    ui.club_crest(r.x + r.w / 2.0 - 46.0, my - 6.0, 16.0, c.world.club(h).id, club_color(c, h).0, &c.world.club(h).short);
+    ui.club_crest(r.x + r.w / 2.0 + 46.0, my - 6.0, 16.0, c.world.club(a).id, club_color(c, a).0, &c.world.club(a).short);
+    ui.text_semi(&ui.fit(&c.world.club(h).name, 16.0, r.w / 2.0 - 80.0), r.x + 12.0, my, 16.0, Theme::text());
+    let an = ui.fit(&c.world.club(a).name, 16.0, r.w / 2.0 - 80.0);
+    ui.text_semi(&an, r.x + r.w - 12.0 - ui.measure_semi(&an, 16.0), my, 16.0, Theme::text());
+    let stand = if x.f.hg >= 0 { format!("{}–{}", x.f.hg, x.f.ag) } else { crate::ligaregeln::zeit_text(x.f.zeit) }; // roh
+    ui.title(&stand, r.x + r.w / 2.0 - ui.measure_semi(&stand, 22.0) / 2.0, my + 2.0, 22.0, Theme::text());
+    if let Some((ph, pa)) = x.pens { ui.text_center(&crate::tf!("ui.vk.elfmeter", ph, pa), r.x + r.w / 2.0, my + 24.0, 12.0, Theme::text2()); }
+    // a match known only by its score gets a report made up to fit it (Fabian 26.11.: like every other match, no mark)
+    let sim = || c.world.bericht_simulieren(c.world.season, x.f.day, h, a, x.f.hg.max(0) as u8, x.f.ag.max(0) as u8);
+    let mut b = c.world.berichte.iter().rev().find(|b| b.season == c.world.season && b.day == x.f.day && b.h == h && b.a == a).cloned()
+        .or_else(|| (x.f.hg >= 0).then(sim));
+    // light matches keep scorers but no grades: those come from the same made-up report
+    if let Some(b) = b.as_mut().filter(|b| b.noten.is_empty()) { b.noten = sim().noten; }
+    let mut y = my + 46.0;
+    match b.as_ref() {
+        Some(b) => {
+            // goals and cards per side (an own goal counts for the other side)
+            let name = |p: usize| c.world.players.get(p).map(|pl| pl.name.clone()).unwrap_or_default();
+            let zeile = |e: &crate::world::MatchEvent| -> Option<(u8, String)> {
+                let seite = if e.kind == 1 { 1 - e.side } else { e.side };
+                let s = match e.kind { 0 => format!("{} {}'", name(e.pid), e.min), 1 => format!("{} {}' ({})", name(e.pid), e.min, t("ui.vk.eigentor")), 2 => format!("▮ {} {}'", name(e.pid), e.min), 3 => format!("▮▮ {} {}'", name(e.pid), e.min), _ => return None }; // roh
+                Some((seite, s))
+            };
+            let zl: Vec<(u8, String, bool)> = b.ev.iter().filter_map(|e| zeile(e).map(|(s, z)| (s, z, e.kind >= 2))).collect();
+            let mut yy = [y, y];
+            for (s, z, karte) in zl.iter().take(16) {
+                let xx = if *s == 0 { r.x + 12.0 } else { r.x + r.w / 2.0 + 6.0 };
+                ui.text(&ui.fit(z, 12.0, r.w / 2.0 - 18.0), xx, yy[*s as usize], 12.0, if *karte { Theme::achtung() } else { Theme::text() });
+                yy[*s as usize] += 17.0;
+            }
+            y = yy[0].max(yy[1]) + 10.0;
+            // the grades, best first (only detailed matches have them)
+            if !b.noten.is_empty() {
+                ui.text_semi(t("ui.vk.noten"), r.x + 12.0, y, 13.0, Theme::text2());
+                y += 20.0;
+                let platz = ((r.y + r.h - 120.0 - y) / 18.0).max(0.0) as usize;
+                // home on the left, away on the right, each best first
+                // shortcut: the side comes from the player's club today, a player sold since then is left out
+                for (seite, club) in [h, a].into_iter().enumerate() {
+                    let mut n: Vec<&(usize, f32)> = b.noten.iter().filter(|(p, _)| c.world.players.get(*p).is_some_and(|pl| pl.team == club as i32)).collect();
+                    n.sort_by(|p, q| q.1.partial_cmp(&p.1).unwrap_or(std::cmp::Ordering::Equal));
+                    let xx = r.x + 12.0 + seite as f32 * (r.w / 2.0);
+                    for (i, (p, note)) in n.iter().take(platz).enumerate() {
+                        let yy = y + i as f32 * 18.0;
+                        ui.text(&ui.fit(&name(*p), 12.0, r.w / 2.0 - 60.0), xx, yy, 12.0, Theme::text());
+                        ui.text(&format!("{note:.1}"), xx + r.w / 2.0 - 48.0, yy, 12.0, if *note >= 7.0 { Theme::gut() } else if *note < 6.0 { Theme::problem() } else { Theme::text2() }); // roh
+                    }
+                }
+            }
+        }
+        None => {}
+    }
+    // earlier meetings of the two clubs: this season's other matches and last season's
+    let mut frueher: Vec<(u32, u32, usize, u8, u8)> = c.world.berichte.iter().filter(|b| (b.h == h && b.a == a || b.h == a && b.a == h) && !(b.season == c.world.season && b.day == x.f.day)).map(|b| (b.season, b.day, b.h, b.hg, b.ag)).collect();
+    frueher.sort();
+    let fy = r.y + r.h - 92.0;
+    ui.text_semi(t("ui.vk.fruehere"), r.x + 12.0, fy, 13.0, Theme::text2());
+    if frueher.is_empty() { ui.text(t("ui.vk.keine_frueheren"), r.x + 12.0, fy + 20.0, 12.0, Theme::gedaempft()); }
+    for (i, (s, d, hh, hg, ag)) in frueher.iter().rev().take(3).enumerate() {
+        let gegen = if *hh == h { a } else { h };
+        ui.text(&format!("{}  {} {}  {hg}–{ag}", crate::date::short(*s, *d), c.world.club(*hh).short, c.world.club(gegen).short), r.x + 12.0, fy + 20.0 + i as f32 * 18.0, 12.0, Theme::text()); // roh
+    }
 }
 
 /// The right-click menu of a player (Punkt 6): profile, watch list, negotiate (or renew for an own player).
@@ -392,6 +506,22 @@ pub fn feier_overlay(ui: &mut Ui, v: &mut View, c: &mut Career) {
     }
 }
 
+/// Yes to the direct start: on for this career with everything it needs, then the guide (or the error page).
+fn direktstart_einschalten(v: &mut View, c: &mut Career) {
+    c.direktstart = true;
+    // the yes covers the launch from CalcioM too: nothing more to allow on match day
+    c.fl27_erlaubt = true;
+    c.fl27_bestaetigt = true;
+    // quick start (Fabian 26.11., "the game changer"): FL27 stays open and waits at the side selection
+    c.schnellstart = true;
+    c.fl27_auto_ende = false;
+    let mut st = crate::game::Fl27Start { c: &mut *c, assets: crate::game::fl27_assets(), log: vec![] };
+    let ok = st.direktstart_bauen();
+    v.fl27_log = st.log;
+    // the real reason on the error page (Fabian 26.11.: the Sunderland career only said "files not found")
+    v.ds_grund = ok.as_ref().err().cloned();
+    v.ds_frage = if matches!(ok, Ok(true)) { 2 } else { 3 };
+}
 /// The one-time question after the update with the direct start (Fabian 26.11.): yes builds the whole way at once
 /// (flow files from the player's game, module, sider.ini line), then a short guide of what happens from now on.
 pub fn direktstart_frage(ui: &mut Ui, v: &mut View, c: &mut Career) {
@@ -401,7 +531,7 @@ pub fn direktstart_frage(ui: &mut Ui, v: &mut View, c: &mut Career) {
     rrect(r.x - 3.0, r.y - 3.0, r.w + 6.0, r.h + 6.0, 20.0, Theme::gold());
     rrect(r.x, r.y, r.w, r.h, 18.0, Theme::flaeche());
     let (x, bw) = (r.x + 32.0, r.w - 64.0);
-    let titel = ["ui.ds.frage.titel", "ui.ds.fertig.titel", "ui.ds.fehler.titel"][(v.ds_frage as usize).clamp(1, 3) - 1]; // roh
+    let titel = ["ui.ds.frage.titel", "ui.ds.fertig.titel", "ui.ds.fehler.titel", "ui.ds.ohne.titel"][(v.ds_frage as usize).clamp(1, 4) - 1]; // roh
     ui.title(&ui.fit(crate::inhalt::t(titel), 30.0, bw), x, r.y + 60.0, 30.0, Theme::text());
     let mut y = r.y + 100.0;
     match v.ds_frage {
@@ -409,23 +539,21 @@ pub fn direktstart_frage(ui: &mut Ui, v: &mut View, c: &mut Career) {
             ui.paragraph(crate::inhalt::t("ui.ds.frage.text"), x, y, 17.0, bw, Theme::text2());
             let bt = Rect::new(x, r.y + r.h - 76.0, bw / 2.0 - 8.0, 48.0);
             if ui.button_gold(bt, crate::inhalt::t("ui.ds.ja")) {
-                c.direktstart = true;
-                // the yes covers the launch from CalcioM too: nothing more to allow on match day
-                c.fl27_erlaubt = true;
-                c.fl27_bestaetigt = true;
-                // quick start (Fabian 26.11., "the game changer"): FL27 stays open and waits at the side selection
-                c.schnellstart = true;
-                c.fl27_auto_ende = false;
-                let mut st = crate::game::Fl27Start { c: &mut *c, assets: crate::game::fl27_assets(), log: vec![] };
-                let ok = st.direktstart_bauen();
-                v.fl27_log = st.log;
-                v.ds_frage = if matches!(ok, Ok(true)) { 2 } else { 3 };
+                direktstart_einschalten(v, c);
                 let _ = std::fs::write(direktstart_file(), "ja"); // roh
             }
             if ui.button(Rect::new(bt.x + bw / 2.0 + 8.0, bt.y + 7.0, bw / 2.0 - 8.0, 34.0), crate::inhalt::t("ui.ds.nein"), false) {
                 let _ = std::fs::write(direktstart_file(), "nein"); // roh
                 v.ds_frage = 0;
             }
+        }
+        // a career without the direct start (Fabian 26.11.): what it misses; later again, unless "only simulate"
+        4 => {
+            ui.paragraph(crate::inhalt::t("ui.ds.ohne.text"), x, y, 17.0, bw, Theme::text2());
+            let bt = Rect::new(x, r.y + r.h - 124.0, bw / 2.0 - 8.0, 48.0);
+            if ui.button_gold(bt, crate::inhalt::t("ui.ds.ohne.ja")) { direktstart_einschalten(v, c); }
+            if ui.button(Rect::new(bt.x + bw / 2.0 + 8.0, bt.y + 7.0, bw / 2.0 - 8.0, 34.0), crate::inhalt::t("ui.ds.ohne.spaeter"), false) { v.ds_frage = 0; }
+            if ui.button(Rect::new(x, r.y + r.h - 62.0, bw, 34.0), crate::inhalt::t("ui.ds.ohne.nie"), false) { c.ds_nicht_erinnern = true; v.ds_frage = 0; }
         }
         2 => {
             for (i, k) in ["ui.ds.schritt.1", "ui.ds.schritt.2", "ui.ds.schritt.3", "ui.ds.schritt.4", "ui.ds.schritt.5"].iter().enumerate() { // roh
@@ -439,8 +567,27 @@ pub fn direktstart_frage(ui: &mut Ui, v: &mut View, c: &mut Career) {
             if ui.button_gold(Rect::new(x, r.y + r.h - 76.0, bw, 48.0), crate::inhalt::t("ui.ds.ok")) { v.ds_frage = 0; }
         }
         _ => {
-            ui.paragraph(crate::inhalt::t("ui.ds.fehler.text"), x, y, 17.0, bw, Theme::text2());
+            match &v.ds_grund {
+                Some(g) => { ui.paragraph(&crate::tf!("ui.ds.fehler.grund", g.clone()), x, y, 17.0, bw, Theme::text2()); }
+                None => { ui.paragraph(crate::inhalt::t("ui.ds.fehler.text"), x, y, 17.0, bw, Theme::text2()); }
+            }
             if ui.button_gold(Rect::new(x, r.y + r.h - 76.0, bw, 48.0), crate::inhalt::t("ui.ds.ok")) { v.ds_frage = 0; }
         }
     }
+}
+
+/// "The app is working" (Fabian 26.11.): three pulsing dots and a word. `gross`: a card in the middle that covers the
+/// screen (loading), else a small badge at the bottom left (saving in the background, the game goes on).
+pub fn arbeitet(ui: &mut Ui, text: &str, gross: bool) {
+    let t = get_time() as f32;
+    let (w, h) = (breite(), hoehe());
+    let (bx, by, bw, bh) = if gross { (w / 2.0 - 180.0, h / 2.0 - 50.0, 360.0, 100.0) } else { (x0() + 12.0, h - 52.0, 190.0, 40.0) };
+    if gross { draw_rectangle(0.0, 0.0, w, h, alpha(Theme::grund(), 0.85)); }
+    rrect(bx, by, bw, bh, 12.0, Theme::erhoehung());
+    let mitte_y = by + bh / 2.0;
+    for i in 0..3 {
+        let phase = ((t * 3.0 - i as f32 * 0.6).sin() + 1.0) / 2.0;
+        draw_circle(bx + 22.0 + i as f32 * 14.0, mitte_y, 3.0 + phase * 2.5, alpha(Theme::akzent(), 0.4 + 0.6 * phase));
+    }
+    ui.text_semi(text, bx + 72.0, mitte_y + 6.0, if gross { 18.0 } else { 15.0 }, Theme::text());
 }

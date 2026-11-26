@@ -493,9 +493,13 @@ pub struct Career {
     /// the main menu as before. Off by default while the direct start is new.
     #[serde(default)]
     pub direktstart: bool,
-    /// Quick start (Fabian 26.11.): with direct start, FL27 stays open and goes back to the side selection after the match.
+    /// Quick start: no longer read, it is part of the direct start (Fabian 26.11.: "one function"); kept for old saves.
     #[serde(default)]
     pub schnellstart: bool,
+    /// Salt of this save's daily rolls (Fabian 26.11.: every new save had the same talks on the same days). Empty in
+    /// tests and in saves from before, which keep their old sequence.
+    #[serde(default)]
+    pub salz: String,
     /// One match start despite the restart hint (Fabian 26.11.): transferred players may be missing in the running FL27.
     #[serde(skip)]
     pub fl27_trotzdem: bool,
@@ -505,6 +509,18 @@ pub struct Career {
     /// Real match length in FL27 for the direct start (Fabian 26.11.: set before the match); 0 = as set in the game.
     #[serde(default)]
     pub spielminuten: u8,
+    /// Kit numbers (home, away) the person picked for the match on that day (Fabian 26.11.); another day: 0 and 1.
+    #[serde(default)]
+    pub trikotwahl: Option<(u32, u8, u8)>,
+    /// Weather for FL27 (Fabian 26.11.): 0 = realistic (fl27_wetter), else 1 + index in fl27::WETTER.
+    #[serde(default)]
+    pub wetter_wahl: u8,
+    /// CPU difficulty in FL27: 0 = as set in the game, else 1 + FL27's level (0 beginner … 6 legend).
+    #[serde(default)]
+    pub schwierigkeit: u8,
+    /// "Do not remind me, I only simulate": no question about the direct start when this career is loaded.
+    #[serde(default)]
+    pub ds_nicht_erinnern: bool,
     /// Switches (FC-26 wish): no pre-contracts and no release clauses by AI clubs for our players.
     #[serde(default)]
     pub ohne_ki_vorvertraege: bool,
@@ -745,7 +761,7 @@ impl Career {
                 Scout { name: crate::inhalt::t("ui.game.erik_haldorsen").into(), q: 6, league: Some(own_league), pos: 0, watch: None, seen: 0, p: None },
                 Scout { name: crate::inhalt::t("ui.game.bruno_valente").into(), q: 4, league: None, pos: 0, watch: None, seen: 0, p: None },
             ],
-            ticket: 1, merch: 1, fans: 60.0, media: 50.0, warned: false, ultimatum: None, ultimatum_ab: None, lockruf_bis: 0, bitten: vec![], gehalt_plus: 0.0, ruhe_bis: 0, verhandlungstempo: if cfg!(test) { 0 } else { 1 }, infra_topf: None, gala: vec![], preise: vec![], preis_kand: vec![], preis_kand_saison: 0, thema_wettbewerb: false, privat: Default::default(), meldungen: vec![], start_stamina: false, direktstart: false, schnellstart: false, fl27_trotzdem: false, fl27_neustart: false, spielminuten: 0, ohne_ki_vorvertraege: false, ohne_ki_klauseln: false, boykott_bis: 0, marktwert_aera: 0, datenpakete: vec![], auslosungen: vec![], auslosung_gesehen: vec![], fired: false,
+            ticket: 1, merch: 1, fans: 60.0, media: 50.0, warned: false, ultimatum: None, ultimatum_ab: None, lockruf_bis: 0, bitten: vec![], gehalt_plus: 0.0, ruhe_bis: 0, verhandlungstempo: if cfg!(test) { 0 } else { 1 }, infra_topf: None, gala: vec![], preise: vec![], preis_kand: vec![], preis_kand_saison: 0, thema_wettbewerb: false, privat: Default::default(), meldungen: vec![], start_stamina: false, direktstart: false, schnellstart: false, salz: if cfg!(test) { String::new() } else { format!("{:x}", std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map_or(0, |d| d.as_nanos())) }, fl27_trotzdem: false, fl27_neustart: false, spielminuten: 0, trikotwahl: None, wetter_wahl: 0, schwierigkeit: 0, ds_nicht_erinnern: false, ohne_ki_vorvertraege: false, ohne_ki_klauseln: false, boykott_bis: 0, marktwert_aera: 0, datenpakete: vec![], auslosungen: vec![], auslosung_gesehen: vec![], fired: false,
             mgr_rep: (world.clubs[own].rep * 0.6 + 10.0).min(80.0), mgr_wage: (rev * 0.004).max(120000.0), mgr_money: 0.0, mgr_since: 0,
             book: vec![], balance_hist: vec![world.clubs[own].balance], youth: Default::default(), history: vec![],
             transfer_budget: rev * 0.22, last_result: None, press: None, hard_streak: 0, results: vec![], fl27_erlaubt: false, fl27_bestaetigt: false, fl27_spiele: vec![], fl27_cpk: String::new(), fl27_welt: String::new(), mensch: Default::default(), wi: Default::default(), me: Default::default(), stab: vec![], std: Default::default(), mgr: Default::default(), mst: Default::default(), gespraech_termine: vec![],
@@ -892,7 +908,7 @@ impl Career {
         v
     }
     pub fn in_window(&self) -> Option<(u32, u32)> {
-        WINDOWS.iter().copied().find(|(a, b)| self.world.day >= *a && self.world.day <= *b)
+        WINDOWS.iter().copied().enumerate().find(|(i, (a, b))| self.world.day >= *a && self.world.day <= *b && !(*i == 0 && self.world.sommerfenster_aus == Some(self.world.season))).map(|x| x.1)
     }
     /// A deadline of `tage` days, never past the end of the open window (Fabian 24.11.: on deadline day nobody says
     /// "I'll get back to you in four days"); 0 = today.
@@ -1581,6 +1597,20 @@ impl Career {
         self.moral_wirkung(p, 8.0, 0, crate::inhalt::t("ui.game.zu_den_profis_hochgezogen"));
         if self.vision() == crate::id("traditionell") { self.klima(0.0, 0.0, 2.0, crate::inhalt::t("ui.game.ein_eigengewaechs_rueckt_zu_den")); }
         self.news(&crate::tf!("ui.game.rueckt_zu_den_profis_auf", n), crate::inhalt::t("ui.game.ein_eigengewaechs_bekommt_seine_chance"));
+    }
+    /// Back to the U19 (t2-ecom, Discord 26.11.): a first-team player young enough plays in the academy again; he leaves
+    /// the line-up and is disappointed. Err with the reason when it is not possible.
+    pub fn zur_u19(&mut self, p: usize) -> Result<String, String> {
+        let pl = &self.world.players[p];
+        if pl.team != self.own as i32 || pl.youth != 0 { return Err(crate::inhalt::t("ui.u19.nicht_eigen").into()); }
+        if pl.age > 19 { return Err(crate::inhalt::t("ui.u19.zu_alt").into()); }
+        let n = pl.name.clone();
+        let pl = &mut self.world.players[p];
+        pl.youth = 19;
+        pl.listed = false;
+        self.xi.retain(|&x| x != p);
+        self.moral_wirkung(p, -4.0, 0, crate::inhalt::t("ui.u19.grund"));
+        Ok(crate::tf!("ui.u19.ok", n))
     }
     pub fn release(&mut self, p: usize) {
         let c = self.world.players[p].team;
@@ -2917,6 +2947,7 @@ impl Career {
         let mt = std::fs::read_to_string(s.join("content/stadiums/map_teams.txt")).unwrap_or_default();
         let stadion = fl27::heimstadion(mt.trim_start_matches('\u{feff}'), self.world.clubs[h].id);
         let (w, t) = self.fl27_wetter(self.world.day);
+        let w = fl27::WETTER.get((self.wetter_wahl as usize).wrapping_sub(1)).copied().unwrap_or(w);
         // the match rules (two legs): a single knock-out match goes to extra time and penalties in FL27; first legs,
         // second legs and league matches end after 90 minutes – a tie on aggregate CalcioM settles after the match
         let regeln = match self.next_termin() {
@@ -2935,18 +2966,25 @@ impl Career {
     }
     /// The direct-start line for the next match (fl27::direktmatch_zeile): FL27 team ids, extra time and penalties only
     /// for a single knock-out match (two legs CalcioM settles itself, as in flw/spielregeln.txt), final or semi-final.
+    /// The kit numbers for a match on `day`: the person's choice for that day, else home kit 0, away kit 1.
+    pub fn trikot_nr(&self, day: u32) -> (u8, u8) { self.trikotwahl.filter(|t| t.0 == day).map_or((0, 1), |t| (t.1, t.2)) }
     pub fn direktmatch_text(&self) -> Option<String> {
+        let sk = if self.schwierigkeit > 0 { format!(" sk={}", self.schwierigkeit - 1) } else { String::new() }; // roh
+        self.direktmatch_ohne_sk().map(|z| z + &sk)
+    }
+    fn direktmatch_ohne_sk(&self) -> Option<String> {
         let t = self.next_termin()?;
         let f = self.fixture(t);
+        let kits = self.trikot_nr(f.day);
         let (mut einzel, mut runde) = (false, None);
         if let Wo::Pokal(ci) = t.0 {
             let (c, x) = (&self.world.cups[ci], &self.world.cups[ci].fx[t.1]);
-            if c.kind == 6 { return Some(fl27::direktmatch_zeile(self.world.clubs[f.h].id, self.world.clubs[f.a].id, self.spielminuten, false, false, None, self.schnellstart)); }
+            if c.kind == 6 { return Some(fl27::direktmatch_zeile(self.world.clubs[f.h].id, self.world.clubs[f.a].id, kits, self.spielminuten, false, false, None, self.direktstart)); }
             einzel = (x.stage >= 20 && x.stage != 33 || c.kind == 0) && x.leg == 0;
             let (halb, fin) = if c.kind == 4 { (matches!(x.stage, 22 | 32), matches!(x.stage, 23 | 33)) } else { (x.stage == 33, x.stage == 34) };
             runde = if fin { Some(53) } else if halb { Some(52) } else { None };
         }
-        Some(fl27::direktmatch_zeile(self.world.clubs[f.h].id, self.world.clubs[f.a].id, self.spielminuten, einzel, einzel, runde, self.schnellstart))
+        Some(fl27::direktmatch_zeile(self.world.clubs[f.h].id, self.world.clubs[f.a].id, kits, self.spielminuten, einzel, einzel, runde, self.direktstart))
     }
     /// The FL27 tournament id of the next match, picked from what the content maps know (Fabian 24.11.: entrance and
     /// scoreboard should find a fitting entry): the competition itself, then the same kind (Conference → Europa →
@@ -3023,12 +3061,25 @@ impl Career {
             Err(e) => return Some(crate::tf!("ui.fl27.vorgaben_fehler", e)),
         };
         self.vorgaben_gesetzt.clear();
-        if self.db_nach_spiel_aus {
-            let (k, cpk) = (self.karriere_dir(), self.fl27_cpk());
-            text = match fl27::sider_ini_anwenden(&k, &s, |t| Ok(fl27::sider_ini_abschalten(t, &cpk))) { Ok(_) => crate::tf!("ui.fl27.und_db_aus", text), Err(e) => crate::tf!("ui.fl27.db_aus_fehler", text, e) };
-        }
+        // FL27 is closed after the match (ended, broken off or crashed), or CalcioM starts again: sider.ini goes back to
+        // the state without CalcioM, so FL27 started by hand opens normally (Fabian 26.11.). Never while FL27 runs: the
+        // quick start keeps its setup between matches, and the next start from CalcioM sets it up again.
+        let (k, cpk) = (self.karriere_dir(), self.fl27_cpk());
+        text = match fl27::sider_ini_anwenden(&k, &s, |t| Ok(fl27::sider_ini_ohne_calciom(t, &cpk))) { Ok(true) => crate::tf!("ui.fl27.und_db_aus", text), Ok(false) => text, Err(e) => crate::tf!("ui.fl27.db_aus_fehler", text, e) };
         let _ = self.save();
         Some(text)
+    }
+    /// Why FL27 would not get the home stadium (Fabian 26.11.: "how do we check it?"): no line for the home team in
+    /// map_teams.txt, its folder missing, or a stadiums.lua without the CalcioM addition. None: all set.
+    pub fn stadion_warnung(&self) -> Option<String> {
+        let (h, _) = self.match_clubs()?;
+        let s = fl27::sider();
+        let mt = std::fs::read_to_string(s.join("content/stadiums/map_teams.txt")).unwrap_or_default();
+        let club = &self.world.clubs[h];
+        let Some(st) = fl27::heimstadion(mt.trim_start_matches('\u{feff}'), club.id) else { return Some(crate::tf!("ui.game.stadion_fehlt", club.name, club.id)) };
+        if !s.join("content/stadiums").join(st.replace('\\', "/")).is_dir() { return Some(crate::tf!("ui.game.stadionordner_fehlt", st)); }
+        let lua = std::fs::read_to_string(s.join("modules/common/stadiums.lua")).unwrap_or_default(); // roh
+        (!lua.contains("pesm_stadion(ctx)")).then(|| crate::inhalt::t("ui.game.stadion_lua_fehlt").to_string()) // roh
     }
     /// What the person does in FL27 (§5.10).
     pub fn fl27_ansage(&self) -> Vec<String> {
@@ -3189,6 +3240,8 @@ impl Career {
     }
     pub fn save_path(&self) -> std::path::PathBuf { save_dir().join(format!("{}.json", self.save_name)) }
     pub fn save(&self) -> Result<(), String> {
+        // never two writes of a save at once (a background save may still run)
+        let _w = SCHREIBEN.lock().unwrap_or_else(|e| e.into_inner());
         let dir = save_dir();
         std::fs::create_dir_all(&dir).map_err(|e| e.to_string())?;
         let tmp = dir.join(format!("{}.tmp", self.save_name));
@@ -3198,6 +3251,29 @@ impl Career {
         let info = serde_json::json!({"verein": self.club().name, "datum": crate::date::long(self.world.season, self.world.day), "trainer": self.coach});
         let _ = std::fs::write(dir.join(format!("{}.info", self.save_name)), info.to_string());
         Ok(())
+    }
+    /// The save written in the background (Fabian 26.11.: on Windows the window froze for seconds and was marked "not
+    /// responding"): the career is turned into text here, the slow part (backup copy, writing ~70 MB) runs in a thread.
+    /// SPEICHERT counts running saves for the "Saving …" badge.
+    pub fn save_hintergrund(&self, mit_sicherung: bool) {
+        let Ok(daten) = serde_json::to_vec(self) else { return };
+        let (name, pfad, n) = (self.save_name.clone(), self.save_path(), crate::regeln::f("spielgefuehl", "karrieren.sicherungen") as usize);
+        let info = serde_json::json!({"verein": self.club().name, "datum": crate::date::long(self.world.season, self.world.day), "trainer": self.coach}).to_string();
+        SPEICHERT.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+        std::thread::spawn(move || {
+            let _w = SCHREIBEN.lock().unwrap_or_else(|e| e.into_inner());
+            let dir = save_dir();
+            let _ = std::fs::create_dir_all(&dir);
+            let ordner = dir.join(crate::id("sicherungen"));
+            if mit_sicherung && pfad.exists() && n > 0 && std::fs::create_dir_all(&ordner).is_ok() {
+                for i in (1..n).rev() { let _ = std::fs::rename(ordner.join(format!("{name}-{i}.json")), ordner.join(format!("{name}-{}.json", i + 1))); }
+                let _ = std::fs::copy(&pfad, ordner.join(format!("{name}-1.json")));
+            }
+            let tmp = dir.join(format!("{name}.tmp"));
+            if std::fs::write(&tmp, &daten).is_ok() { let _ = std::fs::rename(&tmp, &pfad); }
+            let _ = std::fs::write(dir.join(format!("{name}.info")), info);
+            SPEICHERT.fetch_sub(1, std::sync::atomic::Ordering::Relaxed);
+        });
     }
     /// Weekly save with a backup: the save before is kept as the newest of `sicherungen` copies in karrieren/sicherungen/.
     pub fn save_mit_sicherung(&self) -> Result<(), String> {
@@ -3212,6 +3288,9 @@ impl Career {
     }
 }
 
+/// Saves running in the background (Career::save_hintergrund), for the "Saving …" badge.
+pub static SPEICHERT: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
+static SCHREIBEN: std::sync::Mutex<()> = std::sync::Mutex::new(());
 /// Tests that point HOME at a temporary folder run one after the other.
 #[cfg(test)]
 pub static HOME_LOCK: std::sync::Mutex<()> = std::sync::Mutex::new(());
@@ -3345,10 +3424,13 @@ impl fl27::Ablauf for Fl27Start<'_> {
         if let Ok(d) = std::fs::read_dir(s.join(crate::id("livecpk"))) {
             for e in d.flatten() {
                 let n = e.file_name().to_string_lossy().to_string();
-                if n != cpk && n != wn && n != fl27::DIRECT_ROOT && e.path().join("common/etc/pesdb").is_dir() && !andere.contains(&n) { andere.push(n); }
+                // only a whole database (Player.bin): add-ons with a few pesdb files (boots, derbies, a cup, stadiums) stay
+                // on (t2-ecom 26.11.: all stadiums wrong after CalcioM switched such packs off)
+                if n != cpk && n != wn && n != fl27::DIRECT_ROOT && e.path().join("common/etc/pesdb/Player.bin").is_file() && !andere.contains(&n) { andere.push(n); } // roh
             }
         }
-        if fl27::sider_ini_anwenden(&k, &s, |t| fl27::sider_ini_einrichten(t, &cpk, &wn, &andere, true))? { self.log.push(format!("sider.ini: {cpk} eingerichtet (Sicherung daneben)")); }
+        let vorher = std::fs::read_to_string(k.join("original/sider.ini")).unwrap_or_default(); // roh
+        if fl27::sider_ini_anwenden(&k, &s, |t| fl27::sider_ini_einrichten(t, &cpk, &wn, &andere, true).map(|t| fl27::zusaetze_wieder_an(&t, &vorher, &s)))? { self.log.push(format!("sider.ini: {cpk} eingerichtet (Sicherung daneben)")); }
         self.log.extend(fl27::module_pruefen(&s, &self.assets, &k, true));
         Ok(())
     }
@@ -3391,7 +3473,7 @@ impl fl27::Ablauf for Fl27Start<'_> {
         if !std::mem::take(&mut self.c.fl27_trotzdem) && crate::livepatch::neustart_noetig(&db, &[self.c.world.clubs[h].id, self.c.world.clubs[a].id]) { self.c.fl27_neustart = true; return Err(crate::inhalt::t("ui.live.neustart_noetig").into()); }
         self.c.fl27_offen = true;
         // quick start: the module waits at the side selection and reads the next match and the patches from there
-        if self.c.direktstart && self.c.schnellstart && fl27::sider().join("modules/calciom_direktmatch.lua").is_file() {
+        if self.c.direktstart && fl27::sider().join("modules/calciom_direktmatch.lua").is_file() {
             if let Some(z) = self.c.direktmatch_text() { fl27::direktmatch_schreiben(&fl27::sider(), &z)?; self.log.push(format!("Schnellstart: {z}")); } // roh
             fl27::fenster_nach_vorne();
             return Ok(());
@@ -4030,9 +4112,9 @@ mod direktmatch {
         assert!(fl27::flow_umleiten(t, "fehlt", "Q/R").is_none());
         let ini = crate::livepatch::ini_mit_lua("[sider]\r\n\tlua.module = \"a.lua\"\r\n", "calciom_direktmatch.lua");
         assert!(ini.contains("\tlua.module = \"calciom_direktmatch.lua\"\r\n") && crate::livepatch::ini_mit_lua(&ini, "calciom_direktmatch.lua") == ini);
-        assert_eq!(fl27::direktmatch_zeile(101, 103, 10, true, true, Some(53), false), "101 103 0 1 10 menue vl=1 em=1 finale=1 ast=1");
-        assert_eq!(fl27::direktmatch_zeile(1, 2, 0, false, false, None, true), "1 2 0 1 0 menue vl=0 em=0 ast=1 schnell=1");
-        assert_eq!(fl27::direktmatch_zeile(5, 6, 0, false, false, Some(52), false), "5 6 0 1 0 menue vl=0 em=0 mi=52 ast=1");
+        assert_eq!(fl27::direktmatch_zeile(101, 103, (0, 1), 10, true, true, Some(53), false), "101 103 0 1 10 menue vl=1 em=1 finale=1 ast=1 edit=0");
+        assert_eq!(fl27::direktmatch_zeile(1, 2, (2, 0), 0, false, false, None, true), "1 2 2 0 0 menue vl=0 em=0 ast=1 edit=0 schnell=1");
+        assert_eq!(fl27::direktmatch_zeile(5, 6, (0, 1), 0, false, false, Some(52), false), "5 6 0 1 0 menue vl=0 em=0 mi=52 ast=1 edit=0");
         fl27::direktmatch_schreiben(&s, "1 2 0 1 0 menue").unwrap();
         assert_eq!(std::fs::read_to_string(s.join("flw/direktmatch.txt")).unwrap(), "1 2 0 1 0 menue\r\n");
         let _ = std::fs::remove_dir_all(&s);
@@ -4084,5 +4166,48 @@ mod echte_daten {
         assert!(!s.join("modules").join(concat!("pesm", "_direktmatch.lua")).exists());
         assert!(ini.lines().count() >= vorher.lines().count() + 1, "only switched off, no line lost");
         eprintln!("{}", ini.lines().filter(|l| l.contains("cpk.root") || l.contains("_direktmatch")).take(12).collect::<Vec<_>>().join("\n"));
+    }
+}
+
+/// t2-ecom's wishes (Discord 26.11.): a young first-team player back to the U19, the summer window switched off.
+#[cfg(test)]
+mod t2_wuensche {
+    use super::*;
+    #[test]
+    fn u19_und_sommerfenster() {
+        let mut c = Career::new(crate::world::testwelt(3), 0, "Test");
+        let sq = c.squad();
+        let (jung, alt) = (sq[0], sq[1]);
+        c.world.players[jung].age = 18;
+        c.world.players[alt].age = 25;
+        c.xi = sq.iter().take(11).copied().collect();
+        assert!(c.zur_u19(alt).is_err(), "too old");
+        assert!(c.zur_u19(jung).is_ok() && c.world.players[jung].youth == 19 && !c.xi.contains(&jung) && !c.squad().contains(&jung));
+        assert!(c.zur_u19(jung).is_err(), "already in the U19");
+        c.world.day = 5;
+        assert!(c.in_window().is_some());
+        c.world.sommerfenster_aus = Some(c.world.season);
+        assert!(c.in_window().is_none() && crate::transferki::fenster(&c.world, 0, 5).is_none(), "summer window shut for everyone");
+        c.world.day = 160;
+        assert!(c.in_window().is_some(), "the winter window stays");
+        c.world.season += 1; c.world.day = 5;
+        assert!(c.in_window().is_some(), "only this season");
+    }
+}
+
+/// Fabian 26.11.: saving runs in the background and ends with the same file a normal save writes.
+#[cfg(test)]
+mod speichern_im_hintergrund {
+    use super::*;
+    #[test]
+    fn schreibt_wie_save() {
+        let mut c = Career::new(crate::world::testwelt(3), 0, "Test");
+        c.save_name = format!("Hintergrund{}", std::process::id());
+        c.save_hintergrund(true);
+        for _ in 0..200 { if SPEICHERT.load(std::sync::atomic::Ordering::Relaxed) == 0 { break; } std::thread::sleep(std::time::Duration::from_millis(50)); }
+        let _w = SCHREIBEN.lock().unwrap_or_else(|e| e.into_inner()); // the thread is done writing
+        let geladen = load(&c.save_path()).expect("the background save reads back");
+        assert_eq!((geladen.save_name.clone(), geladen.world.day), (c.save_name.clone(), c.world.day));
+        let _ = std::fs::remove_file(c.save_path());
     }
 }

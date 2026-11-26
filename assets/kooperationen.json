@@ -1,10 +1,4 @@
 {
- "_hinweis": "Farmteams zum Start: Hauptverein → Partner über die Team-ID aus Team.bin (die Namen stehen nur zur Lesbarkeit dabei). Ein Paar gilt nur, wenn beide Vereine in der Welt spielen.",
- "paare": [
-  {"haupt": 127, "partner": 74250, "namen": "Bayern München → SpVgg Unterhaching"},
-  {"haupt": 102, "partner": 4213, "namen": "Chelsea → RC Straßburg"},
-  {"haupt": 5010, "partner": 1586, "namen": "RB Leipzig → Red Bull Salzburg"},
-  {"haupt": 1586, "partner": 5010, "namen": "Red Bull Salzburg → RB Leipzig"},
-  {"haupt": 1586, "partner": 73710, "namen": "Red Bull Salzburg → FC Liefering"}
- ]
+ "hinweis": "Neutral: echte Partnervereine kommen aus dem Paket echte-daten.",
+ "paare": []
 }

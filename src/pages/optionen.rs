@@ -141,6 +141,9 @@ pub(super) fn optionen(ui: &mut Ui, v: &mut View, c: &mut Career) {
     // FC-26 wish: what AI clubs may do with our players
     if ui.button(Rect::new(r.x + 16.0, r.y + 280.0, 360.0, 34.0), crate::inhalt::t(if c.ohne_ki_vorvertraege { "ui.einst.ki_vv_aus" } else { "ui.einst.ki_vv_an" }), !c.ohne_ki_vorvertraege) { c.ohne_ki_vorvertraege = !c.ohne_ki_vorvertraege; }
     if ui.button(Rect::new(r.x + 390.0, r.y + 280.0, 360.0, 34.0), crate::inhalt::t(if c.ohne_ki_klauseln { "ui.einst.ki_kl_aus" } else { "ui.einst.ki_kl_an" }), !c.ohne_ki_klauseln) { c.ohne_ki_klauseln = !c.ohne_ki_klauseln; }
+    // the summer window of this season shut for everyone (t2-ecom, Discord 26.11.)
+    let zu = c.world.sommerfenster_aus == Some(c.world.season);
+    if ui.button(Rect::new(r.x + 16.0, r.y + 412.0, 420.0, 34.0), crate::inhalt::t(if zu { "ui.einst.sommerfenster_aus" } else { "ui.einst.sommerfenster_an" }), zu) { c.world.sommerfenster_aus = if zu { None } else { Some(c.world.season) }; }
     // market-value era: the game's values or an inflated modern market (prices and values; wages stay)
     ui.text_semi(crate::inhalt::t("ui.aera.titel"), r.x + 16.0, r.y + 344.0, 17.0, Theme::text());
     let stufen = [100u32, 150, 220];
@@ -172,14 +175,12 @@ pub(super) fn optionen(ui: &mut Ui, v: &mut View, c: &mut Career) {
     if ui.button(Rect::new(r2.x + 268.0, r2.y + 48.0, 290.0, 34.0), if live { crate::inhalt::t("ui.pages.datenbank_live_mitschreiben") } else { crate::inhalt::t("ui.pages.datenbank_live_mitschreiben_2") }, live) { c.db_live = !live; }
     // BlankState222's start_stamina module (installed by the user): CalcioM writes the start fitness for it
     if ui.button(Rect::new(r2.x + 16.0, r2.y + 90.0, 420.0, 34.0), crate::inhalt::t(if c.start_stamina { "ui.fl27.start_stamina_an" } else { "ui.fl27.start_stamina_aus" }), c.start_stamina) { c.start_stamina = !c.start_stamina; }
+    // direct and quick start are one switch (Fabian 26.11.): FL27 starts into the match and stays open between matches
     if ui.button(Rect::new(r2.x + 450.0, r2.y + 90.0, 300.0, 34.0), crate::inhalt::t(if c.direktstart { "ui.fl27.direktstart_an" } else { "ui.fl27.direktstart_aus" }), c.direktstart) { c.direktstart = !c.direktstart; }
-    // quick start (Fabian 26.11.): FL27 stays open, the next match is loaded at the side selection
-    if c.direktstart && ui.button(Rect::new(r2.x + 760.0, r2.y + 90.0, 320.0, 34.0), crate::inhalt::t(if c.schnellstart { "ui.fl27.schnellstart_an" } else { "ui.fl27.schnellstart_aus" }), c.schnellstart) { c.schnellstart = !c.schnellstart; }
     let auto = c.fl27_auto_ende;
     if ui.button(Rect::new(r2.x + 570.0, r2.y + 48.0, 320.0, 34.0), if auto { crate::inhalt::t("ui.pages.fl27_nach_dem_abpfiff_beenden") } else { crate::inhalt::t("ui.pages.fl27_nach_dem_abpfiff_beenden_2") }, auto) { c.fl27_auto_ende = !auto; }
     // right column under „Rückbau“: the career database after the match, and presets still lying in the game folder
-    let db_aus = c.db_nach_spiel_aus;
-    if ui.button(Rect::new(r2.x + r2.w - 260.0, r2.y + 90.0, 244.0, 34.0), &ui.fit(crate::inhalt::t(if db_aus { "ui.fl27.db_nach_spiel_aus_an" } else { "ui.fl27.db_nach_spiel_aus" }), 14.0, 230.0), db_aus) { c.db_nach_spiel_aus = !db_aus; }
+    // "career database off after the match" is no switch any more: sider.ini always goes back after the match (Fabian 26.11.)
     let liegen: Vec<&str> = crate::fl27::VORGABEN.iter().copied().filter(|n| crate::fl27::sider().join(crate::id("flw")).join(n).exists()).collect();
     if !liegen.is_empty() && !v.fl27_laeuft {
         ui.paragraph(&crate::tf!("ui.fl27.vorgaben_liegen", liegen.len()), r2.x + r2.w - 260.0, r2.y + 148.0, 13.0, 244.0, Theme::achtung());

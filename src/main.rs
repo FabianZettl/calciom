@@ -2,6 +2,7 @@
 /// An identifier in the code (compared, stored, looked up), never shown and never translated.
 pub const fn id(s: &'static str) -> &'static str { s }
 mod update;
+mod pakete;
 mod marke;
 mod netzbilder;
 mod sofifa;
@@ -41,6 +42,7 @@ mod nationen;
 mod geo;
 mod date;
 mod fl27;
+mod trikots;
 mod game;
 mod mensch;
 mod regeln;
@@ -330,6 +332,10 @@ struct App {
     musik_titel: Option<(String, f32)>,
     /// A new career while the world is backed up in the background (loading bar instead of a frozen window).
     start_lauf: Option<(Career, std::sync::mpsc::Receiver<Result<(), String>>)>,
+    /// A save being read in the background (Fabian 26.11.: show that the app works, never a frozen window).
+    ladend: Option<std::sync::mpsc::Receiver<Result<Career, String>>>,
+    /// "Next day" was clicked on a slow day: the step runs in the next frame, after the hint is on screen.
+    tag_bald: bool,
 }
 
 impl App {
@@ -352,12 +358,12 @@ impl App {
         ] {
             sfx.push((n.to_string(), macroquad::audio::load_sound_from_bytes(b).await.ok()));
         }
-        let ui = Ui { head, body, semi, mouse: Vec2::ZERO, clicked: false, released_consumed: false, wheel: 0.0, time: 0.0, typed: vec![], key_back: false, key_enter: false, sfx, sound_queue: vec![], hover_any: false, tooltip: Default::default(), rahmen: Default::default(), foto_orte: Default::default(), wappen_orte: Default::default(), inject_click: None, crests: Default::default(), lautstaerke: pages::klang_lesen(), wappen_farben: Default::default(), bilder: Default::default(), bilder_fuer: None, logos: Default::default(), fotos: Default::default(), stadien: Default::default(), foto_budget: std::cell::Cell::new(6), netz: Default::default(), nachweise: Default::default() };
+        let ui = Ui { head, body, semi, mouse: Vec2::ZERO, clicked: false, released_consumed: false, wheel: 0.0, time: 0.0, typed: vec![], key_back: false, key_enter: false, sfx, sound_queue: vec![], hover_any: false, tooltip: Default::default(), rahmen: Default::default(), foto_orte: Default::default(), wappen_orte: Default::default(), inject_click: None, crests: Default::default(), lautstaerke: pages::klang_lesen(), wappen_farben: Default::default(), bilder: Default::default(), bilder_fuer: None, logos: Default::default(), fotos: Default::default(), stadien: Default::default(), trikots: Default::default(), foto_budget: std::cell::Cell::new(6), netz: Default::default(), nachweise: Default::default() };
         let default_db = fl27::welt_ordner(&fl27::sider()).display().to_string();
         App {
             ui, v: View::new(), screen: Screen::Splash(-1.0),
             start: StartState { step: 0, db_path: default_db, db_focus: false, league: 0, team: None, coach: String::new(), coach_focus: false, saves: game::list_saves(), loeschen: None, offen: None, error: String::new(), scroll: 0, welt: None, welt_info: String::new(), such: String::new(), such_focus: false, f_land: None, f_liga: None, index: None, treffer: 0, paare: vec![], unklar: vec![], karte_zoom: 1.0, karte_off: (0.0, 0.0), profil: Default::default(), ohne: false, angebot_modus: 0, ligen: vec![], ligen_scroll: 0, liga_sort: 0, ml: None, ml_liste: None },
-            template: None, career: None, fast: false, last_inbox: 0, selftest: None, starttest: None, handy: None, handy_geaendert: None, musik: Default::default(), musik_titel: std::env::var(crate::id("CALCIOM_MUSIK_TITEL")).ok().map(|t| (t, 1e6)), start_lauf: None,
+            template: None, career: None, fast: false, last_inbox: 0, selftest: None, starttest: None, handy: None, handy_geaendert: None, musik: Default::default(), musik_titel: std::env::var(crate::id("CALCIOM_MUSIK_TITEL")).ok().map(|t| (t, 1e6)), start_lauf: None, ladend: None, tag_bald: false,
         }
     }
 
@@ -468,7 +474,7 @@ impl App {
         }
         // saved two minutes after the last phone command (mobile-ansicht.md 2.8)
         if let (Some(t), Some(c)) = (self.handy_geaendert, self.career.as_ref()) {
-            if get_time() - t > crate::regeln::f("handy", "speichern.nach_befehl_s") as f64 { let _ = c.save_mit_sicherung(); self.handy_geaendert = None; }
+            if get_time() - t > crate::regeln::f("handy", "speichern.nach_befehl_s") as f64 { c.save_hintergrund(true); self.handy_geaendert = None; }
         }
     }
 
@@ -511,6 +517,14 @@ impl App {
     }
     fn start_screen(&mut self) {
         if self.start_lauf.is_some() { return self.start_laden(); }
+        if let Some(rx) = &self.ladend {
+            match rx.try_recv() {
+                Ok(Ok(c)) => { self.ladend = None; self.last_inbox = c.inbox.len(); self.career = Some(c); self.screen = Screen::Game; self.v = View::new(); return; }
+                Ok(Err(e)) => { self.ladend = None; self.start.error = crate::tf!("ui.main.spielstand_nicht_lesbar", e); }
+                Err(std::sync::mpsc::TryRecvError::Disconnected) => { self.ladend = None; }
+                Err(_) => { pages::arbeitet(&mut self.ui, crate::inhalt::t("ui.arbeitet.laden"), true); return; }
+            }
+        }
         let ui = &mut self.ui;
         // a newer release on GitHub: a banner with a button to its page
         if let Some(Some((tag, url))) = update::NEUER.get() {
@@ -990,15 +1004,17 @@ impl App {
             self.ui.play(crate::id("titel"));
         }
         if let Some(p) = load {
-            match game::load(&p) {
-                Ok(c) => { self.last_inbox = c.inbox.len(); self.career = Some(c); self.screen = Screen::Game; self.v = View::new(); }
-                Err(e) => { self.start.error = crate::tf!("ui.main.spielstand_nicht_lesbar", e); }
-            }
+            let (tx, rx) = std::sync::mpsc::channel();
+            std::thread::spawn(move || { let _ = tx.send(game::load(&p)); });
+            self.ladend = Some(rx);
         }
     }
 
     fn advance(&mut self) -> bool {
         let Some(c) = self.career.as_mut() else { return false };
+        // playing on to a chosen day: arrived, or an own match or a press conference stops it
+        if self.v.vorspulen_bis.is_some_and(|d| c.world.day >= d) { self.v.vorspulen_bis = None; self.fast = false; return false; }
+        if c.today_match().is_some() || c.press.is_some() { self.v.vorspulen_bis = None; }
         if c.today_match().is_some() { self.v.go(Page::Spieltag); self.fast = false; return false; }
         let decisions = c.open_decisions();
         let t0 = std::time::Instant::now();
@@ -1009,11 +1025,14 @@ impl App {
             Ok(()) => {
                 if c.inbox.len() > self.last_inbox { self.ui.play(crate::id("posteingang")); }
                 self.last_inbox = c.inbox.len();
-                if c.autosave_heute() { let _ = c.save_mit_sicherung(); }
-                if c.open_decisions() > decisions || c.press.is_some() || c.today_match().is_some() { self.fast = false; }
+                if c.autosave_heute() { c.save_hintergrund(true); }
+                // to a chosen day new decisions do not stop it: the staff decide when their deadline comes
+                let ziel = self.v.vorspulen_bis.filter(|&d| c.world.day < d).is_some();
+                if (c.open_decisions() > decisions && !ziel) || c.press.is_some() || c.today_match().is_some() { self.fast = false; }
+                if self.v.vorspulen_bis.is_some() && !ziel { self.v.vorspulen_bis = None; self.fast = false; }
                 true
             }
-            Err(e) => { self.v.toast(&e, false); self.fast = false; false }
+            Err(e) => { self.v.toast(&e, false); self.fast = false; self.v.vorspulen_bis = None; false }
         }
     }
 
@@ -1028,6 +1047,7 @@ impl App {
             self.screen = Screen::Start;
             return;
         }
+        if self.v.vorspulen_bis.is_some() { self.fast = true; }
         if self.fast { self.advance(); }
         let App { ui, v, career, .. } = self;
         let c = career.as_mut().unwrap();
@@ -1081,13 +1101,29 @@ impl App {
             if vorschau.starts_with(crate::id("direktstart")) { v.ds_frage = if vorschau.ends_with('2') { 2 } else { 1 }; }
             else if std::env::var("CALCIOM_PAGE").is_err() && !cfg!(test) && !pages::direktstart_file().exists() { v.ds_frage = 1; }
         }
+        // a career without the direct start asks on every load what it misses (Fabian 26.11.), until "do not remind me"
+        static DS_KARRIERE: std::sync::Mutex<String> = std::sync::Mutex::new(String::new());
+        if std::mem::replace(&mut *DS_KARRIERE.lock().unwrap(), c.save_name.clone()) != c.save_name {
+            let vorschau = std::env::var("CALCIOM_DIALOG").is_ok_and(|d| d == crate::id("ohne_direktstart"));
+            if vorschau || (v.ds_frage == 0 && !c.direktstart && !c.ds_nicht_erinnern && pages::direktstart_file().exists() && std::env::var("CALCIOM_PAGE").is_err() && !cfg!(test)) { v.ds_frage = 4; }
+        }
         let feier_offen = !c.feiern.is_empty() || !c.auslosungen.is_empty();
         let modal_open = v.modal != Modal::None || feier_offen || v.ds_frage > 0;
         // an open right-click menu takes the clicks like a window (but without darkening the page)
         let kontext_offen = v.kontext.is_some() || v.verein_kontext.is_some();
         let saved_click = ui.clicked;
         if modal_open || kontext_offen { ui.clicked = false; }
-        draw_page(ui, v, c);
+        // a page that was slow last time gets one frame with "Loading …" first, so it never looks frozen (Fabian 26.11.)
+        let seite = (v.page as u16, v.tab);
+        if pages::seitenzeit(seite) > pages::LANGSAM_S && v.vorab != Some(seite) {
+            v.vorab = Some(seite);
+            pages::arbeitet(ui, crate::inhalt::t("ui.arbeitet.seite"), true);
+        } else {
+            if v.vorab != Some(seite) { v.vorab = None; }
+            let t0 = get_time();
+            draw_page(ui, v, c);
+            pages::seitenzeit_merken(seite, (get_time() - t0) as f32);
+        }
         // a right click on a player row opens his menu (the nearest photo in the row)
         if is_mouse_button_pressed(MouseButton::Right) && v.modal == Modal::None {
             if let Some(id) = ui.foto_unter_maus() { if let Some(p) = c.world.players.iter().position(|x| x.id == id) { v.kontext = Some((p, ui.mouse)); } }
@@ -1124,6 +1160,8 @@ impl App {
             }
         }
         ui.rahmen.borrow_mut().clear();
+        // CALCIOM_ARBEITET=1: the badge as a preview
+        if game::SPEICHERT.load(std::sync::atomic::Ordering::Relaxed) > 0 || std::env::var(crate::id("CALCIOM_ARBEITET")).is_ok() { pages::arbeitet(ui, crate::inhalt::t("ui.arbeitet.speichern"), false); }
         if let Some((s, t0, ok)) = v.toast.clone() {
             let age = get_time() as f32 - t0;
             if age > 3.0 { v.toast = None; } else {
@@ -1151,8 +1189,15 @@ impl App {
                 if c.rueckgaengig() { self.v.mv = None; self.last_inbox = c.inbox.len(); self.v.toast(crate::inhalt::t("undo.ok"), true); } else { self.v.toast(crate::inhalt::t("undo.nichts"), false); }
             }
         }
-        if weiter == 1 || key_weiter { if self.advance() { self.ui.play(crate::id("tagesabschluss")); } }
+        // a slow day step shows "Simulating …" first and runs in the next frame (Fabian 26.11.)
+        let langsam = pages::TAGESZEIT.lock().ok().and_then(|t| t.last().copied()).unwrap_or(0.0) / 1000.0 > pages::LANGSAM_S;
+        if self.tag_bald { self.tag_bald = false; if self.advance() { self.ui.play(crate::id("tagesabschluss")); } }
+        else if weiter == 1 || key_weiter {
+            if langsam { self.tag_bald = true; pages::arbeitet(&mut self.ui, crate::inhalt::t("ui.arbeitet.tag"), false); }
+            else if self.advance() { self.ui.play(crate::id("tagesabschluss")); }
+        }
         if weiter == 2 { self.fast = true; }
+        if self.fast || self.v.vorspulen_bis.is_some() { pages::arbeitet(&mut self.ui, crate::inhalt::t("ui.arbeitet.tag"), false); }
     }
 
     /// Returns 1 when "Nächster Tag" was clicked, 2 for "bis zum nächsten Termin".
@@ -1601,6 +1646,8 @@ async fn main() {
         // CALCIOM_KLUB=<Name>: that club on the clubs page
         if let Ok(n) = std::env::var("CALCIOM_KLUB") { app.v.sel_club = app.career.as_ref().unwrap().world.clubs.iter().position(|x| x.name == n); }
         if let Ok(t) = std::env::var("CALCIOM_REITER") { app.v.tab = t.parse().unwrap_or(0); }
+        // CALCIOM_SPIELPLAN=<club index> (anything else: own club): that club's match page (preview)
+        if let Ok(k) = std::env::var("CALCIOM_SPIELPLAN") { let c = app.career.as_ref().unwrap(); app.v.modal = pages::Modal::Spielplan(k.parse().ok().filter(|&k: &usize| k < c.world.clubs.len()).unwrap_or(c.own)); }
         // CALCIOM_RAD=1: the percentile wheel on the statistics tab
         if std::env::var("CALCIOM_RAD").is_ok() { crate::pages::stat_rad_an(); }
         // CALCIOM_STAT_FENSTER=<area>:<row>: the league ranking of that number open (needs CALCIOM_SPIELER)

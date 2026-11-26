@@ -38,7 +38,8 @@ fn land_roh(w: &World, l: usize) -> String {
 pub fn fenster(w: &World, l: usize, tag: u32) -> Option<(u32, u32)> {
     let eigen = crate::regeln::wert_oder("korridore", &format!("fenster.{}", land(w, l))).and_then(|v| v.as_array()).map(|a| a.iter().filter_map(|x| Some((x[0].as_u64()? as u32, x[1].as_u64()? as u32))).collect::<Vec<_>>());
     let liste = eigen.unwrap_or_else(|| crate::world::WINDOWS.to_vec());
-    liste.into_iter().find(|&(a, b)| tag >= a && tag <= b)
+    // the first window of the list is the summer one; switched off for this season it does not open
+    liste.into_iter().enumerate().find(|&(i, (a, b))| tag >= a && tag <= b && !(i == 0 && w.sommerfenster_aus == Some(w.season))).map(|x| x.1)
 }
 /// Tier 0 (A) … 3 (D) of a league by its strength.
 pub fn stufe(w: &World, l: usize) -> i32 { liga_info(w, l).0 }

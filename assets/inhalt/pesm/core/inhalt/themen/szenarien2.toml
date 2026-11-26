@@ -1,0 +1,321 @@
+# Weitere Szenarien aus Spieldaten (Fabian 26.11.): Co-Trainer, Präsidium, Scout, Jugendtrainer, gegnerischer Trainer, Presse, Fans. team = true: Thema über die ganze Mannschaft, nur einmal (Anker), Titel ohne Spielernamen, Moral wirkt auf den Kader. Texte: pool_szenarien2.json (de) und en/.
+
+[thema.co_spaete_gegentore]
+kategorie = "teambezug"
+absender = "co_trainer"
+kanal = "persoenlich"
+dringlichkeit = 1
+sperre_tage = 28
+haeufigkeit = 0.6
+team = true
+wenn = ["anker>=1", "spaete_gt>=3"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = 5 }, { ziel = "medienbild", delta = 6 }] },
+  { id = "a2", strategie = "einfuehlen", ton = "offen", wirkungen = [{ ziel = "moral", delta = 4 }, { ziel = "fanstimmung", delta = 2 }] },
+  { id = "a3", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "moral", delta = -5 }, { ziel = "medienbild", delta = -6 }] },
+  { id = "a4", strategie = "gegenfrage", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 2 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" } ]
+
+[thema.co_rotation]
+kategorie = "teambezug"
+absender = "co_trainer"
+kanal = "persoenlich"
+dringlichkeit = 1
+sperre_tage = 21
+haeufigkeit = 0.6
+team = true
+wenn = ["anker>=1", "dichte>=3"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "offen", wirkungen = [{ ziel = "moral", delta = 5 }, { ziel = "medienbild", delta = 6 }] },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = 2 }] },
+  { id = "a3", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "moral", delta = -5 }, { ziel = "medienbild", delta = -6 }] },
+  { id = "a4", strategie = "delegieren", ton = "offen", wirkungen = [{ ziel = "medienbild", delta = 2 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" } ]
+
+[thema.praesident_blamage]
+kategorie = "teambezug"
+absender = "praesident"
+kanal = "mail"
+dringlichkeit = 2
+sperre_tage = 21
+haeufigkeit = 0.8
+team = true
+wenn = ["anker>=1", "blamage>=1"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "vorstandsvertrauen", delta = 8 }, { ziel = "medienbild", delta = 8 }] },
+  { id = "a2", strategie = "einfuehlen", ton = "offen", wirkungen = [{ ziel = "vorstandsvertrauen", delta = 4 }] },
+  { id = "a3", strategie = "hart_bleiben", ton = "hart", wirkungen = [{ ziel = "vorstandsvertrauen", delta = -8 }, { ziel = "medienbild", delta = -8 }] },
+  { id = "a4", strategie = "gegenfrage", ton = "bestimmt", wirkungen = [{ ziel = "vorstandsvertrauen", delta = -2 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" } ]
+
+[thema.praesident_derbysieg]
+kategorie = "teambezug"
+absender = "praesident"
+kanal = "mail"
+dringlichkeit = 0
+sperre_tage = 35
+haeufigkeit = 0.8
+team = true
+wenn = ["anker>=1", "derby_s>=1"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "offen", wirkungen = [{ ziel = "vorstandsvertrauen", delta = 8 }, { ziel = "fanstimmung", delta = 8 }] },
+  { id = "a2", strategie = "ausgleich", ton = "offen", wirkungen = [{ ziel = "vorstandsvertrauen", delta = 6 }, { ziel = "moral", delta = 4 }] },
+  { id = "a3", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "vorstandsvertrauen", delta = 2 }] },
+  { id = "a4", strategie = "hart_bleiben", ton = "hart", wirkungen = [{ ziel = "vorstandsvertrauen", delta = -8 }, { ziel = "fanstimmung", delta = -8 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" } ]
+
+[thema.praesident_pokalpraemie]
+kategorie = "teambezug"
+absender = "praesident"
+kanal = "mail"
+dringlichkeit = 1
+sperre_tage = 60
+haeufigkeit = 0.3
+team = true
+wenn = ["anker>=1", "pokal_naechst>=1"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "vorstandsvertrauen", delta = 8 }, { ziel = "medienbild", delta = 8 }] },
+  { id = "a2", strategie = "einfuehlen", ton = "offen", wirkungen = [{ ziel = "vorstandsvertrauen", delta = 4 }] },
+  { id = "a3", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "vorstandsvertrauen", delta = -8 }, { ziel = "medienbild", delta = -8 }] },
+  { id = "a4", strategie = "gegenfrage", ton = "sachlich", wirkungen = [{ ziel = "vorstandsvertrauen", delta = -1 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" } ]
+
+[thema.scout_gegnerstar]
+kategorie = "teambezug"
+absender = "sportdirektor"
+kanal = "persoenlich"
+dringlichkeit = 0
+sperre_tage = 35
+haeufigkeit = 0.6
+team = true
+wenn = ["anker>=1", "gegner_star>=1"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "zusage", ton = "sachlich", wirkungen = [{ ziel = "vorstandsvertrauen", delta = 8 }, { ziel = "medienbild", delta = 8 }] },
+  { id = "a2", strategie = "einfuehlen", ton = "offen", wirkungen = [{ ziel = "vorstandsvertrauen", delta = 3 }] },
+  { id = "a3", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "vorstandsvertrauen", delta = -8 }, { ziel = "medienbild", delta = -8 }] },
+  { id = "a4", strategie = "gegenfrage", ton = "sachlich", wirkungen = [{ ziel = "vorstandsvertrauen", delta = 1 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" } ]
+
+[thema.scout_vertragstipp]
+kategorie = "teambezug"
+absender = "sportdirektor"
+kanal = "persoenlich"
+dringlichkeit = 0
+sperre_tage = 45
+haeufigkeit = 0.5
+team = true
+wenn = ["anker>=1", "tipp>=1"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "zusage", ton = "sachlich", wirkungen = [{ ziel = "vorstandsvertrauen", delta = 8 }, { ziel = "medienbild", delta = 8 }] },
+  { id = "a2", strategie = "einfuehlen", ton = "offen", wirkungen = [{ ziel = "vorstandsvertrauen", delta = 3 }] },
+  { id = "a3", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "vorstandsvertrauen", delta = -8 }, { ziel = "medienbild", delta = -8 }] },
+  { id = "a4", strategie = "delegieren", ton = "offen", wirkungen = [{ ziel = "vorstandsvertrauen", delta = 1 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" } ]
+
+[thema.jugend_talent_hochziehen]
+kategorie = "teambezug"
+absender = "jugendtrainer"
+kanal = "persoenlich"
+dringlichkeit = 0
+sperre_tage = 60
+haeufigkeit = 0.4
+team = true
+wenn = ["anker>=1", "talent_da>=1"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "zusage", ton = "offen", wirkungen = [{ ziel = "vorstandsvertrauen", delta = 8 }, { ziel = "fanstimmung", delta = 8 }] },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "vorstandsvertrauen", delta = 2 }] },
+  { id = "a3", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "vorstandsvertrauen", delta = -8 }, { ziel = "fanstimmung", delta = -8 }] },
+  { id = "a4", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "vorstandsvertrauen", delta = 3 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" } ]
+
+[thema.gegner_trainer_stichelt]
+kategorie = "teambezug"
+absender = "journalist"
+kanal = "mail"
+dringlichkeit = 0
+sperre_tage = 28
+haeufigkeit = 0.25
+team = true
+wenn = ["anker>=1", "sieg_zuletzt>=1"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 8 }, { ziel = "fanstimmung", delta = 8 }] },
+  { id = "a2", strategie = "ausgleich", ton = "humorvoll", wirkungen = [{ ziel = "medienbild", delta = 4 }, { ziel = "fanstimmung", delta = 6 }] },
+  { id = "a3", strategie = "hart_bleiben", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -9 }, { ziel = "fanstimmung", delta = -8 }] },
+  { id = "a4", strategie = "gegenfrage", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 1 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" } ]
+
+[thema.presse_titelkandidat]
+kategorie = "teambezug"
+absender = "journalist"
+kanal = "mail"
+dringlichkeit = 0
+sperre_tage = 28
+haeufigkeit = 0.6
+team = true
+wenn = ["anker>=1", "serie_s>=5"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 8 }, { ziel = "moral", delta = 4 }] },
+  { id = "a2", strategie = "ausgleich", ton = "humorvoll", wirkungen = [{ ziel = "medienbild", delta = 6 }, { ziel = "fanstimmung", delta = 4 }] },
+  { id = "a3", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "moral", delta = -4 }] },
+  { id = "a4", strategie = "zusage", ton = "offen", wirkungen = [{ ziel = "medienbild", delta = 1 }, { ziel = "fanstimmung", delta = 2 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" } ]
+
+[thema.presse_trainer_wackelt]
+kategorie = "teambezug"
+absender = "journalist"
+kanal = "mail"
+dringlichkeit = 2
+sperre_tage = 21
+haeufigkeit = 0.7
+team = true
+wenn = ["anker>=1", "serie_n>=4"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 8 }, { ziel = "vorstandsvertrauen", delta = 8 }] },
+  { id = "a2", strategie = "einfuehlen", ton = "offen", wirkungen = [{ ziel = "medienbild", delta = 4 }, { ziel = "moral", delta = 3 }] },
+  { id = "a3", strategie = "hart_bleiben", ton = "hart", wirkungen = [{ ziel = "medienbild", delta = -8 }, { ziel = "vorstandsvertrauen", delta = -8 }] },
+  { id = "a4", strategie = "gegenfrage", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = -1 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" } ]
+
+[thema.presse_derbypleite]
+kategorie = "teambezug"
+absender = "journalist"
+kanal = "mail"
+dringlichkeit = 1
+sperre_tage = 28
+haeufigkeit = 0.8
+team = true
+wenn = ["anker>=1", "derby_n>=1"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "fanstimmung", delta = 8 }, { ziel = "medienbild", delta = 8 }] },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 4 }] },
+  { id = "a3", strategie = "hart_bleiben", ton = "hart", wirkungen = [{ ziel = "fanstimmung", delta = -8 }, { ziel = "medienbild", delta = -8 }] },
+  { id = "a4", strategie = "gegenfrage", ton = "offen", wirkungen = [{ ziel = "medienbild", delta = 1 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" } ]
+
+[thema.fans_auswaertspleite]
+kategorie = "teambezug"
+absender = "fans"
+kanal = "mail"
+dringlichkeit = 1
+sperre_tage = 28
+haeufigkeit = 0.3
+team = true
+wenn = ["anker>=1", "auswaerts_n>=1"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "ausgleich", ton = "offen", wirkungen = [{ ziel = "fanstimmung", delta = 10 }, { ziel = "medienbild", delta = 8 }] },
+  { id = "a2", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "fanstimmung", delta = 4 }] },
+  { id = "a3", strategie = "hart_bleiben", ton = "hart", wirkungen = [{ ziel = "fanstimmung", delta = -8 }, { ziel = "medienbild", delta = -8 }] },
+  { id = "a4", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "fanstimmung", delta = 1 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" } ]
+
+[thema.fans_comeback]
+kategorie = "teambezug"
+absender = "fans"
+kanal = "mail"
+dringlichkeit = 0
+sperre_tage = 28
+haeufigkeit = 0.6
+team = true
+wenn = ["anker>=1", "comeback>=1"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "offen", wirkungen = [{ ziel = "fanstimmung", delta = 8 }, { ziel = "moral", delta = 4 }] },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "fanstimmung", delta = 2 }] },
+  { id = "a3", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "fanstimmung", delta = -8 }, { ziel = "moral", delta = -4 }] },
+  { id = "a4", strategie = "ausgleich", ton = "humorvoll", wirkungen = [{ ziel = "fanstimmung", delta = 6 }, { ziel = "medienbild", delta = 2 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" } ]
+
+[thema.presse_torflaute]
+kategorie = "spielbezug"
+absender = "journalist"
+kanal = "mail"
+dringlichkeit = 0
+sperre_tage = 35
+haeufigkeit = 0.4
+wenn = ["torlos>=5", "position:CF,SS,LWF,RWF"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "moral", delta = 5 }, { ziel = "medienbild", delta = 4 }, { ziel = "beziehung", delta = 3 }] },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = 2 }, { ziel = "medienbild", delta = 2 }] },
+  { id = "a3", strategie = "hart_bleiben", ton = "hart", wirkungen = [{ ziel = "moral", delta = -6 }, { ziel = "medienbild", delta = -4 }, { ziel = "beziehung", delta = -4 }] },
+  { id = "a4", strategie = "gegenfrage", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 1 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" } ]
+
+[thema.presse_joker]
+kategorie = "spielbezug"
+absender = "journalist"
+kanal = "mail"
+dringlichkeit = 0
+sperre_tage = 35
+haeufigkeit = 0.4
+wenn = ["joker>=3", "joker_tore>=2", "startelf<=1"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "zusage", ton = "offen", wirkungen = [{ ziel = "moral", delta = 5 }, { ziel = "medienbild", delta = 4 }, { ziel = "beziehung", delta = 3 }, { ziel = "zusage", art = "spielzeit", frist = 28 }], ausgang = "zusage" },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = 1 }, { ziel = "medienbild", delta = 2 }] },
+  { id = "a3", strategie = "hart_bleiben", ton = "hart", wirkungen = [{ ziel = "moral", delta = -6 }, { ziel = "medienbild", delta = -4 }, { ziel = "beziehung", delta = -4 }] },
+  { id = "a4", strategie = "gegenfrage", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 1 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "zusage" } ]
+
+[thema.presse_torwartfrage]
+kategorie = "spielbezug"
+absender = "journalist"
+kanal = "mail"
+dringlichkeit = 0
+sperre_tage = 42
+haeufigkeit = 0.4
+wenn = ["tw_reserve>=1"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "zusage", ton = "offen", wirkungen = [{ ziel = "moral", delta = 5 }, { ziel = "medienbild", delta = 4 }, { ziel = "beziehung", delta = 3 }, { ziel = "zusage", art = "spielzeit", frist = 28 }], ausgang = "zusage" },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = 1 }, { ziel = "medienbild", delta = 2 }] },
+  { id = "a3", strategie = "hart_bleiben", ton = "hart", wirkungen = [{ ziel = "moral", delta = -6 }, { ziel = "medienbild", delta = -4 }, { ziel = "beziehung", delta = -4 }] },
+  { id = "a4", strategie = "gegenfrage", ton = "sachlich", wirkungen = [{ ziel = "medienbild", delta = 1 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "zusage" } ]

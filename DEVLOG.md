@@ -2,6 +2,17 @@
 
 Short notes on how things work under the hood, newest first. Player-facing changes are in [CHANGELOG.md](CHANGELOG.md).
 
+## 26.11.2026 – CalcioM 0.6.0
+
+- **Kit choice.** `src/trikots.rs` reads the kitserver's `content/kits/map.txt` and order lists, decodes the `.ftex` atlases (BGRA8, BC2, BC3, BC7) and draws a 2D kit. The numbers go into `flw/direktmatch.txt`; module 1.28 sets them again for 15 s after FL27's match day screen resets them. Module 1.29 skips `Edit/Load` (`edit=0`), so EDIT00000000 cannot overwrite the career database.
+- **Match reports.** `World.berichte` keeps a `Spielbericht` for every club match of this and last season. Matches known only by their score get one from `bericht_simulieren`, seeded by the match, so it is always the same.
+- **Talks.** Each save has its own salt for the daily rolls (`Career.salz`). `pool_tag` scales the frequency by ego, temper, ambition and mood. `Career::spieldaten` gives the scenarios their facts from the last five own reports.
+- **Working hints.** `save_hintergrund` writes in a thread (one at a time, `SCHREIBEN` lock); a career loads over a channel. Pages slower than 0.3 s (`LANGSAM_S`) draw "Loading …" first.
+- **Data pack.** `src/pakete.rs` loads `assets/pakete/echte-daten` (manifest `calciom-paket.toml`) over neutral stand-ins; its rule files merge over the built-in ones.
+- **sider.ini after the match.** `fl27::sider_ini_ohne_calciom` comments out the career root, the direct-start root and CalcioM's Lua modules once FL27 has closed.
+- **sider.ini and add-ons.** `Fl27Start` switched off every other livecpk root with a `common/etc/pesdb` folder, so boot, commentary, cup and stadium packs went dark. Now only roots with a `Player.bin` (a whole world) are switched off. `fl27::zusaetze_wieder_an` turns an add-on root back on when it was active in the career's `original/sider.ini`.
+- **Stadium check.** `Career::stadion_warnung` looks for the home team's line in `map_teams.txt`, its folder under `content/stadiums`, and `pesm_stadion` in `stadiums.lua`, and shows a toast at match start.
+
 ## 26.11.2026 – CalcioM 0.5.3 (hotfix)
 
 - **Read from cpk.** Each database file (Player.bin, Competition.bin …) is taken from the `.cpk` that contains it, instead of all from the one with the biggest Player.bin: an FL27 update package like `data_s26272.cpk` has players but no competitions.

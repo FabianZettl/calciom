@@ -1,0 +1,10 @@
+[paket]
+id = "echte-daten"
+name = "Echte Daten"
+art = "vereine"
+version = "1.0.0"
+autor = "Fabian Zettl"
+lizenz = "nur zum privaten Gebrauch; Quellen je Datei (Wikipedia, Presse, eigene Recherche)"
+calciom = ">=0.5"
+beschreibung = "Echte Vereinsführungen, Trainer, Wettbewerbs- und Pokalnamen, Partner- und Zweitvereine, Journalisten. Ohne dieses Paket nutzt CalcioM neutrale Daten."
+# Laden: src/pakete.rs. Ohne Paket (oder mit CALCIOM_OHNE_ECHTE_DATEN) gelten die neutralen Dateien im Programm.

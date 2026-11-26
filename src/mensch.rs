@@ -614,7 +614,7 @@ impl Career {
             if unz.contains(&b.a) || unz.contains(&b.b) { b.w += k("beziehung_unzufrieden"); }
             if mentoren.iter().any(|m| (m.0 == b.a && m.1 == b.b) || (m.0 == b.b && m.1 == b.a)) { b.w += k("beziehung_mentor_je_tag"); }
             b.w -= b.w * k("beziehung_zur_mitte");
-            if b.w < k("konflikt_unter") && zufall(&["2026", crate::id("konflikt"), &b.a.to_string(), &b.b.to_string(), &abs.to_string()]) < k("konflikt_chance") { neu.push((b.a, b.b)); }
+            if b.w < k("konflikt_unter") && zufall(&["2026", crate::id("konflikt"), &b.a.to_string(), &b.b.to_string(), &abs.to_string(), &self.salz]) < k("konflikt_chance") { neu.push((b.a, b.b)); }
         }
         for (a, b) in neu {
             if self.mensch.konflikte.iter().any(|x| (x.a == a && x.b == b) || (x.a == b && x.b == a)) { continue; }
@@ -719,7 +719,7 @@ impl Career {
         for p in self.squad() {
             let pl = &self.world.players[p];
             let id = pl.id.to_string();
-            let z = |a: &str| zufall(&["2026", crate::id("anlass"), a, &id, &woche]);
+            let z = |a: &str| zufall(&["2026", crate::id("anlass"), a, &id, &woche, &self.salz]);
             let sz = pl.ps.treiber.iter().find(|x| x.0 == crate::id("spielzeit")).map(|x| x.1).unwrap_or(0.0);
             let thema = if sz <= -4.0 && z(crate::id("spielzeit")) < 0.8 { Some(crate::id("spielzeit")) }
                 else if pl.ps.rolle >= 5 && cw(pl, EGO) >= 60.0 && z(crate::id("rolle")) < 0.7 { Some(crate::id("rolle")) }
@@ -898,12 +898,12 @@ impl Career {
             let (pr, te) = (cw(pl, PROF) / 100.0, cw(pl, TEMPERAMENT) / 100.0);
             let chance = d("vorfall_je_tag") * (1.5 - pr * 1.5).max(0.0) * (1.0 + (50.0 - pl.morale) / 100.0) * (1.0 + te - 0.5);
             let id = pl.id.to_string();
-            if zufall(&["2026", crate::id("vorfall"), &id, &abs.to_string()]) >= chance { continue; }
+            if zufall(&["2026", crate::id("vorfall"), &id, &abs.to_string(), &self.salz]) >= chance { continue; }
             // the kind fits the person, and never the same kind twice in a row
             let arten: Vec<&str> = arr("gespraeche", "disziplin.arten").iter().map(|a| a.as_str().unwrap())
                 .filter(|&a| (a != "oeffentliche_kritik" || cw(pl, EGO) >= 55.0) && (a != "streit" || cw(pl, TEMPERAMENT) >= 55.0) && (a != "nachtleben" || pl.age <= 27) && (a != "uebergewicht" || pl.age >= 24) && a != letzte_art).collect();
             if arten.is_empty() { continue; }
-            let art = arten[(zufall(&["2026", "vorfall_art", &id, &abs.to_string()]) * arten.len() as f32) as usize % arten.len()];
+            let art = arten[(zufall(&["2026", "vorfall_art", &id, &abs.to_string(), &self.salz]) * arten.len() as f32) as usize % arten.len()];
             let variante = (zufall(&["vorfall_text", &id, &abs.to_string()]) * 3.0) as usize % 3; // roh
             self.vorfall_zuletzt = (abs, art.to_string());
             let n = pl.name.clone();

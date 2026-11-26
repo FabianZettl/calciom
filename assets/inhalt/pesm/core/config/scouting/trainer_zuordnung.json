@@ -1,11 +1,4 @@
 {
- "hinweis": "Von Hand: Verein laut Trainerbank -> Verein laut Spielstand (null = nicht zuordnen). Alles Übrige ordnet pesm/core/trainer/bank.py über ähnliche Namen zu.",
- "zuordnung": {
-  "LOSC Lille": "Lille OSC",
-  "OGC Nice": "OGC Nice Côte d'Azur",
-  "Turin": "Torino FC",
-  "Venedig": "Venezia FC",
-  "Athletic Bilbao": "Athletic Club",
-  "Union Royale La Louvière": "RAAL La Louvière"
- }
+ "hinweis": "Neutral: die Zuordnung kommt mit dem Paket echte-daten.",
+ "zuordnung": {}
 }

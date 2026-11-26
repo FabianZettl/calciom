@@ -1,0 +1,204 @@
+# Szenarien aus echten Spieldaten (Fabian 26.11.): Joker, Torflaute, Rote Karte, Torwart-Konkurrenz, Serien, Belastung. Auslöser aus den gespeicherten Spielberichten (Career::spieldaten). Texte: pool_szenarien.json (de) und en/.
+
+[thema.joker_will_starten]
+kategorie = "spielbezug"
+absender = "spieler"
+kanal = "persoenlich"
+dringlichkeit = 1
+sperre_tage = 28
+haeufigkeit = 0.6
+wenn = ["joker>=2", "joker_tore>=2", "startelf<=1"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "zusage", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = 4 }, { ziel = "beziehung", delta = 2 }, { ziel = "zusage", art = "spielzeit", frist = 21 }], ausgang = "zusage" },
+  { id = "a2", strategie = "erklaeren", ton = "offen", wirkungen = [{ ziel = "moral", delta = 2 }, { ziel = "beziehung", delta = 2 }] },
+  { id = "a3", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "moral", delta = 3 }, { ziel = "beziehung", delta = 3 }] },
+  { id = "a4", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "moral", delta = -5 }, { ziel = "beziehung", delta = -3 }, { ziel = "wechselwunsch", delta = 3 }] },
+  { id = "a5", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "moral", delta = -2 }, { ziel = "beziehung", delta = -1 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "zusage" } ]
+
+[thema.kapitaen_fuer_joker]
+kategorie = "spielbezug"
+absender = "kapitaen"
+kanal = "persoenlich"
+dringlichkeit = 1
+sperre_tage = 35
+haeufigkeit = 0.5
+wenn = ["joker>=3", "joker_tore>=1", "note_zuletzt>=6.8", "startelf<1"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "zusage", ton = "offen", wirkungen = [{ ziel = "moral", delta = 4 }, { ziel = "beziehung", delta = 3 }, { ziel = "zusage", art = "spielzeit", frist = 21 }], ausgang = "zusage" },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = 2 }, { ziel = "beziehung", delta = 2 }] },
+  { id = "a3", strategie = "einfuehlen", ton = "offen", wirkungen = [{ ziel = "moral", delta = 3 }, { ziel = "beziehung", delta = 4 }] },
+  { id = "a4", strategie = "ablehnen", ton = "bestimmt", wirkungen = [{ ziel = "moral", delta = -6 }, { ziel = "beziehung", delta = -4 }] },
+  { id = "a5", strategie = "delegieren", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = 1 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "zusage" } ]
+
+[thema.trifft_und_sitzt]
+kategorie = "spielbezug"
+absender = "spieler"
+kanal = "persoenlich"
+dringlichkeit = 1
+sperre_tage = 21
+haeufigkeit = 0.7
+wenn = ["tore_zuletzt>=2", "zuletzt_bank>=1"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = 3 }, { ziel = "beziehung", delta = 2 }] },
+  { id = "a2", strategie = "zusage", ton = "offen", wirkungen = [{ ziel = "moral", delta = 4 }, { ziel = "beziehung", delta = 2 }, { ziel = "zusage", art = "spielzeit", frist = 14 }], ausgang = "zusage" },
+  { id = "a3", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "moral", delta = 3 }, { ziel = "beziehung", delta = 3 }] },
+  { id = "a4", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "moral", delta = -5 }, { ziel = "beziehung", delta = -4 }, { ziel = "wechselwunsch", delta = 3 }] },
+  { id = "a5", strategie = "gegenfrage", ton = "sachlich", wirkungen = [] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "zusage" } ]
+
+[thema.torflaute]
+kategorie = "spielbezug"
+absender = "co_trainer"
+kanal = "chat"
+dringlichkeit = 0
+sperre_tage = 35
+haeufigkeit = 0.5
+wenn = ["torlos>=5", "position:CF,SS,LWF,RWF"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "moral", delta = 6 }, { ziel = "beziehung", delta = 4 }] },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = 2 }, { ziel = "beziehung", delta = 1 }] },
+  { id = "a3", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "moral", delta = -2 }, { ziel = "beziehung", delta = -1 }] },
+  { id = "a4", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "moral", delta = -6 }, { ziel = "beziehung", delta = -4 }] },
+  { id = "a5", strategie = "delegieren", ton = "offen", wirkungen = [{ ziel = "moral", delta = 2 }, { ziel = "beziehung", delta = 1 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" } ]
+
+[thema.nach_platzverweis]
+kategorie = "spielbezug"
+absender = "spieler"
+kanal = "persoenlich"
+dringlichkeit = 1
+sperre_tage = 14
+haeufigkeit = 0.8
+wenn = ["rot_zuletzt>=1"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "moral", delta = 6 }, { ziel = "beziehung", delta = 4 }] },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = 1 }, { ziel = "beziehung", delta = 1 }] },
+  { id = "a3", strategie = "ausgleich", ton = "bestimmt", wirkungen = [{ ziel = "moral", delta = -1 }] },
+  { id = "a4", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "moral", delta = -5 }, { ziel = "beziehung", delta = -4 }] },
+  { id = "a5", strategie = "gegenfrage", ton = "offen", wirkungen = [] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" } ]
+
+[thema.patzer_stammplatz]
+kategorie = "spielbezug"
+absender = "spieler"
+kanal = "chat"
+dringlichkeit = 0
+sperre_tage = 28
+haeufigkeit = 0.4
+wenn = ["patzer>=1", "rolle:stammspieler,fuehrungsspieler,kapitaen,vizekapitaen"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "moral", delta = 6 }, { ziel = "beziehung", delta = 4 }] },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = 2 }, { ziel = "beziehung", delta = 1 }] },
+  { id = "a3", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "moral", delta = -2 }, { ziel = "beziehung", delta = -1 }] },
+  { id = "a4", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "moral", delta = -5 }, { ziel = "beziehung", delta = -3 }, { ziel = "wechselwunsch", delta = 2 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" } ]
+
+[thema.torwart_will_chance]
+kategorie = "spielbezug"
+absender = "spieler"
+kanal = "persoenlich"
+dringlichkeit = 1
+sperre_tage = 42
+haeufigkeit = 0.5
+wenn = ["tw_reserve>=1"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "zusage", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = 4 }, { ziel = "beziehung", delta = 2 }, { ziel = "zusage", art = "spielzeit", frist = 35 }], ausgang = "zusage" },
+  { id = "a2", strategie = "erklaeren", ton = "offen", wirkungen = [{ ziel = "moral", delta = 2 }, { ziel = "beziehung", delta = 2 }] },
+  { id = "a3", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "moral", delta = 3 }, { ziel = "beziehung", delta = 3 }] },
+  { id = "a4", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "moral", delta = -5 }, { ziel = "beziehung", delta = -3 }, { ziel = "wechselwunsch", delta = 4 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "zusage" } ]
+
+[thema.talent_draengt]
+kategorie = "spielbezug"
+absender = "co_trainer"
+kanal = "chat"
+dringlichkeit = 0
+sperre_tage = 35
+haeufigkeit = 0.5
+wenn = ["jung>=1", "note_zuletzt>=7", "startelf<=2", "joker>=2"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "zusage", ton = "offen", wirkungen = [{ ziel = "moral", delta = 5 }, { ziel = "beziehung", delta = 2 }, { ziel = "zusage", art = "spielzeit", frist = 21 }], ausgang = "zusage" },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = 1 }, { ziel = "beziehung", delta = 1 }] },
+  { id = "a3", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "moral", delta = 3 }, { ziel = "beziehung", delta = 2 }] },
+  { id = "a4", strategie = "ablehnen", ton = "bestimmt", wirkungen = [{ ziel = "moral", delta = -6 }, { ziel = "beziehung", delta = -3 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "zusage" } ]
+
+[thema.kapitaen_niederlagenserie]
+kategorie = "spielbezug"
+absender = "kapitaen"
+kanal = "persoenlich"
+dringlichkeit = 2
+sperre_tage = 21
+haeufigkeit = 0.8
+wenn = ["serie_n>=3", "rolle:kapitaen"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = 3 }, { ziel = "beziehung", delta = 3 }] },
+  { id = "a2", strategie = "einfuehlen", ton = "offen", wirkungen = [{ ziel = "moral", delta = 4 }, { ziel = "beziehung", delta = 4 }] },
+  { id = "a3", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "moral", delta = -1 }, { ziel = "beziehung", delta = -1 }] },
+  { id = "a4", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "moral", delta = -5 }, { ziel = "beziehung", delta = -5 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" } ]
+
+[thema.kapitaen_siegesserie]
+kategorie = "spielbezug"
+absender = "kapitaen"
+kanal = "chat"
+dringlichkeit = 0
+sperre_tage = 35
+haeufigkeit = 0.5
+wenn = ["serie_s>=4", "rolle:kapitaen"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "ausgleich", ton = "offen", wirkungen = [{ ziel = "moral", delta = 6 }, { ziel = "beziehung", delta = 4 }] },
+  { id = "a2", strategie = "einfuehlen", ton = "offen", wirkungen = [{ ziel = "moral", delta = 3 }, { ziel = "beziehung", delta = 4 }] },
+  { id = "a3", strategie = "hart_bleiben", ton = "bestimmt", wirkungen = [{ ziel = "moral", delta = -6 }, { ziel = "beziehung", delta = -4 }] },
+  { id = "a4", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = 2 }, { ziel = "beziehung", delta = 2 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" } ]
+
+[thema.dauerbrenner_muede]
+kategorie = "spielbezug"
+absender = "spieler"
+kanal = "chat"
+dringlichkeit = 1
+sperre_tage = 21
+haeufigkeit = 0.6
+wenn = ["startelf>=5", "fitness<70"]
+eroeffnung = [ { id = "e1" }, { id = "e2" }, { id = "e3", typ = ["hitzig", "launisch"] }, { id = "e4", typ = ["loyal", "gelassen"] } ]
+antwort = [
+  { id = "a1", strategie = "zusage", ton = "offen", wirkungen = [{ ziel = "moral", delta = 4 }, { ziel = "beziehung", delta = 3 }, { ziel = "zusage", art = "rolle", frist = 21 }], ausgang = "zusage" },
+  { id = "a2", strategie = "erklaeren", ton = "sachlich", wirkungen = [{ ziel = "moral", delta = 2 }, { ziel = "beziehung", delta = 1 }] },
+  { id = "a3", strategie = "einfuehlen", ton = "einfuehlsam", wirkungen = [{ ziel = "moral", delta = 3 }, { ziel = "beziehung", delta = 3 }] },
+  { id = "a4", strategie = "ablehnen", ton = "hart", wirkungen = [{ ziel = "moral", delta = -6 }, { ziel = "beziehung", delta = -4 }] },
+]
+reaktion = [ { id = "r1", gruppe = "gut" }, { id = "r2", gruppe = "gut", typ = ["loyal", "gelassen", "ehrgeizig"] }, { id = "r3", gruppe = "neutral" }, { id = "r4", gruppe = "schlecht" } ]
+ausgang = [ { id = "x1", art = "geloest" }, { id = "x2", art = "offen" }, { id = "x3", art = "eskalation" }, { id = "x4", art = "zusage" } ]

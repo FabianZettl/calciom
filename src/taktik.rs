@@ -107,7 +107,8 @@ impl Career {
         if let Some(r) = table.iter().find(|r| r.club == g) { zeilen.push(crate::tf!("ui.taktik.form_platz", r.form.iter().map(|ch| crate::inhalt::t(&format!("ui.form.{ch}"))).collect::<String>(), table.iter().position(|x| x.club == g).unwrap() + 1)); }
         let stil = match self.world.clubs[g].style { -1 => crate::inhalt::t("ui.taktik.steht_tief_und_kontert"), 1 => crate::inhalt::t("ui.taktik.spielt_offensiv_nach_vorn"), _ => crate::inhalt::t("ui.taktik.spielt_ausgewogen") };
         zeilen.push(crate::tf!("ui.taktik.spielweise", gn, stil));
-        let mut beste: Vec<usize> = self.world.clubs[g].squad.iter().copied().filter(|&p| self.world.players[p].youth == 0 && self.world.players[p].available()).collect();
+        // the danger men: field players (a goalkeeper with "0 goals so far" was named first)
+        let mut beste: Vec<usize> = self.world.clubs[g].squad.iter().copied().filter(|&p| self.world.players[p].youth == 0 && self.world.players[p].available() && self.world.players[p].pos != "GK").collect();
         beste.sort_by(|a, b| (self.world.players[*b].ovr + self.world.players[*b].goals as f32).partial_cmp(&(self.world.players[*a].ovr + self.world.players[*a].goals as f32)).unwrap());
         let n = f("gegner", "schluessel.anzahl") as usize;
         zeilen.push(crate::tf!("ui.taktik.schluesselspieler", beste.iter().take(n).map(|&p| { let pl = &self.world.players[p]; format!("{} ({}{})", pl.name, pos_de(&pl.pos), if pl.goals as f32 >= f("gegner", "schluessel.torjaeger_ab") { crate::tf!("ui.taktik.tore", pl.goals) } else { String::new() }) }).collect::<Vec<_>>().join(", ")));
@@ -132,7 +133,8 @@ impl Career {
     pub fn schluesselspieler(&self) -> Vec<usize> {
         let Some(f_) = self.next_match() else { return vec![] };
         let g = if f_.h == self.own { f_.a } else { f_.h };
-        let mut beste: Vec<usize> = self.world.clubs[g].squad.iter().copied().filter(|&p| self.world.players[p].youth == 0 && self.world.players[p].available()).collect();
+        // the danger men: field players (a goalkeeper with "0 goals so far" was named first)
+        let mut beste: Vec<usize> = self.world.clubs[g].squad.iter().copied().filter(|&p| self.world.players[p].youth == 0 && self.world.players[p].available() && self.world.players[p].pos != "GK").collect();
         beste.sort_by(|a, b| (self.world.players[*b].ovr + self.world.players[*b].goals as f32).partial_cmp(&(self.world.players[*a].ovr + self.world.players[*a].goals as f32)).unwrap());
         beste.truncate(f("gegner", "schluessel.anzahl") as usize);
         beste
@@ -271,6 +273,7 @@ mod tests {
         let w = crate::world::testwelt(7);
         let mut c = Career::new(w, 0, "Test");
         let (_, z) = c.gegnerbericht().expect("a next match");
+        assert!(c.schluesselspieler().iter().all(|&p| c.world.players[p].pos != "GK"), "no goalkeeper as danger man");
         assert!(z.iter().any(|l| l.starts_with("Plan:")));
         assert!(!c.taktikurteil().is_empty());
         let p = c.xi[3];

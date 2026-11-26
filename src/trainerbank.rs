@@ -57,7 +57,7 @@ struct Bank { trainer: Vec<(String, Trainer, bool)>, manuell: HashMap<String, Op
 fn bank() -> &'static Bank {
     static B: OnceLock<Bank> = OnceLock::new();
     B.get_or_init(|| {
-        let v: serde_json::Value = serde_json::from_str(include_str!("../assets/inhalt/pesm/core/config/scouting/trainerbank.json")).expect("trainerbank.json");
+        let v: serde_json::Value = serde_json::from_str(&crate::pakete::oder("trainerbank.json", include_str!("../assets/inhalt/pesm/core/config/scouting/trainerbank.json"))).expect("trainerbank.json");
         let s = |x: &serde_json::Value| x.as_str().unwrap_or("").to_string();
         let trainer = v["trainer"].as_array().map(|a| a.iter().map(|e| {
             let t = Trainer {
@@ -68,7 +68,7 @@ fn bank() -> &'static Bank {
             };
             (s(&e["club"]), t, e["status"].as_str() == Some(crate::id("gesucht")))
         }).collect()).unwrap_or_default();
-        let z: serde_json::Value = serde_json::from_str(include_str!("../assets/inhalt/pesm/core/config/scouting/trainer_zuordnung.json")).expect("trainer_zuordnung.json");
+        let z: serde_json::Value = serde_json::from_str(&crate::pakete::oder("trainer_zuordnung.json", include_str!("../assets/inhalt/pesm/core/config/scouting/trainer_zuordnung.json"))).expect("trainer_zuordnung.json");
         let manuell = z["zuordnung"].as_object().map(|m| m.iter().map(|(k, v)| (k.clone(), v.as_str().map(String::from))).collect()).unwrap_or_default();
         Bank { trainer, manuell }
     })

@@ -333,6 +333,10 @@ pub struct Row {
 /// (a shot of at least statistik.toml grosschance xG) for and against, the team's sums and the opponents' sums.
 #[derive(Serialize, Deserialize, Clone, Default)]
 pub struct VereinStat { pub club: usize, pub l: u16, pub spiele: u16, pub besitz: u32, pub gross: u16, pub gross_gegen: u16, pub eigen: crate::statistik::Stat, pub gegen: crate::statistik::Stat }
+/// A played match's details for the clubs' match pages (Fabian 26.11., roadmap): goals, cards and subs, and the grades
+/// when the match was played in detail. Only matches with players (not the summary level), this and last season.
+#[derive(Serialize, Deserialize, Clone, Default)]
+pub struct Spielbericht { pub season: u32, pub day: u32, pub h: usize, pub a: usize, pub hg: u8, pub ag: u8, pub ev: Vec<MatchEvent>, pub noten: Vec<(usize, f32)>, #[serde(default)] pub simuliert: bool }
 /// A league's season as it ended: the final table and its scorers (player, goals, assists), best first.
 #[derive(Serialize, Deserialize, Clone, Default)]
 pub struct LigaArchiv { pub season: u32, pub liga: usize, pub tabelle: Vec<Row>, pub torjaeger: Vec<(usize, u16, u16)>, #[serde(default)] pub meister: Option<usize> }
@@ -440,6 +444,13 @@ pub struct World {
     /// Grades of league matches since the last team of the week / player of the month: (player, grade, goals) (ehrungen.rs).
     #[serde(default)]
     pub noten_woche: Vec<(usize, f32, u8)>,
+    /// The summer window of this season stays shut for everyone (t2-ecom, Discord 26.11.: "deactivate the first transfer
+    /// window", e.g. to start with the real squads); None = all windows open.
+    #[serde(default)]
+    pub sommerfenster_aus: Option<u32>,
+    /// Details of the played matches (Spielbericht), for every club's match page.
+    #[serde(default)]
+    pub berichte: Vec<Spielbericht>,
     #[serde(default)]
     pub noten_monat: Vec<(usize, f32, u8)>,
     pub leagues: Vec<League>,
@@ -599,7 +610,7 @@ pub fn contract_years(age: u8) -> u32 {
 /// such as "Chile D1 Cup" (only the key in title case) are no real name.
 pub fn echter_name(key: &str) -> Option<String> {
     static N: std::sync::OnceLock<std::collections::HashMap<String, String>> = std::sync::OnceLock::new();
-    let n = N.get_or_init(|| serde_json::from_str(include_str!("../assets/wettbewerbsnamen.json")).unwrap_or_default());
+    let n = N.get_or_init(|| serde_json::from_str(&crate::pakete::oder("wettbewerbsnamen.json", include_str!("../assets/wettbewerbsnamen.json"))).unwrap_or_default());
     n.get(key).filter(|v| v.to_lowercase() != key.replace('_', " ").to_lowercase()).cloned()
 }
 /// Country of a fixed key (ENGLAND_D1_LEAGUE → England); FL_ keys have none.
@@ -853,7 +864,7 @@ impl World {
             name, key, teams, fixtures: vec![], level: 68.0, deduct: vec![],
         }).collect();
         let next_id = players.iter().map(|p| p.id).max().unwrap_or(0) + 1;
-        let mut w = World { amateure: vec![], profil_cache: vec![], titelverteidiger: Default::default(), ki_ausgaben: Default::default(), eigen: Default::default(), gesichter: Default::default(), taktik_faktor: None, noten_woche: vec![], noten_monat: vec![], leagues, clubs, players, season: 0, day: 0, rng, source, next_id, cups: vec![], titles: vec![], coef: vec![], club_coef: vec![], cup_money: vec![], neutral: false, entscheid: vec![], planen: None, ko_runde_nr: 0, db_cups: vec![], db_euro: None, ko_vorgabe: None, cids: Default::default(), zweite: vec![], koops: vec![], farm_an: false, trainer_an: false, trainer_pool: vec![], ligaregeln: crate::ligaregeln::eingebaut(), teamgeist_eigen: None, nationalteams: vec![], nat_punkte: Default::default(), turniere: vec![], nl: vec![], nl_saison: 0, archiv: vec![], vstat: vec![], vstat_vor: vec![], turnier_tore: Default::default() };
+        let mut w = World { amateure: vec![], profil_cache: vec![], titelverteidiger: Default::default(), ki_ausgaben: Default::default(), eigen: Default::default(), gesichter: Default::default(), taktik_faktor: None, noten_woche: vec![], noten_monat: vec![], berichte: vec![], sommerfenster_aus: None, leagues, clubs, players, season: 0, day: 0, rng, source, next_id, cups: vec![], titles: vec![], coef: vec![], club_coef: vec![], cup_money: vec![], neutral: false, entscheid: vec![], planen: None, ko_runde_nr: 0, db_cups: vec![], db_euro: None, ko_vorgabe: None, cids: Default::default(), zweite: vec![], koops: vec![], farm_an: false, trainer_an: false, trainer_pool: vec![], ligaregeln: crate::ligaregeln::eingebaut(), teamgeist_eigen: None, nationalteams: vec![], nat_punkte: Default::default(), turniere: vec![], nl: vec![], nl_saison: 0, archiv: vec![], vstat: vec![], vstat_vor: vec![], turnier_tore: Default::default() };
         w.ueber_ergaenzen();
         w.init_economy();
         w.kuerzel_eindeutig();
@@ -1064,6 +1075,41 @@ impl World {
     }
 
     /// match.py lineup(): the user's choice first, then a natural player unless someone is clearly better (tol 8), then the rest by worth.
+    /// A report for a match only known by its score (summary level), made up to fit it (Fabian 26.11.): scorers among
+    /// the field players by position, minutes, a few cards, grades around the result. The same match always gives the
+    /// same report (seeded by season, day and clubs); marked `simuliert`.
+    /// Called when the match is played (squads of that day); the match page calls it only for saves from before.
+    pub fn bericht_simulieren(&self, season: u32, day: u32, h: usize, a: usize, hg: u8, ag: u8) -> Spielbericht {
+        let id = format!("{season}:{day}:{h}:{a}");
+        let z = |teile: &[&str]| crate::mensch::zufall(&[&[crate::id("sim"), id.as_str()][..], teile].concat());
+        let gewicht = |p: usize| match self.players[p].pos.as_str() { "CF" | "SS" => 5.0, "LWF" | "RWF" | "AMF" => 3.0, "LMF" | "RMF" | "CMF" => 1.5, "DMF" | "LB" | "RB" => 0.7, _ => 0.5 }; // roh
+        let (mut ev, mut noten) = (vec![], vec![]);
+        for (side, club, tore, gegen) in [(0u8, h, hg, ag), (1u8, a, ag, hg)] {
+            let elf: Vec<usize> = self.lineup(club, 0, &[]).0.iter().map(|x| x.1).collect();
+            let feld: Vec<usize> = elf.iter().copied().filter(|&p| self.players[p].pos != "GK").collect();
+            if feld.is_empty() { continue; }
+            let summe: f32 = feld.iter().map(|&p| gewicht(p)).sum();
+            let ziehe = |r: f32| { let mut x = r * summe; feld.iter().copied().find(|&p| { x -= gewicht(p); x <= 0.0 }).unwrap_or(feld[0]) };
+            let s = side.to_string();
+            for g in 0..tore {
+                let n = g.to_string();
+                let pid = ziehe(z(&[crate::id("tor"), &s, &n]));
+                let vorlage = (z(&[crate::id("vorlage"), &s, &n]) < 0.7).then(|| ziehe(z(&[crate::id("von"), &s, &n]))).filter(|&q| q != pid);
+                ev.push(MatchEvent { min: 1 + (z(&[crate::id("min"), &s, &n]) * 89.0) as u8, side, kind: 0, pid, pid2: vorlage });
+            }
+            for k in 0..(z(&[crate::id("karten"), &s]) * 3.0) as usize {
+                let n = k.to_string();
+                ev.push(MatchEvent { min: 10 + (z(&[crate::id("kmin"), &s, &n]) * 80.0) as u8, side, kind: 2, pid: feld[(z(&[crate::id("karte"), &s, &n]) * feld.len() as f32) as usize % feld.len()], pid2: None });
+            }
+            for &p in &elf {
+                let tore_p = ev.iter().filter(|e| e.kind == 0 && e.pid == p).count() as f32;
+                let note = 6.3 + (tore as f32 - gegen as f32).clamp(-3.0, 3.0) * 0.25 + (z(&[crate::id("note"), &p.to_string()]) - 0.5) * 1.2 + tore_p * 0.6;
+                noten.push((p, (note.clamp(4.5, 9.5) * 10.0).round() / 10.0));
+            }
+        }
+        ev.sort_by_key(|e| e.min);
+        Spielbericht { season, day, h, a, hg, ag, ev, noten, simuliert: true }
+    }
     pub fn lineup(&self, c: usize, formation: usize, pref: &[usize]) -> (Vec<(String, usize, f32)>, Vec<usize>) { self.lineup_slots(c, formation_slots(formation), pref) }
     /// The line-up for given slot roles (the own team with freely moved players, game.rs eigene_slots).
     pub fn lineup_slots(&self, c: usize, slots: [&'static str; 11], pref: &[usize]) -> (Vec<(String, usize, f32)>, Vec<usize>) { self.lineup_slots_mit(c, slots, pref, &|_| 0.0) }
@@ -1478,6 +1524,7 @@ impl World {
             self.archiv.push(LigaArchiv { season: s, liga: l, tabelle, torjaeger: tj, meister });
         }
         self.archiv.retain(|a| a.season + 5 > s);
+        self.berichte.retain(|b| b.season + 1 >= s);
     }
     /// Writes a played match into the world: table, stats, fitness, morale, form, cards, injuries.
     pub fn apply_result(&mut self, l: usize, fi: usize, res: &MatchResult) {
@@ -1525,7 +1572,18 @@ impl World {
     }
     /// Player side of a played match (league or cup): bans, apps, fitness, goals, cards, injuries, grades, form, morale.
     pub fn apply_stats(&mut self, res: &MatchResult) {
-        if res.minutes.is_empty() { return; } // welt.py: summary-level matches skip _apply
+        // the match page's report, made now with the squads of the match day (Fabian 26.11.): a summary-level match gets
+        // one made up to fit its score, a light one keeps its scorers and gets made-up grades
+        // (only club matches: amateur and national sides carry other numbers)
+        let vereine = res.h < self.clubs.len() && res.a < self.clubs.len();
+        if res.minutes.is_empty() {
+            if vereine { let b = self.bericht_simulieren(self.season, self.day, res.h, res.a, res.hg, res.ag); self.berichte.push(b); }
+            return; // welt.py: summary-level matches skip _apply
+        }
+        // goals, cards and subs for the match pages (injuries and chances stay out: they are many and not shown)
+        let ev = res.events.iter().filter(|e| matches!(e.kind, 0 | 1 | 2 | 3 | 5)).cloned().collect();
+        let noten = if res.ratings.is_empty() && vereine { self.bericht_simulieren(self.season, self.day, res.h, res.a, res.hg, res.ag).noten } else { res.ratings.clone() };
+        if vereine { self.berichte.push(Spielbericht { season: self.season, day: self.day, h: res.h, a: res.a, hg: res.hg, ag: res.ag, ev, noten, simuliert: false }); }
         // welt.py _apply (line 266): every squad player of both clubs serves one match of a ban
         for c in [res.h, res.a] { for &p in &self.clubs[c].squad { let pl = &mut self.players[p]; if pl.susp > 0 { pl.susp -= 1; } } }
         let heute = self.heute();
@@ -1935,6 +1993,25 @@ mod saison_realismus {
         let ar = w.archiv.iter().find(|x| x.liga == l && x.season == w.season).expect("archive");
         assert_eq!(ar.tabelle.len(), vorher.len());
         assert_eq!(ar.tabelle[0].pts, vorher[0].pts);
+    }
+    /// Fabian 26.11. (club match page): a detailed match keeps its scorers and grades; only this and last season stay.
+    #[test]
+    fn spielbericht_gemerkt() {
+        let mut w = crate::world::testwelt(3);
+        let r = w.play(0, 1, 0, None, Some((2, 1)));
+        w.apply_stats(&r);
+        let b = w.berichte.last().expect("a report");
+        assert_eq!((b.h, b.a, b.hg, b.ag), (0, 1, 2, 1));
+        assert!(!b.noten.is_empty() && b.ev.iter().filter(|e| e.kind <= 1).count() == 3, "{} goals", b.ev.len());
+        w.season += 2;
+        w.saison_archivieren();
+        assert!(w.berichte.is_empty(), "two seasons on, the report is gone");
+        // a match known only by its score gets a made-up report: right goals, no goalkeeper scoring, always the same
+        let s = w.bericht_simulieren(0, 40, 0, 1, 3, 2);
+        assert!(s.simuliert && s.ev.iter().filter(|e| e.kind == 0 && e.side == 0).count() == 3 && s.ev.iter().filter(|e| e.kind == 0 && e.side == 1).count() == 2);
+        assert!(s.ev.iter().filter(|e| e.kind == 0).all(|e| w.players[e.pid].pos != "GK") && s.noten.len() == 22);
+        let s2 = w.bericht_simulieren(0, 40, 0, 1, 3, 2);
+        assert_eq!(s.ev.iter().map(|e| (e.min, e.pid)).collect::<Vec<_>>(), s2.ev.iter().map(|e| (e.min, e.pid)).collect::<Vec<_>>());
     }
     /// One season of the test world: goals and draws per league near its profile, a real spread of points, no striker
     /// with the lion's share of his team's goals, and table, results and scorers that agree.

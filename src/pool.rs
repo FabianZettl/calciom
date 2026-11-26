@@ -273,6 +273,74 @@ pub fn absender_echt(club_id: u32, club: &str, from: &str) -> Option<(String, St
 }
 pub fn titel(tid: &str) -> String { varianten(&format!("pool.{tid}.titel")).first().map(|s| s.to_string()).unwrap_or_else(|| tid.replace('_', " ")) }
 
+/// What the last own matches say about one player (Fabian 26.11.: talks about real results and minutes), read from the
+/// stored match reports: starts, appearances off the bench and their goals, goals, grades, the last match.
+#[derive(Default, Debug)]
+pub struct Spieldaten {
+    pub starts: u32, pub joker: u32, pub joker_tore: u32, pub tore: u32, pub note: f32, pub zuletzt_bank: bool, pub torlos: u32,
+    pub rot_zuletzt: bool, pub patzer: bool, pub tw_reserve: bool, pub serie_s: u32, pub serie_n: u32, pub letzter_gegner: Option<usize>,
+    // the team's last matches (Fabian 26.11.: people from outside react to them)
+    pub spaete_gt: u32, pub blamage: bool, pub derby_s: bool, pub derby_n: bool, pub auswaerts_n: bool, pub comeback: bool, pub sieg_zuletzt: bool,
+    pub gegner_spieler: Option<usize>,
+}
+impl Career {
+    pub fn spieldaten(&self, p: usize) -> Spieldaten {
+        let own = self.own;
+        let mut eigene: Vec<&crate::world::Spielbericht> = self.world.berichte.iter().filter(|b| b.h == own || b.a == own).collect();
+        eigene.sort_by_key(|b| (b.season, b.day));
+        let mut d = Spieldaten::default();
+        let (mut nsum, mut nn) = (0.0, 0);
+        let eingewechselt = |b: &crate::world::Spielbericht| b.ev.iter().any(|e| e.kind == 5 && e.pid2 == Some(p));
+        let gespielt = |b: &crate::world::Spielbericht| b.noten.iter().any(|x| x.0 == p) || eingewechselt(b);
+        for b in eigene.iter().rev().take(5) {
+            let tore = b.ev.iter().filter(|e| e.kind == 0 && e.pid == p).count() as u32;
+            if eingewechselt(b) { d.joker += 1; d.joker_tore += tore; } else if gespielt(b) { d.starts += 1; }
+            d.tore += tore;
+            if let Some(n) = b.noten.iter().find(|x| x.0 == p) { nsum += n.1; nn += 1; }
+        }
+        if nn > 0 { d.note = nsum / nn as f32; }
+        // late goals against in the last five: the legs go
+        for b in eigene.iter().rev().take(5) {
+            let wir = if b.h == own { 0 } else { 1 };
+            d.spaete_gt += b.ev.iter().filter(|e| e.min >= 75 && ((e.kind == 0 && e.side != wir) || (e.kind == 1 && e.side == wir))).count() as u32;
+        }
+        if let Some(b) = eigene.last() {
+            let wir = if b.h == own { 0u8 } else { 1 };
+            let (gf, ga) = if wir == 0 { (b.hg, b.ag) } else { (b.ag, b.hg) };
+            let geg = if wir == 0 { b.a } else { b.h };
+            d.sieg_zuletzt = gf > ga;
+            d.blamage = gf < ga && crate::mensch::kaderstaerke(&self.world, geg) + 3.0 < crate::mensch::kaderstaerke(&self.world, own);
+            let derby = self.spiele.last().is_some_and(|z| z.derby && z.gegner == geg);
+            d.derby_s = derby && gf > ga;
+            d.derby_n = derby && gf < ga;
+            d.auswaerts_n = wir == 1 && gf < ga;
+            // behind at some point and still won
+            let mut stand = 0i32;
+            let mut hinten = false;
+            for e in &b.ev { let fuer = match e.kind { 0 => e.side == wir, 1 => e.side != wir, _ => continue }; stand += if fuer { 1 } else { -1 }; hinten |= stand < 0; }
+            d.comeback = hinten && gf > ga;
+            d.gegner_spieler = b.noten.iter().filter(|x| self.world.players.get(x.0).is_some_and(|pl| pl.team == geg as i32)).max_by(|x, y| x.1.partial_cmp(&y.1).unwrap_or(std::cmp::Ordering::Equal)).filter(|x| x.1 >= 7.5).map(|x| x.0);
+            d.zuletzt_bank = !gespielt(b) || eingewechselt(b);
+            d.rot_zuletzt = b.ev.iter().any(|e| e.kind == 3 && e.pid == p);
+            d.patzer = !eingewechselt(b) && b.noten.iter().any(|x| x.0 == p && x.1 < 5.5);
+            d.letzter_gegner = Some(if b.h == own { b.a } else { b.h });
+        }
+        // starts in a row without a goal
+        for b in eigene.iter().rev() { if !gespielt(b) || eingewechselt(b) { continue; } if b.ev.iter().any(|e| e.kind == 0 && e.pid == p) { break; } d.torlos += 1; }
+        // a goalkeeper on the bench who is about as good as the one who plays
+        let pl = &self.world.players[p];
+        if pl.pos == "GK" && d.starts == 0 && eigene.len() >= 3 { // roh
+            let stamm = self.squad().into_iter().filter(|&q| q != p && self.world.players[q].pos == "GK").map(|q| self.world.players[q].ovr).fold(0.0, f32::max); // roh
+            d.tw_reserve = pl.ovr + 3.0 >= stamm;
+        }
+        // the team's run of wins or defeats, newest first
+        let serie = |c: &str| self.results.iter().rev().take_while(|r| r.starts_with(c)).count() as u32;
+        d.serie_s = serie(crate::id("S"));
+        d.serie_n = serie(crate::id("N"));
+        d
+    }
+}
+
 // ---------------------------------------------------------------- CalcioM: context, start, answer, daily beat
 impl Career {
     /// Context for the conditions, variables for the texts and the personality type of an own player (only read).
@@ -290,6 +358,18 @@ impl Career {
         let haken: Vec<String> = self.mensch.versprechen.iter().filter(|v| v.pid == p).rev().take(6)
             .map(|v| format!("zusage_{}", [crate::id("offen"), crate::id("gehalten"), crate::id("gebrochen")][v.stand.min(2) as usize])).collect();
         use crate::mensch::{EGO, EHRGEIZ, FUEHRUNG, LOYAL, TEMPERAMENT};
+        let sd = self.spieldaten(p);
+        // themes about the whole team are asked for one player only, the first of the squad (else every player rolls)
+        let anker = self.squad().first() == Some(&p);
+        let heute = self.world.day;
+        let kommend: Vec<(Wo, crate::world::Fixture)> = self.own_fixtures().into_iter().filter(|x| x.1.day >= heute && x.1.hg < 0).collect();
+        let pokal_naechst = kommend.first().is_some_and(|x| matches!(x.0, Wo::Pokal(ci) if self.world.cups[ci].kind == 0));
+        let dichte = kommend.iter().filter(|x| x.1.day < heute + 8).count() as u32;
+        let naechster = kommend.first().map(|x| if x.1.h == self.own { x.1.a } else { x.1.h });
+        // the scout's tip: the next opponent's best player whose contract runs out this season
+        let tipp = naechster.and_then(|g| self.world.clubs[g].squad.iter().copied().filter(|&q| self.world.players[q].contract_end <= self.world.season && self.world.players[q].ovr >= crate::mensch::kaderstaerke(&self.world, self.own) - 2.0).max_by(|a, b| self.world.players[*a].ovr.partial_cmp(&self.world.players[*b].ovr).unwrap_or(std::cmp::Ordering::Equal)));
+        // the youth coach's pick: the academy's best prospect old enough for the first-team training
+        let talent = self.world.players.iter().enumerate().filter(|(_, q)| q.team == self.own as i32 && q.youth > 0 && q.age >= 17 && q.pot >= 78.0).max_by(|a, b| a.1.pot.partial_cmp(&b.1.pot).unwrap_or(std::cmp::Ordering::Equal)).map(|x| x.0);
         let k = serde_json::json!({
             "moral": pl.morale, "form": (crate::mensch::pfeil(pl.form) as f32 - 2.0) * 3.0, "rest": self.monate_rest(p), "alter": pl.age, "einsatz": einsatz,
             "wechsel": pl.ps.wb, "vorstand": self.mensch.vorstand, "fans": self.fans, "medien": self.media,
@@ -298,6 +378,17 @@ impl Career {
             "stimmung": stimmung, "beziehung": pl.ps.bez, "rolle": [crate::mensch::ROLLEN[pl.ps.rolle.min(6) as usize]], "position": [pl.pos.clone()],
             "merkmal": merkmale.clone(), "haken": haken, "kanal": [crate::id("mail"), crate::id("chat"), crate::id("persoenlich")],
         });
+        // the match data (Fabian 26.11.), as a second object: one json! of everything is too deep for the macro
+        let spiel = serde_json::json!({
+            "startelf": sd.starts, "joker": sd.joker, "joker_tore": sd.joker_tore, "tore_zuletzt": sd.tore, "note_zuletzt": sd.note, "zuletzt_bank": sd.zuletzt_bank as u8,
+            "torlos": sd.torlos, "rot_zuletzt": sd.rot_zuletzt as u8, "patzer": sd.patzer as u8, "tw_reserve": sd.tw_reserve as u8,
+            "serie_s": sd.serie_s, "serie_n": sd.serie_n, "fitness": pl.fit, "jung": (pl.age <= 21) as u8,
+            "anker": anker as u8, "spaete_gt": sd.spaete_gt, "blamage": sd.blamage as u8, "derby_s": sd.derby_s as u8, "derby_n": sd.derby_n as u8,
+            "auswaerts_n": sd.auswaerts_n as u8, "comeback": sd.comeback as u8, "sieg_zuletzt": sd.sieg_zuletzt as u8, "gegner_star": sd.gegner_spieler.is_some() as u8,
+            "pokal_naechst": pokal_naechst as u8, "dichte": dichte, "tipp": tipp.is_some() as u8, "talent_da": talent.is_some() as u8,
+        });
+        let mut k = k;
+        if let (Some(o), Some(z)) = (k.as_object_mut(), spiel.as_object()) { o.extend(z.clone()); }
         let typ = typ(&merkmale, &ch);
         // the teammate a complaint is about: the one who sat out longest (Fabian 24.11.: name him)
         let gegner = self.squad().into_iter().filter(|&q| q != p && self.world.players[q].youth == 0).max_by_key(|&q| (self.world.players[q].benched, std::cmp::Reverse(self.world.players[q].morale as i32)));
@@ -306,6 +397,16 @@ impl Career {
             (crate::id("monate").into(), format!("{:.0}", self.monate_rest(p))), (crate::id("spiele").into(), if pl.benched > 0 { pl.benched.to_string() } else { t("ui.pool.mehreren").to_string() }),
             (crate::id("gegner").into(), gegner.map(|g| self.world.players[g].name.clone()).unwrap_or_else(|| t("ui.pool.mitspieler").to_string())),
             (crate::id("gegner_spiele").into(), gegner.map(|g| self.world.players[g].benched.max(2).to_string()).unwrap_or_else(|| t("ui.pool.mehreren").to_string())),
+            (crate::id("joker_tore").into(), sd.joker_tore.to_string()), (crate::id("tore_zuletzt").into(), sd.tore.to_string()), (crate::id("startelf").into(), sd.starts.to_string()),
+            (crate::id("note_zuletzt").into(), format!("{:.1}", sd.note)), (crate::id("torlos").into(), sd.torlos.to_string()),
+            (crate::id("serie_s").into(), sd.serie_s.to_string()), (crate::id("serie_n").into(), sd.serie_n.to_string()),
+            (crate::id("letzter_gegner").into(), sd.letzter_gegner.map(|g| self.world.clubs[g].name.clone()).unwrap_or_default()),
+            (crate::id("gegner_trainer").into(), sd.letzter_gegner.map(|g| crate::preise::trainer_name(self, g)).unwrap_or_default()),
+            (crate::id("gegner_spieler").into(), sd.gegner_spieler.map(|q| self.world.players[q].name.clone()).unwrap_or_default()),
+            (crate::id("naechster_gegner").into(), naechster.map(|g| self.world.clubs[g].name.clone()).unwrap_or_default()),
+            (crate::id("tipp_spieler").into(), tipp.map(|q| self.world.players[q].name.clone()).unwrap_or_default()),
+            (crate::id("talent").into(), talent.map(|q| self.world.players[q].name.clone()).unwrap_or_default()),
+            (crate::id("dichte").into(), dichte.to_string()), (crate::id("spaete_gt").into(), sd.spaete_gt.to_string()),
         ]);
         (k.as_object().cloned().unwrap_or_default(), var, typ)
     }
@@ -338,7 +439,9 @@ impl Career {
         let from = if absender == "spieler" { n.clone() } else if let (true, Some(k)) = (absender == "kapitaen", kap) { crate::tf!("ui.pool.von_kapitaen", k) } else if absender == "co_trainer" || absender == "kapitaen" { crate::tf!("ui.pool.von_co", self.co_name.clone()) } else { crate::regeln::wert("posteingang", &format!("rolle.de.{absender}")).as_str().unwrap_or(absender).to_string() };
         let cat = crate::regeln::wert("posteingang", &format!("ordner.{}", th["kategorie"].as_str().unwrap_or(crate::id("spieler")))).as_u64().unwrap_or(1) as u8;
         let opts = ops.iter().map(|o| (o.id.clone(), o.text.clone())).collect();
-        self.msg(cat, &from, &format!("{n} · {}", titel(tid)), &text, Action::Wahl { art: format!("pool:{tid}:{samen}"), bezug: vec![p], optionen: opts });
+        // a theme about the whole team carries no player's name in its title
+        let kopf = if th["team"].as_bool() == Some(true) { titel(tid) } else { format!("{n} · {}", titel(tid)) };
+        self.msg(cat, &from, &kopf, &text, Action::Wahl { art: format!("pool:{tid}:{samen}"), bezug: vec![p], optionen: opts });
         true
     }
     /// The answer to a pool conversation: reaction and outcome as text; the effects go through CalcioM's ways. After
@@ -369,6 +472,8 @@ impl Career {
             let ziel = w["ziel"].as_str().unwrap_or_default();
             let ziel = if zu_viel && matches!(ziel, "moral" | "wechselwunsch") { "" } else { ziel };
             match ziel {
+                // a theme about the whole team moves the whole squad's mood, at half strength
+                "moral" if themen().get(tid).is_some_and(|th| th["team"].as_bool() == Some(true)) => { for q in self.squad() { self.moral_wirkung(q, x * mf * 0.5, tage, &grund); } } // roh
                 "moral" => { self.moral_wirkung(p, x * mf, tage, &grund); d += x * mf; }
                 // the wish to leave follows the morale (entwicklung.toml [wechsel] moral_hebel 1.6)
                 "wechselwunsch" => { let m = -x / 1.6 * mf; self.moral_wirkung(p, m, tage, &grund); d += m; }
@@ -430,6 +535,11 @@ impl Career {
             if offen.contains(&p) { continue; }
             let (k, _, _) = self.pool_kontext(p);
             let pid = self.world.players[p].id.to_string();
+            // how often a player comes forward depends on him (Fabian 26.11.: talks came the same for everyone): ego,
+            // temper and ambition push, a low mood pushes, a calm content player rarely knocks
+            let f = |x: &str| k.get(x).and_then(|v| v.as_f64()).unwrap_or(0.5) as f32;
+            let neigung = (0.4 + (f("ego") + f("temperament") + f("ehrgeiz")) / 3.0 * 0.8 + (55.0 - f("moral")).clamp(-30.0, 40.0) / 100.0).clamp(0.3, 1.6);
+            let mut beste: Option<(i64, f32, String)> = None;
             for th in kandidaten(&k) {
                 let tid = th["id"].as_str().unwrap_or_default();
                 if nicht.iter().any(|n| th["kategorie"].as_str() == Some(n)) { continue; }
@@ -437,11 +547,14 @@ impl Career {
                 // a row in the dressing room or a late arrival is an event, not a state: the same theme comes back in the
                 // whole squad only after its lock time
                 if self.pool_zuletzt.iter().any(|z| z.0 == tid && abs < z.1 + th["sperre_tage"].as_u64().unwrap_or(21) as u32) { continue; }
-                let wurf = zufall(&[&abs.to_string(), tid, &pid]);
-                if wurf >= th["haeufigkeit"].as_f64().unwrap_or(1.0) as f32 { continue; }
-                kand.push((th["dringlichkeit"].as_i64().unwrap_or(1), wurf, tid.to_string(), p));
-                break; // one candidate per player: the most urgent one that holds
+                let wurf = zufall(&[&abs.to_string(), tid, &pid, &self.salz]);
+                if wurf >= th["haeufigkeit"].as_f64().unwrap_or(1.0) as f32 * neigung { continue; }
+                // one candidate per player: the most urgent theme that holds, among equals the luckiest roll (before, the
+                // alphabetically first theme always won)
+                let d = th["dringlichkeit"].as_i64().unwrap_or(1);
+                if beste.as_ref().map_or(true, |b| (d, -wurf) > (b.0, -b.1)) { beste = Some((d, wurf, tid.to_string())); }
             }
+            if let Some((d, w, tid)) = beste { kand.push((d, w, tid, p)); }
         }
         kand.sort_by(|a, b| (-a.0, a.1).partial_cmp(&(-b.0, b.1)).unwrap());
         let mut themen_heute: Vec<String> = vec![];
@@ -695,6 +808,57 @@ mod tests {
 
     /// Teil 2: in 60 days no opening comes twice to the same player while the theme has others; every message has a
     /// sender; a chain's next step is scheduled after the answer.
+    /// Fabian 26.11.: two new saves of the same club must not get the same talks on the same days.
+    fn gespraeche(salz: &str) -> Vec<String> {
+        let mut c = Career::new(crate::world::testwelt(7), 0, "Test"); // roh
+        c.salz = salz.into();
+        let mut v = vec![];
+        for _ in 0..40 {
+            c.pool_tag();
+            for m in c.inbox.iter_mut().filter(|m| !m.done) { if let Action::Wahl { art, bezug, .. } = &m.action { if art.starts_with("pool:") { v.push(format!("{} {art} {:?}", c.world.day, bezug)); } } m.done = true; }
+            c.world.day += 1;
+        }
+        v
+    }
+    /// Fabian 26.11.: talks about real matches. A sub who scored twice off the bench wants to start; after three
+    /// defeats the captain asks for a talk.
+    #[test]
+    fn szenarien_aus_spieldaten() {
+        let mut c = Career::new(crate::world::testwelt(7), 0, "Test"); // roh
+        let sq = c.squad();
+        let (p, raus, kap) = (sq.iter().copied().find(|&q| c.world.players[q].pos == "CF").unwrap_or(sq[1]), sq[2], sq[3]); // roh
+        let s = c.world.season;
+        for d in 1..=3u32 {
+            let mut ev = vec![crate::world::MatchEvent { min: 60, side: 0, kind: 5, pid: raus, pid2: Some(p) }];
+            if d <= 2 { ev.push(crate::world::MatchEvent { min: 75, side: 0, kind: 0, pid: p, pid2: None }); }
+            c.world.berichte.push(crate::world::Spielbericht { season: s, day: d, h: c.own, a: 1, hg: 1, ag: 0, ev, noten: vec![(raus, 6.5), (p, 7.4)], simuliert: false });
+        }
+        let sd = c.spieldaten(p);
+        assert_eq!((sd.joker, sd.joker_tore, sd.starts), (3, 2, 0), "{sd:?}");
+        assert!(passt(&themen()["joker_will_starten"]["wenn"], &c.pool_kontext(p).0));
+        c.world.players[kap].ps.rolle = 0;
+        c.results = vec!["N 0:1".into(); 3];
+        assert!(passt(&themen()["kapitaen_niederlagenserie"]["wenn"], &c.pool_kontext(kap).0));
+        assert!(!passt(&themen()["kapitaen_niederlagenserie"]["wenn"], &c.pool_kontext(raus).0), "only the captain");
+        assert!(c.pool_starten(p, "joker_will_starten"), "the talk opens with its texts");
+        // a team theme: behind and still won (comeback), asked once for the first player, title without a name
+        let s1 = c.squad()[0];
+        c.world.berichte.push(crate::world::Spielbericht { season: s, day: 4, h: c.own, a: 1, hg: 2, ag: 1, ev: vec![
+            crate::world::MatchEvent { min: 10, side: 1, kind: 0, pid: c.world.clubs[1].squad[0], pid2: None },
+            crate::world::MatchEvent { min: 50, side: 0, kind: 0, pid: p, pid2: None }, crate::world::MatchEvent { min: 88, side: 0, kind: 0, pid: raus, pid2: None }], noten: vec![], simuliert: false });
+        assert!(c.spieldaten(s1).comeback);
+        assert!(passt(&themen()["fans_comeback"]["wenn"], &c.pool_kontext(s1).0) && !passt(&themen()["fans_comeback"]["wenn"], &c.pool_kontext(c.squad()[1]).0));
+        assert!(c.pool_starten(s1, "fans_comeback"));
+        let m = c.inbox.iter().rev().find(|m| matches!(&m.action, Action::Wahl { art, .. } if art.starts_with("pool:fans_comeback"))).expect("the fans' message");
+        assert!(!m.title.contains(&c.world.players[s1].name), "{}", m.title);
+    }
+    #[test]
+    fn jeder_spielstand_eigene_gespraeche() {
+        let (a, b) = (gespraeche("a"), gespraeche("b"));
+        assert!(!a.is_empty() && !b.is_empty(), "talks come at all: {} / {}", a.len(), b.len());
+        assert_ne!(a, b, "another save, other talks");
+        assert_eq!(a, gespraeche("a"), "the same save rolls the same");
+    }
     #[test]
     fn sechzig_tage_ohne_wiederholung_und_ketten() {
         let w = crate::world::testwelt(7);

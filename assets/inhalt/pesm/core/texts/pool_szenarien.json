@@ -1,0 +1,541 @@
+{
+ "pool.joker_will_starten.a.a1": [
+  "Du hast recht. Im nächsten oder übernächsten Spiel stehst du in der Startelf."
+ ],
+ "pool.joker_will_starten.a.a2": [
+  "Gerade weil du von der Bank so gefährlich bist, brauche ich dich dort. Deine Zeit kommt."
+ ],
+ "pool.joker_will_starten.a.a3": [
+  "Ich sehe jedes Tor von dir. Bleib so dran, an dir führt bald kein Weg vorbei."
+ ],
+ "pool.joker_will_starten.a.a4": [
+  "Die Startelf stelle ich auf, nicht die Torstatistik."
+ ],
+ "pool.joker_will_starten.a.a5": [
+  "Die Mannschaft läuft. Ich ändere nichts, nur weil du zweimal getroffen hast."
+ ],
+ "pool.joker_will_starten.titel": "Joker will von Anfang an ran",
+ "pool.joker_will_starten.e.e1": [
+  "{b.gruss} {joker_tore} Tore als Einwechselspieler in den letzten Spielen. Ich glaube, ich habe mir einen Platz in der Startelf verdient."
+ ],
+ "pool.joker_will_starten.e.e2": [
+  "{b.gruss} Ich komme rein, ich treffe, und beim nächsten Spiel sitze ich wieder draußen. Was muss ich noch tun?"
+ ],
+ "pool.joker_will_starten.e.e3": [
+  "{b.gruss} {joker_tore} Tore aus der Joker-Rolle, und ich bin immer noch nur der Mann für die letzten zwanzig Minuten? Das kann es nicht sein!"
+ ],
+ "pool.joker_will_starten.e.e4": [
+  "{b.gruss} Ich will mich nicht beschweren, ich helfe, wo ich kann. Aber ich würde gern mal von Beginn an zeigen, was ich kann."
+ ],
+ "pool.joker_will_starten.r.r1": [
+  "{b.gut} Die Antwort auf die Joker-Frage kommt an."
+ ],
+ "pool.joker_will_starten.r.r2": [
+  "{b.gut} Bei die Joker-Frage fühlt man sich ernst genommen."
+ ],
+ "pool.joker_will_starten.r.r3": [
+  "{b.neutral} Ob das für die Joker-Frage reicht, wird sich zeigen."
+ ],
+ "pool.joker_will_starten.r.r4": [
+  "{b.schlecht} Mit dieser Antwort auf die Joker-Frage hat niemand gerechnet."
+ ],
+ "pool.joker_will_starten.x.x1": [
+  "{entscheidung} Für die Joker-Frage ist damit eine Lösung gefunden."
+ ],
+ "pool.joker_will_starten.x.x2": [
+  "{entscheidung} Ganz erledigt ist die Joker-Frage noch nicht."
+ ],
+ "pool.joker_will_starten.x.x3": [
+  "{entscheidung} In der Kabine wird über die Joker-Frage getuschelt, und nicht freundlich."
+ ],
+ "pool.joker_will_starten.x.x4": [
+  "{entscheidung} Nach diesem Versprechen zu die Joker-Frage muss etwas folgen."
+ ],
+ "pool.kapitaen_fuer_joker.a.a1": [
+  "Guter Hinweis. {name} bekommt im nächsten Spiel seine Chance."
+ ],
+ "pool.kapitaen_fuer_joker.a.a2": [
+  "Ich sehe es auch. Aber als Joker ist er gerade unser schärfstes Mittel."
+ ],
+ "pool.kapitaen_fuer_joker.a.a3": [
+  "Danke, dass du das ansprichst. Sag ihm, dass ich ihn genau im Blick habe."
+ ],
+ "pool.kapitaen_fuer_joker.a.a4": [
+  "Die Aufstellung ist meine Sache, nicht die des Kapitäns."
+ ],
+ "pool.kapitaen_fuer_joker.a.a5": [
+  "Rede mit meinem Co-Trainer, er schaut sich {name} im Training genauer an."
+ ],
+ "pool.kapitaen_fuer_joker.titel": "Der Kapitän spricht für einen Joker",
+ "pool.kapitaen_fuer_joker.e.e1": [
+  "{b.gruss} Wieso darf {name} nicht mal von Beginn an ran? Als Einwechselspieler war er zuletzt top."
+ ],
+ "pool.kapitaen_fuer_joker.e.e2": [
+  "{b.gruss} Die Jungs reden darüber: {name} kommt rein und macht den Unterschied, und trotzdem sitzt er immer zuerst draußen."
+ ],
+ "pool.kapitaen_fuer_joker.e.e3": [
+  "{b.gruss} Ich sag es dir ehrlich: Wenn {name} weiter nur auf der Bank sitzt, verlieren wir ihn. Der Junge brennt!"
+ ],
+ "pool.kapitaen_fuer_joker.e.e4": [
+  "{b.gruss} Nur ein Gedanke von mir: {name} hätte sich mal eine Chance von Anfang an verdient. Er ist ein Gewinn für die Gruppe."
+ ],
+ "pool.kapitaen_fuer_joker.r.r1": [
+  "{b.gut} Die Antwort auf den Vorschlag des Kapitäns kommt an."
+ ],
+ "pool.kapitaen_fuer_joker.r.r2": [
+  "{b.gut} Bei den Vorschlag des Kapitäns fühlt man sich ernst genommen."
+ ],
+ "pool.kapitaen_fuer_joker.r.r3": [
+  "{b.neutral} Ob das für den Vorschlag des Kapitäns reicht, wird sich zeigen."
+ ],
+ "pool.kapitaen_fuer_joker.r.r4": [
+  "{b.schlecht} Mit dieser Antwort auf den Vorschlag des Kapitäns hat niemand gerechnet."
+ ],
+ "pool.kapitaen_fuer_joker.x.x1": [
+  "{entscheidung} Für den Vorschlag des Kapitäns ist damit eine Lösung gefunden."
+ ],
+ "pool.kapitaen_fuer_joker.x.x2": [
+  "{entscheidung} Ganz erledigt ist den Vorschlag des Kapitäns noch nicht."
+ ],
+ "pool.kapitaen_fuer_joker.x.x3": [
+  "{entscheidung} In der Kabine wird über den Vorschlag des Kapitäns getuschelt, und nicht freundlich."
+ ],
+ "pool.kapitaen_fuer_joker.x.x4": [
+  "{entscheidung} Nach diesem Versprechen zu den Vorschlag des Kapitäns muss etwas folgen."
+ ],
+ "pool.trifft_und_sitzt.a.a1": [
+  "Gegen {letzter_gegner} brauchte ich ein anderes Profil. Mit Toren hat das nichts zu tun."
+ ],
+ "pool.trifft_und_sitzt.a.a2": [
+  "Das war eine knappe Entscheidung. Nächstes Spiel bist du wieder drin."
+ ],
+ "pool.trifft_und_sitzt.a.a3": [
+  "Ich verstehe deinen Frust. Deine Tore sind nicht vergessen."
+ ],
+ "pool.trifft_und_sitzt.a.a4": [
+  "Tore allein reichen nicht. Arbeite gegen den Ball mehr."
+ ],
+ "pool.trifft_und_sitzt.a.a5": [
+  "Was glaubst du selbst, warum ich anders entschieden habe?"
+ ],
+ "pool.trifft_und_sitzt.titel": "Trifft und sitzt trotzdem",
+ "pool.trifft_und_sitzt.e.e1": [
+  "{b.gruss} Ich habe in den letzten Spielen {tore_zuletzt} Mal getroffen, und gegen {letzter_gegner} saß ich auf der Bank. Das verstehe ich nicht."
+ ],
+ "pool.trifft_und_sitzt.e.e2": [
+  "{b.gruss} Ich treffe regelmäßig und sitze trotzdem draußen. Woran liegt das?"
+ ],
+ "pool.trifft_und_sitzt.e.e3": [
+  "{b.gruss} {tore_zuletzt} Tore und dann die Bank? Wofür trainiere ich eigentlich?"
+ ],
+ "pool.trifft_und_sitzt.e.e4": [
+  "{b.gruss} Ich will nur verstehen, was ich besser machen kann. Getroffen habe ich ja zuletzt."
+ ],
+ "pool.trifft_und_sitzt.r.r1": [
+  "{b.gut} Die Antwort auf die Bankfrage kommt an."
+ ],
+ "pool.trifft_und_sitzt.r.r2": [
+  "{b.gut} Bei die Bankfrage fühlt man sich ernst genommen."
+ ],
+ "pool.trifft_und_sitzt.r.r3": [
+  "{b.neutral} Ob das für die Bankfrage reicht, wird sich zeigen."
+ ],
+ "pool.trifft_und_sitzt.r.r4": [
+  "{b.schlecht} Mit dieser Antwort auf die Bankfrage hat niemand gerechnet."
+ ],
+ "pool.trifft_und_sitzt.x.x1": [
+  "{entscheidung} Für die Bankfrage ist damit eine Lösung gefunden."
+ ],
+ "pool.trifft_und_sitzt.x.x2": [
+  "{entscheidung} Ganz erledigt ist die Bankfrage noch nicht."
+ ],
+ "pool.trifft_und_sitzt.x.x3": [
+  "{entscheidung} In der Kabine wird über die Bankfrage getuschelt, und nicht freundlich."
+ ],
+ "pool.trifft_und_sitzt.x.x4": [
+  "{entscheidung} Nach diesem Versprechen zu die Bankfrage muss etwas folgen."
+ ],
+ "pool.torflaute.a.a1": [
+  "Ich rede mit ihm. Er soll wissen, dass ich weiter auf ihn setze."
+ ],
+ "pool.torflaute.a.a2": [
+  "Extra Abschlusstraining diese Woche, dann löst sich der Knoten."
+ ],
+ "pool.torflaute.a.a3": [
+  "Er bekommt noch zwei Spiele. Dann denke ich über die Aufstellung nach."
+ ],
+ "pool.torflaute.a.a4": [
+  "Ein Stürmer, der nicht trifft, setzt sich auf die Bank."
+ ],
+ "pool.torflaute.a.a5": [
+  "Kümmere du dich darum, du kennst ihn im Training am besten."
+ ],
+ "pool.torflaute.titel": "Torflaute im Sturm",
+ "pool.torflaute.e.e1": [
+  "{b.gruss} {name} hat in seinen letzten {torlos} Einsätzen von Beginn an nicht getroffen. Man merkt ihm an, dass ihn das beschäftigt."
+ ],
+ "pool.torflaute.e.e2": [
+  "{b.gruss} {torlos} Spiele ohne Tor für {name}. Im Abschlusstraining zögert er schon."
+ ],
+ "pool.torflaute.e.e3": [
+  "{b.gruss} {name} trifft das Tor nicht mehr! {torlos} Spiele, das muss sich ändern."
+ ],
+ "pool.torflaute.e.e4": [
+  "{b.gruss} Kein Grund zur Panik, aber {name} wartet seit {torlos} Spielen auf ein Tor. Ein Wort von dir würde helfen."
+ ],
+ "pool.torflaute.r.r1": [
+  "{b.gut} Die Antwort auf die Torflaute kommt an."
+ ],
+ "pool.torflaute.r.r2": [
+  "{b.gut} Bei die Torflaute fühlt man sich ernst genommen."
+ ],
+ "pool.torflaute.r.r3": [
+  "{b.neutral} Ob das für die Torflaute reicht, wird sich zeigen."
+ ],
+ "pool.torflaute.r.r4": [
+  "{b.schlecht} Mit dieser Antwort auf die Torflaute hat niemand gerechnet."
+ ],
+ "pool.torflaute.x.x1": [
+  "{entscheidung} Für die Torflaute ist damit eine Lösung gefunden."
+ ],
+ "pool.torflaute.x.x2": [
+  "{entscheidung} Ganz erledigt ist die Torflaute noch nicht."
+ ],
+ "pool.torflaute.x.x3": [
+  "{entscheidung} In der Kabine wird über die Torflaute getuschelt, und nicht freundlich."
+ ],
+ "pool.nach_platzverweis.a.a1": [
+  "Abgehakt. Aus Fehlern lernt man, nach der Sperre bist du wieder dabei."
+ ],
+ "pool.nach_platzverweis.a.a2": [
+  "Das kostet uns Punkte. Ich erwarte, dass du in Zweikämpfen klüger wirst."
+ ],
+ "pool.nach_platzverweis.a.a3": [
+  "Du zahlst die interne Strafe, dann ist das Thema durch."
+ ],
+ "pool.nach_platzverweis.a.a4": [
+  "So etwas darf nicht passieren. Du musst dir den Platz neu verdienen."
+ ],
+ "pool.nach_platzverweis.a.a5": [
+  "Wie hättest du die Szene anders lösen können?"
+ ],
+ "pool.nach_platzverweis.titel": "Nach der Roten Karte",
+ "pool.nach_platzverweis.e.e1": [
+  "{b.gruss} Die Rote gegen {letzter_gegner} tut mir leid. Ich habe die Mannschaft im Stich gelassen."
+ ],
+ "pool.nach_platzverweis.e.e2": [
+  "{b.gruss} Ich weiß, der Platzverweis war unnötig. Wie geht es jetzt mit mir weiter?"
+ ],
+ "pool.nach_platzverweis.e.e3": [
+  "{b.gruss} Die Rote war ein Witz! Der Schiri hat mich doch die ganze Zeit auf dem Kieker gehabt."
+ ],
+ "pool.nach_platzverweis.e.e4": [
+  "{b.gruss} Ich will mich entschuldigen. Bei dir und bei den Jungs."
+ ],
+ "pool.nach_platzverweis.r.r1": [
+  "{b.gut} Die Antwort auf den Platzverweis kommt an."
+ ],
+ "pool.nach_platzverweis.r.r2": [
+  "{b.gut} Bei den Platzverweis fühlt man sich ernst genommen."
+ ],
+ "pool.nach_platzverweis.r.r3": [
+  "{b.neutral} Ob das für den Platzverweis reicht, wird sich zeigen."
+ ],
+ "pool.nach_platzverweis.r.r4": [
+  "{b.schlecht} Mit dieser Antwort auf den Platzverweis hat niemand gerechnet."
+ ],
+ "pool.nach_platzverweis.x.x1": [
+  "{entscheidung} Für den Platzverweis ist damit eine Lösung gefunden."
+ ],
+ "pool.nach_platzverweis.x.x2": [
+  "{entscheidung} Ganz erledigt ist den Platzverweis noch nicht."
+ ],
+ "pool.nach_platzverweis.x.x3": [
+  "{entscheidung} In der Kabine wird über den Platzverweis getuschelt, und nicht freundlich."
+ ],
+ "pool.patzer_stammplatz.a.a1": [
+  "Ein schlechter Tag ändert nichts. Du bleibst gesetzt."
+ ],
+ "pool.patzer_stammplatz.a.a2": [
+  "Wir gehen die Szenen zusammen durch, dann bist du wieder bei hundert Prozent."
+ ],
+ "pool.patzer_stammplatz.a.a3": [
+  "Im Training entscheidet sich, wer spielt. Zeig es mir dort."
+ ],
+ "pool.patzer_stammplatz.a.a4": [
+  "So eine Leistung kann ich mir nicht leisten. Diesmal sitzt du draußen."
+ ],
+ "pool.patzer_stammplatz.titel": "Nach dem schwachen Spiel",
+ "pool.patzer_stammplatz.e.e1": [
+  "{b.gruss} Gegen {letzter_gegner} war ich schwach, das weiß ich. Bin ich am Wochenende trotzdem dabei?"
+ ],
+ "pool.patzer_stammplatz.e.e2": [
+  "{b.gruss} Das Spiel gegen {letzter_gegner} geht auf meine Kappe. Ich wollte es dir selbst sagen."
+ ],
+ "pool.patzer_stammplatz.e.e3": [
+  "{b.gruss} Ein schlechtes Spiel, und schon schreiben alle über mich. Das nervt!"
+ ],
+ "pool.patzer_stammplatz.e.e4": [
+  "{b.gruss} Ich habe mir das Spiel noch einmal angesehen. Ich weiß, was ich besser machen muss."
+ ],
+ "pool.patzer_stammplatz.r.r1": [
+  "{b.gut} Die Antwort auf das schwache Spiel kommt an."
+ ],
+ "pool.patzer_stammplatz.r.r2": [
+  "{b.gut} Bei das schwache Spiel fühlt man sich ernst genommen."
+ ],
+ "pool.patzer_stammplatz.r.r3": [
+  "{b.neutral} Ob das für das schwache Spiel reicht, wird sich zeigen."
+ ],
+ "pool.patzer_stammplatz.r.r4": [
+  "{b.schlecht} Mit dieser Antwort auf das schwache Spiel hat niemand gerechnet."
+ ],
+ "pool.patzer_stammplatz.x.x1": [
+  "{entscheidung} Für das schwache Spiel ist damit eine Lösung gefunden."
+ ],
+ "pool.patzer_stammplatz.x.x2": [
+  "{entscheidung} Ganz erledigt ist das schwache Spiel noch nicht."
+ ],
+ "pool.patzer_stammplatz.x.x3": [
+  "{entscheidung} In der Kabine wird über das schwache Spiel getuschelt, und nicht freundlich."
+ ],
+ "pool.torwart_will_chance.a.a1": [
+  "Die nächsten Pokalspiele gehören dir."
+ ],
+ "pool.torwart_will_chance.a.a2": [
+  "Im Tor braucht es Ruhe. Die Nummer eins hält zurzeit stark, aber du bist nah dran."
+ ],
+ "pool.torwart_will_chance.a.a3": [
+  "Ich sehe deine Arbeit im Training. Bleib bereit, deine Chance kommt."
+ ],
+ "pool.torwart_will_chance.a.a4": [
+  "An der Rangfolge im Tor ändert sich nichts."
+ ],
+ "pool.torwart_will_chance.titel": "Torwart will eine Chance",
+ "pool.torwart_will_chance.e.e1": [
+  "{b.gruss} Ich bin seit Wochen nur die Nummer zwei. Im Training halte ich alles, was kommt. Bekomme ich mal ein Spiel?"
+ ],
+ "pool.torwart_will_chance.e.e2": [
+  "{b.gruss} Ich weiß, dass im Tor nur einer spielen kann. Aber ich will wenigstens im Pokal ran."
+ ],
+ "pool.torwart_will_chance.e.e3": [
+  "{b.gruss} Ich bin genauso gut wie die Nummer eins, und das weißt du! Wie lange soll ich noch warten?"
+ ],
+ "pool.torwart_will_chance.e.e4": [
+  "{b.gruss} Ich unterstütze die Nummer eins, wo ich kann. Trotzdem möchte ich wissen, wo ich stehe."
+ ],
+ "pool.torwart_will_chance.r.r1": [
+  "{b.gut} Die Antwort auf die Torwartfrage kommt an."
+ ],
+ "pool.torwart_will_chance.r.r2": [
+  "{b.gut} Bei die Torwartfrage fühlt man sich ernst genommen."
+ ],
+ "pool.torwart_will_chance.r.r3": [
+  "{b.neutral} Ob das für die Torwartfrage reicht, wird sich zeigen."
+ ],
+ "pool.torwart_will_chance.r.r4": [
+  "{b.schlecht} Mit dieser Antwort auf die Torwartfrage hat niemand gerechnet."
+ ],
+ "pool.torwart_will_chance.x.x1": [
+  "{entscheidung} Für die Torwartfrage ist damit eine Lösung gefunden."
+ ],
+ "pool.torwart_will_chance.x.x2": [
+  "{entscheidung} Ganz erledigt ist die Torwartfrage noch nicht."
+ ],
+ "pool.torwart_will_chance.x.x3": [
+  "{entscheidung} In der Kabine wird über die Torwartfrage getuschelt, und nicht freundlich."
+ ],
+ "pool.torwart_will_chance.x.x4": [
+  "{entscheidung} Nach diesem Versprechen zu die Torwartfrage muss etwas folgen."
+ ],
+ "pool.talent_draengt.a.a1": [
+  "Einverstanden. {name} spielt in einem der nächsten Spiele von Beginn an."
+ ],
+ "pool.talent_draengt.a.a2": [
+  "Ich will ihn nicht verheizen. Er bekommt weiter seine Minuten, Schritt für Schritt."
+ ],
+ "pool.talent_draengt.a.a3": [
+  "Sag ihm, dass ich sehr zufrieden mit ihm bin."
+ ],
+ "pool.talent_draengt.a.a4": [
+  "Für die Startelf ist er noch zu jung."
+ ],
+ "pool.talent_draengt.titel": "Talent drängt nach vorn",
+ "pool.talent_draengt.e.e1": [
+  "{b.gruss} {name} hat bei seinen Kurzeinsätzen im Schnitt eine {note_zuletzt} geholt. Der Junge ist reif für mehr."
+ ],
+ "pool.talent_draengt.e.e2": [
+  "{b.gruss} Hast du {name} zuletzt gesehen? Jeder Einsatz eine Steigerung. Wir sollten ihn bringen."
+ ],
+ "pool.talent_draengt.e.e3": [
+  "{b.gruss} Wenn wir {name} jetzt nicht spielen lassen, holt ihn ein anderer Verein! Er ist zu gut für die Bank."
+ ],
+ "pool.talent_draengt.e.e4": [
+  "{b.gruss} Nur ein Hinweis: {name} macht große Fortschritte. Ein Startelfeinsatz würde ihm Vertrauen geben."
+ ],
+ "pool.talent_draengt.r.r1": [
+  "{b.gut} Die Antwort auf das Talent kommt an."
+ ],
+ "pool.talent_draengt.r.r2": [
+  "{b.gut} Bei das Talent fühlt man sich ernst genommen."
+ ],
+ "pool.talent_draengt.r.r3": [
+  "{b.neutral} Ob das für das Talent reicht, wird sich zeigen."
+ ],
+ "pool.talent_draengt.r.r4": [
+  "{b.schlecht} Mit dieser Antwort auf das Talent hat niemand gerechnet."
+ ],
+ "pool.talent_draengt.x.x1": [
+  "{entscheidung} Für das Talent ist damit eine Lösung gefunden."
+ ],
+ "pool.talent_draengt.x.x2": [
+  "{entscheidung} Ganz erledigt ist das Talent noch nicht."
+ ],
+ "pool.talent_draengt.x.x3": [
+  "{entscheidung} In der Kabine wird über das Talent getuschelt, und nicht freundlich."
+ ],
+ "pool.talent_draengt.x.x4": [
+  "{entscheidung} Nach diesem Versprechen zu das Talent muss etwas folgen."
+ ],
+ "pool.kapitaen_niederlagenserie.a.a1": [
+  "Wir stellen um: kompakter, weniger Risiko, bis das Selbstvertrauen zurück ist."
+ ],
+ "pool.kapitaen_niederlagenserie.a.a2": [
+  "Danke, dass du das ansprichst. Lass uns morgen mit dem Mannschaftsrat zusammensitzen."
+ ],
+ "pool.kapitaen_niederlagenserie.a.a3": [
+  "Der Plan ist richtig. Wir müssen ihn nur besser ausführen."
+ ],
+ "pool.kapitaen_niederlagenserie.a.a4": [
+  "Die Taktik bestimme ich. Kümmere du dich um die Einstellung in der Kabine."
+ ],
+ "pool.kapitaen_niederlagenserie.titel": "Der Kapitän nach der Niederlagenserie",
+ "pool.kapitaen_niederlagenserie.e.e1": [
+  "{b.gruss} {serie_n} Niederlagen am Stück. Die Jungs fragen sich, ob wir am Plan etwas ändern."
+ ],
+ "pool.kapitaen_niederlagenserie.e.e2": [
+  "{b.gruss} Nach dem Spiel gegen {letzter_gegner} war es in der Kabine totenstill. Wir müssen reden."
+ ],
+ "pool.kapitaen_niederlagenserie.e.e3": [
+  "{b.gruss} So geht es nicht weiter! {serie_n} Pleiten, und keiner sagt was. Ich sage es jetzt."
+ ],
+ "pool.kapitaen_niederlagenserie.e.e4": [
+  "{b.gruss} Die Mannschaft steht hinter dir. Aber wir brauchen gemeinsam eine Idee, wie wir da rauskommen."
+ ],
+ "pool.kapitaen_niederlagenserie.r.r1": [
+  "{b.gut} Die Antwort auf die Niederlagenserie kommt an."
+ ],
+ "pool.kapitaen_niederlagenserie.r.r2": [
+  "{b.gut} Bei die Niederlagenserie fühlt man sich ernst genommen."
+ ],
+ "pool.kapitaen_niederlagenserie.r.r3": [
+  "{b.neutral} Ob das für die Niederlagenserie reicht, wird sich zeigen."
+ ],
+ "pool.kapitaen_niederlagenserie.r.r4": [
+  "{b.schlecht} Mit dieser Antwort auf die Niederlagenserie hat niemand gerechnet."
+ ],
+ "pool.kapitaen_niederlagenserie.x.x1": [
+  "{entscheidung} Für die Niederlagenserie ist damit eine Lösung gefunden."
+ ],
+ "pool.kapitaen_niederlagenserie.x.x2": [
+  "{entscheidung} Ganz erledigt ist die Niederlagenserie noch nicht."
+ ],
+ "pool.kapitaen_niederlagenserie.x.x3": [
+  "{entscheidung} In der Kabine wird über die Niederlagenserie getuschelt, und nicht freundlich."
+ ],
+ "pool.kapitaen_siegesserie.a.a1": [
+  "Ihr habt es euch verdient: Morgen ist frei."
+ ],
+ "pool.kapitaen_siegesserie.a.a2": [
+  "Essen geht auf mich. Gut gemacht, Kapitän."
+ ],
+ "pool.kapitaen_siegesserie.a.a3": [
+  "Gefeiert wird am Saisonende. Wir trainieren normal weiter."
+ ],
+ "pool.kapitaen_siegesserie.a.a4": [
+  "Danke. Jetzt heißt es konzentriert bleiben, das nächste Spiel ist das schwerste."
+ ],
+ "pool.kapitaen_siegesserie.titel": "Der Kapitän nach der Siegesserie",
+ "pool.kapitaen_siegesserie.e.e1": [
+  "{b.gruss} {serie_s} Siege in Folge, die Stimmung ist super. Die Jungs würden sich über einen freien Tag freuen."
+ ],
+ "pool.kapitaen_siegesserie.e.e2": [
+  "{b.gruss} Läuft gerade! Ein gemeinsames Essen nach dem Sieg gegen {letzter_gegner} wäre eine schöne Geste."
+ ],
+ "pool.kapitaen_siegesserie.e.e3": [
+  "{b.gruss} {serie_s} Siege! Jetzt nur nicht abheben, sag das den Jungs ruhig deutlich."
+ ],
+ "pool.kapitaen_siegesserie.e.e4": [
+  "{b.gruss} Die Mannschaft ist dir dankbar, wie es gerade läuft. Das wollte ich dir sagen."
+ ],
+ "pool.kapitaen_siegesserie.r.r1": [
+  "{b.gut} Die Antwort auf die Siegesserie kommt an."
+ ],
+ "pool.kapitaen_siegesserie.r.r2": [
+  "{b.gut} Bei die Siegesserie fühlt man sich ernst genommen."
+ ],
+ "pool.kapitaen_siegesserie.r.r3": [
+  "{b.neutral} Ob das für die Siegesserie reicht, wird sich zeigen."
+ ],
+ "pool.kapitaen_siegesserie.r.r4": [
+  "{b.schlecht} Mit dieser Antwort auf die Siegesserie hat niemand gerechnet."
+ ],
+ "pool.kapitaen_siegesserie.x.x1": [
+  "{entscheidung} Für die Siegesserie ist damit eine Lösung gefunden."
+ ],
+ "pool.kapitaen_siegesserie.x.x2": [
+  "{entscheidung} Ganz erledigt ist die Siegesserie noch nicht."
+ ],
+ "pool.kapitaen_siegesserie.x.x3": [
+  "{entscheidung} In der Kabine wird über die Siegesserie getuschelt, und nicht freundlich."
+ ],
+ "pool.dauerbrenner_muede.a.a1": [
+  "Nächstes Spiel schone ich dich, versprochen."
+ ],
+ "pool.dauerbrenner_muede.a.a2": [
+  "Ich brauche dich gerade. Wir steuern die Belastung im Training runter."
+ ],
+ "pool.dauerbrenner_muede.a.a3": [
+  "Danke, dass du es sagst. Der Physio schaut sich das heute an."
+ ],
+ "pool.dauerbrenner_muede.a.a4": [
+  "Profis spielen durch. Beiß dich durch."
+ ],
+ "pool.dauerbrenner_muede.titel": "Dauerbrenner braucht Pause",
+ "pool.dauerbrenner_muede.e.e1": [
+  "{b.gruss} Ich habe die letzten {startelf} Spiele alle von Anfang an gemacht. Meine Beine sind schwer."
+ ],
+ "pool.dauerbrenner_muede.e.e2": [
+  "{b.gruss} Ich spiele gern jedes Spiel, aber ich merke, dass mir die Frische fehlt."
+ ],
+ "pool.dauerbrenner_muede.e.e3": [
+  "{b.gruss} Wenn ich so weiterspiele, verletze ich mich! Ich brauche eine Pause."
+ ],
+ "pool.dauerbrenner_muede.e.e4": [
+  "{b.gruss} Ich will dich nicht hängen lassen, aber ein Spiel Pause würde mir guttun."
+ ],
+ "pool.dauerbrenner_muede.r.r1": [
+  "{b.gut} Die Antwort auf die Belastung kommt an."
+ ],
+ "pool.dauerbrenner_muede.r.r2": [
+  "{b.gut} Bei die Belastung fühlt man sich ernst genommen."
+ ],
+ "pool.dauerbrenner_muede.r.r3": [
+  "{b.neutral} Ob das für die Belastung reicht, wird sich zeigen."
+ ],
+ "pool.dauerbrenner_muede.r.r4": [
+  "{b.schlecht} Mit dieser Antwort auf die Belastung hat niemand gerechnet."
+ ],
+ "pool.dauerbrenner_muede.x.x1": [
+  "{entscheidung} Für die Belastung ist damit eine Lösung gefunden."
+ ],
+ "pool.dauerbrenner_muede.x.x2": [
+  "{entscheidung} Ganz erledigt ist die Belastung noch nicht."
+ ],
+ "pool.dauerbrenner_muede.x.x3": [
+  "{entscheidung} In der Kabine wird über die Belastung getuschelt, und nicht freundlich."
+ ],
+ "pool.dauerbrenner_muede.x.x4": [
+  "{entscheidung} Nach diesem Versprechen zu die Belastung muss etwas folgen."
+ ]
+}

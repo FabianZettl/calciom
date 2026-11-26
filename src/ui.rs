@@ -209,6 +209,8 @@ pub struct Ui {
     pub logos: std::cell::RefCell<std::collections::HashMap<u16, Option<(Texture2D, bool)>>>,
     pub fotos: std::cell::RefCell<std::collections::HashMap<u32, Option<Texture2D>>>,
     pub stadien: std::cell::RefCell<std::collections::HashMap<u32, Option<Texture2D>>>,
+    /// Kit textures of the kitserver (trikots.rs), over the shirt colour, by file.
+    pub trikots: std::cell::RefCell<std::collections::HashMap<std::path::PathBuf, Option<Texture2D>>>,
     /// Photos loaded per frame at most (long lists load their visible rows over a few frames, without stutter).
     pub foto_budget: std::cell::Cell<u8>,
     /// Pictures from free web sources (netzbilder.rs) with their credit line, and where credits go this frame.
@@ -854,6 +856,34 @@ impl Ui {
         let k = (2.0 * r / t.width().max(t.height())).min(4.0);
         draw_texture_ex(&t, cx - t.width() * k / 2.0, cy - t.height() * k / 2.0, WHITE, DrawTextureParams { dest_size: Some(vec2(t.width() * k, t.height() * k)), ..Default::default() });
         true
+    }
+    /// A kit's shirt as a small 2D picture in `r` (Fabian 26.11.): sleeves and front cut from the kitserver texture,
+    /// flat colours when there is none. The cut-outs follow the game's kit layout (front bottom centre, sleeves top left).
+    pub fn trikot(&self, r: Rect, k: &crate::trikots::Trikot) {
+        let tex = k.textur.as_ref().and_then(|p| self.trikots.borrow_mut().entry(p.clone()).or_insert_with(|| {
+            let (w, h, mut px) = crate::trikots::ftex_rgba(&std::fs::read(p).ok()?, 512)?;
+            // transparent parts take the shirt colour, as in the game (dark kits are mostly transparent)
+            let [_, r0, g0, b0] = k.farben[0].to_be_bytes();
+            for q in px.chunks_exact_mut(4) { let a = q[3] as u32; for (c, f) in q[..3].iter_mut().zip([r0, g0, b0]) { *c = ((*c as u32 * a + f as u32 * (255 - a)) / 255) as u8; } q[3] = 255; }
+            let t = Texture2D::from_rgba8(w as u16, h as u16, &px);
+            t.set_filter(FilterMode::Linear);
+            Some(t)
+        }).clone());
+        // the shirt only (Fabian 26.11.: no shorts in the preview)
+        let (bw, bh) = (r.w * 0.56, r.h * 0.86);
+        let (bx, by) = (r.x + (r.w - bw) / 2.0, r.y + r.h * 0.06);
+        let (sw, sh) = (r.w * 0.34, r.h * 0.28);
+        let teil = |q: [f32; 4], x: f32, y: f32, w: f32, h: f32, rot: f32, flip: bool, farbe: u32| match &tex {
+            Some(t) => draw_texture_ex(t, x, y, WHITE, DrawTextureParams { dest_size: Some(vec2(w, h)), source: Some(Rect::new(q[0] * t.width(), q[1] * t.height(), (q[2] - q[0]) * t.width(), (q[3] - q[1]) * t.height())), rotation: rot, flip_x: flip, ..Default::default() }),
+            None => draw_rectangle_ex(x + w / 2.0, y + h / 2.0, w, h, DrawRectangleParams { offset: vec2(0.5, 0.5), rotation: rot, color: hex(farbe) }),
+        };
+        let aermel = [0.04, 0.08, 0.29, 0.23];
+        teil(aermel, bx - sw * 0.78, by + sh * 0.3, sw, sh, -0.6, false, k.farben[1]);
+        teil(aermel, bx + bw - sw * 0.22, by + sh * 0.3, sw, sh, 0.6, true, k.farben[1]);
+        teil([0.335, 0.505, 0.665, 0.955], bx, by, bw, bh, 0.0, false, k.farben[0]);
+        // collar
+        let cx = bx + bw / 2.0;
+        draw_triangle(vec2(cx - bw * 0.16, by), vec2(cx + bw * 0.16, by), vec2(cx, by + bh * 0.1), { let c = hex(k.farben[0]); Color::new(c.r * 0.55, c.g * 0.55, c.b * 0.55, 1.0) });
     }
     /// The home stadium picture of a team (fl27::stadien_index), cropped to fill `r`; false when there is none.
     /// Without one in the game, the home ground's photo from Wikimedia Commons (netzbilder.rs) with its credit line.

@@ -114,6 +114,8 @@ pub struct View {
     pub auslosung_t0: f32,
     /// The one-time direct start question (Fabian 26.11.): 1 asking, 2 set up (guide), 3 could not be set up.
     pub ds_frage: u8,
+    /// Why setting up the direct start failed (shown on its error page), when there was an error message.
+    pub ds_grund: Option<String>,
     /// Academy: the rival academy whose squad is shown.
     pub jugend_verein: Option<usize>,
     pub name_neu: Option<String>,
@@ -190,6 +192,12 @@ pub struct View {
     pub hud_seen: Vec<String>,
     pub league_scroll: usize,
     pub sel_club: Option<usize>,
+    /// The match chosen on a club's match page: (day, home, away).
+    pub spiel_wahl: Option<(u32, usize, usize)>,
+    /// Play on up to this season day (Kalender, t2-ecom 26.11.); stops at own matches and press conferences.
+    pub vorspulen_bis: Option<u32>,
+    /// The slow page (and tab) the loading hint was already shown for; its content comes in the next frame.
+    pub vorab: Option<(u16, usize)>,
     /// Right-click menu (Punkt 6): the player and where the menu opens.
     pub kontext: Option<(usize, Vec2)>,
     /// The right-click menu of a club (Fabian 24.11.): the club and where it opened.
@@ -257,9 +265,9 @@ pub fn direktstart_file() -> std::path::PathBuf { save_dir().join(crate::id("../
 pub fn sprache_file() -> std::path::PathBuf { save_dir().join(crate::id("../sprache.txt")) }
 impl View {
     pub fn new() -> View {
-        View { karte_zoom: 1.0, karte_off: (0.0, 0.0), feier_ton: false, feier_start: 0.0, page: Page::Uebersicht, back: vec![], fwd: vec![], modal: Modal::None, tab: 0, scroll: 0.0, scrolls: Default::default(), ziehen: None, tafel_zug: None, leih_wahl: (1, 0), topf_wahl: (0, 1, 1), vergleich: [None; 3], vergleich_suche: (usize::MAX, String::new()), auslosung_t0: 0.0, ds_frage: 0, jugend_verein: None, zum_start: false, name_neu: None, bank_zug: None, nt_wahl: None, nt_scroll: 0, nt_verband: 0, nt_sort: 0, nt_u21: 0, auswahl: None, auswahl_scroll: 0, vereine_liga: None, post_folgen: None, sel_msg: None, msg_filter: 0, lager_reiter: 0, lager_tage: 7, halbzeit_fl27: None, sel_player: None,
+        View { karte_zoom: 1.0, karte_off: (0.0, 0.0), feier_ton: false, feier_start: 0.0, page: Page::Uebersicht, back: vec![], fwd: vec![], modal: Modal::None, tab: 0, scroll: 0.0, scrolls: Default::default(), ziehen: None, tafel_zug: None, leih_wahl: (1, 0), topf_wahl: (0, 1, 1), vergleich: [None; 3], vergleich_suche: (usize::MAX, String::new()), auslosung_t0: 0.0, ds_frage: 0, ds_grund: None, jugend_verein: None, zum_start: false, name_neu: None, bank_zug: None, nt_wahl: None, nt_scroll: 0, nt_verband: 0, nt_sort: 0, nt_u21: 0, auswahl: None, auswahl_scroll: 0, vereine_liga: None, post_folgen: None, sel_msg: None, msg_filter: 0, lager_reiter: 0, lager_tage: 7, halbzeit_fl27: None, sel_player: None,
             market_pos: 0, market_age: 40, market_price: 0, market_genau: 0, market_gut: 0, market_stat: 0, market_scope: 0, market_text: String::new(), market_focus: false, sp_edit: Default::default(), sp_treffer: (Default::default(), u32::MAX, vec![]), pm_wahl: (u32::MAX, [0; 3]), kr: (50, 2), auswahl_suche: String::new(), menu_alle: false, suche_text: String::new(), vorb_tag: 0, vorb_tore: (0, 0), suche_treffer: vec![], suche_fuer: String::new(), market_cache: vec![], market_key: String::new(), sortierung: Default::default(), neg_tipp: 0.0, blog_filter: 0, tp_zelle: None,
-            table_league: None, cal_month: -1, pick: None, toast: None, mv: None, sel_neg: None, changed_at: 0.0, hud_seen: vec![], league_scroll: 0, sel_club: None, kontext: None, verein_kontext: None, taktik_ansicht: 0,
+            table_league: None, cal_month: -1, pick: None, toast: None, mv: None, sel_neg: None, changed_at: 0.0, hud_seen: vec![], league_scroll: 0, sel_club: None, spiel_wahl: None, vorspulen_bis: None, vorab: None, kontext: None, verein_kontext: None, taktik_ansicht: 0,
             fl27: None, fl27_status: String::new(), fl27_live: None, fl27_log: vec![], fl27_t0: 0.0, fl27_ko: None, fl27_ko_apply: None, koop_form: (true, 1, 2, 0.0, 3), fl27_laeuft: false, fl27_ansicht: None, fl27_reiter: 0, fl27_seq: None, fl27_einblendung: None, fl27_vorschau: false, fl27_pruef_t: -10.0, fl27_gesehen: false, fl27_erster_blick: false, fl27_ende: None, fl27_ende_wunsch: false, fl27_abgebrochen: None, fl27_neustart_frage: false, fl27_auto_t: None, fl27_uebernommen: None, db_blick_t: 0.0, reiter_merk: Default::default(),
             dark: std::env::var("CALCIOM_THEME").map(|t| t == crate::id("flutlicht")).unwrap_or_else(|_| std::fs::read_to_string(theme_file()).map(|t| t.trim() == crate::id("flutlicht")).unwrap_or(false)) }
     }
@@ -662,6 +670,13 @@ pub fn wettbewerb_banner(ui: &mut Ui, r: Rect, lk: &Look, cid: Option<u16>, name
     tx + ui.measure_title(&nm, 26.0)
 }
 
+/// How long a page (and tab) took to draw last time, in seconds (Fabian 26.11.: a page that freezes for a moment shows
+/// "Loading …" first). Key: page and tab.
+pub static SEITENZEIT: std::sync::Mutex<Vec<((u16, usize), f32)>> = std::sync::Mutex::new(Vec::new());
+/// From this many seconds on a page or a day step counts as slow and gets the loading hint first.
+pub const LANGSAM_S: f32 = 0.3;
+pub fn seitenzeit(k: (u16, usize)) -> f32 { SEITENZEIT.lock().map(|v| v.iter().find(|x| x.0 == k).map_or(0.0, |x| x.1)).unwrap_or(0.0) }
+pub fn seitenzeit_merken(k: (u16, usize), s: f32) { if let Ok(mut v) = SEITENZEIT.lock() { v.retain(|x| x.0 != k); v.push((k, s)); } }
 /// Day-step durations in ms for the diagnosis page (Paket 6).
 pub static TAGESZEIT: std::sync::Mutex<Vec<f32>> = std::sync::Mutex::new(Vec::new());
 

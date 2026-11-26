@@ -1,0 +1,57 @@
+# CalcioM 0.6.0 – Calcio Management
+
+Kit choice before the match, a match page for every club, 28 new talk scenarios, and stadium packs that stay on. Earlier versions: [CHANGELOG](https://github.com/FabianZettl/calciom/blob/main/CHANGELOG.md). CalcioM is the football manager that used to be called PES M: same game, same saves, Football Life 2027 as the match engine.
+
+## Upgrading from PES M
+- Unpack CalcioM **into the same folder** as your old PES M (or anywhere else) and start `calciom` / `calciom.exe`. At the first start your data folder moves to the new name, so careers, settings and your game folder are all still there. Old careers keep their `PESM…` folder in the game and load as before.
+- On Linux run `sudo setcap cap_sys_ptrace+ep <folder>/calciom-speicher` once after unpacking (also when you update from 0.5.x: the helper is new).
+- Old PES M versions show this update too: the old repository link forwards to this page.
+
+## New in 0.6.0
+
+**Before the match**
+- Kit choice: pick both teams' kits from FL27's kitserver on the kick-off screen, shown as 2D pictures. The direct start puts them on in FL27.
+- Match length, weather (with "Realistic") and difficulty are dropdowns on the kick-off screen.
+- The hub's next-match card shows the competition logo and "league, matchday N" between the crests.
+- Direct start and quick start are one switch. A career without the direct start asks on load what it misses, until you say you only simulate.
+- The direct start no longer loads FL27's own edit data, which could overwrite the career database.
+- Stadium packs and other add-ons are no longer switched off in sider.ini (only whole worlds with a Player.bin are). Add-ons an older version switched off come back on at your next match start, if they were on before your career.
+- CalcioM warns before kick-off if the home stadium can't be set: no line for the home team in map_teams.txt, its stadium folder missing, or stadiums.lua without the CalcioM addition.
+- Safety: once FL27 is closed after a match, sider.ini goes back to the state without CalcioM. FL27 started by hand opens normally (main menu, its own database). The next match start from CalcioM sets everything up again; quick start between matches is not affected.
+- If the direct start setup fails, the error page names the real reason.
+
+**Matches and reports**
+- Match page for every club: right-click a club crest › Fixtures. The season by month with time, venue, result and competition (round and leg). Next to it is the chosen match with scorers, cards and ratings, plus earlier meetings.
+- Every match in the world has a full report (scorers, assists, minutes, cards, ratings), written with the squads of the match day.
+- Opponent report: no goalkeeper as the most dangerous player.
+
+**Talks and events**
+- Player talks differ from save to save and from player to player: ego, temper, ambition and morale decide how often someone comes forward.
+- 28 new talk scenarios from real matches:
+  - **Players and captain:** a super-sub who wants to start, the captain speaking up for a teammate, scoring but benched, goal drought, red card, bad game, keeper on the bench, youngster pushing, losing and winning runs, a tired ever-present.
+  - **Assistant:** late goals against, a busy week.
+  - **Board:** embarrassing defeat, derby win, cup bonus.
+  - **Scout:** the opponent's star, an expiring contract.
+  - **Youth coach:** a prospect ready for first-team training.
+  - **Opposing coach:** a dig after your win.
+  - **Press:** title talk, coach under pressure, derby defeat, goal drought, super-sub, keeper debate.
+  - **Fans:** after an away defeat, after a comeback.
+- "Scorer on a run" no longer reaches goalkeepers.
+
+**Calendar, squad and settings**
+- Calendar: click a day and choose "Play on to here". Own matches and press conferences still stop it.
+- Settings › Game: switch off this season's summer transfer window for everyone.
+- Player actions: send a young first-team player (19 or younger) back to the U19.
+
+**CalcioM shows that it is working**
+- Autosave runs in the background with a small "Saving …" badge, and opening a career shows "Loading the career …" instead of a frozen window (Windows reported "not responding").
+- Pages that take a moment to build show "Loading …" first, and a slow day step or playing on shows "Simulating …".
+
+**Under the hood**
+- Real-world data (club leadership, coaches, competition and cup names, partner teams, journalists) sits in its own data pack; the program has neutral stand-ins without it.
+
+## Known gaps
+- **Windows is not tested on a real PC yet.** Please report how it goes in #bug-reports.
+- The entrance animation before kick-off is not there yet.
+- Tested with FL27 1.00 only.
+- In Spanish and French the long story texts stay English for now.

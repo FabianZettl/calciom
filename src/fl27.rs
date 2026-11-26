@@ -692,12 +692,39 @@ pub fn sider_ini_einrichten(text: &str, cpk: &str, welt: &str, andere: &[String]
     if trailing { out.push_str(eol); }
     Ok(out)
 }
+/// Switches add-on folders on again that earlier versions switched off: active in the sider.ini from before the career
+/// (`vorher`), commented out now, with pesdb files but no Player.bin (boots, derbies, a cup, stadiums).
+pub fn zusaetze_wieder_an(text: &str, vorher: &str, s: &Path) -> String {
+    let eol = if text.contains("\r\n") { "\r\n" } else { "\n" };
+    let name = |l: &str| l.split("\\livecpk\\").nth(1).map(|r| r.trim_end().trim_end_matches('"').to_string()); // roh
+    let aktiv: HashSet<String> = vorher.lines().filter(|l| { let t = l.trim_start(); t.starts_with("cpk.root") }).filter_map(name).collect(); // roh
+    text.split(eol).map(|l| match name(l) {
+        Some(n) if aktiv.contains(&n) && root_line(l, &n) == Some(false) && !eigener_cpk(&n) && n != DIRECT_ROOT && {
+            let db = s.join("livecpk").join(&n).join("common/etc/pesdb"); // roh
+            db.is_dir() && !db.join("Player.bin").exists() // roh
+        } => uncomment(l),
+        _ => l.to_string(),
+    }).collect::<Vec<_>>().join(eol)
+}
 fn root_line_any(l: &str) -> bool { let t = l.trim_start(); let t = t.strip_prefix(';').or_else(|| t.strip_prefix('#')).unwrap_or(t).trim_start(); t.starts_with("cpk.root") }
 /// Comments out the career's active line (after the match, if the person wants the career database off); the next match
 /// start writes it active again (sider_ini_einrichten).
 pub fn sider_ini_abschalten(text: &str, cpk: &str) -> String {
     let eol = if text.contains("\r\n") { "\r\n" } else { "\n" };
     text.split(eol).map(|l| if root_line(l, cpk) == Some(true) { format!("{};{}", indent_of(l), l.trim_start()) } else { l.to_string() }).collect::<Vec<_>>().join(eol)
+}
+/// sider.ini as without CalcioM (Fabian 26.11.: FL27 started by hand must open its main menu with its own database):
+/// the career's folder, the direct start's folder and CalcioM's Lua modules are switched off with ";". Everything else
+/// stays; the next match start from CalcioM switches them on again.
+pub fn sider_ini_ohne_calciom(text: &str, cpk: &str) -> String {
+    let eol = if text.contains("\r\n") { "\r\n" } else { "\n" };
+    let unser = |l: &str| {
+        let t = l.trim_start();
+        if t.starts_with(';') || t.starts_with('#') { return false; }
+        root_line(l, cpk) == Some(true) || root_line(l, DIRECT_ROOT) == Some(true)
+            || (t.starts_with("lua.module") && (t.contains("calciom_direktmatch.lua") || t.contains("pesm-livepatch.lua"))) // roh
+    };
+    text.split(eol).map(|l| if unser(l) { format!("{};{}", indent_of(l), l.trim_start()) } else { l.to_string() }).collect::<Vec<_>>().join(eol)
 }
 /// Removes the career's line; everything else stays.
 pub fn sider_ini_rueckbau(text: &str, cpk: &str) -> String {
@@ -1141,12 +1168,15 @@ pub fn fl26match_wiederherstellen(s: &Path) -> Result<(), String> {
 }
 /// The only changes to the game's flow (fl27-direktstart/ablauf/README.md): file written, original it comes from,
 /// events and their new target. Schnell/* only count with schnell=1 (quick start: back to the side selection).
-pub const FLOW_UMLEITUNGEN: [(&str, &str, &[(&str, &str)]); 5] = [
+pub const FLOW_UMLEITUNGEN: [(&str, &str, &[(&str, &str)]); 6] = [
     ("Exhibition/ExhibiSideSetting", "Exhibition/ExhibiSideSetting", &[("proceed", "Exhibition/ExhibiChangeCompeDesignKind")]), // roh
     ("Match/MatchIdle", "Match/MatchIdle", &[("02_match_result", "Match/MatchPreResult")]), // roh
     ("Match/MatchPreResult", "Match/MatchPreResult", &[("proceed", "Match/MatchEnd")]), // roh
     ("Schnell/MatchEnd", "Match/MatchEnd", &[("01_discontinue", "Exhibition/ExhibiFlowInit"), ("04_postExhibition", "Exhibition/ExhibiFlowInit")]), // roh
     ("Schnell/ExhibiFlowEnd", "Exhibition/ExhibiFlowEnd", &[("proceed", "Exhibition/ExhibiFlowInit")]), // roh
+    // without the edit data (Fabian 26.11.: EDIT00000000 overwrote every change of the career database): after the
+    // install step straight on, past Edit/Load/EditDataLoadProcess; the module takes it only with edit=0
+    ("Ohne/ProcInstall", "Intro/ProcInstall", &[("proceed", "Exhibition/ExhibiFlowInit")]), // roh
 ];
 /// The flow text with the "to" of `events.<ev>` set to `to`, everything else byte for byte as it was; None when the
 /// event is missing or the result differs from the original in anything but that target.
@@ -1161,14 +1191,16 @@ pub fn flow_umleiten(t: &str, ev: &str, to: &str) -> Option<String> {
     *soll.get_mut("events")?.get_mut(ev)?.get_mut("to")? = to.into(); // roh
     (serde_json::from_str::<serde_json::Value>(&neu).ok()? == soll).then_some(neu)
 }
-/// The line of flw/direktmatch.txt the module reads at the game's start: "heim gast kit_h kit_a minuten menue" with
+/// The line of flw/direktmatch.txt the module reads at the game's start: "heim gast kit_h kit_a minuten menue" (kits:
+/// the kitserver's numbers, trikots.rs) with
 /// the rules: vl/em (extra time, penalties), finale=1 or mi=52 (semi-final: the mods' final look and full stands),
 /// ast=1 (the players press "Kick-off" themselves; the side selection stays for the controllers anyway).
 /// The module marks it "# benutzt" after the start, so the next plain start goes to the main menu.
-pub fn direktmatch_zeile(heim: u32, gast: u32, minuten: u8, vl: bool, em: bool, runde: Option<u8>, schnell: bool) -> String {
+pub fn direktmatch_zeile(heim: u32, gast: u32, kits: (u8, u8), minuten: u8, vl: bool, em: bool, runde: Option<u8>, schnell: bool) -> String {
     let r = match runde { Some(53) => " finale=1".to_string(), Some(m) => format!(" mi={m}"), None => String::new() }; // roh
     let s = if schnell { " schnell=1" } else { "" }; // roh
-    format!("{heim} {gast} 0 1 {minuten} menue vl={} em={}{r} ast=1{s}", vl as u8, em as u8) // roh
+    // edit=0: FL27 starts without its edit data, so the career database is what it plays with (Fabian 26.11.)
+    format!("{heim} {gast} {} {} {minuten} menue vl={} em={}{r} ast=1 edit=0{s}", kits.0, kits.1, vl as u8, em as u8) // roh
 }
 /// Quick start: FL27 waits at the side selection, so its window comes to the front once the next match is written.
 pub fn fenster_nach_vorne() {
@@ -2186,6 +2218,13 @@ mod t {
         assert_eq!((t[&9], t[&39]), (17, 50));
         let mt = "#STADIUM\r\n396, 009, Stadium of Light, England\\Stadium of Light\t\t# Sunderland\r\n4071, 009, Vitality Stadium, England\\Dean Court  # B\r\n";
         assert_eq!(heimstadion(mt, 396).as_deref(), Some("England\\Stadium of Light"));
+        // t2-ecom 26.11.: add-ons with a few pesdb files that an older version switched off come back on, worlds stay off
+        let d = std::env::temp_dir().join(format!("calciom-zusatz-{}", std::process::id()));
+        for (n, f) in [("boot-root", "Boots.bin"), ("_FL26Megapack", "Player.bin"), ("Mods", "Glove.bin")] { std::fs::create_dir_all(d.join("livecpk").join(n).join("common/etc/pesdb")).unwrap(); std::fs::write(d.join("livecpk").join(n).join("common/etc/pesdb").join(f), b"x").unwrap(); }
+        let vorher = "\tcpk.root = \".\\livecpk\\boot-root\"\r\n\tcpk.root = \".\\livecpk\\_FL26Megapack\"\r\n\t;cpk.root = \".\\livecpk\\Mods\"";
+        let jetzt = "\t;cpk.root = \".\\livecpk\\boot-root\"\r\n\t;cpk.root = \".\\livecpk\\_FL26Megapack\"\r\n\t;cpk.root = \".\\livecpk\\Mods\"";
+        assert_eq!(zusaetze_wieder_an(jetzt, vorher, &d), "\tcpk.root = \".\\livecpk\\boot-root\"\r\n\t;cpk.root = \".\\livecpk\\_FL26Megapack\"\r\n\t;cpk.root = \".\\livecpk\\Mods\"");
+        let _ = std::fs::remove_dir_all(&d);
         assert_eq!(heimstadion(mt, 1), None);
         let dir = std::env::temp_dir().join(format!("calciom-vorgaben-{}", std::process::id()));
         vorgaben_schreiben(&dir, Some(17), Some("rainy"), Some("nacht"), Some("England\\Stadium of Light")).unwrap();
@@ -2208,6 +2247,11 @@ mod t {
         assert_eq!(vorgaben_zuruecksetzen(&dir, &gesetzt).unwrap(), vec!["stadion.txt".to_string()], "eine fremd geänderte Datei bleibt");
         assert!(dir.join("flw/stadion.txt").exists() && dir.join("flw/fremd.txt").exists() && !dir.join("flw/wetter.txt").exists());
         let ini = "[cpk]\r\ncpk.root = \".\\livecpk\\PESM_Bayern\"\r\ncpk.root = \".\\livecpk\\_FL26Megapack\"\r\n";
+        // after the match: as without CalcioM (career, direct start, our modules off; other mods untouched), twice the same
+        let mit = "[sider]\r\n\tcpk.root = \".\\livecpk\\CalcioM_DirectMatch\"\r\n\tcpk.root = \".\\livecpk\\PESMBayern01\"\r\n\tcpk.root = \".\\livecpk\\_FL26Megapack\"\r\n\tlua.module = \"calciom_direktmatch.lua\"\r\n\tlua.module = \"pesm-livepatch.lua\"\r\n\tlua.module = \"fl26match.lua\"\r\n";
+        let ohne = sider_ini_ohne_calciom(mit, "PESMBayern01");
+        assert_eq!(ohne, mit.replace("\tcpk.root = \".\\livecpk\\CalcioM", "\t;cpk.root = \".\\livecpk\\CalcioM").replace("\tcpk.root = \".\\livecpk\\PESMB", "\t;cpk.root = \".\\livecpk\\PESMB").replace("\tlua.module = \"calciom", "\t;lua.module = \"calciom").replace("\tlua.module = \"pesm-", "\t;lua.module = \"pesm-"));
+        assert_eq!(sider_ini_ohne_calciom(&ohne, "PESMBayern01"), ohne);
         let aus = sider_ini_abschalten(ini, "PESM_Bayern");
         assert!(aus.contains(";cpk.root = \".\\livecpk\\PESM_Bayern\"") && aus.contains("\r\ncpk.root = \".\\livecpk\\_FL26Megapack\"") && aus.ends_with("\r\n"));
         assert!(sider_ini_einrichten(&aus, "PESM_Bayern", "_FL26Megapack", &[], false).unwrap().contains("\ncpk.root = \".\\livecpk\\PESM_Bayern\""), "der nächste Start schaltet sie wieder ein");
