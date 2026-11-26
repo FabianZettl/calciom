@@ -4844,5 +4844,6 @@
  "ui.mlimport.platz": "%1e place en %2 après %3 matchs (%4 points).",
  "ui.mlimport.vorschau": "%1 le %2, entraîneur %3. %4 Effectif : %5 joueurs. La sauvegarde contient %6 clubs et %7 joueurs ; le monde %8 en connaît %9.\n\nRepris : la date, les effectifs de tous les clubs, contrats et salaires, 15 des 25 attributs (les 10 autres suivent le même changement), condition, forme, blessures, classements et calendriers des ligues, les entraîneurs, les chiffres de la saison et ton budget transferts. CalcioM joue les coupes et l'Europe jusqu'à ce jour. La sauvegarde reste inchangée.",
  "ui.mlimport.start": "COMMENCER AVEC CETTE SAUVEGARDE",
- "ui.mlimport.abbrechen": "Annuler"
+ "ui.mlimport.abbrechen": "Annuler",
+ "ui.mlimport.gefunden": "Ou commencer avec une sauvegarde Ligue des Masters de FL27 (trouvée sur cet ordinateur, ou choisir un fichier) :"
 }

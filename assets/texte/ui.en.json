@@ -4953,5 +4953,6 @@
  "ui.mlimport.platz": "Place %1 in the %2 after %3 matches (%4 points).",
  "ui.mlimport.vorschau": "%1 on %2, coach %3. %4 Squad: %5 players. The save holds %6 clubs and %7 players; world %8 knows %9 of them.\n\nTaken over: the date, every club's squad, contracts and wages, 15 of the 25 abilities (the other 10 follow the same change), fitness, form, injuries, league tables and fixtures, the coaches, the season's figures and your transfer budget. Cups and Europe are played by CalcioM up to this day. The save itself stays unchanged.",
  "ui.mlimport.start": "START FROM THIS SAVE",
- "ui.mlimport.abbrechen": "Cancel"
+ "ui.mlimport.abbrechen": "Cancel",
+ "ui.mlimport.gefunden": "Or start from a Master League save of FL27 (found on this computer, or choose a file):"
 }

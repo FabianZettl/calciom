@@ -4953,5 +4953,6 @@
  "ui.mlimport.platz": "Platz %1 in der %2 nach %3 Spielen (%4 Punkte).",
  "ui.mlimport.vorschau": "%1 am %2, Trainer %3. %4 Kader: %5 Spieler. Der Spielstand hat %6 Vereine und %7 Spieler; die Welt %8 kennt %9 davon.\n\nÜbernommen werden: Datum, die Kader aller Vereine, Verträge und Gehälter, 15 der 25 Werte (die anderen 10 ändern sich im gleichen Maß), Fitness, Form, Verletzungen, Ligatabellen und Spielpläne, die Trainer, die Zahlen der Saison und dein Transferbudget. Pokale und Europapokal spielt CalcioM bis zu diesem Tag nach. Der Spielstand selbst bleibt unverändert.",
  "ui.mlimport.start": "MIT DIESEM SPIELSTAND STARTEN",
- "ui.mlimport.abbrechen": "Abbrechen"
+ "ui.mlimport.abbrechen": "Abbrechen",
+ "ui.mlimport.gefunden": "Oder mit einem Meister-Liga-Spielstand aus FL27 starten (auf diesem Rechner gefunden, oder Datei wählen):"
 }

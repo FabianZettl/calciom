@@ -201,6 +201,7 @@ fn cpk_starten() {
 }
 /// Master League import (mlimport.rs): the file dialog and the reading of the chosen save, both in the background.
 static ML_DIALOG: std::sync::Mutex<Option<std::sync::mpsc::Receiver<Option<std::path::PathBuf>>>> = std::sync::Mutex::new(None);
+static ML_NAMEN: std::sync::Mutex<std::collections::BTreeMap<std::path::PathBuf, String>> = std::sync::Mutex::new(std::collections::BTreeMap::new());
 type MlGelesen = Result<(mlimport::MlStand, std::path::PathBuf, String), String>;
 static ML_LESEN: std::sync::Mutex<Option<std::sync::mpsc::Receiver<MlGelesen>>> = std::sync::Mutex::new(None);
 static ORDNER_DIALOG: std::sync::Mutex<Option<std::sync::mpsc::Receiver<Option<std::path::PathBuf>>>> = std::sync::Mutex::new(None);
@@ -292,6 +293,8 @@ struct StartState {
     liga_sort: u8,
     /// A Master League save read for the start: what it holds, the world it fits and the preview text.
     ml: Option<(mlimport::MlStand, std::path::PathBuf, String)>,
+    /// Master League saves found on this computer (looked up once).
+    ml_liste: Option<Vec<std::path::PathBuf>>,
 }
 
 struct SelfTest {
@@ -352,7 +355,7 @@ impl App {
         let default_db = fl27::welt_ordner(&fl27::sider()).display().to_string();
         App {
             ui, v: View::new(), screen: Screen::Splash(-1.0),
-            start: StartState { step: 0, db_path: default_db, db_focus: false, league: 0, team: None, coach: String::new(), coach_focus: false, saves: game::list_saves(), loeschen: None, offen: None, error: String::new(), scroll: 0, welt: None, welt_info: String::new(), such: String::new(), such_focus: false, f_land: None, f_liga: None, index: None, treffer: 0, paare: vec![], unklar: vec![], karte_zoom: 1.0, karte_off: (0.0, 0.0), profil: Default::default(), ohne: false, angebot_modus: 0, ligen: vec![], ligen_scroll: 0, liga_sort: 0, ml: None },
+            start: StartState { step: 0, db_path: default_db, db_focus: false, league: 0, team: None, coach: String::new(), coach_focus: false, saves: game::list_saves(), loeschen: None, offen: None, error: String::new(), scroll: 0, welt: None, welt_info: String::new(), such: String::new(), such_focus: false, f_land: None, f_liga: None, index: None, treffer: 0, paare: vec![], unklar: vec![], karte_zoom: 1.0, karte_off: (0.0, 0.0), profil: Default::default(), ohne: false, angebot_modus: 0, ligen: vec![], ligen_scroll: 0, liga_sort: 0, ml: None, ml_liste: None },
             template: None, career: None, fast: false, last_inbox: 0, selftest: None, starttest: None, handy: None, handy_geaendert: None, musik: Default::default(), musik_titel: std::env::var(crate::id("CALCIOM_MUSIK_TITEL")).ok().map(|t| (t, 1e6)), start_lauf: None,
         }
     }
@@ -662,8 +665,27 @@ impl App {
                     for u in s.unklar.iter().take(3) { y = ui.paragraph(&crate::tf!("ui.main.bitte_pruefen", u), rr.x + 20.0, y, 15.0, rr.w - 40.0, Theme::achtung()) + 2.0; }
                 }
                 // or a Master League save of FL27 as the start (Fabian 26.11.): choose, look at it, start; the save is only read
-                if let Some(g) = ML_DIALOG.lock().unwrap().as_ref().and_then(|rx| rx.try_recv().ok()) {
-                    *ML_DIALOG.lock().unwrap() = None;
+                // the saves found on this computer as buttons (Fabian 26.11.: the file dialog did not get him there)
+                if s.ml_liste.is_none() {
+                    let l = mlimport::gefundene();
+                    // club and date of each found save, read in the background (Fabian 26.11.)
+                    let k = l.clone();
+                    std::thread::spawn(move || for p in k.into_iter().take(3) { if let Some(n) = mlimport::kurz(&p) { ML_NAMEN.lock().unwrap().insert(p, n); } });
+                    s.ml_liste = Some(l);
+                }
+                let gefunden = s.ml_liste.clone().unwrap_or_default();
+                let mut gewaehlt = ML_DIALOG.lock().unwrap().as_ref().and_then(|rx| rx.try_recv().ok());
+                if gewaehlt.is_some() { *ML_DIALOG.lock().unwrap() = None; }
+                let yb = rr.y + rr.h - 112.0;
+                let bw = (rr.w - 60.0) / 3.0;
+                for (k, p) in gefunden.iter().take(3).enumerate() {
+                    // "Sunderland AFC · 09.05.2027", until it is read the file and its folder without the word "save"
+                    let ordner = p.parent().and_then(|d| d.file_name()).map(|x| x.to_string_lossy().trim_start_matches(crate::id("save")).trim_start_matches('_').to_string()).unwrap_or_default();
+                    let name = ML_NAMEN.lock().unwrap().get(p).cloned().unwrap_or_else(|| format!("{} · {}", p.file_name().map(|x| x.to_string_lossy().to_string()).unwrap_or_default(), if ordner.is_empty() { crate::id("FL27") } else { &ordner })); // roh
+                    let r = Rect::new(rr.x + 20.0 + k as f32 * (bw + 10.0), yb - 48.0, bw, 40.0);
+                    if ui.button(r, &ui.fit(&name, 14.0, r.w - 16.0), false) && ML_LESEN.lock().unwrap().is_none() { gewaehlt = Some(Some(p.clone())); }
+                }
+                if let Some(g) = gewaehlt {
                     if let Some(p) = g {
                         let (tx, rx) = std::sync::mpsc::channel();
                         std::thread::spawn(move || { let _ = tx.send(mlimport::lesen(&p).and_then(|st| { let (w, n) = mlimport::welt_waehlen(&st).ok_or_else(|| crate::inhalt::t("ui.mlimport.keine_welt").to_string())?; let v = mlimport::vorschau(&st, &w, n); Ok((st, w, v)) })); });
@@ -673,11 +695,10 @@ impl App {
                 let gelesen = ML_LESEN.lock().unwrap().as_ref().and_then(|rx| rx.try_recv().ok());
                 if let Some(r) = gelesen { *ML_LESEN.lock().unwrap() = None; match r { Ok(x) => { s.ml = Some(x); s.error.clear(); } Err(e) => { fl27::log(&e); s.error = e; } } }
                 let laeuft = ML_LESEN.lock().unwrap().is_some();
-                let yb = rr.y + rr.h - 112.0;
-                ui.text(crate::inhalt::t("ui.mlimport.hinweis"), rr.x + 20.0, yb + 26.0, 15.0, Theme::text2());
+                ui.text(crate::inhalt::t(if gefunden.is_empty() { "ui.mlimport.hinweis" } else { "ui.mlimport.gefunden" }), rr.x + 20.0, if gefunden.is_empty() { yb + 26.0 } else { yb - 58.0 }, 15.0, Theme::text2());
                 if ui.button(Rect::new(rr.x + rr.w - 320.0, yb, 300.0, 40.0), crate::inhalt::t(if laeuft { "ui.mlimport.liest" } else { "ui.mlimport.waehlen" }), false) && !laeuft && ML_DIALOG.lock().unwrap().is_none() { *ML_DIALOG.lock().unwrap() = Some(fl27::datei_dialog(false)); }
                 if let Some((st, w, text)) = s.ml.as_ref() {
-                    let pr = Rect::new(rr.x + 20.0, rr.y + 290.0, rr.w - 40.0, rr.h - 290.0 - 124.0);
+                    let pr = Rect::new(rr.x + 20.0, rr.y + 290.0, rr.w - 40.0, rr.h - 290.0 - 184.0);
                     rrect(pr.x, pr.y, pr.w, pr.h, 10.0, Theme::gold());
                     rrect(pr.x + 2.0, pr.y + 2.0, pr.w - 4.0, pr.h - 4.0, 9.0, Theme::flaeche());
                     ui.paragraph(text, pr.x + 16.0, pr.y + 28.0, 15.0, pr.w - 32.0, Theme::text());
@@ -1226,6 +1247,8 @@ impl App {
         let cl = c.club().clone();
         if zu { Self::sidebar_zu(ui, v, c, sw); return; }
         for k in 0..6 { draw_circle(34.0, 40.0, 23.0 + k as f32 * 2.5, alpha(Theme::verein(), 0.38 - k as f32 * 0.06)); }
+        // a light disc under the crest: a red crest on the red glow disappeared (Liverpool, screenshots 26.11.)
+        draw_circle(34.0, 40.0, 24.0, Theme::flaeche());
         ui.club_crest(34.0, 40.0, 23.0, cl.id, Theme::verein(), &cl.short);
         let nm = ui.fit(&cl.name, 19.0, sw - 74.0);
         ui.title(&nm, 66.0, 38.0, 19.0, Theme::text());

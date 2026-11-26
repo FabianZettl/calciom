@@ -5,7 +5,7 @@ The first stable release, under a new name. CalcioM is the football manager that
 ## Upgrading from PES M
 - Unpack CalcioM **into the same folder** as your old PES M (or anywhere else) and start `calciom` / `calciom.exe`. At the first start your data folder moves to the new name, so careers, settings and your game folder are all still there. Old careers keep their `PESM…` folder in the game and load as before.
 - On Linux run `sudo setcap cap_sys_ptrace+ep <folder>/calciom-speicher` once.
-- **Old PES M versions won't show this update.** Please download CalcioM from this release page and tell your friends.
+- Old PES M versions show this update too: the old repository link forwards to this page.
 
 ## New
 

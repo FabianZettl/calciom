@@ -4844,5 +4844,6 @@
  "ui.mlimport.platz": "Puesto %1 en %2 tras %3 partidos (%4 puntos).",
  "ui.mlimport.vorschau": "%1 el %2, entrenador %3. %4 Plantilla: %5 jugadores. La partida tiene %6 clubes y %7 jugadores; el mundo %8 conoce %9.\n\nSe copian: la fecha, las plantillas de todos los clubes, contratos y sueldos, 15 de los 25 atributos (los otros 10 cambian igual), forma física, forma, lesiones, clasificaciones y calendarios de liga, los entrenadores, las cifras de la temporada y tu presupuesto de fichajes. CalcioM juega las copas y Europa hasta este día. La partida no se modifica.",
  "ui.mlimport.start": "EMPEZAR CON ESTA PARTIDA",
- "ui.mlimport.abbrechen": "Cancelar"
+ "ui.mlimport.abbrechen": "Cancelar",
+ "ui.mlimport.gefunden": "O empieza con una partida de Liga Master de FL27 (encontrada en este ordenador, o elige un archivo):"
 }

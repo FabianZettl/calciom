@@ -359,6 +359,37 @@ pub fn welt_waehlen(st: &MlStand) -> Option<(std::path::PathBuf, usize)> {
     }).max_by_key(|x| x.1)
 }
 
+/// Master League saves of FL27 on this computer, newest first: in the game's save folder and folders next to it whose
+/// name starts with "save" (renamed copies). Linux: inside the Wine prefix of the game folder; Windows: Documents.
+pub fn gefundene() -> Vec<std::path::PathBuf> {
+    let mut wurzeln = vec![];
+    if let Some(dc) = crate::fl27::spielordner().ancestors().find(|a| a.ends_with(crate::id("drive_c"))) {
+        for u in std::fs::read_dir(dc.join(crate::id("users"))).into_iter().flatten().flatten() { wurzeln.push(u.path().join("Documents/SPGAME/Football Life/2027")); } // roh
+    }
+    if let Ok(h) = std::env::var(crate::id("USERPROFILE")) { wurzeln.push(Path::new(&h).join("Documents/SPGAME/Football Life/2027")); } // roh
+    let ml = |n: &str| n.len() == 10 && n.starts_with("ML") && n[2..].bytes().all(|b| b.is_ascii_digit()); // roh
+    let mut v: Vec<(std::time::SystemTime, std::path::PathBuf)> = vec![];
+    for w in wurzeln {
+        for d in std::fs::read_dir(&w).into_iter().flatten().flatten().filter(|d| d.file_name().to_string_lossy().starts_with(crate::id("save")) && d.path().is_dir()) {
+            for f in std::fs::read_dir(d.path()).into_iter().flatten().flatten().filter(|f| ml(&f.file_name().to_string_lossy())) {
+                // the same folder under two user names (Wine links them): once
+                let echt = std::fs::canonicalize(f.path()).unwrap_or(f.path());
+                if let Ok(t) = f.metadata().and_then(|m| m.modified()) { if !v.iter().any(|x| x.1 == echt) { v.push((t, echt)); } }
+            }
+        }
+    }
+    v.sort_by(|a, b| b.0.cmp(&a.0));
+    v.into_iter().map(|x| x.1).collect()
+}
+
+/// Club and date of a save for its button ("Sunderland AFC · 09.05.2027"); None when it cannot be read.
+pub fn kurz(p: &Path) -> Option<String> {
+    let (_, d) = oeffnen(&std::fs::read(p).ok()?).ok()?;
+    let (_, (y, m, t), v) = uhr(&d).ok()?;
+    let name = vereine(&d, v).ok()?.0.into_iter().find(|x| x.id == v)?.name;
+    Some(format!("{name} · {t:02}.{m:02}.{y}"))
+}
+
 /// The season day of a date (1 August = day 0); 29 February counts as 28 February.
 fn saisontag(season: u32, (y, m, t): (i32, u32, u32)) -> Option<u32> {
     let t = if m == 2 && t == 29 { 28 } else { t };
@@ -585,6 +616,27 @@ mod tests {
         let k = hex(KEY_FL27);
         let d: Vec<u8> = (0..1001u32).map(|i| (i * 7) as u8).collect();
         assert_eq!(entschluesseln(&entschluesseln(&d, &k), &k), d);
+    }
+    /// Saves in the Wine prefix: the save folder and its renamed copies, the same folder under a linked user name once.
+    #[cfg(unix)]
+    #[test]
+    fn gefundene_im_prefix() {
+        let _g = crate::game::HOME_LOCK.lock().unwrap_or_else(|e| e.into_inner());
+        let t = std::env::temp_dir().join(format!("calciom-mlsuche-{}", std::process::id()));
+        let doc = t.join("drive_c/users/steamuser/Documents/SPGAME/Football Life/2027");
+        for (d, f) in [("save", "ML00000001"), ("save_alt", "ML00000000"), ("save", "EDIT00000000"), ("andere", "ML00000002")] {
+            std::fs::create_dir_all(doc.join(d)).unwrap();
+            std::fs::write(doc.join(d).join(f), b"x").unwrap();
+        }
+        std::os::unix::fs::symlink("steamuser", t.join("drive_c/users/fabian")).unwrap();
+        std::fs::create_dir_all(t.join("drive_c/Games/FL")).unwrap();
+        let vorher = std::env::var("CALCIOM_FL27_SPIEL").ok();
+        std::env::set_var("CALCIOM_FL27_SPIEL", t.join("drive_c/Games/FL"));
+        let mut n: Vec<String> = gefundene().iter().map(|p| p.file_name().unwrap().to_string_lossy().to_string()).collect();
+        match vorher { Some(v) => std::env::set_var("CALCIOM_FL27_SPIEL", v), None => std::env::remove_var("CALCIOM_FL27_SPIEL") }
+        let _ = std::fs::remove_dir_all(&t);
+        n.sort();
+        assert_eq!(n, ["ML00000000", "ML00000001"]);
     }
     #[test]
     fn saisontage() {

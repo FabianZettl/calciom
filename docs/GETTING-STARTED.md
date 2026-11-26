@@ -85,7 +85,7 @@ When the career starts, CalcioM copies the world into your career folder. The or
 
 ### Optional: start from a Master League save
 
-In step "1 World", click **Import ML save…** and choose a Master League save of FL27 (`ML00000001` … in `Documents\SPGAME\Football Life\2027\save`). CalcioM shows a preview (club, date, coach, league position) and picks the world that knows the save's players. **Start from this save** takes over the date, every club's squad, contracts and wages, 15 of the 25 abilities (the other 10 follow the same change), fitness, form, injuries, league tables and fixtures, the coaches and your transfer budget. Cups and Europe are played by CalcioM up to that day. The save is only read, never changed.
+In step "1 World", the Master League saves CalcioM finds on your computer (the FL27 save folder and `save…` copies) show up as buttons with club and date: click one. Or click **Import ML save…** and choose a save yourself (`ML00000001` … in `Documents\SPGAME\Football Life\2027\save`). CalcioM shows a preview (club, date, coach, league position) and picks the world that knows the save's players. **Start from this save** takes over the date, every club's squad, contracts and wages, 15 of the 25 abilities (the other 10 follow the same change), fitness, form, injuries, league tables and fixtures, the coaches and your transfer budget. Cups and Europe are played by CalcioM up to that day. The save is only read, never changed.
 
 ### Optional: real contract data from SoFIFA
 
@@ -168,7 +168,7 @@ Not there yet: the entrance animation before kick-off. Direct start is tested on
 
 CalcioM is the new name of PES M. Unpack CalcioM **into the same folder** as your old PES M (or anywhere else) and start `calciom` / `calciom.exe`. At the first start it moves your data folder to the new name (`~/.local/share/pesm-rust` → `~/.local/share/calciom`, `%APPDATA%\pesm` → `%APPDATA%\calciom`), so your careers, settings and chosen game folder are all there. Old careers keep their `PESM…` folder in the game and load as before. The old direct start files in the game folder are replaced at the next match start. On Linux run the `setcap` command again for `calciom-speicher`.
 
-Old PES M versions won't show this update. Please download CalcioM from the [Releases page](https://github.com/FabianZettl/calciom/releases).
+Old PES M versions show the update notice too: the old repository link forwards to [CalcioM's Releases page](https://github.com/FabianZettl/calciom/releases).
 
 ## Where CalcioM keeps its files
 
